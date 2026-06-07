@@ -1,104 +1,216 @@
 {
- "version": 2,
- "seriesID": "our-miss-brooks-1952",
- "tvmazeID": 44555,
- "title": "Our Miss Brooks",
- "yearStart": 1952,
- "yearEnd": 1956,
- "overview": "Teaching at Madison High, Madison has difficulty to end meets. She is always in conflict with the principal while trying to help her students.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/216/540479.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "CBS"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 3,
-   "episodes": [
+  "version": 2,
+  "seriesID": "our-miss-brooks-1952",
+  "tvmazeID": 44555,
+  "title": "Our Miss Brooks",
+  "yearStart": 1952,
+  "yearEnd": 1956,
+  "overview": "Teaching at Madison High, Madison has difficulty to end meets. She is always in conflict with the principal while trying to help her students.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/73493-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "OurMissBrooks-MadisonMascot",
-     "seasonNumber": 3,
-     "episodeNumber": 28,
-     "title": "Madison Mascot",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/xNTKuGh4JYG449XJn7lf4V2WuGl.jpg",
-     "airDate": "1955-05-20",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "OurMissBrooks-MadisonMascot.mp4",
-      "format": "h.264",
-      "sizeBytes": 131501771,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/OurMissBrooks-MadisonMascot/OurMissBrooks-MadisonMascot.mp4"
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "OurMissBrooks-MadisonMascot",
+          "seasonNumber": 3,
+          "episodeNumber": 28,
+          "title": "Madison Mascot",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xNTKuGh4JYG449XJn7lf4V2WuGl.jpg",
+          "airDate": "1955-05-20",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "OurMissBrooks-MadisonMascot.mp4",
+            "format": "h.264",
+            "sizeBytes": 131501771,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OurMissBrooks-MadisonMascot/OurMissBrooks-MadisonMascot.mp4"
+        },
+        {
+          "archiveID": "OurMissBrooks-TheBigJump",
+          "seasonNumber": 3,
+          "episodeNumber": 29,
+          "title": "The Big Jump",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xNTKuGh4JYG449XJn7lf4V2WuGl.jpg",
+          "airDate": "1955-05-27",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "OurMissBrooks-TheBigJump.mp4",
+            "format": "h.264",
+            "sizeBytes": 132902117,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OurMissBrooks-TheBigJump/OurMissBrooks-TheBigJump.mp4"
+        },
+        {
+          "archiveID": "OurMissBrooks-HomeCookedMeal",
+          "seasonNumber": 3,
+          "episodeNumber": 30,
+          "title": "Home Cooked Meal",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xNTKuGh4JYG449XJn7lf4V2WuGl.jpg",
+          "airDate": "1955-06-03",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "OurMissBrooks-HomeCookedMeal.mp4",
+            "format": "h.264",
+            "sizeBytes": 150315457,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OurMissBrooks-HomeCookedMeal/OurMissBrooks-HomeCookedMeal.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "OurMissBrooks-TheBigJump",
-     "seasonNumber": 3,
-     "episodeNumber": 29,
-     "title": "The Big Jump",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/xNTKuGh4JYG449XJn7lf4V2WuGl.jpg",
-     "airDate": "1955-05-27",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "OurMissBrooks-TheBigJump.mp4",
-      "format": "h.264",
-      "sizeBytes": 132902117,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/OurMissBrooks-TheBigJump/OurMissBrooks-TheBigJump.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OurMissBrooks-ThisIsYourPast",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Our Miss Brooks - This is Your Past",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xNTKuGh4JYG449XJn7lf4V2WuGl.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "OurMissBrooks-ThisIsYourPast.mp4",
+            "format": "h.264",
+            "sizeBytes": 150067845,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OurMissBrooks-ThisIsYourPast/OurMissBrooks-ThisIsYourPast.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": 130,
+  "tvdbID": "73493",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Richard Crenna",
+      "character": "Walter Denton",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/254367/photo/65e44f887e91e.jpg"
     },
     {
-     "archiveID": "OurMissBrooks-HomeCookedMeal",
-     "seasonNumber": 3,
-     "episodeNumber": 30,
-     "title": "Home Cooked Meal",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/xNTKuGh4JYG449XJn7lf4V2WuGl.jpg",
-     "airDate": "1955-06-03",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "OurMissBrooks-HomeCookedMeal.mp4",
-      "format": "h.264",
-      "sizeBytes": 150315457,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/OurMissBrooks-HomeCookedMeal/OurMissBrooks-HomeCookedMeal.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+      "name": "Jane Morgan",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
     {
-     "archiveID": "OurMissBrooks-ThisIsYourPast",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Our Miss Brooks - This is Your Past",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/xNTKuGh4JYG449XJn7lf4V2WuGl.jpg",
-     "airDate": null,
-     "year": 1955,
-     "runtimeSeconds": 1500,
-     "videoFile": {
-      "name": "OurMissBrooks-ThisIsYourPast.mp4",
-      "format": "h.264",
-      "sizeBytes": 150067845,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/OurMissBrooks-ThisIsYourPast/OurMissBrooks-ThisIsYourPast.mp4"
+      "name": "Ricky Vera",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Paula Winslowe",
+      "character": "",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "William Ching",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Gloria McMillan",
+      "character": "",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Nana Bryant",
+      "character": "",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/361920/photo/6493083e75d77.jpg"
+    },
+    {
+      "name": "Leonard Smith",
+      "character": "",
+      "order": 7,
+      "profilePath": null
+    },
+    {
+      "name": "Hy Averback",
+      "character": "",
+      "order": 8,
+      "profilePath": null
+    },
+    {
+      "name": "Virginia Gordon",
+      "character": "",
+      "order": 9,
+      "profilePath": null
+    },
+    {
+      "name": "Eve Arden",
+      "character": "Connie Brooks",
+      "order": 10,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264462/photo/6495843e5e89a.jpg"
+    },
+    {
+      "name": "Joseph Kearns",
+      "character": "",
+      "order": 11,
+      "profilePath": null
+    },
+    {
+      "name": "Gale Gordon",
+      "character": "Osgood Conklin",
+      "order": 12,
+      "profilePath": null
+    },
+    {
+      "name": "Gene Barry",
+      "character": "",
+      "order": 13,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256364/photo/63ac8ceeb8504.jpg"
+    },
+    {
+      "name": "Isabel Randolph",
+      "character": "",
+      "order": 14,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264846/photo/687a6bf08bb21.jpg"
+    },
+    {
+      "name": "Robert Rockwell",
+      "character": "",
+      "order": 15,
+      "profilePath": null
+    },
+    {
+      "name": "Mary Jane Croft",
+      "character": "",
+      "order": 16,
+      "profilePath": null
+    },
+    {
+      "name": "Jesslyn Fa",
+      "character": "",
+      "order": 17,
+      "profilePath": null
     }
-   ]
-  }
- ],
- "episodesCount": 4,
- "canonicalEpisodesCount": 130
+  ]
 }

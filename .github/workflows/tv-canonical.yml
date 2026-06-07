@@ -63,6 +63,15 @@ jobs:
             --throttle ${{ github.event.inputs.throttle || '0.3' }} \
             | tee tvbuild.log
 
+      # build_canonical_tv rewrites series/*.json from TVmaze, which RESETS posters
+      # to TVmaze stills. Re-apply the professional TheTVDB posters/cast on top
+      # (upgrade-only) BEFORE reconcile builds the catalog cards, so a rebuild
+      # never silently downgrades TV art. No-op without the THETVDB_API_KEY secret.
+      - name: Re-apply TheTVDB posters/cast to series
+        env:
+          THETVDB_API_KEY: ${{ secrets.THETVDB_API_KEY }}
+        run: python tools/enrich_tvdb_tv.py | tail -5
+
       - name: Reconcile catalog TV cards
         run: |
           python tools/reconcile_tv_catalog.py | tee tvreconcile.log

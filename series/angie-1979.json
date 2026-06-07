@@ -1,109 +1,191 @@
 {
- "version": 2,
- "seriesID": "angie-1979",
- "tvmazeID": 23993,
- "title": "Angie",
- "yearStart": 1979,
- "yearEnd": 1980,
- "overview": "Philadelphia coffee shop waitress Angie Falco starts a romance with customer Bradley Benson, a pediatrician. While she assumes he is a struggling young doctor, he reveals that he is actually rebelling against his wealthy family, presumably residents in the Main Line region of the city's suburbs.The other Falco family members are Angie's mother Theresa and her younger sister Marie. Angie and Marie's father had walked out on the family many years earlier, but Theresa continued to set a place for him at the dinner table. Brad's relatives consist of his stuffy father Randall, his divorced sister, the overbearing Joyce, and Joyce's daughter Hillary. Angie forms a close bond with Hilary.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/445/1114137.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "ABC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "angie-1979",
+  "tvmazeID": 23993,
+  "title": "Angie",
+  "yearStart": 1979,
+  "yearEnd": 1980,
+  "overview": "Philadelphia coffee shop waitress Angie Falco starts a romance with customer Bradley Benson, a pediatrician. While she assumes he is a struggling young doctor, he reveals that he is actually rebelling against his wealthy family, presumably residents in the Main Line region of the city's suburbs.The other Falco family members are Angie's mother Theresa and her younger sister Marie. Angie and Marie's father had walked out on the family many years earlier, but Theresa continued to set a place for him at the dinner table. Brad's relatives consist of his stuffy father Randall, his divorced sister, the overbearing Joyce, and Joyce's daughter Hillary. Angie forms a close bond with Hilary.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77776-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "angieseason1",
-     "seasonNumber": 1,
-     "episodeNumber": 12,
-     "title": "The Check Up",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/13Q25AqWzh6Og6J9uXMvDV9gtLX.jpg",
-     "airDate": "1979-05-17",
-     "year": 1979,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S01E12- The Check Up.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 462902475,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/angieseason1/S01E12- The Check Up.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
-    {
-     "archiveID": "angieseason2",
-     "seasonNumber": 2,
-     "episodeNumber": 16,
-     "title": "Theresa's Gigolo",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/13Q25AqWzh6Og6J9uXMvDV9gtLX.jpg",
-     "airDate": "1980-02-04",
-     "year": 1980,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S02E16- Theresa's Gigolo.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 617664238,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/angieseason2/S02E16- Theresa's Gigolo.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "angieseason1",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Check Up",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/13Q25AqWzh6Og6J9uXMvDV9gtLX.jpg",
+          "airDate": "1979-05-17",
+          "year": 1979,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E12- The Check Up.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 462902475,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/angieseason1/S01E12- The Check Up.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "catch-21-gsc-06182009",
-     "seasonNumber": 2,
-     "episodeNumber": 54,
-     "title": "Catch 21 S2E54: Miranda vs. Ilan vs. Angie",
-     "overview": "Recorded from Game Show Central on June 20, 2025 at 3:53PM PDT. Original air date: June 18, 2009.",
-     "stillURL": "https://archive.org/services/img/catch-21-gsc-06182009",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1287,
-     "videoFile": {
-      "name": "Catch21(GSC)06182009.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 125342805,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/catch-21-gsc-06182009/Catch21%28GSC%2906182009.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 5,
-   "episodes": [
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "angieseason2",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Theresa's Gigolo",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/13Q25AqWzh6Og6J9uXMvDV9gtLX.jpg",
+          "airDate": "1980-02-04",
+          "year": 1980,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E16- Theresa's Gigolo.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 617664238,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/angieseason2/S02E16- Theresa's Gigolo.mp4"
+        },
+        {
+          "archiveID": "catch-21-gsc-06182009",
+          "seasonNumber": 2,
+          "episodeNumber": 54,
+          "title": "Catch 21 S2E54: Miranda vs. Ilan vs. Angie",
+          "overview": "Recorded from Game Show Central on June 20, 2025 at 3:53PM PDT. Original air date: June 18, 2009.",
+          "stillURL": "https://archive.org/services/img/catch-21-gsc-06182009",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1287,
+          "videoFile": {
+            "name": "Catch21(GSC)06182009.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 125342805,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/catch-21-gsc-06182009/Catch21%28GSC%2906182009.ia.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "the-chase-uk-s5-e100",
-     "seasonNumber": 5,
-     "episodeNumber": 100,
-     "title": "The Chase : Liz/Lisa/Richard/Angie",
-     "overview": "<span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">The Chase UK S5 E100</span><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;\">Aired 10 June 2023 at 12.00AM BST on Challenge (UK)</div>",
-     "stillURL": "https://archive.org/services/img/the-chase-uk-s5-e100",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 3601,
-     "videoFile": {
-      "name": "The Chase UK S5 E100.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 467525356,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/the-chase-uk-s5-e100/The%20Chase%20UK%20S5%20E100.ia.mp4"
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "the-chase-uk-s5-e100",
+          "seasonNumber": 5,
+          "episodeNumber": 100,
+          "title": "The Chase : Liz/Lisa/Richard/Angie",
+          "overview": "<span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">The Chase UK S5 E100</span><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;\">Aired 10 June 2023 at 12.00AM BST on Challenge (UK)</div>",
+          "stillURL": "https://archive.org/services/img/the-chase-uk-s5-e100",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3601,
+          "videoFile": {
+            "name": "The Chase UK S5 E100.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 467525356,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-chase-uk-s5-e100/The%20Chase%20UK%20S5%20E100.ia.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 4,
- "canonicalEpisodesCount": 36
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": 36,
+  "tvdbID": "77776",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Donna Pescow",
+      "character": "Angie Falco Benson",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261829/photo/64b0952e07d99.jpg"
+    },
+    {
+      "name": "Robert Hays",
+      "character": "Brad Benson",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253808/photo/649a348979424.jpg"
+    },
+    {
+      "name": "Doris Roberts",
+      "character": "Theresa Falco",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/255676/photo/6501d07c12e01.jpg"
+    },
+    {
+      "name": "Debralee Scott",
+      "character": "Marie Falco",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/348689/photo/6483d11926e78.jpg"
+    },
+    {
+      "name": "Sharon Spelman",
+      "character": "Joyce Benson",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/309596/5f84f446cf53f.jpg"
+    },
+    {
+      "name": "Tammy Lauren",
+      "character": "Hillary",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/254376/photo/6497b8f03fa30.jpg"
+    },
+    {
+      "name": "Valri Bromfield",
+      "character": "Mary Mary",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/314044/photo/646074e22b4be.jpg"
+    },
+    {
+      "name": "Susan Duvall",
+      "character": "Mary Grace",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/441237/photo/64607552426e9.jpg"
+    },
+    {
+      "name": "Diane Robin",
+      "character": "Didi Malloy",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/277524/5f84f4c9c4683.jpg"
+    },
+    {
+      "name": "John Randolph",
+      "character": "Randall Benson",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256673/photo/6460775c54076.jpg"
+    },
+    {
+      "name": "Tim Thomerson",
+      "character": "Gianni",
+      "order": 10,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/255016/photo/65d65fcee42fa.jpg"
+    },
+    {
+      "name": "Emory Bass",
+      "character": "Phipps",
+      "order": 11,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7881084/photo/6460787118d03.jpg"
+    },
+    {
+      "name": "Nancy Lane",
+      "character": "Mary Katherine",
+      "order": 12,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7933296/photo/646076ee1db1c.jpg"
+    }
+  ]
 }

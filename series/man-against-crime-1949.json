@@ -1,160 +1,182 @@
 {
- "version": 2,
- "seriesID": "man-against-crime-1949",
- "tvmazeID": 59557,
- "title": "Man Against Crime",
- "yearStart": 1949,
- "yearEnd": 1953,
- "overview": "Mike Barnett is the title character, a bright and tough private detective in New York. This very violent show was broadcast live until 1952.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/384/961845.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "Action",
-  "Crime"
- ],
- "networks": [
-  "CBS"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 5,
-   "episodes": [
+  "version": 2,
+  "seriesID": "man-against-crime-1949",
+  "tvmazeID": 59557,
+  "title": "Man Against Crime",
+  "yearStart": 1949,
+  "yearEnd": 1953,
+  "overview": "Mike Barnett is the title character, a bright and tough private detective in New York. This very violent show was broadcast live until 1952.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76629-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Action",
+    "Crime"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "Man_against_Crime--Murder_in_the_Rough",
-     "seasonNumber": 5,
-     "episodeNumber": 5,
-     "title": "Murder in the Rough",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
-     "airDate": "1953-11-08",
-     "year": 1953,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "5-05_Murder_in_the_Rough.mp4",
-      "format": "h.264",
-      "sizeBytes": 164813197,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Man_against_Crime--Murder_in_the_Rough/5-05_Murder_in_the_Rough.mp4"
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "Man_against_Crime--Murder_in_the_Rough",
+          "seasonNumber": 5,
+          "episodeNumber": 5,
+          "title": "Murder in the Rough",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
+          "airDate": "1953-11-08",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "5-05_Murder_in_the_Rough.mp4",
+            "format": "h.264",
+            "sizeBytes": 164813197,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Man_against_Crime--Murder_in_the_Rough/5-05_Murder_in_the_Rough.mp4"
+        },
+        {
+          "archiveID": "Follow_That_Man--Murder_Mountain",
+          "seasonNumber": 5,
+          "episodeNumber": 9,
+          "title": "Murder Mountain",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
+          "airDate": "1953-12-06",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "5-09_Murder_Mountain.mp4",
+            "format": "h.264",
+            "sizeBytes": 159156275,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Follow_That_Man--Murder_Mountain/5-09_Murder_Mountain.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "Follow_That_Man--Murder_Mountain",
-     "seasonNumber": 5,
-     "episodeNumber": 9,
-     "title": "Murder Mountain",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
-     "airDate": "1953-12-06",
-     "year": 1953,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "5-09_Murder_Mountain.mp4",
-      "format": "h.264",
-      "sizeBytes": 159156275,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Follow_That_Man--Murder_Mountain/5-09_Murder_Mountain.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Man_Against_Crime--Hide_and_Seek",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Man Against Crime: Hide and Seek",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1585,
+          "videoFile": {
+            "name": "Man_Against_Crime--Hide_and_Seek.mp4",
+            "format": "h.264",
+            "sizeBytes": 165008162,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Man_Against_Crime--Hide_and_Seek/Man_Against_Crime--Hide_and_Seek.mp4"
+        },
+        {
+          "archiveID": "Man_Against_Crime--Washington_Story",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Man Against Crime: Washington Story",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1545,
+          "videoFile": {
+            "name": "4-36_Washington_Story.mp4",
+            "format": "h.264",
+            "sizeBytes": 160718392,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Man_Against_Crime--Washington_Story/4-36_Washington_Story.mp4"
+        },
+        {
+          "archiveID": "Man_Against_Crime--High_Ambush",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Man against Crime: High Ambush",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1535,
+          "videoFile": {
+            "name": "Man_Against_Crime--High_Ambush.mp4",
+            "format": "h.264",
+            "sizeBytes": 159136718,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Man_Against_Crime--High_Ambush/Man_Against_Crime--High_Ambush.mp4"
+        },
+        {
+          "archiveID": "Man_against_Crime--Missing_Cadet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Man against Crime: The Missing Cadet",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1572,
+          "videoFile": {
+            "name": "4-43_Missing_Cadet.mp4",
+            "format": "h.264",
+            "sizeBytes": 163267795,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Man_against_Crime--Missing_Cadet/4-43_Missing_Cadet.mp4"
+        },
+        {
+          "archiveID": "ManAgainstCrime08051956",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Man against crime",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Man_against_crime_08_05_1956.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 247357331,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ManAgainstCrime08051956/Man_against_crime_08_05_1956.ia.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+  ],
+  "episodesCount": 7,
+  "canonicalEpisodesCount": 79,
+  "tvdbID": "76629",
+  "artworkSource": "tvdb",
+  "cast": [
     {
-     "archiveID": "Man_Against_Crime--Hide_and_Seek",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Man Against Crime: Hide and Seek",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
-     "airDate": null,
-     "year": 1953,
-     "runtimeSeconds": 1585,
-     "videoFile": {
-      "name": "Man_Against_Crime--Hide_and_Seek.mp4",
-      "format": "h.264",
-      "sizeBytes": 165008162,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Man_Against_Crime--Hide_and_Seek/Man_Against_Crime--Hide_and_Seek.mp4"
+      "name": "Frank Lovejoy",
+      "character": "",
+      "order": 0,
+      "profilePath": null
     },
     {
-     "archiveID": "Man_Against_Crime--Washington_Story",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Man Against Crime: Washington Story",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
-     "airDate": null,
-     "year": 1953,
-     "runtimeSeconds": 1545,
-     "videoFile": {
-      "name": "4-36_Washington_Story.mp4",
-      "format": "h.264",
-      "sizeBytes": 160718392,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Man_Against_Crime--Washington_Story/4-36_Washington_Story.mp4"
+      "name": "Robert Preston",
+      "character": "",
+      "order": 1,
+      "profilePath": null
     },
     {
-     "archiveID": "Man_Against_Crime--High_Ambush",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Man against Crime: High Ambush",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
-     "airDate": null,
-     "year": 1953,
-     "runtimeSeconds": 1535,
-     "videoFile": {
-      "name": "Man_Against_Crime--High_Ambush.mp4",
-      "format": "h.264",
-      "sizeBytes": 159136718,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Man_Against_Crime--High_Ambush/Man_Against_Crime--High_Ambush.mp4"
-    },
-    {
-     "archiveID": "Man_against_Crime--Missing_Cadet",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Man against Crime: The Missing Cadet",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
-     "airDate": null,
-     "year": 1953,
-     "runtimeSeconds": 1572,
-     "videoFile": {
-      "name": "4-43_Missing_Cadet.mp4",
-      "format": "h.264",
-      "sizeBytes": 163267795,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Man_against_Crime--Missing_Cadet/4-43_Missing_Cadet.mp4"
-    },
-    {
-     "archiveID": "ManAgainstCrime08051956",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Man against crime",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Man_against_crime_08_05_1956.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 247357331,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/ManAgainstCrime08051956/Man_against_crime_08_05_1956.ia.mp4"
+      "name": "Ralph Bellamy",
+      "character": "",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/270001/photo/6360ba9bc1e10.jpg"
     }
-   ]
-  }
- ],
- "episodesCount": 7,
- "canonicalEpisodesCount": 79
+  ]
 }

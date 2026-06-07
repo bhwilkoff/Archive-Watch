@@ -1,45 +1,121 @@
 {
- "version": 2,
- "seriesID": "davis-rules-1991",
- "tvmazeID": 58597,
- "title": "Davis Rules",
- "yearStart": 1991,
- "yearEnd": 1992,
- "overview": "Dwight Davis, a widowed elementary school principal raises his three sons (Robbie, Charlie, and Ben) with the help of his wacky father Gunny Davis.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/369/924916.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "CBS"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 2,
-   "episodes": [
+  "version": 2,
+  "seriesID": "davis-rules-1991",
+  "tvmazeID": 58597,
+  "title": "Davis Rules",
+  "yearStart": 1991,
+  "yearEnd": 1992,
+  "overview": "Dwight Davis, a widowed elementary school principal raises his three sons (Robbie, Charlie, and Ben) with the help of his wacky father Gunny Davis.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71868-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "davisruless02e01sitcom",
-     "seasonNumber": 2,
-     "episodeNumber": 1,
-     "title": "They're Writing Songs of Love, But Nun for Me",
-     "overview": null,
-     "stillURL": null,
-     "airDate": "1991-12-30",
-     "year": 1991,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Season 2/Davis Rules S02E01 Theyre Writing Songs of Love But Nun for Me.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 82386713,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/davisruless02e01sitcom/Season%202/Davis%20Rules%20S02E01%20Theyre%20Writing%20Songs%20of%20Love%20But%20Nun%20for%20Me.mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "davisruless02e01sitcom",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "They're Writing Songs of Love, But Nun for Me",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1991-12-30",
+          "year": 1991,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 2/Davis Rules S02E01 Theyre Writing Songs of Love But Nun for Me.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 82386713,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/davisruless02e01sitcom/Season%202/Davis%20Rules%20S02E01%20Theyre%20Writing%20Songs%20of%20Love%20But%20Nun%20for%20Me.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 1,
- "canonicalEpisodesCount": 29
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 29,
+  "tvdbID": "71868",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Debra Jo Rupp",
+      "character": "Ms. Higgins",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/274387/photo/64d2059e7a364.jpg"
+    },
+    {
+      "name": "Giovanni Ribisi",
+      "character": "Skinner Buckley",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/325080/photo/65a36b1f0cf15.jpg"
+    },
+    {
+      "name": "Luke Edwards",
+      "character": "Charlie Davis",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/325081/photo/649975e5d9aa6.jpg"
+    },
+    {
+      "name": "Debra Mooney",
+      "character": "Mrs. Rush",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/275158/photo/6784c5763dadc.jpg"
+    },
+    {
+      "name": "Randy Quaid",
+      "character": "Dwight Davis",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/254038/photo/613432996725a.jpg"
+    },
+    {
+      "name": "Rigoberto Jimenez",
+      "character": "Rigo",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Tamayo Otsuki",
+      "character": "Mrs. Elaine Yamagami",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Patricia Clarkson",
+      "character": "Cosmo Yeargin",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/304284/6357348798480.jpg"
+    },
+    {
+      "name": "Nathan Watt",
+      "character": "Ben Davis",
+      "order": 8,
+      "profilePath": null
+    },
+    {
+      "name": "Bonnie Hunt",
+      "character": "Gwen Davis",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253925/photo/64d8c90681c8e.jpg"
+    },
+    {
+      "name": "Trevor Bullock",
+      "character": "Robbie Davis",
+      "order": 10,
+      "profilePath": null
+    },
+    {
+      "name": "Jonathan Winters",
+      "character": "Gunny Davis",
+      "order": 11,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/13077.jpg"
+    }
+  ]
 }

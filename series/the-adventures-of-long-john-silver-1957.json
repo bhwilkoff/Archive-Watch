@@ -1,262 +1,296 @@
 {
- "version": 2,
- "seriesID": "the-adventures-of-long-john-silver-1957",
- "tvmazeID": 36512,
- "title": "The Adventures of Long John Silver",
- "yearStart": 1957,
- "yearEnd": 1957,
- "overview": "Long John Silver is the proud captain of his own ship and his own crew. He and his buccaneer cruise around the Caribbean and often stay on the side of the English and fight the French and Spanish. After the long and dangerous adventures, he and his crew rest in the tavern of Miss Purity. This series is exceptional since it was produced in Australia, in colour, before there even was a TV network in Australia.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/154/385963.jpg",
- "backdropURL": null,
- "genres": [
-  "Action",
-  "Adventure"
- ],
- "networks": [
-  "ITV1"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "the-adventures-of-long-john-silver-1957",
+  "tvmazeID": 36512,
+  "title": "The Adventures of Long John Silver",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": "Long John Silver is the proud captain of his own ship and his own crew. He and his buccaneer cruise around the Caribbean and often stay on the side of the English and fight the French and Spanish. After the long and dangerous adventures, he and his crew rest in the tavern of Miss Purity. This series is exceptional since it was produced in Australia, in colour, before there even was a TV network in Australia.",
+  "posterURL": "https://artworks.thetvdb.com/banners/series/117261/posters/5e9b8097abe1a.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "TheAdventuresOfLongJohnSilver-Episode1theNecklace",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Where Men Are Men",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
-     "airDate": "1957-02-26",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TheAdventuresOfLongJohnSilver-TheNecklace-limou3okxka.mp4",
-      "format": "h.264",
-      "sizeBytes": 164929639,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode1theNecklace/TheAdventuresOfLongJohnSilver-TheNecklace-limou3okxka.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfLongJohnSilver-Episode2",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "The Pink Pearl",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
-     "airDate": "1957-03-05",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Long John Silver PIECES OF EIGHT - Robert Newton-ec0Xyc4T3io.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 222739717,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode2/Long%20John%20Silver%20PIECES%20OF%20EIGHT%20-%20Robert%20Newton-ec0Xyc4T3io.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfLongJohnSilver-Episode4",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "The Orphan's Christmas",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
-     "airDate": "1957-03-20",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Long John Silver EXECUTION DOCK-i3LRdQsqe6g.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 223488613,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode4/Long%20John%20Silver%20EXECUTION%20DOCK-i3LRdQsqe6g.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfLongJohnSilver-Episode5",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "Execution Dock",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
-     "airDate": "1957-03-27",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Long John Silver THE EVICTION-9f_UltV-F7g.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 243173927,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode5/Long%20John%20Silver%20THE%20EVICTION-9f_UltV-F7g.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfLongJohnSilver-Episode6",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "The Devil's Stew",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
-     "airDate": "1957-04-02",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Adventures of Long John Silver - The Pink Pearl-BnvsKevGkwU.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 189463236,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode6/The%20Adventures%20of%20Long%20John%20Silver%20-%20The%20Pink%20Pearl-BnvsKevGkwU.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfLongJohnSilver-Episode7",
-     "seasonNumber": 1,
-     "episodeNumber": 7,
-     "title": "The Necklace",
-     "overview": "Long John is falsely accused and imprisoned for robbery and murder, Miss Purity volunteers to save him if he sets their wedding date.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/154/385966.jpg",
-     "airDate": "1957-04-09",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Adventures of Long John Silver - The Tale of the Tooth-MAEYuIrU_1s.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 189574435,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode7/The%20Adventures%20of%20Long%20John%20Silver%20-%20The%20Tale%20of%20the%20Tooth-MAEYuIrU_1s.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfLongJohnSilver-Episode8",
-     "seasonNumber": 1,
-     "episodeNumber": 8,
-     "title": "The Fishwife",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
-     "airDate": "1957-04-16",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Adventures of Long John Silver - Ship O' the Dead-_2nFygVkXx4.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 142944439,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode8/The%20Adventures%20of%20Long%20John%20Silver%20-%20Ship%20O%27%20the%20Dead-_2nFygVkXx4.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfLongJohnSilver-Episode9swordOfVengeance",
-     "seasonNumber": 1,
-     "episodeNumber": 9,
-     "title": "Pieces of Eight",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
-     "airDate": "1957-04-30",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TheAdventuresOfLongJohnSilver-SwordOfVengeance-wz0btc4zbmo.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 100770787,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode9swordOfVengeance/TheAdventuresOfLongJohnSilver-SwordOfVengeance-wz0btc4zbmo.ia.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfLongJohnSilver-Episode10",
-     "seasonNumber": 1,
-     "episodeNumber": 10,
-     "title": "A Flag Flies Black",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
-     "airDate": "1957-05-07",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Adventures of Long John Silver - Turnabout-vOaBHoC19_k.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 208780325,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode10/The%20Adventures%20of%20Long%20John%20Silver%20-%20Turnabout-vOaBHoC19_k.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfLongJohnSilver-Episode11missPuritysBirthday",
-     "seasonNumber": 1,
-     "episodeNumber": 11,
-     "title": "Temple of Evil",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
-     "airDate": "1957-05-14",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TheAdventuresOfLongJohnSilver-MissPuritysBirthday-t948txc6zay.mp4",
-      "format": "h.264",
-      "sizeBytes": 166146921,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode11missPuritysBirthday/TheAdventuresOfLongJohnSilver-MissPuritysBirthday-t948txc6zay.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfLongJohnSilver-Episode12",
-     "seasonNumber": 1,
-     "episodeNumber": 12,
-     "title": "The Crisis",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
-     "airDate": "1957-05-21",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Adventures of Long John Silver - Dead Reckoning-B4e_Ylk5Oxg.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 137142492,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode12/The%20Adventures%20of%20Long%20John%20Silver%20-%20Dead%20Reckoning-B4e_Ylk5Oxg.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfLongJohnSilver-Episode13",
-     "seasonNumber": 1,
-     "episodeNumber": 13,
-     "title": "To Purity, a Daughter",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
-     "airDate": "1957-05-28",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Adventures of Long John Silver - The Devil's Stew-6gGVoecFzLM.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 145533008,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode13/The%20Adventures%20of%20Long%20John%20Silver%20-%20The%20Devil%27s%20Stew-6gGVoecFzLM.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfLongJohnSilver-Episode19",
-     "seasonNumber": 1,
-     "episodeNumber": 19,
-     "title": "Sword of Vengance",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
-     "airDate": "1957-07-09",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Adventures of Long John Silver - Dragon Slayer-j_aj1oRgE8I.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 183966826,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode19/The%20Adventures%20of%20Long%20John%20Silver%20-%20Dragon%20Slayer-j_aj1oRgE8I.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode1theNecklace",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Where Men Are Men",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-02-26",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TheAdventuresOfLongJohnSilver-TheNecklace-limou3okxka.mp4",
+            "format": "h.264",
+            "sizeBytes": 164929639,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode1theNecklace/TheAdventuresOfLongJohnSilver-TheNecklace-limou3okxka.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode2",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Pink Pearl",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-03-05",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Long John Silver PIECES OF EIGHT - Robert Newton-ec0Xyc4T3io.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 222739717,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode2/Long%20John%20Silver%20PIECES%20OF%20EIGHT%20-%20Robert%20Newton-ec0Xyc4T3io.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode4",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Orphan's Christmas",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-03-20",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Long John Silver EXECUTION DOCK-i3LRdQsqe6g.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 223488613,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode4/Long%20John%20Silver%20EXECUTION%20DOCK-i3LRdQsqe6g.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode5",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Execution Dock",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-03-27",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Long John Silver THE EVICTION-9f_UltV-F7g.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 243173927,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode5/Long%20John%20Silver%20THE%20EVICTION-9f_UltV-F7g.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode6",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Devil's Stew",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-04-02",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Adventures of Long John Silver - The Pink Pearl-BnvsKevGkwU.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 189463236,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode6/The%20Adventures%20of%20Long%20John%20Silver%20-%20The%20Pink%20Pearl-BnvsKevGkwU.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode7",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Necklace",
+          "overview": "Long John is falsely accused and imprisoned for robbery and murder, Miss Purity volunteers to save him if he sets their wedding date.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/154/385966.jpg",
+          "airDate": "1957-04-09",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Adventures of Long John Silver - The Tale of the Tooth-MAEYuIrU_1s.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 189574435,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode7/The%20Adventures%20of%20Long%20John%20Silver%20-%20The%20Tale%20of%20the%20Tooth-MAEYuIrU_1s.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode8",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Fishwife",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-04-16",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Adventures of Long John Silver - Ship O' the Dead-_2nFygVkXx4.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 142944439,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode8/The%20Adventures%20of%20Long%20John%20Silver%20-%20Ship%20O%27%20the%20Dead-_2nFygVkXx4.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode9swordOfVengeance",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Pieces of Eight",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-04-30",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TheAdventuresOfLongJohnSilver-SwordOfVengeance-wz0btc4zbmo.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 100770787,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode9swordOfVengeance/TheAdventuresOfLongJohnSilver-SwordOfVengeance-wz0btc4zbmo.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode10",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "A Flag Flies Black",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-05-07",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Adventures of Long John Silver - Turnabout-vOaBHoC19_k.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 208780325,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode10/The%20Adventures%20of%20Long%20John%20Silver%20-%20Turnabout-vOaBHoC19_k.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode11missPuritysBirthday",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Temple of Evil",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-05-14",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TheAdventuresOfLongJohnSilver-MissPuritysBirthday-t948txc6zay.mp4",
+            "format": "h.264",
+            "sizeBytes": 166146921,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode11missPuritysBirthday/TheAdventuresOfLongJohnSilver-MissPuritysBirthday-t948txc6zay.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode12",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Crisis",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-05-21",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Adventures of Long John Silver - Dead Reckoning-B4e_Ylk5Oxg.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 137142492,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode12/The%20Adventures%20of%20Long%20John%20Silver%20-%20Dead%20Reckoning-B4e_Ylk5Oxg.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode13",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "To Purity, a Daughter",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-05-28",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Adventures of Long John Silver - The Devil's Stew-6gGVoecFzLM.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 145533008,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode13/The%20Adventures%20of%20Long%20John%20Silver%20-%20The%20Devil%27s%20Stew-6gGVoecFzLM.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode19",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Sword of Vengance",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-07-09",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Adventures of Long John Silver - Dragon Slayer-j_aj1oRgE8I.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 183966826,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode19/The%20Adventures%20of%20Long%20John%20Silver%20-%20Dragon%20Slayer-j_aj1oRgE8I.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 13,
- "canonicalEpisodesCount": 26
+  ],
+  "episodesCount": 13,
+  "canonicalEpisodesCount": 26,
+  "tvdbID": "117261",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Robert Newton",
+      "character": "Long John Silver",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Connie Gilchrist",
+      "character": "Purity Pinker",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259619/photo/68b6507b552b0.jpg"
+    },
+    {
+      "name": "Kit Taylor",
+      "character": "Jim Hawkins",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Grant Taylor",
+      "character": "Patch",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Eric Reiman",
+      "character": "Trip Fenner",
+      "order": 4,
+      "profilePath": null
+    }
+  ]
 }

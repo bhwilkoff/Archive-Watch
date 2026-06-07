@@ -1,45 +1,97 @@
 {
- "version": 2,
- "seriesID": "the-good-life-1975",
- "tvmazeID": 6021,
- "title": "The Good Life",
- "yearStart": 1975,
- "yearEnd": 1978,
- "overview": "Tom and Barbara Good are a middle class suburban couple who on Tom's 40th birthday decide to turn their Surbiton home into a self-sufficient allotment. They grow their own food, keep farm animals and have sold or bartered all of their electrical appliances as they have no electricity. This creates friction with their best friends and next door neighbours, Jerry and Margo Leadbetter. But even though the Goods have lowered the tone of the neighbourhood in the Leadbetter's eyes they still can't help but be best of friends.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/405/1014707.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "BBC One"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "the-good-life-1975",
+  "tvmazeID": 6021,
+  "title": "The Good Life",
+  "yearStart": 1975,
+  "yearEnd": 1978,
+  "overview": "Tom and Barbara Good are a middle class suburban couple who on Tom's 40th birthday decide to turn their Surbiton home into a self-sufficient allotment. They grow their own food, keep farm animals and have sold or bartered all of their electrical appliances as they have no electricity. This creates friction with their best friends and next door neighbours, Jerry and Margo Leadbetter. But even though the Goods have lowered the tone of the neighbourhood in the Leadbetter's eyes they still can't help but be best of friends.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77124-3.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "thegoodlifes01e06",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "The Pagan Rite",
-     "overview": null,
-     "stillURL": null,
-     "airDate": "1975-05-09",
-     "year": 1975,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Good Life S01E06.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 361031777,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/thegoodlifes01e06/The%20Good%20Life%20S01E06.ia.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "thegoodlifes01e06",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Pagan Rite",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1975-05-09",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Good Life S01E06.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 361031777,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thegoodlifes01e06/The%20Good%20Life%20S01E06.ia.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 1,
- "canonicalEpisodesCount": 28
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 28,
+  "tvdbID": "77124",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Penelope Keith",
+      "character": "Margo Leadbetter (née Sturgess)",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/52834.jpg"
+    },
+    {
+      "name": "Felicity Kendal",
+      "character": "Barbara Good",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/337603/photo/65f063431ec68.jpg"
+    },
+    {
+      "name": "Paul Eddington",
+      "character": "Jeremy",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/263765/5feab8ff5701f.jpg"
+    },
+    {
+      "name": "Richard Briers",
+      "character": "Tom Good",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258422/photo/622723f2c536f.jpg"
+    },
+    {
+      "name": "Reginald Marsh",
+      "character": "Andrew",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Charmian May",
+      "character": "Mrs. Weaver",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Moyra Fraser",
+      "character": "Felicity, Sir's wife",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/432458/photo/63beed2a5f61b.jpg"
+    },
+    {
+      "name": "Tony Selby",
+      "character": "Sam",
+      "order": 7,
+      "profilePath": null
+    }
+  ]
 }

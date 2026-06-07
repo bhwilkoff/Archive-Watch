@@ -1,114 +1,172 @@
 {
- "version": 2,
- "seriesID": "dad-s-army-1968",
- "tvmazeID": 7770,
- "title": "Dad's Army",
- "yearStart": 1968,
- "yearEnd": 1977,
- "overview": "A classic sitcom about a collection of elderly, unfit, or eccentric citizens unfit for military service who nonetheless plan, with no budget and incompetent training, to defend the British Isles from a possible German invasion at the height of World War II.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/28/71586.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "BBC One"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "dad-s-army-1968",
+  "tvmazeID": 7770,
+  "title": "Dad's Army",
+  "yearStart": 1968,
+  "yearEnd": 1977,
+  "overview": "A classic sitcom about a collection of elderly, unfit, or eccentric citizens unfit for military service who nonetheless plan, with no budget and incompetent training, to defend the British Isles from a possible German invasion at the height of World War II.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76342-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "dads-army-series-1",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "The Enemy Within the Gates",
-     "overview": "Lance Corporal Jones and Private Walker capture two Luftwaffe airmen, earning a monetary reward; however, a Polish officer wishes to claim the reward for himself.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/8MujdHdJaQKML59PNP9jFXlclBn.jpg",
-     "airDate": "1968-08-28",
-     "year": 1968,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S01 E04-The Enemy Within The Gates.mp4",
-      "format": "h.264",
-      "sizeBytes": 172223117,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/dads-army-series-1/S01 E04-The Enemy Within The Gates.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "dads-army-series-1",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Enemy Within the Gates",
+          "overview": "Lance Corporal Jones and Private Walker capture two Luftwaffe airmen, earning a monetary reward; however, a Polish officer wishes to claim the reward for himself.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/8MujdHdJaQKML59PNP9jFXlclBn.jpg",
+          "airDate": "1968-08-28",
+          "year": 1968,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01 E04-The Enemy Within The Gates.mp4",
+            "format": "h.264",
+            "sizeBytes": 172223117,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dads-army-series-1/S01 E04-The Enemy Within The Gates.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "dads-army-series-2",
-     "seasonNumber": 2,
-     "episodeNumber": 5,
-     "title": "A Stripe for Frazer",
-     "overview": "Mainwaring has the opportunity to promote someone to corporal. Rather than promote Jones, he tests who has the greatest potential by temporarily promoting Private Frazer to lance corporal. Frazer's increasingly dictatorial manner soon alienates the platoon.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/8MujdHdJaQKML59PNP9jFXlclBn.jpg",
-     "airDate": "1969-03-29",
-     "year": 1969,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S02 E05 A Stripe For Frazer(Remake).mp4",
-      "format": "h.264",
-      "sizeBytes": 198826292,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/dads-army-series-2/S02 E05 A Stripe For Frazer(Remake).mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 3,
-   "episodes": [
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "dads-army-series-2",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "A Stripe for Frazer",
+          "overview": "Mainwaring has the opportunity to promote someone to corporal. Rather than promote Jones, he tests who has the greatest potential by temporarily promoting Private Frazer to lance corporal. Frazer's increasingly dictatorial manner soon alienates the platoon.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/8MujdHdJaQKML59PNP9jFXlclBn.jpg",
+          "airDate": "1969-03-29",
+          "year": 1969,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02 E05 A Stripe For Frazer(Remake).mp4",
+            "format": "h.264",
+            "sizeBytes": 198826292,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dads-army-series-2/S02 E05 A Stripe For Frazer(Remake).mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "dads-army-series-3",
-     "seasonNumber": 3,
-     "episodeNumber": 3,
-     "title": "The Lion Has Phones",
-     "overview": "Mainwaring teaches the men to use the public telephone system as emergency communication. Jones and Hodges attempt to phone general headquarters when a German aeroplane crashes in the reservoir.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/8MujdHdJaQKML59PNP9jFXlclBn.jpg",
-     "airDate": "1969-09-25",
-     "year": 1969,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S03 E03 The Lion Has Phones.mp4",
-      "format": "h.264",
-      "sizeBytes": 173377803,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/dads-army-series-3/S03 E03 The Lion Has Phones.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 4,
-   "episodes": [
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "dads-army-series-3",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "The Lion Has Phones",
+          "overview": "Mainwaring teaches the men to use the public telephone system as emergency communication. Jones and Hodges attempt to phone general headquarters when a German aeroplane crashes in the reservoir.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/8MujdHdJaQKML59PNP9jFXlclBn.jpg",
+          "airDate": "1969-09-25",
+          "year": 1969,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S03 E03 The Lion Has Phones.mp4",
+            "format": "h.264",
+            "sizeBytes": 173377803,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dads-army-series-3/S03 E03 The Lion Has Phones.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "dads-army-series-4",
-     "seasonNumber": 4,
-     "episodeNumber": 14,
-     "title": "Dads Army Series 4",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/8MujdHdJaQKML59PNP9jFXlclBn.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "S04 E14 - Battle Of Giants.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 1061337081,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/dads-army-series-4/S04 E14 - Battle Of Giants.ia.mp4"
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "dads-army-series-4",
+          "seasonNumber": 4,
+          "episodeNumber": 14,
+          "title": "Dads Army Series 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8MujdHdJaQKML59PNP9jFXlclBn.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S04 E14 - Battle Of Giants.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1061337081,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dads-army-series-4/S04 E14 - Battle Of Giants.ia.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 4,
- "canonicalEpisodesCount": 77
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": 77,
+  "tvdbID": "76342",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Arthur Lowe",
+      "character": "Capt. George Mainwaring",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/45419.jpg"
+    },
+    {
+      "name": "John Le Mesurier",
+      "character": "Sgt. Arthur Wilson",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/270843/600e0e8e36844.jpg"
+    },
+    {
+      "name": "Clive Dunn",
+      "character": "LCpl. Jack Jones",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/373542/photo/6352d6a0c817a.jpg"
+    },
+    {
+      "name": "John Laurie",
+      "character": "Pte. James Frazer",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/283330/photo/64939ccdcbdc9.jpg"
+    },
+    {
+      "name": "James Beck",
+      "character": "Pte. Joe Walker",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258882/photo/63d0242b59bdd.jpg"
+    },
+    {
+      "name": "Arnold Ridley",
+      "character": "Pte. Charles Godfrey",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/45422.jpg"
+    },
+    {
+      "name": "Ian Lavender",
+      "character": "Pte. Frank Pike",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/45418.jpg"
+    },
+    {
+      "name": "Bill Pertwee",
+      "character": "ARP Warden Hodges",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/311456/photo/687e811be0451.jpg"
+    },
+    {
+      "name": "Janet Davies",
+      "character": "Mrs. Mavis Pike",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/537951.jpg"
+    }
+  ]
 }

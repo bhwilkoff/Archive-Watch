@@ -1,177 +1,229 @@
 {
- "version": 2,
- "seriesID": "topper-1953",
- "tvmazeID": 11661,
- "title": "Topper",
- "yearStart": 1953,
- "yearEnd": 1955,
- "overview": "Tales of Cosmo Topper and the affectionate ghosts who haunt him and his house. The series was based on characters from the novels of Thorne Smith. A third supernatural being was added to the mix, a Saint Bernard named Neil, who was fond of spirits (the alcoholic kind).",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/39/98400.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy",
-  "Fantasy"
- ],
- "networks": [
-  "CBS"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "topper-1953",
+  "tvmazeID": 11661,
+  "title": "Topper",
+  "yearStart": 1953,
+  "yearEnd": 1955,
+  "overview": "Tales of Cosmo Topper and the affectionate ghosts who haunt him and his house. The series was based on characters from the novels of Thorne Smith. A third supernatural being was added to the mix, a Saint Bernard named Neil, who was fond of spirits (the alcoholic kind).",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77346-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy",
+    "Fantasy"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "Topper--Uncle_Jonathan",
-     "seasonNumber": 1,
-     "episodeNumber": 10,
-     "title": "Uncle Jonathan",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
-     "airDate": "1953-12-11",
-     "year": 1953,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Topper110_Uncle_Jonathan.mp4",
-      "format": "h.264",
-      "sizeBytes": 137195188,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Topper--Uncle_Jonathan/Topper110_Uncle_Jonathan.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Topper--Uncle_Jonathan",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Uncle Jonathan",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
+          "airDate": "1953-12-11",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Topper110_Uncle_Jonathan.mp4",
+            "format": "h.264",
+            "sizeBytes": 137195188,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Topper--Uncle_Jonathan/Topper110_Uncle_Jonathan.mp4"
+        },
+        {
+          "archiveID": "Topper_S1E14",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Second Honeymoon",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
+          "airDate": "1954-01-08",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Topper_S1E14_Second-Honeymoon.mp4",
+            "format": "h.264",
+            "sizeBytes": 151248829,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Topper_S1E14/Topper_S1E14_Second-Honeymoon.mp4"
+        },
+        {
+          "archiveID": "topper-s-01-e-19-1954-tv-com-fan-trip-to-lisbon",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Trip to Lisbon",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
+          "airDate": "1954-02-12",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Topper S01E19 (1954 TV ComFan) Trip to Lisbon.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 80200068,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/topper-s-01-e-19-1954-tv-com-fan-trip-to-lisbon/Topper S01E19 (1954 TV ComFan) Trip to Lisbon.mp4"
+        },
+        {
+          "archiveID": "Topper-HenriettaSellsTheHouse",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Henrietta Sells the House",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
+          "airDate": "1954-04-09",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TopperHenriettaSellsTheHouse_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 122859112,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Topper-HenriettaSellsTheHouse/TopperHenriettaSellsTheHouse_512kb.mp4"
+        },
+        {
+          "archiveID": "Topper--Legacy",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Legacy",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
+          "airDate": "1954-04-16",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Topper--Legacy.mp4",
+            "format": "h.264",
+            "sizeBytes": 136773538,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Topper--Legacy/Topper--Legacy.mp4"
+        },
+        {
+          "archiveID": "TheSmokingGhostsShow",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "George's Old Flame",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
+          "airDate": "1954-07-02",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Topper-GeorgesOldFlame1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 183456755,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheSmokingGhostsShow/Topper-GeorgesOldFlame1954.mp4"
+        },
+        {
+          "archiveID": "topper-tv-series",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "Topper TV Series",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Topper s01e39 Georges Old Flame.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 181464785,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/topper-tv-series/Topper%20s01e39%20Georges%20Old%20Flame.ia.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "Topper_S1E14",
-     "seasonNumber": 1,
-     "episodeNumber": 14,
-     "title": "Second Honeymoon",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
-     "airDate": "1954-01-08",
-     "year": 1954,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Topper_S1E14_Second-Honeymoon.mp4",
-      "format": "h.264",
-      "sizeBytes": 151248829,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Topper_S1E14/Topper_S1E14_Second-Honeymoon.mp4"
-    },
-    {
-     "archiveID": "topper-s-01-e-19-1954-tv-com-fan-trip-to-lisbon",
-     "seasonNumber": 1,
-     "episodeNumber": 19,
-     "title": "Trip to Lisbon",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
-     "airDate": "1954-02-12",
-     "year": 1954,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Topper S01E19 (1954 TV ComFan) Trip to Lisbon.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 80200068,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/topper-s-01-e-19-1954-tv-com-fan-trip-to-lisbon/Topper S01E19 (1954 TV ComFan) Trip to Lisbon.mp4"
-    },
-    {
-     "archiveID": "Topper-HenriettaSellsTheHouse",
-     "seasonNumber": 1,
-     "episodeNumber": 27,
-     "title": "Henrietta Sells the House",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
-     "airDate": "1954-04-09",
-     "year": 1954,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TopperHenriettaSellsTheHouse_512kb.mp4",
-      "format": "512Kb MPEG4",
-      "sizeBytes": 122859112,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Topper-HenriettaSellsTheHouse/TopperHenriettaSellsTheHouse_512kb.mp4"
-    },
-    {
-     "archiveID": "Topper--Legacy",
-     "seasonNumber": 1,
-     "episodeNumber": 28,
-     "title": "Legacy",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
-     "airDate": "1954-04-16",
-     "year": 1954,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Topper--Legacy.mp4",
-      "format": "h.264",
-      "sizeBytes": 136773538,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Topper--Legacy/Topper--Legacy.mp4"
-    },
-    {
-     "archiveID": "TheSmokingGhostsShow",
-     "seasonNumber": 1,
-     "episodeNumber": 39,
-     "title": "George's Old Flame",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
-     "airDate": "1954-07-02",
-     "year": 1954,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Topper-GeorgesOldFlame1954.mp4",
-      "format": "h.264",
-      "sizeBytes": 183456755,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheSmokingGhostsShow/Topper-GeorgesOldFlame1954.mp4"
-    },
-    {
-     "archiveID": "topper-tv-series",
-     "seasonNumber": 1,
-     "episodeNumber": 39,
-     "title": "Topper TV Series",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Topper s01e39 Georges Old Flame.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 181464785,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/topper-tv-series/Topper%20s01e39%20Georges%20Old%20Flame.ia.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Topper_Decorating",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Topper: Decorating",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1524,
+          "videoFile": {
+            "name": "1-17_Decorating.mp4",
+            "format": "h.264",
+            "sizeBytes": 160513633,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Topper_Decorating/1-17_Decorating.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+  ],
+  "episodesCount": 8,
+  "canonicalEpisodesCount": 78,
+  "tvdbID": "77346",
+  "artworkSource": "tvdb",
+  "cast": [
     {
-     "archiveID": "Topper_Decorating",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Topper: Decorating",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
-     "airDate": null,
-     "year": 1954,
-     "runtimeSeconds": 1524,
-     "videoFile": {
-      "name": "1-17_Decorating.mp4",
-      "format": "h.264",
-      "sizeBytes": 160513633,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Topper_Decorating/1-17_Decorating.mp4"
+      "name": "Kathleen Freeman",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259084/photo/613c00e4b5aa5.jpg"
+    },
+    {
+      "name": "Thurston Hall",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Neil",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Lee Patrick",
+      "character": "",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Anne Jeffreys",
+      "character": "",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/263163/photo/630e552c96dc4.jpg"
+    },
+    {
+      "name": "Edna Skinner",
+      "character": "",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/361844/photo/64b0d1a096b4c.jpg"
+    },
+    {
+      "name": "Robert Sterling",
+      "character": "",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Leo G. Carroll",
+      "character": "",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/391865/photo/649444422f751.jpg"
     }
-   ]
-  }
- ],
- "episodesCount": 8,
- "canonicalEpisodesCount": 78
+  ]
 }

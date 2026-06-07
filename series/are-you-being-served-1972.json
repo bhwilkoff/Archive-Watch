@@ -1,252 +1,364 @@
 {
- "version": 2,
- "seriesID": "are-you-being-served-1972",
- "tvmazeID": 4529,
- "title": "Are You Being Served?",
- "yearStart": 1972,
- "yearEnd": 1985,
- "overview": "This comedy series, which follows the exploits of employees at London's Grace Brothers department store, is full of sexual innuendo, slapstick, visual gags and double entendres. Much of the show's humor parodies Britain's class system, with the characters rarely calling their co-workers by their given names. Many of the show's characters are based on stereotypes, including the effeminate Mr. Humphries and the rich-but-stingy store owner.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/20/52076.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "BBC One"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "are-you-being-served-1972",
+  "tvmazeID": 4529,
+  "title": "Are You Being Served?",
+  "yearStart": 1972,
+  "yearEnd": 1985,
+  "overview": "This comedy series, which follows the exploits of employees at London's Grace Brothers department store, is full of sexual innuendo, slapstick, visual gags and double entendres. Much of the show's humor parodies Britain's class system, with the characters rarely calling their co-workers by their given names. Many of the show's characters are based on stereotypes, including the effeminate Mr. Humphries and the rich-but-stingy store owner.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77879-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "are-you-being-served-uncut",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "His and Hers",
-     "overview": "Mr Grainger is shocked to find the central display stand has been removed from the floor. Grace Brothers has entered into an agreement with a company to display their new perfume, 'His and Hers'.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/142/357178.jpg",
-     "airDate": "1973-04-11",
-     "year": 1973,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S01E04 His And Hers.mp4",
-      "format": "h.264",
-      "sizeBytes": 176229902,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/are-you-being-served-uncut/S01E04 His And Hers.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "are-you-being-served-uncut",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "His and Hers",
+          "overview": "Mr Grainger is shocked to find the central display stand has been removed from the floor. Grace Brothers has entered into an agreement with a company to display their new perfume, 'His and Hers'.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/142/357178.jpg",
+          "airDate": "1973-04-11",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E04 His And Hers.mp4",
+            "format": "h.264",
+            "sizeBytes": 176229902,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-uncut/S01E04 His And Hers.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "are-you-being-served-2",
-     "seasonNumber": 2,
-     "episodeNumber": 5,
-     "title": "Hoorah for the Holidays",
-     "overview": "Everyone is forced to take a vacation when the store is closed for renovations.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
-     "airDate": "1974-04-11",
-     "year": 1974,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S02E05 Hoorah For The Holidays.mp4",
-      "format": "h.264",
-      "sizeBytes": 178634737,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/are-you-being-served-2/S02E05 Hoorah For The Holidays.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 3,
-   "episodes": [
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "are-you-being-served-2",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Hoorah for the Holidays",
+          "overview": "Everyone is forced to take a vacation when the store is closed for renovations.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
+          "airDate": "1974-04-11",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E05 Hoorah For The Holidays.mp4",
+            "format": "h.264",
+            "sizeBytes": 178634737,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-2/S02E05 Hoorah For The Holidays.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "are-you-being-served-3",
-     "seasonNumber": 3,
-     "episodeNumber": 7,
-     "title": "Shoulder to Shoulder",
-     "overview": "The staff are informed that the decorators are being called in. The downside is that only one department can be redecorated. Which will it be, and who will be working in the unlucky department?",
-     "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
-     "airDate": "1975-04-10",
-     "year": 1975,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S03E07 Shoulder To Shoulder.mp4",
-      "format": "h.264",
-      "sizeBytes": 174545937,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/are-you-being-served-3/S03E07 Shoulder To Shoulder.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 4,
-   "episodes": [
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "are-you-being-served-3",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "Shoulder to Shoulder",
+          "overview": "The staff are informed that the decorators are being called in. The downside is that only one department can be redecorated. Which will it be, and who will be working in the unlucky department?",
+          "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
+          "airDate": "1975-04-10",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S03E07 Shoulder To Shoulder.mp4",
+            "format": "h.264",
+            "sizeBytes": 174545937,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-3/S03E07 Shoulder To Shoulder.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "are-you-being-served-4",
-     "seasonNumber": 4,
-     "episodeNumber": 5,
-     "title": "Fifty Years On",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
-     "airDate": "1976-05-06",
-     "year": 1976,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S04E05 Fifty Years On.mp4",
-      "format": "h.264",
-      "sizeBytes": 177239413,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/are-you-being-served-4/S04E05 Fifty Years On.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 5,
-   "episodes": [
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "are-you-being-served-4",
+          "seasonNumber": 4,
+          "episodeNumber": 5,
+          "title": "Fifty Years On",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
+          "airDate": "1976-05-06",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E05 Fifty Years On.mp4",
+            "format": "h.264",
+            "sizeBytes": 177239413,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-4/S04E05 Fifty Years On.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "are-you-being-served-5",
-     "seasonNumber": 5,
-     "episodeNumber": 2,
-     "title": "A Change is as Good as a Rest",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
-     "airDate": "1977-03-04",
-     "year": 1977,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S05E02 A Change Is As Good As A Rest.mp4",
-      "format": "h.264",
-      "sizeBytes": 177864530,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/are-you-being-served-5/S05E02 A Change Is As Good As A Rest.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 6,
-   "episodes": [
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "are-you-being-served-5",
+          "seasonNumber": 5,
+          "episodeNumber": 2,
+          "title": "A Change is as Good as a Rest",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
+          "airDate": "1977-03-04",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S05E02 A Change Is As Good As A Rest.mp4",
+            "format": "h.264",
+            "sizeBytes": 177864530,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-5/S05E02 A Change Is As Good As A Rest.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "are-you-being-served-6",
-     "seasonNumber": 6,
-     "episodeNumber": 3,
-     "title": "Do You Take This Man?",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
-     "airDate": "1978-11-29",
-     "year": 1978,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S06E03 Do You Take This Man.mp4",
-      "format": "h.264",
-      "sizeBytes": 176897635,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/are-you-being-served-6/S06E03 Do You Take This Man.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 7,
-   "episodes": [
+      "seasonNumber": 6,
+      "episodes": [
+        {
+          "archiveID": "are-you-being-served-6",
+          "seasonNumber": 6,
+          "episodeNumber": 3,
+          "title": "Do You Take This Man?",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
+          "airDate": "1978-11-29",
+          "year": 1978,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S06E03 Do You Take This Man.mp4",
+            "format": "h.264",
+            "sizeBytes": 176897635,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-6/S06E03 Do You Take This Man.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "are-you-being-served-7",
-     "seasonNumber": 7,
-     "episodeNumber": 1,
-     "title": "The Junior",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
-     "airDate": "1979-10-19",
-     "year": 1979,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S07E01 The Junior.mp4",
-      "format": "h.264",
-      "sizeBytes": 179551684,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/are-you-being-served-7/S07E01 The Junior.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 8,
-   "episodes": [
+      "seasonNumber": 7,
+      "episodes": [
+        {
+          "archiveID": "are-you-being-served-7",
+          "seasonNumber": 7,
+          "episodeNumber": 1,
+          "title": "The Junior",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
+          "airDate": "1979-10-19",
+          "year": 1979,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S07E01 The Junior.mp4",
+            "format": "h.264",
+            "sizeBytes": 179551684,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-7/S07E01 The Junior.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "are-you-being-served-8",
-     "seasonNumber": 8,
-     "episodeNumber": 8,
-     "title": "Are You being Served? Series 8",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "S08E08 Roots (1981 Christmas Special).mp4",
-      "format": "h.264",
-      "sizeBytes": 177464305,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/are-you-being-served-8/S08E08 Roots (1981 Christmas Special).mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 9,
-   "episodes": [
+      "seasonNumber": 8,
+      "episodes": [
+        {
+          "archiveID": "are-you-being-served-8",
+          "seasonNumber": 8,
+          "episodeNumber": 8,
+          "title": "Are You being Served? Series 8",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S08E08 Roots (1981 Christmas Special).mp4",
+            "format": "h.264",
+            "sizeBytes": 177464305,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-8/S08E08 Roots (1981 Christmas Special).mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "are-you-being-served-9",
-     "seasonNumber": 9,
-     "episodeNumber": 2,
-     "title": "Conduct Unbecoming",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
-     "airDate": "1983-04-29",
-     "year": 1983,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S09E02 Conduct Unbecoming.mp4",
-      "format": "h.264",
-      "sizeBytes": 176173410,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/are-you-being-served-9/S09E02 Conduct Unbecoming.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 10,
-   "episodes": [
+      "seasonNumber": 9,
+      "episodes": [
+        {
+          "archiveID": "are-you-being-served-9",
+          "seasonNumber": 9,
+          "episodeNumber": 2,
+          "title": "Conduct Unbecoming",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
+          "airDate": "1983-04-29",
+          "year": 1983,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S09E02 Conduct Unbecoming.mp4",
+            "format": "h.264",
+            "sizeBytes": 176173410,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-9/S09E02 Conduct Unbecoming.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "are-you-being-served-10",
-     "seasonNumber": 10,
-     "episodeNumber": 3,
-     "title": "The Hold Up",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
-     "airDate": "1985-03-04",
-     "year": 1985,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S10E03 The Hold-Up.mp4",
-      "format": "h.264",
-      "sizeBytes": 178878844,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/are-you-being-served-10/S10E03 The Hold-Up.mp4"
+      "seasonNumber": 10,
+      "episodes": [
+        {
+          "archiveID": "are-you-being-served-10",
+          "seasonNumber": 10,
+          "episodeNumber": 3,
+          "title": "The Hold Up",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
+          "airDate": "1985-03-04",
+          "year": 1985,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S10E03 The Hold-Up.mp4",
+            "format": "h.264",
+            "sizeBytes": 178878844,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-10/S10E03 The Hold-Up.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 10,
- "canonicalEpisodesCount": 64
+  ],
+  "episodesCount": 10,
+  "canonicalEpisodesCount": 64,
+  "tvdbID": "77879",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Wendy Richard",
+      "character": "Miss Brahms",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/300816/photo/62bd836ac91e7.jpg"
+    },
+    {
+      "name": "Mollie Sugden",
+      "character": "Mrs. Slocombe",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/377856/photo/63b21abb92d43.jpg"
+    },
+    {
+      "name": "John Inman",
+      "character": "Mr. Humphries",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/59629.jpg"
+    },
+    {
+      "name": "Frank Thornton",
+      "character": "Capt. Stephen Peacock",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/377101/5ffdd2e623843.jpg"
+    },
+    {
+      "name": "Arthur Brough",
+      "character": "Mr. Granger",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/59633.jpg"
+    },
+    {
+      "name": "Trevor Bannister",
+      "character": "Mr. Lucas",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/59634.jpg"
+    },
+    {
+      "name": "Nicholas Smith",
+      "character": "Mr. Rumbold",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/59632.jpg"
+    },
+    {
+      "name": "Harold Bennett",
+      "character": "Young Mr. Grace",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/59644.jpg"
+    },
+    {
+      "name": "James Hayter",
+      "character": "",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/283332/5f32efe030d71.jpg"
+    },
+    {
+      "name": "Alfie Bass",
+      "character": "",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258581/photo/6869387065a2c.jpg"
+    },
+    {
+      "name": "Vivienne Johnson",
+      "character": "Nurse",
+      "order": 10,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7944583/photo/64bef2288d172.jpg"
+    },
+    {
+      "name": "Milo Sperber",
+      "character": "",
+      "order": 11,
+      "profilePath": null
+    },
+    {
+      "name": "Doremy Vernon",
+      "character": "",
+      "order": 12,
+      "profilePath": null
+    },
+    {
+      "name": "Benny Lee",
+      "character": "",
+      "order": 13,
+      "profilePath": null
+    },
+    {
+      "name": "Kenneth Waller",
+      "character": "",
+      "order": 14,
+      "profilePath": null
+    },
+    {
+      "name": "Arthur English",
+      "character": "",
+      "order": 15,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/59641.jpg"
+    },
+    {
+      "name": "Mike Berry",
+      "character": "",
+      "order": 16,
+      "profilePath": null
+    },
+    {
+      "name": "Larry Martyn",
+      "character": "",
+      "order": 17,
+      "profilePath": null
+    }
+  ]
 }

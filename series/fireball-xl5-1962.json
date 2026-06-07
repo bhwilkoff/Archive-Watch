@@ -1,124 +1,158 @@
 {
- "version": 2,
- "seriesID": "fireball-xl5-1962",
- "tvmazeID": 5916,
- "title": "Fireball XL5",
- "yearStart": 1962,
- "yearEnd": 1963,
- "overview": "Set one hundred years into the future (2063) XL5 patrolled and protected sector 25 of the solar system on behalf of World Space Patrol, run by Commander (Wilbur) Zero, who was based at WSP headquarters on Earth's Space City...",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/250/627094.jpg",
- "backdropURL": null,
- "genres": [
-  "Action",
-  "Adventure",
-  "Science-Fiction"
- ],
- "networks": [
-  "ITV1"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "fireball-xl5-1962",
+  "tvmazeID": 5916,
+  "title": "Fireball XL5",
+  "yearStart": 1962,
+  "yearEnd": 1963,
+  "overview": "Set one hundred years into the future (2063) XL5 patrolled and protected sector 25 of the solar system on behalf of World Space Patrol, run by Commander (Wilbur) Zero, who was based at WSP headquarters on Earth's Space City...",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70828-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Science-Fiction"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "FireballXL51x03",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Space Immigrants",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/zxmJ7XjMFgcwmuugQAGcwHwN0Dz.jpg",
-     "airDate": "1962-11-11",
-     "year": 1962,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Space Immigrants XL5.mp4",
-      "format": "h.264",
-      "sizeBytes": 147892282,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/FireballXL51x03/Space Immigrants XL5.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "FireballXL51x03",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Space Immigrants",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/zxmJ7XjMFgcwmuugQAGcwHwN0Dz.jpg",
+          "airDate": "1962-11-11",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Space Immigrants XL5.mp4",
+            "format": "h.264",
+            "sizeBytes": 147892282,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FireballXL51x03/Space Immigrants XL5.mp4"
+        },
+        {
+          "archiveID": "FireballXL51x04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Plant Man from Space",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/ibbaZptdOZX8ewMxHZWNUzPdxmf.jpg",
+          "airDate": "1962-11-18",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Plant Man from Space XL5.mp4",
+            "format": "h.264",
+            "sizeBytes": 155400154,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FireballXL51x04/Plant Man from Space XL5.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "FireballXL51x04",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Plant Man from Space",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/ibbaZptdOZX8ewMxHZWNUzPdxmf.jpg",
-     "airDate": "1962-11-18",
-     "year": 1962,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Plant Man from Space XL5.mp4",
-      "format": "h.264",
-      "sizeBytes": 155400154,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/FireballXL51x04/Plant Man from Space XL5.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FireballXL51x01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fireball XL5 - 1x01 - Planet 46",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rBv16DzgKuzvx13KweU2nltONXU.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Fireball XL5 Ep-01 Planet 46.mp4",
+            "format": "h.264",
+            "sizeBytes": 155880130,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FireballXL51x01/Fireball XL5 Ep-01 Planet 46.mp4"
+        },
+        {
+          "archiveID": "FireballXL51x02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fireball XL5 - 1x02 - The Doomed Planet",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rBv16DzgKuzvx13KweU2nltONXU.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Fireball XL5 Ep-02 The Doomed Planet.mp4",
+            "format": "h.264",
+            "sizeBytes": 145007891,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FireballXL51x02/Fireball XL5 Ep-02 The Doomed Planet.mp4"
+        },
+        {
+          "archiveID": "FireballXL5.complete",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fireball XL5.",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rBv16DzgKuzvx13KweU2nltONXU.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Fireball XL5 - 25. The Forbidden Planet.mp4",
+            "format": "h.264",
+            "sizeBytes": 157312329,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball XL5 - 25. The Forbidden Planet.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+  ],
+  "episodesCount": 5,
+  "canonicalEpisodesCount": 39,
+  "tvdbID": "70828",
+  "artworkSource": "tvdb",
+  "cast": [
     {
-     "archiveID": "FireballXL51x01",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Fireball XL5 - 1x01 - Planet 46",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rBv16DzgKuzvx13KweU2nltONXU.jpg",
-     "airDate": null,
-     "year": 1962,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Fireball XL5 Ep-01 Planet 46.mp4",
-      "format": "h.264",
-      "sizeBytes": 155880130,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/FireballXL51x01/Fireball XL5 Ep-01 Planet 46.mp4"
+      "name": "David Graham",
+      "character": "",
+      "order": 0,
+      "profilePath": null
     },
     {
-     "archiveID": "FireballXL51x02",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Fireball XL5 - 1x02 - The Doomed Planet",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rBv16DzgKuzvx13KweU2nltONXU.jpg",
-     "airDate": null,
-     "year": 1962,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Fireball XL5 Ep-02 The Doomed Planet.mp4",
-      "format": "h.264",
-      "sizeBytes": 145007891,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/FireballXL51x02/Fireball XL5 Ep-02 The Doomed Planet.mp4"
+      "name": "John Bluthal",
+      "character": "",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/278238/photo/631b87bd85b77.jpg"
     },
     {
-     "archiveID": "FireballXL5.complete",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Fireball XL5.",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rBv16DzgKuzvx13KweU2nltONXU.jpg",
-     "airDate": null,
-     "year": 1962,
-     "runtimeSeconds": 1500,
-     "videoFile": {
-      "name": "Fireball XL5 - 25. The Forbidden Planet.mp4",
-      "format": "h.264",
-      "sizeBytes": 157312329,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball XL5 - 25. The Forbidden Planet.mp4"
+      "name": "Sylvia Anderson",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Gerry Anderson",
+      "character": "",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/278179/photo/631ced64e1ffa.jpg"
+    },
+    {
+      "name": "Paul Maxwell",
+      "character": "",
+      "order": 4,
+      "profilePath": null
     }
-   ]
-  }
- ],
- "episodesCount": 5,
- "canonicalEpisodesCount": 39
+  ]
 }

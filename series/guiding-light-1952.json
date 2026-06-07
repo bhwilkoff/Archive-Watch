@@ -1,100 +1,212 @@
 {
- "version": 2,
- "seriesID": "guiding-light-1952",
- "tvmazeID": 11800,
- "title": "Guiding Light",
- "yearStart": 1952,
- "yearEnd": 2009,
- "overview": "Guiding Light (known as The Guiding Light before 1975) is an American television soap opera that is listed in Guinness World Records as the longest-running drama in television in American history, broadcast on CBS for 57 years from June 30, 1952 until September 18, 2009, preceded by a 15-year broadcast on radio.Guiding Light is the longest running soap opera and the fifth longest running program in all of broadcast history",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/39/99228.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "Romance"
- ],
- "networks": [
-  "CBS"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": null,
-   "episodes": [
+  "version": 2,
+  "seriesID": "guiding-light-1952",
+  "tvmazeID": 11800,
+  "title": "Guiding Light",
+  "yearStart": 1952,
+  "yearEnd": 2009,
+  "overview": "Guiding Light (known as The Guiding Light before 1975) is an American television soap opera that is listed in Guinness World Records as the longest-running drama in television in American history, broadcast on CBS for 57 years from June 30, 1952 until September 18, 2009, preceded by a 15-year broadcast on radio.Guiding Light is the longest running soap opera and the fifth longest running program in all of broadcast history",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76597-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Romance"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "GuidingLight4March1953",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "''The Guiding Light'' - 4 March 1953?",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/uRJntFgQJuHLJDvRHDsHBcsxE7q.jpg",
-     "airDate": null,
-     "year": 1953,
-     "runtimeSeconds": 866,
-     "videoFile": {
-      "name": "GuidingLight-4March1953.mp4",
-      "format": "h.264",
-      "sizeBytes": 90272986,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/GuidingLight4March1953/GuidingLight-4March1953.mp4"
-    },
-    {
-     "archiveID": "GuidingLight9April1953",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "''The Guiding Light'' - 9 April 1953",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/uRJntFgQJuHLJDvRHDsHBcsxE7q.jpg",
-     "airDate": null,
-     "year": 1953,
-     "runtimeSeconds": 862,
-     "videoFile": {
-      "name": "GuidingLight9April1953.mp4",
-      "format": "h.264",
-      "sizeBytes": 89976118,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/GuidingLight9April1953/GuidingLight9April1953.mp4"
-    },
-    {
-     "archiveID": "The_Maykers_Suck",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "'The Guiding Light' - April 9, 1953",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/uRJntFgQJuHLJDvRHDsHBcsxE7q.jpg",
-     "airDate": null,
-     "year": 1953,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "GuidingLightApril9-1953.mp4",
-      "format": "h.264",
-      "sizeBytes": 84289005,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/The_Maykers_Suck/GuidingLightApril9-1953.mp4"
-    },
-    {
-     "archiveID": "Guiding_Light",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "'The Guiding Light' - March 4, 1953",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/uRJntFgQJuHLJDvRHDsHBcsxE7q.jpg",
-     "airDate": null,
-     "year": 1953,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "GuidingLightMarch4-1953.mp4",
-      "format": "h.264",
-      "sizeBytes": 84965194,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Guiding_Light/GuidingLightMarch4-1953.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "GuidingLight4March1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Guiding Light'' - 4 March 1953?",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uRJntFgQJuHLJDvRHDsHBcsxE7q.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 866,
+          "videoFile": {
+            "name": "GuidingLight-4March1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 90272986,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GuidingLight4March1953/GuidingLight-4March1953.mp4"
+        },
+        {
+          "archiveID": "GuidingLight9April1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Guiding Light'' - 9 April 1953",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uRJntFgQJuHLJDvRHDsHBcsxE7q.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 862,
+          "videoFile": {
+            "name": "GuidingLight9April1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 89976118,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GuidingLight9April1953/GuidingLight9April1953.mp4"
+        },
+        {
+          "archiveID": "The_Maykers_Suck",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'The Guiding Light' - April 9, 1953",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uRJntFgQJuHLJDvRHDsHBcsxE7q.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GuidingLightApril9-1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 84289005,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/The_Maykers_Suck/GuidingLightApril9-1953.mp4"
+        },
+        {
+          "archiveID": "Guiding_Light",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'The Guiding Light' - March 4, 1953",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uRJntFgQJuHLJDvRHDsHBcsxE7q.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GuidingLightMarch4-1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 84965194,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Guiding_Light/GuidingLightMarch4-1953.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 4,
- "canonicalEpisodesCount": 1854
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": 1854,
+  "tvdbID": "76597",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Fiona Hutchison",
+      "character": "Jenna Bradshaw",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/326946/5fd99bbdde100.jpg"
+    },
+    {
+      "name": "Justin Deas",
+      "character": "Buzz Cooper",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/337415/5fd99c4b8bed1.jpg"
+    },
+    {
+      "name": "Beth Ehlers",
+      "character": "Harley Davidson Cooper",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/394300/5fdb52d1a9894.jpg"
+    },
+    {
+      "name": "Kim Zimmer",
+      "character": "Reva Shayne",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/272769/5fdb528ccd2ea.jpg"
+    },
+    {
+      "name": "Robert Newman",
+      "character": "Joshua Lewis",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/264046/5fdb51ac65d27.jpg"
+    },
+    {
+      "name": "Nancy St. Alban",
+      "character": "",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Kevin Bacon",
+      "character": "T. J. 'Tim' Werner",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/254182/6382a36620da1.jpg"
+    },
+    {
+      "name": "Crystal Chappell",
+      "character": "",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/345071/photo/6114d5de8d57d.jpg"
+    },
+    {
+      "name": "Nia Long",
+      "character": "",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/274556/62db5aa085e47.jpg"
+    },
+    {
+      "name": "Josh Taylor",
+      "character": "",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/252919/photo/6693fa3112095.jpg"
+    },
+    {
+      "name": "Frank Grillo",
+      "character": "Hart Jessup",
+      "order": 10,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/346594/primary.jpg"
+    },
+    {
+      "name": "Stephanie Gatschet",
+      "character": "",
+      "order": 11,
+      "profilePath": null
+    },
+    {
+      "name": "Linda Dano",
+      "character": "",
+      "order": 12,
+      "profilePath": null
+    },
+    {
+      "name": "Scott Bailey",
+      "character": "",
+      "order": 13,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/371405/photo/613a3a153c22c.jpg"
+    },
+    {
+      "name": "Gina Tognoni",
+      "character": "",
+      "order": 14,
+      "profilePath": null
+    },
+    {
+      "name": "Vincent Irizarry",
+      "character": "",
+      "order": 15,
+      "profilePath": null
+    },
+    {
+      "name": "Yvonna Wright",
+      "character": "",
+      "order": 16,
+      "profilePath": null
+    },
+    {
+      "name": "Brittany Snow",
+      "character": "",
+      "order": 17,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/271140/605a82e61d249.jpg"
+    }
+  ]
 }

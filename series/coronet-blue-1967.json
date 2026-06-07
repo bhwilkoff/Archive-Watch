@@ -1,142 +1,164 @@
 {
- "version": 2,
- "seriesID": "coronet-blue-1967",
- "tvmazeID": 39927,
- "title": "Coronet Blue",
- "yearStart": 1967,
- "yearEnd": 1967,
- "overview": "A man wakes up with amnesia, and has no memory of who he is or why people want him dead. Taking the name \"Michael Alden\", the man sets out to find out who he is and why the mysterious \"Greybeards\" want him dead.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/176/440439.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "Thriller",
-  "Mystery"
- ],
- "networks": [
-  "CBS"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "coronet-blue-1967",
+  "tvmazeID": 39927,
+  "title": "Coronet Blue",
+  "yearStart": 1967,
+  "yearEnd": 1967,
+  "overview": "A man wakes up with amnesia, and has no memory of who he is or why people want him dead. Taking the name \"Michael Alden\", the man sets out to find out who he is and why the mysterious \"Greybeards\" want him dead.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70393-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Thriller",
+    "Mystery"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "coronet-blue-s-1-e-01-a-time-to-be-born",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "A Time to Be Born",
-     "overview": "On an ocean liner, a man known only as Gigot has his criminal comrades turn against him, beat him, and throw him off the ship. When Gigot climbs onto a dock, he can only remember one thing: a phrase, \"Coronet Blue\".",
-     "stillURL": "https://archive.org/services/img/coronet-blue-s-1-e-01-a-time-to-be-born",
-     "airDate": "1967-05-29",
-     "year": 1967,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Coronet Blue - S1E01 - A Time to Be Born.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 422915006,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/coronet-blue-s-1-e-01-a-time-to-be-born/Coronet%20Blue%20-%20S1E01%20-%20A%20Time%20to%20Be%20Born.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "coronet-blue-s-1-e-01-a-time-to-be-born",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "A Time to Be Born",
+          "overview": "On an ocean liner, a man known only as Gigot has his criminal comrades turn against him, beat him, and throw him off the ship. When Gigot climbs onto a dock, he can only remember one thing: a phrase, \"Coronet Blue\".",
+          "stillURL": "https://archive.org/services/img/coronet-blue-s-1-e-01-a-time-to-be-born",
+          "airDate": "1967-05-29",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Coronet Blue - S1E01 - A Time to Be Born.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 422915006,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/coronet-blue-s-1-e-01-a-time-to-be-born/Coronet%20Blue%20-%20S1E01%20-%20A%20Time%20to%20Be%20Born.mp4"
+        },
+        {
+          "archiveID": "coronet-blue-s-1-e-02-the-assassins",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Assassins",
+          "overview": "Mike finds his real parents and fiancee when he responds to a newspaper classified ad, but he soon realizes that it's a set-up.",
+          "stillURL": "https://archive.org/services/img/coronet-blue-s-1-e-02-the-assassins",
+          "airDate": "1967-06-12",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Coronet Blue - S1E02 - The Assassins.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 436605538,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/coronet-blue-s-1-e-02-the-assassins/Coronet%20Blue%20-%20S1E02%20-%20The%20Assassins.mp4"
+        },
+        {
+          "archiveID": "Coronet-Blue-1967-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Man Running",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gNCFlL5MgRK2m4O8nNxDLeFS9Ef.jpg",
+          "airDate": "1967-07-17",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Coronet Blue (13 of 13)/S01E06 - Man Running.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 306491403,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Coronet-Blue-1967-Series/Coronet%20Blue%20%2813%20of%2013%29/S01E06%20-%20Man%20Running.mp4"
+        },
+        {
+          "archiveID": "coronet-blue-s-1-e-12-where-you-from-and-what-you-done",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Where You From and What You Done?",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/coronet-blue-s-1-e-12-where-you-from-and-what-you-done",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Coronet Blue - S1E12 - Where You From and What You Done.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 432931879,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/coronet-blue-s-1-e-12-where-you-from-and-what-you-done/Coronet%20Blue%20-%20S1E12%20-%20Where%20You%20From%20and%20What%20You%20Done.mp4"
+        },
+        {
+          "archiveID": "coronet-blue-s-1-e-13-tomoyo",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Tomoyo",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/coronet-blue-s-1-e-13-tomoyo",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Coronet Blue - S1E13 - Tomoyo.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 428551158,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/coronet-blue-s-1-e-13-tomoyo/Coronet%20Blue%20-%20S1E13%20-%20Tomoyo.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "coronet-blue-s-1-e-02-the-assassins",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "The Assassins",
-     "overview": "Mike finds his real parents and fiancee when he responds to a newspaper classified ad, but he soon realizes that it's a set-up.",
-     "stillURL": "https://archive.org/services/img/coronet-blue-s-1-e-02-the-assassins",
-     "airDate": "1967-06-12",
-     "year": 1967,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Coronet Blue - S1E02 - The Assassins.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 436605538,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/coronet-blue-s-1-e-02-the-assassins/Coronet%20Blue%20-%20S1E02%20-%20The%20Assassins.mp4"
-    },
-    {
-     "archiveID": "Coronet-Blue-1967-Series",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "Man Running",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/gNCFlL5MgRK2m4O8nNxDLeFS9Ef.jpg",
-     "airDate": "1967-07-17",
-     "year": 1967,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Coronet Blue (13 of 13)/S01E06 - Man Running.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 306491403,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/Coronet-Blue-1967-Series/Coronet%20Blue%20%2813%20of%2013%29/S01E06%20-%20Man%20Running.mp4"
-    },
-    {
-     "archiveID": "coronet-blue-s-1-e-12-where-you-from-and-what-you-done",
-     "seasonNumber": 1,
-     "episodeNumber": 12,
-     "title": "Where You From and What You Done?",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/coronet-blue-s-1-e-12-where-you-from-and-what-you-done",
-     "airDate": null,
-     "year": 1967,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Coronet Blue - S1E12 - Where You From and What You Done.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 432931879,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/coronet-blue-s-1-e-12-where-you-from-and-what-you-done/Coronet%20Blue%20-%20S1E12%20-%20Where%20You%20From%20and%20What%20You%20Done.mp4"
-    },
-    {
-     "archiveID": "coronet-blue-s-1-e-13-tomoyo",
-     "seasonNumber": 1,
-     "episodeNumber": 13,
-     "title": "Tomoyo",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/coronet-blue-s-1-e-13-tomoyo",
-     "airDate": null,
-     "year": 1967,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Coronet Blue - S1E13 - Tomoyo.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 428551158,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/coronet-blue-s-1-e-13-tomoyo/Coronet%20Blue%20-%20S1E13%20-%20Tomoyo.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "CoronetBlue",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Coronet Blue",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gNCFlL5MgRK2m4O8nNxDLeFS9Ef.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tv-CoronetBlue1967CbsNetworkPromo.mp4",
+            "format": "h.264",
+            "sizeBytes": 1382358,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CoronetBlue/Tv-CoronetBlue1967CbsNetworkPromo.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": 13,
+  "tvdbID": "70393",
+  "artworkSource": "tvdb",
+  "cast": [
     {
-     "archiveID": "CoronetBlue",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Coronet Blue",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/gNCFlL5MgRK2m4O8nNxDLeFS9Ef.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Tv-CoronetBlue1967CbsNetworkPromo.mp4",
-      "format": "h.264",
-      "sizeBytes": 1382358,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/CoronetBlue/Tv-CoronetBlue1967CbsNetworkPromo.mp4"
+      "name": "Joe Silver",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Frank Converse",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Brian Bedford",
+      "character": "",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257967/photo/62f3e759c36a5.jpg"
     }
-   ]
-  }
- ],
- "episodesCount": 6,
- "canonicalEpisodesCount": 13
+  ]
 }

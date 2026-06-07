@@ -1,47 +1,99 @@
 {
- "version": 2,
- "seriesID": "salute-your-shorts-1991",
- "tvmazeID": 6304,
- "title": "Salute Your Shorts",
- "yearStart": 1991,
- "yearEnd": 1992,
- "overview": "Salute Your Shorts is about a group of kids at summer camp. The camp is run by the heard-but-never-seen Dr. Kahn. The kids spend their time trying to harass the camp counselor, Kevin \"Ug\" Lee.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/24/60451.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "Comedy",
-  "Family"
- ],
- "networks": [
-  "Nickelodeon"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "salute-your-shorts-1991",
+  "tvmazeID": 6304,
+  "title": "Salute Your Shorts",
+  "yearStart": 1991,
+  "yearEnd": 1992,
+  "overview": "Salute Your Shorts is about a group of kids at summer camp. The camp is run by the heard-but-never-seen Dr. Kahn. The kids spend their time trying to harass the camp counselor, Kevin \"Ug\" Lee.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76128-3.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Comedy",
+    "Family"
+  ],
+  "networks": [
+    "Nickelodeon"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "SaluteYourShortsS01E01MichaelComesToCamp",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Michael Comes to Camp",
-     "overview": null,
-     "stillURL": null,
-     "airDate": "1991-06-01",
-     "year": 1991,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Salute Your Shorts/Salute Your Shorts S01E07 - Toilet Seat Basketball.mp4",
-      "format": "h.264",
-      "sizeBytes": 157873473,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/SaluteYourShortsS01E01MichaelComesToCamp/Salute%20Your%20Shorts/Salute%20Your%20Shorts%20S01E07%20-%20Toilet%20Seat%20Basketball.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "SaluteYourShortsS01E01MichaelComesToCamp",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Michael Comes to Camp",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1991-06-01",
+          "year": 1991,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Salute Your Shorts/Salute Your Shorts S01E07 - Toilet Seat Basketball.mp4",
+            "format": "h.264",
+            "sizeBytes": 157873473,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/SaluteYourShortsS01E01MichaelComesToCamp/Salute%20Your%20Shorts/Salute%20Your%20Shorts%20S01E07%20-%20Toilet%20Seat%20Basketball.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 1,
- "canonicalEpisodesCount": 26
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 26,
+  "tvdbID": "76128",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Megan Berwick",
+      "character": "Z.Z. Ziff",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Heidi Lucas",
+      "character": "Dina Alexander",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Erik MacArthur",
+      "character": "Michael Stein",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Danny Cooksey",
+      "character": "Bobby Budnick",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/276650/photo/612d4810a1d39.jpg"
+    },
+    {
+      "name": "Michael Bower",
+      "character": "Eddie 'Donkeylips' Gelfen",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Kirk Baily",
+      "character": "Kevin 'Ug' Lee",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Blake Soper",
+      "character": "Ronny Pinsky",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Henry W. Laster",
+      "character": "Kent Flankman",
+      "order": 7,
+      "profilePath": null
+    }
+  ]
 }

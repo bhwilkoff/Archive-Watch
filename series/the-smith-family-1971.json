@@ -1,382 +1,428 @@
 {
- "version": 2,
- "seriesID": "the-smith-family-1971",
- "tvmazeID": 43528,
- "title": "The Smith Family",
- "yearStart": 1971,
- "yearEnd": 1972,
- "overview": "Police detective Chad Smith lives with his wife, Betty, and his three children, Bob, Cindy, and Brian.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/522720.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "Family"
- ],
- "networks": [
-  "ABC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "the-smith-family-1971",
+  "tvmazeID": 43528,
+  "title": "The Smith Family",
+  "yearStart": 1971,
+  "yearEnd": 1972,
+  "overview": "Police detective Chad Smith lives with his wife, Betty, and his three children, Bob, Cindy, and Brian.",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/76444/posters/661ef68936495.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Family"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "thesmithfamilyseason1",
-     "seasonNumber": 1,
-     "episodeNumber": 10,
-     "title": "Brian and the Sheriff",
-     "overview": "Brian sides with a an old lawman whose house is about to be torn down.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/h4wgTT6PlTKZKYKtK8Lof0vwLlK.jpg",
-     "airDate": "1971-03-24",
-     "year": 1971,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S01E10- Brian and the Sheriff.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 123854640,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E10- Brian and the Sheriff.ia.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "thesmithfamilyseason1",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Brian and the Sheriff",
+          "overview": "Brian sides with a an old lawman whose house is about to be torn down.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/h4wgTT6PlTKZKYKtK8Lof0vwLlK.jpg",
+          "airDate": "1971-03-24",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E10- Brian and the Sheriff.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 123854640,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E10- Brian and the Sheriff.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "thesmithfamilyseasontwo",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "My Mother, the Star",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h4wgTT6PlTKZKYKtK8Lof0vwLlK.jpg",
+          "airDate": "1972-05-10",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E20- My Mother the Star-1.mp4",
+            "format": "h.264",
+            "sizeBytes": 130865329,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E20- My Mother the Star-1.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 17,
+      "episodes": [
+        {
+          "archiveID": "family-feud-s17-e47",
+          "seasonNumber": 17,
+          "episodeNumber": 47,
+          "title": "Family Feud : Smith/Neuhart",
+          "overview": "Family Feud S17 E47<div>Aired July 16, 2022 at 11:30PM ET on Game Show Network</div>",
+          "stillURL": "https://archive.org/services/img/family-feud-s17-e47",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1798,
+          "videoFile": {
+            "name": "GSN20220716_233000.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 231505500,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/family-feud-s17-e47/GSN20220716_233000.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 18,
+      "episodes": [
+        {
+          "archiveID": "family-feud-s18-e169",
+          "seasonNumber": 18,
+          "episodeNumber": 169,
+          "title": "Family Feud : Cheri/Smith",
+          "overview": "Family Feud S18 E169<div>Aired August 1, 2022 at 12:00AM ET on Game Show Network</div>",
+          "stillURL": "https://archive.org/services/img/family-feud-s18-e169",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1796,
+          "videoFile": {
+            "name": "GSN20220801_000000.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 231305615,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/family-feud-s18-e169/GSN20220801_000000.ia.mp4"
+        },
+        {
+          "archiveID": "family-feud-s18-e173",
+          "seasonNumber": 18,
+          "episodeNumber": 173,
+          "title": "Family Feud : Smith/Wilson",
+          "overview": "Family Feud S18 E173<div>Aired August 1, 2022 at 12:30AM ET on Game Show Network</div>",
+          "stillURL": "https://archive.org/services/img/family-feud-s18-e173",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1801,
+          "videoFile": {
+            "name": "GSN20220801_003000.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 232093384,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/family-feud-s18-e173/GSN20220801_003000.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 19,
+      "episodes": [
+        {
+          "archiveID": "family-feud-s19-e16",
+          "seasonNumber": 19,
+          "episodeNumber": 16,
+          "title": "Family Feud : Carlson/Smith",
+          "overview": "Family Feud S19 E16<div>Aired July 8, 2022 at 10:30PM ET on Game Show Network</div>",
+          "stillURL": "https://archive.org/services/img/family-feud-s19-e16",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1801,
+          "videoFile": {
+            "name": "GSN20220708_223000.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 231941231,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/family-feud-s19-e16/GSN20220708_223000.ia.mp4"
+        },
+        {
+          "archiveID": "family-feud-s19-e40",
+          "seasonNumber": 19,
+          "episodeNumber": 40,
+          "title": "Family Feud : Phillippi/Smith",
+          "overview": "Family Feud S19 E40<div>Aired July 15, 2022 at 10:30PM ET on Game Show Network</div>",
+          "stillURL": "https://archive.org/services/img/family-feud-s19-e40",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1801,
+          "videoFile": {
+            "name": "GSN20220715_223000.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 232066083,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/family-feud-s19-e40/GSN20220715_223000.ia.mp4"
+        },
+        {
+          "archiveID": "family-feud-s19-e42",
+          "seasonNumber": 19,
+          "episodeNumber": 42,
+          "title": "Family Feud : Smith/DeGoey",
+          "overview": "Family Feud S19 E42<div>Aired July 18, 2022 at 10:00PM ET on Game Show Network</div>",
+          "stillURL": "https://archive.org/services/img/family-feud-s19-e42",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1796,
+          "videoFile": {
+            "name": "GSN20220718_220000.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 231419237,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/family-feud-s19-e42/GSN20220718_220000.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 22,
+      "episodes": [
+        {
+          "archiveID": "family-feud-november-10-2020",
+          "seasonNumber": 22,
+          "episodeNumber": 40,
+          "title": "Family Feud : Casal/Smith",
+          "overview": "Family Feud S22 E40<br />Originally Aired November 10, 2020 at 9:00PM CT on KDFI-TV in Dallas, Texas <br />The Casal Family already made to final day against The Smith Family.<br />The Casal Family will win the whole game and brand new car?",
+          "stillURL": "https://archive.org/services/img/family-feud-november-10-2020",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1202,
+          "videoFile": {
+            "name": "Family Feud-November 10-2020.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 360768111,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/family-feud-november-10-2020/Family%20Feud-November%2010-2020.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 23,
+      "episodes": [
+        {
+          "archiveID": "family-feud-9-27-2021",
+          "seasonNumber": 23,
+          "episodeNumber": 1,
+          "title": "Family Feud : Rhodes/Smith",
+          "overview": "Family Feud S23 E1<br /><div>Aired October 9, 2021 at 5:30PM CT on KDFI-TV in Dallas, Texas <br /></div><div><br /></div><div><b><u>NOTE:</u></b></div><div>Family Feud was celebrate 45th anniversary back in <a href=\"https://archive.org/details/familyfeudpremiereweek\" rel=\"ugc nofollow\">July 12, 1976</a>!<b><u><br /></u></b></div>",
+          "stillURL": "https://archive.org/services/img/family-feud-9-27-2021",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1202,
+          "videoFile": {
+            "name": "Family Feud-9-27-2021.mp4",
+            "format": "h.264",
+            "sizeBytes": 119299941,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/family-feud-9-27-2021/Family%20Feud-9-27-2021.mp4"
+        },
+        {
+          "archiveID": "family-feud-october-12-2021-1",
+          "seasonNumber": 23,
+          "episodeNumber": 13,
+          "title": "Family Feud : Bonitatibus/Smith",
+          "overview": "Family Feud S23 E13<br />Aired October 12, 2021 at 9:00PM CT on KDFI-TV in Dallas, Texas <br />",
+          "stillURL": "https://archive.org/services/img/family-feud-october-12-2021-1",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Family Feud-October 12-2021-1.mp4",
+            "format": "h.264",
+            "sizeBytes": 179023962,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/family-feud-october-12-2021-1/Family%20Feud-October%2012-2021-1.mp4"
+        },
+        {
+          "archiveID": "family-feud-october-21-2021-1",
+          "seasonNumber": 23,
+          "episodeNumber": 22,
+          "title": "Family Feud : Germany/Smith",
+          "overview": "Family Feud S23 E22<br />Aired October 21, 2021 at 9:00PM CT on KDFI-TV in Dallas, Texas <br /><br />",
+          "stillURL": "https://archive.org/services/img/family-feud-october-21-2021-1",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Family Feud-October 21-2021-1.mp4",
+            "format": "h.264",
+            "sizeBytes": 179301177,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/family-feud-october-21-2021-1/Family%20Feud-October%2021-2021-1.mp4"
+        },
+        {
+          "archiveID": "family-feud-october-28-2021-2",
+          "seasonNumber": 23,
+          "episodeNumber": 33,
+          "title": "Family Feud : Wolowiec/Smith",
+          "overview": "Family Feud S23 E33<br />Aired January 4, 2022 at 9:00PM CT on KDFI-TV in Dallas, Texas <br />",
+          "stillURL": "https://archive.org/services/img/family-feud-october-28-2021-2",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1207,
+          "videoFile": {
+            "name": "Family Feud-October 28 2021-2.mp4",
+            "format": "h.264",
+            "sizeBytes": 121033077,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/family-feud-october-28-2021-2/Family%20Feud-October%2028%202021-2.mp4"
+        },
+        {
+          "archiveID": "family-feud-october-29-2021-2",
+          "seasonNumber": 23,
+          "episodeNumber": 35,
+          "title": "Family Feud : Smith/Wizner",
+          "overview": "Family Feud S23 E35<br />Aired January 5, 2022 at 9:00PM CT on KDFI-TV in Dallas, Texas <br />",
+          "stillURL": "https://archive.org/services/img/family-feud-october-29-2021-2",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1207,
+          "videoFile": {
+            "name": "Family Feud-October 29 2021-2.mp4",
+            "format": "h.264",
+            "sizeBytes": 121132160,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/family-feud-october-29-2021-2/Family%20Feud-October%2029%202021-2.mp4"
+        },
+        {
+          "archiveID": "family-feud-s23-e153",
+          "seasonNumber": 23,
+          "episodeNumber": 153,
+          "title": "Family Feud : Lane/Smith",
+          "overview": "<span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Family Feud S23 E153</span><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;\">Aired August 3, 2023 at 7:30PM ET on my9 (New Jersey)</div>",
+          "stillURL": "https://archive.org/services/img/family-feud-s23-e153",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1808,
+          "videoFile": {
+            "name": "NJWWOR20230803_193000.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 314138923,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/family-feud-s23-e153/NJWWOR20230803_193000.ia.mp4"
+        },
+        {
+          "archiveID": "family-feud-s23-e155",
+          "seasonNumber": 23,
+          "episodeNumber": 155,
+          "title": "Family Feud : Smith/Crockett",
+          "overview": "<span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Family Feud S23 E155</span><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;\">Aired August 4, 2023 at 7:30PM ET on my9 (New Jersey)</div>",
+          "stillURL": "https://archive.org/services/img/family-feud-s23-e155",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1808,
+          "videoFile": {
+            "name": "NJWWOR20230804_193000.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 299164369,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/family-feud-s23-e155/NJWWOR20230804_193000.ia.mp4"
+        },
+        {
+          "archiveID": "family-feud-s23-e157",
+          "seasonNumber": 23,
+          "episodeNumber": 157,
+          "title": "Family Feud : Smith/Pimentel",
+          "overview": "<span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Family Feud S23 E157</span><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;\">Aired August 7, 2023 at 7:30PM ET on my9 (New Jersey)</div>",
+          "stillURL": "https://archive.org/services/img/family-feud-s23-e157",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1803,
+          "videoFile": {
+            "name": "NJWWOR20230807_193000.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 304711326,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/family-feud-s23-e157/NJWWOR20230807_193000.ia.mp4"
+        },
+        {
+          "archiveID": "family-feud-s23-e159",
+          "seasonNumber": 23,
+          "episodeNumber": 159,
+          "title": "Family Feud : Smith/Neville",
+          "overview": "<span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Family Feud S23 E159</span><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;\">Aired August 8, 2023 at 7:30PM ET on my9 (New Jersey)</div>",
+          "stillURL": "https://archive.org/services/img/family-feud-s23-e159",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1803,
+          "videoFile": {
+            "name": "NJWWOR20230808_193000.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 309686006,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/family-feud-s23-e159/NJWWOR20230808_193000.ia.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
+  ],
+  "episodesCount": 18,
+  "canonicalEpisodesCount": 39,
+  "tvdbID": "76444",
+  "artworkSource": "tvdb",
+  "cast": [
     {
-     "archiveID": "thesmithfamilyseasontwo",
-     "seasonNumber": 2,
-     "episodeNumber": 20,
-     "title": "My Mother, the Star",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/h4wgTT6PlTKZKYKtK8Lof0vwLlK.jpg",
-     "airDate": "1972-05-10",
-     "year": 1972,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S02E20- My Mother the Star-1.mp4",
-      "format": "h.264",
-      "sizeBytes": 130865329,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E20- My Mother the Star-1.mp4"
+      "name": "Ron Howard",
+      "character": "Bob Smith",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261799/photo/669205ef5d24a.jpg"
+    },
+    {
+      "name": "Henry Fonda",
+      "character": "Det. Sgt. Chad Smith",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/349464/primary.jpg"
+    },
+    {
+      "name": "Michael-James Wixted",
+      "character": "Brian Smith",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/46265.jpg"
+    },
+    {
+      "name": "Janet Blair",
+      "character": "Betty Smith",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/276858/photo/644fde38781bc.jpg"
+    },
+    {
+      "name": "Charles McGraw",
+      "character": "Capt. Hughes",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/46267.jpg"
+    },
+    {
+      "name": "Darleen Carr",
+      "character": "Cindy Smith",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261796/photo/699df70d0f07e.jpg"
+    },
+    {
+      "name": "John Carter",
+      "character": "Sgt. Ray Martin",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/46269.jpg"
     }
-   ]
-  },
-  {
-   "seasonNumber": 17,
-   "episodes": [
-    {
-     "archiveID": "family-feud-s17-e47",
-     "seasonNumber": 17,
-     "episodeNumber": 47,
-     "title": "Family Feud : Smith/Neuhart",
-     "overview": "Family Feud S17 E47<div>Aired July 16, 2022 at 11:30PM ET on Game Show Network</div>",
-     "stillURL": "https://archive.org/services/img/family-feud-s17-e47",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1798,
-     "videoFile": {
-      "name": "GSN20220716_233000.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 231505500,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/family-feud-s17-e47/GSN20220716_233000.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 18,
-   "episodes": [
-    {
-     "archiveID": "family-feud-s18-e169",
-     "seasonNumber": 18,
-     "episodeNumber": 169,
-     "title": "Family Feud : Cheri/Smith",
-     "overview": "Family Feud S18 E169<div>Aired August 1, 2022 at 12:00AM ET on Game Show Network</div>",
-     "stillURL": "https://archive.org/services/img/family-feud-s18-e169",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1796,
-     "videoFile": {
-      "name": "GSN20220801_000000.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 231305615,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/family-feud-s18-e169/GSN20220801_000000.ia.mp4"
-    },
-    {
-     "archiveID": "family-feud-s18-e173",
-     "seasonNumber": 18,
-     "episodeNumber": 173,
-     "title": "Family Feud : Smith/Wilson",
-     "overview": "Family Feud S18 E173<div>Aired August 1, 2022 at 12:30AM ET on Game Show Network</div>",
-     "stillURL": "https://archive.org/services/img/family-feud-s18-e173",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1801,
-     "videoFile": {
-      "name": "GSN20220801_003000.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 232093384,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/family-feud-s18-e173/GSN20220801_003000.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 19,
-   "episodes": [
-    {
-     "archiveID": "family-feud-s19-e16",
-     "seasonNumber": 19,
-     "episodeNumber": 16,
-     "title": "Family Feud : Carlson/Smith",
-     "overview": "Family Feud S19 E16<div>Aired July 8, 2022 at 10:30PM ET on Game Show Network</div>",
-     "stillURL": "https://archive.org/services/img/family-feud-s19-e16",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1801,
-     "videoFile": {
-      "name": "GSN20220708_223000.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 231941231,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/family-feud-s19-e16/GSN20220708_223000.ia.mp4"
-    },
-    {
-     "archiveID": "family-feud-s19-e40",
-     "seasonNumber": 19,
-     "episodeNumber": 40,
-     "title": "Family Feud : Phillippi/Smith",
-     "overview": "Family Feud S19 E40<div>Aired July 15, 2022 at 10:30PM ET on Game Show Network</div>",
-     "stillURL": "https://archive.org/services/img/family-feud-s19-e40",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1801,
-     "videoFile": {
-      "name": "GSN20220715_223000.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 232066083,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/family-feud-s19-e40/GSN20220715_223000.ia.mp4"
-    },
-    {
-     "archiveID": "family-feud-s19-e42",
-     "seasonNumber": 19,
-     "episodeNumber": 42,
-     "title": "Family Feud : Smith/DeGoey",
-     "overview": "Family Feud S19 E42<div>Aired July 18, 2022 at 10:00PM ET on Game Show Network</div>",
-     "stillURL": "https://archive.org/services/img/family-feud-s19-e42",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1796,
-     "videoFile": {
-      "name": "GSN20220718_220000.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 231419237,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/family-feud-s19-e42/GSN20220718_220000.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 22,
-   "episodes": [
-    {
-     "archiveID": "family-feud-november-10-2020",
-     "seasonNumber": 22,
-     "episodeNumber": 40,
-     "title": "Family Feud : Casal/Smith",
-     "overview": "Family Feud S22 E40<br />Originally Aired November 10, 2020 at 9:00PM CT on KDFI-TV in Dallas, Texas <br />The Casal Family already made to final day against The Smith Family.<br />The Casal Family will win the whole game and brand new car?",
-     "stillURL": "https://archive.org/services/img/family-feud-november-10-2020",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1202,
-     "videoFile": {
-      "name": "Family Feud-November 10-2020.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 360768111,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/family-feud-november-10-2020/Family%20Feud-November%2010-2020.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 23,
-   "episodes": [
-    {
-     "archiveID": "family-feud-9-27-2021",
-     "seasonNumber": 23,
-     "episodeNumber": 1,
-     "title": "Family Feud : Rhodes/Smith",
-     "overview": "Family Feud S23 E1<br /><div>Aired October 9, 2021 at 5:30PM CT on KDFI-TV in Dallas, Texas <br /></div><div><br /></div><div><b><u>NOTE:</u></b></div><div>Family Feud was celebrate 45th anniversary back in <a href=\"https://archive.org/details/familyfeudpremiereweek\" rel=\"ugc nofollow\">July 12, 1976</a>!<b><u><br /></u></b></div>",
-     "stillURL": "https://archive.org/services/img/family-feud-9-27-2021",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1202,
-     "videoFile": {
-      "name": "Family Feud-9-27-2021.mp4",
-      "format": "h.264",
-      "sizeBytes": 119299941,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/family-feud-9-27-2021/Family%20Feud-9-27-2021.mp4"
-    },
-    {
-     "archiveID": "family-feud-october-12-2021-1",
-     "seasonNumber": 23,
-     "episodeNumber": 13,
-     "title": "Family Feud : Bonitatibus/Smith",
-     "overview": "Family Feud S23 E13<br />Aired October 12, 2021 at 9:00PM CT on KDFI-TV in Dallas, Texas <br />",
-     "stillURL": "https://archive.org/services/img/family-feud-october-12-2021-1",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Family Feud-October 12-2021-1.mp4",
-      "format": "h.264",
-      "sizeBytes": 179023962,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/family-feud-october-12-2021-1/Family%20Feud-October%2012-2021-1.mp4"
-    },
-    {
-     "archiveID": "family-feud-october-21-2021-1",
-     "seasonNumber": 23,
-     "episodeNumber": 22,
-     "title": "Family Feud : Germany/Smith",
-     "overview": "Family Feud S23 E22<br />Aired October 21, 2021 at 9:00PM CT on KDFI-TV in Dallas, Texas <br /><br />",
-     "stillURL": "https://archive.org/services/img/family-feud-october-21-2021-1",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Family Feud-October 21-2021-1.mp4",
-      "format": "h.264",
-      "sizeBytes": 179301177,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/family-feud-october-21-2021-1/Family%20Feud-October%2021-2021-1.mp4"
-    },
-    {
-     "archiveID": "family-feud-october-28-2021-2",
-     "seasonNumber": 23,
-     "episodeNumber": 33,
-     "title": "Family Feud : Wolowiec/Smith",
-     "overview": "Family Feud S23 E33<br />Aired January 4, 2022 at 9:00PM CT on KDFI-TV in Dallas, Texas <br />",
-     "stillURL": "https://archive.org/services/img/family-feud-october-28-2021-2",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1207,
-     "videoFile": {
-      "name": "Family Feud-October 28 2021-2.mp4",
-      "format": "h.264",
-      "sizeBytes": 121033077,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/family-feud-october-28-2021-2/Family%20Feud-October%2028%202021-2.mp4"
-    },
-    {
-     "archiveID": "family-feud-october-29-2021-2",
-     "seasonNumber": 23,
-     "episodeNumber": 35,
-     "title": "Family Feud : Smith/Wizner",
-     "overview": "Family Feud S23 E35<br />Aired January 5, 2022 at 9:00PM CT on KDFI-TV in Dallas, Texas <br />",
-     "stillURL": "https://archive.org/services/img/family-feud-october-29-2021-2",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1207,
-     "videoFile": {
-      "name": "Family Feud-October 29 2021-2.mp4",
-      "format": "h.264",
-      "sizeBytes": 121132160,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/family-feud-october-29-2021-2/Family%20Feud-October%2029%202021-2.mp4"
-    },
-    {
-     "archiveID": "family-feud-s23-e153",
-     "seasonNumber": 23,
-     "episodeNumber": 153,
-     "title": "Family Feud : Lane/Smith",
-     "overview": "<span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Family Feud S23 E153</span><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;\">Aired August 3, 2023 at 7:30PM ET on my9 (New Jersey)</div>",
-     "stillURL": "https://archive.org/services/img/family-feud-s23-e153",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1808,
-     "videoFile": {
-      "name": "NJWWOR20230803_193000.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 314138923,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/family-feud-s23-e153/NJWWOR20230803_193000.ia.mp4"
-    },
-    {
-     "archiveID": "family-feud-s23-e155",
-     "seasonNumber": 23,
-     "episodeNumber": 155,
-     "title": "Family Feud : Smith/Crockett",
-     "overview": "<span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Family Feud S23 E155</span><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;\">Aired August 4, 2023 at 7:30PM ET on my9 (New Jersey)</div>",
-     "stillURL": "https://archive.org/services/img/family-feud-s23-e155",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1808,
-     "videoFile": {
-      "name": "NJWWOR20230804_193000.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 299164369,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/family-feud-s23-e155/NJWWOR20230804_193000.ia.mp4"
-    },
-    {
-     "archiveID": "family-feud-s23-e157",
-     "seasonNumber": 23,
-     "episodeNumber": 157,
-     "title": "Family Feud : Smith/Pimentel",
-     "overview": "<span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Family Feud S23 E157</span><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;\">Aired August 7, 2023 at 7:30PM ET on my9 (New Jersey)</div>",
-     "stillURL": "https://archive.org/services/img/family-feud-s23-e157",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1803,
-     "videoFile": {
-      "name": "NJWWOR20230807_193000.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 304711326,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/family-feud-s23-e157/NJWWOR20230807_193000.ia.mp4"
-    },
-    {
-     "archiveID": "family-feud-s23-e159",
-     "seasonNumber": 23,
-     "episodeNumber": 159,
-     "title": "Family Feud : Smith/Neville",
-     "overview": "<span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Family Feud S23 E159</span><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;\">Aired August 8, 2023 at 7:30PM ET on my9 (New Jersey)</div>",
-     "stillURL": "https://archive.org/services/img/family-feud-s23-e159",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1803,
-     "videoFile": {
-      "name": "NJWWOR20230808_193000.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 309686006,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/family-feud-s23-e159/NJWWOR20230808_193000.ia.mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 18,
- "canonicalEpisodesCount": 39
+  ]
 }

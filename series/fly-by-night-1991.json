@@ -1,140 +1,174 @@
 {
- "version": 2,
- "seriesID": "fly-by-night-1991",
- "tvmazeID": 10734,
- "title": "Fly by Night",
- "yearStart": 1991,
- "yearEnd": 1991,
- "overview": "Fly by Night is about Sally \"Slick\" Monroe, owner of a one-jet luxury charter service named Slick Air in which Sally flies around the world getting involved in adventurous capers. Sally's two co-pilots are American Mack Sheppard and French Jean-Phillipe Pasteur.This is a light-hearted action series.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/481/1203605.jpg",
- "backdropURL": null,
- "genres": [
-  "Adventure"
- ],
- "networks": [
-  "CBS"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "fly-by-night-1991",
+  "tvmazeID": 10734,
+  "title": "Fly by Night",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "Fly by Night is about Sally \"Slick\" Monroe, owner of a one-jet luxury charter service named Slick Air in which Sally flies around the world getting involved in adventurous capers. Sally's two co-pilots are American Mack Sheppard and French Jean-Phillipe Pasteur.This is a light-hearted action series.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77189-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Adventure"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "fly-by-night-04",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Bing, Bang, Boom",
-     "overview": "Sally and his friends must help a bank robber leave the country. The crook is holding Earl hostage with a grenade.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
-     "airDate": "1991-04-25",
-     "year": 1991,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Fly By Night - 04.mp4",
-      "format": "h.264",
-      "sizeBytes": 242114901,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/fly-by-night-04/Fly By Night - 04.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "fly-by-night-04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Bing, Bang, Boom",
+          "overview": "Sally and his friends must help a bank robber leave the country. The crook is holding Earl hostage with a grenade.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
+          "airDate": "1991-04-25",
+          "year": 1991,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Fly By Night - 04.mp4",
+            "format": "h.264",
+            "sizeBytes": 242114901,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fly-by-night-04/Fly By Night - 04.mp4"
+        },
+        {
+          "archiveID": "fly-by-night-06",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Affaire de Coeur",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
+          "airDate": "1991-05-09",
+          "year": 1991,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Fly By Night - 06.mp4",
+            "format": "h.264",
+            "sizeBytes": 239498128,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fly-by-night-06/Fly By Night - 06.mp4"
+        },
+        {
+          "archiveID": "fly-by-night-07",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Include Me Out",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
+          "airDate": "1991-05-16",
+          "year": 1991,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Fly By Night - 07.mp4",
+            "format": "h.264",
+            "sizeBytes": 241134849,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fly-by-night-07/Fly By Night - 07.mp4"
+        },
+        {
+          "archiveID": "fly-by-night-11",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Furs Flying",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
+          "airDate": "1991-07-11",
+          "year": 1991,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Fly By Night - 11.mp4",
+            "format": "h.264",
+            "sizeBytes": 240358870,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fly-by-night-11/Fly By Night - 11.mp4"
+        },
+        {
+          "archiveID": "fly-by-night-13",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Manhunt",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
+          "airDate": "1991-07-25",
+          "year": 1991,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Fly By Night - 13.mp4",
+            "format": "h.264",
+            "sizeBytes": 242795232,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fly-by-night-13/Fly By Night - 13.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "fly-by-night-06",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "Affaire de Coeur",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
-     "airDate": "1991-05-09",
-     "year": 1991,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Fly By Night - 06.mp4",
-      "format": "h.264",
-      "sizeBytes": 239498128,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/fly-by-night-06/Fly By Night - 06.mp4"
-    },
-    {
-     "archiveID": "fly-by-night-07",
-     "seasonNumber": 1,
-     "episodeNumber": 7,
-     "title": "Include Me Out",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
-     "airDate": "1991-05-16",
-     "year": 1991,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Fly By Night - 07.mp4",
-      "format": "h.264",
-      "sizeBytes": 241134849,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/fly-by-night-07/Fly By Night - 07.mp4"
-    },
-    {
-     "archiveID": "fly-by-night-11",
-     "seasonNumber": 1,
-     "episodeNumber": 11,
-     "title": "Furs Flying",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
-     "airDate": "1991-07-11",
-     "year": 1991,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Fly By Night - 11.mp4",
-      "format": "h.264",
-      "sizeBytes": 240358870,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/fly-by-night-11/Fly By Night - 11.mp4"
-    },
-    {
-     "archiveID": "fly-by-night-13",
-     "seasonNumber": 1,
-     "episodeNumber": 13,
-     "title": "Manhunt",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
-     "airDate": "1991-07-25",
-     "year": 1991,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Fly By Night - 13.mp4",
-      "format": "h.264",
-      "sizeBytes": 242795232,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/fly-by-night-13/Fly By Night - 13.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "fly-by-night-08",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fly by Night - 08: From Bad to Worse",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Fly By Night - 08.mp4",
+            "format": "h.264",
+            "sizeBytes": 242475977,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fly-by-night-08/Fly By Night - 08.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": 13,
+  "tvdbID": "77189",
+  "artworkSource": "tvdb",
+  "cast": [
     {
-     "archiveID": "fly-by-night-08",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Fly by Night - 08: From Bad to Worse",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
-     "airDate": null,
-     "year": 1991,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Fly By Night - 08.mp4",
-      "format": "h.264",
-      "sizeBytes": 242475977,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/fly-by-night-08/Fly By Night - 08.mp4"
+      "name": "David James Elliott",
+      "character": "Mack Sheppard",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262090/photo/607b824e32a0d.jpg"
+    },
+    {
+      "name": "Ian Tracey",
+      "character": "Berry the Rat",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/285059/photo/6450f74d0bb0b.jpg"
+    },
+    {
+      "name": "Jean-Paul Solal",
+      "character": "Jean-Phillipe Pasteur",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Francois Guetary",
+      "character": "Jean-Phillippe Pasteur",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/53457.jpg"
+    },
+    {
+      "name": "Shannon Tweed",
+      "character": "Sally \"Slick\" Monroe",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/279507/photo/64cabfc9824d7.jpg"
     }
-   ]
-  }
- ],
- "episodesCount": 6,
- "canonicalEpisodesCount": 13
+  ]
 }

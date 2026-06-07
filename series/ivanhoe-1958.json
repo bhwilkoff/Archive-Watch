@@ -1,142 +1,188 @@
 {
- "version": 2,
- "seriesID": "ivanhoe-1958",
- "tvmazeID": 27446,
- "title": "Ivanhoe",
- "yearStart": 1958,
- "yearEnd": 1959,
- "overview": "The adventures of Sir Wilfred of Ivanhoe, a noble knight and champion of justice during the rule of the evil Prince John.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/577/1443208.jpg",
- "backdropURL": null,
- "genres": [
-  "Action",
-  "Adventure",
-  "History"
- ],
- "networks": [
-  "ITV1"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "ivanhoe-1958",
+  "tvmazeID": 27446,
+  "title": "Ivanhoe",
+  "yearStart": 1958,
+  "yearEnd": 1959,
+  "overview": "The adventures of Sir Wilfred of Ivanhoe, a noble knight and champion of justice during the rule of the evil Prince John.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77500-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "History"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "Ivanhoe1x01",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Freeing the Serfs",
-     "overview": null,
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/379/949615.jpg",
-     "airDate": "1958-01-05",
-     "year": 1958,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Ivanhoe.mp4",
-      "format": "h.264",
-      "sizeBytes": 164947698,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Ivanhoe1x01/Ivanhoe.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Ivanhoe1x01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Freeing the Serfs",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/379/949615.jpg",
+          "airDate": "1958-01-05",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Ivanhoe.mp4",
+            "format": "h.264",
+            "sizeBytes": 164947698,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ivanhoe1x01/Ivanhoe.mp4"
+        },
+        {
+          "archiveID": "Ivanhoe",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Murder at the Inn",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/608/1522466.jpg",
+          "airDate": "1958-04-12",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Ivanhoe.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 134316114,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Ivanhoe/Ivanhoe.mp4"
+        },
+        {
+          "archiveID": "IvanhoeBrothersInArms",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Brothers in Arms",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/610/1526324.jpg",
+          "airDate": "1958-06-14",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Ivanhoe Brothers in Arms.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 161381015,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/IvanhoeBrothersInArms/Ivanhoe%20Brothers%20in%20Arms.mp4"
+        },
+        {
+          "archiveID": "IvanhoeTheWeavers",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Weavers",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/613/1534259.jpg",
+          "airDate": "1958-06-21",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Ivanhoe 3.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 188047665,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/IvanhoeTheWeavers/Ivanhoe%203.mp4"
+        },
+        {
+          "archiveID": "IvanhoeTheKidnapping",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The Kidnapping",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/617/1543021.jpg",
+          "airDate": "1958-07-27",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Ivanhoe 6.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 185521037,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/IvanhoeTheKidnapping/Ivanhoe%206.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "Ivanhoe",
-     "seasonNumber": 1,
-     "episodeNumber": 15,
-     "title": "Murder at the Inn",
-     "overview": null,
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/608/1522466.jpg",
-     "airDate": "1958-04-12",
-     "year": 1958,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Ivanhoe.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 134316114,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/Ivanhoe/Ivanhoe.mp4"
-    },
-    {
-     "archiveID": "IvanhoeBrothersInArms",
-     "seasonNumber": 1,
-     "episodeNumber": 16,
-     "title": "Brothers in Arms",
-     "overview": null,
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/610/1526324.jpg",
-     "airDate": "1958-06-14",
-     "year": 1958,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Ivanhoe Brothers in Arms.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 161381015,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/IvanhoeBrothersInArms/Ivanhoe%20Brothers%20in%20Arms.mp4"
-    },
-    {
-     "archiveID": "IvanhoeTheWeavers",
-     "seasonNumber": 1,
-     "episodeNumber": 17,
-     "title": "The Weavers",
-     "overview": null,
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/613/1534259.jpg",
-     "airDate": "1958-06-21",
-     "year": 1958,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Ivanhoe 3.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 188047665,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/IvanhoeTheWeavers/Ivanhoe%203.mp4"
-    },
-    {
-     "archiveID": "IvanhoeTheKidnapping",
-     "seasonNumber": 1,
-     "episodeNumber": 20,
-     "title": "The Kidnapping",
-     "overview": null,
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/617/1543021.jpg",
-     "airDate": "1958-07-27",
-     "year": 1958,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Ivanhoe 6.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 185521037,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/IvanhoeTheKidnapping/Ivanhoe%206.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "IvanhoeCounterfeit",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Counterfeit",
+          "overview": "A chest of gold for King Richard has been changed out with counterfeit pieces, and Ivanhoe tries finding the thief.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/9uW4a4ZuftGIYqNtHqE20BGQwbP.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ivanhoe 4.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 167500121,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/IvanhoeCounterfeit/Ivanhoe%204.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": 39,
+  "tvdbID": "77500",
+  "artworkSource": "tvdb",
+  "cast": [
     {
-     "archiveID": "IvanhoeCounterfeit",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Counterfeit",
-     "overview": "A chest of gold for King Richard has been changed out with counterfeit pieces, and Ivanhoe tries finding the thief.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/9uW4a4ZuftGIYqNtHqE20BGQwbP.jpg",
-     "airDate": null,
-     "year": 1958,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Ivanhoe 4.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 167500121,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/IvanhoeCounterfeit/Ivanhoe%204.mp4"
+      "name": "Roger Moore",
+      "character": "Sir Wilfred of Ivanhoe",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253968/photo/64e23e19b26d2.jpg"
+    },
+    {
+      "name": "Robert Brown",
+      "character": "Gurth",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256738/photo/609c9c5e898ca.jpg"
+    },
+    {
+      "name": "Andrew Keir",
+      "character": "Prince John",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Martin Wyldeck",
+      "character": "Sir William",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "John Pike",
+      "character": "Bart",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "John Bailey",
+      "character": "Baron Courcey",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "John Carson",
+      "character": "Guard Captain",
+      "order": 6,
+      "profilePath": null
     }
-   ]
-  }
- ],
- "episodesCount": 6,
- "canonicalEpisodesCount": 39
+  ]
 }

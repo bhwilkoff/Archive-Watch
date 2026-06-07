@@ -1,340 +1,362 @@
 {
- "version": 2,
- "seriesID": "kappa-mikey-2006",
- "tvmazeID": 16265,
- "title": "Kappa Mikey",
- "yearStart": 2006,
- "yearEnd": 2008,
- "overview": "Kappa Mikey is a parody of Japanese anime. Mikey Simon is a teenage actor from Cleveland, Ohio who wins a scratch-off card contest and a trip to Japan to star in the country's formerly popular anime series, \"LilyMu.\" As a result, the show becomes number one in the ratings, and Mikey becomes Japan's biggest anime star. The show focuses mainly on the actors and producers' lives off the set, as Mikey's adjustments to his new environment.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/54/135683.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy",
-  "Action",
-  "Adventure"
- ],
- "networks": [
-  "Nicktoons"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "kappa-mikey-2006",
+  "tvmazeID": 16265,
+  "title": "Kappa Mikey",
+  "yearStart": 2006,
+  "yearEnd": 2008,
+  "overview": "Kappa Mikey is a parody of Japanese anime. Mikey Simon is a teenage actor from Cleveland, Ohio who wins a scratch-off card contest and a trip to Japan to star in the country's formerly popular anime series, \"LilyMu.\" As a result, the show becomes number one in the ratings, and Mikey becomes Japan's biggest anime star. The show focuses mainly on the actors and producers' lives off the set, as Mikey's adjustments to his new environment.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/177221-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy",
+    "Action",
+    "Adventure"
+  ],
+  "networks": [
+    "Nicktoons"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "kappa-mikey-s-1-e-01-the-lost-pilot",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "The Switch",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/kappa-mikey-s-1-e-01-the-lost-pilot",
-     "airDate": "2006-02-25",
-     "year": 2006,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Kappa Mikey S1E01- The Lost Pilot.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 136920813,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/kappa-mikey-s-1-e-01-the-lost-pilot/Kappa%20Mikey%20S1E01-%20The%20Lost%20Pilot.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "kappa-mikey-s-1-e-01-the-lost-pilot",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Switch",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/kappa-mikey-s-1-e-01-the-lost-pilot",
+          "airDate": "2006-02-25",
+          "year": 2006,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Kappa Mikey S1E01- The Lost Pilot.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 136920813,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/kappa-mikey-s-1-e-01-the-lost-pilot/Kappa%20Mikey%20S1E01-%20The%20Lost%20Pilot.mp4"
+        },
+        {
+          "archiveID": "kappa-mikey-s-1-e-05-saving-face.mpeg-4",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Fugi-Kid",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/kappa-mikey-s-1-e-05-saving-face.mpeg-4",
+          "airDate": "2006-03-18",
+          "year": 2006,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Kappa Mikey S1E05 - Saving Face.mpeg4.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 66114466,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/kappa-mikey-s-1-e-05-saving-face.mpeg-4/Kappa%20Mikey%20S1E05%20-%20Saving%20Face.mpeg4.mp4"
+        },
+        {
+          "archiveID": "kappa-mikey-HMF-animation",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Lost in Transportation",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "2006-08-20",
+          "year": 2006,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Kappa Mikey S1E11- Splashomon.mp4",
+            "format": "h.264",
+            "sizeBytes": 141949102,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/kappa-mikey-HMF-animation/Kappa%20Mikey%20S1E11-%20Splashomon.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "kappa-mikey-s-1-e-05-saving-face.mpeg-4",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "The Fugi-Kid",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/kappa-mikey-s-1-e-05-saving-face.mpeg-4",
-     "airDate": "2006-03-18",
-     "year": 2006,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Kappa Mikey S1E05 - Saving Face.mpeg4.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 66114466,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/kappa-mikey-s-1-e-05-saving-face.mpeg-4/Kappa%20Mikey%20S1E05%20-%20Saving%20Face.mpeg4.mp4"
-    },
-    {
-     "archiveID": "kappa-mikey-HMF-animation",
-     "seasonNumber": 1,
-     "episodeNumber": 11,
-     "title": "Lost in Transportation",
-     "overview": null,
-     "stillURL": null,
-     "airDate": "2006-08-20",
-     "year": 2006,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Kappa Mikey S1E11- Splashomon.mp4",
-      "format": "h.264",
-      "sizeBytes": 141949102,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/kappa-mikey-HMF-animation/Kappa%20Mikey%20S1E11-%20Splashomon.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "kappa-mikey-126-the-oni-express-moonsong",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Kappa Mikey",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 2006,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Kappa Mikey 216-217 The Karaoke Episode [Moonsong].mp4",
+            "format": "h.264",
+            "sizeBytes": 287053725,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/kappa-mikey-126-the-oni-express-moonsong/Kappa%20Mikey%20216-217%20The%20Karaoke%20Episode%20%5BMoonsong%5D.mp4"
+        },
+        {
+          "archiveID": "img-2677_20260329_1835",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Kappa Mikey | Free Squiddy | Full Episode | Nicktoons Network Broadcast Version",
+          "overview": "Sushi Pack",
+          "stillURL": "https://archive.org/services/img/img-2677_20260329_1835",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1412,
+          "videoFile": {
+            "name": "IMG_2677.mp4",
+            "format": "h.264",
+            "sizeBytes": 140760981,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/img-2677_20260329_1835/IMG_2677.mp4"
+        },
+        {
+          "archiveID": "img-2793_202603",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Kappa Mikey | Like Ozu Like Son | Full Episode",
+          "overview": "Sushi Pack",
+          "stillURL": "https://archive.org/services/img/img-2793_202603",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1416,
+          "videoFile": {
+            "name": "IMG_2793.mp4",
+            "format": "h.264",
+            "sizeBytes": 143010784,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/img-2793_202603/IMG_2793.mp4"
+        },
+        {
+          "archiveID": "img-4259_202604",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Kappa Mikey | Mikey Impossible | Full Episode",
+          "overview": "Sushi Pack",
+          "stillURL": "https://archive.org/services/img/img-4259_202604",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1417,
+          "videoFile": {
+            "name": "IMG_4259.mp4",
+            "format": "h.264",
+            "sizeBytes": 143099027,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/img-4259_202604/IMG_4259.mp4"
+        },
+        {
+          "archiveID": "img-3035_202604",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Kappa Mikey | Mitsuki Butterfly | Full Episode",
+          "overview": "Sushi Pack",
+          "stillURL": "https://archive.org/services/img/img-3035_202604",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1429,
+          "videoFile": {
+            "name": "IMG_3035.mp4",
+            "format": "h.264",
+            "sizeBytes": 143402184,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/img-3035_202604/IMG_3035.mp4"
+        },
+        {
+          "archiveID": "img-2928_202604",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Kappa Mikey | The Fugi Kid | Full Episode",
+          "overview": "Sushi Pack",
+          "stillURL": "https://archive.org/services/img/img-2928_202604",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1415,
+          "videoFile": {
+            "name": "IMG_2928.mp4",
+            "format": "h.264",
+            "sizeBytes": 140604280,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/img-2928_202604/IMG_2928.mp4"
+        },
+        {
+          "archiveID": "img-4254_202604",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Kappa Mikey | The Sumo Of All Fears | Full Episode",
+          "overview": "Sushi Pack",
+          "stillURL": "https://archive.org/services/img/img-4254_202604",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1414,
+          "videoFile": {
+            "name": "IMG_4254.mp4",
+            "format": "h.264",
+            "sizeBytes": 143521172,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/img-4254_202604/IMG_4254.mp4"
+        },
+        {
+          "archiveID": "v12044gd0000ciq20k3c77u3acv3vdd0",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Kappa Mikey | The Switch TikTok Clip",
+          "overview": "Sushi Pack",
+          "stillURL": "https://archive.org/services/img/v12044gd0000ciq20k3c77u3acv3vdd0",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 37,
+          "videoFile": {
+            "name": "v12044gd0000ciq20k3c77u3acv3vdd0.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2297677,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/v12044gd0000ciq20k3c77u3acv3vdd0/v12044gd0000ciq20k3c77u3acv3vdd0.mp4"
+        },
+        {
+          "archiveID": "img-2113_20260324",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Kappa Mikey | Tin Putt | Full Episode",
+          "overview": "Sushi Pack",
+          "stillURL": "https://archive.org/services/img/img-2113_20260324",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1413,
+          "videoFile": {
+            "name": "IMG_2113.mp4",
+            "format": "h.264",
+            "sizeBytes": 142114350,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/img-2113_20260324/IMG_2113.mp4"
+        },
+        {
+          "archiveID": "img-9803_202603",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Kappa Mikey: A Christmas Mikey",
+          "overview": "Sushi Pack",
+          "stillURL": "https://archive.org/services/img/img-9803_202603",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 15,
+          "videoFile": {
+            "name": "IMG_9803.mp4",
+            "format": "h.264",
+            "sizeBytes": 1592869,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/img-9803_202603/IMG_9803.mp4"
+        },
+        {
+          "archiveID": "img-4183_202507",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Kappa Mikey: I Am A LilyMu Queen From: The Clip Show",
+          "overview": "Sushi Pack",
+          "stillURL": "https://archive.org/services/img/img-4183_202507",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 22,
+          "videoFile": {
+            "name": "IMG_4183.mp4",
+            "format": "h.264",
+            "sizeBytes": 2273625,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/img-4183_202507/IMG_4183.mp4"
+        },
+        {
+          "archiveID": "img-0711_202603",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Kappa Mikey: La Cage Aux Mikey",
+          "overview": "Sushi Pack",
+          "stillURL": "https://archive.org/services/img/img-0711_202603",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 6,
+          "videoFile": {
+            "name": "IMG_0711.mp4",
+            "format": "h.264",
+            "sizeBytes": 709154,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/img-0711_202603/IMG_0711.mp4"
+        },
+        {
+          "archiveID": "img-3512_202604",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Kappa Mikey: Ship Of Fools Nickelodeon Promo",
+          "overview": "Sushi Pack",
+          "stillURL": "https://archive.org/services/img/img-3512_202604",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 31,
+          "videoFile": {
+            "name": "IMG_3512.mp4",
+            "format": "h.264",
+            "sizeBytes": 3168915,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/img-3512_202604/IMG_3512.mp4"
+        },
+        {
+          "archiveID": "1000139444",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Nickelodeon Kappa Mikey Lost in Transportation Marathon Full Ideal Recording",
+          "overview": "Episodes Included <div>Lost In Transportation</div><div>Easy Come, Easy Gonard</div><div>The Man Who Would Be Mikey</div>",
+          "stillURL": "https://archive.org/services/img/1000139444",
+          "airDate": null,
+          "year": 2007,
+          "runtimeSeconds": 5400,
+          "videoFile": {
+            "name": "1000139444.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 559851253,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1000139444/1000139444.ia.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+  ],
+  "episodesCount": 17,
+  "canonicalEpisodesCount": 52,
+  "tvdbID": "177221",
+  "artworkSource": "tvdb",
+  "cast": [
     {
-     "archiveID": "kappa-mikey-126-the-oni-express-moonsong",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Kappa Mikey",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": 2006,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Kappa Mikey 216-217 The Karaoke Episode [Moonsong].mp4",
-      "format": "h.264",
-      "sizeBytes": 287053725,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/kappa-mikey-126-the-oni-express-moonsong/Kappa%20Mikey%20216-217%20The%20Karaoke%20Episode%20%5BMoonsong%5D.mp4"
+      "name": "Michael Sinterniklaas",
+      "character": "Mikey Simon",
+      "order": 0,
+      "profilePath": null
     },
     {
-     "archiveID": "img-2677_20260329_1835",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Kappa Mikey | Free Squiddy | Full Episode | Nicktoons Network Broadcast Version",
-     "overview": "Sushi Pack",
-     "stillURL": "https://archive.org/services/img/img-2677_20260329_1835",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1412,
-     "videoFile": {
-      "name": "IMG_2677.mp4",
-      "format": "h.264",
-      "sizeBytes": 140760981,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/img-2677_20260329_1835/IMG_2677.mp4"
+      "name": "Sean Schemmel",
+      "character": "Gonard",
+      "order": 1,
+      "profilePath": null
     },
     {
-     "archiveID": "img-2793_202603",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Kappa Mikey | Like Ozu Like Son | Full Episode",
-     "overview": "Sushi Pack",
-     "stillURL": "https://archive.org/services/img/img-2793_202603",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1416,
-     "videoFile": {
-      "name": "IMG_2793.mp4",
-      "format": "h.264",
-      "sizeBytes": 143010784,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/img-2793_202603/IMG_2793.mp4"
-    },
-    {
-     "archiveID": "img-4259_202604",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Kappa Mikey | Mikey Impossible | Full Episode",
-     "overview": "Sushi Pack",
-     "stillURL": "https://archive.org/services/img/img-4259_202604",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1417,
-     "videoFile": {
-      "name": "IMG_4259.mp4",
-      "format": "h.264",
-      "sizeBytes": 143099027,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/img-4259_202604/IMG_4259.mp4"
-    },
-    {
-     "archiveID": "img-3035_202604",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Kappa Mikey | Mitsuki Butterfly | Full Episode",
-     "overview": "Sushi Pack",
-     "stillURL": "https://archive.org/services/img/img-3035_202604",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1429,
-     "videoFile": {
-      "name": "IMG_3035.mp4",
-      "format": "h.264",
-      "sizeBytes": 143402184,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/img-3035_202604/IMG_3035.mp4"
-    },
-    {
-     "archiveID": "img-2928_202604",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Kappa Mikey | The Fugi Kid | Full Episode",
-     "overview": "Sushi Pack",
-     "stillURL": "https://archive.org/services/img/img-2928_202604",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1415,
-     "videoFile": {
-      "name": "IMG_2928.mp4",
-      "format": "h.264",
-      "sizeBytes": 140604280,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/img-2928_202604/IMG_2928.mp4"
-    },
-    {
-     "archiveID": "img-4254_202604",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Kappa Mikey | The Sumo Of All Fears | Full Episode",
-     "overview": "Sushi Pack",
-     "stillURL": "https://archive.org/services/img/img-4254_202604",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1414,
-     "videoFile": {
-      "name": "IMG_4254.mp4",
-      "format": "h.264",
-      "sizeBytes": 143521172,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/img-4254_202604/IMG_4254.mp4"
-    },
-    {
-     "archiveID": "v12044gd0000ciq20k3c77u3acv3vdd0",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Kappa Mikey | The Switch TikTok Clip",
-     "overview": "Sushi Pack",
-     "stillURL": "https://archive.org/services/img/v12044gd0000ciq20k3c77u3acv3vdd0",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 37,
-     "videoFile": {
-      "name": "v12044gd0000ciq20k3c77u3acv3vdd0.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 2297677,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/v12044gd0000ciq20k3c77u3acv3vdd0/v12044gd0000ciq20k3c77u3acv3vdd0.mp4"
-    },
-    {
-     "archiveID": "img-2113_20260324",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Kappa Mikey | Tin Putt | Full Episode",
-     "overview": "Sushi Pack",
-     "stillURL": "https://archive.org/services/img/img-2113_20260324",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1413,
-     "videoFile": {
-      "name": "IMG_2113.mp4",
-      "format": "h.264",
-      "sizeBytes": 142114350,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/img-2113_20260324/IMG_2113.mp4"
-    },
-    {
-     "archiveID": "img-9803_202603",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Kappa Mikey: A Christmas Mikey",
-     "overview": "Sushi Pack",
-     "stillURL": "https://archive.org/services/img/img-9803_202603",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 15,
-     "videoFile": {
-      "name": "IMG_9803.mp4",
-      "format": "h.264",
-      "sizeBytes": 1592869,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/img-9803_202603/IMG_9803.mp4"
-    },
-    {
-     "archiveID": "img-4183_202507",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Kappa Mikey: I Am A LilyMu Queen From: The Clip Show",
-     "overview": "Sushi Pack",
-     "stillURL": "https://archive.org/services/img/img-4183_202507",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 22,
-     "videoFile": {
-      "name": "IMG_4183.mp4",
-      "format": "h.264",
-      "sizeBytes": 2273625,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/img-4183_202507/IMG_4183.mp4"
-    },
-    {
-     "archiveID": "img-0711_202603",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Kappa Mikey: La Cage Aux Mikey",
-     "overview": "Sushi Pack",
-     "stillURL": "https://archive.org/services/img/img-0711_202603",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 6,
-     "videoFile": {
-      "name": "IMG_0711.mp4",
-      "format": "h.264",
-      "sizeBytes": 709154,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/img-0711_202603/IMG_0711.mp4"
-    },
-    {
-     "archiveID": "img-3512_202604",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Kappa Mikey: Ship Of Fools Nickelodeon Promo",
-     "overview": "Sushi Pack",
-     "stillURL": "https://archive.org/services/img/img-3512_202604",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 31,
-     "videoFile": {
-      "name": "IMG_3512.mp4",
-      "format": "h.264",
-      "sizeBytes": 3168915,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/img-3512_202604/IMG_3512.mp4"
-    },
-    {
-     "archiveID": "1000139444",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Nickelodeon Kappa Mikey Lost in Transportation Marathon Full Ideal Recording",
-     "overview": "Episodes Included <div>Lost In Transportation</div><div>Easy Come, Easy Gonard</div><div>The Man Who Would Be Mikey</div>",
-     "stillURL": "https://archive.org/services/img/1000139444",
-     "airDate": null,
-     "year": 2007,
-     "runtimeSeconds": 5400,
-     "videoFile": {
-      "name": "1000139444.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 559851253,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/1000139444/1000139444.ia.mp4"
+      "name": "Gary Littman",
+      "character": "Guano",
+      "order": 2,
+      "profilePath": null
     }
-   ]
-  }
- ],
- "episodesCount": 17,
- "canonicalEpisodesCount": 52
+  ]
 }

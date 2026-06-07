@@ -1,136 +1,182 @@
 {
- "version": 2,
- "seriesID": "dusty-s-trail-1973",
- "tvmazeID": 22148,
- "title": "Dusty's Trail",
- "yearStart": 1973,
- "yearEnd": 1974,
- "overview": "Dusty's Trail is an American Western/comedy series that aired in syndication from September 1973 to March 1974 starring Bob Denver and Forrest Tucker. The series is a western-themed reworking of Gilligan's Island. The series, set in the latter 19th century, is about a small, diverse cluster of lost travelers, who become separated from their wagon train. Two coachmen and five passengers of a wagon and stagecoach become separated from their wagon train on the way to California in the early 1870s. The group includes wagonmaster Mr. Callahan and his shotgun lookout Dusty, Mr. and Mrs. Brookhaven (a wealthy Eastern banker and his wife), book-smarts thinker Andy, dance-hall girl Lulu McQueen, and farm girl Betsy. The show follows their adventures while they attempt to return to their wagon train. According to the theme song, \"...Dusty's the reason for their plight, thanks to Dusty – nothing's right\".",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/80/202358.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy",
-  "Western"
- ],
- "networks": [
-  "Syndication"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": null,
-   "episodes": [
+  "version": 2,
+  "seriesID": "dusty-s-trail-1973",
+  "tvmazeID": 22148,
+  "title": "Dusty's Trail",
+  "yearStart": 1973,
+  "yearEnd": 1974,
+  "overview": "Dusty's Trail is an American Western/comedy series that aired in syndication from September 1973 to March 1974 starring Bob Denver and Forrest Tucker. The series is a western-themed reworking of Gilligan's Island. The series, set in the latter 19th century, is about a small, diverse cluster of lost travelers, who become separated from their wagon train. Two coachmen and five passengers of a wagon and stagecoach become separated from their wagon train on the way to California in the early 1870s. The group includes wagonmaster Mr. Callahan and his shotgun lookout Dusty, Mr. and Mrs. Brookhaven (a wealthy Eastern banker and his wife), book-smarts thinker Andy, dance-hall girl Lulu McQueen, and farm girl Betsy. The show follows their adventures while they attempt to return to their wagon train. According to the theme song, \"...Dusty's the reason for their plight, thanks to Dusty – nothing's right\".",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/72402-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy",
+    "Western"
+  ],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "Dusty_5",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "'Dusty's Trail' - Cavalry's Coming",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
-     "airDate": null,
-     "year": 1973,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Dustys_Trail_5.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 138066474,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Dusty_5/Dustys_Trail_5.ia.mp4"
-    },
-    {
-     "archiveID": "Dustys_Trail_3",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "'Dusty's Trail' - Here Come the Grooms",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
-     "airDate": null,
-     "year": 1973,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Dustys_Trail_3.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 136184611,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Dustys_Trail_3/Dustys_Trail_3.ia.mp4"
-    },
-    {
-     "archiveID": "Dustys_Trail_4",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "'Dusty's Trail' - Horse of Another Color",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
-     "airDate": null,
-     "year": 1973,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Dustys_Trail_4.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 136108321,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Dustys_Trail_4/Dustys_Trail_4.ia.mp4"
-    },
-    {
-     "archiveID": "DustysTrailPhoneyExpress",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Dusty's Trail Phoney Express",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Dusty's Trail - Phoney Express.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 92716635,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/DustysTrailPhoneyExpress/Dusty%27s%20Trail%20-%20Phoney%20Express.mp4"
-    },
-    {
-     "archiveID": "DustysTrailTheresNothingLikeADame",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Dusty's Trail There's Nothing Like A Dame",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Dusty's Trail There's Nothing Like A Dame.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 104568790,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/DustysTrailTheresNothingLikeADame/Dusty%27s%20Trail%20There%27s%20Nothing%20Like%20A%20Dame.mp4"
-    },
-    {
-     "archiveID": "DustysTrailTomahawkTerritory",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Dusty's Trail Tomahawk Territory",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Dusty's Trail Tomahawk Territory.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 107789899,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/DustysTrailTomahawkTerritory/Dusty%27s%20Trail%20Tomahawk%20Territory.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Dusty_5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Dusty's Trail' - Cavalry's Coming",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dustys_Trail_5.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 138066474,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dusty_5/Dustys_Trail_5.ia.mp4"
+        },
+        {
+          "archiveID": "Dustys_Trail_3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Dusty's Trail' - Here Come the Grooms",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dustys_Trail_3.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 136184611,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dustys_Trail_3/Dustys_Trail_3.ia.mp4"
+        },
+        {
+          "archiveID": "Dustys_Trail_4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Dusty's Trail' - Horse of Another Color",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dustys_Trail_4.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 136108321,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dustys_Trail_4/Dustys_Trail_4.ia.mp4"
+        },
+        {
+          "archiveID": "DustysTrailPhoneyExpress",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dusty's Trail Phoney Express",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dusty's Trail - Phoney Express.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 92716635,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/DustysTrailPhoneyExpress/Dusty%27s%20Trail%20-%20Phoney%20Express.mp4"
+        },
+        {
+          "archiveID": "DustysTrailTheresNothingLikeADame",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dusty's Trail There's Nothing Like A Dame",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dusty's Trail There's Nothing Like A Dame.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 104568790,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/DustysTrailTheresNothingLikeADame/Dusty%27s%20Trail%20There%27s%20Nothing%20Like%20A%20Dame.mp4"
+        },
+        {
+          "archiveID": "DustysTrailTomahawkTerritory",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dusty's Trail Tomahawk Territory",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dusty's Trail Tomahawk Territory.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 107789899,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/DustysTrailTomahawkTerritory/Dusty%27s%20Trail%20Tomahawk%20Territory.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 6,
- "canonicalEpisodesCount": 26
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": 26,
+  "tvdbID": "72402",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Bob Denver",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/279523/photo/6689fe36d11d1.jpg"
+    },
+    {
+      "name": "Lynn Wood",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Forrest Tucker",
+      "character": "",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256477/photo/68eafbd702ab3.jpg"
+    },
+    {
+      "name": "Ivor Francis",
+      "character": "",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Lori Saunders",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Bill Cort",
+      "character": "",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Jeannine Riley",
+      "character": "",
+      "order": 6,
+      "profilePath": null
+    }
+  ]
 }

@@ -1,1406 +1,1422 @@
 {
- "version": 2,
- "seriesID": "lock-up-1959",
- "tvmazeID": 20524,
- "title": "Lock-Up",
- "yearStart": 1959,
- "yearEnd": 1961,
- "overview": "Cases taken from the files and case histories of renowned Philadelphia defense attorney Herbert L. Maris.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/72/181444.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "Crime"
- ],
- "networks": [
-  "Syndication"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "lock-up-1959",
+  "tvmazeID": 20524,
+  "title": "Lock-Up",
+  "yearStart": 1959,
+  "yearEnd": 1961,
+  "overview": "Cases taken from the files and case histories of renowned Philadelphia defense attorney Herbert L. Maris.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70464-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Crime"
+  ],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "movieslock-up-season-1-of-2-tv-series-1959-xvid-avi",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Stake Out",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1959-09-26",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Lock Up - S01E01 - Stake Out.mp4",
-      "format": "h.264",
-      "sizeBytes": 168365892,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi/Lock Up - S01E01 - Stake Out.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "movieslock-up-season-1-of-2-tv-series-1959-xvid-avi",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Stake Out",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-09-26",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Lock Up - S01E01 - Stake Out.mp4",
+            "format": "h.264",
+            "sizeBytes": 168365892,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi/Lock Up - S01E01 - Stake Out.mp4"
+        },
+        {
+          "archiveID": "lock-up-season-1-of-2-tv-series-1959-mkv",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Stake Out",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": " Lock Up - S01E01 - Stakeout.mp4",
+            "format": "h.264",
+            "sizeBytes": 168437341,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lock-up-season-1-of-2-tv-series-1959-mkv/ Lock Up - S01E01 - Stakeout.mp4"
+        },
+        {
+          "archiveID": "LockUpTheHarryConnorsStory",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Harry Connors Story",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-10-03",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-theHarryConnorsStory.mp4",
+            "format": "h.264",
+            "sizeBytes": 142560610,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheHarryConnorsStory/LockUp-theHarryConnorsStory.mp4"
+        },
+        {
+          "archiveID": "LockUpChangeOfHeart",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Change of Heart",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-10-10",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-changeOfHeart.mp4",
+            "format": "h.264",
+            "sizeBytes": 158501266,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpChangeOfHeart/LockUp-changeOfHeart.mp4"
+        },
+        {
+          "archiveID": "LockUpShadowOfAGiant",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Shadow of a Giant",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-10-31",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-shadowOfAGiant.mp4",
+            "format": "h.264",
+            "sizeBytes": 135856978,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpShadowOfAGiant/LockUp-shadowOfAGiant.mp4"
+        },
+        {
+          "archiveID": "Lock-upPresumptionOfGuilt",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Presumption of Guilt",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-11-07",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Lock-up-presumptionOfGuilt.mp4",
+            "format": "h.264",
+            "sizeBytes": 156638656,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Lock-upPresumptionOfGuilt/Lock-up-presumptionOfGuilt.mp4"
+        },
+        {
+          "archiveID": "LockUpTheAngryMen",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Angry Men",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-11-14",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Lock-up-theAngryMen.mp4",
+            "format": "h.264",
+            "sizeBytes": 154475761,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheAngryMen/Lock-up-theAngryMen.mp4"
+        },
+        {
+          "archiveID": "LockUpWithMaliceForOne",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "With Malice for One",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-12-05",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-withMaliceTowardsOne.mp4",
+            "format": "h.264",
+            "sizeBytes": 143629894,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpWithMaliceForOne/LockUp-withMaliceTowardsOne.mp4"
+        },
+        {
+          "archiveID": "LockUpFramedEx-con",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Framed Ex-Con",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-12-12",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-framedEx-con.mp4",
+            "format": "h.264",
+            "sizeBytes": 145466574,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpFramedEx-con/LockUp-framedEx-con.mp4"
+        },
+        {
+          "archiveID": "LockUpDeathInTheStreets",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Death in the Streets",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-12-19",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-deathInTheStreets.mp4",
+            "format": "h.264",
+            "sizeBytes": 141892345,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpDeathInTheStreets/LockUp-deathInTheStreets.mp4"
+        },
+        {
+          "archiveID": "Lock-upTheDrop",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Drop",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-12-26",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-theDrop.mp4",
+            "format": "h.264",
+            "sizeBytes": 145944819,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Lock-upTheDrop/LockUp-theDrop.mp4"
+        },
+        {
+          "archiveID": "LockUpHisFathersFootsteps",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "His Father's Footsteps",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-01-16",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-hisFathersFootsteps.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157704353,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpHisFathersFootsteps/LockUp-hisFathersFootsteps.ia.mp4"
+        },
+        {
+          "archiveID": "LockUpNeverBetTheOdds",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Never Bet the Odds",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-01-30",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-neverBetTheOdds.mp4",
+            "format": "h.264",
+            "sizeBytes": 143521026,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpNeverBetTheOdds/LockUp-neverBetTheOdds.mp4"
+        },
+        {
+          "archiveID": "LockUpDeadMansShoes",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Dead Man's Shoes",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-02-13",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-deadMansShoes.mp4",
+            "format": "h.264",
+            "sizeBytes": 157708870,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpDeadMansShoes/LockUp-deadMansShoes.mp4"
+        },
+        {
+          "archiveID": "LockUpConcreteCoffin",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Strange Summons",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-02-20",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-conreteCoffin.mp4",
+            "format": "h.264",
+            "sizeBytes": 158337010,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpConcreteCoffin/LockUp-conreteCoffin.mp4"
+        },
+        {
+          "archiveID": "LockUpMurderPlaysItCool",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Murder Plays It Cool",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-02-27",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-murderPlaysItCool.mp4",
+            "format": "h.264",
+            "sizeBytes": 159346251,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpMurderPlaysItCool/LockUp-murderPlaysItCool.mp4"
+        },
+        {
+          "archiveID": "LockUpPokerClub",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Poker Club",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-03-12",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-pokerClub.mp4",
+            "format": "h.264",
+            "sizeBytes": 142721313,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpPokerClub/LockUp-pokerClub.mp4"
+        },
+        {
+          "archiveID": "LockUpTheTrigger",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "The Trigger",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-03-19",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-theTrigger.mp4",
+            "format": "h.264",
+            "sizeBytes": 143218342,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheTrigger/LockUp-theTrigger.mp4"
+        },
+        {
+          "archiveID": "LockUpMurderIsAGamble",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Murder is a Gamble",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-03-26",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-murderIsAGamble.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159349162,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpMurderIsAGamble/LockUp-murderIsAGamble.ia.mp4"
+        },
+        {
+          "archiveID": "LockUpTheLocket",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "The Locket",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-04-09",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-theLocket.mp4",
+            "format": "h.264",
+            "sizeBytes": 149030219,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheLocket/LockUp-theLocket.mp4"
+        },
+        {
+          "archiveID": "LockUpTheTroubleCop",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "The Trouble Cop",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-04-16",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-theTroubleCop.mp4",
+            "format": "h.264",
+            "sizeBytes": 143058225,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheTroubleCop/LockUp-theTroubleCop.mp4"
+        },
+        {
+          "archiveID": "LockUpFirstPrizeForMurder",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "First Prize for Murder",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-04-23",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-firstPrizeForMurder.mp4",
+            "format": "h.264",
+            "sizeBytes": 143414921,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpFirstPrizeForMurder/LockUp-firstPrizeForMurder.mp4"
+        },
+        {
+          "archiveID": "LockUpSocietyMatron",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "Society Matron",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-05-07",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-societyMatron.mp4",
+            "format": "h.264",
+            "sizeBytes": 138259966,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpSocietyMatron/LockUp-societyMatron.mp4"
+        },
+        {
+          "archiveID": "LockUpTheLastChance",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "Last Chance",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-05-14",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-lastChance.mp4",
+            "format": "h.264",
+            "sizeBytes": 132458918,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheLastChance/LockUp-lastChance.mp4"
+        },
+        {
+          "archiveID": "LockUpMindOverMurder_11615",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Mind Over Murder",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-05-21",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-mindOverMurder.mp4",
+            "format": "h.264",
+            "sizeBytes": 144576411,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpMindOverMurder_11615/LockUp-mindOverMurder.mp4"
+        },
+        {
+          "archiveID": "LockUpSoShallYeReap",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "So Shall Ye Reap",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-05-28",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-soShallYeReap.mp4",
+            "format": "h.264",
+            "sizeBytes": 162136438,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpSoShallYeReap/LockUp-soShallYeReap.mp4"
+        },
+        {
+          "archiveID": "LockUpTheVoiceOfDoom",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "Voice of Doom",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-06-11",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-voiceOfDoom.mp4",
+            "format": "h.264",
+            "sizeBytes": 160567596,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheVoiceOfDoom/LockUp-voiceOfDoom.mp4"
+        },
+        {
+          "archiveID": "LockUpTheBloodRedRuby",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "The Blood Red Ruby",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-06-18",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-theBloodRedRuby.mp4",
+            "format": "h.264",
+            "sizeBytes": 148344300,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheBloodRedRuby/LockUp-theBloodRedRuby.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "lock-up-season-1-of-2-tv-series-1959-mkv",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Stake Out",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": " Lock Up - S01E01 - Stakeout.mp4",
-      "format": "h.264",
-      "sizeBytes": 168437341,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/lock-up-season-1-of-2-tv-series-1959-mkv/ Lock Up - S01E01 - Stakeout.mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "LockUpTheSkidRowStory",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Skid Row Story",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-10-08",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-theSkidRowStory.mp4",
+            "format": "h.264",
+            "sizeBytes": 154646442,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheSkidRowStory/LockUp-theSkidRowStory.mp4"
+        },
+        {
+          "archiveID": "LockUpFlyingHigh",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Flying High",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-10-15",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-flyingHigh.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158156459,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpFlyingHigh/LockUp-flyingHigh.ia.mp4"
+        },
+        {
+          "archiveID": "LockUpTheFrameUp",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "The Frame Up",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-10-29",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-theFrameUp.mp4",
+            "format": "h.264",
+            "sizeBytes": 132128848,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheFrameUp/LockUp-theFrameUp.mp4"
+        },
+        {
+          "archiveID": "LockUpTheSeventhHour",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Seventh Hour",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-11-05",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUpTheSeventhHour.mp4",
+            "format": "h.264",
+            "sizeBytes": 142406786,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheSeventhHour/LockUpTheSeventhHour.mp4"
+        },
+        {
+          "archiveID": "LockUpTheSisters",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "The Sisters",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-06-17",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-theSisters.mp4",
+            "format": "h.264",
+            "sizeBytes": 157299044,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheSisters/LockUp-theSisters.mp4"
+        },
+        {
+          "archiveID": "LockUpStrangeSummons",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Diamond Dupe",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-11-12",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-strangeSummons.mp4",
+            "format": "h.264",
+            "sizeBytes": 154745015,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpStrangeSummons/LockUp-strangeSummons.mp4"
+        },
+        {
+          "archiveID": "LockUpSocietyDoctor",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Society Doctor",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-11-26",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-societyDoctor.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158095119,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpSocietyDoctor/LockUp-societyDoctor.ia.mp4"
+        },
+        {
+          "archiveID": "LockUpTopSecret",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Top Secret",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-11-19",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-topSecret.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156565352,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTopSecret/LockUp-topSecret.ia.mp4"
+        },
+        {
+          "archiveID": "LockUpNumberPlease",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Number Please",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-12-03",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-numberPlease.mp4",
+            "format": "h.264",
+            "sizeBytes": 130222641,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpNumberPlease/LockUp-numberPlease.mp4"
+        },
+        {
+          "archiveID": "LockUpGirlsWanted",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Girls Wanted",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-12-31",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-girlsWanted.mp4",
+            "format": "h.264",
+            "sizeBytes": 142916257,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpGirlsWanted/LockUp-girlsWanted.mp4"
+        },
+        {
+          "archiveID": "LockUpHisBrothersKeeper",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "His Brother's Keeper",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-01-07",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-hisBrothersKeeper.mp4",
+            "format": "h.264",
+            "sizeBytes": 131925879,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpHisBrothersKeeper/LockUp-hisBrothersKeeper.mp4"
+        },
+        {
+          "archiveID": "LockUpACaseOfArson",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "A Case of Arson",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-01-14",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-aCaseOfArson.mp4",
+            "format": "h.264",
+            "sizeBytes": 156211577,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpACaseOfArson/LockUp-aCaseOfArson.mp4"
+        },
+        {
+          "archiveID": "LockUpJennifer",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "Jennifer",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-01-21",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-jennifer.mp4",
+            "format": "h.264",
+            "sizeBytes": 155424156,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpJennifer/LockUp-jennifer.mp4"
+        },
+        {
+          "archiveID": "LockUpAbandonedMine",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "Abandoned Mine",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-01-28",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-abandonnedMine.mp4",
+            "format": "h.264",
+            "sizeBytes": 145393874,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpAbandonedMine/LockUp-abandonnedMine.mp4"
+        },
+        {
+          "archiveID": "LockUpTheFrenchAffair",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "A French Affair",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-02-04",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-aFrenchAffair.mp4",
+            "format": "h.264",
+            "sizeBytes": 154705471,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheFrenchAffair/LockUp-aFrenchAffair.mp4"
+        },
+        {
+          "archiveID": "lock-up-season-2-of-2-tv-series-1959-mkv",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "End of Titan",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-02-11",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Lock Up - S02E22 - End of a Titan.mp4",
+            "format": "h.264",
+            "sizeBytes": 165810326,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/Lock Up - S02E22 - End of a Titan.mp4"
+        },
+        {
+          "archiveID": "LockupFugitiveFromFear",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "Fugitive from Fear",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-02-18",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-fugitiveFromFear.mp4",
+            "format": "h.264",
+            "sizeBytes": 156619633,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockupFugitiveFromFear/LockUp-fugitiveFromFear.mp4"
+        },
+        {
+          "archiveID": "LockUpDesignForMurder",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "Design for Murder",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-02-25",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-designForMurder.mp4",
+            "format": "h.264",
+            "sizeBytes": 138932153,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpDesignForMurder/LockUp-designForMurder.mp4"
+        },
+        {
+          "archiveID": "LockUpLikeFatherLikeSon",
+          "seasonNumber": 2,
+          "episodeNumber": 25,
+          "title": "Like Father, Like Son",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-03-04",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-likeFatherLikeSon.mp4",
+            "format": "h.264",
+            "sizeBytes": 144560021,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpLikeFatherLikeSon/LockUp-likeFatherLikeSon.mp4"
+        },
+        {
+          "archiveID": "LockUpRedConfetti",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "Red Confetti",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-03-11",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-redConfetti.mp4",
+            "format": "h.264",
+            "sizeBytes": 144576150,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpRedConfetti/LockUp-redConfetti.mp4"
+        },
+        {
+          "archiveID": "LockUpPlantersDeath",
+          "seasonNumber": 2,
+          "episodeNumber": 27,
+          "title": "Planter's Death",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-03-18",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-plantersDeath.mp4",
+            "format": "h.264",
+            "sizeBytes": 157219976,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpPlantersDeath/LockUp-plantersDeath.mp4"
+        },
+        {
+          "archiveID": "LockUpTwoWrongs",
+          "seasonNumber": 2,
+          "episodeNumber": 28,
+          "title": "Two Wrongs",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-03-25",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-twoWrongs.mp4",
+            "format": "h.264",
+            "sizeBytes": 143584371,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTwoWrongs/LockUp-twoWrongs.mp4"
+        },
+        {
+          "archiveID": "LockUpJungleCompound",
+          "seasonNumber": 2,
+          "episodeNumber": 29,
+          "title": "Jungle Compound",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-04-01",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-jungleCompound.mp4",
+            "format": "h.264",
+            "sizeBytes": 154808377,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpJungleCompound/LockUp-jungleCompound.mp4"
+        },
+        {
+          "archiveID": "LockUpTheWildcatter",
+          "seasonNumber": 2,
+          "episodeNumber": 31,
+          "title": "The Wildcatter",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-04-15",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-theWildcatter.mp4",
+            "format": "h.264",
+            "sizeBytes": 135993917,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheWildcatter/LockUp-theWildcatter.mp4"
+        },
+        {
+          "archiveID": "LockUpTheAccused",
+          "seasonNumber": 2,
+          "episodeNumber": 32,
+          "title": "The Accused",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-04-22",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-theAccused.mp4",
+            "format": "h.264",
+            "sizeBytes": 148885675,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheAccused/LockUp-theAccused.mp4"
+        },
+        {
+          "archiveID": "LockUpLeadingYoungCitizen",
+          "seasonNumber": 2,
+          "episodeNumber": 33,
+          "title": "Leading Young Citizen",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-04-29",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-leadingYoungCitizen.mp4",
+            "format": "h.264",
+            "sizeBytes": 162561210,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpLeadingYoungCitizen/LockUp-leadingYoungCitizen.mp4"
+        },
+        {
+          "archiveID": "LockUpHurricane",
+          "seasonNumber": 2,
+          "episodeNumber": 34,
+          "title": "Hurricane",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-05-06",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-hurricane.mp4",
+            "format": "h.264",
+            "sizeBytes": 161100015,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpHurricane/LockUp-hurricane.mp4"
+        },
+        {
+          "archiveID": "LockUpSacrificePlay",
+          "seasonNumber": 2,
+          "episodeNumber": 36,
+          "title": "Sacrifice Play",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-05-20",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-sacrificePlay.mp4",
+            "format": "h.264",
+            "sizeBytes": 163224176,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpSacrificePlay/LockUp-sacrificePlay.mp4"
+        },
+        {
+          "archiveID": "LockUpTheFaceOfInnocence",
+          "seasonNumber": 2,
+          "episodeNumber": 37,
+          "title": "Face of Innocence",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-05-27",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-faceOfInnocence.mp4",
+            "format": "h.264",
+            "sizeBytes": 164138888,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheFaceOfInnocence/LockUp-faceOfInnocence.mp4"
+        },
+        {
+          "archiveID": "lock-up-season-2-of-2-tv-series-1959-xvid-avi",
+          "seasonNumber": 2,
+          "episodeNumber": 37,
+          "title": "Lock Up - - TV Series - 1959 - XviD AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Lock Up - S02E37 - Face Of Innocence.mp4",
+            "format": "h.264",
+            "sizeBytes": 165454658,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-xvid-avi/Lock Up - S02E37 - Face Of Innocence.mp4"
+        },
+        {
+          "archiveID": "LockUpTheIntruder",
+          "seasonNumber": 2,
+          "episodeNumber": 38,
+          "title": "The Intruder",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-06-03",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-theIntruder.mp4",
+            "format": "h.264",
+            "sizeBytes": 161126196,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheIntruder/LockUp-theIntruder.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "LockUpTheHarryConnorsStory",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "The Harry Connors Story",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1959-10-03",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-theHarryConnorsStory.mp4",
-      "format": "h.264",
-      "sizeBytes": 142560610,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheHarryConnorsStory/LockUp-theHarryConnorsStory.mp4"
-    },
-    {
-     "archiveID": "LockUpChangeOfHeart",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Change of Heart",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1959-10-10",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-changeOfHeart.mp4",
-      "format": "h.264",
-      "sizeBytes": 158501266,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpChangeOfHeart/LockUp-changeOfHeart.mp4"
-    },
-    {
-     "archiveID": "LockUpShadowOfAGiant",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "Shadow of a Giant",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1959-10-31",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-shadowOfAGiant.mp4",
-      "format": "h.264",
-      "sizeBytes": 135856978,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpShadowOfAGiant/LockUp-shadowOfAGiant.mp4"
-    },
-    {
-     "archiveID": "Lock-upPresumptionOfGuilt",
-     "seasonNumber": 1,
-     "episodeNumber": 7,
-     "title": "Presumption of Guilt",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1959-11-07",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Lock-up-presumptionOfGuilt.mp4",
-      "format": "h.264",
-      "sizeBytes": 156638656,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Lock-upPresumptionOfGuilt/Lock-up-presumptionOfGuilt.mp4"
-    },
-    {
-     "archiveID": "LockUpTheAngryMen",
-     "seasonNumber": 1,
-     "episodeNumber": 8,
-     "title": "The Angry Men",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1959-11-14",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Lock-up-theAngryMen.mp4",
-      "format": "h.264",
-      "sizeBytes": 154475761,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheAngryMen/Lock-up-theAngryMen.mp4"
-    },
-    {
-     "archiveID": "LockUpWithMaliceForOne",
-     "seasonNumber": 1,
-     "episodeNumber": 11,
-     "title": "With Malice for One",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1959-12-05",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-withMaliceTowardsOne.mp4",
-      "format": "h.264",
-      "sizeBytes": 143629894,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpWithMaliceForOne/LockUp-withMaliceTowardsOne.mp4"
-    },
-    {
-     "archiveID": "LockUpFramedEx-con",
-     "seasonNumber": 1,
-     "episodeNumber": 12,
-     "title": "Framed Ex-Con",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1959-12-12",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-framedEx-con.mp4",
-      "format": "h.264",
-      "sizeBytes": 145466574,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpFramedEx-con/LockUp-framedEx-con.mp4"
-    },
-    {
-     "archiveID": "LockUpDeathInTheStreets",
-     "seasonNumber": 1,
-     "episodeNumber": 13,
-     "title": "Death in the Streets",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1959-12-19",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-deathInTheStreets.mp4",
-      "format": "h.264",
-      "sizeBytes": 141892345,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpDeathInTheStreets/LockUp-deathInTheStreets.mp4"
-    },
-    {
-     "archiveID": "Lock-upTheDrop",
-     "seasonNumber": 1,
-     "episodeNumber": 14,
-     "title": "The Drop",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1959-12-26",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-theDrop.mp4",
-      "format": "h.264",
-      "sizeBytes": 145944819,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Lock-upTheDrop/LockUp-theDrop.mp4"
-    },
-    {
-     "archiveID": "LockUpHisFathersFootsteps",
-     "seasonNumber": 1,
-     "episodeNumber": 17,
-     "title": "His Father's Footsteps",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-01-16",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-hisFathersFootsteps.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 157704353,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpHisFathersFootsteps/LockUp-hisFathersFootsteps.ia.mp4"
-    },
-    {
-     "archiveID": "LockUpNeverBetTheOdds",
-     "seasonNumber": 1,
-     "episodeNumber": 19,
-     "title": "Never Bet the Odds",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-01-30",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-neverBetTheOdds.mp4",
-      "format": "h.264",
-      "sizeBytes": 143521026,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpNeverBetTheOdds/LockUp-neverBetTheOdds.mp4"
-    },
-    {
-     "archiveID": "LockUpDeadMansShoes",
-     "seasonNumber": 1,
-     "episodeNumber": 21,
-     "title": "Dead Man's Shoes",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-02-13",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-deadMansShoes.mp4",
-      "format": "h.264",
-      "sizeBytes": 157708870,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpDeadMansShoes/LockUp-deadMansShoes.mp4"
-    },
-    {
-     "archiveID": "LockUpConcreteCoffin",
-     "seasonNumber": 1,
-     "episodeNumber": 22,
-     "title": "Strange Summons",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-02-20",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-conreteCoffin.mp4",
-      "format": "h.264",
-      "sizeBytes": 158337010,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpConcreteCoffin/LockUp-conreteCoffin.mp4"
-    },
-    {
-     "archiveID": "LockUpMurderPlaysItCool",
-     "seasonNumber": 1,
-     "episodeNumber": 23,
-     "title": "Murder Plays It Cool",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-02-27",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-murderPlaysItCool.mp4",
-      "format": "h.264",
-      "sizeBytes": 159346251,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpMurderPlaysItCool/LockUp-murderPlaysItCool.mp4"
-    },
-    {
-     "archiveID": "LockUpPokerClub",
-     "seasonNumber": 1,
-     "episodeNumber": 25,
-     "title": "Poker Club",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-03-12",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-pokerClub.mp4",
-      "format": "h.264",
-      "sizeBytes": 142721313,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpPokerClub/LockUp-pokerClub.mp4"
-    },
-    {
-     "archiveID": "LockUpTheTrigger",
-     "seasonNumber": 1,
-     "episodeNumber": 26,
-     "title": "The Trigger",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-03-19",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-theTrigger.mp4",
-      "format": "h.264",
-      "sizeBytes": 143218342,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheTrigger/LockUp-theTrigger.mp4"
-    },
-    {
-     "archiveID": "LockUpMurderIsAGamble",
-     "seasonNumber": 1,
-     "episodeNumber": 27,
-     "title": "Murder is a Gamble",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-03-26",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-murderIsAGamble.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 159349162,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpMurderIsAGamble/LockUp-murderIsAGamble.ia.mp4"
-    },
-    {
-     "archiveID": "LockUpTheLocket",
-     "seasonNumber": 1,
-     "episodeNumber": 29,
-     "title": "The Locket",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-04-09",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-theLocket.mp4",
-      "format": "h.264",
-      "sizeBytes": 149030219,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheLocket/LockUp-theLocket.mp4"
-    },
-    {
-     "archiveID": "LockUpTheTroubleCop",
-     "seasonNumber": 1,
-     "episodeNumber": 30,
-     "title": "The Trouble Cop",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-04-16",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-theTroubleCop.mp4",
-      "format": "h.264",
-      "sizeBytes": 143058225,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheTroubleCop/LockUp-theTroubleCop.mp4"
-    },
-    {
-     "archiveID": "LockUpFirstPrizeForMurder",
-     "seasonNumber": 1,
-     "episodeNumber": 31,
-     "title": "First Prize for Murder",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-04-23",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-firstPrizeForMurder.mp4",
-      "format": "h.264",
-      "sizeBytes": 143414921,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpFirstPrizeForMurder/LockUp-firstPrizeForMurder.mp4"
-    },
-    {
-     "archiveID": "LockUpSocietyMatron",
-     "seasonNumber": 1,
-     "episodeNumber": 33,
-     "title": "Society Matron",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-05-07",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-societyMatron.mp4",
-      "format": "h.264",
-      "sizeBytes": 138259966,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpSocietyMatron/LockUp-societyMatron.mp4"
-    },
-    {
-     "archiveID": "LockUpTheLastChance",
-     "seasonNumber": 1,
-     "episodeNumber": 34,
-     "title": "Last Chance",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-05-14",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-lastChance.mp4",
-      "format": "h.264",
-      "sizeBytes": 132458918,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheLastChance/LockUp-lastChance.mp4"
-    },
-    {
-     "archiveID": "LockUpMindOverMurder_11615",
-     "seasonNumber": 1,
-     "episodeNumber": 35,
-     "title": "Mind Over Murder",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-05-21",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-mindOverMurder.mp4",
-      "format": "h.264",
-      "sizeBytes": 144576411,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpMindOverMurder_11615/LockUp-mindOverMurder.mp4"
-    },
-    {
-     "archiveID": "LockUpSoShallYeReap",
-     "seasonNumber": 1,
-     "episodeNumber": 36,
-     "title": "So Shall Ye Reap",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-05-28",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-soShallYeReap.mp4",
-      "format": "h.264",
-      "sizeBytes": 162136438,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpSoShallYeReap/LockUp-soShallYeReap.mp4"
-    },
-    {
-     "archiveID": "LockUpTheVoiceOfDoom",
-     "seasonNumber": 1,
-     "episodeNumber": 38,
-     "title": "Voice of Doom",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-06-11",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-voiceOfDoom.mp4",
-      "format": "h.264",
-      "sizeBytes": 160567596,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheVoiceOfDoom/LockUp-voiceOfDoom.mp4"
-    },
-    {
-     "archiveID": "LockUpTheBloodRedRuby",
-     "seasonNumber": 1,
-     "episodeNumber": 39,
-     "title": "The Blood Red Ruby",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-06-18",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-theBloodRedRuby.mp4",
-      "format": "h.264",
-      "sizeBytes": 148344300,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheBloodRedRuby/LockUp-theBloodRedRuby.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "LockUpConcreteCoffincorrectEpisode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: Concrete Coffin",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1574,
+          "videoFile": {
+            "name": "LockUp-theConcreteCoffin.mp4",
+            "format": "h.264",
+            "sizeBytes": 163375322,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpConcreteCoffincorrectEpisode/LockUp-theConcreteCoffin.mp4"
+        },
+        {
+          "archiveID": "LockUpDeathAndTexas",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: Death and Texas",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1337,
+          "videoFile": {
+            "name": "LockUp-deathAndTexas.mp4",
+            "format": "h.264",
+            "sizeBytes": 132931062,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpDeathAndTexas/LockUp-deathAndTexas.mp4"
+        },
+        {
+          "archiveID": "LockUpElectionDay",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: Election Day",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1334,
+          "videoFile": {
+            "name": "LockUp-electionDay.mp4",
+            "format": "h.264",
+            "sizeBytes": 133397486,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpElectionDay/LockUp-electionDay.mp4"
+        },
+        {
+          "archiveID": "LockUpEndOfATitan",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: End of a Titan",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1591,
+          "videoFile": {
+            "name": "LockUp-endOfATitan.mp4",
+            "format": "h.264",
+            "sizeBytes": 159068547,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpEndOfATitan/LockUp-endOfATitan.mp4"
+        },
+        {
+          "archiveID": "LockUpManlyArtOfTheMurder",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: Manly Art of the Murder",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1429,
+          "videoFile": {
+            "name": "LockUp-theManlyArtOfMurder.mp4",
+            "format": "h.264",
+            "sizeBytes": 144709287,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpManlyArtOfTheMurder/LockUp-theManlyArtOfMurder.mp4"
+        },
+        {
+          "archiveID": "LockUpSentencedToDeath",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: Sentenced to Death",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1429,
+          "videoFile": {
+            "name": "LockUp-sentencedToDeath.mp4",
+            "format": "h.264",
+            "sizeBytes": 145534526,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpSentencedToDeath/LockUp-sentencedToDeath.mp4"
+        },
+        {
+          "archiveID": "LockUpTheCaseOfAlexisGeorge",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: The Case of Alexis George",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1556,
+          "videoFile": {
+            "name": "LockUp-theCaseOfAlexisGeorge.mp4",
+            "format": "h.264",
+            "sizeBytes": 154995383,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfAlexisGeorge/LockUp-theCaseOfAlexisGeorge.mp4"
+        },
+        {
+          "archiveID": "LockUpTheCaseOfCorporalNewman",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: The Case of Corporal Newman",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1435,
+          "videoFile": {
+            "name": "LockUp-theCaseOfCorporalNewman.mp4",
+            "format": "h.264",
+            "sizeBytes": 144891690,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfCorporalNewman/LockUp-theCaseOfCorporalNewman.mp4"
+        },
+        {
+          "archiveID": "LockUpTheCaseOfDetectiveWeston",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: The Case of Detective Weston",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1428,
+          "videoFile": {
+            "name": "LockUp-theCaseOfDetectiveWeston.mp4",
+            "format": "h.264",
+            "sizeBytes": 144697002,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfDetectiveWeston/LockUp-theCaseOfDetectiveWeston.mp4"
+        },
+        {
+          "archiveID": "LockUpTheCaseOfFrankCorry",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: The Case of Frank Corry",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1558,
+          "videoFile": {
+            "name": "LockUp-theCaseOfFrankCorry.mp4",
+            "format": "h.264",
+            "sizeBytes": 154924572,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfFrankCorry/LockUp-theCaseOfFrankCorry.mp4"
+        },
+        {
+          "archiveID": "LockUpTheCaseOfJoeSlade",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: The Case of Joe Slade",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1557,
+          "videoFile": {
+            "name": "LockUp-theCaseOfJoeSlade.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159875346,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfJoeSlade/LockUp-theCaseOfJoeSlade.ia.mp4"
+        },
+        {
+          "archiveID": "LockUpTheCaseOfNanHavens",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: The Case of Nan Havens",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1557,
+          "videoFile": {
+            "name": "LockUp-theCaseOfNanHavens.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 160375884,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfNanHavens/LockUp-theCaseOfNanHavens.ia.mp4"
+        },
+        {
+          "archiveID": "LockUpTheCaseOfWillieButterlfly",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: The Case of Willie Butterlfly",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1573,
+          "videoFile": {
+            "name": "LockUp-theCaseOfWillieButterfly.mp4",
+            "format": "h.264",
+            "sizeBytes": 161695060,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfWillieButterlfly/LockUp-theCaseOfWillieButterfly.mp4"
+        },
+        {
+          "archiveID": "Lock-upWritOfTerror",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock-Up: Writ of Terror",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1422,
+          "videoFile": {
+            "name": "Lock-up-writOfTerror.mp4",
+            "format": "h.264",
+            "sizeBytes": 143382333,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Lock-upWritOfTerror/Lock-up-writOfTerror.mp4"
+        },
+        {
+          "archiveID": "Lock-upMusicToMurderBy",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock-up: Music to Murder By",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1165,
+          "videoFile": {
+            "name": "Lock-up-musicToMurderBy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 113620176,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Lock-upMusicToMurderBy/Lock-up-musicToMurderBy.ia.mp4"
+        },
+        {
+          "archiveID": "LockUpStakeOut",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Stake Out",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-stakeOut.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155901052,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpStakeOut/LockUp-stakeOut.ia.mp4"
+        },
+        {
+          "archiveID": "LockUpTheCaseOfDanGray",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Case of Dan Gray",
+          "overview": "Dan Gray invents an explosive formula similar to dynamite.  After a golfer is killed with an exploding golf ball the inventor is arrested for murder.  Maris and Lt. Weston investigate.  Gloria Larkley is Dan's supporting girlfriend.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1434,
+          "videoFile": {
+            "name": "LockUp-theCaseOfDanGray.mp4",
+            "format": "h.264",
+            "sizeBytes": 143981508,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfDanGray/LockUp-theCaseOfDanGray.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
+  ],
+  "episodesCount": 76,
+  "canonicalEpisodesCount": 78,
+  "tvdbID": "70464",
+  "artworkSource": "tvdb",
+  "cast": [
     {
-     "archiveID": "LockUpTheSkidRowStory",
-     "seasonNumber": 2,
-     "episodeNumber": 3,
-     "title": "Skid Row Story",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-10-08",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-theSkidRowStory.mp4",
-      "format": "h.264",
-      "sizeBytes": 154646442,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheSkidRowStory/LockUp-theSkidRowStory.mp4"
+      "name": "John Doucette",
+      "character": "",
+      "order": 0,
+      "profilePath": null
     },
     {
-     "archiveID": "LockUpFlyingHigh",
-     "seasonNumber": 2,
-     "episodeNumber": 4,
-     "title": "Flying High",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-10-15",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-flyingHigh.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 158156459,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpFlyingHigh/LockUp-flyingHigh.ia.mp4"
-    },
-    {
-     "archiveID": "LockUpTheFrameUp",
-     "seasonNumber": 2,
-     "episodeNumber": 6,
-     "title": "The Frame Up",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-10-29",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-theFrameUp.mp4",
-      "format": "h.264",
-      "sizeBytes": 132128848,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheFrameUp/LockUp-theFrameUp.mp4"
-    },
-    {
-     "archiveID": "LockUpTheSeventhHour",
-     "seasonNumber": 2,
-     "episodeNumber": 7,
-     "title": "Seventh Hour",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-11-05",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUpTheSeventhHour.mp4",
-      "format": "h.264",
-      "sizeBytes": 142406786,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheSeventhHour/LockUpTheSeventhHour.mp4"
-    },
-    {
-     "archiveID": "LockUpTheSisters",
-     "seasonNumber": 2,
-     "episodeNumber": 8,
-     "title": "The Sisters",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-06-17",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-theSisters.mp4",
-      "format": "h.264",
-      "sizeBytes": 157299044,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheSisters/LockUp-theSisters.mp4"
-    },
-    {
-     "archiveID": "LockUpStrangeSummons",
-     "seasonNumber": 2,
-     "episodeNumber": 9,
-     "title": "Diamond Dupe",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-11-12",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-strangeSummons.mp4",
-      "format": "h.264",
-      "sizeBytes": 154745015,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpStrangeSummons/LockUp-strangeSummons.mp4"
-    },
-    {
-     "archiveID": "LockUpSocietyDoctor",
-     "seasonNumber": 2,
-     "episodeNumber": 10,
-     "title": "Society Doctor",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-11-26",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-societyDoctor.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 158095119,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpSocietyDoctor/LockUp-societyDoctor.ia.mp4"
-    },
-    {
-     "archiveID": "LockUpTopSecret",
-     "seasonNumber": 2,
-     "episodeNumber": 11,
-     "title": "Top Secret",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-11-19",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-topSecret.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 156565352,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTopSecret/LockUp-topSecret.ia.mp4"
-    },
-    {
-     "archiveID": "LockUpNumberPlease",
-     "seasonNumber": 2,
-     "episodeNumber": 12,
-     "title": "Number Please",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-12-03",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-numberPlease.mp4",
-      "format": "h.264",
-      "sizeBytes": 130222641,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpNumberPlease/LockUp-numberPlease.mp4"
-    },
-    {
-     "archiveID": "LockUpGirlsWanted",
-     "seasonNumber": 2,
-     "episodeNumber": 16,
-     "title": "Girls Wanted",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1960-12-31",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-girlsWanted.mp4",
-      "format": "h.264",
-      "sizeBytes": 142916257,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpGirlsWanted/LockUp-girlsWanted.mp4"
-    },
-    {
-     "archiveID": "LockUpHisBrothersKeeper",
-     "seasonNumber": 2,
-     "episodeNumber": 17,
-     "title": "His Brother's Keeper",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-01-07",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-hisBrothersKeeper.mp4",
-      "format": "h.264",
-      "sizeBytes": 131925879,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpHisBrothersKeeper/LockUp-hisBrothersKeeper.mp4"
-    },
-    {
-     "archiveID": "LockUpACaseOfArson",
-     "seasonNumber": 2,
-     "episodeNumber": 18,
-     "title": "A Case of Arson",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-01-14",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-aCaseOfArson.mp4",
-      "format": "h.264",
-      "sizeBytes": 156211577,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpACaseOfArson/LockUp-aCaseOfArson.mp4"
-    },
-    {
-     "archiveID": "LockUpJennifer",
-     "seasonNumber": 2,
-     "episodeNumber": 19,
-     "title": "Jennifer",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-01-21",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-jennifer.mp4",
-      "format": "h.264",
-      "sizeBytes": 155424156,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpJennifer/LockUp-jennifer.mp4"
-    },
-    {
-     "archiveID": "LockUpAbandonedMine",
-     "seasonNumber": 2,
-     "episodeNumber": 20,
-     "title": "Abandoned Mine",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-01-28",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-abandonnedMine.mp4",
-      "format": "h.264",
-      "sizeBytes": 145393874,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpAbandonedMine/LockUp-abandonnedMine.mp4"
-    },
-    {
-     "archiveID": "LockUpTheFrenchAffair",
-     "seasonNumber": 2,
-     "episodeNumber": 21,
-     "title": "A French Affair",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-02-04",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-aFrenchAffair.mp4",
-      "format": "h.264",
-      "sizeBytes": 154705471,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheFrenchAffair/LockUp-aFrenchAffair.mp4"
-    },
-    {
-     "archiveID": "lock-up-season-2-of-2-tv-series-1959-mkv",
-     "seasonNumber": 2,
-     "episodeNumber": 22,
-     "title": "End of Titan",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-02-11",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Lock Up - S02E22 - End of a Titan.mp4",
-      "format": "h.264",
-      "sizeBytes": 165810326,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/Lock Up - S02E22 - End of a Titan.mp4"
-    },
-    {
-     "archiveID": "LockupFugitiveFromFear",
-     "seasonNumber": 2,
-     "episodeNumber": 23,
-     "title": "Fugitive from Fear",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-02-18",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-fugitiveFromFear.mp4",
-      "format": "h.264",
-      "sizeBytes": 156619633,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockupFugitiveFromFear/LockUp-fugitiveFromFear.mp4"
-    },
-    {
-     "archiveID": "LockUpDesignForMurder",
-     "seasonNumber": 2,
-     "episodeNumber": 24,
-     "title": "Design for Murder",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-02-25",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-designForMurder.mp4",
-      "format": "h.264",
-      "sizeBytes": 138932153,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpDesignForMurder/LockUp-designForMurder.mp4"
-    },
-    {
-     "archiveID": "LockUpLikeFatherLikeSon",
-     "seasonNumber": 2,
-     "episodeNumber": 25,
-     "title": "Like Father, Like Son",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-03-04",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-likeFatherLikeSon.mp4",
-      "format": "h.264",
-      "sizeBytes": 144560021,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpLikeFatherLikeSon/LockUp-likeFatherLikeSon.mp4"
-    },
-    {
-     "archiveID": "LockUpRedConfetti",
-     "seasonNumber": 2,
-     "episodeNumber": 26,
-     "title": "Red Confetti",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-03-11",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-redConfetti.mp4",
-      "format": "h.264",
-      "sizeBytes": 144576150,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpRedConfetti/LockUp-redConfetti.mp4"
-    },
-    {
-     "archiveID": "LockUpPlantersDeath",
-     "seasonNumber": 2,
-     "episodeNumber": 27,
-     "title": "Planter's Death",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-03-18",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-plantersDeath.mp4",
-      "format": "h.264",
-      "sizeBytes": 157219976,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpPlantersDeath/LockUp-plantersDeath.mp4"
-    },
-    {
-     "archiveID": "LockUpTwoWrongs",
-     "seasonNumber": 2,
-     "episodeNumber": 28,
-     "title": "Two Wrongs",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-03-25",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-twoWrongs.mp4",
-      "format": "h.264",
-      "sizeBytes": 143584371,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTwoWrongs/LockUp-twoWrongs.mp4"
-    },
-    {
-     "archiveID": "LockUpJungleCompound",
-     "seasonNumber": 2,
-     "episodeNumber": 29,
-     "title": "Jungle Compound",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-04-01",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-jungleCompound.mp4",
-      "format": "h.264",
-      "sizeBytes": 154808377,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpJungleCompound/LockUp-jungleCompound.mp4"
-    },
-    {
-     "archiveID": "LockUpTheWildcatter",
-     "seasonNumber": 2,
-     "episodeNumber": 31,
-     "title": "The Wildcatter",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-04-15",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-theWildcatter.mp4",
-      "format": "h.264",
-      "sizeBytes": 135993917,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheWildcatter/LockUp-theWildcatter.mp4"
-    },
-    {
-     "archiveID": "LockUpTheAccused",
-     "seasonNumber": 2,
-     "episodeNumber": 32,
-     "title": "The Accused",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-04-22",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-theAccused.mp4",
-      "format": "h.264",
-      "sizeBytes": 148885675,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheAccused/LockUp-theAccused.mp4"
-    },
-    {
-     "archiveID": "LockUpLeadingYoungCitizen",
-     "seasonNumber": 2,
-     "episodeNumber": 33,
-     "title": "Leading Young Citizen",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-04-29",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-leadingYoungCitizen.mp4",
-      "format": "h.264",
-      "sizeBytes": 162561210,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpLeadingYoungCitizen/LockUp-leadingYoungCitizen.mp4"
-    },
-    {
-     "archiveID": "LockUpHurricane",
-     "seasonNumber": 2,
-     "episodeNumber": 34,
-     "title": "Hurricane",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-05-06",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-hurricane.mp4",
-      "format": "h.264",
-      "sizeBytes": 161100015,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpHurricane/LockUp-hurricane.mp4"
-    },
-    {
-     "archiveID": "LockUpSacrificePlay",
-     "seasonNumber": 2,
-     "episodeNumber": 36,
-     "title": "Sacrifice Play",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-05-20",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-sacrificePlay.mp4",
-      "format": "h.264",
-      "sizeBytes": 163224176,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpSacrificePlay/LockUp-sacrificePlay.mp4"
-    },
-    {
-     "archiveID": "LockUpTheFaceOfInnocence",
-     "seasonNumber": 2,
-     "episodeNumber": 37,
-     "title": "Face of Innocence",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-05-27",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-faceOfInnocence.mp4",
-      "format": "h.264",
-      "sizeBytes": 164138888,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheFaceOfInnocence/LockUp-faceOfInnocence.mp4"
-    },
-    {
-     "archiveID": "lock-up-season-2-of-2-tv-series-1959-xvid-avi",
-     "seasonNumber": 2,
-     "episodeNumber": 37,
-     "title": "Lock Up - - TV Series - 1959 - XviD AVI",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Lock Up - S02E37 - Face Of Innocence.mp4",
-      "format": "h.264",
-      "sizeBytes": 165454658,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-xvid-avi/Lock Up - S02E37 - Face Of Innocence.mp4"
-    },
-    {
-     "archiveID": "LockUpTheIntruder",
-     "seasonNumber": 2,
-     "episodeNumber": 38,
-     "title": "The Intruder",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": "1961-06-03",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-theIntruder.mp4",
-      "format": "h.264",
-      "sizeBytes": 161126196,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheIntruder/LockUp-theIntruder.mp4"
+      "name": "Macdonald Carey",
+      "character": "",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/260558/photo/68e77fd844044.jpg"
     }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
-    {
-     "archiveID": "LockUpConcreteCoffincorrectEpisode",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lock Up: Concrete Coffin",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1574,
-     "videoFile": {
-      "name": "LockUp-theConcreteCoffin.mp4",
-      "format": "h.264",
-      "sizeBytes": 163375322,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpConcreteCoffincorrectEpisode/LockUp-theConcreteCoffin.mp4"
-    },
-    {
-     "archiveID": "LockUpDeathAndTexas",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lock Up: Death and Texas",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1337,
-     "videoFile": {
-      "name": "LockUp-deathAndTexas.mp4",
-      "format": "h.264",
-      "sizeBytes": 132931062,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpDeathAndTexas/LockUp-deathAndTexas.mp4"
-    },
-    {
-     "archiveID": "LockUpElectionDay",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lock Up: Election Day",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1334,
-     "videoFile": {
-      "name": "LockUp-electionDay.mp4",
-      "format": "h.264",
-      "sizeBytes": 133397486,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpElectionDay/LockUp-electionDay.mp4"
-    },
-    {
-     "archiveID": "LockUpEndOfATitan",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lock Up: End of a Titan",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1591,
-     "videoFile": {
-      "name": "LockUp-endOfATitan.mp4",
-      "format": "h.264",
-      "sizeBytes": 159068547,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpEndOfATitan/LockUp-endOfATitan.mp4"
-    },
-    {
-     "archiveID": "LockUpManlyArtOfTheMurder",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lock Up: Manly Art of the Murder",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1429,
-     "videoFile": {
-      "name": "LockUp-theManlyArtOfMurder.mp4",
-      "format": "h.264",
-      "sizeBytes": 144709287,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpManlyArtOfTheMurder/LockUp-theManlyArtOfMurder.mp4"
-    },
-    {
-     "archiveID": "LockUpSentencedToDeath",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lock Up: Sentenced to Death",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1429,
-     "videoFile": {
-      "name": "LockUp-sentencedToDeath.mp4",
-      "format": "h.264",
-      "sizeBytes": 145534526,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpSentencedToDeath/LockUp-sentencedToDeath.mp4"
-    },
-    {
-     "archiveID": "LockUpTheCaseOfAlexisGeorge",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lock Up: The Case of Alexis George",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1556,
-     "videoFile": {
-      "name": "LockUp-theCaseOfAlexisGeorge.mp4",
-      "format": "h.264",
-      "sizeBytes": 154995383,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheCaseOfAlexisGeorge/LockUp-theCaseOfAlexisGeorge.mp4"
-    },
-    {
-     "archiveID": "LockUpTheCaseOfCorporalNewman",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lock Up: The Case of Corporal Newman",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1435,
-     "videoFile": {
-      "name": "LockUp-theCaseOfCorporalNewman.mp4",
-      "format": "h.264",
-      "sizeBytes": 144891690,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheCaseOfCorporalNewman/LockUp-theCaseOfCorporalNewman.mp4"
-    },
-    {
-     "archiveID": "LockUpTheCaseOfDetectiveWeston",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lock Up: The Case of Detective Weston",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1428,
-     "videoFile": {
-      "name": "LockUp-theCaseOfDetectiveWeston.mp4",
-      "format": "h.264",
-      "sizeBytes": 144697002,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheCaseOfDetectiveWeston/LockUp-theCaseOfDetectiveWeston.mp4"
-    },
-    {
-     "archiveID": "LockUpTheCaseOfFrankCorry",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lock Up: The Case of Frank Corry",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1558,
-     "videoFile": {
-      "name": "LockUp-theCaseOfFrankCorry.mp4",
-      "format": "h.264",
-      "sizeBytes": 154924572,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheCaseOfFrankCorry/LockUp-theCaseOfFrankCorry.mp4"
-    },
-    {
-     "archiveID": "LockUpTheCaseOfJoeSlade",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lock Up: The Case of Joe Slade",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1557,
-     "videoFile": {
-      "name": "LockUp-theCaseOfJoeSlade.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 159875346,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheCaseOfJoeSlade/LockUp-theCaseOfJoeSlade.ia.mp4"
-    },
-    {
-     "archiveID": "LockUpTheCaseOfNanHavens",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lock Up: The Case of Nan Havens",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1557,
-     "videoFile": {
-      "name": "LockUp-theCaseOfNanHavens.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 160375884,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheCaseOfNanHavens/LockUp-theCaseOfNanHavens.ia.mp4"
-    },
-    {
-     "archiveID": "LockUpTheCaseOfWillieButterlfly",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lock Up: The Case of Willie Butterlfly",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1573,
-     "videoFile": {
-      "name": "LockUp-theCaseOfWillieButterfly.mp4",
-      "format": "h.264",
-      "sizeBytes": 161695060,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheCaseOfWillieButterlfly/LockUp-theCaseOfWillieButterfly.mp4"
-    },
-    {
-     "archiveID": "Lock-upWritOfTerror",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lock-Up: Writ of Terror",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1422,
-     "videoFile": {
-      "name": "Lock-up-writOfTerror.mp4",
-      "format": "h.264",
-      "sizeBytes": 143382333,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Lock-upWritOfTerror/Lock-up-writOfTerror.mp4"
-    },
-    {
-     "archiveID": "Lock-upMusicToMurderBy",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lock-up: Music to Murder By",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1165,
-     "videoFile": {
-      "name": "Lock-up-musicToMurderBy.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 113620176,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Lock-upMusicToMurderBy/Lock-up-musicToMurderBy.ia.mp4"
-    },
-    {
-     "archiveID": "LockUpStakeOut",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Stake Out",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "LockUp-stakeOut.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 155901052,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpStakeOut/LockUp-stakeOut.ia.mp4"
-    },
-    {
-     "archiveID": "LockUpTheCaseOfDanGray",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Case of Dan Gray",
-     "overview": "Dan Gray invents an explosive formula similar to dynamite.  After a golfer is killed with an exploding golf ball the inventor is arrested for murder.  Maris and Lt. Weston investigate.  Gloria Larkley is Dan's supporting girlfriend.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1434,
-     "videoFile": {
-      "name": "LockUp-theCaseOfDanGray.mp4",
-      "format": "h.264",
-      "sizeBytes": 143981508,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LockUpTheCaseOfDanGray/LockUp-theCaseOfDanGray.mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 76,
- "canonicalEpisodesCount": 78
+  ]
 }

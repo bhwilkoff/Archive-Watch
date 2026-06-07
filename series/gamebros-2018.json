@@ -1,394 +1,396 @@
 {
- "version": 2,
- "seriesID": "gamebros-2018",
- "tvmazeID": 46282,
- "title": "Gamebros",
- "yearStart": 2018,
- "yearEnd": null,
- "overview": "Heitor is a hacker and he works for the Police Department. During business hours, he is the man who gives operational support and wear the police badge. Heitor has a hidden identity in the Deep Web, where he uses his hacker skills to solve crimes.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/241/604361.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "Action",
-  "Crime"
- ],
- "networks": [
-  "Netflix"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "gamebros-2018",
+  "tvmazeID": 46282,
+  "title": "Gamebros",
+  "yearStart": 2018,
+  "yearEnd": null,
+  "overview": "Heitor is a hacker and he works for the Police Department. During business hours, he is the man who gives operational support and wear the police badge. Heitor has a hidden identity in the Deep Web, where he uses his hacker skills to solve crimes.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/5b020cfe94d0e.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Action",
+    "Crime"
+  ],
+  "networks": [
+    "Netflix"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "game-pro-tv-season-1-episode-1-1991-full-episode",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "@ursinho",
-     "overview": "Three murders appear to be linked. The Homicide and Personal Protection Unit (CHPP) tries to find the culprit.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/241/604994.jpg",
-     "airDate": "2018-05-20",
-     "year": 2018,
-     "runtimeSeconds": 4200,
-     "videoFile": {
-      "name": "GamePro TV Season 1 Episode 1 (1991) FULL EPISODE.mp4",
-      "format": "h.264",
-      "sizeBytes": 130537783,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-1-1991-full-episode/GamePro TV Season 1 Episode 1 (1991) FULL EPISODE.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "game-pro-tv-season-1-episode-1-1991-full-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "@ursinho",
+          "overview": "Three murders appear to be linked. The Homicide and Personal Protection Unit (CHPP) tries to find the culprit.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/241/604994.jpg",
+          "airDate": "2018-05-20",
+          "year": 2018,
+          "runtimeSeconds": 4200,
+          "videoFile": {
+            "name": "GamePro TV Season 1 Episode 1 (1991) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 130537783,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-1-1991-full-episode/GamePro TV Season 1 Episode 1 (1991) FULL EPISODE.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-season-1-episode-2-1991-full-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "#picoftheday",
+          "overview": "A suspected suicide arouses the curiosity of some members of the CHPP team, who end up uncovering disturbing messages sent to the victim.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/241/604995.jpg",
+          "airDate": "2018-05-20",
+          "year": 2018,
+          "runtimeSeconds": 2820,
+          "videoFile": {
+            "name": "GamePro TV Season 1 Episode 2 (1991) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 131408310,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-2-1991-full-episode/GamePro TV Season 1 Episode 2 (1991) FULL EPISODE.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-season-1-episode-3-1991-full-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "#DiaDasCrianças",
+          "overview": "Dr. Patrícia goes to great lengths to find her daughter, but little does she suspect that the culprit is closer than she imagines.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/241/604996.jpg",
+          "airDate": "2018-05-20",
+          "year": 2018,
+          "runtimeSeconds": 3180,
+          "videoFile": {
+            "name": "GamePro TV Season 1 Episode 3 (1991) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 129543567,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-3-1991-full-episode/GamePro TV Season 1 Episode 3 (1991) FULL EPISODE.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-season-1-episode-4-1991-full-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "@marrento1993",
+          "overview": "A fight between rival ultras makes Gamebros suspect that something wasn't quite right about one of their stories.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/241/604997.jpg",
+          "airDate": "2018-05-20",
+          "year": 2018,
+          "runtimeSeconds": 3060,
+          "videoFile": {
+            "name": "GamePro TV Season 1 Episode 4 (1991) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 131873307,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-4-1991-full-episode/GamePro TV Season 1 Episode 4 (1991) FULL EPISODE.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-season-1-episode-5-1991-full-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "#Armando_O_Fim",
+          "overview": "Heitor comes across a frightened beggar and tries to get to the bottom of it, discovering a sinister entity that operates in the shadows.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/241/604998.jpg",
+          "airDate": "2018-05-20",
+          "year": 2018,
+          "runtimeSeconds": 2700,
+          "videoFile": {
+            "name": "GamePro TV Season 1 Episode 5 (1991) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 131305166,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-5-1991-full-episode/GamePro TV Season 1 Episode 5 (1991) FULL EPISODE.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-season-1-episode-6-1991-full-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "#tbt",
+          "overview": "Unexpected revelations uncover the real identities of the people behind the avatars of the deep web.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/241/604999.jpg",
+          "airDate": "2018-05-20",
+          "year": 2018,
+          "runtimeSeconds": 3120,
+          "videoFile": {
+            "name": "GamePro TV Season 1 Episode 6 (1991) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 131762758,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-6-1991-full-episode/GamePro TV Season 1 Episode 6 (1991) FULL EPISODE.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "game-pro-tv-season-1-episode-2-1991-full-episode",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "#picoftheday",
-     "overview": "A suspected suicide arouses the curiosity of some members of the CHPP team, who end up uncovering disturbing messages sent to the victim.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/241/604995.jpg",
-     "airDate": "2018-05-20",
-     "year": 2018,
-     "runtimeSeconds": 2820,
-     "videoFile": {
-      "name": "GamePro TV Season 1 Episode 2 (1991) FULL EPISODE.mp4",
-      "format": "h.264",
-      "sizeBytes": 131408310,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-2-1991-full-episode/GamePro TV Season 1 Episode 2 (1991) FULL EPISODE.mp4"
-    },
-    {
-     "archiveID": "game-pro-tv-season-1-episode-3-1991-full-episode",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "#DiaDasCrianças",
-     "overview": "Dr. Patrícia goes to great lengths to find her daughter, but little does she suspect that the culprit is closer than she imagines.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/241/604996.jpg",
-     "airDate": "2018-05-20",
-     "year": 2018,
-     "runtimeSeconds": 3180,
-     "videoFile": {
-      "name": "GamePro TV Season 1 Episode 3 (1991) FULL EPISODE.mp4",
-      "format": "h.264",
-      "sizeBytes": 129543567,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-3-1991-full-episode/GamePro TV Season 1 Episode 3 (1991) FULL EPISODE.mp4"
-    },
-    {
-     "archiveID": "game-pro-tv-season-1-episode-4-1991-full-episode",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "@marrento1993",
-     "overview": "A fight between rival ultras makes Gamebros suspect that something wasn't quite right about one of their stories.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/241/604997.jpg",
-     "airDate": "2018-05-20",
-     "year": 2018,
-     "runtimeSeconds": 3060,
-     "videoFile": {
-      "name": "GamePro TV Season 1 Episode 4 (1991) FULL EPISODE.mp4",
-      "format": "h.264",
-      "sizeBytes": 131873307,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-4-1991-full-episode/GamePro TV Season 1 Episode 4 (1991) FULL EPISODE.mp4"
-    },
-    {
-     "archiveID": "game-pro-tv-season-1-episode-5-1991-full-episode",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "#Armando_O_Fim",
-     "overview": "Heitor comes across a frightened beggar and tries to get to the bottom of it, discovering a sinister entity that operates in the shadows.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/241/604998.jpg",
-     "airDate": "2018-05-20",
-     "year": 2018,
-     "runtimeSeconds": 2700,
-     "videoFile": {
-      "name": "GamePro TV Season 1 Episode 5 (1991) FULL EPISODE.mp4",
-      "format": "h.264",
-      "sizeBytes": 131305166,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-5-1991-full-episode/GamePro TV Season 1 Episode 5 (1991) FULL EPISODE.mp4"
-    },
-    {
-     "archiveID": "game-pro-tv-season-1-episode-6-1991-full-episode",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "#tbt",
-     "overview": "Unexpected revelations uncover the real identities of the people behind the avatars of the deep web.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/241/604999.jpg",
-     "airDate": "2018-05-20",
-     "year": 2018,
-     "runtimeSeconds": 3120,
-     "videoFile": {
-      "name": "GamePro TV Season 1 Episode 6 (1991) FULL EPISODE.mp4",
-      "format": "h.264",
-      "sizeBytes": 131762758,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-6-1991-full-episode/GamePro TV Season 1 Episode 6 (1991) FULL EPISODE.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "game-pro-tv-season-1-episode-7-1992-full-episode",
+          "seasonNumber": null,
+          "episodeNumber": 7,
+          "title": "GamePro TV Season 1 Episode 7 FULL EPISODE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GamePro TV Season 1 Episode 7 (1992) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 132058417,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-7-1992-full-episode/GamePro TV Season 1 Episode 7 (1992) FULL EPISODE.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-season-1-episode-8-1992-full-episode",
+          "seasonNumber": null,
+          "episodeNumber": 8,
+          "title": "GamePro TV Season 1 Episode 8 FULL EPISODE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GamePro TV Season 1 Episode 8 (1992) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 131514460,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-8-1992-full-episode/GamePro TV Season 1 Episode 8 (1992) FULL EPISODE.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-season-1-episode-9-1992-full-episode",
+          "seasonNumber": null,
+          "episodeNumber": 9,
+          "title": "GamePro TV Season 1 Episode 9 FULL EPISODE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GamePro TV Season 1 Episode 9 (1992) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 129054987,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-9-1992-full-episode/GamePro TV Season 1 Episode 9 (1992) FULL EPISODE.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-season-1-episode-10-1991-full-episode",
+          "seasonNumber": null,
+          "episodeNumber": 10,
+          "title": "GamePro TV Season 1 Episode 10 FULL EPISODE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GamePro TV Season 1 Episode 10 (1991) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 130973977,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-10-1991-full-episode/GamePro TV Season 1 Episode 10 (1991) FULL EPISODE.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-season-1-episode-11-1991-full-episode",
+          "seasonNumber": null,
+          "episodeNumber": 11,
+          "title": "GamePro TV Season 1 Episode 11 FULL EPISODE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GamePro TV Season 1 Episode 11 (1991) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 131629536,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-11-1991-full-episode/GamePro TV Season 1 Episode 11 (1991) FULL EPISODE.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-season-1-episode-12-1991-full-episode",
+          "seasonNumber": null,
+          "episodeNumber": 12,
+          "title": "GamePro TV Season 1 Episode 12 FULL EPISODE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GamePro TV Season 1 Episode 12 (1991) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 131326990,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-12-1991-full-episode/GamePro TV Season 1 Episode 12 (1991) FULL EPISODE.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-episode-13-1992-1st-annual-game-pro-awards",
+          "seasonNumber": null,
+          "episodeNumber": 13,
+          "title": "GamePro TV Episode 13 1st Annual Game Pro Awards",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GamePro TV Episode 13 (1992) - 1st Annual GamePro Awards.mp4",
+            "format": "h.264",
+            "sizeBytes": 95438190,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-episode-13-1992-1st-annual-game-pro-awards/GamePro TV Episode 13 (1992) - 1st Annual GamePro Awards.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-episode-14-1992-full-episode",
+          "seasonNumber": null,
+          "episodeNumber": 14,
+          "title": "GamePro TV Episode 14 FULL EPISODE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GamePro TV Episode 14 (1992) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 131900225,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-episode-14-1992-full-episode/GamePro TV Episode 14 (1992) FULL EPISODE.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-episode-15-1992-full-episode",
+          "seasonNumber": null,
+          "episodeNumber": 15,
+          "title": "GamePro TV Episode 15 FULL EPISODE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GamePro TV Episode 15 (1992) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 127257507,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-episode-15-1992-full-episode/GamePro TV Episode 15 (1992) FULL EPISODE.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-episode-16-1992-full-episode",
+          "seasonNumber": null,
+          "episodeNumber": 16,
+          "title": "GamePro TV Episode 16 FULL EPISODE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GamePro TV Episode 16 (1992) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 132154212,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-episode-16-1992-full-episode/GamePro TV Episode 16 (1992) FULL EPISODE.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-episode-17-1992-full-episode",
+          "seasonNumber": null,
+          "episodeNumber": 17,
+          "title": "GamePro TV Episode 17 FULL EPISODE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GamePro TV Episode 17 (1992) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 134696718,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-episode-17-1992-full-episode/GamePro TV Episode 17 (1992) FULL EPISODE.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-episode-18-1992-full-episode",
+          "seasonNumber": null,
+          "episodeNumber": 18,
+          "title": "GamePro TV Episode 18 FULL EPISODE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GamePro TV Episode 18 (1992) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 133097015,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-episode-18-1992-full-episode/GamePro TV Episode 18 (1992) FULL EPISODE.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-episode-19-1992-full-episode",
+          "seasonNumber": null,
+          "episodeNumber": 19,
+          "title": "GamePro TV Episode 19 FULL EPISODE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GamePro TV Episode 19 (1992) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 142627399,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-episode-19-1992-full-episode/GamePro TV Episode 19 (1992) FULL EPISODE.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-episode-20-1992-full-episode-final",
+          "seasonNumber": null,
+          "episodeNumber": 20,
+          "title": "GamePro TV Episode 20 FULL EPISODE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GamePro TV Episode 20 (1992) FULL EPISODE (Final).mp4",
+            "format": "h.264",
+            "sizeBytes": 128393161,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-episode-20-1992-full-episode-final/GamePro TV Episode 20 (1992) FULL EPISODE (Final).mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
-    {
-     "archiveID": "game-pro-tv-season-1-episode-7-1992-full-episode",
-     "seasonNumber": null,
-     "episodeNumber": 7,
-     "title": "GamePro TV Season 1 Episode 7 FULL EPISODE",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "GamePro TV Season 1 Episode 7 (1992) FULL EPISODE.mp4",
-      "format": "h.264",
-      "sizeBytes": 132058417,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-7-1992-full-episode/GamePro TV Season 1 Episode 7 (1992) FULL EPISODE.mp4"
-    },
-    {
-     "archiveID": "game-pro-tv-season-1-episode-8-1992-full-episode",
-     "seasonNumber": null,
-     "episodeNumber": 8,
-     "title": "GamePro TV Season 1 Episode 8 FULL EPISODE",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "GamePro TV Season 1 Episode 8 (1992) FULL EPISODE.mp4",
-      "format": "h.264",
-      "sizeBytes": 131514460,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-8-1992-full-episode/GamePro TV Season 1 Episode 8 (1992) FULL EPISODE.mp4"
-    },
-    {
-     "archiveID": "game-pro-tv-season-1-episode-9-1992-full-episode",
-     "seasonNumber": null,
-     "episodeNumber": 9,
-     "title": "GamePro TV Season 1 Episode 9 FULL EPISODE",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "GamePro TV Season 1 Episode 9 (1992) FULL EPISODE.mp4",
-      "format": "h.264",
-      "sizeBytes": 129054987,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-9-1992-full-episode/GamePro TV Season 1 Episode 9 (1992) FULL EPISODE.mp4"
-    },
-    {
-     "archiveID": "game-pro-tv-season-1-episode-10-1991-full-episode",
-     "seasonNumber": null,
-     "episodeNumber": 10,
-     "title": "GamePro TV Season 1 Episode 10 FULL EPISODE",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "GamePro TV Season 1 Episode 10 (1991) FULL EPISODE.mp4",
-      "format": "h.264",
-      "sizeBytes": 130973977,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-10-1991-full-episode/GamePro TV Season 1 Episode 10 (1991) FULL EPISODE.mp4"
-    },
-    {
-     "archiveID": "game-pro-tv-season-1-episode-11-1991-full-episode",
-     "seasonNumber": null,
-     "episodeNumber": 11,
-     "title": "GamePro TV Season 1 Episode 11 FULL EPISODE",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "GamePro TV Season 1 Episode 11 (1991) FULL EPISODE.mp4",
-      "format": "h.264",
-      "sizeBytes": 131629536,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-11-1991-full-episode/GamePro TV Season 1 Episode 11 (1991) FULL EPISODE.mp4"
-    },
-    {
-     "archiveID": "game-pro-tv-season-1-episode-12-1991-full-episode",
-     "seasonNumber": null,
-     "episodeNumber": 12,
-     "title": "GamePro TV Season 1 Episode 12 FULL EPISODE",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "GamePro TV Season 1 Episode 12 (1991) FULL EPISODE.mp4",
-      "format": "h.264",
-      "sizeBytes": 131326990,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-12-1991-full-episode/GamePro TV Season 1 Episode 12 (1991) FULL EPISODE.mp4"
-    },
-    {
-     "archiveID": "game-pro-tv-episode-13-1992-1st-annual-game-pro-awards",
-     "seasonNumber": null,
-     "episodeNumber": 13,
-     "title": "GamePro TV Episode 13 1st Annual Game Pro Awards",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "GamePro TV Episode 13 (1992) - 1st Annual GamePro Awards.mp4",
-      "format": "h.264",
-      "sizeBytes": 95438190,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/game-pro-tv-episode-13-1992-1st-annual-game-pro-awards/GamePro TV Episode 13 (1992) - 1st Annual GamePro Awards.mp4"
-    },
-    {
-     "archiveID": "game-pro-tv-episode-14-1992-full-episode",
-     "seasonNumber": null,
-     "episodeNumber": 14,
-     "title": "GamePro TV Episode 14 FULL EPISODE",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "GamePro TV Episode 14 (1992) FULL EPISODE.mp4",
-      "format": "h.264",
-      "sizeBytes": 131900225,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/game-pro-tv-episode-14-1992-full-episode/GamePro TV Episode 14 (1992) FULL EPISODE.mp4"
-    },
-    {
-     "archiveID": "game-pro-tv-episode-15-1992-full-episode",
-     "seasonNumber": null,
-     "episodeNumber": 15,
-     "title": "GamePro TV Episode 15 FULL EPISODE",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "GamePro TV Episode 15 (1992) FULL EPISODE.mp4",
-      "format": "h.264",
-      "sizeBytes": 127257507,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/game-pro-tv-episode-15-1992-full-episode/GamePro TV Episode 15 (1992) FULL EPISODE.mp4"
-    },
-    {
-     "archiveID": "game-pro-tv-episode-16-1992-full-episode",
-     "seasonNumber": null,
-     "episodeNumber": 16,
-     "title": "GamePro TV Episode 16 FULL EPISODE",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "GamePro TV Episode 16 (1992) FULL EPISODE.mp4",
-      "format": "h.264",
-      "sizeBytes": 132154212,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/game-pro-tv-episode-16-1992-full-episode/GamePro TV Episode 16 (1992) FULL EPISODE.mp4"
-    },
-    {
-     "archiveID": "game-pro-tv-episode-17-1992-full-episode",
-     "seasonNumber": null,
-     "episodeNumber": 17,
-     "title": "GamePro TV Episode 17 FULL EPISODE",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "GamePro TV Episode 17 (1992) FULL EPISODE.mp4",
-      "format": "h.264",
-      "sizeBytes": 134696718,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/game-pro-tv-episode-17-1992-full-episode/GamePro TV Episode 17 (1992) FULL EPISODE.mp4"
-    },
-    {
-     "archiveID": "game-pro-tv-episode-18-1992-full-episode",
-     "seasonNumber": null,
-     "episodeNumber": 18,
-     "title": "GamePro TV Episode 18 FULL EPISODE",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "GamePro TV Episode 18 (1992) FULL EPISODE.mp4",
-      "format": "h.264",
-      "sizeBytes": 133097015,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/game-pro-tv-episode-18-1992-full-episode/GamePro TV Episode 18 (1992) FULL EPISODE.mp4"
-    },
-    {
-     "archiveID": "game-pro-tv-episode-19-1992-full-episode",
-     "seasonNumber": null,
-     "episodeNumber": 19,
-     "title": "GamePro TV Episode 19 FULL EPISODE",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "GamePro TV Episode 19 (1992) FULL EPISODE.mp4",
-      "format": "h.264",
-      "sizeBytes": 142627399,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/game-pro-tv-episode-19-1992-full-episode/GamePro TV Episode 19 (1992) FULL EPISODE.mp4"
-    },
-    {
-     "archiveID": "game-pro-tv-episode-20-1992-full-episode-final",
-     "seasonNumber": null,
-     "episodeNumber": 20,
-     "title": "GamePro TV Episode 20 FULL EPISODE",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "GamePro TV Episode 20 (1992) FULL EPISODE (Final).mp4",
-      "format": "h.264",
-      "sizeBytes": 128393161,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/game-pro-tv-episode-20-1992-full-episode-final/GamePro TV Episode 20 (1992) FULL EPISODE (Final).mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 20,
- "canonicalEpisodesCount": 6
+  ],
+  "episodesCount": 20,
+  "canonicalEpisodesCount": 6,
+  "tvdbID": "347865",
+  "artworkSource": "tvdb"
 }

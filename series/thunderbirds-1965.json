@@ -1,101 +1,159 @@
 {
- "version": 2,
- "seriesID": "thunderbirds-1965",
- "tvmazeID": 3474,
- "title": "Thunderbirds",
- "yearStart": 1965,
- "yearEnd": 1966,
- "overview": "Thunderbirds are Go!! The year is 2065. A secret organization has been formed by multi-millionaire Jeff Tracy. The team consists of his 5 sons and his engineer, Brains. His Grandma, Kyrano, and Tin-Tin also live with the family. They live on Tracy Island somewhere in the South Pacific. They have many secret undercover agents for the organization. One in particular is Lady Penelope and Nosey Parker. The two live in a mansion in London. Scott Tracy pilots Thunderbird 1. This ship is like a scout ship. Thunderbird 2 is piloted by Virgil Tracy. This ship carries all the rescue equipment including Thunderbird 4. Thunderbird 3 is piloted by Alan, John, and sometimes Scott. The craft is used as a ferry between Thunderbird 5 and space rescues. Thunderbird 4 is piloted by Gordon Tracy. This craft is for water rescues. Thunderbird 5 is a space station in outer space. It is monitored by John and Alan on monthly shifts.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/18/46270.jpg",
- "backdropURL": null,
- "genres": [
-  "Action",
-  "Adventure",
-  "Science-Fiction"
- ],
- "networks": [
-  "ITV1"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": null,
-   "episodes": [
+  "version": 2,
+  "seriesID": "thunderbirds-1965",
+  "tvmazeID": 3474,
+  "title": "Thunderbirds",
+  "yearStart": 1965,
+  "yearEnd": 1966,
+  "overview": "Thunderbirds are Go!! The year is 2065. A secret organization has been formed by multi-millionaire Jeff Tracy. The team consists of his 5 sons and his engineer, Brains. His Grandma, Kyrano, and Tin-Tin also live with the family. They live on Tracy Island somewhere in the South Pacific. They have many secret undercover agents for the organization. One in particular is Lady Penelope and Nosey Parker. The two live in a mansion in London. Scott Tracy pilots Thunderbird 1. This ship is like a scout ship. Thunderbird 2 is piloted by Virgil Tracy. This ship carries all the rescue equipment including Thunderbird 4. Thunderbird 3 is piloted by Alan, John, and sometimes Scott. The craft is used as a ferry between Thunderbird 5 and space rescues. Thunderbird 4 is piloted by Gordon Tracy. This craft is for water rescues. Thunderbird 5 is a space station in outer space. It is monitored by John and Alan on monthly shifts.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77964-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Science-Fiction"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "01ThunderbirdsTrappedInTheSky",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Thunderbirds",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/eB9m5com4DBlj8iY1Iwo2OmfDg2.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "01 Thunderbirds - Trapped in the sky.mp4",
-      "format": "h.264",
-      "sizeBytes": 332809704,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/01ThunderbirdsTrappedInTheSky/01 Thunderbirds - Trapped in the sky.mp4"
-    },
-    {
-     "archiveID": "ThunderbirdsSeries",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Thunderbirds",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/eB9m5com4DBlj8iY1Iwo2OmfDg2.jpg",
-     "airDate": null,
-     "year": 1964,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Thunderbirds 32 - Give or Take a Million.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 437369374,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/ThunderbirdsSeries/Thunderbirds 32 - Give or Take a Million.ia.mp4"
-    },
-    {
-     "archiveID": "thunderbirds-pilot-episode-trapped-in-the-sky",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Thunderbirds : Pilot : Trapped In The Sky",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/eB9m5com4DBlj8iY1Iwo2OmfDg2.jpg",
-     "airDate": null,
-     "year": 1965,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Thunderbirds - Pilot Episode - Trapped in the Sky.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 702711500,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/thunderbirds-pilot-episode-trapped-in-the-sky/Thunderbirds - Pilot Episode - Trapped in the Sky.mp4"
-    },
-    {
-     "archiveID": "thunderbirds-tv-series",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Thunderbirds : Various Episodes",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/eB9m5com4DBlj8iY1Iwo2OmfDg2.jpg",
-     "airDate": null,
-     "year": 1964,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Thunderbirds - 07 - 30 Minutes After Noon.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 676374202,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/thunderbirds-tv-series/Thunderbirds - 07 - 30 Minutes After Noon.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "01ThunderbirdsTrappedInTheSky",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Thunderbirds",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eB9m5com4DBlj8iY1Iwo2OmfDg2.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "01 Thunderbirds - Trapped in the sky.mp4",
+            "format": "h.264",
+            "sizeBytes": 332809704,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01ThunderbirdsTrappedInTheSky/01 Thunderbirds - Trapped in the sky.mp4"
+        },
+        {
+          "archiveID": "ThunderbirdsSeries",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Thunderbirds",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eB9m5com4DBlj8iY1Iwo2OmfDg2.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Thunderbirds 32 - Give or Take a Million.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 437369374,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ThunderbirdsSeries/Thunderbirds 32 - Give or Take a Million.ia.mp4"
+        },
+        {
+          "archiveID": "thunderbirds-pilot-episode-trapped-in-the-sky",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Thunderbirds : Pilot : Trapped In The Sky",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eB9m5com4DBlj8iY1Iwo2OmfDg2.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Thunderbirds - Pilot Episode - Trapped in the Sky.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 702711500,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thunderbirds-pilot-episode-trapped-in-the-sky/Thunderbirds - Pilot Episode - Trapped in the Sky.mp4"
+        },
+        {
+          "archiveID": "thunderbirds-tv-series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Thunderbirds : Various Episodes",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eB9m5com4DBlj8iY1Iwo2OmfDg2.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Thunderbirds - 07 - 30 Minutes After Noon.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 676374202,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thunderbirds-tv-series/Thunderbirds - 07 - 30 Minutes After Noon.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 4,
- "canonicalEpisodesCount": 32
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": 32,
+  "tvdbID": "77964",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Matt Zimmerman",
+      "character": "Alan Tracy",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/60473.jpg"
+    },
+    {
+      "name": "Christine Finn",
+      "character": "Tin-Tin Kyrano",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/60474.jpg"
+    },
+    {
+      "name": "David Holliday",
+      "character": "Virgil Tracy (1st Season)",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/60475.jpg"
+    },
+    {
+      "name": "David Graham",
+      "character": "Brains / Gordon Tracy / Aloysius Parker",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/60476.jpg"
+    },
+    {
+      "name": "Peter Dyneley",
+      "character": "Jeff Tracy",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/60477.jpg"
+    },
+    {
+      "name": "Ray Barrett",
+      "character": "John Tracy / The Hood",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/324501/5ea421ab5744e.jpg"
+    },
+    {
+      "name": "Sylvia Anderson",
+      "character": "Lady Penelope Creighton-Ward",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/60479.jpg"
+    },
+    {
+      "name": "Shane Rimmer",
+      "character": "Scott Tracy",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258560/photo/633726cc728d4.jpg"
+    },
+    {
+      "name": "Jeremy Wilkin",
+      "character": "Virgil Tracy (2nd Season)",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/60481.jpg"
+    }
+  ]
 }

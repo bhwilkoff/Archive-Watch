@@ -1,81 +1,115 @@
 {
- "version": 2,
- "seriesID": "treehouse-masters-2013",
- "tvmazeID": 1446,
- "title": "Treehouse Masters",
- "yearStart": 2013,
- "yearEnd": 2018,
- "overview": "Often described as a tree whisperer by his clients, colleagues and contemporaries, Pete Nelson dedicates his life granting people's dreams of turning peaceful nooks in nature into the ultimate escapes. In Treehouse Masters, Nelson and his team execute the most outrageous treehouses designed to delight every whimsy, form and function. Whether he's contriving magnificent multi-bedroom treehouses with state-of-the-art kitchens and bathrooms or rendering simpler, peaceful one-room escapes, Nelson always goes out on a limb to create the most breathtaking treehouses with spectacular vistas.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/71/178414.jpg",
- "backdropURL": null,
- "genres": [
-  "DIY"
- ],
- "networks": [
-  "Animal Planet"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "treehouse-masters-2013",
+  "tvmazeID": 1446,
+  "title": "Treehouse Masters",
+  "yearStart": 2013,
+  "yearEnd": 2018,
+  "overview": "Often described as a tree whisperer by his clients, colleagues and contemporaries, Pete Nelson dedicates his life granting people's dreams of turning peaceful nooks in nature into the ultimate escapes. In Treehouse Masters, Nelson and his team execute the most outrageous treehouses designed to delight every whimsy, form and function. Whether he's contriving magnificent multi-bedroom treehouses with state-of-the-art kitchens and bathrooms or rendering simpler, peaceful one-room escapes, Nelson always goes out on a limb to create the most breathtaking treehouses with spectacular vistas.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/270071-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "DIY"
+  ],
+  "networks": [
+    "Animal Planet"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "treehouse-tv-2008-part-2",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "Luck O' the Irish Cottage",
-     "overview": "An Irish family in Orange County, CA has the perfect olive tree in their backyard to nestle a Celtic-themed cottage. Pete devises a challenging circular design that includes a fireplace and even a rainmaker to mimic the wet Ireland climate.",
-     "stillURL": null,
-     "airDate": "2013-06-07",
-     "year": 2013,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Treehouse TV (2008) Part 2.mp4",
-      "format": "h.264",
-      "sizeBytes": 720205693,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/treehouse-tv-2008-part-2/Treehouse%20TV%20%282008%29%20Part%202.mp4"
-    },
-    {
-     "archiveID": "treehouse-tv-2007",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Sky High Spa",
-     "overview": "An Austin, TX entrepreneur enlists Pete to build the world's first spa treehouse on her ranch retreat. Pete tackles plumbing challenges and builds an over-the-top spa equipped with a steam shower, a Japanese soaking tub and plenty of tranquility.",
-     "stillURL": null,
-     "airDate": "2013-06-14",
-     "year": 2013,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Treehouse TV (2007) (Part 3).mp4",
-      "format": "h.264",
-      "sizeBytes": 942733207,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/treehouse-tv-2007/Treehouse%20TV%20%282007%29%20%28Part%203%29.mp4"
-    },
-    {
-     "archiveID": "treehouse-tv-2008-part-5",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "Spirit House Retreat",
-     "overview": "A writer in Rhinebeck, NY calls on Pete to build a hideaway to embrace her creativity. Pete transforms an old cedar tree into a gold-leafed \"Spirit House\" retreat filled with uplifting oddities and a loft to rest the brain if she hits a writer's block.",
-     "stillURL": null,
-     "airDate": "2013-06-28",
-     "year": 2013,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Treehouse TV (2008) Part 5.mp4",
-      "format": "h.264",
-      "sizeBytes": 718486682,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/treehouse-tv-2008-part-5/Treehouse%20TV%20%282008%29%20Part%205.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "treehouse-tv-2008-part-2",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Luck O' the Irish Cottage",
+          "overview": "An Irish family in Orange County, CA has the perfect olive tree in their backyard to nestle a Celtic-themed cottage. Pete devises a challenging circular design that includes a fireplace and even a rainmaker to mimic the wet Ireland climate.",
+          "stillURL": null,
+          "airDate": "2013-06-07",
+          "year": 2013,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Treehouse TV (2008) Part 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 720205693,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/treehouse-tv-2008-part-2/Treehouse%20TV%20%282008%29%20Part%202.mp4"
+        },
+        {
+          "archiveID": "treehouse-tv-2007",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Sky High Spa",
+          "overview": "An Austin, TX entrepreneur enlists Pete to build the world's first spa treehouse on her ranch retreat. Pete tackles plumbing challenges and builds an over-the-top spa equipped with a steam shower, a Japanese soaking tub and plenty of tranquility.",
+          "stillURL": null,
+          "airDate": "2013-06-14",
+          "year": 2013,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Treehouse TV (2007) (Part 3).mp4",
+            "format": "h.264",
+            "sizeBytes": 942733207,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/treehouse-tv-2007/Treehouse%20TV%20%282007%29%20%28Part%203%29.mp4"
+        },
+        {
+          "archiveID": "treehouse-tv-2008-part-5",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Spirit House Retreat",
+          "overview": "A writer in Rhinebeck, NY calls on Pete to build a hideaway to embrace her creativity. Pete transforms an old cedar tree into a gold-leafed \"Spirit House\" retreat filled with uplifting oddities and a loft to rest the brain if she hits a writer's block.",
+          "stillURL": null,
+          "airDate": "2013-06-28",
+          "year": 2013,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Treehouse TV (2008) Part 5.mp4",
+            "format": "h.264",
+            "sizeBytes": 718486682,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/treehouse-tv-2008-part-5/Treehouse%20TV%20%282008%29%20Part%205.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 3,
- "canonicalEpisodesCount": 98
+  ],
+  "episodesCount": 3,
+  "canonicalEpisodesCount": 98,
+  "tvdbID": "270071",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Pete Nelson",
+      "character": "Pete Nelson",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/455106.jpg"
+    },
+    {
+      "name": "Judy Nelson",
+      "character": "Judy Nelson",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Emily Nelson",
+      "character": "Emily Nelson",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Henry Nelson",
+      "character": "Henry Nelson",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Charlie Nelson",
+      "character": "Charlie Nelson",
+      "order": 4,
+      "profilePath": null
+    }
+  ]
 }

@@ -1,1574 +1,1620 @@
 {
- "version": 2,
- "seriesID": "knight-rider-1982",
- "tvmazeID": 825,
- "title": "Knight Rider",
- "yearStart": 1982,
- "yearEnd": 1991,
- "overview": "The series follows the thrilling adventures of Michael Knight, a detective thought to be dead, who's been given a new face and identity. His assignment: to fight crime with the help of an artificially intelligent, talking car named K.I.T.T., a high-speed, futuristic weapon outfitted with high-tech gadgets and a personality of its own. Driven by justice, they set out to take down criminals who operate above the law.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/6/15722.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "Action",
-  "Crime"
- ],
- "networks": [
-  "NBC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "knight-rider-1982",
+  "tvmazeID": 825,
+  "title": "Knight Rider",
+  "yearStart": 1982,
+  "yearEnd": 1991,
+  "overview": "The series follows the thrilling adventures of Michael Knight, a detective thought to be dead, who's been given a new face and identity. His assignment: to fight crime with the help of an artificially intelligent, talking car named K.I.T.T., a high-speed, futuristic weapon outfitted with high-tech gadgets and a personality of its own. Driven by justice, they set out to take down criminals who operate above the law.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77216-4.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Action",
+    "Crime"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "knight.-rider.-s-01-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Knight of the Phoenix",
-     "overview": "A dying millionaire rescues a badly wounded undercover police officer and gives him a new identity.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/81/204056.jpg",
-     "airDate": "1982-09-26",
-     "year": 1982,
-     "runtimeSeconds": 7200,
-     "videoFile": {
-      "name": "Knight.Rider.S01E01E02.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 560164153,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E01E02.BluRay.1080p.AC3.H265-d3g.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "knight.-rider.-s-01-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Knight of the Phoenix",
+          "overview": "A dying millionaire rescues a badly wounded undercover police officer and gives him a new identity.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/81/204056.jpg",
+          "airDate": "1982-09-26",
+          "year": 1982,
+          "runtimeSeconds": 7200,
+          "videoFile": {
+            "name": "Knight.Rider.S01E01E02.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 560164153,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E01E02.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-01-e-04.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Slammin' Sammy's Stunt Show Spectacular",
+          "overview": "KITT is scheduled to participate in an auto-stunt show whose organizers fall prey to a greedy developer.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323021.jpg",
+          "airDate": "1982-10-22",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S01E04.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 284203838,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-04.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E04.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-01-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Just My Bill",
+          "overview": "Michael and KITT guard a controversial senator opposing water power legislation.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323022.jpg",
+          "airDate": "1982-10-29",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S01E05.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283778676,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E05.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-01-e-06.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Not a Drop to Drink",
+          "overview": "Michael jumps into action when ranchers and politicians get into a disagreement about water rights in a desert valley.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323026.jpg",
+          "airDate": "1982-11-05",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S01E06.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 284275450,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-06.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E06.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-01-e-07.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "No Big Thing",
+          "overview": "Devon lands in jail on a misdemeanor, but his predicament becomes deadly when a prisoner is killed by the cops.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323028.jpg",
+          "airDate": "1982-11-12",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S01E07.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283544262,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-07.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E07.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-01-e-08.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Trust Doesn't Rust",
+          "overview": "Two small time crooks steal and activate KITT's sociopathic predecessor, KARR (the Knight Automated Roving Robot), and it goes on the rampage.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323030.jpg",
+          "airDate": "1982-11-19",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S01E08.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 280177169,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-08.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E08.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight-rider-s-01-e-08-1080p-blu-ray-dts-x-264-ctrl-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Trust Doesn't Rust",
+          "overview": "Michael is assigned to stop KARR, an evil prototype of KITT programmed to survive at all costs--and now on the loose.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/5FWEfZPXTDfXDT7xg5xHhXsTlQ3.jpg",
+          "airDate": null,
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Knight Rider S01E08 1080p BluRay DTS x264-CtrlHD.mp4",
+            "format": "h.264",
+            "sizeBytes": 276912069,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight-rider-s-01-e-08-1080p-blu-ray-dts-x-264-ctrl-hd/Knight Rider S01E08 1080p BluRay DTS x264-CtrlHD.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-01-e-09.-blu-ray.-1080p-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Inside Out",
+          "overview": "Michael poses as a mob's getaway driver to stop a robbery and rescue a woman blackmailed into helping.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323031.jpg",
+          "airDate": "1982-11-26",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S01E09.BluRay.1080pAC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 278806403,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-09.-blu-ray.-1080p-ac-3.-h-265-d-3g/Knight.Rider.S01E09.BluRay.1080pAC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-01-e-10.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Final Verdict",
+          "overview": "A former girlfriend needs Michael's help when she is accused of murdering her boss.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323127.jpg",
+          "airDate": "1982-12-03",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S01E10.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283491166,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-10.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E10.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-01-e-11.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "A Plush Ride",
+          "overview": "Michael joins a security agency to find an agent planning to kill a peace-conference delegate.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323133.jpg",
+          "airDate": "1982-12-10",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S01E11.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283897908,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-11.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E11.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-01-e-12.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Forget Me Not",
+          "overview": "Michael must help an amnesia victim recover to prevent an assassination",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323135.jpg",
+          "airDate": "1982-12-17",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S01E12.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283922291,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-12.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E12.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-01-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Hearts of Stone",
+          "overview": "Michael enters dangerous territory when he infiltrates a ring of illegal gun traffickers and becomes involved in a Texas gun running war between a Mexican family and a gang of US veterans.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323161.jpg",
+          "airDate": "1983-01-14",
+          "year": 1983,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S01E13.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 284197836,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E13.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-01-e-14.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Give Me Liberty... or Give Me Death",
+          "overview": "Michael enters a race for vehicles propelled by alternative fuels to flush out a saboteur who is putting the drivers' lives in jeopardy.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323162.jpg",
+          "airDate": "1983-01-21",
+          "year": 1983,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S01E14.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283307687,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-14.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E14.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-01-e-15.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Topaz Connection",
+          "overview": "A magazine publisher's daughter links her father's murder to a top secret expose.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323165.jpg",
+          "airDate": "1983-01-28",
+          "year": 1983,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S01E15.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 285111285,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-15.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E15.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-01-e-16.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "A Nice, Indecent Little Town",
+          "overview": "Michael and KITT learn a peaceful town's bible printing plant harbors counterfeiters.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323173.jpg",
+          "airDate": "1983-02-18",
+          "year": 1983,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S01E16.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 284170491,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-16.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E16.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-01-e-17.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Chariot of Gold",
+          "overview": "A sinister society drugs Bonnie to reprogram KITT for a museum robbery.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323179.jpg",
+          "airDate": "1983-02-25",
+          "year": 1983,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S01E17.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283822822,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-17.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E17.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-01-e-18.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "White Bird",
+          "overview": "Michael tries to prevent a lawyer's assistant from being framed for conspiracy, but there's a complication: she was Michael's fiancée before his identity change.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323187.jpg",
+          "airDate": "1983-03-04",
+          "year": 1983,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S01E18.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283986948,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-18.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E18.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-01-e-19.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Knight Moves",
+          "overview": "Devon poses as a businessman while Michael investigates recent hijacking attempts against an alliance of local truckers.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323203.jpg",
+          "airDate": "1983-03-11",
+          "year": 1983,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S01E19.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 284486915,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-19.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E19.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-01-e-20.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Nobody Does It Better",
+          "overview": "Michael joins forces with a private investigator when a man who designs video games is suspected of selling company secrets.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323206.jpg",
+          "airDate": "1983-04-29",
+          "year": 1983,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S01E20.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283931883,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-20.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E20.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-01-e-21.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Short Notice",
+          "overview": "Michael faces murder charges after he kills a motorcycle gang member in self defense while trying to save an elusive hitchhiker.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323207.jpg",
+          "airDate": "1983-05-06",
+          "year": 1983,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S01E21.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 284287715,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-21.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E21.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-01-e-22.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Knight Rider S01 E22 Short Notice",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/t57NXzTrwp5rnPXiaX4BThrDxt1.jpg",
+          "airDate": null,
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Knight.Rider.S01E22.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 284327226,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-22.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E22.BluRay.1080p.AC3.H265-d3g.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "knight.-rider.-s-01-e-04.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Slammin' Sammy's Stunt Show Spectacular",
-     "overview": "KITT is scheduled to participate in an auto-stunt show whose organizers fall prey to a greedy developer.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323021.jpg",
-     "airDate": "1982-10-22",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S01E04.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 284203838,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-04.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E04.BluRay.1080p.AC3.H265-d3g.mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "knight.-rider.-s-02-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Goliath",
+          "overview": "While helping a woman track her missing brother, Michael uncovers a plot to steal government missiles using the same indestructible molecular bonded shell technology that KITT employs.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323247.jpg",
+          "airDate": "1983-10-02",
+          "year": 1983,
+          "runtimeSeconds": 7200,
+          "videoFile": {
+            "name": "Knight.Rider.S02E01E02.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 564332821,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E01E02.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-02-e-03.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Merchants of Death",
+          "overview": "Amelia Clermont, a former lover of Devon Miles, stumbles upon some stolen Sledgehammer missile that can only be fired from the SX4-11 helicopter and promptly disappears. Her daughter Camela turns to the Foundation and Devon, who puts Michael and Kitt on the case.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323355.jpg",
+          "airDate": "1983-10-16",
+          "year": 1983,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S02E03.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283597172,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-03.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E03.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-02-e-04.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Blind Spot",
+          "overview": "Michael steps in when a blind girl witnesses a murder involving illegal aliens and the crooked owner of an auto wrecking yard.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323366.jpg",
+          "airDate": "1983-10-23",
+          "year": 1983,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S02E04.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283263413,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-04.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E04.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-02-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Return to Cadiz",
+          "overview": "An unknown historian attempts to eliminate a diver who has discovered Mayan treasure aboard a Spanish sailing vessel that sank in 1521.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323372.jpg",
+          "airDate": "1983-10-30",
+          "year": 1983,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S02E05.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283664084,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E05.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-02-e-06.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "K.I.T.T. the Cat",
+          "overview": "The daughter of a deceased cat burglar gets blamed for a set of elaborate modern day Robin Hood-esque robberies.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323376.jpg",
+          "airDate": "1983-11-06",
+          "year": 1983,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S02E06.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283015437,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-06.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E06.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-02-e-07.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Custom K.I.T.T.",
+          "overview": "KITT acts as bait at a car show in order to try and catch the thieves of a classic car entrusted to Devon.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323378.jpg",
+          "airDate": "1983-11-13",
+          "year": 1983,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S02E07.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283869140,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-07.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E07.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-02-e-08.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Soul Survivor",
+          "overview": "A self taught teenage computer whiz kid succeeds in hacking into K.I.T.T. and stealing it for his older lover Adrianne. Michael must regain the car with the help of K.I.T.T.'s CPU humiliatingly boxed in a portable TV set.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323382.jpg",
+          "airDate": "1983-11-27",
+          "year": 1983,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S02E08.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283612431,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-08.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E08.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-02-e-09.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Ring of Fire",
+          "overview": "A plea from a remote bayou area has Michael searching for an escaped prisoner seeking revenge against his ex-wife who testified against him.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323450.jpg",
+          "airDate": "1983-12-04",
+          "year": 1983,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S02E09.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 284138028,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-09.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E09.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-02-e-10.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Knightmares",
+          "overview": "Michael is caught in an explosion and loses part of his memory. He wakes up thinking he's still police officer Michael Long.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323493.jpg",
+          "airDate": "1983-12-11",
+          "year": 1983,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S02E10.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283983587,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-10.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E10.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-02-e-11.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Silent Knight",
+          "overview": "Michael offers to protect a boy who's a key witness to a bank robbery.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323512.jpg",
+          "airDate": "1983-12-18",
+          "year": 1983,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S02E11.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283905634,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-11.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E11.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-02-e-12.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "A Knight in Shining Armor",
+          "overview": "Michael must protect the reluctant daughter of a famous explorer from the same killer who murdered her father.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323610.jpg",
+          "airDate": "1984-01-08",
+          "year": 1984,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S02E12.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 276234824,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-12.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E12.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "289355027",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Diamonds Aren't A Girl's Best Friend",
+          "overview": "Michael becomes entangled in the world of finance and fashion, when a model who unwittingly became a jewel smuggler's pawn is killed.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323612.jpg",
+          "airDate": "1984-01-15",
+          "year": 1984,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "289355027.mp4",
+            "format": "h.264",
+            "sizeBytes": 284071973,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/289355027/289355027.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-02-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Diamonds Aren't a Girl's Best Friend",
+          "overview": "Michael heads for Mexico to trap a talent agent who's using beautiful models to smuggle diamonds into the U.S.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/sgihXKkd2uR90COEXHo8CRHHIjo.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Knight.Rider.S02E13.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 284590167,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E13.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-02-e-15.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "Race For Life",
+          "overview": "Michael and KITT must work together to locate a fugitive, the only potential bone marrow donor, so that they can save a child.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323659.jpg",
+          "airDate": "1984-02-05",
+          "year": 1984,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S02E15.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283475109,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-15.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E15.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-02-e-16.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Speed Demons",
+          "overview": "Michael is put on alert when a letter warns that a killer may strike at a Foundation sponsored motorcycle race.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323690.jpg",
+          "airDate": "1984-02-12",
+          "year": 1984,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S02E16.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 284732389,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-16.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E16.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-02-e-17.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "Goliath Returns",
+          "overview": "Garthe Knight leads Michael into a confrontation by kidnapping Devon, April and the scientist Michael was hired to protect.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323692.jpg",
+          "airDate": "1984-02-19",
+          "year": 1984,
+          "runtimeSeconds": 7200,
+          "videoFile": {
+            "name": "Knight.Rider.S02E17.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 282969502,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-17.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E17.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-02-e-18-e-19.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "A Good Knight's Work",
+          "overview": "Michael helps a toy maker and is targeted for death by old adversary Cameron Zachery.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323697.jpg",
+          "airDate": "1984-03-04",
+          "year": 1984,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S02E18E19.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 567013863,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-18-e-19.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E18E19.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-02-e-20.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "Let It Be Me",
+          "overview": "Michael poses as a singer to help an old love solve a musician's suspicious overdose.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323710.jpg",
+          "airDate": "1984-05-13",
+          "year": 1984,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S02E20.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 284246085,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-20.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E20.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-02-e-21-e-22.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Big Iron",
+          "overview": "Former partners, now competitors, are suspected of hijacking construction equipment.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323712.jpg",
+          "airDate": "1984-05-27",
+          "year": 1984,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S02E21E22.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 569263125,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-21-e-22.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E21E22.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-02-e-23.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "Knight Rider S02 E23 Let It Be Me",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/t57NXzTrwp5rnPXiaX4BThrDxt1.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Knight.Rider.S02E23.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283626729,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-23.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E23.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-02-e-24.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "Knight Rider S02 E24 Big Iron",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/t57NXzTrwp5rnPXiaX4BThrDxt1.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Knight.Rider.S02E24.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 284022242,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-24.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E24.BluRay.1080p.AC3.H265-d3g.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "knight.-rider.-s-01-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "Just My Bill",
-     "overview": "Michael and KITT guard a controversial senator opposing water power legislation.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323022.jpg",
-     "airDate": "1982-10-29",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S01E05.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283778676,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E05.BluRay.1080p.AC3.H265-d3g.mp4"
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "knight.-rider.-s-03-e-01.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Knight of the Drones",
+          "overview": "A scientist plans to use robots and drone cars to round up criminals to rob a Federal Reserve Bank.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323719.jpg",
+          "airDate": "1984-09-30",
+          "year": 1984,
+          "runtimeSeconds": 7200,
+          "videoFile": {
+            "name": "Knight.Rider.S03E01.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 264064110,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-01.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E01.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "The Ice Bandits",
+          "overview": "Michael and KITT's hunt for $3 million in stolen diamonds leads them to winemaking monks in the Napa Valley.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323737.jpg",
+          "airDate": "1984-10-07",
+          "year": 1984,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S03E02.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 280259017,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E02.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-03.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "Knights of the Fast Lane",
+          "overview": "Michael investigates tire tracks and a paint chip when the daughter of an old friend is injured in a hit-and-run incident.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323739.jpg",
+          "airDate": "1984-10-14",
+          "year": 1984,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S03E03.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 284147655,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-03.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E03.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-04.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "Halloween Knight",
+          "overview": "After Bonnie claims she witnessed a murder, she's plagued by strange happenings designed to scare her out of her new apartment.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323802.jpg",
+          "airDate": "1984-10-28",
+          "year": 1984,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S03E04.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 282253282,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-04.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E04.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "K.I.T.T. vs. K.A.R.R.",
+          "overview": "KITT's evil prototype KARR returns, seeking to destroy Michael and KITT with a new laser stolen from the Foundation.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323803.jpg",
+          "airDate": "1984-11-04",
+          "year": 1984,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S03E05.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 282276608,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E05.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-06.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "The Rotten Apples",
+          "overview": "A psychologist who bought a ranch as a home for troubled kids needs Michael's help to stop rustlers and keep angry townsfolk from taking her land.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323805.jpg",
+          "airDate": "1984-11-11",
+          "year": 1984,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S03E06.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283211813,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-06.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E06.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-07.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "Knight in Disgrace",
+          "overview": "Michael is suspended from duty after he is discovered to be carrying heroin during a confrontation with the police. His problems are compounded when he trusts the wrong man to help clear his name.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323806.jpg",
+          "airDate": "1984-11-18",
+          "year": 1984,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S03E07.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283371036,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-07.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E07.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-08.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "Dead of Knight",
+          "overview": "A young dancer ingests a poison meant for Michael, who races the clock to find the only man with the antidote.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323807.jpg",
+          "airDate": "1984-12-02",
+          "year": 1984,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S03E08.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283609257,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-08.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E08.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-09.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "Lost Knight",
+          "overview": "After an explosion separates Michael and Kitt and erases the car's memory, Kitt befriends a boy being chased by thieves who think he can identify them.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323811.jpg",
+          "airDate": "1984-12-09",
+          "year": 1984,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S03E09.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 282853620,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-09.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E09.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-10.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "Knight of the Chameleon",
+          "overview": "Michael poses as a mercenary to flush out the Chameleon, a master of disguise who stole a prototype jet pack from the Government to sell on the black market.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323813.jpg",
+          "airDate": "1984-12-30",
+          "year": 1984,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S03E10.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283637596,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-10.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E10.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-11.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "Custom Made Killer",
+          "overview": "Michael hunts down a customized car and its killer driver who have been hired by an extortionist wanting to bring down a garment trading business and eliminate his competition.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324022.jpg",
+          "airDate": "1985-01-06",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S03E11.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 282541784,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-11.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E11.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-12.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "Knight by a Nose",
+          "overview": "Michael investigates the death of a prize race horse which he suspects is a cover up by the owner in order to get out of an enormous gambling debt.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324025.jpg",
+          "airDate": "1985-01-13",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S03E12.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 281226969,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-12.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E12.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "Junk Yard Dog",
+          "overview": "Michael vows to nail the owner of a toxic waste dump when Kitt is nearly destroyed in an acid pit.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324030.jpg",
+          "airDate": "1985-02-03",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S03E13.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283444840,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E13.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-14.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 14,
+          "title": "Buy Out",
+          "overview": "Michael and KITT become involved in a battle with a tank like attack car built for anti-terrorist activity, and they come to the rescue of a group of dedicated car workers who want to buy the company they work for.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324037.jpg",
+          "airDate": "1985-02-10",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S03E14.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283029588,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-14.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E14.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-15.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 15,
+          "title": "Knightlines",
+          "overview": "An international criminal rigs the Government's space weapons headquarters to blow up after construction is completed.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324068.jpg",
+          "airDate": "1985-03-03",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S03E15.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283548208,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-15.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E15.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-16.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 16,
+          "title": "The Nineteenth Hole",
+          "overview": "After agreeing to sponsor a local racing event, the editor of a small-town newspaper contacts Devon when her life is threatened.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324071.jpg",
+          "airDate": "1985-03-10",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S03E16.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 282956723,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-16.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E16.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-17.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 17,
+          "title": "Knight and Knerd",
+          "overview": "A nerdy Foundation employee helps Michael rescue a scientist's daughter from criminals who also steal the scientist's advanced laser weapon to rob a jewel depository.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324093.jpg",
+          "airDate": "1985-03-17",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S03E17.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 284453262,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-17.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E17.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-18.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 18,
+          "title": "Ten Wheel Trouble",
+          "overview": "Michael takes the wheel of a rig to help independent truckers fight a takeover by a ruthless corporation.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324101.jpg",
+          "airDate": "1985-03-24",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S03E18.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 280777705,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-18.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E18.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-19.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 19,
+          "title": "Knight in Retreat",
+          "overview": "Michael poses as a space weapon scientist to gain access to a club operated by a woman dealing in blackmail and top secret weapon systems.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324113.jpg",
+          "airDate": "1985-03-29",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S03E19.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283230496,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-19.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E19.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-20.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 20,
+          "title": "Knight Strike",
+          "overview": "Michael investigates when a truckload of laser guns and other confiscated weapons disappear from a police warehouse.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324123.jpg",
+          "airDate": "1985-04-05",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S03E20.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 282830400,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-20.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E20.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-21.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 21,
+          "title": "Circus Knights",
+          "overview": "Michael and Kitt join a circus as a daredevil act to find out who's trying to force it into bankruptcy.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324128.jpg",
+          "airDate": "1985-05-05",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S03E21.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 284254098,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-21.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E21.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-03-e-22.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 22,
+          "title": "Knight Rider S03 E22 Circus Knights",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/t57NXzTrwp5rnPXiaX4BThrDxt1.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Knight.Rider.S03E22.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 282670811,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-22.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E22.BluRay.1080p.AC3.H265-d3g.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "knight.-rider.-s-01-e-06.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "Not a Drop to Drink",
-     "overview": "Michael jumps into action when ranchers and politicians get into a disagreement about water rights in a desert valley.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323026.jpg",
-     "airDate": "1982-11-05",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S01E06.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 284275450,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-06.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E06.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-01-e-07.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 1,
-     "episodeNumber": 7,
-     "title": "No Big Thing",
-     "overview": "Devon lands in jail on a misdemeanor, but his predicament becomes deadly when a prisoner is killed by the cops.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323028.jpg",
-     "airDate": "1982-11-12",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S01E07.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283544262,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-07.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E07.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-01-e-08.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 1,
-     "episodeNumber": 8,
-     "title": "Trust Doesn't Rust",
-     "overview": "Two small time crooks steal and activate KITT's sociopathic predecessor, KARR (the Knight Automated Roving Robot), and it goes on the rampage.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323030.jpg",
-     "airDate": "1982-11-19",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S01E08.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 280177169,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-08.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E08.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight-rider-s-01-e-08-1080p-blu-ray-dts-x-264-ctrl-hd",
-     "seasonNumber": 1,
-     "episodeNumber": 8,
-     "title": "Trust Doesn't Rust",
-     "overview": "Michael is assigned to stop KARR, an evil prototype of KITT programmed to survive at all costs--and now on the loose.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/5FWEfZPXTDfXDT7xg5xHhXsTlQ3.jpg",
-     "airDate": null,
-     "year": 1982,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Knight Rider S01E08 1080p BluRay DTS x264-CtrlHD.mp4",
-      "format": "h.264",
-      "sizeBytes": 276912069,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight-rider-s-01-e-08-1080p-blu-ray-dts-x-264-ctrl-hd/Knight Rider S01E08 1080p BluRay DTS x264-CtrlHD.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-01-e-09.-blu-ray.-1080p-ac-3.-h-265-d-3g",
-     "seasonNumber": 1,
-     "episodeNumber": 9,
-     "title": "Inside Out",
-     "overview": "Michael poses as a mob's getaway driver to stop a robbery and rescue a woman blackmailed into helping.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323031.jpg",
-     "airDate": "1982-11-26",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S01E09.BluRay.1080pAC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 278806403,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-09.-blu-ray.-1080p-ac-3.-h-265-d-3g/Knight.Rider.S01E09.BluRay.1080pAC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-01-e-10.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 1,
-     "episodeNumber": 10,
-     "title": "The Final Verdict",
-     "overview": "A former girlfriend needs Michael's help when she is accused of murdering her boss.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323127.jpg",
-     "airDate": "1982-12-03",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S01E10.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283491166,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-10.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E10.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-01-e-11.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 1,
-     "episodeNumber": 11,
-     "title": "A Plush Ride",
-     "overview": "Michael joins a security agency to find an agent planning to kill a peace-conference delegate.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323133.jpg",
-     "airDate": "1982-12-10",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S01E11.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283897908,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-11.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E11.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-01-e-12.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 1,
-     "episodeNumber": 12,
-     "title": "Forget Me Not",
-     "overview": "Michael must help an amnesia victim recover to prevent an assassination",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323135.jpg",
-     "airDate": "1982-12-17",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S01E12.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283922291,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-12.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E12.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-01-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 1,
-     "episodeNumber": 13,
-     "title": "Hearts of Stone",
-     "overview": "Michael enters dangerous territory when he infiltrates a ring of illegal gun traffickers and becomes involved in a Texas gun running war between a Mexican family and a gang of US veterans.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323161.jpg",
-     "airDate": "1983-01-14",
-     "year": 1983,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S01E13.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 284197836,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E13.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-01-e-14.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 1,
-     "episodeNumber": 14,
-     "title": "Give Me Liberty... or Give Me Death",
-     "overview": "Michael enters a race for vehicles propelled by alternative fuels to flush out a saboteur who is putting the drivers' lives in jeopardy.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323162.jpg",
-     "airDate": "1983-01-21",
-     "year": 1983,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S01E14.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283307687,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-14.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E14.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-01-e-15.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 1,
-     "episodeNumber": 15,
-     "title": "The Topaz Connection",
-     "overview": "A magazine publisher's daughter links her father's murder to a top secret expose.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323165.jpg",
-     "airDate": "1983-01-28",
-     "year": 1983,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S01E15.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 285111285,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-15.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E15.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-01-e-16.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 1,
-     "episodeNumber": 16,
-     "title": "A Nice, Indecent Little Town",
-     "overview": "Michael and KITT learn a peaceful town's bible printing plant harbors counterfeiters.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323173.jpg",
-     "airDate": "1983-02-18",
-     "year": 1983,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S01E16.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 284170491,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-16.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E16.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-01-e-17.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 1,
-     "episodeNumber": 17,
-     "title": "Chariot of Gold",
-     "overview": "A sinister society drugs Bonnie to reprogram KITT for a museum robbery.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323179.jpg",
-     "airDate": "1983-02-25",
-     "year": 1983,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S01E17.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283822822,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-17.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E17.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-01-e-18.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 1,
-     "episodeNumber": 18,
-     "title": "White Bird",
-     "overview": "Michael tries to prevent a lawyer's assistant from being framed for conspiracy, but there's a complication: she was Michael's fiancée before his identity change.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323187.jpg",
-     "airDate": "1983-03-04",
-     "year": 1983,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S01E18.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283986948,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-18.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E18.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-01-e-19.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 1,
-     "episodeNumber": 19,
-     "title": "Knight Moves",
-     "overview": "Devon poses as a businessman while Michael investigates recent hijacking attempts against an alliance of local truckers.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323203.jpg",
-     "airDate": "1983-03-11",
-     "year": 1983,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S01E19.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 284486915,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-19.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E19.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-01-e-20.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 1,
-     "episodeNumber": 20,
-     "title": "Nobody Does It Better",
-     "overview": "Michael joins forces with a private investigator when a man who designs video games is suspected of selling company secrets.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323206.jpg",
-     "airDate": "1983-04-29",
-     "year": 1983,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S01E20.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283931883,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-20.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E20.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-01-e-21.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 1,
-     "episodeNumber": 21,
-     "title": "Short Notice",
-     "overview": "Michael faces murder charges after he kills a motorcycle gang member in self defense while trying to save an elusive hitchhiker.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323207.jpg",
-     "airDate": "1983-05-06",
-     "year": 1983,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S01E21.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 284287715,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-21.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E21.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-01-e-22.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 1,
-     "episodeNumber": 22,
-     "title": "Knight Rider S01 E22 Short Notice",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/t57NXzTrwp5rnPXiaX4BThrDxt1.jpg",
-     "airDate": null,
-     "year": 1983,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Knight.Rider.S01E22.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 284327226,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-22.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E22.BluRay.1080p.AC3.H265-d3g.mp4"
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "knight.-rider.-s-04-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "Knight of the Juggernaut",
+          "overview": "Michael goes to Chicago on an assignment to guard a valuable isotope. KITT undergoes an amazing transformation after nearly being destroyed by the Juggernaut, a similarly powerful vehicle with a deadly battering ram.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324314.jpg",
+          "airDate": "1985-09-20",
+          "year": 1985,
+          "runtimeSeconds": 7200,
+          "videoFile": {
+            "name": "Knight.Rider.S04E01E02.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 568384583,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E01E02.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-04-e-03.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 3,
+          "title": "Sky Knight",
+          "overview": "Bonnie's plane is hijacked and the passengers held hostage by an ex-intelligence agent who wants money and \"political\" prisoners set free.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324326.jpg",
+          "airDate": "1985-10-18",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S04E03.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 282830834,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-03.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E03.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-04-e-04.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 4,
+          "title": "Burial Ground",
+          "overview": "An archaeologist excavating a burial ground is kidnapped by a man who gets the oil rich Indian land if no artifacts are found.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324327.jpg",
+          "airDate": "1985-10-25",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S04E04.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 282031566,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-04.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E04.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-04-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 5,
+          "title": "The Wrong Crowd",
+          "overview": "A motorcycle gang hijacks a Foundation truck containing computers and forces a young computer whiz to break into a local bank.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324328.jpg",
+          "airDate": "1985-11-01",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S04E05.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 282920301,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E05.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-04-e-06.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 6,
+          "title": "Knight Sting",
+          "overview": "Bonnie poses as a jet-setter to gain access to a foreign embassy planning to ship a canister of deadly bacteria out of the country.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324331.jpg",
+          "airDate": "1985-11-08",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S04E06.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 281965778,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-06.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E06.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-04-e-07.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "Many Happy Returns",
+          "overview": "Michael races against time to find a stolen hovercraft prototype before a black-market arms dealer can ship it out of the country.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324347.jpg",
+          "airDate": "1985-11-15",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S04E07.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 282247399,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-07.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E07.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-04-e-08.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 8,
+          "title": "Knight Racer",
+          "overview": "Michael investigates an open wheel race team plagued by mysterious accidents. A hateful man seeks revenge against the husband of his former lover by sabotaging his race car.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324412.jpg",
+          "airDate": "1985-11-29",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S04E08.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 280015139,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-08.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E08.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-04-e-09.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 9,
+          "title": "Knight Behind Bars",
+          "overview": "Prison inmates were used to steal security plans for a hotel that is hosting a defense conference. Bonnie goes undercover as an inmate.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324425.jpg",
+          "airDate": "1985-12-06",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S04E09.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 281866637,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-09.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E09.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-04-e-10.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 10,
+          "title": "Knight Song",
+          "overview": "A club owner and famous singer's neighborhood project upsets a greedy real estate magnate who tries to sabotage it.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324435.jpg",
+          "airDate": "1985-12-13",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S04E10.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 281860088,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-10.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E10.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-04-e-11.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 11,
+          "title": "The Scent of Roses",
+          "overview": "After a near fatal encounter with a criminal mastermind, Michael falls into a deep depression and wants to quit the Foundation and marry his girlfriend.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324438.jpg",
+          "airDate": "1986-01-03",
+          "year": 1986,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S04E11.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 282236349,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-11.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E11.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-04-e-12.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 12,
+          "title": "Killer K.I.T.T.",
+          "overview": "A vengeful computer expert who helped design KITT's software reprograms KITT to turn against Michael and subsequently ruin FLAG's reputation by having KITT kill everyone at the FLAG's national convention.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324590.jpg",
+          "airDate": "1986-01-10",
+          "year": 1986,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S04E12.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 280305166,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-12.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E12.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-04-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 13,
+          "title": "Out of the Woods",
+          "overview": "Michael works to expose a sawmill operation that has been cutting timber from a protected national forest.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324591.jpg",
+          "airDate": "1986-01-17",
+          "year": 1986,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S04E13.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 280971825,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E13.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-04-e-14.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 14,
+          "title": "Deadly Knightshade",
+          "overview": "Michael tries to prove a master magician has committed a murder, and used his stage illusions to appear to be on stage during the crime as the perfect alibi.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324593.jpg",
+          "airDate": "1986-01-24",
+          "year": 1986,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S04E14.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 281501627,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-14.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E14.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-04-e-15.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 15,
+          "title": "Redemption of a Champion",
+          "overview": "Michael investigates the murder of a deaf sportswriter who wanted to stop an ex boxing champ from coming out of retirement.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324600.jpg",
+          "airDate": "1986-01-31",
+          "year": 1986,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S04E15.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283944207,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-15.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E15.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-04-e-16.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 16,
+          "title": "Knight of a Thousand Devils",
+          "overview": "Michael enters an off road race in hopes of catching the mobster responsible for the death of a federal agent.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324606.jpg",
+          "airDate": "1986-02-07",
+          "year": 1986,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S04E16.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283388722,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-16.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E16.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-04-e-17.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 17,
+          "title": "Hills of Fire",
+          "overview": "An arsonist who's setting forest fires to cover a major drug deal eludes Michael by escaping over rugged terrain where Kitt can't maneuver.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324628.jpg",
+          "airDate": "1986-02-14",
+          "year": 1986,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S04E17.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 281924323,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-17.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E17.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-04-e-18.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 18,
+          "title": "Knight Flight to Freedom",
+          "overview": "Michael is captured while trying to rescue an American political prisoner held in a country in the throes of a coup d'état.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324636.jpg",
+          "airDate": "1986-02-21",
+          "year": 1986,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S04E18.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 282272795,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-18.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E18.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-04-e-19.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 19,
+          "title": "Fright Knight",
+          "overview": "Michael poses as a stuntman in an effort to catch the deadly saboteur who is terrorizing a movie set.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324641.jpg",
+          "airDate": "1986-03-07",
+          "year": 1986,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S04E19.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 285668865,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-19.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E19.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-04-e-20.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 20,
+          "title": "Knight of the Rising Sun",
+          "overview": "Michael must protect the son of Devon's friend from a Japanese businessman who is determined to kidnap him, believing he is the descendant of the founder of a terrorist cult.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324642.jpg",
+          "airDate": "1986-03-14",
+          "year": 1986,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S04E20.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 282793899,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-20.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E20.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-04-e-21.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 21,
+          "title": "Voo Doo Knight",
+          "overview": "Michael tries to stop a voodoo woman, who is using mind control on innocent people and forcing them to commit crimes for her.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324644.jpg",
+          "airDate": "1986-04-04",
+          "year": 1986,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S04E21.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283723598,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-21.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E21.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-04-e-22.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 4,
+          "episodeNumber": 22,
+          "title": "Knight Rider S04 E22 Voo Doo Knight",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/t57NXzTrwp5rnPXiaX4BThrDxt1.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Knight.Rider.S04E22.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 284278456,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-22.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E22.BluRay.1080p.AC3.H265-d3g.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
+  ],
+  "episodesCount": 85,
+  "canonicalEpisodesCount": 84,
+  "tvdbID": "77216",
+  "artworkSource": "tvdb",
+  "cast": [
     {
-     "archiveID": "knight.-rider.-s-02-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 2,
-     "episodeNumber": 1,
-     "title": "Goliath",
-     "overview": "While helping a woman track her missing brother, Michael uncovers a plot to steal government missiles using the same indestructible molecular bonded shell technology that KITT employs.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323247.jpg",
-     "airDate": "1983-10-02",
-     "year": 1983,
-     "runtimeSeconds": 7200,
-     "videoFile": {
-      "name": "Knight.Rider.S02E01E02.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 564332821,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E01E02.BluRay.1080p.AC3.H265-d3g.mp4"
+      "name": "David Hasselhoff",
+      "character": "Michael Knight",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/277964/635d8720de9b1.jpg"
     },
     {
-     "archiveID": "knight.-rider.-s-02-e-03.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 2,
-     "episodeNumber": 3,
-     "title": "Merchants of Death",
-     "overview": "Amelia Clermont, a former lover of Devon Miles, stumbles upon some stolen Sledgehammer missile that can only be fired from the SX4-11 helicopter and promptly disappears. Her daughter Camela turns to the Foundation and Devon, who puts Michael and Kitt on the case.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323355.jpg",
-     "airDate": "1983-10-16",
-     "year": 1983,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S02E03.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283597172,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-03.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E03.BluRay.1080p.AC3.H265-d3g.mp4"
+      "name": "Edward Mulhare",
+      "character": "Devon Miles",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/263888/photo/645ee2f5d0ec0.jpg"
     },
     {
-     "archiveID": "knight.-rider.-s-02-e-04.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 2,
-     "episodeNumber": 4,
-     "title": "Blind Spot",
-     "overview": "Michael steps in when a blind girl witnesses a murder involving illegal aliens and the crooked owner of an auto wrecking yard.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323366.jpg",
-     "airDate": "1983-10-23",
-     "year": 1983,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S02E04.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283263413,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-04.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E04.BluRay.1080p.AC3.H265-d3g.mp4"
+      "name": "Patricia McPherson",
+      "character": "Bonnie Barstow",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/53687.jpg"
     },
     {
-     "archiveID": "knight.-rider.-s-02-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 2,
-     "episodeNumber": 5,
-     "title": "Return to Cadiz",
-     "overview": "An unknown historian attempts to eliminate a diver who has discovered Mayan treasure aboard a Spanish sailing vessel that sank in 1521.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323372.jpg",
-     "airDate": "1983-10-30",
-     "year": 1983,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S02E05.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283664084,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E05.BluRay.1080p.AC3.H265-d3g.mp4"
+      "name": "Rebecca Holden",
+      "character": "April Curtis",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/53688.jpg"
     },
     {
-     "archiveID": "knight.-rider.-s-02-e-06.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 2,
-     "episodeNumber": 6,
-     "title": "K.I.T.T. the Cat",
-     "overview": "The daughter of a deceased cat burglar gets blamed for a set of elaborate modern day Robin Hood-esque robberies.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323376.jpg",
-     "airDate": "1983-11-06",
-     "year": 1983,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S02E06.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283015437,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-06.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E06.BluRay.1080p.AC3.H265-d3g.mp4"
+      "name": "William Daniels",
+      "character": "K.I.T.T.",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262773/photo/6323c7b6b1d17.jpg"
     },
     {
-     "archiveID": "knight.-rider.-s-02-e-07.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 2,
-     "episodeNumber": 7,
-     "title": "Custom K.I.T.T.",
-     "overview": "KITT acts as bait at a car show in order to try and catch the thieves of a classic car entrusted to Devon.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323378.jpg",
-     "airDate": "1983-11-13",
-     "year": 1983,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S02E07.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283869140,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-07.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E07.BluRay.1080p.AC3.H265-d3g.mp4"
+      "name": "Glen A. Larson",
+      "character": "",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262676/photo/62e0b22f3a4da.jpg"
     },
     {
-     "archiveID": "knight.-rider.-s-02-e-08.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 2,
-     "episodeNumber": 8,
-     "title": "Soul Survivor",
-     "overview": "A self taught teenage computer whiz kid succeeds in hacking into K.I.T.T. and stealing it for his older lover Adrianne. Michael must regain the car with the help of K.I.T.T.'s CPU humiliatingly boxed in a portable TV set.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323382.jpg",
-     "airDate": "1983-11-27",
-     "year": 1983,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S02E08.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283612431,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-08.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E08.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-02-e-09.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 2,
-     "episodeNumber": 9,
-     "title": "Ring of Fire",
-     "overview": "A plea from a remote bayou area has Michael searching for an escaped prisoner seeking revenge against his ex-wife who testified against him.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323450.jpg",
-     "airDate": "1983-12-04",
-     "year": 1983,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S02E09.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 284138028,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-09.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E09.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-02-e-10.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 2,
-     "episodeNumber": 10,
-     "title": "Knightmares",
-     "overview": "Michael is caught in an explosion and loses part of his memory. He wakes up thinking he's still police officer Michael Long.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323493.jpg",
-     "airDate": "1983-12-11",
-     "year": 1983,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S02E10.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283983587,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-10.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E10.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-02-e-11.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 2,
-     "episodeNumber": 11,
-     "title": "Silent Knight",
-     "overview": "Michael offers to protect a boy who's a key witness to a bank robbery.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323512.jpg",
-     "airDate": "1983-12-18",
-     "year": 1983,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S02E11.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283905634,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-11.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E11.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-02-e-12.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 2,
-     "episodeNumber": 12,
-     "title": "A Knight in Shining Armor",
-     "overview": "Michael must protect the reluctant daughter of a famous explorer from the same killer who murdered her father.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323610.jpg",
-     "airDate": "1984-01-08",
-     "year": 1984,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S02E12.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 276234824,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-12.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E12.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "289355027",
-     "seasonNumber": 2,
-     "episodeNumber": 13,
-     "title": "Diamonds Aren't A Girl's Best Friend",
-     "overview": "Michael becomes entangled in the world of finance and fashion, when a model who unwittingly became a jewel smuggler's pawn is killed.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323612.jpg",
-     "airDate": "1984-01-15",
-     "year": 1984,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "289355027.mp4",
-      "format": "h.264",
-      "sizeBytes": 284071973,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/289355027/289355027.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-02-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 2,
-     "episodeNumber": 13,
-     "title": "Diamonds Aren't a Girl's Best Friend",
-     "overview": "Michael heads for Mexico to trap a talent agent who's using beautiful models to smuggle diamonds into the U.S.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/sgihXKkd2uR90COEXHo8CRHHIjo.jpg",
-     "airDate": null,
-     "year": 1984,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Knight.Rider.S02E13.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 284590167,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E13.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-02-e-15.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 2,
-     "episodeNumber": 15,
-     "title": "Race For Life",
-     "overview": "Michael and KITT must work together to locate a fugitive, the only potential bone marrow donor, so that they can save a child.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323659.jpg",
-     "airDate": "1984-02-05",
-     "year": 1984,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S02E15.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283475109,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-15.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E15.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-02-e-16.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 2,
-     "episodeNumber": 16,
-     "title": "Speed Demons",
-     "overview": "Michael is put on alert when a letter warns that a killer may strike at a Foundation sponsored motorcycle race.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323690.jpg",
-     "airDate": "1984-02-12",
-     "year": 1984,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S02E16.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 284732389,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-16.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E16.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-02-e-17.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 2,
-     "episodeNumber": 17,
-     "title": "Goliath Returns",
-     "overview": "Garthe Knight leads Michael into a confrontation by kidnapping Devon, April and the scientist Michael was hired to protect.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323692.jpg",
-     "airDate": "1984-02-19",
-     "year": 1984,
-     "runtimeSeconds": 7200,
-     "videoFile": {
-      "name": "Knight.Rider.S02E17.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 282969502,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-17.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E17.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-02-e-18-e-19.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 2,
-     "episodeNumber": 18,
-     "title": "A Good Knight's Work",
-     "overview": "Michael helps a toy maker and is targeted for death by old adversary Cameron Zachery.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323697.jpg",
-     "airDate": "1984-03-04",
-     "year": 1984,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S02E18E19.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 567013863,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-18-e-19.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E18E19.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-02-e-20.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 2,
-     "episodeNumber": 20,
-     "title": "Let It Be Me",
-     "overview": "Michael poses as a singer to help an old love solve a musician's suspicious overdose.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323710.jpg",
-     "airDate": "1984-05-13",
-     "year": 1984,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S02E20.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 284246085,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-20.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E20.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-02-e-21-e-22.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 2,
-     "episodeNumber": 21,
-     "title": "Big Iron",
-     "overview": "Former partners, now competitors, are suspected of hijacking construction equipment.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323712.jpg",
-     "airDate": "1984-05-27",
-     "year": 1984,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S02E21E22.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 569263125,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-21-e-22.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E21E22.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-02-e-23.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 2,
-     "episodeNumber": 23,
-     "title": "Knight Rider S02 E23 Let It Be Me",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/t57NXzTrwp5rnPXiaX4BThrDxt1.jpg",
-     "airDate": null,
-     "year": 1984,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Knight.Rider.S02E23.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283626729,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-23.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E23.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-02-e-24.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 2,
-     "episodeNumber": 24,
-     "title": "Knight Rider S02 E24 Big Iron",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/t57NXzTrwp5rnPXiaX4BThrDxt1.jpg",
-     "airDate": null,
-     "year": 1984,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Knight.Rider.S02E24.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 284022242,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-24.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E24.BluRay.1080p.AC3.H265-d3g.mp4"
+      "name": "Peter Parros",
+      "character": "Reginald (RC3)",
+      "order": 6,
+      "profilePath": null
     }
-   ]
-  },
-  {
-   "seasonNumber": 3,
-   "episodes": [
-    {
-     "archiveID": "knight.-rider.-s-03-e-01.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 1,
-     "title": "Knight of the Drones",
-     "overview": "A scientist plans to use robots and drone cars to round up criminals to rob a Federal Reserve Bank.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323719.jpg",
-     "airDate": "1984-09-30",
-     "year": 1984,
-     "runtimeSeconds": 7200,
-     "videoFile": {
-      "name": "Knight.Rider.S03E01.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 264064110,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-01.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E01.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 2,
-     "title": "The Ice Bandits",
-     "overview": "Michael and KITT's hunt for $3 million in stolen diamonds leads them to winemaking monks in the Napa Valley.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323737.jpg",
-     "airDate": "1984-10-07",
-     "year": 1984,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S03E02.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 280259017,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E02.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-03.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 3,
-     "title": "Knights of the Fast Lane",
-     "overview": "Michael investigates tire tracks and a paint chip when the daughter of an old friend is injured in a hit-and-run incident.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323739.jpg",
-     "airDate": "1984-10-14",
-     "year": 1984,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S03E03.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 284147655,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-03.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E03.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-04.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 4,
-     "title": "Halloween Knight",
-     "overview": "After Bonnie claims she witnessed a murder, she's plagued by strange happenings designed to scare her out of her new apartment.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323802.jpg",
-     "airDate": "1984-10-28",
-     "year": 1984,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S03E04.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 282253282,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-04.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E04.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 5,
-     "title": "K.I.T.T. vs. K.A.R.R.",
-     "overview": "KITT's evil prototype KARR returns, seeking to destroy Michael and KITT with a new laser stolen from the Foundation.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323803.jpg",
-     "airDate": "1984-11-04",
-     "year": 1984,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S03E05.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 282276608,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E05.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-06.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 6,
-     "title": "The Rotten Apples",
-     "overview": "A psychologist who bought a ranch as a home for troubled kids needs Michael's help to stop rustlers and keep angry townsfolk from taking her land.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323805.jpg",
-     "airDate": "1984-11-11",
-     "year": 1984,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S03E06.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283211813,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-06.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E06.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-07.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 7,
-     "title": "Knight in Disgrace",
-     "overview": "Michael is suspended from duty after he is discovered to be carrying heroin during a confrontation with the police. His problems are compounded when he trusts the wrong man to help clear his name.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323806.jpg",
-     "airDate": "1984-11-18",
-     "year": 1984,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S03E07.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283371036,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-07.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E07.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-08.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 8,
-     "title": "Dead of Knight",
-     "overview": "A young dancer ingests a poison meant for Michael, who races the clock to find the only man with the antidote.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323807.jpg",
-     "airDate": "1984-12-02",
-     "year": 1984,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S03E08.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283609257,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-08.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E08.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-09.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 9,
-     "title": "Lost Knight",
-     "overview": "After an explosion separates Michael and Kitt and erases the car's memory, Kitt befriends a boy being chased by thieves who think he can identify them.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323811.jpg",
-     "airDate": "1984-12-09",
-     "year": 1984,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S03E09.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 282853620,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-09.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E09.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-10.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 10,
-     "title": "Knight of the Chameleon",
-     "overview": "Michael poses as a mercenary to flush out the Chameleon, a master of disguise who stole a prototype jet pack from the Government to sell on the black market.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323813.jpg",
-     "airDate": "1984-12-30",
-     "year": 1984,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S03E10.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283637596,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-10.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E10.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-11.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 11,
-     "title": "Custom Made Killer",
-     "overview": "Michael hunts down a customized car and its killer driver who have been hired by an extortionist wanting to bring down a garment trading business and eliminate his competition.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324022.jpg",
-     "airDate": "1985-01-06",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S03E11.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 282541784,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-11.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E11.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-12.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 12,
-     "title": "Knight by a Nose",
-     "overview": "Michael investigates the death of a prize race horse which he suspects is a cover up by the owner in order to get out of an enormous gambling debt.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324025.jpg",
-     "airDate": "1985-01-13",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S03E12.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 281226969,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-12.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E12.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 13,
-     "title": "Junk Yard Dog",
-     "overview": "Michael vows to nail the owner of a toxic waste dump when Kitt is nearly destroyed in an acid pit.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324030.jpg",
-     "airDate": "1985-02-03",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S03E13.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283444840,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E13.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-14.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 14,
-     "title": "Buy Out",
-     "overview": "Michael and KITT become involved in a battle with a tank like attack car built for anti-terrorist activity, and they come to the rescue of a group of dedicated car workers who want to buy the company they work for.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324037.jpg",
-     "airDate": "1985-02-10",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S03E14.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283029588,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-14.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E14.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-15.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 15,
-     "title": "Knightlines",
-     "overview": "An international criminal rigs the Government's space weapons headquarters to blow up after construction is completed.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324068.jpg",
-     "airDate": "1985-03-03",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S03E15.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283548208,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-15.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E15.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-16.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 16,
-     "title": "The Nineteenth Hole",
-     "overview": "After agreeing to sponsor a local racing event, the editor of a small-town newspaper contacts Devon when her life is threatened.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324071.jpg",
-     "airDate": "1985-03-10",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S03E16.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 282956723,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-16.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E16.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-17.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 17,
-     "title": "Knight and Knerd",
-     "overview": "A nerdy Foundation employee helps Michael rescue a scientist's daughter from criminals who also steal the scientist's advanced laser weapon to rob a jewel depository.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324093.jpg",
-     "airDate": "1985-03-17",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S03E17.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 284453262,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-17.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E17.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-18.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 18,
-     "title": "Ten Wheel Trouble",
-     "overview": "Michael takes the wheel of a rig to help independent truckers fight a takeover by a ruthless corporation.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324101.jpg",
-     "airDate": "1985-03-24",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S03E18.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 280777705,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-18.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E18.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-19.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 19,
-     "title": "Knight in Retreat",
-     "overview": "Michael poses as a space weapon scientist to gain access to a club operated by a woman dealing in blackmail and top secret weapon systems.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324113.jpg",
-     "airDate": "1985-03-29",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S03E19.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283230496,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-19.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E19.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-20.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 20,
-     "title": "Knight Strike",
-     "overview": "Michael investigates when a truckload of laser guns and other confiscated weapons disappear from a police warehouse.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324123.jpg",
-     "airDate": "1985-04-05",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S03E20.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 282830400,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-20.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E20.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-21.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 21,
-     "title": "Circus Knights",
-     "overview": "Michael and Kitt join a circus as a daredevil act to find out who's trying to force it into bankruptcy.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324128.jpg",
-     "airDate": "1985-05-05",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S03E21.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 284254098,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-21.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E21.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-03-e-22.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 3,
-     "episodeNumber": 22,
-     "title": "Knight Rider S03 E22 Circus Knights",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/t57NXzTrwp5rnPXiaX4BThrDxt1.jpg",
-     "airDate": null,
-     "year": 1985,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Knight.Rider.S03E22.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 282670811,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-22.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E22.BluRay.1080p.AC3.H265-d3g.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 4,
-   "episodes": [
-    {
-     "archiveID": "knight.-rider.-s-04-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 1,
-     "title": "Knight of the Juggernaut",
-     "overview": "Michael goes to Chicago on an assignment to guard a valuable isotope. KITT undergoes an amazing transformation after nearly being destroyed by the Juggernaut, a similarly powerful vehicle with a deadly battering ram.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324314.jpg",
-     "airDate": "1985-09-20",
-     "year": 1985,
-     "runtimeSeconds": 7200,
-     "videoFile": {
-      "name": "Knight.Rider.S04E01E02.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 568384583,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E01E02.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-04-e-03.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 3,
-     "title": "Sky Knight",
-     "overview": "Bonnie's plane is hijacked and the passengers held hostage by an ex-intelligence agent who wants money and \"political\" prisoners set free.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324326.jpg",
-     "airDate": "1985-10-18",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S04E03.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 282830834,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-03.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E03.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-04-e-04.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 4,
-     "title": "Burial Ground",
-     "overview": "An archaeologist excavating a burial ground is kidnapped by a man who gets the oil rich Indian land if no artifacts are found.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324327.jpg",
-     "airDate": "1985-10-25",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S04E04.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 282031566,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-04.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E04.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-04-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 5,
-     "title": "The Wrong Crowd",
-     "overview": "A motorcycle gang hijacks a Foundation truck containing computers and forces a young computer whiz to break into a local bank.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324328.jpg",
-     "airDate": "1985-11-01",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S04E05.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 282920301,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E05.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-04-e-06.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 6,
-     "title": "Knight Sting",
-     "overview": "Bonnie poses as a jet-setter to gain access to a foreign embassy planning to ship a canister of deadly bacteria out of the country.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324331.jpg",
-     "airDate": "1985-11-08",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S04E06.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 281965778,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-06.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E06.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-04-e-07.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 7,
-     "title": "Many Happy Returns",
-     "overview": "Michael races against time to find a stolen hovercraft prototype before a black-market arms dealer can ship it out of the country.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324347.jpg",
-     "airDate": "1985-11-15",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S04E07.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 282247399,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-07.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E07.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-04-e-08.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 8,
-     "title": "Knight Racer",
-     "overview": "Michael investigates an open wheel race team plagued by mysterious accidents. A hateful man seeks revenge against the husband of his former lover by sabotaging his race car.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324412.jpg",
-     "airDate": "1985-11-29",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S04E08.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 280015139,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-08.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E08.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-04-e-09.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 9,
-     "title": "Knight Behind Bars",
-     "overview": "Prison inmates were used to steal security plans for a hotel that is hosting a defense conference. Bonnie goes undercover as an inmate.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324425.jpg",
-     "airDate": "1985-12-06",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S04E09.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 281866637,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-09.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E09.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-04-e-10.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 10,
-     "title": "Knight Song",
-     "overview": "A club owner and famous singer's neighborhood project upsets a greedy real estate magnate who tries to sabotage it.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324435.jpg",
-     "airDate": "1985-12-13",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S04E10.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 281860088,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-10.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E10.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-04-e-11.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 11,
-     "title": "The Scent of Roses",
-     "overview": "After a near fatal encounter with a criminal mastermind, Michael falls into a deep depression and wants to quit the Foundation and marry his girlfriend.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324438.jpg",
-     "airDate": "1986-01-03",
-     "year": 1986,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S04E11.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 282236349,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-11.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E11.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-04-e-12.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 12,
-     "title": "Killer K.I.T.T.",
-     "overview": "A vengeful computer expert who helped design KITT's software reprograms KITT to turn against Michael and subsequently ruin FLAG's reputation by having KITT kill everyone at the FLAG's national convention.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324590.jpg",
-     "airDate": "1986-01-10",
-     "year": 1986,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S04E12.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 280305166,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-12.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E12.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-04-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 13,
-     "title": "Out of the Woods",
-     "overview": "Michael works to expose a sawmill operation that has been cutting timber from a protected national forest.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324591.jpg",
-     "airDate": "1986-01-17",
-     "year": 1986,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S04E13.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 280971825,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E13.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-04-e-14.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 14,
-     "title": "Deadly Knightshade",
-     "overview": "Michael tries to prove a master magician has committed a murder, and used his stage illusions to appear to be on stage during the crime as the perfect alibi.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324593.jpg",
-     "airDate": "1986-01-24",
-     "year": 1986,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S04E14.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 281501627,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-14.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E14.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-04-e-15.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 15,
-     "title": "Redemption of a Champion",
-     "overview": "Michael investigates the murder of a deaf sportswriter who wanted to stop an ex boxing champ from coming out of retirement.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324600.jpg",
-     "airDate": "1986-01-31",
-     "year": 1986,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S04E15.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283944207,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-15.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E15.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-04-e-16.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 16,
-     "title": "Knight of a Thousand Devils",
-     "overview": "Michael enters an off road race in hopes of catching the mobster responsible for the death of a federal agent.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324606.jpg",
-     "airDate": "1986-02-07",
-     "year": 1986,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S04E16.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283388722,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-16.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E16.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-04-e-17.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 17,
-     "title": "Hills of Fire",
-     "overview": "An arsonist who's setting forest fires to cover a major drug deal eludes Michael by escaping over rugged terrain where Kitt can't maneuver.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324628.jpg",
-     "airDate": "1986-02-14",
-     "year": 1986,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S04E17.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 281924323,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-17.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E17.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-04-e-18.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 18,
-     "title": "Knight Flight to Freedom",
-     "overview": "Michael is captured while trying to rescue an American political prisoner held in a country in the throes of a coup d'état.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324636.jpg",
-     "airDate": "1986-02-21",
-     "year": 1986,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S04E18.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 282272795,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-18.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E18.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-04-e-19.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 19,
-     "title": "Fright Knight",
-     "overview": "Michael poses as a stuntman in an effort to catch the deadly saboteur who is terrorizing a movie set.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324641.jpg",
-     "airDate": "1986-03-07",
-     "year": 1986,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S04E19.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 285668865,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-19.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E19.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-04-e-20.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 20,
-     "title": "Knight of the Rising Sun",
-     "overview": "Michael must protect the son of Devon's friend from a Japanese businessman who is determined to kidnap him, believing he is the descendant of the founder of a terrorist cult.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324642.jpg",
-     "airDate": "1986-03-14",
-     "year": 1986,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S04E20.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 282793899,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-20.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E20.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-04-e-21.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 21,
-     "title": "Voo Doo Knight",
-     "overview": "Michael tries to stop a voodoo woman, who is using mind control on innocent people and forcing them to commit crimes for her.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1324644.jpg",
-     "airDate": "1986-04-04",
-     "year": 1986,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Knight.Rider.S04E21.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 283723598,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-21.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E21.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight.-rider.-s-04-e-22.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": 4,
-     "episodeNumber": 22,
-     "title": "Knight Rider S04 E22 Voo Doo Knight",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/t57NXzTrwp5rnPXiaX4BThrDxt1.jpg",
-     "airDate": null,
-     "year": 1986,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Knight.Rider.S04E22.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 284278456,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-22.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E22.BluRay.1080p.AC3.H265-d3g.mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 85,
- "canonicalEpisodesCount": 84
+  ]
 }

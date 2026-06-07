@@ -1,83 +1,129 @@
 {
- "version": 2,
- "seriesID": "land-of-the-lost-1974",
- "tvmazeID": 6972,
- "title": "Land of the Lost",
- "yearStart": 1974,
- "yearEnd": 1976,
- "overview": "Land of the Lost is the story of a forest ranger and his two teenage children who fall through a time vortex into another universe. They try to return to our universe, but their lives are constantly endangered by dinosaurs, the ‘Sleestaks', seven-foot tall hissing lizard people who live in an underground city and the Land of the Lost's peculiar laws of physics. They also befriend the ‘Pakuni', a small tribe of ape-like creatures.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/26/65525.jpg",
- "backdropURL": null,
- "genres": [
-  "Action",
-  "Adventure",
-  "Fantasy"
- ],
- "networks": [
-  "NBC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "land-of-the-lost-1974",
+  "tvmazeID": 6972,
+  "title": "Land of the Lost",
+  "yearStart": 1974,
+  "yearEnd": 1976,
+  "overview": "Land of the Lost is the story of a forest ranger and his two teenage children who fall through a time vortex into another universe. They try to return to our universe, but their lives are constantly endangered by dinosaurs, the ‘Sleestaks', seven-foot tall hissing lizard people who live in an underground city and the Land of the Lost's peculiar laws of physics. They also befriend the ‘Pakuni', a small tribe of ape-like creatures.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71177-3.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Fantasy"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "land-of-the-lost_202107",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "The Sleestak God",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/4AvO1tZUsoupwSQ0Aetr93JJJIf.jpg",
-     "airDate": "1974-09-14",
-     "year": 1974,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "land-of-the-lost-season-1-episode-2.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 80103315,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/land-of-the-lost_202107/land-of-the-lost-season-1-episode-2.mp4"
-    },
-    {
-     "archiveID": "land-of-the-lost-downstream",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Downstream",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/4AvO1tZUsoupwSQ0Aetr93JJJIf.jpg",
-     "airDate": "1974-09-28",
-     "year": 1974,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Land of the Lost (1974) S01 E04 • Downstream_ 360p.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 55845896,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/land-of-the-lost-downstream/Land of the Lost (1974) S01 E04 • Downstream_ 360p.mp4"
-    },
-    {
-     "archiveID": "land-of-the-lost-1974-s-01-e-05-o-tag-team-360p",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "Tag-Team",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/4AvO1tZUsoupwSQ0Aetr93JJJIf.jpg",
-     "airDate": "1974-10-05",
-     "year": 1974,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Land of the Lost (1974) S01 E05 • Tag Team_ 360p.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 75585222,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/land-of-the-lost-1974-s-01-e-05-o-tag-team-360p/Land of the Lost (1974) S01 E05 • Tag Team_ 360p.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "land-of-the-lost_202107",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Sleestak God",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4AvO1tZUsoupwSQ0Aetr93JJJIf.jpg",
+          "airDate": "1974-09-14",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "land-of-the-lost-season-1-episode-2.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 80103315,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/land-of-the-lost_202107/land-of-the-lost-season-1-episode-2.mp4"
+        },
+        {
+          "archiveID": "land-of-the-lost-downstream",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Downstream",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4AvO1tZUsoupwSQ0Aetr93JJJIf.jpg",
+          "airDate": "1974-09-28",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Land of the Lost (1974) S01 E04 • Downstream_ 360p.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 55845896,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/land-of-the-lost-downstream/Land of the Lost (1974) S01 E04 • Downstream_ 360p.mp4"
+        },
+        {
+          "archiveID": "land-of-the-lost-1974-s-01-e-05-o-tag-team-360p",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Tag-Team",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4AvO1tZUsoupwSQ0Aetr93JJJIf.jpg",
+          "airDate": "1974-10-05",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Land of the Lost (1974) S01 E05 • Tag Team_ 360p.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 75585222,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/land-of-the-lost-1974-s-01-e-05-o-tag-team-360p/Land of the Lost (1974) S01 E05 • Tag Team_ 360p.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 3,
- "canonicalEpisodesCount": 43
+  ],
+  "episodesCount": 3,
+  "canonicalEpisodesCount": 43,
+  "tvdbID": "71177",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Kathy Coleman",
+      "character": "Holly Marshall",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/7451.jpg"
+    },
+    {
+      "name": "Spencer Milligan",
+      "character": "Park Ranger Rick Marshall",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/7452.jpg"
+    },
+    {
+      "name": "Ron Harper",
+      "character": "Uncle Jack",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/7453.jpg"
+    },
+    {
+      "name": "Wesley Eure",
+      "character": "Will Marshall",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Philip Paley",
+      "character": "Cha-Ka",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Sharon Baird",
+      "character": "Sa",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Jon Locke",
+      "character": "Sleestack Leader",
+      "order": 6,
+      "profilePath": null
+    }
+  ]
 }

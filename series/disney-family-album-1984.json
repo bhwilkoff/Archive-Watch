@@ -1,84 +1,94 @@
 {
- "version": 2,
- "seriesID": "disney-family-album-1984",
- "tvmazeID": 34838,
- "title": "Disney Family Album",
- "yearStart": 1984,
- "yearEnd": 1986,
- "overview": "This informative series goes behind the scenes to for a look at the Disney staff responsible for creating that magic known only to be Disney.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/145/364139.jpg",
- "backdropURL": null,
- "genres": [],
- "networks": [
-  "Disney Channel"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "disney-family-album-1984",
+  "tvmazeID": 34838,
+  "title": "Disney Family Album",
+  "yearStart": 1984,
+  "yearEnd": 1986,
+  "overview": "This informative series goes behind the scenes to for a look at the Disney staff responsible for creating that magic known only to be Disney.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/276092-1.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Disney Channel"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "disney-family-album-14-the-golden-horseshoe-revue",
-     "seasonNumber": 1,
-     "episodeNumber": 14,
-     "title": "The Golden Horseshoe Revue",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/uxk7VHruK0WWOWigzUZ9T5mqA5A.jpg",
-     "airDate": "1985-07-01",
-     "year": 1985,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Disney Family Album - 14 - The Golden Horseshoe Revue.mp4",
-      "format": "h.264",
-      "sizeBytes": 179572096,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/disney-family-album-14-the-golden-horseshoe-revue/Disney Family Album - 14 - The Golden Horseshoe Revue.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "disney-family-album-14-the-golden-horseshoe-revue",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Golden Horseshoe Revue",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uxk7VHruK0WWOWigzUZ9T5mqA5A.jpg",
+          "airDate": "1985-07-01",
+          "year": 1985,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Disney Family Album - 14 - The Golden Horseshoe Revue.mp4",
+            "format": "h.264",
+            "sizeBytes": 179572096,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/disney-family-album-14-the-golden-horseshoe-revue/Disney Family Album - 14 - The Golden Horseshoe Revue.mp4"
+        },
+        {
+          "archiveID": "disney-family-album-17-marc-davis",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Marc Davis",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uxk7VHruK0WWOWigzUZ9T5mqA5A.jpg",
+          "airDate": "1985-10-01",
+          "year": 1985,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Disney Family Album - 17 - Marc Davis.mp4",
+            "format": "h.264",
+            "sizeBytes": 177741111,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/disney-family-album-17-marc-davis/Disney Family Album - 17 - Marc Davis.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "disney-family-album-17-marc-davis",
-     "seasonNumber": 1,
-     "episodeNumber": 17,
-     "title": "Marc Davis",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/uxk7VHruK0WWOWigzUZ9T5mqA5A.jpg",
-     "airDate": "1985-10-01",
-     "year": 1985,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Disney Family Album - 17 - Marc Davis.mp4",
-      "format": "h.264",
-      "sizeBytes": 177741111,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/disney-family-album-17-marc-davis/Disney Family Album - 17 - Marc Davis.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "disney-family-album-18-true-life-adventures",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Disney Family Album: True Life Adventures",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uxk7VHruK0WWOWigzUZ9T5mqA5A.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Disney Family Album - 18 - True-Life Adventures.mp4",
+            "format": "h.264",
+            "sizeBytes": 177279165,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/disney-family-album-18-true-life-adventures/Disney Family Album - 18 - True-Life Adventures.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+  ],
+  "episodesCount": 3,
+  "canonicalEpisodesCount": 20,
+  "tvdbID": "276092",
+  "artworkSource": "tvdb",
+  "cast": [
     {
-     "archiveID": "disney-family-album-18-true-life-adventures",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Disney Family Album: True Life Adventures",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/uxk7VHruK0WWOWigzUZ9T5mqA5A.jpg",
-     "airDate": null,
-     "year": 1985,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Disney Family Album - 18 - True-Life Adventures.mp4",
-      "format": "h.264",
-      "sizeBytes": 177279165,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/disney-family-album-18-true-life-adventures/Disney Family Album - 18 - True-Life Adventures.mp4"
+      "name": "Buddy Ebsen",
+      "character": "Narrator",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257720/photo/6493b258929c3.jpg"
     }
-   ]
-  }
- ],
- "episodesCount": 3,
- "canonicalEpisodesCount": 20
+  ]
 }

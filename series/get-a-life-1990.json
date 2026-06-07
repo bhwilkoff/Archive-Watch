@@ -1,81 +1,127 @@
 {
- "version": 2,
- "seriesID": "get-a-life-1990",
- "tvmazeID": 10662,
- "title": "Get a Life",
- "yearStart": 1990,
- "yearEnd": 1992,
- "overview": "An unconventional sitcom that follows Chris Peterson - a 30-year-old paperboy still stuck in living like a perpetual child. His bizarre understanding of reality leads to many warped adventures. A prime example of the show's surrealness was that Chris actually dies in several episodes.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89988.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "FOX"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "get-a-life-1990",
+  "tvmazeID": 10662,
+  "title": "Get a Life",
+  "yearStart": 1990,
+  "yearEnd": 1992,
+  "overview": "An unconventional sitcom that follows Chris Peterson - a 30-year-old paperboy still stuck in living like a perpetual child. His bizarre understanding of reality leads to many warped adventures. A prime example of the show's surrealness was that Chris actually dies in several episodes.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76500-3.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "FOX"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "get-a-life_202510",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Dadicus",
-     "overview": null,
-     "stillURL": null,
-     "airDate": "1990-10-07",
-     "year": 1990,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "03. Get a Life s1e03 - Dadicus.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 140147599,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/get-a-life_202510/03.%20Get%20a%20Life%20s1e03%20-%20Dadicus.ia.mp4"
-    },
-    {
-     "archiveID": "the-walking-dead-of-life-s01e07",
-     "seasonNumber": 1,
-     "episodeNumber": 7,
-     "title": "Drivers License",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/the-walking-dead-of-life-s01e07",
-     "airDate": "1990-11-11",
-     "year": 1990,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "the-walking-dead-of-life-s01e07.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 762789372,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/the-walking-dead-of-life-s01e07/the-walking-dead-of-life-s01e07.mp4"
-    },
-    {
-     "archiveID": "get-a-life-sitcom",
-     "seasonNumber": 1,
-     "episodeNumber": 13,
-     "title": "Chris vs. Donald",
-     "overview": null,
-     "stillURL": null,
-     "airDate": "1991-02-10",
-     "year": 1991,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Get a Life s1e13 - Chris vs. Donald.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 87353405,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/get-a-life-sitcom/Get%20a%20Life%20s1e13%20-%20Chris%20vs.%20Donald.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "get-a-life_202510",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Dadicus",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1990-10-07",
+          "year": 1990,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "03. Get a Life s1e03 - Dadicus.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 140147599,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/get-a-life_202510/03.%20Get%20a%20Life%20s1e03%20-%20Dadicus.ia.mp4"
+        },
+        {
+          "archiveID": "the-walking-dead-of-life-s01e07",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Drivers License",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-walking-dead-of-life-s01e07",
+          "airDate": "1990-11-11",
+          "year": 1990,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "the-walking-dead-of-life-s01e07.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 762789372,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-walking-dead-of-life-s01e07/the-walking-dead-of-life-s01e07.mp4"
+        },
+        {
+          "archiveID": "get-a-life-sitcom",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Chris vs. Donald",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1991-02-10",
+          "year": 1991,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Get a Life s1e13 - Chris vs. Donald.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 87353405,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/get-a-life-sitcom/Get%20a%20Life%20s1e13%20-%20Chris%20vs.%20Donald.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 3,
- "canonicalEpisodesCount": 35
+  ],
+  "episodesCount": 3,
+  "canonicalEpisodesCount": 35,
+  "tvdbID": "76500",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Wesley Jonathan",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Brian Doyle-Murray",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Chris Elliott",
+      "character": "",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253733/photo/64cd9d06c0fca.jpg"
+    },
+    {
+      "name": "Sam Robards",
+      "character": "",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Bob Elliott",
+      "character": "",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253732/photo/62fe6c07ad026.jpg"
+    },
+    {
+      "name": "Elinor Donahue",
+      "character": "",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/46661.jpg"
+    },
+    {
+      "name": "Robin Riker",
+      "character": "",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/252138/photo/62fc0af7c72b1.jpg"
+    }
+  ]
 }

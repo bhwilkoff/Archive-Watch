@@ -1,99 +1,163 @@
 {
- "version": 2,
- "seriesID": "south-park-1997",
- "tvmazeID": 112,
- "title": "South Park",
- "yearStart": 1997,
- "yearEnd": null,
- "overview": "South Park is an adult comedy animation show centred around 4 children in the small town of south park. Its humour is often dark involving satirical elements and mocking current real-life events.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/594/1485766.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "Comedy Central"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": null,
-   "episodes": [
+  "version": 2,
+  "seriesID": "south-park-1997",
+  "tvmazeID": 112,
+  "title": "South Park",
+  "yearStart": 1997,
+  "yearEnd": null,
+  "overview": "South Park is an adult comedy animation show centred around 4 children in the small town of south park. Its humour is often dark involving satirical elements and mocking current real-life events.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/75897-5.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "Comedy Central"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "south-park-mr-hankeys-first-appearance",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "South Park - Mr. Hankey's First Appearance",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1CGwZCFX2qerXaXQJJUB3qUvxq7.jpg",
-     "airDate": null,
-     "year": 1997,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "mobizen_20240608_004120(1).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 66592359,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/south-park-mr-hankeys-first-appearance/mobizen_20240608_004120(1).mp4"
-    },
-    {
-     "archiveID": "south-park-mutant-turkeys-are-back",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "South Park - Mutant Turkeys are Back!",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1CGwZCFX2qerXaXQJJUB3qUvxq7.jpg",
-     "airDate": null,
-     "year": 1997,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "1722661866684.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 12646253,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/south-park-mutant-turkeys-are-back/1722661866684.ia.mp4"
-    },
-    {
-     "archiveID": "south-park-randy-vs.-volcano",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "South Park - Randy vs.Volcano",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1CGwZCFX2qerXaXQJJUB3qUvxq7.jpg",
-     "airDate": null,
-     "year": 1997,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "mobizen_20240509_202605(1).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 72211004,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/south-park-randy-vs.-volcano/mobizen_20240509_202605(1).mp4"
-    },
-    {
-     "archiveID": "south-park-chef-saves-eric-cartman",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "South Park: Chef saves Eric Cartman",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1CGwZCFX2qerXaXQJJUB3qUvxq7.jpg",
-     "airDate": null,
-     "year": 1999,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "mobizen_20240402_152550(1).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 125424941,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/south-park-chef-saves-eric-cartman/mobizen_20240402_152550(1).mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "south-park-mr-hankeys-first-appearance",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "South Park - Mr. Hankey's First Appearance",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1CGwZCFX2qerXaXQJJUB3qUvxq7.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "mobizen_20240608_004120(1).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 66592359,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/south-park-mr-hankeys-first-appearance/mobizen_20240608_004120(1).mp4"
+        },
+        {
+          "archiveID": "south-park-mutant-turkeys-are-back",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "South Park - Mutant Turkeys are Back!",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1CGwZCFX2qerXaXQJJUB3qUvxq7.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1722661866684.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 12646253,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/south-park-mutant-turkeys-are-back/1722661866684.ia.mp4"
+        },
+        {
+          "archiveID": "south-park-randy-vs.-volcano",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "South Park - Randy vs.Volcano",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1CGwZCFX2qerXaXQJJUB3qUvxq7.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "mobizen_20240509_202605(1).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 72211004,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/south-park-randy-vs.-volcano/mobizen_20240509_202605(1).mp4"
+        },
+        {
+          "archiveID": "south-park-chef-saves-eric-cartman",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "South Park: Chef saves Eric Cartman",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1CGwZCFX2qerXaXQJJUB3qUvxq7.jpg",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "mobizen_20240402_152550(1).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 125424941,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/south-park-chef-saves-eric-cartman/mobizen_20240402_152550(1).mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 4,
- "canonicalEpisodesCount": 335
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": 335,
+  "tvdbID": "75897",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Mary Kay Bergman",
+      "character": "Liane Cartman|Sheila Broflovski|Shelly Marsh",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/368206/photo/65a4ae991af97.jpg"
+    },
+    {
+      "name": "Mona Marshall",
+      "character": "Sheila Broflovski|Linda Stotch",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/279176/photo/64a81eb1ebc2c.jpg"
+    },
+    {
+      "name": "Eliza Schneider",
+      "character": "Liane Cartman|Principal Victoria",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7926159/photo/67f593d796618.jpg"
+    },
+    {
+      "name": "Isaac Hayes",
+      "character": "Jerome \"Chef\" McElroy",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/285774/photo/62a99bc959ae9.jpg"
+    },
+    {
+      "name": "Matt Stone",
+      "character": "Kyle Broflovski|Kenny McCormick|Leopold \"Butters\" Stotch",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/310601/photo/609487b9882da.jpg"
+    },
+    {
+      "name": "Trey Parker",
+      "character": "Stan Marsh|Eric Cartman|Randy Marsh",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/279478/photo/609486fe10c54.jpg"
+    },
+    {
+      "name": "April Stewart",
+      "character": "Wendy Testaburger|Sharon Marsh",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/356170/photo/65c7c8e728d1c.jpg"
+    },
+    {
+      "name": "Adrien Beard",
+      "character": "Tolkien Black",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/357424/photo/67f5960bd4447.jpg"
+    },
+    {
+      "name": "Jennifer Howell",
+      "character": "Bebe Stevens",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/399307/photo/609488c835d23.jpg"
+    },
+    {
+      "name": "Eric Stough",
+      "character": "Kenny McCormick (Unmuffled)",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/399308/photo/67f58ff576416.jpg"
+    }
+  ]
 }

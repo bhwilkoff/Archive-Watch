@@ -1,136 +1,170 @@
 {
- "version": 2,
- "seriesID": "life-of-riley-2009",
- "tvmazeID": 10967,
- "title": "Life of Riley",
- "yearStart": 2009,
- "yearEnd": 2011,
- "overview": "Sitcom about two newlyweds, both who have been married before, and their dysfunctional family.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/36/92323.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy",
-  "Family"
- ],
- "networks": [
-  "BBC One"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": null,
-   "episodes": [
+  "version": 2,
+  "seriesID": "life-of-riley-2009",
+  "tvmazeID": 10967,
+  "title": "Life of Riley",
+  "yearStart": 2009,
+  "yearEnd": 2011,
+  "overview": "Sitcom about two newlyweds, both who have been married before, and their dysfunctional family.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/84483-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy",
+    "Family"
+  ],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "life_of_riley_-_2x37_-_rileys_anniversary",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Riley's Anniversary",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/life_of_riley_-_2x37_-_rileys_anniversary",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "life_of_riley_-_2x37_-_rileys_anniversary_agk.mp4",
-      "format": "h.264",
-      "sizeBytes": 133322912,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/life_of_riley_-_2x37_-_rileys_anniversary/life_of_riley_-_2x37_-_rileys_anniversary_agk.mp4"
-    },
-    {
-     "archiveID": "life_of_riley_-_2x10_-_rileys_burning_ambition",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Riley's Burning Ambition",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/life_of_riley_-_2x10_-_rileys_burning_ambition",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "life_of_riley_-_2x10_-_rileys_burning_ambition_agk.mp4",
-      "format": "h.264",
-      "sizeBytes": 129792286,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/life_of_riley_-_2x10_-_rileys_burning_ambition/life_of_riley_-_2x10_-_rileys_burning_ambition_agk.mp4"
-    },
-    {
-     "archiveID": "life_of_riley_-_1x14_-_rileys_business_venture_agk",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Riley's Business Venture",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/life_of_riley_-_1x14_-_rileys_business_venture_agk",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "life_of_riley_-_1x14_-_rileys_business_venture_agk.mp4",
-      "format": "h.264",
-      "sizeBytes": 151439873,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/life_of_riley_-_1x14_-_rileys_business_venture_agk/life_of_riley_-_1x14_-_rileys_business_venture_agk.mp4"
-    },
-    {
-     "archiveID": "life_of_riley_-_1x13_-_rileys_family_reunion",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Riley's Family Reunion",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/life_of_riley_-_1x13_-_rileys_family_reunion",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "life_of_riley_-_1x13_-_rileys_family_reunion_agk.mp4",
-      "format": "h.264",
-      "sizeBytes": 139776332,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/life_of_riley_-_1x13_-_rileys_family_reunion/life_of_riley_-_1x13_-_rileys_family_reunion_agk.mp4"
-    },
-    {
-     "archiveID": "life_of_riley_-_2x12_-_rileys_separation",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Riley's Seperation",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/life_of_riley_-_2x12_-_rileys_separation",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "life_of_riley_-_2x12_-_rileys_separation_agk.mp4",
-      "format": "h.264",
-      "sizeBytes": 126461860,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/life_of_riley_-_2x12_-_rileys_separation/life_of_riley_-_2x12_-_rileys_separation_agk.mp4"
-    },
-    {
-     "archiveID": "life_of_riley_-_2x01_-_rileys_stomach_ache",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Riley's Stomach Ache",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/life_of_riley_-_2x01_-_rileys_stomach_ache",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "life_of_riley_-_2x01_-_rileys_stomach_ache_agk.mp4",
-      "format": "h.264",
-      "sizeBytes": 151298972,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/life_of_riley_-_2x01_-_rileys_stomach_ache/life_of_riley_-_2x01_-_rileys_stomach_ache_agk.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "life_of_riley_-_2x37_-_rileys_anniversary",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Riley's Anniversary",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life_of_riley_-_2x37_-_rileys_anniversary",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_2x37_-_rileys_anniversary_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 133322912,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_2x37_-_rileys_anniversary/life_of_riley_-_2x37_-_rileys_anniversary_agk.mp4"
+        },
+        {
+          "archiveID": "life_of_riley_-_2x10_-_rileys_burning_ambition",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Riley's Burning Ambition",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life_of_riley_-_2x10_-_rileys_burning_ambition",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_2x10_-_rileys_burning_ambition_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 129792286,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_2x10_-_rileys_burning_ambition/life_of_riley_-_2x10_-_rileys_burning_ambition_agk.mp4"
+        },
+        {
+          "archiveID": "life_of_riley_-_1x14_-_rileys_business_venture_agk",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Riley's Business Venture",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life_of_riley_-_1x14_-_rileys_business_venture_agk",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_1x14_-_rileys_business_venture_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 151439873,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_1x14_-_rileys_business_venture_agk/life_of_riley_-_1x14_-_rileys_business_venture_agk.mp4"
+        },
+        {
+          "archiveID": "life_of_riley_-_1x13_-_rileys_family_reunion",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Riley's Family Reunion",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life_of_riley_-_1x13_-_rileys_family_reunion",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_1x13_-_rileys_family_reunion_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 139776332,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_1x13_-_rileys_family_reunion/life_of_riley_-_1x13_-_rileys_family_reunion_agk.mp4"
+        },
+        {
+          "archiveID": "life_of_riley_-_2x12_-_rileys_separation",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Riley's Seperation",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life_of_riley_-_2x12_-_rileys_separation",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_2x12_-_rileys_separation_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 126461860,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_2x12_-_rileys_separation/life_of_riley_-_2x12_-_rileys_separation_agk.mp4"
+        },
+        {
+          "archiveID": "life_of_riley_-_2x01_-_rileys_stomach_ache",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Riley's Stomach Ache",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life_of_riley_-_2x01_-_rileys_stomach_ache",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_2x01_-_rileys_stomach_ache_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 151298972,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_2x01_-_rileys_stomach_ache/life_of_riley_-_2x01_-_rileys_stomach_ache_agk.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 6,
- "canonicalEpisodesCount": 20
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": 20,
+  "tvdbID": "84483",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Caroline Quentin",
+      "character": "Maddy Riley",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/282971/photo/6204f0dfbad38.jpg"
+    },
+    {
+      "name": "Neil Dudgeon",
+      "character": "Jim Riley",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Lucinda Dryzek",
+      "character": "Katy Riley",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/323015/photo/64b09c09dda90.jpg"
+    },
+    {
+      "name": "Taylor Fawcett",
+      "character": "Danny Riley",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Patrick Nolan",
+      "character": "Ted Jackson",
+      "order": 4,
+      "profilePath": null
+    }
+  ]
 }

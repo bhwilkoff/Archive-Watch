@@ -1,464 +1,576 @@
 {
- "version": 2,
- "seriesID": "soul-train-1971",
- "tvmazeID": 16340,
- "title": "Soul Train",
- "yearStart": 1971,
- "yearEnd": 2006,
- "overview": "Soul Train was a musical variety show which aired in syndication from 1971 until 2006. The show primarily featured performances by R&B, soul and hip hop artists.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/54/136121.jpg",
- "backdropURL": null,
- "genres": [
-  "Music"
- ],
- "networks": [
-  "BET"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "soul-train-1971",
+  "tvmazeID": 16340,
+  "title": "Soul Train",
+  "yearStart": 1971,
+  "yearEnd": 2006,
+  "overview": "Soul Train was a musical variety show which aired in syndication from 1971 until 2006. The show primarily featured performances by R&B, soul and hip hop artists.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77985-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Music"
+  ],
+  "networks": [
+    "BET"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "soul-train-season-1-episode-1",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Gladys Knight & the Pips/ Eddie Kendricks/ The Honey Cone/ Bobby Hutton",
-     "overview": "Gladys Knight and the Pips performed \"Friendship Train\" and \"I Don't Wanna Do Wrong.\"Eddie Kendricks performed \"It's So Hard for Me to Say Goodbye\" and \"I Did It All For You.\"The Honey Cone performed \"Stick-Up\" and \"Want Ads.\"Bobby Hutton performed \"You're My Only Reason.\"",
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": "1971-10-02",
-     "year": 1971,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Soul Train (Season 1, Episode 1).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 655265500,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-1-episode-1/Soul Train (Season 1, Episode 1).ia.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "soul-train-season-1-episode-1",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Gladys Knight & the Pips/ Eddie Kendricks/ The Honey Cone/ Bobby Hutton",
+          "overview": "Gladys Knight and the Pips performed \"Friendship Train\" and \"I Don't Wanna Do Wrong.\"Eddie Kendricks performed \"It's So Hard for Me to Say Goodbye\" and \"I Did It All For You.\"The Honey Cone performed \"Stick-Up\" and \"Want Ads.\"Bobby Hutton performed \"You're My Only Reason.\"",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1971-10-02",
+          "year": 1971,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Soul Train (Season 1, Episode 1).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 655265500,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-1-episode-1/Soul Train (Season 1, Episode 1).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-3-episode-3-part-1",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Chairmen of the Board/ Rufus Thomas/ Laura Lee",
+          "overview": "Chairmen of the Board - \"Pay to The Piper\" and \"Give Me Just a Little More Time\"Rufus Thomas - \"(Do the) Push and Pull\", \"Do the Funky Chicken\" and \"The World is Round\"Laura Lee - \"Women's Love Rights\" and \"Wedlock is Padlock\"",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1971-10-16",
+          "year": 1971,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Soul Train (Season 3, Episode 3)(Part 2).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 182041517,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-3-episode-3-part-1/Soul Train (Season 3, Episode 3)(Part 2).mp4"
+        },
+        {
+          "archiveID": "soul-train-season-2-episode-5-restored",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Bill Withers/ Al Green/ Viola Wills",
+          "overview": "Bill Withers \"Ain't No Sunshine\" and \"Grandma's Hands\"Al Green \"I Can't Get Next to You\" and \"Tired of Being Alone\"Viola Wills \"Sweetback\"",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1971-10-30",
+          "year": 1971,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Soul Train (Season 2, Episode 5)(Restored).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 637116978,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-2-episode-5-restored/Soul Train (Season 2, Episode 5)(Restored).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-1-episode-7-partially-full-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Martha & the Vandellas/ The Intruders/ G.C. Cameron",
+          "overview": "Opening ThemePerformance: Martha Reeves & The Vandellas \"Dancing In The Streets\"Soul Train Line: Curtis Mayfield \"Get Down\"Dancers, record, \"90 Day Freeze\" 100 Proof Aged SoulPerformance: The Intruders \"I Bet He Don't Love You (Like I Do)\" and interviewDancers, record, \"Rock Steady\" Aretha FranklinPerformance: G.C. Cameron \"Act Like A Shot Gun\" and interviewDancers, record, \"Groove On\" Isaac HayesInterview with Martha Reeves & The Vandellas and performance \"Bless You\"Dancers, record, \"Make It Funky\" James BrownPerformance: The Intruders \"Cowboys To Girls\"Dancers, record,\"Natural Man\" Lou RawlsPerformance: Martha Reeves & the Vandellas \"Love Makes Me Do Foolish Things\"Closing credits",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1971-11-13",
+          "year": 1971,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Soul Train (Season 1, Episode 7).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 662488252,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-1-episode-7-partially-full-episode/Soul Train (Season 1, Episode 7).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-1-episode-10-partially-full-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Junior Walker & The All Stars/ Bobby Womack/ Thelma Houston",
+          "overview": "Opening Theme (\"Hot Potatoes\" by King Curtis)Performance: Bobby Womack \"Communication\"Soul Train Line: Aretha Franklin \"Rock Steady\"Performance: Jr. Walker & the All Stars \"Do That Shing a Ling\" (live)Dancers, record, \"Let Me See You Do That Thing\" King FloydPerformance: Thelma Houston \"I Want to Go Back There Again\"Interview with Jr. Walker & the All Stars and performance \"These Eyes\" (live)Dancers, record, \"Superstar (Remember How You Got Where You Are)\" The TemptationsPerformance: Bobby Womack \"That's the Way I Feel About Cha\"Performance: Thelma Houston \"Save the Country\"Closing Credits",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1971-12-04",
+          "year": 1971,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Soul Train (Season 1, Episode 10)(Restored).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 552174768,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-1-episode-10-partially-full-episode/Soul Train (Season 1, Episode 10)(Restored).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-1-episode-11",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Jean Knight/ The Delfonics/ Maurice Jackson/ Ralphi Pagan",
+          "overview": "Jean Knight - \"Mr. Big Stuff.\"The Delfonics - \"Didn't I (Blow Your Mind This Time)\" & \"Hey Love.\"Maurice Jackson \"Step By Step.\"Ralfi Pagan \"Make It With Me.\"",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1971-12-11",
+          "year": 1971,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Soul Train (Season 1, Episode 11).mp4",
+            "format": "h.264",
+            "sizeBytes": 88800835,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-1-episode-11/Soul Train (Season 1, Episode 11).mp4"
+        },
+        {
+          "archiveID": "soul-train-season-2-episode-12-partially-full-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Chi-Lites / Joe Tex / The Originals",
+          "overview": "The Chi-Lites - \"(For God's Sake) Give More Power to the People\" and \"Have You Seen Her?\"The Originals - \"The Bells.\"Joe Tex - \"Give the Baby Anything the Baby Wants\" and \"I Gotcha.\"",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1971-12-18",
+          "year": 1971,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Soul Train (Season 2, Episode 12)(Partially Full Episode).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 254829682,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-2-episode-12-partially-full-episode/Soul Train (Season 2, Episode 12)(Partially Full Episode).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-4-episode-13-nhk-airing",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Gene Chandler/ Simtex & Wylie/ The Free Movement",
+          "overview": "Gene Chandler \"Yes I'm Ready (If you Don't Let Go)\" and \"Stone Cold Love\"Simtex & Wylie \"Got To get Over the Hump\"The Free Movement \"I Found Someone\" and \"The Harder I Try\"",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1971-12-25",
+          "year": 1971,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Soul Train (Season 4, Episode 13)(NHK Airing).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 210968554,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-4-episode-13-nhk-airing/Soul Train (Season 4, Episode 13)(NHK Airing).mp4"
+        },
+        {
+          "archiveID": "soul-train-season-2-episode-16",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Little Richard/ Undisputed Truth/ Nolan F. Porter",
+          "overview": "Little Richard \"Freedom Blues\" and \"Greenwood Mississippi\"The Undisputed Truth \"Smiling Faces Sometimes\" and \"You Make Your Own Heaven and Hell Right Here on Earth\"Nolan F. Porter \"I Like What You Give\" and \"Keep on Keeping On\"",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1972-01-15",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Soul Train (Season 2, Episode 16).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 401891415,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-2-episode-16/Soul Train (Season 2, Episode 16).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-2-episode-19",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The Dells/ Kim Weston/ Luther Ingram",
+          "overview": "The Dells \"It's All Up to You\" and \"The Love We Had\"Kim Weston \"Little By Little And Bit By Bit\" and \"If I Had it My Way\"Luther Ingram \"Be Good to Me Baby\" and \"I'll Love You",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1972-02-05",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Soul Train (Season 2, Episode 19).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 469468812,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-2-episode-19/Soul Train (Season 2, Episode 19).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-2-episode-21",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Al Green/ The Whispers/ Denise LaSalle",
+          "overview": "Opening Theme (\"Hot Potatoes\" King Curtis)Performance: Denise LaSalle - \"Now Run And Tell That.\"Scrambleboard: (THE DELFONICS) \"Hey Big Brother\" Rare EarthPerformance: Al Green - \"Tired Of Being Alone.\"Soul Train Line: \"You Want It, You Got It\" Detroit EmeraldsInterview + Performance: The Whispers - \"Can't Help But Love You.\"Midpoint: \"Stanger\" Sister Rosie StoneQ & A with Al Green followed by performance of \"Let's Stay Together.\"Free Dance Contest: \"Scorpio\" Dennis CoffeyInterview with winning couple Melba Anderson & Gregory Edwards.Performance: Denise LaSalle - \"Trapped By A Thing Called Love\" + interview.Song, Dancers, on record: \"I Gotcha\" Joe TexPerformance: The Whispers - \"Seems Like I Gotta Do Wrong.\"Closing Credits.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1972-02-19",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Soul Train (Season 2, Episode 21).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 665940920,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-2-episode-21/Soul Train (Season 2, Episode 21).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-1-episode-22-restored",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "The Four Tops/ Jackie Wilson/ Kool & the Gang",
+          "overview": "The Four Tops \"A Simple Game\" and \"MacArthur Park\"Jackie Wilson \"Your Love Keeps Lifting me Higher and Higher\" and \"Love is Funny That Way\"Kool & the Gang \"I Want to Take You Higher\" and \"Love The Life You Live\"",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1972-02-26",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Soul Train (Season 1, Episode 22)(Restored).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 506805807,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-1-episode-22-restored/Soul Train (Season 1, Episode 22)(Restored).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-8-episode-25",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "The Chi-Lites/ Edwin Starr/ James Gadsen",
+          "overview": "The Chi-Lites \"Oh Girl\" and \"The Coldest days of My Life\"Edwin Starr \"War\" and \"Dougle Agent O Soul\"James Gadsen \"Got to Find My Baby\"",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1972-03-18",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Soul Train (Season 8, Episode 25).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 645112963,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-8-episode-25/Soul Train (Season 8, Episode 25).mp4"
+        },
+        {
+          "archiveID": "soul-train-season-1-episode-26-restored",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Wilson Pickett / Curtis Mayfield / War",
+          "overview": "Opening Theme: \"Hot Potatoe\" Introduction of the judge panel for the final of the dance contest Soul Train Line Song: The Staple Singers \"I'll Take You There\" Performance: Wilson Pickett \"Fire And Water\" 1st Song, on record, Dancers: \"Eeny-Meeny-Miny-Mo\" The 8th Day Interview with Curtis Mayfield and performance \"We Got To Have Peace\" Performance: War \"All Day Music\"The Soul Train dancers ask Wilson Pickett questions and performance \"I'm In Love\"Performance: Curtis Mayfield \"Get Down\"Dance contest: \"Talking Loud And Saying Nothing\" James BrownInterview with War and special guest Fred Williamson and performance \"Slippin' Into Darkness\"Judges present the dance contest winnersClosing Credits with Wilson Pickett performing \"Don't Knock My Love\"",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1972-03-25",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Soul Train (Season 1, Episode 26)(Restored).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 472900068,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-1-episode-26-restored/Soul Train (Season 1, Episode 26)(Restored).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-1-episode-30",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Ike & Tina Turner/ Jerry Butler/ Brenda Lee Eager",
+          "overview": "Opening Theme \"Hot Potatoe\"Performance: Ike & Tina Turner \"I Want To Take You Higher\"1st Song, on record, Dancers: \"Pop That Thang\" The Isley BrothersInterview with Soul Train dancers2nd Song, on record, Dancers: \"I Wanna Be Where You Are\" Michael JacksonPerformance: Jerry Butler \"I Only Have Eyes For You\"Soul Train Scramble Board (Unknown): \"We The People\" The Soul Searchers3rd Song, on record, Dancers: \"Is It You Girl\" Betty WrightThe Soul Train dancers ask Ike & Tina Turner questions and performance \"Feel Good\"Soul Train Line Song: The Four Tops \"Medley (Hey Man/We Got To Get You A Woman)\"Interview with Jerry Butler and Brenda Lee Eager interview and performance \"(They Long To Be) Close To You\"Performance: Ike & Tina Turner \"Proud Mary\"Closing credits",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1972-04-22",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Soul Train (Season 1, Episode 30)(Almost Full Episode).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 514437489,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-1-episode-30/Soul Train (Season 1, Episode 30)(Almost Full Episode).ia.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "soul-train-season-3-episode-3-part-1",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Chairmen of the Board/ Rufus Thomas/ Laura Lee",
-     "overview": "Chairmen of the Board - \"Pay to The Piper\" and \"Give Me Just a Little More Time\"Rufus Thomas - \"(Do the) Push and Pull\", \"Do the Funky Chicken\" and \"The World is Round\"Laura Lee - \"Women's Love Rights\" and \"Wedlock is Padlock\"",
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": "1971-10-16",
-     "year": 1971,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Soul Train (Season 3, Episode 3)(Part 2).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 182041517,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-3-episode-3-part-1/Soul Train (Season 3, Episode 3)(Part 2).mp4"
-    },
-    {
-     "archiveID": "soul-train-season-2-episode-5-restored",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "Bill Withers/ Al Green/ Viola Wills",
-     "overview": "Bill Withers \"Ain't No Sunshine\" and \"Grandma's Hands\"Al Green \"I Can't Get Next to You\" and \"Tired of Being Alone\"Viola Wills \"Sweetback\"",
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": "1971-10-30",
-     "year": 1971,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Soul Train (Season 2, Episode 5)(Restored).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 637116978,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-2-episode-5-restored/Soul Train (Season 2, Episode 5)(Restored).ia.mp4"
-    },
-    {
-     "archiveID": "soul-train-season-1-episode-7-partially-full-episode",
-     "seasonNumber": 1,
-     "episodeNumber": 7,
-     "title": "Martha & the Vandellas/ The Intruders/ G.C. Cameron",
-     "overview": "Opening ThemePerformance: Martha Reeves & The Vandellas \"Dancing In The Streets\"Soul Train Line: Curtis Mayfield \"Get Down\"Dancers, record, \"90 Day Freeze\" 100 Proof Aged SoulPerformance: The Intruders \"I Bet He Don't Love You (Like I Do)\" and interviewDancers, record, \"Rock Steady\" Aretha FranklinPerformance: G.C. Cameron \"Act Like A Shot Gun\" and interviewDancers, record, \"Groove On\" Isaac HayesInterview with Martha Reeves & The Vandellas and performance \"Bless You\"Dancers, record, \"Make It Funky\" James BrownPerformance: The Intruders \"Cowboys To Girls\"Dancers, record,\"Natural Man\" Lou RawlsPerformance: Martha Reeves & the Vandellas \"Love Makes Me Do Foolish Things\"Closing credits",
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": "1971-11-13",
-     "year": 1971,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Soul Train (Season 1, Episode 7).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 662488252,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-1-episode-7-partially-full-episode/Soul Train (Season 1, Episode 7).ia.mp4"
-    },
-    {
-     "archiveID": "soul-train-season-1-episode-10-partially-full-episode",
-     "seasonNumber": 1,
-     "episodeNumber": 10,
-     "title": "Junior Walker & The All Stars/ Bobby Womack/ Thelma Houston",
-     "overview": "Opening Theme (\"Hot Potatoes\" by King Curtis)Performance: Bobby Womack \"Communication\"Soul Train Line: Aretha Franklin \"Rock Steady\"Performance: Jr. Walker & the All Stars \"Do That Shing a Ling\" (live)Dancers, record, \"Let Me See You Do That Thing\" King FloydPerformance: Thelma Houston \"I Want to Go Back There Again\"Interview with Jr. Walker & the All Stars and performance \"These Eyes\" (live)Dancers, record, \"Superstar (Remember How You Got Where You Are)\" The TemptationsPerformance: Bobby Womack \"That's the Way I Feel About Cha\"Performance: Thelma Houston \"Save the Country\"Closing Credits",
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": "1971-12-04",
-     "year": 1971,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Soul Train (Season 1, Episode 10)(Restored).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 552174768,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-1-episode-10-partially-full-episode/Soul Train (Season 1, Episode 10)(Restored).ia.mp4"
-    },
-    {
-     "archiveID": "soul-train-season-1-episode-11",
-     "seasonNumber": 1,
-     "episodeNumber": 11,
-     "title": "Jean Knight/ The Delfonics/ Maurice Jackson/ Ralphi Pagan",
-     "overview": "Jean Knight - \"Mr. Big Stuff.\"The Delfonics - \"Didn't I (Blow Your Mind This Time)\" & \"Hey Love.\"Maurice Jackson \"Step By Step.\"Ralfi Pagan \"Make It With Me.\"",
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": "1971-12-11",
-     "year": 1971,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Soul Train (Season 1, Episode 11).mp4",
-      "format": "h.264",
-      "sizeBytes": 88800835,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-1-episode-11/Soul Train (Season 1, Episode 11).mp4"
-    },
-    {
-     "archiveID": "soul-train-season-2-episode-12-partially-full-episode",
-     "seasonNumber": 1,
-     "episodeNumber": 12,
-     "title": "The Chi-Lites / Joe Tex / The Originals",
-     "overview": "The Chi-Lites - \"(For God's Sake) Give More Power to the People\" and \"Have You Seen Her?\"The Originals - \"The Bells.\"Joe Tex - \"Give the Baby Anything the Baby Wants\" and \"I Gotcha.\"",
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": "1971-12-18",
-     "year": 1971,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Soul Train (Season 2, Episode 12)(Partially Full Episode).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 254829682,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-2-episode-12-partially-full-episode/Soul Train (Season 2, Episode 12)(Partially Full Episode).ia.mp4"
-    },
-    {
-     "archiveID": "soul-train-season-4-episode-13-nhk-airing",
-     "seasonNumber": 1,
-     "episodeNumber": 13,
-     "title": "Gene Chandler/ Simtex & Wylie/ The Free Movement",
-     "overview": "Gene Chandler \"Yes I'm Ready (If you Don't Let Go)\" and \"Stone Cold Love\"Simtex & Wylie \"Got To get Over the Hump\"The Free Movement \"I Found Someone\" and \"The Harder I Try\"",
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": "1971-12-25",
-     "year": 1971,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Soul Train (Season 4, Episode 13)(NHK Airing).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 210968554,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-4-episode-13-nhk-airing/Soul Train (Season 4, Episode 13)(NHK Airing).mp4"
-    },
-    {
-     "archiveID": "soul-train-season-2-episode-16",
-     "seasonNumber": 1,
-     "episodeNumber": 16,
-     "title": "Little Richard/ Undisputed Truth/ Nolan F. Porter",
-     "overview": "Little Richard \"Freedom Blues\" and \"Greenwood Mississippi\"The Undisputed Truth \"Smiling Faces Sometimes\" and \"You Make Your Own Heaven and Hell Right Here on Earth\"Nolan F. Porter \"I Like What You Give\" and \"Keep on Keeping On\"",
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": "1972-01-15",
-     "year": 1972,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Soul Train (Season 2, Episode 16).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 401891415,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-2-episode-16/Soul Train (Season 2, Episode 16).ia.mp4"
-    },
-    {
-     "archiveID": "soul-train-season-2-episode-19",
-     "seasonNumber": 1,
-     "episodeNumber": 19,
-     "title": "The Dells/ Kim Weston/ Luther Ingram",
-     "overview": "The Dells \"It's All Up to You\" and \"The Love We Had\"Kim Weston \"Little By Little And Bit By Bit\" and \"If I Had it My Way\"Luther Ingram \"Be Good to Me Baby\" and \"I'll Love You",
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": "1972-02-05",
-     "year": 1972,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Soul Train (Season 2, Episode 19).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 469468812,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-2-episode-19/Soul Train (Season 2, Episode 19).ia.mp4"
-    },
-    {
-     "archiveID": "soul-train-season-2-episode-21",
-     "seasonNumber": 1,
-     "episodeNumber": 21,
-     "title": "Al Green/ The Whispers/ Denise LaSalle",
-     "overview": "Opening Theme (\"Hot Potatoes\" King Curtis)Performance: Denise LaSalle - \"Now Run And Tell That.\"Scrambleboard: (THE DELFONICS) \"Hey Big Brother\" Rare EarthPerformance: Al Green - \"Tired Of Being Alone.\"Soul Train Line: \"You Want It, You Got It\" Detroit EmeraldsInterview + Performance: The Whispers - \"Can't Help But Love You.\"Midpoint: \"Stanger\" Sister Rosie StoneQ & A with Al Green followed by performance of \"Let's Stay Together.\"Free Dance Contest: \"Scorpio\" Dennis CoffeyInterview with winning couple Melba Anderson & Gregory Edwards.Performance: Denise LaSalle - \"Trapped By A Thing Called Love\" + interview.Song, Dancers, on record: \"I Gotcha\" Joe TexPerformance: The Whispers - \"Seems Like I Gotta Do Wrong.\"Closing Credits.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": "1972-02-19",
-     "year": 1972,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Soul Train (Season 2, Episode 21).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 665940920,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-2-episode-21/Soul Train (Season 2, Episode 21).ia.mp4"
-    },
-    {
-     "archiveID": "soul-train-season-1-episode-22-restored",
-     "seasonNumber": 1,
-     "episodeNumber": 22,
-     "title": "The Four Tops/ Jackie Wilson/ Kool & the Gang",
-     "overview": "The Four Tops \"A Simple Game\" and \"MacArthur Park\"Jackie Wilson \"Your Love Keeps Lifting me Higher and Higher\" and \"Love is Funny That Way\"Kool & the Gang \"I Want to Take You Higher\" and \"Love The Life You Live\"",
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": "1972-02-26",
-     "year": 1972,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Soul Train (Season 1, Episode 22)(Restored).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 506805807,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-1-episode-22-restored/Soul Train (Season 1, Episode 22)(Restored).ia.mp4"
-    },
-    {
-     "archiveID": "soul-train-season-8-episode-25",
-     "seasonNumber": 1,
-     "episodeNumber": 25,
-     "title": "The Chi-Lites/ Edwin Starr/ James Gadsen",
-     "overview": "The Chi-Lites \"Oh Girl\" and \"The Coldest days of My Life\"Edwin Starr \"War\" and \"Dougle Agent O Soul\"James Gadsen \"Got to Find My Baby\"",
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": "1972-03-18",
-     "year": 1972,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Soul Train (Season 8, Episode 25).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 645112963,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-8-episode-25/Soul Train (Season 8, Episode 25).mp4"
-    },
-    {
-     "archiveID": "soul-train-season-1-episode-26-restored",
-     "seasonNumber": 1,
-     "episodeNumber": 26,
-     "title": "Wilson Pickett / Curtis Mayfield / War",
-     "overview": "Opening Theme: \"Hot Potatoe\" Introduction of the judge panel for the final of the dance contest Soul Train Line Song: The Staple Singers \"I'll Take You There\" Performance: Wilson Pickett \"Fire And Water\" 1st Song, on record, Dancers: \"Eeny-Meeny-Miny-Mo\" The 8th Day Interview with Curtis Mayfield and performance \"We Got To Have Peace\" Performance: War \"All Day Music\"The Soul Train dancers ask Wilson Pickett questions and performance \"I'm In Love\"Performance: Curtis Mayfield \"Get Down\"Dance contest: \"Talking Loud And Saying Nothing\" James BrownInterview with War and special guest Fred Williamson and performance \"Slippin' Into Darkness\"Judges present the dance contest winnersClosing Credits with Wilson Pickett performing \"Don't Knock My Love\"",
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": "1972-03-25",
-     "year": 1972,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Soul Train (Season 1, Episode 26)(Restored).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 472900068,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-1-episode-26-restored/Soul Train (Season 1, Episode 26)(Restored).ia.mp4"
-    },
-    {
-     "archiveID": "soul-train-season-1-episode-30",
-     "seasonNumber": 1,
-     "episodeNumber": 30,
-     "title": "Ike & Tina Turner/ Jerry Butler/ Brenda Lee Eager",
-     "overview": "Opening Theme \"Hot Potatoe\"Performance: Ike & Tina Turner \"I Want To Take You Higher\"1st Song, on record, Dancers: \"Pop That Thang\" The Isley BrothersInterview with Soul Train dancers2nd Song, on record, Dancers: \"I Wanna Be Where You Are\" Michael JacksonPerformance: Jerry Butler \"I Only Have Eyes For You\"Soul Train Scramble Board (Unknown): \"We The People\" The Soul Searchers3rd Song, on record, Dancers: \"Is It You Girl\" Betty WrightThe Soul Train dancers ask Ike & Tina Turner questions and performance \"Feel Good\"Soul Train Line Song: The Four Tops \"Medley (Hey Man/We Got To Get You A Woman)\"Interview with Jerry Butler and Brenda Lee Eager interview and performance \"(They Long To Be) Close To You\"Performance: Ike & Tina Turner \"Proud Mary\"Closing credits",
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": "1972-04-22",
-     "year": 1972,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Soul Train (Season 1, Episode 30)(Almost Full Episode).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 514437489,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-1-episode-30/Soul Train (Season 1, Episode 30)(Almost Full Episode).ia.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "soul-train-season-4-episode-1-wgn-airing",
+          "seasonNumber": null,
+          "episodeNumber": 1,
+          "title": "Gladys Knight & the Pips/Eddie Kendricks/The Honey Cone/Bobby Hutton",
+          "overview": "Gladys Knight & the Pips, Eddie Kendricks, The Honey Cone, Bobby Hutton",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 4, Episode 1)(WGN Airing).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 288572869,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-4-episode-1-wgn-airing/Soul Train (Season 4, Episode 1)(WGN Airing).mp4"
+        },
+        {
+          "archiveID": "soul-train-season-2-episode-5",
+          "seasonNumber": null,
+          "episodeNumber": 5,
+          "title": "Soul Train",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 2, Episode 5).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 440475098,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-2-episode-5/Soul Train (Season 2, Episode 5).mp4"
+        },
+        {
+          "archiveID": "soul-train-season-2-episode-19-nhk-airing",
+          "seasonNumber": null,
+          "episodeNumber": 19,
+          "title": "Soul Train",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 2, Episode 19)(NHK Airing).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 124470868,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-2-episode-19-nhk-airing/Soul Train (Season 2, Episode 19)(NHK Airing).mp4"
+        },
+        {
+          "archiveID": "soul-train-season-2-episode-22-partially-full-episode",
+          "seasonNumber": null,
+          "episodeNumber": 22,
+          "title": "Soul Train",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 2, Episode 22)(Partially Full Episode).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 551340365,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-2-episode-22-partially-full-episode/Soul Train (Season 2, Episode 22)(Partially Full Episode).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-3-episode-26-my-q-2-airing",
+          "seasonNumber": null,
+          "episodeNumber": 26,
+          "title": "Wilson Pickett/ Curtis Mayfield/ War",
+          "overview": "Curtis Mayfield - \"We Got To Have Peace\" & \"Get Down.\" War - \"All Day Music\" & \"Slippin' Into Darkness.\" Wilson Pickett (performing live) - \"Fire and Water,\" \"I'm In Love\" and \"Don't Knock My Love.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 3, Episode 26)(MyQ2 Airing).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 143956002,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-3-episode-26-my-q-2-airing/Soul Train (Season 3, Episode 26)(MyQ2 Airing).mp4"
+        },
+        {
+          "archiveID": "soul-train-season-4-episode-30-my-q-2-airing",
+          "seasonNumber": null,
+          "episodeNumber": 30,
+          "title": "Soul Train",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 4, Episode 30)(MyQ2 Airing).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 200406544,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-4-episode-30-my-q-2-airing/Soul Train (Season 4, Episode 30)(MyQ2 Airing).mp4"
+        },
+        {
+          "archiveID": "soul-train-season-6-episode-34-my-q-2-airing",
+          "seasonNumber": null,
+          "episodeNumber": 34,
+          "title": "Soul Train",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 6, Episode 34)(MyQ2 Airing).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 237659314,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-6-episode-34-my-q-2-airing/Soul Train (Season 6, Episode 34)(MyQ2 Airing).mp4"
+        },
+        {
+          "archiveID": "soul-train-season-3-episodes-12-and-13",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Soul Train",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 3, Episodes 12 and 13).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 702133973,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-3-episodes-12-and-13/Soul Train (Season 3, Episodes 12 and 13).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-1-episodes-1-7-and-10-nhk-airing",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Soul Train",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 1, Episodes 1, 7, and 10)(NHK Airing).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1460896184,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-1-episodes-1-7-and-10-nhk-airing/Soul Train (Season 1, Episodes 1, 7, and 10)(NHK Airing).ia.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+  ],
+  "episodesCount": 24,
+  "canonicalEpisodesCount": 1134,
+  "tvdbID": "77985",
+  "artworkSource": "tvdb",
+  "cast": [
     {
-     "archiveID": "soul-train-season-4-episode-1-wgn-airing",
-     "seasonNumber": null,
-     "episodeNumber": 1,
-     "title": "Gladys Knight & the Pips/Eddie Kendricks/The Honey Cone/Bobby Hutton",
-     "overview": "Gladys Knight & the Pips, Eddie Kendricks, The Honey Cone, Bobby Hutton",
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": null,
-     "year": 1974,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Soul Train (Season 4, Episode 1)(WGN Airing).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 288572869,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-4-episode-1-wgn-airing/Soul Train (Season 4, Episode 1)(WGN Airing).mp4"
+      "name": "Dorien Wilson",
+      "character": "",
+      "order": 0,
+      "profilePath": null
     },
     {
-     "archiveID": "soul-train-season-2-episode-5",
-     "seasonNumber": null,
-     "episodeNumber": 5,
-     "title": "Soul Train",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": null,
-     "year": 1972,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Soul Train (Season 2, Episode 5).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 440475098,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-2-episode-5/Soul Train (Season 2, Episode 5).mp4"
+      "name": "Dorian Gregory",
+      "character": "",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/267036/photo/68229db23b6cb.jpg"
     },
     {
-     "archiveID": "soul-train-season-2-episode-19-nhk-airing",
-     "seasonNumber": null,
-     "episodeNumber": 19,
-     "title": "Soul Train",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": null,
-     "year": 1973,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Soul Train (Season 2, Episode 19)(NHK Airing).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 124470868,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-2-episode-19-nhk-airing/Soul Train (Season 2, Episode 19)(NHK Airing).mp4"
+      "name": "Howard Hewitt",
+      "character": "",
+      "order": 2,
+      "profilePath": null
     },
     {
-     "archiveID": "soul-train-season-2-episode-22-partially-full-episode",
-     "seasonNumber": null,
-     "episodeNumber": 22,
-     "title": "Soul Train",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": null,
-     "year": 1973,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Soul Train (Season 2, Episode 22)(Partially Full Episode).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 551340365,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-2-episode-22-partially-full-episode/Soul Train (Season 2, Episode 22)(Partially Full Episode).ia.mp4"
+      "name": "Shemar Moore",
+      "character": "",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/309005/photo/6378d79574b60.jpg"
     },
     {
-     "archiveID": "soul-train-season-3-episode-26-my-q-2-airing",
-     "seasonNumber": null,
-     "episodeNumber": 26,
-     "title": "Wilson Pickett/ Curtis Mayfield/ War",
-     "overview": "Curtis Mayfield - \"We Got To Have Peace\" & \"Get Down.\" War - \"All Day Music\" & \"Slippin' Into Darkness.\" Wilson Pickett (performing live) - \"Fire and Water,\" \"I'm In Love\" and \"Don't Knock My Love.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": null,
-     "year": 1974,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Soul Train (Season 3, Episode 26)(MyQ2 Airing).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 143956002,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-3-episode-26-my-q-2-airing/Soul Train (Season 3, Episode 26)(MyQ2 Airing).mp4"
+      "name": "Sheila Lewis",
+      "character": "",
+      "order": 4,
+      "profilePath": null
     },
     {
-     "archiveID": "soul-train-season-4-episode-30-my-q-2-airing",
-     "seasonNumber": null,
-     "episodeNumber": 30,
-     "title": "Soul Train",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": null,
-     "year": 1975,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Soul Train (Season 4, Episode 30)(MyQ2 Airing).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 200406544,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-4-episode-30-my-q-2-airing/Soul Train (Season 4, Episode 30)(MyQ2 Airing).mp4"
+      "name": "Csynbidium",
+      "character": "",
+      "order": 5,
+      "profilePath": null
     },
     {
-     "archiveID": "soul-train-season-6-episode-34-my-q-2-airing",
-     "seasonNumber": null,
-     "episodeNumber": 34,
-     "title": "Soul Train",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": null,
-     "year": 1977,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Soul Train (Season 6, Episode 34)(MyQ2 Airing).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 237659314,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-6-episode-34-my-q-2-airing/Soul Train (Season 6, Episode 34)(MyQ2 Airing).mp4"
+      "name": "Neicie Payne",
+      "character": "",
+      "order": 6,
+      "profilePath": null
     },
     {
-     "archiveID": "soul-train-season-3-episodes-12-and-13",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Soul Train",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": null,
-     "year": 1973,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Soul Train (Season 3, Episodes 12 and 13).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 702133973,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-3-episodes-12-and-13/Soul Train (Season 3, Episodes 12 and 13).ia.mp4"
+      "name": "Otis",
+      "character": "",
+      "order": 7,
+      "profilePath": null
     },
     {
-     "archiveID": "soul-train-season-1-episodes-1-7-and-10-nhk-airing",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Soul Train",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": null,
-     "year": 1971,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Soul Train (Season 1, Episodes 1, 7, and 10)(NHK Airing).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 1460896184,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-1-episodes-1-7-and-10-nhk-airing/Soul Train (Season 1, Episodes 1, 7, and 10)(NHK Airing).ia.mp4"
+      "name": "Derek Foxtails Fleming",
+      "character": "",
+      "order": 8,
+      "profilePath": null
+    },
+    {
+      "name": "John Buddy Hopkins",
+      "character": "",
+      "order": 9,
+      "profilePath": null
+    },
+    {
+      "name": "Elanda Carter",
+      "character": "",
+      "order": 10,
+      "profilePath": null
+    },
+    {
+      "name": "Pebbles",
+      "character": "",
+      "order": 11,
+      "profilePath": null
+    },
+    {
+      "name": "Crystal",
+      "character": "",
+      "order": 12,
+      "profilePath": null
+    },
+    {
+      "name": "The Body",
+      "character": "",
+      "order": 13,
+      "profilePath": null
+    },
+    {
+      "name": "Don Cornelius",
+      "character": "",
+      "order": 14,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/306886/photo/6358213b5f604.jpg"
+    },
+    {
+      "name": "Rosie Perez",
+      "character": "",
+      "order": 15,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/310419/photo/659b0b1add3d5.jpg"
+    },
+    {
+      "name": "Nick Cannon",
+      "character": "",
+      "order": 16,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/311146/photo/692eaa01c6435.jpg"
+    },
+    {
+      "name": "Mystro Clark",
+      "character": "",
+      "order": 17,
+      "profilePath": null
     }
-   ]
-  }
- ],
- "episodesCount": 24,
- "canonicalEpisodesCount": 1134
+  ]
 }

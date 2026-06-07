@@ -1,308 +1,318 @@
 {
- "version": 2,
- "seriesID": "medic-1954",
- "tvmazeID": 18443,
- "title": "Medic",
- "yearStart": 1954,
- "yearEnd": 1956,
- "overview": "Medic was a medical drama that aired on NBC from 1954-1956.Episodes were Dramatizations of actual medical files from the Los Angeles County Medical Association.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/62/157075.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "Medical"
- ],
- "networks": [
-  "NBC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "medic-1954",
+  "tvmazeID": 18443,
+  "title": "Medic",
+  "yearStart": 1954,
+  "yearEnd": 1956,
+  "overview": "Medic was a medical drama that aired on NBC from 1954-1956.Episodes were Dramatizations of actual medical files from the Los Angeles County Medical Association.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70892-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Medical"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "MEDIC_My_Brother_Joe",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "My Brother Joe",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
-     "airDate": "1954-10-25",
-     "year": 1954,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "MEDIC_My_Brother_Joe.mp4",
-      "format": "h.264",
-      "sizeBytes": 155271425,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/MEDIC_My_Brother_Joe/MEDIC_My_Brother_Joe.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "MEDIC_My_Brother_Joe",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "My Brother Joe",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1954-10-25",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "MEDIC_My_Brother_Joe.mp4",
+            "format": "h.264",
+            "sizeBytes": 155271425,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_My_Brother_Joe/MEDIC_My_Brother_Joe.mp4"
+        },
+        {
+          "archiveID": "MEDIC_Boy_In_The_Storm",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Boy in the Storm",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1955-01-03",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "MEDIC_Boy_In_The_Storm.mp4",
+            "format": "h.264",
+            "sizeBytes": 155788681,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_Boy_In_The_Storm/MEDIC_Boy_In_The_Storm.mp4"
+        },
+        {
+          "archiveID": "MEDIC_Time_To_Be_Alive",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "A Time to Be Alive",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1955-01-31",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "MEDIC_Time_To_Be_Alive.mp4",
+            "format": "h.264",
+            "sizeBytes": 158014549,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_Time_To_Be_Alive/MEDIC_Time_To_Be_Alive.mp4"
+        },
+        {
+          "archiveID": "MEDIC_Flash_Of_Darkness",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Flash of Darkness",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1955-02-14",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "MEDIC_Flash_Of_Darkness.mp4",
+            "format": "h.264",
+            "sizeBytes": 147861931,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_Flash_Of_Darkness/MEDIC_Flash_Of_Darkness.mp4"
+        },
+        {
+          "archiveID": "MEDIC_Break_Through",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Break Through the Bars",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1955-03-14",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "MEDIC_Break_Through.mp4",
+            "format": "h.264",
+            "sizeBytes": 153879341,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_Break_Through/MEDIC_Break_Through.mp4"
+        },
+        {
+          "archiveID": "MEDIC_Never_Comes_Sunday",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Never Comes Sunday",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1955-05-23",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "MEDIC_Never_Comes_Sunday.mp4",
+            "format": "h.264",
+            "sizeBytes": 156295825,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_Never_Comes_Sunday/MEDIC_Never_Comes_Sunday.mp4"
+        },
+        {
+          "archiveID": "MEDIC_General_Practitioner",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "General Practitioner",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1955-06-13",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "MEDIC_General_Practitioner.mp4",
+            "format": "h.264",
+            "sizeBytes": 151644481,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_General_Practitioner/MEDIC_General_Practitioner.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "MEDIC_Boy_In_The_Storm",
-     "seasonNumber": 1,
-     "episodeNumber": 14,
-     "title": "Boy in the Storm",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
-     "airDate": "1955-01-03",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "MEDIC_Boy_In_The_Storm.mp4",
-      "format": "h.264",
-      "sizeBytes": 155788681,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/MEDIC_Boy_In_The_Storm/MEDIC_Boy_In_The_Storm.mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "MEDIC_Walk_With_Lions",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Walk with Lions",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1955-09-12",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "MEDIC_Walk_With_Lions.mp4",
+            "format": "h.264",
+            "sizeBytes": 157310881,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_Walk_With_Lions/MEDIC_Walk_With_Lions.mp4"
+        },
+        {
+          "archiveID": "Medic--When_Mama_Says_Jump",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "When Mama Says Jump",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1955-10-31",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Medic_207--When_Mama_Says_Jump.mp4",
+            "format": "h.264",
+            "sizeBytes": 154716209,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Medic--When_Mama_Says_Jump/Medic_207--When_Mama_Says_Jump.mp4"
+        },
+        {
+          "archiveID": "Medic--Glass_of_Fear",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Glass of Fear",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1955-11-28",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Medic_210--Glass_of_Fear.mp4",
+            "format": "h.264",
+            "sizeBytes": 156529512,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Medic--Glass_of_Fear/Medic_210--Glass_of_Fear.mp4"
+        },
+        {
+          "archiveID": "MEDIC_Who_Search_for_Truth",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "Who Search for Truth",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1956-02-27",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "MEDIC_Who_Search_for_Truth.mp4",
+            "format": "h.264",
+            "sizeBytes": 158982909,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_Who_Search_for_Truth/MEDIC_Who_Search_for_Truth.mp4"
+        },
+        {
+          "archiveID": "Medic--Awake_to_Spring",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Awake Unto Spring",
+          "overview": "In today's episode, an eight year old boy with Muscular Dystrophy is in the care of the only family he has left -- his grandfather.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1956-03-26",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Medic_221--Awake_to_Spring.mp4",
+            "format": "h.264",
+            "sizeBytes": 142419371,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Medic--Awake_to_Spring/Medic_221--Awake_to_Spring.mp4"
+        },
+        {
+          "archiveID": "MEDIC_Til_the_Song_Is_Done_-_Til_The_Dance_Is_Gone",
+          "seasonNumber": 2,
+          "episodeNumber": 29,
+          "title": "Till the Song is Done...Till the Dance is Gone",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1956-07-09",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "MEDIC_Til_the_Song_Is_Done_-_Til_The_Dance_Is_Gone.mp4",
+            "format": "h.264",
+            "sizeBytes": 156742174,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_Til_the_Song_Is_Done_-_Til_The_Dance_Is_Gone/MEDIC_Til_the_Song_Is_Done_-_Til_The_Dance_Is_Gone.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "MEDIC_Time_To_Be_Alive",
-     "seasonNumber": 1,
-     "episodeNumber": 16,
-     "title": "A Time to Be Alive",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
-     "airDate": "1955-01-31",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "MEDIC_Time_To_Be_Alive.mp4",
-      "format": "h.264",
-      "sizeBytes": 158014549,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/MEDIC_Time_To_Be_Alive/MEDIC_Time_To_Be_Alive.mp4"
-    },
-    {
-     "archiveID": "MEDIC_Flash_Of_Darkness",
-     "seasonNumber": 1,
-     "episodeNumber": 17,
-     "title": "Flash of Darkness",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
-     "airDate": "1955-02-14",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "MEDIC_Flash_Of_Darkness.mp4",
-      "format": "h.264",
-      "sizeBytes": 147861931,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/MEDIC_Flash_Of_Darkness/MEDIC_Flash_Of_Darkness.mp4"
-    },
-    {
-     "archiveID": "MEDIC_Break_Through",
-     "seasonNumber": 1,
-     "episodeNumber": 20,
-     "title": "Break Through the Bars",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
-     "airDate": "1955-03-14",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "MEDIC_Break_Through.mp4",
-      "format": "h.264",
-      "sizeBytes": 153879341,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/MEDIC_Break_Through/MEDIC_Break_Through.mp4"
-    },
-    {
-     "archiveID": "MEDIC_Never_Comes_Sunday",
-     "seasonNumber": 1,
-     "episodeNumber": 26,
-     "title": "Never Comes Sunday",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
-     "airDate": "1955-05-23",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "MEDIC_Never_Comes_Sunday.mp4",
-      "format": "h.264",
-      "sizeBytes": 156295825,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/MEDIC_Never_Comes_Sunday/MEDIC_Never_Comes_Sunday.mp4"
-    },
-    {
-     "archiveID": "MEDIC_General_Practitioner",
-     "seasonNumber": 1,
-     "episodeNumber": 27,
-     "title": "General Practitioner",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
-     "airDate": "1955-06-13",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "MEDIC_General_Practitioner.mp4",
-      "format": "h.264",
-      "sizeBytes": 151644481,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/MEDIC_General_Practitioner/MEDIC_General_Practitioner.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MEDIC_Dr_Impossible",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Medic\" Dr. Impossible",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MEDIC_Dr_Impossible.mp4",
+            "format": "h.264",
+            "sizeBytes": 158862072,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_Dr_Impossible/MEDIC_Dr_Impossible.mp4"
+        },
+        {
+          "archiveID": "MEDIC_The_Wild_Intruder",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Medic\" The Wild Intruder",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MEDIC_The_Wild_Intruder.mp4",
+            "format": "h.264",
+            "sizeBytes": 156942817,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_The_Wild_Intruder/MEDIC_The_Wild_Intruder.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
+  ],
+  "episodesCount": 15,
+  "canonicalEpisodesCount": 58,
+  "tvdbID": "70892",
+  "artworkSource": "tvdb",
+  "cast": [
     {
-     "archiveID": "MEDIC_Walk_With_Lions",
-     "seasonNumber": 2,
-     "episodeNumber": 2,
-     "title": "Walk with Lions",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
-     "airDate": "1955-09-12",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "MEDIC_Walk_With_Lions.mp4",
-      "format": "h.264",
-      "sizeBytes": 157310881,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/MEDIC_Walk_With_Lions/MEDIC_Walk_With_Lions.mp4"
-    },
-    {
-     "archiveID": "Medic--When_Mama_Says_Jump",
-     "seasonNumber": 2,
-     "episodeNumber": 7,
-     "title": "When Mama Says Jump",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
-     "airDate": "1955-10-31",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Medic_207--When_Mama_Says_Jump.mp4",
-      "format": "h.264",
-      "sizeBytes": 154716209,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Medic--When_Mama_Says_Jump/Medic_207--When_Mama_Says_Jump.mp4"
-    },
-    {
-     "archiveID": "Medic--Glass_of_Fear",
-     "seasonNumber": 2,
-     "episodeNumber": 10,
-     "title": "Glass of Fear",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
-     "airDate": "1955-11-28",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Medic_210--Glass_of_Fear.mp4",
-      "format": "h.264",
-      "sizeBytes": 156529512,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Medic--Glass_of_Fear/Medic_210--Glass_of_Fear.mp4"
-    },
-    {
-     "archiveID": "MEDIC_Who_Search_for_Truth",
-     "seasonNumber": 2,
-     "episodeNumber": 18,
-     "title": "Who Search for Truth",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
-     "airDate": "1956-02-27",
-     "year": 1956,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "MEDIC_Who_Search_for_Truth.mp4",
-      "format": "h.264",
-      "sizeBytes": 158982909,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/MEDIC_Who_Search_for_Truth/MEDIC_Who_Search_for_Truth.mp4"
-    },
-    {
-     "archiveID": "Medic--Awake_to_Spring",
-     "seasonNumber": 2,
-     "episodeNumber": 21,
-     "title": "Awake Unto Spring",
-     "overview": "In today's episode, an eight year old boy with Muscular Dystrophy is in the care of the only family he has left -- his grandfather.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
-     "airDate": "1956-03-26",
-     "year": 1956,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Medic_221--Awake_to_Spring.mp4",
-      "format": "h.264",
-      "sizeBytes": 142419371,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Medic--Awake_to_Spring/Medic_221--Awake_to_Spring.mp4"
-    },
-    {
-     "archiveID": "MEDIC_Til_the_Song_Is_Done_-_Til_The_Dance_Is_Gone",
-     "seasonNumber": 2,
-     "episodeNumber": 29,
-     "title": "Till the Song is Done...Till the Dance is Gone",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
-     "airDate": "1956-07-09",
-     "year": 1956,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "MEDIC_Til_the_Song_Is_Done_-_Til_The_Dance_Is_Gone.mp4",
-      "format": "h.264",
-      "sizeBytes": 156742174,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/MEDIC_Til_the_Song_Is_Done_-_Til_The_Dance_Is_Gone/MEDIC_Til_the_Song_Is_Done_-_Til_The_Dance_Is_Gone.mp4"
+      "name": "Richard Boone",
+      "character": "Dr. Konrad Styner",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/5031.jpg"
     }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
-    {
-     "archiveID": "MEDIC_Dr_Impossible",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "\"Medic\" Dr. Impossible",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
-     "airDate": null,
-     "year": 1955,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "MEDIC_Dr_Impossible.mp4",
-      "format": "h.264",
-      "sizeBytes": 158862072,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/MEDIC_Dr_Impossible/MEDIC_Dr_Impossible.mp4"
-    },
-    {
-     "archiveID": "MEDIC_The_Wild_Intruder",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "\"Medic\" The Wild Intruder",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
-     "airDate": null,
-     "year": 1954,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "MEDIC_The_Wild_Intruder.mp4",
-      "format": "h.264",
-      "sizeBytes": 156942817,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/MEDIC_The_Wild_Intruder/MEDIC_The_Wild_Intruder.mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 15,
- "canonicalEpisodesCount": 58
+  ]
 }

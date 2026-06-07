@@ -1,726 +1,760 @@
 {
- "version": 2,
- "seriesID": "honey-i-shrunk-the-kids-1997",
- "tvmazeID": 9710,
- "title": "Honey, I Shrunk the Kids",
- "yearStart": 1997,
- "yearEnd": 2000,
- "overview": "Honey, I Shrunk the Kids: The TV Show (truncated to Honey, I Shrunk the Kids in the show's title sequence) is an American syndicated comic science fiction sitcom based on the 1989 film, Honey, I Shrunk the Kids. It expands upon the original film's concept of a shrinking experiment gone wrong to include a myriad of experiments gone awry. It debuted in syndication on September 1, 1997 and ran for three consecutive seasons, concluding with the 66th episode on May 20, 2000.Peter Scolari took over the role as Wayne Szalinski, the wacky inventor in the original film, played by Rick Moranis. Each episode incorporates new technologies and digital effects to feature the family in various new adventures.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/33/84293.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "Syndication"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "honey-i-shrunk-the-kids-1997",
+  "tvmazeID": 9710,
+  "title": "Honey, I Shrunk the Kids",
+  "yearStart": 1997,
+  "yearEnd": 2000,
+  "overview": "Honey, I Shrunk the Kids: The TV Show (truncated to Honey, I Shrunk the Kids in the show's title sequence) is an American syndicated comic science fiction sitcom based on the 1989 film, Honey, I Shrunk the Kids. It expands upon the original film's concept of a shrinking experiment gone wrong to include a myriad of experiments gone awry. It debuted in syndication on September 1, 1997 and ran for three consecutive seasons, concluding with the 66th episode on May 20, 2000.Peter Scolari took over the role as Wayne Szalinski, the wacky inventor in the original film, played by Rick Moranis. Each episode incorporates new technologies and digital effects to feature the family in various new adventures.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71143-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-1-honey-weve-been-swallowed-by-grandpa",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Honey, We've Been Swallowed by Grandpa",
-     "overview": "Wayne, Diane, and Amy are accidentally shrunk to near-microscopic size. Soon after, Grandpa Murdock (Eugene Roche) drops by to pick up his grandson for a fishing trip. Nick feigns illness to avoid going with his grandfather, who then leaves, but not before inadvertently swallowing his mini-relatives—van and all. Nick interprets Wayne's help message in the newspaper and realizing what has happened, rushes to his family's aid.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1997-09-27",
-     "year": 1997,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Honey, I Shrunk the Kids(Honey, We've Been Swallowed by Grandpa) Episode 1.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 214056973,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-1-honey-weve-been-swallowed-by-grandpa/Honey, I Shrunk the Kids(Honey, We've Been Swallowed by Grandpa) Episode 1.ia.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-1-honey-weve-been-swallowed-by-grandpa",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Honey, We've Been Swallowed by Grandpa",
+          "overview": "Wayne, Diane, and Amy are accidentally shrunk to near-microscopic size. Soon after, Grandpa Murdock (Eugene Roche) drops by to pick up his grandson for a fishing trip. Nick feigns illness to avoid going with his grandfather, who then leaves, but not before inadvertently swallowing his mini-relatives—van and all. Nick interprets Wayne's help message in the newspaper and realizing what has happened, rushes to his family's aid.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1997-09-27",
+          "year": 1997,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Honey, We've Been Swallowed by Grandpa) Episode 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 214056973,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-1-honey-weve-been-swallowed-by-grandpa/Honey, I Shrunk the Kids(Honey, We've Been Swallowed by Grandpa) Episode 1.ia.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-season-2-episode-2-honey-the-house-is-trying-to-kill-us",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Honey, the House Is Trying to Kill Us",
+          "overview": "Wayne becomes concerned about his family's safety and invents a security system for their protection. F.R.A.N. (Petrea Burchard), the Felon Repeller and Accident Neutralizer takes her duties very seriously and involves herself in every facet of the household. Diane is wary of the overprotective computer, not realizing that F.R.A.N. has developed a mind of her own. When Wayne decides to pull the plug, F.R.A.N. holds the Szalinskis under \"house arrest.\" Wayne and his family try to stop F.R.A.N. before it's too late.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1997-10-04",
+          "year": 1997,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids (Honey, the House is Trying to Kill Us) EP 2-c2yRKmpfYqo.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 139424845,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-season-2-episode-2-honey-the-house-is-trying-to-kill-us/Honey, I Shrunk the Kids (Honey, the House is Trying to Kill Us) EP 2-c2yRKmpfYqo.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids_tv-show",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Honey, We're Stuck in the 70's",
+          "overview": "Amy is in love with her teacher and when she finds out that her dad has made a time machine, the Szalinski Time Hopper, she decides to go back to the 70s to meet her teacher, when he was 17. She goes back but to 1976 and after numerous attempts decides not to return. Nick tells his dad, who goes back in time to rescue her before she suffers the ill effects of temporal displacement. While Wayne is in the past, he runs into teen-aged Diane and he figures out how to make up for both a forgotten wedding anniversary and a Time Hopper problem.",
+          "stillURL": null,
+          "airDate": "1997-10-18",
+          "year": 1997,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids - S01E04 - Honey, We're Stuck in the 70's.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 539972690,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids_tv-show/Honey%2C%20I%20Shrunk%20the%20Kids%20-%20S01E04%20-%20Honey%2C%20We%27re%20Stuck%20in%20the%2070%27s.ia.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-5-honey-i-shrunk-the-science-dude",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Honey, I Shrunk the Science Dude",
+          "overview": "Wayne accidentally shrinks himself and his brother, Randy, who find themselves in little trouble when they are mistaken for McDonald'sHappy Meal Toys and brought home to a young boy who happens to be a fan of Randy's TV show, 'Randy Rude: The Science Dude' (a parody of Bill Nye the Science Guy).",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1997-10-25",
+          "year": 1997,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Honey, I Shrunk the Science Dude)Episode 5.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 241580608,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-5-honey-i-shrunk-the-science-dude/Honey, I Shrunk the Kids(Honey, I Shrunk the Science Dude)Episode 5.ia.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-1-episode-8-honey-theyre-after-me-lucky-charms",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Honey, They're After Me Lucky Charms",
+          "overview": "Wayne's invention succeeds in finding gold - a pot of doubloons claimed by a leprechaun, who puts a curse on the Szalinskis until they hand it over.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/603/1508596.jpg",
+          "airDate": "1997-11-15",
+          "year": 1997,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 8)-xHdKwAKRfxE.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 141569426,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-1-episode-8-honey-theyre-after-me-lucky-charms/Honey, I Shrunk the Kids(Episode 8)-xHdKwAKRfxE.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-9-honey-they-call-me-the-space-cowboy",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Honey, They Call Me the Space Cowboy",
+          "overview": "To return from a time trip to 1864 Colorado, the Szalinskis must help an alien recover his starship from a ruthless gang, who master the alien's weapons and defenses.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1997-11-22",
+          "year": 1997,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 9).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 210109829,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-9-honey-they-call-me-the-space-cowboy/Honey, I Shrunk the Kids(Episode 9).ia.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-1-episode-11-honey-youre-living-in-the-past",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Honey, You're Living in the Past",
+          "overview": "Diane wants to get in touch with her teenage-self so that she can understand what Amy and her new client, Howard, are going through. Wayne has invented a machine where you can see yourself in the past. When the electricity goes out, Diane is stuck as a teenager. Now Wayne must fix the machine and the family has to deal with Diane and her rebellious self.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1997-12-15",
+          "year": 1997,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "histk-s01e11-honey-you-re-living-in-the-past.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 142419949,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-1-episode-11-honey-youre-living-in-the-past/histk-s01e11-honey-you-re-living-in-the-past.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-12-honey-im-king-of-the-rocket-guys",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Honey, I'm Streakin'",
+          "overview": "Wayne feels overwhelmed with the demands of work and his family so he invents something that will make him go from place to place in seconds. He sets the level on high and somehow travels at the speed of light. Jennings finds a copy of the invention and is traveling fast too and playing tricks on people. The two of them get stuck at hyperspeed and must use another Szalinski invention to slow their molecules.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-01-17",
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 34).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 130404852,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-12-honey-im-king-of-the-rocket-guys/Honey, I Shrunk the Kids(Episode 34).mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-13-honey-meet-the-barbarians",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Honey, Meet the Barbarians",
+          "overview": "Wayne accidentally blows up the mayor's car in front of the mayor which upsets Diane, who wants to run for the school board, so he goes back in time to redo things. He accidentally goes back to the time of \"the barbarians\". When Wayne comes back he accidentally brings the \"Barbarians\" with him but when he tries to send them back the machine is broken. The barbarians become involved in the school board race when they are convinced that Diane's rival is an evil Norse god.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-01-07",
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 13)-oRzw39Pc2B0.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 153979184,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-13-honey-meet-the-barbarians/Honey, I Shrunk the Kids(Episode 13)-oRzw39Pc2B0.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-14-honey-youve-drained-my-brain",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Honey, You Drained My Brain",
+          "overview": "Diane is very nervous about her case against a tough lawyer so Wayne invents a thinky ring to help her retrieve her thoughts better. Unfortunately, she becomes a brain sucking vampire. Wayne finds out and goes after her to lure her home. Nick manages to get the ring off but this turns him into a brain sucking vampire. Diane figures things out and plots to fight Nick and get the ring off before he takes over the world.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-02-14",
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "histk-s01e14-honey-you-drained-my-brain.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 145837477,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-14-honey-youve-drained-my-brain/histk-s01e14-honey-you-drained-my-brain.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-15-honey-youll-always-be-a-princess-to-me",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Honey, He's Not Abdominable... He's Just Misunderstood",
+          "overview": "Wayne turns Amy's bicycle into a super speed mountain bike. Amy goes on a bike ride through the woods, crashes, twists her ankle and finds refuge in a cave. Amy meets Bigfoot and she names him George after Curious George. He saves her and takes Amy to her house. Now the family must get him back along with his wife, a Yeti.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-02-21",
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 37).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 140747821,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-15-honey-youll-always-be-a-princess-to-me/Honey, I Shrunk the Kids(Episode 37).mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-17-honey-im-going-to-teach-you-a-lesson",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Honey, The Bear Is Bad News",
+          "overview": "Wayne reluctantly has to make a toy bear more high tech after sharing his feelings at Jentech West. He makes the bear smart and while downloading data onto the bear's computer chip, a virus named Legion is also downloaded onto the chip. Now the bear is bent on taking over the world and the family now must stop the bear before he can wreak havoc.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-03-28",
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 39)-4F49Sc-JUOQ.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 134568409,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-17-honey-im-going-to-teach-you-a-lesson/Honey, I Shrunk the Kids(Episode 39)-4F49Sc-JUOQ.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-1-episode-19-honey-im-dreaming...-but-am-i",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Honey, I'm Dreaming... But Am I?",
+          "overview": "The prospect of dissecting a frog is giving Nick nightmares so Wayne invents a dream machine that would go into Nick's dream. He kills the frog but is threatened never to come back into the dream world again. Amy, against her dad's wishes, goes in so she can annoy Nick, so now the family can't sleep or else they could die.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-04-23",
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "histk-s01e19-honey-i-m-dreaming-but-am-i.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158050993,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-1-episode-19-honey-im-dreaming...-but-am-i/histk-s01e19-honey-i-m-dreaming-but-am-i.ia.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-1-episode-20-honey-the-garbage-is-taking-us-out",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Honey, the Garbage Is Taking Us Out",
+          "overview": "Wayne, wanting to please Nick, invents a Refuse Ingesting Protozoa or RIP that can eat anything. Jennings, who is being tracked by an environmentalist, puts toxic waste in Wayne's invention. RIP infected Quark, Quark infected the mail-man and so on. Now Wayne and family must stop these garbage-eating-zombies and get them to Jentech West where there is a high security system.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-04-30",
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 20).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 278385231,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-1-episode-20-honey-the-garbage-is-taking-us-out/Honey, I Shrunk the Kids(Episode 20).ia.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-22-honey-its-no-fun-being-an-illegal-alien",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Honey, It's No Fun Being an Illegal Alien",
+          "overview": "Ar'nox the alien, who was in \"Honey, They Call Me The Space Cowboy\", returns. This time he comes for a visit only to have his space ship stolen again. Now the Szalinski must get the space ship back, stolen from the so called \"Men in Black\".",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-05-16",
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 22).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 277570950,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-22-honey-its-no-fun-being-an-illegal-alien/Honey, I Shrunk the Kids(Episode 22).ia.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "honey-i-shrunk-the-kids-season-2-episode-2-honey-the-house-is-trying-to-kill-us",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "Honey, the House Is Trying to Kill Us",
-     "overview": "Wayne becomes concerned about his family's safety and invents a security system for their protection. F.R.A.N. (Petrea Burchard), the Felon Repeller and Accident Neutralizer takes her duties very seriously and involves herself in every facet of the household. Diane is wary of the overprotective computer, not realizing that F.R.A.N. has developed a mind of her own. When Wayne decides to pull the plug, F.R.A.N. holds the Szalinskis under \"house arrest.\" Wayne and his family try to stop F.R.A.N. before it's too late.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1997-10-04",
-     "year": 1997,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Honey, I Shrunk the Kids (Honey, the House is Trying to Kill Us) EP 2-c2yRKmpfYqo.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 139424845,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-season-2-episode-2-honey-the-house-is-trying-to-kill-us/Honey, I Shrunk the Kids (Honey, the House is Trying to Kill Us) EP 2-c2yRKmpfYqo.mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-24-honey-shes-like-a-fish-out-of-water",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Honey, She's Like a Fish Out of Water",
+          "overview": "Wayne creates a skin lotion to make people become great swimmers like fish in the water. Amy takes some of it to a pool party that she is invited to. When Amy uses the lotion, she becomes the life of the pool party so the girl who the party is being held for tries it as well. However, things go terribly wrong (as usual) when the girls find the lotion has turned them into \"mermaids\". They'll end up completely turning into fish unless Wayne can create an antidote. However, things get even worse when the desperate and greedy owner of the pool kidnaps the girls to use them as a money-making attraction.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-10-03",
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "HISTK S02E02-5n8bqthzb78k.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 180528787,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-24-honey-shes-like-a-fish-out-of-water/HISTK S02E02-5n8bqthzb78k.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-6-honey-were-young-at-heart",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Honey, We're Young at Heart",
+          "overview": "He's invented a machine that will make old people feel and act younger. However, it takes Diane and Wayne's youth, giving it to an older couple; the effects take a long time to kick in. As the other couple grows young and immature, Wayne and Diane grow old and scared for their lives. Can Nick and Amy find the old couple and bring them back before Wayne dies of old age and can't reverse the process?",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-11-07",
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "HISTK S02E06-3egp7jka7o5c.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 146326602,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-6-honey-were-young-at-heart/HISTK S02E06-3egp7jka7o5c.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-episode-29-honey-were-past-tense",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Honey, We're Past Tense",
+          "overview": "Wayne and his family are going camping with the chief and his kids. Wayne makes a home away from home that he carries on his back. At night time during a storm it takes them back to the prehistoric age and now they must figure out a way to get back to the future.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-11-14",
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 29).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 295711396,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-episode-29-honey-were-past-tense/Honey, I Shrunk the Kids(Episode 29).ia.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-9-honey-the-bunny-bit-it",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Honey, the Bunny Bit It",
+          "overview": "Nick invents a machine of his own in an attempt to resurrect his dead pet bunny, Copernicus. Things go wrong when his invention summons a monstrous creature from another dimension that possesses the body of his deceased friend.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-12-05",
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "DaClips - Just watch it!.mp4",
+            "format": "h.264",
+            "sizeBytes": 255634797,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-9-honey-the-bunny-bit-it/DaClips - Just watch it!.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-10-honey-ive-joined-the-bigtop",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Honey, I've Joined the Bigtop",
+          "overview": "Nick is running from a bunch of bullies when he takes a hard fall and a circus takes him home. The head guy steals everything in Wayne's lab so now the family must rescue Nick and they must do this by joining the circus themselves.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-12-12",
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "HISTK S02E10-0897honfeb13.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 179767443,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-10-honey-ive-joined-the-bigtop/HISTK S02E10-0897honfeb13.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-episode-11-honey-im-the-sorcerers-apprentice",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Honey, I'm the Sorcerer's Apprentice",
+          "overview": "To save his bankrupt company, Jennings sends Wayne to find a magical stone that can turn metal into gold. But Jennings' greed alters the stone's power.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-12-19",
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "HISTK S02E11-fmy4bu7yjaom.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 135430392,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-episode-11-honey-im-the-sorcerers-apprentice/HISTK S02E11-fmy4bu7yjaom.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-35-honey-the-futures-coming-back-to-me",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Honey, the Future's Coming Back to Me",
+          "overview": "Amy and Nick are kidnapped by a cyborg from the future, a result of Jennings' misuse of Wayne's environment-friendly car.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1999-02-06",
+          "year": 1999,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "DaClips - Just watch it! copy 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 259303297,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-35-honey-the-futures-coming-back-to-me/DaClips - Just watch it! copy 2.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-16-honey-theres-a-pox-on-our-house",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Honey, There's a Pox on Our House",
+          "overview": "Jennings romantically pursues Diane after using Wayne's \"Electric Chair of Love\"; Amy and Nick contract chicken pox, forcing Diane to move into a hotel. Only one things for sure: this ain't going to end well for Jennings.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1999-02-27",
+          "year": 1999,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "HISTK S02E16-unvnif4yybnj.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 137698784,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-16-honey-theres-a-pox-on-our-house/HISTK S02E16-unvnif4yybnj.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-19-honey-its-a-blunderful-life",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "Honey, It's a Blunderful Life",
+          "overview": "Wayne is knocked senseless by a tree while trudging home in a blizzard and awakens to find himself on trial in Dreamland because of his erratic inventions.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1999-05-15",
+          "year": 1999,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "HISTK S02E19-xixetfljutjr.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 119830230,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-19-honey-its-a-blunderful-life/HISTK S02E19-xixetfljutjr.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-21-honey-im-not-just-clowning-around",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Honey, I'm Not Just Clowning Around",
+          "overview": "Wayne invents an invention called the 3iDer which turns people into different people. The invention and Wayne got nominated for the inventors recognition achievement award. An evil clown tries to steal the invention and frame Wayne so it is up to Team Szalinski to stop this clown and clear Wayne's name.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1999-05-29",
+          "year": 1999,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "HISTK S02E21-xiw1262ytdzx.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 107347628,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-21-honey-im-not-just-clowning-around/HISTK S02E21-xiw1262ytdzx.ia.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "honey-i-shrunk-the-kids_tv-show",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Honey, We're Stuck in the 70's",
-     "overview": "Amy is in love with her teacher and when she finds out that her dad has made a time machine, the Szalinski Time Hopper, she decides to go back to the 70s to meet her teacher, when he was 17. She goes back but to 1976 and after numerous attempts decides not to return. Nick tells his dad, who goes back in time to rescue her before she suffers the ill effects of temporal displacement. While Wayne is in the past, he runs into teen-aged Diane and he figures out how to make up for both a forgotten wedding anniversary and a Time Hopper problem.",
-     "stillURL": null,
-     "airDate": "1997-10-18",
-     "year": 1997,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Honey, I Shrunk the Kids - S01E04 - Honey, We're Stuck in the 70's.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 539972690,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids_tv-show/Honey%2C%20I%20Shrunk%20the%20Kids%20-%20S01E04%20-%20Honey%2C%20We%27re%20Stuck%20in%20the%2070%27s.ia.mp4"
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "honey-i-shrunk-the-kids-episode-45-honey-name-that-tune",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Honey, Name That Tune",
+          "overview": "Wayne goes back in time to prove to his family that the Bopkas and the song he likes really do exist. There he finds out that they are Russian spies with plans to take over the world by overthrowing parents. The family goes back in time to help him stop them. One question remains if they never sang the song, then where did he hear it?",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1999-09-25",
+          "year": 1999,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "DaClips - Just watch it! 4.mp4",
+            "format": "h.264",
+            "sizeBytes": 249040903,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-episode-45-honey-name-that-tune/DaClips - Just watch it! 4.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-3-episode-2-honey-its-a-billion-dollar-brain",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "Honey, It's a Billion Dollar Brain",
+          "overview": "Wayne brings a dead man's brain back to life, hoping to swap scientific ideas for inventions with him. However, the brain begins longing for the life he never had: a happy family. To this end, he (still having his \"mind\" stuck in the past) hypnotises Wayne's family; Diane is turned into a housewife, Amy becomes swedish, and Nick becomes a punk; Mr Jennings also becomes a goofy golfer. This done, he now plans to put his own brain in Wayne's head. Can Wayne undo the hypnotisum done to his family and get rid of this brain?",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1999-10-02",
+          "year": 1999,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "HISTK S03E02-wn91d8su3lfb.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121067550,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-3-episode-2-honey-its-a-billion-dollar-brain/HISTK S03E02-wn91d8su3lfb.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-48-honey-were-on-tv",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "Honey, We're on TV",
+          "overview": "Wayne and the kids settles down to watch television during a big storm in town and he has invented a remote control that will bring any tv shows you could ever watch from the past to now. Somehow they get sucked into the tv so when Diane and the Chief come home and finds them in the tv they need to try to get Wayne and the kids out.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1999-10-16",
+          "year": 1999,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "HISTK S03E04-v9qwclvf963o.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 146410670,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-48-honey-were-on-tv/HISTK S03E04-v9qwclvf963o.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-50-honey-im-kung-fu-fighting",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "Honey, I'm Kung Fu Fighting",
+          "overview": "Ninjas invade Matheson, and Team Szalinski is in for much kung fu fighting to save the town. A monk, Master P'tui, appears to help Wayne and teach him martial arts. Meanwhile, Nick, tired of being bullied into doing other people's homework, invents a spray that can turn anyone into a kung fu expert. Also, Lord Bilious wants Diane to defend him after he tried to bribe town officials and landowners to sell him the town.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1999-11-06",
+          "year": 1999,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "DaClips - Just watch it!(1).mp4",
+            "format": "h.264",
+            "sizeBytes": 249645064,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-50-honey-im-kung-fu-fighting/DaClips - Just watch it!(1).mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-3-episode-7-honey-im-not-up-to-par",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "Honey, I'm Not Up to Par",
+          "overview": "Crazy greedy Jennings bets his company even though he can't play golf very well. He asks Wayne to build golf clubs to help them win but Jennings gets hurt so Wayne has to play. Meanwhile Diane and the kids are feeling crowded with Wayne's invention so they decide to sell the stuff they don't use but after a while people don't like them so now they have to get them all back.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1999-11-13",
+          "year": 1999,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "HISTK S03E07-yhuwudmb87hi.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 144337327,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-3-episode-7-honey-im-not-up-to-par/HISTK S03E07-yhuwudmb87hi.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-3-episode-8-honey-its-one-small-step-for-mankind",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "Honey, It's One Small Step for Mankind",
+          "overview": "Randy Rude the Science Dude comes into town to visit. and he wants to get married so Wayne tries to fix him up with the love chair and love booster. Something happens when Randy tries to leave with the van and presses the booster button that blasts them into space. Or are they really in space?",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1999-11-20",
+          "year": 1999,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "HISTK S03E08-ngbtlme9jau2.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 127177523,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-3-episode-8-honey-its-one-small-step-for-mankind/HISTK S03E08-ngbtlme9jau2.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-3-episode-9-honey-youre-driving-me-like-crazy",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "Honey, You're Driving Me Like Crazy",
+          "overview": "Amy can finally drive so her and the family look for a car and they buy a junk one. Wayne re-designs it completely into the weirdest car you've ever seen. Also included is a safe-t-guy that gives you tips about practically everything. When she takes the car for a trip she tries to stop the safe-t-guy from talking, resulting in making him drive them off the cliff. The family gets a call from Amy and they go after her to stop safe-t-guy and the car from going off the cliff. Will they make it in time?",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1999-11-27",
+          "year": 1999,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "HISTK S03E09-94onncp6ontd.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 125799919,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-3-episode-9-honey-youre-driving-me-like-crazy/HISTK S03E09-94onncp6ontd.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-3-episode-10-honey-the-plays-the-thingie",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "Honey, the Play's the Thingie",
+          "overview": "Amy begs Wayne to direct a play to save a community theatre. He reluctantly agrees and finds people coming to his doorstep to try out. Meanwhile three aliens came to the house to fix their spaceship. The aliens came here since they know Amy and the family. Some bad guys are after the aliens so the family is on the look out whilst also being in the play.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1999-12-18",
+          "year": 1999,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "HISTK S03E10-iubwb4gh4adf.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 123097819,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-3-episode-10-honey-the-plays-the-thingie/HISTK S03E10-iubwb4gh4adf.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-5-honey-i-shrunk-the-science-dude",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "Honey, I Shrunk the Science Dude",
-     "overview": "Wayne accidentally shrinks himself and his brother, Randy, who find themselves in little trouble when they are mistaken for McDonald'sHappy Meal Toys and brought home to a young boy who happens to be a fan of Randy's TV show, 'Randy Rude: The Science Dude' (a parody of Bill Nye the Science Guy).",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1997-10-25",
-     "year": 1997,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Honey, I Shrunk the Kids(Honey, I Shrunk the Science Dude)Episode 5.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 241580608,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-5-honey-i-shrunk-the-science-dude/Honey, I Shrunk the Kids(Honey, I Shrunk the Science Dude)Episode 5.ia.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-1-episode-8-honey-theyre-after-me-lucky-charms",
-     "seasonNumber": 1,
-     "episodeNumber": 8,
-     "title": "Honey, They're After Me Lucky Charms",
-     "overview": "Wayne's invention succeeds in finding gold - a pot of doubloons claimed by a leprechaun, who puts a curse on the Szalinskis until they hand it over.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/603/1508596.jpg",
-     "airDate": "1997-11-15",
-     "year": 1997,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Honey, I Shrunk the Kids(Episode 8)-xHdKwAKRfxE.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 141569426,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-1-episode-8-honey-theyre-after-me-lucky-charms/Honey, I Shrunk the Kids(Episode 8)-xHdKwAKRfxE.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-9-honey-they-call-me-the-space-cowboy",
-     "seasonNumber": 1,
-     "episodeNumber": 9,
-     "title": "Honey, They Call Me the Space Cowboy",
-     "overview": "To return from a time trip to 1864 Colorado, the Szalinskis must help an alien recover his starship from a ruthless gang, who master the alien's weapons and defenses.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1997-11-22",
-     "year": 1997,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Honey, I Shrunk the Kids(Episode 9).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 210109829,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-9-honey-they-call-me-the-space-cowboy/Honey, I Shrunk the Kids(Episode 9).ia.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-1-episode-11-honey-youre-living-in-the-past",
-     "seasonNumber": 1,
-     "episodeNumber": 11,
-     "title": "Honey, You're Living in the Past",
-     "overview": "Diane wants to get in touch with her teenage-self so that she can understand what Amy and her new client, Howard, are going through. Wayne has invented a machine where you can see yourself in the past. When the electricity goes out, Diane is stuck as a teenager. Now Wayne must fix the machine and the family has to deal with Diane and her rebellious self.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1997-12-15",
-     "year": 1997,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "histk-s01e11-honey-you-re-living-in-the-past.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 142419949,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-1-episode-11-honey-youre-living-in-the-past/histk-s01e11-honey-you-re-living-in-the-past.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-12-honey-im-king-of-the-rocket-guys",
-     "seasonNumber": 1,
-     "episodeNumber": 12,
-     "title": "Honey, I'm Streakin'",
-     "overview": "Wayne feels overwhelmed with the demands of work and his family so he invents something that will make him go from place to place in seconds. He sets the level on high and somehow travels at the speed of light. Jennings finds a copy of the invention and is traveling fast too and playing tricks on people. The two of them get stuck at hyperspeed and must use another Szalinski invention to slow their molecules.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1998-01-17",
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Honey, I Shrunk the Kids(Episode 34).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 130404852,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-12-honey-im-king-of-the-rocket-guys/Honey, I Shrunk the Kids(Episode 34).mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-13-honey-meet-the-barbarians",
-     "seasonNumber": 1,
-     "episodeNumber": 13,
-     "title": "Honey, Meet the Barbarians",
-     "overview": "Wayne accidentally blows up the mayor's car in front of the mayor which upsets Diane, who wants to run for the school board, so he goes back in time to redo things. He accidentally goes back to the time of \"the barbarians\". When Wayne comes back he accidentally brings the \"Barbarians\" with him but when he tries to send them back the machine is broken. The barbarians become involved in the school board race when they are convinced that Diane's rival is an evil Norse god.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1998-01-07",
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Honey, I Shrunk the Kids(Episode 13)-oRzw39Pc2B0.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 153979184,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-13-honey-meet-the-barbarians/Honey, I Shrunk the Kids(Episode 13)-oRzw39Pc2B0.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-14-honey-youve-drained-my-brain",
-     "seasonNumber": 1,
-     "episodeNumber": 14,
-     "title": "Honey, You Drained My Brain",
-     "overview": "Diane is very nervous about her case against a tough lawyer so Wayne invents a thinky ring to help her retrieve her thoughts better. Unfortunately, she becomes a brain sucking vampire. Wayne finds out and goes after her to lure her home. Nick manages to get the ring off but this turns him into a brain sucking vampire. Diane figures things out and plots to fight Nick and get the ring off before he takes over the world.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1998-02-14",
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "histk-s01e14-honey-you-drained-my-brain.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 145837477,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-14-honey-youve-drained-my-brain/histk-s01e14-honey-you-drained-my-brain.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-15-honey-youll-always-be-a-princess-to-me",
-     "seasonNumber": 1,
-     "episodeNumber": 15,
-     "title": "Honey, He's Not Abdominable... He's Just Misunderstood",
-     "overview": "Wayne turns Amy's bicycle into a super speed mountain bike. Amy goes on a bike ride through the woods, crashes, twists her ankle and finds refuge in a cave. Amy meets Bigfoot and she names him George after Curious George. He saves her and takes Amy to her house. Now the family must get him back along with his wife, a Yeti.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1998-02-21",
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Honey, I Shrunk the Kids(Episode 37).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 140747821,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-15-honey-youll-always-be-a-princess-to-me/Honey, I Shrunk the Kids(Episode 37).mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-17-honey-im-going-to-teach-you-a-lesson",
-     "seasonNumber": 1,
-     "episodeNumber": 17,
-     "title": "Honey, The Bear Is Bad News",
-     "overview": "Wayne reluctantly has to make a toy bear more high tech after sharing his feelings at Jentech West. He makes the bear smart and while downloading data onto the bear's computer chip, a virus named Legion is also downloaded onto the chip. Now the bear is bent on taking over the world and the family now must stop the bear before he can wreak havoc.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1998-03-28",
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Honey, I Shrunk the Kids(Episode 39)-4F49Sc-JUOQ.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 134568409,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-17-honey-im-going-to-teach-you-a-lesson/Honey, I Shrunk the Kids(Episode 39)-4F49Sc-JUOQ.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-1-episode-19-honey-im-dreaming...-but-am-i",
-     "seasonNumber": 1,
-     "episodeNumber": 19,
-     "title": "Honey, I'm Dreaming... But Am I?",
-     "overview": "The prospect of dissecting a frog is giving Nick nightmares so Wayne invents a dream machine that would go into Nick's dream. He kills the frog but is threatened never to come back into the dream world again. Amy, against her dad's wishes, goes in so she can annoy Nick, so now the family can't sleep or else they could die.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1998-04-23",
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "histk-s01e19-honey-i-m-dreaming-but-am-i.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 158050993,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-1-episode-19-honey-im-dreaming...-but-am-i/histk-s01e19-honey-i-m-dreaming-but-am-i.ia.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-1-episode-20-honey-the-garbage-is-taking-us-out",
-     "seasonNumber": 1,
-     "episodeNumber": 20,
-     "title": "Honey, the Garbage Is Taking Us Out",
-     "overview": "Wayne, wanting to please Nick, invents a Refuse Ingesting Protozoa or RIP that can eat anything. Jennings, who is being tracked by an environmentalist, puts toxic waste in Wayne's invention. RIP infected Quark, Quark infected the mail-man and so on. Now Wayne and family must stop these garbage-eating-zombies and get them to Jentech West where there is a high security system.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1998-04-30",
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Honey, I Shrunk the Kids(Episode 20).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 278385231,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-1-episode-20-honey-the-garbage-is-taking-us-out/Honey, I Shrunk the Kids(Episode 20).ia.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-22-honey-its-no-fun-being-an-illegal-alien",
-     "seasonNumber": 1,
-     "episodeNumber": 22,
-     "title": "Honey, It's No Fun Being an Illegal Alien",
-     "overview": "Ar'nox the alien, who was in \"Honey, They Call Me The Space Cowboy\", returns. This time he comes for a visit only to have his space ship stolen again. Now the Szalinski must get the space ship back, stolen from the so called \"Men in Black\".",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1998-05-16",
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Honey, I Shrunk the Kids(Episode 22).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 277570950,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-22-honey-its-no-fun-being-an-illegal-alien/Honey, I Shrunk the Kids(Episode 22).ia.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-1-episode-4-honey-were-stuck-in-the-70s",
+          "seasonNumber": null,
+          "episodeNumber": 4,
+          "title": "Honey, We're Stuck in the 70's",
+          "overview": "Amy is in love with her teacher and when she finds out that her dad has made a time machine, the Szalinski Time Hopper, she decides to go back to the 70s to meet her teacher, when he was 17. She goes back but to 1976 and after numerous attempts decides not to return. Nick tells his dad, who goes back in time to rescue her before she suffers the ill effects of temporal displacement. While Wayne is in the past, he runs into teen-aged Diane and he figures out how to make up for both a forgotten wedding anniversary and a Time Hopper problem.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Honey, We're Stuck in the 70's)Episode 4-Vv7vJ2GlVUc.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 167210399,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-1-episode-4-honey-were-stuck-in-the-70s/Honey, I Shrunk the Kids(Honey, We're Stuck in the 70's)Episode 4-Vv7vJ2GlVUc.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-15-honey-hes-not-abominable...-hes-just-misunderstood",
+          "seasonNumber": null,
+          "episodeNumber": 15,
+          "title": "Honey, He's Not Abdominable...He's Just Misunderstood",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 15)-zcrtbGv1uto.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 156810551,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-15-honey-hes-not-abominable...-hes-just-misunderstood/Honey, I Shrunk the Kids(Episode 15)-zcrtbGv1uto.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-23-honey-its-quarkzilla",
+          "seasonNumber": null,
+          "episodeNumber": 23,
+          "title": "Honey, I Shrunk The Kids Episode 23 Honey, It's Quarkzilla",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 23).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 285749477,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-23-honey-its-quarkzilla/Honey, I Shrunk the Kids(Episode 23).ia.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-14-honey-its-a-miracle",
+          "seasonNumber": null,
+          "episodeNumber": 36,
+          "title": "Honey, You Drained My Brain",
+          "overview": "Diane is very nervous about her case against a tough lawyer so Wayne invents a thinky ring to help her retrieve her thoughts better. Unfortunately, she becomes a brain sucking vampire. Wayne finds out and goes after her to lure her home. Nick manages to get the ring off but this turns him into a brain sucking vampire. Diane figures things out and plots to fight Nick and get the ring off before he takes over the world.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 36)-OI0zRkxq_yo.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 122441891,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-14-honey-its-a-miracle/Honey, I Shrunk the Kids(Episode 36)-OI0zRkxq_yo.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-20-honey-its-your-party",
+          "seasonNumber": null,
+          "episodeNumber": 42,
+          "title": "Honey, the Garbage is Taking Us Out",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 42)-PhTNPC9ldRU.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 138670557,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-20-honey-its-your-party/Honey, I Shrunk the Kids(Episode 42)-PhTNPC9ldRU.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
+  ],
+  "episodesCount": 38,
+  "canonicalEpisodesCount": 66,
+  "tvdbID": "71143",
+  "artworkSource": "tvdb",
+  "cast": [
     {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-24-honey-shes-like-a-fish-out-of-water",
-     "seasonNumber": 2,
-     "episodeNumber": 2,
-     "title": "Honey, She's Like a Fish Out of Water",
-     "overview": "Wayne creates a skin lotion to make people become great swimmers like fish in the water. Amy takes some of it to a pool party that she is invited to. When Amy uses the lotion, she becomes the life of the pool party so the girl who the party is being held for tries it as well. However, things go terribly wrong (as usual) when the girls find the lotion has turned them into \"mermaids\". They'll end up completely turning into fish unless Wayne can create an antidote. However, things get even worse when the desperate and greedy owner of the pool kidnaps the girls to use them as a money-making attraction.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1998-10-03",
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "HISTK S02E02-5n8bqthzb78k.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 180528787,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-24-honey-shes-like-a-fish-out-of-water/HISTK S02E02-5n8bqthzb78k.mp4"
+      "name": "Barbara Alyn Woods",
+      "character": "Diane Szalinski",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/271254/photo/60849bc617af9.jpg"
     },
     {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-6-honey-were-young-at-heart",
-     "seasonNumber": 2,
-     "episodeNumber": 6,
-     "title": "Honey, We're Young at Heart",
-     "overview": "He's invented a machine that will make old people feel and act younger. However, it takes Diane and Wayne's youth, giving it to an older couple; the effects take a long time to kick in. As the other couple grows young and immature, Wayne and Diane grow old and scared for their lives. Can Nick and Amy find the old couple and bring them back before Wayne dies of old age and can't reverse the process?",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1998-11-07",
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "HISTK S02E06-3egp7jka7o5c.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 146326602,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-6-honey-were-young-at-heart/HISTK S02E06-3egp7jka7o5c.mp4"
+      "name": "Jewel Staite",
+      "character": "Tiara Vanhorn",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/278764/photo/6069b2740d564.jpg"
     },
     {
-     "archiveID": "honey-i-shrunk-the-kids-episode-29-honey-were-past-tense",
-     "seasonNumber": 2,
-     "episodeNumber": 7,
-     "title": "Honey, We're Past Tense",
-     "overview": "Wayne and his family are going camping with the chief and his kids. Wayne makes a home away from home that he carries on his back. At night time during a storm it takes them back to the prehistoric age and now they must figure out a way to get back to the future.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1998-11-14",
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Honey, I Shrunk the Kids(Episode 29).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 295711396,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-episode-29-honey-were-past-tense/Honey, I Shrunk the Kids(Episode 29).ia.mp4"
+      "name": "Peter Scolari",
+      "character": "Wayne Szalinski",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/254030/photo/657e842cca903.jpg"
     },
     {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-9-honey-the-bunny-bit-it",
-     "seasonNumber": 2,
-     "episodeNumber": 9,
-     "title": "Honey, the Bunny Bit It",
-     "overview": "Nick invents a machine of his own in an attempt to resurrect his dead pet bunny, Copernicus. Things go wrong when his invention summons a monstrous creature from another dimension that possesses the body of his deceased friend.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1998-12-05",
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "DaClips - Just watch it!.mp4",
-      "format": "h.264",
-      "sizeBytes": 255634797,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-9-honey-the-bunny-bit-it/DaClips - Just watch it!.mp4"
+      "name": "Hillary Tuck",
+      "character": "Amy Szalinski",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/7189.jpg"
     },
     {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-10-honey-ive-joined-the-bigtop",
-     "seasonNumber": 2,
-     "episodeNumber": 10,
-     "title": "Honey, I've Joined the Bigtop",
-     "overview": "Nick is running from a bunch of bullies when he takes a hard fall and a circus takes him home. The head guy steals everything in Wayne's lab so now the family must rescue Nick and they must do this by joining the circus themselves.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1998-12-12",
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "HISTK S02E10-0897honfeb13.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 179767443,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-10-honey-ive-joined-the-bigtop/HISTK S02E10-0897honfeb13.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-episode-11-honey-im-the-sorcerers-apprentice",
-     "seasonNumber": 2,
-     "episodeNumber": 11,
-     "title": "Honey, I'm the Sorcerer's Apprentice",
-     "overview": "To save his bankrupt company, Jennings sends Wayne to find a magical stone that can turn metal into gold. But Jennings' greed alters the stone's power.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1998-12-19",
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "HISTK S02E11-fmy4bu7yjaom.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 135430392,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-episode-11-honey-im-the-sorcerers-apprentice/HISTK S02E11-fmy4bu7yjaom.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-35-honey-the-futures-coming-back-to-me",
-     "seasonNumber": 2,
-     "episodeNumber": 13,
-     "title": "Honey, the Future's Coming Back to Me",
-     "overview": "Amy and Nick are kidnapped by a cyborg from the future, a result of Jennings' misuse of Wayne's environment-friendly car.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1999-02-06",
-     "year": 1999,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "DaClips - Just watch it! copy 2.mp4",
-      "format": "h.264",
-      "sizeBytes": 259303297,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-35-honey-the-futures-coming-back-to-me/DaClips - Just watch it! copy 2.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-16-honey-theres-a-pox-on-our-house",
-     "seasonNumber": 2,
-     "episodeNumber": 16,
-     "title": "Honey, There's a Pox on Our House",
-     "overview": "Jennings romantically pursues Diane after using Wayne's \"Electric Chair of Love\"; Amy and Nick contract chicken pox, forcing Diane to move into a hotel. Only one things for sure: this ain't going to end well for Jennings.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1999-02-27",
-     "year": 1999,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "HISTK S02E16-unvnif4yybnj.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 137698784,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-16-honey-theres-a-pox-on-our-house/HISTK S02E16-unvnif4yybnj.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-19-honey-its-a-blunderful-life",
-     "seasonNumber": 2,
-     "episodeNumber": 19,
-     "title": "Honey, It's a Blunderful Life",
-     "overview": "Wayne is knocked senseless by a tree while trudging home in a blizzard and awakens to find himself on trial in Dreamland because of his erratic inventions.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1999-05-15",
-     "year": 1999,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "HISTK S02E19-xixetfljutjr.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 119830230,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-19-honey-its-a-blunderful-life/HISTK S02E19-xixetfljutjr.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-21-honey-im-not-just-clowning-around",
-     "seasonNumber": 2,
-     "episodeNumber": 21,
-     "title": "Honey, I'm Not Just Clowning Around",
-     "overview": "Wayne invents an invention called the 3iDer which turns people into different people. The invention and Wayne got nominated for the inventors recognition achievement award. An evil clown tries to steal the invention and frame Wayne so it is up to Team Szalinski to stop this clown and clear Wayne's name.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1999-05-29",
-     "year": 1999,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "HISTK S02E21-xiw1262ytdzx.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 107347628,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-21-honey-im-not-just-clowning-around/HISTK S02E21-xiw1262ytdzx.ia.mp4"
+      "name": "Thomas Dekker",
+      "character": "Nick Szalinski",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/285861/5f3ad8b6a9723.jpg"
     }
-   ]
-  },
-  {
-   "seasonNumber": 3,
-   "episodes": [
-    {
-     "archiveID": "honey-i-shrunk-the-kids-episode-45-honey-name-that-tune",
-     "seasonNumber": 3,
-     "episodeNumber": 1,
-     "title": "Honey, Name That Tune",
-     "overview": "Wayne goes back in time to prove to his family that the Bopkas and the song he likes really do exist. There he finds out that they are Russian spies with plans to take over the world by overthrowing parents. The family goes back in time to help him stop them. One question remains if they never sang the song, then where did he hear it?",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1999-09-25",
-     "year": 1999,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "DaClips - Just watch it! 4.mp4",
-      "format": "h.264",
-      "sizeBytes": 249040903,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-episode-45-honey-name-that-tune/DaClips - Just watch it! 4.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-3-episode-2-honey-its-a-billion-dollar-brain",
-     "seasonNumber": 3,
-     "episodeNumber": 2,
-     "title": "Honey, It's a Billion Dollar Brain",
-     "overview": "Wayne brings a dead man's brain back to life, hoping to swap scientific ideas for inventions with him. However, the brain begins longing for the life he never had: a happy family. To this end, he (still having his \"mind\" stuck in the past) hypnotises Wayne's family; Diane is turned into a housewife, Amy becomes swedish, and Nick becomes a punk; Mr Jennings also becomes a goofy golfer. This done, he now plans to put his own brain in Wayne's head. Can Wayne undo the hypnotisum done to his family and get rid of this brain?",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1999-10-02",
-     "year": 1999,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "HISTK S03E02-wn91d8su3lfb.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 121067550,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-3-episode-2-honey-its-a-billion-dollar-brain/HISTK S03E02-wn91d8su3lfb.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-48-honey-were-on-tv",
-     "seasonNumber": 3,
-     "episodeNumber": 4,
-     "title": "Honey, We're on TV",
-     "overview": "Wayne and the kids settles down to watch television during a big storm in town and he has invented a remote control that will bring any tv shows you could ever watch from the past to now. Somehow they get sucked into the tv so when Diane and the Chief come home and finds them in the tv they need to try to get Wayne and the kids out.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1999-10-16",
-     "year": 1999,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "HISTK S03E04-v9qwclvf963o.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 146410670,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-48-honey-were-on-tv/HISTK S03E04-v9qwclvf963o.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-50-honey-im-kung-fu-fighting",
-     "seasonNumber": 3,
-     "episodeNumber": 6,
-     "title": "Honey, I'm Kung Fu Fighting",
-     "overview": "Ninjas invade Matheson, and Team Szalinski is in for much kung fu fighting to save the town. A monk, Master P'tui, appears to help Wayne and teach him martial arts. Meanwhile, Nick, tired of being bullied into doing other people's homework, invents a spray that can turn anyone into a kung fu expert. Also, Lord Bilious wants Diane to defend him after he tried to bribe town officials and landowners to sell him the town.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1999-11-06",
-     "year": 1999,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "DaClips - Just watch it!(1).mp4",
-      "format": "h.264",
-      "sizeBytes": 249645064,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-50-honey-im-kung-fu-fighting/DaClips - Just watch it!(1).mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-3-episode-7-honey-im-not-up-to-par",
-     "seasonNumber": 3,
-     "episodeNumber": 7,
-     "title": "Honey, I'm Not Up to Par",
-     "overview": "Crazy greedy Jennings bets his company even though he can't play golf very well. He asks Wayne to build golf clubs to help them win but Jennings gets hurt so Wayne has to play. Meanwhile Diane and the kids are feeling crowded with Wayne's invention so they decide to sell the stuff they don't use but after a while people don't like them so now they have to get them all back.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1999-11-13",
-     "year": 1999,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "HISTK S03E07-yhuwudmb87hi.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 144337327,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-3-episode-7-honey-im-not-up-to-par/HISTK S03E07-yhuwudmb87hi.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-3-episode-8-honey-its-one-small-step-for-mankind",
-     "seasonNumber": 3,
-     "episodeNumber": 8,
-     "title": "Honey, It's One Small Step for Mankind",
-     "overview": "Randy Rude the Science Dude comes into town to visit. and he wants to get married so Wayne tries to fix him up with the love chair and love booster. Something happens when Randy tries to leave with the van and presses the booster button that blasts them into space. Or are they really in space?",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1999-11-20",
-     "year": 1999,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "HISTK S03E08-ngbtlme9jau2.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 127177523,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-3-episode-8-honey-its-one-small-step-for-mankind/HISTK S03E08-ngbtlme9jau2.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-3-episode-9-honey-youre-driving-me-like-crazy",
-     "seasonNumber": 3,
-     "episodeNumber": 9,
-     "title": "Honey, You're Driving Me Like Crazy",
-     "overview": "Amy can finally drive so her and the family look for a car and they buy a junk one. Wayne re-designs it completely into the weirdest car you've ever seen. Also included is a safe-t-guy that gives you tips about practically everything. When she takes the car for a trip she tries to stop the safe-t-guy from talking, resulting in making him drive them off the cliff. The family gets a call from Amy and they go after her to stop safe-t-guy and the car from going off the cliff. Will they make it in time?",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1999-11-27",
-     "year": 1999,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "HISTK S03E09-94onncp6ontd.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 125799919,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-3-episode-9-honey-youre-driving-me-like-crazy/HISTK S03E09-94onncp6ontd.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-3-episode-10-honey-the-plays-the-thingie",
-     "seasonNumber": 3,
-     "episodeNumber": 10,
-     "title": "Honey, the Play's the Thingie",
-     "overview": "Amy begs Wayne to direct a play to save a community theatre. He reluctantly agrees and finds people coming to his doorstep to try out. Meanwhile three aliens came to the house to fix their spaceship. The aliens came here since they know Amy and the family. Some bad guys are after the aliens so the family is on the look out whilst also being in the play.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1999-12-18",
-     "year": 1999,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "HISTK S03E10-iubwb4gh4adf.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 123097819,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-3-episode-10-honey-the-plays-the-thingie/HISTK S03E10-iubwb4gh4adf.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-1-episode-4-honey-were-stuck-in-the-70s",
-     "seasonNumber": null,
-     "episodeNumber": 4,
-     "title": "Honey, We're Stuck in the 70's",
-     "overview": "Amy is in love with her teacher and when she finds out that her dad has made a time machine, the Szalinski Time Hopper, she decides to go back to the 70s to meet her teacher, when he was 17. She goes back but to 1976 and after numerous attempts decides not to return. Nick tells his dad, who goes back in time to rescue her before she suffers the ill effects of temporal displacement. While Wayne is in the past, he runs into teen-aged Diane and he figures out how to make up for both a forgotten wedding anniversary and a Time Hopper problem.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": null,
-     "year": 1997,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Honey, I Shrunk the Kids(Honey, We're Stuck in the 70's)Episode 4-Vv7vJ2GlVUc.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 167210399,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-1-episode-4-honey-were-stuck-in-the-70s/Honey, I Shrunk the Kids(Honey, We're Stuck in the 70's)Episode 4-Vv7vJ2GlVUc.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-15-honey-hes-not-abominable...-hes-just-misunderstood",
-     "seasonNumber": null,
-     "episodeNumber": 15,
-     "title": "Honey, He's Not Abdominable...He's Just Misunderstood",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": null,
-     "year": 1998,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Honey, I Shrunk the Kids(Episode 15)-zcrtbGv1uto.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 156810551,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-15-honey-hes-not-abominable...-hes-just-misunderstood/Honey, I Shrunk the Kids(Episode 15)-zcrtbGv1uto.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-23-honey-its-quarkzilla",
-     "seasonNumber": null,
-     "episodeNumber": 23,
-     "title": "Honey, I Shrunk The Kids Episode 23 Honey, It's Quarkzilla",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": null,
-     "year": 1998,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Honey, I Shrunk the Kids(Episode 23).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 285749477,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-23-honey-its-quarkzilla/Honey, I Shrunk the Kids(Episode 23).ia.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-14-honey-its-a-miracle",
-     "seasonNumber": null,
-     "episodeNumber": 36,
-     "title": "Honey, You Drained My Brain",
-     "overview": "Diane is very nervous about her case against a tough lawyer so Wayne invents a thinky ring to help her retrieve her thoughts better. Unfortunately, she becomes a brain sucking vampire. Wayne finds out and goes after her to lure her home. Nick manages to get the ring off but this turns him into a brain sucking vampire. Diane figures things out and plots to fight Nick and get the ring off before he takes over the world.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": null,
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Honey, I Shrunk the Kids(Episode 36)-OI0zRkxq_yo.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 122441891,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-14-honey-its-a-miracle/Honey, I Shrunk the Kids(Episode 36)-OI0zRkxq_yo.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-20-honey-its-your-party",
-     "seasonNumber": null,
-     "episodeNumber": 42,
-     "title": "Honey, the Garbage is Taking Us Out",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": null,
-     "year": 1999,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Honey, I Shrunk the Kids(Episode 42)-PhTNPC9ldRU.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 138670557,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-20-honey-its-your-party/Honey, I Shrunk the Kids(Episode 42)-PhTNPC9ldRU.mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 38,
- "canonicalEpisodesCount": 66
+  ]
 }

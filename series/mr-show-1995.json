@@ -1,99 +1,157 @@
 {
- "version": 2,
- "seriesID": "mr-show-1995",
- "tvmazeID": 2583,
- "title": "Mr. Show",
- "yearStart": 1995,
- "yearEnd": 1998,
- "overview": "Mr. Show was the insanely funny, critically loved but HBO-loathed sketch comedy that ran on the channel for 4 years from 1995-1998. The show was created, executive produced, written and starred comics/writers Bob Odenkirk and David Cross. The show also starred Tom Kenny, Jill Talley and John Ennis. Featured performers/writers included Paul F. Tompkins, Jerry Minor, B.J. Porter, Scott Aukerman, Brian Posehn, and Jay Johnston. Featured performers included Mary-Lynn Rajskub, Brett Paesal, and Sarah Silverman. The show has spawned a movie based on popular character Ronnie Dobbs in Run Ronnie Run. Bob's wife, Naomi Odenkirk, has compiled everything you could ever want to know about the show in her wonderful book, Mr. Show: What Happened.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/13/34454.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "HBO"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "mr-show-1995",
+  "tvmazeID": 2583,
+  "title": "Mr. Show",
+  "yearStart": 1995,
+  "yearEnd": 1998,
+  "overview": "Mr. Show was the insanely funny, critically loved but HBO-loathed sketch comedy that ran on the channel for 4 years from 1995-1998. The show was created, executive produced, written and starred comics/writers Bob Odenkirk and David Cross. The show also starred Tom Kenny, Jill Talley and John Ennis. Featured performers/writers included Paul F. Tompkins, Jerry Minor, B.J. Porter, Scott Aukerman, Brian Posehn, and Jay Johnston. Featured performers included Mary-Lynn Rajskub, Brett Paesal, and Sarah Silverman. The show has spawned a movie based on popular character Ronnie Dobbs in Run Ronnie Run. Bob's wife, Naomi Odenkirk, has compiled everything you could ever want to know about the show in her wonderful book, Mr. Show: What Happened.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/72965-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "HBO"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "Mr.ShowS01E01",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "The Cry of a Hungry Baby",
-     "overview": "Includes \"Entitilitus\", \"Hitler Sings\", \"Hit by Truck\", \"Asshole at Party\", \"Watching VCR\", \"Change for a Dollar\", \"Ronnie Dobbs\", \"Ronnie Dobbs Movie\", \"Incubation Pants/Show Sponsor\".",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/330/827219.jpg",
-     "airDate": "1995-11-03",
-     "year": 1995,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Mr. Show - 1x01 - The Cry of a Hungry Baby.mp4",
-      "format": "h.264",
-      "sizeBytes": 173984904,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Mr.ShowS01E01/Mr. Show - 1x01 - The Cry of a Hungry Baby.mp4"
-    },
-    {
-     "archiveID": "Mr.ShowS01E02",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "What to Think",
-     "overview": "Includes \"Arts Funding\", \"Tracking Collar\", \"Old Swerdlow\", \"Books for Seniors\", \"Good News\", \"Jesus & Marshal (The 13th Apostle)\", \"Announcements\", \"Commercials of the Future (Globo-Chem)\", \"The Joke: The Musical\", \"Senator Tankerbell\".",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/330/827220.jpg",
-     "airDate": "1995-11-10",
-     "year": 1995,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Mr. Show - 1x02 - What to Think.mp4",
-      "format": "h.264",
-      "sizeBytes": 181808679,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Mr.ShowS01E02/Mr. Show - 1x02 - What to Think.mp4"
-    },
-    {
-     "archiveID": "Mr.ShowS01E03",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "We Regret to Inform You",
-     "overview": "Includes \"Letters (Dear Globo-Chem/Mail Order Bride)\", \"Kissing Booth\", \"Gay Porn Titles\", \"Third Wheel\", \"Writer in Audience\", \"Skrewballz\", \"Video Complaints\", \"Borden Grote\", \"Soul Singer (Larry Black)\", \"Supermodel Hotline\", \"Film Festival\".",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/330/827221.jpg",
-     "airDate": "1995-11-17",
-     "year": 1995,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Mr. Show - 1x03 - We Regret to Inform You.mp4",
-      "format": "h.264",
-      "sizeBytes": 178303712,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Mr.ShowS01E03/Mr. Show - 1x03 - We Regret to Inform You.mp4"
-    },
-    {
-     "archiveID": "Mr.ShowS01E04",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Who Let You In?",
-     "overview": "Includes \"Watching Chase of the Chaste\", \"Popemobile Chase/News\", \"Dudes Arguing\", \"Nil's Guitar Shop\", \"Imminent Death Syndrome\", \"Trial of the Millennium\", \"Spank\", \"Expert Truck\", \"Founding Fathers\", \"History Museum\", \"Watching Murders\".",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/330/827222.jpg",
-     "airDate": "1995-11-24",
-     "year": 1995,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Mr. Show - 1x04 - Who Let You In.mp4",
-      "format": "h.264",
-      "sizeBytes": 181717391,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Mr.ShowS01E04/Mr. Show - 1x04 - Who Let You In.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Mr.ShowS01E01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Cry of a Hungry Baby",
+          "overview": "Includes \"Entitilitus\", \"Hitler Sings\", \"Hit by Truck\", \"Asshole at Party\", \"Watching VCR\", \"Change for a Dollar\", \"Ronnie Dobbs\", \"Ronnie Dobbs Movie\", \"Incubation Pants/Show Sponsor\".",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/330/827219.jpg",
+          "airDate": "1995-11-03",
+          "year": 1995,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mr. Show - 1x01 - The Cry of a Hungry Baby.mp4",
+            "format": "h.264",
+            "sizeBytes": 173984904,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.ShowS01E01/Mr. Show - 1x01 - The Cry of a Hungry Baby.mp4"
+        },
+        {
+          "archiveID": "Mr.ShowS01E02",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "What to Think",
+          "overview": "Includes \"Arts Funding\", \"Tracking Collar\", \"Old Swerdlow\", \"Books for Seniors\", \"Good News\", \"Jesus & Marshal (The 13th Apostle)\", \"Announcements\", \"Commercials of the Future (Globo-Chem)\", \"The Joke: The Musical\", \"Senator Tankerbell\".",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/330/827220.jpg",
+          "airDate": "1995-11-10",
+          "year": 1995,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mr. Show - 1x02 - What to Think.mp4",
+            "format": "h.264",
+            "sizeBytes": 181808679,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.ShowS01E02/Mr. Show - 1x02 - What to Think.mp4"
+        },
+        {
+          "archiveID": "Mr.ShowS01E03",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "We Regret to Inform You",
+          "overview": "Includes \"Letters (Dear Globo-Chem/Mail Order Bride)\", \"Kissing Booth\", \"Gay Porn Titles\", \"Third Wheel\", \"Writer in Audience\", \"Skrewballz\", \"Video Complaints\", \"Borden Grote\", \"Soul Singer (Larry Black)\", \"Supermodel Hotline\", \"Film Festival\".",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/330/827221.jpg",
+          "airDate": "1995-11-17",
+          "year": 1995,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mr. Show - 1x03 - We Regret to Inform You.mp4",
+            "format": "h.264",
+            "sizeBytes": 178303712,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.ShowS01E03/Mr. Show - 1x03 - We Regret to Inform You.mp4"
+        },
+        {
+          "archiveID": "Mr.ShowS01E04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Who Let You In?",
+          "overview": "Includes \"Watching Chase of the Chaste\", \"Popemobile Chase/News\", \"Dudes Arguing\", \"Nil's Guitar Shop\", \"Imminent Death Syndrome\", \"Trial of the Millennium\", \"Spank\", \"Expert Truck\", \"Founding Fathers\", \"History Museum\", \"Watching Murders\".",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/330/827222.jpg",
+          "airDate": "1995-11-24",
+          "year": 1995,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mr. Show - 1x04 - Who Let You In.mp4",
+            "format": "h.264",
+            "sizeBytes": 181717391,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.ShowS01E04/Mr. Show - 1x04 - Who Let You In.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 4,
- "canonicalEpisodesCount": 30
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": 30,
+  "tvdbID": "72965",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Bob Odenkirk",
+      "character": "Self - Host / Various",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/290451/primary.jpg"
+    },
+    {
+      "name": "David Cross",
+      "character": "Self - Host / Various",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/290452/photo/6535011ea1bc8.jpg"
+    },
+    {
+      "name": "John Ennis",
+      "character": "Various",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/252344/5f016479ab282.jpg"
+    },
+    {
+      "name": "Jay Johnston",
+      "character": "Various",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Paul F. Tompkins",
+      "character": "Various",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/290305/primary.jpg"
+    },
+    {
+      "name": "Jill Talley",
+      "character": "Various",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/348703/photo/65ca48006eeb0.jpg"
+    },
+    {
+      "name": "Brett Paesel",
+      "character": "Various",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/405252/5f01679ad7b1d.jpg"
+    },
+    {
+      "name": "Brian Posehn",
+      "character": "Various",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/248187/photo/6156f5dbd2a10.jpg"
+    },
+    {
+      "name": "Tom Kenny",
+      "character": "Various",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/286132/photo/636151bbb6094.jpg"
+    }
+  ]
 }

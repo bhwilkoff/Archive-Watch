@@ -1,185 +1,297 @@
 {
- "version": 2,
- "seriesID": "hill-street-blues-1981",
- "tvmazeID": 3741,
- "title": "Hill Street Blues",
- "yearStart": 1981,
- "yearEnd": 1987,
- "overview": "The lives and work of the staff of an inner city police precinct.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/19/47756.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "Crime",
-  "Mystery"
- ],
- "networks": [
-  "NBC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "hill-street-blues-1981",
+  "tvmazeID": 3741,
+  "title": "Hill Street Blues",
+  "yearStart": 1981,
+  "yearEnd": 1987,
+  "overview": "The lives and work of the staff of an inner city police precinct.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/74449-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Crime",
+    "Mystery"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "hill.-street.-blues.-s-01",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Politics as Usual",
-     "overview": "Hill and Renko decide to split up, only to reconsile after a breakdown; LaRue is offered a bribe by a drug dealer who turns out to be a cop; Furillo tries to negotiate with the Bloods and Shamrocks to ensure a peaceful Presidential tour; Belker agrees to a blind date; Fay is arrested in a hot tub.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/319/798980.jpg",
-     "airDate": "1981-01-22",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Hill.Street.Blues.S01E03.Politics.As.Usual.mp4",
-      "format": "h.264",
-      "sizeBytes": 283060564,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/hill.-street.-blues.-s-01/Hill.Street.Blues.S01E03.Politics.As.Usual.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "hill.-street.-blues.-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Politics as Usual",
+          "overview": "Hill and Renko decide to split up, only to reconsile after a breakdown; LaRue is offered a bribe by a drug dealer who turns out to be a cop; Furillo tries to negotiate with the Bloods and Shamrocks to ensure a peaceful Presidential tour; Belker agrees to a blind date; Fay is arrested in a hot tub.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/319/798980.jpg",
+          "airDate": "1981-01-22",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Hill.Street.Blues.S01E03.Politics.As.Usual.mp4",
+            "format": "h.264",
+            "sizeBytes": 283060564,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hill.-street.-blues.-s-01/Hill.Street.Blues.S01E03.Politics.As.Usual.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "hill.-street.-blues.-season-2",
-     "seasonNumber": 2,
-     "episodeNumber": 6,
-     "title": "Cranky Streets",
-     "overview": "Hill covers for an old friend with personal problems who uses excessive force on an arrest; Coffey arrests an old family friend during a visit to his old neighborhood; Fay introduces her fiance; and negotiations breakdown between the police union and the city.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
-     "airDate": "1981-12-10",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Hill.Street.Blues.S02E06.Cranky.Streets.mp4",
-      "format": "h.264",
-      "sizeBytes": 280927554,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/hill.-street.-blues.-season-2/Hill.Street.Blues.S02E06.Cranky.Streets.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 3,
-   "episodes": [
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "hill.-street.-blues.-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Cranky Streets",
+          "overview": "Hill covers for an old friend with personal problems who uses excessive force on an arrest; Coffey arrests an old family friend during a visit to his old neighborhood; Fay introduces her fiance; and negotiations breakdown between the police union and the city.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
+          "airDate": "1981-12-10",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Hill.Street.Blues.S02E06.Cranky.Streets.mp4",
+            "format": "h.264",
+            "sizeBytes": 280927554,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hill.-street.-blues.-season-2/Hill.Street.Blues.S02E06.Cranky.Streets.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "hill.street.blues.s-03",
-     "seasonNumber": 3,
-     "episodeNumber": 19,
-     "title": "Eugene's Comedy Empire Strikes Back",
-     "overview": "Bates poses as a bus driver; LaRue continues to groom Vic Hitler for his debut; Daniels is ready to sacrifice Coffey to quiet public opinion; and Furillo and Davenport take a major step in their lives.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
-     "airDate": "1983-03-03",
-     "year": 1983,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Hill.street.blues.s03e19.eugene's.comedy.empire.strikes.back.webrip.x264.mp4",
-      "format": "h.264",
-      "sizeBytes": 283615430,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/hill.street.blues.s-03/Hill.street.blues.s03e19.eugene's.comedy.empire.strikes.back.webrip.x264.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 4,
-   "episodes": [
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "hill.street.blues.s-03",
+          "seasonNumber": 3,
+          "episodeNumber": 19,
+          "title": "Eugene's Comedy Empire Strikes Back",
+          "overview": "Bates poses as a bus driver; LaRue continues to groom Vic Hitler for his debut; Daniels is ready to sacrifice Coffey to quiet public opinion; and Furillo and Davenport take a major step in their lives.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
+          "airDate": "1983-03-03",
+          "year": 1983,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Hill.street.blues.s03e19.eugene's.comedy.empire.strikes.back.webrip.x264.mp4",
+            "format": "h.264",
+            "sizeBytes": 283615430,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hill.street.blues.s-03/Hill.street.blues.s03e19.eugene's.comedy.empire.strikes.back.webrip.x264.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "hill.street.blues.s-04e-01.heres.adventure.heres.romance.sdtv.x-264",
-     "seasonNumber": 4,
-     "episodeNumber": 17,
-     "title": "The End of Logan's Run",
-     "overview": "Belker has a final run in with his bald headed pickpocket with many names; Joyce defends a man whose brother plans to threaten the prosecution witness into silence; and Operation Stop 'N Cop begins.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
-     "airDate": "1984-03-01",
-     "year": 1984,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Hill.street.blues.s04e17.the.end.of.logan's.run.sdtv.x264.mp4",
-      "format": "h.264",
-      "sizeBytes": 270921542,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/hill.street.blues.s-04e-01.heres.adventure.heres.romance.sdtv.x-264/Hill.street.blues.s04e17.the.end.of.logan's.run.sdtv.x264.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 5,
-   "episodes": [
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "hill.street.blues.s-04e-01.heres.adventure.heres.romance.sdtv.x-264",
+          "seasonNumber": 4,
+          "episodeNumber": 17,
+          "title": "The End of Logan's Run",
+          "overview": "Belker has a final run in with his bald headed pickpocket with many names; Joyce defends a man whose brother plans to threaten the prosecution witness into silence; and Operation Stop 'N Cop begins.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
+          "airDate": "1984-03-01",
+          "year": 1984,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Hill.street.blues.s04e17.the.end.of.logan's.run.sdtv.x264.mp4",
+            "format": "h.264",
+            "sizeBytes": 270921542,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hill.street.blues.s-04e-01.heres.adventure.heres.romance.sdtv.x-264/Hill.street.blues.s04e17.the.end.of.logan's.run.sdtv.x264.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "hill.street.blues.s-05",
-     "seasonNumber": 5,
-     "episodeNumber": 23,
-     "title": "Grin and Bear It",
-     "overview": "Belker's drycleaners undercover catches Dugan, who offers them Joe Keenan and a major ring of police corruption; Furillo copes with the results of the random drug test; Goldblume wrestles with Gina's estate; Hill and Renko spend the day escorting Officer McBear.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
-     "airDate": "1985-05-16",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Hill.street.blues.s05e23.grin.and.bear.it.sdtv.x264.mp4",
-      "format": "h.264",
-      "sizeBytes": 274794710,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/hill.street.blues.s-05/Hill.street.blues.s05e23.grin.and.bear.it.sdtv.x264.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 6,
-   "episodes": [
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "hill.street.blues.s-05",
+          "seasonNumber": 5,
+          "episodeNumber": 23,
+          "title": "Grin and Bear It",
+          "overview": "Belker's drycleaners undercover catches Dugan, who offers them Joe Keenan and a major ring of police corruption; Furillo copes with the results of the random drug test; Goldblume wrestles with Gina's estate; Hill and Renko spend the day escorting Officer McBear.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
+          "airDate": "1985-05-16",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Hill.street.blues.s05e23.grin.and.bear.it.sdtv.x264.mp4",
+            "format": "h.264",
+            "sizeBytes": 274794710,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hill.street.blues.s-05/Hill.street.blues.s05e23.grin.and.bear.it.sdtv.x264.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "hill.street.blues.s-06",
-     "seasonNumber": 6,
-     "episodeNumber": 5,
-     "title": "Somewhere Over the Rambo",
-     "overview": "Furillo's corruption commission delivers its findings and antagonizes Daniels, who is willing to sacrifice a night shift cop involved in an off duty shooting that has incited public opinion; Alan Branford returns as Rambo; and Buntz explores his duties as personnel officer.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
-     "airDate": "1985-10-31",
-     "year": 1985,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Hill.street.blues.s06e05.somewhere.over.the.rambo.sdtv.x264.mp4",
-      "format": "h.264",
-      "sizeBytes": 272625487,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/hill.street.blues.s-06/Hill.street.blues.s06e05.somewhere.over.the.rambo.sdtv.x264.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 7,
-   "episodes": [
+      "seasonNumber": 6,
+      "episodes": [
+        {
+          "archiveID": "hill.street.blues.s-06",
+          "seasonNumber": 6,
+          "episodeNumber": 5,
+          "title": "Somewhere Over the Rambo",
+          "overview": "Furillo's corruption commission delivers its findings and antagonizes Daniels, who is willing to sacrifice a night shift cop involved in an off duty shooting that has incited public opinion; Alan Branford returns as Rambo; and Buntz explores his duties as personnel officer.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
+          "airDate": "1985-10-31",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Hill.street.blues.s06e05.somewhere.over.the.rambo.sdtv.x264.mp4",
+            "format": "h.264",
+            "sizeBytes": 272625487,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hill.street.blues.s-06/Hill.street.blues.s06e05.somewhere.over.the.rambo.sdtv.x264.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "hill.street.blues.s-07",
-     "seasonNumber": 7,
-     "episodeNumber": 14,
-     "title": "Der Roachenkavalier",
-     "overview": "Buntz worries over the state of Furillo's marriage; LaRue and Washington get lots of help in their quest for a prize winning cockroach; Belker chases down a purse snatching dog; and Goldblume continues to buck the system when he releases a felon in direct contradiction of city council guidelines.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
-     "airDate": "1987-02-03",
-     "year": 1987,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Hill.street.blues.s07e14.der.roachenkavalier.sdtv.x264.mp4",
-      "format": "h.264",
-      "sizeBytes": 273864276,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/hill.street.blues.s-07/Hill.street.blues.s07e14.der.roachenkavalier.sdtv.x264.mp4"
+      "seasonNumber": 7,
+      "episodes": [
+        {
+          "archiveID": "hill.street.blues.s-07",
+          "seasonNumber": 7,
+          "episodeNumber": 14,
+          "title": "Der Roachenkavalier",
+          "overview": "Buntz worries over the state of Furillo's marriage; LaRue and Washington get lots of help in their quest for a prize winning cockroach; Belker chases down a purse snatching dog; and Goldblume continues to buck the system when he releases a felon in direct contradiction of city council guidelines.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
+          "airDate": "1987-02-03",
+          "year": 1987,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Hill.street.blues.s07e14.der.roachenkavalier.sdtv.x264.mp4",
+            "format": "h.264",
+            "sizeBytes": 273864276,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hill.street.blues.s-07/Hill.street.blues.s07e14.der.roachenkavalier.sdtv.x264.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 7,
- "canonicalEpisodesCount": 146
+  ],
+  "episodesCount": 7,
+  "canonicalEpisodesCount": 146,
+  "tvdbID": "74449",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Daniel J. Travanti",
+      "character": "Captain Francis Xavier \"Frank\" Furillo",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257273/photo/63935ef9f0c20.jpg"
+    },
+    {
+      "name": "Veronica Hamel",
+      "character": "Joyce Davenport",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/309660/photo/6320e259ef514.jpg"
+    },
+    {
+      "name": "Michael Conrad",
+      "character": "Sergeant Phil Esterhaus",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259183/photo/6494bed92bc1e.jpg"
+    },
+    {
+      "name": "Bruce Weitz",
+      "character": "Detective Michael \"Mick\" Belker",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/261878/5f2322e6dd774.jpg"
+    },
+    {
+      "name": "Joe Spano",
+      "character": "Sergeant/Lieutenant Henry Goldblume",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/289027/photo/6238478127361.jpg"
+    },
+    {
+      "name": "Michael Warren",
+      "character": "Officer Robert Eugene \"Bobby\" Hill",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/252786/5f22c8d1e8af5.jpg"
+    },
+    {
+      "name": "Charles Haid",
+      "character": "Officer Andrew J. \"Andy\" Renko",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257941/photo/6329c1e505b61.jpg"
+    },
+    {
+      "name": "James Sikking",
+      "character": "Sergeant/Lieutenant Howard Hunter",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257403/photo/65bff356a5cb7.jpg"
+    },
+    {
+      "name": "Betty Thomas",
+      "character": "Officer/Sergeant Lucille \"Lucy\" Bates",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/253754/5f223509ab6fa.jpg"
+    },
+    {
+      "name": "Kiel Martin",
+      "character": "Detective John D. \"J.D.\" LaRue",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/291469/photo/658dba957767a.jpg"
+    },
+    {
+      "name": "Taurean Blacque",
+      "character": "Detective Neal Washington",
+      "order": 10,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/292032/photo/6512e38fc3adc.jpg"
+    },
+    {
+      "name": "René Enríquez",
+      "character": "Lieutenant/Captain Ray Calletano",
+      "order": 11,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/7952385/5f223570ebe41.jpg"
+    },
+    {
+      "name": "Jon Cypher",
+      "character": "Chief Fletcher Daniels",
+      "order": 12,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257972/photo/65d0e0be0ffb2.jpg"
+    },
+    {
+      "name": "Ed Marinaro",
+      "character": "Officer Joe Coffey",
+      "order": 13,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/293261/5f2234e789ac8.jpg"
+    },
+    {
+      "name": "Barbara Bosson",
+      "character": "Fay Furillo",
+      "order": 14,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/287296/photo/66093cf8214d0.jpg"
+    },
+    {
+      "name": "Robert Prosky",
+      "character": "Sergeant Stanislaus \"Stan\"/\"Stosh\" Jablonski",
+      "order": 15,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/291267/photo/62375ba0a19bf.jpg"
+    },
+    {
+      "name": "Ken Olin",
+      "character": "Detective Harry Garibaldi",
+      "order": 16,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/253470/5f23232ca3606.jpg"
+    },
+    {
+      "name": "Mimi Kuzyk",
+      "character": "Detective Patricia \"Patsy\" Mayo",
+      "order": 17,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/287170/photo/6512e26caf85a.jpg"
+    }
+  ]
 }

@@ -1,105 +1,139 @@
 {
- "version": 2,
- "seriesID": "window-on-main-street-1961",
- "tvmazeID": 44752,
- "title": "Window on Main Street",
- "yearStart": 1961,
- "yearEnd": 1962,
- "overview": "Robert Young plays Cam Brooks, a writer, who returns to Millsberg, his hometown, and renews his friendship with the editor of the local newspaper, Lloyd Ramsey. The inhabitants of the town were subjects of Cam's stories.",
- "posterURL": null,
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "Comedy"
- ],
- "networks": [
-  "CBS"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "window-on-main-street-1961",
+  "tvmazeID": 44752,
+  "title": "Window on Main Street",
+  "yearStart": 1961,
+  "yearEnd": 1962,
+  "overview": "Robert Young plays Cam Brooks, a writer, who returns to Millsberg, his hometown, and renews his friendship with the editor of the local newspaper, Lloyd Ramsey. The inhabitants of the town were subjects of Cam's stories.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77105-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Comedy"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "Window_on_Main_St--Christmas_Memory",
-     "seasonNumber": 1,
-     "episodeNumber": 12,
-     "title": "Christmas Memory",
-     "overview": null,
-     "stillURL": null,
-     "airDate": "1961-12-18",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Window_on_Main_St--Christmas_Memory.mp4",
-      "format": "h.264",
-      "sizeBytes": 158091460,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Window_on_Main_St--Christmas_Memory/Window_on_Main_St--Christmas_Memory.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
-    {
-     "archiveID": "Window_on_Main--Doctor_to_Town",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Window on Main Street: A Doctor Comes to Town",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": 1961,
-     "runtimeSeconds": 1538,
-     "videoFile": {
-      "name": "Window_on_Main--Doctor_to_Town.mp4",
-      "format": "h.264",
-      "sizeBytes": 159538876,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Window_on_Main--Doctor_to_Town/Window_on_Main--Doctor_to_Town.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Window_on_Main_St--Christmas_Memory",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Christmas Memory",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1961-12-18",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Window_on_Main_St--Christmas_Memory.mp4",
+            "format": "h.264",
+            "sizeBytes": 158091460,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Window_on_Main_St--Christmas_Memory/Window_on_Main_St--Christmas_Memory.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "Window_on_Main--Chambermaid",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Window on Main Street: The Chambermaid",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": 1961,
-     "runtimeSeconds": 1544,
-     "videoFile": {
-      "name": "Window_on_Main--The_Chambermaid.mp4",
-      "format": "h.264",
-      "sizeBytes": 160084640,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Window_on_Main--Chambermaid/Window_on_Main--The_Chambermaid.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Window_on_Main--Doctor_to_Town",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Window on Main Street: A Doctor Comes to Town",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1538,
+          "videoFile": {
+            "name": "Window_on_Main--Doctor_to_Town.mp4",
+            "format": "h.264",
+            "sizeBytes": 159538876,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Window_on_Main--Doctor_to_Town/Window_on_Main--Doctor_to_Town.mp4"
+        },
+        {
+          "archiveID": "Window_on_Main--Chambermaid",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Window on Main Street: The Chambermaid",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1544,
+          "videoFile": {
+            "name": "Window_on_Main--The_Chambermaid.mp4",
+            "format": "h.264",
+            "sizeBytes": 160084640,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Window_on_Main--Chambermaid/Window_on_Main--The_Chambermaid.mp4"
+        },
+        {
+          "archiveID": "Window_on_Main_St--The_Return",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Window on Main Street: The Return",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1501,
+          "videoFile": {
+            "name": "Window_on_Main_St--The_Return.mp4",
+            "format": "h.264",
+            "sizeBytes": 154682434,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Window_on_Main_St--The_Return/Window_on_Main_St--The_Return.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": 34,
+  "tvdbID": "77105",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Tim Matheson",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/254062/603f7766e0e6f.jpg"
     },
     {
-     "archiveID": "Window_on_Main_St--The_Return",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Window on Main Street: The Return",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": 1961,
-     "runtimeSeconds": 1501,
-     "videoFile": {
-      "name": "Window_on_Main_St--The_Return.mp4",
-      "format": "h.264",
-      "sizeBytes": 154682434,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Window_on_Main_St--The_Return/Window_on_Main_St--The_Return.mp4"
+      "name": "Constance Moore",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Coleen Gray",
+      "character": "",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258151/photo/62e2d2cf33edc.jpg"
+    },
+    {
+      "name": "Robert Young",
+      "character": "",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Ford Rainey",
+      "character": "",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257551/photo/64909ddd53b08.jpg"
     }
-   ]
-  }
- ],
- "episodesCount": 4,
- "canonicalEpisodesCount": 34
+  ]
 }

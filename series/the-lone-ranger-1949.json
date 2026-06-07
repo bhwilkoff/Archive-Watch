@@ -1,196 +1,230 @@
 {
- "version": 2,
- "seriesID": "the-lone-ranger-1949",
- "tvmazeID": 2146,
- "title": "The Lone Ranger",
- "yearStart": 1949,
- "yearEnd": 1957,
- "overview": "Who was that masked man? The Lone Ranger, of course - sole survivor of a group of ambushed Texas Rangers, who was nursed back to health by Tonto, his trusty American Indian companion. The pair roam the Old West, defending the helpless against the forces of evil.Begain airing in 1949",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/12/30000.jpg",
- "backdropURL": null,
- "genres": [
-  "Action",
-  "Adventure",
-  "Western"
- ],
- "networks": [
-  "ABC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "the-lone-ranger-1949",
+  "tvmazeID": 2146,
+  "title": "The Lone Ranger",
+  "yearStart": 1949,
+  "yearEnd": 1957,
+  "overview": "Who was that masked man? The Lone Ranger, of course - sole survivor of a group of ambushed Texas Rangers, who was nursed back to health by Tonto, his trusty American Indian companion. The pair roam the Old West, defending the helpless against the forces of evil.Begain airing in 1949",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/72059-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Western"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "thelonerangerenterthelonerangers01e01",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Enter the Lone Ranger",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/ldtAMFjvTsitOXEVfLWg6IGvWJe.jpg",
-     "airDate": "1949-09-15",
-     "year": 1949,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Lone Ranger - Enter The Lone Ranger S01  E01.mp4",
-      "format": "h.264",
-      "sizeBytes": 161482771,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/thelonerangerenterthelonerangers01e01/The Lone Ranger - Enter The Lone Ranger S01  E01.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "thelonerangerenterthelonerangers01e01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Enter the Lone Ranger",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/ldtAMFjvTsitOXEVfLWg6IGvWJe.jpg",
+          "airDate": "1949-09-15",
+          "year": 1949,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lone Ranger - Enter The Lone Ranger S01  E01.mp4",
+            "format": "h.264",
+            "sizeBytes": 161482771,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thelonerangerenterthelonerangers01e01/The Lone Ranger - Enter The Lone Ranger S01  E01.mp4"
+        },
+        {
+          "archiveID": "theloneranger_201705",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Lone Ranger",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/theloneranger_201705",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "s01e01_EntertheLoneRanger.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 130937929,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theloneranger_201705/s01e01_EntertheLoneRanger.mp4"
+        },
+        {
+          "archiveID": "thelonerangerthelonerangerfightsons01e02",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Lone Ranger Fights On",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
+          "airDate": "1949-09-22",
+          "year": 1949,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lone Ranger - The Lone Ranger Fights On S01 E02.mp4",
+            "format": "h.264",
+            "sizeBytes": 153727628,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thelonerangerthelonerangerfightsons01e02/The Lone Ranger - The Lone Ranger Fights On S01 E02.mp4"
+        },
+        {
+          "archiveID": "thelonerangerlegionofoldtimerss01e04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Legion of Old Timers",
+          "overview": "Schemer's try to take over property that a young Easterner has inherited.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
+          "airDate": "1949-10-06",
+          "year": 1949,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lone Ranger - Legion of old Timers S01 E04.mp4",
+            "format": "h.264",
+            "sizeBytes": 143642110,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thelonerangerlegionofoldtimerss01e04/The Lone Ranger - Legion of old Timers S01 E04.mp4"
+        },
+        {
+          "archiveID": "thelonerangerrustlershideouts01e05",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Rustler's Hideout",
+          "overview": "Pete Madden, the leader of a dangerous rustlers' gang, has been finally arrested. Yet his men have a card up their sleeves, they have abducted a rancher's son and offer to exchange him for Madden. Lone Ranger and Tonto must figure a way to rescue the lad.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
+          "airDate": "1949-10-13",
+          "year": 1949,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lone Ranger - Rustler's Hideout S01 E05.mp4",
+            "format": "h.264",
+            "sizeBytes": 144565211,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thelonerangerrustlershideouts01e05/The Lone Ranger - Rustler's Hideout S01 E05.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "theloneranger_201705",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "The Lone Ranger",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/theloneranger_201705",
-     "airDate": null,
-     "year": 1949,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "s01e01_EntertheLoneRanger.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 130937929,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/theloneranger_201705/s01e01_EntertheLoneRanger.mp4"
-    },
-    {
-     "archiveID": "thelonerangerthelonerangerfightsons01e02",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "The Lone Ranger Fights On",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
-     "airDate": "1949-09-22",
-     "year": 1949,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Lone Ranger - The Lone Ranger Fights On S01 E02.mp4",
-      "format": "h.264",
-      "sizeBytes": 153727628,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/thelonerangerthelonerangerfightsons01e02/The Lone Ranger - The Lone Ranger Fights On S01 E02.mp4"
-    },
-    {
-     "archiveID": "thelonerangerlegionofoldtimerss01e04",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Legion of Old Timers",
-     "overview": "Schemer's try to take over property that a young Easterner has inherited.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
-     "airDate": "1949-10-06",
-     "year": 1949,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Lone Ranger - Legion of old Timers S01 E04.mp4",
-      "format": "h.264",
-      "sizeBytes": 143642110,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/thelonerangerlegionofoldtimerss01e04/The Lone Ranger - Legion of old Timers S01 E04.mp4"
-    },
-    {
-     "archiveID": "thelonerangerrustlershideouts01e05",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "Rustler's Hideout",
-     "overview": "Pete Madden, the leader of a dangerous rustlers' gang, has been finally arrested. Yet his men have a card up their sleeves, they have abducted a rancher's son and offer to exchange him for Madden. Lone Ranger and Tonto must figure a way to rescue the lad.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
-     "airDate": "1949-10-13",
-     "year": 1949,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Lone Ranger - Rustler's Hideout S01 E05.mp4",
-      "format": "h.264",
-      "sizeBytes": 144565211,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/thelonerangerrustlershideouts01e05/The Lone Ranger - Rustler's Hideout S01 E05.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheLoneRanger-CannonballMcKay",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Lone Ranger'' - Cannonball McKay",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1350,
+          "videoFile": {
+            "name": "CannonballMcKay1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 140275286,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheLoneRanger-CannonballMcKay/CannonballMcKay1949.mp4"
+        },
+        {
+          "archiveID": "OldJoeSister",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Lone Ranger'' - Old Joe's Sister",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1335,
+          "videoFile": {
+            "name": "OldJoeSister1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 138485411,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OldJoeSister/OldJoeSister1949.mp4"
+        },
+        {
+          "archiveID": "LegionOfOldTimers1949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Lone Ranger'' - The Legion of Old Timers",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1466,
+          "videoFile": {
+            "name": "LegionOfOldTimers1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 152594598,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LegionOfOldTimers1949/LegionOfOldTimers1949.mp4"
+        },
+        {
+          "archiveID": "LoneRanger_916",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lone Ranger",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1367,
+          "videoFile": {
+            "name": "LoneRanger.mp4",
+            "format": "h.264",
+            "sizeBytes": 141159629,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LoneRanger_916/LoneRanger.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+  ],
+  "episodesCount": 9,
+  "canonicalEpisodesCount": 221,
+  "tvdbID": "72059",
+  "artworkSource": "tvdb",
+  "cast": [
     {
-     "archiveID": "TheLoneRanger-CannonballMcKay",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "''The Lone Ranger'' - Cannonball McKay",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
-     "airDate": null,
-     "year": 1949,
-     "runtimeSeconds": 1350,
-     "videoFile": {
-      "name": "CannonballMcKay1949.mp4",
-      "format": "h.264",
-      "sizeBytes": 140275286,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheLoneRanger-CannonballMcKay/CannonballMcKay1949.mp4"
+      "name": "Clayton Moore",
+      "character": "Lone Ranger",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/14446.jpg"
     },
     {
-     "archiveID": "OldJoeSister",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "''The Lone Ranger'' - Old Joe's Sister",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
-     "airDate": null,
-     "year": 1949,
-     "runtimeSeconds": 1335,
-     "videoFile": {
-      "name": "OldJoeSister1949.mp4",
-      "format": "h.264",
-      "sizeBytes": 138485411,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/OldJoeSister/OldJoeSister1949.mp4"
+      "name": "Jay Silverheels",
+      "character": "Tonto",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/14445.jpg"
     },
     {
-     "archiveID": "LegionOfOldTimers1949",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "''The Lone Ranger'' - The Legion of Old Timers",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
-     "airDate": null,
-     "year": 1949,
-     "runtimeSeconds": 1466,
-     "videoFile": {
-      "name": "LegionOfOldTimers1949.mp4",
-      "format": "h.264",
-      "sizeBytes": 152594598,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LegionOfOldTimers1949/LegionOfOldTimers1949.mp4"
+      "name": "John Hart",
+      "character": "Lone Ranger",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264478/photo/62ed51353e0da.jpg"
     },
     {
-     "archiveID": "LoneRanger_916",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lone Ranger",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1367,
-     "videoFile": {
-      "name": "LoneRanger.mp4",
-      "format": "h.264",
-      "sizeBytes": 141159629,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LoneRanger_916/LoneRanger.mp4"
+      "name": "Fred Foy",
+      "character": "Announcer",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/14447.jpg"
+    },
+    {
+      "name": "Chuck Courtney",
+      "character": "Dan Reid",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/14448.jpg"
     }
-   ]
-  }
- ],
- "episodesCount": 9,
- "canonicalEpisodesCount": 221
+  ]
 }

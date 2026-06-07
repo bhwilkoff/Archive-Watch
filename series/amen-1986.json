@@ -1,160 +1,236 @@
 {
- "version": 2,
- "seriesID": "amen-1986",
- "tvmazeID": 5388,
- "title": "Amen",
- "yearStart": 1986,
- "yearEnd": 1991,
- "overview": "The series revolves around Ernest Frye, the insufferable deacon (and lawyer) whose father had founded the First Community Church of Philadelphia, and who intended to keep it under his thumb. Unfortunately the new minister, Rev. Gregory, had other ideas and every week he quietly deflated the strutting deacon. Both, of course, really had the church's best interests at heart. Thelma was the deacon's 30-year-old, unmarried, romantically frustrated daughter, who eventually began dating the handsome new pastor: Casietta and Amelia, chattering sisters who were members of the Church board; and Rolly, the board's wise old voice of reason.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55570.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "NBC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "amen-1986",
+  "tvmazeID": 5388,
+  "title": "Amen",
+  "yearStart": 1986,
+  "yearEnd": 1991,
+  "overview": "The series revolves around Ernest Frye, the insufferable deacon (and lawyer) whose father had founded the First Community Church of Philadelphia, and who intended to keep it under his thumb. Unfortunately the new minister, Rev. Gregory, had other ideas and every week he quietly deflated the strutting deacon. Both, of course, really had the church's best interests at heart. Thelma was the deacon's 30-year-old, unmarried, romantically frustrated daughter, who eventually began dating the handsome new pastor: Casietta and Amelia, chattering sisters who were members of the Church board; and Rolly, the board's wise old voice of reason.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77850-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "amen-season-1",
-     "seasonNumber": 1,
-     "episodeNumber": 16,
-     "title": "Yes Sir, That's Your Baby",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/apEoBrwwcRGrjE3I4B7uAQheRjQ.jpg",
-     "airDate": "1987-02-14",
-     "year": 1987,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Amen.S01E16.Yes.Sir.Thats.Our.Baby.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4",
-      "format": "h.264",
-      "sizeBytes": 146497973,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/amen-season-1/Amen.S01E16.Yes.Sir.Thats.Our.Baby.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "amen-season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Yes Sir, That's Your Baby",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/apEoBrwwcRGrjE3I4B7uAQheRjQ.jpg",
+          "airDate": "1987-02-14",
+          "year": 1987,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Amen.S01E16.Yes.Sir.Thats.Our.Baby.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4",
+            "format": "h.264",
+            "sizeBytes": 146497973,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amen-season-1/Amen.S01E16.Yes.Sir.Thats.Our.Baby.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "amen-season-2",
-     "seasonNumber": 2,
-     "episodeNumber": 9,
-     "title": "Thelma's Birthday",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/apEoBrwwcRGrjE3I4B7uAQheRjQ.jpg",
-     "airDate": "1987-12-05",
-     "year": 1987,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Amen.S02E09.Thelmas.Birthday.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4",
-      "format": "h.264",
-      "sizeBytes": 144658287,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/amen-season-2/Amen.S02E09.Thelmas.Birthday.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 3,
-   "episodes": [
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "amen-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Thelma's Birthday",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/apEoBrwwcRGrjE3I4B7uAQheRjQ.jpg",
+          "airDate": "1987-12-05",
+          "year": 1987,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Amen.S02E09.Thelmas.Birthday.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4",
+            "format": "h.264",
+            "sizeBytes": 144658287,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amen-season-2/Amen.S02E09.Thelmas.Birthday.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "amen-season-3",
-     "seasonNumber": 3,
-     "episodeNumber": 14,
-     "title": "The Psychic: Part 1",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/apEoBrwwcRGrjE3I4B7uAQheRjQ.jpg",
-     "airDate": "1989-02-11",
-     "year": 1989,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Amen.S03E14.The.Psychic.Pt.1.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4",
-      "format": "h.264",
-      "sizeBytes": 131767227,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/amen-season-3/Amen.S03E14.The.Psychic.Pt.1.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 4,
-   "episodes": [
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "amen-season-3",
+          "seasonNumber": 3,
+          "episodeNumber": 14,
+          "title": "The Psychic: Part 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/apEoBrwwcRGrjE3I4B7uAQheRjQ.jpg",
+          "airDate": "1989-02-11",
+          "year": 1989,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Amen.S03E14.The.Psychic.Pt.1.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4",
+            "format": "h.264",
+            "sizeBytes": 131767227,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amen-season-3/Amen.S03E14.The.Psychic.Pt.1.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "amen-season-4",
-     "seasonNumber": 4,
-     "episodeNumber": 7,
-     "title": "Don't Rain on My Shower",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/apEoBrwwcRGrjE3I4B7uAQheRjQ.jpg",
-     "airDate": "1989-11-11",
-     "year": 1989,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Amen.S04E07.Dont.Rain.on.My.Shower.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4",
-      "format": "h.264",
-      "sizeBytes": 139998766,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/amen-season-4/Amen.S04E07.Dont.Rain.on.My.Shower.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 5,
-   "episodes": [
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "amen-season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "Don't Rain on My Shower",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/apEoBrwwcRGrjE3I4B7uAQheRjQ.jpg",
+          "airDate": "1989-11-11",
+          "year": 1989,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Amen.S04E07.Dont.Rain.on.My.Shower.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4",
+            "format": "h.264",
+            "sizeBytes": 139998766,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amen-season-4/Amen.S04E07.Dont.Rain.on.My.Shower.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "amen-season-5",
-     "seasonNumber": 5,
-     "episodeNumber": 6,
-     "title": "Miracle on 134th Street: Part 2",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/apEoBrwwcRGrjE3I4B7uAQheRjQ.jpg",
-     "airDate": "1990-12-22",
-     "year": 1990,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Amen.S05E06.Miracle.on.134th.Street.Pt.2.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4",
-      "format": "h.264",
-      "sizeBytes": 147035711,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/amen-season-5/Amen.S05E06.Miracle.on.134th.Street.Pt.2.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "amen-season-5",
+          "seasonNumber": 5,
+          "episodeNumber": 6,
+          "title": "Miracle on 134th Street: Part 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/apEoBrwwcRGrjE3I4B7uAQheRjQ.jpg",
+          "airDate": "1990-12-22",
+          "year": 1990,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Amen.S05E06.Miracle.on.134th.Street.Pt.2.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4",
+            "format": "h.264",
+            "sizeBytes": 147035711,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amen-season-5/Amen.S05E06.Miracle.on.134th.Street.Pt.2.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "amen-1.01",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Amen - Anna Maria Horsford, Clifton Davis, Sherman Hemsley",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/apEoBrwwcRGrjE3I4B7uAQheRjQ.jpg",
-     "airDate": null,
-     "year": 1986,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Amen - 4.14.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 723424806,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/amen-1.01/Amen - 4.14.ia.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "amen-1.01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Amen - Anna Maria Horsford, Clifton Davis, Sherman Hemsley",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/apEoBrwwcRGrjE3I4B7uAQheRjQ.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Amen - 4.14.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 723424806,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amen-1.01/Amen - 4.14.ia.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 6,
- "canonicalEpisodesCount": 110
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": 110,
+  "tvdbID": "77850",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Sherman Hemsley",
+      "character": "Ernest Frye",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/266518/photo/6349b485ba44a.jpg"
+    },
+    {
+      "name": "Clifton Davis",
+      "character": "Reuben Gregory",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/267571/photo/64a5cbb99a6ec.jpg"
+    },
+    {
+      "name": "Anna Maria Horsford",
+      "character": "Thelma Frye Gregory",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Roz Ryan",
+      "character": "Amelia Hetebrink",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/296525/photo/63f3a45ff15ca.jpg"
+    },
+    {
+      "name": "Jester Hairston",
+      "character": "Rolly Forbes",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/254128/photo/63f3a4f498bc3.jpg"
+    },
+    {
+      "name": "Barbara Montgomery",
+      "character": "Casietta Hetebrink",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/266951/photo/63f3a58f7652a.jpg"
+    },
+    {
+      "name": "Elsa Raven",
+      "character": "Inga",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/276152/photo/61e0486247991.jpg"
+    },
+    {
+      "name": "Tony T. Johnson",
+      "character": "Chris",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259352/photo/63f3a71aada76.jpg"
+    },
+    {
+      "name": "Rosetta LeNoire",
+      "character": "Leola Henderson Forbes",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/419839/photo/63f3a7de75326.jpg"
+    },
+    {
+      "name": "Montrose Hagins",
+      "character": "Leola Henderson Forbes II",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/266808/photo/63f3a890aa2d5.jpg"
+    },
+    {
+      "name": "Bumper Robinson",
+      "character": "Clarence",
+      "order": 10,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/266936/photo/60ca8217a92fa.jpg"
+    },
+    {
+      "name": "Franklyn Seales",
+      "character": "Lorenzo Hollingsworth",
+      "order": 11,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/282104/photo/63f3aa5ee49e4.jpg"
+    }
+  ]
 }
