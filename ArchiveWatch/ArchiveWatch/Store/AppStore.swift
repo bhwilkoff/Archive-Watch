@@ -123,8 +123,9 @@ final class AppStore {
         didSet { UserDefaults.standard.set(channelVHS, forKey: "channelVHS") }
     }
     private static func loadVHSDefault() -> Bool {
-        guard UserDefaults.standard.object(forKey: "channelVHS") != nil else { return true }
-        return UserDefaults.standard.bool(forKey: "channelVHS")
+        // Off by default — it's an opt-in retro effect, not the default viewing
+        // experience.
+        UserDefaults.standard.bool(forKey: "channelVHS")
     }
 
     /// Drop completed titles from a Home list when the setting is on. No-op

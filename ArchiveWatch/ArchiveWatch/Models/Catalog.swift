@@ -101,6 +101,13 @@ struct Catalog: Decodable, Sendable {
             hasRealArtwork ?? (artworkSource != "archive")
         }
 
+        /// Real *professional* poster art — excludes our frame-extracted
+        /// ("generated") covers. The Home page uses this so the front page only
+        /// shows true designed posters, never a screenshot-derived card.
+        var hasProfessionalArtwork: Bool {
+            hasDesignedArtwork && artworkSource != "generated"
+        }
+
         /// Authoritative silent-film predicate. Prefers the pipeline's
         /// multi-signal flag; falls back to the legacy contentType check
         /// for catalogs generated before the pipeline switchover.

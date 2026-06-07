@@ -133,7 +133,9 @@ struct HomeView: View {
         for shelf in homeShelves {
             let raw = store.filteringWatched(store.items(forShelf: shelf.id))   // #17
             var fresh = raw.filter {
-                $0.hasDesignedArtwork && !used.contains($0.archiveID)
+                // #2: Home shows ONLY professional posters — never frame-extracted
+                // ("generated") covers, even though those now fill most of the tail.
+                $0.hasProfessionalArtwork && !used.contains($0.archiveID)
             }
             // Seeded shuffle: per-shelf (include the id hash) so each
             // shelf gets a different permutation, but stable across

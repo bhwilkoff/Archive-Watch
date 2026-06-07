@@ -24,7 +24,8 @@ struct DirectorShelvesSection: View {
     /// query for that director's films (Decision 017).
     private func loadGroups() -> [DirectorGroup] {
         store.dbTopDirectors().compactMap { d in
-            let films = store.dbByDirector(d.name, homeOnly: true)
+            // #2: Home shows only professional posters, never generated covers.
+            let films = store.dbByDirector(d.name, homeOnly: true).filter { $0.hasProfessionalArtwork }
             guard !films.isEmpty else { return nil }
             return DirectorGroup(id: d.name, name: d.name, items: films,
                          category: dominantCategory(for: films))

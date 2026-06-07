@@ -47,27 +47,47 @@ static float vnoise(float2 p) {
 half4 vhsOverlay(float2 pos, half4 color, float2 size, float time, float amount) {
     float2 uv = pos / max(size, float2(1.0));
 
-    // darkening: CRT scanlines + vignette
-    float scan = 0.5 + 0.5 * sin(pos.y * 3.14159265);
+    // SUBTLE, NON-PERIODIC analog veneer. The previous version was too strong and
+    // its constant-rate scrolling band read as an obvious loop. Here every
+    // "error" is gated/positioned by noise so nothing repeats on a fixed cycle,
+    // and the steady artifacts (scanlines, vignette) are gentle.
+
+    // gentle steady scanlines with a slow phase drift so they aren't frozen
+    float scan = 0.5 + 0.5 * sin(pos.y * 3.14159265 + time * 1.7);
+    float darken = 0.045 * scan;
+
+    // soft vignette
     float2 dd = uv - 0.5;
-    float vig = 1.0 - smoothstep(0.25, 0.95, dot(dd, dd) * 2.2);
-    float d = (0.12 * scan + 0.28 * vig) * amount;
+    float vig = smoothstep(0.30, 0.95, dot(dd, dd) * 2.1);
+    darken += 0.10 * vig;
 
-    // brightening: rolling tracking band + dropout streaks + positive grain
-    float band = fract(uv.y + time * 0.06);
-    float bandWarp = smoothstep(0.965, 0.99, band) * smoothstep(1.0, 0.99, band);
-    float head = smoothstep(0.975, 1.0, uv.y) * (0.5 + 0.5 * vnoise(float2(pos.y, time * 50.0)));
-    float streak = step(0.9975, vnoise(float2(floor(pos.y * 0.5), floor(time * 9.0))));
-    float grain = max(0.0, vnoise(pos * float2(0.7, 1.3) + time * 60.0) - 0.5);
-    float b = (bandWarp * 0.22 + head * 0.18 + streak * 0.5 + grain * 0.10) * amount;
+    // intermittent tracking band: only present part of the time, at a WANDERING
+    // vertical position (re-rolled ~twice a second) — not a constant scroll.
+    float seg       = floor(time * 0.5);
+    float bandCenter = vnoise(float2(seg, 7.3));
+    float bandOn     = step(0.62, vnoise(float2(seg, 19.1)));      // present ~38% of segments
+    float band       = bandOn * smoothstep(0.06, 0.0, abs(uv.y - bandCenter));
+    float brighten   = band * 0.10;
 
-    d = clamp(d, 0.0, 1.0);
-    b = clamp(b, 0.0, 1.0);
-    // single premultiplied "over" layer: darken by reducing dst, brighten by
-    // adding tinted white. out = src + dst*(1-a), with a = d + b - d*b.
-    half a = half(d + b - d * b);
-    half3 premul = half3(b) * half3(1.0h, 0.98h, 0.94h);  // warm tape cast on the lift
-    return half4(premul, a);
+    // sparse random dropout streaks: thin rows that flicker at random y, ~9 fps
+    float rowKey = floor(pos.y / 3.0);
+    float streak = step(0.992, vnoise(float2(rowKey, floor(time * 9.0))));
+    brighten += streak * 0.16;
+
+    // fine animated tape grain (symmetric luminance jitter), denser in shadows
+    float luma  = 1.0 - vig;
+    float g     = vnoise(pos * float2(0.9, 1.7) + float2(time * 53.0, time * 71.0)) - 0.5;
+    float grain = g * (0.03 + 0.025 * (1.0 - luma));
+
+    darken   = clamp(darken, 0.0, 1.0) * amount;
+    brighten = clamp(brighten, 0.0, 1.0) * amount;
+
+    // premultiplied "over": darken (black) reduces dst, brighten (warm white)
+    // adds; grain is a tiny symmetric jitter folded in.
+    float gj = grain * amount;
+    half a = half(clamp(darken + brighten + abs(gj), 0.0, 1.0));
+    half3 premul = half3(brighten) * half3(1.0h, 0.99h, 0.95h) + half3(half(gj));
+    return half4(clamp(premul, 0.0h, 1.0h), a);
 }
 
 [[ stitchable ]]

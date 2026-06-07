@@ -838,7 +838,9 @@ struct PersonChip: View {   // reused by SeriesDetailView's cast row
                 }
                 .frame(width: avatar, height: avatar)
             }
-            .buttonStyle(.card)
+            // #5: a circular focus style (glass + ring + scale), NOT .card — the
+            // .card platter drew a distracting rounded rectangle behind the circle.
+            .buttonStyle(CircleIconStyle())
             .focused($isFocused)
 
             VStack(spacing: 4) {

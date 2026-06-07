@@ -34,6 +34,7 @@ struct HiddenGemsShelf: View {
                 ShelfRow(shelf: Self.shelfDef, items: items)
             }
         }
-        .task(id: store.dbGeneration) { items = store.dbHiddenGems() }
+        // #2: Home shows only professional posters, never frame-extracted covers.
+        .task(id: store.dbGeneration) { items = store.dbHiddenGems().filter { $0.hasProfessionalArtwork } }
     }
 }

@@ -101,12 +101,15 @@ struct ChannelsView: View {
             Spacer()
             // #3e: set commercial breaks (on/off + length) right from the guide,
             // without digging into Settings. Reveals the length pills below.
+            // #8: white tint so the labels are legible on the dark header — the
+            // default .bordered tint rendered as low-contrast blue text on black.
             Button { withAnimation(Motion.chrome) { showCommercialOptions.toggle() } } label: {
                 Label("Commercials: \(commercialLabel)",
                       systemImage: store.channelCommercialBreaks ? "tv.fill" : "tv.slash")
                     .font(.system(size: 20, weight: .semibold))
             }
             .buttonStyle(.bordered)
+            .tint(.white)
             // Analog VHS/CRT veneer over channel playback — the retro-TV companion
             // to commercial breaks. Toggled live; applied as an overlay in the player.
             Button { store.channelVHS.toggle() } label: {
@@ -115,11 +118,13 @@ struct ChannelsView: View {
                     .font(.system(size: 20, weight: .semibold))
             }
             .buttonStyle(.bordered)
+            .tint(.white)
             Button { showCreate = true } label: {
                 Label("Create Channel", systemImage: "plus.circle.fill")
                     .font(.system(size: 20, weight: .semibold))
             }
             .buttonStyle(.bordered)
+            .tint(.white)
         }
         .padding(.horizontal, 80)
         .padding(.top, 40)
