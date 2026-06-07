@@ -59,7 +59,10 @@ jobs:
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add tools/cast_image_cache.json
             git commit -m "cast-images: refresh name->photo cache [skip ci]"
-            git push
+            for i in 1 2 3; do
+              git pull --rebase --autostash origin main && git push && break
+              echo "push race, retry $i"; sleep 5
+            done
           fi
 
       - name: Rebuild app DB

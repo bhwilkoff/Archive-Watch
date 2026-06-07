@@ -62,7 +62,10 @@ jobs:
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add tools/tvdb_movie_cache.json
             git commit -m "tvdb-movies: refresh title->poster cache [skip ci]"
-            git push
+            for i in 1 2 3; do
+              git pull --rebase --autostash origin main && git push && break
+              echo "push race, retry $i"; sleep 5
+            done
           fi
 
       - name: Rebuild app DB
