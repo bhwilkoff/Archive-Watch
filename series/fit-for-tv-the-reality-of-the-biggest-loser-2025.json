@@ -283,5 +283,7 @@
       "order": 3,
       "profilePath": "https://artworks.thetvdb.com/banners/person/255843/5f43f576838cf.jpg"
     }
-  ]
+  ],
+  "seriesImdbID": null,
+  "canonicalEpisodeCount": 0
 }

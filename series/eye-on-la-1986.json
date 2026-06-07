@@ -251,5 +251,7 @@
       ]
     }
   ],
-  "episodesCount": 13
+  "episodesCount": 13,
+  "seriesImdbID": null,
+  "canonicalEpisodeCount": 0
 }

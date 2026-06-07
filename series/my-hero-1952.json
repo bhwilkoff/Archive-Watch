@@ -277,5 +277,8 @@
       "order": 2,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/91/229327.jpg"
     }
-  ]
+  ],
+  "seriesImdbID": "tt0044282",
+  "canonicalEpisodeCount": 19,
+  "canonicalSeasons": 1
 }

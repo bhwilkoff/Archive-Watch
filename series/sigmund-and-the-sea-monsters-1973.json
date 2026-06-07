@@ -308,5 +308,8 @@
     }
   ],
   "tvdbID": "71241",
-  "artworkSource": "tvdb"
+  "artworkSource": "tvdb",
+  "seriesImdbID": "tt0069632",
+  "canonicalEpisodeCount": 24,
+  "canonicalSeasons": 3
 }
