@@ -48,6 +48,10 @@ struct EpisodeAVPlayerContainer: UIViewControllerRepresentable {
     let player: AVPlayer
     var hasPrev: Bool
     var hasNext: Bool
+    // #1: the auto-surfacing "Next Episode" prompt should only appear briefly at
+    // the start and near the end — not persist the whole episode. The transport-
+    // bar menu items (below) stay available the entire time.
+    var showNextPrompt: Bool = true
     var onPrev: () -> Void
     var onNext: () -> Void
 
@@ -84,8 +88,9 @@ struct EpisodeAVPlayerContainer: UIViewControllerRepresentable {
             if parent.hasPrev { menu.append(prev) }
             if parent.hasNext { menu.append(next) }
             vc.transportBarCustomMenuItems = menu
-            // The end-of-episode prompt: only "Next Episode" when there is one.
-            vc.contextualActions = parent.hasNext ? [next] : []
+            // The auto-surfacing prompt: only "Next Episode", and only inside the
+            // start/end windows (#1) so it doesn't linger the whole episode.
+            vc.contextualActions = (parent.hasNext && parent.showNextPrompt) ? [next] : []
         }
     }
 }

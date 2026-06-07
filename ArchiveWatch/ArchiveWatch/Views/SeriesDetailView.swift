@@ -19,6 +19,12 @@ struct SeriesDetailView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
     @Environment(\.modelContext) private var modelContext
+    @Query private var favorites: [Favorite]
+    // #3: share / add-to-playlist targets (series OR a long-pressed episode).
+    @State private var shareTarget: ShareTarget?
+    @State private var playlistTarget: PlaylistTarget?
+    struct ShareTarget: Identifiable { let id: String; let title: String }
+    struct PlaylistTarget: Identifiable { let id: String }
     @State private var series: Series?
     @State private var isLoading = true
     @State private var loadError = false
@@ -37,6 +43,7 @@ struct SeriesDetailView: View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 0) {
                 hero
+                infoSection
                 seasonSection
             }
         }
@@ -48,6 +55,8 @@ struct SeriesDetailView: View {
                 Color.black.ignoresSafeArea()
             }
         }
+        .sheet(item: $shareTarget) { ShareSheet(title: $0.title, archiveID: $0.id) }
+        .sheet(item: $playlistTarget) { AddToPlaylistSheet(archiveID: $0.id) }
         .task(id: seriesCard.archiveID) {
             // Series cards use "series:<slug>" as archiveID to avoid
             // collisions with Archive identifiers. The actual per-series
@@ -149,16 +158,69 @@ struct SeriesDetailView: View {
             }
             .font(.system(size: 22, weight: .regular))
             .foregroundStyle(.white.opacity(0.85))
+            // #3: overview + cast moved OUT of the hero (they used to overlay the
+            // poster); only the title/metadata + actions sit on the artwork now.
+            seriesActions
+        }
+        .frame(maxWidth: 1200, alignment: .leading)
+    }
+
+    // #3: favorite + share the whole series, from the main info page.
+    @ViewBuilder
+    private var seriesActions: some View {
+        HStack(spacing: 16) {
+            Button(action: toggleSeriesFavorite) {
+                Image(systemName: isSeriesFavorited ? "heart.fill" : "heart")
+                    .font(.title2)
+                    .foregroundStyle(isSeriesFavorited ? store.accentColor(forCategory: "tv-series") : .white)
+                    .padding(18)
+            }
+            .buttonStyle(CircleIconStyle())
+            .focusEffectDisabled()
+            Button {
+                shareTarget = ShareTarget(id: seriesCard.archiveID,
+                                          title: series?.title ?? seriesCard.title)
+            } label: {
+                Image(systemName: "square.and.arrow.up")
+                    .font(.title2).foregroundStyle(.white).padding(18)
+            }
+            .buttonStyle(CircleIconStyle())
+            .focusEffectDisabled()
+        }
+        .padding(.top, 8)
+        .focusSection()
+    }
+
+    private var isSeriesFavorited: Bool {
+        favorites.contains { $0.archiveID == seriesCard.archiveID }
+    }
+    private func toggleSeriesFavorite() { toggleFavorite(seriesCard.archiveID) }
+
+    private func toggleFavorite(_ archiveID: String) {
+        if let existing = favorites.first(where: { $0.archiveID == archiveID }) {
+            modelContext.delete(existing)
+        } else {
+            modelContext.insert(Favorite(archiveID: archiveID))
+        }
+        try? modelContext.save()
+    }
+
+    // #3: overview + cast in their own section BELOW the hero, so the poster art
+    // is no longer covered by text.
+    @ViewBuilder
+    private var infoSection: some View {
+        VStack(alignment: .leading, spacing: 22) {
             if let overview = series?.overview ?? seriesCard.synopsis, !overview.isEmpty {
                 Text(overview)
                     .font(.system(size: 22))
-                    .foregroundStyle(.white.opacity(0.8))
-                    .frame(maxWidth: 1200, alignment: .leading)
-                    .lineLimit(3)
+                    .foregroundStyle(.white.opacity(0.85))
+                    .frame(maxWidth: 1400, alignment: .leading)
+                    .lineLimit(6)
             }
             castRow
         }
-        .frame(maxWidth: 1200, alignment: .leading)
+        .padding(.horizontal, 80)
+        .padding(.top, 28)
     }
 
     @ViewBuilder
@@ -300,9 +362,14 @@ struct SeriesDetailView: View {
     private func episodeGrid(episodes: [Episode]) -> some View {
         LazyVGrid(columns: episodeCols, alignment: .leading, spacing: 36) {
             ForEach(episodes) { ep in
-                EpisodeCard(episode: ep) {
-                    playingEpisode = ep
-                }
+                EpisodeCard(
+                    episode: ep,
+                    isFavorited: favorites.contains { $0.archiveID == ep.archiveID },
+                    action: { playingEpisode = ep },
+                    onToggleFavorite: { toggleFavorite(ep.archiveID) },
+                    onShare: { shareTarget = ShareTarget(id: ep.archiveID, title: ep.title) },
+                    onAddToPlaylist: { playlistTarget = PlaylistTarget(id: ep.archiveID) }
+                )
                 .focused($focusedEpisode, equals: ep.archiveID)
             }
         }
@@ -314,7 +381,11 @@ struct SeriesDetailView: View {
 
 struct EpisodeCard: View {
     let episode: Episode
+    var isFavorited: Bool = false
     let action: () -> Void
+    var onToggleFavorite: () -> Void = {}
+    var onShare: () -> Void = {}
+    var onAddToPlaylist: () -> Void = {}
     @FocusState private var isFocused: Bool
 
     private let cardWidth: CGFloat  = 380
@@ -327,6 +398,19 @@ struct EpisodeCard: View {
             }
             .buttonStyle(.card)
             .focused($isFocused)
+            // #3: long-press an episode for favorite / share / add-to-playlist.
+            .contextMenu {
+                Button(action: onToggleFavorite) {
+                    Label(isFavorited ? "Remove from Favorites" : "Favorite",
+                          systemImage: isFavorited ? "heart.slash" : "heart")
+                }
+                Button(action: onShare) {
+                    Label("Share", systemImage: "square.and.arrow.up")
+                }
+                Button(action: onAddToPlaylist) {
+                    Label("Add to Playlist", systemImage: "text.badge.plus")
+                }
+            }
 
             VStack(alignment: .leading, spacing: 6) {
                 if let num = episode.numberLabel {

@@ -881,20 +881,29 @@ struct PersonChip: View {   // reused by SeriesDetailView's cast row
 
 // MARK: - Share sheet (#16, tvOS-DESIGN §8.6)
 
-private struct ShareSheet: View {
-    let item: Catalog.Item
+struct ShareSheet: View {   // reused by SeriesDetailView (series + episodes)
+    let title: String
+    let archiveID: String
     @Environment(\.dismiss) private var dismiss
     @FocusState private var doneFocused: Bool
 
+    init(title: String, archiveID: String) {
+        self.title = title
+        self.archiveID = archiveID
+    }
+    init(item: Catalog.Item) {
+        self.init(title: item.title, archiveID: item.archiveID)
+    }
+
     private var webURL: String {
-        item.archiveID.hasPrefix("loc:")
+        archiveID.hasPrefix("loc:")
             ? "https://www.loc.gov"
-            : "https://archive.org/details/\(item.archiveID)"
+            : "https://archive.org/details/\(archiveID.replacingOccurrences(of: "series:", with: ""))"
     }
 
     var body: some View {
         VStack(spacing: 28) {
-            Text("Share \u{201C}\(item.title)\u{201D}")
+            Text("Share \u{201C}\(title)\u{201D}")
                 .font(.system(size: 38, weight: .bold))
                 .foregroundStyle(.white)
                 .multilineTextAlignment(.center)
