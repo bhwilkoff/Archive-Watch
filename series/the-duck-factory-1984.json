@@ -1,118 +1,63 @@
 {
-  "version": 2,
-  "seriesID": "the-duck-factory-1984",
-  "tvmazeID": 25633,
-  "title": "The Duck Factory",
-  "yearStart": 1984,
-  "yearEnd": 1984,
-  "overview": "The series, set in Hollywood, California, follows the adventures of Skip Tarkenton, an animator for Buddy Winkler Productions, a rundown studio that produces the mythical Saturday morning cartoon series, \"The Dippy Duck Show\".",
-  "posterURL": "https://artworks.thetvdb.com/banners/series/76881/posters/5f58ec5a6f209.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-duck-factory-1984",
+ "tvmazeID": 25633,
+ "title": "The Duck Factory",
+ "yearStart": 1984,
+ "yearEnd": 1984,
+ "overview": "The series, set in Hollywood, California, follows the adventures of Skip Tarkenton, an animator for Buddy Winkler Productions, a rundown studio that produces the mythical Saturday morning cartoon series, \"The Dippy Duck Show\".",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/99/249676.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "the-duck-factory",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Duck Factory",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "1 Goodbye Buddy, Hello Skip.mp4",
-            "format": "h.264",
-            "sizeBytes": 140683663,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-duck-factory/1%20Goodbye%20Buddy%2C%20Hello%20Skip.mp4"
-        },
-        {
-          "archiveID": "The_Duck_Factory",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Duck Factory",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "The_Duck_Factory.mp4",
-            "format": "h.264",
-            "sizeBytes": 149985201,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/The_Duck_Factory/The_Duck_Factory.mp4"
-        }
-      ]
+     "archiveID": "the-duck-factory",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Duck Factory",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "1 Goodbye Buddy, Hello Skip.mp4",
+      "format": "h.264",
+      "sizeBytes": 140683663,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-duck-factory/1%20Goodbye%20Buddy%2C%20Hello%20Skip.mp4"
+    },
+    {
+     "archiveID": "The_Duck_Factory",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Duck Factory",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The_Duck_Factory.mp4",
+      "format": "h.264",
+      "sizeBytes": 149985201,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The_Duck_Factory/The_Duck_Factory.mp4"
     }
-  ],
-  "episodesCount": 2,
-  "canonicalEpisodesCount": 13,
-  "seriesImdbID": "tt0086702",
-  "canonicalEpisodeCount": 4,
-  "canonicalSeasons": 1,
-  "cast": [
-    {
-      "name": "Jim Carrey",
-      "character": "Skip Tarkenton",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/31/78490.jpg"
-    },
-    {
-      "name": "Teresa Ganzel",
-      "character": "Mrs. Sheree Winkler",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/99/249680.jpg"
-    },
-    {
-      "name": "Jack Gilford",
-      "character": "Brooks Carmichael",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/99/249679.jpg"
-    },
-    {
-      "name": "Julie Payne",
-      "character": "Aggie Aylesworth",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/170/427328.jpg"
-    },
-    {
-      "name": "Nancy Lane",
-      "character": "Andrea Lewin",
-      "order": 4,
-      "profilePath": null
-    },
-    {
-      "name": "Jay Tarses",
-      "character": "Marty Fenneman",
-      "order": 5,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/99/249681.jpg"
-    },
-    {
-      "name": "Clarence Gilyard, Jr.",
-      "character": "Roland Culp",
-      "order": 6,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9696.jpg"
-    },
-    {
-      "name": "Don Messick",
-      "character": "Wally Wooster",
-      "order": 7,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/31483.jpg"
-    }
-  ],
-  "tvdbID": "76881",
-  "artworkSource": "tvdb"
+   ]
+  }
+ ],
+ "episodesCount": 2,
+ "canonicalEpisodesCount": 13
 }

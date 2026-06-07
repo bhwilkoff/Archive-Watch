@@ -1,131 +1,70 @@
 {
-  "version": 2,
-  "seriesID": "the-tony-randall-show-1976",
-  "tvmazeID": 35812,
-  "title": "The Tony Randall Show",
-  "yearStart": 1976,
-  "yearEnd": 1978,
-  "overview": "Tony Randall plays a newly-elected Philadelphia municipal judge named Walter Franklin in The Tony Randall Show, which premiered in the Bicentennial Year of 1976.The Tony Randall Show is a half-hour comedy series starring Emmy Award-winner Tony Randall as Judge Walter' Franklin, a contemporary courtroom judge in Philadelphia who has as many trials and vexations off the bench as on, it debuted Thursday, Sept. 30, 1976 on ABC-TV. A widower, Franklin lives with his two children, Roberta (Devon Scott), 18, and Oliver Wendell Franklin, 11, along with their housekeeper, Mrs. McClellan (Rachel Roberts). At the courthouse, -he is assisted by his court reporter and confidant, Jack Terwilliger (Barney Martin) and his sharp-tongued, sardonic, secretary, Miss Reubner (Allyn Ann McLerie).",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/71727-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy",
-    "Family",
-    "Legal"
-  ],
-  "networks": [
-    "CBS"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-tony-randall-show-1976",
+ "tvmazeID": 35812,
+ "title": "The Tony Randall Show",
+ "yearStart": 1976,
+ "yearEnd": 1978,
+ "overview": "Tony Randall plays a newly-elected Philadelphia municipal judge named Walter Franklin in The Tony Randall Show, which premiered in the Bicentennial Year of 1976.The Tony Randall Show is a half-hour comedy series starring Emmy Award-winner Tony Randall as Judge Walter' Franklin, a contemporary courtroom judge in Philadelphia who has as many trials and vexations off the bench as on, it debuted Thursday, Sept. 30, 1976 on ABC-TV. A widower, Franklin lives with his two children, Roberta (Devon Scott), 18, and Oliver Wendell Franklin, 11, along with their housekeeper, Mrs. McClellan (Rachel Roberts). At the courthouse, -he is assisted by his court reporter and confidant, Jack Terwilliger (Barney Martin) and his sharp-tongued, sardonic, secretary, Miss Reubner (Allyn Ann McLerie).",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/480/1201550.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy",
+  "Family",
+  "Legal"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "thetonyrandallshow1",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "Case: Money vs. Stature",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/tGiNGTd0aoVQfpdNGz16XB5GzJs.jpg",
-          "airDate": "1976-12-30",
-          "year": 1976,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S01E12- Case Money vs Stature.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 176440210,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/thetonyrandallshow1/S01E12- Case Money vs Stature.ia.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "thetonyrandallshowseason2",
-          "seasonNumber": 2,
-          "episodeNumber": 11,
-          "title": "Bobby vs. Michael",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/599/1499400.jpg",
-          "airDate": "1977-12-10",
-          "year": 1977,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "S02E11- Bobby vs. Michael.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 100377758,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/thetonyrandallshowseason2/S02E11- Bobby vs. Michael.mp4"
-        }
-      ]
+     "archiveID": "thetonyrandallshow1",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "Case: Money vs. Stature",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/tGiNGTd0aoVQfpdNGz16XB5GzJs.jpg",
+     "airDate": "1976-12-30",
+     "year": 1976,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S01E12- Case Money vs Stature.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 176440210,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/thetonyrandallshow1/S01E12- Case Money vs Stature.ia.mp4"
     }
-  ],
-  "episodesCount": 2,
-  "canonicalEpisodesCount": 44,
-  "seriesImdbID": "tt0074064",
-  "canonicalEpisodeCount": 6,
-  "canonicalSeasons": 2,
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
-      "name": "Tony Randall",
-      "character": "Judge Walter Franklin",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/45/114344.jpg"
-    },
-    {
-      "name": "Barney Martin",
-      "character": "Jack Terwillinger",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/524/1310429.jpg"
-    },
-    {
-      "name": "Rachael Roberts",
-      "character": "Mrs. Bonnie McClellan",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/475/1189638.jpg"
-    },
-    {
-      "name": "Brad Savage",
-      "character": "Oliver Wendell Franklin",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/104/260448.jpg"
-    },
-    {
-      "name": "Allyn Ann McLerie",
-      "character": "Miss Janet Reubner",
-      "order": 4,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/104/261404.jpg"
-    },
-    {
-      "name": "Zane Lasky",
-      "character": "Mario Lanza",
-      "order": 5,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/104/261122.jpg"
-    },
-    {
-      "name": "Devon Scott",
-      "character": "Roberta \"Bobby\" Franklin #1 (season 1)",
-      "order": 6,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/480/1201541.jpg"
-    },
-    {
-      "name": "Penny Peyser",
-      "character": "Roberta \"Bobby\" Franklin #2 (season 2)",
-      "order": 7,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/184/460977.jpg"
-    },
-    {
-      "name": "Hans Conried",
-      "character": "Wyatt Franklin (season 2)",
-      "order": 8,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/74/186208.jpg"
+     "archiveID": "thetonyrandallshowseason2",
+     "seasonNumber": 2,
+     "episodeNumber": 11,
+     "title": "Bobby vs. Michael",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/599/1499400.jpg",
+     "airDate": "1977-12-10",
+     "year": 1977,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "S02E11- Bobby vs. Michael.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 100377758,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/thetonyrandallshowseason2/S02E11- Bobby vs. Michael.mp4"
     }
-  ],
-  "tvdbID": "71727",
-  "artworkSource": "tvdb"
+   ]
+  }
+ ],
+ "episodesCount": 2,
+ "canonicalEpisodesCount": 44
 }

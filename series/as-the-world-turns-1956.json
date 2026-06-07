@@ -1,231 +1,118 @@
 {
-  "version": 2,
-  "seriesID": "as-the-world-turns-1956",
-  "tvmazeID": 17907,
-  "title": "As the World Turns",
-  "yearStart": 1956,
-  "yearEnd": 2010,
-  "overview": "Set in the fictional town of Oakdale, this long-running serial focuses on the relationships and difficulties of its inhabitants.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/60/151169.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama",
-    "Romance"
-  ],
-  "networks": [
-    "CBS"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "as-the-world-turns-1956",
+ "tvmazeID": 17907,
+ "title": "As the World Turns",
+ "yearStart": 1956,
+ "yearEnd": 2010,
+ "overview": "Set in the fictional town of Oakdale, this long-running serial focuses on the relationships and difficulties of its inhabitants.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/60/151169.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Romance"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "AsTheWorldTurns1961",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''As The World Turns'' - 18 April 1961",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/kKp1hYBFCoLyLhfpirpKAvDhCTi.jpg",
-          "airDate": null,
-          "year": 1961,
-          "runtimeSeconds": 1351,
-          "videoFile": {
-            "name": "astheworldturns18April1961.mp4",
-            "format": "h.264",
-            "sizeBytes": 140749548,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/AsTheWorldTurns1961/astheworldturns18April1961.mp4"
-        },
-        {
-          "archiveID": "AsTheWorldTurns22August1960",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''As The World Turns'' - 22 August 1960",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/kKp1hYBFCoLyLhfpirpKAvDhCTi.jpg",
-          "airDate": null,
-          "year": 1960,
-          "runtimeSeconds": 1722,
-          "videoFile": {
-            "name": "AsTheWorldTurns22August1960.mp4",
-            "format": "h.264",
-            "sizeBytes": 179150665,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/AsTheWorldTurns22August1960/AsTheWorldTurns22August1960.mp4"
-        },
-        {
-          "archiveID": "AsTheWorldTurns",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "As The World Turns",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/kKp1hYBFCoLyLhfpirpKAvDhCTi.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "AsTheWorldTurns11-22-63.mp4",
-            "format": "h.264",
-            "sizeBytes": 169365501,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/AsTheWorldTurns/AsTheWorldTurns11-22-63.mp4"
-        },
-        {
-          "archiveID": "AsTheWorldTurns-21stApril1961",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "As the World Turns - 21st April 1961",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/kKp1hYBFCoLyLhfpirpKAvDhCTi.jpg",
-          "airDate": null,
-          "year": 1961,
-          "runtimeSeconds": 1398,
-          "videoFile": {
-            "name": "AstheWorldTurns1961.mp4",
-            "format": "h.264",
-            "sizeBytes": 134372090,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/AsTheWorldTurns-21stApril1961/AstheWorldTurns1961.mp4"
-        },
-        {
-          "archiveID": "AsTheWorldTurns-March311961",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "As the World Turns - March 31, 1961",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/kKp1hYBFCoLyLhfpirpKAvDhCTi.jpg",
-          "airDate": null,
-          "year": 1961,
-          "runtimeSeconds": 1659,
-          "videoFile": {
-            "name": "AsTheWorldTurns31March1961.mp4",
-            "format": "h.264",
-            "sizeBytes": 173083990,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/AsTheWorldTurns-March311961/AsTheWorldTurns31March1961.mp4"
-        }
-      ]
+     "archiveID": "AsTheWorldTurns1961",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "''As The World Turns'' - 18 April 1961",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/kKp1hYBFCoLyLhfpirpKAvDhCTi.jpg",
+     "airDate": null,
+     "year": 1961,
+     "runtimeSeconds": 1351,
+     "videoFile": {
+      "name": "astheworldturns18April1961.mp4",
+      "format": "h.264",
+      "sizeBytes": 140749548,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/AsTheWorldTurns1961/astheworldturns18April1961.mp4"
+    },
+    {
+     "archiveID": "AsTheWorldTurns22August1960",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "''As The World Turns'' - 22 August 1960",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/kKp1hYBFCoLyLhfpirpKAvDhCTi.jpg",
+     "airDate": null,
+     "year": 1960,
+     "runtimeSeconds": 1722,
+     "videoFile": {
+      "name": "AsTheWorldTurns22August1960.mp4",
+      "format": "h.264",
+      "sizeBytes": 179150665,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/AsTheWorldTurns22August1960/AsTheWorldTurns22August1960.mp4"
+    },
+    {
+     "archiveID": "AsTheWorldTurns",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "As The World Turns",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/kKp1hYBFCoLyLhfpirpKAvDhCTi.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "AsTheWorldTurns11-22-63.mp4",
+      "format": "h.264",
+      "sizeBytes": 169365501,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/AsTheWorldTurns/AsTheWorldTurns11-22-63.mp4"
+    },
+    {
+     "archiveID": "AsTheWorldTurns-21stApril1961",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "As the World Turns - 21st April 1961",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/kKp1hYBFCoLyLhfpirpKAvDhCTi.jpg",
+     "airDate": null,
+     "year": 1961,
+     "runtimeSeconds": 1398,
+     "videoFile": {
+      "name": "AstheWorldTurns1961.mp4",
+      "format": "h.264",
+      "sizeBytes": 134372090,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/AsTheWorldTurns-21stApril1961/AstheWorldTurns1961.mp4"
+    },
+    {
+     "archiveID": "AsTheWorldTurns-March311961",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "As the World Turns - March 31, 1961",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/kKp1hYBFCoLyLhfpirpKAvDhCTi.jpg",
+     "airDate": null,
+     "year": 1961,
+     "runtimeSeconds": 1659,
+     "videoFile": {
+      "name": "AsTheWorldTurns31March1961.mp4",
+      "format": "h.264",
+      "sizeBytes": 173083990,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/AsTheWorldTurns-March311961/AsTheWorldTurns31March1961.mp4"
     }
-  ],
-  "episodesCount": 5,
-  "canonicalEpisodesCount": 2420,
-  "seriesImdbID": "tt0048845",
-  "canonicalEpisodeCount": 120,
-  "canonicalSeasons": 46,
-  "cast": [
-    {
-      "name": "Michael Park",
-      "character": "Jack Snyder",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/204/510129.jpg"
-    },
-    {
-      "name": "Jon Hensley",
-      "character": "Holden Snyder",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/59/147676.jpg"
-    },
-    {
-      "name": "Maura West",
-      "character": "Carly Tenney",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/22/55716.jpg"
-    },
-    {
-      "name": "Terri Conn",
-      "character": "Katie Peretti",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/67/169918.jpg"
-    },
-    {
-      "name": "Cori Ann Hansen",
-      "character": "Katie Peretti",
-      "order": 4,
-      "profilePath": null
-    },
-    {
-      "name": "Ellen Dolan",
-      "character": "Margo Hughes",
-      "order": 5,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/46/116865.jpg"
-    },
-    {
-      "name": "Hillary B. Smith",
-      "character": "Margo Hughes",
-      "order": 6,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/206/516513.jpg"
-    },
-    {
-      "name": "Scott Bryce",
-      "character": "Craig Montgomery",
-      "order": 7,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/2/6279.jpg"
-    },
-    {
-      "name": "Jon Lindstrom",
-      "character": "Craig Montgomery",
-      "order": 8,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/1/3384.jpg"
-    },
-    {
-      "name": "Jeffrey Meek",
-      "character": "Craig Montgomery",
-      "order": 9,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/25105.jpg"
-    },
-    {
-      "name": "Hunt Block",
-      "character": "Craig Montgomery",
-      "order": 10,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/469/1173196.jpg"
-    },
-    {
-      "name": "Scott Holroyd",
-      "character": "Paul Ryan",
-      "order": 11,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/135/338330.jpg"
-    },
-    {
-      "name": "Roger Howarth",
-      "character": "Paul Ryan",
-      "order": 12,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/67/169911.jpg"
-    },
-    {
-      "name": "Noelle Beck",
-      "character": "Lily Snyder",
-      "order": 13,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/26580.jpg"
-    },
-    {
-      "name": "Martha Byrne",
-      "character": "Lily Snyder",
-      "order": 14,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/458/1146180.jpg"
-    },
-    {
-      "name": "Melanie Smith",
-      "character": "Emily Stewart",
-      "order": 15,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/185/463410.jpg"
-    },
-    {
-      "name": "Kelley Menighan Hensley",
-      "character": "Emily Stewart",
-      "order": 16,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/67/169909.jpg"
-    },
-    {
-      "name": "Marie Wilson",
-      "character": "Meg Snyder",
-      "order": 17,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/67/169919.jpg"
-    }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 5,
+ "canonicalEpisodesCount": 2420
 }

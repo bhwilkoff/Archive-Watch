@@ -1,176 +1,139 @@
 {
-  "version": 2,
-  "seriesID": "all-creatures-great-and-small-1978",
-  "tvmazeID": 8090,
-  "title": "All Creatures Great and Small",
-  "yearStart": 1978,
-  "yearEnd": 1990,
-  "overview": "In the mid-1930s James Herriot, who has recently graduated from the veterinary college in Glasgow, finds work in the rustic Yorkshire Dales of Northern England. This heartwarming drama chronicles his encounters with the locals and the animals they depend on.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/78289-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama",
-    "Comedy",
-    "Family"
-  ],
-  "networks": [
-    "BBC One"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "all-creatures-great-and-small-1978",
+ "tvmazeID": 8090,
+ "title": "All Creatures Great and Small",
+ "yearStart": 1978,
+ "yearEnd": 1990,
+ "overview": "In the mid-1930s James Herriot, who has recently graduated from the veterinary college in Glasgow, finds work in the rustic Yorkshire Dales of Northern England. This heartwarming drama chronicles his encounters with the locals and the animals they depend on.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/29/73492.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Comedy",
+  "Family"
+ ],
+ "networks": [
+  "BBC One"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 3,
+   "episodes": [
     {
-      "seasonNumber": 3,
-      "episodes": [
-        {
-          "archiveID": "all-creatures-great-and-small-series-3_202303",
-          "seasonNumber": 3,
-          "episodeNumber": 15,
-          "title": "All Creatures Great and Small",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1979,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "All Creatures Great and Small S03E15 - The Lord God Made Them All (1983 Christmas Special).mp4",
-            "format": "h.264",
-            "sizeBytes": 526752345,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-3_202303/All%20Creatures%20Great%20and%20Small%20S03E15%20-%20The%20Lord%20God%20Made%20Them%20All%20%281983%20Christmas%20Special%29.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 4,
-      "episodes": [
-        {
-          "archiveID": "all-creatures-great-and-small-series-4",
-          "seasonNumber": 4,
-          "episodeNumber": 8,
-          "title": "The Healing Touch",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/all-creatures-great-and-small-series-4",
-          "airDate": "1988-03-06",
-          "year": 1988,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "All Creatures Great and Small S04E08 - The Healing Touch.mp4",
-            "format": "h.264",
-            "sizeBytes": 321897757,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-4/All Creatures Great and Small S04E08 - The Healing Touch.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 5,
-      "episodes": [
-        {
-          "archiveID": "all-creatures-great-and-small-series-5",
-          "seasonNumber": 5,
-          "episodeNumber": 6,
-          "title": "A New Chapter",
-          "overview": "The Herriots prepare to move to Rowangarth and there's another emergency with Granville Bennett.",
-          "stillURL": "https://archive.org/services/img/all-creatures-great-and-small-series-5",
-          "airDate": "1988-10-08",
-          "year": 1988,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "All Creatures Great and Small S05E06 - A New Chapter.mp4",
-            "format": "h.264",
-            "sizeBytes": 291318887,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-5/All Creatures Great and Small S05E06 - A New Chapter.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 6,
-      "episodes": [
-        {
-          "archiveID": "all-creatures-great-and-small-series-6",
-          "seasonNumber": 6,
-          "episodeNumber": 1,
-          "title": "Here And There",
-          "overview": "Siegfried and James are left to Calum's cooking while their wives visit London. James meets Basil Courtenay, a rather upper class cow hand.",
-          "stillURL": "https://archive.org/services/img/all-creatures-great-and-small-series-6",
-          "airDate": "1989-09-02",
-          "year": 1989,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "All Creatures Great and Small S06E01 - Here and There.mp4",
-            "format": "h.264",
-            "sizeBytes": 291553443,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-6/All Creatures Great and Small S06E01 - Here and There.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 7,
-      "episodes": [
-        {
-          "archiveID": "all-creatures-great-and-small-series-7",
-          "seasonNumber": 7,
-          "episodeNumber": 13,
-          "title": "All Creatures Great and Small",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1990,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "All Creatures Great and Small S07E13 - Brotherly Love  (Christmas Special 1990).mp4",
-            "format": "h.264",
-            "sizeBytes": 524233955,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-7/All%20Creatures%20Great%20and%20Small%20S07E13%20-%20Brotherly%20Love%20%20%28Christmas%20Special%201990%29.mp4"
-        }
-      ]
+     "archiveID": "all-creatures-great-and-small-series-3_202303",
+     "seasonNumber": 3,
+     "episodeNumber": 15,
+     "title": "All Creatures Great and Small",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1979,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "All Creatures Great and Small S03E15 - The Lord God Made Them All (1983 Christmas Special).mp4",
+      "format": "h.264",
+      "sizeBytes": 526752345,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-3_202303/All%20Creatures%20Great%20and%20Small%20S03E15%20-%20The%20Lord%20God%20Made%20Them%20All%20%281983%20Christmas%20Special%29.mp4"
     }
-  ],
-  "episodesCount": 5,
-  "canonicalEpisodesCount": 87,
-  "seriesImdbID": "tt3609634",
-  "canonicalEpisodeCount": 2,
-  "canonicalSeasons": 1,
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 4,
+   "episodes": [
     {
-      "name": "Christopher Timothy",
-      "character": "James Herriot",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/30/75479.jpg"
-    },
-    {
-      "name": "Robert Hardy",
-      "character": "Siegfried Farnon",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/23674.jpg"
-    },
-    {
-      "name": "Peter Davison",
-      "character": "Tristan Farnon",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/25759.jpg"
-    },
-    {
-      "name": "Lynda Bellingham",
-      "character": "Helen Herriot",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/30/75872.jpg"
-    },
-    {
-      "name": "Carol Drinkwater",
-      "character": "Helen Herriot",
-      "order": 4,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/42/107201.jpg"
+     "archiveID": "all-creatures-great-and-small-series-4",
+     "seasonNumber": 4,
+     "episodeNumber": 8,
+     "title": "The Healing Touch",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/all-creatures-great-and-small-series-4",
+     "airDate": "1988-03-06",
+     "year": 1988,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "All Creatures Great and Small S04E08 - The Healing Touch.mp4",
+      "format": "h.264",
+      "sizeBytes": 321897757,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-4/All Creatures Great and Small S04E08 - The Healing Touch.mp4"
     }
-  ],
-  "tvdbID": "78289",
-  "artworkSource": "tvdb"
+   ]
+  },
+  {
+   "seasonNumber": 5,
+   "episodes": [
+    {
+     "archiveID": "all-creatures-great-and-small-series-5",
+     "seasonNumber": 5,
+     "episodeNumber": 6,
+     "title": "A New Chapter",
+     "overview": "The Herriots prepare to move to Rowangarth and there's another emergency with Granville Bennett.",
+     "stillURL": "https://archive.org/services/img/all-creatures-great-and-small-series-5",
+     "airDate": "1988-10-08",
+     "year": 1988,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "All Creatures Great and Small S05E06 - A New Chapter.mp4",
+      "format": "h.264",
+      "sizeBytes": 291318887,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-5/All Creatures Great and Small S05E06 - A New Chapter.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 6,
+   "episodes": [
+    {
+     "archiveID": "all-creatures-great-and-small-series-6",
+     "seasonNumber": 6,
+     "episodeNumber": 1,
+     "title": "Here And There",
+     "overview": "Siegfried and James are left to Calum's cooking while their wives visit London. James meets Basil Courtenay, a rather upper class cow hand.",
+     "stillURL": "https://archive.org/services/img/all-creatures-great-and-small-series-6",
+     "airDate": "1989-09-02",
+     "year": 1989,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "All Creatures Great and Small S06E01 - Here and There.mp4",
+      "format": "h.264",
+      "sizeBytes": 291553443,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-6/All Creatures Great and Small S06E01 - Here and There.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 7,
+   "episodes": [
+    {
+     "archiveID": "all-creatures-great-and-small-series-7",
+     "seasonNumber": 7,
+     "episodeNumber": 13,
+     "title": "All Creatures Great and Small",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1990,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "All Creatures Great and Small S07E13 - Brotherly Love  (Christmas Special 1990).mp4",
+      "format": "h.264",
+      "sizeBytes": 524233955,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-7/All%20Creatures%20Great%20and%20Small%20S07E13%20-%20Brotherly%20Love%20%20%28Christmas%20Special%201990%29.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 5,
+ "canonicalEpisodesCount": 87
 }

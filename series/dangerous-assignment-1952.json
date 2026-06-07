@@ -1,205 +1,192 @@
 {
-  "version": 2,
-  "seriesID": "dangerous-assignment-1952",
-  "tvmazeID": 67906,
-  "title": "Dangerous Assignment",
-  "yearStart": 1952,
-  "yearEnd": 1952,
-  "overview": "Steve Mitchell, a US operative, is sent on jeopardizing missións around the world. Steve Mitchell sets off on dangerous assignments wherever the US interests are at risk. Maybe it's Cairo, a waterfront dock in Siam, or a secret rendezvous, behind the lron Curtain. Wherever he goes, there's adventure and excitement .",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/70391-3.jpg",
-  "backdropURL": null,
-  "genres": [],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "dangerous-assignment-1952",
+ "tvmazeID": 67906,
+ "title": "Dangerous Assignment",
+ "yearStart": 1952,
+ "yearEnd": 1952,
+ "overview": "Steve Mitchell, a US operative, is sent on jeopardizing missións around the world. Steve Mitchell sets off on dangerous assignments wherever the US interests are at risk. Maybe it's Cairo, a waterfront dock in Siam, or a secret rendezvous, behind the lron Curtain. Wherever he goes, there's adventure and excitement .",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/455/1138087.jpg",
+ "backdropURL": null,
+ "genres": [],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "DangerousAssignmentTheArcheologicalStory",
-          "seasonNumber": 1,
-          "episodeNumber": 36,
-          "title": "The Archeological Story",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
-          "airDate": "1952-06-02",
-          "year": 1952,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Dangerous Assignment  - The Archeological Story.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 81218891,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/DangerousAssignmentTheArcheologicalStory/Dangerous%20Assignment%20%20-%20The%20Archeological%20Story.mp4"
-        }
-      ]
+     "archiveID": "DangerousAssignmentTheArcheologicalStory",
+     "seasonNumber": 1,
+     "episodeNumber": 36,
+     "title": "The Archeological Story",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
+     "airDate": "1952-06-02",
+     "year": 1952,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Dangerous Assignment  - The Archeological Story.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 81218891,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/DangerousAssignmentTheArcheologicalStory/Dangerous%20Assignment%20%20-%20The%20Archeological%20Story.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "DangerousAssignment1952Eps1-12",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Dangerous Assignment 1952",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "DangerousAssignmentEpisode9ThePatAndMikeStory1952Replaced.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 104033139,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/DangerousAssignment1952Eps1-12/DangerousAssignmentEpisode9ThePatAndMikeStory1952Replaced.mp4"
     },
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "DangerousAssignment1952Eps1-12",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Dangerous Assignment 1952",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "DangerousAssignmentEpisode9ThePatAndMikeStory1952Replaced.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 104033139,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/DangerousAssignment1952Eps1-12/DangerousAssignmentEpisode9ThePatAndMikeStory1952Replaced.mp4"
-        },
-        {
-          "archiveID": "DangerousAssignmentTheArtTreasureStory",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Dangerous Assignment: The Art Treasure Story",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1523,
-          "videoFile": {
-            "name": "DangerousAssignment-theArtTreasureStory.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 154145831,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DangerousAssignmentTheArtTreasureStory/DangerousAssignment-theArtTreasureStory.ia.mp4"
-        },
-        {
-          "archiveID": "DangerousAssignmentTheAssassinRing",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Dangerous Assignment: The Assassin Ring",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1551,
-          "videoFile": {
-            "name": "DangerousAssignment-theAssassinRing.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 154600322,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DangerousAssignmentTheAssassinRing/DangerousAssignment-theAssassinRing.ia.mp4"
-        },
-        {
-          "archiveID": "DangerousAssignment-TheSunflowerSeedStory",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Sunflower Seed Story",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "DangerousAssignment-TheSunflowerSeedStory.mp4",
-            "format": "h.264",
-            "sizeBytes": 143412442,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DangerousAssignment-TheSunflowerSeedStory/DangerousAssignment-TheSunflowerSeedStory.mp4"
-        },
-        {
-          "archiveID": "TheAlienSmugglerStory",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Alien Smuggler Story",
-          "overview": "Agent Steve Mitchell journeys to Portugal to help his friend and fellow agent bust a human smuggling operation.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1465,
-          "videoFile": {
-            "name": "DangerousAssignment-TheAlienSmugglerStory.mp4",
-            "format": "h.264",
-            "sizeBytes": 141493903,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheAlienSmugglerStory/DangerousAssignment-TheAlienSmugglerStory.mp4"
-        },
-        {
-          "archiveID": "DangerousAssignment-TheBhandaraStory",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Bhandara Story",
-          "overview": "Steve travels to Bombay in order to clear a jailed American citizen of sabotage charges.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1469,
-          "videoFile": {
-            "name": "DangerousAssignment-TheBhandaraStory.mp4",
-            "format": "h.264",
-            "sizeBytes": 145156862,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DangerousAssignment-TheBhandaraStory/DangerousAssignment-TheBhandaraStory.mp4"
-        },
-        {
-          "archiveID": "DangerousAssignment-TheKeyStory",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Key Story",
-          "overview": "Steve must risk his life in the Swiss Alps to recover a document that proves a country's recently deceased leader was murdered.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1554,
-          "videoFile": {
-            "name": "DangerousAssignment-TheKeyStory.mp4",
-            "format": "h.264",
-            "sizeBytes": 156480524,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DangerousAssignment-TheKeyStory/DangerousAssignment-TheKeyStory.mp4"
-        },
-        {
-          "archiveID": "DangerousAssignmentTheMissingDiplomatStory",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Missing Diplomat Story",
-          "overview": "In Barcelona, Steve tries to retrieve a taped conversation of a European diplomat who has disappeared.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1553,
-          "videoFile": {
-            "name": "DangerousAssignment-theMissingDiplomatStory.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 155744360,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DangerousAssignmentTheMissingDiplomatStory/DangerousAssignment-theMissingDiplomatStory.ia.mp4"
-        }
-      ]
-    }
-  ],
-  "episodesCount": 9,
-  "canonicalEpisodesCount": 10,
-  "seriesImdbID": "tt0044257",
-  "canonicalEpisodeCount": 21,
-  "canonicalSeasons": 1,
-  "cast": [
+     "archiveID": "DangerousAssignmentTheArtTreasureStory",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Dangerous Assignment: The Art Treasure Story",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1523,
+     "videoFile": {
+      "name": "DangerousAssignment-theArtTreasureStory.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 154145831,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DangerousAssignmentTheArtTreasureStory/DangerousAssignment-theArtTreasureStory.ia.mp4"
+    },
     {
-      "name": "Brian Donlevy",
-      "character": "Steve Mitchell",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/141/352862.jpg"
+     "archiveID": "DangerousAssignmentTheAssassinRing",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Dangerous Assignment: The Assassin Ring",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1551,
+     "videoFile": {
+      "name": "DangerousAssignment-theAssassinRing.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 154600322,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DangerousAssignmentTheAssassinRing/DangerousAssignment-theAssassinRing.ia.mp4"
+    },
+    {
+     "archiveID": "DangerousAssignment-TheSunflowerSeedStory",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Sunflower Seed Story",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "DangerousAssignment-TheSunflowerSeedStory.mp4",
+      "format": "h.264",
+      "sizeBytes": 143412442,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DangerousAssignment-TheSunflowerSeedStory/DangerousAssignment-TheSunflowerSeedStory.mp4"
+    },
+    {
+     "archiveID": "TheAlienSmugglerStory",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Alien Smuggler Story",
+     "overview": "Agent Steve Mitchell journeys to Portugal to help his friend and fellow agent bust a human smuggling operation.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1465,
+     "videoFile": {
+      "name": "DangerousAssignment-TheAlienSmugglerStory.mp4",
+      "format": "h.264",
+      "sizeBytes": 141493903,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/TheAlienSmugglerStory/DangerousAssignment-TheAlienSmugglerStory.mp4"
+    },
+    {
+     "archiveID": "DangerousAssignment-TheBhandaraStory",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Bhandara Story",
+     "overview": "Steve travels to Bombay in order to clear a jailed American citizen of sabotage charges.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1469,
+     "videoFile": {
+      "name": "DangerousAssignment-TheBhandaraStory.mp4",
+      "format": "h.264",
+      "sizeBytes": 145156862,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DangerousAssignment-TheBhandaraStory/DangerousAssignment-TheBhandaraStory.mp4"
+    },
+    {
+     "archiveID": "DangerousAssignment-TheKeyStory",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Key Story",
+     "overview": "Steve must risk his life in the Swiss Alps to recover a document that proves a country's recently deceased leader was murdered.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1554,
+     "videoFile": {
+      "name": "DangerousAssignment-TheKeyStory.mp4",
+      "format": "h.264",
+      "sizeBytes": 156480524,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DangerousAssignment-TheKeyStory/DangerousAssignment-TheKeyStory.mp4"
+    },
+    {
+     "archiveID": "DangerousAssignmentTheMissingDiplomatStory",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Missing Diplomat Story",
+     "overview": "In Barcelona, Steve tries to retrieve a taped conversation of a European diplomat who has disappeared.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1553,
+     "videoFile": {
+      "name": "DangerousAssignment-theMissingDiplomatStory.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 155744360,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DangerousAssignmentTheMissingDiplomatStory/DangerousAssignment-theMissingDiplomatStory.ia.mp4"
     }
-  ],
-  "tvdbID": "70391",
-  "artworkSource": "tvdb"
+   ]
+  }
+ ],
+ "episodesCount": 9,
+ "canonicalEpisodesCount": 10
 }

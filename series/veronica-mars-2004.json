@@ -1,249 +1,134 @@
 {
-  "version": 2,
-  "seriesID": "veronica-mars-2004",
-  "tvmazeID": 473,
-  "title": "Veronica Mars",
-  "yearStart": 2004,
-  "yearEnd": 2019,
-  "overview": "In the wealthy, seaside community of Neptune, the rich and powerful make the rules. They own the town and are desperately trying to keep their dirty little secrets just that... secret. Unfortunately for them, there's Veronica Mars, a smart, fearless private investigator dedicated to solving the town's toughest mysteries. During the day, Veronica studies hard, but by night, she helps her father Keith with his private investigator business, sneaking through back alleys and scoping out no-tell motels with a telescopic-lens camera in an attempt to uncover the California beach town's darkest secrets.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/73730-16.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama",
-    "Crime",
-    "Mystery"
-  ],
-  "networks": [
-    "Hulu"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "veronica-mars-2004",
+ "tvmazeID": 473,
+ "title": "Veronica Mars",
+ "yearStart": 2004,
+ "yearEnd": 2019,
+ "overview": "In the wealthy, seaside community of Neptune, the rich and powerful make the rules. They own the town and are desperately trying to keep their dirty little secrets just that... secret. Unfortunately for them, there's Veronica Mars, a smart, fearless private investigator dedicated to solving the town's toughest mysteries. During the day, Veronica studies hard, but by night, she helps her father Keith with his private investigator business, sneaking through back alleys and scoping out no-tell motels with a telescopic-lens camera in an attempt to uncover the California beach town's darkest secrets.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/9/24539.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Crime",
+  "Mystery"
+ ],
+ "networks": [
+  "Hulu"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "VeronicaSClosetVeronicaSBlackoutS1E17",
-          "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "Kanes and Abel's",
-          "overview": "Veronica investigates who at school is doing everything possible to distract Sabrina from studying and wreck her grades in an obvious attempt to sabotage her chances at becoming valedictorian.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/205/513676.jpg",
-          "airDate": "2005-04-05",
-          "year": 2005,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Veronica_s-Closet-Veronica_s-Blackout-_S1E17_.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 300487162,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/VeronicaSClosetVeronicaSBlackoutS1E17/Veronica_s-Closet-Veronica_s-Blackout-_S1E17_.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "VeronicaSClosetVeronicaSGreatModelSearchS2E3",
-          "seasonNumber": 2,
-          "episodeNumber": 3,
-          "title": "Cheatty Cheatty Bang Bang",
-          "overview": "Cassidy \"Beaver\" Casablancas believes that his sexy stepmother Kendall is cheating on his father, so he hires Veronica to investigate the situation, but neither are prepared for what they find.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/205/513684.jpg",
-          "airDate": "2005-10-12",
-          "year": 2005,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Veronica_s-Closet-Veronica_s-Great-Model-Search-_S2E3_.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 238977469,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/VeronicaSClosetVeronicaSGreatModelSearchS2E3/Veronica_s-Closet-Veronica_s-Great-Model-Search-_S2E3_.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 3,
-      "episodes": [
-        {
-          "archiveID": "VeronicaSClosetVeronicaGetsHerClosetBackS3E1",
-          "seasonNumber": 3,
-          "episodeNumber": 1,
-          "title": "Welcome Wagon",
-          "overview": "Veronica is in true form from the moment she and boyfriend Logan, along with close friends Wallace and Mac, set foot on the campus of Hearst College. Wallace enlists Veronica's help when his new roommate, Piz, has all his belongings stolen. While working on Piz's case, Veronica learns that the campus serial rapist has struck again. Meanwhile, Keith runs into trouble while transporting a recently released convict across the country to reunite him with Kendall.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/205/513704.jpg",
-          "airDate": "2006-10-03",
-          "year": 2006,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Veronica_s-Closet-Veronica-Gets-Her-Closet-Back-_S3E1_.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 189374015,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/VeronicaSClosetVeronicaGetsHerClosetBackS3E1/Veronica_s-Closet-Veronica-Gets-Her-Closet-Back-_S3E1_.mp4"
-        },
-        {
-          "archiveID": "veronicascloset",
-          "seasonNumber": 3,
-          "episodeNumber": 8,
-          "title": "Lord of the Pi's",
-          "overview": "Selma Rose, the wealthy grand-daughter of the founder of Hearst College and a member of the Hearst College Board of Trustees, mysteriously disappears the night before she is to cast a swing vote that will determine the fate of the Greek system on campus. Keith, with Veronica's help, is hired by Dean O'Dell to investigate the disappearance. Meanwhile, Veronica has been rehired as a photographer at the Hearst Free Press, but she and Logan fight over her involvement in the rape case.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/205/513711.jpg",
-          "airDate": "2006-11-21",
-          "year": 2006,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "S03E08 - Veronica's Sliding Doors.mp4",
-            "format": "h.264",
-            "sizeBytes": 129870119,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/veronicascloset/S03E08 - Veronica's Sliding Doors.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "VeronicaSClosetSilentPartnerS1Finale",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Veronica's Closet- Silent Partner",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/VeronicaSClosetSilentPartnerS1Finale",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Veronica_s-Closet-Silent-Partner-_S1-Finale_.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 274820813,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/VeronicaSClosetSilentPartnerS1Finale/Veronica_s-Closet-Silent-Partner-_S1-Finale_.mp4"
-        }
-      ]
+     "archiveID": "VeronicaSClosetVeronicaSBlackoutS1E17",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "Kanes and Abel's",
+     "overview": "Veronica investigates who at school is doing everything possible to distract Sabrina from studying and wreck her grades in an obvious attempt to sabotage her chances at becoming valedictorian.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/205/513676.jpg",
+     "airDate": "2005-04-05",
+     "year": 2005,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Veronica_s-Closet-Veronica_s-Blackout-_S1E17_.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 300487162,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/VeronicaSClosetVeronicaSBlackoutS1E17/Veronica_s-Closet-Veronica_s-Blackout-_S1E17_.mp4"
     }
-  ],
-  "episodesCount": 5,
-  "canonicalEpisodesCount": 72,
-  "seriesImdbID": "tt0412253",
-  "canonicalEpisodeCount": 72,
-  "canonicalSeasons": 4,
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
-      "name": "Kristen Bell",
-      "character": "Veronica Mars",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/550/1377439.jpg"
-    },
-    {
-      "name": "Enrico Colantoni",
-      "character": "Keith Mars",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/37/93262.jpg"
-    },
-    {
-      "name": "Jason Dohring",
-      "character": "Logan Echolls",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9643.jpg"
-    },
-    {
-      "name": "Percy Daggs III",
-      "character": "Wallace Fennel",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9641.jpg"
-    },
-    {
-      "name": "Francis Capra",
-      "character": "Eli \"Weevil\" Navarro",
-      "order": 4,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/209/522690.jpg"
-    },
-    {
-      "name": "Ryan Hansen",
-      "character": "Dick Casablancas",
-      "order": 5,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9648.jpg"
-    },
-    {
-      "name": "Michael Muhney",
-      "character": "Sheriff Don Lamb",
-      "order": 6,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9647.jpg"
-    },
-    {
-      "name": "Teddy Dunn",
-      "character": "Duncan Kane",
-      "order": 7,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/70/176246.jpg"
-    },
-    {
-      "name": "Tina Majorino",
-      "character": "Cindy \"Mac\" Mackenzie",
-      "order": 8,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9644.jpg"
-    },
-    {
-      "name": "Julie Gonzalo",
-      "character": "Parker Lee",
-      "order": 9,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/301/753183.jpg"
-    },
-    {
-      "name": "Chris Lowell",
-      "character": "Stosh \"Piz\" Piznarski",
-      "order": 10,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9645.jpg"
-    },
-    {
-      "name": "Kyle Gallner",
-      "character": "Cassidy \"Beaver\" Casablancas",
-      "order": 11,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/482/1206459.jpg"
-    },
-    {
-      "name": "Daran Norris",
-      "character": "Cliff McCormack",
-      "order": 12,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/25980.jpg"
-    },
-    {
-      "name": "Tessa Thompson",
-      "character": "Jackie Cook",
-      "order": 13,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/607/1519700.jpg"
-    },
-    {
-      "name": "Max Greenfield",
-      "character": "Leo D'Amato",
-      "order": 14,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/8060.jpg"
-    },
-    {
-      "name": "Clifton Collins, Jr.",
-      "character": "Alonzo Lozano",
-      "order": 15,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/591/1479430.jpg"
-    },
-    {
-      "name": "Frank Gallegos",
-      "character": "Dodie Mendoza",
-      "order": 16,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/86/215897.jpg"
-    },
-    {
-      "name": "Dawnn Lewis",
-      "character": "Marcia Langdon",
-      "order": 17,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/8/22413.jpg"
+     "archiveID": "VeronicaSClosetVeronicaSGreatModelSearchS2E3",
+     "seasonNumber": 2,
+     "episodeNumber": 3,
+     "title": "Cheatty Cheatty Bang Bang",
+     "overview": "Cassidy \"Beaver\" Casablancas believes that his sexy stepmother Kendall is cheating on his father, so he hires Veronica to investigate the situation, but neither are prepared for what they find.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/205/513684.jpg",
+     "airDate": "2005-10-12",
+     "year": 2005,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Veronica_s-Closet-Veronica_s-Great-Model-Search-_S2E3_.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 238977469,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/VeronicaSClosetVeronicaSGreatModelSearchS2E3/Veronica_s-Closet-Veronica_s-Great-Model-Search-_S2E3_.mp4"
     }
-  ],
-  "tvdbID": "73730",
-  "artworkSource": "tvdb"
+   ]
+  },
+  {
+   "seasonNumber": 3,
+   "episodes": [
+    {
+     "archiveID": "VeronicaSClosetVeronicaGetsHerClosetBackS3E1",
+     "seasonNumber": 3,
+     "episodeNumber": 1,
+     "title": "Welcome Wagon",
+     "overview": "Veronica is in true form from the moment she and boyfriend Logan, along with close friends Wallace and Mac, set foot on the campus of Hearst College. Wallace enlists Veronica's help when his new roommate, Piz, has all his belongings stolen. While working on Piz's case, Veronica learns that the campus serial rapist has struck again. Meanwhile, Keith runs into trouble while transporting a recently released convict across the country to reunite him with Kendall.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/205/513704.jpg",
+     "airDate": "2006-10-03",
+     "year": 2006,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Veronica_s-Closet-Veronica-Gets-Her-Closet-Back-_S3E1_.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 189374015,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/VeronicaSClosetVeronicaGetsHerClosetBackS3E1/Veronica_s-Closet-Veronica-Gets-Her-Closet-Back-_S3E1_.mp4"
+    },
+    {
+     "archiveID": "veronicascloset",
+     "seasonNumber": 3,
+     "episodeNumber": 8,
+     "title": "Lord of the Pi's",
+     "overview": "Selma Rose, the wealthy grand-daughter of the founder of Hearst College and a member of the Hearst College Board of Trustees, mysteriously disappears the night before she is to cast a swing vote that will determine the fate of the Greek system on campus. Keith, with Veronica's help, is hired by Dean O'Dell to investigate the disappearance. Meanwhile, Veronica has been rehired as a photographer at the Hearst Free Press, but she and Logan fight over her involvement in the rape case.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/205/513711.jpg",
+     "airDate": "2006-11-21",
+     "year": 2006,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "S03E08 - Veronica's Sliding Doors.mp4",
+      "format": "h.264",
+      "sizeBytes": 129870119,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/veronicascloset/S03E08 - Veronica's Sliding Doors.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "VeronicaSClosetSilentPartnerS1Finale",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Veronica's Closet- Silent Partner",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/VeronicaSClosetSilentPartnerS1Finale",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Veronica_s-Closet-Silent-Partner-_S1-Finale_.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 274820813,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/VeronicaSClosetSilentPartnerS1Finale/Veronica_s-Closet-Silent-Partner-_S1-Finale_.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 5,
+ "canonicalEpisodesCount": 72
 }

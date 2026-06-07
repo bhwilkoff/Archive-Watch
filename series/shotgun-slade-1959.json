@@ -1,147 +1,122 @@
 {
-  "version": 2,
-  "seriesID": "shotgun-slade-1959",
-  "tvmazeID": 16105,
-  "title": "Shotgun Slade",
-  "yearStart": 1959,
-  "yearEnd": 1961,
-  "overview": "A late entry in the TV Westerns boom of the late 50s. Shotgun Slade unlike other show hero wasn't a marshal, sheriff or gunfighter for hire, but Slade was a private detective, hired to track down criminals, return stolen money, or solve mysteries surrounding the death of townspeople. The show has more in common with shows like Peter Gunn and 77 Sunset Strip than Gunsmoke and Bonanza. Shotgun Slade depended on strong characters and storylines than action.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/78617-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Western"
-  ],
-  "networks": [
-    "Syndication"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "shotgun-slade-1959",
+ "tvmazeID": 16105,
+ "title": "Shotgun Slade",
+ "yearStart": 1959,
+ "yearEnd": 1961,
+ "overview": "A late entry in the TV Westerns boom of the late 50s. Shotgun Slade unlike other show hero wasn't a marshal, sheriff or gunfighter for hire, but Slade was a private detective, hired to track down criminals, return stolen money, or solve mysteries surrounding the death of townspeople. The show has more in common with shows like Peter Gunn and 77 Sunset Strip than Gunsmoke and Bonanza. Shotgun Slade depended on strong characters and storylines than action.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/73/182838.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Western"
+ ],
+ "networks": [
+  "Syndication"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "ShotgunsladeAflowerforjenny",
-          "seasonNumber": 1,
-          "episodeNumber": 28,
-          "title": "A Flower for Jenny",
-          "overview": "Slade arrives in Deadwood to protect a singer who's life has been threatened, possibly by a former admirer, a gunman and gambler.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/85iX9xvjGg2lrRAii1vWmR6ckJo.jpg",
-          "airDate": "1960-04-29",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "shotgunslade_aflowerforjenny.mp4",
-            "format": "h.264",
-            "sizeBytes": 160957315,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ShotgunsladeAflowerforjenny/shotgunslade_aflowerforjenny.mp4"
-        },
-        {
-          "archiveID": "ShotgunSlade-CrossedGuns",
-          "seasonNumber": 1,
-          "episodeNumber": 30,
-          "title": "Crossed Guns",
-          "overview": "Slade comes by Phillips, an ex-con he sent to jail, and who has lost his right hand. The former gunfighter has hired a young colleague to kill Slade. The sheriff's daughter and some citizens offer to pay Slade's fee to get rid of Phillips and his minions. Phillips has laid out a scheme to grab lands pretending he is the long-lost brother of the town founder.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/73/182859.jpg",
-          "airDate": "1960-05-13",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "ShotgunSlade-CrossedGuns.mp4",
-            "format": "h.264",
-            "sizeBytes": 156340973,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ShotgunSlade-CrossedGuns/ShotgunSlade-CrossedGuns.mp4"
-        },
-        {
-          "archiveID": "ShotgunSlade-TheSpanishBox",
-          "seasonNumber": 1,
-          "episodeNumber": 32,
-          "title": "The Spanish Box",
-          "overview": "In \"The Spanish Box\" Slade travels by stage to Lodestone where he has been hired to deliver a package to the town banker, and becomes the number one suspect in a murder charge.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/427/1069332.jpg",
-          "airDate": "1960-05-21",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "ShotgunSlade-TheSpanishBox.mp4",
-            "format": "h.264",
-            "sizeBytes": 156917658,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ShotgunSlade-TheSpanishBox/ShotgunSlade-TheSpanishBox.mp4"
-        },
-        {
-          "archiveID": "ShotgunSlade-FlowerOnBootHill",
-          "seasonNumber": 1,
-          "episodeNumber": 36,
-          "title": "A Flower on Boot Hill",
-          "overview": "On his way to Toscato to investigate a bank robbery, Slade is jumped by two convicts who knock him unconscious, strip him of his gun, clothes and horse, and leave him in the road, in \"Flower on Boot Hill.\" Slade meets Kate Shelby who has returned to Boot Hil, she suspects her brother-in-law, Doctor Brighton, has something to do with her sister's demise. Slade investigates and finds Brighton is allied with the convicts.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/251/629591.jpg",
-          "airDate": "1960-06-11",
-          "year": 1960,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "ShotgunSlade-FlowerOnBootHill.mp4",
-            "format": "h.264",
-            "sizeBytes": 156328985,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ShotgunSlade-FlowerOnBootHill/ShotgunSlade-FlowerOnBootHill.mp4"
-        }
-      ]
+     "archiveID": "ShotgunsladeAflowerforjenny",
+     "seasonNumber": 1,
+     "episodeNumber": 28,
+     "title": "A Flower for Jenny",
+     "overview": "Slade arrives in Deadwood to protect a singer who's life has been threatened, possibly by a former admirer, a gunman and gambler.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/85iX9xvjGg2lrRAii1vWmR6ckJo.jpg",
+     "airDate": "1960-04-29",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "shotgunslade_aflowerforjenny.mp4",
+      "format": "h.264",
+      "sizeBytes": 160957315,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ShotgunsladeAflowerforjenny/shotgunslade_aflowerforjenny.mp4"
     },
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "ShotgunSlade-RingOfDeath",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Ring of Death",
-          "overview": "An unscrupulous young woman devises a cruel plan to cash in on her fiance's recent cattle sale. Scott Brady, Bethel Leslie, H.M. Wynant, Richard Crane.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/85iX9xvjGg2lrRAii1vWmR6ckJo.jpg",
-          "airDate": null,
-          "year": 1960,
-          "runtimeSeconds": 1549,
-          "videoFile": {
-            "name": "ringofdeath.mp4",
-            "format": "h.264",
-            "sizeBytes": 158066531,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ShotgunSlade-RingOfDeath/ringofdeath.mp4"
-        }
-      ]
+     "archiveID": "ShotgunSlade-CrossedGuns",
+     "seasonNumber": 1,
+     "episodeNumber": 30,
+     "title": "Crossed Guns",
+     "overview": "Slade comes by Phillips, an ex-con he sent to jail, and who has lost his right hand. The former gunfighter has hired a young colleague to kill Slade. The sheriff's daughter and some citizens offer to pay Slade's fee to get rid of Phillips and his minions. Phillips has laid out a scheme to grab lands pretending he is the long-lost brother of the town founder.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/73/182859.jpg",
+     "airDate": "1960-05-13",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ShotgunSlade-CrossedGuns.mp4",
+      "format": "h.264",
+      "sizeBytes": 156340973,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ShotgunSlade-CrossedGuns/ShotgunSlade-CrossedGuns.mp4"
+    },
+    {
+     "archiveID": "ShotgunSlade-TheSpanishBox",
+     "seasonNumber": 1,
+     "episodeNumber": 32,
+     "title": "The Spanish Box",
+     "overview": "In \"The Spanish Box\" Slade travels by stage to Lodestone where he has been hired to deliver a package to the town banker, and becomes the number one suspect in a murder charge.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/427/1069332.jpg",
+     "airDate": "1960-05-21",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ShotgunSlade-TheSpanishBox.mp4",
+      "format": "h.264",
+      "sizeBytes": 156917658,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ShotgunSlade-TheSpanishBox/ShotgunSlade-TheSpanishBox.mp4"
+    },
+    {
+     "archiveID": "ShotgunSlade-FlowerOnBootHill",
+     "seasonNumber": 1,
+     "episodeNumber": 36,
+     "title": "A Flower on Boot Hill",
+     "overview": "On his way to Toscato to investigate a bank robbery, Slade is jumped by two convicts who knock him unconscious, strip him of his gun, clothes and horse, and leave him in the road, in \"Flower on Boot Hill.\" Slade meets Kate Shelby who has returned to Boot Hil, she suspects her brother-in-law, Doctor Brighton, has something to do with her sister's demise. Slade investigates and finds Brighton is allied with the convicts.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/251/629591.jpg",
+     "airDate": "1960-06-11",
+     "year": 1960,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ShotgunSlade-FlowerOnBootHill.mp4",
+      "format": "h.264",
+      "sizeBytes": 156328985,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ShotgunSlade-FlowerOnBootHill/ShotgunSlade-FlowerOnBootHill.mp4"
     }
-  ],
-  "episodesCount": 5,
-  "canonicalEpisodesCount": 78,
-  "seriesImdbID": "tt0052508",
-  "canonicalEpisodeCount": 64,
-  "canonicalSeasons": 2,
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
-      "name": "Scott Brady",
-      "character": "Shotgun Slade",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/172/431657.jpg"
-    },
-    {
-      "name": "Monica Lewis",
-      "character": "Monica Bristol",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/74/186982.jpg"
-    },
-    {
-      "name": "Frank Ferguson",
-      "character": "Mike Oliver",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/81/202700.jpg"
+     "archiveID": "ShotgunSlade-RingOfDeath",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Ring of Death",
+     "overview": "An unscrupulous young woman devises a cruel plan to cash in on her fiance's recent cattle sale. Scott Brady, Bethel Leslie, H.M. Wynant, Richard Crane.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/85iX9xvjGg2lrRAii1vWmR6ckJo.jpg",
+     "airDate": null,
+     "year": 1960,
+     "runtimeSeconds": 1549,
+     "videoFile": {
+      "name": "ringofdeath.mp4",
+      "format": "h.264",
+      "sizeBytes": 158066531,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ShotgunSlade-RingOfDeath/ringofdeath.mp4"
     }
-  ],
-  "tvdbID": "78617",
-  "artworkSource": "tvdb"
+   ]
+  }
+ ],
+ "episodesCount": 5,
+ "canonicalEpisodesCount": 78
 }

@@ -1,207 +1,146 @@
 {
-  "version": 2,
-  "seriesID": "everybody-loves-raymond-1996",
-  "tvmazeID": 573,
-  "title": "Everybody Loves Raymond",
-  "yearStart": 1996,
-  "yearEnd": 2023,
-  "overview": "Ray Barone is a successful sportswriter who deals with his brother and parents, who happen to live across the street.",
-  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/73663/posters/63c0724773c9e.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy",
-    "Family"
-  ],
-  "networks": [
-    "CBS"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "everybody-loves-raymond-1996",
+ "tvmazeID": 573,
+ "title": "Everybody Loves Raymond",
+ "yearStart": 1996,
+ "yearEnd": 2005,
+ "overview": "Ray Barone is a successful sportswriter who deals with his brother and parents, who happen to live across the street.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/495/1238665.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy",
+  "Family"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "everybody-loves-raymond-s01e01-pilot",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Everybody Loves Raymond - S01E01 - Pilot",
-          "overview": "<span><span>Ray Barone's life seems perfect: he's a successful \nsportswriter living with his wife Debra and three kids, but trouble \ncomes in paradise in the shape of his interfering mother, grumpy father \nand resentful brother. In this opening episode of the series, Debra \nwants a peaceful birthday with Ray, so he</span><span class=\"yZlgBd\"> tells his parents and brother that there's no party: a lie with embarrassing consequences.</span></span>",
-          "stillURL": "https://archive.org/services/img/everybody-loves-raymond-s01e01-pilot",
-          "airDate": "1996-09-13",
-          "year": 1996,
-          "runtimeSeconds": 1413,
-          "videoFile": {
-            "name": "Everybody Loves Raymond S01E01 Pilot.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 258707013,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/everybody-loves-raymond-s01e01-pilot/Everybody%20Loves%20Raymond%20S01E01%20Pilot.mp4"
-        },
-        {
-          "archiveID": "everybody-loves-raymond-s-01-e-01-pilot-theatical-version",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Everybody Loves Raymond S01E01 Pilot Theatrical Version",
-          "overview": "Debra yearns for a peaceful and quiet birthday at home with just Raymond. So he tells his parents and brother that there's no party. ",
-          "stillURL": "https://archive.org/services/img/everybody-loves-raymond-s-01-e-01-pilot-theatical-version",
-          "airDate": "1996-09-13",
-          "year": 1996,
-          "runtimeSeconds": 1286,
-          "videoFile": {
-            "name": "Everybody Loves Raymond S01E01 Pilot Theatical Version.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 1077673853,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/everybody-loves-raymond-s-01-e-01-pilot-theatical-version/Everybody%20Loves%20Raymond%20S01E01%20Pilot%20Theatical%20Version.ia.mp4"
-        },
-        {
-          "archiveID": "img-0252_202306",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Everybody Loves Raymond - Fighting In-Laws Clips",
-          "overview": "A few clips of the episode “Fighting In Laws” on Everybody Loves Raymond, 2 of them are of the arguments of Debra’s parents, while one of them is of the argument between Ray &amp; Debra when they compare how bad each other’s parents are and everything wrong with each other’s parents in comparison to their own (Debra also repeatedly drops the Thanksgiving Day Turkey by accident before throwing it into the oven to heat up right after in that one by the way).",
-          "stillURL": "https://archive.org/services/img/img-0252_202306",
-          "airDate": "1996-11-01",
-          "year": 2023,
-          "runtimeSeconds": 357,
-          "videoFile": {
-            "name": "IMG_0252.mp4",
-            "format": "h.264",
-            "sizeBytes": 35736495,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/img-0252_202306/IMG_0252.mp4"
-        }
-      ]
+     "archiveID": "everybody-loves-raymond-s-01-e-01-pilot-theatical-version",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Everybody Loves Raymond S01E01 Pilot Theatrical Version",
+     "overview": "Debra yearns for a peaceful and quiet birthday at home with just Raymond. So he tells his parents and brother that there's no party. ",
+     "stillURL": "https://archive.org/services/img/everybody-loves-raymond-s-01-e-01-pilot-theatical-version",
+     "airDate": null,
+     "year": 1996,
+     "runtimeSeconds": 1286,
+     "videoFile": {
+      "name": "Everybody Loves Raymond S01E01 Pilot Theatical Version.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 1077673853,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/everybody-loves-raymond-s-01-e-01-pilot-theatical-version/Everybody%20Loves%20Raymond%20S01E01%20Pilot%20Theatical%20Version.ia.mp4"
     },
     {
-      "seasonNumber": 5,
-      "episodes": [
-        {
-          "archiveID": "everybody-loves-raymond-complete-series_202601",
-          "seasonNumber": 5,
-          "episodeNumber": 2,
-          "title": "Italy",
-          "overview": "When Marie surprises the family with the news that she's treating them all to a two-week vacation in Rome, everybody loves the idea, except Raymond. Not willing to let his sour mood spoil it for the rest of the family, Debra, Frank, Marie, Robert and the kids go on their merry way and soak up the atmosphere, sights, smells and tastes of the city of love and try their best to ignore Ray. Meanwhile, Robert meets the girl of his dreams—she's stunningly beautiful, unbelievably sexy, and works in a gelato shop.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/495/1238546.jpg",
-          "airDate": "2000-10-02",
-          "year": 2000,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Everybody Loves Raymond S05E02 - Italy (Part 2).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 90237125,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_202601/Everybody%20Loves%20Raymond%20S05E02%20-%20Italy%20%28Part%202%29.mp4"
-        },
-        {
-          "archiveID": "everybody-loves-raymond-complete-series_202512",
-          "seasonNumber": 5,
-          "episodeNumber": 2,
-          "title": "Italy (2)",
-          "overview": "When Marie surprises the family with the news that she's treating them all to a two-week vacation in Rome, everybody loves the idea, except Raymond. Not willing to let his sour mood spoil it for the rest of the family, Debra, Frank, Marie, Robert and the kids go on their merry way and soak up the atmosphere, sights, smells and tastes of the city of love and try their best to ignore Ray. Meanwhile, Robert meets the girl of his dreams—she's stunningly beautiful, unbelievably sexy, and works in a gelato shop.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/495/1238546.jpg",
-          "airDate": "2000-10-02",
-          "year": 2000,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Everybody Loves Raymond S05E02 - Italy (Part 2).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 90237125,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_202512/Everybody%20Loves%20Raymond%20S05E02%20-%20Italy%20%28Part%202%29.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "everybody-loves-raymond-complete-series_20251121_0430",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Everybody Loves Raymond",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Everybody Loves Raymond S06X01 The First Six Years.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 123117035,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_20251121_0430/Everybody%20Loves%20Raymond%20S06X01%20The%20First%20Six%20Years.mp4"
-        }
-      ]
+     "archiveID": "everybody-loves-raymond-s01e01-pilot",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Pilot",
+     "overview": "Tired of their interference, Debra tries to prevent Ray's parents and brother from coming over on her birthday.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/495/1238230.jpg",
+     "airDate": "1996-09-13",
+     "year": 1996,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Everybody Loves Raymond S01E01 Pilot.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 258707013,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/everybody-loves-raymond-s01e01-pilot/Everybody%20Loves%20Raymond%20S01E01%20Pilot.mp4"
     }
-  ],
-  "episodesCount": 6,
-  "canonicalEpisodesCount": 209,
-  "seriesImdbID": "tt0115167",
-  "canonicalEpisodeCount": 204,
-  "canonicalSeasons": 9,
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 5,
+   "episodes": [
     {
-      "name": "Ray Romano",
-      "character": "Raymond Barone",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/458/1146579.jpg"
+     "archiveID": "everybody-loves-raymond-complete-series_202512",
+     "seasonNumber": 5,
+     "episodeNumber": 2,
+     "title": "Italy",
+     "overview": "When Marie surprises the family with the news that she's treating them all to a two-week vacation in Rome, everybody loves the idea, except Raymond. Not willing to let his sour mood spoil it for the rest of the family, Debra, Frank, Marie, Robert and the kids go on their merry way and soak up the atmosphere, sights, smells and tastes of the city of love and try their best to ignore Ray. Meanwhile, Robert meets the girl of his dreams—she's stunningly beautiful, unbelievably sexy, and works in a gelato shop.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/495/1238546.jpg",
+     "airDate": null,
+     "year": 2000,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Everybody Loves Raymond S05E02 - Italy (Part 2).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 90237125,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_202512/Everybody%20Loves%20Raymond%20S05E02%20-%20Italy%20%28Part%202%29.mp4"
     },
     {
-      "name": "Patricia Heaton",
-      "character": "Debra Barone",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/112/280443.jpg"
-    },
-    {
-      "name": "Brad Garrett",
-      "character": "Robert Barone",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/13781.jpg"
-    },
-    {
-      "name": "Doris Roberts",
-      "character": "Marie Barone",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/13783.jpg"
-    },
-    {
-      "name": "Peter Boyle",
-      "character": "Frank Barone",
-      "order": 4,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/13785.jpg"
-    },
-    {
-      "name": "Madylin Sweeten",
-      "character": "Ally Barone",
-      "order": 5,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/13791.jpg"
-    },
-    {
-      "name": "Sullivan Sweeten",
-      "character": "Michael Barone",
-      "order": 6,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/13795.jpg"
-    },
-    {
-      "name": "Sawyer Sweeten",
-      "character": "Geoffrey Barone",
-      "order": 7,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/13796.jpg"
-    },
-    {
-      "name": "Monica Horan",
-      "character": "Amy MacDougall-Barone",
-      "order": 8,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/13787.jpg"
+     "archiveID": "everybody-loves-raymond-complete-series_202601",
+     "seasonNumber": 5,
+     "episodeNumber": 2,
+     "title": "Italy (2)",
+     "overview": "When Marie surprises the family with the news that she's treating them all to a two-week vacation in Rome, everybody loves the idea, except Raymond. Not willing to let his sour mood spoil it for the rest of the family, Debra, Frank, Marie, Robert and the kids go on their merry way and soak up the atmosphere, sights, smells and tastes of the city of love and try their best to ignore Ray. Meanwhile, Robert meets the girl of his dreams—she's stunningly beautiful, unbelievably sexy, and works in a gelato shop.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/495/1238546.jpg",
+     "airDate": "2000-10-02",
+     "year": 2000,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Everybody Loves Raymond S05E02 - Italy (Part 2).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 90237125,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_202601/Everybody%20Loves%20Raymond%20S05E02%20-%20Italy%20%28Part%202%29.mp4"
     }
-  ],
-  "tvdbID": "73663",
-  "artworkSource": "tvdb"
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "everybody-loves-raymond-complete-series_20251121_0430",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Everybody Loves Raymond",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Everybody Loves Raymond S06X01 The First Six Years.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 123117035,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_20251121_0430/Everybody%20Loves%20Raymond%20S06X01%20The%20First%20Six%20Years.mp4"
+    },
+    {
+     "archiveID": "img-0252_202306",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Everybody Loves Raymond - Fighting In-Laws Clips",
+     "overview": "A few clips of the episode “Fighting In Laws” on Everybody Loves Raymond, 2 of them are of the arguments of Debra’s parents, while one of them is of the argument between Ray &amp; Debra when they compare how bad each other’s parents are and everything wrong with each other’s parents in comparison to their own (Debra also repeatedly drops the Thanksgiving Day Turkey by accident before throwing it into the oven to heat up right after in that one by the way).",
+     "stillURL": "https://archive.org/services/img/img-0252_202306",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 357,
+     "videoFile": {
+      "name": "IMG_0252.mp4",
+      "format": "h.264",
+      "sizeBytes": 35736495,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/img-0252_202306/IMG_0252.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 6,
+ "canonicalEpisodesCount": 209
 }

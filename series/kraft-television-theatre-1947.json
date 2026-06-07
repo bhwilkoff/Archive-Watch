@@ -1,98 +1,81 @@
 {
-  "version": 2,
-  "seriesID": "kraft-television-theatre-1947",
-  "tvmazeID": 14394,
-  "title": "Kraft Television Theatre",
-  "yearStart": 1947,
-  "yearEnd": 1958,
-  "overview": "Kraft Television Theatre was an American drama/anthology television series that ran on Wednesday nights from 1947 -1958 on NBC. Each live hour-long episode featured television plays with new stories and new characters every week",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/48/122359.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "kraft-television-theatre-1947",
+ "tvmazeID": 14394,
+ "title": "Kraft Television Theatre",
+ "yearStart": 1947,
+ "yearEnd": 1958,
+ "overview": "Kraft Television Theatre was an American drama/anthology television series that ran on Wednesday nights from 1947 -1958 on NBC. Each live hour-long episode featured television plays with new stories and new characters every week",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/48/122359.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "kraft-television-theatre-alice-in-wonderland-1954",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Kraft Television Theatre - Alice In Wonderland",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/kraft-television-theatre-alice-in-wonderland-1954",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Kraft Television Theatre Alice in Wonderland (1954).ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 392473103,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/kraft-television-theatre-alice-in-wonderland-1954/Kraft Television Theatre Alice in Wonderland (1954).ia.mp4"
-        },
-        {
-          "archiveID": "kraft-television-theatre-kelly-1951",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Kraft Television Theatre - Kelly",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/kraft-television-theatre-kelly-1951",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Kraft Television Theatre Kelly (1951).ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 378922411,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/kraft-television-theatre-kelly-1951/Kraft Television Theatre Kelly (1951).ia.mp4"
-        },
-        {
-          "archiveID": "kraft-television-theatre-kidnapped-1954",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Kraft Television Theatre - Kidnapped",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/kraft-television-theatre-kidnapped-1954",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Kraft Television Theatre- Kidnapped (1954).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 183236846,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/kraft-television-theatre-kidnapped-1954/Kraft Television Theatre- Kidnapped (1954).mp4"
-        }
-      ]
-    }
-  ],
-  "episodesCount": 3,
-  "canonicalEpisodesCount": 526,
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0,
-  "tvdbID": "76626",
-  "cast": [
-    {
-      "name": "Charles Stark",
-      "character": "",
-      "order": 0,
-      "profilePath": null
+     "archiveID": "kraft-television-theatre-alice-in-wonderland-1954",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Kraft Television Theatre - Alice In Wonderland",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/kraft-television-theatre-alice-in-wonderland-1954",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Kraft Television Theatre Alice in Wonderland (1954).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 392473103,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/kraft-television-theatre-alice-in-wonderland-1954/Kraft Television Theatre Alice in Wonderland (1954).ia.mp4"
     },
     {
-      "name": "Ed Herlihy",
-      "character": "",
-      "order": 1,
-      "profilePath": null
+     "archiveID": "kraft-television-theatre-kelly-1951",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Kraft Television Theatre - Kelly",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/kraft-television-theatre-kelly-1951",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Kraft Television Theatre Kelly (1951).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 378922411,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/kraft-television-theatre-kelly-1951/Kraft Television Theatre Kelly (1951).ia.mp4"
+    },
+    {
+     "archiveID": "kraft-television-theatre-kidnapped-1954",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Kraft Television Theatre - Kidnapped",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/kraft-television-theatre-kidnapped-1954",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Kraft Television Theatre- Kidnapped (1954).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 183236846,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/kraft-television-theatre-kidnapped-1954/Kraft Television Theatre- Kidnapped (1954).mp4"
     }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 3,
+ "canonicalEpisodesCount": 526
 }

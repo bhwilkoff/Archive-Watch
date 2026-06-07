@@ -1,454 +1,444 @@
 {
-  "version": 2,
-  "seriesID": "suspense-1949",
-  "tvmazeID": 13972,
-  "title": "Suspense",
-  "yearStart": 1949,
-  "yearEnd": 1954,
-  "overview": "This anthology series, filmed live, features tales of horror and suspense.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/75716-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Horror",
-    "Thriller"
-  ],
-  "networks": [
-    "CBS"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "suspense-1949",
+ "tvmazeID": 13972,
+ "title": "Suspense",
+ "yearStart": 1949,
+ "yearEnd": 1954,
+ "overview": "This anthology series, filmed live, features tales of horror and suspense.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/47/119781.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Horror",
+  "Thriller"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "Suspense-TheCaskOfAmontillado",
-          "seasonNumber": 2,
-          "episodeNumber": 6,
-          "title": "The Cask of Amontillado",
-          "overview": "In this loose adaptation of Edgar Allen Poe's \"The Cask of Amontillado,\" a vengeful Italian count during World War II lures the stable boy turned Nazi General to his wine cellar to taste a rare Amontillado wine.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1949-10-11",
-          "year": 1949,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense-theCaskOfAmontillado.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 85754688,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Suspense-TheCaskOfAmontillado/Suspense-theCaskOfAmontillado.mp4"
-        },
-        {
-          "archiveID": "Suspense--My_Old_Mans_Badge",
-          "seasonNumber": 2,
-          "episodeNumber": 29,
-          "title": "The Old Man's Badge",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1950-03-21",
-          "year": 1950,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense229_My_Old_Mans_Badge.mp4",
-            "format": "h.264",
-            "sizeBytes": 130525781,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--My_Old_Mans_Badge/Suspense229_My_Old_Mans_Badge.mp4"
-        },
-        {
-          "archiveID": "Suspense--Photo_Finish",
-          "seasonNumber": 2,
-          "episodeNumber": 38,
-          "title": "Photo Finish",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1950-05-23",
-          "year": 1950,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense--Photo_Finish.mp4",
-            "format": "h.264",
-            "sizeBytes": 133610988,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--Photo_Finish/Suspense--Photo_Finish.mp4"
-        },
-        {
-          "archiveID": "Suspense--Im_No_Hero",
-          "seasonNumber": 2,
-          "episodeNumber": 41,
-          "title": "I'm No Hero",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1950-06-20",
-          "year": 1950,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense--Im_No_Hero.mp4",
-            "format": "h.264",
-            "sizeBytes": 129031310,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--Im_No_Hero/Suspense--Im_No_Hero.mp4"
-        }
-      ]
+     "archiveID": "Suspense-TheCaskOfAmontillado",
+     "seasonNumber": 2,
+     "episodeNumber": 6,
+     "title": "The Cask of Amontillado",
+     "overview": "In this loose adaptation of Edgar Allen Poe's \"The Cask of Amontillado,\" a vengeful Italian count during World War II lures the stable boy turned Nazi General to his wine cellar to taste a rare Amontillado wine.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": "1949-10-11",
+     "year": 1949,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense-theCaskOfAmontillado.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 85754688,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Suspense-TheCaskOfAmontillado/Suspense-theCaskOfAmontillado.mp4"
     },
     {
-      "seasonNumber": 3,
-      "episodes": [
-        {
-          "archiveID": "Suspense--Edge_of_Panic",
-          "seasonNumber": 3,
-          "episodeNumber": 3,
-          "title": "Edge of Panic",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1950-09-12",
-          "year": 1950,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense--Edge_of_Panic.mp4",
-            "format": "h.264",
-            "sizeBytes": 130137217,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--Edge_of_Panic/Suspense--Edge_of_Panic.mp4"
-        },
-        {
-          "archiveID": "Suspense--The_Brush-Off",
-          "seasonNumber": 3,
-          "episodeNumber": 12,
-          "title": "The Brush Off",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1950-11-14",
-          "year": 1950,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense--The_Brush-Off.mp4",
-            "format": "h.264",
-            "sizeBytes": 134416412,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--The_Brush-Off/Suspense--The_Brush-Off.mp4"
-        },
-        {
-          "archiveID": "Suspense--Tough_Cop",
-          "seasonNumber": 3,
-          "episodeNumber": 20,
-          "title": "Tough Cop",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1951-01-09",
-          "year": 1951,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense320_Tough_Cop.mp4",
-            "format": "h.264",
-            "sizeBytes": 129423076,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--Tough_Cop/Suspense320_Tough_Cop.mp4"
-        },
-        {
-          "archiveID": "Suspense--On_a_Country_Road",
-          "seasonNumber": 3,
-          "episodeNumber": 29,
-          "title": "On a Country Road",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1951-03-13",
-          "year": 1951,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense--On_a_Country_Road.mp4",
-            "format": "h.264",
-            "sizeBytes": 126518966,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--On_a_Country_Road/Suspense--On_a_Country_Road.mp4"
-        }
-      ]
+     "archiveID": "Suspense--My_Old_Mans_Badge",
+     "seasonNumber": 2,
+     "episodeNumber": 29,
+     "title": "The Old Man's Badge",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": "1950-03-21",
+     "year": 1950,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense229_My_Old_Mans_Badge.mp4",
+      "format": "h.264",
+      "sizeBytes": 130525781,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Suspense--My_Old_Mans_Badge/Suspense229_My_Old_Mans_Badge.mp4"
     },
     {
-      "seasonNumber": 4,
-      "episodes": [
-        {
-          "archiveID": "Suspense--The_Spider",
-          "seasonNumber": 4,
-          "episodeNumber": 20,
-          "title": "The Spider",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1952-01-15",
-          "year": 1952,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense418_The_Spider.mp4",
-            "format": "h.264",
-            "sizeBytes": 126466691,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--The_Spider/Suspense418_The_Spider.mp4"
-        },
-        {
-          "archiveID": "Suspense--The_Red_Signal",
-          "seasonNumber": 4,
-          "episodeNumber": 21,
-          "title": "The Red Signal",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1952-01-22",
-          "year": 1952,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense419_The_Red_Signal.mp4",
-            "format": "h.264",
-            "sizeBytes": 127824545,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--The_Red_Signal/Suspense419_The_Red_Signal.mp4"
-        },
-        {
-          "archiveID": "Suspense--Night_Drive",
-          "seasonNumber": 4,
-          "episodeNumber": 26,
-          "title": "Night Drive",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1952-02-26",
-          "year": 1952,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense424_Night_Drive.mp4",
-            "format": "h.264",
-            "sizeBytes": 126402289,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--Night_Drive/Suspense424_Night_Drive.mp4"
-        },
-        {
-          "archiveID": "Suspense-TheDebt",
-          "seasonNumber": 4,
-          "episodeNumber": 38,
-          "title": "The Debt",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1952-05-27",
-          "year": 1952,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense-TheDebt.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 79393693,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Suspense-TheDebt/Suspense-TheDebt.mp4"
-        },
-        {
-          "archiveID": "Suspense--House_of_Masks",
-          "seasonNumber": 4,
-          "episodeNumber": 40,
-          "title": "House of Masks",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1952-06-10",
-          "year": 1952,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense438_House_of_Masks.mp4",
-            "format": "h.264",
-            "sizeBytes": 137716736,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--House_of_Masks/Suspense438_House_of_Masks.mp4"
-        }
-      ]
+     "archiveID": "Suspense--Photo_Finish",
+     "seasonNumber": 2,
+     "episodeNumber": 38,
+     "title": "Photo Finish",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": "1950-05-23",
+     "year": 1950,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense--Photo_Finish.mp4",
+      "format": "h.264",
+      "sizeBytes": 133610988,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Suspense--Photo_Finish/Suspense--Photo_Finish.mp4"
     },
     {
-      "seasonNumber": 5,
-      "episodes": [
-        {
-          "archiveID": "suspense-tv-show",
-          "seasonNumber": 5,
-          "episodeNumber": 13,
-          "title": "A Time of Innocence",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1952-12-02",
-          "year": 1952,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense S05E13 Mr.  Matches.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 271742422,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/suspense-tv-show/Suspense%20S05E13%20Mr.%20%20Matches.ia.mp4"
-        },
-        {
-          "archiveID": "Suspense--Mr_Matches",
-          "seasonNumber": 5,
-          "episodeNumber": 19,
-          "title": "Mr. Matches",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1953-01-13",
-          "year": 1953,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense--Mr_Matches.mp4",
-            "format": "h.264",
-            "sizeBytes": 137063755,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--Mr_Matches/Suspense--Mr_Matches.mp4"
-        },
-        {
-          "archiveID": "Suspense--Mutiny_Below",
-          "seasonNumber": 5,
-          "episodeNumber": 22,
-          "title": "Mutiny Below",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1953-02-03",
-          "year": 1953,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense516_Mutiny_Below.mp4",
-            "format": "h.264",
-            "sizeBytes": 126400943,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--Mutiny_Below/Suspense516_Mutiny_Below.mp4"
-        },
-        {
-          "archiveID": "Suspense--The_Kiss-Off",
-          "seasonNumber": 5,
-          "episodeNumber": 26,
-          "title": "The Kiss Off",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1953-03-03",
-          "year": 1953,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense520_The_Kiss-Off.mp4",
-            "format": "h.264",
-            "sizeBytes": 129118747,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--The_Kiss-Off/Suspense520_The_Kiss-Off.mp4"
-        },
-        {
-          "archiveID": "Suspense--Portrait_of_Constance",
-          "seasonNumber": 5,
-          "episodeNumber": 29,
-          "title": "Portrait of Constance",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1953-03-24",
-          "year": 1953,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense523_Portrait_of_Constance.mp4",
-            "format": "h.264",
-            "sizeBytes": 130667105,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--Portrait_of_Constance/Suspense523_Portrait_of_Constance.mp4"
-        },
-        {
-          "archiveID": "Suspense--Kiss_Me_Again_Stranger",
-          "seasonNumber": 5,
-          "episodeNumber": 31,
-          "title": "Kiss Me Again, Stranger",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1953-04-14",
-          "year": 1953,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense525_Kiss_Me_Again_Stranger.mp4",
-            "format": "h.264",
-            "sizeBytes": 132854519,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--Kiss_Me_Again_Stranger/Suspense525_Kiss_Me_Again_Stranger.mp4"
-        },
-        {
-          "archiveID": "Suspense--The_Duel",
-          "seasonNumber": 5,
-          "episodeNumber": 32,
-          "title": "The Duel",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1953-04-21",
-          "year": 1953,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense526_The_Duel.mp4",
-            "format": "h.264",
-            "sizeBytes": 131785716,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--The_Duel/Suspense526_The_Duel.mp4"
-        },
-        {
-          "archiveID": "Suspense--Nightmare_at_Ground_Zero",
-          "seasonNumber": 5,
-          "episodeNumber": 49,
-          "title": "Nightmare at Ground Zero",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1953-08-18",
-          "year": 1953,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense543_Nightmare_at_Ground_Zero.mp4",
-            "format": "h.264",
-            "sizeBytes": 133606897,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--Nightmare_at_Ground_Zero/Suspense543_Nightmare_at_Ground_Zero.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "Suspense--Far-Off_House",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Suspense: The Far-Off House",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": null,
-          "year": 1951,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Suspense412_Far-Off_House.mp4",
-            "format": "h.264",
-            "sizeBytes": 136309903,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--Far-Off_House/Suspense412_Far-Off_House.mp4"
-        }
-      ]
+     "archiveID": "Suspense--Im_No_Hero",
+     "seasonNumber": 2,
+     "episodeNumber": 41,
+     "title": "I'm No Hero",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": "1950-06-20",
+     "year": 1950,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense--Im_No_Hero.mp4",
+      "format": "h.264",
+      "sizeBytes": 129031310,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Suspense--Im_No_Hero/Suspense--Im_No_Hero.mp4"
     }
-  ],
-  "episodesCount": 22,
-  "canonicalEpisodesCount": 251,
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 3,
+   "episodes": [
     {
-      "name": "Rex Marshall",
-      "character": "Announcer",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/415/1039513.jpg"
+     "archiveID": "Suspense--Edge_of_Panic",
+     "seasonNumber": 3,
+     "episodeNumber": 3,
+     "title": "Edge of Panic",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": "1950-09-12",
+     "year": 1950,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense--Edge_of_Panic.mp4",
+      "format": "h.264",
+      "sizeBytes": 130137217,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Suspense--Edge_of_Panic/Suspense--Edge_of_Panic.mp4"
+    },
+    {
+     "archiveID": "Suspense--The_Brush-Off",
+     "seasonNumber": 3,
+     "episodeNumber": 12,
+     "title": "The Brush Off",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": "1950-11-14",
+     "year": 1950,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense--The_Brush-Off.mp4",
+      "format": "h.264",
+      "sizeBytes": 134416412,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Suspense--The_Brush-Off/Suspense--The_Brush-Off.mp4"
+    },
+    {
+     "archiveID": "Suspense--Tough_Cop",
+     "seasonNumber": 3,
+     "episodeNumber": 20,
+     "title": "Tough Cop",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": "1951-01-09",
+     "year": 1951,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense320_Tough_Cop.mp4",
+      "format": "h.264",
+      "sizeBytes": 129423076,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Suspense--Tough_Cop/Suspense320_Tough_Cop.mp4"
+    },
+    {
+     "archiveID": "Suspense--On_a_Country_Road",
+     "seasonNumber": 3,
+     "episodeNumber": 29,
+     "title": "On a Country Road",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": "1951-03-13",
+     "year": 1951,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense--On_a_Country_Road.mp4",
+      "format": "h.264",
+      "sizeBytes": 126518966,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Suspense--On_a_Country_Road/Suspense--On_a_Country_Road.mp4"
     }
-  ],
-  "tvdbID": "75716",
-  "artworkSource": "tvdb"
+   ]
+  },
+  {
+   "seasonNumber": 4,
+   "episodes": [
+    {
+     "archiveID": "Suspense--The_Spider",
+     "seasonNumber": 4,
+     "episodeNumber": 20,
+     "title": "The Spider",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": "1952-01-15",
+     "year": 1952,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense418_The_Spider.mp4",
+      "format": "h.264",
+      "sizeBytes": 126466691,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Suspense--The_Spider/Suspense418_The_Spider.mp4"
+    },
+    {
+     "archiveID": "Suspense--The_Red_Signal",
+     "seasonNumber": 4,
+     "episodeNumber": 21,
+     "title": "The Red Signal",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": "1952-01-22",
+     "year": 1952,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense419_The_Red_Signal.mp4",
+      "format": "h.264",
+      "sizeBytes": 127824545,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Suspense--The_Red_Signal/Suspense419_The_Red_Signal.mp4"
+    },
+    {
+     "archiveID": "Suspense--Night_Drive",
+     "seasonNumber": 4,
+     "episodeNumber": 26,
+     "title": "Night Drive",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": "1952-02-26",
+     "year": 1952,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense424_Night_Drive.mp4",
+      "format": "h.264",
+      "sizeBytes": 126402289,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Suspense--Night_Drive/Suspense424_Night_Drive.mp4"
+    },
+    {
+     "archiveID": "Suspense-TheDebt",
+     "seasonNumber": 4,
+     "episodeNumber": 38,
+     "title": "The Debt",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": "1952-05-27",
+     "year": 1952,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense-TheDebt.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 79393693,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Suspense-TheDebt/Suspense-TheDebt.mp4"
+    },
+    {
+     "archiveID": "Suspense--House_of_Masks",
+     "seasonNumber": 4,
+     "episodeNumber": 40,
+     "title": "House of Masks",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": "1952-06-10",
+     "year": 1952,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense438_House_of_Masks.mp4",
+      "format": "h.264",
+      "sizeBytes": 137716736,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Suspense--House_of_Masks/Suspense438_House_of_Masks.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 5,
+   "episodes": [
+    {
+     "archiveID": "suspense-tv-show",
+     "seasonNumber": 5,
+     "episodeNumber": 13,
+     "title": "A Time of Innocence",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1952-12-02",
+     "year": 1952,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense S05E13 Mr.  Matches.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 271742422,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/suspense-tv-show/Suspense%20S05E13%20Mr.%20%20Matches.ia.mp4"
+    },
+    {
+     "archiveID": "Suspense--Mr_Matches",
+     "seasonNumber": 5,
+     "episodeNumber": 19,
+     "title": "Mr. Matches",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": "1953-01-13",
+     "year": 1953,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense--Mr_Matches.mp4",
+      "format": "h.264",
+      "sizeBytes": 137063755,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Suspense--Mr_Matches/Suspense--Mr_Matches.mp4"
+    },
+    {
+     "archiveID": "Suspense--Mutiny_Below",
+     "seasonNumber": 5,
+     "episodeNumber": 22,
+     "title": "Mutiny Below",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": "1953-02-03",
+     "year": 1953,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense516_Mutiny_Below.mp4",
+      "format": "h.264",
+      "sizeBytes": 126400943,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Suspense--Mutiny_Below/Suspense516_Mutiny_Below.mp4"
+    },
+    {
+     "archiveID": "Suspense--The_Kiss-Off",
+     "seasonNumber": 5,
+     "episodeNumber": 26,
+     "title": "The Kiss Off",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": "1953-03-03",
+     "year": 1953,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense520_The_Kiss-Off.mp4",
+      "format": "h.264",
+      "sizeBytes": 129118747,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Suspense--The_Kiss-Off/Suspense520_The_Kiss-Off.mp4"
+    },
+    {
+     "archiveID": "Suspense--Portrait_of_Constance",
+     "seasonNumber": 5,
+     "episodeNumber": 29,
+     "title": "Portrait of Constance",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": "1953-03-24",
+     "year": 1953,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense523_Portrait_of_Constance.mp4",
+      "format": "h.264",
+      "sizeBytes": 130667105,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Suspense--Portrait_of_Constance/Suspense523_Portrait_of_Constance.mp4"
+    },
+    {
+     "archiveID": "Suspense--Kiss_Me_Again_Stranger",
+     "seasonNumber": 5,
+     "episodeNumber": 31,
+     "title": "Kiss Me Again, Stranger",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": "1953-04-14",
+     "year": 1953,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense525_Kiss_Me_Again_Stranger.mp4",
+      "format": "h.264",
+      "sizeBytes": 132854519,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Suspense--Kiss_Me_Again_Stranger/Suspense525_Kiss_Me_Again_Stranger.mp4"
+    },
+    {
+     "archiveID": "Suspense--The_Duel",
+     "seasonNumber": 5,
+     "episodeNumber": 32,
+     "title": "The Duel",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": "1953-04-21",
+     "year": 1953,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense526_The_Duel.mp4",
+      "format": "h.264",
+      "sizeBytes": 131785716,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Suspense--The_Duel/Suspense526_The_Duel.mp4"
+    },
+    {
+     "archiveID": "Suspense--Nightmare_at_Ground_Zero",
+     "seasonNumber": 5,
+     "episodeNumber": 49,
+     "title": "Nightmare at Ground Zero",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": "1953-08-18",
+     "year": 1953,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense543_Nightmare_at_Ground_Zero.mp4",
+      "format": "h.264",
+      "sizeBytes": 133606897,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Suspense--Nightmare_at_Ground_Zero/Suspense543_Nightmare_at_Ground_Zero.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "Suspense--Far-Off_House",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Suspense: The Far-Off House",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+     "airDate": null,
+     "year": 1951,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Suspense412_Far-Off_House.mp4",
+      "format": "h.264",
+      "sizeBytes": 136309903,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Suspense--Far-Off_House/Suspense412_Far-Off_House.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 22,
+ "canonicalEpisodesCount": 251
 }

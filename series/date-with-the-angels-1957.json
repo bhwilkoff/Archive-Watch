@@ -1,362 +1,343 @@
 {
-  "version": 2,
-  "seriesID": "date-with-the-angels-1957",
-  "tvmazeID": 23466,
-  "title": "Date with the Angels",
-  "yearStart": 1957,
-  "yearEnd": 1958,
-  "overview": "Date with the Angels had new bride Vickie and her insurance salesman husband Gus involving their friends and neighbors in a variety of comic situations.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/71299-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy"
-  ],
-  "networks": [
-    "ABC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "date-with-the-angels-1957",
+ "tvmazeID": 23466,
+ "title": "Date with the Angels",
+ "yearStart": 1957,
+ "yearEnd": 1958,
+ "overview": "Date with the Angels had new bride Vickie and her insurance salesman husband Gus involving their friends and neighbors in a variety of comic situations.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/88/220345.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "ABC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "DateWithTheAngels-HighFever",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "High Fever",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
-          "airDate": "1957-05-24",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "DateWithTheAngels-HighFever.mp4",
-            "format": "h.264",
-            "sizeBytes": 159593098,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DateWithTheAngels-HighFever/DateWithTheAngels-HighFever.mp4"
-        },
-        {
-          "archiveID": "DateWithTheAngels-TheWheel",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "The Wheel",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
-          "airDate": "1957-05-31",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "DateWithTheAngels-TheWheel.mp4",
-            "format": "h.264",
-            "sizeBytes": 161955565,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DateWithTheAngels-TheWheel/DateWithTheAngels-TheWheel.mp4"
-        },
-        {
-          "archiveID": "DateWithTheAngels-TheFeud",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "The Feud",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
-          "airDate": "1957-06-14",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "DateWithTheAngels-TheFeud.mp4",
-            "format": "h.264",
-            "sizeBytes": 161740156,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DateWithTheAngels-TheFeud/DateWithTheAngels-TheFeud.mp4"
-        },
-        {
-          "archiveID": "DateWithTheAngels-ShallWeDance",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "Shall We Dance?",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
-          "airDate": "1957-06-21",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "DateWithTheAngels-ShallWeDance.mp4",
-            "format": "h.264",
-            "sizeBytes": 163721540,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DateWithTheAngels-ShallWeDance/DateWithTheAngels-ShallWeDance.mp4"
-        },
-        {
-          "archiveID": "DateWithTheAngels-TheBlueTie",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "The Blue Tie",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
-          "airDate": "1957-07-12",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "DateWithTheAngels-TheBlueTie.mp4",
-            "format": "h.264",
-            "sizeBytes": 162172649,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DateWithTheAngels-TheBlueTie/DateWithTheAngels-TheBlueTie.mp4"
-        },
-        {
-          "archiveID": "DateWithTheAngels-PikesPique",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "Pike's Pique",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
-          "airDate": "1957-08-02",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "DateWithTheAngels-PikesPique.mp4",
-            "format": "h.264",
-            "sizeBytes": 163125044,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DateWithTheAngels-PikesPique/DateWithTheAngels-PikesPique.mp4"
-        }
-      ]
+     "archiveID": "DateWithTheAngels-HighFever",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "High Fever",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+     "airDate": "1957-05-24",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "DateWithTheAngels-HighFever.mp4",
+      "format": "h.264",
+      "sizeBytes": 159593098,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DateWithTheAngels-HighFever/DateWithTheAngels-HighFever.mp4"
     },
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "DateWithTheAngels-ReturnOfTheWheel",
-          "seasonNumber": 2,
-          "episodeNumber": 1,
-          "title": "Return of the Wheel",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
-          "airDate": "1957-09-06",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "DateWithTheAngels-ReturnOfTheWheel.mp4",
-            "format": "h.264",
-            "sizeBytes": 163775298,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DateWithTheAngels-ReturnOfTheWheel/DateWithTheAngels-ReturnOfTheWheel.mp4"
-        },
-        {
-          "archiveID": "DateWithTheAngels-TheGorilla",
-          "seasonNumber": 2,
-          "episodeNumber": 2,
-          "title": "The Gorilla",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
-          "airDate": "1957-09-13",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "DateWithTheAngels-TheGorilla.mp4",
-            "format": "h.264",
-            "sizeBytes": 163649580,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DateWithTheAngels-TheGorilla/DateWithTheAngels-TheGorilla.mp4"
-        },
-        {
-          "archiveID": "DateWithTheAngels-EverybodysBaby",
-          "seasonNumber": 2,
-          "episodeNumber": 3,
-          "title": "Everybody's Baby",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
-          "airDate": "1957-09-20",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "DateWithTheAngels-EverybodysBaby1950s.mp4",
-            "format": "h.264",
-            "sizeBytes": 162246689,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DateWithTheAngels-EverybodysBaby/DateWithTheAngels-EverybodysBaby1950s.mp4"
-        },
-        {
-          "archiveID": "DateWithTheAngels-CateredParty",
-          "seasonNumber": 2,
-          "episodeNumber": 4,
-          "title": "Catered Party",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
-          "airDate": "1957-09-27",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "DateWithTheAngels-CateredParty.mp4",
-            "format": "h.264",
-            "sizeBytes": 163338036,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DateWithTheAngels-CateredParty/DateWithTheAngels-CateredParty.mp4"
-        },
-        {
-          "archiveID": "DateWithTheAngels-ChipOffTheOldBlock",
-          "seasonNumber": 2,
-          "episodeNumber": 13,
-          "title": "Chip Off the Old Block",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
-          "airDate": "1957-12-06",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "DateWithTheAngelsChipOffTheOldBlock.mp4",
-            "format": "h.264",
-            "sizeBytes": 163209744,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DateWithTheAngels-ChipOffTheOldBlock/DateWithTheAngelsChipOffTheOldBlock.mp4"
-        },
-        {
-          "archiveID": "DateWithTheAngels-ADayAtTheTrack",
-          "seasonNumber": 2,
-          "episodeNumber": 16,
-          "title": "A Day at the Track",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
-          "airDate": "1957-12-27",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "DateWithTheAngels-AdayAtTheTrack.mp4",
-            "format": "h.264",
-            "sizeBytes": 163358782,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DateWithTheAngels-ADayAtTheTrack/DateWithTheAngels-AdayAtTheTrack.mp4"
-        },
-        {
-          "archiveID": "DateWithTheAngels-TheTrain",
-          "seasonNumber": 2,
-          "episodeNumber": 18,
-          "title": "The Train",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
-          "airDate": "1958-01-08",
-          "year": 1958,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "DateWithTheAngels-TheTrain.mp4",
-            "format": "h.264",
-            "sizeBytes": 163999995,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DateWithTheAngels-TheTrain/DateWithTheAngels-TheTrain.mp4"
-        },
-        {
-          "archiveID": "DateWithTheAngels-DoubleTrouble",
-          "seasonNumber": 2,
-          "episodeNumber": 19,
-          "title": "Double Trouble",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
-          "airDate": "1958-01-15",
-          "year": 1958,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "DateWithTheAngels-DoubleTrouble.mp4",
-            "format": "h.264",
-            "sizeBytes": 165408285,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DateWithTheAngels-DoubleTrouble/DateWithTheAngels-DoubleTrouble.mp4"
-        }
-      ]
+     "archiveID": "DateWithTheAngels-TheWheel",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "The Wheel",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+     "airDate": "1957-05-31",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "DateWithTheAngels-TheWheel.mp4",
+      "format": "h.264",
+      "sizeBytes": 161955565,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DateWithTheAngels-TheWheel/DateWithTheAngels-TheWheel.mp4"
     },
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "DateWithTheAngels-1950sFamilySitcom-ChristmasEpisode",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Date with the Angels - 1950s Family Sitcom - Christmas Episode",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
-          "airDate": null,
-          "year": 1957,
-          "runtimeSeconds": 1575,
-          "videoFile": {
-            "name": "DateWithTheAngels-Christmas.mp4",
-            "format": "h.264",
-            "sizeBytes": 160440646,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DateWithTheAngels-1950sFamilySitcom-ChristmasEpisode/DateWithTheAngels-Christmas.mp4"
-        },
-        {
-          "archiveID": "DateWithTheAngels-TheTreeInTheParkway",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Date with the Angels - The Tree in the Parkway",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
-          "airDate": null,
-          "year": 1957,
-          "runtimeSeconds": 1568,
-          "videoFile": {
-            "name": "DateWithTheAngels-TreeInTheParkway.mp4",
-            "format": "h.264",
-            "sizeBytes": 163190211,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DateWithTheAngels-TheTreeInTheParkway/DateWithTheAngels-TreeInTheParkway.mp4"
-        },
-        {
-          "archiveID": "DateWithTheAngels-TheSurprise",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Surprise",
-          "overview": "Gus rashly plans a surprise birthday party for Vicki.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
-          "airDate": null,
-          "year": 1957,
-          "runtimeSeconds": 1558,
-          "videoFile": {
-            "name": "DateWithTheAngels-TheSurprise.mp4",
-            "format": "h.264",
-            "sizeBytes": 161759657,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DateWithTheAngels-TheSurprise/DateWithTheAngels-TheSurprise.mp4"
-        }
-      ]
+     "archiveID": "DateWithTheAngels-TheFeud",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "The Feud",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+     "airDate": "1957-06-14",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "DateWithTheAngels-TheFeud.mp4",
+      "format": "h.264",
+      "sizeBytes": 161740156,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DateWithTheAngels-TheFeud/DateWithTheAngels-TheFeud.mp4"
+    },
+    {
+     "archiveID": "DateWithTheAngels-ShallWeDance",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "Shall We Dance?",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+     "airDate": "1957-06-21",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "DateWithTheAngels-ShallWeDance.mp4",
+      "format": "h.264",
+      "sizeBytes": 163721540,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DateWithTheAngels-ShallWeDance/DateWithTheAngels-ShallWeDance.mp4"
+    },
+    {
+     "archiveID": "DateWithTheAngels-TheBlueTie",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "The Blue Tie",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+     "airDate": "1957-07-12",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "DateWithTheAngels-TheBlueTie.mp4",
+      "format": "h.264",
+      "sizeBytes": 162172649,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DateWithTheAngels-TheBlueTie/DateWithTheAngels-TheBlueTie.mp4"
+    },
+    {
+     "archiveID": "DateWithTheAngels-PikesPique",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "Pike's Pique",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+     "airDate": "1957-08-02",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "DateWithTheAngels-PikesPique.mp4",
+      "format": "h.264",
+      "sizeBytes": 163125044,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DateWithTheAngels-PikesPique/DateWithTheAngels-PikesPique.mp4"
     }
-  ],
-  "episodesCount": 17,
-  "canonicalEpisodesCount": 33,
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
-      "name": "Betty White",
-      "character": "Vickie Angel",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/7898.jpg"
+     "archiveID": "DateWithTheAngels-ReturnOfTheWheel",
+     "seasonNumber": 2,
+     "episodeNumber": 1,
+     "title": "Return of the Wheel",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+     "airDate": "1957-09-06",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "DateWithTheAngels-ReturnOfTheWheel.mp4",
+      "format": "h.264",
+      "sizeBytes": 163775298,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DateWithTheAngels-ReturnOfTheWheel/DateWithTheAngels-ReturnOfTheWheel.mp4"
     },
     {
-      "name": "Bill Williams",
-      "character": "Gus Angel",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/76/191468.jpg"
+     "archiveID": "DateWithTheAngels-TheGorilla",
+     "seasonNumber": 2,
+     "episodeNumber": 2,
+     "title": "The Gorilla",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+     "airDate": "1957-09-13",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "DateWithTheAngels-TheGorilla.mp4",
+      "format": "h.264",
+      "sizeBytes": 163649580,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DateWithTheAngels-TheGorilla/DateWithTheAngels-TheGorilla.mp4"
+    },
+    {
+     "archiveID": "DateWithTheAngels-EverybodysBaby",
+     "seasonNumber": 2,
+     "episodeNumber": 3,
+     "title": "Everybody's Baby",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+     "airDate": "1957-09-20",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "DateWithTheAngels-EverybodysBaby1950s.mp4",
+      "format": "h.264",
+      "sizeBytes": 162246689,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DateWithTheAngels-EverybodysBaby/DateWithTheAngels-EverybodysBaby1950s.mp4"
+    },
+    {
+     "archiveID": "DateWithTheAngels-CateredParty",
+     "seasonNumber": 2,
+     "episodeNumber": 4,
+     "title": "Catered Party",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+     "airDate": "1957-09-27",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "DateWithTheAngels-CateredParty.mp4",
+      "format": "h.264",
+      "sizeBytes": 163338036,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DateWithTheAngels-CateredParty/DateWithTheAngels-CateredParty.mp4"
+    },
+    {
+     "archiveID": "DateWithTheAngels-ChipOffTheOldBlock",
+     "seasonNumber": 2,
+     "episodeNumber": 13,
+     "title": "Chip Off the Old Block",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+     "airDate": "1957-12-06",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "DateWithTheAngelsChipOffTheOldBlock.mp4",
+      "format": "h.264",
+      "sizeBytes": 163209744,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DateWithTheAngels-ChipOffTheOldBlock/DateWithTheAngelsChipOffTheOldBlock.mp4"
+    },
+    {
+     "archiveID": "DateWithTheAngels-ADayAtTheTrack",
+     "seasonNumber": 2,
+     "episodeNumber": 16,
+     "title": "A Day at the Track",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+     "airDate": "1957-12-27",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "DateWithTheAngels-AdayAtTheTrack.mp4",
+      "format": "h.264",
+      "sizeBytes": 163358782,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DateWithTheAngels-ADayAtTheTrack/DateWithTheAngels-AdayAtTheTrack.mp4"
+    },
+    {
+     "archiveID": "DateWithTheAngels-TheTrain",
+     "seasonNumber": 2,
+     "episodeNumber": 18,
+     "title": "The Train",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+     "airDate": "1958-01-08",
+     "year": 1958,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "DateWithTheAngels-TheTrain.mp4",
+      "format": "h.264",
+      "sizeBytes": 163999995,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DateWithTheAngels-TheTrain/DateWithTheAngels-TheTrain.mp4"
+    },
+    {
+     "archiveID": "DateWithTheAngels-DoubleTrouble",
+     "seasonNumber": 2,
+     "episodeNumber": 19,
+     "title": "Double Trouble",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+     "airDate": "1958-01-15",
+     "year": 1958,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "DateWithTheAngels-DoubleTrouble.mp4",
+      "format": "h.264",
+      "sizeBytes": 165408285,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DateWithTheAngels-DoubleTrouble/DateWithTheAngels-DoubleTrouble.mp4"
     }
-  ],
-  "tvdbID": "71299",
-  "artworkSource": "tvdb",
-  "seriesImdbID": "tt0050009",
-  "canonicalEpisodeCount": 27,
-  "canonicalSeasons": 2
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "DateWithTheAngels-1950sFamilySitcom-ChristmasEpisode",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Date with the Angels - 1950s Family Sitcom - Christmas Episode",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+     "airDate": null,
+     "year": 1957,
+     "runtimeSeconds": 1575,
+     "videoFile": {
+      "name": "DateWithTheAngels-Christmas.mp4",
+      "format": "h.264",
+      "sizeBytes": 160440646,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DateWithTheAngels-1950sFamilySitcom-ChristmasEpisode/DateWithTheAngels-Christmas.mp4"
+    },
+    {
+     "archiveID": "DateWithTheAngels-TheTreeInTheParkway",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Date with the Angels - The Tree in the Parkway",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+     "airDate": null,
+     "year": 1957,
+     "runtimeSeconds": 1568,
+     "videoFile": {
+      "name": "DateWithTheAngels-TreeInTheParkway.mp4",
+      "format": "h.264",
+      "sizeBytes": 163190211,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DateWithTheAngels-TheTreeInTheParkway/DateWithTheAngels-TreeInTheParkway.mp4"
+    },
+    {
+     "archiveID": "DateWithTheAngels-TheSurprise",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Surprise",
+     "overview": "Gus rashly plans a surprise birthday party for Vicki.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+     "airDate": null,
+     "year": 1957,
+     "runtimeSeconds": 1558,
+     "videoFile": {
+      "name": "DateWithTheAngels-TheSurprise.mp4",
+      "format": "h.264",
+      "sizeBytes": 161759657,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DateWithTheAngels-TheSurprise/DateWithTheAngels-TheSurprise.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 17,
+ "canonicalEpisodesCount": 33
 }

@@ -1,379 +1,363 @@
 {
-  "version": 2,
-  "seriesID": "smith-jones-in-small-doses-1989",
-  "tvmazeID": 65243,
-  "title": "Smith & Jones in Small Doses",
-  "yearStart": 1989,
-  "yearEnd": 1989,
-  "overview": "A series of sitcom playlets starring Mel Smith and Griff Rhys Jones.",
-  "posterURL": null,
-  "backdropURL": null,
-  "genres": [
-    "Comedy"
-  ],
-  "networks": [
-    "BBC Two"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "smith-jones-in-small-doses-1989",
+ "tvmazeID": 65243,
+ "title": "Smith & Jones in Small Doses",
+ "yearStart": 1989,
+ "yearEnd": 1989,
+ "overview": "A series of sitcom playlets starring Mel Smith and Griff Rhys Jones.",
+ "posterURL": null,
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "BBC Two"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "smith-and-jones-s-10x-e-1-9-september-1998",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "The Whole Hog",
-          "overview": "Giles runs a small company making dolls. He's preparing for an important presentation to a US competitor when Maurice arrives and confronts him with his ex-wife Monica. Giles's life - and dolls - will never be the same again.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/cvivxPeLnXUGiZtgeHdLVA6xGmb.jpg",
-          "airDate": "1989-10-19",
-          "year": 1989,
-          "runtimeSeconds": 1200,
-          "videoFile": {
-            "name": "Smith and Jones - S10xE1 (9 September 1998).mp4",
-            "format": "h.264",
-            "sizeBytes": 175317866,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/smith-and-jones-s-10x-e-1-9-september-1998/Smith and Jones - S10xE1 (9 September 1998).mp4"
-        },
-        {
-          "archiveID": "smith-and-jones-s-10x-e-2-16-september-1998",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "The Boat People",
-          "overview": "Derek invites Colin for a weekend on his yacht. To Derek this is freedom but to Colin it's a confined space with no proper heating. To make matters worse, it's bucketing down with rain.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/cvivxPeLnXUGiZtgeHdLVA6xGmb.jpg",
-          "airDate": "1989-10-26",
-          "year": 1989,
-          "runtimeSeconds": 1200,
-          "videoFile": {
-            "name": "Smith and Jones - S10xE2 (16 September 1998).mp4",
-            "format": "h.264",
-            "sizeBytes": 173203000,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/smith-and-jones-s-10x-e-2-16-september-1998/Smith and Jones - S10xE2 (16 September 1998).mp4"
-        },
-        {
-          "archiveID": "smith-and-jones-s-10x-e-3-23-september-1998",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Second Thoughts",
-          "overview": "Boz, who comes second in everything in life, is determined to be the first person to throw himself off a newly constructed bridge. Sam is intent on doing the same thing....",
-          "stillURL": "https://image.tmdb.org/t/p/w500/cvivxPeLnXUGiZtgeHdLVA6xGmb.jpg",
-          "airDate": "1989-11-02",
-          "year": 1989,
-          "runtimeSeconds": 1200,
-          "videoFile": {
-            "name": "Smith and Jones - S10xE3 (23 September 1998).mp4",
-            "format": "h.264",
-            "sizeBytes": 173523170,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/smith-and-jones-s-10x-e-3-23-september-1998/Smith and Jones - S10xE3 (23 September 1998).mp4"
-        },
-        {
-          "archiveID": "smith-and-jones-s-10x-e-4-30-september-1998",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "The Waiting Room",
-          "overview": "Despite their dog collars, the Reverends Pennycuick and Bottomley are poles apart. While sharing the same waiting-room they find themselves disagreeing about more than just their style of religious service...",
-          "stillURL": "https://image.tmdb.org/t/p/w500/cvivxPeLnXUGiZtgeHdLVA6xGmb.jpg",
-          "airDate": "1989-11-09",
-          "year": 1989,
-          "runtimeSeconds": 1200,
-          "videoFile": {
-            "name": "Smith and Jones - S10xE4 (30 September 1998).mp4",
-            "format": "h.264",
-            "sizeBytes": 174056138,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/smith-and-jones-s-10x-e-4-30-september-1998/Smith and Jones - S10xE4 (30 September 1998).mp4"
-        }
-      ]
+     "archiveID": "smith-and-jones-s-10x-e-1-9-september-1998",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "The Whole Hog",
+     "overview": "Giles runs a small company making dolls. He's preparing for an important presentation to a US competitor when Maurice arrives and confronts him with his ex-wife Monica. Giles's life - and dolls - will never be the same again.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/cvivxPeLnXUGiZtgeHdLVA6xGmb.jpg",
+     "airDate": "1989-10-19",
+     "year": 1989,
+     "runtimeSeconds": 1200,
+     "videoFile": {
+      "name": "Smith and Jones - S10xE1 (9 September 1998).mp4",
+      "format": "h.264",
+      "sizeBytes": 175317866,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/smith-and-jones-s-10x-e-1-9-september-1998/Smith and Jones - S10xE1 (9 September 1998).mp4"
     },
     {
-      "seasonNumber": 5,
-      "episodes": [
-        {
-          "archiveID": "smith-and-jones-s-5x-e-1-16-november-1989",
-          "seasonNumber": 5,
-          "episodeNumber": 1,
-          "title": "Smith and Jones - Series 5, Episode 1",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/cvivxPeLnXUGiZtgeHdLVA6xGmb.jpg",
-          "airDate": null,
-          "year": 1989,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Smith and Jones - S5xE1 (16 November 1989).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 90328852,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/smith-and-jones-s-5x-e-1-16-november-1989/Smith and Jones - S5xE1 (16 November 1989).mp4"
-        },
-        {
-          "archiveID": "smith-and-jones-s-5x-e-2-23-november-1989",
-          "seasonNumber": 5,
-          "episodeNumber": 2,
-          "title": "Smith and Jones - Series 5, Episode 2",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/cvivxPeLnXUGiZtgeHdLVA6xGmb.jpg",
-          "airDate": null,
-          "year": 1989,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Smith and Jones - S5xE2 (23 November 1989).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 85488951,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/smith-and-jones-s-5x-e-2-23-november-1989/Smith and Jones - S5xE2 (23 November 1989).mp4"
-        },
-        {
-          "archiveID": "smith-and-jones-s-5x-e-3-30-november-1989",
-          "seasonNumber": 5,
-          "episodeNumber": 3,
-          "title": "Smith and Jones - Series 5, Episode 3",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/cvivxPeLnXUGiZtgeHdLVA6xGmb.jpg",
-          "airDate": null,
-          "year": 1989,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Smith and Jones - S5xE3 (30 November 1989).ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 139083303,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/smith-and-jones-s-5x-e-3-30-november-1989/Smith and Jones - S5xE3 (30 November 1989).ia.mp4"
-        },
-        {
-          "archiveID": "smith-and-jones-s-5x-e-4-7-december-1989",
-          "seasonNumber": 5,
-          "episodeNumber": 4,
-          "title": "Smith and Jones - Series 5, Episode 4",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/cvivxPeLnXUGiZtgeHdLVA6xGmb.jpg",
-          "airDate": null,
-          "year": 1989,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Smith and Jones - S5xE4 (7 December 1989).mp4",
-            "format": "h.264",
-            "sizeBytes": 179634212,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/smith-and-jones-s-5x-e-4-7-december-1989/Smith and Jones - S5xE4 (7 December 1989).mp4"
-        }
-      ]
+     "archiveID": "smith-and-jones-s-10x-e-2-16-september-1998",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "The Boat People",
+     "overview": "Derek invites Colin for a weekend on his yacht. To Derek this is freedom but to Colin it's a confined space with no proper heating. To make matters worse, it's bucketing down with rain.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/cvivxPeLnXUGiZtgeHdLVA6xGmb.jpg",
+     "airDate": "1989-10-26",
+     "year": 1989,
+     "runtimeSeconds": 1200,
+     "videoFile": {
+      "name": "Smith and Jones - S10xE2 (16 September 1998).mp4",
+      "format": "h.264",
+      "sizeBytes": 173203000,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/smith-and-jones-s-10x-e-2-16-september-1998/Smith and Jones - S10xE2 (16 September 1998).mp4"
     },
     {
-      "seasonNumber": 6,
-      "episodes": [
-        {
-          "archiveID": "smith-and-jones-s-6x-e-7-3-january-1991",
-          "seasonNumber": 6,
-          "episodeNumber": 7,
-          "title": "Return to Devil's Hole",
-          "overview": "An outlaw leader faces a dilemma; he must decide who is telling the truth, Heyes' lady friend or the man she's trying to kill.",
-          "stillURL": "https://image.tmdb.org/t/p/w300/zrAzfkk1gO6STWxXArwz3eFcvxm.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Smith and Jones - S6xE7 (3 January 1991).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 407262540,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/smith-and-jones-s-6x-e-7-3-january-1991/Smith and Jones - S6xE7 (3 January 1991).mp4"
-        }
-      ]
+     "archiveID": "smith-and-jones-s-10x-e-3-23-september-1998",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Second Thoughts",
+     "overview": "Boz, who comes second in everything in life, is determined to be the first person to throw himself off a newly constructed bridge. Sam is intent on doing the same thing....",
+     "stillURL": "https://image.tmdb.org/t/p/w500/cvivxPeLnXUGiZtgeHdLVA6xGmb.jpg",
+     "airDate": "1989-11-02",
+     "year": 1989,
+     "runtimeSeconds": 1200,
+     "videoFile": {
+      "name": "Smith and Jones - S10xE3 (23 September 1998).mp4",
+      "format": "h.264",
+      "sizeBytes": 173523170,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/smith-and-jones-s-10x-e-3-23-september-1998/Smith and Jones - S10xE3 (23 September 1998).mp4"
     },
     {
-      "seasonNumber": 7,
-      "episodes": [
-        {
-          "archiveID": "smith-and-jones-s-7x-e-3-5-november-1992",
-          "seasonNumber": 7,
-          "episodeNumber": 3,
-          "title": "Exit from Wickenburg",
-          "overview": "Someone's trying to get the guys out of a town where they are helping a widow run from the saloon left to her by her late husband, but they can't figure out who's doing it or why.",
-          "stillURL": "https://image.tmdb.org/t/p/w300/lQ7XiOYQ7UhRLaFFi070S5ThlK2.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Smith and Jones - S7xE3 (5 November 1992).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 88834100,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/smith-and-jones-s-7x-e-3-5-november-1992/Smith and Jones - S7xE3 (5 November 1992).mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 8,
-      "episodes": [
-        {
-          "archiveID": "smith-and-jones-s-8x-e-4-27-september-1995",
-          "seasonNumber": 8,
-          "episodeNumber": 4,
-          "title": "Wrong Train to Brimstone",
-          "overview": "Heyes and Curry gain passage on a train that is full of Bannerman detectives who are setting a trap for them and their gang",
-          "stillURL": "https://image.tmdb.org/t/p/w300/9I9VbNAvtnseO0a5sDGpLYaoRFo.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Smith and Jones - S8xE4 (27 September 1995).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 82682645,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/smith-and-jones-s-8x-e-4-27-september-1995/Smith and Jones - S8xE4 (27 September 1995).mp4"
-        },
-        {
-          "archiveID": "smith-and-jones-s-8x-e-5-4-october-1995",
-          "seasonNumber": 8,
-          "episodeNumber": 5,
-          "title": "The Girl in Boxcar #3",
-          "overview": "Curry gets involved with a runaway girl riding the rails as he tries to deliver $50,000 to a town 400 miles away.",
-          "stillURL": "https://image.tmdb.org/t/p/w300/tPADksccSyWgsjfdi9uU1cS0OfX.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Smith and Jones - S8xE5 (4 October 1995).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 87429709,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/smith-and-jones-s-8x-e-5-4-october-1995/Smith and Jones - S8xE5 (4 October 1995).mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 9,
-      "episodes": [
-        {
-          "archiveID": "smith-and-jones-s-9x-e-1-19-june-1997",
-          "seasonNumber": 9,
-          "episodeNumber": 1,
-          "title": "Alias Smith and Jones",
-          "overview": "Two non-violent bandits begin to feel the inroads of high technology and decide to try and earn a pardon from the Governor of Wyoming.",
-          "stillURL": "https://image.tmdb.org/t/p/w300/zVXuuZ8LtcCyUQI6A1c0rw7E3q6.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Smith and Jones - S9xE1 (19 June 1997).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 385972027,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/smith-and-jones-s-9x-e-1-19-june-1997/Smith and Jones - S9xE1 (19 June 1997).mp4"
-        },
-        {
-          "archiveID": "smith-and-jones-s-9x-e-2-26-june-1997",
-          "seasonNumber": 9,
-          "episodeNumber": 2,
-          "title": "The McCreedy Bust",
-          "overview": "Smith and Jones become the pawns of two greedy ranchers who have a running feud about the ownership of a Roman bust.",
-          "stillURL": "https://image.tmdb.org/t/p/w300/f5okZTsORtsgglnLnGA8OKQcKXL.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Smith and Jones - S9xE2 (26 June 1997).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 309924153,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/smith-and-jones-s-9x-e-2-26-june-1997/Smith and Jones - S9xE2 (26 June 1997).mp4"
-        },
-        {
-          "archiveID": "smith-and-jones-s-9x-e-6-24-july-1997",
-          "seasonNumber": 9,
-          "episodeNumber": 6,
-          "title": "The Great Shell Game",
-          "overview": "Heyes seems to be reverting to his old thieving ways when he sets up a pretty young woman to lose $10,000 in a phony horse betting operation.",
-          "stillURL": "https://image.tmdb.org/t/p/w300/uUVW5SsToDFhktaSbYTeUNDdWnH.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Smith and Jones - S9xE6 (24 July 1997).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 332982681,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/smith-and-jones-s-9x-e-6-24-july-1997/Smith and Jones - S9xE6 (24 July 1997).mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 10,
-      "episodes": [
-        {
-          "archiveID": "smith-and-jones-s-10x-e-5-7-october-1998",
-          "seasonNumber": 10,
-          "episodeNumber": 5,
-          "title": "Smith and Jones - Series 10, Episode 5",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/cvivxPeLnXUGiZtgeHdLVA6xGmb.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Smith and Jones - S10xE5 (7 October 1998).mp4",
-            "format": "h.264",
-            "sizeBytes": 175203341,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/smith-and-jones-s-10x-e-5-7-october-1998/Smith and Jones - S10xE5 (7 October 1998).mp4"
-        },
-        {
-          "archiveID": "smith-and-jones-s-10x-e-6-14-october-1998",
-          "seasonNumber": 10,
-          "episodeNumber": 6,
-          "title": "Smith and Jones - Series 10, Episode 6",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/cvivxPeLnXUGiZtgeHdLVA6xGmb.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Smith and Jones - S10xE6 (14 October 1998).mp4",
-            "format": "h.264",
-            "sizeBytes": 175198852,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/smith-and-jones-s-10x-e-6-14-october-1998/Smith and Jones - S10xE6 (14 October 1998).mp4"
-        }
-      ]
+     "archiveID": "smith-and-jones-s-10x-e-4-30-september-1998",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "The Waiting Room",
+     "overview": "Despite their dog collars, the Reverends Pennycuick and Bottomley are poles apart. While sharing the same waiting-room they find themselves disagreeing about more than just their style of religious service...",
+     "stillURL": "https://image.tmdb.org/t/p/w500/cvivxPeLnXUGiZtgeHdLVA6xGmb.jpg",
+     "airDate": "1989-11-09",
+     "year": 1989,
+     "runtimeSeconds": 1200,
+     "videoFile": {
+      "name": "Smith and Jones - S10xE4 (30 September 1998).mp4",
+      "format": "h.264",
+      "sizeBytes": 174056138,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/smith-and-jones-s-10x-e-4-30-september-1998/Smith and Jones - S10xE4 (30 September 1998).mp4"
     }
-  ],
-  "episodesCount": 17,
-  "canonicalEpisodesCount": 4,
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 5,
+   "episodes": [
     {
-      "name": "Mel Smith",
-      "character": "Various Characters",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/30/76433.jpg"
+     "archiveID": "smith-and-jones-s-5x-e-1-16-november-1989",
+     "seasonNumber": 5,
+     "episodeNumber": 1,
+     "title": "Smith and Jones - Series 5, Episode 1",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/cvivxPeLnXUGiZtgeHdLVA6xGmb.jpg",
+     "airDate": null,
+     "year": 1989,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Smith and Jones - S5xE1 (16 November 1989).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 90328852,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/smith-and-jones-s-5x-e-1-16-november-1989/Smith and Jones - S5xE1 (16 November 1989).mp4"
     },
     {
-      "name": "Griff Rhys Jones",
-      "character": "Various Characters",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/30/76296.jpg"
+     "archiveID": "smith-and-jones-s-5x-e-2-23-november-1989",
+     "seasonNumber": 5,
+     "episodeNumber": 2,
+     "title": "Smith and Jones - Series 5, Episode 2",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/cvivxPeLnXUGiZtgeHdLVA6xGmb.jpg",
+     "airDate": null,
+     "year": 1989,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Smith and Jones - S5xE2 (23 November 1989).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 85488951,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/smith-and-jones-s-5x-e-2-23-november-1989/Smith and Jones - S5xE2 (23 November 1989).mp4"
+    },
+    {
+     "archiveID": "smith-and-jones-s-5x-e-3-30-november-1989",
+     "seasonNumber": 5,
+     "episodeNumber": 3,
+     "title": "Smith and Jones - Series 5, Episode 3",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/cvivxPeLnXUGiZtgeHdLVA6xGmb.jpg",
+     "airDate": null,
+     "year": 1989,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Smith and Jones - S5xE3 (30 November 1989).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 139083303,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/smith-and-jones-s-5x-e-3-30-november-1989/Smith and Jones - S5xE3 (30 November 1989).ia.mp4"
+    },
+    {
+     "archiveID": "smith-and-jones-s-5x-e-4-7-december-1989",
+     "seasonNumber": 5,
+     "episodeNumber": 4,
+     "title": "Smith and Jones - Series 5, Episode 4",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/cvivxPeLnXUGiZtgeHdLVA6xGmb.jpg",
+     "airDate": null,
+     "year": 1989,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Smith and Jones - S5xE4 (7 December 1989).mp4",
+      "format": "h.264",
+      "sizeBytes": 179634212,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/smith-and-jones-s-5x-e-4-7-december-1989/Smith and Jones - S5xE4 (7 December 1989).mp4"
     }
-  ],
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+   ]
+  },
+  {
+   "seasonNumber": 6,
+   "episodes": [
+    {
+     "archiveID": "smith-and-jones-s-6x-e-7-3-january-1991",
+     "seasonNumber": 6,
+     "episodeNumber": 7,
+     "title": "Return to Devil's Hole",
+     "overview": "An outlaw leader faces a dilemma; he must decide who is telling the truth, Heyes' lady friend or the man she's trying to kill.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/zrAzfkk1gO6STWxXArwz3eFcvxm.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Smith and Jones - S6xE7 (3 January 1991).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 407262540,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/smith-and-jones-s-6x-e-7-3-january-1991/Smith and Jones - S6xE7 (3 January 1991).mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 7,
+   "episodes": [
+    {
+     "archiveID": "smith-and-jones-s-7x-e-3-5-november-1992",
+     "seasonNumber": 7,
+     "episodeNumber": 3,
+     "title": "Exit from Wickenburg",
+     "overview": "Someone's trying to get the guys out of a town where they are helping a widow run from the saloon left to her by her late husband, but they can't figure out who's doing it or why.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/lQ7XiOYQ7UhRLaFFi070S5ThlK2.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Smith and Jones - S7xE3 (5 November 1992).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 88834100,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/smith-and-jones-s-7x-e-3-5-november-1992/Smith and Jones - S7xE3 (5 November 1992).mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 8,
+   "episodes": [
+    {
+     "archiveID": "smith-and-jones-s-8x-e-4-27-september-1995",
+     "seasonNumber": 8,
+     "episodeNumber": 4,
+     "title": "Wrong Train to Brimstone",
+     "overview": "Heyes and Curry gain passage on a train that is full of Bannerman detectives who are setting a trap for them and their gang",
+     "stillURL": "https://image.tmdb.org/t/p/w300/9I9VbNAvtnseO0a5sDGpLYaoRFo.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Smith and Jones - S8xE4 (27 September 1995).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 82682645,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/smith-and-jones-s-8x-e-4-27-september-1995/Smith and Jones - S8xE4 (27 September 1995).mp4"
+    },
+    {
+     "archiveID": "smith-and-jones-s-8x-e-5-4-october-1995",
+     "seasonNumber": 8,
+     "episodeNumber": 5,
+     "title": "The Girl in Boxcar #3",
+     "overview": "Curry gets involved with a runaway girl riding the rails as he tries to deliver $50,000 to a town 400 miles away.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/tPADksccSyWgsjfdi9uU1cS0OfX.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Smith and Jones - S8xE5 (4 October 1995).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 87429709,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/smith-and-jones-s-8x-e-5-4-october-1995/Smith and Jones - S8xE5 (4 October 1995).mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 9,
+   "episodes": [
+    {
+     "archiveID": "smith-and-jones-s-9x-e-1-19-june-1997",
+     "seasonNumber": 9,
+     "episodeNumber": 1,
+     "title": "Alias Smith and Jones",
+     "overview": "Two non-violent bandits begin to feel the inroads of high technology and decide to try and earn a pardon from the Governor of Wyoming.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/zVXuuZ8LtcCyUQI6A1c0rw7E3q6.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Smith and Jones - S9xE1 (19 June 1997).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 385972027,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/smith-and-jones-s-9x-e-1-19-june-1997/Smith and Jones - S9xE1 (19 June 1997).mp4"
+    },
+    {
+     "archiveID": "smith-and-jones-s-9x-e-2-26-june-1997",
+     "seasonNumber": 9,
+     "episodeNumber": 2,
+     "title": "The McCreedy Bust",
+     "overview": "Smith and Jones become the pawns of two greedy ranchers who have a running feud about the ownership of a Roman bust.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/f5okZTsORtsgglnLnGA8OKQcKXL.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Smith and Jones - S9xE2 (26 June 1997).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 309924153,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/smith-and-jones-s-9x-e-2-26-june-1997/Smith and Jones - S9xE2 (26 June 1997).mp4"
+    },
+    {
+     "archiveID": "smith-and-jones-s-9x-e-6-24-july-1997",
+     "seasonNumber": 9,
+     "episodeNumber": 6,
+     "title": "The Great Shell Game",
+     "overview": "Heyes seems to be reverting to his old thieving ways when he sets up a pretty young woman to lose $10,000 in a phony horse betting operation.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/uUVW5SsToDFhktaSbYTeUNDdWnH.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Smith and Jones - S9xE6 (24 July 1997).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 332982681,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/smith-and-jones-s-9x-e-6-24-july-1997/Smith and Jones - S9xE6 (24 July 1997).mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 10,
+   "episodes": [
+    {
+     "archiveID": "smith-and-jones-s-10x-e-5-7-october-1998",
+     "seasonNumber": 10,
+     "episodeNumber": 5,
+     "title": "Smith and Jones - Series 10, Episode 5",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/cvivxPeLnXUGiZtgeHdLVA6xGmb.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Smith and Jones - S10xE5 (7 October 1998).mp4",
+      "format": "h.264",
+      "sizeBytes": 175203341,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/smith-and-jones-s-10x-e-5-7-october-1998/Smith and Jones - S10xE5 (7 October 1998).mp4"
+    },
+    {
+     "archiveID": "smith-and-jones-s-10x-e-6-14-october-1998",
+     "seasonNumber": 10,
+     "episodeNumber": 6,
+     "title": "Smith and Jones - Series 10, Episode 6",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/cvivxPeLnXUGiZtgeHdLVA6xGmb.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Smith and Jones - S10xE6 (14 October 1998).mp4",
+      "format": "h.264",
+      "sizeBytes": 175198852,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/smith-and-jones-s-10x-e-6-14-october-1998/Smith and Jones - S10xE6 (14 October 1998).mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 17,
+ "canonicalEpisodesCount": 4
 }

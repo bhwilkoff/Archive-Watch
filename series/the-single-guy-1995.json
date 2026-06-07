@@ -1,134 +1,81 @@
 {
-  "version": 2,
-  "seriesID": "the-single-guy-1995",
-  "tvmazeID": 8225,
-  "title": "The Single Guy",
-  "yearStart": 1996,
-  "yearEnd": 1996,
-  "overview": "The Single Guy features struggling New York City writer Jonathan Eliot, and follows several of his close friends Also includes Eliot's best friend Sam Sloan, Sam's wife Trudy and doorman Manny throughout its entire run.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/29/74450.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-single-guy-1995",
+ "tvmazeID": 8225,
+ "title": "The Single Guy",
+ "yearStart": 1995,
+ "yearEnd": 1997,
+ "overview": "The Single Guy features struggling New York City writer Jonathan Eliot, and follows several of his close friends Also includes Eliot's best friend Sam Sloan, Sam's wife Trudy and doorman Manny throughout its entire run.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/29/74450.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "TheSingleGuyS02E02BestMan",
-          "seasonNumber": 2,
-          "episodeNumber": 2,
-          "title": "Best Man",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1996-09-26",
-          "year": 1996,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "The Single Guy (S02E02- Best Man).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 132873531,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/TheSingleGuyS02E02BestMan/The%20Single%20Guy%20%28S02E02-%20Best%20Man%29.mp4"
-        },
-        {
-          "archiveID": "SingleGuyS02E04KeptMan",
-          "seasonNumber": 2,
-          "episodeNumber": 4,
-          "title": "Kept Man",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1996-10-10",
-          "year": 1996,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Single Guy (S02E04- Kept Man).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 129975208,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/SingleGuyS02E04KeptMan/Single%20Guy%20%28S02E04-%20Kept%20Man%29.mp4"
-        },
-        {
-          "archiveID": "TheSingleGuyMotherLoveS2E16",
-          "seasonNumber": 2,
-          "episodeNumber": 16,
-          "title": "The Single Guy- Mother Love (S2E16)",
-          "overview": "<p class=\"MsoNormal\">This episode of the '90s sitcom The Single Guy is named for\nJonathan's mother dating his boss. Also look for Russell and Marie rehearsing\nfor Rome and Juliet.</p><p></p>",
-          "stillURL": "https://archive.org/services/img/TheSingleGuyMotherLoveS2E16",
-          "airDate": "1997-02-13",
-          "year": null,
-          "runtimeSeconds": 1328,
-          "videoFile": {
-            "name": "The-Single-Guy-Mother-Love-_S2E16_.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 232230552,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/TheSingleGuyMotherLoveS2E16/The-Single-Guy-Mother-Love-_S2E16_.mp4"
-        }
-      ]
+     "archiveID": "TheSingleGuyS02E02BestMan",
+     "seasonNumber": 2,
+     "episodeNumber": 2,
+     "title": "Best Man",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1996-09-26",
+     "year": 1996,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "The Single Guy (S02E02- Best Man).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 132873531,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/TheSingleGuyS02E02BestMan/The%20Single%20Guy%20%28S02E02-%20Best%20Man%29.mp4"
+    },
+    {
+     "archiveID": "SingleGuyS02E04KeptMan",
+     "seasonNumber": 2,
+     "episodeNumber": 4,
+     "title": "Kept Man",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1996-10-10",
+     "year": 1996,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Single Guy (S02E04- Kept Man).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 129975208,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/SingleGuyS02E04KeptMan/Single%20Guy%20%28S02E04-%20Kept%20Man%29.mp4"
+    },
+    {
+     "archiveID": "TheSingleGuyMotherLoveS2E16",
+     "seasonNumber": 2,
+     "episodeNumber": 16,
+     "title": "Mother Love",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/TheSingleGuyMotherLoveS2E16",
+     "airDate": "1997-02-13",
+     "year": 1997,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "The-Single-Guy-Mother-Love-_S2E16_.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 232230552,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/TheSingleGuyMotherLoveS2E16/The-Single-Guy-Mother-Love-_S2E16_.mp4"
     }
-  ],
-  "episodesCount": 3,
-  "canonicalEpisodesCount": 43,
-  "seriesImdbID": "tt0112163",
-  "canonicalEpisodeCount": 32,
-  "canonicalSeasons": 2,
-  "cast": [
-    {
-      "name": "Ming-Na Wen",
-      "character": "Trudy",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/2/5935.jpg"
-    },
-    {
-      "name": "Jonathan Silverman",
-      "character": "Jonathan Eliot",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/13/33144.jpg"
-    },
-    {
-      "name": "Joey Slotnick",
-      "character": "Sam Sloan",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/24/61666.jpg"
-    },
-    {
-      "name": "Ernest Borgnine",
-      "character": "Manny Cordoba",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/24515.jpg"
-    },
-    {
-      "name": "Jessica Hecht",
-      "character": "Janeane Percy-Parker",
-      "order": 4,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/7/18793.jpg"
-    },
-    {
-      "name": "Mark Moses",
-      "character": "Matt Parker",
-      "order": 5,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/2/6671.jpg"
-    },
-    {
-      "name": "Olivia d'Abo",
-      "character": "Marie Blake",
-      "order": 6,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/144/362398.jpg"
-    },
-    {
-      "name": "Shawn Michael Howard",
-      "character": "Russell",
-      "order": 7,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/24892.jpg"
-    }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 3,
+ "canonicalEpisodesCount": 43
 }

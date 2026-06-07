@@ -1,100 +1,45 @@
 {
-  "version": 2,
-  "seriesID": "camp-wilder-1992",
-  "tvmazeID": 13616,
-  "title": "Camp Wilder",
-  "yearStart": 1992,
-  "yearEnd": 1993,
-  "overview": "Camp Wilder is the story of Ricky Wilder, a young woman raising her daughter after a bad marriage. When her parents die, she moves back home to be the guardian for her two younger siblings and ends up being a type of counselor for them and their friends.",
-  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/76757/posters/6831fdfd571e3.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy"
-  ],
-  "networks": [
-    "ABC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "camp-wilder-1992",
+ "tvmazeID": 13616,
+ "title": "Camp Wilder",
+ "yearStart": 1992,
+ "yearEnd": 1993,
+ "overview": "Camp Wilder is the story of Ricky Wilder, a young woman raising her daughter after a bad marriage. When her parents die, she moves back home to be the guardian for her two younger siblings and ends up being a type of counselor for them and their friends.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/47/117504.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "ABC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "campwilders01e12acloseshave",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "A Close Shave",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1992-12-18",
-          "year": 1992,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Camp Wilder - S01E03 - The First Kiss.mp4",
-            "format": "h.264",
-            "sizeBytes": 145231936,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/campwilders01e12acloseshave/Camp%20Wilder%20-%20S01E03%20-%20The%20First%20Kiss.mp4"
-        }
-      ]
+     "archiveID": "campwilders01e12acloseshave",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "A Close Shave",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1992-12-18",
+     "year": 1992,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Camp Wilder - S01E03 - The First Kiss.mp4",
+      "format": "h.264",
+      "sizeBytes": 145231936,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/campwilders01e12acloseshave/Camp%20Wilder%20-%20S01E03%20-%20The%20First%20Kiss.mp4"
     }
-  ],
-  "episodesCount": 1,
-  "canonicalEpisodesCount": 19,
-  "seriesImdbID": "tt0103382",
-  "canonicalEpisodeCount": 11,
-  "canonicalSeasons": 1,
-  "cast": [
-    {
-      "name": "Meghann Haldeman",
-      "character": "Melissa Wilder",
-      "order": 0,
-      "profilePath": null
-    },
-    {
-      "name": "Margaret Langrick",
-      "character": "Beth",
-      "order": 1,
-      "profilePath": "/axFEaAGgLxEgeaupsRRLndASyYw.jpg"
-    },
-    {
-      "name": "Mary Page Keller",
-      "character": "Ricky Wilder",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/1/3362.jpg"
-    },
-    {
-      "name": "Jerry O'Connell",
-      "character": "Brody Wilder",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/13961.jpg"
-    },
-    {
-      "name": "Jay Mohr",
-      "character": "Dorfman",
-      "order": 4,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/4/12000.jpg"
-    },
-    {
-      "name": "Hilary Swank",
-      "character": "Danielle",
-      "order": 5,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/561/1403620.jpg"
-    },
-    {
-      "name": "Tina Majorino",
-      "character": "Sophie Wilder",
-      "order": 6,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9644.jpg"
-    },
-    {
-      "name": "Jared Leto",
-      "character": "Dexter",
-      "order": 7,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/47/119506.jpg"
-    }
-  ],
-  "tvdbID": "76757",
-  "artworkSource": "tvdb"
+   ]
+  }
+ ],
+ "episodesCount": 1,
+ "canonicalEpisodesCount": 19
 }

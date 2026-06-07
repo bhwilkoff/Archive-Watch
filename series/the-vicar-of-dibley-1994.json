@@ -1,167 +1,109 @@
 {
-  "version": 2,
-  "seriesID": "the-vicar-of-dibley-1994",
-  "tvmazeID": 1530,
-  "title": "The Vicar of Dibley",
-  "yearStart": 1999,
-  "yearEnd": 2021,
-  "overview": "Award-winning sitcom starring Dawn French who is assigned as the Vicar of the rural parish of Dibley.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/8/21325.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy"
-  ],
-  "networks": [
-    "BBC One"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-vicar-of-dibley-1994",
+ "tvmazeID": 1530,
+ "title": "The Vicar of Dibley",
+ "yearStart": 1994,
+ "yearEnd": 2015,
+ "overview": "Award-winning sitcom starring Dawn French who is assigned as the Vicar of the rural parish of Dibley.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/8/21325.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "BBC One"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 3,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "the_vicar_of_dibley-_season_01_-_episode_01___57d9ba5180e99",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "the_vicar_of_dibley-_season_01_-_episode_01___the arrival",
-          "overview": "British comedy classic ",
-          "stillURL": "https://archive.org/services/img/the_vicar_of_dibley-_season_01_-_episode_01___57d9ba5180e99",
-          "airDate": "1994-11-10",
-          "year": null,
-          "runtimeSeconds": 1715,
-          "videoFile": {
-            "name": "the_vicar_of_dibley-_season_01_-_episode_01___57d9ba5180e99.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 91776775,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the_vicar_of_dibley-_season_01_-_episode_01___57d9ba5180e99/the_vicar_of_dibley-_season_01_-_episode_01___57d9ba5180e99.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "bbc-co-uk-p00bpkz5",
-          "seasonNumber": 2,
-          "episodeNumber": 3,
-          "title": "BBC One - The Vicar of Dibley, Series 2, Celebrity Vicar, Dibley V Darcey",
-          "overview": "The Vicar exchanges her robe for a tutu. <br /><br />Source: <a href=\"http://www.bbc.co.uk/programmes/p00bpkz2\" rel=\"ugc nofollow\">http://www.bbc.co.uk/programmes/p00bpkz2</a><br />Uploader: <a href=\"http://www.bbc.co.uk/programmes/p00bpkz2\" rel=\"ugc nofollow\">tubeup.py</a>",
-          "stillURL": "https://archive.org/services/img/bbc-co-uk-p00bpkz5",
-          "airDate": "1998-01-15",
-          "year": 2021,
-          "runtimeSeconds": 63,
-          "videoFile": {
-            "name": "p00bpkz5.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 13322930,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/bbc-co-uk-p00bpkz5/p00bpkz5.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 3,
-      "episodes": [
-        {
-          "archiveID": "vo-d-s-01-e-04-the-window-and-the-weather.avi",
-          "seasonNumber": 3,
-          "episodeNumber": 2,
-          "title": "Winter",
-          "overview": "Alice solves the problem of the Christmas show by proposing that she and Hugo play Mary and Joseph in a Nativity play.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/284/710325.jpg",
-          "airDate": "1999-12-25",
-          "year": 1999,
-          "runtimeSeconds": 2400,
-          "videoFile": {
-            "name": "VoD S03E02 Winter.avi.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 222267501,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/vo-d-s-01-e-04-the-window-and-the-weather.avi/VoD%20S03E02%20Winter.avi.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 4,
-      "episodes": [
-        {
-          "archiveID": "vicar-of-dibley-s-01-e-01-arrival.avi",
-          "seasonNumber": 4,
-          "episodeNumber": 1,
-          "title": "Vicar Of Dibley",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Vicar Of Dibley S04E01 The Handsome Stranger.mp4",
-            "format": "h.264",
-            "sizeBytes": 320708851,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/vicar-of-dibley-s-01-e-01-arrival.avi/Vicar%20Of%20Dibley%20S04E01%20The%20Handsome%20Stranger.mp4"
-        }
-      ]
+     "archiveID": "vo-d-s-01-e-04-the-window-and-the-weather.avi",
+     "seasonNumber": 3,
+     "episodeNumber": 2,
+     "title": "Winter",
+     "overview": "Alice solves the problem of the Christmas show by proposing that she and Hugo play Mary and Joseph in a Nativity play.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/284/710325.jpg",
+     "airDate": "1999-12-25",
+     "year": 1999,
+     "runtimeSeconds": 2400,
+     "videoFile": {
+      "name": "VoD S03E02 Winter.avi.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 222267501,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/vo-d-s-01-e-04-the-window-and-the-weather.avi/VoD%20S03E02%20Winter.avi.mp4"
     }
-  ],
-  "episodesCount": 4,
-  "canonicalEpisodesCount": 14,
-  "seriesImdbID": "tt0108981",
-  "canonicalEpisodeCount": 17,
-  "canonicalSeasons": 4,
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 4,
+   "episodes": [
     {
-      "name": "Dawn French",
-      "character": "Geraldine Granger",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/607/1517917.jpg"
-    },
-    {
-      "name": "James Fleet",
-      "character": "Hugo Horton",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/508/1271339.jpg"
-    },
-    {
-      "name": "Trevor Peacock",
-      "character": "Jim Trott",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/179/449025.jpg"
-    },
-    {
-      "name": "Gary Waldhorn",
-      "character": "David Horton",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/314/786880.jpg"
-    },
-    {
-      "name": "Emma Chambers",
-      "character": "Alice Tinker",
-      "order": 4,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/146/367459.jpg"
-    },
-    {
-      "name": "John Bluthal",
-      "character": "Frank Pickle",
-      "order": 5,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/175/437568.jpg"
-    },
-    {
-      "name": "Roger Lloyd Pack",
-      "character": "Owen Newitt",
-      "order": 6,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/47/118448.jpg"
-    },
-    {
-      "name": "Liz Smith",
-      "character": "Letitia Cropley",
-      "order": 7,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/40/102406.jpg"
+     "archiveID": "vicar-of-dibley-s-01-e-01-arrival.avi",
+     "seasonNumber": 4,
+     "episodeNumber": 1,
+     "title": "Vicar Of Dibley",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Vicar Of Dibley S04E01 The Handsome Stranger.mp4",
+      "format": "h.264",
+      "sizeBytes": 320708851,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/vicar-of-dibley-s-01-e-01-arrival.avi/Vicar%20Of%20Dibley%20S04E01%20The%20Handsome%20Stranger.mp4"
     }
-  ]
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "bbc-co-uk-p00bpkz5",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "BBC One - The Vicar of Dibley, Series 2, Celebrity Vicar, Dibley V Darcey",
+     "overview": "The Vicar exchanges her robe for a tutu. <br /><br />Source: <a href=\"http://www.bbc.co.uk/programmes/p00bpkz2\" rel=\"ugc nofollow\">http://www.bbc.co.uk/programmes/p00bpkz2</a><br />Uploader: <a href=\"http://www.bbc.co.uk/programmes/p00bpkz2\" rel=\"ugc nofollow\">tubeup.py</a>",
+     "stillURL": "https://archive.org/services/img/bbc-co-uk-p00bpkz5",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 63,
+     "videoFile": {
+      "name": "p00bpkz5.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 13322930,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/bbc-co-uk-p00bpkz5/p00bpkz5.mp4"
+    },
+    {
+     "archiveID": "the_vicar_of_dibley-_season_01_-_episode_01___57d9ba5180e99",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "the vicar of dibley- season 01 - episode 01 the arrival",
+     "overview": "British comedy classic ",
+     "stillURL": "https://archive.org/services/img/the_vicar_of_dibley-_season_01_-_episode_01___57d9ba5180e99",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1715,
+     "videoFile": {
+      "name": "the_vicar_of_dibley-_season_01_-_episode_01___57d9ba5180e99.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 91776775,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the_vicar_of_dibley-_season_01_-_episode_01___57d9ba5180e99/the_vicar_of_dibley-_season_01_-_episode_01___57d9ba5180e99.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 4,
+ "canonicalEpisodesCount": 14
 }

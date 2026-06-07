@@ -1,125 +1,100 @@
 {
-  "version": 2,
-  "seriesID": "annie-oakley-1954",
-  "tvmazeID": 9475,
-  "title": "Annie Oakley",
-  "yearStart": 1954,
-  "yearEnd": 1957,
-  "overview": "Annie Oakley is an American Western television series that fictionalized the life of famous sharpshooter Annie Oakley. It ran from January 9th 1954 to 24th February 1957 in syndication, for a total of 81 black and white episodes, each 25 minutes long.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/77365-2.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama",
-    "Western"
-  ],
-  "networks": [
-    "Syndication"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "annie-oakley-1954",
+ "tvmazeID": 9475,
+ "title": "Annie Oakley",
+ "yearStart": 1954,
+ "yearEnd": 1957,
+ "overview": "Annie Oakley is an American Western television series that fictionalized the life of famous sharpshooter Annie Oakley. It ran from January 9th 1954 to 24th February 1957 in syndication, for a total of 81 black and white episodes, each 25 minutes long.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/33/82989.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Western"
+ ],
+ "networks": [
+  "Syndication"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "AnnieOakley-AnnieTrustsAConvict",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Annie Trusts a Convict",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/4VdzIUm8bYpQHM1eyzXEyZRhfgd.jpg",
-          "airDate": "1954-01-16",
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "AnnieOakley-AnnieTrustsAConvict.mp4",
-            "format": "h.264",
-            "sizeBytes": 147492282,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/AnnieOakley-AnnieTrustsAConvict/AnnieOakley-AnnieTrustsAConvict.mp4"
-        },
-        {
-          "archiveID": "AnnieOakley-Gunplay",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Gunplay",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/4VdzIUm8bYpQHM1eyzXEyZRhfgd.jpg",
-          "airDate": "1954-01-23",
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "AnnieOakley-Gunplay.mp4",
-            "format": "h.264",
-            "sizeBytes": 148193453,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/AnnieOakley-Gunplay/AnnieOakley-Gunplay.mp4"
-        },
-        {
-          "archiveID": "AnnieOakley-TheDudeStagecoach",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "The Dude Stagecoach",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/4VdzIUm8bYpQHM1eyzXEyZRhfgd.jpg",
-          "airDate": "1954-01-30",
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "AnnieOakley-TheDudeStagecoach.mp4",
-            "format": "h.264",
-            "sizeBytes": 141784591,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/AnnieOakley-TheDudeStagecoach/AnnieOakley-TheDudeStagecoach.mp4"
-        },
-        {
-          "archiveID": "AnnieOakley-AnnieFindsStrangeTreasure",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "Annie Finds Strange Treasure",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/4VdzIUm8bYpQHM1eyzXEyZRhfgd.jpg",
-          "airDate": "1954-03-06",
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "AnnieOakley-AnnieFindsStrangeTreasure.mp4",
-            "format": "h.264",
-            "sizeBytes": 147979013,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/AnnieOakley-AnnieFindsStrangeTreasure/AnnieOakley-AnnieFindsStrangeTreasure.mp4"
-        }
-      ]
-    }
-  ],
-  "episodesCount": 4,
-  "canonicalEpisodesCount": 81,
-  "seriesImdbID": "tt0046578",
-  "canonicalEpisodeCount": 27,
-  "canonicalSeasons": 3,
-  "cast": [
-    {
-      "name": "Gail Davis",
-      "character": "Annie Oakley",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/33/84165.jpg"
+     "archiveID": "AnnieOakley-AnnieTrustsAConvict",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Annie Trusts a Convict",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/4VdzIUm8bYpQHM1eyzXEyZRhfgd.jpg",
+     "airDate": "1954-01-16",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "AnnieOakley-AnnieTrustsAConvict.mp4",
+      "format": "h.264",
+      "sizeBytes": 147492282,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/AnnieOakley-AnnieTrustsAConvict/AnnieOakley-AnnieTrustsAConvict.mp4"
     },
     {
-      "name": "Brad Johnson",
-      "character": "Deputy Sheriff Lofty Craig",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/114/286777.jpg"
+     "archiveID": "AnnieOakley-Gunplay",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Gunplay",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/4VdzIUm8bYpQHM1eyzXEyZRhfgd.jpg",
+     "airDate": "1954-01-23",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "AnnieOakley-Gunplay.mp4",
+      "format": "h.264",
+      "sizeBytes": 148193453,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/AnnieOakley-Gunplay/AnnieOakley-Gunplay.mp4"
     },
     {
-      "name": "Jimmy Hawkins",
-      "character": "Tagg Oakley",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/251/629609.jpg"
+     "archiveID": "AnnieOakley-TheDudeStagecoach",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "The Dude Stagecoach",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/4VdzIUm8bYpQHM1eyzXEyZRhfgd.jpg",
+     "airDate": "1954-01-30",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "AnnieOakley-TheDudeStagecoach.mp4",
+      "format": "h.264",
+      "sizeBytes": 141784591,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/AnnieOakley-TheDudeStagecoach/AnnieOakley-TheDudeStagecoach.mp4"
+    },
+    {
+     "archiveID": "AnnieOakley-AnnieFindsStrangeTreasure",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "Annie Finds Strange Treasure",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/4VdzIUm8bYpQHM1eyzXEyZRhfgd.jpg",
+     "airDate": "1954-03-06",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "AnnieOakley-AnnieFindsStrangeTreasure.mp4",
+      "format": "h.264",
+      "sizeBytes": 147979013,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/AnnieOakley-AnnieFindsStrangeTreasure/AnnieOakley-AnnieFindsStrangeTreasure.mp4"
     }
-  ],
-  "tvdbID": "77365",
-  "artworkSource": "tvdb"
+   ]
+  }
+ ],
+ "episodesCount": 4,
+ "canonicalEpisodesCount": 81
 }

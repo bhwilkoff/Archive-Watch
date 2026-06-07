@@ -1,131 +1,64 @@
 {
-  "version": 2,
-  "seriesID": "out-of-jimmy-s-head-2007",
-  "tvmazeID": 39460,
-  "title": "Out of Jimmy's Head",
-  "yearStart": 2007,
-  "yearEnd": 2008,
-  "overview": "The misadventures of a young boy with the transplanted brain of a beloved cartoonist.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/232961-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Adventure",
-    "Children"
-  ],
-  "networks": [
-    "Cartoon Network"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "out-of-jimmy-s-head-2007",
+ "tvmazeID": 39460,
+ "title": "Out of Jimmy's Head",
+ "yearStart": 2007,
+ "yearEnd": 2008,
+ "overview": "The misadventures of a young boy with the transplanted brain of a beloved cartoonist.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/173/433767.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Adventure",
+  "Children"
+ ],
+ "networks": [
+  "Cartoon Network"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "out-of-jimmys-head-lost-2007-animated-series-english",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Talent Show",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "2007-09-14",
-          "year": 2007,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Out of Jimmy's Head - S01E01 - Friends.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 204762550,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/out-of-jimmys-head-lost-2007-animated-series-english/Out%20of%20Jimmy%27s%20Head%20-%20S01E01%20-%20Friends.ia.mp4"
-        },
-        {
-          "archiveID": "out-of-jimmys-complete-series",
-          "seasonNumber": 1,
-          "episodeNumber": 19,
-          "title": "Out of Jimmy's Body",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "2008-05-22",
-          "year": 2008,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Out of Jimmy's Head - 02,06 - Out of Jimmy's Body.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 130151283,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/out-of-jimmys-complete-series/Out%20of%20Jimmy%27s%20Head%20-%2002%2C06%20-%20Out%20of%20Jimmy%27s%20Body.ia.mp4"
-        }
-      ]
+     "archiveID": "out-of-jimmys-head-lost-2007-animated-series-english",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Talent Show",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "2007-09-14",
+     "year": 2007,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Out of Jimmy's Head - S01E01 - Friends.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 204762550,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/out-of-jimmys-head-lost-2007-animated-series-english/Out%20of%20Jimmy%27s%20Head%20-%20S01E01%20-%20Friends.ia.mp4"
+    },
+    {
+     "archiveID": "out-of-jimmys-complete-series",
+     "seasonNumber": 1,
+     "episodeNumber": 19,
+     "title": "Out of Jimmy's Body",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "2008-05-22",
+     "year": 2008,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Out of Jimmy's Head - 02,06 - Out of Jimmy's Body.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 130151283,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/out-of-jimmys-complete-series/Out%20of%20Jimmy%27s%20Head%20-%2002%2C06%20-%20Out%20of%20Jimmy%27s%20Body.ia.mp4"
     }
-  ],
-  "episodesCount": 2,
-  "canonicalEpisodesCount": 20,
-  "seriesImdbID": "tt1078463",
-  "canonicalEpisodeCount": 6,
-  "canonicalSeasons": 1,
-  "cast": [
-    {
-      "name": "Dominic Janes",
-      "character": "Jimmy Roberts",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9659.jpg"
-    },
-    {
-      "name": "Tinashe Kachingwe",
-      "character": "Robin Wheeler",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/104/261874.jpg"
-    },
-    {
-      "name": "Bil Dwyer",
-      "character": "Ken Roberts",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/480/1200191.jpg"
-    },
-    {
-      "name": "Carlos Alazraqui",
-      "character": "Golly Gopher",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/558/1396269.jpg"
-    },
-    {
-      "name": "Ellen Greene",
-      "character": "Dolly Gopher",
-      "order": 4,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/164/410651.jpg"
-    },
-    {
-      "name": "Tom Kenny",
-      "character": "Tux the Penguin",
-      "order": 5,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/449/1123850.jpg"
-    },
-    {
-      "name": "Brian Posehn",
-      "character": "Crocco the Alligator",
-      "order": 6,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/4/12234.jpg"
-    },
-    {
-      "name": "Rhea Lando",
-      "character": "Yancy Roberts",
-      "order": 7,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/480/1200190.jpg"
-    },
-    {
-      "name": "Matt Knudsen",
-      "character": "Sonny Appleday",
-      "order": 8,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/34/85839.jpg"
-    },
-    {
-      "name": "Jon Kent Ethridge",
-      "character": "Craig Wheeler",
-      "order": 9,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/480/1200193.jpg"
-    }
-  ],
-  "tvdbID": "232961",
-  "artworkSource": "tvdb"
+   ]
+  }
+ ],
+ "episodesCount": 2,
+ "canonicalEpisodesCount": 20
 }

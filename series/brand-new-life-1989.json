@@ -1,188 +1,141 @@
 {
-  "version": 2,
-  "seriesID": "brand-new-life-1989",
-  "tvmazeID": 16752,
-  "title": "Brand New Life",
-  "yearStart": 1989,
-  "yearEnd": 1990,
-  "overview": "Brand New Life centered on a millionaire father of three who fell in love with and married a sweet blue-collar waitress with three kids of her own. They combined families in Murray's Bel Air mansion in this Disney TV movie which led to a one-hour comedy series. Murray's kids had been brought up free-spirited and liberal, while Eden's kids were used to a close-knit, conservative upbringing. Hijinks ensue.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/64/162053.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy",
-    "Family"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "brand-new-life-1989",
+ "tvmazeID": 16752,
+ "title": "Brand New Life",
+ "yearStart": 1989,
+ "yearEnd": 1990,
+ "overview": "Brand New Life centered on a millionaire father of three who fell in love with and married a sweet blue-collar waitress with three kids of her own. They combined families in Murray's Bel Air mansion in this Disney TV movie which led to a one-hour comedy series. Murray's kids had been brought up free-spirited and liberal, while Eden's kids were used to a close-knit, conservative upbringing. Hijinks ensue.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/64/162053.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy",
+  "Family"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "brand-new-life.s-01e-01.above-and-beyond-therapy.vhsrip",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Beyond Therapy",
-          "overview": "After attending Rodger's 30th high school reunion, one of his former classmates, now a tv therapist, contacts Rodger and asks him to be on his show. Rodger doesn't want any part of it, but after Barbara and the kids beg him to, he gives in.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/dErF9zyyBlEJIIaGhJVzrqbSyrO.jpg",
-          "airDate": "1989-10-01",
-          "year": 1989,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "brand new life.s01e01.above and beyond therapy.vhsrip.mp4",
-            "format": "h.264",
-            "sizeBytes": 272248750,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/brand-new-life.s-01e-01.above-and-beyond-therapy.vhsrip/brand new life.s01e01.above and beyond therapy.vhsrip.mp4"
-        },
-        {
-          "archiveID": "brand-new-life.s-01e-02.i-fought-the-law.vhsrip",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "I Fought the Law",
-          "overview": "Barbara is pitted against a traffic court judge, after her son gets a ticket. The pompous judge is someone who likes to make victims of the accused. Barbara objects to his actions, and he has her jailed for contempt.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/dErF9zyyBlEJIIaGhJVzrqbSyrO.jpg",
-          "airDate": "1989-10-01",
-          "year": 1989,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "brand new life.s01e02.i fought the law.vhsrip.mp4",
-            "format": "h.264",
-            "sizeBytes": 274546574,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/brand-new-life.s-01e-02.i-fought-the-law.vhsrip/brand new life.s01e02.i fought the law.vhsrip.mp4"
-        },
-        {
-          "archiveID": "brand-new-life.s-01e-03.private-school.vhsrip",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "I Fought the Law",
-          "overview": "Barbara is pitted against a traffic court judge, after her son gets a ticket. The pompous judge is someone who likes to make victims of the accused. Barbara objects to his actions, and he has her jailed for contempt.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/dErF9zyyBlEJIIaGhJVzrqbSyrO.jpg",
-          "airDate": "1989-10-15",
-          "year": 1989,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "brand new life.s01e03.private school.vhsrip.mp4",
-            "format": "h.264",
-            "sizeBytes": 270996215,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/brand-new-life.s-01e-03.private-school.vhsrip/brand new life.s01e03.private school.vhsrip.mp4"
-        },
-        {
-          "archiveID": "brand-new-life.s-01e-04.children-of-a-legal-mom.vhsrip",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "Private School",
-          "overview": "When Erika finds out that a 17-year-old classmate is pregnant, she's excited enough that her and her boyfriend want to throw a baby shower. The excitement soon changes when she realizes her friendship is in danger, when her friend has to face real commitment... and grow up.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/dErF9zyyBlEJIIaGhJVzrqbSyrO.jpg",
-          "airDate": "1989-10-22",
-          "year": 1989,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "brand new life.s01e04.children of a legal mom.vhsrip.mp4",
-            "format": "h.264",
-            "sizeBytes": 273286774,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/brand-new-life.s-01e-04.children-of-a-legal-mom.vhsrip/brand new life.s01e04.children of a legal mom.vhsrip.mp4"
-        },
-        {
-          "archiveID": "brand-new-life.s-01e-05.even-housekeepers-sing-the-blues.vhsrip",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "Children of a Legal Mom",
-          "overview": "College student Amanda brings a new friend home to meet her family. He is a deaf man whose extraordinary and positive attitude towards life affects each of her family members in a very profound way.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/dErF9zyyBlEJIIaGhJVzrqbSyrO.jpg",
-          "airDate": "1990-01-07",
-          "year": 1990,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "brand new life.s01e05.even housekeepers sing the blues.vhsrip.mp4",
-            "format": "h.264",
-            "sizeBytes": 243689208,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/brand-new-life.s-01e-05.even-housekeepers-sing-the-blues.vhsrip/brand new life.s01e05.even housekeepers sing the blues.vhsrip.mp4"
-        }
-      ]
+     "archiveID": "brand-new-life.s-01e-01.above-and-beyond-therapy.vhsrip",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Beyond Therapy",
+     "overview": "After attending Rodger's 30th high school reunion, one of his former classmates, now a tv therapist, contacts Rodger and asks him to be on his show. Rodger doesn't want any part of it, but after Barbara and the kids beg him to, he gives in.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/dErF9zyyBlEJIIaGhJVzrqbSyrO.jpg",
+     "airDate": "1989-10-01",
+     "year": 1989,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "brand new life.s01e01.above and beyond therapy.vhsrip.mp4",
+      "format": "h.264",
+      "sizeBytes": 272248750,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/brand-new-life.s-01e-01.above-and-beyond-therapy.vhsrip/brand new life.s01e01.above and beyond therapy.vhsrip.mp4"
     },
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "brand-new-life-honeymooners",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Brand New Life",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Brand New Life (Honeymooners).mp4",
-            "format": "h.264",
-            "sizeBytes": 602489566,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/brand-new-life-honeymooners/Brand%20New%20Life%20%28Honeymooners%29.mp4"
-        }
-      ]
+     "archiveID": "brand-new-life.s-01e-02.i-fought-the-law.vhsrip",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "I Fought the Law",
+     "overview": "Barbara is pitted against a traffic court judge, after her son gets a ticket. The pompous judge is someone who likes to make victims of the accused. Barbara objects to his actions, and he has her jailed for contempt.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/dErF9zyyBlEJIIaGhJVzrqbSyrO.jpg",
+     "airDate": null,
+     "year": 1989,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "brand new life.s01e02.i fought the law.vhsrip.mp4",
+      "format": "h.264",
+      "sizeBytes": 274546574,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/brand-new-life.s-01e-02.i-fought-the-law.vhsrip/brand new life.s01e02.i fought the law.vhsrip.mp4"
+    },
+    {
+     "archiveID": "brand-new-life.s-01e-03.private-school.vhsrip",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "I Fought the Law",
+     "overview": "Barbara is pitted against a traffic court judge, after her son gets a ticket. The pompous judge is someone who likes to make victims of the accused. Barbara objects to his actions, and he has her jailed for contempt.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/dErF9zyyBlEJIIaGhJVzrqbSyrO.jpg",
+     "airDate": "1989-10-15",
+     "year": 1989,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "brand new life.s01e03.private school.vhsrip.mp4",
+      "format": "h.264",
+      "sizeBytes": 270996215,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/brand-new-life.s-01e-03.private-school.vhsrip/brand new life.s01e03.private school.vhsrip.mp4"
+    },
+    {
+     "archiveID": "brand-new-life.s-01e-04.children-of-a-legal-mom.vhsrip",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "Private School",
+     "overview": "When Erika finds out that a 17-year-old classmate is pregnant, she's excited enough that her and her boyfriend want to throw a baby shower. The excitement soon changes when she realizes her friendship is in danger, when her friend has to face real commitment... and grow up.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/dErF9zyyBlEJIIaGhJVzrqbSyrO.jpg",
+     "airDate": "1989-10-22",
+     "year": 1989,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "brand new life.s01e04.children of a legal mom.vhsrip.mp4",
+      "format": "h.264",
+      "sizeBytes": 273286774,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/brand-new-life.s-01e-04.children-of-a-legal-mom.vhsrip/brand new life.s01e04.children of a legal mom.vhsrip.mp4"
+    },
+    {
+     "archiveID": "brand-new-life.s-01e-05.even-housekeepers-sing-the-blues.vhsrip",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "Children of a Legal Mom",
+     "overview": "College student Amanda brings a new friend home to meet her family. He is a deaf man whose extraordinary and positive attitude towards life affects each of her family members in a very profound way.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/dErF9zyyBlEJIIaGhJVzrqbSyrO.jpg",
+     "airDate": "1990-01-07",
+     "year": 1990,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "brand new life.s01e05.even housekeepers sing the blues.vhsrip.mp4",
+      "format": "h.264",
+      "sizeBytes": 243689208,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/brand-new-life.s-01e-05.even-housekeepers-sing-the-blues.vhsrip/brand new life.s01e05.even housekeepers sing the blues.vhsrip.mp4"
     }
-  ],
-  "episodesCount": 6,
-  "canonicalEpisodesCount": 5,
-  "seriesImdbID": "tt0096974",
-  "canonicalEpisodeCount": 0,
-  "canonicalSeasons": null,
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
-      "name": "Barbara Eden",
-      "character": "Barbara McCray Gibbons",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/11/28702.jpg"
-    },
-    {
-      "name": "Alison Sweeney",
-      "character": "Christy McCray",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/27389.jpg"
-    },
-    {
-      "name": "Don Murray",
-      "character": "Roger Gibbons",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/524/1310844.jpg"
-    },
-    {
-      "name": "Byron Thames",
-      "character": "Laird Gibbons",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/55/139842.jpg"
-    },
-    {
-      "name": "David Tom",
-      "character": "Bart McCray",
-      "order": 4,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/178/445175.jpg"
-    },
-    {
-      "name": "Jennie Garth",
-      "character": "Ericka McCray",
-      "order": 5,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/13/33755.jpg"
-    },
-    {
-      "name": "Shawnee Smith",
-      "character": "Amanda Gibbons",
-      "order": 6,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/7524.jpg"
+     "archiveID": "brand-new-life-honeymooners",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Brand New Life",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Brand New Life (Honeymooners).mp4",
+      "format": "h.264",
+      "sizeBytes": 602489566,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/brand-new-life-honeymooners/Brand%20New%20Life%20%28Honeymooners%29.mp4"
     }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 6,
+ "canonicalEpisodesCount": 5
 }

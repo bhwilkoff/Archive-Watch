@@ -1,259 +1,204 @@
 {
-  "version": 2,
-  "seriesID": "invasion-america-1998",
-  "tvmazeID": 13024,
-  "title": "Invasion America",
-  "yearStart": 1998,
-  "yearEnd": 1998,
-  "overview": "Invasion America is a animated sci-fi miniseries that aired on The WB from June 8, 1998 – July 7, 1998.The story of Invasion America begins in the early 1980s, when humanoid aliens from the planet Tyrus begin to initiate their plans for making contact with Earth. Cale-Oosha, the ruler of Tyrus, looks into his uncle's project with Earth. However, his uncle, The Dragit, claims that their dying planet ought to invade Earth and take hold of its resources. Cale refuses, and a civil war breaks out.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/75407-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Science-Fiction"
-  ],
-  "networks": [
-    "The WB"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "invasion-america-1998",
+ "tvmazeID": 13024,
+ "title": "Invasion America",
+ "yearStart": 1998,
+ "yearEnd": 1998,
+ "overview": "Invasion America is a animated sci-fi miniseries that aired on The WB from June 8, 1998 – July 7, 1998.The story of Invasion America begins in the early 1980s, when humanoid aliens from the planet Tyrus begin to initiate their plans for making contact with Earth. Cale-Oosha, the ruler of Tyrus, looks into his uncle's project with Earth. However, his uncle, The Dragit, claims that their dying planet ought to invade Earth and take hold of its resources. Cale refuses, and a civil war breaks out.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/44/111763.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Science-Fiction"
+ ],
+ "networks": [
+  "The WB"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "americas-century-blowing-the-fortune-ep.-5-1989",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "Renewal",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/americas-century-blowing-the-fortune-ep.-5-1989",
-          "airDate": "1998-06-16",
-          "year": 1998,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "America's Century- Blowing The Fortune (Ep. 5, 1989).mp4",
-            "format": "h.264",
-            "sizeBytes": 337349037,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/americas-century-blowing-the-fortune-ep.-5-1989/America's Century- Blowing The Fortune (Ep. 5, 1989).mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 3,
-      "episodes": [
-        {
-          "archiveID": "america-says-s3-e1",
-          "seasonNumber": 3,
-          "episodeNumber": 1,
-          "title": "America Says : The Superfans/Football Moms",
-          "overview": "America Says S3 E1<div>Aired December 24, 2021 at 1:30PM ET on Game Show Network</div>",
-          "stillURL": "https://archive.org/services/img/america-says-s3-e1",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "YouCut_20211229_063159065.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 369980181,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/america-says-s3-e1/YouCut_20211229_063159065.ia.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 5,
-      "episodes": [
-        {
-          "archiveID": "AmericasWildHorses",
-          "seasonNumber": 5,
-          "episodeNumber": 14,
-          "title": "America's Wild Horses",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/AmericasWildHorses",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Nature.S05E14.Americas.Wild.Horses.1987.VHSRip.AAC2.0.x264-rattera.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 1313062276,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/AmericasWildHorses/Nature.S05E14.Americas.Wild.Horses.1987.VHSRip.AAC2.0.x264-rattera.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "americas-all-star-tribute-to-elizabeth-taylor-1989",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "America's All Star Tribute To Elizabeth Taylor - Charles Bronson",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/americas-all-star-tribute-to-elizabeth-taylor-1989",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Americas All-Star Tribute to Elizabeth Taylor - 1989.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 1108101634,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/americas-all-star-tribute-to-elizabeth-taylor-1989/Americas All-Star Tribute to Elizabeth Taylor - 1989.ia.mp4"
-        },
-        {
-          "archiveID": "americas-funniest-people-balancing-acts-1990",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "America's Funniest People - Arleen Sorkin, Dave Coulier",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/americas-funniest-people-balancing-acts-1990",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Americas Funniest People - Big Winner 2 - 1990.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 759108922,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/americas-funniest-people-balancing-acts-1990/Americas Funniest People - Big Winner 2 - 1990.ia.mp4"
-        },
-        {
-          "archiveID": "americas-funniest-people-november-24-1991-most",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "America's Funniest People- November 24, 1991",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/americas-funniest-people-november-24-1991-most",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "America's Funniest People- November 24, 1991 (most).ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 636370573,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/americas-funniest-people-november-24-1991-most/America's Funniest People- November 24, 1991 (most).ia.mp4"
-        },
-        {
-          "archiveID": "AmericasMostWantedLadyKiller",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "America's Most Wanted - Lady Killer: The Most Wanted Man in America",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/AmericasMostWantedLadyKiller",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Lady Killer - The Most Wanted Man in America.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 127254004,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/AmericasMostWantedLadyKiller/Lady Killer - The Most Wanted Man in America.ia.mp4"
-        },
-        {
-          "archiveID": "americas-most-wanted-september-3-1989-partial",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "America's Most Wanted- September 3, 1989",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/americas-most-wanted-september-3-1989-partial",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "America's Most Wanted- September 3, 1989 (partial).ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 321274246,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/americas-most-wanted-september-3-1989-partial/America's Most Wanted- September 3, 1989 (partial).ia.mp4"
-        },
-        {
-          "archiveID": "americas-toughest-assignment-199x",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "America's Toughest Assignment - Charles Kuralt",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/americas-toughest-assignment-199x",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Americas Toughest Assignment - 199x.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 2171481666,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/americas-toughest-assignment-199x/Americas Toughest Assignment - 199x.ia.mp4"
-        }
-      ]
+     "archiveID": "americas-century-blowing-the-fortune-ep.-5-1989",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "Renewal",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/americas-century-blowing-the-fortune-ep.-5-1989",
+     "airDate": "1998-06-16",
+     "year": 1998,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "America's Century- Blowing The Fortune (Ep. 5, 1989).mp4",
+      "format": "h.264",
+      "sizeBytes": 337349037,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/americas-century-blowing-the-fortune-ep.-5-1989/America's Century- Blowing The Fortune (Ep. 5, 1989).mp4"
     }
-  ],
-  "episodesCount": 9,
-  "canonicalEpisodesCount": 13,
-  "seriesImdbID": "tt0161718",
-  "canonicalEpisodeCount": 5,
-  "canonicalSeasons": 1,
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 3,
+   "episodes": [
     {
-      "name": "Mikey Kelley",
-      "character": "David Carter",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/44/112056.jpg"
-    },
-    {
-      "name": "Tony Jay",
-      "character": "The Dragit",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/23638.jpg"
-    },
-    {
-      "name": "Thom Adcox-Hernandez",
-      "character": "Simon",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/44/112069.jpg"
-    },
-    {
-      "name": "Greg Eagles",
-      "character": "Philip Stark",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/44/112075.jpg"
-    },
-    {
-      "name": "Kristy McNichol",
-      "character": "Angie Romar",
-      "order": 4,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/44/112076.jpg"
-    },
-    {
-      "name": "Jim Cummings",
-      "character": "Major Lomack",
-      "order": 5,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/449/1124561.jpg"
-    },
-    {
-      "name": "James Sikking",
-      "character": "General Gordon",
-      "order": 6,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/606/1517493.jpg"
-    },
-    {
-      "name": "Rider Strong",
-      "character": "Jim Bailey",
-      "order": 7,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/43/108890.jpg"
+     "archiveID": "america-says-s3-e1",
+     "seasonNumber": 3,
+     "episodeNumber": 1,
+     "title": "America Says : The Superfans/Football Moms",
+     "overview": "America Says S3 E1<div>Aired December 24, 2021 at 1:30PM ET on Game Show Network</div>",
+     "stillURL": "https://archive.org/services/img/america-says-s3-e1",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "YouCut_20211229_063159065.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 369980181,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/america-says-s3-e1/YouCut_20211229_063159065.ia.mp4"
     }
-  ],
-  "tvdbID": "75407",
-  "artworkSource": "tvdb"
+   ]
+  },
+  {
+   "seasonNumber": 5,
+   "episodes": [
+    {
+     "archiveID": "AmericasWildHorses",
+     "seasonNumber": 5,
+     "episodeNumber": 14,
+     "title": "America's Wild Horses",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/AmericasWildHorses",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Nature.S05E14.Americas.Wild.Horses.1987.VHSRip.AAC2.0.x264-rattera.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 1313062276,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/AmericasWildHorses/Nature.S05E14.Americas.Wild.Horses.1987.VHSRip.AAC2.0.x264-rattera.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "americas-all-star-tribute-to-elizabeth-taylor-1989",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "America's All Star Tribute To Elizabeth Taylor - Charles Bronson",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/americas-all-star-tribute-to-elizabeth-taylor-1989",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Americas All-Star Tribute to Elizabeth Taylor - 1989.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 1108101634,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/americas-all-star-tribute-to-elizabeth-taylor-1989/Americas All-Star Tribute to Elizabeth Taylor - 1989.ia.mp4"
+    },
+    {
+     "archiveID": "americas-funniest-people-balancing-acts-1990",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "America's Funniest People - Arleen Sorkin, Dave Coulier",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/americas-funniest-people-balancing-acts-1990",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Americas Funniest People - Big Winner 2 - 1990.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 759108922,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/americas-funniest-people-balancing-acts-1990/Americas Funniest People - Big Winner 2 - 1990.ia.mp4"
+    },
+    {
+     "archiveID": "americas-funniest-people-november-24-1991-most",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "America's Funniest People- November 24, 1991",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/americas-funniest-people-november-24-1991-most",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "America's Funniest People- November 24, 1991 (most).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 636370573,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/americas-funniest-people-november-24-1991-most/America's Funniest People- November 24, 1991 (most).ia.mp4"
+    },
+    {
+     "archiveID": "AmericasMostWantedLadyKiller",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "America's Most Wanted - Lady Killer: The Most Wanted Man in America",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/AmericasMostWantedLadyKiller",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Lady Killer - The Most Wanted Man in America.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 127254004,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/AmericasMostWantedLadyKiller/Lady Killer - The Most Wanted Man in America.ia.mp4"
+    },
+    {
+     "archiveID": "americas-most-wanted-september-3-1989-partial",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "America's Most Wanted- September 3, 1989",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/americas-most-wanted-september-3-1989-partial",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "America's Most Wanted- September 3, 1989 (partial).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 321274246,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/americas-most-wanted-september-3-1989-partial/America's Most Wanted- September 3, 1989 (partial).ia.mp4"
+    },
+    {
+     "archiveID": "americas-toughest-assignment-199x",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "America's Toughest Assignment - Charles Kuralt",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/americas-toughest-assignment-199x",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Americas Toughest Assignment - 199x.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 2171481666,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/americas-toughest-assignment-199x/Americas Toughest Assignment - 199x.ia.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 9,
+ "canonicalEpisodesCount": 13
 }

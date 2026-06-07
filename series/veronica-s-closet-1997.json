@@ -1,134 +1,81 @@
 {
-  "version": 2,
-  "seriesID": "veronica-s-closet-1997",
-  "tvmazeID": 12736,
-  "title": "Veronica's Closet",
-  "yearStart": 1998,
-  "yearEnd": 1998,
-  "overview": "Veronica's Closet follows Veronica 'Ronnie' Chase, aka the 'Queen of Romance.' As the founder of a successful lingerie empire and best-selling author of self-help romance books, Ronnie has it all ... money, success, sex appeal and a philandering husband. How she will find true happiness without jeopardizing her business will be her biggest challenge yet. A devoted wife for 14 years and a savvy entrepreneur, Ronnie has built an enterprise based on romance despite her philandering husband. However, as of late, his indiscretions have become too frequent and painful to overlook. She can no longer tolerate finding his bimbos' undergarments in her house or the tabloids photographing him with other women. Infidelity is hard enough without having to endure public humiliation.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/43/109114.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "veronica-s-closet-1997",
+ "tvmazeID": 12736,
+ "title": "Veronica's Closet",
+ "yearStart": 1997,
+ "yearEnd": 2000,
+ "overview": "Veronica's Closet follows Veronica 'Ronnie' Chase, aka the 'Queen of Romance.' As the founder of a successful lingerie empire and best-selling author of self-help romance books, Ronnie has it all ... money, success, sex appeal and a philandering husband. How she will find true happiness without jeopardizing her business will be her biggest challenge yet. A devoted wife for 14 years and a savvy entrepreneur, Ronnie has built an enterprise based on romance despite her philandering husband. However, as of late, his indiscretions have become too frequent and painful to overlook. She can no longer tolerate finding his bimbos' undergarments in her house or the tabloids photographing him with other women. Infidelity is hard enough without having to endure public humiliation.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/43/109114.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "VeronicaSClosetVeronicaGetsHerClosetBackS3E1",
-          "seasonNumber": 2,
-          "episodeNumber": 1,
-          "title": "Veronica's Closet- Veronica Gets Her Closet Back (S2E1)",
-          "overview": "<p class=\"MsoNormal\">Here is the first episode of Veronica's Closet's second\nseason starring Lea Thompson.</p><p></p>",
-          "stillURL": "https://archive.org/services/img/VeronicaSClosetVeronicaGetsHerClosetBackS3E1",
-          "airDate": "1998-09-24",
-          "year": null,
-          "runtimeSeconds": 1294,
-          "videoFile": {
-            "name": "Veronica_s-Closet-Veronica-Gets-Her-Closet-Back-_S3E1_.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 189374015,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/VeronicaSClosetVeronicaGetsHerClosetBackS3E1/Veronica_s-Closet-Veronica-Gets-Her-Closet-Back-_S3E1_.mp4"
-        },
-        {
-          "archiveID": "veronicasclosets2e4veronicasdogdayafternoonconvertvideoonline.com",
-          "seasonNumber": 2,
-          "episodeNumber": 4,
-          "title": "Veronica's Dog Day Afternoon",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1998-10-15",
-          "year": 1998,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Veronica's Closet (S2E4- Veronica's Dog Day Afternoon) (convert-video-online.com).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 391264507,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/veronicasclosets2e4veronicasdogdayafternoonconvertvideoonline.com/Veronica%27s%20Closet%20%28S2E4-%20Veronica%27s%20Dog%20Day%20Afternoon%29%20%28convert-video-online.com%29.mp4"
-        },
-        {
-          "archiveID": "veronicasclosets2e5veronicascrushedpartialconvertvideoonline.com",
-          "seasonNumber": 2,
-          "episodeNumber": 5,
-          "title": "Veronica's Crushed",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1998-10-29",
-          "year": 1998,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Veronica's Closet (S2E5, Veronica's Crushed, partial) (convert-video-online.com).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 122039719,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/veronicasclosets2e5veronicascrushedpartialconvertvideoonline.com/Veronica%27s%20Closet%20%28S2E5%2C%20Veronica%27s%20Crushed%2C%20partial%29%20%28convert-video-online.com%29.mp4"
-        }
-      ]
+     "archiveID": "VeronicaSClosetVeronicaGetsHerClosetBackS3E1",
+     "seasonNumber": 2,
+     "episodeNumber": 1,
+     "title": "Veronica Gets Her Closet Back",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/VeronicaSClosetVeronicaGetsHerClosetBackS3E1",
+     "airDate": "1998-09-24",
+     "year": 1998,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Veronica_s-Closet-Veronica-Gets-Her-Closet-Back-_S3E1_.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 189374015,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/VeronicaSClosetVeronicaGetsHerClosetBackS3E1/Veronica_s-Closet-Veronica-Gets-Her-Closet-Back-_S3E1_.mp4"
+    },
+    {
+     "archiveID": "veronicasclosets2e4veronicasdogdayafternoonconvertvideoonline.com",
+     "seasonNumber": 2,
+     "episodeNumber": 4,
+     "title": "Veronica's Dog Day Afternoon",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1998-10-15",
+     "year": 1998,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Veronica's Closet (S2E4- Veronica's Dog Day Afternoon) (convert-video-online.com).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 391264507,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/veronicasclosets2e4veronicasdogdayafternoonconvertvideoonline.com/Veronica%27s%20Closet%20%28S2E4-%20Veronica%27s%20Dog%20Day%20Afternoon%29%20%28convert-video-online.com%29.mp4"
+    },
+    {
+     "archiveID": "veronicasclosets2e5veronicascrushedpartialconvertvideoonline.com",
+     "seasonNumber": 2,
+     "episodeNumber": 5,
+     "title": "Veronica's Crushed",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1998-10-29",
+     "year": 1998,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Veronica's Closet (S2E5, Veronica's Crushed, partial) (convert-video-online.com).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 122039719,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/veronicasclosets2e5veronicascrushedpartialconvertvideoonline.com/Veronica%27s%20Closet%20%28S2E5%2C%20Veronica%27s%20Crushed%2C%20partial%29%20%28convert-video-online.com%29.mp4"
     }
-  ],
-  "episodesCount": 3,
-  "canonicalEpisodesCount": 66,
-  "seriesImdbID": "tt0118506",
-  "canonicalEpisodeCount": 59,
-  "canonicalSeasons": 3,
-  "cast": [
-    {
-      "name": "Robert Prosky",
-      "character": "Pat Chase",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/37/93791.jpg"
-    },
-    {
-      "name": "Ron Silver",
-      "character": "Alec Bilson",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/51/129986.jpg"
-    },
-    {
-      "name": "Lorri Bagley",
-      "character": "June Bilson Anderson",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/84/210221.jpg"
-    },
-    {
-      "name": "Kirstie Alley",
-      "character": "Veronica Chase",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/25/64187.jpg"
-    },
-    {
-      "name": "Dan Cortese",
-      "character": "Perry Rollins",
-      "order": 4,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/11/29566.jpg"
-    },
-    {
-      "name": "Wallace Langham",
-      "character": "Josh Blair",
-      "order": 5,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/115/287842.jpg"
-    },
-    {
-      "name": "Kathy Najimy",
-      "character": "Olive Massery",
-      "order": 6,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/502/1257304.jpg"
-    },
-    {
-      "name": "Daryl Mitchell",
-      "character": "Leo Michaels",
-      "order": 7,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/16/40796.jpg"
-    }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 3,
+ "canonicalEpisodesCount": 66
 }

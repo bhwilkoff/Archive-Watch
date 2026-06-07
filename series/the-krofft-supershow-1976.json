@@ -1,169 +1,133 @@
 {
-  "version": 2,
-  "seriesID": "the-krofft-supershow-1976",
-  "tvmazeID": 39670,
-  "title": "The Krofft Supershow",
-  "yearStart": 1976,
-  "yearEnd": 1977,
-  "overview": "The Krofft Supershow was a variety show composed of several live-action segments, hosted by \"Kaptain Kool and the Kongs\", a rock band created for the series.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/174/435547.jpg",
-  "backdropURL": null,
-  "genres": [],
-  "networks": [
-    "ABC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-krofft-supershow-1976",
+ "tvmazeID": 39670,
+ "title": "The Krofft Supershow",
+ "yearStart": 1976,
+ "yearEnd": 1977,
+ "overview": "The Krofft Supershow was a variety show composed of several live-action segments, hosted by \"Kaptain Kool and the Kongs\", a rock band created for the series.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/174/435547.jpg",
+ "backdropURL": null,
+ "genres": [],
+ "networks": [
+  "ABC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "pinklady",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Show 1",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/pinklady",
-          "airDate": "1976-09-11",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "360.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 240633316,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/pinklady/360.ia.mp4"
-        },
-        {
-          "archiveID": "pinklady2",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Show 2",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/pinklady2",
-          "airDate": "1976-09-18",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "360 (1).ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 235722471,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/pinklady2/360 (1).ia.mp4"
-        },
-        {
-          "archiveID": "pinklady3",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Show 3",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/pinklady3",
-          "airDate": "1976-09-25",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "pink lady 3.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 218035382,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/pinklady3/pink lady 3.ia.mp4"
-        },
-        {
-          "archiveID": "pinklady4",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "Show 4",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/pinklady4",
-          "airDate": "1976-10-02",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "pink lady 4.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 231846444,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/pinklady4/pink lady 4.ia.mp4"
-        },
-        {
-          "archiveID": "pinklady5",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "Show 5",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/pinklady5",
-          "airDate": "1976-10-09",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "pink lady 5.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 237406312,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/pinklady5/pink lady 5.ia.mp4"
-        },
-        {
-          "archiveID": "pinklady6",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Show 6",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/pinklady6",
-          "airDate": "1976-10-16",
-          "year": 1976,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "pink lady 6.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 234705355,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/pinklady6/pink lady 6.ia.mp4"
-        }
-      ]
+     "archiveID": "pinklady",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Show 1",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/pinklady",
+     "airDate": "1976-09-11",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "360.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 240633316,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/pinklady/360.ia.mp4"
+    },
+    {
+     "archiveID": "pinklady2",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Show 2",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/pinklady2",
+     "airDate": "1976-09-18",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "360 (1).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 235722471,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/pinklady2/360 (1).ia.mp4"
+    },
+    {
+     "archiveID": "pinklady3",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Show 3",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/pinklady3",
+     "airDate": "1976-09-25",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "pink lady 3.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 218035382,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/pinklady3/pink lady 3.ia.mp4"
+    },
+    {
+     "archiveID": "pinklady4",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "Show 4",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/pinklady4",
+     "airDate": "1976-10-02",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "pink lady 4.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 231846444,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/pinklady4/pink lady 4.ia.mp4"
+    },
+    {
+     "archiveID": "pinklady5",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "Show 5",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/pinklady5",
+     "airDate": "1976-10-09",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "pink lady 5.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 237406312,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/pinklady5/pink lady 5.ia.mp4"
+    },
+    {
+     "archiveID": "pinklady6",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Show 6",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/pinklady6",
+     "airDate": "1976-10-16",
+     "year": 1976,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "pink lady 6.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 234705355,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/pinklady6/pink lady 6.ia.mp4"
     }
-  ],
-  "episodesCount": 6,
-  "canonicalEpisodesCount": 32,
-  "seriesImdbID": "tt0074014",
-  "canonicalEpisodeCount": 29,
-  "canonicalSeasons": 2,
-  "tvdbID": "73405",
-  "cast": [
-    {
-      "name": "Debra Clinger",
-      "character": "",
-      "order": 0,
-      "profilePath": null
-    },
-    {
-      "name": "Louise DuArt",
-      "character": "",
-      "order": 1,
-      "profilePath": null
-    },
-    {
-      "name": "Bert Sommer",
-      "character": "",
-      "order": 2,
-      "profilePath": null
-    },
-    {
-      "name": "Mickey McMeel",
-      "character": "",
-      "order": 3,
-      "profilePath": null
-    },
-    {
-      "name": "Michael Lembeck",
-      "character": "",
-      "order": 4,
-      "profilePath": null
-    }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 6,
+ "canonicalEpisodesCount": 32
 }

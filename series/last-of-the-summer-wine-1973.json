@@ -1,329 +1,232 @@
 {
-  "version": 2,
-  "seriesID": "last-of-the-summer-wine-1973",
-  "tvmazeID": 8049,
-  "title": "Last of the Summer Wine",
-  "yearStart": 1973,
-  "yearEnd": 2010,
-  "overview": "Last of the Summer Wine is a British sitcom created and written by Roy Clarke that was originally broadcast on the BBC. Last of the Summer Wine premiered as an episode of Comedy Playhouse on 4 January 1973 and the first series of episodes followed on 12 November 1973. From 1983 to 2010, Alan J. W. Bell produced and directed all episodes of the show. The BBC confirmed on 2 June 2010 that Last of the Summer Wine would no longer be produced and the 31st series would be its last. Subsequently, the final episode was broadcast on 29 August 2010. Tom Owen criticised the BBC for not permitting a special final episode. Roy Clarke, however, stated that he was fully aware this was the last series, and preferred the show to have a quiet ending. The final line was said by Peter Sallis, the longest serving actor. Repeats of the show are broadcast in the UK on Gold, Yesterday and Drama. It is also seen in more than twenty-five countries,including various PBS stations in the United States and on VisionTV in Canada. Last of the Summer Wine is the longest-running comedy programme in Britain and the longest-running sitcom in the world.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/77945-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy"
-  ],
-  "networks": [
-    "BBC One"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "last-of-the-summer-wine-1973",
+ "tvmazeID": 8049,
+ "title": "Last of the Summer Wine",
+ "yearStart": 1973,
+ "yearEnd": 2010,
+ "overview": "Last of the Summer Wine is a British sitcom created and written by Roy Clarke that was originally broadcast on the BBC. Last of the Summer Wine premiered as an episode of Comedy Playhouse on 4 January 1973 and the first series of episodes followed on 12 November 1973. From 1983 to 2010, Alan J. W. Bell produced and directed all episodes of the show. The BBC confirmed on 2 June 2010 that Last of the Summer Wine would no longer be produced and the 31st series would be its last. Subsequently, the final episode was broadcast on 29 August 2010. Tom Owen criticised the BBC for not permitting a special final episode. Roy Clarke, however, stated that he was fully aware this was the last series, and preferred the show to have a quiet ending. The final line was said by Peter Sallis, the longest serving actor. Repeats of the show are broadcast in the UK on Gold, Yesterday and Drama. It is also seen in more than twenty-five countries,including various PBS stations in the United States and on VisionTV in Canada. Last of the Summer Wine is the longest-running comedy programme in Britain and the longest-running sitcom in the world.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/29/73192.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "BBC One"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "last-of-the-summer-wine-s-1-e-02-short-back-and-palais-glide",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Inventor of the 40-Foot Ferret",
-          "overview": "Compo has never been to church but when Blamire and Clegg drag him into one, the reactions are not what they expect.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
-          "airDate": "1973-11-19",
-          "year": 1973,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Last of the Summer Wine S1E02 - Short Back and Palais Glide.mp4",
-            "format": "h.264",
-            "sizeBytes": 176081788,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/last-of-the-summer-wine-s-1-e-02-short-back-and-palais-glide/Last of the Summer Wine S1E02 - Short Back and Palais Glide.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 8,
-      "episodes": [
-        {
-          "archiveID": "last-of-the-summer-wine-s-8-e-08-uncle-of-the-bride",
-          "seasonNumber": 8,
-          "episodeNumber": 8,
-          "title": "Last of the Summer Wine",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
-          "airDate": null,
-          "year": 1984,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Last of the Summer Wine S8E08 - Uncle of the Bride.mp4",
-            "format": "h.264",
-            "sizeBytes": 495770619,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/last-of-the-summer-wine-s-8-e-08-uncle-of-the-bride/Last of the Summer Wine S8E08 - Uncle of the Bride.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 9,
-      "episodes": [
-        {
-          "archiveID": "last-of-the-summer-wine-s-9-e-14-big-day-at-dream-acres",
-          "seasonNumber": 9,
-          "episodeNumber": 14,
-          "title": "Big Day at Dream Acres (1987 Christmas Special)",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
-          "airDate": "1987-12-31",
-          "year": 1987,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Last of the Summer Wine S9E14 - Big Day at Dream Acres.mp4",
-            "format": "h.264",
-            "sizeBytes": 460285537,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/last-of-the-summer-wine-s-9-e-14-big-day-at-dream-acres/Last of the Summer Wine S9E14 - Big Day at Dream Acres.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 12,
-      "episodes": [
-        {
-          "archiveID": "last-of-the-summer-wine-series-12",
-          "seasonNumber": 12,
-          "episodeNumber": 7,
-          "title": "The Empire That Foggy Nearly Built",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
-          "airDate": "1990-10-14",
-          "year": 1990,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Last of the Summer Wine S12E07 - The Empire that Foggy Nearly Built.mp4",
-            "format": "h.264",
-            "sizeBytes": 184420014,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/last-of-the-summer-wine-series-12/Last of the Summer Wine S12E07 - The Empire that Foggy Nearly Built.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 19,
-      "episodes": [
-        {
-          "archiveID": "last-of-the-summer-wine-series-19",
-          "seasonNumber": 19,
-          "episodeNumber": 4,
-          "title": "Oh Howard, We Should Get One of Those",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
-          "airDate": "1998-01-25",
-          "year": 1998,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Last of the Summer Wine S19E04 - Oh Howard, We Should Get One of Those.mp4",
-            "format": "h.264",
-            "sizeBytes": 177322084,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/last-of-the-summer-wine-series-19/Last of the Summer Wine S19E04 - Oh Howard, We Should Get One of Those.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "last-of-the-summer-wine-series-01",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Last of the Summer Wine",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1973,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Short Back & Palais Guide S01Ep02.mp4",
-            "format": "h.264",
-            "sizeBytes": 175813875,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/last-of-the-summer-wine-series-01/Short%20Back%20%26%20Palais%20Guide%20S01Ep02.mp4"
-        },
-        {
-          "archiveID": "Last-of-the-Summer-Wine-Series-2",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Last of the Summer Wine",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
-          "airDate": null,
-          "year": 1975,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Ballad for Wind Instruments and Canoe S02Ep06.mp4",
-            "format": "h.264",
-            "sizeBytes": 173553492,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Last-of-the-Summer-Wine-Series-2/Ballad for Wind Instruments and Canoe S02Ep06.mp4"
-        },
-        {
-          "archiveID": "last-of-the-summer-wine-series-3",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Last of the Summer Wine",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
-          "airDate": null,
-          "year": 1976,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "The Man from Owestry S03Ep01.mp4",
-            "format": "h.264",
-            "sizeBytes": 172847937,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/last-of-the-summer-wine-series-3/The Man from Owestry S03Ep01.mp4"
-        },
-        {
-          "archiveID": "last-of-the-sumnmer-wine-series-4",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Last of the Summer Wine",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
-          "airDate": null,
-          "year": 1977,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "A Merry Heatwave S04Ep07.mp4",
-            "format": "h.264",
-            "sizeBytes": 207011076,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/last-of-the-sumnmer-wine-series-4/A Merry Heatwave S04Ep07.mp4"
-        },
-        {
-          "archiveID": "Last-of-the-Summer-Wine-Series-5",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Last of the Summer Wine",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
-          "airDate": null,
-          "year": 1979,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "And a Dewhurst Up a Fir Tree Christmas Special 1979.S00Ep02.mp4",
-            "format": "h.264",
-            "sizeBytes": 178332918,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Last-of-the-Summer-Wine-Series-5/And a Dewhurst Up a Fir Tree Christmas Special 1979.S00Ep02.mp4"
-        }
-      ]
+     "archiveID": "last-of-the-summer-wine-s-1-e-02-short-back-and-palais-glide",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Inventor of the 40-Foot Ferret",
+     "overview": "Compo has never been to church but when Blamire and Clegg drag him into one, the reactions are not what they expect.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
+     "airDate": "1973-11-19",
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Last of the Summer Wine S1E02 - Short Back and Palais Glide.mp4",
+      "format": "h.264",
+      "sizeBytes": 176081788,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/last-of-the-summer-wine-s-1-e-02-short-back-and-palais-glide/Last of the Summer Wine S1E02 - Short Back and Palais Glide.mp4"
     }
-  ],
-  "episodesCount": 10,
-  "canonicalEpisodesCount": 293,
-  "seriesImdbID": "tt0069602",
-  "canonicalEpisodeCount": 244,
-  "canonicalSeasons": 31,
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 8,
+   "episodes": [
     {
-      "name": "Peter Sallis",
-      "character": "Norman Clegg",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/73262.jpg"
-    },
-    {
-      "name": "Bill Owen",
-      "character": "Albert \"Compo\" Simmonite",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/7/19612.jpg"
-    },
-    {
-      "name": "Frank Thornton",
-      "character": "Herbert \"Truly\" Truelove",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/72116.jpg"
-    },
-    {
-      "name": "Brian Wilde",
-      "character": "\"Foggy\" Dewhurst",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/25095.jpg"
-    },
-    {
-      "name": "Michael Aldridge",
-      "character": "Seymour Utterthwaite",
-      "order": 4,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/213/532954.jpg"
-    },
-    {
-      "name": "Michael Bates",
-      "character": "Cyril Blamire",
-      "order": 5,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/37/93569.jpg"
-    },
-    {
-      "name": "Jean Alexander",
-      "character": "Auntie",
-      "order": 6,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/73257.jpg"
-    },
-    {
-      "name": "Jean Fergusson",
-      "character": "Marina",
-      "order": 7,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/73280.jpg"
-    },
-    {
-      "name": "Juliette Kaplan",
-      "character": "Pearl",
-      "order": 8,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/216/540084.jpg"
-    },
-    {
-      "name": "Kathy Staff",
-      "character": "Nora Batty",
-      "order": 9,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/66197.jpg"
-    },
-    {
-      "name": "Robert Fyfe",
-      "character": "Howard",
-      "order": 10,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/73268.jpg"
-    },
-    {
-      "name": "Stephen Lewis",
-      "character": "Smiler",
-      "order": 11,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/73277.jpg"
-    },
-    {
-      "name": "Gordon Wharmby",
-      "character": "Wesley",
-      "order": 12,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/73270.jpg"
-    },
-    {
-      "name": "Jane Freeman",
-      "character": "Ivy",
-      "order": 13,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/73275.jpg"
-    },
-    {
-      "name": "Thora Hird",
-      "character": "Edie",
-      "order": 14,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/73272.jpg"
+     "archiveID": "last-of-the-summer-wine-s-8-e-08-uncle-of-the-bride",
+     "seasonNumber": 8,
+     "episodeNumber": 8,
+     "title": "Last of the Summer Wine",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
+     "airDate": null,
+     "year": 1984,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Last of the Summer Wine S8E08 - Uncle of the Bride.mp4",
+      "format": "h.264",
+      "sizeBytes": 495770619,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/last-of-the-summer-wine-s-8-e-08-uncle-of-the-bride/Last of the Summer Wine S8E08 - Uncle of the Bride.mp4"
     }
-  ],
-  "tvdbID": "77945",
-  "artworkSource": "tvdb"
+   ]
+  },
+  {
+   "seasonNumber": 9,
+   "episodes": [
+    {
+     "archiveID": "last-of-the-summer-wine-s-9-e-14-big-day-at-dream-acres",
+     "seasonNumber": 9,
+     "episodeNumber": 14,
+     "title": "Big Day at Dream Acres (1987 Christmas Special)",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
+     "airDate": "1987-12-31",
+     "year": 1987,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Last of the Summer Wine S9E14 - Big Day at Dream Acres.mp4",
+      "format": "h.264",
+      "sizeBytes": 460285537,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/last-of-the-summer-wine-s-9-e-14-big-day-at-dream-acres/Last of the Summer Wine S9E14 - Big Day at Dream Acres.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 12,
+   "episodes": [
+    {
+     "archiveID": "last-of-the-summer-wine-series-12",
+     "seasonNumber": 12,
+     "episodeNumber": 7,
+     "title": "The Empire That Foggy Nearly Built",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
+     "airDate": "1990-10-14",
+     "year": 1990,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Last of the Summer Wine S12E07 - The Empire that Foggy Nearly Built.mp4",
+      "format": "h.264",
+      "sizeBytes": 184420014,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/last-of-the-summer-wine-series-12/Last of the Summer Wine S12E07 - The Empire that Foggy Nearly Built.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 19,
+   "episodes": [
+    {
+     "archiveID": "last-of-the-summer-wine-series-19",
+     "seasonNumber": 19,
+     "episodeNumber": 4,
+     "title": "Oh Howard, We Should Get One of Those",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
+     "airDate": "1998-01-25",
+     "year": 1998,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Last of the Summer Wine S19E04 - Oh Howard, We Should Get One of Those.mp4",
+      "format": "h.264",
+      "sizeBytes": 177322084,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/last-of-the-summer-wine-series-19/Last of the Summer Wine S19E04 - Oh Howard, We Should Get One of Those.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "last-of-the-summer-wine-series-01",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Last of the Summer Wine",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1973,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Short Back & Palais Guide S01Ep02.mp4",
+      "format": "h.264",
+      "sizeBytes": 175813875,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/last-of-the-summer-wine-series-01/Short%20Back%20%26%20Palais%20Guide%20S01Ep02.mp4"
+    },
+    {
+     "archiveID": "Last-of-the-Summer-Wine-Series-2",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Last of the Summer Wine",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
+     "airDate": null,
+     "year": 1975,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Ballad for Wind Instruments and Canoe S02Ep06.mp4",
+      "format": "h.264",
+      "sizeBytes": 173553492,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Last-of-the-Summer-Wine-Series-2/Ballad for Wind Instruments and Canoe S02Ep06.mp4"
+    },
+    {
+     "archiveID": "last-of-the-summer-wine-series-3",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Last of the Summer Wine",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
+     "airDate": null,
+     "year": 1976,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The Man from Owestry S03Ep01.mp4",
+      "format": "h.264",
+      "sizeBytes": 172847937,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/last-of-the-summer-wine-series-3/The Man from Owestry S03Ep01.mp4"
+    },
+    {
+     "archiveID": "last-of-the-sumnmer-wine-series-4",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Last of the Summer Wine",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
+     "airDate": null,
+     "year": 1977,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "A Merry Heatwave S04Ep07.mp4",
+      "format": "h.264",
+      "sizeBytes": 207011076,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/last-of-the-sumnmer-wine-series-4/A Merry Heatwave S04Ep07.mp4"
+    },
+    {
+     "archiveID": "Last-of-the-Summer-Wine-Series-5",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Last of the Summer Wine",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
+     "airDate": null,
+     "year": 1979,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "And a Dewhurst Up a Fir Tree Christmas Special 1979.S00Ep02.mp4",
+      "format": "h.264",
+      "sizeBytes": 178332918,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Last-of-the-Summer-Wine-Series-5/And a Dewhurst Up a Fir Tree Christmas Special 1979.S00Ep02.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 10,
+ "canonicalEpisodesCount": 293
 }

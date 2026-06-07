@@ -1,233 +1,160 @@
 {
-  "version": 2,
-  "seriesID": "the-odyssey-1997",
-  "tvmazeID": 18409,
-  "title": "The Odyssey",
-  "yearStart": 1997,
-  "yearEnd": 1997,
-  "overview": "The greatest epic of the ancient world, Homer's Odyssey is magnificently recreated for television. Homer's engaging tale recounts the journey of Odysseus, King of Ithaca and mastermind of the Greek victory in the Trojan War. Surviving ten years of challenges sent by the angry gods, he makes his way home to his kingdom, loyal wife and son with something more valuable than the spoils of war: wisdom.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/248864-2.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama",
-    "Adventure",
-    "Fantasy"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-odyssey-1997",
+ "tvmazeID": 18409,
+ "title": "The Odyssey",
+ "yearStart": 1997,
+ "yearEnd": 1997,
+ "overview": "The greatest epic of the ancient world, Homer's Odyssey is magnificently recreated for television. Homer's engaging tale recounts the journey of Odysseus, King of Ithaca and mastermind of the Greek victory in the Trojan War. Surviving ten years of challenges sent by the angry gods, he makes his way home to his kingdom, loyal wife and son with something more valuable than the spoils of war: wisdom.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/127/319619.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Adventure",
+  "Fantasy"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "the-odyssey-1997-part-1-of-2-avi",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Episode 1",
-          "overview": "Homer's engaging tale recounts the journey of Odysseus, king of Ithaca & mastermind of the Greek victory in the Trojan War. Surviving ten years of challenges sent by the angry gods, he makes his way home to his kingdom, loyal wife & son with something more valuable than the spoils of war: wisdom.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/298/746476.jpg",
-          "airDate": "1997-05-18",
-          "year": 1997,
-          "runtimeSeconds": 6000,
-          "videoFile": {
-            "name": "The Odyssey - 1997 - Part 1 of 2.mp4",
-            "format": "h.264",
-            "sizeBytes": 518413637,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/the-odyssey-1997-part-1-of-2-avi/The Odyssey - 1997 - Part 1 of 2.mp4"
-        },
-        {
-          "archiveID": "the-odyssey-1997-part-2-of-2-avi",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Episode 2",
-          "overview": "Homer's engaging tale recounts the journey of Odysseus, king of Ithaca & mastermind of the Greek victory in the Trojan War. Surviving ten years of challenges sent by the angry gods, he makes his way home to his kingdom, loyal wife & son with something more valuable than the spoils of war: wisdom.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/298/746477.jpg",
-          "airDate": "1997-05-19",
-          "year": 1997,
-          "runtimeSeconds": 6000,
-          "videoFile": {
-            "name": "The Odyssey - 1997 - Part 2 of 2.mp4",
-            "format": "h.264",
-            "sizeBytes": 524454681,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/the-odyssey-1997-part-2-of-2-avi/The Odyssey - 1997 - Part 2 of 2.mp4"
-        }
-      ]
+     "archiveID": "the-odyssey-1997-part-1-of-2-avi",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Episode 1",
+     "overview": "Homer's engaging tale recounts the journey of Odysseus, king of Ithaca & mastermind of the Greek victory in the Trojan War. Surviving ten years of challenges sent by the angry gods, he makes his way home to his kingdom, loyal wife & son with something more valuable than the spoils of war: wisdom.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/298/746476.jpg",
+     "airDate": "1997-05-18",
+     "year": 1997,
+     "runtimeSeconds": 6000,
+     "videoFile": {
+      "name": "The Odyssey - 1997 - Part 1 of 2.mp4",
+      "format": "h.264",
+      "sizeBytes": 518413637,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-odyssey-1997-part-1-of-2-avi/The Odyssey - 1997 - Part 1 of 2.mp4"
     },
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "the-odyssey-1997-part-1-of-2-mkv",
-          "seasonNumber": null,
-          "episodeNumber": 1,
-          "title": "The Odyssey - 1997 - Part 1 of 2",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/ixeOYFcCj6YjKrliC13pxGFNTK2.jpg",
-          "airDate": null,
-          "year": 1997,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "The Odyssey - 1997 - Part 1 of 2.mp4",
-            "format": "h.264",
-            "sizeBytes": 1084937700,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/the-odyssey-1997-part-1-of-2-mkv/The Odyssey - 1997 - Part 1 of 2.mp4"
-        },
-        {
-          "archiveID": "the-odyssey-1997-part-2-of-2-mkv",
-          "seasonNumber": null,
-          "episodeNumber": 2,
-          "title": "The Odyssey - 1997 - Part 2 of 2",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/ixeOYFcCj6YjKrliC13pxGFNTK2.jpg",
-          "airDate": null,
-          "year": 1997,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "The Odyssey - 1997 - Part 2 of 2.mp4",
-            "format": "h.264",
-            "sizeBytes": 1084424502,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/the-odyssey-1997-part-2-of-2-mkv/The Odyssey - 1997 - Part 2 of 2.mp4"
-        },
-        {
-          "archiveID": "the-odyssey-1997-the-making-of-mkv",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Odyssey - 1997 - The Making Of",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/ixeOYFcCj6YjKrliC13pxGFNTK2.jpg",
-          "airDate": null,
-          "year": 1997,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "The Odyssey - 1997 - The Making Of.mp4",
-            "format": "h.264",
-            "sizeBytes": 120104626,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/the-odyssey-1997-the-making-of-mkv/The Odyssey - 1997 - The Making Of.mp4"
-        },
-        {
-          "archiveID": "the-odyssey-1997-the-making-of-avi",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Odyssey - 1997 - The Making Of - AVI",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/ixeOYFcCj6YjKrliC13pxGFNTK2.jpg",
-          "airDate": null,
-          "year": 1997,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "The Odyssey - 1997 - The Making Of.mp4",
-            "format": "h.264",
-            "sizeBytes": 115948434,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/the-odyssey-1997-the-making-of-avi/The Odyssey - 1997 - The Making Of.mp4"
-        },
-        {
-          "archiveID": "the-odyssey-1997-trailer-avi",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Odyssey - 1997 - Trailer - AVI",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/ixeOYFcCj6YjKrliC13pxGFNTK2.jpg",
-          "airDate": null,
-          "year": 1997,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "The Odyssey - 1997 - Trailer.mp4",
-            "format": "h.264",
-            "sizeBytes": 25088989,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/the-odyssey-1997-trailer-avi/The Odyssey - 1997 - Trailer.mp4"
-        }
-      ]
+     "archiveID": "the-odyssey-1997-part-2-of-2-avi",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Episode 2",
+     "overview": "Homer's engaging tale recounts the journey of Odysseus, king of Ithaca & mastermind of the Greek victory in the Trojan War. Surviving ten years of challenges sent by the angry gods, he makes his way home to his kingdom, loyal wife & son with something more valuable than the spoils of war: wisdom.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/298/746477.jpg",
+     "airDate": "1997-05-19",
+     "year": 1997,
+     "runtimeSeconds": 6000,
+     "videoFile": {
+      "name": "The Odyssey - 1997 - Part 2 of 2.mp4",
+      "format": "h.264",
+      "sizeBytes": 524454681,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-odyssey-1997-part-2-of-2-avi/The Odyssey - 1997 - Part 2 of 2.mp4"
     }
-  ],
-  "episodesCount": 7,
-  "canonicalEpisodesCount": 2,
-  "seriesImdbID": "tt0118414",
-  "canonicalEpisodeCount": 2,
-  "canonicalSeasons": 1,
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
-      "name": "Armand Assante",
-      "character": "Odysseus",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/62/156901.jpg"
+     "archiveID": "the-odyssey-1997-part-1-of-2-mkv",
+     "seasonNumber": null,
+     "episodeNumber": 1,
+     "title": "The Odyssey - 1997 - Part 1 of 2",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/ixeOYFcCj6YjKrliC13pxGFNTK2.jpg",
+     "airDate": null,
+     "year": 1997,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The Odyssey - 1997 - Part 1 of 2.mp4",
+      "format": "h.264",
+      "sizeBytes": 1084937700,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-odyssey-1997-part-1-of-2-mkv/The Odyssey - 1997 - Part 1 of 2.mp4"
     },
     {
-      "name": "Greta Scacchi",
-      "character": "Penelope",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/87/219515.jpg"
+     "archiveID": "the-odyssey-1997-part-2-of-2-mkv",
+     "seasonNumber": null,
+     "episodeNumber": 2,
+     "title": "The Odyssey - 1997 - Part 2 of 2",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/ixeOYFcCj6YjKrliC13pxGFNTK2.jpg",
+     "airDate": null,
+     "year": 1997,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The Odyssey - 1997 - Part 2 of 2.mp4",
+      "format": "h.264",
+      "sizeBytes": 1084424502,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-odyssey-1997-part-2-of-2-mkv/The Odyssey - 1997 - Part 2 of 2.mp4"
     },
     {
-      "name": "Isabella Rossellini",
-      "character": "Athena",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/550/1377090.jpg"
+     "archiveID": "the-odyssey-1997-the-making-of-mkv",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Odyssey - 1997 - The Making Of",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/ixeOYFcCj6YjKrliC13pxGFNTK2.jpg",
+     "airDate": null,
+     "year": 1997,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The Odyssey - 1997 - The Making Of.mp4",
+      "format": "h.264",
+      "sizeBytes": 120104626,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-odyssey-1997-the-making-of-mkv/The Odyssey - 1997 - The Making Of.mp4"
     },
     {
-      "name": "Bernadette Peters",
-      "character": "Circe",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/22716.jpg"
+     "archiveID": "the-odyssey-1997-the-making-of-avi",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Odyssey - 1997 - The Making Of - AVI",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/ixeOYFcCj6YjKrliC13pxGFNTK2.jpg",
+     "airDate": null,
+     "year": 1997,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The Odyssey - 1997 - The Making Of.mp4",
+      "format": "h.264",
+      "sizeBytes": 115948434,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-odyssey-1997-the-making-of-avi/The Odyssey - 1997 - The Making Of.mp4"
     },
     {
-      "name": "Eric Roberts",
-      "character": "Eurymachus",
-      "order": 4,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/186/465490.jpg"
-    },
-    {
-      "name": "Christopher Lee",
-      "character": "Tiresias",
-      "order": 5,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/11/29504.jpg"
-    },
-    {
-      "name": "Vanessa Williams",
-      "character": "Calypso",
-      "order": 6,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/179/449784.jpg"
-    },
-    {
-      "name": "Geraldine Chaplin",
-      "character": "Eurycleia",
-      "order": 7,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/62/156905.jpg"
-    },
-    {
-      "name": "Jeroen Krabbé",
-      "character": "King Alcinous",
-      "order": 8,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/62/156910.jpg"
-    },
-    {
-      "name": "Irene Papas",
-      "character": "Anticleia",
-      "order": 9,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/62/156907.jpg"
-    },
-    {
-      "name": "Michael J. Pollard",
-      "character": "Aeolus",
-      "order": 10,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/119/298335.jpg"
+     "archiveID": "the-odyssey-1997-trailer-avi",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Odyssey - 1997 - Trailer - AVI",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/ixeOYFcCj6YjKrliC13pxGFNTK2.jpg",
+     "airDate": null,
+     "year": 1997,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The Odyssey - 1997 - Trailer.mp4",
+      "format": "h.264",
+      "sizeBytes": 25088989,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-odyssey-1997-trailer-avi/The Odyssey - 1997 - Trailer.mp4"
     }
-  ],
-  "tvdbID": "248864",
-  "artworkSource": "tvdb"
+   ]
+  }
+ ],
+ "episodesCount": 7,
+ "canonicalEpisodesCount": 2
 }

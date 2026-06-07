@@ -1,101 +1,88 @@
 {
-  "version": 2,
-  "seriesID": "sergeant-preston-of-the-yukon-1955",
-  "tvmazeID": 60947,
-  "title": "Sergeant Preston of the Yukon",
-  "yearStart": 1955,
-  "yearEnd": 1958,
-  "overview": "Adventure series depicting the battles of an outpost officer, Sergeant Preston, of the Royal Northwest Mounted Police with lawbreakers of the Klondike at the turn of the century.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/77439-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Action",
-    "Adventure",
-    "Western"
-  ],
-  "networks": [
-    "CBS"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "sergeant-preston-of-the-yukon-1955",
+ "tvmazeID": 60947,
+ "title": "Sergeant Preston of the Yukon",
+ "yearStart": 1955,
+ "yearEnd": 1958,
+ "overview": "Adventure series depicting the battles of an outpost officer, Sergeant Preston, of the Royal Northwest Mounted Police with lawbreakers of the Klondike at the turn of the century.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/399/998017.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Action",
+  "Adventure",
+  "Western"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "SergeantPrestonOfTheYukon-ReliefTrain",
-          "seasonNumber": 1,
-          "episodeNumber": 22,
-          "title": "Relief Train",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9kZZat1xuy19mRGITZrI57w0aC5.jpg",
-          "airDate": "1956-02-23",
-          "year": 1956,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "ReliefTrain.mp4",
-            "format": "h.264",
-            "sizeBytes": 146592152,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/SergeantPrestonOfTheYukon-ReliefTrain/ReliefTrain.mp4"
-        }
-      ]
+     "archiveID": "SergeantPrestonOfTheYukon-ReliefTrain",
+     "seasonNumber": 1,
+     "episodeNumber": 22,
+     "title": "Relief Train",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9kZZat1xuy19mRGITZrI57w0aC5.jpg",
+     "airDate": "1956-02-23",
+     "year": 1956,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "ReliefTrain.mp4",
+      "format": "h.264",
+      "sizeBytes": 146592152,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SergeantPrestonOfTheYukon-ReliefTrain/ReliefTrain.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
+    {
+     "archiveID": "SergeantPrestonOfTheYukon-KingOfHershelIsland",
+     "seasonNumber": 2,
+     "episodeNumber": 7,
+     "title": "King of Herschel Island",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9kZZat1xuy19mRGITZrI57w0aC5.jpg",
+     "airDate": "1956-10-25",
+     "year": 1956,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "KingOfHerschelIsland.mp4",
+      "format": "h.264",
+      "sizeBytes": 151430570,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SergeantPrestonOfTheYukon-KingOfHershelIsland/KingOfHerschelIsland.mp4"
     },
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "SergeantPrestonOfTheYukon-KingOfHershelIsland",
-          "seasonNumber": 2,
-          "episodeNumber": 7,
-          "title": "King of Herschel Island",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9kZZat1xuy19mRGITZrI57w0aC5.jpg",
-          "airDate": "1956-10-25",
-          "year": 1956,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "KingOfHerschelIsland.mp4",
-            "format": "h.264",
-            "sizeBytes": 151430570,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/SergeantPrestonOfTheYukon-KingOfHershelIsland/KingOfHerschelIsland.mp4"
-        },
-        {
-          "archiveID": "SergeantPrestonOfTheYukon-BlindJustice",
-          "seasonNumber": 2,
-          "episodeNumber": 19,
-          "title": "Blind Justice",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9kZZat1xuy19mRGITZrI57w0aC5.jpg",
-          "airDate": "1957-01-17",
-          "year": 1957,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "BlindJustice.mp4",
-            "format": "h.264",
-            "sizeBytes": 153403409,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/SergeantPrestonOfTheYukon-BlindJustice/BlindJustice.mp4"
-        }
-      ]
+     "archiveID": "SergeantPrestonOfTheYukon-BlindJustice",
+     "seasonNumber": 2,
+     "episodeNumber": 19,
+     "title": "Blind Justice",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/9kZZat1xuy19mRGITZrI57w0aC5.jpg",
+     "airDate": "1957-01-17",
+     "year": 1957,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "BlindJustice.mp4",
+      "format": "h.264",
+      "sizeBytes": 153403409,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SergeantPrestonOfTheYukon-BlindJustice/BlindJustice.mp4"
     }
-  ],
-  "episodesCount": 3,
-  "canonicalEpisodesCount": 78,
-  "seriesImdbID": "tt0182633",
-  "canonicalEpisodeCount": 30,
-  "canonicalSeasons": 3,
-  "cast": [
-    {
-      "name": "Dick Simmons",
-      "character": "Sergeant Preston",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/385/963796.jpg"
-    }
-  ],
-  "tvdbID": "77439",
-  "artworkSource": "tvdb"
+   ]
+  }
+ ],
+ "episodesCount": 3,
+ "canonicalEpisodesCount": 78
 }

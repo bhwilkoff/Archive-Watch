@@ -1,128 +1,81 @@
 {
-  "version": 2,
-  "seriesID": "take-five-1987",
-  "tvmazeID": 74076,
-  "title": "Take Five",
-  "yearStart": 1987,
-  "yearEnd": 1987,
-  "overview": "PR man Andy Kooper undergoes a midlife crisis when his wife dumps him after 21 years of marriage, and his boss---her father---drops him from the payroll.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/563/1408078.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy"
-  ],
-  "networks": [
-    "CBS"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "take-five-1987",
+ "tvmazeID": 74076,
+ "title": "Take Five",
+ "yearStart": 1987,
+ "yearEnd": 1987,
+ "overview": "PR man Andy Kooper undergoes a midlife crisis when his wife dumps him after 21 years of marriage, and his boss---her father---drops him from the payroll.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/563/1408078.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "take-five-shake-rattle-and-roll",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Take Five - Shake, Rattle and Roll",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Take Five - Shake, Rattle, and Roll.mp4",
-            "format": "h.264",
-            "sizeBytes": 50098925,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/take-five-shake-rattle-and-roll/Take Five - Shake, Rattle, and Roll.mp4"
-        },
-        {
-          "archiveID": "take-five-up-against-the-great-wall",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Take Five - Up Against the Great Wall",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Take Five - Up Against the Great Wall.mp4",
-            "format": "h.264",
-            "sizeBytes": 34284940,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/take-five-up-against-the-great-wall/Take Five - Up Against the Great Wall.mp4"
-        },
-        {
-          "archiveID": "take-five-voyager-the-last-picture-show",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Take Five - Voyager: The Last Picture Show",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/563/1408078.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Take Five - Voyager The Last Picture Show.mp4",
-            "format": "h.264",
-            "sizeBytes": 47639234,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/take-five-voyager-the-last-picture-show/Take Five - Voyager The Last Picture Show.mp4"
-        }
-      ]
+     "archiveID": "take-five-shake-rattle-and-roll",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Take Five - Shake, Rattle and Roll",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Take Five - Shake, Rattle, and Roll.mp4",
+      "format": "h.264",
+      "sizeBytes": 50098925,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/take-five-shake-rattle-and-roll/Take Five - Shake, Rattle, and Roll.mp4"
+    },
+    {
+     "archiveID": "take-five-up-against-the-great-wall",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Take Five - Up Against the Great Wall",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Take Five - Up Against the Great Wall.mp4",
+      "format": "h.264",
+      "sizeBytes": 34284940,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/take-five-up-against-the-great-wall/Take Five - Up Against the Great Wall.mp4"
+    },
+    {
+     "archiveID": "take-five-voyager-the-last-picture-show",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Take Five - Voyager: The Last Picture Show",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/563/1408078.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Take Five - Voyager The Last Picture Show.mp4",
+      "format": "h.264",
+      "sizeBytes": 47639234,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/take-five-voyager-the-last-picture-show/Take Five - Voyager The Last Picture Show.mp4"
     }
-  ],
-  "episodesCount": 3,
-  "canonicalEpisodesCount": 6,
-  "seriesImdbID": "tt0092461",
-  "canonicalEpisodeCount": 1,
-  "canonicalSeasons": 1,
-  "cast": [
-    {
-      "name": "George Segal",
-      "character": "Andy Kooper",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/2/7197.jpg"
-    },
-    {
-      "name": "Severn Darden",
-      "character": "Dr. Noah Wolf",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/88/221425.jpg"
-    },
-    {
-      "name": "Derek McGrath",
-      "character": "Al",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/33/84780.jpg"
-    },
-    {
-      "name": "Bruce Jarchow",
-      "character": "Monty",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/162/406285.jpg"
-    },
-    {
-      "name": "Jim Haynie",
-      "character": "Lenny Goodman",
-      "order": 4,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/92/230903.jpg"
-    },
-    {
-      "name": "Melanie Chartoff",
-      "character": "Laraine McDermott",
-      "order": 5,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/159/397796.jpg"
-    },
-    {
-      "name": "Todd Field",
-      "character": "Kevin Davis",
-      "order": 6,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/294/736767.jpg"
-    }
-  ]
+   ]
+  }
+ ],
+ "episodesCount": 3,
+ "canonicalEpisodesCount": 6
 }

@@ -1,462 +1,362 @@
 {
-  "version": 2,
-  "seriesID": "the-colgate-comedy-hour-1950",
-  "tvmazeID": 23503,
-  "title": "The Colgate Comedy Hour",
-  "yearStart": 1950,
-  "yearEnd": 1955,
-  "overview": "The Colgate Comedy Hour was an American comedy-musical variety series that aired live on NBC from 1950 to 1955. The show used notable comedians and entertainers of the era as guest hosts and was scheduled against Ed Sullivan's Toast of the Town on CBS. Broadcast live Sunday evenings, the series featured many top names in vaudeville, theater, radio and film, and as well was the first starring vehicle for many performers turning to television. The Colgate Comedy Hour, a true variety show, offered music, burlesque, opera and night club comedy segments.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/73091-2.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy",
-    "Music"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-colgate-comedy-hour-1950",
+ "tvmazeID": 23503,
+ "title": "The Colgate Comedy Hour",
+ "yearStart": 1950,
+ "yearEnd": 1955,
+ "overview": "The Colgate Comedy Hour was an American comedy-musical variety series that aired live on NBC from 1950 to 1955. The show used notable comedians and entertainers of the era as guest hosts and was scheduled against Ed Sullivan's Toast of the Town on CBS. Broadcast live Sunday evenings, the series featured many top names in vaudeville, theater, radio and film, and as well was the first starring vehicle for many performers turning to television. The Colgate Comedy Hour, a true variety show, offered music, burlesque, opera and night club comedy segments.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/88/220476.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy",
+  "Music"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "ColgateComedyHourEddieCantor",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "Eddie Cantor",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
-          "airDate": "1950-10-08",
-          "year": 1950,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "ColgateComedyHour-eddieCantor.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 359564287,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ColgateComedyHourEddieCantor/ColgateComedyHour-eddieCantor.ia.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 6,
-      "episodes": [
-        {
-          "archiveID": "Colgate-Comedy-Hour-S6E1",
-          "seasonNumber": 6,
-          "episodeNumber": 1,
-          "title": "Martin & Lewis",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
-          "airDate": "1955-09-18",
-          "year": 1955,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "ColgateComedyHourS6E1.mp4",
-            "format": "h.264",
-            "sizeBytes": 351438748,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Colgate-Comedy-Hour-S6E1/ColgateComedyHourS6E1.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "theColgateComedyHour-15May1955",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The Colgate Comedy Hour'' - 15 May 1955",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
-          "airDate": null,
-          "year": 1955,
-          "runtimeSeconds": 3127,
-          "videoFile": {
-            "name": "ColgateComedyHour-15May1955.mp4",
-            "format": "h.264",
-            "sizeBytes": 323411405,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/theColgateComedyHour-15May1955/ColgateComedyHour-15May1955.mp4"
-        },
-        {
-          "archiveID": "theColgateComedyHour-19September1954",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The Colgate Comedy Hour'' - 19 September 1954",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 2971,
-          "videoFile": {
-            "name": "ColgateComedyHour19September1954.mp4",
-            "format": "h.264",
-            "sizeBytes": 308232678,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/theColgateComedyHour-19September1954/ColgateComedyHour19September1954.mp4"
-        },
-        {
-          "archiveID": "TheColgateComedyHour2December1951",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The Colgate Comedy Hour'' - 2 December 1951",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
-          "airDate": null,
-          "year": 1951,
-          "runtimeSeconds": 3084,
-          "videoFile": {
-            "name": "The Colgate Comedy Hour - 2 December 1951.mp4",
-            "format": "h.264",
-            "sizeBytes": 321019018,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheColgateComedyHour2December1951/The Colgate Comedy Hour - 2 December 1951.mp4"
-        },
-        {
-          "archiveID": "theColgateComedyHour-21February1954",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The Colgate Comedy Hour'' - 21 February 1954",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3483,
-          "videoFile": {
-            "name": "ColgateComedyHour21February1954.mp4",
-            "format": "h.264",
-            "sizeBytes": 361042531,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/theColgateComedyHour-21February1954/ColgateComedyHour21February1954.mp4"
-        },
-        {
-          "archiveID": "TheColgateComedyHour21October1951",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The Colgate Comedy Hour'' - 21 October 1951",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
-          "airDate": null,
-          "year": 1951,
-          "runtimeSeconds": 3046,
-          "videoFile": {
-            "name": "The Colgate Comedy Hour - 21 October 1951.mp4",
-            "format": "h.264",
-            "sizeBytes": 317365450,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheColgateComedyHour21October1951/The Colgate Comedy Hour - 21 October 1951.mp4"
-        },
-        {
-          "archiveID": "ColgateComedyHour",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Colgate Comedy Hour",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "COLGATE_COMEDY_HOUR.mp4",
-            "format": "h.264",
-            "sizeBytes": 344877697,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ColgateComedyHour/COLGATE_COMEDY_HOUR.mp4"
-        },
-        {
-          "archiveID": "ColgateComedyHourChristmasShow",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Colgate Comedy Hour",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Colgate Comedy Hour (Christmas show).mp4",
-            "format": "h.264",
-            "sizeBytes": 367476288,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ColgateComedyHourChristmasShow/Colgate%20Comedy%20Hour%20%28Christmas%20show%29.mp4"
-        },
-        {
-          "archiveID": "ColgateComedyHour_AbbottCostello",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Colgate Comedy Hour - Abbott and Costello and Company",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/88/220476.jpg",
-          "airDate": null,
-          "year": 1951,
-          "runtimeSeconds": 2460,
-          "videoFile": {
-            "name": "Colgate_Comedy_Abbott_Costello_512kb.mp4",
-            "format": "512Kb MPEG4",
-            "sizeBytes": 179955178,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ColgateComedyHour_AbbottCostello/Colgate_Comedy_Abbott_Costello_512kb.mp4"
-        },
-        {
-          "archiveID": "ColgateComedyHour-April29th1951",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Colgate Comedy Hour - April 29th, 1951",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3563,
-          "videoFile": {
-            "name": "TheColgateComedyHour-April29th1951.mp4",
-            "format": "h.264",
-            "sizeBytes": 351276786,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ColgateComedyHour-April29th1951/TheColgateComedyHour-April29th1951.mp4"
-        },
-        {
-          "archiveID": "ColgateComedyHour-September17th1950",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Colgate Comedy Hour - September 17th, 1950",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3025,
-          "videoFile": {
-            "name": "TheColgateComedyHour-MartinLewis-September17th1950.mp4",
-            "format": "h.264",
-            "sizeBytes": 298692194,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ColgateComedyHour-September17th1950/TheColgateComedyHour-MartinLewis-September17th1950.mp4"
-        },
-        {
-          "archiveID": "ColgateComedyHourJimmyDuranteAndFrankSinatra",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Colgate Comedy Hour: Jimmy Durante and Frank Sinatra",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3122,
-          "videoFile": {
-            "name": "ColgateComedyHour-jimmyDuranteAndSinatra.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 300834146,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ColgateComedyHourJimmyDuranteAndFrankSinatra/ColgateComedyHour-jimmyDuranteAndSinatra.ia.mp4"
-        },
-        {
-          "archiveID": "ColgateComedyHourMartinAndLewisLastAppearance",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Colgate Comedy Hour: Martin and Lewis Last Appearance",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3151,
-          "videoFile": {
-            "name": "ColgateComedyHour-lastMartinAndLewis.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 303374453,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ColgateComedyHourMartinAndLewisLastAppearance/ColgateComedyHour-lastMartinAndLewis.ia.mp4"
-        },
-        {
-          "archiveID": "TheColgateComedyHour1041953",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Colgate Comedy Hour",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Colgate_Comedy_Hour_10_04_1953.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 406591547,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/TheColgateComedyHour1041953/Colgate_Comedy_Hour_10_04_1953.ia.mp4"
-        },
-        {
-          "archiveID": "TheColgateComedyHour-1April1951",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Colgate Comedy Hour - 1 April 1951",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
-          "airDate": null,
-          "year": 1951,
-          "runtimeSeconds": 3114,
-          "videoFile": {
-            "name": "ColgateComedyHour1April1951.mp4",
-            "format": "h.264",
-            "sizeBytes": 323203572,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheColgateComedyHour-1April1951/ColgateComedyHour1April1951.mp4"
-        },
-        {
-          "archiveID": "ColgateComedyHour-20-January-1952",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Colgate Comedy Hour - 20 January 1952",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
-          "airDate": null,
-          "year": 1952,
-          "runtimeSeconds": 3580,
-          "videoFile": {
-            "name": "Colgate1952EddieCantor.mp4",
-            "format": "h.264",
-            "sizeBytes": 372627970,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ColgateComedyHour-20-January-1952/Colgate1952EddieCantor.mp4"
-        },
-        {
-          "archiveID": "TheColgateComedyHour-February4th1951",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Colgate Comedy Hour - February 4th, 1951",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3560,
-          "videoFile": {
-            "name": "TheColgateComedyHour-February4th1951.mp4",
-            "format": "h.264",
-            "sizeBytes": 350136555,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheColgateComedyHour-February4th1951/TheColgateComedyHour-February4th1951.mp4"
-        }
-      ]
+     "archiveID": "ColgateComedyHourEddieCantor",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "Eddie Cantor",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+     "airDate": "1950-10-08",
+     "year": 1950,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "ColgateComedyHour-eddieCantor.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 359564287,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ColgateComedyHourEddieCantor/ColgateComedyHour-eddieCantor.ia.mp4"
     }
-  ],
-  "episodesCount": 18,
-  "canonicalEpisodesCount": 102,
-  "tvdbID": "73091",
-  "artworkSource": "tvdb",
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 6,
+   "episodes": [
     {
-      "name": "Fred Allen",
-      "character": "",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/297098/photo/6988578be7d4e.jpg"
-    },
-    {
-      "name": "Ray Bolger",
-      "character": "",
-      "order": 1,
-      "profilePath": null
-    },
-    {
-      "name": "Dean Martin",
-      "character": "",
-      "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/253621/5ea4ce6331260.jpg"
-    },
-    {
-      "name": "Eddie Cantor",
-      "character": "",
-      "order": 3,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/272283/photo/62f9da0469221.jpg"
-    },
-    {
-      "name": "Bud Abbott",
-      "character": "",
-      "order": 4,
-      "profilePath": null
-    },
-    {
-      "name": "Lou Costello",
-      "character": "",
-      "order": 5,
-      "profilePath": null
-    },
-    {
-      "name": "Spike Jones",
-      "character": "",
-      "order": 6,
-      "profilePath": null
-    },
-    {
-      "name": "Robert Paige",
-      "character": "",
-      "order": 7,
-      "profilePath": null
-    },
-    {
-      "name": "Gordon MacRae",
-      "character": "",
-      "order": 8,
-      "profilePath": null
-    },
-    {
-      "name": "Jimmy Durante",
-      "character": "",
-      "order": 9,
-      "profilePath": null
-    },
-    {
-      "name": "Donald O'Connor",
-      "character": "",
-      "order": 10,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/287042/photo/665e7f4f1f731.jpg"
-    },
-    {
-      "name": "Phil Silvers",
-      "character": "",
-      "order": 11,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/297064/photo/649584740da2b.jpg"
-    },
-    {
-      "name": "Jerry Lewis",
-      "character": "",
-      "order": 12,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/253623/5ea4ca35dc20d.jpg"
-    },
-    {
-      "name": "Tony Martin",
-      "character": "",
-      "order": 13,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/254594/photo/634ee5300e39a.jpg"
-    },
-    {
-      "name": "Bob Hope",
-      "character": "",
-      "order": 14,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253647/photo/668ae627d3c58.jpg"
-    },
-    {
-      "name": "Jerry Lester",
-      "character": "",
-      "order": 15,
-      "profilePath": null
+     "archiveID": "Colgate-Comedy-Hour-S6E1",
+     "seasonNumber": 6,
+     "episodeNumber": 1,
+     "title": "Martin & Lewis",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+     "airDate": "1955-09-18",
+     "year": 1955,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "ColgateComedyHourS6E1.mp4",
+      "format": "h.264",
+      "sizeBytes": 351438748,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Colgate-Comedy-Hour-S6E1/ColgateComedyHourS6E1.mp4"
     }
-  ]
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "theColgateComedyHour-15May1955",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "''The Colgate Comedy Hour'' - 15 May 1955",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+     "airDate": null,
+     "year": 1955,
+     "runtimeSeconds": 3127,
+     "videoFile": {
+      "name": "ColgateComedyHour-15May1955.mp4",
+      "format": "h.264",
+      "sizeBytes": 323411405,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/theColgateComedyHour-15May1955/ColgateComedyHour-15May1955.mp4"
+    },
+    {
+     "archiveID": "theColgateComedyHour-19September1954",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "''The Colgate Comedy Hour'' - 19 September 1954",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+     "airDate": null,
+     "year": 1954,
+     "runtimeSeconds": 2971,
+     "videoFile": {
+      "name": "ColgateComedyHour19September1954.mp4",
+      "format": "h.264",
+      "sizeBytes": 308232678,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/theColgateComedyHour-19September1954/ColgateComedyHour19September1954.mp4"
+    },
+    {
+     "archiveID": "TheColgateComedyHour2December1951",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "''The Colgate Comedy Hour'' - 2 December 1951",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+     "airDate": null,
+     "year": 1951,
+     "runtimeSeconds": 3084,
+     "videoFile": {
+      "name": "The Colgate Comedy Hour - 2 December 1951.mp4",
+      "format": "h.264",
+      "sizeBytes": 321019018,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/TheColgateComedyHour2December1951/The Colgate Comedy Hour - 2 December 1951.mp4"
+    },
+    {
+     "archiveID": "theColgateComedyHour-21February1954",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "''The Colgate Comedy Hour'' - 21 February 1954",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3483,
+     "videoFile": {
+      "name": "ColgateComedyHour21February1954.mp4",
+      "format": "h.264",
+      "sizeBytes": 361042531,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/theColgateComedyHour-21February1954/ColgateComedyHour21February1954.mp4"
+    },
+    {
+     "archiveID": "TheColgateComedyHour21October1951",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "''The Colgate Comedy Hour'' - 21 October 1951",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+     "airDate": null,
+     "year": 1951,
+     "runtimeSeconds": 3046,
+     "videoFile": {
+      "name": "The Colgate Comedy Hour - 21 October 1951.mp4",
+      "format": "h.264",
+      "sizeBytes": 317365450,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/TheColgateComedyHour21October1951/The Colgate Comedy Hour - 21 October 1951.mp4"
+    },
+    {
+     "archiveID": "ColgateComedyHour",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Colgate Comedy Hour",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "COLGATE_COMEDY_HOUR.mp4",
+      "format": "h.264",
+      "sizeBytes": 344877697,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ColgateComedyHour/COLGATE_COMEDY_HOUR.mp4"
+    },
+    {
+     "archiveID": "ColgateComedyHourChristmasShow",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Colgate Comedy Hour",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Colgate Comedy Hour (Christmas show).mp4",
+      "format": "h.264",
+      "sizeBytes": 367476288,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ColgateComedyHourChristmasShow/Colgate%20Comedy%20Hour%20%28Christmas%20show%29.mp4"
+    },
+    {
+     "archiveID": "ColgateComedyHour_AbbottCostello",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Colgate Comedy Hour - Abbott and Costello and Company",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/88/220476.jpg",
+     "airDate": null,
+     "year": 1951,
+     "runtimeSeconds": 2460,
+     "videoFile": {
+      "name": "Colgate_Comedy_Abbott_Costello_512kb.mp4",
+      "format": "512Kb MPEG4",
+      "sizeBytes": 179955178,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ColgateComedyHour_AbbottCostello/Colgate_Comedy_Abbott_Costello_512kb.mp4"
+    },
+    {
+     "archiveID": "ColgateComedyHour-April29th1951",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Colgate Comedy Hour - April 29th, 1951",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3563,
+     "videoFile": {
+      "name": "TheColgateComedyHour-April29th1951.mp4",
+      "format": "h.264",
+      "sizeBytes": 351276786,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ColgateComedyHour-April29th1951/TheColgateComedyHour-April29th1951.mp4"
+    },
+    {
+     "archiveID": "ColgateComedyHour-September17th1950",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Colgate Comedy Hour - September 17th, 1950",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3025,
+     "videoFile": {
+      "name": "TheColgateComedyHour-MartinLewis-September17th1950.mp4",
+      "format": "h.264",
+      "sizeBytes": 298692194,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ColgateComedyHour-September17th1950/TheColgateComedyHour-MartinLewis-September17th1950.mp4"
+    },
+    {
+     "archiveID": "ColgateComedyHourJimmyDuranteAndFrankSinatra",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Colgate Comedy Hour: Jimmy Durante and Frank Sinatra",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3122,
+     "videoFile": {
+      "name": "ColgateComedyHour-jimmyDuranteAndSinatra.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 300834146,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ColgateComedyHourJimmyDuranteAndFrankSinatra/ColgateComedyHour-jimmyDuranteAndSinatra.ia.mp4"
+    },
+    {
+     "archiveID": "ColgateComedyHourMartinAndLewisLastAppearance",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Colgate Comedy Hour: Martin and Lewis Last Appearance",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3151,
+     "videoFile": {
+      "name": "ColgateComedyHour-lastMartinAndLewis.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 303374453,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ColgateComedyHourMartinAndLewisLastAppearance/ColgateComedyHour-lastMartinAndLewis.ia.mp4"
+    },
+    {
+     "archiveID": "TheColgateComedyHour1041953",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Colgate Comedy Hour",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Colgate_Comedy_Hour_10_04_1953.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 406591547,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/TheColgateComedyHour1041953/Colgate_Comedy_Hour_10_04_1953.ia.mp4"
+    },
+    {
+     "archiveID": "TheColgateComedyHour-1April1951",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Colgate Comedy Hour - 1 April 1951",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+     "airDate": null,
+     "year": 1951,
+     "runtimeSeconds": 3114,
+     "videoFile": {
+      "name": "ColgateComedyHour1April1951.mp4",
+      "format": "h.264",
+      "sizeBytes": 323203572,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/TheColgateComedyHour-1April1951/ColgateComedyHour1April1951.mp4"
+    },
+    {
+     "archiveID": "ColgateComedyHour-20-January-1952",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Colgate Comedy Hour - 20 January 1952",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+     "airDate": null,
+     "year": 1952,
+     "runtimeSeconds": 3580,
+     "videoFile": {
+      "name": "Colgate1952EddieCantor.mp4",
+      "format": "h.264",
+      "sizeBytes": 372627970,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ColgateComedyHour-20-January-1952/Colgate1952EddieCantor.mp4"
+    },
+    {
+     "archiveID": "TheColgateComedyHour-February4th1951",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Colgate Comedy Hour - February 4th, 1951",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3560,
+     "videoFile": {
+      "name": "TheColgateComedyHour-February4th1951.mp4",
+      "format": "h.264",
+      "sizeBytes": 350136555,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/TheColgateComedyHour-February4th1951/TheColgateComedyHour-February4th1951.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 18,
+ "canonicalEpisodesCount": 102
 }

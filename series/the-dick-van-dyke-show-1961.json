@@ -1,251 +1,214 @@
 {
-  "version": 2,
-  "seriesID": "the-dick-van-dyke-show-1961",
-  "tvmazeID": 3327,
-  "title": "The Dick Van Dyke Show",
-  "yearStart": 1961,
-  "yearEnd": 1966,
-  "overview": "The Dick Van Dyke Show centers on the personal and professional lives of Rob Petrie, a writer for the fictional \"Alan Brady Show\". The non-stop laughs revolved around Rob's relationships with with fellow writers Buddy Sorrell and Sally Rogers, and producer Mel Cooley. At home, we also got to chuckle (and sometimes cry) over Rob's antics involving his wife, son, and neighbors.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/77041-4.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy"
-  ],
-  "networks": [
-    "CBS"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-dick-van-dyke-show-1961",
+ "tvmazeID": 3327,
+ "title": "The Dick Van Dyke Show",
+ "yearStart": 1961,
+ "yearEnd": 1966,
+ "overview": "The Dick Van Dyke Show centers on the personal and professional lives of Rob Petrie, a writer for the fictional \"Alan Brady Show\". The non-stop laughs revolved around Rob's relationships with with fellow writers Buddy Sorrell and Sally Rogers, and producer Mel Cooley. At home, we also got to chuckle (and sometimes cry) over Rob's antics involving his wife, son, and neighbors.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/17/44051.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "the-dick-van-dyke-show-complete-series",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "To Tell or Not to Tell",
-          "overview": "Rob and Richie find themselves more than a little lost when Laura briefly resumes her dancing career.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/603/1507710.jpg",
-          "airDate": "1961-11-14",
-          "year": 1961,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "The Dick Van Dyke Show S01E08 - Harrison B. Hardinng of Camp Crowder, Mo..mp4",
-            "format": "MPEG4",
-            "sizeBytes": 236925526,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-dick-van-dyke-show-complete-series/The%20Dick%20Van%20Dyke%20Show%20S01E08%20-%20Harrison%20B.%20Hardinng%20of%20Camp%20Crowder%2C%20Mo..mp4"
-        },
-        {
-          "archiveID": "the-dick-van-dyke-show-season-1-of-5-mkv",
-          "seasonNumber": 1,
-          "episodeNumber": 18,
-          "title": "Who Owes Who What?",
-          "overview": "Laura chides Rob for not collecting money owed to him by Buddy. Confusion ensues after Rob's tentative attempts to remind Buddy of the debt.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/603/1507745.jpg",
-          "airDate": "1962-01-24",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "The Dick Van Dyke Show - S01E18.mp4",
-            "format": "h.264",
-            "sizeBytes": 160060242,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/the-dick-van-dyke-show-season-1-of-5-mkv/The Dick Van Dyke Show - S01E18.mp4"
-        }
-      ]
+     "archiveID": "the-dick-van-dyke-show-complete-series",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "To Tell or Not to Tell",
+     "overview": "Rob and Richie find themselves more than a little lost when Laura briefly resumes her dancing career.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/603/1507710.jpg",
+     "airDate": "1961-11-14",
+     "year": 1961,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "The Dick Van Dyke Show S01E08 - Harrison B. Hardinng of Camp Crowder, Mo..mp4",
+      "format": "MPEG4",
+      "sizeBytes": 236925526,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-dick-van-dyke-show-complete-series/The%20Dick%20Van%20Dyke%20Show%20S01E08%20-%20Harrison%20B.%20Hardinng%20of%20Camp%20Crowder%2C%20Mo..mp4"
     },
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "the.dick.van.dyke.show.s02e04",
-          "seasonNumber": 2,
-          "episodeNumber": 4,
-          "title": "Bank Book 6565696",
-          "overview": "Rob discovers Laura's secret bank account. Its mystery preoccupies his thoughts till he finally has to confront her and ask what it's for.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/603/1508757.jpg",
-          "airDate": "1962-10-17",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "the.dick.van.dyke.show.s02e04.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 166956219,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the.dick.van.dyke.show.s02e04/the.dick.van.dyke.show.s02e04.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 3,
-      "episodes": [
-        {
-          "archiveID": "the-dick-van-dyke-show-season-3-of-5-mkv",
-          "seasonNumber": 3,
-          "episodeNumber": 3,
-          "title": "Laura's Little Lie (1)",
-          "overview": "Rob would like to know why Laura disappears every time his insurance agent Ed Rubin comes over or calls. Laura is forced to confess to Rob that she lied about her age on their marriage certificate and that she was 17 instead of the 19 that she claimed to be. Rob has to now find out whether he and Laura are still legally married.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/603/1509688.jpg",
-          "airDate": "1963-10-09",
-          "year": 1963,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "The Dick Van Dyke Show - S03E03.mp4",
-            "format": "h.264",
-            "sizeBytes": 160724207,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/the-dick-van-dyke-show-season-3-of-5-mkv/The Dick Van Dyke Show - S03E03.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 4,
-      "episodes": [
-        {
-          "archiveID": "the-dick-van-dyke-show-season-4-of-5-mkv",
-          "seasonNumber": 4,
-          "episodeNumber": 25,
-          "title": "Your Home Sweet Home is My Home",
-          "overview": "To explain his annual $37.50 \"friendship\" check to Jerry, Rob tells his new accountant the story of how he and Laura found their new house.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/604/1512269.jpg",
-          "airDate": "1965-03-17",
-          "year": 1965,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "The Dick Van Dyke Show - S04E25.mp4",
-            "format": "h.264",
-            "sizeBytes": 159426042,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/the-dick-van-dyke-show-season-4-of-5-mkv/The Dick Van Dyke Show - S04E25.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 5,
-      "episodes": [
-        {
-          "archiveID": "the-dick-van-dyke-show-season-5-of-5-mkv",
-          "seasonNumber": 5,
-          "episodeNumber": 6,
-          "title": "Draw Me a Pear",
-          "overview": "Laura talks Rob into going to her art class, but the art teacher seems to like Rob a little too much.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/605/1512620.jpg",
-          "airDate": "1965-10-20",
-          "year": 1965,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "The Dick Van Dyke Show - S05E06.mp4",
-            "format": "h.264",
-            "sizeBytes": 160026054,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/the-dick-van-dyke-show-season-5-of-5-mkv/The Dick Van Dyke Show - S05E06.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "TheDickVanDykeShow",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Dick Van Dyke Show",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/w2Tcx36ybQEczP5zkUhPwaehgeL.jpg",
-          "airDate": null,
-          "year": 1962,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "The-Dick_Van_Dyke-Show-10-24-62.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 153410418,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheDickVanDykeShow/The-Dick_Van_Dyke-Show-10-24-62.ia.mp4"
-        },
-        {
-          "archiveID": "the-dick-van-dyke-show-blu-ray-extras",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Dick Van Dyke Show",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/w2Tcx36ybQEczP5zkUhPwaehgeL.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "The Dick Van Dyke Show Remembered.mp4",
-            "format": "h.264",
-            "sizeBytes": 289726703,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/the-dick-van-dyke-show-blu-ray-extras/The Dick Van Dyke Show Remembered.mp4"
-        },
-        {
-          "archiveID": "The_Dick_van_Dyke_Show",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Dick Van Dyke Show",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/The_Dick_van_Dyke_Show",
-          "airDate": null,
-          "year": 1961,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "A_MANS_TEETH_ARE_NOT_HIS_OWN.mp4",
-            "format": "h.264",
-            "sizeBytes": 151988276,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/The_Dick_van_Dyke_Show/A_MANS_TEETH_ARE_NOT_HIS_OWN.mp4"
-        }
-      ]
+     "archiveID": "the-dick-van-dyke-show-season-1-of-5-mkv",
+     "seasonNumber": 1,
+     "episodeNumber": 18,
+     "title": "Who Owes Who What?",
+     "overview": "Laura chides Rob for not collecting money owed to him by Buddy. Confusion ensues after Rob's tentative attempts to remind Buddy of the debt.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/603/1507745.jpg",
+     "airDate": "1962-01-24",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "The Dick Van Dyke Show - S01E18.mp4",
+      "format": "h.264",
+      "sizeBytes": 160060242,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-dick-van-dyke-show-season-1-of-5-mkv/The Dick Van Dyke Show - S01E18.mp4"
     }
-  ],
-  "episodesCount": 9,
-  "canonicalEpisodesCount": 158,
-  "seriesImdbID": "tt0054533",
-  "canonicalEpisodeCount": 131,
-  "canonicalSeasons": 5,
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
-      "name": "Dick Van Dyke",
-      "character": "Robert 'Rob' Petrie",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/481/1202536.jpg"
-    },
-    {
-      "name": "Mary Tyler Moore",
-      "character": "Laura Petrie",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/35/89702.jpg"
-    },
-    {
-      "name": "Morey Amsterdam",
-      "character": "Maurice B. 'Buddy' Sorrell",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/603/1507740.jpg"
-    },
-    {
-      "name": "Rose Marie",
-      "character": "Sally Rogers",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/89/224562.jpg"
-    },
-    {
-      "name": "Larry Mathews",
-      "character": "Richard Rosebud 'Ritchie' Petrie",
-      "order": 4,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/89/224557.jpg"
+     "archiveID": "the.dick.van.dyke.show.s02e04",
+     "seasonNumber": 2,
+     "episodeNumber": 4,
+     "title": "Bank Book 6565696",
+     "overview": "Rob discovers Laura's secret bank account. Its mystery preoccupies his thoughts till he finally has to confront her and ask what it's for.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/603/1508757.jpg",
+     "airDate": "1962-10-17",
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "the.dick.van.dyke.show.s02e04.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 166956219,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the.dick.van.dyke.show.s02e04/the.dick.van.dyke.show.s02e04.mp4"
     }
-  ],
-  "tvdbID": "77041",
-  "artworkSource": "tvdb"
+   ]
+  },
+  {
+   "seasonNumber": 3,
+   "episodes": [
+    {
+     "archiveID": "the-dick-van-dyke-show-season-3-of-5-mkv",
+     "seasonNumber": 3,
+     "episodeNumber": 3,
+     "title": "Laura's Little Lie (1)",
+     "overview": "Rob would like to know why Laura disappears every time his insurance agent Ed Rubin comes over or calls. Laura is forced to confess to Rob that she lied about her age on their marriage certificate and that she was 17 instead of the 19 that she claimed to be. Rob has to now find out whether he and Laura are still legally married.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/603/1509688.jpg",
+     "airDate": "1963-10-09",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "The Dick Van Dyke Show - S03E03.mp4",
+      "format": "h.264",
+      "sizeBytes": 160724207,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-dick-van-dyke-show-season-3-of-5-mkv/The Dick Van Dyke Show - S03E03.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 4,
+   "episodes": [
+    {
+     "archiveID": "the-dick-van-dyke-show-season-4-of-5-mkv",
+     "seasonNumber": 4,
+     "episodeNumber": 25,
+     "title": "Your Home Sweet Home is My Home",
+     "overview": "To explain his annual $37.50 \"friendship\" check to Jerry, Rob tells his new accountant the story of how he and Laura found their new house.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/604/1512269.jpg",
+     "airDate": "1965-03-17",
+     "year": 1965,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "The Dick Van Dyke Show - S04E25.mp4",
+      "format": "h.264",
+      "sizeBytes": 159426042,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-dick-van-dyke-show-season-4-of-5-mkv/The Dick Van Dyke Show - S04E25.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 5,
+   "episodes": [
+    {
+     "archiveID": "the-dick-van-dyke-show-season-5-of-5-mkv",
+     "seasonNumber": 5,
+     "episodeNumber": 6,
+     "title": "Draw Me a Pear",
+     "overview": "Laura talks Rob into going to her art class, but the art teacher seems to like Rob a little too much.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/605/1512620.jpg",
+     "airDate": "1965-10-20",
+     "year": 1965,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "The Dick Van Dyke Show - S05E06.mp4",
+      "format": "h.264",
+      "sizeBytes": 160026054,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-dick-van-dyke-show-season-5-of-5-mkv/The Dick Van Dyke Show - S05E06.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "TheDickVanDykeShow",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Dick Van Dyke Show",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/w2Tcx36ybQEczP5zkUhPwaehgeL.jpg",
+     "airDate": null,
+     "year": 1962,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The-Dick_Van_Dyke-Show-10-24-62.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 153410418,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/TheDickVanDykeShow/The-Dick_Van_Dyke-Show-10-24-62.ia.mp4"
+    },
+    {
+     "archiveID": "the-dick-van-dyke-show-blu-ray-extras",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Dick Van Dyke Show",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/w2Tcx36ybQEczP5zkUhPwaehgeL.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The Dick Van Dyke Show Remembered.mp4",
+      "format": "h.264",
+      "sizeBytes": 289726703,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-dick-van-dyke-show-blu-ray-extras/The Dick Van Dyke Show Remembered.mp4"
+    },
+    {
+     "archiveID": "The_Dick_van_Dyke_Show",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Dick Van Dyke Show",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/The_Dick_van_Dyke_Show",
+     "airDate": null,
+     "year": 1961,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "A_MANS_TEETH_ARE_NOT_HIS_OWN.mp4",
+      "format": "h.264",
+      "sizeBytes": 151988276,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/The_Dick_van_Dyke_Show/A_MANS_TEETH_ARE_NOT_HIS_OWN.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 9,
+ "canonicalEpisodesCount": 158
 }

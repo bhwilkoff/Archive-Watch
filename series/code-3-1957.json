@@ -1,124 +1,105 @@
 {
-  "version": 2,
-  "seriesID": "code-3-1957",
-  "tvmazeID": 69100,
-  "title": "Code 3",
-  "yearStart": 1957,
-  "yearEnd": 1957,
-  "overview": "Code 3 is an American crime drama that aired in syndication in 1957. The stories were all based on actual files of the Los Angeles sheriff's office. Stories were presented from the viewpoint of Assistant Sheriff George Barnett.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/72969-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama",
-    "Crime"
-  ],
-  "networks": [
-    "Syndication"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "code-3-1957",
+ "tvmazeID": 69100,
+ "title": "Code 3",
+ "yearStart": 1957,
+ "yearEnd": 1957,
+ "overview": "Code 3 is an American crime drama that aired in syndication in 1957. The stories were all based on actual files of the Los Angeles sheriff's office. Stories were presented from the viewpoint of Assistant Sheriff George Barnett.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/463/1159056.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Crime"
+ ],
+ "networks": [
+  "Syndication"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "Code3TheRookieSheriff",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "The Rookie Sheriff",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/k2DycRNUrDjZg4LYG36ceISzgTQ.jpg",
-          "airDate": "1957-04-02",
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Code3TheRookieSheriff.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 156316556,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Code3TheRookieSheriff/Code3TheRookieSheriff.ia.mp4"
-        },
-        {
-          "archiveID": "Code3TheSniper",
-          "seasonNumber": 1,
-          "episodeNumber": 21,
-          "title": "The Sniper",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/k2DycRNUrDjZg4LYG36ceISzgTQ.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Code3-theSniper.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 157852512,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Code3TheSniper/Code3-theSniper.ia.mp4"
-        },
-        {
-          "archiveID": "Code3TheManWithManyFaces",
-          "seasonNumber": 1,
-          "episodeNumber": 28,
-          "title": "The Man with Many Faces",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/k2DycRNUrDjZg4LYG36ceISzgTQ.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Code3-theManWithManyFaces.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 156449434,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Code3TheManWithManyFaces/Code3-theManWithManyFaces.ia.mp4"
-        }
-      ]
+     "archiveID": "Code3TheRookieSheriff",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "The Rookie Sheriff",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/k2DycRNUrDjZg4LYG36ceISzgTQ.jpg",
+     "airDate": "1957-04-02",
+     "year": 1957,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Code3TheRookieSheriff.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 156316556,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Code3TheRookieSheriff/Code3TheRookieSheriff.ia.mp4"
     },
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "Code3TheBensonCase",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Code 3: The Benson Case",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/k2DycRNUrDjZg4LYG36ceISzgTQ.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1577,
-          "videoFile": {
-            "name": "Code3-theBensonCase.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 157836297,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Code3TheBensonCase/Code3-theBensonCase.ia.mp4"
-        }
-      ]
-    }
-  ],
-  "episodesCount": 4,
-  "canonicalEpisodesCount": 39,
-  "seriesImdbID": "tt0050005",
-  "canonicalEpisodeCount": 15,
-  "canonicalSeasons": 1,
-  "tvdbID": "72969",
-  "artworkSource": "tvdb",
-  "cast": [
-    {
-      "name": "Eugene W. Biscailuz",
-      "character": "Los Angeles County Sheriff",
-      "order": 0,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/21662.jpg"
+     "archiveID": "Code3TheSniper",
+     "seasonNumber": 1,
+     "episodeNumber": 21,
+     "title": "The Sniper",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/k2DycRNUrDjZg4LYG36ceISzgTQ.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Code3-theSniper.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 157852512,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Code3TheSniper/Code3-theSniper.ia.mp4"
     },
     {
-      "name": "Richard Travis",
-      "character": "Assistant Sheriff Rodger Barnett",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/393569.jpg"
+     "archiveID": "Code3TheManWithManyFaces",
+     "seasonNumber": 1,
+     "episodeNumber": 28,
+     "title": "The Man with Many Faces",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/k2DycRNUrDjZg4LYG36ceISzgTQ.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Code3-theManWithManyFaces.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 156449434,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Code3TheManWithManyFaces/Code3-theManWithManyFaces.ia.mp4"
     }
-  ]
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "Code3TheBensonCase",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Code 3: The Benson Case",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/k2DycRNUrDjZg4LYG36ceISzgTQ.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1577,
+     "videoFile": {
+      "name": "Code3-theBensonCase.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 157836297,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Code3TheBensonCase/Code3-theBensonCase.ia.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 4,
+ "canonicalEpisodesCount": 39
 }

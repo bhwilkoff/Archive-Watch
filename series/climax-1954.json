@@ -1,435 +1,425 @@
 {
-  "version": 2,
-  "seriesID": "climax-1954",
-  "tvmazeID": 21855,
-  "title": "Climax!",
-  "yearStart": 1954,
-  "yearEnd": 1958,
-  "overview": "Climax! is an anthology series that aired on CBS from 1954 to 1958.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/72092-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama"
-  ],
-  "networks": [
-    "CBS"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "climax-1954",
+ "tvmazeID": 21855,
+ "title": "Climax!",
+ "yearStart": 1954,
+ "yearEnd": 1958,
+ "overview": "Climax! is an anthology series that aired on CBS from 1954 to 1958.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/78/196829.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "ClimaxCasinoRoyale",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Casino Royale",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w300/7LsYHOfxrcinFYbfEolXptswqzn.jpg",
-          "airDate": "1954-10-21",
-          "year": 1954,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Climax-casinoRoyale.mp4",
-            "format": "h.264",
-            "sizeBytes": 305649288,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ClimaxCasinoRoyale/Climax-casinoRoyale.mp4"
-        },
-        {
-          "archiveID": "ClimaxAnErrorInChemistry",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "An Error in Chemistry",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": "1954-12-02",
-          "year": 1954,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Climax-anErrorInChemistry.mp4",
-            "format": "h.264",
-            "sizeBytes": 369457151,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ClimaxAnErrorInChemistry/Climax-anErrorInChemistry.mp4"
-        },
-        {
-          "archiveID": "climax_202103",
-          "seasonNumber": 1,
-          "episodeNumber": 34,
-          "title": "Dr. Jekyll and Mr. Hyde",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": "1955-07-28",
-          "year": 1955,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "ClimaxS01E34Dr JekyllandMrHyde.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 368584511,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/climax_202103/ClimaxS01E34Dr JekyllandMrHyde.ia.mp4"
-        }
-      ]
+     "archiveID": "ClimaxCasinoRoyale",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Casino Royale",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/7LsYHOfxrcinFYbfEolXptswqzn.jpg",
+     "airDate": "1954-10-21",
+     "year": 1954,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Climax-casinoRoyale.mp4",
+      "format": "h.264",
+      "sizeBytes": 305649288,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ClimaxCasinoRoyale/Climax-casinoRoyale.mp4"
     },
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "Climax_AdventuresofHuckleberryFinn",
-          "seasonNumber": 2,
-          "episodeNumber": 1,
-          "title": "The Adventures of Huckleberry Finn",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": "1955-09-01",
-          "year": 1955,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "AdventuresofHuckleberryFinn.mp4",
-            "format": "h.264",
-            "sizeBytes": 360122994,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Climax_AdventuresofHuckleberryFinn/AdventuresofHuckleberryFinn.mp4"
-        },
-        {
-          "archiveID": "ClimaxPublicPigeon1",
-          "seasonNumber": 2,
-          "episodeNumber": 2,
-          "title": "Public Pigeon #1",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": "1955-09-08",
-          "year": 1955,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Climax-publicPigeon1.mp4",
-            "format": "h.264",
-            "sizeBytes": 305556834,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ClimaxPublicPigeon1/Climax-publicPigeon1.mp4"
-        },
-        {
-          "archiveID": "ClimaxNightOfExecution",
-          "seasonNumber": 2,
-          "episodeNumber": 4,
-          "title": "Night of Execution",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": "1955-09-22",
-          "year": 1955,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Climax-nightOfExecution.mp4",
-            "format": "h.264",
-            "sizeBytes": 365043824,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ClimaxNightOfExecution/Climax-nightOfExecution.mp4"
-        },
-        {
-          "archiveID": "ClimaxAPromiseToMurder",
-          "seasonNumber": 2,
-          "episodeNumber": 10,
-          "title": "A Promise to Murder",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": "1955-11-17",
-          "year": 1955,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Climax-aPromiseToMurder.mp4",
-            "format": "h.264",
-            "sizeBytes": 354256356,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ClimaxAPromiseToMurder/Climax-aPromiseToMurder.mp4"
-        },
-        {
-          "archiveID": "ClimaxTheFifthWheel",
-          "seasonNumber": 2,
-          "episodeNumber": 20,
-          "title": "The Fifth Wheel",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": "1956-02-09",
-          "year": 1956,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Climax-theFifthWheel.mp4",
-            "format": "h.264",
-            "sizeBytes": 369393236,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ClimaxTheFifthWheel/Climax-theFifthWheel.mp4"
-        },
-        {
-          "archiveID": "Climax-TheLouGehrigStory1956",
-          "seasonNumber": 2,
-          "episodeNumber": 27,
-          "title": "The Lou Gehrig Story",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": "1956-04-19",
-          "year": 1956,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Climax_Lou_Gehrig_story_04_19_56.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 401124311,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Climax-TheLouGehrigStory1956/Climax_Lou_Gehrig_story_04_19_56.ia.mp4"
-        }
-      ]
+     "archiveID": "ClimaxAnErrorInChemistry",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "An Error in Chemistry",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": "1954-12-02",
+     "year": 1954,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Climax-anErrorInChemistry.mp4",
+      "format": "h.264",
+      "sizeBytes": 369457151,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ClimaxAnErrorInChemistry/Climax-anErrorInChemistry.mp4"
     },
     {
-      "seasonNumber": 3,
-      "episodes": [
-        {
-          "archiveID": "ClimaxStrangeSanctuary",
-          "seasonNumber": 3,
-          "episodeNumber": 26,
-          "title": "Strange Sanctuary",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": "1957-03-28",
-          "year": 1957,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Climax-strangeSanctuary.mp4",
-            "format": "h.264",
-            "sizeBytes": 313947534,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ClimaxStrangeSanctuary/Climax-strangeSanctuary.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 4,
-      "episodes": [
-        {
-          "archiveID": "ClimaxTrialByFire",
-          "seasonNumber": 4,
-          "episodeNumber": 1,
-          "title": "Trial by Fire",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": "1957-09-05",
-          "year": 1957,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Climax-trialByFire.mp4",
-            "format": "h.264",
-            "sizeBytes": 357858173,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ClimaxTrialByFire/Climax-trialByFire.mp4"
-        },
-        {
-          "archiveID": "ClimaxKeepMeInMind",
-          "seasonNumber": 4,
-          "episodeNumber": 9,
-          "title": "Keep Me in Mind",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": "1957-11-07",
-          "year": 1957,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Climax-keepMeInMind.mp4",
-            "format": "h.264",
-            "sizeBytes": 355976926,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ClimaxKeepMeInMind/Climax-keepMeInMind.mp4"
-        },
-        {
-          "archiveID": "Climax--A_Matter_of_Life_and_Death",
-          "seasonNumber": 4,
-          "episodeNumber": 11,
-          "title": "A Matter of Life and Death",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": "1957-11-21",
-          "year": 1957,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Climax407_A_Matter_of_Life_and_Death.mp4",
-            "format": "h.264",
-            "sizeBytes": 266634445,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Climax--A_Matter_of_Life_and_Death/Climax407_A_Matter_of_Life_and_Death.mp4"
-        },
-        {
-          "archiveID": "ClimaxTheScreamInSilence",
-          "seasonNumber": 4,
-          "episodeNumber": 17,
-          "title": "Scream in Silence",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": "1958-01-02",
-          "year": 1958,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Climax-theScreamInSilence.mp4",
-            "format": "h.264",
-            "sizeBytes": 357044000,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ClimaxTheScreamInSilence/Climax-theScreamInSilence.mp4"
-        },
-        {
-          "archiveID": "ClimaxFoursHoursInWhite",
-          "seasonNumber": 4,
-          "episodeNumber": 21,
-          "title": "Four Hours in White",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": "1958-02-06",
-          "year": 1958,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Climax-fourHoursInWhite.mp4",
-            "format": "h.264",
-            "sizeBytes": 354902786,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ClimaxFoursHoursInWhite/Climax-fourHoursInWhite.mp4"
-        },
-        {
-          "archiveID": "ClimaxTheVolcanoSeat",
-          "seasonNumber": 4,
-          "episodeNumber": 28,
-          "title": "The Volcano Seat",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": "1958-04-10",
-          "year": 1958,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Climax-theVolcanoSeat.mp4",
-            "format": "h.264",
-            "sizeBytes": 366777515,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ClimaxTheVolcanoSeat/Climax-theVolcanoSeat.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "ClimaxJacobsAngel",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Climax!: Jacob's Angel",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3561,
-          "videoFile": {
-            "name": "Climax-jacobsAngel.mp4",
-            "format": "h.264",
-            "sizeBytes": 354821452,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ClimaxJacobsAngel/Climax-jacobsAngel.mp4"
-        },
-        {
-          "archiveID": "ClimaxTrailOfTerror",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Climax: Trail of Terror",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3565,
-          "videoFile": {
-            "name": "Climax-trailOfTerror.mp4",
-            "format": "h.264",
-            "sizeBytes": 356425528,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ClimaxTrailOfTerror/Climax-trailOfTerror.mp4"
-        },
-        {
-          "archiveID": "ClimaxWildStallion",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Climax: Wild Stallion",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3531,
-          "videoFile": {
-            "name": "Climax-wildStallion.mp4",
-            "format": "h.264",
-            "sizeBytes": 351789053,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ClimaxWildStallion/Climax-wildStallion.mp4"
-        },
-        {
-          "archiveID": "Climax-DrJekyllAndMrHyde",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Dr. Jekyll and Mr. Hyde",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": null,
-          "year": 1955,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Climax-drJekyllAndMrHyde_512kb.mp4",
-            "format": "512Kb MPEG4",
-            "sizeBytes": 258938822,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Climax-DrJekyllAndMrHyde/Climax-drJekyllAndMrHyde_512kb.mp4"
-        },
-        {
-          "archiveID": "ClimaxTheAdventuresOfHuckleberryFinn",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Adventures of Huckleberry Finn",
-          "overview": "Huck and Jim once again embark on their adventure-filled trek down the Mississippi .",
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3547,
-          "videoFile": {
-            "name": "Climax-theAdventuresOfHuckleberryFinn.mp4",
-            "format": "h.264",
-            "sizeBytes": 359873111,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ClimaxTheAdventuresOfHuckleberryFinn/Climax-theAdventuresOfHuckleberryFinn.mp4"
-        }
-      ]
+     "archiveID": "climax_202103",
+     "seasonNumber": 1,
+     "episodeNumber": 34,
+     "title": "Dr. Jekyll and Mr. Hyde",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": "1955-07-28",
+     "year": 1955,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "ClimaxS01E34Dr JekyllandMrHyde.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 368584511,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/climax_202103/ClimaxS01E34Dr JekyllandMrHyde.ia.mp4"
     }
-  ],
-  "episodesCount": 21,
-  "canonicalEpisodesCount": 166,
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
-      "name": "William Lundigan",
-      "character": "Host",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/140/352364.jpg"
+     "archiveID": "Climax_AdventuresofHuckleberryFinn",
+     "seasonNumber": 2,
+     "episodeNumber": 1,
+     "title": "The Adventures of Huckleberry Finn",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": "1955-09-01",
+     "year": 1955,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "AdventuresofHuckleberryFinn.mp4",
+      "format": "h.264",
+      "sizeBytes": 360122994,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Climax_AdventuresofHuckleberryFinn/AdventuresofHuckleberryFinn.mp4"
+    },
+    {
+     "archiveID": "ClimaxPublicPigeon1",
+     "seasonNumber": 2,
+     "episodeNumber": 2,
+     "title": "Public Pigeon #1",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": "1955-09-08",
+     "year": 1955,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Climax-publicPigeon1.mp4",
+      "format": "h.264",
+      "sizeBytes": 305556834,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ClimaxPublicPigeon1/Climax-publicPigeon1.mp4"
+    },
+    {
+     "archiveID": "ClimaxNightOfExecution",
+     "seasonNumber": 2,
+     "episodeNumber": 4,
+     "title": "Night of Execution",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": "1955-09-22",
+     "year": 1955,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Climax-nightOfExecution.mp4",
+      "format": "h.264",
+      "sizeBytes": 365043824,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ClimaxNightOfExecution/Climax-nightOfExecution.mp4"
+    },
+    {
+     "archiveID": "ClimaxAPromiseToMurder",
+     "seasonNumber": 2,
+     "episodeNumber": 10,
+     "title": "A Promise to Murder",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": "1955-11-17",
+     "year": 1955,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Climax-aPromiseToMurder.mp4",
+      "format": "h.264",
+      "sizeBytes": 354256356,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ClimaxAPromiseToMurder/Climax-aPromiseToMurder.mp4"
+    },
+    {
+     "archiveID": "ClimaxTheFifthWheel",
+     "seasonNumber": 2,
+     "episodeNumber": 20,
+     "title": "The Fifth Wheel",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": "1956-02-09",
+     "year": 1956,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Climax-theFifthWheel.mp4",
+      "format": "h.264",
+      "sizeBytes": 369393236,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ClimaxTheFifthWheel/Climax-theFifthWheel.mp4"
+    },
+    {
+     "archiveID": "Climax-TheLouGehrigStory1956",
+     "seasonNumber": 2,
+     "episodeNumber": 27,
+     "title": "The Lou Gehrig Story",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": "1956-04-19",
+     "year": 1956,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Climax_Lou_Gehrig_story_04_19_56.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 401124311,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Climax-TheLouGehrigStory1956/Climax_Lou_Gehrig_story_04_19_56.ia.mp4"
     }
-  ],
-  "tvdbID": "72092",
-  "artworkSource": "tvdb"
+   ]
+  },
+  {
+   "seasonNumber": 3,
+   "episodes": [
+    {
+     "archiveID": "ClimaxStrangeSanctuary",
+     "seasonNumber": 3,
+     "episodeNumber": 26,
+     "title": "Strange Sanctuary",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": "1957-03-28",
+     "year": 1957,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Climax-strangeSanctuary.mp4",
+      "format": "h.264",
+      "sizeBytes": 313947534,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ClimaxStrangeSanctuary/Climax-strangeSanctuary.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 4,
+   "episodes": [
+    {
+     "archiveID": "ClimaxTrialByFire",
+     "seasonNumber": 4,
+     "episodeNumber": 1,
+     "title": "Trial by Fire",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": "1957-09-05",
+     "year": 1957,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Climax-trialByFire.mp4",
+      "format": "h.264",
+      "sizeBytes": 357858173,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ClimaxTrialByFire/Climax-trialByFire.mp4"
+    },
+    {
+     "archiveID": "ClimaxKeepMeInMind",
+     "seasonNumber": 4,
+     "episodeNumber": 9,
+     "title": "Keep Me in Mind",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": "1957-11-07",
+     "year": 1957,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Climax-keepMeInMind.mp4",
+      "format": "h.264",
+      "sizeBytes": 355976926,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ClimaxKeepMeInMind/Climax-keepMeInMind.mp4"
+    },
+    {
+     "archiveID": "Climax--A_Matter_of_Life_and_Death",
+     "seasonNumber": 4,
+     "episodeNumber": 11,
+     "title": "A Matter of Life and Death",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": "1957-11-21",
+     "year": 1957,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Climax407_A_Matter_of_Life_and_Death.mp4",
+      "format": "h.264",
+      "sizeBytes": 266634445,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Climax--A_Matter_of_Life_and_Death/Climax407_A_Matter_of_Life_and_Death.mp4"
+    },
+    {
+     "archiveID": "ClimaxTheScreamInSilence",
+     "seasonNumber": 4,
+     "episodeNumber": 17,
+     "title": "Scream in Silence",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": "1958-01-02",
+     "year": 1958,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Climax-theScreamInSilence.mp4",
+      "format": "h.264",
+      "sizeBytes": 357044000,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ClimaxTheScreamInSilence/Climax-theScreamInSilence.mp4"
+    },
+    {
+     "archiveID": "ClimaxFoursHoursInWhite",
+     "seasonNumber": 4,
+     "episodeNumber": 21,
+     "title": "Four Hours in White",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": "1958-02-06",
+     "year": 1958,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Climax-fourHoursInWhite.mp4",
+      "format": "h.264",
+      "sizeBytes": 354902786,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ClimaxFoursHoursInWhite/Climax-fourHoursInWhite.mp4"
+    },
+    {
+     "archiveID": "ClimaxTheVolcanoSeat",
+     "seasonNumber": 4,
+     "episodeNumber": 28,
+     "title": "The Volcano Seat",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": "1958-04-10",
+     "year": 1958,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Climax-theVolcanoSeat.mp4",
+      "format": "h.264",
+      "sizeBytes": 366777515,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ClimaxTheVolcanoSeat/Climax-theVolcanoSeat.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "ClimaxJacobsAngel",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Climax!: Jacob's Angel",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3561,
+     "videoFile": {
+      "name": "Climax-jacobsAngel.mp4",
+      "format": "h.264",
+      "sizeBytes": 354821452,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ClimaxJacobsAngel/Climax-jacobsAngel.mp4"
+    },
+    {
+     "archiveID": "ClimaxTrailOfTerror",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Climax: Trail of Terror",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3565,
+     "videoFile": {
+      "name": "Climax-trailOfTerror.mp4",
+      "format": "h.264",
+      "sizeBytes": 356425528,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ClimaxTrailOfTerror/Climax-trailOfTerror.mp4"
+    },
+    {
+     "archiveID": "ClimaxWildStallion",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Climax: Wild Stallion",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3531,
+     "videoFile": {
+      "name": "Climax-wildStallion.mp4",
+      "format": "h.264",
+      "sizeBytes": 351789053,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ClimaxWildStallion/Climax-wildStallion.mp4"
+    },
+    {
+     "archiveID": "Climax-DrJekyllAndMrHyde",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Dr. Jekyll and Mr. Hyde",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": null,
+     "year": 1955,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Climax-drJekyllAndMrHyde_512kb.mp4",
+      "format": "512Kb MPEG4",
+      "sizeBytes": 258938822,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Climax-DrJekyllAndMrHyde/Climax-drJekyllAndMrHyde_512kb.mp4"
+    },
+    {
+     "archiveID": "ClimaxTheAdventuresOfHuckleberryFinn",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Adventures of Huckleberry Finn",
+     "overview": "Huck and Jim once again embark on their adventure-filled trek down the Mississippi .",
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3547,
+     "videoFile": {
+      "name": "Climax-theAdventuresOfHuckleberryFinn.mp4",
+      "format": "h.264",
+      "sizeBytes": 359873111,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ClimaxTheAdventuresOfHuckleberryFinn/Climax-theAdventuresOfHuckleberryFinn.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 21,
+ "canonicalEpisodesCount": 166
 }

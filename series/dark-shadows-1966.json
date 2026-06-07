@@ -1,288 +1,173 @@
 {
-  "version": 2,
-  "seriesID": "dark-shadows-1966",
-  "tvmazeID": 13129,
-  "title": "Dark Shadows",
-  "yearStart": 1966,
-  "yearEnd": 1971,
-  "overview": "My name is Victoria Winters; In the small town of Collinsport Maine, lies the Collinwood mansion where the richest family in town resides. The Collins family has been plagued with troubles since the town was founded. There have been vampires, werewolves, witches, over zealous witch hunters and much more. We join their story as I, the new governess Victoria WInters arrives in town on my way to meet my new charge, David Collins. I am about to encounter strangeness I have never imagined in my wildest dreams.Dark Shadows is an American Gothic soap opera that originally aired weekdays on the ABC television network, from June 27, 1966 to April 2, 1971. The show depicted the lives, loves, trials and tribulations of the wealthy Collins family of Collinsport, Maine, where a number of supernatural occurrences take place.The series became hugely popular when vampire Barnabas Collins (Jonathan Frid) appeared ten months into its run. Dark Shadows also featured ghosts, werewolves, zombies, man-made monsters, witches, warlocks, time travel, and a parallel universe. A small company of actors each played many roles; indeed, as actors came and went, some characters were played by more than one actor.Dark Shadows was distinguished by its vividly melodramatic performances, atmospheric interiors, memorable storylines, numerous dramatic plot twists, adventurous music score, broad cosmos of characters and heroic adventures. The original network run of the show lasted for nearly five years to amass 1,225 episodes.It continues to enjoy an intense cult following",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/73599-3.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama",
-    "Fantasy",
-    "Horror"
-  ],
-  "networks": [
-    "ABC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "dark-shadows-1966",
+ "tvmazeID": 13129,
+ "title": "Dark Shadows",
+ "yearStart": 1966,
+ "yearEnd": 1971,
+ "overview": "My name is Victoria Winters; In the small town of Collinsport Maine, lies the Collinwood mansion where the richest family in town resides. The Collins family has been plagued with troubles since the town was founded. There have been vampires, werewolves, witches, over zealous witch hunters and much more. We join their story as I, the new governess Victoria WInters arrives in town on my way to meet my new charge, David Collins. I am about to encounter strangeness I have never imagined in my wildest dreams.Dark Shadows is an American Gothic soap opera that originally aired weekdays on the ABC television network, from June 27, 1966 to April 2, 1971. The show depicted the lives, loves, trials and tribulations of the wealthy Collins family of Collinsport, Maine, where a number of supernatural occurrences take place.The series became hugely popular when vampire Barnabas Collins (Jonathan Frid) appeared ten months into its run. Dark Shadows also featured ghosts, werewolves, zombies, man-made monsters, witches, warlocks, time travel, and a parallel universe. A small company of actors each played many roles; indeed, as actors came and went, some characters were played by more than one actor.Dark Shadows was distinguished by its vividly melodramatic performances, atmospheric interiors, memorable storylines, numerous dramatic plot twists, adventurous music score, broad cosmos of characters and heroic adventures. The original network run of the show lasted for nearly five years to amass 1,225 episodes.It continues to enjoy an intense cult following",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/45/112825.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Fantasy",
+  "Horror"
+ ],
+ "networks": [
+  "ABC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "dark-shadows-disc-2",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "DARK SHADOWS DISC 2",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
-          "airDate": null,
-          "year": 1966,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "DARK_SHADOWS_DISC1_Title1.mp4",
-            "format": "h.264",
-            "sizeBytes": 637047248,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/dark-shadows-disc-2/DARK_SHADOWS_DISC1_Title1.mp4"
-        },
-        {
-          "archiveID": "dark-shadows-disc-1",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Dark Shadows Disc 1",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
-          "airDate": null,
-          "year": 1966,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Dark Shadows Disc1-1.mp4",
-            "format": "h.264",
-            "sizeBytes": 776628358,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/dark-shadows-disc-1/Dark Shadows Disc1-1.mp4"
-        },
-        {
-          "archiveID": "dark-shadows-disc-3",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Dark Shadows Disc 3",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
-          "airDate": null,
-          "year": 1966,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Dark Shadows Disc 3.mp4",
-            "format": "h.264",
-            "sizeBytes": 1304502073,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/dark-shadows-disc-3/Dark Shadows Disc 3.mp4"
-        },
-        {
-          "archiveID": "dark-shadows-disc-4",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Dark Shadows Disc 4",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
-          "airDate": null,
-          "year": 1966,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Dark Shadows Disc 4.mp4",
-            "format": "h.264",
-            "sizeBytes": 1297667013,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/dark-shadows-disc-4/Dark Shadows Disc 4.mp4"
-        },
-        {
-          "archiveID": "dark-shadows-disc-5",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Dark Shadows Disc 5",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
-          "airDate": null,
-          "year": 1966,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Dark Shadows Disc 5.mp4",
-            "format": "h.264",
-            "sizeBytes": 1282062401,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/dark-shadows-disc-5/Dark Shadows Disc 5.mp4"
-        },
-        {
-          "archiveID": "dark-shadows-disc-6",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Dark Shadows Disc 6",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
-          "airDate": null,
-          "year": 1966,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Dark Shadows Disc 6 B.mp4",
-            "format": "h.264",
-            "sizeBytes": 646897158,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/dark-shadows-disc-6/Dark Shadows Disc 6 B.mp4"
-        },
-        {
-          "archiveID": "dark-shadows-disc-7",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Dark Shadows Disc 7",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
-          "airDate": null,
-          "year": 1966,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Dark Shadows Disc 7 B.mp4",
-            "format": "h.264",
-            "sizeBytes": 670259041,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/dark-shadows-disc-7/Dark Shadows Disc 7 B.mp4"
-        },
-        {
-          "archiveID": "dark-shadows-disc-8",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Dark Shadows Disc 8",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
-          "airDate": null,
-          "year": 1966,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Dark Shadows Disc 8 B.mp4",
-            "format": "h.264",
-            "sizeBytes": 651565051,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/dark-shadows-disc-8/Dark Shadows Disc 8 B.mp4"
-        }
-      ]
+     "archiveID": "dark-shadows-disc-2",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "DARK SHADOWS DISC 2",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
+     "airDate": null,
+     "year": 1966,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "DARK_SHADOWS_DISC1_Title1.mp4",
+      "format": "h.264",
+      "sizeBytes": 637047248,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/dark-shadows-disc-2/DARK_SHADOWS_DISC1_Title1.mp4"
+    },
+    {
+     "archiveID": "dark-shadows-disc-1",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Dark Shadows Disc 1",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
+     "airDate": null,
+     "year": 1966,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Dark Shadows Disc1-1.mp4",
+      "format": "h.264",
+      "sizeBytes": 776628358,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/dark-shadows-disc-1/Dark Shadows Disc1-1.mp4"
+    },
+    {
+     "archiveID": "dark-shadows-disc-3",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Dark Shadows Disc 3",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
+     "airDate": null,
+     "year": 1966,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Dark Shadows Disc 3.mp4",
+      "format": "h.264",
+      "sizeBytes": 1304502073,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/dark-shadows-disc-3/Dark Shadows Disc 3.mp4"
+    },
+    {
+     "archiveID": "dark-shadows-disc-4",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Dark Shadows Disc 4",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
+     "airDate": null,
+     "year": 1966,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Dark Shadows Disc 4.mp4",
+      "format": "h.264",
+      "sizeBytes": 1297667013,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/dark-shadows-disc-4/Dark Shadows Disc 4.mp4"
+    },
+    {
+     "archiveID": "dark-shadows-disc-5",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Dark Shadows Disc 5",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
+     "airDate": null,
+     "year": 1966,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Dark Shadows Disc 5.mp4",
+      "format": "h.264",
+      "sizeBytes": 1282062401,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/dark-shadows-disc-5/Dark Shadows Disc 5.mp4"
+    },
+    {
+     "archiveID": "dark-shadows-disc-6",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Dark Shadows Disc 6",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
+     "airDate": null,
+     "year": 1966,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Dark Shadows Disc 6 B.mp4",
+      "format": "h.264",
+      "sizeBytes": 646897158,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/dark-shadows-disc-6/Dark Shadows Disc 6 B.mp4"
+    },
+    {
+     "archiveID": "dark-shadows-disc-7",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Dark Shadows Disc 7",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
+     "airDate": null,
+     "year": 1966,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Dark Shadows Disc 7 B.mp4",
+      "format": "h.264",
+      "sizeBytes": 670259041,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/dark-shadows-disc-7/Dark Shadows Disc 7 B.mp4"
+    },
+    {
+     "archiveID": "dark-shadows-disc-8",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Dark Shadows Disc 8",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
+     "airDate": null,
+     "year": 1966,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Dark Shadows Disc 8 B.mp4",
+      "format": "h.264",
+      "sizeBytes": 651565051,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/dark-shadows-disc-8/Dark Shadows Disc 8 B.mp4"
     }
-  ],
-  "episodesCount": 8,
-  "canonicalEpisodesCount": 1225,
-  "seriesImdbID": "tt0059978",
-  "canonicalEpisodeCount": 100,
-  "canonicalSeasons": 1,
-  "cast": [
-    {
-      "name": "Carolyn Groves",
-      "character": "Victoria Winters",
-      "order": 0,
-      "profilePath": null
-    },
-    {
-      "name": "Betsy Durkin",
-      "character": "Victoria Winters",
-      "order": 1,
-      "profilePath": null
-    },
-    {
-      "name": "Alexandra Isles",
-      "character": "Victoria Winters",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/45/114299.jpg"
-    },
-    {
-      "name": "Anthony George",
-      "character": "Burke Devlin",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/17/43000.jpg"
-    },
-    {
-      "name": "Mitchell Ryan",
-      "character": "Burke Devlin",
-      "order": 4,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/13101.jpg"
-    },
-    {
-      "name": "Louis Edmonds",
-      "character": "Roger Collins",
-      "order": 5,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/210/526717.jpg"
-    },
-    {
-      "name": "Joan Bennett",
-      "character": "Elizabeth Collins Stoddard",
-      "order": 6,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/81/204259.jpg"
-    },
-    {
-      "name": "David Henesy",
-      "character": "David Collins",
-      "order": 7,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/45/114303.jpg"
-    },
-    {
-      "name": "Nancy Barrett",
-      "character": "Carolyn Stoddard Hawkes",
-      "order": 8,
-      "profilePath": "/4SHoE8LdFK4IIfgNEhjvyEbj2RT.jpg"
-    },
-    {
-      "name": "Joel Crothers",
-      "character": "Joe Haskell",
-      "order": 9,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/97/244747.jpg"
-    },
-    {
-      "name": "Kathryn Leigh Scott",
-      "character": "Maggie Evans",
-      "order": 10,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/73/184020.jpg"
-    },
-    {
-      "name": "David Ford",
-      "character": "Sam Evans",
-      "order": 11,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/342/855816.jpg"
-    },
-    {
-      "name": "John Karlen",
-      "character": "Willie Loomis",
-      "order": 12,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/177/444714.jpg"
-    },
-    {
-      "name": "Frank Schofield",
-      "character": "Bill Malloy",
-      "order": 13,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/45/113853.jpg"
-    },
-    {
-      "name": "Dennis Patrick",
-      "character": "Jason McGuire",
-      "order": 14,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/45/112797.jpg"
-    },
-    {
-      "name": "Thayer David",
-      "character": "Matthew Morgan",
-      "order": 15,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/60/152387.jpg"
-    },
-    {
-      "name": "Conrad Bain",
-      "character": "Mr. Wells",
-      "order": 16,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/65797.jpg"
-    },
-    {
-      "name": "Clarice Blackburn",
-      "character": "Sarah Johnson",
-      "order": 17,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/342/855815.jpg"
-    }
-  ],
-  "tvdbID": "73599",
-  "artworkSource": "tvdb"
+   ]
+  }
+ ],
+ "episodesCount": 8,
+ "canonicalEpisodesCount": 1225
 }

@@ -1,407 +1,338 @@
 {
-  "version": 2,
-  "seriesID": "bill-nye-the-science-guy-1993",
-  "tvmazeID": 8602,
-  "title": "Bill Nye: The Science Guy",
-  "yearStart": 1993,
-  "yearEnd": 2003,
-  "overview": "Comedian/scientist Bill Nye stars as the host of this show designed to get kids interested in the science of everyday, and some not-so-everyday, things. On a full range of subjects, including ecology, biology, chemistry and physics, Nye gives an easy-to-understand, yet informative lesson that both kids and their parents can enjoy.",
-  "posterURL": "https://artworks.thetvdb.com/banners/series/78494/posters/5e9e357dc1f05.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Children"
-  ],
-  "networks": [
-    "PBS"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "bill-nye-the-science-guy-1993",
+ "tvmazeID": 8602,
+ "title": "Bill Nye: The Science Guy",
+ "yearStart": 1993,
+ "yearEnd": 1998,
+ "overview": "Comedian/scientist Bill Nye stars as the host of this show designed to get kids interested in the science of everyday, and some not-so-everyday, things. On a full range of subjects, including ecology, biology, chemistry and physics, Nye gives an easy-to-understand, yet informative lesson that both kids and their parents can enjoy.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/30/76608.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Children"
+ ],
+ "networks": [
+  "PBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "bill-nye-the-science-guy-s-01-e-01-flight_202503",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Bill Nye The Science Guy S01E01 Flight",
-          "overview": "Bill Nye The Science Guy",
-          "stillURL": "https://archive.org/services/img/bill-nye-the-science-guy-s-01-e-01-flight_202503",
-          "airDate": "1993-09-10",
-          "year": 1993,
-          "runtimeSeconds": 1380,
-          "videoFile": {
-            "name": "Bill Nye The Science Guy S01E01 Flight.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 77119427,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/bill-nye-the-science-guy-s-01-e-01-flight_202503/Bill%20Nye%20The%20Science%20Guy%20S01E01%20Flight.mp4"
-        },
-        {
-          "archiveID": "bill-nye-earth-s-crust",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Bill Nye The Science Guy: Earth's Crust",
-          "overview": "<div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\">Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\"><br /></font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\">Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</font></div>",
-          "stillURL": "https://archive.org/services/img/bill-nye-earth-s-crust",
-          "airDate": "1993-09-17",
-          "year": 1993,
-          "runtimeSeconds": 1390,
-          "videoFile": {
-            "name": "BillNye_Earth_s Crust.mp4",
-            "format": "h.264",
-            "sizeBytes": 139945070,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/bill-nye-earth-s-crust/BillNye_Earth_s%20Crust.mp4"
-        },
-        {
-          "archiveID": "bnsg-phases-of-matter",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Bill Nye The Science Guy: Phases Of Matter",
-          "overview": "<div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Credit to Unsungghost for ripping this disc.</div>",
-          "stillURL": "https://archive.org/services/img/bnsg-phases-of-matter",
-          "airDate": "1993-10-29",
-          "year": 1993,
-          "runtimeSeconds": 1382,
-          "videoFile": {
-            "name": "BNSG Phases of Matter.mp4",
-            "format": "h.264",
-            "sizeBytes": 140678744,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/bnsg-phases-of-matter/BNSG%20Phases%20of%20Matter.mp4"
-        },
-        {
-          "archiveID": "SimpleMachinesVHS",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "Bill Nye the Science Guy: Simple Machines (VHS)",
-          "overview": "Nifty Questions in This Episode:<div><ul><li>What are simple machines?</li><li>How do simple machines help us work?</li><li>What is a wheel?</li></ul><div>Awesome Answers:</div></div><div><ul><li>The simple machines are: wheel and axle; pulley; ramp or inclined plane; screw; wedge; lever.</li><li>Simple machines help change the elevation and size of forces.</li><li>A wheel is many levers pivoting on one fulcrum. </li></ul></div>",
-          "stillURL": "https://archive.org/services/img/SimpleMachinesVHS",
-          "airDate": "1993-11-12",
-          "year": null,
-          "runtimeSeconds": 1391,
-          "videoFile": {
-            "name": "Simple Machines.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 918781201,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/SimpleMachinesVHS/Simple%20Machines.ia.mp4"
-        },
-        {
-          "archiveID": "bill-nye-moon",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "Bill Nye The Science Guy: The Moon",
-          "overview": "<div>Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</div><div><br /></div><div>Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</div>",
-          "stillURL": "https://archive.org/services/img/bill-nye-moon",
-          "airDate": "1993-11-19",
-          "year": 1993,
-          "runtimeSeconds": 1379,
-          "videoFile": {
-            "name": "Bill Nye Moon.mp4",
-            "format": "h.264",
-            "sizeBytes": 142113048,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/bill-nye-moon/Bill%20Nye%20Moon.mp4"
-        },
-        {
-          "archiveID": "bn-seasons",
-          "seasonNumber": 1,
-          "episodeNumber": 15,
-          "title": "Bill Nye The Science Guy: Earth's Seasons",
-          "overview": "<div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\">Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\"><br /></font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\">Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</font></div>",
-          "stillURL": "https://archive.org/services/img/bn-seasons",
-          "airDate": "1993-12-17",
-          "year": 1994,
-          "runtimeSeconds": 1377,
-          "videoFile": {
-            "name": "BN_Seasons.mp4",
-            "format": "h.264",
-            "sizeBytes": 141313666,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/bn-seasons/BN_Seasons.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "bnsg-chemical-reactions",
-          "seasonNumber": 2,
-          "episodeNumber": 4,
-          "title": "Bill Nye The Science Guy: Chemical Reactions",
-          "overview": "<div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Credit to Unsungghost for ripping this disc.</div>",
-          "stillURL": "https://archive.org/services/img/bnsg-chemical-reactions",
-          "airDate": "1994-03-11",
-          "year": 1994,
-          "runtimeSeconds": 1381,
-          "videoFile": {
-            "name": "BNSG Chemical Reactions.mp4",
-            "format": "h.264",
-            "sizeBytes": 140597293,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/bnsg-chemical-reactions/BNSG%20Chemical%20Reactions.mp4"
-        },
-        {
-          "archiveID": "FoodWebClassroomEditionDVD",
-          "seasonNumber": 2,
-          "episodeNumber": 6,
-          "title": "Bill Nye the Science Guy: Food Web (Classroom Edition DVD)",
-          "overview": "Bill Nye the Science Guy knows how to provide easy access to hard science. What's his secret? A fast-paced approach blending humorous hijinks with hands-on activities. Bill encourages kids to ask interesting questions... then show them how to discover fascinating answers.<div><br /></div><div>Bill Nye the Science Guy on Classroom Edition DVD is an adaptable format that allows you to access the wildly popular Bill Nye series on any DVD-equipped computer or set-top DVD player.</div><div><br /></div><div>In <b><i>Food Web,</i></b> watch as Bill Nye becomes tangled in a complex food web in his quest to demonstrate that all living things depend on other living things to survive.</div>",
-          "stillURL": "https://archive.org/services/img/FoodWebClassroomEditionDVD",
-          "airDate": "1994-03-25",
-          "year": 2003,
-          "runtimeSeconds": 1383,
-          "videoFile": {
-            "name": "BN_Food Web.mp4",
-            "format": "h.264",
-            "sizeBytes": 139514910,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/FoodWebClassroomEditionDVD/BN_Food%20Web.mp4"
-        },
-        {
-          "archiveID": "bn-light-optics",
-          "seasonNumber": 2,
-          "episodeNumber": 7,
-          "title": "Bill Nye The Science Guy: Light Optics",
-          "overview": "<div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Credit to Unsungghost for ripping this disc.</div>",
-          "stillURL": "https://archive.org/services/img/bn-light-optics",
-          "airDate": "1994-09-10",
-          "year": 1994,
-          "runtimeSeconds": 1356,
-          "videoFile": {
-            "name": "BN_Light_Optics.mp4",
-            "format": "h.264",
-            "sizeBytes": 136632517,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/bn-light-optics/BN_Light_Optics.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 3,
-      "episodes": [
-        {
-          "archiveID": "bn-animal",
-          "seasonNumber": 3,
-          "episodeNumber": 20,
-          "title": "Bill Nye The Science Guy: Animal Locomotion",
-          "overview": "<div style=\"margin-top:1.43em;margin-bottom:1.43em;margin-right:5rem;color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><div>Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</div><div><br /></div><div>Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</div><div><br /></div><div>Credit to Unsungghost for ripping this disc.</div></div><div class=\"metadata-expandable-list row\" style=\"margin:1.43em -15px;width:715px;color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"></div>",
-          "stillURL": "https://archive.org/services/img/bn-animal",
-          "airDate": "1995-10-27",
-          "year": 1995,
-          "runtimeSeconds": 1389,
-          "videoFile": {
-            "name": "BN_Animal.mp4",
-            "format": "h.264",
-            "sizeBytes": 140473333,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/bn-animal/BN_Animal.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 4,
-      "episodes": [
-        {
-          "archiveID": "bn-marine",
-          "seasonNumber": 4,
-          "episodeNumber": 3,
-          "title": "Bill Nye The Science Guy: Marine Mammals",
-          "overview": "<div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Credit to Unsungghost for ripping this disc.</div>",
-          "stillURL": "https://archive.org/services/img/bn-marine",
-          "airDate": "1995-11-17",
-          "year": 1995,
-          "runtimeSeconds": 1378,
-          "videoFile": {
-            "name": "BN_Marine.mp4",
-            "format": "h.264",
-            "sizeBytes": 139054528,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/bn-marine/BN_Marine.mp4"
-        },
-        {
-          "archiveID": "bn-pollution",
-          "seasonNumber": 4,
-          "episodeNumber": 7,
-          "title": "Bill Nye The Science Guy: Pollution Solutions",
-          "overview": "<div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Credit to manny_b_hanz for ripping this disc.</div>",
-          "stillURL": "https://archive.org/services/img/bn-pollution",
-          "airDate": "1996-01-12",
-          "year": 1996,
-          "runtimeSeconds": 1381,
-          "videoFile": {
-            "name": "BN_Pollution.mp4",
-            "format": "h.264",
-            "sizeBytes": 137106987,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/bn-pollution/BN_Pollution.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 5,
-      "episodes": [
-        {
-          "archiveID": "bnsg-life-cycles",
-          "seasonNumber": 5,
-          "episodeNumber": 6,
-          "title": "Bill Nye The Science Guy: Life Cycles",
-          "overview": "<div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Credit to manny_b_hanz for ripping this disc.</div>",
-          "stillURL": "https://archive.org/services/img/bnsg-life-cycles",
-          "airDate": "1997-11-14",
-          "year": 1997,
-          "runtimeSeconds": 1392,
-          "videoFile": {
-            "name": "BNSG Life Cycles.mp4",
-            "format": "h.264",
-            "sizeBytes": 138452926,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/bnsg-life-cycles/BNSG%20Life%20Cycles.mp4"
-        },
-        {
-          "archiveID": "bn-ocean-exp",
-          "seasonNumber": 5,
-          "episodeNumber": 9,
-          "title": "Bill Nye The Science Guy: Ocean Exploration",
-          "overview": "<div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\">Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\"><br /></font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\">Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\"><br /></font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\">Credit to Science_Guy_90 for uploading the original encrypted rip of this disc, which I have decrypted and uploaded to this item.</font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\"><br /></font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\">https://archive.org/details/bill-nye-the-science-guy-s-04-e-05-top-11-countdown</font></div>",
-          "stillURL": "https://archive.org/services/img/bn-ocean-exp",
-          "airDate": "1997-12-05",
-          "year": 1998,
-          "runtimeSeconds": 1373,
-          "videoFile": {
-            "name": "BN_Ocean_Exp.mp4",
-            "format": "h.264",
-            "sizeBytes": 138495096,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/bn-ocean-exp/BN_Ocean_Exp.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "bell-science-series-our-mr.-sun-1956-complete",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Bell Science Series Our Mr. Sun 1956",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/bell-science-series-our-mr.-sun-1956-complete",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Bell Science Series Our Mr. Sun - 1956 (Complete).ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 80562041,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/bell-science-series-our-mr.-sun-1956-complete/Bell Science Series Our Mr. Sun - 1956 (Complete).ia.mp4"
-        },
-        {
-          "archiveID": "bell-science-series-the-story-of-the-senses-1956",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Bell Science Series The Story Of The Senses",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/bell-science-series-the-story-of-the-senses-1956",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Bell Science Series The Story of the Senses (1956).ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 397877341,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/bell-science-series-the-story-of-the-senses-1956/Bell Science Series The Story of the Senses (1956).ia.mp4"
-        },
-        {
-          "archiveID": "bell-science-series-the-strange-case-of-the-cosmic-rays-1957",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Bell Science Series The Strange Case Of The Cosmic Rays",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/bell-science-series-the-strange-case-of-the-cosmic-rays-1957",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Bell Science Series The Strange Case of the Cosmic Rays (1957)-.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 305337947,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/bell-science-series-the-strange-case-of-the-cosmic-rays-1957/Bell Science Series The Strange Case of the Cosmic Rays (1957)-.ia.mp4"
-        }
-      ]
+     "archiveID": "bill-nye-the-science-guy-s-01-e-01-flight_202503",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Flight",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/bill-nye-the-science-guy-s-01-e-01-flight_202503",
+     "airDate": "1993-09-10",
+     "year": 1993,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Bill Nye The Science Guy S01E01 Flight.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 77119427,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/bill-nye-the-science-guy-s-01-e-01-flight_202503/Bill%20Nye%20The%20Science%20Guy%20S01E01%20Flight.mp4"
     }
-  ],
-  "episodesCount": 17,
-  "canonicalEpisodesCount": 100,
-  "seriesImdbID": "tt0173528",
-  "canonicalEpisodeCount": 58,
-  "canonicalSeasons": 5,
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
-      "name": "Bill Nye",
-      "character": "Host",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/72932.jpg"
+     "archiveID": "bell-science-series-our-mr.-sun-1956-complete",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Bell Science Series Our Mr. Sun 1956",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/bell-science-series-our-mr.-sun-1956-complete",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Bell Science Series Our Mr. Sun - 1956 (Complete).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 80562041,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/bell-science-series-our-mr.-sun-1956-complete/Bell Science Series Our Mr. Sun - 1956 (Complete).ia.mp4"
     },
     {
-      "name": "Suzanne Mikawa",
-      "character": "Suzanne",
-      "order": 1,
-      "profilePath": null
+     "archiveID": "bell-science-series-the-story-of-the-senses-1956",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Bell Science Series The Story Of The Senses",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/bell-science-series-the-story-of-the-senses-1956",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Bell Science Series The Story of the Senses (1956).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 397877341,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/bell-science-series-the-story-of-the-senses-1956/Bell Science Series The Story of the Senses (1956).ia.mp4"
     },
     {
-      "name": "Pat Cashman",
-      "character": "Announcer",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/136/340919.jpg"
+     "archiveID": "bell-science-series-the-strange-case-of-the-cosmic-rays-1957",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Bell Science Series The Strange Case Of The Cosmic Rays",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/bell-science-series-the-strange-case-of-the-cosmic-rays-1957",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Bell Science Series The Strange Case of the Cosmic Rays (1957)-.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 305337947,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/bell-science-series-the-strange-case-of-the-cosmic-rays-1957/Bell Science Series The Strange Case of the Cosmic Rays (1957)-.ia.mp4"
     },
     {
-      "name": "Rachel Glenn",
-      "character": "Nancy",
-      "order": 3,
-      "profilePath": null
+     "archiveID": "bn-animal",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Bill Nye The Science Guy: Animal Locomotion",
+     "overview": "<div style=\"margin-top:1.43em;margin-bottom:1.43em;margin-right:5rem;color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><div>Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</div><div><br /></div><div>Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</div><div><br /></div><div>Credit to Unsungghost for ripping this disc.</div></div><div class=\"metadata-expandable-list row\" style=\"margin:1.43em -15px;width:715px;color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"></div>",
+     "stillURL": "https://archive.org/services/img/bn-animal",
+     "airDate": null,
+     "year": 1995,
+     "runtimeSeconds": 1389,
+     "videoFile": {
+      "name": "BN_Animal.mp4",
+      "format": "h.264",
+      "sizeBytes": 140473333,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/bn-animal/BN_Animal.mp4"
     },
     {
-      "name": "Drew Barrymore",
-      "character": "Drew Barrymore",
-      "order": 4,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/11/29500.jpg"
+     "archiveID": "bnsg-chemical-reactions",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Bill Nye The Science Guy: Chemical Reactions",
+     "overview": "<div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Credit to Unsungghost for ripping this disc.</div>",
+     "stillURL": "https://archive.org/services/img/bnsg-chemical-reactions",
+     "airDate": null,
+     "year": 1994,
+     "runtimeSeconds": 1381,
+     "videoFile": {
+      "name": "BNSG Chemical Reactions.mp4",
+      "format": "h.264",
+      "sizeBytes": 140597293,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/bnsg-chemical-reactions/BNSG%20Chemical%20Reactions.mp4"
     },
     {
-      "name": "Jim Abbott",
-      "character": "Sam",
-      "order": 5,
-      "profilePath": null
+     "archiveID": "bill-nye-earth-s-crust",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Bill Nye The Science Guy: Earth's Crust",
+     "overview": "<div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\">Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\"><br /></font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\">Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</font></div>",
+     "stillURL": "https://archive.org/services/img/bill-nye-earth-s-crust",
+     "airDate": null,
+     "year": 1993,
+     "runtimeSeconds": 1390,
+     "videoFile": {
+      "name": "BillNye_Earth_s Crust.mp4",
+      "format": "h.264",
+      "sizeBytes": 139945070,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/bill-nye-earth-s-crust/BillNye_Earth_s%20Crust.mp4"
     },
     {
-      "name": "Toby Lawless",
-      "character": "Family Magician",
-      "order": 6,
-      "profilePath": null
+     "archiveID": "bn-seasons",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Bill Nye The Science Guy: Earth's Seasons",
+     "overview": "<div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\">Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\"><br /></font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\">Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</font></div>",
+     "stillURL": "https://archive.org/services/img/bn-seasons",
+     "airDate": null,
+     "year": 1994,
+     "runtimeSeconds": 1377,
+     "videoFile": {
+      "name": "BN_Seasons.mp4",
+      "format": "h.264",
+      "sizeBytes": 141313666,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/bn-seasons/BN_Seasons.mp4"
+    },
+    {
+     "archiveID": "bnsg-life-cycles",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Bill Nye The Science Guy: Life Cycles",
+     "overview": "<div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Credit to manny_b_hanz for ripping this disc.</div>",
+     "stillURL": "https://archive.org/services/img/bnsg-life-cycles",
+     "airDate": null,
+     "year": 1997,
+     "runtimeSeconds": 1392,
+     "videoFile": {
+      "name": "BNSG Life Cycles.mp4",
+      "format": "h.264",
+      "sizeBytes": 138452926,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/bnsg-life-cycles/BNSG%20Life%20Cycles.mp4"
+    },
+    {
+     "archiveID": "bn-light-optics",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Bill Nye The Science Guy: Light Optics",
+     "overview": "<div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Credit to Unsungghost for ripping this disc.</div>",
+     "stillURL": "https://archive.org/services/img/bn-light-optics",
+     "airDate": null,
+     "year": 1994,
+     "runtimeSeconds": 1356,
+     "videoFile": {
+      "name": "BN_Light_Optics.mp4",
+      "format": "h.264",
+      "sizeBytes": 136632517,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/bn-light-optics/BN_Light_Optics.mp4"
+    },
+    {
+     "archiveID": "bn-marine",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Bill Nye The Science Guy: Marine Mammals",
+     "overview": "<div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Credit to Unsungghost for ripping this disc.</div>",
+     "stillURL": "https://archive.org/services/img/bn-marine",
+     "airDate": null,
+     "year": 1995,
+     "runtimeSeconds": 1378,
+     "videoFile": {
+      "name": "BN_Marine.mp4",
+      "format": "h.264",
+      "sizeBytes": 139054528,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/bn-marine/BN_Marine.mp4"
+    },
+    {
+     "archiveID": "bn-ocean-exp",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Bill Nye The Science Guy: Ocean Exploration",
+     "overview": "<div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\">Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\"><br /></font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\">Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\"><br /></font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\">Credit to Science_Guy_90 for uploading the original encrypted rip of this disc, which I have decrypted and uploaded to this item.</font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\"><br /></font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\">https://archive.org/details/bill-nye-the-science-guy-s-04-e-05-top-11-countdown</font></div>",
+     "stillURL": "https://archive.org/services/img/bn-ocean-exp",
+     "airDate": null,
+     "year": 1998,
+     "runtimeSeconds": 1373,
+     "videoFile": {
+      "name": "BN_Ocean_Exp.mp4",
+      "format": "h.264",
+      "sizeBytes": 138495096,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/bn-ocean-exp/BN_Ocean_Exp.mp4"
+    },
+    {
+     "archiveID": "bnsg-phases-of-matter",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Bill Nye The Science Guy: Phases Of Matter",
+     "overview": "<div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Credit to Unsungghost for ripping this disc.</div>",
+     "stillURL": "https://archive.org/services/img/bnsg-phases-of-matter",
+     "airDate": null,
+     "year": 1993,
+     "runtimeSeconds": 1382,
+     "videoFile": {
+      "name": "BNSG Phases of Matter.mp4",
+      "format": "h.264",
+      "sizeBytes": 140678744,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/bnsg-phases-of-matter/BNSG%20Phases%20of%20Matter.mp4"
+    },
+    {
+     "archiveID": "bn-pollution",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Bill Nye The Science Guy: Pollution Solutions",
+     "overview": "<div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Credit to manny_b_hanz for ripping this disc.</div>",
+     "stillURL": "https://archive.org/services/img/bn-pollution",
+     "airDate": null,
+     "year": 1996,
+     "runtimeSeconds": 1381,
+     "videoFile": {
+      "name": "BN_Pollution.mp4",
+      "format": "h.264",
+      "sizeBytes": 137106987,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/bn-pollution/BN_Pollution.mp4"
+    },
+    {
+     "archiveID": "bill-nye-moon",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Bill Nye The Science Guy: The Moon",
+     "overview": "<div>Episode of the coveted Bill Nye The Science Guy Disney Classroom Edition single-episode disc and bonus materials including extra takes, screensavers, and wallpapers. These contain title sets in English and Spanish, and instead of using language tracks the video material is duplicated, likely to fill the discs as an attempt to justify the $1,500 cost to schools, libraries, and other institutions for the full set.</div><div><br /></div><div>Nobody has shared the full box set images and the complete series has earned its \"white whale\" status. Some large libraries have been reported to have the set, but it has not been shared on the internet. I can't change that but will be uploading images of several of these discs I found from eBay and my local library.</div>",
+     "stillURL": "https://archive.org/services/img/bill-nye-moon",
+     "airDate": null,
+     "year": 1993,
+     "runtimeSeconds": 1379,
+     "videoFile": {
+      "name": "Bill Nye Moon.mp4",
+      "format": "h.264",
+      "sizeBytes": 142113048,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/bill-nye-moon/Bill%20Nye%20Moon.mp4"
+    },
+    {
+     "archiveID": "FoodWebClassroomEditionDVD",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Bill Nye the Science Guy: Food Web",
+     "overview": "Bill Nye the Science Guy knows how to provide easy access to hard science. What's his secret? A fast-paced approach blending humorous hijinks with hands-on activities. Bill encourages kids to ask interesting questions... then show them how to discover fascinating answers.<div><br /></div><div>Bill Nye the Science Guy on Classroom Edition DVD is an adaptable format that allows you to access the wildly popular Bill Nye series on any DVD-equipped computer or set-top DVD player.</div><div><br /></div><div>In <b><i>Food Web,</i></b> watch as Bill Nye becomes tangled in a complex food web in his quest to demonstrate that all living things depend on other living things to survive.</div>",
+     "stillURL": "https://archive.org/services/img/FoodWebClassroomEditionDVD",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1383,
+     "videoFile": {
+      "name": "BN_Food Web.mp4",
+      "format": "h.264",
+      "sizeBytes": 139514910,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FoodWebClassroomEditionDVD/BN_Food%20Web.mp4"
+    },
+    {
+     "archiveID": "SimpleMachinesVHS",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Bill Nye the Science Guy: Simple Machines",
+     "overview": "Nifty Questions in This Episode:<div><ul><li>What are simple machines?</li><li>How do simple machines help us work?</li><li>What is a wheel?</li></ul><div>Awesome Answers:</div></div><div><ul><li>The simple machines are: wheel and axle; pulley; ramp or inclined plane; screw; wedge; lever.</li><li>Simple machines help change the elevation and size of forces.</li><li>A wheel is many levers pivoting on one fulcrum. </li></ul></div>",
+     "stillURL": "https://archive.org/services/img/SimpleMachinesVHS",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1391,
+     "videoFile": {
+      "name": "Simple Machines.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 918781201,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/SimpleMachinesVHS/Simple%20Machines.ia.mp4"
     }
-  ],
-  "tvdbID": "78494",
-  "artworkSource": "tvdb"
+   ]
+  }
+ ],
+ "episodesCount": 17,
+ "canonicalEpisodesCount": 100
 }

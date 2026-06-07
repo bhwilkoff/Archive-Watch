@@ -1,129 +1,68 @@
 {
-  "version": 2,
-  "seriesID": "life-on-a-stick-2005",
-  "tvmazeID": 6242,
-  "title": "Life on a Stick",
-  "yearStart": 2005,
-  "yearEnd": 2005,
-  "overview": "Life on a Stick centers on several teen characters who work and hang out at the mall food court. There is 18-year-old, optimistic-but-not-ambitious Laz; his 16-year-old angst-ridden and angry stepsister, Molly; Laz's best friend Fred; and Laz's new girlfriend Lily. Home base for Laz and Molly is a blended family formed by the marriage of Laz's dad, Rick, and Molly's mom, Michelle. Rick and Molly love all of their children, but they are particularly obsessed with the only product of their union together: the sweet, perfect and wise 8-year-old Gus. Laz and Fred both 18, have been friends forever.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/73722-1.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy"
-  ],
-  "networks": [
-    "FOX"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "life-on-a-stick-2005",
+ "tvmazeID": 6242,
+ "title": "Life on a Stick",
+ "yearStart": 2005,
+ "yearEnd": 2005,
+ "overview": "Life on a Stick centers on several teen characters who work and hang out at the mall food court. There is 18-year-old, optimistic-but-not-ambitious Laz; his 16-year-old angst-ridden and angry stepsister, Molly; Laz's best friend Fred; and Laz's new girlfriend Lily. Home base for Laz and Molly is a blended family formed by the marriage of Laz's dad, Rick, and Molly's mom, Michelle. Rick and Molly love all of their children, but they are particularly obsessed with the only product of their union together: the sweet, perfect and wise 8-year-old Gus. Laz and Fred both 18, have been friends forever.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/23/59995.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "FOX"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "life-on-a-stick",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Pilot",
-          "overview": "We meet best friends Laz and Fred. Just out of high school and unsure what they want to do with their lives, they take jobs at a mall food court, at the lame \"Yippee, Hot Dogs\" run by Mr. Hut. There, Laz meets Lily, the girl of his dreams. Laz cuts a deal with his dad, Rick, and stepmom Michelle, that allows him to continue living rent-free at home if he keeps an eye on his stepsister (Michelle's daughter), the angst-ridden Molly. Rounding out the family is perfect, 9-year-old Gus, the product of Rick and Michelle's union and the object of their obsession.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/472/1180646.jpg",
-          "airDate": "2005-03-24",
-          "year": 2005,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Life on a Stick - [Episode 1][S01E01] Pilot [March 24, 2005].mp4",
-            "format": "h.264",
-            "sizeBytes": 131483734,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/life-on-a-stick/Life%20on%20a%20Stick%20-%20%5BEpisode%201%5D%5BS01E01%5D%20Pilot%20%5BMarch%2024%2C%202005%5D.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "life-on-a-stick-2005_ft-ep-3-and-8",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Life On A Stick",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 2005,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Life on a Stick (2005) 1X03 - fused by me   -youtuber JELrock.mp4",
-            "format": "h.264",
-            "sizeBytes": 124737818,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/life-on-a-stick-2005_ft-ep-3-and-8/Life%20on%20a%20Stick%20%282005%29%201X03%20-%20fused%20by%20me%20%20%20-youtuber%20JELrock.mp4"
-        }
-      ]
+     "archiveID": "life-on-a-stick",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Pilot",
+     "overview": "We meet best friends Laz and Fred. Just out of high school and unsure what they want to do with their lives, they take jobs at a mall food court, at the lame \"Yippee, Hot Dogs\" run by Mr. Hut. There, Laz meets Lily, the girl of his dreams. Laz cuts a deal with his dad, Rick, and stepmom Michelle, that allows him to continue living rent-free at home if he keeps an eye on his stepsister (Michelle's daughter), the angst-ridden Molly. Rounding out the family is perfect, 9-year-old Gus, the product of Rick and Michelle's union and the object of their obsession.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/472/1180646.jpg",
+     "airDate": "2005-03-24",
+     "year": 2005,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Life on a Stick - [Episode 1][S01E01] Pilot [March 24, 2005].mp4",
+      "format": "h.264",
+      "sizeBytes": 131483734,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/life-on-a-stick/Life%20on%20a%20Stick%20-%20%5BEpisode%201%5D%5BS01E01%5D%20Pilot%20%5BMarch%2024%2C%202005%5D.mp4"
     }
-  ],
-  "episodesCount": 2,
-  "canonicalEpisodesCount": 13,
-  "seriesImdbID": "tt0412221",
-  "canonicalEpisodeCount": 8,
-  "canonicalSeasons": 1,
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
-      "name": "Zachary Knighton",
-      "character": "Laz Lackerson",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/560/1401989.jpg"
-    },
-    {
-      "name": "Rachelle Lefevre",
-      "character": "Lilly",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/82/207417.jpg"
-    },
-    {
-      "name": "Charlie Finn",
-      "character": "Fred",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/90/225632.jpg"
-    },
-    {
-      "name": "Amy Yasbeck",
-      "character": "Michelle Lackerson",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/1/2804.jpg"
-    },
-    {
-      "name": "Matthew Glave",
-      "character": "Rick Lackerson",
-      "order": 4,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/159/397602.jpg"
-    },
-    {
-      "name": "Saige Thompson",
-      "character": "Molly Callahan",
-      "order": 5,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/20/51360.jpg"
-    },
-    {
-      "name": "Maz Jobrani",
-      "character": "Mr. Hut",
-      "order": 6,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/606/1516233.jpg"
-    },
-    {
-      "name": "Ryan Belleville",
-      "character": "Jasper",
-      "order": 7,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/25558.jpg"
-    },
-    {
-      "name": "Frankie Ryan Manriquez",
-      "character": "Gus Lackerson",
-      "order": 8,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/472/1180653.jpg"
+     "archiveID": "life-on-a-stick-2005_ft-ep-3-and-8",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Life On A Stick",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 2005,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Life on a Stick (2005) 1X03 - fused by me   -youtuber JELrock.mp4",
+      "format": "h.264",
+      "sizeBytes": 124737818,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/life-on-a-stick-2005_ft-ep-3-and-8/Life%20on%20a%20Stick%20%282005%29%201X03%20-%20fused%20by%20me%20%20%20-youtuber%20JELrock.mp4"
     }
-  ],
-  "tvdbID": "73722",
-  "artworkSource": "tvdb"
+   ]
+  }
+ ],
+ "episodesCount": 2,
+ "canonicalEpisodesCount": 13
 }

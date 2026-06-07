@@ -1,213 +1,158 @@
 {
-  "version": 2,
-  "seriesID": "fawlty-towers-1975",
-  "tvmazeID": 577,
-  "title": "Fawlty Towers",
-  "yearStart": 1975,
-  "yearEnd": 1979,
-  "overview": "Fawlty Towers is set in a fictional hotel in the seaside town of Torquay. The plots centre on tense, rude and put-upon owner Basil Fawlty, his bossy wife Sybil, comparatively normal chambermaid Polly, who is often the peacemaker and voice of reason, and hapless Spanish waiter Manuel, showing their attempts to run the hotel amidst farcical situations and an array of demanding and eccentric guests.",
-  "posterURL": "https://artworks.thetvdb.com/banners/posters/75932-6.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy"
-  ],
-  "networks": [
-    "BBC Two"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "fawlty-towers-1975",
+ "tvmazeID": 577,
+ "title": "Fawlty Towers",
+ "yearStart": 1975,
+ "yearEnd": 1979,
+ "overview": "Fawlty Towers is set in a fictional hotel in the seaside town of Torquay. The plots centre on tense, rude and put-upon owner Basil Fawlty, his bossy wife Sybil, comparatively normal chambermaid Polly, who is often the peacemaker and voice of reason, and hapless Spanish waiter Manuel, showing their attempts to run the hotel amidst farcical situations and an array of demanding and eccentric guests.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/4/11842.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "BBC Two"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "fawlty-towers-complete-series-1975",
-          "seasonNumber": 2,
-          "episodeNumber": 2,
-          "title": "The Psychiatrist",
-          "overview": "A psychiatrist and his wife — also a doctor — come to the hotel for a weekend break, and cannot help but notice the eccentricities of their host, who is perturbed when he discovers their professions. A very attractive Australian girl (Luan Peters) also visits. She goes on to have certain awkward interactions with Fawlty as he seeks to catch Mr Johnson (Nicky Henson) with a non-paying guest that Johnson has in his bedroom.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/240/602192.jpg",
-          "airDate": "1979-02-26",
-          "year": 1979,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Fawlty Towers S02E02 - The psychiatrist.mp4",
-            "format": "h.264",
-            "sizeBytes": 208331580,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/fawlty-towers-complete-series-1975/Fawlty Towers S02E02 - The psychiatrist.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "LDFT7579",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Fawlty Towers",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/tvTYIjujN87dcKAmSLqcvAahykH.jpg",
-          "airDate": null,
-          "year": 1975,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Fawlty Towers.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 4873091838,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/LDFT7579/Fawlty Towers.ia.mp4"
-        },
-        {
-          "archiveID": "fawlty-towers-basil-the-rat-1984-uk-vhs",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Fawlty Towers - Basil The Rat",
-          "overview": "<span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Released In United Kingdom By BBC Video in 1984</span><div><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\"><span style=\"font-size:14px;background-color:rgb(255,255,255);\"><br /></span></font></div><div><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\"><span style=\"font-size:14px;background-color:rgb(255,255,255);\">3 Episode Including<br /></span></font><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">All Rights Belongs To BBC Studios</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Enjoy The VHS Tape &amp; DVD High Quality</div></div>",
-          "stillURL": "https://archive.org/services/img/fawlty-towers-basil-the-rat-1984-uk-vhs",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 5621,
-          "videoFile": {
-            "name": "Fawlty Towers Basil The Rat (1984 UK VHS).ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 562622405,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/fawlty-towers-basil-the-rat-1984-uk-vhs/Fawlty%20Towers%20Basil%20The%20Rat%20%281984%20UK%20VHS%29.ia.mp4"
-        },
-        {
-          "archiveID": "fawlty-towers-the-psychiatrist-1984-uk-vhs",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Fawlty Towers - The Psychiatrist",
-          "overview": "<span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Releaseed In United Kingdom By BBC Video In 1984</span><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">3 Episode Including </div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">All Rights Belongs To BBC Studios</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Enjoy The VHS Tape &amp; DVD High Quality</div>",
-          "stillURL": "https://archive.org/services/img/fawlty-towers-the-psychiatrist-1984-uk-vhs",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 5895,
-          "videoFile": {
-            "name": "Fawlty Towers The Psychiatrist (1984 UK VHS).ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 644785813,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/fawlty-towers-the-psychiatrist-1984-uk-vhs/Fawlty%20Towers%20The%20Psychiatrist%20%281984%20UK%20VHS%29.ia.mp4"
-        },
-        {
-          "archiveID": "fawlty-towers-the-germans-vhs-uk-full-tapes-1984-version",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Fawlty Towers The Germans",
-          "overview": "Released In United Kingdom By BBC Video in 1984<div><br /></div><div>All Rights Belongs To BBC Studios</div>",
-          "stillURL": "https://archive.org/services/img/fawlty-towers-the-germans-vhs-uk-full-tapes-1984-version",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 5461,
-          "videoFile": {
-            "name": "Fawlty Towers The Germans (VHS UK Full Tapes 1984 Version).ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 404920705,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/fawlty-towers-the-germans-vhs-uk-full-tapes-1984-version/Fawlty%20Towers%20The%20Germans%20%28VHS%20UK%20Full%20Tapes%201984%20Version%29.ia.mp4"
-        },
-        {
-          "archiveID": "fawlty-towers-the-kipper-and-the-corpse-vhs-uk-full-tapes-1984-version",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Fawlty Towers The Kipper And The Corpse",
-          "overview": "Released In Uinted Kingdom By BBC Video in 1984 <div><br /></div><div>All Rights Belongs To BBC Studios</div>",
-          "stillURL": "https://archive.org/services/img/fawlty-towers-the-kipper-and-the-corpse-vhs-uk-full-tapes-1984-version",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 5569,
-          "videoFile": {
-            "name": "Fawlty Towers The Kipper And The Corpse (VHS UK Full Tapes 1984 Version).ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 472524608,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/fawlty-towers-the-kipper-and-the-corpse-vhs-uk-full-tapes-1984-version/Fawlty%20Towers%20The%20Kipper%20And%20The%20Corpse%20%28VHS%20UK%20Full%20Tapes%201984%20Version%29.ia.mp4"
-        },
-        {
-          "archiveID": "VCCFawlty",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Steve Oliver's Vinyl Comedy Club: Fawlty Towers 'Mrs Richards'",
-          "overview": "<p style=\"margin:0px;\">In this episode, Steve played and talked about the<i> Fawlty Towers</i> episode 'Mrs Richards'. also known as 'Communication Problems'<i>.</i></p><p style=\"margin:0px;\"><br /></p><p style=\"margin:0px;\">This video is free as usual. To help fund a range of documentaries, films, comedy sketches and more, please hit <a href=\"https://www.paypal.com/paypalme/steveoliverofficial\" rel=\"ugc nofollow\"><font color=\"#ff0000\">https://www.paypal.com/paypalme/steveoliverofficial</font></a> and all the money donated goes into creating entertainment that will be made available for free.</p><p style=\"margin:0px;\"><br /></p><p style=\"margin:0px;\">Follow Steve Oliver on:</p><p style=\"margin:0px;\">Facebook <a href=\"https://www.facebook.com/steveoliverofficial\" rel=\"ugc nofollow\"><font color=\"#ff0000\">https://www.facebook.com/steveoliverofficial</font></a></p><p style=\"margin:0px;\">Twitter <a href=\"https://twitter.com/steveoliver76\" rel=\"ugc nofollow\"><font color=\"#ff0000\">https://twitter.com/steveoliver76</font></a></p><p style=\"margin:0px;\">Instagram <a href=\"https://www.instagram.com/steveoliver1976/\" rel=\"ugc nofollow\"><font color=\"#ff0000\">https://www.instagram.com/steveoliver1976/</font></a></p><p style=\"margin:0px;\"><br /></p><p style=\"margin:0px;\">Please donate using this link<font color=\"#ff0000\"> <a href=\"https://www.paypal.com/paypalme/steveoliverofficial\" rel=\"ugc nofollow\"><font color=\"#ff0000\">https://www.paypal.com/paypalme/steveoliverofficial</font></a></font></p><p style=\"margin:0px;\"><br /></p><p style=\"margin:0px;\">(c) All rights of the owner of the recorded work reserved. No infringement of copyright intended, this is a tribute.</p><p style=\"margin:0px;\"><br /></p><p style=\"margin:0px;\">2020 The Steve Oliver Archive</p>",
-          "stillURL": "https://archive.org/services/img/VCCFawlty",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 2196,
-          "videoFile": {
-            "name": "Fawlty Towers.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 804091672,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/VCCFawlty/Fawlty%20Towers.ia.mp4"
-        }
-      ]
+     "archiveID": "fawlty-towers-complete-series-1975",
+     "seasonNumber": 2,
+     "episodeNumber": 2,
+     "title": "The Psychiatrist",
+     "overview": "A psychiatrist and his wife — also a doctor — come to the hotel for a weekend break, and cannot help but notice the eccentricities of their host, who is perturbed when he discovers their professions. A very attractive Australian girl (Luan Peters) also visits. She goes on to have certain awkward interactions with Fawlty as he seeks to catch Mr Johnson (Nicky Henson) with a non-paying guest that Johnson has in his bedroom.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/240/602192.jpg",
+     "airDate": "1979-02-26",
+     "year": 1979,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Fawlty Towers S02E02 - The psychiatrist.mp4",
+      "format": "h.264",
+      "sizeBytes": 208331580,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/fawlty-towers-complete-series-1975/Fawlty Towers S02E02 - The psychiatrist.mp4"
     }
-  ],
-  "episodesCount": 7,
-  "canonicalEpisodesCount": 12,
-  "seriesImdbID": "tt0072500",
-  "canonicalEpisodeCount": 12,
-  "canonicalSeasons": 2,
-  "cast": [
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
-      "name": "John Cleese",
-      "character": "Basil Fawlty",
-      "order": 0,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/12648.jpg"
+     "archiveID": "LDFT7579",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Fawlty Towers",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/tvTYIjujN87dcKAmSLqcvAahykH.jpg",
+     "airDate": null,
+     "year": 1975,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Fawlty Towers.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 4873091838,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/LDFT7579/Fawlty Towers.ia.mp4"
     },
     {
-      "name": "Prunella Scales",
-      "character": "Sybil Fawlty",
-      "order": 1,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/12649.jpg"
+     "archiveID": "fawlty-towers-basil-the-rat-1984-uk-vhs",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Fawlty Towers - Basil The Rat",
+     "overview": "<span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Released In United Kingdom By BBC Video in 1984</span><div><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\"><span style=\"font-size:14px;background-color:rgb(255,255,255);\"><br /></span></font></div><div><font color=\"#2c2c2c\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\"><span style=\"font-size:14px;background-color:rgb(255,255,255);\">3 Episode Including<br /></span></font><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">All Rights Belongs To BBC Studios</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Enjoy The VHS Tape &amp; DVD High Quality</div></div>",
+     "stillURL": "https://archive.org/services/img/fawlty-towers-basil-the-rat-1984-uk-vhs",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 5621,
+     "videoFile": {
+      "name": "Fawlty Towers Basil The Rat (1984 UK VHS).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 562622405,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/fawlty-towers-basil-the-rat-1984-uk-vhs/Fawlty%20Towers%20Basil%20The%20Rat%20%281984%20UK%20VHS%29.ia.mp4"
     },
     {
-      "name": "Connie Booth",
-      "character": "Polly Sherman",
-      "order": 2,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/497/1243937.jpg"
+     "archiveID": "fawlty-towers-the-psychiatrist-1984-uk-vhs",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Fawlty Towers - The Psychiatrist",
+     "overview": "<span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Releaseed In United Kingdom By BBC Video In 1984</span><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">3 Episode Including </div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">All Rights Belongs To BBC Studios</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Enjoy The VHS Tape &amp; DVD High Quality</div>",
+     "stillURL": "https://archive.org/services/img/fawlty-towers-the-psychiatrist-1984-uk-vhs",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 5895,
+     "videoFile": {
+      "name": "Fawlty Towers The Psychiatrist (1984 UK VHS).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 644785813,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/fawlty-towers-the-psychiatrist-1984-uk-vhs/Fawlty%20Towers%20The%20Psychiatrist%20%281984%20UK%20VHS%29.ia.mp4"
     },
     {
-      "name": "Andrew Sachs",
-      "character": "Manuel",
-      "order": 3,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/162/405305.jpg"
+     "archiveID": "fawlty-towers-the-germans-vhs-uk-full-tapes-1984-version",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Fawlty Towers The Germans",
+     "overview": "Released In United Kingdom By BBC Video in 1984<div><br /></div><div>All Rights Belongs To BBC Studios</div>",
+     "stillURL": "https://archive.org/services/img/fawlty-towers-the-germans-vhs-uk-full-tapes-1984-version",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 5461,
+     "videoFile": {
+      "name": "Fawlty Towers The Germans (VHS UK Full Tapes 1984 Version).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 404920705,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/fawlty-towers-the-germans-vhs-uk-full-tapes-1984-version/Fawlty%20Towers%20The%20Germans%20%28VHS%20UK%20Full%20Tapes%201984%20Version%29.ia.mp4"
     },
     {
-      "name": "Ballard Berkeley",
-      "character": "The Major",
-      "order": 4,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/12659.jpg"
+     "archiveID": "fawlty-towers-the-kipper-and-the-corpse-vhs-uk-full-tapes-1984-version",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Fawlty Towers The Kipper And The Corpse",
+     "overview": "Released In Uinted Kingdom By BBC Video in 1984 <div><br /></div><div>All Rights Belongs To BBC Studios</div>",
+     "stillURL": "https://archive.org/services/img/fawlty-towers-the-kipper-and-the-corpse-vhs-uk-full-tapes-1984-version",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 5569,
+     "videoFile": {
+      "name": "Fawlty Towers The Kipper And The Corpse (VHS UK Full Tapes 1984 Version).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 472524608,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/fawlty-towers-the-kipper-and-the-corpse-vhs-uk-full-tapes-1984-version/Fawlty%20Towers%20The%20Kipper%20And%20The%20Corpse%20%28VHS%20UK%20Full%20Tapes%201984%20Version%29.ia.mp4"
     },
     {
-      "name": "Gilly Flower",
-      "character": "Miss Tibbs",
-      "order": 5,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/12660.jpg"
-    },
-    {
-      "name": "Renee Roberts",
-      "character": "Miss Gatsby",
-      "order": 6,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/12661.jpg"
-    },
-    {
-      "name": "Brian Hall",
-      "character": "Terry",
-      "order": 7,
-      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/12662.jpg"
+     "archiveID": "VCCFawlty",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Steve Oliver's Vinyl Comedy Club: Fawlty Towers 'Mrs Richards'",
+     "overview": "<p style=\"margin:0px;\">In this episode, Steve played and talked about the<i> Fawlty Towers</i> episode 'Mrs Richards'. also known as 'Communication Problems'<i>.</i></p><p style=\"margin:0px;\"><br /></p><p style=\"margin:0px;\">This video is free as usual. To help fund a range of documentaries, films, comedy sketches and more, please hit <a href=\"https://www.paypal.com/paypalme/steveoliverofficial\" rel=\"ugc nofollow\"><font color=\"#ff0000\">https://www.paypal.com/paypalme/steveoliverofficial</font></a> and all the money donated goes into creating entertainment that will be made available for free.</p><p style=\"margin:0px;\"><br /></p><p style=\"margin:0px;\">Follow Steve Oliver on:</p><p style=\"margin:0px;\">Facebook <a href=\"https://www.facebook.com/steveoliverofficial\" rel=\"ugc nofollow\"><font color=\"#ff0000\">https://www.facebook.com/steveoliverofficial</font></a></p><p style=\"margin:0px;\">Twitter <a href=\"https://twitter.com/steveoliver76\" rel=\"ugc nofollow\"><font color=\"#ff0000\">https://twitter.com/steveoliver76</font></a></p><p style=\"margin:0px;\">Instagram <a href=\"https://www.instagram.com/steveoliver1976/\" rel=\"ugc nofollow\"><font color=\"#ff0000\">https://www.instagram.com/steveoliver1976/</font></a></p><p style=\"margin:0px;\"><br /></p><p style=\"margin:0px;\">Please donate using this link<font color=\"#ff0000\"> <a href=\"https://www.paypal.com/paypalme/steveoliverofficial\" rel=\"ugc nofollow\"><font color=\"#ff0000\">https://www.paypal.com/paypalme/steveoliverofficial</font></a></font></p><p style=\"margin:0px;\"><br /></p><p style=\"margin:0px;\">(c) All rights of the owner of the recorded work reserved. No infringement of copyright intended, this is a tribute.</p><p style=\"margin:0px;\"><br /></p><p style=\"margin:0px;\">2020 The Steve Oliver Archive</p>",
+     "stillURL": "https://archive.org/services/img/VCCFawlty",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 2196,
+     "videoFile": {
+      "name": "Fawlty Towers.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 804091672,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/VCCFawlty/Fawlty%20Towers.ia.mp4"
     }
-  ],
-  "tvdbID": "75932",
-  "artworkSource": "tvdb"
+   ]
+  }
+ ],
+ "episodesCount": 7,
+ "canonicalEpisodesCount": 12
 }
