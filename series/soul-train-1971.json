@@ -6,7 +6,7 @@
   "yearStart": 1971,
   "yearEnd": 2006,
   "overview": "Soul Train was a musical variety show which aired in syndication from 1971 until 2006. The show primarily featured performances by R&B, soul and hip hop artists.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/54/136121.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77985-1.jpg",
   "backdropURL": null,
   "genres": [
     "Music"
@@ -468,5 +468,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/96/240371.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77985",
+  "artworkSource": "tvdb"
 }

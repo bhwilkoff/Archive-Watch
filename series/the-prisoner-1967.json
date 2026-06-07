@@ -6,7 +6,7 @@
   "yearStart": 1967,
   "yearEnd": 1968,
   "overview": "A British secret agent retires from his position... and is whisked away to a mysterious Village where people who know too much but can't be killed are kept for the security of the State. Which State? No one knows. The unnamed agent, dubbed \"Number Six\" since everyone in the Village, is only known by a number, defies the Village authorities and alternates between trying to escape and undermining his captors.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/3/9292.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/74805-6.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -95,5 +95,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9633.jpg"
     }
-  ]
+  ],
+  "tvdbID": "74805",
+  "artworkSource": "tvdb"
 }

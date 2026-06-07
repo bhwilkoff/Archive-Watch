@@ -6,7 +6,7 @@
   "yearStart": 1959,
   "yearEnd": 1961,
   "overview": "Cases taken from the files and case histories of renowned Philadelphia defense attorney Herbert L. Maris.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/72/181444.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70464-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -1410,5 +1410,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/583/1459711.jpg"
     }
-  ]
+  ],
+  "tvdbID": "70464",
+  "artworkSource": "tvdb"
 }

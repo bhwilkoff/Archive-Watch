@@ -6,7 +6,7 @@
   "yearStart": 1989,
   "yearEnd": 1991,
   "overview": "The young denizens of Degrassi Street in Toronto, Canada, have graduated from two television series, The Kids of Degrassi Street and Degrassi Junior High. Degrassi High confronts life as teenage high school students during the heady, late 1980s. This sometimes-controversial series confronts serious issues (adolescent pregnancy, AIDS, suicide) in a head-on way.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/18/47017.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/78300-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama"
@@ -670,5 +670,7 @@
       "order": 17,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/19/48540.jpg"
     }
-  ]
+  ],
+  "tvdbID": "78300",
+  "artworkSource": "tvdb"
 }

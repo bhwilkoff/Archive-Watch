@@ -6,7 +6,7 @@
   "yearStart": 1958,
   "yearEnd": 1959,
   "overview": "The adventures of a small town doctor working in the Arizona territory during the early 1900s.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/124/310342.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/series/74590/posters/62006172.jpg",
   "backdropURL": null,
   "genres": [
     "Action",
@@ -254,5 +254,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/582/1456796.jpg"
     }
-  ]
+  ],
+  "tvdbID": "74590",
+  "artworkSource": "tvdb"
 }

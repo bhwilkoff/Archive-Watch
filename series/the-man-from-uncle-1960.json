@@ -5,7 +5,7 @@
   "yearStart": null,
   "yearEnd": null,
   "overview": "Agents Napoleon Solo and Illya Kuryakin work for a secret intelligence service working under the auspices of the U.N.\n\nTheir immediate superior is Mr. Waverly.\n\nTogether  they operate out of a secret base beneath the streets of New York City, and accesses through several cover business such as Del Floria's Tailor Shop and the Masque Club.\n\nThis secret intelligence service is called U.N.C.L.E.\n\nUnited Network Command for Law and Enforcement.",
-  "posterURL": "https://image.tmdb.org/t/p/w500/a0nMOwNZXyJrMTPoaCzJJZeT0Yl.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/75663-1.jpg",
   "backdropURL": "https://image.tmdb.org/t/p/w1280/rcKJYoqQxhjQfsKBb6CUbFMSoMh.jpg",
   "genres": [],
   "networks": [
@@ -93,5 +93,51 @@
   ],
   "episodesCount": 4,
   "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "canonicalEpisodeCount": 0,
+  "tvdbID": "75663",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "David McCallum",
+      "character": "Illya Kuryakin",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257542/photo/6849d4b34ad5e.jpg"
+    },
+    {
+      "name": "Leo G. Carroll",
+      "character": "Alexander Waverly",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/391865/photo/649444422f751.jpg"
+    },
+    {
+      "name": "Robert Vaughn",
+      "character": "Napoleon Solo",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256727/photo/65bff30a36d41.jpg"
+    },
+    {
+      "name": "Barbara Moore",
+      "character": "Lisa Rogers",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Sharyn Hillyer",
+      "character": "Wanda",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Leigh Chapman",
+      "character": "Sarah",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Dick Crockett",
+      "character": "Karate Killer",
+      "order": 6,
+      "profilePath": null
+    }
+  ]
 }

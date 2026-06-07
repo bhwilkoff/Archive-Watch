@@ -6,7 +6,7 @@
   "yearStart": 1957,
   "yearEnd": 1958,
   "overview": "Decoy was a crime drama series that aired in syndication that aired from 1957-1958.The series followed Casey Jones, a female police officer who is assigned to work undercover for various unsolved crimes.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/63/158888.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/5d0acf9db2fa8.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -397,5 +397,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/40/100360.jpg"
     }
-  ]
+  ],
+  "tvdbID": "141921",
+  "artworkSource": "tvdb"
 }

@@ -6,7 +6,7 @@
   "yearStart": 1961,
   "yearEnd": 1966,
   "overview": "The Dick Van Dyke Show centers on the personal and professional lives of Rob Petrie, a writer for the fictional \"Alan Brady Show\". The non-stop laughs revolved around Rob's relationships with with fellow writers Buddy Sorrell and Sally Rogers, and producer Mel Cooley. At home, we also got to chuckle (and sometimes cry) over Rob's antics involving his wife, son, and neighbors.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/17/44051.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77041-4.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -245,5 +245,7 @@
       "order": 4,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/89/224557.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77041",
+  "artworkSource": "tvdb"
 }

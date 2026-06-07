@@ -6,7 +6,7 @@
   "yearStart": 1961,
   "yearEnd": 1969,
   "overview": "Urbane John Steed and a variety of partners work for an elite organization tasked with investigating criminal and espionage matters within the UK. Their opponents use everything from standard techniques to robots and other science fiction gadgetry.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/543/1357959.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71020-4.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy",
@@ -329,5 +329,7 @@
       "order": 7,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/585/1464894.jpg"
     }
-  ]
+  ],
+  "tvdbID": "71020",
+  "artworkSource": "tvdb"
 }

@@ -6,7 +6,7 @@
   "yearStart": 1986,
   "yearEnd": 1991,
   "overview": "The series revolves around Ernest Frye, the insufferable deacon (and lawyer) whose father had founded the First Community Church of Philadelphia, and who intended to keep it under his thumb. Unfortunately the new minister, Rev. Gregory, had other ideas and every week he quietly deflated the strutting deacon. Both, of course, really had the church's best interests at heart. Thelma was the deacon's 30-year-old, unmarried, romantically frustrated daughter, who eventually began dating the handsome new pastor: Casietta and Amelia, chattering sisters who were members of the Church board; and Rolly, the board's wise old voice of reason.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/55570.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77850-2.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -197,5 +197,7 @@
       "order": 5,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/52/131474.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77850",
+  "artworkSource": "tvdb"
 }

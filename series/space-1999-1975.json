@@ -6,7 +6,7 @@
   "yearStart": 1975,
   "yearEnd": 1977,
   "overview": "It's 1999 and Moonbase Alpha has been built on the Moon to safeguard the nuclear waste shipped from Earth. On September 13, 1999, disaster strikes and the nuclear waste explodes, causing a chain reaction that hurls the Moon out of Earth's orbit and into deep space.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/23/58465.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76366-2.jpg",
   "backdropURL": null,
   "genres": [
     "Action",
@@ -179,5 +179,7 @@
       "order": 11,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/42/107196.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76366",
+  "artworkSource": "tvdb"
 }

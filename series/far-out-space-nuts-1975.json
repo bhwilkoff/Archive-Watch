@@ -6,7 +6,7 @@
   "yearStart": 1975,
   "yearEnd": 1975,
   "overview": "Junior and Barney are a couple of NASA Food Specialists, whose job is to load the astronauts' food in the correct compartment on the spacecraft. But when Junior presses the ‘Launch' button instead of the ‘Lunch' button, the two bumbling heroes blast off into space and the universe will never be the same.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/27/67605.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/72405-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy",
@@ -261,5 +261,7 @@
       "order": 2,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/104/261077.jpg"
     }
-  ]
+  ],
+  "tvdbID": "72405",
+  "artworkSource": "tvdb"
 }

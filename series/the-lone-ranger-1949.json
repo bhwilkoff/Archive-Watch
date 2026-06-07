@@ -6,7 +6,7 @@
   "yearStart": 1949,
   "yearEnd": 1957,
   "overview": "Who was that masked man? The Lone Ranger, of course - sole survivor of a group of ambushed Texas Rangers, who was nursed back to health by Tonto, his trusty American Indian companion. The pair roam the Old West, defending the helpless against the forces of evil.Begain airing in 1949",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/12/30000.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/72059-1.jpg",
   "backdropURL": null,
   "genres": [
     "Action",
@@ -233,5 +233,7 @@
       "order": 5,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30728.jpg"
     }
-  ]
+  ],
+  "tvdbID": "72059",
+  "artworkSource": "tvdb"
 }

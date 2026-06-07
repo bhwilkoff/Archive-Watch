@@ -6,7 +6,7 @@
   "yearStart": 1957,
   "yearEnd": 1958,
   "overview": "Date with the Angels had new bride Vickie and her insurance salesman husband Gus involving their friends and neighbors in a variety of comic situations.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/88/220345.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71299-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -353,5 +353,7 @@
       "order": 1,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/76/191468.jpg"
     }
-  ]
+  ],
+  "tvdbID": "71299",
+  "artworkSource": "tvdb"
 }

@@ -6,7 +6,7 @@
   "yearStart": 1959,
   "yearEnd": 1965,
   "overview": "Harry Lime is the owner/operator of Harry Lime, Inc., an international import/export organization with offices in New York City and London. Harry has an assistant, the no-nonsense, numbers-crunching accountant/associate Bradford Webster. Harry is a ladies' man, a world traveler, and a world-renowned businessman -- even though his criminal past occasionally haunts him. In contrast, Brad is strictly business: he can rattle off the projected profit of a business deal in terms of both American dollars and British pounds without the aid of an adding machine, and occasionally appears to have a negative attitude toward Harry's romantic encounters with women from around the world.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/380/951874.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70557-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -272,5 +272,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/43/109799.jpg"
     }
-  ]
+  ],
+  "tvdbID": "70557",
+  "artworkSource": "tvdb"
 }

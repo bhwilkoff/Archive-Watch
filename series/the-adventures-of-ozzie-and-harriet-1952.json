@@ -6,7 +6,7 @@
   "yearStart": 1952,
   "yearEnd": 1966,
   "overview": "The series, set in the town of Hillsdale, relates events in the day-to-day lives of the Nelson family: Ozzie, Harriet, and their two sons Dave and Ricky.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/596/1491657.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/71598/posters/643dd3c693d8a.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -1835,5 +1835,7 @@
       "order": 3,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/107/269822.jpg"
     }
-  ]
+  ],
+  "tvdbID": "71598",
+  "artworkSource": "tvdb"
 }

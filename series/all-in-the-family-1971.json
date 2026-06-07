@@ -6,7 +6,7 @@
   "yearStart": 1971,
   "yearEnd": 2022,
   "overview": "All in the Family centered around the Bunker family who lived in a home located at 704 Houser Street in Queens, New York. Archie Bunker was the main character, and what a character he was. He was televisons most famous bigot, crass and down right rude. Yet he was loveable, with a soft side just beneath the surface. Edith Bunker was his somewhat dizzy wife whom he called \"Dingbat\". Edith put up with Archie and had qualities about her that made her one of television's most unforgetable characters. Also living in the Bunker household were Archie and Edith's daughter, Gloria, and her husband Mike, or \"Meathead\".",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/605/1513713.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/72741-3.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy",
@@ -182,5 +182,7 @@
       "order": 4,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/25409.jpg"
     }
-  ]
+  ],
+  "tvdbID": "72741",
+  "artworkSource": "tvdb"
 }

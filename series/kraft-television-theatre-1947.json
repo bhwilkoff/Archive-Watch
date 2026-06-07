@@ -79,5 +79,20 @@
   "episodesCount": 3,
   "canonicalEpisodesCount": 526,
   "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "canonicalEpisodeCount": 0,
+  "tvdbID": "76626",
+  "cast": [
+    {
+      "name": "Charles Stark",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Ed Herlihy",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    }
+  ]
 }

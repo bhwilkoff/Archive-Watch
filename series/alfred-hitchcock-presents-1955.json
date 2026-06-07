@@ -6,7 +6,7 @@
   "yearStart": 1955,
   "yearEnd": 1962,
   "overview": "In this half-hour anthology series, master of the macabre Alfred Hitchcock introduces and concludes tales of suspense and crime. Hitchcock's speeches are filled with black humor and jabs at his network sponsors. In 1962, the series expanded to an hour and was renamed The Alfred Hitchcock Hour.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/19/47746.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/73614-2.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -215,5 +215,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/609/1524833.jpg"
     }
-  ]
+  ],
+  "tvdbID": "73614",
+  "artworkSource": "tvdb"
 }

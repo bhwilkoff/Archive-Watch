@@ -6,7 +6,7 @@
   "yearStart": 1985,
   "yearEnd": 1985,
   "overview": "James Burke explores key moments in Western History where new knowledge in science changed the way the modern Western world thinks.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/98/246671.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/79634-3.jpg",
   "backdropURL": null,
   "genres": [
     "History"
@@ -214,5 +214,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/98/246672.jpg"
     }
-  ]
+  ],
+  "tvdbID": "79634",
+  "artworkSource": "tvdb"
 }

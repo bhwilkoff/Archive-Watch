@@ -81,7 +81,7 @@ def main() -> int:
     if not (args.movies or args.tv):
         ap.error("pass --movies and/or --tv")
 
-    token = T.load_tmdb_token()
+    token = T.load_tmdb_token(REPO / "Secrets.xcconfig")
     if not token:
         print("[cast-img] no TMDB_BEARER_TOKEN — skipping"); return 0
     session = requests.Session()

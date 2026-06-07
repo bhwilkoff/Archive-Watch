@@ -6,7 +6,7 @@
   "yearStart": 1978,
   "yearEnd": 1990,
   "overview": "In the mid-1930s James Herriot, who has recently graduated from the veterinary college in Glasgow, finds work in the rustic Yorkshire Dales of Northern England. This heartwarming drama chronicles his encounters with the locals and the animals they depend on.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/29/73492.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/78289-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -170,5 +170,7 @@
       "order": 4,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/42/107201.jpg"
     }
-  ]
+  ],
+  "tvdbID": "78289",
+  "artworkSource": "tvdb"
 }

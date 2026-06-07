@@ -6,7 +6,7 @@
   "yearStart": 1984,
   "yearEnd": 1992,
   "overview": "The show focuses on the Huxtables, an affluent African-American family living and growing up in Brooklyn, New York.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/313/782979.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76772-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy",
@@ -172,5 +172,7 @@
       "order": 10,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/487/1219355.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76772",
+  "artworkSource": "tvdb"
 }

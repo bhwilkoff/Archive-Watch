@@ -6,7 +6,7 @@
   "yearStart": 1997,
   "yearEnd": 1997,
   "overview": "The greatest epic of the ancient world, Homer's Odyssey is magnificently recreated for television. Homer's engaging tale recounts the journey of Odysseus, King of Ithaca and mastermind of the Greek victory in the Trojan War. Surviving ten years of challenges sent by the angry gods, he makes his way home to his kingdom, loyal wife and son with something more valuable than the spoils of war: wisdom.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/127/319619.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/248864-2.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -227,5 +227,7 @@
       "order": 10,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/119/298335.jpg"
     }
-  ]
+  ],
+  "tvdbID": "248864",
+  "artworkSource": "tvdb"
 }

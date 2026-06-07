@@ -6,7 +6,7 @@
   "yearStart": 1959,
   "yearEnd": 1973,
   "overview": "Bonanza chronicles the weekly adventures of the Cartwright family, headed by the thrice-widowed patriarch Ben Cartwright. He had three sons, each by a different wife: the eldest was the urbane architect Adam Cartwright who built the ranch house; the second was the warm and lovable giant Eric \"Hoss\" Cartwright; and the youngest was the hotheaded and impetuous Joseph or \"Little Joe\". The family's cook was the Chinese immigrant Hop Sing.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/20/51664.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/73378-2.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -698,5 +698,7 @@
       "order": 8,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/358/896329.jpg"
     }
-  ]
+  ],
+  "tvdbID": "73378",
+  "artworkSource": "tvdb"
 }

@@ -4,8 +4,8 @@
   "title": "Electric Avenue",
   "yearStart": 1988,
   "yearEnd": 1988,
-  "overview": null,
-  "posterURL": "https://archive.org/services/img/Electric.Avenue.S01E01",
+  "overview": "A series of programmes about computers in society in the late 1980s and early 1990s.",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/255409/posters/66f2c1414d971.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [],
@@ -200,5 +200,15 @@
   "episodesCount": 10,
   "seriesImdbID": "tt0237961",
   "canonicalEpisodeCount": 15,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "tvdbID": "255409",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Fred Harris",
+      "character": "Presenter",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/508885.jpg"
+    }
+  ]
 }

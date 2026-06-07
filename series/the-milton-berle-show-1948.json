@@ -6,7 +6,7 @@
   "yearStart": 1948,
   "yearEnd": 1956,
   "overview": "A variety series of music and outlandish slapstick comedy.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/98/247280.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/5bc1156c52b26.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy",
@@ -185,5 +185,7 @@
       "order": 1,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/98/247285.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77318",
+  "artworkSource": "tvdb"
 }

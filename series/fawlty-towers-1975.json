@@ -6,7 +6,7 @@
   "yearStart": 1975,
   "yearEnd": 1979,
   "overview": "Fawlty Towers is set in a fictional hotel in the seaside town of Torquay. The plots centre on tense, rude and put-upon owner Basil Fawlty, his bossy wife Sybil, comparatively normal chambermaid Polly, who is often the peacemaker and voice of reason, and hapless Spanish waiter Manuel, showing their attempts to run the hotel amidst farcical situations and an array of demanding and eccentric guests.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/4/11842.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/75932-6.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -207,5 +207,7 @@
       "order": 7,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/12662.jpg"
     }
-  ]
+  ],
+  "tvdbID": "75932",
+  "artworkSource": "tvdb"
 }

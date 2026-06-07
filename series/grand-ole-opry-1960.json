@@ -74,5 +74,116 @@
   "episodesCount": 3,
   "seriesImdbID": "tt0306325",
   "canonicalEpisodeCount": 0,
-  "canonicalSeasons": null
+  "canonicalSeasons": null,
+  "tvdbID": "71174",
+  "cast": [
+    {
+      "name": "Reba McEntire",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253539/photo/6197985cd2345.jpg"
+    },
+    {
+      "name": "George Jones",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Clint Black",
+      "character": "",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253860/photo/64d6d688c8d27.jpg"
+    },
+    {
+      "name": "Patty Loveless",
+      "character": "",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Terri Clark",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Emmylou Harris",
+      "character": "",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/286675/5eaf149e24682.jpg"
+    },
+    {
+      "name": "Diamond Rio",
+      "character": "",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Katie Cook",
+      "character": "",
+      "order": 7,
+      "profilePath": null
+    },
+    {
+      "name": "Nan Kelly",
+      "character": "",
+      "order": 8,
+      "profilePath": null
+    },
+    {
+      "name": "Brad Paisley",
+      "character": "",
+      "order": 9,
+      "profilePath": null
+    },
+    {
+      "name": "Stonewall Jackson",
+      "character": "",
+      "order": 10,
+      "profilePath": null
+    },
+    {
+      "name": "Wilma Lee Cooper",
+      "character": "",
+      "order": 11,
+      "profilePath": null
+    },
+    {
+      "name": "Charlie Walker",
+      "character": "",
+      "order": 12,
+      "profilePath": null
+    },
+    {
+      "name": "Jimmy C. Newman",
+      "character": "",
+      "order": 13,
+      "profilePath": null
+    },
+    {
+      "name": "Hal Ketchum",
+      "character": "",
+      "order": 14,
+      "profilePath": null
+    },
+    {
+      "name": "Steve Wariner",
+      "character": "",
+      "order": 15,
+      "profilePath": null
+    },
+    {
+      "name": "Riders In The Sky",
+      "character": "",
+      "order": 16,
+      "profilePath": null
+    },
+    {
+      "name": "Connie Smith",
+      "character": "",
+      "order": 17,
+      "profilePath": null
+    }
+  ]
 }

@@ -6,7 +6,7 @@
   "yearStart": 1958,
   "yearEnd": 1959,
   "overview": "The series continues the loose chronology of the Quatermass adventures, and begins with Professor Bernard Quatermass being forced out of his role at the British Experimental Rocket Group, with the organisation being passed into military control by the British Government. Quatermass and his new colleague Colonel Breen become involved in the discovery of a bizarre object at an archaeological dig in Knightsbridge, London. As the serial progresses, Quatermass and his associates find that the contents of the object have a horrific influence over many of those who come into contact with it. As this influence increases, affecting Quatermass himself, darker implications are revealed about the entire nature and origins of mankind.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/465/1163270.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/94431-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -159,5 +159,15 @@
   "canonicalEpisodesCount": 6,
   "seriesImdbID": "tt0051305",
   "canonicalEpisodeCount": 2,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "tvdbID": "94431",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "André Morell",
+      "character": "Professor Bernard Quatermass",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7933536/photo/649460ac41a51.jpg"
+    }
+  ]
 }

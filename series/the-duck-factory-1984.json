@@ -6,7 +6,7 @@
   "yearStart": 1984,
   "yearEnd": 1984,
   "overview": "The series, set in Hollywood, California, follows the adventures of Skip Tarkenton, an animator for Buddy Winkler Productions, a rundown studio that produces the mythical Saturday morning cartoon series, \"The Dippy Duck Show\".",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/99/249676.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/series/76881/posters/5f58ec5a6f209.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -112,5 +112,7 @@
       "order": 7,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/31483.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76881",
+  "artworkSource": "tvdb"
 }

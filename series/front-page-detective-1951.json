@@ -166,5 +166,32 @@
   "episodesCount": 8,
   "seriesImdbID": "tt0043201",
   "canonicalEpisodeCount": 16,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "tvdbID": "313309",
+  "cast": [
+    {
+      "name": "Edmund Lowe",
+      "character": "David Chase",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Paula Drew",
+      "character": "David's Girlfriend",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "George Pembroke",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Frank Jenks",
+      "character": "Lt Rodney",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264659/photo/687a6bc969823.jpg"
+    }
+  ]
 }

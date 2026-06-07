@@ -4,8 +4,8 @@
   "title": "Not the Nine O",
   "yearStart": 1979,
   "yearEnd": 1979,
-  "overview": null,
-  "posterURL": "https://archive.org/services/img/not-the-nine-o-clock-news-s-1x-e-1-16-october-1979",
+  "overview": "Not The Nine O'Clock News was a satirical show broadcast on BBC2 (UK) from 1979 to 1982. Noted for its topical sketches and skits, it made stars of Rowan Atkinson, Mel Smith, Griff Rhys-Jones and Pamela Stephenson.  The show required a large number of writers, and to this end operated an \"open door\" policy, accepting sketch ideas from anybody who wanted to contribute. With a large number of contributing writers, there was plenty of material to go round, and only the best ideas made it to the screen; thus the series was able to maintain a remarkably high quality of material across four series.  The series ended in 1982, partly due to the various cast members wanting to pursue their own projects instead.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77009-2.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [],
@@ -127,5 +127,39 @@
   ],
   "episodesCount": 6,
   "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "canonicalEpisodeCount": 0,
+  "tvdbID": "77009",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Rowan Atkinson",
+      "character": "Various Roles",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/274085/photo/652e40dd9f346.jpg"
+    },
+    {
+      "name": "Pamela Stephenson",
+      "character": "Various Roles",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/327214/photo/66183ad1b53e5.jpg"
+    },
+    {
+      "name": "Mel Smith",
+      "character": "Various Roles",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/314800/photo/6287484c54809.jpg"
+    },
+    {
+      "name": "Griff Rhys Jones",
+      "character": "Various Roles",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/274080/photo/670cd6a9a90c0.jpg"
+    },
+    {
+      "name": "Chris Langham",
+      "character": "Various Roles",
+      "order": 4,
+      "profilePath": null
+    }
+  ]
 }

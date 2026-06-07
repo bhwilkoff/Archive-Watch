@@ -6,7 +6,7 @@
   "yearStart": 1989,
   "yearEnd": 1991,
   "overview": "Captain N: The Game Master is an American–Canadian animated television series that aired on television from 1989 to 1991 as part of the Saturday morning cartoon lineup on NBC. The show is produced by DIC Entertainment and incorporated elements from many of the most popular video games of the time from the Japanese company Nintendo. There was also a comic book version by Valiant Comics, despite only featuring characters from games produced by Nintendo. The show is also part of an hour-long block in Season 2 with The Adventures of Super Mario Bros. 3 and with Super Mario World in Season 3 in a half-hour block.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/58/145172.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76792-2.jpg",
   "backdropURL": null,
   "genres": [
     "Fantasy",
@@ -150,5 +150,75 @@
   "canonicalEpisodesCount": 34,
   "seriesImdbID": "tt0096554",
   "canonicalEpisodeCount": 6,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "tvdbID": "76792",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Matt Hill",
+      "character": "Kevin Keene / Captain N",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262040/photo/67d2af799c6c2.jpg"
+    },
+    {
+      "name": "Venus Terzo",
+      "character": "Princess Lana",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262931/photo/6392a33f70778.jpg"
+    },
+    {
+      "name": "Andrew Kavadas",
+      "character": "Simon Belmont",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/260277/photo/60a56ba739f47.jpg"
+    },
+    {
+      "name": "Alessandro Juliani",
+      "character": "Kid Icarus",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/286518/photo/66a1139b105ca.jpg"
+    },
+    {
+      "name": "Doug Parker",
+      "character": "Mega Man",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Tomm Wright",
+      "character": "Duke",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Frank Welker",
+      "character": "Game Boy",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/255674/primary.jpg"
+    },
+    {
+      "name": "Levi Stubbs",
+      "character": "Mother Brain",
+      "order": 7,
+      "profilePath": null
+    },
+    {
+      "name": "Garry Chalk",
+      "character": "King Hippo",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/297544/5ed2440eab9e4.jpg"
+    },
+    {
+      "name": "Michael Donovan",
+      "character": "Eggplant Wizard",
+      "order": 9,
+      "profilePath": null
+    },
+    {
+      "name": "Ian James Corlett",
+      "character": "Dr. Wily",
+      "order": 10,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261494/photo/695e3482bf6dc.jpg"
+    }
+  ]
 }

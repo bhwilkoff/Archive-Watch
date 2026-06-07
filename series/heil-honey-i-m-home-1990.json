@@ -6,7 +6,7 @@
   "yearStart": 1990,
   "yearEnd": 1990,
   "overview": "Suburban dwellers, Adolf Hitler and Eva Braun, are less than pleased to discover that their new neighbours, the Goldensteins, are Jewish.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/497/1244631.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/259723-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy",
@@ -90,5 +90,7 @@
       "order": 3,
       "profilePath": null
     }
-  ]
+  ],
+  "tvdbID": "259723",
+  "artworkSource": "tvdb"
 }

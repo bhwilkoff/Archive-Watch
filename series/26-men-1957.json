@@ -6,7 +6,7 @@
   "yearStart": 1957,
   "yearEnd": 1959,
   "overview": "Syndicated Western whose storylines dealt with the Arizona Rangers who protected the Arizona Territory from lawlessness around the end of the 19th century. Tris Coffin and Kelo Henderson co-starred in the series.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/53/134376.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77519-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -203,5 +203,7 @@
       "order": 1,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/63/158826.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77519",
+  "artworkSource": "tvdb"
 }

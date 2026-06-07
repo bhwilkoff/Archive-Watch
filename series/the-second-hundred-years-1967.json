@@ -6,7 +6,7 @@
   "yearStart": 1967,
   "yearEnd": 1968,
   "overview": "Prospector Luke Carpenter was frozen in suspended animation in the year 1900 while panning for gold in Alaska. He was successfully thawed and returned home perfectly preserved at 33 years of age and a dead ringer for his 33-year-old grandson Ken. Luke moves in with his 67-year-old son Edwin, and tries to adjust to normal life while keeping his exact identity a secret.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/116/290604.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76495-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy",
@@ -66,5 +66,7 @@
       "order": 2,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/35/89504.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76495",
+  "artworkSource": "tvdb"
 }

@@ -6,7 +6,7 @@
   "yearStart": 1991,
   "yearEnd": 1991,
   "overview": "Fly by Night is about Sally \"Slick\" Monroe, owner of a one-jet luxury charter service named Slick Air in which Sally flies around the world getting involved in adventurous capers. Sally's two co-pilots are American Mack Sheppard and French Jean-Phillipe Pasteur.This is a light-hearted action series.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/481/1203605.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77189-1.jpg",
   "backdropURL": null,
   "genres": [
     "Adventure"
@@ -171,5 +171,7 @@
       "order": 4,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/612/1531892.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77189",
+  "artworkSource": "tvdb"
 }

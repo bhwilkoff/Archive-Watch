@@ -6,7 +6,7 @@
   "yearStart": 1984,
   "yearEnd": 1985,
   "overview": "The adventures of a pair of teenage twins were explored in this light comedy. Kate and Allison were 16, identical in appearance, but opposites in personality. Allison was the sober responsible one, and Kate the spunky troublemaker who often got them both into hot water. Pretending to be Allison was one of Kate's favorite ploys. Art was their widower father, who ran a gym and dance studio in their hometown of Des Moines, Iowa. Beth was one of his adult instructors, and Michael was Kate's boyfriend.When Double Trouble returned for a second season in December 1984, Kate and Allison had moved to New York to pursue separate careers. Kate wanted to become an actress, while her more practical sister was enrolled in the Fashion Institute of Technology studying design. They lived in a spacious town house with their kooky Aunt Margo, a successful writer of children's stories. Also living in the town house were Billy and Charles, two aspiring actors and kindred spirits of Kate's. Mr. Arrechia was an obnoxious, overbearing instructor at the Fashion Institute and Aileen was Allison's fellow student and best friend.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/99/249796.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/78759-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -170,5 +170,7 @@
       "order": 9,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/193/483307.jpg"
     }
-  ]
+  ],
+  "tvdbID": "78759",
+  "artworkSource": "tvdb"
 }

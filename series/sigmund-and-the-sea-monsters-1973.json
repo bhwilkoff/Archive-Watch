@@ -6,7 +6,7 @@
   "yearStart": 1973,
   "yearEnd": 1974,
   "overview": "Two beachcombing brothers, Johnny and Scott, find a friendly little sea monster that was kicked out of the cave by his monster family because he doesn't want to scare anyone. The boys hide Sigmund in their clubhouse located behind their house. But their nosy housekeeper and Sigmund's mean brothers keep the boys teetering on the brink of disaster.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/27/67708.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71241-1.jpg",
   "backdropURL": null,
   "genres": [
     "Children"
@@ -306,5 +306,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/104/261075.jpg"
     }
-  ]
+  ],
+  "tvdbID": "71241",
+  "artworkSource": "tvdb"
 }

@@ -6,7 +6,7 @@
   "yearStart": 2005,
   "yearEnd": 2006,
   "overview": "They're not just four of the best secret agents in the world, they're a family. Living and working together as an elite special ops undercover unit, they possess unique talents and abilities far beyond those of mortal families. The X's work for the finest secret spy organization in the world, SUPERIOR, which is locked in an eternal struggle with SNAFU, a terrible agency of evil whose vile tentacles of badness reach everywhere. (Yes, even Cleveland.) As a covert force, the X's are second to none. They thwart evildoers. They save the world. They blow stuff up spectacularly. They argue loudly over what to watch on TV. And two of them send the other two to bed early.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/499/1248066.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/271003-1.jpg",
   "backdropURL": null,
   "genres": [
     "Action",
@@ -90,5 +90,7 @@
       "order": 3,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/189/474031.jpg"
     }
-  ]
+  ],
+  "tvdbID": "271003",
+  "artworkSource": "tvdb"
 }

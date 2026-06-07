@@ -6,7 +6,7 @@
   "yearStart": 2023,
   "yearEnd": null,
   "overview": "Diego and his friends spend the summer at the camp run by Pompilio Calderón, an eccentric explorer. There they find a medallion that belonged to Pola, Diego's grandmother. Following in her footsteps from her, they will experience incredible adventures in a parallel dimension as they try to save the planet from disaster.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/454/1136539.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/424591/posters/6881d47e849b9.jpg",
   "backdropURL": null,
   "genres": [
     "Adventure",
@@ -403,5 +403,7 @@
       "order": 10,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/54/136743.jpg"
     }
-  ]
+  ],
+  "tvdbID": "424591",
+  "artworkSource": "tvdb"
 }

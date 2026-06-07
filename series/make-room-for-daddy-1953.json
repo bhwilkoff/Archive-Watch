@@ -6,7 +6,7 @@
   "yearStart": 1953,
   "yearEnd": 1964,
   "overview": "Make Room for Daddy followed the misadventures in the lives of the Williams family. Danny Williams, a nightclub entertainer, (a character almost identical to that of Danny Thomas himself) tries to strike a balance between family life and the entertainment business.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/43/109171.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/73496-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy",
@@ -166,5 +166,7 @@
       "order": 7,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/95/237513.jpg"
     }
-  ]
+  ],
+  "tvdbID": "73496",
+  "artworkSource": "tvdb"
 }

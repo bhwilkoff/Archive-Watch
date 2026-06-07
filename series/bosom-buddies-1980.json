@@ -6,7 +6,7 @@
   "yearStart": 1980,
   "yearEnd": 1982,
   "overview": "Bosom Buddies follows the adventures of Kip Wilson and Henry Desmond, junior ad-men at Livingston Gentry and Mishkin Advertising Agency. Kip was an illustrator, but aspired to be a painter, and Henry, a copywriter and aspiring novelist. When their building is demolished, they dress as women to stay with co-worker Amy Cassidy in her apartment at the Susan B. Anthony Hotel, where men are forbidden anywhere above the lobby. Kip and Henry decide to invent alter egos Buffy and Hildegarde (their fictional sisters) to move into an empty (and cheap) apartment at the hotel; Henry, to write an expose about the experience, and Kip, to get closer to Amy's beautiful roommate, Sonny Lumet, nurse, and part-time dancer.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/21/52593.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77683-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -88,5 +88,7 @@
       "order": 6,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/85/213489.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77683",
+  "artworkSource": "tvdb"
 }

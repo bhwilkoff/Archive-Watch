@@ -6,7 +6,7 @@
   "yearStart": 1975,
   "yearEnd": 1978,
   "overview": "Tom and Barbara Good are a middle class suburban couple who on Tom's 40th birthday decide to turn their Surbiton home into a self-sufficient allotment. They grow their own food, keep farm animals and have sold or bartered all of their electrical appliances as they have no electricity. This creates friction with their best friends and next door neighbours, Jerry and Margo Leadbetter. But even though the Goods have lowered the tone of the neighbourhood in the Leadbetter's eyes they still can't help but be best of friends.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/405/1014707.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77124-3.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -94,5 +94,7 @@
       "order": 7,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/186/466113.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77124",
+  "artworkSource": "tvdb"
 }

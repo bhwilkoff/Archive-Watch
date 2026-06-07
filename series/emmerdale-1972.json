@@ -6,7 +6,7 @@
   "yearStart": 1972,
   "yearEnd": null,
   "overview": "Emmerdale is a British soap focusing on the lives of several families and locals living around an estate, a farm and the nearby village in the Yorkshire Dales. It is the second longest British soap in television history since airing its first episode on ITV in 1972, as 'Emmerdale Farm', the show was renamed in 1989.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/598/1495905.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77715-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama"
@@ -190,5 +190,7 @@
       "order": 17,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/69/174297.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77715",
+  "artworkSource": "tvdb"
 }

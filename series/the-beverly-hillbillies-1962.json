@@ -6,7 +6,7 @@
   "yearStart": 1962,
   "yearEnd": 1971,
   "overview": "An instant hit, the rural comedy was the ultimate fish-out-of-water story. The Clampett family strikes it rich in oil and move from their mountain cabin in the Ozark Mountains to the upscale neighborhood of Beverly Hills. Each hilarious episode revolves around the culture clash between the \"uncivilized\" Clampetts and the \"civilized\" culture of their elitist neighbors.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/11/29898.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71471-7.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -249,5 +249,7 @@
       "order": 5,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30763.jpg"
     }
-  ]
+  ],
+  "tvdbID": "71471",
+  "artworkSource": "tvdb"
 }

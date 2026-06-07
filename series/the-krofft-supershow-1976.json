@@ -132,5 +132,38 @@
   "canonicalEpisodesCount": 32,
   "seriesImdbID": "tt0074014",
   "canonicalEpisodeCount": 29,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "tvdbID": "73405",
+  "cast": [
+    {
+      "name": "Debra Clinger",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Louise DuArt",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Bert Sommer",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Mickey McMeel",
+      "character": "",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Michael Lembeck",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    }
+  ]
 }

@@ -6,7 +6,7 @@
   "yearStart": 2007,
   "yearEnd": 2008,
   "overview": "The misadventures of a young boy with the transplanted brain of a beloved cartoonist.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/173/433767.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/232961-1.jpg",
   "backdropURL": null,
   "genres": [
     "Adventure",
@@ -125,5 +125,7 @@
       "order": 9,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/480/1200193.jpg"
     }
-  ]
+  ],
+  "tvdbID": "232961",
+  "artworkSource": "tvdb"
 }

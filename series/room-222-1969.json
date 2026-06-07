@@ -6,7 +6,7 @@
   "yearStart": 1969,
   "yearEnd": 1974,
   "overview": "Room 222 chronicles the lives of teachers and students at Walt Whitman High School, in Los Angeles. Pete Dixon is an easy-going American History teacher who attempts to help out his colleagues and students. Besides his girlfriend and school counselor Liz McIntyre, he has the help of fellow teacher Alice Johnson, and the occasional interference of cynical principal Seymour Kaufman.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/27/69152.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/73081-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -146,5 +146,7 @@
       "order": 4,
       "profilePath": "/m2Ll6i23mtce5HYHuIiXnWnCc2R.jpg"
     }
-  ]
+  ],
+  "tvdbID": "73081",
+  "artworkSource": "tvdb"
 }

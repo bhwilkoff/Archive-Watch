@@ -6,7 +6,7 @@
   "yearStart": 2009,
   "yearEnd": 2011,
   "overview": "Sitcom about two newlyweds, both who have been married before, and their dysfunctional family.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/36/92323.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/84483-2.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy",
@@ -167,5 +167,7 @@
       "order": 4,
       "profilePath": "/7xy74GTKm9JTVf3fErsNluQ1mrF.jpg"
     }
-  ]
+  ],
+  "tvdbID": "84483",
+  "artworkSource": "tvdb"
 }

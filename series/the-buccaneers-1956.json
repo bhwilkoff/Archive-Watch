@@ -6,7 +6,7 @@
   "yearStart": 1956,
   "yearEnd": 1957,
   "overview": "The Buccaneers is an ITV series about a swashbuckling reformed pirate, Captain Dan Tempest, as he defends the island of New Providence in the Caribbean from the evil Spanish in the 1600s.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/112/282333.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/78691-2.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -303,5 +303,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/100/251597.jpg"
     }
-  ]
+  ],
+  "tvdbID": "78691",
+  "artworkSource": "tvdb"
 }

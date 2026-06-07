@@ -99,5 +99,56 @@
   "episodesCount": 4,
   "seriesImdbID": "tt0050007",
   "canonicalEpisodeCount": 8,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "tvdbID": "72508",
+  "cast": [
+    {
+      "name": "Paul Birch",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "John Maxwell",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "John Laumer",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Carleton Young",
+      "character": "",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258905/photo/6493afa9ae0d9.jpg"
+    },
+    {
+      "name": "Robert Anderson",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Robert H. Harris",
+      "character": "",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Lyle Bettger",
+      "character": "",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Charles Meredith",
+      "character": "",
+      "order": 7,
+      "profilePath": null
+    }
+  ]
 }

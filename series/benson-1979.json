@@ -6,7 +6,7 @@
   "yearStart": 1979,
   "yearEnd": 1986,
   "overview": "Benson Dubois is the assistant to his state's governor in this \"Soap\" spinoff.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/27/67813.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/78553-2.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -237,5 +237,7 @@
       "order": 9,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/34/86950.jpg"
     }
-  ]
+  ],
+  "tvdbID": "78553",
+  "artworkSource": "tvdb"
 }

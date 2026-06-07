@@ -6,7 +6,7 @@
   "yearStart": 1949,
   "yearEnd": 1950,
   "overview": "The Ed Wynn Show was an American comedy/variety show originally broadcast from September 22, 1949 to July 4, 1950 on the CBS television network. Comedian Ed Wynn was the star of the show.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789311.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76751-1.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [
@@ -176,5 +176,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/32/82289.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76751",
+  "artworkSource": "tvdb"
 }

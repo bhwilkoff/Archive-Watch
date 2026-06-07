@@ -6,7 +6,7 @@
   "yearStart": 1997,
   "yearEnd": 2000,
   "overview": "Honey, I Shrunk the Kids: The TV Show (truncated to Honey, I Shrunk the Kids in the show's title sequence) is an American syndicated comic science fiction sitcom based on the 1989 film, Honey, I Shrunk the Kids. It expands upon the original film's concept of a shrinking experiment gone wrong to include a myriad of experiments gone awry. It debuted in syndication on September 1, 1997 and ran for three consecutive seasons, concluding with the 66th episode on May 20, 2000.Peter Scolari took over the role as Wayne Szalinski, the wacky inventor in the original film, played by Rick Moranis. Each episode incorporates new technologies and digital effects to feature the family in various new adventures.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/33/84293.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71143-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -754,5 +754,7 @@
       "order": 4,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/432/1080178.jpg"
     }
-  ]
+  ],
+  "tvdbID": "71143",
+  "artworkSource": "tvdb"
 }

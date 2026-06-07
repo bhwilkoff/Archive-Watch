@@ -6,7 +6,7 @@
   "yearStart": 1973,
   "yearEnd": 2010,
   "overview": "Last of the Summer Wine is a British sitcom created and written by Roy Clarke that was originally broadcast on the BBC. Last of the Summer Wine premiered as an episode of Comedy Playhouse on 4 January 1973 and the first series of episodes followed on 12 November 1973. From 1983 to 2010, Alan J. W. Bell produced and directed all episodes of the show. The BBC confirmed on 2 June 2010 that Last of the Summer Wine would no longer be produced and the 31st series would be its last. Subsequently, the final episode was broadcast on 29 August 2010. Tom Owen criticised the BBC for not permitting a special final episode. Roy Clarke, however, stated that he was fully aware this was the last series, and preferred the show to have a quiet ending. The final line was said by Peter Sallis, the longest serving actor. Repeats of the show are broadcast in the UK on Gold, Yesterday and Drama. It is also seen in more than twenty-five countries,including various PBS stations in the United States and on VisionTV in Canada. Last of the Summer Wine is the longest-running comedy programme in Britain and the longest-running sitcom in the world.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/29/73192.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77945-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -323,5 +323,7 @@
       "order": 14,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/73272.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77945",
+  "artworkSource": "tvdb"
 }

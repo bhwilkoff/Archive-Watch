@@ -6,7 +6,7 @@
   "yearStart": 1959,
   "yearEnd": 1961,
   "overview": "During the era of The Twilight Zone, One Step Beyond is a show that told real stories about supernatural encounters. Host John Newland narrated stories of ghosts, monsters, mysterious disappearances, and supernatural circumstances in which no logical answer to explain the events was found. Along with dramatic and eerie re-enactments, viewers couldn't help but wonder if the paranormal truly exists.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/63/158032.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76479-3.jpg",
   "backdropURL": null,
   "genres": [
     "Mystery",
@@ -1739,5 +1739,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/119/298771.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76479",
+  "artworkSource": "tvdb"
 }

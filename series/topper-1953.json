@@ -6,7 +6,7 @@
   "yearStart": 1953,
   "yearEnd": 1955,
   "overview": "Tales of Cosmo Topper and the affectionate ghosts who haunt him and his house. The series was based on characters from the novels of Thorne Smith. A third supernatural being was added to the mix, a Saint Bernard named Neil, who was fond of spirits (the alcoholic kind).",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/39/98400.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77346-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy",
@@ -208,5 +208,7 @@
       "order": 4,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/37/94641.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77346",
+  "artworkSource": "tvdb"
 }

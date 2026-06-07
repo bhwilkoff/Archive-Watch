@@ -6,7 +6,7 @@
   "yearStart": 1963,
   "yearEnd": 1970,
   "overview": "The small farming community of Hooterville provided the setting for this highly successful rural situation comedy. Kate Bradley was the widowed owner of the only transient housing in town, the Shady Rest Hotel. Helping her run the hotel were her three beautiful daughters, Billie Jo, Bobbie Jo, and Betty Jo. Also assisting was the girls' lazy Uncle Joe, who had assumed the title of manager. In addition to her involvement with the hotel, the romantic lives of her daughters, and her association with the townspeople, Kate was constantly at odds with Homer Bedlow, vice-president of the C.F. & W. Railroad. Homer was determined to close down the steam-driven branch of the railroad that ran through Hooterville, scrap its lone engine (the Cannonball), and put its two engineers (Charlie Pratt and Floyd Smoot) out of jobs.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/596/1491797.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71569-2.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -237,5 +237,7 @@
       "order": 12,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/592/1481970.jpg"
     }
-  ]
+  ],
+  "tvdbID": "71569",
+  "artworkSource": "tvdb"
 }

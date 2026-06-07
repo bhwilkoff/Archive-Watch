@@ -5,8 +5,8 @@
   "title": "Boston Blackie",
   "yearStart": 1951,
   "yearEnd": 1952,
-  "overview": null,
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/338/847085.jpg",
+  "overview": "Boston Blackie, played by Kent Tayor, was the hero of more than a dozen 1940's B movies, and starred in this memorable TV show \"Boston Blackie\" from 1951 until 1953. He was the enemy of those who made him an enemy, friend of those who had no friend, a reformed crook living in Los Angeles. Aided by his helper and girlfriend Mary, played by Lois Collier, he regularly solved mystery crimes several steps ahead of the local police.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77339-1.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [
@@ -98,5 +98,7 @@
       "order": 2,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/416/1041034.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77339",
+  "artworkSource": "tvdb"
 }

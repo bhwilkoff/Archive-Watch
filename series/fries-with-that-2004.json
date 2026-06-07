@@ -6,7 +6,7 @@
   "yearStart": 2004,
   "yearEnd": 2004,
   "overview": "Fries with That is a sitcom about the hilarious antics of a group of teens who run havoc running a fast food joint. Pattie, Robyn, Tess and Alex are way too concerned with friends, dating, body image, and the in-crowd to bother much with actually working. All the while, the assistant manager Ben is going nuts trying to get them to flip burgers and actually serve customers.",
-  "posterURL": null,
+  "posterURL": "https://artworks.thetvdb.com/banners/series/299284/posters/600938395cc0e.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy",
@@ -140,5 +140,45 @@
   "canonicalEpisodesCount": 52,
   "seriesImdbID": "tt0372674",
   "canonicalEpisodeCount": 25,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "tvdbID": "299284",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Morgan Kelly",
+      "character": "Alex Kurzi",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/383450/photo/65f45791c8315.jpg"
+    },
+    {
+      "name": "Stéfanie Buxton",
+      "character": "Robyn Cohen",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/444768/photo/65f4aaeb03c6c.jpg"
+    },
+    {
+      "name": "Anne-Marie Baron",
+      "character": "Tess Laverière",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9124916/photo/65f4aac298f58.jpg"
+    },
+    {
+      "name": "Jeanne Bowser",
+      "character": "Pattie Johnson",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9124917/photo/65f4ac603cab7.jpg"
+    },
+    {
+      "name": "Giancarlo Caltabiano",
+      "character": "Ben Shaw",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/417048/photo/65f4aca4bae2b.jpg"
+    },
+    {
+      "name": "Arthur Holden",
+      "character": "Head Office Guy",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/295289/photo/64b8c0f31e3c5.jpg"
+    }
+  ]
 }

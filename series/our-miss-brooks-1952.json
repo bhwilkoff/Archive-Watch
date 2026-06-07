@@ -6,7 +6,7 @@
   "yearStart": 1952,
   "yearEnd": 1956,
   "overview": "Teaching at Madison High, Madison has difficulty to end meets. She is always in conflict with the principal while trying to help her students.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/216/540479.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/73493-2.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -123,5 +123,7 @@
       "order": 2,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/85/214205.jpg"
     }
-  ]
+  ],
+  "tvdbID": "73493",
+  "artworkSource": "tvdb"
 }

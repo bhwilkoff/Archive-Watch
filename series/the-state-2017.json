@@ -6,7 +6,7 @@
   "yearStart": 2017,
   "yearEnd": 2017,
   "overview": "Award-winner Peter Kosminsky's compelling new drama, based on extensive research, follows the experiences of four British men and women who leave everything behind to join Isis in Syria.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/125/313531.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/332422-3.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -148,5 +148,7 @@
       "order": 9,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/127/317937.jpg"
     }
-  ]
+  ],
+  "tvdbID": "332422",
+  "artworkSource": "tvdb"
 }

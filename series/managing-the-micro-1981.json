@@ -5,7 +5,7 @@
   "yearStart": 1981,
   "yearEnd": 1981,
   "overview": "This series aimed primarily at small businesses and further education colleges was fronted by the much respected Radio 4 'Today' presenter Brian Redhead. It showed examples of what can be done by looking at companies which had embraced the new technology in manufacturing or services.",
-  "posterURL": null,
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/375766/posters/66cc645ceea97.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [],
@@ -109,5 +109,7 @@
   ],
   "episodesCount": 5,
   "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "canonicalEpisodeCount": 0,
+  "tvdbID": "375766",
+  "artworkSource": "tvdb"
 }

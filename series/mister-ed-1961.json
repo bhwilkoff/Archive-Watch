@@ -6,7 +6,7 @@
   "yearStart": 1961,
   "yearEnd": 1966,
   "overview": "Architect Wilbur Post (Alan Young, The Time Machine) and his wife Carol (Connie Hines) move into a beautiful new home complete with a barn in the backyard. When Wilbur takes a look in his new barn, he finds that the former owner left his horse behind. This horse is no ordinary horse . . . he can talk, but only to Wilbur, which leads to all sorts of misadventures for Wilbur and his trouble-making sidekick Mister Ed.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/20/50027.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/78045/posters/633133fe282ec.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -152,5 +152,7 @@
       "order": 6,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/37/94643.jpg"
     }
-  ]
+  ],
+  "tvdbID": "78045",
+  "artworkSource": "tvdb"
 }

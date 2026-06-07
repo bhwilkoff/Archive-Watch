@@ -253,5 +253,26 @@
       ]
     }
   ],
-  "episodesCount": 13
+  "episodesCount": 13,
+  "tvdbID": "71405",
+  "cast": [
+    {
+      "name": "Steven Banks",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Teresa Parente",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Michael Kostroff",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    }
+  ]
 }

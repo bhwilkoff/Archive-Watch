@@ -6,7 +6,7 @@
   "yearStart": 2000,
   "yearEnd": 2010,
   "overview": "Clifford the Big Red Dog is a fun show aimed towards younger audiences. Clifford, a 20 foot tall red dog, plays with his dog friends, Cleo and T-Bone, and has great adventures with them. Clifford's best friend, however, is Emily Elizabeth Howard, his owner. Emily has friends of her own and all the characters live peacefully on Birdwell Island. Each Clifford the Big Red Dog episode consists of two stories, linked by a \"Speckle Story,\" a story read to Clifford by Emily Elizabeth about the adventures of a dog named Speckle. At the end of each episode is a \"big idea\" presented by Clifford, followed by a short promotional spot for one of the characters on Clifford. Also included is a short segment featuring a real kid with his/her dog.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/196/491154.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/73734-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy",
@@ -1166,5 +1166,63 @@
   "canonicalEpisodesCount": 130,
   "seriesImdbID": "tt0233041",
   "canonicalEpisodeCount": 45,
-  "canonicalSeasons": 5
+  "canonicalSeasons": 5,
+  "tvdbID": "73734",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "John Ritter",
+      "character": "Clifford (voice)",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/252268/photo/60883d848c5ee.jpg"
+    },
+    {
+      "name": "Grey DeLisle",
+      "character": "",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/290958/primary.jpg"
+    },
+    {
+      "name": "Kel Mitchell",
+      "character": "",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/267228/photo/649ec70540d54.jpg"
+    },
+    {
+      "name": "Kath Soucie",
+      "character": "",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/260652/photo/65b1dbfa17dba.jpg"
+    },
+    {
+      "name": "Terrence 'T.C.' Carson",
+      "character": "",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/337587/photo/67ffbfb7e3684.jpg"
+    },
+    {
+      "name": "Cree Summer",
+      "character": "",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Cam Clarke",
+      "character": "",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7959972/photo/60521f4f01520.jpg"
+    },
+    {
+      "name": "Ulysses Cuadra",
+      "character": "",
+      "order": 7,
+      "profilePath": null
+    },
+    {
+      "name": "Gary Leroi Gray",
+      "character": "",
+      "order": 8,
+      "profilePath": null
+    }
+  ]
 }

@@ -6,7 +6,7 @@
   "yearStart": 1953,
   "yearEnd": 1961,
   "overview": "General Electric Theater featured a mix of romance, comedy, adventure, tragedy, fantasy and variety music. The General Electric Theater presented top Hollywood and Broadway stars in dramatic roles calculated to deliver company voice advertising to the largest possible audience.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/355/889201.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76546-2.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -113,5 +113,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30791.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76546",
+  "artworkSource": "tvdb"
 }

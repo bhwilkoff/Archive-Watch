@@ -6,7 +6,7 @@
   "yearStart": 1998,
   "yearEnd": 1998,
   "overview": "Invasion America is a animated sci-fi miniseries that aired on The WB from June 8, 1998 – July 7, 1998.The story of Invasion America begins in the early 1980s, when humanoid aliens from the planet Tyrus begin to initiate their plans for making contact with Earth. Cale-Oosha, the ruler of Tyrus, looks into his uncle's project with Earth. However, his uncle, The Dragit, claims that their dying planet ought to invade Earth and take hold of its resources. Cale refuses, and a civil war breaks out.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/44/111763.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/75407-1.jpg",
   "backdropURL": null,
   "genres": [
     "Science-Fiction"
@@ -253,5 +253,7 @@
       "order": 7,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/43/108890.jpg"
     }
-  ]
+  ],
+  "tvdbID": "75407",
+  "artworkSource": "tvdb"
 }

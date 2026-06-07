@@ -6,7 +6,7 @@
   "yearStart": 1980,
   "yearEnd": 1988,
   "overview": "3-2-1 Contact was a science educational series that aired on PBS from 1980 to 1988.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/55/138905.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/73584-1.jpg",
   "backdropURL": null,
   "genres": [
     "Children"
@@ -159,5 +159,7 @@
       "order": 2,
       "profilePath": "/xbsmBk8bFkAEDFcMUSSYjWsONoT.jpg"
     }
-  ]
+  ],
+  "tvdbID": "73584",
+  "artworkSource": "tvdb"
 }

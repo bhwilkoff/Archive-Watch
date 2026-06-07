@@ -6,7 +6,7 @@
   "yearStart": 1967,
   "yearEnd": 1993,
   "overview": "Wheelchair-bound detective Robert T. Ironside battles the bad guys on the streets of San Francisco.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/9/24494.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/78677-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -192,5 +192,7 @@
       "order": 4,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/183/458665.jpg"
     }
-  ]
+  ],
+  "tvdbID": "78677",
+  "artworkSource": "tvdb"
 }

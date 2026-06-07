@@ -6,7 +6,7 @@
   "yearStart": 1982,
   "yearEnd": 1991,
   "overview": "The series follows the thrilling adventures of Michael Knight, a detective thought to be dead, who's been given a new face and identity. His assignment: to fight crime with the help of an artificially intelligent, talking car named K.I.T.T., a high-speed, futuristic weapon outfitted with high-tech gadgets and a personality of its own. Driven by justice, they set out to take down criminals who operate above the law.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/6/15722.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77216-4.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -1602,5 +1602,7 @@
       "order": 4,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/24/60115.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77216",
+  "artworkSource": "tvdb"
 }

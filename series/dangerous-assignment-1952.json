@@ -6,7 +6,7 @@
   "yearStart": 1952,
   "yearEnd": 1952,
   "overview": "Steve Mitchell, a US operative, is sent on jeopardizing missións around the world. Steve Mitchell sets off on dangerous assignments wherever the US interests are at risk. Maybe it's Cairo, a waterfront dock in Siam, or a secret rendezvous, behind the lron Curtain. Wherever he goes, there's adventure and excitement .",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/455/1138087.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70391-3.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [
@@ -199,5 +199,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/141/352862.jpg"
     }
-  ]
+  ],
+  "tvdbID": "70391",
+  "artworkSource": "tvdb"
 }

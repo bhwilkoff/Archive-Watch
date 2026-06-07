@@ -6,7 +6,7 @@
   "yearStart": 1958,
   "yearEnd": 1960,
   "overview": "Mike Kovac is a former World War II combat photographer freelancing in New York City who specializes in getting the photographs other lensmen can't. By assisting newspapers, insurance companies, the police and private individuals, Kovac gets himself into plenty of troubles involving criminals of every kind.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/168/420618.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/series/77424/posters/5e74b5d08b9b3.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -464,5 +464,7 @@
       "order": 2,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/87/217753.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77424",
+  "artworkSource": "tvdb"
 }

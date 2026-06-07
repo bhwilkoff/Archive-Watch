@@ -6,7 +6,7 @@
   "yearStart": 1950,
   "yearEnd": 1950,
   "overview": "The Adventures of Ellery Queen, the first Ellery Queen TV series, began on the DuMont Television Network then moved to ABC. As the show was broadcast live from Hollywood few of the 91 episodes are known to currently exist.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/104/262276.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/236741-2.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -137,5 +137,7 @@
       "order": 1,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/360/901441.jpg"
     }
-  ]
+  ],
+  "tvdbID": "236741",
+  "artworkSource": "tvdb"
 }

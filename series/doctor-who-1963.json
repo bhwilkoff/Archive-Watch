@@ -6,7 +6,7 @@
   "yearStart": 1963,
   "yearEnd": 1996,
   "overview": "Doctor Who is the longest-running science fiction TV series in history, airing initially from 1963 to 1989. Doctor Who is about ideas. It pioneered sophisticated mixed-level storytelling. Its format was the key to its longevity: the Doctor, a mysterious traveller in space and time, travels in his ship, the TARDIS. The TARDIS can take him and his companions anywhere in time and space. Inevitably he finds evil at work wherever he goes..",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/488/1221842.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76107-4.jpg",
   "backdropURL": null,
   "genres": [
     "Action",
@@ -315,5 +315,7 @@
       "order": 17,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/20/50076.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76107",
+  "artworkSource": "tvdb"
 }

@@ -6,7 +6,7 @@
   "yearStart": 2011,
   "yearEnd": 2011,
   "overview": "Patrick 'Lights' Leary is an aging former heavyweight boxing champion who struggles to find his identity and support his wife and three daughters after retiring from the ring. The financial downturn coupled with a series of failed investments leave him at a perilous crossroads - battling the urge to return to boxing or reluctantly accepting a job as a brutal and intimidating debt collector.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/6/16691.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/194051-2.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -648,5 +648,7 @@
       "order": 7,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/8813.jpg"
     }
-  ]
+  ],
+  "tvdbID": "194051",
+  "artworkSource": "tvdb"
 }

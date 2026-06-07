@@ -6,7 +6,7 @@
   "yearStart": 2004,
   "yearEnd": 2019,
   "overview": "In the wealthy, seaside community of Neptune, the rich and powerful make the rules. They own the town and are desperately trying to keep their dirty little secrets just that... secret. Unfortunately for them, there's Veronica Mars, a smart, fearless private investigator dedicated to solving the town's toughest mysteries. During the day, Veronica studies hard, but by night, she helps her father Keith with his private investigator business, sneaking through back alleys and scoping out no-tell motels with a telescopic-lens camera in an attempt to uncover the California beach town's darkest secrets.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/9/24539.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/73730-16.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -243,5 +243,7 @@
       "order": 17,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/8/22413.jpg"
     }
-  ]
+  ],
+  "tvdbID": "73730",
+  "artworkSource": "tvdb"
 }

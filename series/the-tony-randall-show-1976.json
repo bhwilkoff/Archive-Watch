@@ -6,7 +6,7 @@
   "yearStart": 1976,
   "yearEnd": 1978,
   "overview": "Tony Randall plays a newly-elected Philadelphia municipal judge named Walter Franklin in The Tony Randall Show, which premiered in the Bicentennial Year of 1976.The Tony Randall Show is a half-hour comedy series starring Emmy Award-winner Tony Randall as Judge Walter' Franklin, a contemporary courtroom judge in Philadelphia who has as many trials and vexations off the bench as on, it debuted Thursday, Sept. 30, 1976 on ABC-TV. A widower, Franklin lives with his two children, Roberta (Devon Scott), 18, and Oliver Wendell Franklin, 11, along with their housekeeper, Mrs. McClellan (Rachel Roberts). At the courthouse, -he is assisted by his court reporter and confidant, Jack Terwilliger (Barney Martin) and his sharp-tongued, sardonic, secretary, Miss Reubner (Allyn Ann McLerie).",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/480/1201550.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71727-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy",
@@ -125,5 +125,7 @@
       "order": 8,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/74/186208.jpg"
     }
-  ]
+  ],
+  "tvdbID": "71727",
+  "artworkSource": "tvdb"
 }

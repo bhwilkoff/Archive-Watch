@@ -5,7 +5,7 @@
   "yearStart": 1959,
   "yearEnd": 1959,
   "overview": "The Lawless Years is an American crime drama series that aired on NBC from April 16 1959, to September 22, 1961. The series is the first of its kind set set during the Roaring 20s, having predated ABC's far more successful The Untouchables by six months. The series stars James Gregory and Robert Karnes.",
-  "posterURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76633-1.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [
@@ -202,5 +202,21 @@
   "episodesCount": 10,
   "seriesImdbID": "tt0052484",
   "canonicalEpisodeCount": 47,
-  "canonicalSeasons": 3
+  "canonicalSeasons": 3,
+  "tvdbID": "76633",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "James Gregory",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256461/photo/6494e4083fbd4.jpg"
+    },
+    {
+      "name": "Robert Karnes",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    }
+  ]
 }

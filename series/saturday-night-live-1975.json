@@ -6,7 +6,7 @@
   "yearStart": 1975,
   "yearEnd": null,
   "overview": "Saturday Night Live is an Emmy Award-winning late-night comedy showcase.Since its inception in 1975, \"SNL\" has launched the careers of many of the brightest comedy performers of their generation. As The New York Times noted on the occasion of the show's Emmy-winning 25th Anniversary special in 1999, \"in defiance of both time and show business convention, 'SNL' is still the most pervasive influence on the art of comedy in contemporary culture.\" At the close of the century, \"Saturday Night Live\" placed seventh on Entertainment Weekly's list of the Top 100 Entertainers of the past fifty years.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/589/1474771.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76177-4.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy",
@@ -3057,5 +3057,7 @@
       "order": 17,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/482/1206384.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76177",
+  "artworkSource": "tvdb"
 }

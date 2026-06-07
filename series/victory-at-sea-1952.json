@@ -6,7 +6,7 @@
   "yearStart": 1952,
   "yearEnd": 1953,
   "overview": "A documentary TV series about naval warfare during World War II that was originally aired by NBC in the USA in 26 half-hour segments on Sunday afternoons, starting October 26, 1952 and ending May 3, 1953. The series, which won an Emmy in 1954 as best public affairs program, played a major role in establishing historic documentaries as a viable television genre. When it first aired, NBC thought it so important that it had no commercial breaks. The series was also aired on The History Channel in 1996.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/55/138432.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/84130-3.jpg",
   "backdropURL": null,
   "genres": [
     "War",
@@ -99,5 +99,7 @@
   "canonicalEpisodesCount": 26,
   "seriesImdbID": "tt0046658",
   "canonicalEpisodeCount": 10,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "tvdbID": "84130",
+  "artworkSource": "tvdb"
 }

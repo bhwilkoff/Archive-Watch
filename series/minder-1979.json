@@ -6,7 +6,7 @@
   "yearStart": 1979,
   "yearEnd": 1994,
   "overview": "This comedy drama series featured Terry McCann, a former boxer with a conviction for G.B.H., and Arthur Daley, a second-hand car dealer with an eye for a nice little earner. Alongside his many business ventures, Arthur would regularly hire Terry out as a minder or bodyguard.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/23/59226.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/72993-2.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -1467,5 +1467,7 @@
       "order": 7,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/32273.jpg"
     }
-  ]
+  ],
+  "tvdbID": "72993",
+  "artworkSource": "tvdb"
 }

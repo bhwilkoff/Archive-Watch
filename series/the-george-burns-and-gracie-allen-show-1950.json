@@ -6,7 +6,7 @@
   "yearStart": 1950,
   "yearEnd": 1958,
   "overview": "The legendary husband and wife comedy team of George Burns and Gracie Allen successfully took their show from radio to an eight year run on CBS. Neighbor Blanche Morton frequently joins Gracie in escapades which annoy accountant hubby Harry and provide George with an opportunity to offer a humorous soliloquy. Sadly, the show ended when Allen's health began to fail and she retired from show biz.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/77/194788.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70790-2.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -312,5 +312,7 @@
       "order": 1,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/140/351161.jpg"
     }
-  ]
+  ],
+  "tvdbID": "70790",
+  "artworkSource": "tvdb"
 }

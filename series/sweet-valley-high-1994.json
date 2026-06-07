@@ -6,7 +6,7 @@
   "yearStart": 1994,
   "yearEnd": 1997,
   "overview": "Based on the best-selling book series, this show revolved around the lives of the Wakefield twins and their friends. Although they are absolutely identical, they have totally different personalities; Liz is everyone's best friend while Jessica is manipulative and devious. The show started out very drama-like, there was little comedic relief and dealt with serious, if not somber issues. As it progressed it took on a more lighthearted, comedic position. Although there were cast changes every season, a few stayed for all four years, including Brittany and Cynthia Daniel who played the Wakefield twins. Not only was the theme song an original song created just for the show, but the songs used throughout the episodes were too. A soundtrack was released in 1995 featuring the songs from the series.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/20/51888.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/75377-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -128,5 +128,7 @@
       "order": 1,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/116/292497.jpg"
     }
-  ]
+  ],
+  "tvdbID": "75377",
+  "artworkSource": "tvdb"
 }

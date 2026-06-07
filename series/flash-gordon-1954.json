@@ -6,7 +6,7 @@
   "yearStart": 1954,
   "yearEnd": 1955,
   "overview": "Based on Alex Raymon's legendary sci-fi comic strip hero, these episodes present the journeys of space hero Flash Gordon. Along with the lovely Dale Arden and the brilliant Dr. Zarkov, Flash represents the Galaxy Bureau of Investigation in an ongoing quest to keep the cosmos safe.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/146/365630.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70331-1.jpg",
   "backdropURL": null,
   "genres": [
     "Action",
@@ -185,5 +185,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/442/1107208.jpg"
     }
-  ]
+  ],
+  "tvdbID": "70331",
+  "artworkSource": "tvdb"
 }

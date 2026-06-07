@@ -4,7 +4,7 @@
   "title": "Sheriff of Cochise",
   "yearStart": 1956,
   "yearEnd": 1957,
-  "overview": null,
+  "overview": "While this sounds like a western, THE SHERIFF OF COCHISE was a contemporary police drama set in Cochise County, AZ. Stories seemed to be strangely similar to HIGHWAY PATROL, emphasizing fistfights and car chases rather than gunplay. Tough Sheriff Frank Morgan was eventually promoted to U.S. Marshall and given the entire state of Arizona to keep under control (the series title would subsequently change to U.S. MARSHAL [tt0051324] and remain in syndication until 1960). Singer Stan Jones was the series creator but departed the show in 1958. A total of 156 episodes were produced under both titles.",
   "posterURL": "https://archive.org/services/img/sheriffOfCochiseLynchingPartydrama1957",
   "backdropURL": null,
   "genres": [],
@@ -92,5 +92,14 @@
   "episodesCount": 4,
   "seriesImdbID": "tt0159207",
   "canonicalEpisodeCount": 36,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "tvdbID": "286505",
+  "cast": [
+    {
+      "name": "John Bromfield",
+      "character": "Sheriff Frank Morgan",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/381054/photo/64ac4f64a778f.jpg"
+    }
+  ]
 }

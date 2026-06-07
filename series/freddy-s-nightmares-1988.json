@@ -6,7 +6,7 @@
   "yearStart": 1988,
   "yearEnd": 1990,
   "overview": "Freddy's Nightmares (full title: Freddy's Nightmares: A Nightmare on Elm Street: The Series) is an American horror anthology series, which aired in syndication from October 1988 until March 1990. A spin-off from the Nightmare on Elm Street series, each story was introduced by Freddy Krueger (played, as in the movies, by Robert Englund).",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/19/49879.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71521-2.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -239,5 +239,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/195/487789.jpg"
     }
-  ]
+  ],
+  "tvdbID": "71521",
+  "artworkSource": "tvdb"
 }

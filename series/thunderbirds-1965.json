@@ -6,7 +6,7 @@
   "yearStart": 1965,
   "yearEnd": 1966,
   "overview": "Thunderbirds are Go!! The year is 2065. A secret organization has been formed by multi-millionaire Jeff Tracy. The team consists of his 5 sons and his engineer, Brains. His Grandma, Kyrano, and Tin-Tin also live with the family. They live on Tracy Island somewhere in the South Pacific. They have many secret undercover agents for the organization. One in particular is Lady Penelope and Nosey Parker. The two live in a mansion in London. Scott Tracy pilots Thunderbird 1. This ship is like a scout ship. Thunderbird 2 is piloted by Virgil Tracy. This ship carries all the rescue equipment including Thunderbird 4. Thunderbird 3 is piloted by Alan, John, and sometimes Scott. The craft is used as a ferry between Thunderbird 5 and space rescues. Thunderbird 4 is piloted by Gordon Tracy. This craft is for water rescues. Thunderbird 5 is a space station in outer space. It is monitored by John and Alan on monthly shifts.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/18/46270.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77964-1.jpg",
   "backdropURL": null,
   "genres": [
     "Action",
@@ -156,5 +156,7 @@
       "order": 8,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/22/56549.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77964",
+  "artworkSource": "tvdb"
 }

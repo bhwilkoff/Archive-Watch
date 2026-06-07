@@ -6,7 +6,7 @@
   "yearStart": 1983,
   "yearEnd": 1983,
   "overview": "Manimal centers on the character Dr. Jonathan Chase, a shape-shifting man who possessed the ability to turn himself into any animal he chose. He used this ability to help the police solve crimes.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/31/78461.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/73058-2.jpg",
   "backdropURL": null,
   "genres": [
     "Action",
@@ -78,5 +78,7 @@
       "order": 4,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/527/1318502.jpg"
     }
-  ]
+  ],
+  "tvdbID": "73058",
+  "artworkSource": "tvdb"
 }

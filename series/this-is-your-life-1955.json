@@ -6,7 +6,7 @@
   "yearStart": 1955,
   "yearEnd": 2007,
   "overview": "This is Your Life was created by Ralph Edwards, an American radio and television host. The show originated on radio, debuting in 1948, successfully transferring to NBC television in October 1952.The British version of the show was launched in 1955 by BBC television, and was initially broadcast monthly, then fortnightly, before becoming a regular weekly fixture in the TV schedules by its third series.The BBC produced the show's first nine series before axing the programme in 1964.The London based Thames Television revived the show in 1969 and broadcast weekly editions over the ITV network, producing an average of 26 shows a year. ITV continued broadcasting the show right through to 1994 despite a change of presenter when Michael Aspel took over after the death of original host Eamonn Andrews in 1987.This is Your Life returned to the BBC in 1994, but was still produced independently by Thames Television, and was axed again in 2003.In the show the host surprises a special guest, before taking them through their life with the assistance of the 'big red book'.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/31/77740.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70627-2.jpg",
   "backdropURL": null,
   "genres": [
     "Family"
@@ -154,5 +154,7 @@
       "order": 2,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/18/46910.jpg"
     }
-  ]
+  ],
+  "tvdbID": "70627",
+  "artworkSource": "tvdb"
 }

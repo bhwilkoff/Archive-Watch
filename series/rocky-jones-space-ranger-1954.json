@@ -6,7 +6,7 @@
   "yearStart": 1954,
   "yearEnd": 1954,
   "overview": "Cruising the galaxy in his space ship \"The Orbit Jet\" Space Ranger, Rocky Jones, Vena Ray, and 10 year-old Bobby defend the Earth and themselves against space-bound evil doers.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/105/263370.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70515-2.jpg",
   "backdropURL": null,
   "genres": [
     "Action",
@@ -95,5 +95,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/587/1467812.jpg"
     }
-  ]
+  ],
+  "tvdbID": "70515",
+  "artworkSource": "tvdb"
 }

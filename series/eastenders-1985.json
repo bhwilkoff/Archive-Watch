@@ -6,7 +6,7 @@
   "yearStart": 1985,
   "yearEnd": null,
   "overview": "Set in the East End of London, the show focuses on the tensions between love and family with stories ranging from hard-hitting social issues, to personal, human tragedies. And there's plenty of funny moments too. Classic characters old and new across thousands of episodes have shared a drink in The Queen Vic, shed tears of despair or joy, sat on Arthur's bench in the Square... and at some point or other they probably crossed paths with Ian Beale.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/6/15519.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71753-2.jpg",
   "backdropURL": null,
   "genres": [
     "Drama"
@@ -262,5 +262,7 @@
       "order": 17,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/24219.jpg"
     }
-  ]
+  ],
+  "tvdbID": "71753",
+  "artworkSource": "tvdb"
 }

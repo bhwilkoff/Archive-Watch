@@ -6,7 +6,7 @@
   "yearStart": 1963,
   "yearEnd": 1965,
   "overview": "\"There is nothing wrong with your television set. Do not attempt to adjust the picture. We are controlling transmission\".This 60s anthology series from the minds of Leslie Stevens and Joseph Stefano pushed the boundaries of television and viewers minds by using intelligent science fiction to frighten and entertain viewers.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/12/30001.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71699-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -112,5 +112,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30869.jpg"
     }
-  ]
+  ],
+  "tvdbID": "71699",
+  "artworkSource": "tvdb"
 }

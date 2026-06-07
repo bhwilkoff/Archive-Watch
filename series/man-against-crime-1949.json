@@ -6,7 +6,7 @@
   "yearStart": 1949,
   "yearEnd": 1953,
   "overview": "Mike Barnett is the title character, a bright and tough private detective in New York. This very violent show was broadcast live until 1952.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/384/961845.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76629-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -167,5 +167,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/523/1309888.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76629",
+  "artworkSource": "tvdb"
 }

@@ -6,7 +6,7 @@
   "yearStart": 1950,
   "yearEnd": 1955,
   "overview": "Space Patrol is a science fiction adventure series that was originally aimed at juvenile audiences of the early 1950s via television, radio, and comic books. However, it soon developed a sizable adult audience such that by 1954, the program consistently ranked in the top 10 shows broadcast on a Saturday. The Space Patrol television show began broadcasting March 9, 1950, starting as a daily 15-minute show on a local Los Angeles station. However, on December 30, 1950, the American Broadcasting Company (ABC) added the show as a new half-hour program to its Saturday schedule. It became an overnight sensation such that the new weekly show broadcast and the 15-minute shows continued daily on a local basis, and was seen via kinescope in other cities. A 1953 30-minute episode was the subject of the first U.S. experimental 3D television broadcast on April 29 in Los Angeles on ABC affiliate KECA-TV.The series also made history by being the first regular live West Coast morning network program beamed to the East Coast. In modern times, there is a tendency to take national broadcast events for granted, but at the time, it took an intricate network of cable and relay stations to accomplish this enormous task. The ABC television Space Patrol broadcasts became one of the nation's first mass media phenomena, such that it was quickly moved to an ABC radio series of the same name. The radio program was popular and ran from September 18, 1950 until March 19, 1955 producing approximately 129 thirty-minute episodes. The televised Space Patrol aired continuously until July 2, 1954; after a short break, it reappeared on September 4, 1954, before finally disappearing from the air on February 26, 1955. 210 half-hour shows and close to 900 15-minute shows were made over Space Patrol's 5-year run. In addition, around 129 thirty-minute radio shows were produced.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89927.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71897-1.jpg",
   "backdropURL": null,
   "genres": [
     "Adventure",
@@ -241,5 +241,7 @@
       "order": 4,
       "profilePath": null
     }
-  ]
+  ],
+  "tvdbID": "71897",
+  "artworkSource": "tvdb"
 }

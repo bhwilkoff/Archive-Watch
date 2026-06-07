@@ -1,259 +1,287 @@
 {
- "version": 2,
- "seriesID": "fit-for-tv-the-reality-of-the-biggest-loser-2025",
- "tvmazeID": 86139,
- "title": "Fit for TV: The Reality of the Biggest Loser",
- "yearStart": 2025,
- "yearEnd": 2025,
- "overview": "Fit for TV: The Reality of The Biggest Loser is a three-part documentary series that takes an inside look at the making of the hit reality TV competition, exploring the good, the bad, and the complicated. Featuring interviews with former contestants, trainers, producers, and health professionals, the documentary examines the show's approach to transformation, the support systems in place, and the unique challenges of filming reality television. The series explores how the experience shaped the lives of those involved with the show long after the cameras stopped rolling and invites viewers to reflect on the balance between entertainment and well-being, and what it truly means to pursue lasting change.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/579/1449220.jpg",
- "backdropURL": null,
- "genres": [],
- "networks": [
-  "Netflix"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "fit-for-tv-the-reality-of-the-biggest-loser-2025",
+  "tvmazeID": 86139,
+  "title": "Fit for TV: The Reality of the Biggest Loser",
+  "yearStart": 2025,
+  "yearEnd": 2025,
+  "overview": "Fit for TV: The Reality of The Biggest Loser is a three-part documentary series that takes an inside look at the making of the hit reality TV competition, exploring the good, the bad, and the complicated. Featuring interviews with former contestants, trainers, producers, and health professionals, the documentary examines the show's approach to transformation, the support systems in place, and the unique challenges of filming reality television. The series explores how the experience shaped the lives of those involved with the show long after the cameras stopped rolling and invites viewers to reflect on the balance between entertainment and well-being, and what it truly means to pursue lasting change.",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/466102/posters/689fc02edc07b.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Netflix"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "s-01-e-01-the-accident",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Winning the Lottery",
-     "overview": "Eager to transform their lives and bodies, hopefuls audition for \"The Biggest Loser.\" The show is a ratings behemoth — but is it all that it promises?",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/582/1457057.jpg",
-     "airDate": "2025-08-15",
-     "year": 2025,
-     "runtimeSeconds": 2340,
-     "videoFile": {
-      "name": "S01E01 The Accident.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 300431705,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-01-the-accident/S01E01 The Accident.ia.mp4"
-    },
-    {
-     "archiveID": "s-01-e-02-the-cut",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "Hunger Games",
-     "overview": "Doctors weigh in as contestants participate in extreme challenges. While demand for the show continues to soar, misconduct allegations hit the press.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/582/1457059.jpg",
-     "airDate": "2025-08-15",
-     "year": 2025,
-     "runtimeSeconds": 2460,
-     "videoFile": {
-      "name": "S01E02 The Cut.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 302109935,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-02-the-cut/S01E02 The Cut.ia.mp4"
-    },
-    {
-     "archiveID": "s-01-e-03-the-boy",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Tipping the Scales",
-     "overview": "Plagued by explosive scandals, \"The Biggest Loser\" shutters production. Having gained back the weight, contestants are left to pick up the pieces.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/582/1457060.jpg",
-     "airDate": "2025-08-15",
-     "year": 2025,
-     "runtimeSeconds": 2640,
-     "videoFile": {
-      "name": "S01E03 The Boy.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 297076348,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-03-the-boy/S01E03 The Boy.ia.mp4"
-    },
-    {
-     "archiveID": "s-01-e-04-the-girl",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "The Flower of Gloster 1967 S01E04 The Girl",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/s-01-e-04-the-girl",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "S01E04 The Girl.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 297140987,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-04-the-girl/S01E04 The Girl.ia.mp4"
-    },
-    {
-     "archiveID": "s-01-e-05-betton-woods",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "The Flower of Gloster 1967 S01E05 Betton Woods",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/s-01-e-05-betton-woods",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "S01E05 Betton Woods.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 296408736,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-05-betton-woods/S01E05 Betton Woods.ia.mp4"
-    },
-    {
-     "archiveID": "s-01-e-06-the-dog",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "The Flower of Gloster 1967 S01E06 The Dog",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/s-01-e-06-the-dog",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "S01E06 The Dog.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 298721374,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-06-the-dog/S01E06 The Dog.ia.mp4"
-    },
-    {
-     "archiveID": "s-01-e-07-lost",
-     "seasonNumber": 1,
-     "episodeNumber": 7,
-     "title": "The Flower of Gloster 1967 S01E07 Lost",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/s-01-e-07-lost",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "S01E07 Lost.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 296971737,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-07-lost/S01E07 Lost.ia.mp4"
-    },
-    {
-     "archiveID": "s-01-e-08-the-city",
-     "seasonNumber": 1,
-     "episodeNumber": 8,
-     "title": "The Flower of Gloster 1967 S01E08 The City",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/s-01-e-08-the-city",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "S01E08 The City.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 295945002,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-08-the-city/S01E08 The City.ia.mp4"
-    },
-    {
-     "archiveID": "s-01-e-09-life-and-death",
-     "seasonNumber": 1,
-     "episodeNumber": 9,
-     "title": "The Flower of Gloster 1967 S01E09 Life and Death",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/s-01-e-09-life-and-death",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "S01E09 Life and Death.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 293930988,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-09-life-and-death/S01E09 Life and Death.ia.mp4"
-    },
-    {
-     "archiveID": "s-01-e-10-the-tunnel",
-     "seasonNumber": 1,
-     "episodeNumber": 10,
-     "title": "The Flower of Gloster 1967 S01E10 The Tunnel",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/s-01-e-10-the-tunnel",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "S01E10 The Tunnel.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 298735838,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-10-the-tunnel/S01E10 The Tunnel.ia.mp4"
-    },
-    {
-     "archiveID": "s-01-e-11-the-deadline",
-     "seasonNumber": 1,
-     "episodeNumber": 11,
-     "title": "The Flower of Gloster 1967 S01E11 The Deadline",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/s-01-e-11-the-deadline",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "S01E11 The Deadline.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 294164033,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-11-the-deadline/S01E11 The Deadline.ia.mp4"
-    },
-    {
-     "archiveID": "s-01-e-12-the-hitch",
-     "seasonNumber": 1,
-     "episodeNumber": 12,
-     "title": "The Flower of Gloster 1967 S01E12 The Hitch",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/s-01-e-12-the-hitch",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "S01E12 The Hitch.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 295482046,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-12-the-hitch/S01E12 The Hitch.ia.mp4"
-    },
-    {
-     "archiveID": "s-01-e-13-late",
-     "seasonNumber": 1,
-     "episodeNumber": 13,
-     "title": "The Flower of Gloster 1967 S01E13 Late",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/s-01-e-13-late",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "S01E13 Late.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 299211300,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-13-late/S01E13 Late.ia.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "s-01-e-01-the-accident",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Winning the Lottery",
+          "overview": "Eager to transform their lives and bodies, hopefuls audition for \"The Biggest Loser.\" The show is a ratings behemoth — but is it all that it promises?",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/582/1457057.jpg",
+          "airDate": "2025-08-15",
+          "year": 2025,
+          "runtimeSeconds": 2340,
+          "videoFile": {
+            "name": "S01E01 The Accident.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 300431705,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-the-accident/S01E01 The Accident.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-02-the-cut",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Hunger Games",
+          "overview": "Doctors weigh in as contestants participate in extreme challenges. While demand for the show continues to soar, misconduct allegations hit the press.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/582/1457059.jpg",
+          "airDate": "2025-08-15",
+          "year": 2025,
+          "runtimeSeconds": 2460,
+          "videoFile": {
+            "name": "S01E02 The Cut.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 302109935,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-02-the-cut/S01E02 The Cut.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-03-the-boy",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Tipping the Scales",
+          "overview": "Plagued by explosive scandals, \"The Biggest Loser\" shutters production. Having gained back the weight, contestants are left to pick up the pieces.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/582/1457060.jpg",
+          "airDate": "2025-08-15",
+          "year": 2025,
+          "runtimeSeconds": 2640,
+          "videoFile": {
+            "name": "S01E03 The Boy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 297076348,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-03-the-boy/S01E03 The Boy.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-04-the-girl",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Flower of Gloster 1967 S01E04 The Girl",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-04-the-girl",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E04 The Girl.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 297140987,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-04-the-girl/S01E04 The Girl.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-05-betton-woods",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Flower of Gloster 1967 S01E05 Betton Woods",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-05-betton-woods",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E05 Betton Woods.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 296408736,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-05-betton-woods/S01E05 Betton Woods.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-06-the-dog",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Flower of Gloster 1967 S01E06 The Dog",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-06-the-dog",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E06 The Dog.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 298721374,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-06-the-dog/S01E06 The Dog.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-07-lost",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Flower of Gloster 1967 S01E07 Lost",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-07-lost",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E07 Lost.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 296971737,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-07-lost/S01E07 Lost.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-08-the-city",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Flower of Gloster 1967 S01E08 The City",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-08-the-city",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E08 The City.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 295945002,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-08-the-city/S01E08 The City.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-09-life-and-death",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Flower of Gloster 1967 S01E09 Life and Death",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-09-life-and-death",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E09 Life and Death.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 293930988,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-09-life-and-death/S01E09 Life and Death.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-10-the-tunnel",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Flower of Gloster 1967 S01E10 The Tunnel",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-10-the-tunnel",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E10 The Tunnel.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 298735838,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-10-the-tunnel/S01E10 The Tunnel.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-11-the-deadline",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Flower of Gloster 1967 S01E11 The Deadline",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-11-the-deadline",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E11 The Deadline.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 294164033,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-11-the-deadline/S01E11 The Deadline.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-the-hitch",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Flower of Gloster 1967 S01E12 The Hitch",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-12-the-hitch",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E12 The Hitch.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 295482046,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-the-hitch/S01E12 The Hitch.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-13-late",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Flower of Gloster 1967 S01E13 Late",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-13-late",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E13 Late.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 299211300,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-13-late/S01E13 Late.ia.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 13,
- "canonicalEpisodesCount": 3
+  ],
+  "episodesCount": 13,
+  "canonicalEpisodesCount": 3,
+  "tvdbID": "466102",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Andrew Fried",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Robert Huizenga",
+      "character": "Robert Huizenga",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8063110/photo/68a4d76adb125.jpg"
+    },
+    {
+      "name": "Bob Harper",
+      "character": "Bob Harper",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/8004816/6007117072aa4.jpg"
+    },
+    {
+      "name": "Alison Sweeney",
+      "character": "Alison Sweeney",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/255843/5f43f576838cf.jpg"
+    }
+  ]
 }

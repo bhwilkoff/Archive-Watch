@@ -6,7 +6,7 @@
   "yearStart": 1989,
   "yearEnd": 1989,
   "overview": "A comedy series about an irresponsible, young bon vivant who is persuaded by his eccentric grandmother to halt his spendthrift lifestyle and assume control of the family hotel, which is populated by a host of off-beat characters.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/502/1256260.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/73227-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -100,5 +100,7 @@
       "order": 5,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/91/227777.jpg"
     }
-  ]
+  ],
+  "tvdbID": "73227",
+  "artworkSource": "tvdb"
 }

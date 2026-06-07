@@ -6,7 +6,7 @@
   "yearStart": 1999,
   "yearEnd": 2003,
   "overview": "Astronaut John Crichton assumes he'll be home in time for dinner. But a freak accident during an experimental space mission catapults him across a thousand galaxies to an alien battlefield. Suddenly, he's trapped among alien creatures wielding deadly technology - a battle that 20th century sci-fi pop culture never prepared him for. Hunted by a merciless military race, Crichton begins his quest for home from a galaxy far, far away...",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/3/7531.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/644426314b419.jpg",
   "backdropURL": null,
   "genres": [
     "Action",
@@ -243,5 +243,7 @@
       "order": 8,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/596/1491239.jpg"
     }
-  ]
+  ],
+  "tvdbID": "70522",
+  "artworkSource": "tvdb"
 }

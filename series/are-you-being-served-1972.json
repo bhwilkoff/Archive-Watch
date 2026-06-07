@@ -6,7 +6,7 @@
   "yearStart": 1972,
   "yearEnd": 1985,
   "overview": "This comedy series, which follows the exploits of employees at London's Grace Brothers department store, is full of sexual innuendo, slapstick, visual gags and double entendres. Much of the show's humor parodies Britain's class system, with the characters rarely calling their co-workers by their given names. Many of the show's characters are based on stereotypes, including the effeminate Mr. Humphries and the rich-but-stingy store owner.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/20/52076.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77879-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -361,5 +361,7 @@
       "order": 17,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/141/354140.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77879",
+  "artworkSource": "tvdb"
 }

@@ -6,7 +6,7 @@
   "yearStart": 1955,
   "yearEnd": 1955,
   "overview": "\"Quatermass II\" is a British science-fiction serial, originally broadcast by BBC Television in the autumn of 1955. Meteorites are falling over Northern England, one of which is observed by an Army radar unit. After a farmer finds one of the objects in a field, the soldiers become directly involved, and Captain Johnny Dillon decides to unofficially ask the father of his fiancée, Paula, to investigate. Paula's father is Professor Bernard Quatermass of the British Experimental Rocket Group — \"the rocket man!\", as one of Dillon's troops puts it. Quatermass and the Rocket Group, now including Paula and mathematical genius Dr. Leo Pugh, are recovering from the news that one of the twonuclear Quatermass II rockets has exploded during a ground test in Australia, killing hundreds of staff and ending their project to build permanent bases on the Moon.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/39/97757.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/94421-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -178,5 +178,7 @@
       "order": 2,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/250/625820.jpg"
     }
-  ]
+  ],
+  "tvdbID": "94421",
+  "artworkSource": "tvdb"
 }

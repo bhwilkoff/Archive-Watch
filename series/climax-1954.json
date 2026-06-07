@@ -6,7 +6,7 @@
   "yearStart": 1954,
   "yearEnd": 1958,
   "overview": "Climax! is an anthology series that aired on CBS from 1954 to 1958.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/78/196829.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/72092-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama"
@@ -429,5 +429,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/140/352364.jpg"
     }
-  ]
+  ],
+  "tvdbID": "72092",
+  "artworkSource": "tvdb"
 }

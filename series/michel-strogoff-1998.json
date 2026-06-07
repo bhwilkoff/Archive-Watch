@@ -5,8 +5,8 @@
   "title": "Michel Strogoff",
   "yearStart": 1998,
   "yearEnd": 1998,
-  "overview": null,
-  "posterURL": null,
+  "overview": "Michel Strogoff, courrier du Tsar, né en Sibérie, doit sauver la Russie de l’invasion tartare.\r\nPour cela, il est chargé par le Tsar en personne de remettre une lettre à son frère le Grand Duc à Irkoutsk, capitale de la Sibérie orientale.\r\nDans cette lettre, le Tsar écrit à son frère de ne surtout pas sortir d’Irkoutsk, que ses trois troupes réunies arrivent, et de se méfier d’un traitre russe.\r\nDans cette lettre, c’est le sort de la Russie toute entière qui est scellé.\r\nIvan Ogareff, traitre à sa patrie, terrible ennemi collaborant avec les Tartares, veut intercepter le courrier du Tsar.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/5cb128109ccc1.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [
@@ -96,5 +96,69 @@
   "canonicalEpisodesCount": 26,
   "seriesImdbID": "tt0074024",
   "canonicalEpisodeCount": 4,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "tvdbID": "292940",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Guillaume Orsat",
+      "character": "Michel Strogoff",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Marc Bretonnière",
+      "character": "Pierre Strogoff",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Pascale Jacquemont",
+      "character": "Marfa Strogoff",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Julie Turin",
+      "character": "Nadia Fédor",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Cyrille Artaux",
+      "character": "Nicolas Pigassof",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Françoise Blanchard",
+      "character": "Sangarre la Bohémienne",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Hervé Caradec",
+      "character": "Le tsar, Ivan Ogareff",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Emmanuel Fouquet",
+      "character": "Alcide Jolivet",
+      "order": 7,
+      "profilePath": null
+    },
+    {
+      "name": "Olivier Hémon",
+      "character": "Harry Blount",
+      "order": 8,
+      "profilePath": null
+    },
+    {
+      "name": "Patrice Baudrier",
+      "character": "Général Kissoff",
+      "order": 9,
+      "profilePath": null
+    }
+  ]
 }

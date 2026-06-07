@@ -6,7 +6,7 @@
   "yearStart": 1999,
   "yearEnd": 2001,
   "overview": "Based on the comic book by Frank Miller and Geof Darrow, a BGY-11 robot is created to defend America but no one knows it's just a man in a suit. He is decommissioned when Rusty - a combat robot with artifical intelligence is produced. With no experience at all, Rusty is easily defeated his first time out, but Big Guy is recalled back to action to help out the child robot and teach him about being a hero.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/66/165105.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/73642-1.jpg",
   "backdropURL": null,
   "genres": [
     "Action",
@@ -46,5 +46,63 @@
   "canonicalEpisodesCount": 26,
   "seriesImdbID": "tt0217914",
   "canonicalEpisodeCount": 7,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "tvdbID": "73642",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Jonathan Cook",
+      "character": "Big Guy",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/356455/photo/61191e01116ac.jpg"
+    },
+    {
+      "name": "Pamela Adlon",
+      "character": "Rusty",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/248292/5e8b4ea2f2830.jpg"
+    },
+    {
+      "name": "Jim Hanks",
+      "character": "Lieutenant Dwayne Hunter",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/343932/photo/6119212d62743.jpg"
+    },
+    {
+      "name": "Gabrielle Carteris",
+      "character": "Dr. Erika Slate",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/330304/photo/61191d111f1b8.jpg"
+    },
+    {
+      "name": "Stephen Root",
+      "character": "Dr. Axel Donovan",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/248228/photo/660f7b5296633.jpg"
+    },
+    {
+      "name": "Kathy Kinney",
+      "character": "Jenny the Monkey",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/290471/photo/6119209986880.jpg"
+    },
+    {
+      "name": "Kevin Michael Richardson",
+      "character": "Garth",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/274256/5ebeaf08ee4f0.jpg"
+    },
+    {
+      "name": "M. Emmet Walsh",
+      "character": "Mack",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262047/photo/65158165430fa.jpg"
+    },
+    {
+      "name": "R. Lee Ermey",
+      "character": "General Thorton",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/284366/photo/60972635caaaa.jpg"
+    }
+  ]
 }

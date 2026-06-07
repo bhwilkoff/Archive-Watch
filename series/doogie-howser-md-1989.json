@@ -5,7 +5,7 @@
   "yearStart": 1989,
   "yearEnd": 1992,
   "overview": "Doogie Howser is a doctor. He is also a 16-year-old genius who graduated college at age 10 and finished medical school at age 14. But he is still a teenager, with normal teenage friends and problems. But unlike a normal teenager, he is just learning to drive while also consulting on serious medical cases like heart transplants.",
-  "posterURL": "https://image.tmdb.org/t/p/w500/uNGrGq7tJ1GiKUsfnchC07l0Q2M.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/72203-2.jpg",
   "backdropURL": "https://image.tmdb.org/t/p/w1280/jIXDWBeCUEu0ttzjHBJC4sA8LzR.jpg",
   "genres": [],
   "networks": [
@@ -93,5 +93,69 @@
   ],
   "episodesCount": 4,
   "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "canonicalEpisodeCount": 0,
+  "tvdbID": "72203",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Neil Patrick Harris",
+      "character": "Dr. Douglas \"Doogie\" Howser",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/253954/primary.jpg"
+    },
+    {
+      "name": "Max Casella",
+      "character": "Vinnie Delpino",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/316164/photo/6545b45bba0b2.jpg"
+    },
+    {
+      "name": "Kathryn Layng",
+      "character": "Nurse Curly Spaulding",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7933977/photo/60cbacc344852.jpg"
+    },
+    {
+      "name": "Mitchell Anderson",
+      "character": "Dr. Jack McGuire",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/15671.jpg"
+    },
+    {
+      "name": "Belinda Montgomery",
+      "character": "Katherine Howser",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/287736/photo/62364a84318d2.jpg"
+    },
+    {
+      "name": "James Sikking",
+      "character": "Dr. David Howser",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257403/photo/65bff356a5cb7.jpg"
+    },
+    {
+      "name": "Lawrence Pressman",
+      "character": "Dr. Benjamin Canfield",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/282792/photo/64a5aae288ab0.jpg"
+    },
+    {
+      "name": "Lisa Dean Ryan",
+      "character": "Wanda Plenn",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/325332/photo/646128fc002de.jpg"
+    },
+    {
+      "name": "Steven Bochco",
+      "character": "",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/255266/photo/65600d715b767.jpg"
+    },
+    {
+      "name": "David E. Kelley",
+      "character": "",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/315481/5ed4fdcc3f7f5.jpg"
+    }
+  ]
 }

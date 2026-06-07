@@ -6,7 +6,7 @@
   "yearStart": 1951,
   "yearEnd": 1959,
   "overview": "This long-running show created by Jack Webb features the criminal investigations of police detective Joe Friday. Webb prided himself on making the cases as \"realistic\" as possible, with many of the cases taken from the files of the LAPD. The series was based on the popular radio series, and subsequently inspired three revivals in the 60s, 1989, and 2003.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/11/29790.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/72763-2.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -452,5 +452,7 @@
       "order": 4,
       "profilePath": "/8nl4ZMMXiaPvDOvJWG4LOl536X1.jpg"
     }
-  ]
+  ],
+  "tvdbID": "72763",
+  "artworkSource": "tvdb"
 }

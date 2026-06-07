@@ -6,7 +6,7 @@
   "yearStart": 1961,
   "yearEnd": 1962,
   "overview": "Robert Young plays Cam Brooks, a writer, who returns to Millsberg, his hometown, and renews his friendship with the editor of the local newspaper, Lloyd Ramsey. The inhabitants of the town were subjects of Cam's stories.",
-  "posterURL": null,
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77105-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -124,5 +124,7 @@
       "order": 2,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/65/163952.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77105",
+  "artworkSource": "tvdb"
 }

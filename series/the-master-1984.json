@@ -6,7 +6,7 @@
   "yearStart": 1984,
   "yearEnd": 1984,
   "overview": "John Peter McAllister, an American veteran, is the only American ever accepted for training as a ninja. He finally leaves his clan to seek out his daughter in America. The ninja consider his abandoning them dishonorable and send one of their own, Osaka, to kill McAllister. Meanwhile, McAllister makes the acquaintance of a young wannabe knight errant, Max Keller, and agrees to train him in the ways of the ninja. As they travel the U.S. in Max's van, Max and McAllister help those that they meet.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/419/1049078.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76721-4.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -138,5 +138,7 @@
       "order": 2,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/149/374094.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76721",
+  "artworkSource": "tvdb"
 }

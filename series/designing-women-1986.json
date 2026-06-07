@@ -6,7 +6,7 @@
   "yearStart": 1986,
   "yearEnd": 1993,
   "overview": "Julia Sugarbaker, Mary Jo Shively, Charlene Frazier-Stillfield, and Suzanne Sugarbaker are associates at their design firm, Sugarbaker and Associates. Julia is the owner of and is very outspoken and strong-willed. Mary Jo Shively is a divorced single-parent who is just as strong-willed as Julia, but isn't as self-confident. Charlene is a naive and trusting farm girl from Poplar Bluff, Missouri. Suzanne Sugarbaker is a self-centered ex-beauty queen who has a number of wealthy ex-husbands.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/206/515181.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76999-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -457,5 +457,7 @@
       "order": 8,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/8/22188.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76999",
+  "artworkSource": "tvdb"
 }

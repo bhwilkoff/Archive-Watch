@@ -6,7 +6,7 @@
   "yearStart": 1957,
   "yearEnd": 1957,
   "overview": "Code 3 is an American crime drama that aired in syndication in 1957. The stories were all based on actual files of the Los Angeles sheriff's office. Stories were presented from the viewpoint of Assistant Sheriff George Barnett.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/463/1159056.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/72969-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -104,5 +104,21 @@
   "canonicalEpisodesCount": 39,
   "seriesImdbID": "tt0050005",
   "canonicalEpisodeCount": 15,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "tvdbID": "72969",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Eugene W. Biscailuz",
+      "character": "Los Angeles County Sheriff",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/21662.jpg"
+    },
+    {
+      "name": "Richard Travis",
+      "character": "Assistant Sheriff Rodger Barnett",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/393569.jpg"
+    }
+  ]
 }

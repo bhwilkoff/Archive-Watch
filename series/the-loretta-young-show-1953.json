@@ -6,7 +6,7 @@
   "yearStart": 1953,
   "yearEnd": 1961,
   "overview": "Also known as Letter to Loretta",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/series/76561/posters/62073086.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [
@@ -1271,5 +1271,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/597/1494533.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76561",
+  "artworkSource": "tvdb"
 }

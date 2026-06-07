@@ -6,7 +6,7 @@
   "yearStart": 1980,
   "yearEnd": 1998,
   "overview": "Satirical sitcom set in the office of a UK Cabinet minister, Jim Hacker MP, who struggles with Civil Service bureaucracy and political machinations as he tries to get on with government business.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/206/517241.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76829-4.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -211,5 +211,7 @@
       "order": 6,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/110/276633.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76829",
+  "artworkSource": "tvdb"
 }

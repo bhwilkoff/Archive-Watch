@@ -6,7 +6,7 @@
   "yearStart": 1974,
   "yearEnd": 1976,
   "overview": "Land of the Lost is the story of a forest ranger and his two teenage children who fall through a time vortex into another universe. They try to return to our universe, but their lives are constantly endangered by dinosaurs, the ‘Sleestaks', seven-foot tall hissing lizard people who live in an underground city and the Land of the Lost's peculiar laws of physics. They also befriend the ‘Pakuni', a small tribe of ape-like creatures.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/26/65525.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71177-3.jpg",
   "backdropURL": null,
   "genres": [
     "Action",
@@ -126,5 +126,7 @@
       "order": 6,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/190/476514.jpg"
     }
-  ]
+  ],
+  "tvdbID": "71177",
+  "artworkSource": "tvdb"
 }

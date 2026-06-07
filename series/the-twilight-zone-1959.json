@@ -6,7 +6,7 @@
   "yearStart": 1959,
   "yearEnd": 1964,
   "overview": "A groundbreaking series by Rod Serling, this half-hour anthology featured tales of the strange, the macabre, and the unusual. Some were science fiction, some were supernatural, and some defied easy categorization.This five-season series is best known for its twist endings. Many of the stories were written by Serling himself, others were crafted by Richard Matheson, Charles Beaumont, Earl Hammer Jr. and Ray Bradbury.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/398/996733.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/73587-13.jpg",
   "backdropURL": null,
   "genres": [
     "Science-Fiction",
@@ -200,5 +200,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/24030.jpg"
     }
-  ]
+  ],
+  "tvdbID": "73587",
+  "artworkSource": "tvdb"
 }

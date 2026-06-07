@@ -6,7 +6,7 @@
   "yearStart": 1979,
   "yearEnd": 1980,
   "overview": "Philadelphia coffee shop waitress Angie Falco starts a romance with customer Bradley Benson, a pediatrician. While she assumes he is a struggling young doctor, he reveals that he is actually rebelling against his wealthy family, presumably residents in the Main Line region of the city's suburbs.The other Falco family members are Angie's mother Theresa and her younger sister Marie. Angie and Marie's father had walked out on the family many years earlier, but Theresa continued to set a place for him at the dinner table. Brad's relatives consist of his stuffy father Randall, his divorced sister, the overbearing Joyce, and Joyce's daughter Hillary. Angie forms a close bond with Hilary.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/445/1114137.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77776-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -140,5 +140,7 @@
       "order": 4,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/13783.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77776",
+  "artworkSource": "tvdb"
 }

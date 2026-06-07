@@ -6,7 +6,7 @@
   "yearStart": 1992,
   "yearEnd": null,
   "overview": "Hosted by Dean Johnson, Hometime's aim is to help homeowners achieve professional-looking results from their home improvement projects. The \"Hometime\" crew tackles everything from landscaping, painting, and kitchen facelifts to managing new construction and major additions to older houses.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/82287-1.jpg",
   "backdropURL": null,
   "genres": [
     "DIY"
@@ -385,5 +385,7 @@
       "order": 5,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/34/87010.jpg"
     }
-  ]
+  ],
+  "tvdbID": "82287",
+  "artworkSource": "tvdb"
 }

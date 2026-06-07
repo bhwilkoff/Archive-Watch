@@ -6,7 +6,7 @@
   "yearStart": 1952,
   "yearEnd": 1955,
   "overview": "An upstanding judge has a wacky but good-hearted wife.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/93/233388.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77326-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -628,5 +628,7 @@
       "order": 1,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/516/1290498.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77326",
+  "artworkSource": "tvdb"
 }

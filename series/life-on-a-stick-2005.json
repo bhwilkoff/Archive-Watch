@@ -6,7 +6,7 @@
   "yearStart": 2005,
   "yearEnd": 2005,
   "overview": "Life on a Stick centers on several teen characters who work and hang out at the mall food court. There is 18-year-old, optimistic-but-not-ambitious Laz; his 16-year-old angst-ridden and angry stepsister, Molly; Laz's best friend Fred; and Laz's new girlfriend Lily. Home base for Laz and Molly is a blended family formed by the marriage of Laz's dad, Rick, and Molly's mom, Michelle. Rick and Molly love all of their children, but they are particularly obsessed with the only product of their union together: the sweet, perfect and wise 8-year-old Gus. Laz and Fred both 18, have been friends forever.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/23/59995.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/73722-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -123,5 +123,7 @@
       "order": 8,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/472/1180653.jpg"
     }
-  ]
+  ],
+  "tvdbID": "73722",
+  "artworkSource": "tvdb"
 }

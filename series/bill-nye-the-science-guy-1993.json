@@ -6,7 +6,7 @@
   "yearStart": 1993,
   "yearEnd": 2003,
   "overview": "Comedian/scientist Bill Nye stars as the host of this show designed to get kids interested in the science of everyday, and some not-so-everyday, things. On a full range of subjects, including ecology, biology, chemistry and physics, Nye gives an easy-to-understand, yet informative lesson that both kids and their parents can enjoy.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/30/76608.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/series/78494/posters/5e9e357dc1f05.jpg",
   "backdropURL": null,
   "genres": [
     "Children"
@@ -401,5 +401,7 @@
       "order": 6,
       "profilePath": null
     }
-  ]
+  ],
+  "tvdbID": "78494",
+  "artworkSource": "tvdb"
 }

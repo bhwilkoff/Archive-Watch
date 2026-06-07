@@ -6,7 +6,7 @@
   "yearStart": 1981,
   "yearEnd": 1987,
   "overview": "The lives and work of the staff of an inner city police precinct.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/19/47756.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/74449-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -294,5 +294,7 @@
       "order": 17,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/152/380165.jpg"
     }
-  ]
+  ],
+  "tvdbID": "74449",
+  "artworkSource": "tvdb"
 }

@@ -6,7 +6,7 @@
   "yearStart": 2025,
   "yearEnd": null,
   "overview": "Inspired by the iconic Play for Today format, each production will champion new voices and focus on bringing low-income talent into the spotlight behind the scenes in writing, directing and production roles.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/597/1493612.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/470227/posters/6915f6aad1c73.jpg",
   "backdropURL": null,
   "genres": [
     "Drama"
@@ -80,5 +80,7 @@
   "canonicalEpisodesCount": 4,
   "seriesImdbID": "tt37956320",
   "canonicalEpisodeCount": 1,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "tvdbID": "470227",
+  "artworkSource": "tvdb"
 }

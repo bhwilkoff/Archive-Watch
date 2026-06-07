@@ -90,5 +90,14 @@
   "canonicalEpisodesCount": 19,
   "seriesImdbID": "tt0125624",
   "canonicalEpisodeCount": 2,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "tvdbID": "273668",
+  "cast": [
+    {
+      "name": "Peter Tilbury",
+      "character": "Philip Roath",
+      "order": 0,
+      "profilePath": null
+    }
+  ]
 }

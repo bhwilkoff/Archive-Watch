@@ -6,7 +6,7 @@
   "yearStart": 1995,
   "yearEnd": 1998,
   "overview": "Mr. Show was the insanely funny, critically loved but HBO-loathed sketch comedy that ran on the channel for 4 years from 1995-1998. The show was created, executive produced, written and starred comics/writers Bob Odenkirk and David Cross. The show also starred Tom Kenny, Jill Talley and John Ennis. Featured performers/writers included Paul F. Tompkins, Jerry Minor, B.J. Porter, Scott Aukerman, Brian Posehn, and Jay Johnston. Featured performers included Mary-Lynn Rajskub, Brett Paesal, and Sarah Silverman. The show has spawned a movie based on popular character Ronnie Dobbs in Run Ronnie Run. Bob's wife, Naomi Odenkirk, has compiled everything you could ever want to know about the show in her wonderful book, Mr. Show: What Happened.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/13/34454.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/72965-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -160,5 +160,7 @@
       "order": 9,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/449/1123850.jpg"
     }
-  ]
+  ],
+  "tvdbID": "72965",
+  "artworkSource": "tvdb"
 }

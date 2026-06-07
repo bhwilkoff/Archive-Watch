@@ -6,7 +6,7 @@
   "yearStart": 1971,
   "yearEnd": 1972,
   "overview": "Banished from the peaceful simian Planet E, the mad scientist Dr. Gori and his brutish assistant Karras [Rah in the Japanese version] search for a new planet to rule after Gori's plot to conquer Planet E had been foiled by its government. Coming across the Earth, Gori is captivated by its beauty, but is appalled by its inhabitants' misuse of its environment, leading to severe pollution (a huge topic back when this series was made, since Tokyo was the most polluted city in the world at the time), so mankind must be quickly conquered if this planet is to be inhabitable, so he plots to, ironically, use the very same pollution that's plaguing the Earth to create horrible giant rampaging monsters to wipe out and/or enslave mankind. Fortunately, hope comes in the form of the Nebula 71 Star, a Saturn-like artificial satellite that observes the Earth incognito. Fearing that Gori may eventually...",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/33/84010.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/152381-1.jpg",
   "backdropURL": null,
   "genres": [
     "Action",
@@ -82,5 +82,7 @@
   "canonicalEpisodesCount": 63,
   "seriesImdbID": "tt0262177",
   "canonicalEpisodeCount": 60,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "tvdbID": "152381",
+  "artworkSource": "tvdb"
 }

@@ -6,7 +6,7 @@
   "yearStart": 1991,
   "yearEnd": 1992,
   "overview": "Dwight Davis, a widowed elementary school principal raises his three sons (Robbie, Charlie, and Ben) with the help of his wacky father Gunny Davis.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/369/924916.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71868-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -106,5 +106,7 @@
       "order": 9,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/32/80634.jpg"
     }
-  ]
+  ],
+  "tvdbID": "71868",
+  "artworkSource": "tvdb"
 }

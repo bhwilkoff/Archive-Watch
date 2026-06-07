@@ -6,7 +6,7 @@
   "yearStart": 2013,
   "yearEnd": 2018,
   "overview": "Often described as a tree whisperer by his clients, colleagues and contemporaries, Pete Nelson dedicates his life granting people's dreams of turning peaceful nooks in nature into the ultimate escapes. In Treehouse Masters, Nelson and his team execute the most outrageous treehouses designed to delight every whimsy, form and function. Whether he's contriving magnificent multi-bedroom treehouses with state-of-the-art kitchens and bathrooms or rendering simpler, peaceful one-room escapes, Nelson always goes out on a limb to create the most breathtaking treehouses with spectacular vistas.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/71/178414.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/270071-2.jpg",
   "backdropURL": null,
   "genres": [
     "DIY"
@@ -88,5 +88,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/14/35007.jpg"
     }
-  ]
+  ],
+  "tvdbID": "270071",
+  "artworkSource": "tvdb"
 }

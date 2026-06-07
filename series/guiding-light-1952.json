@@ -6,7 +6,7 @@
   "yearStart": 1952,
   "yearEnd": 2009,
   "overview": "Guiding Light (known as The Guiding Light before 1975) is an American television soap opera that is listed in Guinness World Records as the longest-running drama in television in American history, broadcast on CBS for 57 years from June 30, 1952 until September 18, 2009, preceded by a 15-year broadcast on radio.Guiding Light is the longest running soap opera and the fifth longest running program in all of broadcast history",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/39/99228.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76597-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -209,5 +209,7 @@
       "order": 17,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/469/1173358.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76597",
+  "artworkSource": "tvdb"
 }

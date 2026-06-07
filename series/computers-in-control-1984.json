@@ -5,8 +5,8 @@
   "title": "Computers in Control",
   "yearStart": 1984,
   "yearEnd": 1984,
-  "overview": null,
-  "posterURL": null,
+  "overview": "An introduction to the world of robotics and computer automation.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/318230-1.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [
@@ -114,5 +114,7 @@
   "canonicalEpisodesCount": 5,
   "seriesImdbID": "tt19812618",
   "canonicalEpisodeCount": 1,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "tvdbID": "318230",
+  "artworkSource": "tvdb"
 }

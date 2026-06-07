@@ -6,7 +6,7 @@
   "yearStart": 1974,
   "yearEnd": 1975,
   "overview": "The New Adventures of Gilligan was an animated revival of the still-popular classic sitcom. It was basically an animated remake of \"Gilligan's Island\". It had more character depth than the original series, and we even learned that Mary Ann had a crush on Gilligan!",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/128/320239.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/73523-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy",
@@ -68,5 +68,51 @@
   "canonicalEpisodesCount": 24,
   "seriesImdbID": "tt0071022",
   "canonicalEpisodeCount": 21,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "tvdbID": "73523",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Bob Denver",
+      "character": "Willy Gilligan",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/279523/photo/6689fe36d11d1.jpg"
+    },
+    {
+      "name": "Alan Hale Jr.",
+      "character": "Skipper Jonas Grumby",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258183/photo/641d3de36447e.jpg"
+    },
+    {
+      "name": "Jim Backus",
+      "character": "Thurston Howell III",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/260188/photo/6936bcb5c4355.jpg"
+    },
+    {
+      "name": "Natalie Schafer",
+      "character": "Eunice Wentworth \"Lovey\" Howell",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/255736/photo/6689ff435d7fe.jpg"
+    },
+    {
+      "name": "Russell Johnson",
+      "character": "Professory Roy Hinkley",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258114/photo/6080d8d86aaa3.jpg"
+    },
+    {
+      "name": "Jane Webb",
+      "character": "Ginger Grant / Mary Ann Summers",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/313843/photo/65edc6b106448.jpg"
+    },
+    {
+      "name": "Lou Sheimer",
+      "character": "Stubby",
+      "order": 6,
+      "profilePath": null
+    }
+  ]
 }

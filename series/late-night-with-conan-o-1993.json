@@ -5,7 +5,7 @@
   "yearStart": 1993,
   "yearEnd": 1999,
   "overview": "Stepping into the late-late slot vacated by David Letterman, Conan O'Brien stars in a show that far outdoes its competition in sheer strangeness. Along with the celebrity interviews and musical numbers typical of late-night talk shows, this program make frequent use of odd walk-on characters and frequent \"visits\" from celebrity guests.",
-  "posterURL": "https://image.tmdb.org/t/p/w500/gJZ1rhLLFpatuAeylJoUI82DKC7.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76737-3.jpg",
   "backdropURL": "https://image.tmdb.org/t/p/w1280/q9unI9oHyLUNK97RQPYAGjFs4Xu.jpg",
   "genres": [],
   "networks": [
@@ -75,5 +75,15 @@
   ],
   "episodesCount": 3,
   "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "canonicalEpisodeCount": 0,
+  "tvdbID": "76737",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Conan O'Brien",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/7915490/5ea44a97438dd.jpg"
+    }
+  ]
 }

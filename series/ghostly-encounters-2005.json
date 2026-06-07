@@ -6,7 +6,7 @@
   "yearStart": 2005,
   "yearEnd": 2016,
   "overview": "Ghostly Encounters, hosted by Lawrence Chau, examines supernatural phenomenon through the eyes of the people who claim to have witnessed otherworldly events. It does not challenge the truthfulness of the encounter, but explores the event from the perspective of the person who had it. Each story is told directly to the camera by the person who experienced it and is supported with dramatic re-enactments, archival photography and graphics. The series also uses research and expert consultants to analyze the stories and put them in context.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/37/94232.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/217081-1.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [
@@ -104,5 +104,7 @@
       "order": 0,
       "profilePath": "/9LoYHKajWdjU5jB81e5fpjIoSMs.jpg"
     }
-  ]
+  ],
+  "tvdbID": "217081",
+  "artworkSource": "tvdb"
 }

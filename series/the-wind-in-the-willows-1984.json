@@ -6,7 +6,7 @@
   "yearStart": 1984,
   "yearEnd": 1990,
   "overview": "Based on the novels by Kenneth Grahame, The Wind in the Willows is the classic story of the adventures of Mole, Badger, Rat and Toad of Toad Hall, set in Edwardian England of 1908. Mole sets out from his underground home to discover the world and is befriended by the river loving Water Rat who introduces him to the madcap aristocrat Mr. Toad. Together with Grandfatherly Badger they encounter the rascally Weasels, face the terrors of Wild Wood, and see Mr. Toad through a series of headlong escapades until they return once again to the peace of the English countryside.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/127/319007.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70997-1.jpg",
   "backdropURL": null,
   "genres": [
     "Children",
@@ -274,5 +274,7 @@
       "order": 4,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/182/456443.jpg"
     }
-  ]
+  ],
+  "tvdbID": "70997",
+  "artworkSource": "tvdb"
 }

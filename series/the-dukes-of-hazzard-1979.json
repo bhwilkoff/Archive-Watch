@@ -6,7 +6,7 @@
   "yearStart": 1979,
   "yearEnd": 1985,
   "overview": "Cousins Bo and Luke Duke and their car \"General Lee\", assisted by Cousin Daisy and Uncle Jesse, have a running battle with the authorities of Hazzard County (Boss Hogg and Sheriff Coltrane), plus a string of ne'er-do-wells often backed by the scheming Hogg.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/20/51133.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77748-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy",
@@ -1686,5 +1686,7 @@
       "order": 15,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/272/680262.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77748",
+  "artworkSource": "tvdb"
 }

@@ -6,7 +6,7 @@
   "yearStart": 1971,
   "yearEnd": 2021,
   "overview": "Police detective Chad Smith lives with his wife, Betty, and his three children, Bob, Cindy, and Brian.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/522720.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/76444/posters/661ef68936495.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -425,5 +425,7 @@
       "order": 6,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/45/113843.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76444",
+  "artworkSource": "tvdb"
 }

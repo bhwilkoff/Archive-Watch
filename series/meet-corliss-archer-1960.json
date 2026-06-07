@@ -5,7 +5,7 @@
   "yearStart": null,
   "yearEnd": null,
   "overview": "Meet Corliss Archer is an American sitcom that aired in syndication from April to December 1954. The series stars Ann Baker in the title role. The program was an adaptation of the radio series of the same name, which was based on a series of short stories by F. Hugh Herbert.",
-  "posterURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/5d9a475661fa0.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [],
@@ -115,5 +115,15 @@
   "episodesCount": 5,
   "seriesImdbID": "tt0046624",
   "canonicalEpisodeCount": 31,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "tvdbID": "74651",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Irene Tedrow",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    }
+  ]
 }

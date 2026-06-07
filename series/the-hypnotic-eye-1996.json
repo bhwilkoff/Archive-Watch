@@ -5,7 +5,7 @@
   "yearStart": 1996,
   "yearEnd": 1997,
   "overview": "A hosted horror, science fiction movie and television series show, hosted by Icon, the Hypnotic Eye.",
-  "posterURL": null,
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/5c47fce2394cc.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [],
@@ -92,5 +92,15 @@
   "episodesCount": 4,
   "seriesImdbID": "tt5758960",
   "canonicalEpisodeCount": 6,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "tvdbID": "350449",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Joe Riley",
+      "character": "Icon, The Hypnotic Eye",
+      "order": 0,
+      "profilePath": null
+    }
+  ]
 }

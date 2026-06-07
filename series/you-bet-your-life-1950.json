@@ -6,7 +6,7 @@
   "yearStart": 1950,
   "yearEnd": 1961,
   "overview": "Groucho Marx hosts a quiz show which features a series of competitive questions and a great deal of humorous conversation.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/12/30411.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71696-2.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -259,5 +259,7 @@
       "order": 2,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30413.jpg"
     }
-  ]
+  ],
+  "tvdbID": "71696",
+  "artworkSource": "tvdb"
 }

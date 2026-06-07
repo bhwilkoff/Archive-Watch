@@ -6,7 +6,7 @@
   "yearStart": 1949,
   "yearEnd": 1954,
   "overview": "This anthology series, filmed live, features tales of horror and suspense.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/47/119781.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/75716-1.jpg",
   "backdropURL": null,
   "genres": [
     "Horror",
@@ -448,5 +448,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/415/1039513.jpg"
     }
-  ]
+  ],
+  "tvdbID": "75716",
+  "artworkSource": "tvdb"
 }

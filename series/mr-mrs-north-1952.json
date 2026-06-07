@@ -6,7 +6,7 @@
   "yearStart": 1952,
   "yearEnd": 1954,
   "overview": "Jerry and Pamela North live in Greenwich Village in New York City. Jerry is a mystery magazine publisher who thinks he is a good amateur detective. He and his wife investigate various crimes and solve them before the police do.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/100/251649.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/74065-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -561,5 +561,7 @@
       "order": 1,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/100/251653.jpg"
     }
-  ]
+  ],
+  "tvdbID": "74065",
+  "artworkSource": "tvdb"
 }

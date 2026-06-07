@@ -5,7 +5,7 @@
   "yearStart": null,
   "yearEnd": null,
   "overview": "Herbert Philbrick was a young professional and pacifist in 1939 Boston. He joined an anti-war group and quickly found himself caught up in the secret world of underground communist activity. He agreed to spy on the Communists for the FBI, and spent the next 9 years of his life as a Communist, FBI spy, and Communist counter-spy, since they had asked him to follow other comrades to test their loyalty. Hence the 3 lives; and his family, co-workers, and church never knew. This TV show is based on the TRUE story of how Philbrick (played ably by Richard Carlson) could never relax, but had to sneak to secret cell meetings and meet FBI agents in clandestine places to make info drops, never knowing when he might be found out, and if he would live to see the next rendezvous.",
-  "posterURL": null,
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/329400-2.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [],
@@ -79,5 +79,27 @@
   "episodesCount": 3,
   "seriesImdbID": "tt0045397",
   "canonicalEpisodeCount": 79,
-  "canonicalSeasons": 3
+  "canonicalSeasons": 3,
+  "tvdbID": "329400",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Richard Carlson",
+      "character": "Herbert Philbrick",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/428009.jpg"
+    },
+    {
+      "name": "John Zaremba",
+      "character": "Special Agent Jerry Dressler",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256662/photo/649579f578390.jpg"
+    },
+    {
+      "name": "Virginia Stefan",
+      "character": "Eva Philbrick",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/428024.jpg"
+    }
+  ]
 }

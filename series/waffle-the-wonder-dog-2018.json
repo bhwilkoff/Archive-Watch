@@ -6,7 +6,7 @@
   "yearStart": 2018,
   "yearEnd": 2020,
   "overview": "Meet Waffle, an adorable fluffy dog, who can't help but cause trouble, has an undying desire to befriend next door's cat and is on a crash course to cementing the Brooklyn-Bell blended family.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/177/444054.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/343685-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -338,5 +338,7 @@
       "order": 17,
       "profilePath": null
     }
-  ]
+  ],
+  "tvdbID": "343685",
+  "artworkSource": "tvdb"
 }

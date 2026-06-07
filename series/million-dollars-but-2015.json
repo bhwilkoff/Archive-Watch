@@ -6,7 +6,7 @@
   "yearStart": 2015,
   "yearEnd": 2018,
   "overview": "What would you do for a million dollars? Rooster Teeth's finest would do anything to get rich. Seriously. Anything. In each episode, a rotating cast of hosts challenge each other with their own hypothetical version of the question \"You get a million dollars, but...\". Participants have to determine if the deal would be worth it for them in exchange for a million dollars.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/99/249169.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/305883-2.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -103,5 +103,7 @@
   "canonicalEpisodesCount": 44,
   "seriesImdbID": "tt5719268",
   "canonicalEpisodeCount": 35,
-  "canonicalSeasons": 5
+  "canonicalSeasons": 5,
+  "tvdbID": "305883",
+  "artworkSource": "tvdb"
 }

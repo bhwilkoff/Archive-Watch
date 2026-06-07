@@ -6,7 +6,7 @@
   "yearStart": 1990,
   "yearEnd": 1992,
   "overview": "An unconventional sitcom that follows Chris Peterson - a 30-year-old paperboy still stuck in living like a perpetual child. His bizarre understanding of reality leads to many warped adventures. A prime example of the show's surrealness was that Chris actually dies in several episodes.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89988.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76500-3.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -124,5 +124,7 @@
       "order": 6,
       "profilePath": "/ApysF6vUAU5IdsuFQMtgjkXcfbs.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76500",
+  "artworkSource": "tvdb"
 }

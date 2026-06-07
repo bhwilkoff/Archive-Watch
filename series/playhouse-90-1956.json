@@ -6,7 +6,7 @@
   "yearStart": 1956,
   "yearEnd": 1960,
   "overview": "Playhouse 90 was an anthology drama series that aired on CBS from 1956 to 1960.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/78/196808.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/73114-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama"
@@ -144,5 +144,7 @@
   "canonicalEpisodesCount": 133,
   "seriesImdbID": "tt0048893",
   "canonicalEpisodeCount": 44,
-  "canonicalSeasons": 4
+  "canonicalSeasons": 4,
+  "tvdbID": "73114",
+  "artworkSource": "tvdb"
 }

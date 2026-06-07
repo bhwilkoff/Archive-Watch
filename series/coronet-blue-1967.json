@@ -6,7 +6,7 @@
   "yearStart": 1967,
   "yearEnd": 1967,
   "overview": "A man wakes up with amnesia, and has no memory of who he is or why people want him dead. Taking the name \"Michael Alden\", the man sets out to find out who he is and why the mysterious \"Greybeards\" want him dead.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/176/440439.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70393-2.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -149,5 +149,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/104/261436.jpg"
     }
-  ]
+  ],
+  "tvdbID": "70393",
+  "artworkSource": "tvdb"
 }

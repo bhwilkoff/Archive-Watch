@@ -6,7 +6,7 @@
   "yearStart": 1998,
   "yearEnd": 2010,
   "overview": "Teams compete each week to construct a junk machine, using only what they can scavenge from the scrapheap. Every series builds to a final contest - and the crowning of a champion team.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/21/53019.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/79903/posters/616bc00543cc9.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [
@@ -86,5 +86,7 @@
       "order": 6,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/30/76310.jpg"
     }
-  ]
+  ],
+  "tvdbID": "79903",
+  "artworkSource": "tvdb"
 }

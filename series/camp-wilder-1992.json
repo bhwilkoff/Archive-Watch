@@ -6,7 +6,7 @@
   "yearStart": 1992,
   "yearEnd": 1993,
   "overview": "Camp Wilder is the story of Ricky Wilder, a young woman raising her daughter after a bad marriage. When her parents die, she moves back home to be the guardian for her two younger siblings and ends up being a type of counselor for them and their friends.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/47/117504.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/76757/posters/6831fdfd571e3.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -94,5 +94,7 @@
       "order": 7,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/47/119506.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76757",
+  "artworkSource": "tvdb"
 }

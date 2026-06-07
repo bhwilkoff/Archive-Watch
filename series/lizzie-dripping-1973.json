@@ -6,7 +6,7 @@
   "yearStart": 1973,
   "yearEnd": 1975,
   "overview": "A young girl with a vivid imagination meets a local witch whom only she can see and hear. Already known as an imaginative liar, Penelope has problems convincing others that the witch is real.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/260/650003.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/5d059673c831f.jpg",
   "backdropURL": null,
   "genres": [
     "Children",
@@ -125,5 +125,7 @@
       "order": 3,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/230/577099.jpg"
     }
-  ]
+  ],
+  "tvdbID": "296971",
+  "artworkSource": "tvdb"
 }

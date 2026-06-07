@@ -6,7 +6,7 @@
   "yearStart": 1958,
   "yearEnd": 1959,
   "overview": "The adventures of Sir Wilfred of Ivanhoe, a noble knight and champion of justice during the rule of the evil Prince John.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/577/1443208.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77500-1.jpg",
   "backdropURL": null,
   "genres": [
     "Action",
@@ -173,5 +173,7 @@
       "order": 4,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/100/250356.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77500",
+  "artworkSource": "tvdb"
 }

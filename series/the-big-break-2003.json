@@ -6,7 +6,7 @@
   "yearStart": 2003,
   "yearEnd": 2015,
   "overview": "Aspiring amateurs and mini-tour players compete in elimination challenges for an opportunity at a professional golf career.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/113/283449.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/264073-1.jpg",
   "backdropURL": null,
   "genres": [
     "Sports"
@@ -67,5 +67,7 @@
   "canonicalEpisodesCount": 254,
   "seriesImdbID": "tt0805809",
   "canonicalEpisodeCount": 235,
-  "canonicalSeasons": 23
+  "canonicalSeasons": 23,
+  "tvdbID": "264073",
+  "artworkSource": "tvdb"
 }

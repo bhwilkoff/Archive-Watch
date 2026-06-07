@@ -6,7 +6,7 @@
   "yearStart": 1963,
   "yearEnd": 1966,
   "overview": "Burke's Law depicted the crime-solving adventures of dashing, debonair swinger Amos Burke, an L.A.P.D. homicide captain who just happened to also be a millionaire. Each week, Burke (a suave, and very eligible, womanizing bachelor) would be faced with a mysterious murder case involving an assortment of colorful suspects (each portrayed by a special guest star, often cast \"against type\" and getting a chance to ham shamelessly). Burke, upon receiving the inevitable call to the crime scene, usually gave a terse \"When? Where? I'm on my way\"; then, forsaking his mansion and \"date du jour\", he would be transported in style by Henry, his Philippine chauffeur/valet/chef/butler. Burke was aided in his investigations by brash young Detective Tim Tilson, who was usually trying to outshine his boss.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/99/249641.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76697-2.jpg",
   "backdropURL": null,
   "genres": [
     "Action",
@@ -152,5 +152,7 @@
       "order": 1,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/18/46339.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76697",
+  "artworkSource": "tvdb"
 }

@@ -6,7 +6,7 @@
   "yearStart": 1976,
   "yearEnd": 1976,
   "overview": "Three teenagers crash-land their small plane on Dr. Shrinker's uncharted island. The diabolical scientist has created a \"shrinking ray\" that he uses to shrink the teenagers. Now with proof that the machine works on humans, he can sell it–and them–to the highest bidder…unless the shrunken teenagers can stop him.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/26/66467.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/73521-1.jpg",
   "backdropURL": null,
   "genres": [
     "Children"
@@ -157,5 +157,39 @@
   "canonicalEpisodesCount": 1,
   "seriesImdbID": "tt0147761",
   "canonicalEpisodeCount": 15,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "tvdbID": "73521",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Ted Eccles",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Jay Robinson",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Susan Lawrence",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Billy Barty",
+      "character": "",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/270005/photo/6498947dacd19.jpg"
+    },
+    {
+      "name": "Jeff MacKay",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    }
+  ]
 }

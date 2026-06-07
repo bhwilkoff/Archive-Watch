@@ -6,7 +6,7 @@
   "yearStart": 1954,
   "yearEnd": 1957,
   "overview": "Annie Oakley is an American Western television series that fictionalized the life of famous sharpshooter Annie Oakley. It ran from January 9th 1954 to 24th February 1957 in syndication, for a total of 81 black and white episodes, each 25 minutes long.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/33/82989.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77365-2.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -119,5 +119,7 @@
       "order": 2,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/251/629609.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77365",
+  "artworkSource": "tvdb"
 }

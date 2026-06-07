@@ -6,7 +6,7 @@
   "yearStart": 1955,
   "yearEnd": 1958,
   "overview": "Adventure series depicting the battles of an outpost officer, Sergeant Preston, of the Royal Northwest Mounted Police with lawbreakers of the Klondike at the turn of the century.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/399/998017.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77439-1.jpg",
   "backdropURL": null,
   "genres": [
     "Action",
@@ -95,5 +95,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/385/963796.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77439",
+  "artworkSource": "tvdb"
 }

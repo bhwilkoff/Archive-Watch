@@ -6,7 +6,7 @@
   "yearStart": 1997,
   "yearEnd": null,
   "overview": "South Park is an adult comedy animation show centred around 4 children in the small town of south park. Its humour is often dark involving satirical elements and mocking current real-life events.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/594/1485766.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/75897-5.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -208,5 +208,7 @@
       "order": 17,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/12653.jpg"
     }
-  ]
+  ],
+  "tvdbID": "75897",
+  "artworkSource": "tvdb"
 }

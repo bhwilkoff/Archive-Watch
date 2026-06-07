@@ -6,7 +6,7 @@
   "yearStart": null,
   "yearEnd": null,
   "overview": "Lon Chaney Jr. was the host, introducing each episode from his 'home' at 13 Demon Street. Condemned for some shockingly atrocious crime, Chaney's purpose in relating the series' stories was to convince viewers that the crimes presented in them were worse than his, thus freeing him from his purgatory.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/144/361930.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/72058-2.jpg",
   "backdropURL": null,
   "genres": [
     "Horror",
@@ -71,5 +71,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/47/119847.jpg"
     }
-  ]
+  ],
+  "tvdbID": "72058",
+  "artworkSource": "tvdb"
 }

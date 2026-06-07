@@ -6,7 +6,7 @@
   "yearStart": 1977,
   "yearEnd": 2005,
   "overview": "Wildlife on One was a nature documentary series narrated by David Attenborough that aired on BBC One in the UK from 1977-2005. A total of 253 half hour episodes were made over 33 seasons.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/44/112343.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/92711-2.jpg",
   "backdropURL": null,
   "genres": [
     "Nature"
@@ -144,5 +144,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15322.jpg"
     }
-  ]
+  ],
+  "tvdbID": "92711",
+  "artworkSource": "tvdb"
 }

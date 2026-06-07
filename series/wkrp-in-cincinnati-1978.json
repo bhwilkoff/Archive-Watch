@@ -6,7 +6,7 @@
   "yearStart": 1978,
   "yearEnd": 1982,
   "overview": "When a Cincinnati radio station switches from sedate music to top-40 rock 'n' roll, its staff of oddball characters is forced to switch gears quickly. New programming director Andy Travis brings in a new DJ named Venus Flytrap to work with the station's burned-out veteran, Dr. Johnny Fever. Neurotic newsman Les Nessman, eager beaver Jan Smithers, sleazy salesman Herb Tarlek, blonde bombshell Jennifer Marlowe, who serves as the station's ultra-capable receptionist, and station manager Arthur Carlson, whose domineering mother owns WKRP, round out the eccentric bunch.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/615/1539052.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77761-2.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -646,5 +646,7 @@
       "order": 7,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/576/1441209.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77761",
+  "artworkSource": "tvdb"
 }

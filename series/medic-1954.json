@@ -6,7 +6,7 @@
   "yearStart": 1954,
   "yearEnd": 1956,
   "overview": "Medic was a medical drama that aired on NBC from 1954-1956.Episodes were Dramatizations of actual medical files from the Los Angeles County Medical Association.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/62/157075.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70892-1.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -312,5 +312,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/20/50457.jpg"
     }
-  ]
+  ],
+  "tvdbID": "70892",
+  "artworkSource": "tvdb"
 }

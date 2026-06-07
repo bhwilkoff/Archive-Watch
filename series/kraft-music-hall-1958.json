@@ -76,5 +76,26 @@
   "episodesCount": 3,
   "seriesImdbID": "tt0065308",
   "canonicalEpisodeCount": 58,
-  "canonicalSeasons": 4
+  "canonicalSeasons": 4,
+  "tvdbID": "70629",
+  "cast": [
+    {
+      "name": "Ralph Young",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Tony Sandler",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "John Davidson",
+      "character": "",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253520/photo/6498b980d34ba.jpg"
+    }
+  ]
 }

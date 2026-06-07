@@ -5,7 +5,7 @@
   "yearStart": null,
   "yearEnd": null,
   "overview": "This richly detailed, visually stunning documentary series covers the entire dramatic saga of World War II in the Pacific. From Manchuria to Hiroshima, the people, armaments, locations and battles of the epic conflict are covered in 20 unforgettable episodes. The Allies' crusade to defeat imperial Japan's bloody expansion featured difficult, heroic fighting at sea, in the air, and on innumerable jungle islands.",
-  "posterURL": "https://image.tmdb.org/t/p/w500/k8CdNumBRedwlhXdH5w7Y9RLFhE.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/5c3a7e9ca3075.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [],
@@ -92,5 +92,7 @@
   "episodesCount": 4,
   "seriesImdbID": "tt0165007",
   "canonicalEpisodeCount": 15,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "tvdbID": "242301",
+  "artworkSource": "tvdb"
 }

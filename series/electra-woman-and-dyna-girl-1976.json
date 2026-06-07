@@ -6,7 +6,7 @@
   "yearStart": 1976,
   "yearEnd": 1976,
   "overview": "Electra Woman and Dyna Girl lead double lives as Lori and Judy, reporters for Newsmaker magazine. When there's trouble the electrifying duo are warned by ‘CrimeScope', a computer programmed by electronics whiz Frank Heflin to locate all criminal activities in the area. Operating out of their secret headquarters, ‘ElectraBase', Electra Woman and Dyna Girl match wits and powers with assorted evil forces and influences that threaten them and the citizens of their metropolis.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/26/65693.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/70402/posters/66d5a6be5ed60.jpg",
   "backdropURL": null,
   "genres": [
     "Action",
@@ -198,5 +198,7 @@
       "order": 3,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/65698.jpg"
     }
-  ]
+  ],
+  "tvdbID": "70402",
+  "artworkSource": "tvdb"
 }

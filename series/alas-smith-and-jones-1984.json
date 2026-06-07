@@ -6,7 +6,7 @@
   "yearStart": 1984,
   "yearEnd": 1998,
   "overview": "Alas Smith and Jones is a British comedy sketch television series starring comedy duo and namesake Mel Smith and Griff Rhys Jones.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/30/76432.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/83246-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -400,5 +400,7 @@
       "order": 2,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/30/76464.jpg"
     }
-  ]
+  ],
+  "tvdbID": "83246",
+  "artworkSource": "tvdb"
 }

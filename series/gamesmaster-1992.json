@@ -6,7 +6,7 @@
   "yearStart": 1992,
   "yearEnd": 1998,
   "overview": "GamesMaster was a British television show, screened on Channel 4 from 7th January 1992 to 3rd February 1998, and was the first-ever UK television show dedicated to computer and video games.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/21/52983.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71472-2.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [
@@ -198,5 +198,7 @@
       "order": 2,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/115/287535.jpg"
     }
-  ]
+  ],
+  "tvdbID": "71472",
+  "artworkSource": "tvdb"
 }

@@ -6,7 +6,7 @@
   "yearStart": 1956,
   "yearEnd": 1957,
   "overview": "The Adventures of Sir Lancelot is a series about the most famous and dashing of King Arthur's knights, Sir Lancelot, who is challenged to a rigorous set of tests to prove he is worthy of the Round Table, and then serves King Arthur against pirates and renegade princes, always proving his steadfast courage and loyalty.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/112/282346.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/78586-1.jpg",
   "backdropURL": null,
   "genres": [
     "Action",
@@ -439,5 +439,7 @@
       "order": 4,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/113/284252.jpg"
     }
-  ]
+  ],
+  "tvdbID": "78586",
+  "artworkSource": "tvdb"
 }

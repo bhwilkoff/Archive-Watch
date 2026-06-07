@@ -6,7 +6,7 @@
   "yearStart": 1987,
   "yearEnd": 1989,
   "overview": "Hailed as \"groundbreaking\", \"powerful\", and \"totally authentic\", Degrassi Junior High confronts it all — friendship, puberty, rumours, sports, studies, and more — with a refreshing ensemble cast and a unique teen's-eye-view of life. Sometimes moving, sometimes shocking, but always believable, Degrassi Junior High is a classic for teens of all ages.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/18/46989.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/78298-2.jpg",
   "backdropURL": null,
   "genres": [
     "Drama"
@@ -217,5 +217,7 @@
       "order": 17,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/19/48540.jpg"
     }
-  ]
+  ],
+  "tvdbID": "78298",
+  "artworkSource": "tvdb"
 }

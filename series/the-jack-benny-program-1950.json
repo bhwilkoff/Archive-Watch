@@ -6,7 +6,7 @@
   "yearStart": 1950,
   "yearEnd": 1965,
   "overview": "Jack Benny was a regular on his own radio program since 1932. He brought the program, with his underplayed humor, to TV along with his radio regulars. Jack, who remained 39-years-old, kept his money in his basement and drove his old Maxwell car just as he had done on the radio.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/77/194785.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/72322-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -252,5 +252,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/153/384283.jpg"
     }
-  ]
+  ],
+  "tvdbID": "72322",
+  "artworkSource": "tvdb"
 }

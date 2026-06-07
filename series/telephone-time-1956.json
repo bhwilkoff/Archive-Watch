@@ -6,7 +6,7 @@
   "yearStart": 1956,
   "yearEnd": 1958,
   "overview": "Telephone Time is an anthology drama series. The series features plays adapted from short stories by John Nesbitt.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/510/1275519.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/5d9a7e81b93df.jpg",
   "backdropURL": null,
   "genres": [
     "Drama"
@@ -189,5 +189,7 @@
       "order": 1,
       "profilePath": "/3C252ygRJ7UsAbexor3v6psE2L4.jpg"
     }
-  ]
+  ],
+  "tvdbID": "72068",
+  "artworkSource": "tvdb"
 }

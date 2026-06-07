@@ -6,7 +6,7 @@
   "yearStart": 1962,
   "yearEnd": 1974,
   "overview": "Classic British comedy series about a middle aged man and his elderly father who run an unsuccessful 'rag and bone' business (collecting and selling junk). Harold (the son) wants to better himself but his father always seems to ruin things, sometimes accidentally and other times deliberately. The two live in poverty and the father has some disgusting habits which continue to embarrass the son.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/26/66000.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76607-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -130,5 +130,7 @@
       "order": 1,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/66201.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76607",
+  "artworkSource": "tvdb"
 }

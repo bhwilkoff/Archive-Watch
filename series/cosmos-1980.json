@@ -6,7 +6,7 @@
   "yearStart": 1980,
   "yearEnd": 2025,
   "overview": "Hosted by renowned astrophysicist Neil deGrasse Tyson, Cosmos will explore how we discovered the laws of nature and found our coordinates in space and time. It will bring to life never-before-told stories of the heroic quest for knowledge and transport viewers to new worlds and across the universe for a vision of the cosmos on the grandest scale. Cosmos will invent new modes of scientific storytelling to reveal the grandeur of the universe and re-invent celebrated elements of the legendary original series, including the Cosmic Calendar and the Ship of the Imagination. The most profound scientific concepts will be presented with stunning clarity, uniting skepticism and wonder, and weaving rigorous science with the emotional and spiritual into a transcendent experience.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/402/1006408.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/74995-3.jpg",
   "backdropURL": null,
   "genres": [
     "Mystery",
@@ -576,5 +576,7 @@
       "order": 3,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/7/17768.jpg"
     }
-  ]
+  ],
+  "tvdbID": "74995",
+  "artworkSource": "tvdb"
 }

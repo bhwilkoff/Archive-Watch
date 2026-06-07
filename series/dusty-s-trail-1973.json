@@ -6,7 +6,7 @@
   "yearStart": 1973,
   "yearEnd": 1974,
   "overview": "Dusty's Trail is an American Western/comedy series that aired in syndication from September 1973 to March 1974 starring Bob Denver and Forrest Tucker. The series is a western-themed reworking of Gilligan's Island. The series, set in the latter 19th century, is about a small, diverse cluster of lost travelers, who become separated from their wagon train. Two coachmen and five passengers of a wagon and stagecoach become separated from their wagon train on the way to California in the early 1870s. The group includes wagonmaster Mr. Callahan and his shotgun lookout Dusty, Mr. and Mrs. Brookhaven (a wealthy Eastern banker and his wife), book-smarts thinker Andy, dance-hall girl Lulu McQueen, and farm girl Betsy. The show follows their adventures while they attempt to return to their wagon train. According to the theme song, \"...Dusty's the reason for their plight, thanks to Dusty – nothing's right\".",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/80/202358.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/72402-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy",
@@ -173,5 +173,7 @@
       "order": 5,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/80/202360.jpg"
     }
-  ]
+  ],
+  "tvdbID": "72402",
+  "artworkSource": "tvdb"
 }

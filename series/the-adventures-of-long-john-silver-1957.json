@@ -6,7 +6,7 @@
   "yearStart": 1957,
   "yearEnd": 1957,
   "overview": "Long John Silver is the proud captain of his own ship and his own crew. He and his buccaneer cruise around the Caribbean and often stay on the side of the English and fight the French and Spanish. After the long and dangerous adventures, he and his crew rest in the tavern of Miss Purity. This series is exceptional since it was produced in Australia, in colour, before there even was a TV network in Australia.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/154/385963.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/series/117261/posters/5e9b8097abe1a.jpg",
   "backdropURL": null,
   "genres": [
     "Action",
@@ -308,5 +308,7 @@
       "order": 7,
       "profilePath": "/mcNRANNfsOCnUoBQinFpkrpb78v.jpg"
     }
-  ]
+  ],
+  "tvdbID": "117261",
+  "artworkSource": "tvdb"
 }

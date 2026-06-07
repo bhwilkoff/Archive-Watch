@@ -6,7 +6,7 @@
   "yearStart": 2021,
   "yearEnd": 2021,
   "overview": "Following an outrageous bet, Phileas Fogg and his valet, Passepartout, take on the legendary journey of circumnavigating the globe in just 80 days, swiftly joined by aspiring journalist Abigail Fix, who seizes the chance to report on this extraordinary story.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/379/948816.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/388899/posters/614e3aaa4e342.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -125,5 +125,7 @@
       "order": 2,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/149/373705.jpg"
     }
-  ]
+  ],
+  "tvdbID": "388899",
+  "artworkSource": "tvdb"
 }

@@ -6,7 +6,7 @@
   "yearStart": 1953,
   "yearEnd": 1954,
   "overview": "Missionaries' kid Tom Reynolds returns to the jungle as a doctor where he treats natives (\"Ramar\" means \"White Medicine Man\") and takes care of badguys, aided by Prof. Ogden.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/127/318429.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77241-1.jpg",
   "backdropURL": null,
   "genres": [
     "Action",
@@ -166,5 +166,7 @@
       "order": 0,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/398/996004.jpg"
     }
-  ]
+  ],
+  "tvdbID": "77241",
+  "artworkSource": "tvdb"
 }

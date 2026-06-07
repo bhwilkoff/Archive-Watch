@@ -6,7 +6,7 @@
   "yearStart": 1991,
   "yearEnd": 1992,
   "overview": "Salute Your Shorts is about a group of kids at summer camp. The camp is run by the heard-but-never-seen Dr. Kahn. The kids spend their time trying to harass the camp counselor, Kevin \"Ug\" Lee.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/24/60451.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76128-3.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -90,5 +90,7 @@
       "order": 6,
       "profilePath": null
     }
-  ]
+  ],
+  "tvdbID": "76128",
+  "artworkSource": "tvdb"
 }

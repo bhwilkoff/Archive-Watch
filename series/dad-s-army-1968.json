@@ -6,7 +6,7 @@
   "yearStart": 1968,
   "yearEnd": 1977,
   "overview": "A classic sitcom about a collection of elderly, unfit, or eccentric citizens unfit for military service who nonetheless plan, with no budget and incompetent training, to defend the British Isles from a possible German invasion at the height of World War II.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/28/71586.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76342-1.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy"
@@ -157,5 +157,7 @@
       "order": 6,
       "profilePath": "/ttnqDiWOeaZKYDy8EuefauHGxqZ.jpg"
     }
-  ]
+  ],
+  "tvdbID": "76342",
+  "artworkSource": "tvdb"
 }

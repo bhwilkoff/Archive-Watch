@@ -6,7 +6,7 @@
   "yearStart": 1959,
   "yearEnd": 1961,
   "overview": "A late entry in the TV Westerns boom of the late 50s. Shotgun Slade unlike other show hero wasn't a marshal, sheriff or gunfighter for hire, but Slade was a private detective, hired to track down criminals, return stolen money, or solve mysteries surrounding the death of townspeople. The show has more in common with shows like Peter Gunn and 77 Sunset Strip than Gunsmoke and Bonanza. Shotgun Slade depended on strong characters and storylines than action.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/73/182838.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/78617-1.jpg",
   "backdropURL": null,
   "genres": [
     "Western"
@@ -141,5 +141,7 @@
       "order": 2,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/81/202700.jpg"
     }
-  ]
+  ],
+  "tvdbID": "78617",
+  "artworkSource": "tvdb"
 }
