@@ -290,12 +290,25 @@ def fix_wrong_external_matches(it):
         wrong = True
     elif isinstance(y, int) and y >= 1990 and _is_vintage(it):
         wrong = True
+    elif it.get("colorMode") == "bw" and isinstance(y, int) and y >= 1970:
+        # Color signal (Decision 025): a FRAME-VERIFIED black-and-white film whose
+        # matched year is modern (>=1970) is a wrong match — B&W is a hard "old
+        # film" signal, and modern B&W films are essentially absent from a PD
+        # catalog. This catches the no-year-in-title / not-in-a-vintage-collection
+        # cases the rules above miss, e.g. the 1946 Welles "The Stranger" (B&W)
+        # pulling the 2025 TMDb film's poster + synopsis + year.
+        wrong = True
     if not wrong:
         return None
     # Correct year: the confident source year when it's older than the suspect
     # stored year; else null and let enrichment re-resolve.
     new_y = sy if (sy is not None and (y is None or sy < y)) else None
     _clear_wrong_artwork(it, new_y)
+    # B&W-vs-modern match: the stored modern year is definitely wrong and we have
+    # no confident replacement, so drop it (better unknown than 2025 on a B&W film).
+    if new_y is None and it.get("colorMode") == "bw":
+        it["year"] = None
+        it["decade"] = None
     return "yearfix" if new_y is not None else "yearnull"
 
 
