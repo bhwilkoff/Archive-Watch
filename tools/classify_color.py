@@ -26,7 +26,6 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
-SAMPLE_POINTS = (0.2, 0.5, 0.8)        # fractions of runtime to sample
 SAT_RE = re.compile(r"SATAVG=([0-9.]+)")
 
 
@@ -34,24 +33,24 @@ def video_url(it: dict):
     return it.get("downloadURL") or it.get("videoURL")
 
 
-def _duration(url: str):
-    try:
-        out = subprocess.run(
-            ["ffprobe", "-v", "quiet", "-rw_timeout", "30000000",
-             "-show_entries", "format=duration", "-of", "default=nk=1:nw=1", url],
-            capture_output=True, text=True, timeout=60).stdout.strip()
-        d = float(out)
-        return d if d > 0 else None
-    except Exception:
-        return None
+def cover_url(it: dict):
+    """A frame-extracted cover already hosted as a small JPEG on archive.org
+    (the cover pipeline, Decision 023). Reading saturation from this ONE image is
+    a single tiny fetch — far cheaper than streaming the video to seek frames —
+    and a whole film is uniformly color or B&W, so one real frame is decisive."""
+    p = it.get("posterURL") or ""
+    if "archivewatch-covers" in p or (it.get("artworkSource") == "generated" and p):
+        return p
+    return None
 
 
-def _sat_at(url: str, t: float):
+def _sat(args_in) -> float | None:
+    """Run signalstats on one input (a URL + optional -ss seek) and read SATAVG."""
     try:
         err = subprocess.run(
-            ["ffmpeg", "-nostdin", "-rw_timeout", "30000000", "-ss", str(int(t)),
-             "-i", url, "-vf", "signalstats,metadata=print",
-             "-frames:v", "1", "-an", "-f", "null", "-"],
+            ["ffmpeg", "-nostdin", "-rw_timeout", "30000000", *args_in,
+             "-vf", "signalstats,metadata=print", "-frames:v", "1", "-an",
+             "-f", "null", "-"],
             capture_output=True, text=True, timeout=90).stderr
         m = SAT_RE.search(err)
         return float(m.group(1)) if m else None
@@ -59,11 +58,30 @@ def _sat_at(url: str, t: float):
         return None
 
 
-def classify(url: str, threshold: float):
-    """Return ("color"|"bw", mean_saturation) or (None, None) if unreadable."""
-    d = _duration(url)
-    pts = [d * p for p in SAMPLE_POINTS] if d else [60, 180, 420]
-    sats = [s for s in (_sat_at(url, t) for t in pts) if s is not None]
+# Fixed sample offsets for the video path — no separate ffprobe round-trip. The
+# early offset catches short items; later ones avoid title cards. We average
+# whatever decodes.
+VIDEO_OFFSETS = (20, 120, 420)
+
+
+def classify(it: dict, threshold: float):
+    """Return ("color"|"bw", mean_saturation) or (None, None) if unreadable.
+
+    FAST PATH: if the item has a hosted cover frame, read its saturation in one
+    tiny fetch. Only trust it when CONFIDENT (clear of the threshold) — an
+    ambiguous single frame falls through to multi-frame video sampling."""
+    cu = cover_url(it)
+    if cu:
+        s = _sat([*("-i", cu)])
+        if s is not None and (s < threshold - 3 or s > threshold + 4):
+            return ("bw" if s < threshold else "color"), round(s, 2)
+        # ambiguous single frame -> verify against the video below
+
+    vu = video_url(it)
+    if not vu:
+        return None, None
+    sats = [s for s in (_sat(["-ss", str(t), "-i", vu]) for t in VIDEO_OFFSETS)
+            if s is not None]
     if not sats:
         return None, None
     avg = sum(sats) / len(sats)
@@ -99,7 +117,7 @@ def main() -> int:
 
     done = color = bw = fail = 0
     with ThreadPoolExecutor(max_workers=args.workers) as ex:
-        futs = {ex.submit(classify, video_url(it), args.threshold): it for it in targets}
+        futs = {ex.submit(classify, it, args.threshold): it for it in targets}
         for fut in as_completed(futs):
             it = futs[fut]
             mode, _avg = fut.result()
