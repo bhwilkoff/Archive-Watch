@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 330
     permissions:
-      contents: read
+      contents: write   # catalog_release.py publish uploads a release asset
       actions: write
     steps:
       - uses: actions/checkout@v5
