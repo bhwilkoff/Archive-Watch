@@ -232,7 +232,51 @@ focus / layout / animation bugs.
 
 ## Session Log
 
-### 2026-06-05 (later) — Mac-based cover-generation protocol (#86) built + running
+### 2026-06-08 — Pre-submission compaction handoff (v1.2.11, build 24)
+**State**: all on `main` (HEAD `c1034dd`), builds clean tvOS 26.5 sim. Catalog
+(~38,405 items) on the GitHub Release (Decisions 017/018). This session shipped a
+large wave; next up is the **App Store submission push** + a **copyright/rights
+audit** before submitting.
+
+**Shipped this session** (each committed + version-bumped where app-facing):
+- TheTVDB enrichment: professional posters + cast for TV (217 series) and movies
+  (`enrich_tvdb_tv.py`/`enrich_tvdb_movies.py`, `tvdb_lib.py`, `tvdb-movies.yml`).
+- Cast/crew profile images (`enrich_cast_images.py`, `cast-images.yml`).
+- Cover pipeline WIRED: ~19,134 frame covers applied (apply_covers → publish).
+- **Color/B&W flag** `colorMode` (Decision 025): `classify_color.py` (ffmpeg
+  signalstats saturation, threshold 8; cover-frame fast-path), `color-classify.yml`
+  (every 8h), ~97% classified. Wired into Catalog.Item (`isColor`/
+  `isBlackAndWhite`), Cartoon Mode/Channel color-emphasis, remediate B&W
+  wrong-match rule, and the match verifier.
+- **Archive-anchored match verifier** (Decision 026): `verify_external_match.py`
+  (Tier 1 Archive imdb → Tier 2 Archive date → Tier 3 color), `verify-matches.yml`.
+- Home hero carousel: final design = single full-width swapping banner + an
+  invisible left focus-"catcher" (Left = previous until leftmost → sidebar; Right
+  wraps; Down → shelves; no neighbor slivers). Playbook §9.2.
+- Button legibility audit → `BarButtonStyle` (Channels header + secondaries).
+- CloudKit sync ENABLED (`CloudSync.entitlementConfigured = true`); runbook
+  container id fixed to `iCloud.app.archivewatch.tvos`.
+- Cartoon Mode excludes silent / B&W de-emphasized; Cartoon Channel ≤10% silent.
+- Playlist tile fixed (matches PosterTile spacing 28 — no focus-overlap).
+
+**FINAL SCOPE before submission** (start here after compaction — full detail in
+the `submission_push_handoff` memory):
+1. **Copyright/rights audit (main task):** 8,121 items are year ≥1978 (≥2010:
+   2,767) yet 37,001/38,405 are `rightsStatus=public_domain` — modern,
+   clearly-copyrighted titles are mislabeled PD (e.g. "The Stranger" 2025, "The
+   Peanuts Movie" 2015). Build a report-first `tools/audit_rights.py` that buckets
+   wrong-match-fixable (old video, modern metadata → fix via
+   `verify_external_match.py`) vs. genuinely-modern-copyrighted (drop/hide).
+   Signals: year ≥1978 AND not gov/PD-collection AND not CC AND a confident modern
+   external match; cross-check Archive `date`/`external-identifier` + `colorMode`.
+   `_PD_BY_AGE = 1929`; removal must be additive-safe (Decision 020).
+2. Complete outstanding: #88 submission (ASC record, listing from
+   `docs/app-store-listing.md`, screenshots, Push capability, archive, submit),
+   #87 ASC/iPhone icon (UNSOLVED), #84/#11b CloudKit deletion+live sync, #86
+   color no-frame tail (~783).
+3. Full test pass on device.
+
+
 Implemented the mac-based screenshot protocol that gives a real poster to every
 catalog item no third-party source covers. Audit: **56% of the catalog (20,962
 items) lacked designed art** — all 2,390 commercials + the long tail. Three
