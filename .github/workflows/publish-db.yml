@@ -58,23 +58,6 @@ jobs:
       - name: Build SQLite catalog
         run: python tools/build_sqlite.py | tee db.log
 
-      # Slim search index for the public editorial tool (index.html "Browse the
-      # catalog"). Committed to the repo so GitHub Pages serves it same-origin
-      # (Release assets have no CORS). Popularity-sorted => small git deltas.
-      # The push path filter (series/**) means this commit won't re-trigger us.
-      - name: Build + commit catalog search index
-        run: |
-          python tools/build_catalog_index.py
-          if ! git diff --quiet -- catalog-index.json; then
-            git config user.name  "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add catalog-index.json
-            git commit -m "Refresh catalog-index.json (editorial tool) [skip ci]"
-            git push
-          else
-            echo "catalog-index.json unchanged"
-          fi
-
       - name: Summary
         run: |
           echo "## Catalog DB" >> $GITHUB_STEP_SUMMARY
@@ -82,6 +65,10 @@ jobs:
           tail -6 db.log >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
 
+      # CRITICAL step first: ship the DB the app downloads. This must NOT be gated
+      # behind the cosmetic index commit below — a git-push RACE on the index used
+      # to abort the job before this ran, leaving a STALE shipping DB on the
+      # release (e.g. a concurrent writer/local push landed first).
       - name: Upload to rolling release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -95,3 +82,27 @@ jobs:
           # (uncompressed) is kept for already-shipped app builds that still
           # fetch it directly; drop it once those ages out.
           gh release upload catalog-db catalog.sqlite catalog.sqlite.zz catalog-manifest.json --clobber
+
+      # Slim search index for the public editorial tool (index.html "Browse the
+      # catalog"). Committed to the repo so GitHub Pages serves it same-origin
+      # (Release assets have no CORS). SECONDARY + non-fatal: it commits to main,
+      # which races other writers / local pushes, so retry with rebase and NEVER
+      # fail the job (the DB already shipped above).
+      - name: Build + commit catalog search index
+        continue-on-error: true
+        run: |
+          python tools/build_catalog_index.py
+          if git diff --quiet -- catalog-index.json; then
+            echo "catalog-index.json unchanged"; exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add catalog-index.json
+          git commit -m "Refresh catalog-index.json (editorial tool) [skip ci]"
+          for i in 1 2 3 4 5; do
+            if git pull --rebase --autostash origin main && git push; then
+              echo "pushed index on attempt $i"; exit 0
+            fi
+            echo "push race, retry $i"; sleep $((i * 3))
+          done
+          echo "index push still racing after retries — non-fatal, DB already shipped"
