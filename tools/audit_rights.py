@@ -106,17 +106,20 @@ def is_commercial_slop(it):
 
 
 def license_rescues(lic: str | None, year: int | None) -> bool:
-    """True if the Archive licenseurl is a genuine free dedication for this year."""
+    """True if the Archive licenseurl is a genuine free dedication for this year.
+
+    Order matters: the OLD-style URL `creativecommons.org/licenses/publicdomain/`
+    contains the substring `creativecommons.org/licenses/`, so the PD checks MUST
+    run before the generic CC-license check or a modern film carrying that old PD
+    URL would be wrongly kept."""
     if not lic:
         return False
     l = lic.lower()
-    if "publicdomain/zero" in l:           # CC0 — real waiver
+    if "publicdomain/zero" in l:        # CC0 — genuine waiver, any year
         return True
-    if "creativecommons.org/licenses/" in l:  # CC BY/SA/NC/ND — real license
-        return True
-    # old-style "licenses/publicdomain" or "publicdomain/mark": only credible
-    # for pre-1978 (post-1978 works cannot lose copyright by notice defect).
-    if ("publicdomain" in l) and isinstance(year, int) and year < MODERN:
+    if "publicdomain" in l:             # PD Mark / old-style bare PD claim —
+        return isinstance(year, int) and year < MODERN   # credible only pre-1978
+    if "creativecommons.org/licenses/" in l:   # real CC license (by/sa/nc/nd)
         return True
     return False
 
