@@ -96,11 +96,12 @@ Then fill the listing (App Information / Pricing / Version):
   titles are kept (they exist independent of the account). Note: while
   `entitlementConfigured` is false the cloud purge is a vacuous no-op (nothing is
   stored yet); it becomes real when CloudKit is enabled.
-- **`CloudSync.entitlementConfigured` is still `false`.** Flip it to `true` only
-  AFTER the iCloud container exists (Phase 1) and you've verified sync on a real
-  Apple TV signed into iCloud (#84). It traps on the simulator. Note: SwiftData's
-  automatic CloudKit mirror is intentionally OFF (`cloudKitDatabase: .none`) — we
-  sync manually; do not re-enable auto-mirror (our models use unique constraints).
+- ~~**`CloudSync.entitlementConfigured` is still `false`.**~~ ✅ Now `true`
+  (build 17+); #11b deletion propagation + live sync landed build 25. Still
+  owner-pending: verify sync across two real Apple TVs (checklist in
+  `cloudkit-setup.md`). SwiftData's automatic CloudKit mirror stays OFF
+  (`cloudKitDatabase: .none`) — we sync manually; do not re-enable auto-mirror
+  (our models use unique constraints).
 - **tvOS 26 SDK** — you can only submit built against a **released** SDK. Confirm
   the Xcode you archive with is a GA release supporting tvOS 26.
 - **`.xcodeproj` location** — it lives at `ArchiveWatch/ArchiveWatch.xcodeproj`
