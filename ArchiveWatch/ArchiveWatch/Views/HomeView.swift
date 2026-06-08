@@ -158,47 +158,65 @@ struct HomeView: View {
 
 struct HeroCarousel: View {
     let items: [Catalog.Item]
-    // A SINGLE stable focusable banner whose content auto-advances + wraps —
-    // NOT a horizontal paging ScrollView. The scrollview version trapped
-    // vertical focus: with the hero focused you couldn't press Down to the
-    // shelves below (the horizontal scroll container swallowed the move). One
-    // plain Button in the outer VStack lets Down fall through to the next row
-    // naturally, and the timer cycles through every hero and loops back to the
-    // start. The Button view itself is never rebuilt (only its label content
-    // crossfades), so focus is never disrupted as the item changes.
+    // A horizontal paging row of full-width focusable banners: pressing LEFT/RIGHT
+    // moves focus between banners so you can scroll through the heroes, and the
+    // page snaps. DOWN escapes to the shelves below because the outer list is a
+    // VStack (every row is instantiated as a focus target) and the carousel is a
+    // single `.focusSection()` — so the focus engine exits the section downward
+    // instead of being trapped. Auto-advance still cycles + wraps when idle.
     @Environment(Router.self) private var router
-    @State private var index = 0
-    @FocusState private var focused: Bool
+    @State private var scrolledID: String?
+    @FocusState private var focusedID: String?
+    @State private var claimedInitialFocus = false
     private let autoAdvance = Timer.publish(every: 7, on: .main, in: .common).autoconnect()
 
     private let heroHeight: CGFloat = 940   // #10: near-full-screen hero
 
-    private var current: Catalog.Item { items[min(index, max(items.count - 1, 0))] }
+    private var currentIndex: Int { items.firstIndex { $0.archiveID == scrolledID } ?? 0 }
 
     var body: some View {
-        Button { router.push(current) } label: {
-            HeroBanner(item: current)
-                .id(current.archiveID)        // crossfade the label on advance
-                .transition(.opacity)
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHStack(spacing: 0) {
+                ForEach(items) { item in
+                    Button { router.push(item) } label: {
+                        HeroBanner(item: item)
+                    }
+                    .buttonStyle(HeroButtonStyle())
+                    .containerRelativeFrame(.horizontal)   // one banner per page
+                    .focused($focusedID, equals: item.archiveID)
+                    .id(item.archiveID)
+                }
+            }
+            .scrollTargetLayout()
         }
-        .buttonStyle(HeroButtonStyle())
+        .scrollTargetBehavior(.paging)
+        .scrollPosition(id: $scrolledID)
         .frame(height: heroHeight)
-        .focused($focused)
-        .animation(Motion.heroCrossfade, value: index)
+        .scrollClipDisabled()
+        .focusSection()
         .overlay(alignment: .bottom) {
             pageIndicator.padding(.bottom, 56).allowsHitTesting(false)
         }
-        // Auto-advance + wrap (modulo) so it always loops back to the first hero
-        // after the last — runs whether or not the hero is focused.
+        // Auto-advance + wrap. When focused, move FOCUS to the next banner (so the
+        // page follows); when not focused, just move the scroll position.
         .onReceive(autoAdvance) { _ in
             guard items.count > 1 else { return }
-            index = (index + 1) % items.count
+            let next = (currentIndex + 1) % items.count
+            if focusedID != nil {
+                focusedID = items[next].archiveID
+            } else {
+                withAnimation(Motion.heroCrossfade) { scrolledID = items[next].archiveID }
+            }
         }
-        // Initial-focus views must imperatively claim focus on appear (tvOS
-        // playbook); a tiny yield makes the claim reliable.
+        // Keep the page/indicator in step when focus drives the scroll.
+        .onChange(of: focusedID) { _, new in if let new { scrolledID = new } }
+        // Claim initial focus + first page once (playbook §2).
         .task {
+            guard !claimedInitialFocus, let first = items.first else { return }
+            claimedInitialFocus = true
+            scrolledID = first.archiveID
             try? await Task.sleep(for: .milliseconds(60))
-            focused = true
+            focusedID = first.archiveID
         }
     }
 
@@ -206,9 +224,9 @@ struct HeroCarousel: View {
         HStack(spacing: 12) {
             ForEach(0..<items.count, id: \.self) { i in
                 Capsule()
-                    .fill(i == index ? Color.white : Color.white.opacity(0.35))
-                    .frame(width: i == index ? 36 : 10, height: 10)
-                    .animation(Motion.chrome, value: index)
+                    .fill(i == currentIndex ? Color.white : Color.white.opacity(0.35))
+                    .frame(width: i == currentIndex ? 36 : 10, height: 10)
+                    .animation(Motion.chrome, value: currentIndex)
             }
         }
     }
