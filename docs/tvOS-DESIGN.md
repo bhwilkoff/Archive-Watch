@@ -47,6 +47,29 @@ visual dignity as modern streaming. Never degrade source quality for convenience
 playlists, progress, watched, preferences) maps to the data model in §10 and, for
 synced state, the account store (Decision 022).
 
+1.8 **Voice: a programmer's note, never a parser's.** Every shelf/section
+**subtitle** reads like a line from a repertory cinema's programme — a knowing,
+warm invitation to *watch*, written the way the curator actually talks. It names
+what makes the films worth your evening, not how the database found them. This is
+the operational form of CLAUDE.md "Why we build": copy should open a door to
+curiosity.
+- **Banned** (the parser tells): pipeline/metric language — "Most downloaded",
+  "catalogued on Wikidata", "filter: X", "Pre-1970 animation", "items", "results",
+  "tap to…", raw counts as the whole subtitle. The viewer never sees how the
+  sausage is made (downloads, sources, tiers, queries).
+- **Wanted** (the programmer's note): evocative + specific, ≤ ~8 words, present
+  tense, concrete nouns. The bar is the copy that already works —
+  *"The magician who invented cinema"*, *"How they reported the 20th century"*,
+  *"Shadows and second thoughts"*, *"High craft, low traffic"*. Popularity becomes
+  *"What everyone's watching this week"*, not "Most downloaded".
+- **Titles stay plain.** Nav/section *titles* ("Collections", "Continue Watching",
+  "Directors") and empty-state guidance stay clear and scannable (§1.2, clarity
+  over cleverness) — the voice lives in the **subtitle**, not the label. Don't make
+  a heading cute at the cost of legibility at 10 feet.
+- Shelf copy lives in `featured.json` (`subtitle`) and
+  `shared/editorial/collection_metadata.json` (`blurb`); curators edit it there,
+  not in Swift. New shelves cite this rule.
+
 ---
 
 ## §2 — Information architecture

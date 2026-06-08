@@ -91,7 +91,7 @@
     {
       "id": "wikidata-pd",
       "title": "Public-Domain Canon",
-      "subtitle": "Films catalogued on Wikidata as public domain",
+      "subtitle": "Landmark cinema, free to watch and share",
       "category": "feature-film",
       "type": "seeded",
       "source": "wikidata-p724",
@@ -100,7 +100,7 @@
     {
       "id": "popular-features",
       "title": "Popular Feature Films",
-      "subtitle": "Most downloaded this week",
+      "subtitle": "What everyone's watching this week",
       "category": "feature-film",
       "type": "dynamic",
       "query": "mediatype:movies AND collection:feature_films",
@@ -110,7 +110,7 @@
     {
       "id": "all-time-features",
       "title": "All-Time Favorites",
-      "subtitle": "Most downloaded ever",
+      "subtitle": "The ones viewers come back to, year after year",
       "category": "feature-film",
       "type": "dynamic",
       "query": "mediatype:movies AND collection:feature_films",
@@ -140,7 +140,7 @@
     {
       "id": "classic-cartoons",
       "title": "Classic Cartoons",
-      "subtitle": "Pre-1970 animation",
+      "subtitle": "The golden age of the hand-drawn cartoon",
       "category": "animation",
       "type": "dynamic",
       "query": "mediatype:movies AND collection:classic_cartoons",
@@ -150,7 +150,7 @@
     {
       "id": "prelinger",
       "title": "The Prelinger Archive",
-      "subtitle": "Industrial, educational, and ephemeral film",
+      "subtitle": "The films of everyday 20th-century America",
       "category": "ephemeral",
       "type": "dynamic",
       "query": "mediatype:movies AND collection:prelinger",
@@ -240,7 +240,7 @@
     {
       "id": "vintage-cartoons",
       "title": "Vintage Cartoons",
-      "subtitle": "Pre-1970 animation on 16mm and 35mm",
+      "subtitle": "Cartoons as they first flickered, on 16mm and 35mm",
       "category": "animation",
       "type": "dynamic",
       "query": "mediatype:movies AND collection:vintage_cartoons",
@@ -260,7 +260,7 @@
     {
       "id": "educational",
       "title": "Educational Shorts",
-      "subtitle": "Encyclopædia Britannica, Coronet, mid-century classroom",
+      "subtitle": "The films that taught the postwar classroom",
       "category": "ephemeral",
       "type": "dynamic",
       "query": "mediatype:movies AND collection:educationalfilms",
@@ -270,7 +270,7 @@
     {
       "id": "ephemera",
       "title": "Ephemera",
-      "subtitle": "Industrial, instructional, home, in-between",
+      "subtitle": "The overlooked films between the films",
       "category": "ephemeral",
       "type": "dynamic",
       "query": "mediatype:movies AND collection:ephemera",
@@ -320,7 +320,7 @@
     {
       "id": "german-cinema",
       "title": "Mid-Century German Film",
-      "subtitle": "Postwar to New German Cinema",
+      "subtitle": "From the rubble films to the New German Cinema",
       "category": "feature-film",
       "type": "dynamic",
       "query": "mediatype:movies AND collection:mid-century-german-film",

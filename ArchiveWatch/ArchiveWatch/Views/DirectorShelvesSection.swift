@@ -65,7 +65,7 @@ struct DirectorShelvesSection: View {
                     let shelf = Featured.Shelf(
                         id: "director-\(group.id)",
                         title: group.name,
-                        subtitle: "\(group.items.count) films in the archive",
+                        subtitle: "\(group.items.count) films to discover",
                         category: group.category,
                         type: "dynamic",
                         items: nil, query: nil, sort: nil, limit: nil

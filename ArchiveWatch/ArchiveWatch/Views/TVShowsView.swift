@@ -101,7 +101,7 @@ struct TVShowsView: View {
                 Text("TV Shows")
                     .font(.system(size: 54, weight: .heavy, design: .serif))  // #6: match every other page
                     .foregroundStyle(.white)
-                Text("\(items.count) series · tap to browse episodes")
+                Text("\(items.count) series to settle into")
                     .font(.title3)
                     .foregroundStyle(.white.opacity(0.5))
             }
