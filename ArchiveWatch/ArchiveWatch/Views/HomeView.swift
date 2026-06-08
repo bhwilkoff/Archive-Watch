@@ -158,73 +158,81 @@ struct HomeView: View {
 
 struct HeroCarousel: View {
     let items: [Catalog.Item]
-    // A horizontal paging row of full-width focusable banners. Native focus does
-    // the right thing at the edges: LEFT on a non-leftmost banner moves to the
-    // PREVIOUS banner (it does NOT open the sidebar, because focus stays inside
-    // the content); LEFT on the leftmost banner has no neighbor, so it falls
-    // through to the sidebar. RIGHT moves to the next banner. The ONE thing the
-    // engine can't do is wrap, so `.onMoveCommand` adds exactly that: a RIGHT on
-    // the LAST banner (no neighbor) loops back to the first. We deliberately do
-    // NOT handle .left/.up/.down here, so those keep their native behavior (no
-    // double-trigger). No `.scrollClipDisabled()` — clipping is what hides the
-    // adjacent full-width pages (the neighbor "slivers").
+    // ONE full-width focusable banner whose content swaps (playbook §9.2): no
+    // neighbor slivers, and the index wraps with modulo. Manual paging:
+    //  • RIGHT has no neighbor, so `.onMoveCommand(.right)` advances (and wraps).
+    //  • LEFT is handled by an invisible 1pt focus "catcher" placed to the LEFT of
+    //    the banner. While not on the first hero the catcher is focusable, so a
+    //    Left press moves focus INTO it (staying in content — the sidebar does NOT
+    //    open); we then step to the previous hero and bounce focus back. On the
+    //    FIRST hero the catcher is disabled, so Left has no in-content target and
+    //    falls through to the sidebar. This gives "Left = previous movie until the
+    //    leftmost, then sidebar" without the double-trigger.
     @Environment(Router.self) private var router
-    @State private var scrolledID: String?
-    @FocusState private var focusedID: String?
+    @State private var index = 0
+    @FocusState private var focus: Focus?
     @State private var claimedInitialFocus = false
     private let autoAdvance = Timer.publish(every: 7, on: .main, in: .common).autoconnect()
 
+    private enum Focus: Hashable { case banner, leftCatch }
     private let heroHeight: CGFloat = 940   // #10: near-full-screen hero
 
-    private var currentIndex: Int { items.firstIndex { $0.archiveID == scrolledID } ?? 0 }
+    private var current: Catalog.Item { items[min(index, max(items.count - 1, 0))] }
 
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack(spacing: 0) {
-                ForEach(items) { item in
-                    Button { router.push(item) } label: {
-                        HeroBanner(item: item)
-                    }
-                    .buttonStyle(HeroButtonStyle())
-                    .containerRelativeFrame(.horizontal)   // exactly one banner per page
-                    .focused($focusedID, equals: item.archiveID)
-                    .id(item.archiveID)
-                }
+        HStack(spacing: 0) {
+            // Only PRESENT when there's a previous hero. It must be absent (not
+            // merely non-focusable) at index 0 — a disabled 1pt view still sits at
+            // the left edge and blocks Left from escaping to the sidebar.
+            if index > 0 {
+                Color.clear
+                    .frame(width: 1, height: heroHeight)
+                    .focusable()
+                    .focused($focus, equals: .leftCatch)
             }
-            .scrollTargetLayout()
+
+            Button { router.push(current) } label: {
+                HeroBanner(item: current)
+                    .id(current.archiveID)        // swap + crossfade the single banner
+                    .transition(.opacity)
+            }
+            .buttonStyle(HeroButtonStyle())
+            .frame(maxWidth: .infinity)
+            .focused($focus, equals: .banner)
         }
-        .scrollTargetBehavior(.paging)
-        .scrollPosition(id: $scrolledID)
         .frame(height: heroHeight)
+        .clipped()                                // no bleed of adjacent content
         .focusSection()
+        .animation(Motion.heroCrossfade, value: index)
         .overlay(alignment: .bottom) {
             pageIndicator.padding(.bottom, 56).allowsHitTesting(false)
         }
-        // Only add what the engine can't: wrap from the last banner back to the
-        // first on RIGHT. Everything else (prev/next, leftmost->sidebar, up/down)
-        // is native, so Left never double-triggers the sidebar.
+        // RIGHT (no neighbor) advances + wraps. left/up/down are NOT handled here.
         .onMoveCommand { direction in
-            if direction == .right, currentIndex == items.count - 1, let first = items.first {
-                focusedID = first.archiveID
+            if direction == .right { advance(1) }
+        }
+        // A Left press landed on the catcher -> bounce focus back to the banner
+        // FIRST (so it's never on the catcher when index hits 0 and the catcher is
+        // removed), then step to the previous hero.
+        .onChange(of: focus) { _, f in
+            if f == .leftCatch {
+                focus = .banner
+                advance(-1)
             }
         }
-        // Idle auto-advance + wrap (moves focus so the page follows).
-        .onReceive(autoAdvance) { _ in
-            guard items.count > 1 else { return }
-            let next = (currentIndex + 1) % items.count
-            if focusedID != nil {
-                focusedID = items[next].archiveID
-            } else {
-                withAnimation(Motion.heroCrossfade) { scrolledID = items[next].archiveID }
-            }
-        }
-        .onChange(of: focusedID) { _, new in if let new { scrolledID = new } }
+        .onReceive(autoAdvance) { _ in advance(1) }
         .task {
-            guard !claimedInitialFocus, let first = items.first else { return }
+            guard !claimedInitialFocus else { return }
             claimedInitialFocus = true
-            scrolledID = first.archiveID
             try? await Task.sleep(for: .milliseconds(60))
-            focusedID = first.archiveID
+            focus = .banner
+        }
+    }
+
+    private func advance(_ step: Int) {
+        guard items.count > 1 else { return }
+        withAnimation(Motion.heroCrossfade) {
+            index = (index + step + items.count) % items.count
         }
     }
 
@@ -232,9 +240,9 @@ struct HeroCarousel: View {
         HStack(spacing: 12) {
             ForEach(0..<items.count, id: \.self) { i in
                 Capsule()
-                    .fill(i == currentIndex ? Color.white : Color.white.opacity(0.35))
-                    .frame(width: i == currentIndex ? 36 : 10, height: 10)
-                    .animation(Motion.chrome, value: currentIndex)
+                    .fill(i == index ? Color.white : Color.white.opacity(0.35))
+                    .frame(width: i == index ? 36 : 10, height: 10)
+                    .animation(Motion.chrome, value: index)
             }
         }
     }
