@@ -637,7 +637,7 @@ struct PlayerScreen: View {
                         .font(.system(size: 24, weight: .semibold))
                         .padding(.horizontal, 28).padding(.vertical, 12)
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(BarButtonStyle())
             }
             .padding(.top, 12)
         }

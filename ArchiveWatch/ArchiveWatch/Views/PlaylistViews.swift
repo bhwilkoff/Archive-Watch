@@ -61,7 +61,7 @@ struct AddToPlaylistSheet: View {
                 Button { dismiss() } label: {
                     Text("Done").font(.title3.weight(.semibold)).frame(maxWidth: .infinity)
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(BarButtonStyle())
                 .padding(.top, 12)
             }
             .frame(maxWidth: 1080, alignment: .leading)

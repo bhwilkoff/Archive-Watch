@@ -205,3 +205,37 @@ struct CircleIconStyle: ButtonStyle {
         }
     }
 }
+
+// Legible utility / chrome button for dark surfaces (Channels header, failure
+// screens, sheet secondaries). Guarantees contrast in BOTH focus states:
+// unfocused = white text on a faint capsule (reads on dark chrome); focused =
+// black text on a solid white capsule. Replaces the system `.bordered` (which
+// rendered low-contrast ACCENT text on dark) and the `.tint(.white)` hack (which
+// produced white-text-on-white-fill when focused).
+struct BarButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        StyleBody(configuration: configuration)
+    }
+
+    struct StyleBody: View {
+        @Environment(\.isFocused) private var isFocused
+        let configuration: ButtonStyleConfiguration
+
+        var body: some View {
+            configuration.label
+                .padding(.horizontal, 28)
+                .padding(.vertical, 14)
+                .foregroundStyle(isFocused ? Color.black : Color.white)
+                .background(
+                    isFocused ? AnyShapeStyle(Color.white)
+                              : AnyShapeStyle(Color.white.opacity(0.16)),
+                    in: Capsule()
+                )
+                .overlay(
+                    Capsule().strokeBorder(Color.white.opacity(isFocused ? 0 : 0.28), lineWidth: 1)
+                )
+                .scaleEffect(isFocused ? Motion.focusScaleButton : 1.0)
+                .animation(Motion.focus, value: isFocused)
+        }
+    }
+}

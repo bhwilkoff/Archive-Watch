@@ -121,7 +121,7 @@ struct EpisodePlayerScreen: View {
                         .padding(.horizontal, 28)
                         .padding(.vertical, 12)
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(BarButtonStyle())
             }
             .padding(.top, 12)
         }

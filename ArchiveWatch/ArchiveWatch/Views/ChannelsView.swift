@@ -108,8 +108,7 @@ struct ChannelsView: View {
                       systemImage: store.channelCommercialBreaks ? "tv.fill" : "tv.slash")
                     .font(.system(size: 20, weight: .semibold))
             }
-            .buttonStyle(.bordered)
-            .tint(.white)
+            .buttonStyle(BarButtonStyle())
             // Analog VHS/CRT veneer over channel playback — the retro-TV companion
             // to commercial breaks. Toggled live; applied as an overlay in the player.
             Button { store.channelVHS.toggle() } label: {
@@ -117,14 +116,12 @@ struct ChannelsView: View {
                       systemImage: store.channelVHS ? "tv.fill" : "tv.slash")
                     .font(.system(size: 20, weight: .semibold))
             }
-            .buttonStyle(.bordered)
-            .tint(.white)
+            .buttonStyle(BarButtonStyle())
             Button { showCreate = true } label: {
                 Label("Create Channel", systemImage: "plus.circle.fill")
                     .font(.system(size: 20, weight: .semibold))
             }
-            .buttonStyle(.bordered)
-            .tint(.white)
+            .buttonStyle(BarButtonStyle())
         }
         .padding(.horizontal, 80)
         .padding(.top, 40)
@@ -536,7 +533,7 @@ private struct CreateChannelSheet: View {
                         Text("Cancel").font(.title3.weight(.semibold))
                             .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(.bordered)
+                    .buttonStyle(BarButtonStyle())
                 }
                 .padding(.top, 12)
             }
