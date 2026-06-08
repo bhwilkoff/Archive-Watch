@@ -61,6 +61,23 @@ CASES = [
       "contentType": "commercial", "rightsStatus": "public_domain"}, "commercial_keep"),
     ({"archiveID": "a", "title": "Disney Junior Commercial Breaks", "year": 1985,
       "contentType": "commercial", "rightsStatus": "public_domain"}, "commercial_slop"),
+    # renewed-copyright classics (1929-63 presumed-PD tier) — hide; precise so PD
+    # B-movies / silents / parodies that share a word are NOT caught.
+    ({"archiveID": "a", "title": "Gone with the Wind (1939)", "year": 1939,
+      "contentType": "feature-film", "rightsStatus": "public_domain", "tmdbID": 770}, "renewed_copyright_classic"),
+    ({"archiveID": "a", "title": "King Kong 1933 Español", "year": 1933,
+      "contentType": "feature-film", "rightsStatus": "public_domain"}, "renewed_copyright_classic"),
+    ({"archiveID": "a", "title": "Psycho (1960)", "year": 1960,
+      "contentType": "feature-film", "rightsStatus": "public_domain"}, "renewed_copyright_classic"),
+    ({"archiveID": "a", "title": "Anatomy Of A Psycho", "year": 1961,
+      "contentType": "feature-film", "rightsStatus": "public_domain"}, "presumed_pd"),
+    ({"archiveID": "a", "title": "The Giant Claw (1957) Colorized", "year": 1957,
+      "contentType": "feature-film", "rightsStatus": "public_domain"}, "presumed_pd"),
+    ({"archiveID": "a", "title": "The Wonderful Wizard of Oz", "year": 1910,
+      "contentType": "silent-film", "rightsStatus": "public_domain"}, "safe_pd_age"),
+    # even a bogus CC claim doesn't rescue a renewed classic
+    ({"archiveID": "a", "title": "Casablanca (1942)", "year": 1942,
+      "contentType": "feature-film", "rightsStatus": "creative_commons"}, "renewed_copyright_classic"),
 ]
 
 

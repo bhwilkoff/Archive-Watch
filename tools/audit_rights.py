@@ -96,6 +96,88 @@ SLOP_TITLE_RE = re.compile(
 )
 
 
+# Famous RENEWED-copyright films from the 1929-1963 window that the "presumed-PD"
+# year tier would otherwise keep. Studio copyrights were renewed (protected ~95y),
+# so these are NOT public domain. Curated; (normalized title, release year). Match
+# is precise — normalized title substring + year within ±1 + feature/animation —
+# so the genuinely-PD silent/parody versions (1910 & 1925 Wizard of Oz, Betty Boop
+# Snow White 1933, the 1923 silent Ten Commandments) are NOT caught.
+_RENEWED_CLASSICS = [
+    ("gone with the wind", 1939), ("the wizard of oz", 1939), ("king kong", 1933),
+    ("snow white and the seven dwarfs", 1937), ("pinocchio", 1940), ("fantasia", 1940),
+    ("dumbo", 1941), ("bambi", 1942), ("cinderella", 1950), ("peter pan", 1953),
+    ("lady and the tramp", 1955), ("sleeping beauty", 1959),
+    ("casablanca", 1942), ("citizen kane", 1941), ("the maltese falcon", 1941),
+    ("its a wonderful life", 1946), ("the best years of our lives", 1946),
+    ("sunset boulevard", 1950), ("all about eve", 1950),
+    ("singin in the rain", 1952), ("an american in paris", 1951),
+    ("a streetcar named desire", 1951), ("the african queen", 1951),
+    ("high noon", 1952), ("roman holiday", 1953), ("on the waterfront", 1954),
+    ("rear window", 1954), ("white christmas", 1954), ("holiday inn", 1942),
+    ("the ten commandments", 1956), ("the searchers", 1956),
+    ("12 angry men", 1957), ("twelve angry men", 1957), ("the bridge on the river kwai", 1957),
+    ("vertigo", 1958), ("touch of evil", 1958), ("witness for the prosecution", 1957),
+    ("some like it hot", 1959), ("north by northwest", 1959), ("ben-hur", 1959),
+    ("ben hur", 1959), ("psycho", 1960), ("spartacus", 1960), ("the apartment", 1960),
+    ("breakfast at tiffanys", 1961), ("west side story", 1961), ("the hustler", 1961),
+    ("lawrence of arabia", 1962), ("to kill a mockingbird", 1962), ("the birds", 1963),
+]
+_CLASSIC_SKIP_RE = re.compile(
+    r"trailer|featurette|premiere|teaser|making of|reissue|reaction|\breview\b"
+    r"|parody|three stooges|betty boop|\bcartoon\b|express\b|\bvs\.?\b", re.I)
+_CLASSIC_OK_TYPES = {"feature-film", "animation", "tv-special"}
+_TITLE_YEAR_RE = re.compile(r"\b(19[0-6]\d)\b")
+# Edition/format/language noise stripped from a title before matching, so
+# "King Kong 1933 Español" and "Holiday Inn 1942 *colorized" reduce to the canon.
+_QUALIFIERS = {
+    "restored", "colorized", "colorised", "hd", "sd", "4k", "1080p", "720p", "480p",
+    "dvd", "bluray", "blu", "ray", "remastered", "espanol", "espaol", "eng", "sub",
+    "subs", "subtitled", "subtitulado", "full", "movie", "film", "classic", "bw",
+    "version", "edition", "complete", "english", "spanish", "dual", "audio",
+    "cinematography",
+}
+
+
+def _norm_title(t):
+    t = (t or "").lower()
+    t = re.sub(r"\(.*?\)|\[.*?\]", " ", t)          # drop parentheticals
+    t = re.sub(r"[^a-z0-9 ]", "", t)                # drop punctuation/apostrophes
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def _core(title):
+    """Title core: normalized, minus year tokens and format/language qualifiers."""
+    words = _norm_title(title).split()
+    return " ".join(w for w in words
+                    if not re.fullmatch(r"(19|20)\d\d", w) and w not in _QUALIFIERS)
+
+
+def is_renewed_classic(it):
+    if it.get("contentType") not in _CLASSIC_OK_TYPES:
+        return False
+    title = it.get("title") or ""
+    if _CLASSIC_SKIP_RE.search(title):
+        return False
+    y = it.get("year")
+    if not isinstance(y, int):
+        m = _TITLE_YEAR_RE.search(title)
+        y = int(m.group(1)) if m else None
+    if not isinstance(y, int):
+        return False
+    core = _core(title)
+    for canon, cy in _RENEWED_CLASSICS:
+        if abs(y - cy) > 1:
+            continue
+        cw = canon.split()
+        # Multi-word canons (>=3 words) are unambiguous as a substring (catches
+        # dubbed / actor-appended variants). Short canons ("psycho", "vertigo")
+        # must equal the core, so "anatomy of a psycho" / "psychorama" are NOT
+        # caught — avoids hiding genuinely-PD B-movies.
+        if (len(cw) >= 3 and canon in core) or (len(cw) <= 2 and core == canon):
+            return True
+    return False
+
+
 def colls(it):
     return {str(c).lower() for c in (it.get("collections") or [])}
 
@@ -142,6 +224,10 @@ def bucket(it):
     # ---- always-safe ----
     if cl & GOV:
         return "safe_gov", "keep"
+    # Famous renewed-copyright classic that the year tiers would wrongly keep —
+    # overrides even a bogus CC/PD claim (a studio classic has neither for real).
+    if is_renewed_classic(it):
+        return "renewed_copyright_classic", "hide"
     if rs == "creative_commons":
         return "safe_cc", "keep"
     if license_rescues(it.get("archiveLicense"), yi):
@@ -178,7 +264,8 @@ def bucket(it):
 
 
 HIDE_BUCKETS = {"modern_copyright_confirmed", "modern_noyear_risk",
-                "commercial_modern_risk", "commercial_slop"}
+                "commercial_modern_risk", "commercial_slop",
+                "renewed_copyright_classic"}
 
 
 def evidence_for(it, b):
