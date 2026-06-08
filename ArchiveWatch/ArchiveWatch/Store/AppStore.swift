@@ -265,34 +265,37 @@ final class AppStore {
     /// Shared kid-friendly color-cartoon pool (used by cartoonLineup + Kids Mode).
     func kidsCartoonPool(limit: Int) -> [Catalog.Item] {
         let scary = ["horror", "war", "nightmare", "death", "ghost story", "macabre"]
-        var pool = dbBrowse(contentType: "animation", sort: .popular, limit: 600).filter { it in
+        let pool = dbBrowse(contentType: "animation", sort: .popular, limit: 600).filter { it in
             guard it.videoURLParsed != nil, it.hasDesignedArtwork else { return false }
-            if it.isSilentFilm == true { return false }              // color-era, not silent B&W
+            if it.isSilentFilm == true { return false }   // Cartoon MODE excludes silent
             let blob = (it.genres + it.subjects).map { $0.lowercased() }
             if blob.contains(where: { g in scary.contains(where: g.contains) }) { return false }
             return true
         }
-        // #7: prioritize COLOR cartoons over black-and-white. The authoritative
-        // signal is `colorMode` (frame-classified by tools/classify_color.py):
-        // known color floats to the top, known B&W sinks to the bottom. For items
-        // not yet classified, fall back to metadata/year color-likelihood so the
-        // ordering is still sensible before classification has fully run.
-        func colorScore(_ it: Catalog.Item) -> Int {
-            let pop = (it.popularityScore ?? 0) / 50
-            if it.isColor == true { return 1000 + pop }
-            if it.isBlackAndWhite { return -1000 + pop }
-            var s = 0
-            let blob = (it.genres + it.subjects + [it.title])
-                .map { $0.lowercased() }.joined(separator: " ")
-            if blob.contains("technicolor") || blob.contains("cinecolor")
-                || blob.contains(" color") || blob.contains("colour") { s += 8 }
-            if blob.contains("black and white") || blob.contains("b&w") { s -= 6 }
-            if let y = it.year { s += y >= 1935 ? 5 : (y >= 1930 ? 0 : -4) }
-            return s + pop
-        }
-        pool.sort { colorScore($0) > colorScore($1) }
-        let head = Array(pool.prefix(max(limit, 120)))
-        return head.shuffled()
+        // Color leads; B&W (non-silent, e.g. Betty Boop) stays available but de-emphasized.
+        return Array(colorEmphasizedAnimation(pool).prefix(max(limit, 120)))
+    }
+
+    /// True for animation that is black-and-white or silent. Prefers the
+    /// frame-verified color flag (Decision 025); falls back to silent + a pre-1930
+    /// year for the few items not yet classified.
+    func isBlackAndWhiteOrSilent(_ it: Catalog.Item) -> Bool {
+        if it.isColor == true { return false }
+        if it.isBlackAndWhite { return true }
+        if it.isSilentFilm == true { return true }
+        if let y = it.year, y < 1930 { return true }
+        return false
+    }
+
+    /// Color-emphasis ordering for the cartoon surfaces (Cartoon Mode + the
+    /// Cartoon channel): all COLOR animation first (shuffled for freshness), then
+    /// a capped MINORITY of B&W/silent appended — so color leads and dominates the
+    /// composition, while classic B&W/silent stays available but not emphasized.
+    func colorEmphasizedAnimation(_ items: [Catalog.Item], bwFraction: Double = 0.15) -> [Catalog.Item] {
+        let color = items.filter { !isBlackAndWhiteOrSilent($0) }.shuffled()
+        let bw = items.filter { isBlackAndWhiteOrSilent($0) }.shuffled()
+        let cap = max(3, Int(Double(color.count) * bwFraction))
+        return color + Array(bw.prefix(cap))
     }
 
     /// #3 Party Play: muted background eye-candy — COLOR (never silent B&W), SHORT

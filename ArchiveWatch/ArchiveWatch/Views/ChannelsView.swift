@@ -162,7 +162,13 @@ struct ChannelsView: View {
             // (the scheduler shuffles the WHOLE pool, so a big limit dilutes it).
             let raw = store.dbBrowse(contentType: ch.contentType, genre: ch.genre,
                                      sort: .popular, limit: 90)
-            let slots = ChannelScheduler.schedule(channelID: ch.id, programs: playable(raw), now: now)
+            var pool = playable(raw)
+            // Cartoon channel: emphasize color; classic silent/B&W stay available
+            // but capped at ~10% of the lineup.
+            if ch.contentType == "animation" {
+                pool = store.colorEmphasizedAnimation(pool, bwFraction: 0.10)
+            }
+            let slots = ChannelScheduler.schedule(channelID: ch.id, programs: pool, now: now)
             guard !slots.isEmpty else { continue }
             out.append(GuideChannel(id: ch.id, number: number, title: ch.title,
                                     accent: ch.accent, icon: ch.icon, slots: slots))
