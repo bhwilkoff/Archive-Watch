@@ -158,63 +158,73 @@ struct HomeView: View {
 
 struct HeroCarousel: View {
     let items: [Catalog.Item]
-    // Per tvOS-playbook §9.2: the carousel is ONE focusable surface whose CONTENT
-    // swaps — never a row of N banners. Rendering only the current banner
-    // (`.id` + `.transition` crossfade) means there are no neighbor slivers and
-    // the index wraps with modulo (so it restarts past the end). Manual paging is
-    // LEFT/RIGHT via `.onMoveCommand` — which fires only for directions the focus
-    // engine can't move (there are no horizontal neighbors), so UP/DOWN still
-    // fall through to the shelves below (verified on-device). Auto-advance cycles.
+    // A horizontal paging row of full-width focusable banners. Native focus does
+    // the right thing at the edges: LEFT on a non-leftmost banner moves to the
+    // PREVIOUS banner (it does NOT open the sidebar, because focus stays inside
+    // the content); LEFT on the leftmost banner has no neighbor, so it falls
+    // through to the sidebar. RIGHT moves to the next banner. The ONE thing the
+    // engine can't do is wrap, so `.onMoveCommand` adds exactly that: a RIGHT on
+    // the LAST banner (no neighbor) loops back to the first. We deliberately do
+    // NOT handle .left/.up/.down here, so those keep their native behavior (no
+    // double-trigger). No `.scrollClipDisabled()` — clipping is what hides the
+    // adjacent full-width pages (the neighbor "slivers").
     @Environment(Router.self) private var router
-    @State private var index = 0
-    @FocusState private var focused: Bool
+    @State private var scrolledID: String?
+    @FocusState private var focusedID: String?
     @State private var claimedInitialFocus = false
     private let autoAdvance = Timer.publish(every: 7, on: .main, in: .common).autoconnect()
 
     private let heroHeight: CGFloat = 940   // #10: near-full-screen hero
 
-    private var current: Catalog.Item { items[min(index, max(items.count - 1, 0))] }
+    private var currentIndex: Int { items.firstIndex { $0.archiveID == scrolledID } ?? 0 }
 
     var body: some View {
-        Button { router.push(current) } label: {
-            HeroBanner(item: current)
-                .id(current.archiveID)         // swap+crossfade the single banner
-                .transition(.opacity)
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHStack(spacing: 0) {
+                ForEach(items) { item in
+                    Button { router.push(item) } label: {
+                        HeroBanner(item: item)
+                    }
+                    .buttonStyle(HeroButtonStyle())
+                    .containerRelativeFrame(.horizontal)   // exactly one banner per page
+                    .focused($focusedID, equals: item.archiveID)
+                    .id(item.archiveID)
+                }
+            }
+            .scrollTargetLayout()
         }
-        .buttonStyle(HeroButtonStyle())
-        .frame(maxWidth: .infinity)
+        .scrollTargetBehavior(.paging)
+        .scrollPosition(id: $scrolledID)
         .frame(height: heroHeight)
-        .clipped()                              // no bleed of adjacent content
-        .focused($focused)
         .focusSection()
-        .animation(Motion.heroCrossfade, value: index)
         .overlay(alignment: .bottom) {
             pageIndicator.padding(.bottom, 56).allowsHitTesting(false)
         }
-        // Manual paging: left/right swap the content + wrap. up/down do nothing
-        // here so the focus engine routes them to the shelf above/below.
+        // Only add what the engine can't: wrap from the last banner back to the
+        // first on RIGHT. Everything else (prev/next, leftmost->sidebar, up/down)
+        // is native, so Left never double-triggers the sidebar.
         .onMoveCommand { direction in
-            switch direction {
-            case .left:  advance(-1)
-            case .right: advance(1)
-            default:     break
+            if direction == .right, currentIndex == items.count - 1, let first = items.first {
+                focusedID = first.archiveID
             }
         }
-        // Idle auto-advance + wrap.
-        .onReceive(autoAdvance) { _ in advance(1) }
-        // Claim initial focus once (playbook §9.2: guard, not a bare re-firing task).
-        .task {
-            guard !claimedInitialFocus else { return }
-            claimedInitialFocus = true
-            try? await Task.sleep(for: .milliseconds(60))
-            focused = true
+        // Idle auto-advance + wrap (moves focus so the page follows).
+        .onReceive(autoAdvance) { _ in
+            guard items.count > 1 else { return }
+            let next = (currentIndex + 1) % items.count
+            if focusedID != nil {
+                focusedID = items[next].archiveID
+            } else {
+                withAnimation(Motion.heroCrossfade) { scrolledID = items[next].archiveID }
+            }
         }
-    }
-
-    private func advance(_ step: Int) {
-        guard items.count > 1 else { return }
-        withAnimation(Motion.heroCrossfade) {
-            index = (index + step + items.count) % items.count
+        .onChange(of: focusedID) { _, new in if let new { scrolledID = new } }
+        .task {
+            guard !claimedInitialFocus, let first = items.first else { return }
+            claimedInitialFocus = true
+            scrolledID = first.archiveID
+            try? await Task.sleep(for: .milliseconds(60))
+            focusedID = first.archiveID
         }
     }
 
@@ -222,9 +232,9 @@ struct HeroCarousel: View {
         HStack(spacing: 12) {
             ForEach(0..<items.count, id: \.self) { i in
                 Capsule()
-                    .fill(i == index ? Color.white : Color.white.opacity(0.35))
-                    .frame(width: i == index ? 36 : 10, height: 10)
-                    .animation(Motion.chrome, value: index)
+                    .fill(i == currentIndex ? Color.white : Color.white.opacity(0.35))
+                    .frame(width: i == currentIndex ? 36 : 10, height: 10)
+                    .animation(Motion.chrome, value: currentIndex)
             }
         }
     }
