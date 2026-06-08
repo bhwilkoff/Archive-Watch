@@ -244,6 +244,11 @@ def populate_items(db, items, rotate_seed="0"):
     item_rows, json_rows, genre_rows, coll_rows, shelf_rows, fts_rows = [], [], [], [], [], []
     shelf_pos = _rotated_shelf_positions(items, rotate_seed)
     for it in items:
+        # Rights audit (Decision 027): items flagged excluded=true stay in
+        # catalog.json (reversible) but are never inserted, so they vanish from
+        # every app surface. Mirrors the isAdult gate but harder — a full skip.
+        if it.get("excluded"):
+            continue
         aid = it["archiveID"]
         item_rows.append((
             aid, _t(it.get("title")), it.get("year"), it.get("decade"),
@@ -349,6 +354,7 @@ def select_seed_items(items):
     curated shelves paint), plus the top-N by popularity for Browse/hero. The
     bundled seed is derived from the full catalog so we no longer commit a
     separate 14 MB seed catalog.json (Decision 018)."""
+    items = [it for it in items if not it.get("excluded")]   # rights audit (Decision 027)
     chosen = {}
     for it in items:
         aid = it.get("archiveID")

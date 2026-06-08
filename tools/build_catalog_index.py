@@ -46,6 +46,8 @@ def main():
 
     rows = []
     for it in items:
+        if it.get("excluded"):          # rights audit (Decision 027)
+            continue
         cols = {c.lower() for c in (it.get("collections") or [])}
         if adult & cols:
             continue

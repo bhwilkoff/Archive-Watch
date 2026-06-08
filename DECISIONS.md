@@ -867,3 +867,64 @@ left unmarked and retried).
 CI run). This complements, not replaces, `tmdb_verify_matches.py` (#75, which
 compares the stored tmdbID's canonical TMDb title) and the internal cleaners in
 `remediate_catalog.py`.
+
+---
+
+## 027 — Copyright rights audit: hide modern non-PD titles behind a reversible `excluded` flag, confirmed by the Archive's OWN licenseurl
+*Date: 2026-06-08*
+
+Before the first App Store submission, `tools/audit_rights.py` buckets every
+catalog item by how confidently it can be called public domain and HIDES the ones
+that are likely still under copyright by setting a reversible `excluded: true`
+flag (the item stays in `catalog.json`; `build_sqlite.py`, the bundled seed
+selection, and `build_catalog_index.py` all skip `excluded` items, so they vanish
+from every app/web surface but can be restored by clearing the flag). The risk
+decision is anchored on the Archive item's OWN `licenseurl` (a network confirm
+phase): a genuine `publicdomain/zero` (CC0) or `creativecommons.org/licenses/*`
+dedication KEEPS a modern title; a bogus uploader-applied `publicdomain/mark`, a
+bare/old PD claim on a post-1978 work, or no license HIDES it. The same fetch
+reads the Archive `date` to re-anchor wrong-dated old films (Tier-2 of Decision
+026) so they leave the risk set instead of being hidden. US year tiers: <1929
+PD-by-age (keep); 1929–1963 presumed-PD per the Archive's curatorial stance
+(keep); 1964–1977 renewal zone KEEP ALL (owner decision 2026-06-08 — this era is
+full of genuinely-PD-by-notice-defect classics like *Night of the Living Dead*,
+and absence of a license tag on a 1960s film is NOT proof of copyright); >=1978
+confirm-then-hide. Commercials are a separate surface: modern brand ads (year
+>=1995, owner decision) and screen-recording/rip/compilation slop are hidden
+regardless of an uploader's PD/CC0 claim (a CC0 tag on a Coca-Cola ad is
+worthless). Every apply emits `tools/rejected_audit.csv` — a per-item manifest
+(Archive URL, stored year, Archive date, license, colorMode, downloadURL,
+evidence) with a `SUSPECT_old_video` flag on any hidden item the Archive itself
+dates pre-1978 or that is B&W with no corroborating date, so a wrong hide can be
+caught by review.
+
+**Why**: 96% of the catalog was labelled `public_domain`, but 7,400+ items dated
+>=1978 carried that label wrongly — uploaders routinely slap a "Public Domain
+Mark" on copyrighted studio films (verified: "The Peanuts Movie" 2015,
+"Nosferatu" 2024, "Azaad" 2025). Shipping those is a copyright-infringement and
+App-Store-rejection risk. Catalog-only signals can't separate a genuine
+creator-dedicated PD film (Sita Sings the Blues = real CC0) from a bogus claim —
+the Wikidata-"flagged" PD set was full of copyrighted slop (Mr Bean complete
+series, hololive clips) sitting next to Sita. The Archive item's own `licenseurl`
+is the only authoritative signal, and the CC0-vs-PD-Mark distinction is decisive:
+on a 60-item sample only ~10% of modern PD-labelled items had a real CC0/CC
+license. Removal is a flag (not a delete) because Decision 020 requires
+catalog-mutating steps to be additive/reversible, and because mis-hides must be
+recoverable for an App Store reviewer's spot-check.
+
+**How to apply**: never hard-delete a rights-flagged item — set `excluded=true`
+(reversible). A modern (>=1978) PD-labelled item may only be KEPT with a real
+CC0/CC `licenseurl`; "PD Mark"/bare-PD/no-license on a post-1978 work is NOT a
+rescue. NEVER hide 1964–1977 wholesale (owner policy). Trust the Archive's own
+`date`/`licenseurl`/`external-identifier` over a fuzzy title match. New ingests
+are covered by re-running `audit_rights.py --confirm` (resumable via
+`rightsConfirmed`) then `--apply`; wire it after enrichment in CI, before
+`build_sqlite`. Always review the `SUSPECT_old_video` rows of
+`tools/rejected_audit.csv` before publishing — a B&W or Archive-old hidden item
+is probably a wrong match that should be re-dated and kept, not removed.
+
+**Consequences**: the published DB and seed shrink by the hidden count (well
+above the app's 10 MB validity floor — safe). `excluded`/`rightsConfirmed`/
+`archiveLicense`/`archiveDate`/`rightsAudit` are additive JSON keys the Swift
+model ignores. This is the rights complement to Decision 026 (match correctness):
+026 makes a match point at the right film; 027 decides whether that film may ship.

@@ -1,0 +1,76 @@
+name: Rights audit (confirm)
+
+# Copyright/rights audit (Decision 027). Runs ONLY the network-heavy confirmation
+# phase here — fetch each modern PD-labelled item's OWN archive.org licenseurl +
+# date, rescue genuine CC0/CC films, re-anchor wrong-dated old films. archive.org
+# is unreachable from the local dev sandbox, so the confirm runs in CI where it is
+# clean (same reason verify-matches.yml / color-classify.yml run here).
+#
+# This workflow does NOT hide anything. It publishes the ANNOTATED catalog
+# (archiveLicense/archiveDate/rightsConfirmed added) back to the release and
+# uploads tools/rejected_audit.csv as an artifact for human review. The actual
+# `excluded=true` apply + DB rebuild is done after that review (locally or via a
+# follow-up), so a wrong hide can be caught first.
+#
+# Resumable via `rightsConfirmed`; failed fetches stay unconfirmed and retry.
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max risk items to confirm this run (0 = all)'
+        required: false
+        default: '0'
+      workers:
+        description: 'Concurrent archive.org fetches'
+        required: false
+        default: '12'
+
+concurrency:
+  group: catalog-writers
+  cancel-in-progress: false
+
+jobs:
+  confirm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    permissions:
+      contents: write   # catalog_release.py publish uploads a release asset
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Confirm rights via Archive licenseurl + date
+        run: |
+          python tools/audit_rights.py \
+            --confirm \
+            --workers ${{ github.event.inputs.workers || '12' }} \
+            ${{ github.event.inputs.limit != '0' && format('--limit {0}', github.event.inputs.limit) || '' }} \
+            | tee confirm.log
+          echo "## Rights audit — confirm" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -4 confirm.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Report (what WOULD be rejected) + bucket summary
+        run: |
+          python tools/audit_rights.py --report-rejected tools/rejected_audit.csv | tee audit.log
+          echo "## Rights audit — buckets" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; sed -n '1,30p' audit.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload rejected manifest for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: rejected_audit
+          path: tools/rejected_audit.csv
+
+      - name: Publish annotated catalog to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py publish
