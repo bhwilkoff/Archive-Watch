@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-06-07T07:52:55Z",
+  "updated_at": "2026-06-08T08:34:58Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 11092,
-    "wanted": 10946,
+    "total": 11151,
+    "wanted": 11005,
     "fulfilled": 146,
-    "series_with_gaps": 227
+    "series_with_gaps": 228
   },
   "wants": [
     {
@@ -107939,6 +107939,596 @@
       "episodeImdbID": "tt0740028",
       "status": "wanted",
       "added_at": "2026-06-04T08:24:27Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 2,
+      "title": "Mambo Itali-Go-Go",
+      "episodeImdbID": "tt7364840",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 3,
+      "title": "So Far to Mardi Gras",
+      "episodeImdbID": "tt7364842",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 4,
+      "title": "Easter Express",
+      "episodeImdbID": "tt7364850",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 5,
+      "title": "Race-a-Lot",
+      "episodeImdbID": "tt7364852",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 7,
+      "title": "Yes, We Canyon",
+      "episodeImdbID": "tt7364862",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 8,
+      "title": "Roamin' Racers",
+      "episodeImdbID": "tt7319242",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 9,
+      "title": "Smokey and the Racers",
+      "episodeImdbID": "tt7319260",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 10,
+      "title": "Raceketeers",
+      "episodeImdbID": "tt7364864",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 11,
+      "title": "Fantastic Race",
+      "episodeImdbID": "tt7364874",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 13,
+      "title": "Backseat Drivers",
+      "episodeImdbID": "tt7364884",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 14,
+      "title": "Off Track",
+      "episodeImdbID": "tt7786528",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 15,
+      "title": "Cave Racers",
+      "episodeImdbID": "tt7781636",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 17,
+      "title": "It's a Wacky Life",
+      "episodeImdbID": "tt7786602",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 19,
+      "title": "Dashing Thru the Snow",
+      "episodeImdbID": "tt7786606",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 24,
+      "title": "Race to the Bottom",
+      "episodeImdbID": "tt7786646",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 26,
+      "title": "Swap Meet",
+      "episodeImdbID": "tt7781646",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 27,
+      "title": "Race Against Time",
+      "episodeImdbID": "tt7493930",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 28,
+      "title": "My Fair Tiny",
+      "episodeImdbID": "tt7493932",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 33,
+      "title": "The Perils of Peter Perfect",
+      "episodeImdbID": "tt9525280",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 34,
+      "title": "People Who Need Purple",
+      "episodeImdbID": "tt9525290",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 35,
+      "title": "Race to Infinity",
+      "episodeImdbID": "tt9525306",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 36,
+      "title": "His Way or the Highway",
+      "episodeImdbID": "tt9525318",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 37,
+      "title": "Racer Roundup",
+      "episodeImdbID": "tt9525324",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 39,
+      "title": "Hong Kong Screwy",
+      "episodeImdbID": "tt9525330",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 1,
+      "episode": 40,
+      "title": "40 Yard Dash",
+      "episodeImdbID": "tt9525334",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 1,
+      "title": "Dickie and the Race-onauts",
+      "episodeImdbID": "tt9525386",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 2,
+      "title": "Uncle Dickie's Happy Sunshine Children's Hour",
+      "episodeImdbID": "tt9525390",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 3,
+      "title": "Peter 2.0",
+      "episodeImdbID": "tt9525394",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 4,
+      "title": "Little Pink Riding Hood",
+      "episodeImdbID": "tt9525396",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 5,
+      "title": "Punky Races",
+      "episodeImdbID": "tt9525404",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 7,
+      "title": "Wacklantis",
+      "episodeImdbID": "tt9525426",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 8,
+      "title": "Game On",
+      "episodeImdbID": "tt9525444",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 9,
+      "title": "Much Ado About Wacky",
+      "episodeImdbID": "tt9525450",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 10,
+      "title": "Far and Away in Old Bombay",
+      "episodeImdbID": "tt9525462",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 11,
+      "title": "The Wacky Always Races Twice",
+      "episodeImdbID": "tt7806040",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 12,
+      "title": "Mummy Madness",
+      "episodeImdbID": "tt9525470",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 13,
+      "title": "King Solomon's Races",
+      "episodeImdbID": "tt9525476",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 14,
+      "title": "The Trial of Dick Dastardly",
+      "episodeImdbID": "tt9525478",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 15,
+      "title": "The Wack Stuff",
+      "episodeImdbID": "tt9525482",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 17,
+      "title": "The Purple Ray from Outer Space",
+      "episodeImdbID": "tt9525492",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 18,
+      "title": "Attack of the Mega-Muttley",
+      "episodeImdbID": "tt9525496",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 19,
+      "title": "Wackier Than Fiction",
+      "episodeImdbID": "tt9525500",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 20,
+      "title": "Never Too Old To Wacky",
+      "episodeImdbID": "tt7806044",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 21,
+      "title": "Wacky Wizards",
+      "episodeImdbID": "tt9525502",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 22,
+      "title": "Super Wacky",
+      "episodeImdbID": "tt9525504",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 23,
+      "title": "Wack to the Future",
+      "episodeImdbID": "tt9397272",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 24,
+      "title": "Signed, Sealed and Wacky",
+      "episodeImdbID": "tt9525514",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 25,
+      "title": "Wacky Races, the Movie",
+      "episodeImdbID": "tt9525516",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 26,
+      "title": "Catastrophe",
+      "episodeImdbID": "tt11923360",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 27,
+      "title": "Brains Before Brawn",
+      "episodeImdbID": "tt11923370",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 28,
+      "title": "Double the Dastardly",
+      "episodeImdbID": "tt11923396",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 29,
+      "title": "Wackyland",
+      "episodeImdbID": "tt11923414",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 30,
+      "title": "Curses, Foiled Again",
+      "episodeImdbID": "tt11923422",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 31,
+      "title": "Double Trouble",
+      "episodeImdbID": "tt11923430",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 32,
+      "title": "Slow and Steady",
+      "episodeImdbID": "tt11923440",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 34,
+      "title": "Troy and Troy Again",
+      "episodeImdbID": "tt11923456",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 35,
+      "title": "What a Wacky Development This Is",
+      "episodeImdbID": "tt11923474",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 36,
+      "title": "I, Race Car",
+      "episodeImdbID": "tt11923478",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
+    },
+    {
+      "seriesID": "wacky-races-2017",
+      "seriesTitle": "Wacky Races",
+      "season": 2,
+      "episode": 37,
+      "title": "Muttleys Are Forever/Never Say Muttley Again",
+      "episodeImdbID": "tt11923482",
+      "status": "wanted",
+      "added_at": "2026-06-08T08:34:58Z"
     },
     {
       "seriesID": "waffle-the-wonder-dog-2018",
