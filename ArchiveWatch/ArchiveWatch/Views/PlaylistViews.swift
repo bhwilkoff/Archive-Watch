@@ -75,7 +75,9 @@ struct AddToPlaylistSheet: View {
     private func toggle(_ pl: Playlist) {
         if let i = pl.archiveIDs.firstIndex(of: archiveID) { pl.archiveIDs.remove(at: i) }
         else { pl.archiveIDs.append(archiveID) }
+        pl.touch()                 // #11b: stamp so a removal wins on sync
         try? ctx.save()
+        SyncNudge.nudge(ctx)
     }
 
     private func createAndAdd() {
@@ -83,6 +85,7 @@ struct AddToPlaylistSheet: View {
         guard !name.isEmpty else { return }
         ctx.insert(Playlist(name: name, archiveIDs: [archiveID]))
         try? ctx.save()
+        SyncNudge.nudge(ctx)
         newName = ""
     }
 }

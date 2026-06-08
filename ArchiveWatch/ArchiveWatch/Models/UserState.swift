@@ -60,15 +60,41 @@ final class Playlist {
     var name: String
     var archiveIDs: [String]
     var createdAt: Date
+    // #11b: last local edit time. CloudKit sync merges playlists by RECENCY
+    // (last-writer-wins) so a removal propagates — the old count-based merge
+    // could never shrink a list. Defaulted for lightweight migration of stores
+    // created before this field existed.
+    var modifiedAt: Date = Date.distantPast
 
     init(id: String = UUID().uuidString, name: String, archiveIDs: [String] = []) {
         self.id = id
         self.name = name
         self.archiveIDs = archiveIDs
         self.createdAt = Date()
+        self.modifiedAt = Date()
     }
 
     func contains(_ archiveID: String) -> Bool { archiveIDs.contains(archiveID) }
+
+    /// Stamp an edit so sync treats this device's copy as the newest.
+    func touch() { modifiedAt = Date() }
+}
+
+// #11b (Decision 022): a record that a synced item was DELETED, with when. Local
+// SwiftData drops a deleted row entirely, so without this a deletion can't beat a
+// stale cloud copy on pull — the item would resurrect. Tombstones are pushed to
+// CloudKit so every device learns of the deletion; last-writer-wins by timestamp
+// (a re-add newer than the tombstone clears it). Keyed "fav:<id>" / "pl:<id>" /
+// "wp:<id>" / "ch:<id>".
+@Model
+final class Tombstone {
+    @Attribute(.unique) var key: String
+    var deletedAt: Date
+
+    init(key: String, deletedAt: Date = Date()) {
+        self.key = key
+        self.deletedAt = deletedAt
+    }
 }
 
 // #1b: a user-created 24-hour channel — a saved full-DB filter (any combination

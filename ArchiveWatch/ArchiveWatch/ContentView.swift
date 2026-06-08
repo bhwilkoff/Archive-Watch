@@ -3,6 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @Environment(AppStore.self) private var store
     @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.modelContext) private var modelContext
 
     var body: some View {
         Group {
@@ -25,9 +26,24 @@ struct ContentView: View {
                 IntentInbox.shared.request = request
             }
         }
-        // Arm the What's New background refresh when we go to the background.
+        // #11b live sync: pull/push when the app comes to the foreground (so a
+        // second Apple TV picks up changes made on the first), and arm the
+        // What's New background refresh when leaving.
         .onChange(of: scenePhase) { _, phase in
             if phase == .background { BackgroundRefresh.schedule() }
+            else if phase == .active {
+                Task { await CloudKitSyncService.shared.sync(modelContext) }
+            }
+        }
+        // #11b live sync: a gentle periodic pull while in use, so two TVs left on
+        // converge without a foreground event. Reentrancy-guarded in the service.
+        .task {
+            while !Task.isCancelled {
+                try? await Task.sleep(nanoseconds: 60_000_000_000)
+                if scenePhase == .active {
+                    await CloudKitSyncService.shared.sync(modelContext)
+                }
+            }
         }
     }
 }

@@ -199,10 +199,12 @@ struct SeriesDetailView: View {
     private func toggleFavorite(_ archiveID: String) {
         if let existing = favorites.first(where: { $0.archiveID == archiveID }) {
             modelContext.delete(existing)
+            SyncNudge.recordDeletion("fav:\(archiveID)", in: modelContext)  // saves + syncs
         } else {
             modelContext.insert(Favorite(archiveID: archiveID))
+            try? modelContext.save()
+            SyncNudge.nudge(modelContext)
         }
-        try? modelContext.save()
     }
 
     // #3: overview + cast in their own section BELOW the hero, so the poster art

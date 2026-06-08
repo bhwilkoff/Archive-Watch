@@ -37,7 +37,7 @@ struct ArchiveWatchApp: App {
     // always launches.
     private static func makeModelContainer() -> ModelContainer {
         let schema = Schema([ContentItem.self, WatchProgress.self, Favorite.self,
-                             Playlist.self, UserChannel.self])
+                             Playlist.self, UserChannel.self, Tombstone.self])
         // cloudKitDatabase: .none is REQUIRED. Once the app carries the iCloud
         // entitlement, SwiftData otherwise tries to AUTO-mirror the store to
         // CloudKit (.automatic) — which crashes at store load because our models

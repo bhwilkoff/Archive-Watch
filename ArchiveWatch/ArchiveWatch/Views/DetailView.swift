@@ -430,10 +430,12 @@ struct DetailView: View {
     private func toggleFavorite() {
         if let existing = favorites.first(where: { $0.archiveID == item.archiveID }) {
             modelContext.delete(existing)
+            SyncNudge.recordDeletion("fav:\(item.archiveID)", in: modelContext)  // saves + syncs
         } else {
             modelContext.insert(Favorite(archiveID: item.archiveID))
+            try? modelContext.save()
+            SyncNudge.nudge(modelContext)
         }
-        try? modelContext.save()
     }
 
     private var sourceBadge: String {
