@@ -255,24 +255,32 @@ private struct PlaylistTile: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 14) {
+        // Matches PosterTile exactly: 28pt between the .card button and the title
+        // block (14pt let the focus-scaled card bloom over the text), title styled
+        // identically, and a focus opacity/animation.
+        VStack(alignment: .leading, spacing: 28) {
             Button(action: action) {
                 PlaylistCover(posters: posters, width: cardWidth, height: cardHeight)
             }
             .buttonStyle(.card)
             .focused($isFocused)
 
-            VStack(alignment: .leading, spacing: 6) {
+            VStack(alignment: .leading, spacing: 4) {
                 Text(playlist.name)
-                    .font(.system(size: 20, weight: .semibold))
+                    .font(.system(size: 19, weight: .semibold))
                     .foregroundStyle(.white)
-                    .lineLimit(1)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.leading)
+                    .minimumScaleFactor(0.78)
+                    .truncationMode(.tail)
+                    .fixedSize(horizontal: false, vertical: true)
                 Text("\(playlist.archiveIDs.count) \(playlist.archiveIDs.count == 1 ? "title" : "titles")")
-                    .font(.system(size: 17))
+                    .font(.system(size: 17, weight: .regular))
                     .foregroundStyle(.white.opacity(0.55))
             }
             .frame(width: cardWidth, alignment: .leading)
             .opacity(isFocused ? 1.0 : 0.85)
+            .animation(Motion.focus, value: isFocused)
         }
     }
 }
