@@ -446,22 +446,31 @@ def main():
         return 0
 
     # ---- APPLY ----
+    # `excluded` is a pure function of the CURRENT bucket, so apply is idempotent
+    # and RECONCILING: a later --confirm that rescues an item (CC0/CC license) or
+    # re-dates it out of the risk window will UN-hide it on the next apply, instead
+    # of leaving a stale excluded flag stuck forever.
     HIDE = set(HIDE_BUCKETS)
     if args.renewal_hide:
         HIDE |= {"renewal_zone", "renewal_zone_bw"}
     hidden = 0
+    unhid = 0
     for it in items:
         b, _ = bucket(it)
         if b in HIDE:
             it["excluded"] = True
             it["rightsAudit"] = b
             hidden += 1
+        elif it.get("excluded"):
+            it.pop("excluded", None)          # no longer a hide -> restore
+            it["rightsAudit"] = "unhidden_" + b
+            unhid += 1
     cat["items"] = items
     CATALOG.write_text(json.dumps(cat, ensure_ascii=False), encoding="utf-8")
     # Always emit the final rejection manifest alongside an apply.
     default_report = REPO / "tools" / "rejected_audit.csv"
     write_rejected_report(items, args.report_rejected or str(default_report))
-    print(f"\n[apply] excluded={hidden} -> wrote {CATALOG.name}")
+    print(f"\n[apply] excluded={hidden} un-hidden={unhid} -> wrote {CATALOG.name}")
     print("[apply] now: build_sqlite.py && catalog_release.py publish && publish-db")
     return 0
 

@@ -232,6 +232,41 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-08 (later) — Rights audit applied + CloudKit #84 (v1.2.12, build 25)
+**State**: all on `main`, app builds clean tvOS 26.5 sim. The pre-submission
+copyright/rights audit is DONE and APPLIED; CloudKit deletion/live sync shipped.
+
+**Rights audit (Decision 027)** — `tools/audit_rights.py`, report-first + network
+confirm. Buckets every item by PD confidence (US year tiers x colorMode x gov/CC
+collections x the Archive item's OWN licenseurl). Confirm phase (CI, archive.org
+blocked from local sandbox) fetched licenseurl+date for ~5,100 modern PD-labelled
+items: **475 rescued** by a genuine CC0/CC dedication (kept), wrong-dated old films
+re-anchored, **failed fetches left UNCONFIRMED (never wrongly hidden)**. Applied:
+**6,168 items hidden** via a reversible `excluded` flag (4,596 modern copyrighted
+films w/ no real license — Schindler's List, Fargo, Peanuts Movie…; 1,040 modern
+brand ads ≥1995; 528 commercial slop/compilations; 4 modern no-year). **32,309
+visible.** `build_sqlite` (full DB + bundled seed) and `build_catalog_index` skip
+`excluded`; item stays in catalog.json (flip to restore). Owner policy: keep all
+1964-77 (PD-by-defect era incl. Night of the Living Dead); commercials cutoff 1995.
+Manifest `tools/rejected_audit.csv` (gitignored; CI artifact) carries per-item
+Archive evidence + a `SUSPECT_old_video` flag — all 284 suspects reviewed, none
+are wrong hides (genuinely-modern B&W films). CI: `rights-audit.yml` (confirm),
+`apply` done locally then published + publish-db. **48 modern items remain
+unverifiable** (archive.org didn't respond; 4 dark) — left VISIBLE pending a
+decision/re-confirm (a couple are mislabeled-old PD like a 1933 Bosko cartoon
+tagged 2018, which must not be wrongly hidden).
+
+**CloudKit #84 (#11b)** — deletion propagation via `Tombstone` model (a removed
+favorite no longer resurrects on pull; re-add newer than the tombstone clears it),
+playlist merge by `modifiedAt` recency (removals propagate), and LIVE triggers
+(foreground + post-edit debounce + 60s timer). Builds clean. On-device verify
+across 2 Apple TVs is owner-pending (checklist in `cloudkit-setup.md`). APNs push
+subscription deferred.
+
+**#88 status**: reached TestFlight; no hidden engineering left. Real blocker is
+**#87** (blank ASC icon / stretched iPhone SiwA icon — owner must resolve in ASC).
+Then: paste listing from `docs/app-store-listing.md`, archive build 25, submit.
+
 ### 2026-06-08 — Pre-submission compaction handoff (v1.2.11, build 24)
 **State**: all on `main` (HEAD `c1034dd`), builds clean tvOS 26.5 sim. Catalog
 (~38,405 items) on the GitHub Release (Decisions 017/018). This session shipped a

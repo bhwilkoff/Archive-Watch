@@ -74,3 +74,7 @@ tools/covers_out/
 
 # Swift build artifacts for the on-device cover scorer (#86)
 tools/CoverScorerCLI/.build/
+
+# Rights-audit manifest (generated; CI uploads it as an artifact, Decision 027)
+tools/rejected_audit.csv
+tools/rejected_*.csv
