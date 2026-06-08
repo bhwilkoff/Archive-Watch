@@ -54,6 +54,13 @@ CASES = [
       "rightsStatus": "public_domain"}, "commercial_keep"),
     ({"archiveID": "bandicam-2023-x", "title": "Logos compilation", "year": 1985,
       "contentType": "commercial", "rightsStatus": "public_domain"}, "commercial_slop"),
+    # false-positive guards: vintage single ads must NOT be slop
+    ({"archiveID": "a", "title": "Pillsbury Cake Mix Commercial", "year": 1962,
+      "contentType": "commercial", "rightsStatus": "public_domain"}, "commercial_keep"),
+    ({"archiveID": "a", "title": "Classic Commercials for Defunct Products, Part 4", "year": 1960,
+      "contentType": "commercial", "rightsStatus": "public_domain"}, "commercial_keep"),
+    ({"archiveID": "a", "title": "Disney Junior Commercial Breaks", "year": 1985,
+      "contentType": "commercial", "rightsStatus": "public_domain"}, "commercial_slop"),
 ]
 
 

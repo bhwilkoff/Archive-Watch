@@ -85,10 +85,13 @@ MODERN_ID_RE = re.compile(
     r"|recording[-_]?20[12]\d|capture[-_]?20[12]\d",
     re.I,
 )
+# High-precision slop signals only. Deliberately NOT here: bare "mix" (matches
+# "Cake Mix"), "part/season/episode/channel N" (match legit vintage ad reels +
+# misclassified vintage TV). Modern broadcast RECORDINGS are caught by the year
+# rule anyway, so these title rules only ever mis-fired on legit pre-1995 content.
 SLOP_TITLE_RE = re.compile(
-    r"\bcompilation\b|\bmix\b|\bplaylist\b|commercial breaks?\b|\btandas?\b"
-    r"|\blogos?\b|\d+\s*hour|full (recording|tape|broadcast)|\bdigital recording\b"
-    r"|\bpart\s*\d+\b|\bseason\s*\d+\b|\b(ep|episode)\s*\d+\b|channel\s*\d+",
+    r"\bcompilation\b|\bplaylist\b|commercial breaks?\b|comml?\s*breaks?\b|\btandas?\b"
+    r"|\blogos\b|\d+\s*hours?\b|full (recording|tape|broadcast)|\bdigital recording\b",
     re.I,
 )
 
