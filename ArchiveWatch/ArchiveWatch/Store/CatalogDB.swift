@@ -281,7 +281,7 @@ final class CatalogDB {
     func seriesCards() -> [Catalog.Item] {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
-            WHERE i.contentType = 'tv-series' \(typeAnd)
+            WHERE i.contentType = 'tv-series' \(adultAnd) \(typeAnd)
             ORDER BY i.episodesCount DESC
         """)
     }

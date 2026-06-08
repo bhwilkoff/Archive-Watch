@@ -111,9 +111,25 @@ def looks_like_episode(it):
     return bool(_SXE.search(it.get("title") or "") or _SXE.search(name))
 
 
-_ADULT = re.compile(
-    r"\b(erotic|nudie|sexploitation|softcore|hardcore|porn|x-?rated|"
-    r"adults?\s+only|burlesque\s+nude|nudist)\b", re.I)
+# Unambiguous adult markers — safe to flag from title, subject, OR genre.
+_ADULT_STRONG = re.compile(
+    r"\b(erotic|erotica|nudie|sexploitation|soft\s?core|hard\s?core|pornograph"
+    r"|porn|x-?rated|xxx|adults?\s+only|nudist|all naked and warm|strip\s?tease"
+    r"|stag\s+film|skin\s?flick|blue\s+movie|girls\s+gone\s+wild)\b", re.I)
+# Reliable only as SUBJECT/GENRE tags — too noisy in titles ("Lady of Burlesque"
+# 1943 is a tame mystery; "The Naked Witch" a B-movie). An uploader who tags
+# these means them. NOTE: bare "burlesque" is deliberately excluded (ambiguous).
+_ADULT_SUBJECT = re.compile(
+    r"\b(nudity|nude|topless|adult\s+film|adult\s+movie|softcore|sexploitation"
+    r"|erotica|pornographic|striptease|playboy|playmate|penthouse)\b", re.I)
+# Curated known-adult titles that evade the keyword tiers (extend as found).
+# NOTE: a bare "playboy" title is NOT adult ("The Playboy of the Western World"),
+# so the Playboy brand is caught by exact title here + the subject tier above.
+_ADULT_TITLES = {
+    "ubalda all naked and warm", "hysterical history",
+    "from show girl to burlesque queen",
+    "playboy after dark", "playboys penthouse", "playboy after dark complete",
+}
 _CARTOON = re.compile(r"\b(cartoon|animation|animated)\b", re.I)
 
 
@@ -200,12 +216,15 @@ def has_animation_signal(item):
 
 
 def is_adult_signal(item):
-    hay = " ".join([
-        item.get("title") or "",
-        " ".join(item.get("subjects") or []),
-        " ".join(item.get("genres") or []),
-    ])
-    return bool(_ADULT.search(hay))
+    title = item.get("title") or ""
+    subj_genre = " ".join((item.get("subjects") or []) + (item.get("genres") or []))
+    # strong markers anywhere; soft markers only in subject/genre tags
+    if _ADULT_STRONG.search(title) or _ADULT_STRONG.search(subj_genre):
+        return True
+    if _ADULT_SUBJECT.search(subj_genre):
+        return True
+    norm = re.sub(r"\s+", " ", re.sub(r"[^a-z0-9 ]", " ", title.lower())).strip()
+    return norm in _ADULT_TITLES
 
 
 # --- Rights inference (#6) -------------------------------------------------
@@ -763,6 +782,15 @@ def remediate(items):
             if not it.get("artworkSource"):
                 it["artworkSource"] = "archive"
             stats["archive_thumb_filled"] += 1
+
+    # Universal ADULT pass: the loop above skips tv-series + non-movie types, but
+    # a series CARD (e.g. "Playboy After Dark") must be flagged so the mature
+    # filter hides it from the TV tab too. Cheap re-check of everything; items the
+    # loop already flagged short-circuit on `not it.get("isAdult")`.
+    for it in items:
+        if not it.get("isAdult") and is_adult_signal(it):
+            it["isAdult"] = True
+            stats["adult_flagged"] += 1
 
     return stats
 
