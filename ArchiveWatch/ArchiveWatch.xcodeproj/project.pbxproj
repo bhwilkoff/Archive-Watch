@@ -10,6 +10,7 @@
 		B7AC53E22F93BA0500F50803 /* featured.json in Resources */ = {isa = PBXBuildFile; fileRef = B7AC53E12F93BA0500F50803 /* featured.json */; };
 		B7AC53E62F93BA0500F50803 /* collections.json in Resources */ = {isa = PBXBuildFile; fileRef = B7AC53E52F93BA0500F50803 /* collections.json */; };
 		DD00000000000000000000B2 /* ArchiveWatchTopShelf.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DD00000000000000000000A1 /* ArchiveWatchTopShelf.appex */; platformFilters = (tvos, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DE00000000000000000000B2 /* ArchiveWatchWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DE00000000000000000000A1 /* ArchiveWatchWidgets.appex */; platformFilters = (ios, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -19,6 +20,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = DD00000000000000000000A3;
 			remoteInfo = ArchiveWatchTopShelf;
+		};
+		DE00000000000000000000B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7AC53C52F93BA0300F50803 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE00000000000000000000A3;
+			remoteInfo = ArchiveWatchWidgets;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -30,6 +38,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				DD00000000000000000000B2 /* ArchiveWatchTopShelf.appex in Embed Foundation Extensions */,
+				DE00000000000000000000B2 /* ArchiveWatchWidgets.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -42,6 +51,7 @@
 		B7AC53E12F93BA0500F50803 /* featured.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = featured.json; path = ../featured.json; sourceTree = "<group>"; };
 		B7AC53E52F93BA0500F50803 /* collections.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = collections.json; path = ../docs/taxonomy/collections.json; sourceTree = "<group>"; };
 		DD00000000000000000000A1 /* ArchiveWatchTopShelf.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ArchiveWatchTopShelf.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE00000000000000000000A1 /* ArchiveWatchWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ArchiveWatchWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -68,6 +78,11 @@
 			path = ArchiveWatchTopShelf;
 			sourceTree = "<group>";
 		};
+		DE00000000000000000000A2 /* ArchiveWatchWidgets */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ArchiveWatchWidgets;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +100,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DE00000000000000000000A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -96,6 +118,7 @@
 				B7AC53E52F93BA0500F50803 /* collections.json */,
 				B7AC53CF2F93BA0300F50803 /* ArchiveWatch */,
 				DD00000000000000000000A2 /* ArchiveWatchTopShelf */,
+				DE00000000000000000000A2 /* ArchiveWatchWidgets */,
 				B7AC53CE2F93BA0300F50803 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,6 +128,7 @@
 			children = (
 				B7AC53CD2F93BA0300F50803 /* ArchiveWatch.app */,
 				DD00000000000000000000A1 /* ArchiveWatchTopShelf.appex */,
+				DE00000000000000000000A1 /* ArchiveWatchWidgets.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,6 +149,7 @@
 			);
 			dependencies = (
 				DD00000000000000000000B4 /* PBXTargetDependency */,
+				DE00000000000000000000B4 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				B7AC53CF2F93BA0300F50803 /* ArchiveWatch */,
@@ -157,6 +182,27 @@
 			productReference = DD00000000000000000000A1 /* ArchiveWatchTopShelf.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		DE00000000000000000000A3 /* ArchiveWatchWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE00000000000000000000A4 /* Build configuration list for PBXNativeTarget "ArchiveWatchWidgets" */;
+			buildPhases = (
+				DE00000000000000000000A7 /* Sources */,
+				DE00000000000000000000A8 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DE00000000000000000000A2 /* ArchiveWatchWidgets */,
+			);
+			name = ArchiveWatchWidgets;
+			packageProductDependencies = (
+			);
+			productName = ArchiveWatchWidgets;
+			productReference = DE00000000000000000000A1 /* ArchiveWatchWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -171,6 +217,9 @@
 						CreatedOnToolsVersion = 26.4;
 					};
 					DD00000000000000000000A3 = {
+						CreatedOnToolsVersion = 26.4;
+					};
+					DE00000000000000000000A3 = {
 						CreatedOnToolsVersion = 26.4;
 					};
 				};
@@ -191,6 +240,7 @@
 			targets = (
 				B7AC53CC2F93BA0300F50803 /* ArchiveWatch */,
 				DD00000000000000000000A3 /* ArchiveWatchTopShelf */,
+				DE00000000000000000000A3 /* ArchiveWatchWidgets */,
 			);
 		};
 /* End PBXProject section */
@@ -222,6 +272,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DE00000000000000000000A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -232,6 +289,14 @@
 			);
 			target = DD00000000000000000000A3 /* ArchiveWatchTopShelf */;
 			targetProxy = DD00000000000000000000B3 /* PBXContainerItemProxy */;
+		};
+		DE00000000000000000000B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilters = (
+				ios,
+			);
+			target = DE00000000000000000000A3 /* ArchiveWatchWidgets */;
+			targetProxy = DE00000000000000000000B3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -488,6 +553,63 @@
 			};
 			name = Release;
 		};
+		DE00000000000000000000A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ArchiveWatchWidgets.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L2G756LY8N;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "ArchiveWatchWidgets-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Archive Watch";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = "$(MARKETING_VERSION)";
+				PRODUCT_BUNDLE_IDENTIFIER = app.archivewatch.tvos.widgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DE00000000000000000000A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ArchiveWatchWidgets.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L2G756LY8N;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "ArchiveWatchWidgets-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Archive Watch";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = "$(MARKETING_VERSION)";
+				PRODUCT_BUNDLE_IDENTIFIER = app.archivewatch.tvos.widgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -514,6 +636,15 @@
 			buildConfigurations = (
 				DD00000000000000000000A5 /* Debug */,
 				DD00000000000000000000A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE00000000000000000000A4 /* Build configuration list for PBXNativeTarget "ArchiveWatchWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE00000000000000000000A5 /* Debug */,
+				DE00000000000000000000A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

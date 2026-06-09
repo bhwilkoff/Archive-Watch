@@ -81,6 +81,9 @@ struct HomeView: View {
     private func rebuild() {
         heroItems = loadHero()
         payloads = dedupedPayloads()
+        // Feed the home-screen widgets (App Group snapshot).
+        WidgetSnapshotWriter.write(continueWatching: continueItems,
+                                   editorsPicks: store.items(forShelf: "editors-picks"))
     }
 
     /// Surprise Me (Decision 014): jump to a random playable title's Detail.
