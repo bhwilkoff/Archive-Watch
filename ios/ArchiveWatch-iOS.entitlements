@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  iOS entitlements. The CloudKit container is DELIBERATELY the SAME as the tvOS app
+  (iCloud.app.archivewatch.tvos) so an iPhone signed into the same iCloud account
+  syncs favorites / playlists / watch-progress WITH the Apple TV (Decision 022/028).
+  Sign in with Apple gates that sync (optional). App Group is for future widgets.
+-->
+<plist version="1.0">
+<dict>
+    <key>com.apple.developer.applesignin</key>
+    <array><string>Default</string></array>
+    <key>com.apple.developer.icloud-container-identifiers</key>
+    <array><string>iCloud.app.archivewatch.tvos</string></array>
+    <key>com.apple.developer.icloud-services</key>
+    <array><string>CloudKit</string></array>
+    <key>aps-environment</key>
+    <string>development</string>
+    <key>com.apple.security.application-groups</key>
+    <array><string>group.app.archivewatch.tvos</string></array>
+</dict>
+</plist>

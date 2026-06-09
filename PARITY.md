@@ -11,6 +11,14 @@
 ## Legend
 - ✅ **Shipped** · 🚧 **In progress** · ⏳ **Planned (committed)** · 🔮 **Future (agreed, no date)** · 🚫 **Out of scope (with reason)** · n/a **platform-inapplicable**
 
+> **iOS Phase 1 (2026-06):** the shared **Core is compile-verified for iOS**
+> (`ios/Core`, `ios/Package.swift`), and the native iPhone UI for the core spine —
+> Home, Browse, Detail, Player (AVKit+PiP, resilient streaming), Search, Library,
+> Settings + deep links — is written in `ios/` (rows below show 🚧). Remaining: the
+> one Xcode app-target creation step (`ios/README.md`), then TV Shows / Collections /
+> Surprise / Channels / iPad adaptivity / widgets. tvOS shares CloudKit so iOS syncs
+> with the Apple TV.
+
 ## Parity rule
 **Same verb, native idiom.** The feature (the verb) is identical across platforms;
 the *idiom* is whatever is native — `.searchable` on iOS, `SearchBar` on Android,

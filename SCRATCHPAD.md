@@ -232,6 +232,38 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-09 — Multi-platform plan + iOS Phase 1 kickoff
+- **Plan + parity** (Decision 028): expanding tvOS → iOS → iPad → Web → Android per
+  the TriAppTemplate (`docs/MULTIPLATFORM-PLAN.md`, `PARITY.md`). Feature-parity-not-
+  design-consistency; shared `catalog.sqlite` data plane reused untouched; per-
+  ecosystem sync on the user's OWN cloud (CloudKit for Apple; Google Drive App Data
+  for Android + Web), NO separate backend.
+- **iOS Phase 1 — foundation + core spine (in `ios/`, NOT yet an Xcode target):**
+  - **Shared Core extracted + COMPILE-VERIFIED for iOS** (`ios/Core/` + `ios/Package.swift`
+    → `xcodebuild -scheme ArchiveWatchCore -destination generic/platform=iOS` =
+    BUILD SUCCEEDED). 15 files: Catalog/UserState models, CatalogDB, CatalogRefreshService,
+    ResilientStreamLoader, ContinuousPlayback (decoupled via a `ContinuousPlaybackSource`
+    protocol so Core doesn't import the app store), ChannelScheduler, CollectionMetadata,
+    SeriesStore, CatalogLoader, ImageLoader, CloudKitSyncService, HTMLStripper, SplitMix,
+    Color+Hex. Every "tvOS" reference in these was a comment/UA string, not an API —
+    proving the ~60-70% reuse thesis.
+  - **Native iPhone UI written** (`ios/App` + `ios/Views` + `ios/Components`): App entry +
+    ModelContainer, AppStore (loads featured + seed→full DB swap; conforms
+    ContinuousPlaybackSource), Router (bottom TabView), RootView, Home (hero+shelves+
+    Continue Watching), Browse (grid+facet/sort menu+paging), Detail (Play/Favorite/
+    Share/More-Like-This/cast), Player (AVPlayerViewController + PiP + ResilientStreamLoader
+    + resume), Search (.searchable FTS5), Library (Favorites/Watched/Playlists), Settings
+    (mature toggle+attribution+donate). Deep links (archivewatch:// + Universal Link twin).
+  - **Config:** `ios/Info-iOS.plist`, `ios/ArchiveWatch-iOS.entitlements` (SAME CloudKit
+    container `iCloud.app.archivewatch.tvos` → iPhone syncs with the Apple TV), README
+    with the exact Xcode target-creation steps.
+  - **One remaining step (owner, Xcode GUI):** create the iOS app target + add the
+    `ios/{Core,App,Views,Components}` folders + bundle seed.sqlite/featured.json. See
+    `ios/README.md`. The in-review tvOS Xcode project was deliberately NOT touched;
+    Core is duplicated for now (unify to a package post-review).
+  - Out of scope this phase: TV Shows drill-in, Collections, Surprise/Channels/modes,
+    iPad NavigationSplitView, WidgetKit, sign-in/sync UI — queued next.
+
 ### 2026-06-08 (later) — Rights audit applied + CloudKit #84 (v1.2.12, build 25)
 **State**: all on `main`, app builds clean tvOS 26.5 sim. The pre-submission
 copyright/rights audit is DONE and APPLIED; CloudKit deletion/live sync shipped.

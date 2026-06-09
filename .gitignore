@@ -78,3 +78,8 @@ tools/CoverScorerCLI/.build/
 # Rights-audit manifest (generated; CI uploads it as an artifact, Decision 027)
 tools/rejected_audit.csv
 tools/rejected_*.csv
+
+# iOS SPM build artifacts
+ios/.build/
+ios/.swiftpm/
+/tmp/core-dd
