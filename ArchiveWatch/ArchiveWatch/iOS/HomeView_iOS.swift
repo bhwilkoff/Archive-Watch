@@ -47,6 +47,11 @@ struct HomeView: View {
         }
         .navigationTitle("Archive Watch")
         .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button { surprise() } label: {
+                    Image(systemName: "shuffle").accessibilityLabel("Surprise me")
+                }
+            }
             ToolbarItem(placement: .topBarTrailing) {
                 Button { showSettings = true } label: {
                     Image(systemName: "gearshape").accessibilityLabel("Settings")
@@ -76,6 +81,11 @@ struct HomeView: View {
     private func rebuild() {
         heroItems = loadHero()
         payloads = dedupedPayloads()
+    }
+
+    /// Surprise Me (Decision 014): jump to a random playable title's Detail.
+    private func surprise() {
+        if let item = store.dbRandomPlayable() { router.openDetail(item) }
     }
 
     /// Hero pool: popular, home-eligible, designed (non-generated) art, preferring

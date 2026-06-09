@@ -8,17 +8,30 @@ import SwiftData
 // idle-connection resets are handled identically to tvOS. Resumes from + persists
 // WatchProgress (SwiftData), which syncs to the Apple TV via CloudKit.
 struct PlayerView: UIViewControllerRepresentable {
-    let item: Catalog.Item
+    let archiveID: String
+    let videoURL: URL?
+
+    /// Play a movie/standalone item.
+    init(item: Catalog.Item) {
+        archiveID = item.archiveID
+        videoURL = item.videoURLParsed
+    }
+    /// Play a TV episode (its own archiveID → its own WatchProgress / resume).
+    init(episode: Episode) {
+        archiveID = episode.archiveID
+        videoURL = episode.videoURLParsed
+    }
+
     @Environment(\.modelContext) private var ctx
     @Environment(\.dismiss) private var dismiss
 
-    func makeCoordinator() -> Coordinator { Coordinator(item: item, ctx: ctx) }
+    func makeCoordinator() -> Coordinator { Coordinator(archiveID: archiveID, ctx: ctx) }
 
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let vc = AVPlayerViewController()
         vc.allowsPictureInPicturePlayback = true
         vc.canStartPictureInPictureAutomaticallyFromInline = true
-        guard let url = item.videoURLParsed else { return vc }
+        guard let url = videoURL else { return vc }
 
         let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
         context.coordinator.loader = loader   // retain (delegate is held weakly)
@@ -45,13 +58,13 @@ struct PlayerView: UIViewControllerRepresentable {
 
     @MainActor
     final class Coordinator {
-        let item: Catalog.Item
+        let archiveID: String
         let ctx: ModelContext
         var loader: ResilientStreamLoader?
         private var timeObserver: Any?
         private weak var player: AVPlayer?
 
-        init(item: Catalog.Item, ctx: ModelContext) { self.item = item; self.ctx = ctx }
+        init(archiveID: String, ctx: ModelContext) { self.archiveID = archiveID; self.ctx = ctx }
 
         func observe(_ player: AVPlayer, item playerItem: AVPlayerItem) {
             self.player = player
@@ -63,7 +76,7 @@ struct PlayerView: UIViewControllerRepresentable {
         }
 
         func savedProgress() -> Double? {
-            let id = item.archiveID
+            let id = archiveID
             return (try? ctx.fetch(FetchDescriptor<WatchProgress>(
                 predicate: #Predicate { $0.archiveID == id })))?.first?.positionSeconds
         }
@@ -73,7 +86,7 @@ struct PlayerView: UIViewControllerRepresentable {
             let pos = player.currentTime().seconds
             let dur = cur.duration.seconds
             guard pos.isFinite, pos > 0 else { return }
-            let id = item.archiveID
+            let id = archiveID
             let existing = (try? ctx.fetch(FetchDescriptor<WatchProgress>(
                 predicate: #Predicate { $0.archiveID == id })))?.first
             if let wp = existing {
