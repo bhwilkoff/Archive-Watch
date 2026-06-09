@@ -18,9 +18,7 @@ struct DetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                PosterImage(url: item.backdropURLParsed ?? item.posterURLParsed)
-                    .aspectRatio(16/9, contentMode: .fill)
-                    .frame(maxWidth: .infinity).frame(height: 220).clipped()
+                DetailHero(url: item.backdropURLParsed ?? item.posterURLParsed)
 
                 VStack(alignment: .leading, spacing: 12) {
                     Text(item.title).font(.title.bold())
@@ -94,6 +92,27 @@ struct DetailView: View {
                 }.scrollIndicators(.hidden)
             }
         }
+    }
+}
+
+// Detail header artwork. Shows the art aspect-FIT so a 2:3 poster or a 16:9
+// backdrop is never cropped/zoomed, over a blurred fill of the same image so the
+// letterbox area reads as intentional rather than empty.
+private struct DetailHero: View {
+    let url: URL?
+    var body: some View {
+        ZStack {
+            PosterImage(url: url)                       // ambient fill (cropped is fine, it's blurred)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .clipped()
+                .blur(radius: 24)
+                .overlay(Color.black.opacity(0.35))
+            PosterImage(url: url, contentMode: .fit)    // the real artwork, uncropped
+                .padding(.vertical, 10)
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: 300)
+        .clipped()
     }
 }
 

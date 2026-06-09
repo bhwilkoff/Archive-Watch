@@ -26,12 +26,16 @@ struct PosterTile: View {
 }
 
 // Cached async poster with a quiet placeholder (URLCache is configured at launch).
+// `contentMode` defaults to .fill (tiles/grid/cast want the image to fill their
+// fixed frame); pass .fit where the image must never be cropped (e.g. the Detail
+// hero, where a 2:3 poster would otherwise be zoomed into a sliver).
 struct PosterImage: View {
     let url: URL?
+    var contentMode: ContentMode = .fill
     var body: some View {
         AsyncImage(url: url, transaction: .init(animation: .easeOut(duration: 0.2))) { phase in
             switch phase {
-            case .success(let img): img.resizable().scaledToFill()
+            case .success(let img): img.resizable().aspectRatio(contentMode: contentMode)
             default: Rectangle().fill(.quaternary).overlay(
                 Image(systemName: "film").font(.title3).foregroundStyle(.tertiary))
             }
