@@ -6,7 +6,7 @@ import WidgetKit
 // App Group container, then asks WidgetKit to reload. The Codable shape MUST match
 // WidgetSnapshot/WidgetItem in the widget target (separate module, so duplicated).
 enum WidgetSnapshotWriter {
-    private static let appGroup = "group.com.bhwilkoff.archivewatch"
+    private static let appGroup = "group.app.archivewatch.tvos"
     private static let file = "widget-snapshot.json"
 
     private struct Item: Codable { let id: String; let title: String; let year: Int? }

@@ -6,7 +6,7 @@ import SwiftUI
 // container (group.com.bhwilkoff.archivewatch) — the widget never touches the
 // catalog DB. Tapping deep-links into the app via archivewatch://item/{id}.
 
-private let appGroup = "group.com.bhwilkoff.archivewatch"
+private let appGroup = "group.app.archivewatch.tvos"
 private let snapshotFile = "widget-snapshot.json"
 
 // MARK: - Shared snapshot model (the main app writes the identical shape)
