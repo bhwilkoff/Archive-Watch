@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 import SwiftData
 import CoreImage.CIFilterBuiltins
@@ -379,3 +380,5 @@ struct AppleSignInButtonStyle: ButtonStyle {
         }
     }
 }
+
+#endif

@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 
 // #15 Public Domain Day (tvOS-DESIGN §2.3): browse the films/TV that entered the
@@ -146,3 +147,5 @@ private struct PDYearChipStyle: ButtonStyle {
             .animation(Motion.focus, value: isFocused)
     }
 }
+
+#endif

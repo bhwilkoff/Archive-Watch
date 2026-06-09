@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 import SwiftData
 
@@ -130,3 +131,5 @@ struct FavoritesView: View {
         }
     }
 }
+
+#endif

@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 
 // Browse: grid + facet chips + sort control. The density view.
@@ -457,3 +458,5 @@ struct SplitMix: RandomNumberGenerator {
         return z ^ (z >> 31)
     }
 }
+
+#endif

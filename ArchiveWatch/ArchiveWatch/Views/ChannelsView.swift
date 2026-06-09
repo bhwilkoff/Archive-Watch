@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 import SwiftData
 
@@ -545,3 +546,5 @@ private struct CreateChannelSheet: View {
         .background(Color.black.ignoresSafeArea())
     }
 }
+
+#endif

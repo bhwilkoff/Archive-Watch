@@ -227,7 +227,9 @@
 /* Begin PBXTargetDependency section */
 		DD00000000000000000000B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			platformFilters = (tvos, );
+			platformFilters = (
+				tvos,
+			);
 			target = DD00000000000000000000A3 /* ArchiveWatchTopShelf */;
 			targetProxy = DD00000000000000000000B3 /* PBXContainerItemProxy */;
 		};
@@ -363,6 +365,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphonesimulator*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ArchiveWatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -373,11 +377,11 @@
 				INFOPLIST_KEY_TMDB_BEARER_TOKEN = "$(TMDB_BEARER_TOKEN)";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.archivewatch.tvos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -397,6 +401,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphonesimulator*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ArchiveWatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -407,11 +413,11 @@
 				INFOPLIST_KEY_TMDB_BEARER_TOKEN = "$(TMDB_BEARER_TOKEN)";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.archivewatch.tvos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;

@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 
 // Surprise — serendipity actions (Decisions 014/015). Seven clearly-labelled
@@ -137,3 +138,5 @@ private struct SurpriseTile: View {
         .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 }
+
+#endif

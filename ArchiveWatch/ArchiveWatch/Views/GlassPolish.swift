@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 
 // Liquid Glass helpers (tvOS 26+).
@@ -38,3 +39,5 @@ extension View {
         glassBackground(shape: Capsule(), isOn: isOn, accent: accent)
     }
 }
+
+#endif

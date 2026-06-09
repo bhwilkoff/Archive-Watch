@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 
 // Typographic placeholder poster for items without real designed artwork.
@@ -150,3 +151,5 @@ extension Color {
         #endif
     }
 }
+
+#endif

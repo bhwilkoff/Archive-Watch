@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 import Combine
 
@@ -568,3 +569,5 @@ struct DecadeTile: View {
     }
 }
 
+
+#endif

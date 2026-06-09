@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 
 // "Hidden Gems" — high-quality, low-popularity items with real artwork.
@@ -38,3 +39,5 @@ struct HiddenGemsShelf: View {
         .task(id: store.dbGeneration) { items = store.dbHiddenGems().filter { $0.hasProfessionalArtwork } }
     }
 }
+
+#endif

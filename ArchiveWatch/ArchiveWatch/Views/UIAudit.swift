@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 import UIKit
 
@@ -184,5 +185,7 @@ enum LayoutCheck {
         print("LayoutCheck · \(message)")
     }
 }
+
+#endif
 
 #endif

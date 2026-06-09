@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 
 @MainActor
@@ -450,3 +451,5 @@ extension Color {
         self.init(red: r, green: g, blue: b)
     }
 }
+
+#endif

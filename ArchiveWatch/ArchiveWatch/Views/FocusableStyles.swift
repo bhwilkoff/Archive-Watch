@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 
 // ButtonStyles for tvOS 26. Each uses Liquid Glass where the tvOS 26
@@ -239,3 +240,5 @@ struct BarButtonStyle: ButtonStyle {
         }
     }
 }
+
+#endif

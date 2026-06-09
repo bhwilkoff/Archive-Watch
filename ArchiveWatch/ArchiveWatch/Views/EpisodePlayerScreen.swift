@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 import AVKit
 import SwiftData
@@ -282,3 +283,5 @@ struct EpisodePlayerScreen: View {
         } catch {}
     }
 }
+
+#endif

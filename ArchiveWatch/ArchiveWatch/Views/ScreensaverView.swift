@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 import Combine
 
@@ -164,3 +165,5 @@ private struct SaverTile: View {
             .id(item.archiveID)
     }
 }
+
+#endif
