@@ -20,10 +20,15 @@ struct ArchiveWatchApp: App {
                 .environment(router)
                 .preferredColorScheme(.dark)
                 .task { await store.load() }
-                // Deep links (archivewatch://item/{id}) + Universal Links share one path.
+                // Deep links + Universal Links. archivewatch:// surprise/random/item
+                // routes go through the IntentInbox (same path Siri uses); https item
+                // links resolve directly.
                 .onOpenURL { url in
-                    guard let id = DeepLink.itemID(from: url), let item = store.item(id) else { return }
-                    router.openDetail(item)
+                    if let request = IntentInbox.request(for: url) {
+                        IntentInbox.shared.request = request
+                    } else if let id = DeepLink.itemID(from: url), let item = store.item(id) {
+                        router.openDetail(item)
+                    }
                 }
         }
         .modelContainer(modelContainer)

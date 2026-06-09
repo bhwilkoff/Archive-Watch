@@ -7,6 +7,7 @@ import SwiftUI
 struct RootView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
+    private let inbox = IntentInbox.shared
 
     var body: some View {
         @Bindable var router = router
@@ -35,7 +36,26 @@ struct RootView: View {
             // iPad/regular width (the same control tvOS uses). Native idiom for
             // both without a separate NavigationSplitView code path.
             .tabViewStyle(.sidebarAdaptable)
+            // Siri/Shortcuts + deep links land in the inbox; act once foreground.
+            .onChange(of: inbox.request) { handle(inbox.request) }
+            .task { handle(inbox.request) }
         }
+    }
+
+    private func handle(_ request: IntentInbox.Request?) {
+        guard let request else { return }
+        switch request {
+        case .surprise, .randomFilm:
+            if let item = store.dbRandomPlayable() {
+                router.tab = .home
+                router.openDetail(item)
+            }
+        case .randomCategory:
+            router.tab = .browse
+        case .openItem(let id):
+            if let item = store.item(id) { router.openDetail(item) }
+        }
+        inbox.request = nil
     }
 }
 
