@@ -22,10 +22,13 @@ struct ArchiveWatchApp: App {
                 .environment(account)
                 .preferredColorScheme(.dark)
                 .task { await store.load() }
-                // Pull synced favorites/playlists/progress on launch (Decision 022).
-                // No-op when signed out / CloudKit unavailable. Shares the Apple TV's
-                // private DB so an iPhone on the same iCloud syncs with the Apple TV.
-                .task { await CloudKitSyncService.shared.sync(modelContainer.mainContext) }
+                // Pull synced favorites/playlists/progress on launch — but ONLY when the
+                // user has opted into sync by signing in (Decision 022: sign-in gates
+                // sync). Don't touch CloudKit/XPC on a fresh, signed-out install.
+                .task {
+                    guard account.isSignedIn else { return }
+                    await CloudKitSyncService.shared.sync(modelContainer.mainContext)
+                }
                 // Deep links + Universal Links. archivewatch:// surprise/random/item
                 // routes go through the IntentInbox (same path Siri uses); https item
                 // links resolve directly.
