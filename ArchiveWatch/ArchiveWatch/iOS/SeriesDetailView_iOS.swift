@@ -56,7 +56,11 @@ struct SeriesDetailView: View {
     }
 
     private func load() async {
-        series = await SeriesStore.shared.load(seriesID: card.archiveID)
+        // Series cards use "series:<slug>" as their archiveID, but the per-series
+        // JSON lives at /series/<slug>.json. Use the clean seriesID; strip the
+        // "series:" prefix as a fallback (matches the tvOS SeriesDetailView).
+        let slug = card.seriesID ?? card.archiveID.replacingOccurrences(of: "series:", with: "")
+        series = await SeriesStore.shared.load(seriesID: slug)
         loading = false
         if selectedSeason == nil { selectedSeason = series?.seasons.first?.seasonNumber }
     }

@@ -1,6 +1,7 @@
 #if os(iOS)
 import SwiftUI
 import AVKit
+import AVFoundation
 import SwiftData
 
 // Touch-native player: AVPlayerViewController (free transport, scrubber, AirPlay,
@@ -40,6 +41,14 @@ struct PlayerView: UIViewControllerRepresentable {
         let vc = AVPlayerViewController()
         vc.allowsPictureInPicturePlayback = true
         vc.canStartPictureInPictureAutomaticallyFromInline = true
+
+        // iOS/iPadOS REQUIRE an active .playback audio session or AVPlayer
+        // frequently fails to start, stalls, or plays silently — especially with
+        // our custom resource loader (Decision 021) or when the ringer is silent.
+        // tvOS doesn't need this; this is the main iOS-vs-tvOS playback gap.
+        try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .moviePlayback)
+        try? AVAudioSession.sharedInstance().setActive(true)
+
         guard let url = videoURL else { return vc }
 
         let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
