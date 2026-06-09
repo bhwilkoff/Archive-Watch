@@ -6,6 +6,7 @@ import SwiftData
 struct ArchiveWatchApp: App {
     @State private var store = AppStore()
     @State private var router = Router()
+    @State private var account = AccountStore()   // #11 Sign in with Apple (optional; gates sync)
     private let modelContainer: ModelContainer
 
     init() {
@@ -18,8 +19,13 @@ struct ArchiveWatchApp: App {
             RootView()
                 .environment(store)
                 .environment(router)
+                .environment(account)
                 .preferredColorScheme(.dark)
                 .task { await store.load() }
+                // Pull synced favorites/playlists/progress on launch (Decision 022).
+                // No-op when signed out / CloudKit unavailable. Shares the Apple TV's
+                // private DB so an iPhone on the same iCloud syncs with the Apple TV.
+                .task { await CloudKitSyncService.shared.sync(modelContainer.mainContext) }
                 // Deep links + Universal Links. archivewatch:// surprise/random/item
                 // routes go through the IntentInbox (same path Siri uses); https item
                 // links resolve directly.

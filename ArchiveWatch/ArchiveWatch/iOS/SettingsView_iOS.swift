@@ -6,10 +6,14 @@ import SwiftUI
 // iOS `Form`. Account/CloudKit sign-in lands with the sync wiring (Phase 1 follow).
 struct SettingsView: View {
     @Environment(AppStore.self) private var store
+    @Environment(AccountStore.self) private var account
+    @Environment(\.modelContext) private var ctx
+    @State private var showDeleteAccount = false
 
     var body: some View {
         @Bindable var store = store
         Form {
+            accountSection
             Section("Content") {
                 Toggle("Show mature collections", isOn: Binding(
                     get: { !store.hideAdultContent },
@@ -47,11 +51,61 @@ struct SettingsView: View {
 
             Section("About") {
                 LabeledContent("Version", value: appVersion)
-                Text("No account, no tracking. Nothing leaves this device except requests to the "
-                     + "public services above.").font(.footnote).foregroundStyle(.secondary)
+                Text("No tracking. Nothing leaves this device except requests to the public "
+                     + "services above — and, only if you sign in, your own iCloud (never us).")
+                    .font(.footnote).foregroundStyle(.secondary)
             }
         }
         .navigationTitle("Settings")
+        // Pull synced state the moment the user signs in (Decision 022).
+        .onChange(of: account.isSignedIn) { _, signedIn in
+            if signedIn { Task { await CloudKitSyncService.shared.sync(ctx) } }
+        }
+    }
+
+    // #11 (Decision 022): Sign in with Apple — optional, gates only cross-device sync.
+    @ViewBuilder private var accountSection: some View {
+        Section {
+            if account.isSignedIn {
+                LabeledContent {
+                    Text("Signed in").foregroundStyle(.secondary)
+                } label: {
+                    Label("Apple ID", systemImage: "person.crop.circle.fill.badge.checkmark")
+                }
+                Button(role: .destructive) { account.signOut() } label: { Text("Sign Out") }
+                // App Review 5.1.1(v): account creation requires in-app deletion.
+                Button(role: .destructive) { showDeleteAccount = true } label: { Text("Delete Account") }
+                    .alert("Delete Account?", isPresented: $showDeleteAccount) {
+                        Button("Cancel", role: .cancel) { }
+                        Button("Delete Account", role: .destructive) {
+                            Task {
+                                _ = await CloudKitSyncService.shared.deleteAllCloudData()
+                                account.signOut()
+                            }
+                        }
+                    } message: {
+                        Text("This permanently deletes your synced favorites, playlists, and watch "
+                             + "progress from iCloud and signs you out. Titles saved on this device stay here.")
+                    }
+            } else {
+                Button { account.startSignIn() } label: {
+                    Label("Sign in with Apple", systemImage: "applelogo")
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.bordered)
+                if let err = account.signInError {
+                    Label(err, systemImage: "exclamationmark.triangle.fill")
+                        .font(.callout).foregroundStyle(.orange)
+                }
+            }
+        } header: {
+            Text("Account & Sync")
+        } footer: {
+            Text("Sign in with Apple to sync favorites, playlists, and watch progress across your "
+                 + "Apple devices — including your Apple TV. Optional: browsing and playback work "
+                 + "without it; nothing leaves this device until you sign in.")
+        }
     }
 
     private var appVersion: String {
