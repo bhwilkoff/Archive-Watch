@@ -1,5 +1,6 @@
 #if os(iOS)
 import SwiftUI
+import SwiftData
 
 // Settings: the required attribution (Decision 007), the mature-content toggle
 // (Decision 012, default on), the donate link (Decision 010), and version. Native

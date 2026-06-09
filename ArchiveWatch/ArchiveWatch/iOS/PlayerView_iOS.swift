@@ -82,9 +82,11 @@ struct PlayerView: UIViewControllerRepresentable {
         func observe(_ player: AVPlayer, item playerItem: AVPlayerItem) {
             self.player = player
             // Persist progress every 10s so resume survives a crash, not just dismiss.
+            // The observer fires on the main queue, so assumeIsolated is safe and
+            // keeps us out of Swift 6's nonisolated-capture warnings.
             timeObserver = player.addPeriodicTimeObserver(
                 forInterval: CMTime(seconds: 10, preferredTimescale: 1), queue: .main) { [weak self] _ in
-                self?.persist(player)
+                MainActor.assumeIsolated { self?.persistCurrent() }
             }
             registerEnd(for: playerItem)
         }
@@ -95,7 +97,7 @@ struct PlayerView: UIViewControllerRepresentable {
             if let e = endObserver { NotificationCenter.default.removeObserver(e) }
             endObserver = NotificationCenter.default.addObserver(
                 forName: .AVPlayerItemDidPlayToEndTime, object: item, queue: .main) { [weak self] _ in
-                Task { @MainActor in self?.advance() }
+                MainActor.assumeIsolated { self?.advance() }
             }
         }
 
@@ -115,6 +117,10 @@ struct PlayerView: UIViewControllerRepresentable {
             }
             player.play()
         }
+
+        /// Persist the player we're holding (avoids capturing an AVPlayer in the
+        /// Sendable observer closures).
+        func persistCurrent() { persist(player) }
 
         func savedProgress() -> Double? {
             let id = archiveID
