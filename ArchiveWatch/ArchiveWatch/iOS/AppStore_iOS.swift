@@ -80,20 +80,27 @@ final class AppStore {
     func byCollection(_ id: String) -> [Catalog.Item] { db?.byCollection(id) ?? [] }
     func decadeCounts() -> [Int: Int] { db?.decadeCounts() ?? [:] }
 
-    /// Items for a Home shelf: explicit IDs (curated) or a category browse (dynamic).
-    func shelfItems(_ shelf: Featured.Shelf, limit: Int = 24) -> [Catalog.Item] {
-        if let curated = shelf.items, !curated.isEmpty {
-            return itemsByIDs(curated.map(\.archiveID))
-        }
-        return browse(contentType: shelf.category, sort: .popular, limit: limit)
+    /// Items for a Home shelf, resolved through the prebuilt `item_shelves`
+    /// mapping (Decision 017) by the shelf's id — the build assigns each shelf
+    /// its real Archive-collection / curated members. The old path browsed by
+    /// `contentType`, which made every "feature-film" shelf return the SAME
+    /// popular list (the duplicate-shelf bug on iOS Home).
+    func items(forShelf shelfID: String) -> [Catalog.Item] { db?.shelf(shelfID) ?? [] }
+
+    /// Drop already-completed titles from a Home list (#17). No-op until a view
+    /// populates `completedArchiveIDs` from SwiftData WatchProgress.
+    func filteringWatched(_ items: [Catalog.Item]) -> [Catalog.Item] {
+        completedArchiveIDs.isEmpty ? items
+            : items.filter { !completedArchiveIDs.contains($0.archiveID) }
     }
 
     // MARK: shared ContinuousPlayback engine surface (db*-prefixed, matches tvOS)
     func dbRandomPlayable() -> Catalog.Item? { db?.randomPlayable() }
     func dbBrowse(contentType: String? = nil, decade: Int? = nil, genre: String? = nil,
-                  sort: CatalogDB.Sort = .popular, limit: Int = 60) -> [Catalog.Item] {
+                  sort: CatalogDB.Sort = .popular, limit: Int = 60,
+                  homeOnly: Bool = false) -> [Catalog.Item] {
         db?.browse(contentType: contentType, decade: decade, genre: genre,
-                   sort: sort, limit: limit) ?? []
+                   sort: sort, limit: limit, homeOnly: homeOnly) ?? []
     }
 }
 

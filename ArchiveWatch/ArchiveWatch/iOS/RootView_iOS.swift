@@ -30,9 +30,6 @@ struct RootView: View {
                 Tab(Router.Tab.library.title, systemImage: Router.Tab.library.systemImage, value: Router.Tab.library) {
                     NavigationStack(path: $router.libraryPath) { LibraryView().withItemDestination() }
                 }
-                Tab(Router.Tab.settings.title, systemImage: Router.Tab.settings.systemImage, value: Router.Tab.settings) {
-                    NavigationStack { SettingsView() }
-                }
             }
         }
     }

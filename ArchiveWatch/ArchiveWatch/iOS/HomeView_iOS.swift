@@ -1,13 +1,28 @@
 #if os(iOS)
 import SwiftUI
 import SwiftData
+import Combine
 
-// Home: a hero banner + horizontally-scrolling shelves (curated + dynamic from
-// featured.json) + Continue Watching. Touch idiom — scroll + tap, no focus engine.
+// Home: a paging hero carousel + horizontally-scrolling shelves (resolved from
+// featured.json via the prebuilt item_shelves map) + Continue Watching. Touch
+// idiom — swipe + tap, no focus engine. Settings lives behind a nav-bar cog,
+// not a tab (Router.Tab dropped .settings).
 struct HomeView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var progress: [WatchProgress]
+
+    // Seeded once per Home lifetime so the hero pool + per-shelf shuffles are
+    // stable across body recomputes (don't reshuffle on every scroll tick).
+    @State private var heroSeed = UInt64.random(in: 0..<UInt64.max)
+    @State private var shelfSeed = UInt64.random(in: 0..<UInt64.max)
+    @State private var heroItems: [Catalog.Item] = []
+    @State private var payloads: [ShelfPayload] = []
+    @State private var showSettings = false
+
+    // Phone shelves are narrow (~3 tiles visible). Below this a row reads as a
+    // half-empty stub, so drop it rather than show a ragged shelf.
+    private let minPerShelf = 6
 
     private var shelves: [Featured.Shelf] { store.featured?.shelves ?? [] }
     private var continueItems: [Catalog.Item] {
@@ -18,25 +33,131 @@ struct HomeView: View {
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading, spacing: 28) {
-                if let hero = shelves.first.flatMap({ store.shelfItems($0).first }) {
-                    HeroBanner(item: hero).onTapGesture { router.openDetail(hero) }
+                if !heroItems.isEmpty {
+                    HeroCarousel(items: heroItems)
                 }
                 if !continueItems.isEmpty {
                     Shelf(title: "Continue Watching", subtitle: nil, items: continueItems)
                 }
-                ForEach(shelves) { shelf in
-                    let items = store.shelfItems(shelf)
-                    if items.count >= 6 {
-                        Shelf(title: shelf.title, subtitle: shelf.subtitle, items: items)
-                    }
+                ForEach(payloads) { payload in
+                    Shelf(title: payload.shelf.title, subtitle: payload.shelf.subtitle, items: payload.items)
                 }
             }
             .padding(.vertical)
         }
         .navigationTitle("Archive Watch")
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button { showSettings = true } label: {
+                    Image(systemName: "gearshape").accessibilityLabel("Settings")
+                }
+            }
+        }
+        .sheet(isPresented: $showSettings) {
+            NavigationStack {
+                SettingsView()
+                    .toolbar {
+                        ToolbarItem(placement: .topBarTrailing) {
+                            Button("Done") { showSettings = false }
+                        }
+                    }
+            }
+        }
         .id(store.dbVersion)   // re-query when the DB swaps (seed → full)
+        .task(id: store.dbVersion) { rebuild() }
+    }
+
+    private struct ShelfPayload: Identifiable {
+        let shelf: Featured.Shelf
+        let items: [Catalog.Item]
+        var id: String { shelf.id }
+    }
+
+    private func rebuild() {
+        heroItems = loadHero()
+        payloads = dedupedPayloads()
+    }
+
+    /// Hero pool: popular, home-eligible, designed (non-generated) art, preferring
+    /// wide TMDb backdrops so the full-bleed banner isn't a blown-up poster.
+    private func loadHero() -> [Catalog.Item] {
+        let base = store.filteringWatched(store.dbBrowse(sort: .popular, limit: 3000, homeOnly: true))
+            .filter { $0.hasDesignedArtwork && $0.artworkSource != "generated" }
+        let withBackdrop = base.filter { $0.backdropURLParsed != nil }
+        let pool = withBackdrop.count >= 7 ? withBackdrop
+            : base.filter { $0.backdropURLParsed != nil || $0.posterURLParsed != nil }
+        var rng = SplitMix(seed: heroSeed)
+        return Array(pool.shuffled(using: &rng).prefix(7))
+    }
+
+    /// Resolve each shelf by id, keep only professional artwork, drop items
+    /// already shown above (hero + an earlier shelf), and per-shelf shuffle —
+    /// so Home isn't five aliases of the same popular list.
+    private func dedupedPayloads() -> [ShelfPayload] {
+        var used = Set(heroItems.map(\.archiveID)).union(continueItems.map(\.archiveID))
+        var out: [ShelfPayload] = []
+        for shelf in shelves {
+            let raw = store.filteringWatched(store.items(forShelf: shelf.id))
+            var fresh = raw.filter { $0.hasProfessionalArtwork && !used.contains($0.archiveID) }
+            var rng = SplitMix(seed: shelfSeed &+ UInt64(bitPattern: Int64(shelf.id.hashValue)))
+            fresh.shuffle(using: &rng)
+            let taken = Array(fresh.prefix(20))
+            guard taken.count >= minPerShelf else { continue }
+            taken.forEach { used.insert($0.archiveID) }
+            out.append(ShelfPayload(shelf: shelf, items: taken))
+        }
+        return out
     }
 }
+
+// MARK: - Hero carousel (paging, auto-advance)
+
+private struct HeroCarousel: View {
+    let items: [Catalog.Item]
+    @Environment(Router.self) private var router
+    @State private var index = 0
+    private let autoAdvance = Timer.publish(every: 7, on: .main, in: .common).autoconnect()
+
+    var body: some View {
+        TabView(selection: $index) {
+            ForEach(Array(items.enumerated()), id: \.element.id) { i, item in
+                card(item)
+                    .tag(i)
+                    .onTapGesture { router.openDetail(item) }
+            }
+        }
+        .tabViewStyle(.page(indexDisplayMode: .always))
+        .frame(height: 264)
+        .onReceive(autoAdvance) { _ in
+            guard items.count > 1 else { return }
+            withAnimation(.easeInOut) { index = (index + 1) % items.count }
+        }
+    }
+
+    private func card(_ item: Catalog.Item) -> some View {
+        PosterImage(url: item.backdropURLParsed ?? item.posterURLParsed)
+            .frame(maxWidth: .infinity)
+            .frame(height: 232)
+            .clipShape(.rect(cornerRadius: 16))
+            .overlay(alignment: .bottomLeading) {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(item.title).font(.title3.bold()).foregroundStyle(.white).lineLimit(2)
+                    if let y = item.year {
+                        Text(verbatim: String(y)).font(.subheadline).foregroundStyle(.white.opacity(0.85))
+                    }
+                }
+                .padding()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(LinearGradient(colors: [.clear, .black.opacity(0.75)],
+                                           startPoint: .top, endPoint: .bottom))
+            }
+            .clipShape(.rect(cornerRadius: 16))
+            .padding(.horizontal)
+            .padding(.bottom, 28)   // room for the page dots
+    }
+}
+
+// MARK: - Shelf
 
 private struct Shelf: View {
     let title: String
@@ -62,27 +183,6 @@ private struct Shelf: View {
             }
             .scrollIndicators(.hidden)
         }
-    }
-}
-
-private struct HeroBanner: View {
-    let item: Catalog.Item
-    var body: some View {
-        PosterImage(url: item.backdropURLParsed ?? item.posterURLParsed)
-            .aspectRatio(16/9, contentMode: .fill)
-            .frame(maxWidth: .infinity)
-            .frame(height: 220)
-            .clipShape(.rect(cornerRadius: 16))
-            .overlay(alignment: .bottomLeading) {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(item.title).font(.title2.bold()).foregroundStyle(.white)
-                    if let y = item.year { Text(verbatim: String(y)).foregroundStyle(.white.opacity(0.8)) }
-                }
-                .padding()
-                .background(LinearGradient(colors: [.clear, .black.opacity(0.7)],
-                                           startPoint: .top, endPoint: .bottom))
-            }
-            .padding(.horizontal)
     }
 }
 

@@ -7,20 +7,22 @@ import SwiftUI
 @MainActor
 @Observable
 final class Router {
+    // Settings is intentionally NOT a tab — it lives behind a cog in the Home nav
+    // bar (a destination, not a peer of Home/Browse/Search/Library). Four tabs
+    // keeps the bar legible and reserves it for content verbs.
     enum Tab: String, CaseIterable, Identifiable, Hashable {
-        case home, browse, search, library, settings
+        case home, browse, search, library
         var id: String { rawValue }
         var title: String {
             switch self {
-            case .home: "Home"; case .browse: "Browse"; case .search: "Search"
-            case .library: "Library"; case .settings: "Settings"
+            case .home: "Home"; case .browse: "Browse"
+            case .search: "Search"; case .library: "Library"
             }
         }
         var systemImage: String {
             switch self {
             case .home: "house.fill"; case .browse: "film.fill"
             case .search: "magnifyingglass"; case .library: "heart.fill"
-            case .settings: "gearshape.fill"
             }
         }
     }
@@ -38,7 +40,6 @@ final class Router {
         case .browse: browsePath.append(item)
         case .search: searchPath.append(item)
         case .library: libraryPath.append(item)
-        case .settings: tab = .home; homePath.append(item)
         }
     }
 }
