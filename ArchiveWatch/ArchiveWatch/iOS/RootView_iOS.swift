@@ -31,6 +31,10 @@ struct RootView: View {
                     NavigationStack(path: $router.libraryPath) { LibraryView().withItemDestination() }
                 }
             }
+            // Adapts per form factor: a bottom tab bar on iPhone, a sidebar on
+            // iPad/regular width (the same control tvOS uses). Native idiom for
+            // both without a separate NavigationSplitView code path.
+            .tabViewStyle(.sidebarAdaptable)
         }
     }
 }
