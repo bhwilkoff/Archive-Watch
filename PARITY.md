@@ -11,17 +11,20 @@
 ## Legend
 - ✅ **Shipped** · 🚧 **In progress** · ⏳ **Planned (committed)** · 🔮 **Future (agreed, no date)** · 🚫 **Out of scope (with reason)** · n/a **platform-inapplicable**
 
-> **iOS Phase 1 (2026-06):** the existing tvOS Xcode project was converted to a
-> **universal app target** (iOS + tvOS from one target via `#if os` guards); the
-> iPhone build **runs on the iOS 26 simulator**, verified screen-by-screen. Shipped &
-> verified on iPhone: full-screen launch (UILaunchScreen fix), photographic Méliès
-> icon, Home (paging hero carousel + item_shelves-resolved/de-duped shelves + Continue
-> Watching + Surprise), Browse (Films grid + facets + paging; **TV** series→episode
-> via SeriesStore; **Collections** list→grid), Detail, Player (AVKit + PiP + resilient
-> streaming + resume), Search, Library, Settings (behind a Home cog, not a tab). iOS
-> shares the Apple TV's CloudKit container. **Remaining Phase 1:** iPad
-> `NavigationSplitView` adaptivity, WidgetKit, App Intents/Siri, prev/next episode
-> transport, autoplay engine port, and the sign-in/sync UI.
+> **iOS Phase 1 (2026-06): COMPLETE.** The tvOS Xcode project was converted to a
+> **universal app target** (iOS + tvOS from one target via `#if os` guards) plus a new
+> iOS-only **WidgetKit** extension target; the iPhone build **runs on the iOS 26
+> simulator**, verified screen-by-screen, and tvOS still builds green (in-review project
+> not regressed). Shipped: full-screen launch + photographic Méliès icon; Home (paging
+> hero carousel + item_shelves-resolved/de-duped shelves + Continue Watching + Surprise);
+> Browse (Films grid + facets + paging; **TV** series→episode via SeriesStore; **Collections**
+> list→grid); Detail; Player (AVKit + PiP + resilient streaming + resume + continuous
+> play / episode binge); Search; Library; Settings (Home cog: mature filter, autoplay,
+> attribution, donate, **Account & Sync**); **iPad** sidebar adaptivity; **App Intents +
+> Siri**; **WidgetKit** widgets; **Sign in with Apple → CloudKit** (shares the Apple TV's
+> private DB). **Owner-pending (device-only):** on-device cross-device CloudKit verify;
+> Siri phrase + widget-gallery spot-check on hardware. **Next:** Phase 2 (Web PWA, then
+> Android).
 
 ## Parity rule
 **Same verb, native idiom.** The feature (the verb) is identical across platforms;
@@ -35,7 +38,7 @@ this table in the same change set; cross-link the platform design doc.
 
 | Verb | tvOS | iOS | Web | Android | Notes (native idiom) |
 |---|---|---|---|---|---|
-| Top-level nav | ✅ `TabView(.sidebarAdaptable)` | 🚧 `TabView` bottom bar (iPhone) ✅; `NavigationSplitView` iPad ⏳ | ⏳ responsive top/side nav + URL routes | ⏳ `NavigationSuiteScaffold` (bottom bar→nav rail→drawer by window size) | Settings moved off the bar to a Home cog (4 content tabs) |
+| Top-level nav | ✅ `TabView(.sidebarAdaptable)` | ✅ `TabView(.sidebarAdaptable)` (bottom bar iPhone → sidebar iPad) | ⏳ responsive top/side nav + URL routes | ⏳ `NavigationSuiteScaffold` (bottom bar→nav rail→drawer by window size) | Settings moved off the bar to a Home cog (4 content tabs) |
 | Per-tab back stack | ✅ `NavigationStack` ×tab | ✅ `NavigationStack` ×tab + swipe-back | ⏳ History API + View Transitions | ⏳ Compose `NavHost` + predictive back | |
 | Deep-linkable surfaces | ✅ `archivewatch://` | ⏳ Universal Links + scheme | ✅ canonical URLs (the web superpower) | ⏳ App Links + scheme | Web makes every surface a shareable URL |
 
@@ -60,7 +63,7 @@ this table in the same change set; cross-link the platform design doc.
 | Movies grid + facets + sort | ✅ | ✅ `LazyVGrid` + scope picker + `Menu` facets | ⏳ CSS grid + `<button>` chips + URL params | ⏳ `LazyVerticalGrid` + `FilterChip` + `DropdownMenu` | shared `CatalogDB.browse`; Browse scope = Films/TV/Collections |
 | Infinite scroll / paging | ✅ | ✅ `.onAppear` paging | ⏳ IntersectionObserver | ⏳ paging on scroll | |
 | TV series → season → episode | ✅ | ✅ series grid → `SeriesDetailView` (SeriesStore) → episode play | ⏳ | ⏳ | `series/*.json` shared |
-| Prev/next episode in player | ✅ | ⏳ | ⏳ | ⏳ | iOS plays a single episode; prev/next transport pending |
+| Prev/next episode in player | ✅ | 🚧 auto-advance to next episode (binge); manual prev/next buttons pending | ⏳ | ⏳ | EpisodeQueue swaps next on end |
 | Collections landing + blurbs | ✅ | ✅ `CollectionMetadata` list → `CollectionGridView` | ⏳ | ⏳ | `collection_metadata.json` shared |
 | Full-text search (FTS5) | ✅ | ✅ `.searchable` | ⏳ `sql.js-httpvfs` FTS5 over range requests | ⏳ `SearchBar` | same FTS5 index in `catalog.sqlite` |
 
@@ -74,7 +77,7 @@ this table in the same change set; cross-link the platform design doc.
 | Resilient streaming | ✅ `ResilientStreamLoader` | ✅ reuse Swift loader | ⏳ range-native + reconnect wrapper | ⏳ `ResolvingDataSource` + `LoadErrorHandlingPolicy` | Archive idle-reset resilience per platform |
 | Resume across launches | ✅ | ✅ `WatchProgress` (item + per-episode) | ⏳ | ⏳ | progress store (§6) |
 | Subtitles / audio / speed | ✅ | ✅ native AVKit | ⏳ `<track>` + rate control | ⏳ Media3 track selector | |
-| Autoplay / continuous play | ✅ F4 engine | ⏳ port engine | ⏳ port engine (JS) | ⏳ Media3 playlist | F4 queue logic ported per platform |
+| Autoplay / continuous play | ✅ F4 engine | ✅ shared F4 engine (PlaybackQueue + AutoplayMode setting) | ⏳ port engine (JS) | ⏳ Media3 playlist | F4 queue logic shared via Core |
 | Picture-in-Picture | n/a | ✅ AVKit PiP | ⏳ `requestPictureInPicture()` | ⏳ Media3 PiP | new affordance on mobile/web |
 | Cast / AirPlay | ✅ AirPlay | ✅ AirPlay (AVKit) | ⏳ Remote Playback API | ⏳ Google Cast | each platform's native cast |
 
@@ -99,7 +102,7 @@ this table in the same change set; cross-link the platform design doc.
 | Watched / hide-watched | ✅ | 🚧 Library Watched; Home hide-watched pending | ⏳ | ⏳ | |
 | Continue Watching progress | ✅ | ✅ | ⏳ | ⏳ | |
 | Local persistence (offline-first) | ✅ SwiftData | ✅ SwiftData (reuse) | ⏳ IndexedDB | ⏳ Room + DataStore | |
-| Per-ecosystem sync (own cloud) | ✅ CloudKit | ⏳ CloudKit (reuse → syncs WITH the Apple TV) | ⏳ Google Drive App Data (web↔web) | ⏳ Google Drive App Data (device↔device) | Decided: each island on the user's own free cloud, no backend (plan §6) |
+| Per-ecosystem sync (own cloud) | ✅ CloudKit | 🚧 CloudKit reuse (UI + sync-on-launch/sign-in shipped; on-device cross-device verify owner-pending) | ⏳ Google Drive App Data (web↔web) | ⏳ Google Drive App Data (device↔device) | Decided: each island on the user's own free cloud, no backend (plan §6) |
 | Cross-ecosystem sync (all 4) | 🚫 | 🚫 | 🚫 | 🚫 | Out of scope by owner choice — unneeded complexity |
 
 ## 7. Settings + account
@@ -111,15 +114,15 @@ this table in the same change set; cross-link the platform design doc.
 | Autoplay/playback options | ✅ | ⏳ | ⏳ | ⏳ | |
 | TMDb attribution (required) | ✅ | ✅ verbatim notice | ⏳ | ⏳ | Decision 007 — verbatim notice all platforms |
 | Donate to Internet Archive | ✅ | ✅ | ⏳ | ⏳ | Decision 010 |
-| Sign-in (sync gate, optional) | ✅ Sign in w/ Apple | ⏳ Sign in w/ Apple | ⏳ Sign in w/ Google (Drive App Data) | ⏳ Sign in w/ Google (Drive App Data) | only gates sync; browse/play always work offline-first |
-| Account deletion | ✅ | ⏳ | 🔮 | 🔮 | App/Play review requirement |
+| Sign-in (sync gate, optional) | ✅ Sign in w/ Apple | ✅ Sign in w/ Apple (Settings → Account & Sync) | ⏳ Sign in w/ Google (Drive App Data) | ⏳ Sign in w/ Google (Drive App Data) | only gates sync; browse/play always work offline-first |
+| Account deletion | ✅ | ✅ (deleteAllCloudData + sign out) | 🔮 | 🔮 | App/Play review requirement |
 
 ## 8. Platform reach + integration
 
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
-| Home-screen surface | ✅ Top Shelf | ⏳ WidgetKit widgets | 🚫 (PWA shortcuts only) | ⏳ home-screen widgets | "Continue Watching / Editor's Picks / What's New" |
-| Voice / shortcuts | ✅ App Intents + Siri | ⏳ App Intents + Siri | n/a | ⏳ App Actions + App Shortcuts | "surprise me", "random animation" |
+| Home-screen surface | ✅ Top Shelf | ✅ WidgetKit (small + medium; Continue Watching / Editor's Picks) | 🚫 (PWA shortcuts only) | ⏳ home-screen widgets | App Group snapshot; deep-links into the app |
+| Voice / shortcuts | ✅ App Intents + Siri | ✅ App Intents + Siri (Surprise / Random Film / Browse) | n/a | ⏳ App Actions + App Shortcuts | "surprise me", "random film" |
 | Spotlight / system search | n/a | 🔮 Core Spotlight | n/a | 🔮 App Search | |
 | Installable app | App Store | App Store | ⏳ **PWA (installable, offline)** | Play Store | web = zero-install reach |
 | Handoff / continuity | 🔮 | 🔮 | n/a | n/a | NSUserActivity already declared |
