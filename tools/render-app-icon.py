@@ -76,4 +76,8 @@ write(render(1920,720,"contain"), TS/"topshelf.png")
 write(render(3840,1440,"contain"), TS/"topshelf@2x.png")
 write(render(2320,720,"contain"), TSW/"topshelf-wide.png")
 write(render(4640,1440,"contain"), TSW/"topshelf-wide@2x.png")
-print("rendered Méliès app icon + top shelf assets")
+# iOS app icon: square 1024 from the SAME 1902 Méliès still (NOT the retired
+# orange SVG). The app target's [sdk=iphone*] AppIcon set points here.
+IOS_ICON = REPO / "ArchiveWatch/ArchiveWatch/Assets.xcassets/AppIcon.appiconset/icon-1024.png"
+write(render(1024,1024,"cover"), IOS_ICON)
+print("rendered Méliès app icon + top shelf + iOS app icon assets")
