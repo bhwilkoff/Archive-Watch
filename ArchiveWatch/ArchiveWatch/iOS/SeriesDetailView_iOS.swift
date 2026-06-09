@@ -50,7 +50,7 @@ struct SeriesDetailView: View {
         .navigationTitle(series?.title ?? card.title)
         .navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(item: $playingEpisode) { ep in
-            PlayerView(episode: ep).ignoresSafeArea()
+            PlayerView(episode: ep, in: series).ignoresSafeArea()
         }
         .task { await load() }
     }

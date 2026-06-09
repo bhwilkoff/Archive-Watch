@@ -7,25 +7,34 @@ import SwiftData
 // PiP) built on the SHARED Core `ResilientStreamLoader` (Decision 021) so Archive's
 // idle-connection resets are handled identically to tvOS. Resumes from + persists
 // WatchProgress (SwiftData), which syncs to the Apple TV via CloudKit.
+//
+// Continuous play (#10 / F4): an optional `PlaybackQueue` supplies the next item to
+// play when the current one ends. The Coordinator swaps it in on the SAME AVPlayer
+// (`replaceCurrentItem`) so playback is seamless — episodes binge-advance, movies
+// autoplay per the user's AutoplayMode (off → queue returns nil → stops).
 struct PlayerView: UIViewControllerRepresentable {
     let archiveID: String
     let videoURL: URL?
+    let queue: PlaybackQueue?
 
-    /// Play a movie/standalone item.
-    init(item: Catalog.Item) {
+    /// Play a movie/standalone item. Pass `store` to enable movie autoplay
+    /// (gated by `store.autoplayMode`; .off means play just this one).
+    init(item: Catalog.Item, autoplayIn store: AppStore? = nil) {
         archiveID = item.archiveID
         videoURL = item.videoURLParsed
+        queue = store.map { MovieAutoplayQueue(start: item, store: $0) }
     }
-    /// Play a TV episode (its own archiveID → its own WatchProgress / resume).
-    init(episode: Episode) {
+    /// Play a TV episode. Pass `series` to binge-advance to the next episode on end.
+    init(episode: Episode, in series: Series? = nil) {
         archiveID = episode.archiveID
         videoURL = episode.videoURLParsed
+        queue = series.map { EpisodeQueue(series: $0, start: episode) }
     }
 
     @Environment(\.modelContext) private var ctx
     @Environment(\.dismiss) private var dismiss
 
-    func makeCoordinator() -> Coordinator { Coordinator(archiveID: archiveID, ctx: ctx) }
+    func makeCoordinator() -> Coordinator { Coordinator(archiveID: archiveID, ctx: ctx, queue: queue) }
 
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let vc = AVPlayerViewController()
@@ -58,13 +67,17 @@ struct PlayerView: UIViewControllerRepresentable {
 
     @MainActor
     final class Coordinator {
-        let archiveID: String
+        private(set) var archiveID: String
         let ctx: ModelContext
+        let queue: PlaybackQueue?
         var loader: ResilientStreamLoader?
         private var timeObserver: Any?
+        private var endObserver: NSObjectProtocol?
         private weak var player: AVPlayer?
 
-        init(archiveID: String, ctx: ModelContext) { self.archiveID = archiveID; self.ctx = ctx }
+        init(archiveID: String, ctx: ModelContext, queue: PlaybackQueue?) {
+            self.archiveID = archiveID; self.ctx = ctx; self.queue = queue
+        }
 
         func observe(_ player: AVPlayer, item playerItem: AVPlayerItem) {
             self.player = player
@@ -73,6 +86,34 @@ struct PlayerView: UIViewControllerRepresentable {
                 forInterval: CMTime(seconds: 10, preferredTimescale: 1), queue: .main) { [weak self] _ in
                 self?.persist(player)
             }
+            registerEnd(for: playerItem)
+        }
+
+        /// On end-of-item: persist (marks it complete) and, if a queue supplies a
+        /// next item, swap it onto the same player without re-presenting.
+        private func registerEnd(for item: AVPlayerItem) {
+            if let e = endObserver { NotificationCenter.default.removeObserver(e) }
+            endObserver = NotificationCenter.default.addObserver(
+                forName: .AVPlayerItemDidPlayToEndTime, object: item, queue: .main) { [weak self] _ in
+                Task { @MainActor in self?.advance() }
+            }
+        }
+
+        private func advance() {
+            persist(player)   // captures end position → WatchProgress marks complete
+            guard let player, let nxt = queue?.next(afterFinishing: archiveID) else { return }
+            archiveID = nxt.id
+            let (asset, loader) = ResilientStreamLoader.makeAsset(for: nxt.url)
+            self.loader = loader
+            let item = AVPlayerItem(asset: asset)
+            item.preferredForwardBufferDuration = 300
+            player.replaceCurrentItem(with: item)
+            registerEnd(for: item)
+            // Resume the next item if it was partially watched before.
+            if let p = savedProgress(), p > 10 {
+                player.seek(to: CMTime(seconds: p, preferredTimescale: 600))
+            }
+            player.play()
         }
 
         func savedProgress() -> Double? {
@@ -100,7 +141,48 @@ struct PlayerView: UIViewControllerRepresentable {
             try? ctx.save()
         }
 
-        deinit { if let t = timeObserver { player?.removeTimeObserver(t) } }
+        deinit {
+            if let t = timeObserver { player?.removeTimeObserver(t) }
+            if let e = endObserver { NotificationCenter.default.removeObserver(e) }
+        }
+    }
+}
+
+// MARK: - Playback queues (what plays next)
+
+@MainActor
+protocol PlaybackQueue: AnyObject {
+    /// The next item to play after `archiveID` finishes, or nil to stop.
+    func next(afterFinishing archiveID: String) -> (id: String, url: URL)?
+}
+
+/// Movie continuous play: delegates to the shared ContinuousPlayback engine using
+/// the user's AutoplayMode. Returns nil when the mode is .off.
+@MainActor
+final class MovieAutoplayQueue: PlaybackQueue {
+    private let store: AppStore
+    private var current: Catalog.Item
+    init(start: Catalog.Item, store: AppStore) { self.current = start; self.store = store }
+
+    func next(afterFinishing _: String) -> (id: String, url: URL)? {
+        guard let n = ContinuousPlayback.next(after: current, mode: store.autoplayMode, store: store),
+              let u = n.videoURLParsed else { return nil }
+        current = n
+        return (n.archiveID, u)
+    }
+}
+
+/// Episode binge: the next canonical episode in the series, or nil at the finale.
+@MainActor
+final class EpisodeQueue: PlaybackQueue {
+    private let series: Series
+    private var current: Episode
+    init(series: Series, start: Episode) { self.series = series; self.current = start }
+
+    func next(afterFinishing _: String) -> (id: String, url: URL)? {
+        guard let n = series.episode(after: current), let u = n.videoURLParsed else { return nil }
+        current = n
+        return (n.archiveID, u)
     }
 }
 

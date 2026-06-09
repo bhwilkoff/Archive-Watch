@@ -33,6 +33,14 @@ final class AppStore {
     /// own the model context. Feeds Continue-Watching hiding + the F4 engine.
     var completedArchiveIDs: Set<String> = []
 
+    /// Movie autoplay (#10): what plays after a movie ends. Default off; the
+    /// player's MovieAutoplayQueue reads this. Episodes binge-advance regardless.
+    var autoplayMode: AutoplayMode = {
+        AutoplayMode(rawValue: UserDefaults.standard.string(forKey: "autoplayMode") ?? "") ?? .off
+    }() {
+        didSet { UserDefaults.standard.set(autoplayMode.rawValue, forKey: "autoplayMode") }
+    }
+
     // MARK: load
 
     func load() async {

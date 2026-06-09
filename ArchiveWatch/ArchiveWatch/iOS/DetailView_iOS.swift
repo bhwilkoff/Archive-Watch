@@ -52,7 +52,9 @@ struct DetailView: View {
             }
         }
         .navigationTitle(item.title).navigationBarTitleDisplayMode(.inline)
-        .fullScreenCover(isPresented: $playing) { PlayerView(item: item).ignoresSafeArea() }
+        .fullScreenCover(isPresented: $playing) {
+            PlayerView(item: item, autoplayIn: store).ignoresSafeArea()
+        }
     }
 
     private var metaLine: String {

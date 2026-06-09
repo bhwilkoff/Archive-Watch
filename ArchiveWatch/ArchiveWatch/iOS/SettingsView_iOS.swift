@@ -18,6 +18,15 @@ struct SettingsView: View {
                     .font(.footnote).foregroundStyle(.secondary)
             }
 
+            Section("Playback") {
+                Picker("Autoplay next", selection: $store.autoplayMode) {
+                    ForEach(AutoplayMode.allCases) { Text($0.label).tag($0) }
+                }
+                Text("When a film ends, what plays next. TV episodes always continue "
+                     + "to the next episode.")
+                    .font(.footnote).foregroundStyle(.secondary)
+            }
+
             Section("Support") {
                 Link(destination: URL(string: "https://archive.org/donate")!) {
                     Label("Support the Internet Archive", systemImage: "heart")
