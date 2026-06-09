@@ -928,3 +928,53 @@ above the app's 10 MB validity floor — safe). `excluded`/`rightsConfirmed`/
 `archiveLicense`/`archiveDate`/`rightsAudit` are additive JSON keys the Swift
 model ignores. This is the rights complement to Decision 026 (match correctness):
 026 makes a match point at the right film; 027 decides whether that film may ship.
+
+---
+
+## 028 — Expand to iOS / Web / Android as fully-native apps over the SAME data plane; per-ecosystem sync on the user's own cloud
+*Date: 2026-06-09*
+
+Archive Watch goes multi-platform (iOS, then iPad, then Web PWA, then Android)
+following the TriAppTemplate model: **feature parity, not design consistency** —
+each platform is fully native (iPhone feels like iOS, Android like Material 3, web
+like the web), NOT the tvOS UI shrunk down. All clients consume the **same shared
+data plane unchanged** — the `catalog.sqlite` on the GitHub Release (+ editorial
+JSON + the Python pipeline with rights/adult flags baked into the DB) — and rebuild
+only the UI + query/player/persistence layer per platform. Each platform reads the
+catalog natively: **iOS reuses the tvOS Swift `CatalogDB`/loader/`ResilientStreamLoader`
+verbatim** (~60–70% reuse, and shares the Apple TV's CloudKit DB); **Android**
+downloads + raw-inflates + queries via Room/SQLite, Media3 for playback;
+**Web** queries the SQLite *in place* over HTTP **range requests** (`sql.js-httpvfs`,
+FTS5, no full download) from GitHub Pages as an installable PWA. Sync is **three
+independent islands, each on the user's OWN cloud, with no separately-run backend**:
+Apple via CloudKit (iCloud), Android+Web via the **Google Drive "App Data" folder**
+(Sign in with Google). No cross-ecosystem sync. Full plan: `docs/MULTIPLATFORM-PLAN.md`;
+live matrix: `PARITY.md`.
+
+**Why**: the app already has a clean seam — a platform-agnostic data plane vs a UI
+layer — so the cost of a port is the UI, not the backend or the 30k-item catalog
+pipeline. Native-per-platform (vs a cross-platform framework like Flutter/RN/Compose
+Multiplatform) is required because the tvOS work proved native idioms (focus engine,
+Liquid Glass, Material, web URL-state) carry the experience; a lowest-common-
+denominator UI would degrade all three. iOS first maximizes reuse and gives free
+iPhone↔Apple TV sync. The owner explicitly rejected a neutral sync backend
+(Cloudflare/Supabase) as unneeded complexity and wants per-ecosystem sync only;
+routing each ecosystem through the user's own free cloud (iCloud / Google Drive App
+Data) delivers that with zero server to run — the Drive App Data folder is the exact
+no-backend analog to CloudKit's private DB.
+
+**How to apply**: never make the tvOS app the canonical UI to reskin — build the
+native idiom per platform (`PARITY.md` "same verb, native idiom"; create
+`docs/{iOS,WEB,ANDROID}-DESIGN.md` binding docs per platform once each passes ~5
+views). Never re-implement or re-host the catalog/pipeline per platform — consume
+the one published `catalog.sqlite` + JSON (author `docs/CATALOG-CONTRACT.md` as the
+shared schema). Never stand up a custom sync backend — sync via the user's own cloud
+(CloudKit / Drive App Data), sign-in optional and gating only sync (browse/play work
+offline-first). Update `PARITY.md` in the same change set as any user-facing feature.
+
+**Consequences**: the repo adopts the TriApp sibling layout (`ios/` UI alongside the
+shared Swift Core, `android/` module, web at root). A Google OAuth client (public
+ID, no secret backend) is the only new infra, shared by Android + Web. The publish-db
+CI already emits the single asset all four clients consume; no pipeline change. New
+per-platform binding design docs + a catalog-contract doc + small project skills
+(`web-catalog-data-layer`, `media3-resilient-streaming`) are the authoring backlog.

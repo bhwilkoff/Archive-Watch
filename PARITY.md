@@ -86,9 +86,9 @@ this table in the same change set; cross-link the platform design doc.
 | Playlists | ✅ | ⏳ | ⏳ | ⏳ | |
 | Watched / hide-watched | ✅ | ⏳ | ⏳ | ⏳ | |
 | Continue Watching progress | ✅ | ⏳ | ⏳ | ⏳ | |
-| Local persistence | ✅ SwiftData | ⏳ SwiftData (reuse) | ⏳ IndexedDB | ⏳ Room + DataStore | |
-| Cross-device sync (Apple) | ✅ CloudKit | ⏳ CloudKit (reuse → syncs WITH the Apple TV) | n/a | n/a | iOS+tvOS share one iCloud DB for free |
-| Cross-ecosystem sync (all 4) | 🔮 | 🔮 | 🔮 | 🔮 | needs a neutral backend — **open decision**, see plan §6 |
+| Local persistence (offline-first) | ✅ SwiftData | ⏳ SwiftData (reuse) | ⏳ IndexedDB | ⏳ Room + DataStore | |
+| Per-ecosystem sync (own cloud) | ✅ CloudKit | ⏳ CloudKit (reuse → syncs WITH the Apple TV) | ⏳ Google Drive App Data (web↔web) | ⏳ Google Drive App Data (device↔device) | Decided: each island on the user's own free cloud, no backend (plan §6) |
+| Cross-ecosystem sync (all 4) | 🚫 | 🚫 | 🚫 | 🚫 | Out of scope by owner choice — unneeded complexity |
 
 ## 7. Settings + account
 
@@ -99,7 +99,7 @@ this table in the same change set; cross-link the platform design doc.
 | Autoplay/playback options | ✅ | ⏳ | ⏳ | ⏳ | |
 | TMDb attribution (required) | ✅ | ⏳ | ⏳ | ⏳ | Decision 007 — verbatim notice all platforms |
 | Donate to Internet Archive | ✅ | ⏳ | ⏳ | ⏳ | Decision 010 |
-| Sign-in (sync gate) | ✅ Sign in w/ Apple | ⏳ Sign in w/ Apple | 🔮 email/OAuth | 🔮 Sign in w/ Google | only gates sync; browse/play always work |
+| Sign-in (sync gate, optional) | ✅ Sign in w/ Apple | ⏳ Sign in w/ Apple | ⏳ Sign in w/ Google (Drive App Data) | ⏳ Sign in w/ Google (Drive App Data) | only gates sync; browse/play always work offline-first |
 | Account deletion | ✅ | ⏳ | 🔮 | 🔮 | App/Play review requirement |
 
 ## 8. Platform reach + integration

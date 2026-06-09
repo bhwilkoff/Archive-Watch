@@ -192,25 +192,34 @@ player layer in Kotlin.
 
 ---
 
-## 6. The one genuinely-new cross-cutting decision: sync strategy
+## 6. Sync strategy — DECIDED: three islands, each on the user's OWN cloud
 
-tvOS uses **CloudKit** (Apple-only). The choices:
+**Owner decision (2026-06):** per-ecosystem sync only — Apple devices sync with
+Apple devices, Android with Android, Web with Web. **No** cross-ecosystem sync and
+**no separately-run backend** (no Cloudflare/Supabase instance). The key enabler:
+each ecosystem syncs through the *user's own* free cloud, so there is no server to
+provision, pay for, or operate.
 
-- **Recommended phased path:**
-  - **Phase A (v1 each platform):** iOS reuses CloudKit → syncs with the Apple TV
-    automatically. Android + Web are **local-only** (Room/DataStore, IndexedDB).
-    Browse/play/save all work; only cross-*ecosystem* sync is absent.
-  - **Phase B (when warranted):** add a **neutral sync backend** (Cloudflare
-    Worker + D1/KV, or Supabase) that all four platforms can use, with Sign in with
-    Apple (iOS/web), Sign in with Google (Android/web), email everywhere. This gives
-    true Android↔iOS↔Web parity. The TriAppTemplate's PARITY/auth rows already
-    anticipate this shape.
+| Island | Mechanism | Backend to run? |
+|---|---|---|
+| **Apple** (tvOS + iOS) | **CloudKit** private DB (their iCloud) — already shipped | none (iCloud) |
+| **Android** (device↔device) | **Google Drive "App Data" folder** via Sign in with Google + Credential Manager; a small JSON (favorites/playlists/progress) read/written with the `drive.appdata` scope | none (their Google Drive) |
+| **Web** (browser↔browser) | the **same Google Drive App Data folder**, via Google Identity Services (GIS) OAuth token obtained client-side and the Drive REST API, called directly from the static PWA | none (their Google Drive) — just a public OAuth client ID + authorized JS origin |
 
-**Open question for the owner:** accept the Apple-only sync asymmetry in v1 (faster,
-zero new backend) and add the neutral backend later — **or** stand up the neutral
-backend up front so Android/Web sync from day one? Recommendation: **Phase A first**
-(ship value fast; the asymmetry is invisible to single-ecosystem users), Phase B
-once there's an Android/web install base that wants it.
+Notes:
+- Drive App Data is a hidden per-app folder in the user's Drive — the precise
+  no-server analog to CloudKit's private DB. Long-established for cross-device
+  settings sync.
+- Because Web and Android both use the *same* Google Drive App Data folder, a user
+  signed into the same Google account on both would, incidentally, see them
+  converge — a **free** bonus, not a separate backend. If strict web-only / android-
+  only isolation is ever wanted, namespace the data file per platform
+  (`archivewatch-web.json` vs `…-android.json`). Default: leave unified (simpler,
+  helpful).
+- Local-first on every platform (SwiftData / Room+DataStore / IndexedDB); the
+  cloud is an upsert/merge mirror with the same tombstone + last-writer-wins model
+  the tvOS CloudKit sync already uses (Decision 022). Sign-in is optional and gates
+  *only* sync — browse/play/save always work offline-first.
 
 ---
 
@@ -295,15 +304,19 @@ capturing the `sql.js-httpvfs` + OPFS + range-query pattern (so it's not re-deri
 
 ---
 
-## 10. Open decisions for the owner
-1. **Sync strategy (§6):** Apple-only sync in v1 + neutral backend later (recommended),
-   or neutral backend up front for day-one Android/Web sync?
-2. **Sequencing (§8):** iOS → iPad → Web → Android (recommended), or pull Web earlier
-   for fastest broad reach?
-3. **iOS/tvOS project shape:** one multiplatform Xcode project sharing a Core group,
-   or separate projects sharing a Swift package?
-4. **Scope of modes on phones:** ship Party Play / screensaver on iPhone/Android
-   phone, or reserve those lean-back modes for iPad/tablet/desktop-web/TV?
+## 10. Decisions
+**Resolved (owner, 2026-06):**
+1. **Sync (§6):** three islands on the user's own clouds — CloudKit (Apple), Google
+   Drive App Data (Android, Web). No cross-ecosystem sync, no separate backend.
+2. **Sequencing (§8):** iOS → iPad → Web → Android.
+
+**Still open (recommend-and-proceed; flag at the relevant phase):**
+3. **iOS/tvOS project shape:** one multiplatform Xcode project sharing a Core group
+   (recommended — maximizes reuse), or separate projects sharing a Swift package.
+   Decide at iOS bootstrap.
+4. **Scope of lean-back modes on phones:** ship Party Play / screensaver on
+   iPhone/Android phones, or reserve for iPad/tablet/desktop-web/TV (recommended —
+   they're lean-back idioms). Decide when modes land (P5).
 
 ## 11. Risks + mitigations
 - **Web video from archive.org** — CORS/redirects on `download/` URLs. Mitigation:
