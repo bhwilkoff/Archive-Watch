@@ -11,13 +11,17 @@
 ## Legend
 - ✅ **Shipped** · 🚧 **In progress** · ⏳ **Planned (committed)** · 🔮 **Future (agreed, no date)** · 🚫 **Out of scope (with reason)** · n/a **platform-inapplicable**
 
-> **iOS Phase 1 (2026-06):** the shared **Core is compile-verified for iOS**
-> (`ios/Core`, `ios/Package.swift`), and the native iPhone UI for the core spine —
-> Home, Browse, Detail, Player (AVKit+PiP, resilient streaming), Search, Library,
-> Settings + deep links — is written in `ios/` (rows below show 🚧). Remaining: the
-> one Xcode app-target creation step (`ios/README.md`), then TV Shows / Collections /
-> Surprise / Channels / iPad adaptivity / widgets. tvOS shares CloudKit so iOS syncs
-> with the Apple TV.
+> **iOS Phase 1 (2026-06):** the existing tvOS Xcode project was converted to a
+> **universal app target** (iOS + tvOS from one target via `#if os` guards); the
+> iPhone build **runs on the iOS 26 simulator**, verified screen-by-screen. Shipped &
+> verified on iPhone: full-screen launch (UILaunchScreen fix), photographic Méliès
+> icon, Home (paging hero carousel + item_shelves-resolved/de-duped shelves + Continue
+> Watching + Surprise), Browse (Films grid + facets + paging; **TV** series→episode
+> via SeriesStore; **Collections** list→grid), Detail, Player (AVKit + PiP + resilient
+> streaming + resume), Search, Library, Settings (behind a Home cog, not a tab). iOS
+> shares the Apple TV's CloudKit container. **Remaining Phase 1:** iPad
+> `NavigationSplitView` adaptivity, WidgetKit, App Intents/Siri, prev/next episode
+> transport, autoplay engine port, and the sign-in/sync UI.
 
 ## Parity rule
 **Same verb, native idiom.** The feature (the verb) is identical across platforms;
@@ -31,21 +35,21 @@ this table in the same change set; cross-link the platform design doc.
 
 | Verb | tvOS | iOS | Web | Android | Notes (native idiom) |
 |---|---|---|---|---|---|
-| Top-level nav | ✅ `TabView(.sidebarAdaptable)` | ⏳ `TabView` bottom bar (iPhone) / `NavigationSplitView` sidebar (iPad) | ⏳ responsive top/side nav + URL routes | ⏳ `NavigationSuiteScaffold` (bottom bar→nav rail→drawer by window size) | Same destinations; idiom differs per form factor |
-| Per-tab back stack | ✅ `NavigationStack` ×tab | ⏳ `NavigationStack` ×tab + swipe-back | ⏳ History API + View Transitions | ⏳ Compose `NavHost` + predictive back | |
+| Top-level nav | ✅ `TabView(.sidebarAdaptable)` | 🚧 `TabView` bottom bar (iPhone) ✅; `NavigationSplitView` iPad ⏳ | ⏳ responsive top/side nav + URL routes | ⏳ `NavigationSuiteScaffold` (bottom bar→nav rail→drawer by window size) | Settings moved off the bar to a Home cog (4 content tabs) |
+| Per-tab back stack | ✅ `NavigationStack` ×tab | ✅ `NavigationStack` ×tab + swipe-back | ⏳ History API + View Transitions | ⏳ Compose `NavHost` + predictive back | |
 | Deep-linkable surfaces | ✅ `archivewatch://` | ⏳ Universal Links + scheme | ✅ canonical URLs (the web superpower) | ⏳ App Links + scheme | Web makes every surface a shareable URL |
 
 ## 2. Discover — Home
 
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
-| Hero / featured banner | ✅ focus carousel | ⏳ paged `TabView` carousel (touch swipe) | ⏳ scroll-snap carousel | ⏳ `HorizontalPager` | Same pool/logic; 10-foot sizing → touch sizing |
-| Curated + dynamic shelves | ✅ | ⏳ horizontal `ScrollView` rows | ⏳ horizontal scroll rows | ⏳ `LazyRow`s | `featured.json` shared verbatim |
+| Hero / featured banner | ✅ focus carousel | ✅ paged `TabView` carousel (touch swipe, 7s auto-advance) | ⏳ scroll-snap carousel | ⏳ `HorizontalPager` | Same pool/logic; 10-foot sizing → touch sizing |
+| Curated + dynamic shelves | ✅ | ✅ horizontal rows, item_shelves-resolved + cross-shelf dedup | ⏳ horizontal scroll rows | ⏳ `LazyRow`s | `featured.json` shared verbatim |
 | Category tiles | ✅ | ⏳ | ⏳ | ⏳ | accent colors from `featured.json` |
 | Decade tiles | ✅ | ⏳ | ⏳ | ⏳ | |
 | Hidden Gems shelf | ✅ | ⏳ | ⏳ | ⏳ | shared query |
 | Director shelves | ✅ | ⏳ | ⏳ | ⏳ | shared query |
-| Continue Watching | ✅ | ⏳ | ⏳ | ⏳ | progress store (see §6) |
+| Continue Watching | ✅ | ✅ | ⏳ | ⏳ | progress store (see §6) |
 | Modes row | ✅ | ⏳ | ⏳ | ⏳ | links to §5 |
 | Public Domain Day section | ✅ | ⏳ | ⏳ | ⏳ | seasonal, shared |
 
@@ -53,32 +57,32 @@ this table in the same change set; cross-link the platform design doc.
 
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
-| Movies grid + facets + sort | ✅ | ⏳ `LazyVGrid` + `searchScopes`/`Menu` | ⏳ CSS grid + `<button>` chips + URL params | ⏳ `LazyVerticalGrid` + `FilterChip` + `DropdownMenu` | shared `CatalogDB.browse` |
-| Infinite scroll / paging | ✅ | ⏳ `.onAppear` paging | ⏳ IntersectionObserver | ⏳ paging on scroll | |
-| TV series → season → episode | ✅ | ⏳ | ⏳ | ⏳ | `series/*.json` shared |
-| Prev/next episode in player | ✅ | ⏳ | ⏳ | ⏳ | |
-| Collections landing + blurbs | ✅ | ⏳ | ⏳ | ⏳ | `collection_metadata.json` shared |
-| Full-text search (FTS5) | ✅ | ⏳ `.searchable` | ⏳ `sql.js-httpvfs` FTS5 over range requests | ⏳ `SearchBar` | same FTS5 index in `catalog.sqlite` |
+| Movies grid + facets + sort | ✅ | ✅ `LazyVGrid` + scope picker + `Menu` facets | ⏳ CSS grid + `<button>` chips + URL params | ⏳ `LazyVerticalGrid` + `FilterChip` + `DropdownMenu` | shared `CatalogDB.browse`; Browse scope = Films/TV/Collections |
+| Infinite scroll / paging | ✅ | ✅ `.onAppear` paging | ⏳ IntersectionObserver | ⏳ paging on scroll | |
+| TV series → season → episode | ✅ | ✅ series grid → `SeriesDetailView` (SeriesStore) → episode play | ⏳ | ⏳ | `series/*.json` shared |
+| Prev/next episode in player | ✅ | ⏳ | ⏳ | ⏳ | iOS plays a single episode; prev/next transport pending |
+| Collections landing + blurbs | ✅ | ✅ `CollectionMetadata` list → `CollectionGridView` | ⏳ | ⏳ | `collection_metadata.json` shared |
+| Full-text search (FTS5) | ✅ | ✅ `.searchable` | ⏳ `sql.js-httpvfs` FTS5 over range requests | ⏳ `SearchBar` | same FTS5 index in `catalog.sqlite` |
 
 ## 4. Detail + Playback
 
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
-| Detail (backdrop, metadata, cast) | ✅ | ⏳ `.zoom` hero transition | ⏳ View Transitions | ⏳ `sharedBounds` hero | shared item record |
-| More Like This | ✅ | ⏳ | ⏳ | ⏳ | shared `related` query |
-| Video playback | ✅ AVPlayerVC | ⏳ AVPlayerVC (reused) | ⏳ HTML5 `<video>` | ⏳ Media3 `PlayerView` | |
+| Detail (backdrop, metadata, cast) | ✅ | ✅ scroll + Play/Favorite/Share + cast row | ⏳ View Transitions | ⏳ `sharedBounds` hero | shared item record |
+| More Like This | ✅ | ✅ | ⏳ | ⏳ | shared `related` query |
+| Video playback | ✅ AVPlayerVC | ✅ AVPlayerVC (reused) | ⏳ HTML5 `<video>` | ⏳ Media3 `PlayerView` | |
 | Resilient streaming | ✅ `ResilientStreamLoader` | ✅ reuse Swift loader | ⏳ range-native + reconnect wrapper | ⏳ `ResolvingDataSource` + `LoadErrorHandlingPolicy` | Archive idle-reset resilience per platform |
-| Resume across launches | ✅ | ⏳ | ⏳ | ⏳ | progress store (§6) |
-| Subtitles / audio / speed | ✅ | ⏳ native AVKit | ⏳ `<track>` + rate control | ⏳ Media3 track selector | |
+| Resume across launches | ✅ | ✅ `WatchProgress` (item + per-episode) | ⏳ | ⏳ | progress store (§6) |
+| Subtitles / audio / speed | ✅ | ✅ native AVKit | ⏳ `<track>` + rate control | ⏳ Media3 track selector | |
 | Autoplay / continuous play | ✅ F4 engine | ⏳ port engine | ⏳ port engine (JS) | ⏳ Media3 playlist | F4 queue logic ported per platform |
-| Picture-in-Picture | n/a | ⏳ AVKit PiP | ⏳ `requestPictureInPicture()` | ⏳ Media3 PiP | new affordance on mobile/web |
-| Cast / AirPlay | ✅ AirPlay | ⏳ AirPlay | ⏳ Remote Playback API | ⏳ Google Cast | each platform's native cast |
+| Picture-in-Picture | n/a | ✅ AVKit PiP | ⏳ `requestPictureInPicture()` | ⏳ Media3 PiP | new affordance on mobile/web |
+| Cast / AirPlay | ✅ AirPlay | ✅ AirPlay (AVKit) | ⏳ Remote Playback API | ⏳ Google Cast | each platform's native cast |
 
 ## 5. Surprise + Immersive modes
 
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
-| Surprise / random actions | ✅ | ⏳ | ⏳ | ⏳ | shared random queries |
+| Surprise / random actions | ✅ | ✅ shuffle button in Home nav bar → random Detail | ⏳ | ⏳ | shared random queries |
 | Channels (EPG guide) | ✅ proportional grid | ⏳ touch guide | ⏳ CSS-grid guide | ⏳ Compose lazy guide | `ChannelScheduler` (date-seeded) shared |
 | Create / user channels | ✅ | ⏳ | ⏳ | ⏳ | filter spec shared |
 | Cartoon / Kids mode | ✅ | ⏳ | ⏳ | ⏳ | color/B&W flags shared |
@@ -90,11 +94,11 @@ this table in the same change set; cross-link the platform design doc.
 
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
-| Favorites | ✅ | ⏳ | ⏳ | ⏳ | local store per platform |
-| Playlists | ✅ | ⏳ | ⏳ | ⏳ | |
-| Watched / hide-watched | ✅ | ⏳ | ⏳ | ⏳ | |
-| Continue Watching progress | ✅ | ⏳ | ⏳ | ⏳ | |
-| Local persistence (offline-first) | ✅ SwiftData | ⏳ SwiftData (reuse) | ⏳ IndexedDB | ⏳ Room + DataStore | |
+| Favorites | ✅ | ✅ Detail heart + Library | ⏳ | ⏳ | local store per platform |
+| Playlists | ✅ | 🚧 Library (UI present) | ⏳ | ⏳ | |
+| Watched / hide-watched | ✅ | 🚧 Library Watched; Home hide-watched pending | ⏳ | ⏳ | |
+| Continue Watching progress | ✅ | ✅ | ⏳ | ⏳ | |
+| Local persistence (offline-first) | ✅ SwiftData | ✅ SwiftData (reuse) | ⏳ IndexedDB | ⏳ Room + DataStore | |
 | Per-ecosystem sync (own cloud) | ✅ CloudKit | ⏳ CloudKit (reuse → syncs WITH the Apple TV) | ⏳ Google Drive App Data (web↔web) | ⏳ Google Drive App Data (device↔device) | Decided: each island on the user's own free cloud, no backend (plan §6) |
 | Cross-ecosystem sync (all 4) | 🚫 | 🚫 | 🚫 | 🚫 | Out of scope by owner choice — unneeded complexity |
 
@@ -102,11 +106,11 @@ this table in the same change set; cross-link the platform design doc.
 
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
-| Mature-content filter (default ON) | ✅ | ⏳ | ⏳ | ⏳ | `isAdult` flag baked into catalog (Decision 012/adult pass) |
+| Mature-content filter (default ON) | ✅ | ✅ Settings toggle (cog → sheet) | ⏳ | ⏳ | `isAdult` flag baked into catalog (Decision 012/adult pass) |
 | Category visibility toggles | ✅ | ⏳ | ⏳ | ⏳ | |
 | Autoplay/playback options | ✅ | ⏳ | ⏳ | ⏳ | |
-| TMDb attribution (required) | ✅ | ⏳ | ⏳ | ⏳ | Decision 007 — verbatim notice all platforms |
-| Donate to Internet Archive | ✅ | ⏳ | ⏳ | ⏳ | Decision 010 |
+| TMDb attribution (required) | ✅ | ✅ verbatim notice | ⏳ | ⏳ | Decision 007 — verbatim notice all platforms |
+| Donate to Internet Archive | ✅ | ✅ | ⏳ | ⏳ | Decision 010 |
 | Sign-in (sync gate, optional) | ✅ Sign in w/ Apple | ⏳ Sign in w/ Apple | ⏳ Sign in w/ Google (Drive App Data) | ⏳ Sign in w/ Google (Drive App Data) | only gates sync; browse/play always work offline-first |
 | Account deletion | ✅ | ⏳ | 🔮 | 🔮 | App/Play review requirement |
 
