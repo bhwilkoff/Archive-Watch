@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Archive Watch</title>
+  <!-- GitHub Pages has no server routing, so the canonical share URLs the apps
+       emit (/Archive-Watch/item/{id} — see DetailView shareURL on iOS/tvOS)
+       land here; forward them into the viewer's hash router. Anything else
+       unknown goes to the viewer home. -->
+  <script>
+    (function () {
+      var m = location.pathname.match(/\/Archive-Watch\/item\/([^/]+)/);
+      var base = '/Archive-Watch/watch/';
+      location.replace(m ? base + '#/item/' + m[1] : base);
+    })();
+  </script>
+</head>
+<body><p>Redirecting to <a href="/Archive-Watch/watch/">Archive Watch</a>…</p></body>
+</html>

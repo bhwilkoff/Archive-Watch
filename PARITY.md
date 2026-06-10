@@ -47,16 +47,16 @@ this table in the same change set; cross-link the platform design doc.
 
 | Verb | tvOS | iOS | Web | Android | Notes (native idiom) |
 |---|---|---|---|---|---|
-| Top-level nav | ✅ `TabView(.sidebarAdaptable)` | ✅ `TabView(.sidebarAdaptable)` (bottom bar iPhone → sidebar iPad) | ⏳ responsive top/side nav + URL routes | ⏳ `NavigationSuiteScaffold` (bottom bar→nav rail→drawer by window size) | Settings moved off the bar to a Home cog (4 content tabs) |
-| Per-tab back stack | ✅ `NavigationStack` ×tab | ✅ `NavigationStack` ×tab + swipe-back | ⏳ History API + View Transitions | ⏳ Compose `NavHost` + predictive back | |
+| Top-level nav | ✅ `TabView(.sidebarAdaptable)` | ✅ `TabView(.sidebarAdaptable)` (bottom bar iPhone → sidebar iPad) | ✅ top nav + hash routes (`/watch/`) | ⏳ `NavigationSuiteScaffold` (bottom bar→nav rail→drawer by window size) | Settings moved off the bar to a Home cog (4 content tabs) |
+| Per-tab back stack | ✅ `NavigationStack` ×tab | ✅ `NavigationStack` ×tab + swipe-back | ✅ hash history (browser back) | ⏳ Compose `NavHost` + predictive back | |
 | Deep-linkable surfaces | ✅ `archivewatch://` | ⏳ Universal Links + scheme | ✅ canonical URLs (the web superpower) | ⏳ App Links + scheme | Web makes every surface a shareable URL |
 
 ## 2. Discover — Home
 
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
-| Hero / featured banner | ✅ focus carousel | ✅ paged `TabView` carousel (touch swipe, 7s auto-advance) | ⏳ scroll-snap carousel | ⏳ `HorizontalPager` | Same pool/logic; 10-foot sizing → touch sizing |
-| Curated + dynamic shelves | ✅ | ✅ horizontal rows, item_shelves-resolved + cross-shelf dedup | ⏳ horizontal scroll rows | ⏳ `LazyRow`s | `featured.json` shared verbatim |
+| Hero / featured banner | ✅ focus carousel | ✅ paged `TabView` carousel (touch swipe, 7s auto-advance) | ✅ rotating hero (7s, designed art) | ⏳ `HorizontalPager` | Same pool/logic; 10-foot sizing → touch sizing |
+| Curated + dynamic shelves | ✅ | ✅ horizontal rows, item_shelves-resolved + cross-shelf dedup | ✅ scroll-snap rails (curated via index; dynamic via scrape, 1h cache) | ⏳ `LazyRow`s | `featured.json` shared verbatim |
 | Category tiles | ✅ | ✅ tile row → filtered grid | ⏳ | ⏳ | accent colors from `featured.json` |
 | Decade tiles | ✅ | ✅ era tiles + counts | ⏳ | ⏳ | |
 | Hidden Gems shelf | ✅ | ✅ | ⏳ | ⏳ | shared query |
@@ -69,22 +69,22 @@ this table in the same change set; cross-link the platform design doc.
 
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
-| Movies grid + facets + sort | ✅ | ✅ `LazyVGrid` + scope picker + `Menu` facets | ⏳ CSS grid + `<button>` chips + URL params | ⏳ `LazyVerticalGrid` + `FilterChip` + `DropdownMenu` | shared `CatalogDB.browse`; Browse scope = Films/TV/Collections |
-| Infinite scroll / paging | ✅ | ✅ `.onAppear` paging | ⏳ IntersectionObserver | ⏳ paging on scroll | |
+| Movies grid + facets + sort | ✅ | ✅ `LazyVGrid` + scope picker + `Menu` facets | ✅ CSS grid + type chips + URL params | ⏳ `LazyVerticalGrid` + `FilterChip` + `DropdownMenu` | shared `CatalogDB.browse`; Browse scope = Films/TV/Collections |
+| Infinite scroll / paging | ✅ | ✅ `.onAppear` paging | ✅ IntersectionObserver | ⏳ paging on scroll | |
 | TV series → season → episode | ✅ | ✅ series grid → `SeriesDetailView` (SeriesStore) → episode play | ⏳ | ⏳ | `series/*.json` shared |
 | Prev/next episode in player | ✅ | ✅ overlay capsule + binge auto-advance | ⏳ | ⏳ | EpisodeQueue swaps next on end |
 | Collections landing + blurbs | ✅ | ✅ `CollectionMetadata` list → `CollectionGridView` | ⏳ | ⏳ | `collection_metadata.json` shared |
-| Full-text search (FTS5) | ✅ | ✅ `.searchable` | ⏳ `sql.js-httpvfs` FTS5 over range requests | ⏳ `SearchBar` | same FTS5 index in `catalog.sqlite` |
+| Full-text search (FTS5) | ✅ | ✅ `.searchable` | 🚧 client title search over index (FTS5 upgrade = WEB-DESIGN §2.4) | ⏳ `SearchBar` | same FTS5 index in `catalog.sqlite` |
 
 ## 4. Detail + Playback
 
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
-| Detail (backdrop, metadata, cast) | ✅ | ✅ scroll + Play/Favorite/Share + cast row | ⏳ View Transitions | ⏳ `sharedBounds` hero | shared item record |
+| Detail (backdrop, metadata, cast) | ✅ | ✅ scroll + Play/Favorite/Share + cast row | 🚧 poster + metadata-API description (cast/backdrop = §2.4) | ⏳ `sharedBounds` hero | shared item record |
 | More Like This | ✅ | ✅ | ⏳ | ⏳ | shared `related` query |
-| Video playback | ✅ AVPlayerVC | ✅ AVPlayerVC (reused) | ⏳ HTML5 `<video>` | ⏳ Media3 `PlayerView` | |
-| Resilient streaming | ✅ `ResilientStreamLoader` | ✅ reuse Swift loader | ⏳ range-native + reconnect wrapper | ⏳ `ResolvingDataSource` + `LoadErrorHandlingPolicy` | Archive idle-reset resilience per platform |
-| Resume across launches | ✅ | ✅ `WatchProgress` (item + per-episode) | ⏳ | ⏳ | progress store (§6) |
+| Video playback | ✅ AVPlayerVC | ✅ AVPlayerVC (reused) | ✅ HTML5 `<video>` in `<dialog>` | ⏳ Media3 `PlayerView` | |
+| Resilient streaming | ✅ `ResilientStreamLoader` | ✅ reuse Swift loader | ✅ range-native + reconnect/reseek wrapper | ⏳ `ResolvingDataSource` + `LoadErrorHandlingPolicy` | Archive idle-reset resilience per platform |
+| Resume across launches | ✅ | ✅ `WatchProgress` (item + per-episode) | ✅ IndexedDB progress | ⏳ | progress store (§6) |
 | Subtitles / audio / speed | ✅ | ✅ native AVKit | ⏳ `<track>` + rate control | ⏳ Media3 track selector | |
 | Autoplay / continuous play | ✅ F4 engine | ✅ shared F4 engine (PlaybackQueue + AutoplayMode setting) | ⏳ port engine (JS) | ⏳ Media3 playlist | F4 queue logic shared via Core |
 | Picture-in-Picture | n/a | ✅ AVKit PiP | ⏳ `requestPictureInPicture()` | ⏳ Media3 PiP | new affordance on mobile/web |
@@ -106,11 +106,11 @@ this table in the same change set; cross-link the platform design doc.
 
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
-| Favorites | ✅ | ✅ Detail heart + Library | ⏳ | ⏳ | local store per platform |
+| Favorites | ✅ | ✅ Detail heart + Library | ✅ heart + Library (IndexedDB) | ⏳ | local store per platform |
 | Playlists | ✅ | ✅ add/create sheet + swipe-delete | ⏳ | ⏳ | |
 | Watched / hide-watched | ✅ | ✅ Watched tab + hide-watched toggle | ⏳ | ⏳ | |
-| Continue Watching progress | ✅ | ✅ | ⏳ | ⏳ | |
-| Local persistence (offline-first) | ✅ SwiftData | ✅ SwiftData (reuse) | ⏳ IndexedDB | ⏳ Room + DataStore | |
+| Continue Watching progress | ✅ | ✅ | ✅ | ⏳ | |
+| Local persistence (offline-first) | ✅ SwiftData | ✅ SwiftData (reuse) | ✅ IndexedDB | ⏳ Room + DataStore | |
 | Per-ecosystem sync (own cloud) | ✅ CloudKit | 🚧 CloudKit reuse (UI + sync-on-launch/sign-in shipped; on-device cross-device verify owner-pending) | ⏳ Google Drive App Data (web↔web) | ⏳ Google Drive App Data (device↔device) | Decided: each island on the user's own free cloud, no backend (plan §6) |
 | Cross-ecosystem sync (all 4) | 🚫 | 🚫 | 🚫 | 🚫 | Out of scope by owner choice — unneeded complexity |
 
@@ -121,8 +121,8 @@ this table in the same change set; cross-link the platform design doc.
 | Mature-content filter (default ON) | ✅ | ✅ Settings toggle (cog → sheet) | ⏳ | ⏳ | `isAdult` flag baked into catalog (Decision 012/adult pass) |
 | Category visibility toggles | ✅ | ✅ | ⏳ | ⏳ | |
 | Autoplay/playback options | ✅ | ✅ autoplay-next picker | ⏳ | ⏳ | |
-| TMDb attribution (required) | ✅ | ✅ verbatim notice | ⏳ | ⏳ | Decision 007 — verbatim notice all platforms |
-| Donate to Internet Archive | ✅ | ✅ | ⏳ | ⏳ | Decision 010 |
+| TMDb attribution (required) | ✅ | ✅ verbatim notice | ✅ verbatim notice (#/about) | ⏳ | Decision 007 — verbatim notice all platforms |
+| Donate to Internet Archive | ✅ | ✅ | ✅ | ⏳ | Decision 010 |
 | Sign-in (sync gate, optional) | ✅ Sign in w/ Apple | ✅ Sign in w/ Apple (Settings → Account & Sync) | ⏳ Sign in w/ Google (Drive App Data) | ⏳ Sign in w/ Google (Drive App Data) | only gates sync; browse/play always work offline-first |
 | Account deletion | ✅ | ✅ (deleteAllCloudData + sign out) | 🔮 | 🔮 | App/Play review requirement |
 
@@ -133,7 +133,7 @@ this table in the same change set; cross-link the platform design doc.
 | Home-screen surface | ✅ Top Shelf | ✅ WidgetKit (small + medium; Continue Watching / Editor's Picks) | 🚫 (PWA shortcuts only) | ⏳ home-screen widgets | App Group snapshot; deep-links into the app |
 | Voice / shortcuts | ✅ App Intents + Siri | ✅ App Intents + Siri (Surprise / Random Film / Browse) | n/a | ⏳ App Actions + App Shortcuts | "surprise me", "random film" |
 | Spotlight / system search | n/a | 🔮 Core Spotlight | n/a | 🔮 App Search | |
-| Installable app | App Store | App Store | ⏳ **PWA (installable, offline)** | Play Store | web = zero-install reach |
+| Installable app | App Store | App Store | ✅ **PWA (installable; shell+catalog offline)** | Play Store | web = zero-install reach |
 | Handoff / continuity | 🔮 | 🔮 | n/a | n/a | NSUserActivity already declared |
 
 ## 9. Shared backend / data plane (consumed by ALL clients — no per-platform copy)

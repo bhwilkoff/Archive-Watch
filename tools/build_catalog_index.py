@@ -9,10 +9,12 @@ index to GitHub Pages (same-origin as the tool). To keep it small AND
 git-delta-friendly (it's committed + refreshed on every DB update), each item is
 a positional array, not an object:
 
-    [archiveID, title, year, contentType]
+    [archiveID, title, year, contentType, poster]
 
-Thumbnails are derived from the id in the browser (archive.org/services/img/{id}),
-so no poster URLs are stored. Adult-collection items (featured.json.adultCollections)
+`poster` is the designed-artwork URL (TMDb/Wikidata/commons/generated) or null;
+the browser falls back to archive.org/services/img/{id} when null — so the web
+viewer keeps the same visual dignity as the apps without shipping the 95 MB
+catalog. (Schema 2; schema-1 consumers ignore the extra column.) Adult-collection items (featured.json.adultCollections)
 are excluded — this index feeds a PUBLIC tool.
 
 Reads ./catalog.json (fetch it first via catalog_release.py). Writes
@@ -54,17 +56,21 @@ def main():
         aid = it.get("archiveID")
         if not aid:
             continue
-        rows.append([aid, it.get("title") or aid, it.get("year"), it.get("contentType") or ""])
+        poster = it.get("posterURL")
+        if poster and "archive.org/services/img" in poster:
+            poster = None          # derivable from the id; don't bloat the index
+        rows.append([aid, it.get("title") or aid, it.get("year"),
+                     it.get("contentType") or "", poster])
 
     # Sort by popularity so the most useful titles search/scroll first.
     pop = {it.get("archiveID"): (it.get("popularityScore") or 0) for it in items}
     rows.sort(key=lambda r: pop.get(r[0], 0), reverse=True)
 
     out = {
-        "schema": 1,
+        "schema": 2,
         "updatedAt": catalog.get("updatedAt") or "",
         "count": len(rows),
-        "fields": ["id", "title", "year", "contentType"],
+        "fields": ["id", "title", "year", "contentType", "poster"],
         "items": rows,
     }
     OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
