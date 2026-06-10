@@ -91,7 +91,7 @@ this table in the same change set; cross-link the platform design doc.
 
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
-| Detail (backdrop, metadata, cast) | ✅ | ✅ scroll + Play/Favorite/Share + cast row | 🚧 poster + metadata-API description (cast/backdrop = §2.4) | ✅ backdrop + cast row + favorite | shared item record |
+| Detail (backdrop, metadata, cast) | ✅ | ✅ scroll + Play/Favorite/Share + cast row | ✅ poster + curated synopsis + cast/crew bubbles (catalog shards) | ✅ backdrop + cast row + favorite | shared item record |
 | More Like This | ✅ | ✅ | ⏳ | ✅ | shared `related` query |
 | Video playback | ✅ AVPlayerVC | ✅ AVPlayerVC (reused) | ✅ HTML5 `<video>` in `<dialog>` | ✅ Media3 `PlayerView` | |
 | Resilient streaming | ✅ `ResilientStreamLoader` | ✅ reuse Swift loader | ✅ range-native + reconnect/reseek wrapper | ✅ OkHttp source + patient `LoadErrorHandlingPolicy` | Archive idle-reset resilience per platform |

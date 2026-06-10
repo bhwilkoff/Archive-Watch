@@ -194,7 +194,9 @@ a { color: var(--color-accent); }
 /* ---- shelves ---- */
 .shelf { margin: 14px 0; }
 .shelf-row {
-  display: flex; gap: 12px; overflow-x: auto; padding: 6px var(--pad);
+  display: flex; gap: 12px; overflow-x: auto;
+  padding: 6px var(--pad);
+  scroll-padding-inline: var(--pad);   /* snap respects the inset (#4) */
   scroll-snap-type: x proximity; scrollbar-width: none;
 }
 .shelf-row::-webkit-scrollbar { display: none; }
@@ -290,6 +292,43 @@ input[type="search"] {
   -webkit-line-clamp: 2; -webkit-box-orient: vertical;
 }
 .episode .ep-resume { color: var(--color-primary); font-size: 0.72rem; font-weight: 700; }
+
+/* ---- cast & crew bubbles ---- */
+.cast-row {
+  display: flex; gap: 16px; overflow-x: auto; padding: 12px 2px 4px;
+  scrollbar-width: none;
+}
+.cast-row::-webkit-scrollbar { display: none; }
+.person { flex: 0 0 76px; margin: 0; text-align: center; }
+.person img, .person-initial {
+  width: 64px; height: 64px; border-radius: 999px; object-fit: cover;
+  margin: 0 auto; display: block;
+  background: var(--bg-raise); border: 1px solid var(--border);
+}
+.person-initial {
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 1.3rem; color: var(--text-dim);
+}
+.person figcaption {
+  font-size: 0.72rem; line-height: 1.25; margin-top: 6px;
+  overflow: hidden; display: -webkit-box;
+  -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+}
+.person figcaption span {
+  display: block; color: var(--text-dim); font-size: 0.66rem;
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+
+/* ---- share menu ---- */
+dialog.sharemenu {
+  background: var(--bg-raise); color: var(--text);
+  border: 1px solid var(--border); border-radius: 14px;
+  padding: 14px; width: min(92vw, 340px);
+}
+dialog.sharemenu::backdrop { background: rgba(0, 0, 0, 0.6); }
+dialog.sharemenu button {
+  display: block; width: 100%; margin: 8px 0; text-align: center;
+}
 
 /* ---- player ---- */
 dialog#player {

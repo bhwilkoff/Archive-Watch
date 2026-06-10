@@ -70,8 +70,10 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
 - **§4.1 Home** = the Marquee hero + featured shelves
   (horizontal scroll-snap rails). Order follows `featured.json`; items are
   **cross-shelf deduped** (first shelf claims the item — the apps' Home rule),
-  shelves under 4 items are dropped, and each shelf gets a **day-seeded
-  deterministic shuffle**. **Home shows designed artwork ONLY** — the front
+  shelves under 4 items are dropped, and the hero pool (top-300 designed)
+  and every shelf are **shuffled fresh per visit** — Home is never the same
+  twice (owner direction 2026-06-10; deliberately fresher than the apps'
+  daily rotation). **Home shows designed artwork ONLY** — the front
   door is curated visuals; archive-thumb items remain fully reachable in
   Browse/Search (owner direction, 2026-06-10).
 - **§4.2 Browse** = type chips + decade/sort selects + infinite-scroll grid
@@ -88,7 +90,9 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   Associated Domains capability lands (Decision 030).
 - **§4.5 Library** = Continue Watching (progress 10s–95%) + Favorites, both
   IndexedDB. Empty states are explicit sentences, not blank space.
-- **§4.6 Modals use `<dialog showModal>`** — the player is the only modal.
+- **§4.6 Modals use `<dialog showModal>`** — the player and the Detail
+  share menu (Open in app / Share link / archive.org — keeps the action row
+  to Play · ♡ · Share) are the only modals.
   No `position: fixed` overlays (Safari compositor rule).
 - **§4.7 The Marquee hero** is a native scroll-snap carousel whose every
   dimension is a `clamp()` in container-query units (`cqi`) — it scales

@@ -99,8 +99,8 @@
     /** Resolve a featured.json shelf through the index's editorial shelves
         map — the same curated item_shelves assignments the apps query, so
         Home inherits the rights audit + adult filter and every shelf has its
-        own identity (live scrape did neither; see WEB-DESIGN §2.3). A daily
-        seeded shuffle rotates each shelf, designed artwork leading. */
+        own identity (live scrape did neither; see WEB-DESIGN §2.3). Shuffled
+        fresh per visit, designed artwork leading. */
     shelfRows(shelf, limit = 16) {
       let rows;
       if (shelf.type === 'curated' && Array.isArray(shelf.items)) {
@@ -108,8 +108,8 @@
       } else {
         rows = (this.shelves[shelf.id] || []).map(id => this.byID.get(id)).filter(Boolean);
       }
-      const designed = daySeededShuffle(rows.filter(r => r[4]), shelf.id);
-      const plain = daySeededShuffle(rows.filter(r => !r[4]), shelf.id);
+      const designed = shuffle(rows.filter(r => r[4]));
+      const plain = shuffle(rows.filter(r => !r[4]));
       return designed.concat(plain).slice(0, limit);
     },
   };
@@ -144,7 +144,8 @@
         downloadURL: rec[0] || null,
         synopsis: rec[1] || null,
         director: rec[2] || null,
-        cast: rec[3] || null,
+        cast: (rec[3] || []).map(c => Array.isArray(c)
+          ? { name: c[0], profilePath: c[1] } : { name: c, profilePath: null }),
         genres: rec[4] || null,
         runtimeSeconds: rec[5] || null,
         backdropURL: rec[6] || null,
@@ -173,17 +174,14 @@
     return 'Modern';
   }
 
-  /** Deterministic per-day shuffle (xorshift over an FNV-1a seed) — the web
-      analog of the build's date-seeded shelf rotation: same order all day for
-      everyone, fresh tomorrow. */
-  function daySeededShuffle(arr, key) {
-    let h = 2166136261 >>> 0;
-    const seed = `${key}:${new Date().toISOString().slice(0, 10)}`;
-    for (const c of seed) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619) >>> 0; }
+  /** Per-visit shuffle (WEB-DESIGN §4.1): every page load deals a fresh hand
+      from the pre-screened pools, so Home is never the same twice (owner
+      direction 2026-06-10 — deliberately fresher than the apps' daily
+      rotation). */
+  function shuffle(arr) {
     const a = [...arr];
     for (let i = a.length - 1; i > 0; i--) {
-      h ^= h << 13; h ^= h >>> 17; h ^= h << 5; h >>>= 0;
-      const j = h % (i + 1);
+      const j = Math.floor(Math.random() * (i + 1));
       [a[i], a[j]] = [a[j], a[i]];
     }
     return a;
@@ -303,7 +301,9 @@
         day-shuffled designed-art pool. Auto-advance pauses on hover/touch and
         hidden tabs, and is off entirely under prefers-reduced-motion. */
     hero() {
-      const pool = daySeededShuffle(Data.rows.filter(r => r[4]).slice(0, 48), 'hero').slice(0, 6);
+      // A wide pre-screened pool (designed art, popularity-ranked) dealt
+      // randomly per visit — the hero is different every time.
+      const pool = shuffle(Data.rows.filter(r => r[4]).slice(0, 300)).slice(0, 6);
       if (!pool.length) return [];
       const el = $('hero');
       const rail = $('hero-rail');
@@ -551,27 +551,10 @@
       $('item-poster').src = Data.poster(row);
       $('item-poster').onerror = () => { $('item-poster').src = API.thumbnailURL(id); };
       $('item-desc').textContent = '';
+      $('item-cast').replaceChildren();
+      $('item-cast').hidden = true;
       $('item-error').hidden = true;
       $('item-play').disabled = true;
-      $('item-archive-link').href = API.detailsURL(id);
-
-      // Hand off to the native app on phones/tablets (PARITY §1 deep links).
-      // iOS Universal Links will open the app automatically once the
-      // Associated Domains capability lands (Decision 030); this button is
-      // the explicit path meanwhile, and the Android intent:// form falls
-      // back to this page when the app isn't installed.
-      const appLink = $('item-openapp');
-      if (Platform.android) {
-        appLink.hidden = false;
-        appLink.href = `intent://item/${encodeURIComponent(id)}` +
-          `#Intent;scheme=archivewatch;package=app.archivewatch.android;` +
-          `S.browser_fallback_url=${encodeURIComponent(location.href)};end`;
-      } else if (Platform.iOS) {
-        appLink.hidden = false;
-        appLink.href = `archivewatch://item/${encodeURIComponent(id)}`;
-      } else {
-        appLink.hidden = true;
-      }
 
       // Storage can be unavailable (private browsing) — never let it take
       // down the whole detail render.
@@ -579,7 +562,7 @@
       this.favUI(fav);
       $('item-fav').onclick = async () =>
         this.favUI(await DB.toggleFavorite(id).catch(() => false));
-      $('item-share').onclick = () => this.share(row);
+      $('item-share').onclick = () => this.shareMenu(row);
       $('item-play').onclick = () => {
         const d = this.current.detail;
         if (d?.downloadURL) {
@@ -603,9 +586,7 @@
         ].filter(Boolean).join(' · ');
         if (meta) $('item-meta').textContent = meta;
         if (det.synopsis) $('item-desc').textContent = det.synopsis;
-        if (det.cast?.length) {
-          $('item-desc').textContent += `\n\nWith ${det.cast.join(', ')}.`;
-        }
+        this.castRow(det);
         if (det.downloadURL) {
           $('item-play').disabled = false;
           return;                              // playable — done, no archive.org call
@@ -631,6 +612,70 @@
         this.fail(`Couldn't reach archive.org for this title (${err.message}). ` +
                   'Playback and synopsis are unavailable right now.');
       }
+    },
+
+    /** Cast & crew bubbles (the iOS CastRow's web twin): TMDb w185 photos,
+        initial-letter fallback, director leads the row. */
+    castRow(det) {
+      const host = $('item-cast');
+      const people = [];
+      if (det.director) people.push({ name: det.director, role: 'Director', profilePath: null });
+      for (const c of det.cast || []) people.push(c);
+      host.replaceChildren(...people.slice(0, 10).map(p => {
+        const fig = document.createElement('figure');
+        fig.className = 'person';
+        if (p.profilePath) {
+          const img = document.createElement('img');
+          img.loading = 'lazy'; img.alt = '';
+          img.src = p.profilePath.startsWith('http')
+            ? p.profilePath
+            : `https://image.tmdb.org/t/p/w185${p.profilePath}`;
+          img.onerror = () => fig.replaceChild(this.initial(p.name), img);
+          fig.append(img);
+        } else {
+          fig.append(this.initial(p.name));
+        }
+        const cap = document.createElement('figcaption');
+        cap.textContent = p.name;
+        if (p.role) {
+          const r = document.createElement('span');
+          r.textContent = p.role;
+          cap.append(r);
+        }
+        fig.append(cap);
+        return fig;
+      }));
+      host.hidden = !people.length;
+    },
+
+    initial(name) {
+      const d = document.createElement('div');
+      d.className = 'person-initial';
+      d.textContent = (name || '?').trim()[0].toUpperCase();
+      return d;
+    },
+
+    /** The share menu (§4.6): one Share button opens a small dialog with
+        every outbound action — system share/copy, open-in-app (mobile),
+        archive.org — so the action row stays Play · ♡ · Share. */
+    shareMenu(row) {
+      const dlg = $('sharemenu');
+      $('sharemenu-app').hidden = !(Platform.iOS || Platform.android);
+      $('sharemenu-app').onclick = () => {
+        dlg.close();
+        location.href = Platform.android
+          ? `intent://item/${encodeURIComponent(row[0])}#Intent;scheme=archivewatch;` +
+            `package=app.archivewatch.android;S.browser_fallback_url=` +
+            `${encodeURIComponent(location.href)};end`
+          : `archivewatch://item/${encodeURIComponent(row[0])}`;
+      };
+      $('sharemenu-share').onclick = async () => { dlg.close(); await this.share(row); };
+      $('sharemenu-archive').onclick = () => {
+        dlg.close();
+        window.open(API.detailsURL(row[0]), '_blank', 'noopener');
+      };
+      $('sharemenu-cancel').onclick = () => dlg.close();
+      dlg.showModal();
     },
 
     favUI(on) {

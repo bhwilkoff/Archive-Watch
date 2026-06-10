@@ -76,7 +76,13 @@ def main():
         synopsis = (raw_syn or "").strip()
         if len(synopsis) > SYNOPSIS_MAX:
             synopsis = synopsis[:SYNOPSIS_MAX].rsplit(" ", 1)[0] + "…"
-        cast = [c.get("name") for c in (it.get("cast") or []) if c.get("name")][:6]
+        cast = []
+        for c in (it.get("cast") or [])[:8]:
+            name = c.get("name")
+            if not name:
+                continue
+            path = c.get("profilePath")
+            cast.append([name, path] if path else name)
         record = [
             it.get("downloadURL"),
             synopsis or None,

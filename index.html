@@ -90,10 +90,9 @@
             <button id="item-play" class="btn-primary">▶ Play</button>
             <button id="item-fav" class="btn-ghost" aria-pressed="false">♡ Favorite</button>
             <button id="item-share" class="btn-ghost">Share</button>
-            <a id="item-openapp" class="btn-ghost" hidden>Open in app</a>
-            <a id="item-archive-link" class="btn-ghost" target="_blank" rel="noopener">archive.org ↗</a>
           </div>
           <p id="item-desc"></p>
+          <div id="item-cast" class="cast-row" hidden></div>
           <p id="item-error" class="error" hidden></p>
         </div>
       </div>
@@ -141,6 +140,13 @@
     <span aria-hidden="true">·</span>
     <a href="https://archive.org/donate" target="_blank" rel="noopener">Support the Archive</a>
   </footer>
+
+  <dialog id="sharemenu" class="sharemenu">
+    <button id="sharemenu-app" class="btn-ghost">Open in the app</button>
+    <button id="sharemenu-share" class="btn-ghost">Share link</button>
+    <button id="sharemenu-archive" class="btn-ghost">View on archive.org ↗</button>
+    <button id="sharemenu-cancel" class="btn-ghost">Cancel</button>
+  </dialog>
 
   <dialog id="player">
     <div class="player-head">
