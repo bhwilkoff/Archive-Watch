@@ -16,6 +16,7 @@ private val Context.settingsDataStore by preferencesDataStore("settings")
 class SettingsStore(private val context: Context) {
     private val hideAdultKey = booleanPreferencesKey("hideAdultContent")
     private val autoplayKey = booleanPreferencesKey("autoplayNext")
+    private val hideWatchedKey = booleanPreferencesKey("hideWatchedOnHome")
 
     /** Decision 012 — mature content hidden by DEFAULT. */
     val hideAdultContent: Flow<Boolean> =
@@ -30,5 +31,13 @@ class SettingsStore(private val context: Context) {
 
     suspend fun setAutoplayNext(value: Boolean) {
         context.settingsDataStore.edit { it[autoplayKey] = value }
+    }
+
+    /** #17 parity: hide completed titles from Home shelves. */
+    val hideWatchedOnHome: Flow<Boolean> =
+        context.settingsDataStore.data.map { it[hideWatchedKey] ?: false }
+
+    suspend fun setHideWatchedOnHome(value: Boolean) {
+        context.settingsDataStore.edit { it[hideWatchedKey] = value }
     }
 }

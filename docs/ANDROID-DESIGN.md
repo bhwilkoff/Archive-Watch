@@ -84,10 +84,14 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
 ## §4 Surfaces
 
 - **§4.1 Home order is fixed:** hero carousel (7s auto-advance, professional
-  designed art only) → Continue Watching → featured shelves (in
+  designed art only) → Browse-by-Category tiles (featured.json accents,
+  count-gated ≥30) → Continue Watching → featured shelves (in
   featured.json order, deduped downward, dropped under 6 items — the stub
-  rule) → Hidden Gems → Public Domain Day (`browse(year = currentYear-95)`).
-  Inserting a section means amending this rule.
+  rule) → Hidden Gems → Public Domain Day (`browse(year = currentYear-95)`)
+  → Browse-by-Era tiles LAST (2026-06-11 parity wave; matches the other
+  platforms). The Home top bar carries a shuffle action → Surprise grid.
+  Inserting a section means amending this rule. Hide-watched (Settings
+  toggle) filters completed titles from shelves/gems/PD Day.
 - **§4.2 Browse** = scope FilterChips (All/Films/TV/Silent/Animation/Shorts/
   Newsreels/Documentary/Ephemera) + decade and sort dropdowns + adaptive
   `LazyVerticalGrid` with paging-on-scroll (60/page) and the REAL total from
@@ -142,8 +146,8 @@ implement them without a rule:
 
 - **Channels EPG** (port the shared date-seeded `ChannelScheduler`,
   Compose lazy guide) — next wave.
-- **Cartoon Mode / Surprise grid / Public Domain Day explorer** — next wave
-  (the PD Day Home shelf §4.1 is the v1 foothold).
+- **Cartoon Mode / Public Domain Day explorer** — next wave (the PD Day
+  Home shelf §4.1 is the v1 foothold; the Surprise grid SHIPPED 2026-06-11).
 - **Party Play / screensaver** — lean-back idioms; tablet-leaning at most.
 - **Home-screen widgets (Glance), App Shortcuts / App Actions** — the reach
   wave.
@@ -152,8 +156,8 @@ implement them without a rule:
   sync backend, never CloudKit.
 - **Google Cast** — the AirPlay analog, with the player wave.
 - **VHS effect** (AGSL `RenderEffect`) — optional polish, last.
-- **Playlists / watched-hiding / category toggles** — with the
-  personalization wave, on the §2.6 store.
+- **Category visibility toggles** — with the next personalization pass.
+  (Playlists + watched-hiding SHIPPED 2026-06-11 on the §2.6 store.)
 
 ## §8 Parity discipline
 

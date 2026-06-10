@@ -17,6 +17,7 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.Shuffle
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -55,6 +56,8 @@ private data class HomePayload(
     val hiddenGems: List<CatalogItem> = emptyList(),
     val publicDomainYear: Int = 0,
     val publicDomainDay: List<CatalogItem> = emptyList(),
+    val categories: List<app.archivewatch.android.data.FeaturedCategory> = emptyList(),
+    val decades: List<Pair<Int, Int>> = emptyList(),
     val loaded: Boolean = false,
 )
 
@@ -64,9 +67,13 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
     val userChanges by container.userState.changes.collectAsState()
 
-    val payload by produceState(HomePayload(), dbVersion, userChanges) {
+    val hideWatched by container.settings.hideWatchedOnHome.collectAsState(initial = false)
+
+    val payload by produceState(HomePayload(), dbVersion, userChanges, hideWatched) {
         val db = container.catalog.db ?: return@produceState
         val featured = container.editorial.featured()
+        // #17 parity: completed titles disappear from Home when the toggle is on.
+        val watched = if (hideWatched) container.userState.completedIDs() else emptySet()
 
         // Featured shelves resolve by id through item_shelves (Decision 017);
         // curated shelves by explicit ids. Shelves under 6 tiles are stubs.
@@ -78,7 +85,7 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
             } else {
                 db.shelf(shelf.id, 32)
             }
-            val deduped = resolved.filter { seen.add(it.archiveID) }
+            val deduped = resolved.filter { it.archiveID !in watched && seen.add(it.archiveID) }
             if (deduped.size >= 6) shelves.add(shelf.title.ifEmpty { shelf.id } to deduped.take(24))
         }
 
@@ -93,13 +100,20 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
         val continueWatching = db.itemsByIDs(cw.map { it.archiveID })
 
         val pdYear = Calendar.getInstance().get(Calendar.YEAR) - 95
+        // Category tiles count-gate >=30 (the apps' rule — a near-empty grid
+        // never ships behind a tile).
+        val categories = featured?.categories.orEmpty()
+            .filter { db.browseCount(contentType = it.id) >= 30 }
         value = HomePayload(
             hero = hero,
             continueWatching = continueWatching,
             shelves = shelves,
-            hiddenGems = db.hiddenGems(20),
+            hiddenGems = db.hiddenGems(20).filter { it.archiveID !in watched },
             publicDomainYear = pdYear,
-            publicDomainDay = db.browse(year = pdYear, limit = 24),
+            publicDomainDay = db.browse(year = pdYear, limit = 24)
+                .filter { it.archiveID !in watched },
+            categories = categories,
+            decades = db.decadeCounts(),
             loaded = true,
         )
     }
@@ -109,6 +123,9 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
             TopAppBar(
                 title = { Text("Archive Watch", fontWeight = FontWeight.Bold) },
                 actions = {
+                    IconButton(onClick = { nav.push(Route.Surprise) }) {
+                        Icon(Icons.Default.Shuffle, contentDescription = "Surprise me")
+                    }
                     IconButton(onClick = { nav.push(Route.Settings) }) {
                         Icon(Icons.Default.Settings, contentDescription = "Settings")
                     }
@@ -130,6 +147,13 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
         ) {
             if (payload.hero.isNotEmpty()) {
                 item(key = "hero") { HeroCarousel(payload.hero) { nav.openItem(it.archiveID, it.seriesID, it.contentType) } }
+            }
+            if (payload.categories.isNotEmpty()) {
+                item(key = "cats") {
+                    CategoryTilesRow(payload.categories) { cat ->
+                        nav.push(Route.Filtered(title = cat.displayName, contentType = cat.id))
+                    }
+                }
             }
             if (payload.continueWatching.isNotEmpty()) {
                 item(key = "continue") {
@@ -161,6 +185,13 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
                         subtitle = "Newly free for everyone this year",
                         onItem = { nav.openItem(it.archiveID, it.seriesID, it.contentType) },
                     )
+                }
+            }
+            if (payload.decades.isNotEmpty()) {
+                item(key = "eras") {
+                    EraTilesRow(payload.decades) { decade ->
+                        nav.push(Route.Filtered(title = "${decade}s", decade = decade))
+                    }
                 }
             }
             item(key = "footer") { Spacer(Modifier.height(24.dp)) }

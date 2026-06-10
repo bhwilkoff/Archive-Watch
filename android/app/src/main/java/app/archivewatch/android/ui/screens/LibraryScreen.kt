@@ -30,6 +30,14 @@ import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.PosterTile
+import app.archivewatch.android.ui.Route
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Arrangement as RowArrangement
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items as listItems
+import androidx.compose.material3.Card
+import app.archivewatch.android.data.UserPlaylist
 
 /** Library — Favorites and Continue Watching, both from user.sqlite. */
 @OptIn(ExperimentalMaterial3Api::class)
@@ -47,6 +55,9 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
         val db = container.catalog.db ?: return@produceState
         value = db.itemsByIDs(container.userState.continueWatching().map { it.archiveID })
     }
+    val playlists by produceState<List<UserPlaylist>>(emptyList(), userChanges) {
+        value = container.userState.playlists()
+    }
 
     Scaffold(
         topBar = {
@@ -63,6 +74,32 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
             TabRow(selectedTabIndex = tabIndex) {
                 Tab(selected = tabIndex == 0, onClick = { tabIndex = 0 }, text = { Text("Favorites") })
                 Tab(selected = tabIndex == 1, onClick = { tabIndex = 1 }, text = { Text("Continue Watching") })
+                Tab(selected = tabIndex == 2, onClick = { tabIndex = 2 }, text = { Text("Playlists") })
+            }
+            if (tabIndex == 2) {
+                if (playlists.isEmpty()) {
+                    EmptyState("No playlists yet — use the playlist button on any title.")
+                } else {
+                    LazyColumn(contentPadding = PaddingValues(16.dp),
+                               verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                        listItems(playlists, key = { it.id }) { pl ->
+                            Card(modifier = Modifier
+                                    .clickable { nav.push(Route.Playlist(pl.id)) }) {
+                                Row(
+                                    Modifier.padding(16.dp),
+                                    horizontalArrangement = RowArrangement.SpaceBetween,
+                                ) {
+                                    Text(pl.name, Modifier.weight(1f))
+                                    Text(
+                                        "${pl.archiveIDs.size} titles",
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+                return@Column
             }
             val items = if (tabIndex == 0) favorites else continueWatching
             if (items.isEmpty()) {

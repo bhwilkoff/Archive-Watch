@@ -68,13 +68,13 @@ this table in the same change set; cross-link the platform design doc.
 |---|---|---|---|---|---|
 | Hero / featured banner | ✅ focus carousel | ✅ paged `TabView` carousel (touch swipe, 7s auto-advance) | ✅ Marquee scroll-snap carousel (container-query fluid, WEB-DESIGN §4.7) | ✅ 7s auto-advance hero | Same pool/logic; 10-foot sizing → touch sizing |
 | Curated + dynamic shelves | ✅ | ✅ horizontal rows, item_shelves-resolved + cross-shelf dedup | ✅ scroll-snap rails (editorial shelves map in the index; deduped, day-rotated) | ✅ `LazyRow`s (item_shelves, dedup, min-6) | `featured.json` shared verbatim |
-| Category tiles | ✅ | ✅ tile row → filtered grid | ⏳ | ⏳ | accent colors from `featured.json` |
-| Decade tiles | ✅ | ✅ era tiles + counts | ⏳ | ⏳ | |
-| Hidden Gems shelf | ✅ | ✅ | ⏳ | ✅ | shared query |
+| Category tiles | ✅ | ✅ tile row → filtered grid | ✅ accent tiles → `#/browse?type=` | ✅ tile row → filtered grid | accent colors from `featured.json`; count-gated ≥30 everywhere |
+| Decade tiles | ✅ | ✅ era tiles + counts | ✅ era tiles + counts (last Home row) | ✅ era tiles + counts (last Home row) | |
+| Hidden Gems shelf | ✅ | ✅ | ✅ (popularity-tail designed art) | ✅ | shared query |
 | Director shelves | ✅ | ✅ | ⏳ | ⏳ | shared query |
 | Continue Watching | ✅ | ✅ | ✅ | ✅ | progress store (see §6) |
 | Modes row | ✅ | ➖ removed 2026-06-10 (Channels = tab; Surprise/Cartoon/PD via Home shuffle → Surprise grid) | ⏳ | ⏳ | links to §5 |
-| Public Domain Day section | ✅ | ✅ Home shelf + year-chip explorer | ⏳ | ✅ Home row | seasonal, shared |
+| Public Domain Day section | ✅ | ✅ Home shelf + year-chip explorer | ✅ Home shelf | ✅ Home row | seasonal, shared |
 
 ## 3. Discover — Movies / TV / Collections / Search
 
@@ -83,7 +83,7 @@ this table in the same change set; cross-link the platform design doc.
 | Movies grid + facets + sort | ✅ | ✅ `LazyVGrid` + scope picker + `Menu` facets | ✅ CSS grid + type chips + URL params | ✅ `LazyVerticalGrid` + `FilterChip` + dropdowns + real counts | shared `CatalogDB.browse`; Browse scope = Films/TV/Collections |
 | Infinite scroll / paging | ✅ | ✅ `.onAppear` paging | ✅ IntersectionObserver | ✅ paging on scroll | |
 | TV series → season → episode | ✅ | ✅ series grid → `SeriesDetailView` (SeriesStore) → episode play | ✅ `#/series/{slug}` (spine from Pages) → episode play + resume | ✅ TV scope → SeriesDetail → play | `series/*.json` shared |
-| Prev/next episode in player | ✅ | ✅ overlay capsule + binge auto-advance | ⏳ | ⏳ | EpisodeQueue swaps next on end |
+| Prev/next episode in player | ✅ | ✅ overlay capsule + binge auto-advance | ✅ season queue auto-advance on `ended` | ✅ Media3 queue (native next/prev + advance) | EpisodeQueue swaps next on end |
 | Collections landing + blurbs | ✅ | ✅ `CollectionMetadata` list → `CollectionGridView` | ⏳ | ⏳ | `collection_metadata.json` shared |
 | Full-text search (FTS5) | ✅ | ✅ `.searchable` + type/decade filter menu | 🚧 client title search over index (FTS5 upgrade = WEB-DESIGN §2.4) | ✅ debounced FTS5 `SearchBar` | same FTS5 index in `catalog.sqlite` |
 
@@ -92,7 +92,7 @@ this table in the same change set; cross-link the platform design doc.
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
 | Detail (backdrop, metadata, cast) | ✅ | ✅ framed 2:3 poster hero + tappable cast/crew → person filmography | ✅ poster + curated synopsis + cast/crew bubbles (catalog shards) | ✅ backdrop + cast row + favorite | shared item record; iOS person browse = `CatalogDB.byPerson` |
-| More Like This | ✅ | ✅ | ⏳ | ✅ | shared `related` query |
+| More Like This | ✅ | ✅ | ✅ (type + era ±15y, designed art) | ✅ | shared `related` query |
 | Video playback | ✅ AVPlayerVC | ✅ AVPlayerVC (reused) | ✅ HTML5 `<video>` in `<dialog>` | ✅ Media3 `PlayerView` | |
 | Resilient streaming | ✅ `ResilientStreamLoader` | ✅ reuse Swift loader | ✅ range-native + reconnect/reseek wrapper | ✅ OkHttp source + patient `LoadErrorHandlingPolicy` | Archive idle-reset resilience per platform |
 | Resume across launches | ✅ | ✅ `WatchProgress` (item + per-episode) | ✅ IndexedDB progress | ✅ user.sqlite (10s–95%) | progress store (§6) |
@@ -105,7 +105,7 @@ this table in the same change set; cross-link the platform design doc.
 
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
-| Surprise / random actions | ✅ | ✅ Surprise grid (11 tiles, re-roll on tap) | ⏳ | ⏳ | shared random queries |
+| Surprise / random actions | ✅ | ✅ Surprise grid (11 tiles, re-roll on tap) | ✅ `#/surprise` re-roll grid (topnav) | ✅ Surprise grid (Home shuffle → re-roll) | shared random queries |
 | Channels (EPG guide) | ✅ proportional grid | ✅ now/next list guide + day schedule | ⏳ CSS-grid guide | ⏳ Compose lazy guide | `ChannelScheduler` (date-seeded) shared |
 | Create / user channels | ✅ | ✅ Form sheet + swipe-delete (synced) | ⏳ | ⏳ | filter spec shared |
 | Cartoon / Kids mode | ✅ | ✅ characters + themes + marathon | ⏳ | ⏳ | color/B&W flags shared |
@@ -118,8 +118,8 @@ this table in the same change set; cross-link the platform design doc.
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
 | Favorites | ✅ | ✅ Detail heart + Library | ✅ heart + Library (IndexedDB) | ✅ | local store per platform |
-| Playlists | ✅ | ✅ add/create sheet + swipe-delete | ⏳ | ⏳ | |
-| Watched / hide-watched | ✅ | ✅ Watched tab + hide-watched toggle | ⏳ | ⏳ | |
+| Playlists | ✅ | ✅ add/create sheet + swipe-delete | ✅ IndexedDB + dialog + `#/playlist/{id}` | ✅ user.sqlite + dialog + Library tab | |
+| Watched / hide-watched | ✅ | ✅ Watched tab + hide-watched toggle | ⏳ | ✅ hide-watched Settings toggle (Home filter) | |
 | Continue Watching progress | ✅ | ✅ | ✅ | ✅ | |
 | Local persistence (offline-first) | ✅ SwiftData | ✅ SwiftData (reuse) | ✅ IndexedDB | ✅ user.sqlite + DataStore | |
 | Per-ecosystem sync (own cloud) | ✅ CloudKit | ✅ CloudKit (query-free AWSync records; owner-verified iPhone↔Apple TV 2026-06-11 after Production schema deploy) | ⏳ Google Drive App Data (web↔web) | ⏳ Google Drive App Data (device↔device) | Decided: each island on the user's own free cloud, no backend (plan §6) |

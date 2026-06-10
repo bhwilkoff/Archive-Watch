@@ -233,6 +233,31 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-12 — Cross-platform parity wave: Web + Android close the launch gaps
+User: "continue working on our parity matrix across all platforms to make
+sure we can launch on all platforms with the same features across the
+board." Two waves, both verified (web headless screenshots; Android
+assembleDebug green).
+- **Web** (commit 947901f): Home discovery rows (category accent tiles
+  count-gated ≥30, Hidden Gems from the popularity tail, PD Day shelf, era
+  tiles LAST), #/surprise re-roll grid in the topnav, More Like This on
+  Detail, IndexedDB playlists (schema v2; Detail dialog + Library +
+  #/playlist/{id}), season-queue episode binge. SW shell v7. WEB-DESIGN
+  §4.1 amended + new §4.9–4.12.
+- **Android**: category/era tile rows + Home shuffle → Surprise grid
+  (Route.Surprise/Filtered/Playlist + DiscoverScreens.kt), playlists
+  (user.sqlite table + Detail dialog + Library tab + PlaylistScreen),
+  hide-watched Settings toggle filtering Home, episode binge via native
+  Media3 queue (per-item progress; next/prev buttons enabled).
+  ANDROID-DESIGN §4.1 amended; §7 updated.
+- **REMAINING launch gaps** (PARITY ⏳): Channels EPG on Web+Android
+  (ChannelScheduler ports — biggest single item), Cartoon Mode (W+A),
+  Collections (W+A), director shelves (W needs index data; A has query),
+  user channels (W+A), web FTS5 (OWNER: Pages→Actions flip, WEB-DESIGN
+  §2.5), Drive App Data sync W+A (OWNER: Google OAuth client), subtitles/
+  speed + PiP/Cast (player wave), Android widgets/App Shortcuts.
+
+
 ### 2026-06-11 (night) — Playback optimization: streaming loader + node pinning (Decision 031)
 App 1.2.20 (b33), both sims green. Owner: "nearly every video [has] at least
 one or two pauses... sometimes a dozen or more."

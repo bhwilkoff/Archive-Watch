@@ -26,6 +26,11 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.automirrored.filled.PlaylistAdd
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.TextButton
+import app.archivewatch.android.data.UserPlaylist
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
@@ -78,6 +83,7 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
         value = item?.let { container.catalog.db?.related(it) } ?: emptyList()
     }
     var favorite by remember { mutableStateOf(false) }
+    var showPlaylists by remember { mutableStateOf(false) }
     LaunchedEffect(archiveID) { favorite = container.userState.isFavorite(archiveID) }
 
     val current = item
@@ -138,6 +144,9 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 )
             }
 
+            if (showPlaylists) {
+                AddToPlaylistDialog(container, current.archiveID) { showPlaylists = false }
+            }
             Row(
                 Modifier.padding(vertical = 12.dp),
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
@@ -170,6 +179,12 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                         if (favorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
                         contentDescription = "Favorite",
                         tint = MaterialTheme.colorScheme.primary,
+                    )
+                }
+                IconButton(onClick = { showPlaylists = true }) {
+                    Icon(
+                        Icons.AutoMirrored.Filled.PlaylistAdd,
+                        contentDescription = "Add to playlist",
                     )
                 }
                 IconButton(onClick = {
@@ -245,4 +260,58 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
         }
         Spacer(Modifier.height(32.dp))
     }
+}
+
+
+/** Add-to-playlist: toggle membership per playlist, create inline. */
+@Composable
+private fun AddToPlaylistDialog(
+    container: AppContainer,
+    archiveID: String,
+    onDone: () -> Unit,
+) {
+    val scope = rememberCoroutineScope()
+    val userChanges by container.userState.changes.collectAsState()
+    val playlists by produceState<List<UserPlaylist>>(emptyList(), userChanges) {
+        value = container.userState.playlists()
+    }
+    var newName by remember { mutableStateOf("") }
+
+    AlertDialog(
+        onDismissRequest = onDone,
+        confirmButton = { TextButton(onClick = onDone) { Text("Done") } },
+        title = { Text("Add to playlist") },
+        text = {
+            Column {
+                playlists.forEach { pl ->
+                    val inList = archiveID in pl.archiveIDs
+                    TextButton(onClick = {
+                        scope.launch { container.userState.togglePlaylistItem(pl.id, archiveID) }
+                    }) {
+                        Text("${if (inList) "✓ " else ""}${pl.name} (${pl.archiveIDs.size})")
+                    }
+                }
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    OutlinedTextField(
+                        value = newName,
+                        onValueChange = { newName = it },
+                        label = { Text("New playlist") },
+                        modifier = Modifier.weight(1f),
+                        singleLine = true,
+                    )
+                    TextButton(
+                        onClick = {
+                            val name = newName.trim()
+                            if (name.isNotEmpty()) {
+                                scope.launch {
+                                    container.userState.createPlaylist(name, archiveID)
+                                    newName = ""
+                                }
+                            }
+                        },
+                    ) { Text("Add") }
+                }
+            }
+        },
+    )
 }

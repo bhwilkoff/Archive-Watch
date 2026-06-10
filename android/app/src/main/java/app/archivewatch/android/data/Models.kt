@@ -147,4 +147,17 @@ data class PlaySpec(
     val subtitle: String? = null,
     val url: String,
     val runtimeSeconds: Int? = null,
+    // Episode binge (the apps' auto-advance): the season's playable queue,
+    // loaded as Media3 items so next/previous and end-of-item advance are
+    // native player behavior.
+    val queue: List<QueueEntry> = emptyList(),
+    val queueIndex: Int = 0,
+)
+
+/** One binge-queue entry (an episode). */
+data class QueueEntry(
+    val id: String,
+    val title: String,
+    val subtitle: String? = null,
+    val url: String,
 )

@@ -42,6 +42,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.PlaySpec
+import app.archivewatch.android.data.QueueEntry
 import app.archivewatch.android.data.SeriesDetail
 import app.archivewatch.android.data.SeriesEpisode
 import app.archivewatch.android.ui.EmptyState
@@ -142,6 +143,18 @@ fun SeriesDetailScreen(container: AppContainer, nav: Nav, slug: String) {
         items(season?.episodes.orEmpty(), key = { it.archiveID ?: "${it.seasonNumber}x${it.episodeNumber}-${it.title}" }) { episode ->
             EpisodeRow(episode) {
                 val url = episode.downloadURL ?: return@EpisodeRow
+                // Episode binge: the whole playable season rides along as a
+                // Media3 queue, so end-of-episode advances natively.
+                val playable = season?.episodes.orEmpty().filter { it.downloadURL != null }
+                val queue = playable.map { ep ->
+                    QueueEntry(
+                        id = ep.archiveID ?: ep.downloadURL!!,
+                        title = current.title,
+                        subtitle = episodeLabel(ep),
+                        url = ep.downloadURL!!,
+                    )
+                }
+                val qi = playable.indexOf(episode).coerceAtLeast(0)
                 nav.push(
                     Route.Player(
                         PlaySpec(
@@ -150,6 +163,8 @@ fun SeriesDetailScreen(container: AppContainer, nav: Nav, slug: String) {
                             subtitle = episodeLabel(episode),
                             url = url,
                             runtimeSeconds = episode.runtimeSeconds,
+                            queue = queue,
+                            queueIndex = qi,
                         ),
                     ),
                 )

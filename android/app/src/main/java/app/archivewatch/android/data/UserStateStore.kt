@@ -22,6 +22,14 @@ data class WatchProgress(
         get() = positionMs > 10_000 && durationMs > 0 && positionMs < durationMs * 95 / 100
 }
 
+data class UserPlaylist(
+    val id: String,
+    val name: String,
+    val archiveIDs: List<String>,
+    val createdAt: Long,
+    val modifiedAt: Long,
+)
+
 /**
  * Per-item user records (favorites, watch progress) in a tiny local
  * `user.sqlite` via the same BundledSQLiteDriver — the offline-first
@@ -43,6 +51,13 @@ class UserStateStore(context: Context) {
         connection.execSQL(
             "CREATE TABLE IF NOT EXISTS progress (" +
                 "id TEXT PRIMARY KEY, position INTEGER, duration INTEGER, at INTEGER)",
+        )
+        // Playlists (personalization wave): archiveIDs newline-joined — no JSON
+        // dependency in this store, ids never contain newlines.
+        connection.execSQL(
+            "CREATE TABLE IF NOT EXISTS playlists (" +
+                "id TEXT PRIMARY KEY, name TEXT, ids TEXT, " +
+                "createdAt INTEGER, modifiedAt INTEGER)",
         )
     }
 
@@ -101,6 +116,61 @@ class UserStateStore(context: Context) {
             WatchProgress(it.getText(0), it.getLong(1), it.getLong(2), it.getLong(3))
         }
     }.filter { it.isResumable }.take(limit)
+
+    // --- playlists ---
+
+    suspend fun playlists(): List<UserPlaylist> = dbCall {
+        query("SELECT id, name, ids, createdAt, modifiedAt FROM playlists ORDER BY modifiedAt DESC") {
+            UserPlaylist(
+                id = it.getText(0),
+                name = it.getText(1),
+                archiveIDs = it.getText(2).split('\n').filter { id -> id.isNotEmpty() },
+                createdAt = it.getLong(3),
+                modifiedAt = it.getLong(4),
+            )
+        }
+    }
+
+    suspend fun createPlaylist(name: String, firstID: String? = null) {
+        val now = System.currentTimeMillis()
+        dbCall {
+            exec(
+                "INSERT OR REPLACE INTO playlists (id, name, ids, createdAt, modifiedAt) VALUES (?, ?, ?, ?, ?)",
+                listOf("pl-" + now.toString(36), name, firstID ?: "", now, now),
+            )
+        }
+        _changes.value += 1
+    }
+
+    /** Add/remove an item; returns true when the item is now IN the playlist. */
+    suspend fun togglePlaylistItem(playlistID: String, archiveID: String): Boolean {
+        val added = dbCall {
+            val ids = query("SELECT ids FROM playlists WHERE id = ?", listOf(playlistID)) { it.getText(0) }
+                .firstOrNull()?.split('\n')?.filter { it.isNotEmpty() }?.toMutableList()
+                ?: return@dbCall false
+            val adding = !ids.remove(archiveID)
+            if (adding) ids.add(archiveID)
+            exec(
+                "UPDATE playlists SET ids = ?, modifiedAt = ? WHERE id = ?",
+                listOf(ids.joinToString("\n"), System.currentTimeMillis(), playlistID),
+            )
+            adding
+        }
+        _changes.value += 1
+        return added
+    }
+
+    suspend fun deletePlaylist(playlistID: String) {
+        dbCall { exec("DELETE FROM playlists WHERE id = ?", listOf(playlistID)) }
+        _changes.value += 1
+    }
+
+    /** Completed (>=95%) archiveIDs — the hide-watched source. */
+    suspend fun completedIDs(): Set<String> = dbCall {
+        query(
+            "SELECT id FROM progress WHERE duration > 0 AND position >= duration * 95 / 100",
+        ) { it.getText(0) }.toSet()
+    }
 
     // --- plumbing ---
 

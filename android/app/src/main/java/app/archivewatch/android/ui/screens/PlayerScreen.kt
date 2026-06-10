@@ -66,17 +66,36 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             )
             .build()
             .apply {
-                setMediaItem(
-                    MediaItem.Builder()
-                        .setUri(spec.url)
-                        .setMediaMetadata(
-                            MediaMetadata.Builder()
-                                .setTitle(spec.title)
-                                .setSubtitle(spec.subtitle)
-                                .build(),
-                        )
-                        .build(),
-                )
+                // Binge queue (episodes): all entries load as Media3 items so
+                // end-of-item advance + next/previous are native behavior.
+                val mediaItems = if (spec.queue.isNotEmpty()) {
+                    spec.queue.map { e ->
+                        MediaItem.Builder()
+                            .setUri(e.url)
+                            .setMediaId(e.id)
+                            .setMediaMetadata(
+                                MediaMetadata.Builder()
+                                    .setTitle(e.title)
+                                    .setSubtitle(e.subtitle)
+                                    .build(),
+                            )
+                            .build()
+                    }
+                } else {
+                    listOf(
+                        MediaItem.Builder()
+                            .setUri(spec.url)
+                            .setMediaId(spec.id)
+                            .setMediaMetadata(
+                                MediaMetadata.Builder()
+                                    .setTitle(spec.title)
+                                    .setSubtitle(spec.subtitle)
+                                    .build(),
+                            )
+                            .build(),
+                    )
+                }
+                setMediaItems(mediaItems, spec.queueIndex.coerceIn(0, mediaItems.size - 1), 0L)
                 playWhenReady = true
                 prepare()
             }
@@ -89,13 +108,15 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
         }
     }
 
-    // Persist progress every 10s.
+    // Persist progress every 10s — against the CURRENT queue item, so each
+    // binged episode resumes independently.
     LaunchedEffect(spec.id) {
         while (true) {
             delay(10_000)
             val duration = player.duration
+            val id = player.currentMediaItem?.mediaId ?: spec.id
             if (duration > 0) {
-                container.userState.saveProgress(spec.id, player.currentPosition, duration)
+                container.userState.saveProgress(id, player.currentPosition, duration)
             }
         }
     }
@@ -104,9 +125,10 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
         onDispose {
             val duration = player.duration
             val position = player.currentPosition
+            val id = player.currentMediaItem?.mediaId ?: spec.id
             player.release()
             if (duration > 0) {
-                scope.launch { container.userState.saveProgress(spec.id, position, duration) }
+                scope.launch { container.userState.saveProgress(id, position, duration) }
             }
         }
     }
@@ -116,8 +138,8 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             PlayerView(ctx).apply {
                 useController = true
                 keepScreenOn = true
-                setShowNextButton(false)
-                setShowPreviousButton(false)
+                setShowNextButton(spec.queue.size > 1)
+                setShowPreviousButton(spec.queue.size > 1)
             }
         },
         update = { view -> view.player = player },

@@ -17,6 +17,10 @@ sealed interface Route {
     data class Detail(val archiveID: String) : Route
     data class Series(val slug: String) : Route
     data class Player(val spec: PlaySpec) : Route
+    data class Filtered(val title: String, val contentType: String? = null,
+                        val decade: Int? = null) : Route
+    data class Playlist(val playlistID: String) : Route
+    data object Surprise : Route
     data object Settings : Route
 }
 

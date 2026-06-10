@@ -26,6 +26,9 @@ import app.archivewatch.android.ui.screens.PlayerScreen
 import app.archivewatch.android.ui.screens.SearchScreen
 import app.archivewatch.android.ui.screens.SeriesDetailScreen
 import app.archivewatch.android.ui.screens.SettingsScreen
+import app.archivewatch.android.ui.screens.FilteredGridScreen
+import app.archivewatch.android.ui.screens.PlaylistScreen
+import app.archivewatch.android.ui.screens.SurpriseScreen
 
 /**
  * Root scaffold: NavigationSuiteScaffold (bottom bar → rail → drawer by
@@ -96,6 +99,9 @@ fun AppRoot(container: AppContainer) {
                             is Route.Detail -> DetailScreen(container, nav, route.archiveID)
                             is Route.Series -> SeriesDetailScreen(container, nav, route.slug)
                             is Route.Player -> PlayerScreen(container, nav, route.spec)
+                            is Route.Filtered -> FilteredGridScreen(container, nav, route)
+                            is Route.Playlist -> PlaylistScreen(container, nav, route.playlistID)
+                            Route.Surprise -> SurpriseScreen(container, nav)
                             Route.Settings -> SettingsScreen(container, nav)
                         }
                     }

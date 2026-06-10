@@ -53,6 +53,7 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
     val scope = rememberCoroutineScope()
     val hideAdult by container.settings.hideAdultContent.collectAsState(initial = true)
     val autoplay by container.settings.autoplayNext.collectAsState(initial = false)
+    val hideWatched by container.settings.hideWatchedOnHome.collectAsState(initial = false)
 
     Scaffold(
         topBar = {
@@ -88,6 +89,12 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
                         container.catalog.applyFilters(!show)
                     }
                 },
+            )
+            ToggleRow(
+                title = "Hide watched titles on Home",
+                subtitle = "Completed titles disappear from Home shelves.",
+                checked = hideWatched,
+                onCheckedChange = { scope.launch { container.settings.setHideWatchedOnHome(it) } },
             )
             ToggleRow(
                 title = "Autoplay next",
