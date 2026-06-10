@@ -84,6 +84,54 @@ struct FilteredGridView: View {
     }
 }
 
+// MARK: - Modes row (PARITY §2/§5 — links Channels / Surprise / Public Domain Day)
+
+struct ModesRow: View {
+    @Environment(Router.self) private var router
+
+    private struct Mode: Identifiable {
+        let id: String; let title: String; let icon: String; let hex: String
+        var accent: Color { Color(hex: hex) ?? .accentColor }
+    }
+    private let modes: [Mode] = [
+        .init(id: "channels", title: "Channels",          icon: "tv.and.mediabox",     hex: "#2D5BFF"),
+        .init(id: "surprise", title: "Surprise Me",       icon: "shuffle",             hex: "#FF5C35"),
+        .init(id: "cartoons", title: "Cartoon Mode",      icon: "pawprint.fill",       hex: "#3FA796"),
+        .init(id: "pubday",   title: "Public Domain Day", icon: "party.popper.fill",   hex: "#E8A317"),
+    ]
+
+    var body: some View {
+        ScrollView(.horizontal) {
+            LazyHStack(spacing: 12) {
+                ForEach(modes) { mode in
+                    Button { open(mode.id) } label: {
+                        HStack(spacing: 8) {
+                            Image(systemName: mode.icon).font(.subheadline.weight(.semibold))
+                            Text(mode.title).font(.subheadline.weight(.semibold))
+                        }
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 14).padding(.vertical, 10)
+                        .background(mode.accent.gradient, in: .capsule)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .padding(.horizontal)
+        }
+        .scrollIndicators(.hidden)
+    }
+
+    private func open(_ id: String) {
+        switch id {
+        case "channels": router.push(ChannelsRoute())
+        case "surprise": router.push(SurpriseRoute())
+        case "cartoons": router.push(CartoonRoute())
+        case "pubday":   router.push(PublicDomainRoute())
+        default: break
+        }
+    }
+}
+
 // MARK: - Category tiles
 
 struct CategoryTilesRow: View {

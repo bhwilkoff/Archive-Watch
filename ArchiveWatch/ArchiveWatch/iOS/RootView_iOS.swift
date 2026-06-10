@@ -70,6 +70,11 @@ extension View {
             .navigationDestination(for: BrowseFilterRoute.self) { FilteredGridView(route: $0) }
             .navigationDestination(for: SurpriseRoute.self) { _ in SurpriseView() }
             .navigationDestination(for: PublicDomainRoute.self) { _ in PublicDomainView() }
+            .navigationDestination(for: ChannelsRoute.self) { _ in ChannelsView() }
+            .navigationDestination(for: CartoonRoute.self) { _ in CartoonView() }
+            .navigationDestination(for: ChannelScheduleRoute.self) {
+                ChannelScheduleView(channelID: $0.channelID)
+            }
     }
 }
 

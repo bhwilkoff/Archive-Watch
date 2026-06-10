@@ -31,6 +31,8 @@ struct SurpriseView: View {
         .init(id: "commercial", title: "Random Commercial",      icon: "tv.badge.wifi",       hex: "#E8A317"),
         .init(id: "decade",     title: "Random Decade",          icon: "calendar",            hex: "#C9A66B"),
         .init(id: "pubdomain",  title: "Public Domain Day",      icon: "party.popper.fill",   hex: "#E8A317"),
+        .init(id: "channels",   title: "Channels",               icon: "tv.and.mediabox",     hex: "#0047FF"),
+        .init(id: "cartoon",    title: "Cartoon Mode",           icon: "pawprint.fill",       hex: "#3FA796"),
     ]
     private let cols = [GridItem(.adaptive(minimum: 160), spacing: 14)]
 
@@ -76,6 +78,10 @@ struct SurpriseView: View {
             }
         case "pubdomain":
             router.push(PublicDomainRoute())
+        case "channels":
+            router.push(ChannelsRoute())
+        case "cartoon":
+            router.push(CartoonRoute())
         default:
             break
         }

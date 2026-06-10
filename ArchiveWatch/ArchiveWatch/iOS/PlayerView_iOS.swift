@@ -35,13 +35,28 @@ struct PlayerView: UIViewControllerRepresentable {
         self.onAdvance = onAdvance
     }
 
+    /// Tune into a channel lineup (programs + woven commercials), starting the
+    /// first item at `startOffset` (join-in-progress, #92) and playing straight
+    /// through. Channel playback ignores per-title resume — live TV doesn't.
+    init?(lineup: [Catalog.Item], startOffset: TimeInterval) {
+        guard let first = lineup.first(where: { $0.videoURLParsed != nil }) else { return nil }
+        archiveID = first.archiveID
+        videoURL = first.videoURLParsed
+        queue = LineupQueue(lineup: lineup, startAt: first.archiveID)
+        self.startOffset = startOffset
+        persistsProgress = false   // live TV: no resume, no Watched pollution
+    }
+
     private var onAdvance: ((String) -> Void)? = nil
+    private var startOffset: TimeInterval? = nil
+    private var persistsProgress = true
 
     @Environment(\.modelContext) private var ctx
     @Environment(\.dismiss) private var dismiss
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(archiveID: archiveID, ctx: ctx, queue: queue, onAdvance: onAdvance)
+        Coordinator(archiveID: archiveID, ctx: ctx, queue: queue, onAdvance: onAdvance,
+                    persistsProgress: persistsProgress)
     }
 
     func makeUIViewController(context: Context) -> AVPlayerViewController {
@@ -66,8 +81,10 @@ struct PlayerView: UIViewControllerRepresentable {
         vc.player = player
         context.coordinator.observe(player, item: pItem)
 
-        // Resume.
-        if let p = context.coordinator.savedProgress(), p > 10 {
+        // Channel join-in-progress beats per-title resume; otherwise resume.
+        if let so = startOffset {
+            if so > 5 { player.seek(to: CMTime(seconds: so, preferredTimescale: 600)) }
+        } else if let p = context.coordinator.savedProgress(), p > 10 {
             player.seek(to: CMTime(seconds: p, preferredTimescale: 600))
         }
         player.play()
@@ -87,15 +104,17 @@ struct PlayerView: UIViewControllerRepresentable {
         let ctx: ModelContext
         let queue: PlaybackQueue?
         let onAdvance: ((String) -> Void)?
+        let persistsProgress: Bool
         var loader: ResilientStreamLoader?
         private var timeObserver: Any?
         private var endObserver: NSObjectProtocol?
         private weak var player: AVPlayer?
 
         init(archiveID: String, ctx: ModelContext, queue: PlaybackQueue?,
-             onAdvance: ((String) -> Void)? = nil) {
+             onAdvance: ((String) -> Void)? = nil, persistsProgress: Bool = true) {
             self.archiveID = archiveID; self.ctx = ctx; self.queue = queue
             self.onAdvance = onAdvance
+            self.persistsProgress = persistsProgress
         }
 
         func observe(_ player: AVPlayer, item playerItem: AVPlayerItem) {
@@ -149,7 +168,7 @@ struct PlayerView: UIViewControllerRepresentable {
         }
 
         func persist(_ player: AVPlayer?) {
-            guard let player, let cur = player.currentItem else { return }
+            guard persistsProgress, let player, let cur = player.currentItem else { return }
             let pos = player.currentTime().seconds
             let dur = cur.duration.seconds
             guard pos.isFinite, pos > 0 else { return }
@@ -195,6 +214,26 @@ final class MovieAutoplayQueue: PlaybackQueue {
               let u = n.videoURLParsed else { return nil }
         current = n
         return (n.archiveID, u)
+    }
+}
+
+/// Channel lineup: plays the array straight through, skipping unplayable items.
+@MainActor
+final class LineupQueue: PlaybackQueue {
+    private let items: [Catalog.Item]
+    private var idx: Int
+    init(lineup: [Catalog.Item], startAt archiveID: String) {
+        items = lineup
+        idx = lineup.firstIndex(where: { $0.archiveID == archiveID }) ?? 0
+    }
+
+    func next(afterFinishing _: String) -> (id: String, url: URL)? {
+        idx += 1
+        while idx < items.count {
+            if let u = items[idx].videoURLParsed { return (items[idx].archiveID, u) }
+            idx += 1
+        }
+        return nil
     }
 }
 

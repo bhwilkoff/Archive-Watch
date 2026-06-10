@@ -130,6 +130,9 @@ final class AppStore {
         db?.randomPlayable(contentType: contentType)
     }
     func randomSeries() -> Catalog.Item? { db?.randomSeries() }
+    func randomCommercials(limit: Int = 12) -> [Catalog.Item] {
+        db?.randomCommercials(limit: limit) ?? []
+    }
     func randomByGenre(_ genres: [String]) -> Catalog.Item? { db?.randomByGenre(genres) }
 
     /// Items for a Home shelf, resolved through the prebuilt `item_shelves`
