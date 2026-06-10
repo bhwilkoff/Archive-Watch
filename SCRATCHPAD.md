@@ -233,7 +233,22 @@ focus / layout / animation bugs.
 
 ## Session Log
 
-### 2026-06-11 (later) — Era row to bottom; Browse-by-Category fixed everywhere
+### 2026-06-11 (evening) — Classic TV poster gate + SNL editorial demotion
+App 1.2.19 (b32), both sims green. Owner: poster-less items in Classic TV
+("source them or not show them") + SNL rights caution ("searchable and at
+the end of the list on browse... I'd rather not highlight it").
+- **Classic TV category grid now requires hasRealArtwork** (190 of 218
+  cards qualify; the 28 poster-less stay reachable via Browse→TV + Search).
+  SOURCING follow-UP for the 28: TVDB didn't match them (obscure clusters:
+  Beat the Clock, Grand Ole Opry…) — try TVmaze artwork or frame covers.
+- **Editorial demotion mechanism**: featured.json `deprioritizedSeries`
+  (seeded with series:saturday-night-live-1975) → Featured model →
+  CatalogDB.demotedIDs (set on every DB swap, both stores) → ORDER BY
+  prefix sorts demoted ids LAST in browse-popular + seriesCards (category
+  grid, Browse→TV, tvOS TV Shows). Still searchable/playable — only never
+  the marquee. SQL-verified: SNL is the final row; Four Star Playhouse etc.
+  lead. Curate dashboard round-trips the new key (exportJSON serializes
+  whole object).
 App 1.2.18 (b31), both sims green. Owner: "the Classic TV category contains
 no items and there are a few others with very few or poor quality titles."
 - **Classic TV was empty on BOTH apps**: `CatalogDB.browseSQL/browseCount`

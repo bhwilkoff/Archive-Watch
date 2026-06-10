@@ -99,6 +99,7 @@ final class AppStore {
     private func swap(_ newDB: CatalogDB) {
         newDB.hideAdult = hideAdultContent
         newDB.hiddenTypes = Self.contentTypes(for: hiddenCategories)
+        newDB.demotedIDs = Set(featured?.deprioritizedSeries ?? [])
         db = newDB
         dbVersion += 1
     }

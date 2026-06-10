@@ -101,6 +101,19 @@ final class CatalogDB {
         return "AND i.contentType NOT IN (\(list))"
     }
 
+    /// Editorial demotion (featured.json `deprioritizedSeries`): series whose
+    /// episode rights are uncertain sort to the END of TV lists instead of
+    /// leading them — still searchable and playable, just never the marquee
+    /// (owner direction 2026-06-11 re: SNL). Set from AppStore on DB swap.
+    var demotedIDs: Set<String> = []
+    private var demoteOrder: String {
+        guard !demotedIDs.isEmpty else { return "" }
+        let list = demotedIDs
+            .map { "'\($0.replacingOccurrences(of: "'", with: "''"))'" }
+            .joined(separator: ",")
+        return "(i.archiveID IN (\(list))) ASC, "
+    }
+
     /// Home-advertising gate: keep modern, uncertain-rights movies OFF the home
     /// surfaces while still admitting everything that's confidently free to show.
     /// An item qualifies for Home if EITHER:
@@ -170,7 +183,12 @@ final class CatalogDB {
         var where_: [String] = []
         var binds: [String] = []
         if contentType == "tv-series" {
+            // The Classic TV category grid: series cards only, and only ones
+            // with a real poster — a poster-less card in a curated category
+            // tile reads as broken (owner direction 2026-06-11; the 28
+            // poster-less series stay reachable via Browse→TV and Search).
             where_.append("i.contentType = 'tv-series'")
+            where_.append("i.hasRealArtwork = 1")
         } else {
             where_.append("i.contentType != 'tv-series'")
             if let contentType { where_.append("i.contentType = ?"); binds.append(contentType) }
@@ -189,10 +207,11 @@ final class CatalogDB {
         let order: String
         switch sort {
         case .popular:
-            // Designed (professional) artwork leads, then popularity. Series
-            // cards have NULL popularityScore, so episodesCount breaks their
-            // ties — the deepest shows surface first.
+            // Demoted series last; designed (professional) artwork leads, then
+            // popularity. Series cards have NULL popularityScore, so
+            // episodesCount breaks their ties — the deepest shows surface first.
             order = """
+                \(demoteOrder)\
                 (i.hasRealArtwork = 1 AND COALESCE(i.artworkSource,'') != 'generated') DESC, \
                 COALESCE(i.popularityScore, 0) DESC, \
                 COALESCE(i.episodesCount, 0) DESC, i.imdbVotes DESC
@@ -268,6 +287,7 @@ final class CatalogDB {
         var binds: [String] = []
         if contentType == "tv-series" {
             where_.append("i.contentType = 'tv-series'")
+            where_.append("i.hasRealArtwork = 1")   // match browseSQL's poster gate
         } else {
             where_.append("i.contentType != 'tv-series'")
             if let contentType { where_.append("i.contentType = ?"); binds.append(contentType) }
@@ -306,7 +326,7 @@ final class CatalogDB {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
             WHERE i.contentType = 'tv-series' \(adultAnd) \(typeAnd)
-            ORDER BY i.episodesCount DESC
+            ORDER BY \(demoteOrder) i.episodesCount DESC
         """)
     }
 

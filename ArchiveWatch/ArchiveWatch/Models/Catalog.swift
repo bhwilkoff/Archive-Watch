@@ -185,6 +185,10 @@ struct Featured: Decodable, Sendable {
     let categories: [Category]
     let shelves: [Shelf]
     let adultCollections: [String]?
+    // Editorial demotion: series whose episode RIGHTS are uncertain sort to
+    // the END of TV lists instead of leading them (still searchable/playable;
+    // owner direction 2026-06-11 re: Saturday Night Live).
+    let deprioritizedSeries: [String]?
 
     struct Category: Decodable, Sendable, Identifiable {
         let id: String
