@@ -3,8 +3,8 @@
   "seriesID": "caillou-1998",
   "tvmazeID": 12083,
   "title": "Caillou",
-  "yearStart": 1998,
-  "yearEnd": 2009,
+  "yearStart": 1997,
+  "yearEnd": 2003,
   "overview": "This show is about the life of a young bald boy named Caillou, his family and his friends. It is based on the books by Christine L'Heureux and Helene Despeteaux, which is highly popular in the Quebec area in Canada. There are actually two versions of the show. The first version premiered in late 1998, is only 5 minutes in length, consists of 65 episodes, and is fully animated. The plot line of this version is that a grandmother reads her grandchildren a Caillou book. While this version enjoys success in some countries outside the US, it was never formally aired in the US. The second version, which premiered in late 2000, has the show extended to 30 minutes, and has puppets, music and live action segments thrown in. The animation parts, however, are a mixture of the first version of the show with the \"grandma reading to kids\" part of the story lopped off and some new stories (however...",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/77953-2.jpg",
   "backdropURL": null,
@@ -19,42 +19,6 @@
     {
       "seasonNumber": 1,
       "episodes": [
-        {
-          "archiveID": "caillou-makes-a-grounded-video-out-of-evil-caillou-and-gets-ungrounded",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Caillou Makes Cookies",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/caillou-makes-a-grounded-video-out-of-evil-caillou-and-gets-ungrounded",
-          "airDate": "1998-01-01",
-          "year": 1998,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Caillou makes a grounded video out of Evil Caillou and gets ungrounded.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 5504674,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/caillou-makes-a-grounded-video-out-of-evil-caillou-and-gets-ungrounded/Caillou%20makes%20a%20grounded%20video%20out%20of%20Evil%20Caillou%20and%20gets%20ungrounded.mp4"
-        },
-        {
-          "archiveID": "caillou-and-rosie-unground-kirby-and-gets-ungrounded",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Caillou is No Longer Afraid",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/caillou-and-rosie-unground-kirby-and-gets-ungrounded",
-          "airDate": "1998-01-02",
-          "year": 1998,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Caillou and Rosie unground Kirby and gets ungrounded.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 3837458,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/caillou-and-rosie-unground-kirby-and-gets-ungrounded/Caillou%20and%20Rosie%20unground%20Kirby%20and%20gets%20ungrounded.mp4"
-        },
         {
           "archiveID": "CTVSeriesAMZN19972010",
           "seasonNumber": 1,
@@ -72,222 +36,6 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/CTVSeriesAMZN19972010/Caillou_S01E03_Caillou%27s%20Winter%20Wonders.ia.mp4"
-        },
-        {
-          "archiveID": "caillou-says-no-dora-gets-grounded-and-gets-ungrounded",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Rhianna’s CGUG Series | s01e03 | Caillou Says No Dora Gets Grounded And Gets Ungrounded | Caillou Wisconsin",
-          "overview": "NOTE: This is my video",
-          "stillURL": "https://archive.org/services/img/caillou-says-no-dora-gets-grounded-and-gets-ungrounded",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 58,
-          "videoFile": {
-            "name": "Caillou Says No Dora Gets Grounded And Gets Ungrounded.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 5171445,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/caillou-says-no-dora-gets-grounded-and-gets-ungrounded/Caillou%20Says%20No%20Dora%20Gets%20Grounded%20And%20Gets%20Ungrounded.mp4"
-        },
-        {
-          "archiveID": "caillou-rants-on-dgg-ungrounded",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "Caillou's All Alone",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/caillou-rants-on-dgg-ungrounded",
-          "airDate": "1998-01-04",
-          "year": 1998,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Caillou Rants On DGG_Ungrounded.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 25814545,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/caillou-rants-on-dgg-ungrounded/Caillou%20Rants%20On%20DGG_Ungrounded.mp4"
-        },
-        {
-          "archiveID": "caillou-takes-down-all-hate-art-of-himself-ungrounded",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "Caillou Tidies His Toys",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/caillou-takes-down-all-hate-art-of-himself-ungrounded",
-          "airDate": "1998-01-05",
-          "year": 1998,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Caillou Takes Down All Hate Art Of Himself_Ungrounded.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 14764873,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/caillou-takes-down-all-hate-art-of-himself-ungrounded/Caillou%20Takes%20Down%20All%20Hate%20Art%20Of%20Himself_Ungrounded.mp4"
-        },
-        {
-          "archiveID": "caillou-teaches-rosie-and-classic-caillou-how-to-play-the-piano-ungrounded",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Rhianna’s CGUG Series | s01e06 | Caillou Teaches Rosie And Classic Caillou How To Play The Piano/Ungrounded | Caillou Wisconsin",
-          "overview": "Rosie and Classic Caillou want to learn how to play the piano, so Caillou teaches them.<div><br /></div><div>NOTE: This is my video.</div>",
-          "stillURL": "https://archive.org/services/img/caillou-teaches-rosie-and-classic-caillou-how-to-play-the-piano-ungrounded",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 444,
-          "videoFile": {
-            "name": "Caillou Teaches Rosie And Classic Caillou How To Play The Piano_Ungrounded.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 21974632,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/caillou-teaches-rosie-and-classic-caillou-how-to-play-the-piano-ungrounded/Caillou%20Teaches%20Rosie%20And%20Classic%20Caillou%20How%20To%20Play%20The%20Piano_Ungrounded.mp4"
-        },
-        {
-          "archiveID": "caillou-plays-the-piano-live-ungrounded",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "Rhianna’s CGUG Series | s01e07 | Caillou Plays The Piano Live/Ungrounded | Caillou Wisconsin",
-          "overview": "Caillou has a live performance coming up. He has to play the piano at a show.<div><br /></div>NOTE: This is my video.",
-          "stillURL": "https://archive.org/services/img/caillou-plays-the-piano-live-ungrounded",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 258,
-          "videoFile": {
-            "name": "Caillou Plays The Piano Live Ungrounded.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 18971697,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/caillou-plays-the-piano-live-ungrounded/Caillou%20Plays%20The%20Piano%20Live%20Ungrounded.mp4"
-        },
-        {
-          "archiveID": "caillou-scolds-evil-caillou-ungrounded-evil-caillou-gets-grounded",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Rhianna’s CGUG Series | s01e08 | Caillou Scolds Evil Caillou/Ungrounded/Evil Caillou Gets Grounded | Caillou Wisconsin",
-          "overview": "NOTE: This is my video",
-          "stillURL": "https://archive.org/services/img/caillou-scolds-evil-caillou-ungrounded-evil-caillou-gets-grounded",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 160,
-          "videoFile": {
-            "name": "Caillou Scolds Evil Caillou_Ungrounded_Evil Caillou Gets Grounded.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 7956806,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/caillou-scolds-evil-caillou-ungrounded-evil-caillou-gets-grounded/Caillou%20Scolds%20Evil%20Caillou_Ungrounded_Evil%20Caillou%20Gets%20Grounded.mp4"
-        },
-        {
-          "archiveID": "caillou-salutes-on-80s-music-ungrounded",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "Rhianna’s CGUG Series | s01e09 | Caillou Salutes On 80s Music/Ungrounded | Caillou Wisconsin",
-          "overview": "NOTE: This is my video",
-          "stillURL": "https://archive.org/services/img/caillou-salutes-on-80s-music-ungrounded",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 108,
-          "videoFile": {
-            "name": "Caillou Salutes On 80s Music_Ungrounded.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 7410729,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/caillou-salutes-on-80s-music-ungrounded/Caillou%20Salutes%20On%2080s%20Music_Ungrounded.mp4"
-        },
-        {
-          "archiveID": "caillous-anti-abusive-reward-day",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "Rhianna’s CGUG Series | s01e10 | Caillou's Anti-Abusive Reward Day | Caillou Wisconsin",
-          "overview": "Caillou has already dealt with enough abuse, so he is protected and he receives lots of rewards.<div><br /></div><div>NOTE: This is my video.</div>",
-          "stillURL": "https://archive.org/services/img/caillous-anti-abusive-reward-day",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1258,
-          "videoFile": {
-            "name": "Caillou's Anti-Abusive Reward Day.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 110466356,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/caillous-anti-abusive-reward-day/Caillou%27s%20Anti-Abusive%20Reward%20Day.ia.mp4"
-        },
-        {
-          "archiveID": "rcgug-s01-e11",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "Rhianna’s CGUG Series | s01e11 | The Return Of Caillou - CPHPCreatorRhianna Version | Caillou Wisconsin",
-          "overview": "Caillou returns from his vacation <div><br /></div><div>NOTE: This is my video</div>",
-          "stillURL": "https://archive.org/services/img/rcgug-s01-e11",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 210,
-          "videoFile": {
-            "name": "The Return Of Caillou - CPHPCreatorRhianna Version_youtube.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 86748522,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/rcgug-s01-e11/The%20Return%20Of%20Caillou%20-%20CPHPCreatorRhianna%20Version_youtube.mp4"
-        },
-        {
-          "archiveID": "rcgug-s01-e12",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "Rhianna’s CGUG Series | s01e12 | Caillou Writes A Bad Review On CGPD/Ungrounded | Caillou Wisconsin",
-          "overview": "NOTE: This is my video",
-          "stillURL": "https://archive.org/services/img/rcgug-s01-e12",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 284,
-          "videoFile": {
-            "name": "Caillou Writes A Bad Review On CGPD Ungrounded_youtube.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 68060532,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/rcgug-s01-e12/Caillou%20Writes%20A%20Bad%20Review%20On%20CGPD%20Ungrounded_youtube.mp4"
-        },
-        {
-          "archiveID": "caillou-laughs-at-charlie-kirks-death",
-          "seasonNumber": 1,
-          "episodeNumber": 14,
-          "title": "Caillou Gets Grounded 2024 | s01e14 | Caillou Laughs at Charlie Kirk's Death and Gets Grounded | Woomitex",
-          "overview": "Caillou gets grounded for laughing at the death of Charlie Kirk.",
-          "stillURL": "https://archive.org/services/img/caillou-laughs-at-charlie-kirks-death",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 336,
-          "videoFile": {
-            "name": "Caillou Laughs at Charlie Kirk's Death.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 61654218,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/caillou-laughs-at-charlie-kirks-death/Caillou%20Laughs%20at%20Charlie%20Kirk%27s%20Death.mp4"
-        },
-        {
-          "archiveID": "caillou-rants-on-ice",
-          "seasonNumber": 1,
-          "episodeNumber": 15,
-          "title": "Caillou Gets Grounded 2024 | s01e15 | Caillou Rants on ICE then Gets Grounded and Gets Sent to Epstein's Island | Woomitex",
-          "overview": "Caillou is on the award-winning Epstein List.",
-          "stillURL": "https://archive.org/services/img/caillou-rants-on-ice",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 519,
-          "videoFile": {
-            "name": "Caillou Rants on ICE.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 58680841,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/caillou-rants-on-ice/Caillou%20Rants%20on%20ICE.mp4"
         }
       ]
     },
@@ -672,7 +420,7 @@
       ]
     }
   ],
-  "episodesCount": 35,
+  "episodesCount": 21,
   "canonicalEpisodesCount": 26,
   "tvdbID": "77953",
   "artworkSource": "tvdb",

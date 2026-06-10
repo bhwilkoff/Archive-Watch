@@ -233,7 +233,26 @@ focus / layout / animation bugs.
 
 ## Session Log
 
-### 2026-06-10 (evening) — Web image resilience, About redesign, TV mismatch audit
+### 2026-06-10 (night) — Series-episode wrong-content audit shipped to CI
+User found a South Park frame on the AitF page — it was the thumbnail of a
+bliptv REVIEW VLOG about an AitF episode (the vlog opens with a South Park
+clip; archive.org auto-thumbnailed it). New tool
+`tools/audit_series_episodes.py` (report-first, Decision-026-style: the
+Archive item's OWN title/collections are the authority; TVmaze resolves S/E
+disputes) + `--apply`. Removed 23 confirmed-bad episodes across 9 spines:
+review vlog (AitF), 14 GoAnimate "Caillou Gets Grounded" parodies (Caillou +
+Bayou Classic — incl. genuinely awful content on a kids' show), Pingu ×2 in
+The Snowman, One Step Beyond ep "The Avengers" in The Avengers, Green Acres
+"Eb's Double Trouble" in Double Trouble, Mystic Knights in The Challenge,
+The Chase UK (contestant "Alf") in ALF, Catch 21 (contestant "Angie") in
+Angie. Root pattern: episode-title/contestant-name collides with another
+show's name. Backfill ingest now also rejects vlogs/bliptv collections +
+parody markers (`meta_ok`) and parody-titled candidates. CI: audit runs
+--confirm --apply in discover-content after the backfill, CSV artifact
+`episode-audit`. False-positive guards verified: "S3E28 The Avengers"-style
+uploads, Degrassi franchise cross-refs, real episode titles containing
+"review"/"reaction" all KEEP. south-park-1997 spine is dormant (card
+excluded by rights audit, not in public index).
 User-reported fixes, all on `main`, web changes live after Pages deploy.
 - **Web images**: archive.org throttles poster bursts (transient 503s);
   `wireArt()` now retries the fallback chain ×2 with jittered backoff;

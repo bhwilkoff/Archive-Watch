@@ -130,6 +130,8 @@ def adv_search_raw(q, session, rows=20):
 
 
 def build_episode(iaid, doc, meta):
+    if not meta_ok(meta):
+        return None
     md = meta.get("metadata", {})
     files = meta.get("files", [])
     title = md.get("title") or doc.get("title") or iaid
@@ -199,6 +201,30 @@ def _norm_ep_title(t):
 # (a Facebook English-lesson video landed in All in the Family this way).
 SCRAPE_ID_PREFIXES = ("facebook-", "tiktok-", "twitter-", "instagram-")
 
+# GoAnimate-style fan videos ("Caillou Gets Grounded") wear the show's name
+# but are parodies; review vlogs live in these collections. Keep in sync with
+# audit_series_episodes.py, which catches what slips through.
+PARODY_WORDS = re.compile(
+    r"(gets?[\s_-]*grounded|ungrounded|goanimate|go[\s_-]?animate)",
+    re.IGNORECASE)
+NON_EPISODE_COLLECTIONS = {"vlogs", "bliptv", "fan-films"}
+
+
+def meta_ok(meta):
+    """Reject review/parody uploads a real episode would never be: items in
+    vlog collections, or self-described GoAnimate/grounded parody videos."""
+    md = meta.get("metadata", {})
+    cols = md.get("collection")
+    cols = {str(c).lower() for c in (cols if isinstance(cols, list)
+                                     else [cols] if cols else [])}
+    if cols & NON_EPISODE_COLLECTIONS:
+        return False
+    subj = md.get("subject")
+    subj = " ".join(str(s) for s in (subj if isinstance(subj, list)
+                                     else [subj] if subj else []))
+    blob = f"{md.get('title') or ''} {subj} {md.get('description') or ''}"
+    return not PARODY_WORDS.search(blob)
+
 
 def candidate_ok(iaid, cand_title, show_term):
     """Reject candidates that can't be a real episode upload of this show:
@@ -209,6 +235,8 @@ def candidate_ok(iaid, cand_title, show_term):
     if iaid.lower().startswith(SCRAPE_ID_PREFIXES):
         return False
     if len(cand_title or "") > 200:
+        return False
+    if PARODY_WORDS.search(cand_title or "") or PARODY_WORDS.search(iaid):
         return False
     show_words = set(_norm_ep_title(show_term).split())
     if not show_words:

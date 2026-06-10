@@ -4,7 +4,7 @@
   "tvmazeID": 2100,
   "title": "The Challenge",
   "yearStart": 1998,
-  "yearEnd": null,
+  "yearEnd": 2025,
   "overview": "Set in the middle of the jungle, \"The Challenge: War of the Worlds 2\" returns to a classic team format; 14 Brits will battle it out against 14 Americans for their share of the $1 million-dollar prize.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/70870-4.jpg",
   "backdropURL": null,
@@ -181,24 +181,6 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/purples-pretty-pattern-challenge-full-episode-s-1-e-14-learn-colours-kids-cartoons/Purple%27s%20Pretty%20Pattern%20Challenge%21%20FULL%20EPISODE%20-%20S1%20E14%20Learn%20Colours%20-%20Kids%20Cartoons.mp4"
-        },
-        {
-          "archiveID": "mystic-knights-of-tir-na-nog-s01e45-lugads-challenge",
-          "seasonNumber": 1,
-          "episodeNumber": 45,
-          "title": "Mystic Knights Of Tir Na Nog S01E45 Lugad's Challenge",
-          "overview": "Mystic Knights of Tir Na Nog S01E45 Lugad's Challenge",
-          "stillURL": "https://archive.org/services/img/mystic-knights-of-tir-na-nog-s01e45-lugads-challenge",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 870,
-          "videoFile": {
-            "name": "Mystic Knights of Tir Na Nog S01E45 Lugad's Challenge.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 253702415,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/mystic-knights-of-tir-na-nog-s01e45-lugads-challenge/Mystic%20Knights%20of%20Tir%20Na%20Nog%20S01E45%20Lugad%27s%20Challenge.ia.mp4"
         }
       ]
     },
@@ -393,7 +375,7 @@
       ]
     }
   ],
-  "episodesCount": 20,
+  "episodesCount": 19,
   "canonicalEpisodesCount": 637,
   "tvdbID": "70870",
   "artworkSource": "tvdb",

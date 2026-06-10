@@ -4,7 +4,7 @@
   "tvmazeID": 1929,
   "title": "The Avengers",
   "yearStart": 1961,
-  "yearEnd": 1969,
+  "yearEnd": 1967,
   "overview": "Urbane John Steed and a variety of partners work for an elite organization tasked with investigating criminal and espionage matters within the UK. Their opponents use everything from standard techniques to robots and other science fiction gadgetry.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/71020-4.jpg",
   "backdropURL": null,
@@ -38,29 +38,6 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/wasp-bikini-scenes-the-avengers-earths-mightiest-heroes-s-01-e-20-1080p/Wasp%20Bikini%20Scenes%20-%20The%20Avengers%20Earth%27s%20Mightiest%20Heroes%20S01E20%20%281080p%29.ia.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 3,
-      "episodes": [
-        {
-          "archiveID": "S3E28THEAVENGERS",
-          "seasonNumber": 3,
-          "episodeNumber": 28,
-          "title": "One Step Beyond S3 E28 THE AVENGERS",
-          "overview": "<p class=\"MsoNormal\">During the Second World War, a Nazi general invites locals\n-- whom he later plans to send to death camps -- to a château for a celebration\nwhich copies one from 150 years earlier. However, the ghosts of the original\ncelebrants return to stop his plan,</p>",
-          "stillURL": "https://archive.org/services/img/S3E28THEAVENGERS",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1265,
-          "videoFile": {
-            "name": "S3E28 - THE AVENGERS.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 74816563,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/S3E28THEAVENGERS/S3E28%20-%20THE%20AVENGERS.mp4"
         }
       ]
     },
@@ -278,7 +255,7 @@
       ]
     }
   ],
-  "episodesCount": 13,
+  "episodesCount": 12,
   "canonicalEpisodesCount": 161,
   "tvdbID": "71020",
   "artworkSource": "tvdb",

@@ -191,6 +191,24 @@ jobs:
             --max-series ${{ github.event.inputs.tv_max_series || '40' }} \
             | tee tv.log
 
+      - name: Audit series episodes (wrong-show / parody / review content)
+        run: |
+          # Catches what the backfill guards miss: episodes whose title or
+          # contestant name collides with another show's name ("Murphy Brown
+          # S08E12 All in the Family", Pingu in The Snowman), GoAnimate
+          # "grounded" parodies, review vlogs, scrape mirrors. Network-
+          # confirmed against the Archive item's own metadata + TVmaze
+          # before anything is removed; every action lands in the CSV.
+          python tools/audit_series_episodes.py --confirm --apply \
+            | tee episode_audit.log
+
+      - name: Upload episode-audit manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: episode-audit
+          path: tools/audit_series_episodes.csv
+          if-no-files-found: ignore
+
       - name: Repair unplayable derivatives (.ogv -> MP4 guard)
         run: |
           # Idempotent: skips items already on a playable MP4, so this is cheap
@@ -220,6 +238,7 @@ jobs:
           [ -f loc.log ] && { echo '--- library of congress ---' >> $GITHUB_STEP_SUMMARY; tail -3 loc.log >> $GITHUB_STEP_SUMMARY; }
           echo '--- episode wants ---'        >> $GITHUB_STEP_SUMMARY; tail -3 wants.log >> $GITHUB_STEP_SUMMARY
           echo '--- tv backfill ---'          >> $GITHUB_STEP_SUMMARY; tail -8 tv.log >> $GITHUB_STEP_SUMMARY
+          echo '--- episode audit ---'        >> $GITHUB_STEP_SUMMARY; tail -4 episode_audit.log >> $GITHUB_STEP_SUMMARY
           echo '--- rights evidence ---'       >> $GITHUB_STEP_SUMMARY; tail -3 rights.log >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
 

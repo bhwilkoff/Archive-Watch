@@ -73,29 +73,11 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/allinthe-family-special-at-end/AllintheFamily%20special%20at%20end.mp4"
-        },
-        {
-          "archiveID": "bliptv-20131011-223744-Adamfairland-BIGGAYDORKGaypisodeAllInTheFamilyJudgingBooksByTheir690",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "BIG GAY DORK - Gaypisode: All in the Family \"Judging Books By Their Covers\"",
-          "overview": "BIG GAY DORK meets a lovable bigot in the first gay-themed episode of an American sitcom. BIG GAY DORK created by Adam Fair. Homosexual themed comedy reviews for entertainment and educational purposes. Fair use of subject for comedy, review and satire purposes. Adam Fair does not own the clips he reviews, that would be silly.",
-          "stillURL": "https://archive.org/services/img/bliptv-20131011-223744-Adamfairland-BIGGAYDORKGaypisodeAllInTheFamilyJudgingBooksByTheir690",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 935,
-          "videoFile": {
-            "name": "bliptv-20131011-223744-Adamfairland-BIGGAYDORKGaypisodeAllInTheFamilyJudgingBooksByTheir690.mp4",
-            "format": "h.264",
-            "sizeBytes": 97120532,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/bliptv-20131011-223744-Adamfairland-BIGGAYDORKGaypisodeAllInTheFamilyJudgingBooksByTheir690/bliptv-20131011-223744-Adamfairland-BIGGAYDORKGaypisodeAllInTheFamilyJudgingBooksByTheir690.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 4,
+  "episodesCount": 3,
   "canonicalEpisodesCount": 210,
   "tvdbID": "72741",
   "artworkSource": "tvdb",

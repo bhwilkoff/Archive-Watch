@@ -114,29 +114,6 @@
       ]
     },
     {
-      "seasonNumber": 9,
-      "episodes": [
-        {
-          "archiveID": "the-chase-uk-s9-e29",
-          "seasonNumber": 9,
-          "episodeNumber": 29,
-          "title": "The Chase (31 August 2015 | S9 E29): Andy/Gina/Kelly/Alf",
-          "overview": "<span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">The Chase UK S9 E29</span><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;\">Aired 13 June 2023 at 1.00AM BST on Challenge (UK)</div>",
-          "stillURL": "https://archive.org/services/img/the-chase-uk-s9-e29",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3611,
-          "videoFile": {
-            "name": "The Chase UK S9 E29.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 422456873,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-chase-uk-s9-e29/The%20Chase%20UK%20S9%20E29.ia.mp4"
-        }
-      ]
-    },
-    {
       "seasonNumber": null,
       "episodes": [
         {
@@ -178,7 +155,7 @@
       ]
     }
   ],
-  "episodesCount": 8,
+  "episodesCount": 7,
   "canonicalEpisodesCount": 102,
   "seriesImdbID": "tt0090390",
   "canonicalEpisodeCount": 102,

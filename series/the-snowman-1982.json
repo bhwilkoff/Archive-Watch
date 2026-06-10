@@ -4,7 +4,7 @@
   "tvmazeID": 65563,
   "title": "The Snowman",
   "yearStart": 1982,
-  "yearEnd": 2012,
+  "yearEnd": 2009,
   "overview": "The Snowman, created and illustrated by Raymond Briggs, is one of the world's most popular and iconic picture books which perfectly captures the wonder and innocence of childhood. This timeless and magical tale tells a story of imagination and friendship as well as love and loss.",
   "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/433/1083855.jpg",
   "backdropURL": null,
@@ -17,52 +17,6 @@
   ],
   "creator": null,
   "seasons": [
-    {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "pingu-s02e26-pingu-builds-a-snowman",
-          "seasonNumber": 2,
-          "episodeNumber": 26,
-          "title": "pingu-s02e26-pingu-builds-a-snowman",
-          "overview": "Pingu season 2 episode 26",
-          "stillURL": "https://archive.org/services/img/pingu-s02e26-pingu-builds-a-snowman",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 325,
-          "videoFile": {
-            "name": "pingu-s02e26-pingu-builds-a-snowman.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 33799480,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/pingu-s02e26-pingu-builds-a-snowman/pingu-s02e26-pingu-builds-a-snowman.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 6,
-      "episodes": [
-        {
-          "archiveID": "pingu-s06e26-pingu-and-the-abominable-snowman",
-          "seasonNumber": 6,
-          "episodeNumber": 26,
-          "title": "pingu-s06e26-pingu-and-the-abominable-snowman",
-          "overview": "Pingu season 6 episode 26",
-          "stillURL": "https://archive.org/services/img/pingu-s06e26-pingu-and-the-abominable-snowman",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 312,
-          "videoFile": {
-            "name": "pingu-s06e26-pingu-and-the-abominable-snowman.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 32442249,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/pingu-s06e26-pingu-and-the-abominable-snowman/pingu-s06e26-pingu-and-the-abominable-snowman.mp4"
-        }
-      ]
-    },
     {
       "seasonNumber": 1982,
       "episodes": [
@@ -110,7 +64,7 @@
       ]
     }
   ],
-  "episodesCount": 4,
+  "episodesCount": 2,
   "canonicalEpisodesCount": 2,
   "seriesImdbID": "tt3615280",
   "canonicalEpisodeCount": 0,
