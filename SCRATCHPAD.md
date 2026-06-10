@@ -24,8 +24,9 @@
   Remaining is the **owner-gated App Store submission** (TestFlight) + a few
   owner-blocked items — see the top Session Log entry + the
   `session-handoff-2026-06` memory for the live backlog.
-- **Last session**: 2026-06-05 — commercials, real Channels EPG, Browse
-  pagination, public Suggest & Curate tool, App Store prep (see Session Log).
+- **Last session**: 2026-06-09 — autonomous all-platform buildout: iOS P1/P2
+  parity closed + merged, Web PWA viewer live, Android v1 spine shipped
+  (see Session Log).
 - **Confirmed gaps blocking a clean v1.0 submission** (this session's work):
   1. **No Settings/About surface at all** — and TMDb attribution is
      *required* by Decision 007 / TMDb terms. Also missing: adult-content
@@ -231,6 +232,60 @@ focus / layout / animation bugs.
 ---
 
 ## Session Log
+
+### 2026-06-09 (later) — Autonomous all-platform buildout: iOS P1/P2 closed, Web PWA live, Android P4 shipped
+User: "finish all phases of our buildout for the ArchiveWatch app across all
+platforms that we have documented should receive full parity." All on `main`
+(merged from `ios-universal`), every step build-verified; PARITY.md updated per
+change set. App version 1.2.15 (build 28).
+- **iOS/iPadOS — P1/P2 parity gaps CLOSED** (all sim-verified, tvOS re-verified
+  green after each shared-file touch): Home discovery (category + decade tile
+  rows → new generic `FilteredGridView`, Hidden Gems, Director shelves, Public
+  Domain Day shelf, Modes capsule row), Surprise grid (11 re-rollable tiles;
+  Home shuffle now opens it), Public Domain Day year-chip explorer, **Channels
+  touch guide** (shared date-seeded ChannelScheduler; now/next rows, tune-in
+  joins in progress, commercial breaks woven, full-day schedule view, Create
+  Channel Form sheet + swipe-delete with tombstones; `Channel` presets moved to
+  shared Models/Channels.swift), **Cartoon Mode** (kid-safe color-leaning pool,
+  character + theme shelves, marathon via new lineup player), playlists
+  (AddToPlaylistSheet + Detail button + swipe-delete), manual prev/next episode
+  overlay (binge auto-advance reports back via onAdvance), hide-watched +
+  per-category Settings toggles (HomeView now feeds completedArchiveIDs).
+  Channel/lineup playback never persists WatchProgress. xcuserdata untracked
+  (merge friction fix).
+- **Web PWA (P3) — SHIPPED + LIVE**: `/watch/` viewer (vanilla, no build step,
+  mobile-first, URL-driven hash state) — Home hero + shelves, Browse with
+  chips/facets + infinite scroll, client search, Detail hydrated from the
+  archive.org metadata API, `<dialog>` player with the Decision-021-analog
+  reconnect wrapper + IndexedDB resume, Library, About (verbatim TMDb notice +
+  donate), installable PWA + service worker, and `404.html` forwarding the
+  canonical `/item/{id}` share URLs the apps already emit. **Decision 029**
+  (data plane: index + metadata API now; chunked SQLite via Actions-Pages
+  later) after live CORS/Range measurements (Pages = 206+CORS on GET; Release
+  assets + archive.org download = 206 without CORS). `build_catalog_index.py`
+  → schema 2 with designed-poster column (additive). Live at
+  https://bhwilkoff.github.io/Archive-Watch/watch/ (verified 200s + forwarder).
+- **Android (P4) — v1 spine SHIPPED** (`android/`, Kotlin + Compose M3,
+  `app.archivewatch.android`, from TriAppTemplate simplified to manual DI +
+  sealed-route nav): contract-compliant data layer (bundled seed → ETag .zz
+  download → raw-DEFLATE inflate → ≥10MB floor + open-probe → atomic swap;
+  BundledSQLiteDriver for guaranteed FTS5; build-time copy of seed/featured
+  from the repo), Home/Browse/Search/Detail/SeriesDetail/Library/Settings,
+  Media3 player with OkHttp + patient LoadErrorHandlingPolicy (Decision 021
+  analog), archivewatch:// deep link, dark brand theme. assembleDebug GREEN +
+  emulator-verified (Browse showed 27,029 titles from the downloaded full DB).
+  Deferred next wave in docs/ANDROID-DESIGN.md §7 (Channels, modes, widgets,
+  Drive App Data sync, Cast, playlists).
+- **Docs/skills**: docs/CATALOG-CONTRACT.md (the Decision-028 shared-schema
+  artifact; notes build_sqlite docstring drift), docs/iOS-DESIGN.md,
+  docs/WEB-DESIGN.md, docs/ANDROID-DESIGN.md binding docs; project skill
+  `web-catalog-data-layer` (verified CORS/Range matrix).
+- **Owner-pending**: on-device spot-checks (iOS Channels/Cartoon tune-in, iPad
+  landscape hero), CloudKit cross-device verify (existing), Pages→Actions flip
+  when the web SQLite upgrade is wanted (WEB-DESIGN §2.4), Play Store record
+  for Android (none yet), Google OAuth client for Drive sync (Android/Web wave
+  2). Universal Links remain blocked: a project Pages site can't serve root
+  `/.well-known` (needs a user site or custom domain).
 
 ### 2026-06-09 — Multi-platform plan + iOS Phase 1 kickoff
 - **Plan + parity** (Decision 028): expanding tvOS → iOS → iPad → Web → Android per

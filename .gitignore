@@ -85,5 +85,5 @@ ios/.swiftpm/
 /tmp/core-dd
 
 # Xcode per-user state (never track — causes branch-switch/merge friction)
-*.xcodeproj/xcuserdata/
-*.xcodeproj/project.xcworkspace/xcuserdata/
+**/*.xcodeproj/xcuserdata/
+**/*.xcodeproj/project.xcworkspace/xcuserdata/
