@@ -45,7 +45,6 @@ struct HomeView: View {
                     Shelf(title: "Continue Watching", subtitle: nil, items: continueItems)
                 }
                 CategoryTilesRow()
-                DecadeTilesRow()
                 ForEach(payloads.prefix(2)) { payload in
                     Shelf(title: payload.shelf.title, subtitle: payload.shelf.subtitle, items: payload.items)
                 }
@@ -63,6 +62,9 @@ struct HomeView: View {
                 ForEach(payloads.dropFirst(2)) { payload in
                     Shelf(title: payload.shelf.title, subtitle: payload.shelf.subtitle, items: payload.items)
                 }
+                // Last row, matching tvOS Home (owner direction 2026-06-11:
+                // "move the browse by era to the bottom of the shelves").
+                DecadeTilesRow()
             }
             .padding(.vertical)
         }

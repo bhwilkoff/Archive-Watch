@@ -162,13 +162,23 @@ final class CatalogDB {
     /// (browsePageJSON) stay in lockstep.
     private func browseSQL(contentType: String?, decade: Int?, genre: String?, year: Int?,
                            sort: Sort, limit: Int, offset: Int, homeOnly: Bool) -> (String, [String]) {
-        var where_ = ["i.contentType != 'tv-series'"]
+        // Series cards are excluded from general browse grids — but when the
+        // caller EXPLICITLY asks for tv-series (the Classic TV category tile),
+        // they ARE the result set. The old unconditional exclusion contradicted
+        // the explicit filter and returned zero rows (owner report 2026-06-11:
+        // "the Classic TV category contains no items").
+        var where_: [String] = []
+        var binds: [String] = []
+        if contentType == "tv-series" {
+            where_.append("i.contentType = 'tv-series'")
+        } else {
+            where_.append("i.contentType != 'tv-series'")
+            if let contentType { where_.append("i.contentType = ?"); binds.append(contentType) }
+        }
         if hideAdult { where_.append("i.isAdult = 0") }
         // Commercials are never part of a general browse grid — only when the
         // caller explicitly asks for contentType == "commercial".
         if contentType != "commercial" { where_.append("i.contentType != 'commercial'") }
-        var binds: [String] = []
-        if let contentType { where_.append("i.contentType = ?"); binds.append(contentType) }
         if let decade { where_.append("i.decade = \(decade)") }
         if let year { where_.append("i.year = \(year)") }   // #15 Public Domain Day (exact year)
         var join = ""
@@ -178,7 +188,15 @@ final class CatalogDB {
         }
         let order: String
         switch sort {
-        case .popular:      order = "i.popularityScore DESC, i.imdbVotes DESC"
+        case .popular:
+            // Designed (professional) artwork leads, then popularity. Series
+            // cards have NULL popularityScore, so episodesCount breaks their
+            // ties — the deepest shows surface first.
+            order = """
+                (i.hasRealArtwork = 1 AND COALESCE(i.artworkSource,'') != 'generated') DESC, \
+                COALESCE(i.popularityScore, 0) DESC, \
+                COALESCE(i.episodesCount, 0) DESC, i.imdbVotes DESC
+                """
         case .alphabetical: order = "i.title COLLATE NOCASE ASC"
         case .newest:       order = "i.year DESC"
         case .oldest:       order = "i.year ASC"
@@ -245,11 +263,17 @@ final class CatalogDB {
     /// is loaded. Mirrors browse()'s WHERE exactly.
     func browseCount(contentType: String? = nil, decade: Int? = nil,
                      genre: String? = nil, year: Int? = nil) -> Int {
-        var where_ = ["i.contentType != 'tv-series'"]
+        // Same explicit-tv-series rule as browseSQL (see comment there).
+        var where_: [String] = []
+        var binds: [String] = []
+        if contentType == "tv-series" {
+            where_.append("i.contentType = 'tv-series'")
+        } else {
+            where_.append("i.contentType != 'tv-series'")
+            if let contentType { where_.append("i.contentType = ?"); binds.append(contentType) }
+        }
         if hideAdult { where_.append("i.isAdult = 0") }
         if contentType != "commercial" { where_.append("i.contentType != 'commercial'") }
-        var binds: [String] = []
-        if let contentType { where_.append("i.contentType = ?"); binds.append(contentType) }
         if let decade { where_.append("i.decade = \(decade)") }
         if let year { where_.append("i.year = \(year)") }
         var join = ""

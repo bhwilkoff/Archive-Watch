@@ -413,6 +413,12 @@ struct ShelfRow: View {
 struct CategoryTilesRow: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
+    @State private var categories: [Featured.Category] = []
+
+    // A category tile must open a real browsing surface — a tile with a
+    // handful of items (the classifier emits almost no "documentary") reads
+    // as broken (owner report 2026-06-11). Same gate as iOS.
+    private let minCount = 30
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -423,7 +429,7 @@ struct CategoryTilesRow: View {
 
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 20) {
-                    ForEach(store.featured?.categories ?? []) { cat in
+                    ForEach(categories) { cat in
                         Button { router.push(BrowseFilter(category: cat.id)) } label: {
                             CategoryTile(category: cat)
                         }
@@ -435,6 +441,10 @@ struct CategoryTilesRow: View {
             }
         }
         .focusSection()
+        .task(id: store.dbGeneration) {
+            categories = (store.featured?.categories ?? [])
+                .filter { (store.db?.browseCount(contentType: $0.id) ?? 0) >= minCount }
+        }
     }
 }
 

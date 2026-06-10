@@ -233,6 +233,26 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-11 (later) — Era row to bottom; Browse-by-Category fixed everywhere
+App 1.2.18 (b31), both sims green. Owner: "the Classic TV category contains
+no items and there are a few others with very few or poor quality titles."
+- **Classic TV was empty on BOTH apps**: `CatalogDB.browseSQL/browseCount`
+  unconditionally excluded `tv-series` THEN appended `contentType =
+  'tv-series'` for the category filter — contradictory WHERE → 0 rows. Now
+  an explicit tv-series request browses the 218 SERIES CARDS (routing to
+  SeriesDetail already existed on both platforms).
+- **Popular sort is designed-art-first** everywhere browse is used:
+  `(hasRealArtwork AND artworkSource != 'generated') DESC, popularity DESC,
+  episodesCount DESC` — series cards have NULL popularity, so episode depth
+  breaks ties (SNL/Four Star Playhouse lead). SQL-verified against the DB.
+- **Category tiles count-gated (≥30)** on iOS + tvOS — documentary (4 items
+  total!) no longer shows a dead tile.
+- **iOS Home: decade tiles moved to LAST row** (tvOS parity); iOS-DESIGN
+  §5.1 amended + new §5.1b (robust-category rule).
+- NOTED for the pipeline: top "newsreels" include misclassified modern items
+  (e.g. council-meeting uploads tagged newsreel) — a contentType remediate
+  rule, not an app fix.
+
 ### 2026-06-11 — CloudKit sync root-caused + rewritten; Detail width-overflow fixed
 App 1.2.17 (build 30), iOS + tvOS sims green.
 - **Why sync NEVER worked** (owner tested iPhone↔Apple TV, nothing synced):

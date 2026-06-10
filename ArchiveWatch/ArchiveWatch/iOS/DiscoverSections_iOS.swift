@@ -103,6 +103,12 @@ struct FilteredGridView: View {
 struct CategoryTilesRow: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
+    @State private var categories: [Featured.Category] = []
+
+    // A category tile must open a real browsing surface — a tile with a
+    // handful of items (the classifier emits almost no "documentary") reads
+    // as broken (owner report 2026-06-11).
+    private let minCount = 30
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -110,7 +116,7 @@ struct CategoryTilesRow: View {
                 .padding(.horizontal)
             ScrollView(.horizontal) {
                 LazyHStack(spacing: 12) {
-                    ForEach(visibleCategories) { cat in
+                    ForEach(categories) { cat in
                         Button {
                             router.homePath.append(BrowseFilterRoute(
                                 title: cat.displayName, contentType: cat.id))
@@ -122,10 +128,11 @@ struct CategoryTilesRow: View {
             }
             .scrollIndicators(.hidden)
         }
-    }
-
-    private var visibleCategories: [Featured.Category] {
-        (store.featured?.categories ?? []).filter { !store.hiddenCategories.contains($0.id) }
+        .task(id: store.dbVersion) {
+            categories = (store.featured?.categories ?? [])
+                .filter { !store.hiddenCategories.contains($0.id) }
+                .filter { store.browseCount(contentType: $0.id) >= minCount }
+        }
     }
 }
 

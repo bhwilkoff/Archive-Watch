@@ -194,10 +194,19 @@ per-view caches or third-party loaders.
 
 ## §5 — Home composition (binding)
 
-5.1 **The order is fixed:** hero carousel → Modes row → Continue Watching →
-category tiles → decade tiles → first two featured shelves → Hidden Gems →
-Public Domain Day → director shelves → remaining featured shelves. Inserting
-a section means amending this rule, not appending wherever.
+5.1 **The order is fixed:** hero carousel → Continue Watching → category
+tiles → first two featured shelves → Hidden Gems → Public Domain Day →
+director shelves → remaining featured shelves → decade tiles (last, matching
+tvOS Home — owner direction 2026-06-11; the Modes row was removed 2026-06-10,
+see §2.6). Inserting a section means amending this rule, not appending
+wherever.
+
+5.1b **Category tiles must open robust grids.** A tile only shows when its
+content type has ≥30 browseable items (`browseCount` gate, both platforms —
+the classifier emits almost no "documentary", and a near-empty grid reads as
+broken). The grid's Popular sort leads with designed (non-generated) artwork,
+then popularity; the tv-series category browses SERIES CARDS (deepest shows
+first by episode count) and routes to SeriesDetail.
 
 5.2 **Shelves resolve by id through the prebuilt `item_shelves` map**
 (`store.items(forShelf:)`, Decision 017). Never resolve a featured shelf by
