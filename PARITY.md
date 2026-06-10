@@ -11,6 +11,15 @@
 ## Legend
 - ✅ **Shipped** · 🚧 **In progress** · ⏳ **Planned (committed)** · 🔮 **Future (agreed, no date)** · 🚫 **Out of scope (with reason)** · n/a **platform-inapplicable**
 
+> **iOS Phase 1+2 (2026-06-09): COMPLETE.** The P1/P2 parity gaps closed in the
+> 2026-06-09 autonomous wave: Home discovery (category/decade tiles → generic
+> filtered grid, Hidden Gems, Director shelves, Public Domain Day shelf, Modes
+> row), Surprise grid + Public Domain Day explorer, Channels touch guide
+> (shared date-seeded ChannelScheduler, join-in-progress, commercial breaks,
+> create/delete user channels), Cartoon Mode, playlists (add/create/delete),
+> manual prev/next episode controls, hide-watched + per-category Settings
+> toggles. iOS + tvOS both build green; on-device spot-checks owner-pending.
+>
 > **iOS Phase 1 (2026-06): COMPLETE.** The tvOS Xcode project was converted to a
 > **universal app target** (iOS + tvOS from one target via `#if os` guards) plus a new
 > iOS-only **WidgetKit** extension target; the iPhone build **runs on the iOS 26
@@ -48,13 +57,13 @@ this table in the same change set; cross-link the platform design doc.
 |---|---|---|---|---|---|
 | Hero / featured banner | ✅ focus carousel | ✅ paged `TabView` carousel (touch swipe, 7s auto-advance) | ⏳ scroll-snap carousel | ⏳ `HorizontalPager` | Same pool/logic; 10-foot sizing → touch sizing |
 | Curated + dynamic shelves | ✅ | ✅ horizontal rows, item_shelves-resolved + cross-shelf dedup | ⏳ horizontal scroll rows | ⏳ `LazyRow`s | `featured.json` shared verbatim |
-| Category tiles | ✅ | ⏳ | ⏳ | ⏳ | accent colors from `featured.json` |
-| Decade tiles | ✅ | ⏳ | ⏳ | ⏳ | |
-| Hidden Gems shelf | ✅ | ⏳ | ⏳ | ⏳ | shared query |
-| Director shelves | ✅ | ⏳ | ⏳ | ⏳ | shared query |
+| Category tiles | ✅ | ✅ tile row → filtered grid | ⏳ | ⏳ | accent colors from `featured.json` |
+| Decade tiles | ✅ | ✅ era tiles + counts | ⏳ | ⏳ | |
+| Hidden Gems shelf | ✅ | ✅ | ⏳ | ⏳ | shared query |
+| Director shelves | ✅ | ✅ | ⏳ | ⏳ | shared query |
 | Continue Watching | ✅ | ✅ | ⏳ | ⏳ | progress store (see §6) |
-| Modes row | ✅ | ⏳ | ⏳ | ⏳ | links to §5 |
-| Public Domain Day section | ✅ | ⏳ | ⏳ | ⏳ | seasonal, shared |
+| Modes row | ✅ | ✅ capsule row (Channels/Surprise/Cartoon/PD Day) | ⏳ | ⏳ | links to §5 |
+| Public Domain Day section | ✅ | ✅ Home shelf + year-chip explorer | ⏳ | ⏳ | seasonal, shared |
 
 ## 3. Discover — Movies / TV / Collections / Search
 
@@ -63,7 +72,7 @@ this table in the same change set; cross-link the platform design doc.
 | Movies grid + facets + sort | ✅ | ✅ `LazyVGrid` + scope picker + `Menu` facets | ⏳ CSS grid + `<button>` chips + URL params | ⏳ `LazyVerticalGrid` + `FilterChip` + `DropdownMenu` | shared `CatalogDB.browse`; Browse scope = Films/TV/Collections |
 | Infinite scroll / paging | ✅ | ✅ `.onAppear` paging | ⏳ IntersectionObserver | ⏳ paging on scroll | |
 | TV series → season → episode | ✅ | ✅ series grid → `SeriesDetailView` (SeriesStore) → episode play | ⏳ | ⏳ | `series/*.json` shared |
-| Prev/next episode in player | ✅ | 🚧 auto-advance to next episode (binge); manual prev/next buttons pending | ⏳ | ⏳ | EpisodeQueue swaps next on end |
+| Prev/next episode in player | ✅ | ✅ overlay capsule + binge auto-advance | ⏳ | ⏳ | EpisodeQueue swaps next on end |
 | Collections landing + blurbs | ✅ | ✅ `CollectionMetadata` list → `CollectionGridView` | ⏳ | ⏳ | `collection_metadata.json` shared |
 | Full-text search (FTS5) | ✅ | ✅ `.searchable` | ⏳ `sql.js-httpvfs` FTS5 over range requests | ⏳ `SearchBar` | same FTS5 index in `catalog.sqlite` |
 
@@ -85,10 +94,10 @@ this table in the same change set; cross-link the platform design doc.
 
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
-| Surprise / random actions | ✅ | ✅ shuffle button in Home nav bar → random Detail | ⏳ | ⏳ | shared random queries |
-| Channels (EPG guide) | ✅ proportional grid | ⏳ touch guide | ⏳ CSS-grid guide | ⏳ Compose lazy guide | `ChannelScheduler` (date-seeded) shared |
-| Create / user channels | ✅ | ⏳ | ⏳ | ⏳ | filter spec shared |
-| Cartoon / Kids mode | ✅ | ⏳ | ⏳ | ⏳ | color/B&W flags shared |
+| Surprise / random actions | ✅ | ✅ Surprise grid (11 tiles, re-roll on tap) | ⏳ | ⏳ | shared random queries |
+| Channels (EPG guide) | ✅ proportional grid | ✅ now/next list guide + day schedule | ⏳ CSS-grid guide | ⏳ Compose lazy guide | `ChannelScheduler` (date-seeded) shared |
+| Create / user channels | ✅ | ✅ Form sheet + swipe-delete (synced) | ⏳ | ⏳ | filter spec shared |
+| Cartoon / Kids mode | ✅ | ✅ characters + themes + marathon | ⏳ | ⏳ | color/B&W flags shared |
 | Party Play (muted) | ✅ | 🔮 (iPad-leaning) | ⏳ | 🔮 (tablet-leaning) | ambient mode; phone de-emphasized |
 | Cover-art screensaver | ✅ + idle trigger | 🔮 ambient (iPad) | ⏳ ambient (desktop) | 🔮 ambient (tablet) | idle auto-trigger is a 10-foot/lean-back idiom |
 | VHS effect overlay | ✅ Metal | 🔮 Metal (reuse) | 🔮 WebGL/CSS | 🔮 AGSL `RenderEffect` | optional polish; per-platform shader |
@@ -98,8 +107,8 @@ this table in the same change set; cross-link the platform design doc.
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
 | Favorites | ✅ | ✅ Detail heart + Library | ⏳ | ⏳ | local store per platform |
-| Playlists | ✅ | 🚧 Library (UI present) | ⏳ | ⏳ | |
-| Watched / hide-watched | ✅ | 🚧 Library Watched; Home hide-watched pending | ⏳ | ⏳ | |
+| Playlists | ✅ | ✅ add/create sheet + swipe-delete | ⏳ | ⏳ | |
+| Watched / hide-watched | ✅ | ✅ Watched tab + hide-watched toggle | ⏳ | ⏳ | |
 | Continue Watching progress | ✅ | ✅ | ⏳ | ⏳ | |
 | Local persistence (offline-first) | ✅ SwiftData | ✅ SwiftData (reuse) | ⏳ IndexedDB | ⏳ Room + DataStore | |
 | Per-ecosystem sync (own cloud) | ✅ CloudKit | 🚧 CloudKit reuse (UI + sync-on-launch/sign-in shipped; on-device cross-device verify owner-pending) | ⏳ Google Drive App Data (web↔web) | ⏳ Google Drive App Data (device↔device) | Decided: each island on the user's own free cloud, no backend (plan §6) |
@@ -110,8 +119,8 @@ this table in the same change set; cross-link the platform design doc.
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
 | Mature-content filter (default ON) | ✅ | ✅ Settings toggle (cog → sheet) | ⏳ | ⏳ | `isAdult` flag baked into catalog (Decision 012/adult pass) |
-| Category visibility toggles | ✅ | ⏳ | ⏳ | ⏳ | |
-| Autoplay/playback options | ✅ | ⏳ | ⏳ | ⏳ | |
+| Category visibility toggles | ✅ | ✅ | ⏳ | ⏳ | |
+| Autoplay/playback options | ✅ | ✅ autoplay-next picker | ⏳ | ⏳ | |
 | TMDb attribution (required) | ✅ | ✅ verbatim notice | ⏳ | ⏳ | Decision 007 — verbatim notice all platforms |
 | Donate to Internet Archive | ✅ | ✅ | ⏳ | ⏳ | Decision 010 |
 | Sign-in (sync gate, optional) | ✅ Sign in w/ Apple | ✅ Sign in w/ Apple (Settings → Account & Sync) | ⏳ Sign in w/ Google (Drive App Data) | ⏳ Sign in w/ Google (Drive App Data) | only gates sync; browse/play always work offline-first |
