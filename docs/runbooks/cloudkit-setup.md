@@ -1,5 +1,28 @@
 # CloudKit + Sign in with Apple setup (#11, Decision 022)
 
+> **2026-06-11 rewrite — why sync never worked, and the new shape.** The
+> original design stored one CKRecord per favorite/playlist/progress row and
+> pulled with `CKQuery(predicate: NSPredicate(value: true))`. That query needs
+> a QUERYABLE INDEX on `recordName`, which CloudKit never creates by itself —
+> every pull failed ("recordName is not marked queryable") and the silent
+> catch hid it: pushes worked, pulls returned nothing, devices never converged.
+> The service now uses four FIXED-ID records of one type (`AWSync` /
+> `tombstones|favorites|playlists|progress`, JSON payloads) fetched directly
+> by record ID — no queries, no indexes, same merge semantics. Sync errors are
+> now SURFACED in Settings → Account ("Last sync" / error line + Sync Now).
+>
+> **NEW ONE-TIME OWNER STEP — deploy the schema to Production.** TestFlight /
+> App Store builds talk to the PRODUCTION CloudKit environment, which never
+> auto-creates record types (only Xcode-run Development builds do, just-in-
+> time). After running any dev build once while signed in: CloudKit Dashboard
+> (icloud.developer.apple.com) → container `iCloud.app.archivewatch.tvos` →
+> Schema → **Deploy Schema Changes…** to Production. Until that's done, every
+> TestFlight build shows "CloudKit schema/container problem" under Settings →
+> Account. Also note: an Xcode-installed device build (Development) and a
+> TestFlight build (Production) are in DIFFERENT environments and will never
+> see each other's data — test cross-device sync with builds from the same
+> channel.
+
 The code for cross-Apple-TV sync ships **gated off** so the simulator build stays
 clean (accessing `CKContainer` without the entitlement traps). To turn it on, the
 owner does these one-time steps on a Mac with the Apple Developer account, then

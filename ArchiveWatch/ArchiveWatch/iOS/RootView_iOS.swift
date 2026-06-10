@@ -11,6 +11,7 @@ struct RootView: View {
     @Environment(AccountStore.self) private var account
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.modelContext) private var modelContext
+    @State private var startItemOpened = false
     private let inbox = IntentInbox.shared
 
     var body: some View {
@@ -50,12 +51,16 @@ struct RootView: View {
             // Screenshot/dev affordance (the tvOS RootView hooks, iOS twin):
             // AW_START_TAB=channels lands on a tab, AW_START_ITEM=<archiveID>
             // deep-opens that Detail. No-ops unless the env vars are set.
-            .task {
+            // Re-runs on dbVersion so an item only in the FULL catalog (not the
+            // bundled seed) opens once the downloaded DB swaps in.
+            .task(id: store.dbVersion) {
                 let env = ProcessInfo.processInfo.environment
                 if let raw = env["AW_START_TAB"], let t = Router.Tab(rawValue: raw) {
                     router.tab = t
                 }
-                if let id = env["AW_START_ITEM"], let item = store.item(id) {
+                if !startItemOpened, let id = env["AW_START_ITEM"],
+                   let item = store.item(id) {
+                    startItemOpened = true
                     router.openDetail(item)
                 }
             }

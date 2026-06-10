@@ -84,6 +84,19 @@ struct SettingsView: View {
                 } label: {
                     Label("Apple ID", systemImage: "person.crop.circle.fill.badge.checkmark")
                 }
+                // Sync status + manual kick — a failing sync must be visible,
+                // not swallowed (the old silent catch hid a never-working pull).
+                if let err = CloudKitSyncService.shared.lastError {
+                    Label(err, systemImage: "exclamationmark.triangle.fill")
+                        .font(.footnote).foregroundStyle(.orange)
+                } else if let at = CloudKitSyncService.shared.lastSyncAt {
+                    LabeledContent("Last sync") {
+                        Text(at, format: .relative(presentation: .named))
+                    }
+                }
+                Button("Sync Now") {
+                    Task { await CloudKitSyncService.shared.sync(ctx) }
+                }
                 Button(role: .destructive) { account.signOut() } label: { Text("Sign Out") }
                 // App Review 5.1.1(v): account creation requires in-app deletion.
                 Button(role: .destructive) { showDeleteAccount = true } label: { Text("Delete Account") }

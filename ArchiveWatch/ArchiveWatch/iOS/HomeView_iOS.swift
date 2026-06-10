@@ -183,9 +183,15 @@ private struct HeroCarousel: View {
     }
 
     private func card(_ item: Catalog.Item) -> some View {
-        PosterImage(url: item.backdropURLParsed ?? item.posterURLParsed)
+        // Art as .background — a fill image reports its COVER size and a
+        // maxWidth:.infinity frame adopts it, widening the carousel past the
+        // screen (same bug class as DetailHero; see that comment).
+        Color.clear
             .frame(maxWidth: cardMaxWidth ?? .infinity)
             .frame(height: cardHeight)
+            .background {
+                PosterImage(url: item.backdropURLParsed ?? item.posterURLParsed)
+            }
             .clipShape(.rect(cornerRadius: 16))
             .overlay(alignment: .bottomLeading) {
                 VStack(alignment: .leading, spacing: 2) {

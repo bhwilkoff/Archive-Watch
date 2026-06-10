@@ -94,6 +94,22 @@ struct SettingsView: View {
                     Label("Apple ID", systemImage: "person.crop.circle.fill.badge.checkmark")
                         .foregroundStyle(.white)
                 }
+                // Sync status + manual kick — a failing sync must be visible,
+                // not swallowed (the old silent catch hid a never-working pull).
+                if let err = CloudKitSyncService.shared.lastError {
+                    Label(err, systemImage: "exclamationmark.triangle.fill")
+                        .font(.callout).foregroundStyle(.orange)
+                } else if let at = CloudKitSyncService.shared.lastSyncAt {
+                    LabeledContent {
+                        Text(at, format: .relative(presentation: .named))
+                            .foregroundStyle(.white.opacity(0.6))
+                    } label: {
+                        Text("Last sync").foregroundStyle(.white)
+                    }
+                }
+                Button("Sync Now") {
+                    Task { await CloudKitSyncService.shared.sync(modelContext) }
+                }
                 Button(role: .destructive) { account.signOut() } label: {
                     Text("Sign Out")
                 }

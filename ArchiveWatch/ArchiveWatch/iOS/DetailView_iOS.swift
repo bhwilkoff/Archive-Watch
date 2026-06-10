@@ -133,21 +133,25 @@ private struct DetailHero: View {
     private var height: CGFloat { hSize == .regular ? 460 : 340 }
 
     var body: some View {
-        ZStack {
-            PosterImage(url: backdrop ?? poster)        // ambient (cropped is fine, it's blurred)
-                .frame(maxWidth: .infinity)
-                .frame(height: height)
-                .clipped()
-                .blur(radius: 28)
-                .overlay(Color.black.opacity(0.45))
-            PosterImage(url: poster ?? backdrop, contentMode: .fit)
-                .frame(height: height - 32)             // explicit frame: fit math is deterministic
-                .clipShape(.rect(cornerRadius: 12))
-                .shadow(color: .black.opacity(0.5), radius: 14, y: 6)
-        }
-        .frame(maxWidth: .infinity)
-        .frame(height: height)
-        .clipped()
+        PosterImage(url: poster ?? backdrop, contentMode: .fit)
+            .frame(height: height - 32)
+            .clipShape(.rect(cornerRadius: 12))
+            .shadow(color: .black.opacity(0.5), radius: 14, y: 6)
+            .frame(maxWidth: .infinity)
+            .frame(height: height)
+            // Ambient fill MUST be a .background: a fill-mode image reports its
+            // COVER size (not the proposal) and frame(maxWidth:.infinity) adopts
+            // an oversized child — a 16:9 backdrop covering this 340pt hero
+            // reported 604pt wide and dragged the whole Detail column off both
+            // screen edges (owner screenshot 2026-06-10; poster-only items were
+            // unaffected, which is why it was intermittent). A background can
+            // never influence layout; the overflow just gets clipped.
+            .background {
+                PosterImage(url: backdrop ?? poster)
+                    .blur(radius: 28)
+                    .overlay(Color.black.opacity(0.45))
+            }
+            .clipped()
     }
 }
 

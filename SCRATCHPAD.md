@@ -233,6 +233,34 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-11 — CloudKit sync root-caused + rewritten; Detail width-overflow fixed
+App 1.2.17 (build 30), iOS + tvOS sims green.
+- **Why sync NEVER worked** (owner tested iPhone↔Apple TV, nothing synced):
+  pulls used `CKQuery(NSPredicate(value: true))`, which requires a queryable
+  index on `recordName` that CloudKit never auto-creates — every pull failed
+  "recordName is not marked queryable" and the silent catch hid it. Pushes
+  worked; devices never converged. REWRITTEN: four fixed-ID records, one type
+  (`AWSync` / tombstones·favorites·playlists·progress, JSON payloads),
+  fetched by record ID — no queries, no indexes; merge semantics unchanged
+  (tombstones → union favs → LWW playlists/progress). Sync status is now
+  @Observable + surfaced in Settings→Account (Last sync / error / Sync Now)
+  on BOTH platforms — never silent again. OWNER STEP REMAINING: run a dev
+  build signed-in once, then CloudKit Dashboard → Deploy Schema Changes to
+  Production (TestFlight talks to Production, which never JIT-creates types);
+  also don't mix Xcode-installed (Dev env) with TestFlight (Prod env) builds
+  when testing cross-device. Runbook updated.
+- **Detail view "often not rendering correctly"** (owner screenshot: text
+  clipped off both edges): reproduced via AW_START_ITEM + diagnosed with
+  temporary width probes — a fill-mode AsyncImage reports its COVER size and
+  `frame(maxWidth:.infinity)` ADOPTS the oversized child; items WITH a 16:9
+  backdrop blew the hero to 604pt on a 402pt screen (poster-only items were
+  fine → intermittent). Fix: ambient/hero art moved to `.background` (can't
+  influence layout) in DetailHero + Home HeroCarousel. Probes removed.
+  PATTERN for the playbook: never put a fill-mode image in a
+  maxWidth:.infinity frame; use .background + .clipped().
+- AW_START_ITEM hook now retries on dbVersion (items beyond the seed open
+  once the full DB swaps in).
+
 ### 2026-06-10 (late) — iPhone/iPad wave: Channels tab, contrast audit, tappable cast, live sync, framed posters, search filters
 Owner's 7-item iOS punch list, all sim-verified (iPhone 17 Pro + iPad Pro 11"
 26.5; tvOS re-verified green). App 1.2.16 (build 29). iOS-DESIGN §2.1 amended
