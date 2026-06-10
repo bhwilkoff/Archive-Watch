@@ -68,6 +68,8 @@ extension View {
             .navigationDestination(for: SeriesRef.self) { SeriesDetailView(card: $0.card) }
             .navigationDestination(for: CollectionRef.self) { CollectionGridView(ref: $0) }
             .navigationDestination(for: BrowseFilterRoute.self) { FilteredGridView(route: $0) }
+            .navigationDestination(for: SurpriseRoute.self) { _ in SurpriseView() }
+            .navigationDestination(for: PublicDomainRoute.self) { _ in PublicDomainView() }
     }
 }
 

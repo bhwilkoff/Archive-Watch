@@ -33,15 +33,18 @@ final class Router {
     var searchPath = NavigationPath()
     var libraryPath = NavigationPath()
 
-    /// Route any catalog item to Detail from whichever tab is active.
-    func openDetail(_ item: Catalog.Item) {
+    /// Push any registered destination onto the active tab's stack.
+    func push<V: Hashable>(_ value: V) {
         switch tab {
-        case .home: homePath.append(item)
-        case .browse: browsePath.append(item)
-        case .search: searchPath.append(item)
-        case .library: libraryPath.append(item)
+        case .home: homePath.append(value)
+        case .browse: browsePath.append(value)
+        case .search: searchPath.append(value)
+        case .library: libraryPath.append(value)
         }
     }
+
+    /// Route any catalog item to Detail from whichever tab is active.
+    func openDetail(_ item: Catalog.Item) { push(item) }
 }
 
 #endif
