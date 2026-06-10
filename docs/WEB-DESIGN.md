@@ -70,10 +70,16 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
 - **§4.1 Home** = the Marquee hero + featured shelves
   (horizontal scroll-snap rails). Order follows `featured.json`; items are
   **cross-shelf deduped** (first shelf claims the item — the apps' Home rule),
-  shelves under 4 items are dropped, and the hero pool (top-300 designed)
-  and every shelf are **shuffled fresh per visit** — Home is never the same
-  twice (owner direction 2026-06-10; deliberately fresher than the apps'
-  daily rotation). **Home shows designed artwork ONLY** — the front
+  shelves under 4 items are dropped, and the hero pool (top-300) and every
+  shelf are **shuffled fresh per visit** — Home is never the same twice
+  (owner direction 2026-06-10; deliberately fresher than the apps' daily
+  rotation). **Home admits PROFESSIONAL artwork only** (the index's `pro`
+  flag — designed posters, never generated frame covers or archive thumbs);
+  **TV shelves surface SERIES cards** (TVDB/TVmaze posters, decade parsed
+  from the shelf id, tap → episodes) instead of frame-grab tv-specials.
+  Shelves that can't field 4 professional posters fall off Home (their
+  titles remain in Browse/Search) — Editor's Picks included, until its
+  picks carry designed art. **Home shows designed artwork ONLY** — the front
   door is curated visuals; archive-thumb items remain fully reachable in
   Browse/Search (owner direction, 2026-06-10).
 - **§4.2 Browse** = type chips + decade/sort selects + infinite-scroll grid

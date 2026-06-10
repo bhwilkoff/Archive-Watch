@@ -96,21 +96,39 @@
       return (row && row[4]) || API.thumbnailURL(row ? row[0] : '');
     },
 
+    /** Professional artwork (the apps' hasProfessionalArtwork): designed
+        poster, NOT a generated frame cover. Schema-3 rows (no pro column)
+        degrade to designed-art. Home admits only these. */
+    isPro(row) {
+      return row[5] === 1 || (row[5] === undefined && !!row[4]);
+    },
+
     /** Resolve a featured.json shelf through the index's editorial shelves
         map — the same curated item_shelves assignments the apps query, so
         Home inherits the rights audit + adult filter and every shelf has its
         own identity (live scrape did neither; see WEB-DESIGN §2.3). Shuffled
         fresh per visit, designed artwork leading. */
     shelfRows(shelf, limit = 16) {
+      // TV shelves surface SERIES cards (professional TVDB/TVmaze posters,
+      // tap → episodes), not individual tv-specials whose art is frame
+      // grabs — the item-level pro coverage measured 1–10 per shelf
+      // (owner direction 2026-06-10: pull the show poster).
+      if (shelf.category === 'tv-series') {
+        const m = shelf.id.match(/(\d{4})s?$/);
+        const decade = m ? Number(m[1]) : null;
+        const cards = this.rows.filter(r => r[3] === 'tv-series' && this.isPro(r)
+          && (!decade || (r[2] && r[2] >= decade && r[2] < decade + 10)));
+        return shuffle(cards).slice(0, limit);
+      }
       let rows;
       if (shelf.type === 'curated' && Array.isArray(shelf.items)) {
         rows = shelf.items.map(i => this.byID.get(i.archiveID)).filter(Boolean);
       } else {
         rows = (this.shelves[shelf.id] || []).map(id => this.byID.get(id)).filter(Boolean);
       }
-      const designed = shuffle(rows.filter(r => r[4]));
-      const plain = shuffle(rows.filter(r => !r[4]));
-      return designed.concat(plain).slice(0, limit);
+      const pro = shuffle(rows.filter(r => this.isPro(r)));
+      const rest = shuffle(rows.filter(r => !this.isPro(r)));
+      return pro.concat(rest).slice(0, limit);
     },
   };
 
@@ -276,7 +294,7 @@
       const used = new Set(heroIDs);
       for (const shelf of Data.featured?.shelves || []) {
         const rows = Data.shelfRows(shelf, 32)
-          .filter(r => r[4] && !used.has(r[0])).slice(0, 16);
+          .filter(r => Data.isPro(r) && !used.has(r[0])).slice(0, 16);
         if (rows.length < 4) continue;
         rows.forEach(r => used.add(r[0]));
         const sec = document.createElement('section');
@@ -303,7 +321,7 @@
     hero() {
       // A wide pre-screened pool (designed art, popularity-ranked) dealt
       // randomly per visit — the hero is different every time.
-      const pool = shuffle(Data.rows.filter(r => r[4]).slice(0, 300)).slice(0, 6);
+      const pool = shuffle(Data.rows.filter(r => Data.isPro(r)).slice(0, 300)).slice(0, 6);
       if (!pool.length) return [];
       const el = $('hero');
       const rail = $('hero-rail');

@@ -62,8 +62,13 @@ def main():
         poster = it.get("posterURL")
         if poster and "archive.org/services/img" in poster:
             poster = None          # derivable from the id; don't bloat the index
+        # Professional art only (the apps' hasProfessionalArtwork): a designed
+        # poster from TMDb/TVDB/Wikidata/etc — NOT a generated frame cover
+        # (Decision 023) and not an archive thumb. Home shows pro art only.
+        pro = 1 if (poster and it.get("artworkSource")
+                    not in (None, "archive", "generated")) else 0
         rows.append([aid, it.get("title") or aid, it.get("year"),
-                     it.get("contentType") or "", poster])
+                     it.get("contentType") or "", poster, pro])
         # Editorial shelf membership (the item_shelves analog) — so the web
         # viewer composes Home from the SAME curated assignments as the apps
         # instead of live scrape (which bypasses the rights/adult pipeline).
@@ -83,10 +88,10 @@ def main():
     }
 
     out = {
-        "schema": 3,
+        "schema": 4,
         "updatedAt": catalog.get("updatedAt") or "",
         "count": len(rows),
-        "fields": ["id", "title", "year", "contentType", "poster"],
+        "fields": ["id", "title", "year", "contentType", "poster", "pro"],
         "shelves": shelves,
         "items": rows,
     }
