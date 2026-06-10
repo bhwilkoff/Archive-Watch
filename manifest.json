@@ -1,12 +1,14 @@
 {
   "name": "Archive Watch",
   "short_name": "Archive Watch",
-  "description": "Suggest & curate public-domain cinema for the Archive Watch Apple TV app.",
-  "start_url": "/Archive-Watch/",
+  "description": "A cinematheque for the Internet Archive — watch public-domain films, classic TV, silent cinema, animation, and newsreels.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#0A0A0A",
-  "theme_color": "#FF5C35",
+  "theme_color": "#0A0A0A",
   "icons": [
-    { "src": "assets/app-icon/favicon.png", "sizes": "256x256", "type": "image/png" }
+    { "src": "assets/app-icon/favicon.png", "sizes": "256x256", "type": "image/png", "purpose": "any" }
   ]
 }

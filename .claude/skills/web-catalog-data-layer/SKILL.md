@@ -9,7 +9,7 @@ description: Use when touching the web viewer's data access (/watch/), adding a 
 
 | Host | Ranged GET | CORS for `fetch()` | Usable from browser JS? |
 |---|---|---|---|
-| GitHub Pages (`bhwilkoff.github.io`) | **206** | **yes `*`** | ✅ the only fetchable catalog host |
+| GitHub Pages (`archivewatch.org`) | **206** | **yes `*`** | ✅ the only fetchable catalog host |
 | GitHub Release assets | 206 | none | ❌ (native apps only) |
 | `archive.org/download/*` (storage nodes) | 206 | none | ❌ for fetch; ✅ for `<img>`/`<video>` (elements skip CORS) |
 | `archive.org/metadata/*`, scrape API | — | yes `*` | ✅ |

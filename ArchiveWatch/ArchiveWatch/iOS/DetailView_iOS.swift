@@ -74,7 +74,7 @@ struct DetailView: View {
         item.runtimeSeconds.map { "Play · \($0/60) min" } ?? "Play"
     }
     private var shareURL: URL {
-        URL(string: "https://bhwilkoff.github.io/Archive-Watch/item/\(item.archiveID)")!
+        URL(string: "https://archivewatch.org/item/\(item.archiveID)")!
     }
 
     private func toggleFavorite() {

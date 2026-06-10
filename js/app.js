@@ -136,7 +136,7 @@
 
   async function loadRemote() {
     try {
-      const resp = await fetch('featured.json?ts=' + Date.now());
+      const resp = await fetch('/featured.json?ts=' + Date.now());
       if (!resp.ok) throw new Error(`featured.json HTTP ${resp.status}`);
       data = await resp.json();
       activeShelfIndex = -1;
@@ -677,7 +677,7 @@
     const status = $('catalog-count');
     if (status) status.textContent = 'Loading the catalog…';
     try {
-      const resp = await fetch('catalog-index.json?ts=' + Date.now());
+      const resp = await fetch('/catalog-index.json?ts=' + Date.now());
       if (!resp.ok) throw new Error('HTTP ' + resp.status);
       catalogIndex = await resp.json();
       runCatalogSearch();

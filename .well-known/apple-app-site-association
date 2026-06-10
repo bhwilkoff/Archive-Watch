@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["L2G756LY8N.app.archivewatch.tvos"],
+        "components": [
+          { "/": "/item/*", "comment": "open a title's Detail in the app" },
+          { "/": "/series/*", "comment": "open a series in the app" }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": ["L2G756LY8N.app.archivewatch.tvos"]
+  }
+}

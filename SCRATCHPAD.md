@@ -233,6 +233,26 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-10 — archivewatch.org goes live: viewer at root, curator at /curate/
+Owner purchased archivewatch.org + pointed Pages at it (CNAME committed).
+Restructured per Decision 030: the consumer viewer moved /watch/ → site ROOT
+(index.html + watch.js/.css + sw.js + manifest at /, SEO/OG meta added); the
+editorial dashboard moved root → /curate/ (assets via ../, js/app.js fetches
+featured/catalog-index root-absolute; its own manifest). 404.html forwards
+/item/{id}, /series/{id}, and legacy /watch/* (GitHub 301s the old
+bhwilkoff.github.io/Archive-Watch/* URLs to the apex, hash intact). App share
+URLs + SeriesStore now use archivewatch.org. Universal Links UNBLOCKED: AASA
+for L2G756LY8N.app.archivewatch.tvos (/item/*, /series/*) ships at
+/.well-known/ — owner step remaining: add the Associated Domains capability
+(applinks:archivewatch.org) in Xcode (kept out of entitlements to protect
+in-flight signing). robots.txt added. Earlier same day: Marquee responsive
+hero (container-query fluid, WEB-DESIGN §4.7), working TV series surface
+(§4.8 — series: ids were hitting the archive.org metadata API and failing),
+editorial shelves map in catalog-index (schema 3, Decision 029 amendment —
+live scrape was returning identical unvetted lists), brand logo + footer
+chrome. Owner ASC follow-up: update marketing/support URLs to
+archivewatch.org.
+
 ### 2026-06-09 (later) — Autonomous all-platform buildout: iOS P1/P2 closed, Web PWA live, Android P4 shipped
 User: "finish all phases of our buildout for the ArchiveWatch app across all
 platforms that we have documented should receive full parity." All on `main`

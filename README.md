@@ -51,7 +51,8 @@ wander a well-stocked repertory cinema than doomscroll a recommendation feed.
 │   └── ArchiveWatch.xcodeproj      ← the tvOS app (Swift 6 · SwiftUI · SwiftData)
 │       └── ArchiveWatch/           ← App / Models / Views / Components /
 │                                     Networking / Services / Store / Resources
-├── index.html, css/, js/          ← public "Suggest & Curate" web tool (GitHub Pages)
+├── index.html, watch.js/.css     ← archivewatch.org — the web viewer (GitHub Pages root)
+├── curate/, css/, js/             ← public "Suggest & Curate" editorial tool (archivewatch.org/curate/)
 ├── whats-new.html                 ← recent-uploads ticker
 ├── privacy.html, support.html     ← App Store-required pages (hosted on Pages)
 ├── featured.json                  ← curated home shelves + categories (editorial source)
@@ -102,7 +103,7 @@ and merge-guarded so a rebuild can never shrink or clobber the catalog
 
 ## The editorial web tool
 
-The GitHub Pages root is a public **Suggest & Curate** tool:
+The site root (https://archivewatch.org) is the **Archive Watch web viewer**; the public **Suggest & Curate** editorial tool lives at https://archivewatch.org/curate/ :
 
 - **Anyone** can suggest a public-domain title to add (it emails the curator).
 - The **curator** arranges the app's home-screen shelves and searches the full

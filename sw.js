@@ -2,11 +2,11 @@
    Shell: cache-first (instant offline open). Data (catalog index, featured):
    network-first with cache fallback, so the catalog stays fresh online and the
    app still opens with the last-good copy offline. Video is NEVER cached. */
-const SHELL = 'aw-shell-v3';
-const DATA = 'aw-data-v1';
+const SHELL = 'aw-root-shell-v1';
+const DATA = 'aw-root-data-v1';
 const SHELL_URLS = [
-  './', 'index.html', 'watch.css', 'watch.js', 'manifest.json', '../js/api.js',
-  '../assets/app-icon/app-icon.png',
+  './', 'index.html', 'watch.css', 'watch.js', 'manifest.json', 'js/api.js',
+  'assets/app-icon/app-icon.png',
 ];
 
 self.addEventListener('install', e => {
@@ -26,6 +26,7 @@ self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
   if (e.request.method !== 'GET') return;
   if (url.hostname.includes('archive.org')) return;   // media/API straight through
+  if (url.pathname.startsWith('/curate')) return;     // the editorial tool stays live
 
   const isData = url.pathname.endsWith('catalog-index.json')
     || url.pathname.endsWith('featured.json');

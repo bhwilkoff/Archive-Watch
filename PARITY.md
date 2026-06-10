@@ -19,7 +19,7 @@
 > emulator-verified (full 27k catalog on-device). Next wave: Channels, modes,
 > widgets, Drive App Data sync — see docs/ANDROID-DESIGN.md §7.
 >
-> **Web P3 (2026-06-09): SHIPPED + LIVE** at bhwilkoff.github.io/Archive-Watch/watch/
+> **Web P3 (2026-06-09): SHIPPED + LIVE** at archivewatch.org/
 > — Decision 029 data plane, installable PWA, /item share-URL forwarder.
 >
 > **iOS Phase 1+2 (2026-06-09): COMPLETE.** The P1/P2 parity gaps closed in the
@@ -60,7 +60,7 @@ this table in the same change set; cross-link the platform design doc.
 |---|---|---|---|---|---|
 | Top-level nav | ✅ `TabView(.sidebarAdaptable)` | ✅ `TabView(.sidebarAdaptable)` (bottom bar iPhone → sidebar iPad) | ✅ top nav + hash routes (`/watch/`) | ✅ `NavigationSuiteScaffold` + sealed routes | Settings moved off the bar to a Home cog (4 content tabs) |
 | Per-tab back stack | ✅ `NavigationStack` ×tab | ✅ `NavigationStack` ×tab + swipe-back | ✅ hash history (browser back) | ✅ `BackHandler` route stack | |
-| Deep-linkable surfaces | ✅ `archivewatch://` | ✅ scheme (Universal Links blocked: project Pages can't serve root /.well-known) | ✅ canonical URLs + /item 404-forwarder | ✅ `archivewatch://item/{id}` | Web makes every surface a shareable URL |
+| Deep-linkable surfaces | ✅ `archivewatch://` | ✅ scheme; Universal Links UNBLOCKED — AASA live at archivewatch.org/.well-known (owner: add Associated Domains capability, Decision 030) | ✅ archivewatch.org/item/{id} canonical + 404-forwarder | ✅ `archivewatch://item/{id}` | Web makes every surface a shareable URL |
 
 ## 2. Discover — Home
 

@@ -1,0 +1,12 @@
+{
+  "name": "Archive Watch",
+  "short_name": "Archive Watch",
+  "description": "Suggest & curate public-domain cinema for the Archive Watch Apple TV app.",
+  "start_url": "/curate/",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#FF5C35",
+  "icons": [
+    { "src": "../assets/app-icon/favicon.png", "sizes": "256x256", "type": "image/png" }
+  ]
+}

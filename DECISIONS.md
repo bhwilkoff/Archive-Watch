@@ -1017,3 +1017,50 @@ poster column (schema 2; schema-1 rows still decode — additive rule). The
 viewer's share URLs `/Archive-Watch/item/{id}` are now real (404.html forwards
 into the hash router), which retroactively makes the Share buttons shipped in
 the iOS/tvOS apps land somewhere meaningful.
+
+---
+
+## 030 — archivewatch.org is the site root: viewer at /, editorial tool at /curate/
+*Date: 2026-06-10*
+
+The repo's GitHub Pages site now serves the custom apex domain
+**archivewatch.org** (owner purchased + configured it; `CNAME` committed), and
+the site was restructured around it: the consumer web viewer moved from
+`/watch/` to the **site root** (`index.html` + `watch.js`/`watch.css`/`sw.js`/
+`manifest.json` at `/`), and the curator dashboard moved from the root to
+**`/curate/`** (its pages reference the shared `/css`, `/js`, `/assets` with
+`../`, and `js/app.js` fetches `featured.json`/`catalog-index.json`
+root-absolute). `404.html` forwards `/item/{id}`, `/series/{id}`, and legacy
+`/watch/*` (old PWA installs arrive there via GitHub's 301 from
+`bhwilkoff.github.io/Archive-Watch/*`, hash intact) into the viewer's hash
+router. App share URLs now emit `https://archivewatch.org/item/{id}`;
+`SeriesStore` fetches spines from `archivewatch.org/series/`.
+
+**Why**: the product IS "watch Archive.org on the web" — the viewer earns the
+front door, and a memorable apex domain beats a project-page path. The
+restructure also unblocks what the project-page URL could never do: a root
+custom domain can serve `/.well-known/apple-app-site-association`, so
+**Universal Links** (blocked since the iOS wave) become possible — the AASA
+for `L2G756LY8N.app.archivewatch.tvos` (`/item/*`, `/series/*`) now ships on
+the site. Old URLs keep working: GitHub 301-redirects every
+`bhwilkoff.github.io/Archive-Watch/<path>` to `archivewatch.org/<path>`, and
+the 404 forwarder maps retired paths, so links shared from already-installed
+apps never break.
+
+**How to apply**: new share/canonical URLs are always
+`https://archivewatch.org/...` — never the github.io form. Anything that
+serves from Pages is reachable at the apex (`featured.json`, `series/*.json`,
+`catalog-index.json`); native apps may keep `raw.githubusercontent.com` for
+git-pinned fetches. Don't move the viewer's data files out of the repo root —
+the curate tool and viewer both resolve them root-absolute. The viewer's
+service worker must skip `/curate` (the tool stays uncached/live). Completing
+Universal Links needs the owner to add the **Associated Domains** capability
+(`applinks:archivewatch.org`) to the iOS app in Xcode/the developer portal —
+deliberately NOT added to the entitlements here to avoid breaking the
+in-flight signing; the AASA is already live and validated once that lands.
+
+**Consequences**: the App Store listing's marketing/support URLs
+(`docs/app-store-listing.md`) should be updated to archivewatch.org in ASC;
+GitHub Pages enforces HTTPS for the domain (owner should leave "Enforce
+HTTPS" on); `www.archivewatch.org` behavior depends on the owner's DNS
+(CNAME www → apex recommended).

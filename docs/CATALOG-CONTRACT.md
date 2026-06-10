@@ -37,10 +37,10 @@ cloud and is **out of scope** for this contract.
 | `catalog.sqlite` (uncompressed, ~124 MB) | `https://github.com/bhwilkoff/Archive-Watch/releases/download/catalog-db/catalog.sqlite` | Release `catalog-db` | **none** | no 206 |
 | `catalog-manifest.json` | `https://github.com/bhwilkoff/Archive-Watch/releases/download/catalog-db/catalog-manifest.json` | Release `catalog-db` | **none** | — |
 | `catalog.json.gz` (pipeline source, ~20 MB) | `https://github.com/bhwilkoff/Archive-Watch/releases/download/catalog-source/catalog.json.gz` | Release `catalog-source` | **none** | — |
-| `featured.json` | `https://bhwilkoff.github.io/Archive-Watch/featured.json` | GitHub Pages | yes (`*`) | see note |
-| `series/{seriesID}.json` | `https://bhwilkoff.github.io/Archive-Watch/series/{seriesID}.json` | GitHub Pages | yes (`*`) | — |
-| `catalog-index.json` (~2.9 MB) | `https://bhwilkoff.github.io/Archive-Watch/catalog-index.json` | GitHub Pages | yes (`*`) | — |
-| `collection_metadata.json` | bundled per app (repo: `shared/editorial/collection_metadata.json`; also served by Pages under `/Archive-Watch/shared/editorial/`) | repo / Pages | yes (`*`) | — |
+| `featured.json` | `https://archivewatch.org/featured.json` | GitHub Pages | yes (`*`) | see note |
+| `series/{seriesID}.json` | `https://archivewatch.org/series/{seriesID}.json` | GitHub Pages | yes (`*`) | — |
+| `catalog-index.json` (~2.9 MB) | `https://archivewatch.org/catalog-index.json` | GitHub Pages | yes (`*`) | — |
+| `collection_metadata.json` | bundled per app (repo: `shared/editorial/collection_metadata.json`; also served by Pages under `https://archivewatch.org/shared/editorial/`) | repo / Pages | yes (`*`) | — |
 | `seed.sqlite` (first-paint, top ~1,500 + TV + shelf items) | bundled in each app, committed at `ArchiveWatch/ArchiveWatch/seed.sqlite` | app bundle | n/a | n/a |
 
 Notes:
@@ -323,7 +323,7 @@ Fields: `id` (Archive slug, verbatim in queries), `title`, `blurb`,
 Per-show episode spine, version 2. The catalog carries only the series
 *card* (a `Catalog.Item` with `contentType == "tv-series"`); the full
 episode list loads on demand from
-`https://bhwilkoff.github.io/Archive-Watch/series/{seriesID}.json`.
+`https://archivewatch.org/series/{seriesID}.json`.
 **seriesID slugs can contain non-ASCII** (e.g.
 `1973-la-isla-misteriosa-y-el-capitán-nemo-2023`) — percent-encode the path
 component or the fetch 404s (real iOS bug). Cache: memory + disk,

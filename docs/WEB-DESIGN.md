@@ -49,7 +49,7 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   `#/item/{id}`, `#/about`. Filters live in the hash query
   (`#/browse?type=animation&decade=1930&sort=az`) so every filtered view is a
   shareable URL.
-- **§3.2 Canonical share URLs are paths**, `/Archive-Watch/item/{id}` — the
+- **§3.2 Canonical share URLs are paths**, `/item/{id}` — the
   exact URLs the iOS/tvOS Share buttons emit. `404.html` forwards them into
   the hash router. Never change this shape; shipped apps depend on it.
 - **§3.3 One router.** `route()` reads the hash, `showView(name)` toggles
@@ -115,7 +115,7 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
 
 ## §7 PWA + offline
 
-- **§7.1 Installable** from `/watch/manifest.json` (scope `/Archive-Watch/watch/`).
+- **§7.1 Installable** from `/watch/manifest.json` (scope `/ (site root)`).
 - **§7.2 Service worker**: shell cache-first; `catalog-index.json` +
   `featured.json` network-first with last-good fallback; archive.org requests
   pass through untouched.

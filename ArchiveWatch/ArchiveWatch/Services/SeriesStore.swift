@@ -4,7 +4,7 @@ import Foundation
 //
 // The main catalog carries only SeriesCard-level data for each show.
 // When a user opens a series, we fetch its full episode list from
-// https://bhwilkoff.github.io/Archive-Watch/series/{seriesID}.json and
+// https://archivewatch.org/series/{seriesID}.json and
 // cache the decoded Series in-memory for this session + on disk under
 // Application Support for subsequent launches.
 //
@@ -19,7 +19,7 @@ actor SeriesStore {
 
     static let shared = SeriesStore()
 
-    private let baseURL = URL(string: "https://bhwilkoff.github.io/Archive-Watch/series")!
+    private let baseURL = URL(string: "https://archivewatch.org/series")!
     private var inMemory: [String: Series] = [:]
 
     // tvOS only permits writes to Caches / tmp (no Application Support).

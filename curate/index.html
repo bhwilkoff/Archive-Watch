@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archive Watch — Suggest &amp; Curate</title>
+
+  <meta name="description" content="Help shape Archive Watch — suggest public-domain films, classic TV, and cinema to add to the Apple TV app, or curate the home-screen shelves.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Archive Watch">
+  <meta name="theme-color" content="#0A0A0A">
+
+  <link rel="icon" type="image/png" sizes="256x256" href="../assets/app-icon/favicon.png?v=3">
+  <link rel="apple-touch-icon" href="../assets/app-icon/favicon.png?v=3">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+  <a href="#suggest" class="skip-link">Skip to the suggestion form</a>
+
+  <header class="topbar">
+    <div class="topbar-brand">
+      <img class="brand-logo" src="../assets/app-icon/app-icon.png" alt="Archive Watch logo" width="60" height="36">
+      <h1 class="brand-name">Archive Watch</h1>
+      <span class="brand-tag">Suggest &amp; Curate</span>
+    </div>
+    <div class="topbar-actions">
+      <a href="#suggest" class="btn btn-primary" title="Suggest a title to add">Suggest a Title</a>
+      <a href="whats-new.html" class="btn btn-ghost" title="Browse recent Archive.org uploads">What's New</a>
+      <a href="#curator" class="btn btn-ghost" title="Jump to the curator workspace">Curator Tools</a>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       INTRO — what this is, for first-time visitors
+       ============================================================ -->
+  <section class="intro" aria-label="About this tool">
+    <img class="intro-logo" src="../assets/app-icon/app-icon.png" alt="" aria-hidden="true">
+    <div class="intro-copy">
+      <h2 class="intro-title">Help build the world's best public-domain cinema.</h2>
+      <p class="intro-lead">
+        <strong>Archive Watch</strong> is a free Apple TV app that turns the Internet
+        Archive's vast public-domain collection — feature films, classic TV, silent
+        cinema, animation, newsreels, and vintage commercials — into a beautiful,
+        cinematheque-style viewing experience.
+      </p>
+      <p class="intro-lead">
+        This page is where the catalog grows. <strong>Anyone</strong> can suggest a
+        title to add. The curator reviews every suggestion and publishes the best
+        ones to the app.
+      </p>
+      <div class="intro-cards">
+        <div class="intro-card">
+          <span class="intro-card-num">1</span>
+          <h3>Suggest a title</h3>
+          <p>Found a great public-domain film on Archive.org? Send it our way — it
+             takes a minute and no account is needed.</p>
+          <a href="#suggest" class="btn btn-primary">Suggest a Title</a>
+        </div>
+        <div class="intro-card">
+          <span class="intro-card-num">2</span>
+          <h3>Curate the shelves</h3>
+          <p>The curator arranges the app's home-screen shelves below, then emails
+             the updated list to publish it.</p>
+          <a href="#curator" class="btn btn-ghost">Curator Tools</a>
+        </div>
+      </div>
+      <p class="intro-meta">
+        <span id="db-status">Catalog database: checking…</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SUGGEST — public submission form (emails the curator)
+       ============================================================ -->
+  <section id="suggest" class="suggest" aria-label="Suggest a title">
+    <div class="suggest-inner">
+      <h2 class="section-title">Suggest a title</h2>
+      <p class="section-help">
+        Paste an Archive.org link (or its identifier) for a public-domain film, show,
+        cartoon, or commercial you'd love to see in Archive Watch. When you press
+        <strong>Send Suggestion</strong>, your email app opens with everything filled
+        in — just hit send. It goes straight to the curator at
+        <a href="mailto:ben@learningischange.com">ben@learningischange.com</a>.
+      </p>
+
+      <form id="suggest-form" class="suggest-form" novalidate>
+        <label class="field">
+          <span class="field-label">Archive.org link or identifier <span class="req">*</span></span>
+          <input id="sg-id" class="field-input" required
+                 placeholder="https://archive.org/details/night_of_the_living_dead_dvd">
+          <span class="field-hint">Find titles at <a href="https://archive.org/details/movies" target="_blank" rel="noopener">archive.org/details/movies</a>, browse <a href="whats-new.html">What's New</a>, or <a href="#" id="btn-browse-catalog-public">search what's already in Archive Watch</a>.</span>
+        </label>
+        <div class="field-row">
+          <label class="field">
+            <span class="field-label">Title</span>
+            <input id="sg-title" class="field-input" placeholder="e.g. Night of the Living Dead">
+          </label>
+          <label class="field">
+            <span class="field-label">Best category</span>
+            <select id="sg-cat" class="field-input">
+              <option value="">— pick one (optional) —</option>
+              <option>Feature Film</option>
+              <option>Classic TV</option>
+              <option>Silent Era</option>
+              <option>Animation</option>
+              <option>Documentary</option>
+              <option>Newsreel</option>
+              <option>Short Film</option>
+              <option>Vintage Commercial</option>
+            </select>
+          </label>
+        </div>
+        <label class="field">
+          <span class="field-label">Why does it belong?</span>
+          <textarea id="sg-why" class="field-input" rows="2"
+                    placeholder="A line or two on what makes it worth adding."></textarea>
+        </label>
+        <div class="field-row">
+          <label class="field">
+            <span class="field-label">Your name</span>
+            <input id="sg-name" class="field-input" placeholder="So we can credit you (optional)">
+          </label>
+          <label class="field">
+            <span class="field-label">Your email</span>
+            <input id="sg-email" type="email" class="field-input" placeholder="If you'd like a reply (optional)">
+          </label>
+        </div>
+        <div class="suggest-actions">
+          <button type="submit" id="btn-suggest-send" class="btn btn-primary btn-lg">Send Suggestion</button>
+          <span id="suggest-feedback" class="feedback" hidden></span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Pending banner — surfaces items queued by the What's New ticker -->
+  <div id="pending-banner" class="pending-banner" hidden>
+    <div class="pending-banner-text">
+      <strong id="pending-count">0</strong>
+      <span> items waiting in your pending tray from <a href="whats-new.html">What's New</a>.</span>
+    </div>
+    <div class="pending-banner-actions">
+      <button id="btn-pending-merge" class="btn btn-primary">Add to Editor's Picks</button>
+      <button id="btn-pending-discard" class="btn btn-ghost">Discard</button>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       CURATOR WORKSPACE — the editor (curator only)
+       ============================================================ -->
+  <section id="curator" class="curator" aria-label="Curator workspace">
+    <div class="curator-head">
+      <div>
+        <h2 class="section-title">Curator workspace</h2>
+        <p class="section-help">
+          Arrange the app's home-screen shelves here. Changes live only in your
+          browser until you <strong>Email to Curator</strong> or <strong>Download</strong>
+          the updated <code>featured.json</code> and commit it. Nothing is saved to any
+          server from this page.
+        </p>
+      </div>
+      <div class="curator-actions">
+        <button id="btn-load-remote" class="btn btn-ghost" title="Reload the live featured.json">Reload</button>
+        <button id="btn-import" class="btn btn-ghost" title="Import a featured.json file">Import</button>
+        <input type="file" id="file-import" accept="application/json" hidden>
+        <button id="btn-export" class="btn btn-ghost" title="Download the current featured.json">Download</button>
+        <button id="btn-email-export" class="btn btn-primary" title="Email the exported featured.json to the curator">Email to Curator</button>
+      </div>
+    </div>
+
+    <main id="main" class="main-grid">
+
+      <!-- Side rail: shelves overview + add -->
+      <aside class="rail" aria-label="Shelves">
+        <div class="rail-section">
+          <h2 class="rail-heading">Shelves</h2>
+          <ol id="shelf-list" class="shelf-list" aria-label="Shelf list"></ol>
+          <button id="btn-add-shelf" class="btn btn-ghost btn-block">+ New Shelf</button>
+        </div>
+
+        <div class="rail-section">
+          <h2 class="rail-heading">Categories</h2>
+          <ul id="category-list" class="category-list" aria-label="Category list"></ul>
+        </div>
+
+        <div class="rail-section rail-meta">
+          <p class="meta-line"><span class="meta-key">Schema</span> <span id="meta-schema">—</span></p>
+          <p class="meta-line"><span class="meta-key">Updated</span> <span id="meta-updated">—</span></p>
+          <p class="meta-line"><span class="meta-key">Items</span> <span id="meta-counts">—</span></p>
+        </div>
+      </aside>
+
+      <!-- Workspace: shelf detail editor -->
+      <section class="workspace" aria-label="Shelf editor">
+        <div id="empty-state" class="empty-state">
+          <h2>Pick a shelf from the left to begin</h2>
+          <p>Or hit <strong>Reload</strong> to fetch the latest <code>featured.json</code>.</p>
+        </div>
+
+        <article id="shelf-editor" class="shelf-editor" hidden>
+          <header class="editor-head">
+            <div class="editor-titles">
+              <input id="shelf-title" class="input-title" placeholder="Shelf title" aria-label="Shelf title">
+              <input id="shelf-subtitle" class="input-subtitle" placeholder="Optional subtitle" aria-label="Shelf subtitle">
+            </div>
+            <div class="editor-controls">
+              <label class="control">
+                <span class="control-label">Category</span>
+                <select id="shelf-category" class="control-input"></select>
+              </label>
+              <label class="control">
+                <span class="control-label">Type</span>
+                <select id="shelf-type" class="control-input">
+                  <option value="curated">Curated (manual list)</option>
+                  <option value="dynamic">Dynamic (Archive query)</option>
+                </select>
+              </label>
+              <button id="btn-delete-shelf" class="btn btn-danger" title="Delete this shelf">Delete</button>
+            </div>
+          </header>
+
+          <!-- Curated mode -->
+          <section id="pane-curated" class="pane">
+            <div class="pane-add">
+              <label class="add-row">
+                <span class="control-label">Add Archive ID or URL</span>
+                <input id="add-archive-id" class="control-input" placeholder="e.g. night_of_the_living_dead or https://archive.org/details/...">
+              </label>
+              <button id="btn-add-id" class="btn btn-primary">Add &amp; preview</button>
+              <button id="btn-browse-catalog" class="btn btn-ghost" title="Search the full Archive Watch catalog and add titles">Browse the full catalog…</button>
+            </div>
+            <div id="add-feedback" class="feedback" hidden></div>
+
+            <ol id="curated-items" class="curated-items" aria-label="Items"></ol>
+          </section>
+
+          <!-- Dynamic mode -->
+          <section id="pane-dynamic" class="pane" hidden>
+            <label class="control">
+              <span class="control-label">Archive query (Lucene-style)</span>
+              <textarea id="shelf-query" class="control-input" rows="2" placeholder="mediatype:movies AND collection:feature_films"></textarea>
+            </label>
+            <div class="control-row">
+              <label class="control">
+                <span class="control-label">Sort</span>
+                <select id="shelf-sort" class="control-input">
+                  <option value="-downloads">Most downloads (all-time)</option>
+                  <option value="-week">Most downloads (this week)</option>
+                  <option value="-month">Most downloads (this month)</option>
+                  <option value="-publicdate">Recently added</option>
+                  <option value="-year">Newest first</option>
+                  <option value="year">Oldest first</option>
+                </select>
+              </label>
+              <label class="control">
+                <span class="control-label">Limit</span>
+                <input id="shelf-limit" class="control-input" type="number" min="6" max="100" value="24">
+              </label>
+            </div>
+            <div class="dynamic-actions">
+              <button id="btn-preview-dynamic" class="btn btn-primary">Preview results</button>
+              <span class="hint">Live-fetched from Archive.org. Shows what the tvOS app will display.</span>
+            </div>
+            <ol id="dynamic-preview" class="curated-items" aria-label="Preview"></ol>
+          </section>
+        </article>
+      </section>
+    </main>
+  </section>
+
+  <footer class="footer">
+    <img class="footer-logo" src="../assets/app-icon/app-icon.png" alt="" aria-hidden="true" width="46" height="28">
+    <span>This product uses the TMDB API but is not endorsed or certified by TMDB. Item metadata © Internet Archive contributors. This page runs entirely in your browser; suggestions are sent via your own email app. <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a></span>
+  </footer>
+
+  <!-- ============================================================
+       CATALOG BROWSER — search the full database (slim Pages index)
+       ============================================================ -->
+  <div id="catalog-modal" class="catalog-modal" hidden>
+    <div class="catalog-dialog" role="dialog" aria-modal="true" aria-label="Browse the catalog">
+      <header class="catalog-head">
+        <h2>Browse the catalog</h2>
+        <button id="btn-catalog-close" class="btn btn-icon" title="Close" aria-label="Close">×</button>
+      </header>
+      <p class="catalog-help">
+        Search every title already in Archive Watch. Open a curated shelf to
+        <strong>Add</strong> a title to it, or <strong>Suggest</strong> one to send to the curator.
+      </p>
+      <div class="catalog-controls">
+        <input id="catalog-search" class="field-input" type="search" placeholder="Search by title or identifier…" autocomplete="off">
+        <select id="catalog-type" class="field-input">
+          <option value="">All types</option>
+          <option value="feature-film">Feature Film</option>
+          <option value="tv-series">TV Series</option>
+          <option value="silent-film">Silent Film</option>
+          <option value="animation">Animation</option>
+          <option value="documentary">Documentary</option>
+          <option value="newsreel">Newsreel</option>
+          <option value="short-film">Short Film</option>
+          <option value="ephemeral">Ephemeral</option>
+          <option value="commercial">Commercial</option>
+        </select>
+      </div>
+      <p id="catalog-count" class="catalog-count">Loading the catalog…</p>
+      <ol id="catalog-results" class="catalog-results" aria-label="Catalog results"></ol>
+    </div>
+  </div>
+
+  <!-- Templates -->
+  <template id="tpl-shelf-row">
+    <li class="shelf-row" tabindex="0" role="button">
+      <div class="shelf-row-main">
+        <span class="shelf-row-title"></span>
+        <span class="shelf-row-meta"></span>
+      </div>
+      <span class="shelf-row-cat-dot" aria-hidden="true"></span>
+    </li>
+  </template>
+
+  <template id="tpl-curated-item">
+    <li class="item-row" data-archive-id="">
+      <div class="item-poster">
+        <img alt="" loading="lazy">
+        <div class="item-poster-fallback" aria-hidden="true"></div>
+      </div>
+      <div class="item-body">
+        <div class="item-title">Loading…</div>
+        <div class="item-meta"></div>
+        <input class="item-note" placeholder="Curator note (optional)">
+      </div>
+      <div class="item-actions">
+        <button class="btn btn-icon item-up" title="Move up" aria-label="Move up">↑</button>
+        <button class="btn btn-icon item-down" title="Move down" aria-label="Move down">↓</button>
+        <a class="btn btn-icon item-open" target="_blank" rel="noopener" title="Open on Archive.org" aria-label="Open on Archive.org">↗</a>
+        <button class="btn btn-icon item-remove" title="Remove" aria-label="Remove">×</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>

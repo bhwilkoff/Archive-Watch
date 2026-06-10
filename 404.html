@@ -3,17 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>Archive Watch</title>
-  <!-- GitHub Pages has no server routing, so the canonical share URLs the apps
-       emit (/Archive-Watch/item/{id} — see DetailView shareURL on iOS/tvOS)
-       land here; forward them into the viewer's hash router. Anything else
-       unknown goes to the viewer home. -->
+  <!-- GitHub Pages has no server routing, so clean URLs land here and get
+       forwarded into the viewer's hash router at the site root:
+         /item/{id}    — the canonical share URLs the apps emit
+         /series/{id}  — series share links
+         /watch/*      — the viewer's pre-archivewatch.org address (old PWA
+                         installs + bookmarks arrive here via GitHub's 301
+                         from bhwilkoff.github.io/Archive-Watch/watch/...,
+                         hash intact)
+       Anything else unknown goes to the viewer home. -->
   <script>
     (function () {
-      var m = location.pathname.match(/\/Archive-Watch\/item\/([^/]+)/);
-      var base = '/Archive-Watch/watch/';
-      location.replace(m ? base + '#/item/' + m[1] : base);
+      var p = location.pathname.replace(/^\/Archive-Watch/, '');
+      var m = p.match(/^\/(item|series)\/([^/]+)/);
+      if (m) { location.replace('/#/' + m[1] + '/' + m[2]); return; }
+      if (/^\/watch(\/|$)/.test(p)) { location.replace('/' + location.hash); return; }
+      location.replace('/');
     })();
   </script>
 </head>
-<body><p>Redirecting to <a href="/Archive-Watch/watch/">Archive Watch</a>…</p></body>
+<body><p>Redirecting to <a href="/">Archive Watch</a>…</p></body>
 </html>

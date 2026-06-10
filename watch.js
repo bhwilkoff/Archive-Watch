@@ -13,7 +13,7 @@
 (() => {
   'use strict';
 
-  const PAGES_ROOT = new URL('..', location.href);            // .../Archive-Watch/
+  const PAGES_ROOT = new URL('.', location.href);   // the site root (archivewatch.org/)
   const INDEX_URL = new URL('catalog-index.json', PAGES_ROOT);
   const FEATURED_URL = new URL('featured.json', PAGES_ROOT);
   const PAGE_SIZE = 60;
