@@ -114,6 +114,44 @@
     },
   };
 
+  /* ---------------------------------------------------------------- *
+   * Detail shards — the catalog's own per-item display fields           *
+   * (downloadURL, synopsis, director, cast, genres, runtime, backdrop), *
+   * sharded by FNV-1a low byte (keep in sync with build_web_details.py).*
+   * ---------------------------------------------------------------- */
+  const Details = {
+    cache: new Map(),
+    shardOf(id) {
+      let h = 0x811c9dc5;
+      for (const b of new TextEncoder().encode(id)) {
+        h ^= b;
+        h = Math.imul(h, 0x01000193) >>> 0;
+      }
+      return (h & 0xff).toString(16).padStart(2, '0');
+    },
+    async get(id) {
+      const shard = this.shardOf(id);
+      if (!this.cache.has(shard)) {
+        this.cache.set(shard, fetch(new URL(`details/${shard}.json`, PAGES_ROOT),
+          { signal: AbortSignal.timeout(10000) })
+          .then(r => (r.ok ? r.json() : {}))
+          .catch(() => ({})));
+      }
+      const data = await this.cache.get(shard);
+      const rec = data[id];
+      if (!rec) return null;
+      return {
+        downloadURL: rec[0] || null,
+        synopsis: rec[1] || null,
+        director: rec[2] || null,
+        cast: rec[3] || null,
+        genres: rec[4] || null,
+        runtimeSeconds: rec[5] || null,
+        backdropURL: rec[6] || null,
+      };
+    },
+  };
+
   /** Where are we? (iPadOS reports as Macintosh — the touch check catches it.) */
   const Platform = {
     iOS: /iPhone|iPad|iPod/.test(navigator.userAgent)
@@ -239,7 +277,8 @@
       // first shelf that claims it, so Home isn't aliases of one popular list.
       const used = new Set(heroIDs);
       for (const shelf of Data.featured?.shelves || []) {
-        const rows = Data.shelfRows(shelf, 24).filter(r => !used.has(r[0])).slice(0, 16);
+        const rows = Data.shelfRows(shelf, 32)
+          .filter(r => r[4] && !used.has(r[0])).slice(0, 16);
         if (rows.length < 4) continue;
         rows.forEach(r => used.add(r[0]));
         const sec = document.createElement('section');
@@ -504,7 +543,7 @@
         return;
       }
       const row = Data.byID.get(id) || [id, id, null, '', null];
-      this.current = { id, row, summary: null };
+      this.current = { id, row, summary: null, detail: null };
 
       $('item-title').textContent = row[1];
       $('item-meta').textContent = [row[2], row[3].replace(/-/g, ' ')]
@@ -534,28 +573,61 @@
         appLink.hidden = true;
       }
 
-      const fav = await DB.isFavorite(id);
+      // Storage can be unavailable (private browsing) — never let it take
+      // down the whole detail render.
+      const fav = await DB.isFavorite(id).catch(() => false);
       this.favUI(fav);
-      $('item-fav').onclick = async () => this.favUI(await DB.toggleFavorite(id));
+      $('item-fav').onclick = async () =>
+        this.favUI(await DB.toggleFavorite(id).catch(() => false));
       $('item-share').onclick = () => this.share(row);
-      $('item-play').onclick = () => Player.play(this.current);
+      $('item-play').onclick = () => {
+        const d = this.current.detail;
+        if (d?.downloadURL) {
+          Player.start({ id, title: row[1], url: d.downloadURL });
+        } else {
+          Player.play(this.current);
+        }
+      };
 
+      // The catalog's own record first (synopsis, cast, the build-time picked
+      // downloadURL) — instant, and immune to archive.org metadata-API hangs.
+      const det = await Details.get(id);
+      if (this.current.id !== id) return;     // navigated away mid-fetch
+      if (det) {
+        this.current.detail = det;
+        const meta = [
+          row[2] && String(row[2]),
+          det.runtimeSeconds && `${Math.round(det.runtimeSeconds / 60)} min`,
+          row[3] && row[3].replace(/-/g, ' '),
+          det.director && `Dir. ${det.director}`,
+        ].filter(Boolean).join(' · ');
+        if (meta) $('item-meta').textContent = meta;
+        if (det.synopsis) $('item-desc').textContent = det.synopsis;
+        if (det.cast?.length) {
+          $('item-desc').textContent += `\n\nWith ${det.cast.join(', ')}.`;
+        }
+        if (det.downloadURL) {
+          $('item-play').disabled = false;
+          return;                              // playable — done, no archive.org call
+        }
+      }
+      // Fallback (item not in the shards yet, or no baked URL): resolve via
+      // the metadata API, bounded so a hung response can't strand the page.
       try {
-        const meta = await API.fetchMetadata(id);
+        const meta = await API.fetchMetadata(id, { timeoutMs: 12000 });
         const s = API.summarize(meta);
-        if (this.current.id !== id) return;   // user navigated away mid-fetch
+        if (this.current.id !== id) return;
         this.current.summary = s;
-        $('item-desc').textContent = stripHTML(s.description).slice(0, 1200);
-        if (s.year && !row[2]) {
-          $('item-meta').textContent = [s.year, row[3].replace(/-/g, ' ')]
-            .filter(Boolean).join(' · ');
+        if (!$('item-desc').textContent) {
+          $('item-desc').textContent = stripHTML(s.description).slice(0, 1200);
         }
         if (s.videoFile) {
           $('item-play').disabled = false;
-        } else {
+        } else if (!det?.downloadURL) {
           this.fail('No playable video file on this item.');
         }
       } catch (err) {
+        if (det) return;                       // shard gave us a page; good enough
         this.fail(`Couldn't reach archive.org for this title (${err.message}). ` +
                   'Playback and synopsis are unavailable right now.');
       }

@@ -92,13 +92,14 @@ jobs:
         continue-on-error: true
         run: |
           python tools/build_catalog_index.py
-          if git diff --quiet -- catalog-index.json; then
-            echo "catalog-index.json unchanged"; exit 0
+          python tools/build_web_details.py
+          if git diff --quiet -- catalog-index.json details/; then
+            echo "web index + details unchanged"; exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add catalog-index.json
-          git commit -m "Refresh catalog-index.json (editorial tool) [skip ci]"
+          git add catalog-index.json details/
+          git commit -m "Refresh web catalog index + detail shards [skip ci]"
           for i in 1 2 3 4 5; do
             if git pull --rebase --autostash origin main && git push; then
               echo "pushed index on attempt $i"; exit 0

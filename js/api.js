@@ -39,11 +39,14 @@ const API = (() => {
      Metadata API
   ---------------------------------------------------------------- */
 
-  async function fetchMetadata(identifier) {
+  async function fetchMetadata(identifier, { timeoutMs = 20000 } = {}) {
     const id = normalizeIdentifier(identifier);
     if (!id) throw new Error('No identifier provided');
+    // The metadata endpoint occasionally hangs for minutes on odd items;
+    // a bounded fetch keeps detail pages responsive.
     const resp = await fetch(META_URL + encodeURIComponent(id), {
-      headers: { 'Accept': 'application/json' }
+      headers: { 'Accept': 'application/json' },
+      signal: AbortSignal.timeout(timeoutMs)
     });
     if (!resp.ok) throw new Error(`Archive ${resp.status} for "${id}"`);
     const data = await resp.json();

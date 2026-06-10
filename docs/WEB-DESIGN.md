@@ -36,12 +36,21 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   027) and adult filter (Decision 012) — copyrighted and adult titles surfaced
   on Home — and every `-downloads` shelf returned one identical list. An
   empty/missing shelf renders nothing (never an error card on Home).
-- **§2.4 The upgrade path is chunked SQLite over Pages.** GitHub Pages serves
+- **§2.4 Detail + playback come from the catalog's own detail shards**
+  (`details/{00..ff}.json` on Pages, built by `tools/build_web_details.py`,
+  FNV-1a low-byte sharding — keep the JS `Details.shardOf` and the Python
+  hash in sync). Each record carries the build-time picked `downloadURL`,
+  curated synopsis, director, cast, genres, runtime, backdrop. The
+  archive.org metadata API is the FALLBACK only (new items not yet sharded),
+  always bounded by `AbortSignal.timeout` — measured 2026-06-10: that
+  endpoint can hang 30s+ on items we play fine (the baked downloadURL is
+  the truth; never make it a runtime dependency).
+- **§2.5 The upgrade path is chunked SQLite over Pages.** GitHub Pages serves
   `206 + Access-Control-Allow-Origin: *` on GET (verified 2026-06-09 — the
   2026-06-02 "no 206" measurement was a HEAD artifact). When FTS5-grade search
   or enriched detail is needed, deploy a slim chunked `catalog.sqlite` via an
   Actions-based Pages deploy (no git commit — Decision 018) and query with
-  `sql.js-httpvfs`. Until then the index is the only catalog the browser loads.
+  `sql.js-httpvfs`. Until then the index + detail shards are the only catalog the browser loads.
 
 ## §3 Routing + URL state
 
@@ -62,14 +71,16 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   (horizontal scroll-snap rails). Order follows `featured.json`; items are
   **cross-shelf deduped** (first shelf claims the item — the apps' Home rule),
   shelves under 4 items are dropped, and each shelf gets a **day-seeded
-  deterministic shuffle** with designed artwork leading (the web analog of the
-  build's daily rotation).
+  deterministic shuffle**. **Home shows designed artwork ONLY** — the front
+  door is curated visuals; archive-thumb items remain fully reachable in
+  Browse/Search (owner direction, 2026-06-10).
 - **§4.2 Browse** = type chips + decade/sort selects + infinite-scroll grid
   (IntersectionObserver sentinel, 60/page). The full count is always shown.
 - **§4.3 Search** is client-side over the index (all terms must match the
   title), debounced 180ms, capped at 200 results, query mirrored to the URL.
 - **§4.4 Detail** renders instantly from the index row, then hydrates
-  description/playability from the metadata API. Errors are visible inline
+  synopsis/cast/runtime/playability from its detail shard (§2.4; metadata
+  API fallback). Errors are visible inline
   (never console-only), and the archive.org source link is always present.
   On iOS/Android user agents an **Open in app** action appears: the
   `archivewatch://` scheme on Apple, an `intent://` URL with this page as
