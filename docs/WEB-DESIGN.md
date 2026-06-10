@@ -58,7 +58,7 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
 
 ## §4 Surfaces
 
-- **§4.1 Home** = hero (designed-art pool, 7s rotate) + featured shelves
+- **§4.1 Home** = the Marquee hero + featured shelves
   (horizontal scroll-snap rails). Order follows `featured.json`; items are
   **cross-shelf deduped** (first shelf claims the item — the apps' Home rule),
   shelves under 4 items are dropped, and each shelf gets a **day-seeded
@@ -75,6 +75,21 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   IndexedDB. Empty states are explicit sentences, not blank space.
 - **§4.6 Modals use `<dialog showModal>`** — the player is the only modal.
   No `position: fixed` overlays (Safari compositor rule).
+- **§4.7 The Marquee hero** is a native scroll-snap carousel whose every
+  dimension is a `clamp()` in container-query units (`cqi`) — it scales
+  CONTINUOUSLY with its container, no breakpoint jumps. Composition per
+  slide: ambient blurred-poster layer (key art is never hard-cropped into a
+  banner) + sharp 2:3 poster + eyebrow/serif-title/meta/CTA copy block. The
+  display serif is a SYSTEM serif stack (§6.2 still binds — no webfonts).
+  Auto-advance pauses on hover/touch + hidden tabs and is disabled under
+  `prefers-reduced-motion` (which also stops the ambient drift). Dots are
+  real buttons with tab semantics, synced from scroll position.
+- **§4.8 TV series** route is `#/series/{slug}` (strip the `series:` id
+  prefix; `encodeURIComponent` the slug — non-ASCII slugs exist). The spine
+  loads from Pages `series/{slug}.json`; episode rows render synchronously
+  (never gated on storage) and play their `downloadURL` directly; resume
+  badges hydrate from IndexedDB afterward. Old `#/item/series:*` links
+  redirect here.
 
 ## §5 Playback
 

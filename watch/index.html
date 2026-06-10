@@ -30,13 +30,11 @@
     <p id="boot" class="boot">Loading the archive…</p>
 
     <section id="view-home" hidden>
-      <div id="hero" class="hero" hidden>
-        <img id="hero-img" alt="" loading="eager">
-        <div class="hero-scrim">
-          <h2 id="hero-title"></h2>
-          <p id="hero-meta"></p>
-        </div>
-      </div>
+      <section id="hero" class="hero" hidden role="region"
+               aria-roledescription="carousel" aria-label="Featured films">
+        <div id="hero-rail" class="hero-rail"></div>
+        <div id="hero-dots" class="hero-dots" role="tablist" aria-label="Featured film selector"></div>
+      </section>
       <div id="home-shelves"></div>
     </section>
 
@@ -89,6 +87,21 @@
           </div>
           <p id="item-desc"></p>
           <p id="item-error" class="error" hidden></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-series" hidden>
+      <div class="detail">
+        <div class="detail-art"><img id="series-poster" alt="" loading="eager"></div>
+        <div class="detail-body">
+          <h1 id="series-title"></h1>
+          <p id="series-meta" class="muted"></p>
+          <p id="series-overview"></p>
+          <select id="series-season" aria-label="Season" hidden></select>
+          <p id="series-loading" class="muted">Loading episodes…</p>
+          <p id="series-error" class="error" hidden></p>
+          <div id="series-episodes" class="episodes"></div>
         </div>
       </div>
     </section>

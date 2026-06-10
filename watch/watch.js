@@ -63,9 +63,11 @@
       },
       progress: () => getAll('progress'),
       progressFor: async id => (await getAll('progress')).find(p => p.id === id) || null,
-      saveProgress: (id, position, duration) =>
+      // title rides along so Continue Watching can render episodes, whose
+      // ids aren't rows in the catalog index.
+      saveProgress: (id, position, duration, title) =>
         tx('progress', 'readwrite',
-          s => s.put({ id, position, duration, at: Date.now() })),
+          s => s.put({ id, position, duration, title, at: Date.now() })),
     };
   })();
 
@@ -112,6 +114,20 @@
     },
   };
 
+  /** Era labels shared with the apps' decade tiles (same vocabulary). */
+  function eraLabel(year) {
+    if (!year) return '';
+    if (year < 1910) return 'Earliest cinema';
+    if (year <= 1927) return 'Silent era';
+    if (year <= 1939) return 'Pre-code';
+    if (year <= 1949) return 'Wartime';
+    if (year <= 1959) return 'Atomic age';
+    if (year <= 1969) return 'New wave';
+    if (year <= 1979) return 'Analog';
+    if (year <= 1989) return 'Home video';
+    return 'Modern';
+  }
+
   /** Deterministic per-day shuffle (xorshift over an FNV-1a seed) — the web
       analog of the build's date-seeded shelf rotation: same order all day for
       everyone, fresh tomorrow. */
@@ -134,10 +150,15 @@
   const $ = id => document.getElementById(id);
 
   function card(row) {
-    const [id, title, year] = row;
+    const [id, title, year, type] = row;
     const a = document.createElement('a');
     a.className = 'card';
-    a.href = `#/item/${encodeURIComponent(id)}`;
+    // TV series cards carry "series:<slug>" ids — they're spines on Pages,
+    // not archive.org items, so they get the series surface (the same slug
+    // rule as the apps; CATALOG-CONTRACT series section).
+    a.href = type === 'tv-series'
+      ? `#/series/${encodeURIComponent(id.replace(/^series:/, ''))}`
+      : `#/item/${encodeURIComponent(id)}`;
     const img = document.createElement('img');
     img.loading = 'lazy';
     img.alt = '';
@@ -163,7 +184,7 @@
   /* ---------------------------------------------------------------- *
    * Router — URL-driven state (the web superpower)                    *
    * ---------------------------------------------------------------- */
-  const VIEWS = ['home', 'browse', 'search', 'library', 'item', 'about'];
+  const VIEWS = ['home', 'browse', 'search', 'library', 'item', 'series', 'about'];
   let browseObserver = null;   // disconnected on every view switch
 
   function route() {
@@ -183,6 +204,7 @@
     if (name === 'search') Search.render(q);
     if (name === 'library') Library.render();
     if (name === 'item') Item.render(decodeURIComponent(seg[1] || ''));
+    if (name === 'series') SeriesView.render(decodeURIComponent(seg[1] || ''));
   }
 
   function showView(name) {
@@ -231,22 +253,91 @@
       }
     },
 
+    /** Marquee hero (WEB-DESIGN §4.1): a native scroll-snap carousel over the
+        day-shuffled designed-art pool. Auto-advance pauses on hover/touch and
+        hidden tabs, and is off entirely under prefers-reduced-motion. */
     hero() {
-      const pool = daySeededShuffle(Data.rows.filter(r => r[4]).slice(0, 48), 'hero').slice(0, 8);
+      const pool = daySeededShuffle(Data.rows.filter(r => r[4]).slice(0, 48), 'hero').slice(0, 6);
       if (!pool.length) return [];
       const el = $('hero');
+      const rail = $('hero-rail');
+      const dots = $('hero-dots');
       el.hidden = false;
-      let i = Math.floor(Math.random() * pool.length);
-      const show = () => {
-        const row = pool[i % pool.length];
-        $('hero-img').src = Data.poster(row);
-        $('hero-title').textContent = row[1];
-        $('hero-meta').textContent = row[2] ? String(row[2]) : '';
-        el.onclick = () => { location.hash = `#/item/${encodeURIComponent(row[0])}`; };
+
+      rail.replaceChildren(...pool.map((row, i) => {
+        const [id, title, year, type] = row;
+        const slide = document.createElement('article');
+        slide.className = 'hero-slide';
+        slide.setAttribute('role', 'group');
+        slide.setAttribute('aria-roledescription', 'slide');
+        slide.setAttribute('aria-label', `${i + 1} of ${pool.length}: ${title}`);
+        slide.onclick = () => { location.hash = `#/item/${encodeURIComponent(id)}`; };
+
+        const ambient = document.createElement('div');
+        ambient.className = 'hero-ambient';
+        ambient.style.backgroundImage = `url("${Data.poster(row)}")`;
+
+        const poster = document.createElement('img');
+        poster.className = 'hero-poster';
+        poster.alt = '';
+        poster.loading = i === 0 ? 'eager' : 'lazy';
+        poster.src = Data.poster(row);
+        poster.onerror = () => { poster.onerror = null; poster.src = API.thumbnailURL(id); };
+
+        const copy = document.createElement('div');
+        copy.className = 'hero-copy';
+        const eyebrow = document.createElement('p');
+        eyebrow.className = 'hero-eyebrow';
+        eyebrow.textContent = [eraLabel(year), (type || '').replace(/-/g, ' ')]
+          .filter(Boolean).join(' · ');
+        const h = document.createElement('h2');
+        h.className = 'hero-title';
+        h.textContent = title;
+        const meta = document.createElement('p');
+        meta.className = 'hero-meta';
+        meta.textContent = year ? String(year) : '';
+        const cta = document.createElement('span');
+        cta.className = 'hero-cta';
+        cta.textContent = 'Details';
+        copy.append(eyebrow, h, meta, cta);
+
+        slide.append(ambient, poster, copy);
+        return slide;
+      }));
+
+      dots.replaceChildren(...pool.map((row, i) => {
+        const b = document.createElement('button');
+        b.setAttribute('role', 'tab');
+        b.setAttribute('aria-label', `Show featured film ${i + 1}: ${row[1]}`);
+        b.setAttribute('aria-selected', String(i === 0));
+        b.onclick = e => {
+          e.stopPropagation();
+          rail.scrollTo({ left: i * rail.clientWidth, behavior: 'smooth' });
+        };
+        return b;
+      }));
+
+      const current = () => Math.round(rail.scrollLeft / Math.max(1, rail.clientWidth));
+      const sync = () => {
+        const c = current();
+        [...dots.children].forEach((d, i) => d.setAttribute('aria-selected', String(i === c)));
       };
-      show();
+      rail.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
+
+      // Auto-advance: the one ambient motion moment. Hover/touch pauses it;
+      // reduced-motion users never see it (the snap rail stays manual).
       clearInterval(this.heroTimer);
-      this.heroTimer = setInterval(() => { i += 1; show(); }, 7000);
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        let paused = false;
+        el.addEventListener('pointerenter', () => { paused = true; });
+        el.addEventListener('pointerleave', () => { paused = false; });
+        el.addEventListener('touchstart', () => { paused = true; }, { passive: true });
+        this.heroTimer = setInterval(() => {
+          if (paused || document.hidden || !el.isConnected) return;
+          const next = (current() + 1) % pool.length;
+          rail.scrollTo({ left: next * rail.clientWidth, behavior: 'smooth' });
+        }, 7000);
+      }
       return pool.map(r => r[0]);
     },
   };
@@ -380,7 +471,9 @@
       const progress = (await DB.progress())
         .filter(p => p.duration > 0 && p.position > 10 && p.position / p.duration < 0.95)
         .sort((a, b) => b.at - a.at);
-      const cont = progress.map(p => Data.byID.get(p.id)).filter(Boolean);
+      // Episodes aren't index rows — synthesize a card from the saved title.
+      const cont = progress.map(p => Data.byID.get(p.id)
+        || [p.id, p.title || p.id, null, '', null]);
       fillGrid($('library-continue'), cont);
       $('library-continue-empty').hidden = cont.length > 0;
 
@@ -399,6 +492,10 @@
 
     async render(id) {
       if (!id) { location.hash = '#/'; return; }
+      if (id.startsWith('series:')) {   // shared/old links to a series card
+        location.replace(`#/series/${encodeURIComponent(id.slice(7))}`);
+        return;
+      }
       const row = Data.byID.get(id) || [id, id, null, '', null];
       this.current = { id, row, summary: null };
 
@@ -465,6 +562,124 @@
     },
   };
 
+  /* ---------------------------------------------------------------- *
+   * TV series — spine fetched from Pages (series/{slug}.json), the    *
+   * same canonical season→episode data the apps render (PARITY §3).   *
+   * ---------------------------------------------------------------- */
+  const SeriesView = {
+    current: null,
+
+    async render(slug) {
+      if (!slug) { location.hash = '#/'; return; }
+      this.current = slug;
+      const card = Data.byID.get(`series:${slug}`);
+      $('series-title').textContent = card ? card[1] : slug;
+      $('series-meta').textContent = '';
+      $('series-overview').textContent = '';
+      $('series-poster').src = card ? Data.poster(card) : '';
+      $('series-season').hidden = true;
+      $('series-error').hidden = true;
+      $('series-loading').hidden = false;
+      $('series-episodes').replaceChildren();
+
+      let series;
+      try {
+        const r = await fetch(new URL(`series/${encodeURIComponent(slug)}.json`, PAGES_ROOT));
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        series = await r.json();
+      } catch (err) {
+        if (this.current !== slug) return;
+        $('series-loading').hidden = true;
+        const e = $('series-error');
+        e.textContent = `Couldn't load this series (${err.message}). Check your connection and retry.`;
+        e.hidden = false;
+        return;
+      }
+      if (this.current !== slug) return;   // navigated away mid-fetch
+      $('series-loading').hidden = true;
+
+      $('series-title').textContent = series.title || slug;
+      const yr = series.yearStart
+        ? (series.yearEnd ? `${series.yearStart}–${series.yearEnd}` : String(series.yearStart))
+        : null;
+      const eps = (series.seasons || []).flatMap(s => s.episodes || [])
+        .filter(e => e.downloadURL);
+      $('series-meta').textContent = [yr, `${eps.length} playable episodes`]
+        .filter(Boolean).join(' · ');
+      $('series-overview').textContent = stripHTML(series.overview || '').slice(0, 600);
+      if (series.posterURL) $('series-poster').src = series.posterURL;
+
+      const seasons = (series.seasons || []).filter(s => (s.episodes || []).some(e => e.downloadURL));
+      if (!seasons.length) {
+        const e = $('series-error');
+        e.textContent = 'This series is in the catalog, but no playable episodes have been matched yet.';
+        e.hidden = false;
+        return;
+      }
+      const sel = $('series-season');
+      if (seasons.length > 1) {
+        sel.hidden = false;
+        sel.replaceChildren(...seasons.map((s, i) => new Option(
+          s.seasonNumber != null ? `Season ${s.seasonNumber}` : 'More episodes', String(i))));
+        sel.onchange = () => this.episodes(series, seasons[Number(sel.value)]);
+      }
+      this.episodes(series, seasons[0]);
+    },
+
+    /** Rows render synchronously (the list must never wait on storage);
+        resume badges hydrate once IndexedDB answers. */
+    episodes(series, season) {
+      const host = $('series-episodes');
+      const rows = (season.episodes || []).filter(e => e.downloadURL).map(ep => {
+        const b = document.createElement('button');
+        b.className = 'episode';
+        b.dataset.ep = ep.archiveID;
+        const img = document.createElement('img');
+        img.loading = 'lazy'; img.alt = '';
+        img.src = ep.stillURL || API.thumbnailURL(ep.archiveID);
+        img.onerror = () => { img.onerror = null; img.src = API.thumbnailURL(ep.archiveID); };
+        const txt = document.createElement('span');
+        const n = document.createElement('span'); n.className = 'ep-n';
+        n.textContent = epLabel(ep);
+        const t = document.createElement('span'); t.className = 'ep-t';
+        t.textContent = ep.title || ep.archiveID;
+        txt.append(n, t);
+        if (ep.overview) {
+          const o = document.createElement('span'); o.className = 'ep-o';
+          o.textContent = stripHTML(ep.overview);
+          txt.append(o);
+        }
+        b.append(img, txt);
+        b.onclick = () => Player.start({
+          id: ep.archiveID,
+          title: [series.title, epLabel(ep)].filter(Boolean).join(' · '),
+          url: ep.downloadURL,
+        });
+        return b;
+      });
+      host.replaceChildren(...rows);
+
+      DB.progress().then(progress => {
+        const byEp = new Map(progress.map(p => [p.id, p]));
+        for (const b of host.children) {
+          const p = byEp.get(b.dataset.ep);
+          if (p && p.duration > 0 && p.position > 10 && p.position / p.duration < 0.95) {
+            const r = document.createElement('span'); r.className = 'ep-resume';
+            r.textContent = `Resume · ${Math.round(p.position / 60)} min in`;
+            b.lastChild.append(r);
+          }
+        }
+      }).catch(() => { /* storage unavailable → rows still play */ });
+    },
+  };
+
+  function epLabel(ep) {
+    if (ep.seasonNumber != null && ep.episodeNumber != null) {
+      return `S${ep.seasonNumber} · E${ep.episodeNumber}`;
+    }
+    return ep.episodeNumber != null ? `Ep. ${ep.episodeNumber}` : '';
+  }
+
   /** <video> with a reconnect wrapper: archive.org idle-resets drop the
       connection mid-film; on error/stall we reload the src and re-seek to
       where we were (the browser's ranged GETs make this seamless) — the web
@@ -477,12 +692,17 @@
     async play(ctx) {
       const { id, row, summary } = ctx;
       if (!summary?.videoFile) return;
-      this.ctx = ctx;
-      const video = $('video');
       const url = `https://archive.org/download/${encodeURIComponent(id)}/` +
         encodeURIComponent(summary.videoFile.name).replace(/%2F/g, '/');
+      await this.start({ id, title: row[1], url });
+    },
 
-      $('player-title').textContent = row[1];
+    /** Direct-URL entry (episodes carry downloadURL in the series spine). */
+    async start({ id, title, url }) {
+      this.ctx = { id, title };
+      const video = $('video');
+
+      $('player-title').textContent = title;
       $('player-error').hidden = true;
       video.src = url;
 
@@ -527,7 +747,7 @@
     persist() {
       const video = $('video');
       if (!this.ctx || !video.duration || !isFinite(video.duration)) return;
-      DB.saveProgress(this.ctx.id, video.currentTime, video.duration);
+      DB.saveProgress(this.ctx.id, video.currentTime, video.duration, this.ctx.title);
     },
 
     close() {
