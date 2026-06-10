@@ -83,3 +83,7 @@ tools/rejected_*.csv
 ios/.build/
 ios/.swiftpm/
 /tmp/core-dd
+
+# Xcode per-user state (never track — causes branch-switch/merge friction)
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
