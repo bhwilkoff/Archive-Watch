@@ -49,6 +49,11 @@ struct SeriesDetailView: View {
         }
         .navigationTitle(series?.title ?? card.title)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                ShareLink(item: shareURL) { Image(systemName: "square.and.arrow.up") }
+            }
+        }
         .fullScreenCover(item: $playingEpisode) { ep in
             EpisodePlayerContainer(start: ep, in: series).ignoresSafeArea()
         }
@@ -63,6 +68,14 @@ struct SeriesDetailView: View {
         series = await SeriesStore.shared.load(seriesID: slug)
         loading = false
         if selectedSeason == nil { selectedSeason = series?.seasons.first?.seasonNumber }
+    }
+
+    /// The series page on archivewatch.org (slugs can be non-ASCII — encode).
+    private var shareURL: URL {
+        let slug = card.seriesID ?? card.archiveID.replacingOccurrences(of: "series:", with: "")
+        let encoded = slug.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? slug
+        return URL(string: "https://archivewatch.org/series/\(encoded)")
+            ?? URL(string: "https://archivewatch.org")!
     }
 
     private var seasons: [Season] { series?.seasons ?? [] }

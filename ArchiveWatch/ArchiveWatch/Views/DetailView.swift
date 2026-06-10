@@ -928,10 +928,15 @@ struct ShareSheet: View {   // reused by SeriesDetailView (series + episodes)
         self.init(title: item.title, archiveID: item.archiveID)
     }
 
+    // The QR sends people to OUR web app (Decision 030) — the same title,
+    // playable in the browser, with the open-in-app handoff for phones.
+    // LoC items stay on loc.gov (the web viewer can't resolve loc: ids).
     private var webURL: String {
-        archiveID.hasPrefix("loc:")
-            ? "https://www.loc.gov"
-            : "https://archive.org/details/\(archiveID.replacingOccurrences(of: "series:", with: ""))"
+        if archiveID.hasPrefix("loc:") { return "https://www.loc.gov" }
+        if archiveID.hasPrefix("series:") {
+            return "https://archivewatch.org/series/\(archiveID.dropFirst(7))"
+        }
+        return "https://archivewatch.org/item/\(archiveID)"
     }
 
     var body: some View {
@@ -947,7 +952,7 @@ struct ShareSheet: View {   // reused by SeriesDetailView (series + episodes)
                 .background(.white, in: RoundedRectangle(cornerRadius: 16))
 
             VStack(spacing: 6) {
-                Text("Scan with your phone to open on the web")
+                Text("Scan to watch on archivewatch.org")
                     .font(.system(size: 22))
                     .foregroundStyle(.white.opacity(0.6))
                 Text(webURL)

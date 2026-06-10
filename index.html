@@ -6,9 +6,16 @@
   <title>Archive Watch — watch the public domain</title>
   <meta name="description" content="A cinematheque for the Internet Archive — feature films, classic TV, silent cinema, animation, newsreels. Free, public domain, no account.">
   <meta name="theme-color" content="#0A0A0A">
+  <link rel="canonical" href="https://archivewatch.org/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Archive Watch">
+  <meta property="og:title" content="Archive Watch — watch the public domain">
+  <meta property="og:description" content="A cinematheque for the Internet Archive. Free, public domain, no account.">
+  <meta property="og:url" content="https://archivewatch.org/">
+  <meta property="og:image" content="https://archivewatch.org/assets/app-icon/app-icon.png">
   <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="../assets/app-icon/favicon.png">
-  <link rel="apple-touch-icon" href="../assets/app-icon/favicon.png">
+  <link rel="icon" href="assets/app-icon/favicon.png">
+  <link rel="apple-touch-icon" href="assets/app-icon/favicon.png">
   <link rel="stylesheet" href="watch.css">
 </head>
 <body>
@@ -83,6 +90,7 @@
             <button id="item-play" class="btn-primary">▶ Play</button>
             <button id="item-fav" class="btn-ghost" aria-pressed="false">♡ Favorite</button>
             <button id="item-share" class="btn-ghost">Share</button>
+            <a id="item-openapp" class="btn-ghost" hidden>Open in app</a>
             <a id="item-archive-link" class="btn-ghost" target="_blank" rel="noopener">archive.org ↗</a>
           </div>
           <p id="item-desc"></p>

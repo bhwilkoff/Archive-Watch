@@ -114,6 +114,13 @@
     },
   };
 
+  /** Where are we? (iPadOS reports as Macintosh — the touch check catches it.) */
+  const Platform = {
+    iOS: /iPhone|iPad|iPod/.test(navigator.userAgent)
+      || (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1),
+    android: /Android/.test(navigator.userAgent),
+  };
+
   /** Era labels shared with the apps' decade tiles (same vocabulary). */
   function eraLabel(year) {
     if (!year) return '';
@@ -508,6 +515,24 @@
       $('item-error').hidden = true;
       $('item-play').disabled = true;
       $('item-archive-link').href = API.detailsURL(id);
+
+      // Hand off to the native app on phones/tablets (PARITY §1 deep links).
+      // iOS Universal Links will open the app automatically once the
+      // Associated Domains capability lands (Decision 030); this button is
+      // the explicit path meanwhile, and the Android intent:// form falls
+      // back to this page when the app isn't installed.
+      const appLink = $('item-openapp');
+      if (Platform.android) {
+        appLink.hidden = false;
+        appLink.href = `intent://item/${encodeURIComponent(id)}` +
+          `#Intent;scheme=archivewatch;package=app.archivewatch.android;` +
+          `S.browser_fallback_url=${encodeURIComponent(location.href)};end`;
+      } else if (Platform.iOS) {
+        appLink.hidden = false;
+        appLink.href = `archivewatch://item/${encodeURIComponent(id)}`;
+      } else {
+        appLink.hidden = true;
+      }
 
       const fav = await DB.isFavorite(id);
       this.favUI(fav);

@@ -1,5 +1,6 @@
 package app.archivewatch.android.ui.screens
 
+import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -25,6 +26,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -41,6 +43,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -66,6 +69,7 @@ import kotlinx.coroutines.launch
 fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
     val scope = rememberCoroutineScope()
+    val context = LocalContext.current
 
     val item by produceState<CatalogItem?>(null, archiveID, dbVersion) {
         value = container.catalog.db?.item(archiveID)
@@ -165,6 +169,20 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     Icon(
                         if (favorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
                         contentDescription = "Favorite",
+                        tint = MaterialTheme.colorScheme.primary,
+                    )
+                }
+                IconButton(onClick = {
+                    val send = Intent(Intent.ACTION_SEND).apply {
+                        type = "text/plain"
+                        putExtra(Intent.EXTRA_TEXT,
+                            "${current.title} — https://archivewatch.org/item/${current.archiveID}")
+                    }
+                    context.startActivity(Intent.createChooser(send, null))
+                }) {
+                    Icon(
+                        Icons.Default.Share,
+                        contentDescription = "Share",
                         tint = MaterialTheme.colorScheme.primary,
                     )
                 }

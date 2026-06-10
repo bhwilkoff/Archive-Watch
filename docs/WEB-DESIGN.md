@@ -71,6 +71,10 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
 - **§4.4 Detail** renders instantly from the index row, then hydrates
   description/playability from the metadata API. Errors are visible inline
   (never console-only), and the archive.org source link is always present.
+  On iOS/Android user agents an **Open in app** action appears: the
+  `archivewatch://` scheme on Apple, an `intent://` URL with this page as
+  the fallback on Android. Universal Links take over on iOS once the
+  Associated Domains capability lands (Decision 030).
 - **§4.5 Library** = Continue Watching (progress 10s–95%) + Favorites, both
   IndexedDB. Empty states are explicit sentences, not blank space.
 - **§4.6 Modals use `<dialog showModal>`** — the player is the only modal.
