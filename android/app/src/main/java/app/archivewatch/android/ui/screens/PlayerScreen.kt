@@ -95,14 +95,17 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                             .build(),
                     )
                 }
-                setMediaItems(mediaItems, spec.queueIndex.coerceIn(0, mediaItems.size - 1), 0L)
+                setMediaItems(mediaItems, spec.queueIndex.coerceIn(0, mediaItems.size - 1),
+                              spec.startPositionMs)
                 playWhenReady = true
                 prepare()
             }
     }
 
-    // Resume when 10s < saved position < 95% of duration.
+    // Resume when 10s < saved position < 95% of duration. Channel lineups
+    // skip this (join-in-progress beats per-title resume).
     LaunchedEffect(spec.id) {
+        if (!spec.persistProgress || spec.startPositionMs > 0) return@LaunchedEffect
         container.userState.progressFor(spec.id)?.let { saved ->
             if (saved.isResumable) player.seekTo(saved.positionMs)
         }
@@ -111,6 +114,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
     // Persist progress every 10s — against the CURRENT queue item, so each
     // binged episode resumes independently.
     LaunchedEffect(spec.id) {
+        if (!spec.persistProgress) return@LaunchedEffect
         while (true) {
             delay(10_000)
             val duration = player.duration
@@ -127,7 +131,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             val position = player.currentPosition
             val id = player.currentMediaItem?.mediaId ?: spec.id
             player.release()
-            if (duration > 0) {
+            if (duration > 0 && spec.persistProgress) {
                 scope.launch { container.userState.saveProgress(id, position, duration) }
             }
         }

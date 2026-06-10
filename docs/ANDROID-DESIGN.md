@@ -64,7 +64,9 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
 
 ## §3 Navigation shell
 
-- **§3.1 Four content tabs, hard set: Home · Browse · Search · Library** via
+- **§3.1 Five content tabs, hard set: Home · Browse · Channels · Search ·
+  Library** (Channels added 2026-06-12 with the EPG port — same top-level
+  placement as iOS) via
   `NavigationSuiteScaffold` (bottom bar → rail → drawer by window size — one
   hierarchy, never forked per form factor). Settings is NOT a tab; it lives
   behind the gear in Home's top bar. A fifth tab requires amending this rule.
@@ -111,6 +113,18 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   `https://archive.org/services/img/{id}`. Stable `key`s on every
   LazyGrid/LazyRow.
 
+
+- **§4.6 Channels is a proportional EPG grid** (2026-06-12): sticky ruler
+  (LazyColumn stickyHeader), fixed rail, custom Layout placing blocks by
+  minute offset × px-per-minute on a 120/180-min window (compact/expanded),
+  chevron window paging clamped to the broadcast day, NOW snap-back. Tuning
+  pushes the existing Media3 queue player with commercials woven between
+  programs, `startPositionMs` join-in-progress, and `persistProgress=false`
+  (channel playback never pollutes Continue Watching). The scheduler port
+  (`data/ChannelScheduler.kt`) keeps the apps' constants — FNV-1a(channel+
+  day) seed, SplitMix64, 6 AM local anchor, per-type runtime defaults,
+  2-minute buffer. Never regress the guide to a list.
+
 ## §5 Player
 
 - **§5.1 Media3 `PlayerView` owns transport.** Full-screen, `keepScreenOn`,
@@ -144,8 +158,8 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
 Per PARITY and plan §8 P5, these ship later, not never; do not partially
 implement them without a rule:
 
-- **Channels EPG** (port the shared date-seeded `ChannelScheduler`,
-  Compose lazy guide) — next wave.
+- ~~Channels EPG~~ — SHIPPED 2026-06-12 (§4.6): Kotlin `ChannelScheduler`
+  port + Compose proportional guide; user-created channels remain next wave.
 - **Cartoon Mode / Public Domain Day explorer** — next wave (the PD Day
   Home shelf §4.1 is the v1 foothold; the Surprise grid SHIPPED 2026-06-11).
 - **Party Play / screensaver** — lean-back idioms; tablet-leaning at most.

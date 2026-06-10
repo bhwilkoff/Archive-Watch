@@ -321,7 +321,7 @@
    * Router — URL-driven state (the web superpower)                    *
    * ---------------------------------------------------------------- */
   const VIEWS = ['home', 'browse', 'search', 'library', 'item', 'series', 'about',
-                 'surprise', 'playlist'];
+                 'surprise', 'playlist', 'channels'];
   let browseObserver = null;   // disconnected on every view switch
 
   function route() {
@@ -344,6 +344,7 @@
     if (name === 'series') SeriesView.render(decodeURIComponent(seg[1] || ''));
     if (name === 'surprise') Surprise.render();
     if (name === 'playlist') PlaylistView.render(decodeURIComponent(seg[1] || ''));
+    if (name === 'channels') ChannelsView.render();
   }
 
   function showView(name) {
@@ -781,6 +782,196 @@
   };
 
   /* ---------------------------------------------------------------- *
+   * Channels — the EPG guide (PARITY §5, the apps' date-seeded grid)  *
+   *                                                                   *
+   * Pools come precomputed (channel-pools.json, build_channel_pools)  *
+   * because the index has no runtime/genre; the SCHEDULE is computed  *
+   * HERE with the same FNV-1a + SplitMix64 + 6 AM-local broadcast-day *
+   * algorithm as the apps' ChannelScheduler, so the guide anchors to  *
+   * the viewer's local day. Sticky rail + ruler = the web-native way  *
+   * to pin both axes of a TV listing.                                 *
+   * ---------------------------------------------------------------- */
+  const Scheduler = (() => {
+    const MASK = (1n << 64n) - 1n;
+    function fnv1a(str) {
+      let h = 0xcbf29ce484222325n;
+      for (const b of new TextEncoder().encode(str)) {
+        h ^= BigInt(b);
+        h = (h * 0x100000001b3n) & MASK;
+      }
+      return h;
+    }
+    function splitMix(seed) {
+      let state = seed & MASK;
+      return () => {
+        state = (state + 0x9e3779b97f4a7c15n) & MASK;
+        let z = state;
+        z = ((z ^ (z >> 30n)) * 0xbf58476d1ce4e5b9n) & MASK;
+        z = ((z ^ (z >> 27n)) * 0x94d049bb133111ebn) & MASK;
+        return (z ^ (z >> 31n)) & MASK;
+      };
+    }
+    function dayAnchor(now) {
+      const d = new Date(now);
+      d.setHours(6, 0, 0, 0);
+      if (now < d) d.setDate(d.getDate() - 1);
+      return d;
+    }
+    function runtimeSec(prog) {
+      const [, , run, , type] = prog;
+      if (run && run > 120) return Math.min(run, 3 * 3600);
+      if (type === 'feature-film' || type === 'silent-film') return 90 * 60;
+      if (type === 'tv-special' || type === 'documentary') return 50 * 60;
+      if (['short-film', 'animation', 'newsreel', 'ephemeral'].includes(type)) return 12 * 60;
+      return 3600;
+    }
+    /** [{prog, start, end}] covering anchor → now+26h, deterministic per day. */
+    function schedule(channelID, programs, now) {
+      if (!programs.length) return [];
+      const anchor = dayAnchor(now);
+      const key = `${channelID}${anchor.getFullYear()}-${anchor.getMonth() + 1}-${anchor.getDate()}`;
+      const next = splitMix(fnv1a(key));
+      const pool = [...programs];
+      for (let i = pool.length - 1; i > 0; i--) {
+        const j = Number(next() % BigInt(i + 1));
+        [pool[i], pool[j]] = [pool[j], pool[i]];
+      }
+      const slots = [];
+      let cursor = anchor.getTime();
+      const until = now.getTime() + 26 * 3600e3;
+      let i = 0;
+      while (cursor < until && slots.length < 2000) {
+        const prog = pool[i % pool.length];
+        const end = cursor + runtimeSec(prog) * 1000;
+        slots.push({ prog, start: cursor, end });
+        cursor = end + 120e3;   // 2-minute inter-program buffer
+        i++;
+      }
+      return slots;
+    }
+    return { schedule, dayAnchor };
+  })();
+
+  const ChannelsView = {
+    data: null,
+    built: false,
+
+    async render() {
+      const host = $('epg');
+      if (this.built) return;
+      if (!this.data) {
+        try {
+          const r = await fetch(new URL('channel-pools.json', PAGES_ROOT),
+                                { signal: AbortSignal.timeout(15000) });
+          if (!r.ok) throw new Error(`HTTP ${r.status}`);
+          this.data = await r.json();
+        } catch (err) {
+          $('channels-error').textContent =
+            `The channel guide couldn't load (${err.message}).`;
+          $('channels-error').hidden = false;
+          return;
+        }
+      }
+      this.built = true;
+      const now = new Date();
+      const anchor = Scheduler.dayAnchor(now);
+      const PPM = 4;   // px per minute → 26h ≈ 6200px wide, scrolls fine
+      const totalMin = 26 * 60 + (now.getTime() - anchor.getTime()) / 60e3;
+      const stripW = Math.ceil(totalMin * PPM);
+
+      // Ruler: corner + a tick every 30 min from the anchor.
+      const ruler = document.createElement('div');
+      ruler.className = 'epg-ruler';
+      const corner = document.createElement('div');
+      corner.className = 'epg-corner';
+      ruler.append(corner);
+      const ticksHost = document.createElement('div');
+      ticksHost.className = 'epg-strip';
+      ticksHost.style.width = `${stripW}px`;
+      const fmt = t => new Date(t).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+      for (let m = 0; m < totalMin; m += 30) {
+        const tick = document.createElement('span');
+        tick.className = 'epg-tick';
+        tick.style.left = `${m * PPM}px`;
+        tick.textContent = fmt(anchor.getTime() + m * 60e3);
+        ticksHost.append(tick);
+      }
+      ruler.append(ticksHost);
+      host.replaceChildren(ruler);
+
+      for (const ch of this.data.channels) {
+        const slots = Scheduler.schedule(ch.id, ch.programs, now);
+        const row = document.createElement('div');
+        row.className = 'epg-row';
+        const rail = document.createElement('div');
+        rail.className = 'epg-rail';
+        rail.style.setProperty('--ch-accent', ch.accent);
+        const dot = document.createElement('span');
+        dot.className = 'epg-dot';
+        const name = document.createElement('span');
+        name.textContent = ch.title;
+        rail.append(dot, name);
+        const strip = document.createElement('div');
+        strip.className = 'epg-strip';
+        strip.style.width = `${stripW}px`;
+        for (const slot of slots) {
+          const left = (slot.start - anchor.getTime()) / 60e3 * PPM;
+          const width = Math.max(18, (slot.end - slot.start) / 60e3 * PPM - 3);
+          const b = document.createElement('button');
+          b.className = 'epg-block';
+          if (slot.start <= now.getTime() && slot.end > now.getTime()) {
+            b.classList.add('airing');
+            b.style.setProperty('--ch-accent', ch.accent);
+          }
+          b.style.left = `${left}px`;
+          b.style.width = `${width}px`;
+          const t = document.createElement('span');
+          t.className = 'epg-bt';
+          t.textContent = slot.prog[1];
+          const when = document.createElement('span');
+          when.className = 'epg-bw';
+          when.textContent = fmt(slot.start);
+          b.append(t, when);
+          b.onclick = () => this.tune(ch, slots, slot);
+          strip.append(b);
+        }
+        row.append(rail, strip);
+        host.append(row);
+      }
+      // The red now-line, then scroll the viewport to ~30 min before now.
+      const nowX = (now.getTime() - anchor.getTime()) / 60e3 * PPM;
+      const line = document.createElement('div');
+      line.className = 'epg-now';
+      line.style.left = `calc(var(--epg-rail-w) + ${nowX}px)`;
+      host.append(line);
+      requestAnimationFrame(() => {
+        host.scrollLeft = Math.max(0, nowX - 30 * PPM);
+      });
+    },
+
+    /** Tune in: lineup from the tapped slot, commercials woven, join live
+        slots in progress. Channel playback never persists resume progress
+        (the apps' rule). */
+    tune(ch, slots, slot) {
+      const idx = slots.indexOf(slot);
+      const lineup = slots.slice(idx);
+      const ads = shuffle(this.data.commercials || []);
+      const queue = [];
+      lineup.forEach((s, i) => {
+        queue.push({ id: s.prog[0], title: `${s.prog[1]} · ${ch.title}`, url: s.prog[3] });
+        if (ads.length && i < lineup.length - 1) {
+          const ad = ads[i % ads.length];
+          queue.push({ id: ad[0], title: `${ad[1]} · Commercial break`, url: ad[3] });
+        }
+      });
+      const now = Date.now();
+      const startAt = (slot.start <= now && slot.end > now)
+        ? Math.max(0, (now - slot.start) / 1000) : 0;
+      Player.start({ ...queue[0], queue, queueIndex: 0, startAt, persist: false });
+    },
+  };
+
+  /* ---------------------------------------------------------------- *
    * Detail + player                                                   *
    * ---------------------------------------------------------------- */
   const Item = {
@@ -1142,20 +1333,26 @@
     },
 
     /** Direct-URL entry (episodes carry downloadURL in the series spine).
-        `queue`/`queueIndex` enable episode binge: on ended, the next queued
-        episode plays (the apps' auto-advance parity). */
-    async start({ id, title, url, queue = null, queueIndex = 0 }) {
-      this.ctx = { id, title, queue, queueIndex };
+        `queue`/`queueIndex` enable binge: on ended, the next queued entry
+        plays. `startAt` joins a channel program in progress; `persist:false`
+        keeps channel playback out of Continue Watching (the apps' rule). */
+    async start({ id, title, url, queue = null, queueIndex = 0,
+                  startAt = 0, persist = true }) {
+      this.ctx = { id, title, queue, queueIndex, persist };
       const video = $('video');
 
       $('player-title').textContent = title;
       $('player-error').hidden = true;
       video.src = url;
 
-      const saved = await DB.progressFor(id);
-      if (saved && saved.position > 10 && (!saved.duration ||
-          saved.position / saved.duration < 0.95)) {
-        video.currentTime = saved.position;
+      if (startAt > 0) {
+        video.currentTime = startAt;
+      } else if (persist) {
+        const saved = await DB.progressFor(id);
+        if (saved && saved.position > 10 && (!saved.duration ||
+            saved.position / saved.duration < 0.95)) {
+          video.currentTime = saved.position;
+        }
       }
 
       $('player').showModal();
@@ -1172,10 +1369,10 @@
       video.onplaying = () => clearTimeout(this.stallTimer);
       video.onended = () => {
         this.persist();
-        const { queue, queueIndex } = this.ctx || {};
+        const { queue, queueIndex, persist } = this.ctx || {};
         if (queue && queueIndex + 1 < queue.length) {
           const next = queue[queueIndex + 1];
-          this.start({ ...next, queue, queueIndex: queueIndex + 1 });
+          this.start({ ...next, queue, queueIndex: queueIndex + 1, persist });
         } else {
           this.close();
         }
@@ -1201,7 +1398,8 @@
 
     persist() {
       const video = $('video');
-      if (!this.ctx || !video.duration || !isFinite(video.duration)) return;
+      if (!this.ctx || this.ctx.persist === false) return;
+      if (!video.duration || !isFinite(video.duration)) return;
       DB.saveProgress(this.ctx.id, video.currentTime, video.duration, this.ctx.title);
     },
 

@@ -419,6 +419,71 @@ input[type="search"] {
 #item-related h2 { margin: 0 0 8px; padding: 0; }
 #item-related .shelf-row { padding-left: 0; padding-right: 0; }
 
+/* ---- channels EPG (a true TV listing: sticky rail + sticky ruler) ---- */
+:root { --epg-rail-w: 92px; }
+.epg {
+  position: relative; overflow: auto; margin: 8px var(--pad) 24px;
+  max-height: calc(100dvh - 220px);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--bg);
+}
+/* Rows must span their CONTENT (rail + full strip), not the viewport —
+   otherwise the sticky rail's containing box ends after one screen-width
+   and the rail scrolls away. */
+.epg-ruler, .epg-row { width: max-content; }
+.epg-ruler {
+  position: sticky; top: 0; z-index: 3;
+  display: flex; height: 26px; background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.epg-corner {
+  position: sticky; left: 0; z-index: 4;
+  flex: 0 0 var(--epg-rail-w); background: var(--bg);
+}
+.epg-ruler .epg-strip { height: 26px; }
+.epg-tick {
+  position: absolute; top: 4px; padding-left: 5px;
+  font-size: 0.65rem; font-weight: 700; color: var(--text-dim);
+  border-left: 1px solid var(--border); height: 18px; white-space: nowrap;
+}
+.epg-row { display: flex; height: 60px; margin: 3px 0; }
+.epg-rail {
+  position: sticky; left: 0; z-index: 2;
+  flex: 0 0 var(--epg-rail-w);
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 4px; padding: 4px;
+  background: var(--bg); border-right: 1px solid var(--border);
+  font-size: 0.62rem; font-weight: 700; color: var(--text-dim);
+  text-align: center; line-height: 1.15;
+}
+.epg-dot {
+  width: 14px; height: 14px; border-radius: 4px;
+  background: var(--ch-accent, #555);
+}
+.epg-strip { position: relative; flex: 0 0 auto; height: 60px; }
+.epg-block {
+  position: absolute; top: 0; height: 60px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  align-items: flex-start; text-align: left;
+  padding: 6px 7px; border-radius: 8px; overflow: hidden;
+  background: var(--bg-raise); border: 1px solid var(--border);
+  color: var(--text);
+}
+.epg-block.airing {
+  background: var(--ch-accent, var(--color-primary));
+  border-color: transparent; color: #fff;
+}
+.epg-bt {
+  font-size: 0.72rem; font-weight: 600; line-height: 1.2;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.epg-bw { font-size: 0.6rem; opacity: 0.7; }
+.epg-now {
+  position: absolute; top: 0; bottom: 0; width: 2px; z-index: 1;
+  background: var(--color-primary); opacity: 0.8; pointer-events: none;
+}
+
 /* ---- share menu ---- */
 dialog.sharemenu {
   background: var(--bg-raise); color: var(--text);

@@ -133,6 +133,18 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
 - **§4.12 More Like This** on Detail: same type, ±15 years, designed art,
   shuffled 12 (index approximation of the apps' related query).
 
+- **§4.13 Channels** (`#/channels`, topnav): a true TV listing — the scroll
+  container pins BOTH axes with CSS sticky (rail `left:0`, ruler `top:0`;
+  rows/ruler are `width: max-content` so the sticky containing box spans the
+  full strip). Pools come precomputed from `channel-pools.json`
+  (`tools/build_channel_pools.py`, refreshed by publish-db — the index has no
+  runtime/genre); the SCHEDULE is computed in the browser by the JS
+  `Scheduler` (FNV-1a + SplitMix64 BigInt port, 6 AM LOCAL broadcast-day
+  anchor, the apps' runtime defaults + 2-min buffer). Tuning builds the
+  binge queue from the tapped slot with commercials woven between programs,
+  joins live slots in progress (`startAt`), and never persists resume
+  progress (`persist:false` — the apps' channel rule).
+
 ## §5 Playback
 
 - **§5.1 Native `<video controls playsinline>`** in the player dialog. The

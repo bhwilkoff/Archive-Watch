@@ -28,6 +28,7 @@
     <nav class="topnav" aria-label="Primary">
       <a href="#/" data-nav="home">Home</a>
       <a href="#/browse" data-nav="browse">Browse</a>
+      <a href="#/channels" data-nav="channels">Channels</a>
       <a href="#/surprise" data-nav="surprise">Surprise</a>
       <a href="#/search" data-nav="search">Search</a>
       <a href="#/library" data-nav="library">Library</a>
@@ -82,6 +83,13 @@
       <h2>Playlists</h2>
       <div id="library-playlists" class="playlist-list"></div>
       <p id="library-playlists-empty" class="muted" hidden>No playlists yet — use “＋ Playlist” on any title.</p>
+    </section>
+
+    <section id="view-channels" hidden>
+      <h1>Channels</h1>
+      <p class="muted">A broadcast day, scheduled fresh at 6 AM — scroll the listing, tap to tune in.</p>
+      <p id="channels-error" class="error" hidden></p>
+      <div id="epg" class="epg"></div>
     </section>
 
     <section id="view-surprise" hidden>

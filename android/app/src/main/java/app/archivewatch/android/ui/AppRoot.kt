@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.LiveTv
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.VideoLibrary
 import androidx.compose.material.icons.outlined.GridView
@@ -19,6 +20,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.ui.screens.BrowseScreen
+import app.archivewatch.android.ui.screens.ChannelsScreen
 import app.archivewatch.android.ui.screens.DetailScreen
 import app.archivewatch.android.ui.screens.HomeScreen
 import app.archivewatch.android.ui.screens.LibraryScreen
@@ -68,6 +70,12 @@ fun AppRoot(container: AppContainer) {
                     label = { Text(Tab.Browse.label) },
                 )
                 item(
+                    selected = nav.tab == Tab.Channels && nav.stack.isEmpty(),
+                    onClick = { nav.stack.clear(); nav.tab = Tab.Channels },
+                    icon = { Icon(Icons.Default.LiveTv, contentDescription = null) },
+                    label = { Text(Tab.Channels.label) },
+                )
+                item(
                     selected = nav.tab == Tab.Search && nav.stack.isEmpty(),
                     onClick = { nav.stack.clear(); nav.tab = Tab.Search },
                     icon = { Icon(Icons.Default.Search, contentDescription = null) },
@@ -85,6 +93,7 @@ fun AppRoot(container: AppContainer) {
                 when (nav.tab) {
                     Tab.Home -> HomeScreen(container, nav)
                     Tab.Browse -> BrowseScreen(container, nav)
+                    Tab.Channels -> ChannelsScreen(container, nav)
                     Tab.Search -> SearchScreen(container, nav)
                     Tab.Library -> LibraryScreen(container, nav)
                 }

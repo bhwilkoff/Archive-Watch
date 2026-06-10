@@ -106,6 +106,15 @@ New entry points (intents, widget URLs, `archivewatch://` hosts) extend
 `IntentInbox.Request` + the `RootView.handle` switch; they never touch
 `Router` directly from outside the view tree.
 
+2.5b **Channels is a true EPG grid** (owner direction 2026-06-12: "the true
+grid that is essential for it to feel like you are looking at a tv
+listing"): pinned half-hour ruler (LazyVStack section header), fixed channel
+rail (tap → full-day schedule), program blocks proportional to runtime on a
+shared window (120 min compact / 180 min regular), vertical scrolling only —
+the window pages via chevrons or a deliberate horizontal swipe (±90 min,
+clamped to the broadcast day), with a NOW snap-back and red now-line. Never
+regress it to a tile list.
+
 2.6 **Modes are pushes on iOS, not takeovers.** Cartoon Mode, Surprise, and
 Public Domain Day are ordinary pushed screens reached from Home's shuffle
 toolbar button → Surprise grid (and registered per §2.3) — back-swipe always

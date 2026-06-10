@@ -106,7 +106,7 @@ this table in the same change set; cross-link the platform design doc.
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
 | Surprise / random actions | ✅ | ✅ Surprise grid (11 tiles, re-roll on tap) | ✅ `#/surprise` re-roll grid (topnav) | ✅ Surprise grid (Home shuffle → re-roll) | shared random queries |
-| Channels (EPG guide) | ✅ proportional grid | ✅ now/next list guide + day schedule | ⏳ CSS-grid guide | ⏳ Compose lazy guide | `ChannelScheduler` (date-seeded) shared |
+| Channels (EPG guide) | ✅ proportional grid | ✅ proportional touch EPG (pinned ruler, window paging) | ✅ sticky-rail/ruler CSS listing (`#/channels`, pools from `channel-pools.json`, JS scheduler) | ✅ Compose proportional guide (Channels tab, Kotlin scheduler) | date-seeded `ChannelScheduler` ported per platform; 6 AM local broadcast day everywhere |
 | Create / user channels | ✅ | ✅ Form sheet + swipe-delete (synced) | ⏳ | ⏳ | filter spec shared |
 | Cartoon / Kids mode | ✅ | ✅ characters + themes + marathon | ⏳ | ⏳ | color/B&W flags shared |
 | Party Play (muted) | ✅ | 🔮 (iPad-leaning) | ⏳ | 🔮 (tablet-leaning) | ambient mode; phone de-emphasized |

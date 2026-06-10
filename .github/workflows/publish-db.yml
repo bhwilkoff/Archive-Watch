@@ -93,12 +93,13 @@ jobs:
         run: |
           python tools/build_catalog_index.py
           python tools/build_web_details.py
-          if git diff --quiet -- catalog-index.json details/; then
-            echo "web index + details unchanged"; exit 0
+          python tools/build_channel_pools.py
+          if git diff --quiet -- catalog-index.json details/ channel-pools.json; then
+            echo "web index + details + channel pools unchanged"; exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add catalog-index.json details/
+          git add catalog-index.json details/ channel-pools.json
           git commit -m "Refresh web catalog index + detail shards [skip ci]"
           for i in 1 2 3 4 5; do
             if git pull --rebase --autostash origin main && git push; then

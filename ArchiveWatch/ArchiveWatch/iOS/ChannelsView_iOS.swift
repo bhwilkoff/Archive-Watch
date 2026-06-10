@@ -2,12 +2,17 @@
 import SwiftUI
 import SwiftData
 
-// Channels (PARITY §5) — the touch guide for the tvOS EPG. Same deterministic
-// date-seeded schedule (shared ChannelScheduler) and the same presets
-// (Models/Channels.swift), rendered as a native list: each row shows what's
-// airing NOW with time remaining; tap to tune in joined-in-progress (#92) with
-// vintage commercial breaks woven between programs (#89). A row's chevron opens
-// today's full schedule; future slots start the lineup from there.
+// Channels (PARITY §5) — the touch guide for the tvOS EPG, reworked 2026-06-12
+// as a TRUE TV-listing grid (owner: "a series of tiles rather than the true
+// grid that is essential for it to feel like you are looking at a tv listing").
+// Same deterministic date-seeded schedule (shared ChannelScheduler) and presets
+// (Models/Channels.swift). Anatomy mirrors tvOS's proportional EPG: a pinned
+// time ruler, a fixed channel rail, and program blocks sized to their real
+// runtimes on a shared time window — vertical scrolling only (the reliable
+// axis), with the window shifted by chevrons or a horizontal swipe (the touch
+// substitute for tvOS's fixed now→+3h window). Tap a block to tune in
+// joined-in-progress (#92) with vintage commercial breaks woven between
+// programs (#89); tap a channel's rail for its full-day schedule.
 
 struct ChannelsRoute: Hashable {}
 
@@ -15,40 +20,40 @@ struct ChannelsView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
     @Environment(\.modelContext) private var ctx
+    @Environment(\.horizontalSizeClass) private var hSize
     @Query(sort: \UserChannel.createdAt, order: .reverse) private var userChannels: [UserChannel]
     @State private var guide: [GuideChannel] = []
     @State private var builtAt = Date()
     @State private var playing: ChannelLineup?
     @State private var showCreate = false
+    /// The guide window's left edge. nil = "live": the window starts at NOW.
+    @State private var windowStart: Date?
+
+    private var windowMinutes: Double { hSize == .regular ? 180 : 120 }
 
     var body: some View {
-        List {
-            if !userChannels.isEmpty {
-                Section("Your Channels") {
-                    ForEach(guide.filter { $0.id.hasPrefix("user-") }) { ch in
-                        channelRow(ch)
-                    }
-                    .onDelete(perform: deleteUserChannels)
-                }
-            }
-            Section(userChannels.isEmpty ? "" : "Channels") {
-                ForEach(guide.filter { !$0.id.hasPrefix("user-") }) { ch in
-                    channelRow(ch)
-                }
+        Group {
+            if guide.isEmpty {
+                ProgressView("Building the guide…")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                EPGGuide(channels: guide,
+                         windowStart: windowStart ?? Date(),
+                         windowMinutes: windowMinutes,
+                         isLive: windowStart == nil,
+                         onShift: shift(by:),
+                         onJumpToNow: { windowStart = nil },
+                         onTune: tune(_:from:),
+                         onRail: { router.push(ChannelScheduleRoute(channelID: $0.id)) })
             }
         }
-        .listStyle(.insetGrouped)
         .navigationTitle("Channels")
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button { showCreate = true } label: {
                     Image(systemName: "plus").accessibilityLabel("Create channel")
                 }
-            }
-        }
-        .overlay {
-            if guide.isEmpty {
-                ProgressView("Building the guide…")
             }
         }
         .task(id: store.dbVersion) { rebuild() }
@@ -63,49 +68,15 @@ struct ChannelsView: View {
         .sheet(isPresented: $showCreate, onDismiss: rebuild) { CreateChannelSheet() }
     }
 
-    // MARK: rows
-
-    private func channelRow(_ ch: GuideChannel) -> some View {
+    /// Shift the visible window, clamped to the broadcast day (anchor → +20h).
+    /// Landing within 5 minutes of NOW snaps back to live mode.
+    private func shift(by minutes: Double) {
         let now = Date()
-        let current = ch.slots.first { $0.contains(now) }
-        let next = ch.slots.first { $0.start > now }
-        return HStack(spacing: 12) {
-            Button { tune(ch, from: current ?? ch.slots[0]) } label: {
-                HStack(spacing: 12) {
-                    Image(systemName: ch.icon)
-                        .font(.headline).foregroundStyle(.white)
-                        .frame(width: 40, height: 40)
-                        .background(ch.accent.gradient, in: .rect(cornerRadius: 9))
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(ch.title).font(.headline).foregroundStyle(.primary)
-                        if let cur = current {
-                            Text("Now: \(cur.item.title)")
-                                .font(.subheadline).foregroundStyle(.secondary).lineLimit(1)
-                            if let nx = next {
-                                Text("Next: \(nx.item.title)")
-                                    .font(.caption).foregroundStyle(.tertiary).lineLimit(1)
-                            }
-                        }
-                    }
-                    Spacer()
-                    if let cur = current {
-                        Text(minutesLeft(cur, now: now))
-                            .font(.caption2.weight(.semibold)).foregroundStyle(.secondary)
-                    }
-                }
-            }
-            .buttonStyle(.borderless).tint(.primary)
-            Button { router.push(ChannelScheduleRoute(channelID: ch.id)) } label: {
-                Image(systemName: "calendar")
-                    .accessibilityLabel("\(ch.title) schedule")
-            }
-            .buttonStyle(.borderless)
-        }
-    }
-
-    private func minutesLeft(_ slot: ScheduledProgram, now: Date) -> String {
-        let mins = max(0, Int(slot.end.timeIntervalSince(now) / 60))
-        return "\(mins)m left"
+        let proposed = (windowStart ?? now).addingTimeInterval(minutes * 60)
+        let floor = ChannelScheduler.dayAnchor(for: now)
+        let ceiling = now.addingTimeInterval(20 * 3600)
+        let clamped = min(max(proposed, floor), ceiling)
+        windowStart = abs(clamped.timeIntervalSince(now)) < 300 ? nil : clamped
     }
 
     // MARK: schedule build (mirrors tvOS ChannelsView.rebuild)
@@ -200,6 +171,204 @@ struct ChannelLineup: Identifiable {
     let id = UUID()
     let items: [Catalog.Item]
     var startOffset: TimeInterval = 0
+}
+
+// MARK: - The touch EPG grid (proportional TV listing)
+//
+// tvOS's guide anatomy in the touch idiom: a pinned half-hour ruler
+// (LazyVStack section header), a fixed channel rail on the left, and program
+// blocks whose width is proportional to runtime on the shared window. Only the
+// vertical axis scrolls; the WINDOW moves instead of a second scroll axis —
+// chevrons or a horizontal swipe shift it ±90 min (clamped to the broadcast
+// day), and "Now" snaps back to live with the red now-line.
+
+private struct EPGGuide: View {
+    let channels: [GuideChannel]
+    let windowStart: Date
+    let windowMinutes: Double
+    let isLive: Bool
+    let onShift: (Double) -> Void
+    let onJumpToNow: () -> Void
+    let onTune: (GuideChannel, ScheduledProgram) -> Void
+    let onRail: (GuideChannel) -> Void
+
+    private let railW: CGFloat = 76
+    private let rowH: CGFloat = 64
+    private var windowEnd: Date { windowStart.addingTimeInterval(windowMinutes * 60) }
+
+    var body: some View {
+        GeometryReader { geo in
+            let timelineW = max(200, geo.size.width - railW - 16)
+            let ppm = timelineW / windowMinutes
+            VStack(spacing: 0) {
+                controls
+                ScrollView(.vertical) {
+                    LazyVStack(spacing: 4, pinnedViews: [.sectionHeaders]) {
+                        Section {
+                            rows(ppm: ppm, timelineW: timelineW)
+                        } header: {
+                            ruler(timelineW: timelineW)
+                        }
+                    }
+                    .padding(.horizontal, 8)
+                    .padding(.bottom, 24)
+                }
+            }
+            // The touch substitute for a second scroll axis: a deliberate
+            // horizontal swipe pages the window. High threshold + dominant-axis
+            // check so vertical guide scrolling never triggers it.
+            .gesture(
+                DragGesture(minimumDistance: 40)
+                    .onEnded { v in
+                        guard abs(v.translation.width) > 70,
+                              abs(v.translation.width) > abs(v.translation.height) * 1.5
+                        else { return }
+                        onShift(v.translation.width < 0 ? 90 : -90)
+                    }
+            )
+        }
+    }
+
+    private var controls: some View {
+        HStack(spacing: 10) {
+            Button { onShift(-90) } label: {
+                Image(systemName: "chevron.left").frame(minWidth: 32, minHeight: 32)
+            }
+            .accessibilityLabel("Earlier")
+            Text(windowLabel)
+                .font(.subheadline.weight(.semibold).monospacedDigit())
+                .frame(maxWidth: .infinity)
+            Button { onShift(90) } label: {
+                Image(systemName: "chevron.right").frame(minWidth: 32, minHeight: 32)
+            }
+            .accessibilityLabel("Later")
+            if !isLive {
+                Button("Now") { onJumpToNow() }
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.small)
+                    .tint(Brand.primary)
+            }
+        }
+        .padding(.horizontal, 12)
+        .padding(.vertical, 6)
+    }
+
+    private var windowLabel: String {
+        let f = Date.FormatStyle(date: .omitted, time: .shortened)
+        return "\(windowStart.formatted(f)) – \(windowEnd.formatted(f))"
+    }
+
+    private func ruler(timelineW: CGFloat) -> some View {
+        let ticks = Int(windowMinutes / 30)
+        let tickW = timelineW / CGFloat(ticks)
+        return HStack(spacing: 0) {
+            Color.clear.frame(width: railW + 4)
+            ForEach(0..<ticks, id: \.self) { i in
+                let t = windowStart.addingTimeInterval(Double(i) * 1800)
+                Text(isLive && i == 0 ? "NOW" : t.formatted(date: .omitted, time: .shortened))
+                    .font(.caption2.weight(.bold))
+                    .foregroundStyle(isLive && i == 0 ? Brand.primary : .secondary)
+                    .frame(width: tickW, alignment: .leading)
+                    .overlay(alignment: .leading) {
+                        Rectangle().fill(.secondary.opacity(0.25)).frame(width: 1)
+                    }
+            }
+        }
+        .frame(height: 24)
+        .background(.background)   // pinned header must occlude rows beneath
+    }
+
+    @ViewBuilder
+    private func rows(ppm: CGFloat, timelineW: CGFloat) -> some View {
+        let now = Date()
+        ForEach(channels) { ch in
+            HStack(spacing: 4) {
+                railCell(ch)
+                timeline(ch, ppm: ppm, timelineW: timelineW, now: now)
+            }
+            .frame(height: rowH)
+        }
+        // One red now-line across every row, only when NOW is in the window.
+        .overlay(alignment: .topLeading) {
+            if now >= windowStart && now < windowEnd {
+                Rectangle()
+                    .fill(Brand.primary.opacity(0.8))
+                    .frame(width: 2)
+                    .offset(x: railW + 4 + CGFloat(now.timeIntervalSince(windowStart) / 60) * ppm)
+                    .allowsHitTesting(false)
+            }
+        }
+    }
+
+    private func railCell(_ ch: GuideChannel) -> some View {
+        Button { onRail(ch) } label: {
+            VStack(spacing: 3) {
+                Image(systemName: ch.icon)
+                    .font(.subheadline)
+                    .foregroundStyle(.white)
+                    .frame(width: 30, height: 30)
+                    .background(ch.accent.gradient, in: .rect(cornerRadius: 7))
+                Text(ch.title)
+                    .font(.system(size: 9, weight: .semibold))
+                    .multilineTextAlignment(.center)
+                    .lineLimit(2)
+                    .foregroundStyle(.secondary)
+            }
+            .frame(width: railW, height: rowH)
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel("\(ch.title) full schedule")
+    }
+
+    private func timeline(_ ch: GuideChannel, ppm: CGFloat, timelineW: CGFloat,
+                          now: Date) -> some View {
+        let visible = ch.slots.filter { $0.end > windowStart && $0.start < windowEnd }
+        return HStack(spacing: 2) {
+            // Lead-in gap when the first visible program starts inside the window.
+            if let first = visible.first, first.start > windowStart {
+                Color.clear
+                    .frame(width: CGFloat(first.start.timeIntervalSince(windowStart) / 60) * ppm)
+            }
+            ForEach(visible) { slot in
+                let visStart = max(slot.start, windowStart)
+                let visEnd = min(slot.end, windowEnd)
+                let w = max(20, CGFloat(visEnd.timeIntervalSince(visStart) / 60) * ppm - 2)
+                programBlock(slot, channel: ch, width: w, airing: slot.contains(now))
+            }
+            Spacer(minLength: 0)
+        }
+        .frame(width: timelineW, height: rowH, alignment: .leading)
+        .clipped()
+    }
+
+    private func programBlock(_ slot: ScheduledProgram, channel: GuideChannel,
+                              width: CGFloat, airing: Bool) -> some View {
+        Button { onTune(channel, slot) } label: {
+            VStack(alignment: .leading, spacing: 2) {
+                Text(slot.item.title)
+                    .font(.caption.weight(airing ? .bold : .semibold))
+                    .lineLimit(2)
+                    .foregroundStyle(airing ? .white : .primary)
+                Spacer(minLength: 0)
+                Text(slot.start, style: .time)
+                    .font(.system(size: 9, weight: .medium).monospacedDigit())
+                    .foregroundStyle(airing ? .white.opacity(0.85) : .secondary)
+            }
+            .padding(.horizontal, 6)
+            .padding(.vertical, 5)
+            .frame(width: width, height: rowH, alignment: .topLeading)
+            .background(
+                airing ? AnyShapeStyle(channel.accent.gradient)
+                       : AnyShapeStyle(Color(.secondarySystemBackground)),
+                in: .rect(cornerRadius: 8)
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .strokeBorder(channel.accent.opacity(airing ? 0 : 0.35), lineWidth: 1)
+            )
+        }
+        .buttonStyle(.plain)
+    }
 }
 
 // MARK: - Full-day schedule for one channel

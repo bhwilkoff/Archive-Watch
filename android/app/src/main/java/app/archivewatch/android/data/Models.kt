@@ -152,6 +152,10 @@ data class PlaySpec(
     // native player behavior.
     val queue: List<QueueEntry> = emptyList(),
     val queueIndex: Int = 0,
+    // Channel join-in-progress: start the first item this far in.
+    val startPositionMs: Long = 0,
+    // Channel/lineup playback never persists resume progress (apps' rule).
+    val persistProgress: Boolean = true,
 )
 
 /** One binge-queue entry (an episode). */

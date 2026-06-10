@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 
 /** Top-level content tabs (Settings rides the Home top bar gear). */
 enum class Tab(val label: String) {
-    Home("Home"), Browse("Browse"), Search("Search"), Library("Library")
+    Home("Home"), Browse("Browse"), Channels("Channels"), Search("Search"), Library("Library")
 }
 
 /** Every pushable destination — plain state-based navigation for v1. */

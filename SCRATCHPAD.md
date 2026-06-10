@@ -233,6 +233,36 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-12 (later) — Channels everywhere: iOS true EPG grid + Android & Web ports
+App 1.2.21 (b34). Owner: "both the channels port to the other platforms and
+a rework of the channels view on iOS... the true grid that is essential for
+it to feel like you are looking at a tv listing... native to their
+respective platforms."
+- **iOS rework** (iOS-DESIGN §2.5b): the now/next LIST replaced by a
+  proportional EPG grid — pinned half-hour ruler (LazyVStack stickyHeaders),
+  fixed channel rail (tap → full-day schedule), runtime-proportional blocks
+  on a 120/180-min window (compact/regular), chevrons + deliberate
+  horizontal swipe page the window ±90 min (clamped to the broadcast day),
+  NOW snap-back + red now-line. Sim-verified (screenshot: real TV listing).
+- **Android** (ANDROID-DESIGN §3.1 five tabs + §4.6): Kotlin
+  ChannelScheduler port (FNV-1a + SplitMix64 + 6 AM local anchor + per-type
+  runtime defaults — same constants), ChannelsScreen Compose guide (sticky
+  ruler, custom Layout placing blocks by minute offset), Channels tab.
+  Tuning rides the Media3 queue with commercials woven, startPositionMs
+  join-in-progress, persistProgress=false (channels never pollute Continue
+  Watching — PlaySpec gained both fields). assembleDebug green.
+- **Web** (WEB-DESIGN §4.13): `tools/build_channel_pools.py` emits
+  channel-pools.json (14 channels × ≤90 programs + 60 commercials, 219 KB —
+  the index lacks runtime/genre; wired into publish-db's index step); the
+  browser runs the JS Scheduler port (BigInt SplitMix64) so the day anchors
+  to the viewer's LOCAL 6 AM; #/channels renders a sticky-rail/ruler CSS
+  listing (rows width:max-content — the sticky-containing-box gotcha) with
+  now-line + auto-scroll-to-now. Player gained startAt + persist:false.
+  Headless-verified (screenshots).
+- docs channel skipped on web (4 documentary items total — same data gap as
+  the category tile). User-created channels on W+A remain next wave.
+
+
 ### 2026-06-12 — Cross-platform parity wave: Web + Android close the launch gaps
 User: "continue working on our parity matrix across all platforms to make
 sure we can launch on all platforms with the same features across the
