@@ -1064,3 +1064,45 @@ in-flight signing; the AASA is already live and validated once that lands.
 GitHub Pages enforces HTTPS for the domain (owner should leave "Enforce
 HTTPS" on); `www.archivewatch.org` behavior depends on the owner's DNS
 (CNAME www → apex recommended).
+
+---
+
+## 031 — Stream loader delivers bytes as they arrive and pins the storage node
+*Date: 2026-06-11*
+
+`ResilientStreamLoader` (Decision 021) now (a) delivers every arriving Data
+slice straight to AVFoundation via a per-task `URLSessionDataDelegate`
+(`ChunkStream`) instead of buffering whole chunks with `session.data(for:)`,
+(b) pins the post-redirect archive.org storage-node URL after the first
+response and requests it directly, dropping the pin on failure so the next
+attempt re-resolves through the origin, and (c) uses 8 MB ranges instead of
+2 MB.
+
+**Why**: the owner reported 1–2 stalls per film (sometimes a dozen) even with
+the Decision-021 loader. Measured 2026-06-10: every chunk paid the
+`archive.org/download` 302 round trip (~0.5–1.0 s extra time-to-first-byte vs
+the node directly), the player received ZERO bytes until each 2 MB chunk
+completed (so the buffer grew in steps with multi-second gaps), and a mid-chunk
+timeout discarded the partial chunk and re-downloaded it — each such event a
+multi-second hole in buffer feed. Same title, same network, before → after:
+in-chunk throughput 8.7 → 34.9 Mbps, per-chunk turnaround 2.6 s/2 MB →
+0.9 s/8 MB, 100% of requests on the pinned node, and the 300 s forward buffer
+fills in seconds instead of plateauing. Streaming delivery also makes failure
+recovery byte-exact: `offset` advances with each delivered slice, so a retry
+resumes at the exact byte and AVFoundation never sees a gap.
+
+**How to apply**: keep delivery STREAMING — never go back to whole-chunk
+`session.data(for:)` (it holds bytes hostage for the chunk duration and makes
+every failure cost the whole chunk). Keep the pin-and-fallback shape: nodes
+rotate/expire, so a failed pinned request must clear the pin and retry via the
+origin before burning the retry budget (416 means ranged-past-EOF → clean
+finish, not an error). All Decision-021 invariants still bind: short idle
+timeout, resume-from-offset, queue-confined state, no bitrate ceiling.
+Diagnostics are permanent but env-gated (`AW_PLAYBACK_DIAG=1` logs AWSTREAM
+chunk/retry/pin lines, AWSTALL stall events, AWBUF buffer depth; `AW_AUTOPLAY=1`
++ `AW_START_ITEM` drive unattended playback runs on the simulator).
+
+**Consequences**: requests per film drop ~4× (fewer chances to hit an idle
+reset); startup metadata reads go from ~1.5 s to ~50 ms once pinned. The
+pinned URL lives only for the loader's lifetime (one playback session), so
+node rotation between sessions is harmless.

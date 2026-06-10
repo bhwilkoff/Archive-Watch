@@ -80,6 +80,7 @@ struct PlayerView: UIViewControllerRepresentable {
         let player = AVPlayer(playerItem: pItem)
         vc.player = player
         context.coordinator.observe(player, item: pItem)
+        PlaybackDiag.attach(item: pItem, player: player)   // no-op unless AW_PLAYBACK_DIAG=1
 
         // Channel join-in-progress beats per-title resume; otherwise resume.
         if let so = startOffset {

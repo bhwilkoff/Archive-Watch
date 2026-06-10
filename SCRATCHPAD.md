@@ -233,6 +233,29 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-11 (night) — Playback optimization: streaming loader + node pinning (Decision 031)
+App 1.2.20 (b33), both sims green. Owner: "nearly every video [has] at least
+one or two pauses... sometimes a dozen or more."
+- Diagnosed with NEW env-gated diagnostics (AW_PLAYBACK_DIAG=1 →
+  AWSTREAM/AWSTALL/AWBUF logs; AW_AUTOPLAY=1 + AW_START_ITEM = unattended
+  sim playback). Baseline (8 min, high-bitrate BluRay title): every 2MB
+  chunk paid the archive.org/download 302 (~0.5-1.0s TTFB vs node-direct,
+  curl-measured), bytes reached the player only at chunk COMPLETION (2.6s
+  avg holes), mid-chunk timeout re-downloaded the whole chunk; effective
+  8.7 Mbps; buffer never reached its 300s target.
+- ResilientStreamLoader rewrite (Decision 021 invariants kept): per-task
+  URLSessionDataDelegate streams every Data slice to AVFoundation as it
+  arrives (byte-exact resume), post-redirect storage node PINNED from the
+  first probe (dropped on failure — nodes rotate; 416 = clean EOF), 8MB
+  chunks. AFTER, same title: 34.9 Mbps (4×), 0.9s/8MB turnaround, 100%
+  requests on the node, buffer fills in seconds; startup metadata reads
+  1.5s → 53ms. Second content type (65MB cartoon) verified: fully buffered
+  in ~6s. Shared loader → tvOS gets it identically (tvOS build green;
+  PlaybackDiag attached in tunePlaybackBuffering).
+- Real-world stall conditions (living-room wifi, busy nodes) can't be
+  reproduced on the dev box — owner should judge on-device; if stalls
+  persist, run with AW_PLAYBACK_DIAG=1 and read AWSTREAM retry lines.
+
 ### 2026-06-11 (evening) — Classic TV poster gate + SNL editorial demotion
 App 1.2.19 (b32), both sims green. Owner: poster-less items in Classic TV
 ("source them or not show them") + SNL rights caution ("searchable and at

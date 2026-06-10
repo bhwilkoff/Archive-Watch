@@ -120,9 +120,11 @@ struct EpisodeAVPlayerContainer: UIViewControllerRepresentable {
 // very-high-bitrate file rather than risk jetsam on the Apple TV.
 let archivePreferredForwardBufferDuration: TimeInterval = 300
 
+@MainActor
 func tunePlaybackBuffering(item: AVPlayerItem, player: AVPlayer) {
     item.preferredForwardBufferDuration = archivePreferredForwardBufferDuration
     player.automaticallyWaitsToMinimizeStalling = true
+    PlaybackDiag.attach(item: item, player: player)   // no-op unless AW_PLAYBACK_DIAG=1
 }
 
 // Publishes Now Playing poster artwork the way AVPlayerViewController actually

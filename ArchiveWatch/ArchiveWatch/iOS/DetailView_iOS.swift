@@ -66,6 +66,14 @@ struct DetailView: View {
         .sheet(isPresented: $addingToPlaylist) {
             AddToPlaylistSheet(archiveID: item.archiveID)
         }
+        // Dev affordance (with AW_START_ITEM): start playback immediately so
+        // playback diagnostics can run unattended on the simulator.
+        .task {
+            if ProcessInfo.processInfo.environment["AW_AUTOPLAY"] == "1",
+               item.videoURLParsed != nil {
+                playing = true
+            }
+        }
     }
 
     private var metaLine: String {
