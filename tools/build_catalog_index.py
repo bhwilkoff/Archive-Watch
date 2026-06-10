@@ -47,9 +47,12 @@ def main():
             adult = set()
 
     rows = []
+    shelf_members: dict[str, list[tuple]] = {}
     for it in items:
         if it.get("excluded"):          # rights audit (Decision 027)
             continue
+        if it.get("isAdult"):           # item-level flag (Decision 012) — the
+            continue                    # apps' isAdult column ORs this in too
         cols = {c.lower() for c in (it.get("collections") or [])}
         if adult & cols:
             continue
@@ -61,21 +64,36 @@ def main():
             poster = None          # derivable from the id; don't bloat the index
         rows.append([aid, it.get("title") or aid, it.get("year"),
                      it.get("contentType") or "", poster])
+        # Editorial shelf membership (the item_shelves analog) — so the web
+        # viewer composes Home from the SAME curated assignments as the apps
+        # instead of live scrape (which bypasses the rights/adult pipeline).
+        designed = 1 if poster else 0
+        pop_score = it.get("popularityScore") or 0
+        for shelf_id in (it.get("shelves") or []):
+            shelf_members.setdefault(shelf_id, []).append((designed, pop_score, aid))
 
     # Sort by popularity so the most useful titles search/scroll first.
     pop = {it.get("archiveID"): (it.get("popularityScore") or 0) for it in items}
     rows.sort(key=lambda r: pop.get(r[0], 0), reverse=True)
 
+    # Designed art leads each shelf, then popularity; cap keeps the file slim.
+    shelves = {
+        sid: [aid for _, _, aid in sorted(members, reverse=True)[:60]]
+        for sid, members in sorted(shelf_members.items())
+    }
+
     out = {
-        "schema": 2,
+        "schema": 3,
         "updatedAt": catalog.get("updatedAt") or "",
         "count": len(rows),
         "fields": ["id", "title", "year", "contentType", "poster"],
+        "shelves": shelves,
         "items": rows,
     }
     OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     mb = OUT.stat().st_size / 1_000_000
-    print(f"[index] wrote {OUT.name}: {len(rows):,} items, {mb:.1f} MB", flush=True)
+    print(f"[index] wrote {OUT.name}: {len(rows):,} items, "
+          f"{len(shelves)} shelves, {mb:.1f} MB", flush=True)
     return 0
 
 

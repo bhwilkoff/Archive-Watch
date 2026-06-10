@@ -75,6 +75,7 @@
   const Data = {
     rows: [],            // [id, title, year, type, poster?] popularity-sorted
     byID: new Map(),
+    shelves: {},         // shelfID → [archiveIDs] (editorial item_shelves analog)
     featured: null,
 
     async load() {
@@ -84,6 +85,7 @@
       if (!idxR.ok) throw new Error(`catalog index ${idxR.status}`);
       const idx = await idxR.json();
       this.rows = idx.items || [];
+      this.shelves = idx.shelves || {};
       this.rows.forEach(r => this.byID.set(r[0], r));
       if (featR.ok) this.featured = await featR.json();
     },
@@ -92,29 +94,39 @@
       return (row && row[4]) || API.thumbnailURL(row ? row[0] : '');
     },
 
-    /** Resolve a featured.json shelf to index rows (curated) or a scrape
-        (dynamic, cached for an hour so Home isn't N requests every visit). */
-    async shelfRows(shelf, limit = 16) {
+    /** Resolve a featured.json shelf through the index's editorial shelves
+        map — the same curated item_shelves assignments the apps query, so
+        Home inherits the rights audit + adult filter and every shelf has its
+        own identity (live scrape did neither; see WEB-DESIGN §2.3). A daily
+        seeded shuffle rotates each shelf, designed artwork leading. */
+    shelfRows(shelf, limit = 16) {
+      let rows;
       if (shelf.type === 'curated' && Array.isArray(shelf.items)) {
-        return shelf.items.map(i => this.byID.get(i.archiveID)).filter(Boolean).slice(0, limit);
+        rows = shelf.items.map(i => this.byID.get(i.archiveID)).filter(Boolean);
+      } else {
+        rows = (this.shelves[shelf.id] || []).map(id => this.byID.get(id)).filter(Boolean);
       }
-      if (!shelf.query) return [];
-      const key = `aw_shelf_${shelf.id}`;
-      try {
-        const hit = JSON.parse(sessionStorage.getItem(key) || 'null');
-        if (hit && Date.now() - hit.at < 3600e3) return hit.rows;
-      } catch { /* re-fetch */ }
-      const { items } = await API.scrape({
-        q: shelf.query, sorts: shelf.sort || [], count: limit * 2 });
-      const rows = items
-        .map(it => this.byID.get(it.identifier)
-          || [it.identifier, it.title || it.identifier,
-              parseInt(String(it.year || it.date || '').slice(0, 4), 10) || null, '', null])
-        .slice(0, limit);
-      try { sessionStorage.setItem(key, JSON.stringify({ at: Date.now(), rows })); } catch { /* full */ }
-      return rows;
+      const designed = daySeededShuffle(rows.filter(r => r[4]), shelf.id);
+      const plain = daySeededShuffle(rows.filter(r => !r[4]), shelf.id);
+      return designed.concat(plain).slice(0, limit);
     },
   };
+
+  /** Deterministic per-day shuffle (xorshift over an FNV-1a seed) — the web
+      analog of the build's date-seeded shelf rotation: same order all day for
+      everyone, fresh tomorrow. */
+  function daySeededShuffle(arr, key) {
+    let h = 2166136261 >>> 0;
+    const seed = `${key}:${new Date().toISOString().slice(0, 10)}`;
+    for (const c of seed) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619) >>> 0; }
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      h ^= h << 13; h ^= h >>> 17; h ^= h << 5; h >>>= 0;
+      const j = h % (i + 1);
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
 
   /* ---------------------------------------------------------------- *
    * Rendering helpers                                                 *
@@ -189,26 +201,27 @@
     heroTimer: null,
     rendered: false,
 
-    async render() {
+    render() {
       if (this.rendered) return;
       this.rendered = true;
-      this.hero();
+      const heroIDs = this.hero();
       const host = $('home-shelves');
-      const shelves = (Data.featured?.shelves || []).slice(0, 14);
-      for (const shelf of shelves) {
-        try {
-          const rows = await Data.shelfRows(shelf);
-          if (rows.length < 4) continue;
-          const sec = document.createElement('section');
-          sec.className = 'shelf';
-          const h = document.createElement('h2');
-          h.textContent = shelf.title;
-          const rail = document.createElement('div');
-          rail.className = 'shelf-row';
-          rail.append(...rows.map(card));
-          sec.append(h, rail);
-          host.append(sec);
-        } catch { /* a failed dynamic shelf just doesn't render */ }
+      // Cross-shelf dedup (the apps' Home rule): an item shows once, in the
+      // first shelf that claims it, so Home isn't aliases of one popular list.
+      const used = new Set(heroIDs);
+      for (const shelf of Data.featured?.shelves || []) {
+        const rows = Data.shelfRows(shelf, 24).filter(r => !used.has(r[0])).slice(0, 16);
+        if (rows.length < 4) continue;
+        rows.forEach(r => used.add(r[0]));
+        const sec = document.createElement('section');
+        sec.className = 'shelf';
+        const h = document.createElement('h2');
+        h.textContent = shelf.title;
+        const rail = document.createElement('div');
+        rail.className = 'shelf-row';
+        rail.append(...rows.map(card));
+        sec.append(h, rail);
+        host.append(sec);
       }
       if (!host.children.length) {
         const p = document.createElement('p');
@@ -219,8 +232,8 @@
     },
 
     hero() {
-      const pool = Data.rows.filter(r => r[4]).slice(0, 24);
-      if (!pool.length) return;
+      const pool = daySeededShuffle(Data.rows.filter(r => r[4]).slice(0, 48), 'hero').slice(0, 8);
+      if (!pool.length) return [];
       const el = $('hero');
       el.hidden = false;
       let i = Math.floor(Math.random() * pool.length);
@@ -234,6 +247,7 @@
       show();
       clearInterval(this.heroTimer);
       this.heroTimer = setInterval(() => { i += 1; show(); }, 7000);
+      return pool.map(r => r[0]);
     },
   };
 

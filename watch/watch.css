@@ -55,8 +55,9 @@ a { color: var(--color-accent); }
 .brand {
   color: var(--text); text-decoration: none; font-weight: 800;
   letter-spacing: 0.2px; white-space: nowrap;
+  display: flex; align-items: center; gap: 10px;
 }
-.brand-mark { color: var(--color-primary); }
+.brand-logo { border-radius: 6px; display: block; }
 .topnav { display: flex; gap: 4px; margin-left: auto; overflow-x: auto; }
 .topnav a {
   color: var(--text-dim); text-decoration: none; font-weight: 600;
@@ -64,10 +65,19 @@ a { color: var(--color-accent); }
 }
 .topnav a[aria-current="true"] { color: #fff; background: var(--bg-raise); }
 
+/* Footer reads as quiet chrome, not a stray hyperlink: centered, dim,
+   brand-marked; links inherit the dim tone instead of accent blue. */
 .foot {
   border-top: 1px solid var(--border);
-  padding: 8px var(--pad); font-size: 0.85rem;
+  padding: 10px var(--pad); font-size: 0.8rem;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  color: var(--text-dim);
 }
+.foot img { border-radius: 4px; opacity: 0.85; }
+.foot a {
+  color: var(--text-dim); text-decoration: none; font-weight: 600;
+}
+.foot a:hover { color: var(--text); }
 
 /* ---- hero ---- */
 .hero {

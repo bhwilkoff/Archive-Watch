@@ -28,9 +28,14 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   (CORS ✓) through `js/api.js` — never `fetch` archive.org endpoints directly
   from view code, and never fetch `archive.org/download/*` with `fetch()`
   (no CORS; verified). `<img>`/`<video>` elements are exempt (no CORS needed).
-- **§2.3 Shelves come from `featured.json`**: curated → index lookup; dynamic →
-  Archive scrape API, cached in `sessionStorage` for 1h. A failed shelf renders
-  nothing (never an error card on Home).
+- **§2.3 Shelves resolve through the index's editorial `shelves` map**
+  (schema 3) — the same curated `item_shelves` assignments the apps query.
+  Curated shelves may also resolve their explicit `featured.json` items by id.
+  **Never compose consumer surfaces from the live Archive scrape API**: a
+  2026-06-10 audit showed scrape results bypass the rights audit (Decision
+  027) and adult filter (Decision 012) — copyrighted and adult titles surfaced
+  on Home — and every `-downloads` shelf returned one identical list. An
+  empty/missing shelf renders nothing (never an error card on Home).
 - **§2.4 The upgrade path is chunked SQLite over Pages.** GitHub Pages serves
   `206 + Access-Control-Allow-Origin: *` on GET (verified 2026-06-09 — the
   2026-06-02 "no 206" measurement was a HEAD artifact). When FTS5-grade search
@@ -54,7 +59,11 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
 ## §4 Surfaces
 
 - **§4.1 Home** = hero (designed-art pool, 7s rotate) + featured shelves
-  (horizontal scroll-snap rails). Order follows `featured.json`.
+  (horizontal scroll-snap rails). Order follows `featured.json`; items are
+  **cross-shelf deduped** (first shelf claims the item — the apps' Home rule),
+  shelves under 4 items are dropped, and each shelf gets a **day-seeded
+  deterministic shuffle** with designed artwork leading (the web analog of the
+  build's daily rotation).
 - **§4.2 Browse** = type chips + decade/sort selects + infinite-scroll grid
   (IntersectionObserver sentinel, 60/page). The full count is always shown.
 - **§4.3 Search** is client-side over the index (all terms must match the

@@ -67,7 +67,7 @@ this table in the same change set; cross-link the platform design doc.
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
 | Hero / featured banner | ✅ focus carousel | ✅ paged `TabView` carousel (touch swipe, 7s auto-advance) | ✅ rotating hero (7s, designed art) | ✅ 7s auto-advance hero | Same pool/logic; 10-foot sizing → touch sizing |
-| Curated + dynamic shelves | ✅ | ✅ horizontal rows, item_shelves-resolved + cross-shelf dedup | ✅ scroll-snap rails (curated via index; dynamic via scrape, 1h cache) | ✅ `LazyRow`s (item_shelves, dedup, min-6) | `featured.json` shared verbatim |
+| Curated + dynamic shelves | ✅ | ✅ horizontal rows, item_shelves-resolved + cross-shelf dedup | ✅ scroll-snap rails (editorial shelves map in the index; deduped, day-rotated) | ✅ `LazyRow`s (item_shelves, dedup, min-6) | `featured.json` shared verbatim |
 | Category tiles | ✅ | ✅ tile row → filtered grid | ⏳ | ⏳ | accent colors from `featured.json` |
 | Decade tiles | ✅ | ✅ era tiles + counts | ⏳ | ⏳ | |
 | Hidden Gems shelf | ✅ | ✅ | ⏳ | ✅ | shared query |
