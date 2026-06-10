@@ -60,9 +60,14 @@ struct RootView: View {
 }
 
 extension View {
-    /// Shared push destination so every tab opens Detail identically.
+    /// Shared push destinations so every tab can open Detail, a series, a
+    /// collection, or a filtered grid identically (Home's category/decade tiles
+    /// and Surprise's decade action push these from outside the Browse tab).
     func withItemDestination() -> some View {
         navigationDestination(for: Catalog.Item.self) { DetailView(item: $0) }
+            .navigationDestination(for: SeriesRef.self) { SeriesDetailView(card: $0.card) }
+            .navigationDestination(for: CollectionRef.self) { CollectionGridView(ref: $0) }
+            .navigationDestination(for: BrowseFilterRoute.self) { FilteredGridView(route: $0) }
     }
 }
 

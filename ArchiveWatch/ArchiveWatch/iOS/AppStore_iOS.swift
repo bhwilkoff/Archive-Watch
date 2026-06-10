@@ -29,6 +29,36 @@ final class AppStore {
         }
     }
 
+    // #4: content categories the user has hidden in Settings. Same UserDefaults
+    // key + type mapping as tvOS, so the preference carries the same meaning on
+    // both platforms (the value itself is per-device).
+    var hiddenCategories: Set<String> = {
+        Set(UserDefaults.standard.stringArray(forKey: "hiddenCategories") ?? [])
+    }() {
+        didSet {
+            UserDefaults.standard.set(Array(hiddenCategories), forKey: "hiddenCategories")
+            db?.hiddenTypes = Self.contentTypes(for: hiddenCategories)
+            dbVersion += 1
+        }
+    }
+    /// A hidden "tv-series" category covers both series cards and tv-specials.
+    static func contentTypes(for categories: Set<String>) -> Set<String> {
+        var types = categories
+        if categories.contains("tv-series") { types.insert("tv-special") }
+        return types
+    }
+
+    /// #17: completed titles are hidden from Home shelves + hero by default;
+    /// a Settings toggle shows them again. Search/Browse/Library are unaffected.
+    var hideWatchedOnHome: Bool = {
+        UserDefaults.standard.object(forKey: "hideWatchedOnHome") as? Bool ?? true
+    }() {
+        didSet {
+            UserDefaults.standard.set(hideWatchedOnHome, forKey: "hideWatchedOnHome")
+            dbVersion += 1
+        }
+    }
+
     /// Completed titles (≥95%), set from SwiftData WatchProgress by the views that
     /// own the model context. Feeds Continue-Watching hiding + the F4 engine.
     var completedArchiveIDs: Set<String> = []
@@ -68,6 +98,7 @@ final class AppStore {
 
     private func swap(_ newDB: CatalogDB) {
         newDB.hideAdult = hideAdultContent
+        newDB.hiddenTypes = Self.contentTypes(for: hiddenCategories)
         db = newDB
         dbVersion += 1
     }
@@ -75,9 +106,14 @@ final class AppStore {
     // MARK: catalog reads (thin pass-throughs to Core)
 
     func browse(contentType: String? = nil, decade: Int? = nil, genre: String? = nil,
-                sort: CatalogDB.Sort = .popular, limit: Int = 60, offset: Int = 0) -> [Catalog.Item] {
-        db?.browse(contentType: contentType, decade: decade, genre: genre,
+                year: Int? = nil, sort: CatalogDB.Sort = .popular,
+                limit: Int = 60, offset: Int = 0) -> [Catalog.Item] {
+        db?.browse(contentType: contentType, decade: decade, genre: genre, year: year,
                    sort: sort, limit: limit, offset: offset) ?? []
+    }
+    func browseCount(contentType: String? = nil, decade: Int? = nil,
+                     genre: String? = nil, year: Int? = nil) -> Int {
+        db?.browseCount(contentType: contentType, decade: decade, genre: genre, year: year) ?? 0
     }
     func search(_ q: String) -> [Catalog.Item] { db?.search(q) ?? [] }
     func item(_ id: String) -> Catalog.Item? { db?.item(id) }
@@ -87,6 +123,14 @@ final class AppStore {
     func hiddenGems() -> [Catalog.Item] { db?.hiddenGems() ?? [] }
     func byCollection(_ id: String) -> [Catalog.Item] { db?.byCollection(id) ?? [] }
     func decadeCounts() -> [Int: Int] { db?.decadeCounts() ?? [:] }
+    func topDirectors() -> [(name: String, count: Int)] { db?.topDirectors() ?? [] }
+    func byDirector(_ name: String) -> [Catalog.Item] { db?.byDirector(name, homeOnly: true) ?? [] }
+    func topGenres() -> [String] { db?.topGenres() ?? [] }
+    func randomPlayable(contentType: String? = nil) -> Catalog.Item? {
+        db?.randomPlayable(contentType: contentType)
+    }
+    func randomSeries() -> Catalog.Item? { db?.randomSeries() }
+    func randomByGenre(_ genres: [String]) -> Catalog.Item? { db?.randomByGenre(genres) }
 
     /// Items for a Home shelf, resolved through the prebuilt `item_shelves`
     /// mapping (Decision 017) by the shelf's id — the build assigns each shelf
@@ -96,10 +140,11 @@ final class AppStore {
     func items(forShelf shelfID: String) -> [Catalog.Item] { db?.shelf(shelfID) ?? [] }
 
     /// Drop already-completed titles from a Home list (#17). No-op until a view
-    /// populates `completedArchiveIDs` from SwiftData WatchProgress.
+    /// populates `completedArchiveIDs` from SwiftData WatchProgress, or when the
+    /// user turns the Settings toggle off.
     func filteringWatched(_ items: [Catalog.Item]) -> [Catalog.Item] {
-        completedArchiveIDs.isEmpty ? items
-            : items.filter { !completedArchiveIDs.contains($0.archiveID) }
+        guard hideWatchedOnHome, !completedArchiveIDs.isEmpty else { return items }
+        return items.filter { !completedArchiveIDs.contains($0.archiveID) }
     }
 
     // MARK: shared ContinuousPlayback engine surface (db*-prefixed, matches tvOS)

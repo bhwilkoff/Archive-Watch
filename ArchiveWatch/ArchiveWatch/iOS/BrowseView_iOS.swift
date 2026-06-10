@@ -53,8 +53,6 @@ struct BrowseView: View {
                 ToolbarItem(placement: .topBarTrailing) { filterMenu }
             }
         }
-        .navigationDestination(for: SeriesRef.self) { SeriesDetailView(card: $0.card) }
-        .navigationDestination(for: CollectionRef.self) { CollectionGridView(ref: $0) }
         .task {
             if items.isEmpty { reload() }
             if series.isEmpty { series = store.seriesCards() }

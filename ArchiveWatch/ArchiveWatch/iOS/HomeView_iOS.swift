@@ -18,7 +18,12 @@ struct HomeView: View {
     @State private var shelfSeed = UInt64.random(in: 0..<UInt64.max)
     @State private var heroItems: [Catalog.Item] = []
     @State private var payloads: [ShelfPayload] = []
+    @State private var gems: [Catalog.Item] = []
+    @State private var pdItems: [Catalog.Item] = []
+    @State private var directorShelves: [(name: String, items: [Catalog.Item])] = []
     @State private var showSettings = false
+
+    private let pdYear = Calendar.current.component(.year, from: Date()) - 95
 
     // Phone shelves are narrow (~3 tiles visible). Below this a row reads as a
     // half-empty stub, so drop it rather than show a ragged shelf.
@@ -39,7 +44,23 @@ struct HomeView: View {
                 if !continueItems.isEmpty {
                     Shelf(title: "Continue Watching", subtitle: nil, items: continueItems)
                 }
-                ForEach(payloads) { payload in
+                CategoryTilesRow()
+                DecadeTilesRow()
+                ForEach(payloads.prefix(2)) { payload in
+                    Shelf(title: payload.shelf.title, subtitle: payload.shelf.subtitle, items: payload.items)
+                }
+                if !gems.isEmpty {
+                    Shelf(title: "Hidden Gems",
+                          subtitle: "Lovingly restored, rarely watched", items: gems)
+                }
+                if !pdItems.isEmpty {
+                    Shelf(title: "Public Domain Day",
+                          subtitle: "Class of \(String(pdYear)) — newly free to share", items: pdItems)
+                }
+                ForEach(directorShelves, id: \.name) { shelf in
+                    Shelf(title: "Directed by \(shelf.name)", subtitle: nil, items: shelf.items)
+                }
+                ForEach(payloads.dropFirst(2)) { payload in
                     Shelf(title: payload.shelf.title, subtitle: payload.shelf.subtitle, items: payload.items)
                 }
             }
@@ -79,7 +100,16 @@ struct HomeView: View {
     }
 
     private func rebuild() {
+        // Feed the store's watched set (the iOS WatchedHomeSync — HomeView already
+        // owns the WatchProgress @Query) so hide-watched (#17) works on iOS.
+        store.completedArchiveIDs = Set(progress.filter(\.isComplete).map(\.archiveID))
         heroItems = loadHero()
+        gems = store.filteringWatched(store.hiddenGems())
+        pdItems = store.filteringWatched(
+            store.browse(year: pdYear, sort: .popular, limit: 24).filter(\.hasDesignedArtwork))
+        directorShelves = store.topDirectors().map { d in
+            (name: d.name, items: store.filteringWatched(store.byDirector(d.name)))
+        }.filter { $0.items.count >= minPerShelf }
         payloads = dedupedPayloads()
         // Feed the home-screen widgets (App Group snapshot).
         WidgetSnapshotWriter.write(continueWatching: continueItems,
@@ -108,6 +138,8 @@ struct HomeView: View {
     /// so Home isn't five aliases of the same popular list.
     private func dedupedPayloads() -> [ShelfPayload] {
         var used = Set(heroItems.map(\.archiveID)).union(continueItems.map(\.archiveID))
+            .union(gems.map(\.archiveID)).union(pdItems.map(\.archiveID))
+            .union(directorShelves.flatMap { $0.items.map(\.archiveID) })
         var out: [ShelfPayload] = []
         for shelf in shelves {
             let raw = store.filteringWatched(store.items(forShelf: shelf.id))

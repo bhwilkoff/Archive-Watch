@@ -23,6 +23,17 @@ struct SettingsView: View {
                     .font(.footnote).foregroundStyle(.secondary)
             }
 
+            Section {
+                Toggle("Hide watched titles on Home", isOn: $store.hideWatchedOnHome)
+                ForEach(store.featured?.categories ?? []) { cat in
+                    Toggle(cat.displayName, isOn: categoryBinding(cat.id))
+                }
+            } header: {
+                Text("Home & Categories")
+            } footer: {
+                Text("Hidden categories disappear from Home, Browse, and Search on this device.")
+            }
+
             Section("Playback") {
                 Picker("Autoplay next", selection: $store.autoplayMode) {
                     ForEach(AutoplayMode.allCases) { Text($0.label).tag($0) }
@@ -107,6 +118,14 @@ struct SettingsView: View {
                  + "Apple devices — including your Apple TV. Optional: browsing and playback work "
                  + "without it; nothing leaves this device until you sign in.")
         }
+    }
+
+    private func categoryBinding(_ id: String) -> Binding<Bool> {
+        Binding(get: { !store.hiddenCategories.contains(id) },
+                set: { on in
+                    if on { store.hiddenCategories.remove(id) }
+                    else { store.hiddenCategories.insert(id) }
+                })
     }
 
     private var appVersion: String {
