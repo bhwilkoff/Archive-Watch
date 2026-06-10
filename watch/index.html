@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archive Watch — watch the public domain</title>
+  <meta name="description" content="A cinematheque for the Internet Archive — feature films, classic TV, silent cinema, animation, newsreels. Free, public domain, no account.">
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="../assets/app-icon/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/app-icon/favicon.png">
+  <link rel="stylesheet" href="watch.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#/">
+      <span class="brand-mark">●</span> Archive&nbsp;Watch
+    </a>
+    <nav class="topnav" aria-label="Primary">
+      <a href="#/" data-nav="home">Home</a>
+      <a href="#/browse" data-nav="browse">Browse</a>
+      <a href="#/search" data-nav="search">Search</a>
+      <a href="#/library" data-nav="library">Library</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <p id="boot" class="boot">Loading the archive…</p>
+
+    <section id="view-home" hidden>
+      <div id="hero" class="hero" hidden>
+        <img id="hero-img" alt="" loading="eager">
+        <div class="hero-scrim">
+          <h2 id="hero-title"></h2>
+          <p id="hero-meta"></p>
+        </div>
+      </div>
+      <div id="home-shelves"></div>
+    </section>
+
+    <section id="view-browse" hidden>
+      <h1>Browse</h1>
+      <div class="chips" id="browse-type-chips" role="group" aria-label="Type"></div>
+      <div class="browse-controls">
+        <select id="browse-decade" aria-label="Decade"></select>
+        <select id="browse-sort" aria-label="Sort">
+          <option value="pop">Popular</option>
+          <option value="az">A–Z</option>
+          <option value="new">Newest</option>
+          <option value="old">Oldest</option>
+        </select>
+        <span id="browse-count" class="muted"></span>
+      </div>
+      <div id="browse-grid" class="grid"></div>
+      <div id="browse-sentinel" class="sentinel" aria-hidden="true"></div>
+    </section>
+
+    <section id="view-search" hidden>
+      <h1>Search</h1>
+      <input id="search-input" type="search" placeholder="Titles, e.g. Night of the Living Dead"
+             autocomplete="off" autocapitalize="none">
+      <p id="search-hint" class="muted">Search 30,000+ public-domain films and shows.</p>
+      <div id="search-grid" class="grid"></div>
+    </section>
+
+    <section id="view-library" hidden>
+      <h1>Library</h1>
+      <h2>Continue Watching</h2>
+      <div id="library-continue" class="grid"></div>
+      <p id="library-continue-empty" class="muted" hidden>Nothing in progress — playback picks up where you left off, on this browser.</p>
+      <h2>Favorites</h2>
+      <div id="library-favs" class="grid"></div>
+      <p id="library-favs-empty" class="muted" hidden>No favorites yet — tap the heart on any title.</p>
+    </section>
+
+    <section id="view-item" hidden>
+      <div class="detail">
+        <div class="detail-art"><img id="item-poster" alt="" loading="eager"></div>
+        <div class="detail-body">
+          <h1 id="item-title"></h1>
+          <p id="item-meta" class="muted"></p>
+          <div class="detail-actions">
+            <button id="item-play" class="btn-primary">▶ Play</button>
+            <button id="item-fav" class="btn-ghost" aria-pressed="false">♡ Favorite</button>
+            <button id="item-share" class="btn-ghost">Share</button>
+            <a id="item-archive-link" class="btn-ghost" target="_blank" rel="noopener">archive.org ↗</a>
+          </div>
+          <p id="item-desc"></p>
+          <p id="item-error" class="error" hidden></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-about" hidden>
+      <h1>About</h1>
+      <p>Archive Watch turns the Internet Archive's public-domain moving-image
+         collection — feature films, classic TV, newsreels, silent cinema,
+         animation, ephemeral film — into a cinematheque. Every title is public
+         domain or otherwise free to share. No account, no tracking; your
+         favorites and progress stay in this browser.</p>
+      <h2>Sources &amp; attribution</h2>
+      <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+      <p>Posters, backdrops, cast, and synopses come from The Movie Database
+         (TMDb), with Wikidata, Wikimedia Commons, and the Library of Congress
+         as fallbacks. Films, television, and ephemera are served by the
+         Internet Archive.</p>
+      <p><a href="https://archive.org/donate" target="_blank" rel="noopener">Support the Internet Archive →</a></p>
+      <p class="muted">Also on Apple TV and iPhone — search the App Store for “Archive Watch”.
+         <a href="../privacy.html">Privacy</a> · <a href="../index.html">Suggest &amp; curate</a></p>
+    </section>
+
+    <p id="apperror" class="error" hidden></p>
+  </main>
+
+  <footer class="foot">
+    <a href="#/about">About &amp; attribution</a>
+  </footer>
+
+  <dialog id="player">
+    <div class="player-head">
+      <span id="player-title"></span>
+      <button id="player-close" aria-label="Close player">✕</button>
+    </div>
+    <video id="video" controls playsinline preload="auto"></video>
+    <p id="player-error" class="error" hidden></p>
+  </dialog>
+
+  <script src="../js/api.js"></script>
+  <script src="watch.js"></script>
+</body>
+</html>

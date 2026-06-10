@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 
 // Curator-led landing. Each collection is a card with a composite
@@ -134,3 +135,5 @@ struct CollectionCard: View {
         }
     }
 }
+
+#endif

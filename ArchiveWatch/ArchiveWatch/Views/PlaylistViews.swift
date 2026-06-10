@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 import SwiftData
 
@@ -337,3 +338,5 @@ private struct PlaylistCover: View {
             .frame(width: w, height: h).clipped()
     }
 }
+
+#endif

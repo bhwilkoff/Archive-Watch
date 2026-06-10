@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 import UIKit
 
@@ -62,3 +63,5 @@ struct RemoteImage: View {
         }
     }
 }
+
+#endif

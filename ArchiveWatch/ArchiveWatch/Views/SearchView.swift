@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 
 struct SearchView: View {
@@ -72,3 +73,5 @@ struct SearchView: View {
         }
     }
 }
+
+#endif

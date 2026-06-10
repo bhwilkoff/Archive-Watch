@@ -1,3 +1,4 @@
+#if os(tvOS)
 import Foundation
 import Observation
 import SwiftUI
@@ -118,3 +119,5 @@ final class Router {
         }
     }
 }
+
+#endif

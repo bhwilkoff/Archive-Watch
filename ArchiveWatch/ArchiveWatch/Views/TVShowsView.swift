@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 
 // Dedicated TV Shows browser — one grid cell per series card, tap
@@ -187,3 +188,5 @@ struct SeriesCardTile: View {
         }
     }
 }
+
+#endif

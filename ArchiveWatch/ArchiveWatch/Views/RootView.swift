@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 import SwiftData
 import Combine
@@ -263,3 +264,5 @@ extension View {
             }
     }
 }
+
+#endif

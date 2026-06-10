@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 
 // Top-level landing pages for the two "press-start" immersive modes (Party Play,
@@ -208,3 +209,5 @@ private struct PosterZoomView: View {
         .onAppear { focused = true }
     }
 }
+
+#endif

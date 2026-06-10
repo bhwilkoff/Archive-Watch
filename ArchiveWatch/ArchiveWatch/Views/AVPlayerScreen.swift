@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 import AVKit
 import AVFoundation
@@ -212,3 +213,5 @@ func makeExternalMetadata(for item: Catalog.Item) -> [AVMetadataItem] {
     }
     return meta.compactMap { $0 } + suppressedDateMetadata()
 }
+
+#endif

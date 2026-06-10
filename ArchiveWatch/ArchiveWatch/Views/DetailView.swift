@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 import AVKit
 import SwiftData
@@ -966,3 +967,5 @@ struct ShareSheet: View {   // reused by SeriesDetailView (series + episodes)
         .onAppear { doneFocused = true }
     }
 }
+
+#endif

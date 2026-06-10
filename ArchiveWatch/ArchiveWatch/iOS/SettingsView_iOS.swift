@@ -1,0 +1,138 @@
+#if os(iOS)
+import SwiftUI
+import SwiftData
+
+// Settings: the required attribution (Decision 007), the mature-content toggle
+// (Decision 012, default on), the donate link (Decision 010), and version. Native
+// iOS `Form`. Account/CloudKit sign-in lands with the sync wiring (Phase 1 follow).
+struct SettingsView: View {
+    @Environment(AppStore.self) private var store
+    @Environment(AccountStore.self) private var account
+    @Environment(\.modelContext) private var ctx
+    @State private var showDeleteAccount = false
+
+    var body: some View {
+        @Bindable var store = store
+        Form {
+            accountSection
+            Section("Content") {
+                Toggle("Show mature collections", isOn: Binding(
+                    get: { !store.hideAdultContent },
+                    set: { store.hideAdultContent = !$0 }))
+                Text("Off by default — the Internet Archive includes adult-leaning collections.")
+                    .font(.footnote).foregroundStyle(.secondary)
+            }
+
+            Section {
+                Toggle("Hide watched titles on Home", isOn: $store.hideWatchedOnHome)
+                ForEach(store.featured?.categories ?? []) { cat in
+                    Toggle(cat.displayName, isOn: categoryBinding(cat.id))
+                }
+            } header: {
+                Text("Home & Categories")
+            } footer: {
+                Text("Hidden categories disappear from Home, Browse, and Search on this device.")
+            }
+
+            Section("Playback") {
+                Picker("Autoplay next", selection: $store.autoplayMode) {
+                    ForEach(AutoplayMode.allCases) { Text($0.label).tag($0) }
+                }
+                Text("When a film ends, what plays next. TV episodes always continue "
+                     + "to the next episode.")
+                    .font(.footnote).foregroundStyle(.secondary)
+            }
+
+            Section("Support") {
+                Link(destination: URL(string: "https://archive.org/donate")!) {
+                    Label("Support the Internet Archive", systemImage: "heart")
+                }
+                Text("Archive Watch is free and takes nothing for itself. If it's brought you "
+                     + "something worth keeping, support the people who keep the films online.")
+                    .font(.footnote).foregroundStyle(.secondary)
+            }
+
+            Section("Sources & Attribution") {
+                Text("This product uses the TMDB API but is not endorsed or certified by TMDB.")
+                Text("Posters, backdrops, cast, and synopses come from The Movie Database (TMDb), "
+                     + "with Wikidata, Wikimedia Commons, and the Library of Congress as fallbacks. "
+                     + "Films, television, and ephemera are served by the Internet Archive. Every "
+                     + "title is public domain or otherwise free to share.")
+                    .font(.footnote).foregroundStyle(.secondary)
+            }
+
+            Section("About") {
+                LabeledContent("Version", value: appVersion)
+                Text("No tracking. Nothing leaves this device except requests to the public "
+                     + "services above — and, only if you sign in, your own iCloud (never us).")
+                    .font(.footnote).foregroundStyle(.secondary)
+            }
+        }
+        .navigationTitle("Settings")
+        // Pull synced state the moment the user signs in (Decision 022).
+        .onChange(of: account.isSignedIn) { _, signedIn in
+            if signedIn { Task { await CloudKitSyncService.shared.sync(ctx) } }
+        }
+    }
+
+    // #11 (Decision 022): Sign in with Apple — optional, gates only cross-device sync.
+    @ViewBuilder private var accountSection: some View {
+        Section {
+            if account.isSignedIn {
+                LabeledContent {
+                    Text("Signed in").foregroundStyle(.secondary)
+                } label: {
+                    Label("Apple ID", systemImage: "person.crop.circle.fill.badge.checkmark")
+                }
+                Button(role: .destructive) { account.signOut() } label: { Text("Sign Out") }
+                // App Review 5.1.1(v): account creation requires in-app deletion.
+                Button(role: .destructive) { showDeleteAccount = true } label: { Text("Delete Account") }
+                    .alert("Delete Account?", isPresented: $showDeleteAccount) {
+                        Button("Cancel", role: .cancel) { }
+                        Button("Delete Account", role: .destructive) {
+                            Task {
+                                _ = await CloudKitSyncService.shared.deleteAllCloudData()
+                                account.signOut()
+                            }
+                        }
+                    } message: {
+                        Text("This permanently deletes your synced favorites, playlists, and watch "
+                             + "progress from iCloud and signs you out. Titles saved on this device stay here.")
+                    }
+            } else {
+                Button { account.startSignIn() } label: {
+                    Label("Sign in with Apple", systemImage: "applelogo")
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.bordered)
+                if let err = account.signInError {
+                    Label(err, systemImage: "exclamationmark.triangle.fill")
+                        .font(.callout).foregroundStyle(.orange)
+                }
+            }
+        } header: {
+            Text("Account & Sync")
+        } footer: {
+            Text("Sign in with Apple to sync favorites, playlists, and watch progress across your "
+                 + "Apple devices — including your Apple TV. Optional: browsing and playback work "
+                 + "without it; nothing leaves this device until you sign in.")
+        }
+    }
+
+    private func categoryBinding(_ id: String) -> Binding<Bool> {
+        Binding(get: { !store.hiddenCategories.contains(id) },
+                set: { on in
+                    if on { store.hiddenCategories.remove(id) }
+                    else { store.hiddenCategories.insert(id) }
+                })
+    }
+
+    private var appVersion: String {
+        let v = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—"
+        let b = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "—"
+        return "\(v) (\(b))"
+    }
+}
+
+#endif

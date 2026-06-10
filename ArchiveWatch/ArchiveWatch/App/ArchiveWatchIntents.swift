@@ -1,3 +1,4 @@
+#if os(tvOS)
 import AppIntents
 import SwiftUI
 
@@ -107,3 +108,5 @@ struct ArchiveWatchShortcuts: AppShortcutsProvider {
         )
     }
 }
+
+#endif

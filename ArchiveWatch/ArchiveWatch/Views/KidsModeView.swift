@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 
 // #1 Cartoon / Kids Mode — a full-screen, brightly-themed REBRAND overlay that
@@ -282,3 +283,5 @@ private struct KidsPoster: View {
         }
     }
 }
+
+#endif

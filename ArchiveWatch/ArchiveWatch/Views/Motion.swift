@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 
 // Canonical tvOS motion tokens. Mirrors docs/tvos-playbook.md §6 so the
@@ -37,3 +38,5 @@ enum Motion {
     /// Focus scale factor for sidebar rows.
     static let focusScaleRow: CGFloat = 1.05
 }
+
+#endif

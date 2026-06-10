@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 import Combine
 
@@ -70,3 +71,5 @@ extension View {
         }
     }
 }
+
+#endif

@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 
 // Reusable poster tile used by Home shelves, the Detail "More Like
@@ -130,3 +131,5 @@ struct PosterArt: View {
         }
     }
 }
+
+#endif

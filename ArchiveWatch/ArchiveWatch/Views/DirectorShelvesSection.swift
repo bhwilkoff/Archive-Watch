@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 
 // "Directors" — home section that surfaces the most-prolific directors
@@ -75,3 +76,5 @@ struct DirectorShelvesSection: View {
         }
     }
 }
+
+#endif

@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 import SwiftData
 
@@ -66,3 +67,5 @@ private struct LoadErrorView: View {
         }
     }
 }
+
+#endif

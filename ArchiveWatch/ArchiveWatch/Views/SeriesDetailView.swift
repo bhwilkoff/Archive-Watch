@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 import AVKit
 import SwiftData
@@ -488,3 +489,5 @@ fileprivate extension Array {
         indices.contains(i) ? self[i] : nil
     }
 }
+
+#endif

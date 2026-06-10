@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 import SwiftData
 
@@ -191,3 +192,5 @@ struct ContinueWatchingTile: View {
         return "\(watched)m watched"
     }
 }
+
+#endif

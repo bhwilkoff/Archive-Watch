@@ -63,5 +63,26 @@
         <string>fetch</string>
         <string>processing</string>
     </array>
+    <!-- iOS/iPadOS launch screen. WITHOUT this key iOS runs the app in
+         compatibility "letterbox" mode at a fixed reference size (the content
+         is squeezed into a centered box that uses only part of the screen).
+         An empty dict gives a plain full-screen launch using the app window's
+         background. tvOS ignores UILaunchScreen. -->
+    <key>UILaunchScreen</key>
+    <dict/>
+    <!-- iPhone: portrait + landscape; iPad: all four. tvOS ignores these. -->
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationPortraitUpsideDown</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
 </dict>
 </plist>

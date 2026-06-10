@@ -1,3 +1,4 @@
+#if os(tvOS)
 import SwiftUI
 import SwiftData
 
@@ -112,3 +113,5 @@ struct TopShelfUpdater: View {
                                  now: Date().timeIntervalSince1970)
     }
 }
+
+#endif
