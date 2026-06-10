@@ -49,13 +49,17 @@ Notes:
   `catalog-index.json` exists for the browser tool) and redirect (302) to
   `objects.githubusercontent.com`. Native clients (URLSession, OkHttp) are
   unaffected; a browser cannot `fetch()` them.
-- **Byte-range caveat**: the repo's own measurement
-  (`docs/architecture/catalog-delivery.md`, 2026-06-02) found `Range:`
-  requests against our Pages returned `200` full-body, **not `206`** —
-  while `docs/MULTIPLATFORM-PLAN.md` §2 plans the web client on
-  `sql.js-httpvfs` range queries. **Re-verify 206 support before building the
-  web data layer**; the fallback is `catalog-index.json` search + per-item
-  fetch.
+- **Byte-range: RESOLVED (measured 2026-06-09).** GitHub Pages returns
+  `206 Partial Content` + `Access-Control-Allow-Origin: *` on **GET** with a
+  `Range:` header (the 2026-06-02 "200, not 206" measurement in
+  `docs/architecture/catalog-delivery.md` was a HEAD-request artifact).
+  Release assets also return 206 but send **no CORS**; archive.org
+  `download/` storage nodes likewise range-serve without CORS (fine for
+  `<img>`/`<video>`, blocked for `fetch()`); the archive.org `/metadata` API
+  **does** send CORS. The shipped web viewer therefore runs on
+  `catalog-index.json` + the metadata API; the `sql.js-httpvfs` upgrade
+  requires a chunked SQLite deployed to Pages via an Actions-based deploy
+  (never committed to git — Decision 018). See `docs/WEB-DESIGN.md` §2.
 - Refresh cadence: `publish-db.yml` rebuilds + clobbers the `catalog-db`
   assets daily (cron `30 4 * * *`) and on `series/**` pushes. Use
   **ETag-conditional GET** (`If-None-Match`) on `catalog.sqlite.zz` — the

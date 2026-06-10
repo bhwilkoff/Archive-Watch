@@ -978,3 +978,42 @@ ID, no secret backend) is the only new infra, shared by Android + Web. The publi
 CI already emits the single asset all four clients consume; no pipeline change. New
 per-platform binding design docs + a catalog-contract doc + small project skills
 (`web-catalog-data-layer`, `media3-resilient-streaming`) are the authoring backlog.
+
+---
+
+## 029 — Web viewer data plane: catalog-index + metadata API now; chunked SQLite via Actions-deployed Pages later
+*Date: 2026-06-09*
+
+The consumer web viewer (`/watch/`) reads the catalog from `catalog-index.json`
+(GitHub Pages, CORS, ~2.9 MB popularity-sorted tuples — extended to schema 2
+with a designed-poster column) plus the archive.org `/metadata` API (CORS) for
+detail + playable-derivative resolution at view time; posters and video load
+through `<img>`/`<video>` elements, which need no CORS. It does NOT query the
+published `catalog.sqlite` over HTTP range requests yet.
+
+**Why**: measured 2026-06-09 — GitHub Pages serves `206 + Access-Control-Allow-
+Origin: *` on ranged GETs (the 2026-06-02 "no 206" finding was a HEAD artifact),
+so `sql.js-httpvfs` IS viable, but only for a DB hosted **on Pages**, and Pages
+serves from git: committing the ~124 MB (or even a slimmed/chunked) SQLite per
+daily publish re-creates the exact repo bloat Decision 018 purged. The other
+hosts both fail the browser: GitHub Release assets range-serve with **no CORS**,
+and archive.org `download/` storage nodes likewise send no CORS on `fetch()`.
+The index + metadata-API plane needs zero new infrastructure and zero owner
+action, so the viewer ships now at full visual dignity (designed poster art via
+the index) with title search, at the cost of FTS5 search and enriched synopsis.
+
+**How to apply**: never `fetch()` Release assets or `archive.org/download/*`
+from browser JS — they will fail CORS (media/img elements are exempt). Don't
+commit any SQLite to git for the web. The upgrade path (FTS5 search, cast,
+enriched synopsis, Channels-grade queries on web) is: switch the repo's Pages
+source to **GitHub Actions**, have `publish-db` deploy the site + a slim
+chunked `catalog.sqlite` as a Pages artifact (nothing in git), and query it
+with `sql.js-httpvfs`. That flip is one owner click (Settings → Pages →
+Source: GitHub Actions) plus a deploy job — see `docs/WEB-DESIGN.md` §2.4.
+
+**Consequences**: until the upgrade, web search is client-side title-substring
+over the index, and the index (already committed on every publish) carries a
+poster column (schema 2; schema-1 rows still decode — additive rule). The
+viewer's share URLs `/Archive-Watch/item/{id}` are now real (404.html forwards
+into the hash router), which retroactively makes the Share buttons shipped in
+the iOS/tvOS apps land somewhere meaningful.
