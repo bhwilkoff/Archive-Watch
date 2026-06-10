@@ -3,8 +3,8 @@
   "seriesID": "death-valley-days-1952",
   "tvmazeID": 21771,
   "title": "Death Valley Days",
-  "yearStart": 1952,
-  "yearEnd": 1970,
+  "yearStart": 1953,
+  "yearEnd": 1953,
   "overview": "Death Valley Days is an anthology series that featured true stories of the old American West, mainly in the Death Valley area.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/76540-2.jpg",
   "backdropURL": null,
@@ -20,6 +20,24 @@
     {
       "seasonNumber": 1,
       "episodes": [
+        {
+          "archiveID": "death-valley-days-s-01-e-04-the-lost-pegleg-mine",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Lost Pegleg Mine",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/death-valley-days-s-01-e-04-the-lost-pegleg-mine",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "18-Death Valley Days S01 E18 Land of the Free .ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 479544403,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/death-valley-days-s-01-e-04-the-lost-pegleg-mine/18-Death Valley Days S01 E18 Land of the Free .ia.mp4"
+        },
         {
           "archiveID": "Death_Valley_Days_-_Sego_Lillies",
           "seasonNumber": 1,
@@ -37,24 +55,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/Death_Valley_Days_-_Sego_Lillies/Death_Valley_Days_-_Sego_Lillies.mp4"
-        },
-        {
-          "archiveID": "death-valley-days-s-01-e-04-the-lost-pegleg-mine",
-          "seasonNumber": 1,
-          "episodeNumber": 18,
-          "title": "Land of the Free",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/miogG5V6KSOV6ijH9mE4OOXFlF1.jpg",
-          "airDate": "1953-05-26",
-          "year": 1953,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "18-Death Valley Days S01 E18 Land of the Free .ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 479544403,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/death-valley-days-s-01-e-04-the-lost-pegleg-mine/18-Death Valley Days S01 E18 Land of the Free .ia.mp4"
         }
       ]
     },

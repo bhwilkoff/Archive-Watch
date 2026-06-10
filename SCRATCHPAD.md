@@ -233,7 +233,33 @@ focus / layout / animation bugs.
 
 ## Session Log
 
-### 2026-06-10 (later) — Share links, app handoff, owner follow-ups, web quality wave
+### 2026-06-10 (evening) — Web image resilience, About redesign, TV mismatch audit
+User-reported fixes, all on `main`, web changes live after Pages deploy.
+- **Web images**: archive.org throttles poster bursts (transient 503s);
+  `wireArt()` now retries the fallback chain ×2 with jittered backoff;
+  typographic placeholder card (`card-ph`, Decision-013 accent) when art
+  fails for good — and ALWAYS for poster-less `series:` ids, which were
+  pulling the Archive's generic gray placeholder on Browse (71/218 series
+  rows). About & Attribution rebuilt in the viewer card language with ✕ +
+  Back affordances. SW shell → v6. WEB-DESIGN §6.3 updated.
+- **Adult filter on web**: upstream-only by design (§8.3) — verified
+  build_catalog_index drops excluded/isAdult/adult-collection items; no
+  client toggle until the §2.4 data layer.
+- **TV mismatch audit** (user found an Arabic Facebook video in All in the
+  Family): backfill_tv_episodes accepted (a) transcript-dump titles that
+  defeat word-overlap matching, (b) candidates whose S/E matches but whose
+  title puts the show name AFTER the SxxEyy marker (Murphy Brown S08E12
+  "All in the Family"). Added `candidate_ok()` guards (scrape-id prefixes,
+  200-char title cap, show-before-marker rule) to BOTH search paths.
+  Removed both bad eps from the AitF spine; TVmaze-verified + fixed 6
+  misassigned episodes (WKRP, Death Valley Days, Rocky Jones, Vicar of
+  Dibley ×2, Hill Street Blues). REMAINING (flagged, unverifiable without
+  watching): ~15 "colorized SxEy" uploads (AHP ×7, Twilight Zone ×3,
+  Doctor Who, Outer Limits, Out of the Unknown ×2, Avengers ×2) assigned
+  to different episodes than their id claims — likely compilations or
+  fuzzy-title mismaps; also sigmund S1E3-id→S1E2, space-patrol S1E1-id→
+  S5E2. Degrassi Jr High vs Junior High = duplicate spines of one show
+  (separate cleanup). Catalog-card episodesCount syncs on next CI pass.
 All on `main`, pushed, LIVE at archivewatch.org. App version unchanged (1.2.15).
 - **Share links → archivewatch.org everywhere**: tvOS ShareSheet QR (items
   /item/{id}, series /series/{slug}, loc: stays loc.gov), iOS Detail + new

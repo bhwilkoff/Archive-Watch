@@ -24,11 +24,11 @@
         {
           "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
           "seasonNumber": 1,
-          "episodeNumber": 20,
-          "title": "Crash of the Moons (1)",
+          "episodeNumber": 1,
+          "title": "Beyond the Curtain of Space (1)",
           "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/hzehIOwKA7ZWUxKYh74rxNwSkTr.jpg",
-          "airDate": "1954-07-06",
+          "stillURL": "https://archive.org/services/img/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "airDate": null,
           "year": 1954,
           "runtimeSeconds": 1800,
           "videoFile": {

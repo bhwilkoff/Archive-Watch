@@ -194,6 +194,34 @@ def _norm_ep_title(t):
     return " ".join(t.split())
 
 
+# Social-media scrape mirrors: their "titles" are auto-generated transcript
+# dumps full of common English words, which defeats any word-overlap match
+# (a Facebook English-lesson video landed in All in the Family this way).
+SCRAPE_ID_PREFIXES = ("facebook-", "tiktok-", "twitter-", "instagram-")
+
+
+def candidate_ok(iaid, cand_title, show_term):
+    """Reject candidates that can't be a real episode upload of this show:
+    scrape-mirror identifiers, transcript-length titles, and titles where
+    the show's name appears only AFTER the SxxEyy marker — there it's the
+    EPISODE title of a different show ("Murphy Brown S08E12 All in the
+    Family" is Murphy Brown, not All in the Family)."""
+    if iaid.lower().startswith(SCRAPE_ID_PREFIXES):
+        return False
+    if len(cand_title or "") > 200:
+        return False
+    show_words = set(_norm_ep_title(show_term).split())
+    if not show_words:
+        return False
+    for pat in SE_PATTERNS:
+        m = pat.search(cand_title or "")
+        if m:
+            before = set(_norm_ep_title(cand_title[:m.start()]).split())
+            # At least half the show's words must precede the S/E marker.
+            return len(show_words & before) >= max(1, len(show_words) // 2)
+    return True   # no S/E marker in the title — nothing to position against
+
+
 def per_want_search(doc, series_wants, have, session, *, throttle, cap):
     """Search Archive for the SPECIFIC episodes this series is missing
     (from the wants queue), validating each match against the wanted
@@ -231,6 +259,8 @@ def per_want_search(doc, series_wants, have, session, *, throttle, cap):
                 if not iaid or iaid in have:
                     continue
                 dt_ = d.get("title", "")
+                if not candidate_ok(iaid, dt_, show):
+                    continue
                 ds, de = parse_se(dt_)
                 # Accept ONLY if the parsed S/E matches exactly, OR the
                 # episode title matches strongly (>=80% of the wanted
@@ -302,6 +332,8 @@ def backfill_one(path, session, *, dry_run, throttle, per_series_cap, series_wan
         for d in docs:
             iaid = d.get("identifier")
             if not iaid or iaid in have:
+                continue
+            if not candidate_ok(iaid, d.get("title", ""), term):
                 continue
             s, e = parse_se(d.get("title", ""))
             if s is None and e is None:

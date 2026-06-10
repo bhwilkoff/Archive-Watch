@@ -3,8 +3,8 @@
   "seriesID": "the-vicar-of-dibley-1994",
   "tvmazeID": 1530,
   "title": "The Vicar of Dibley",
-  "yearStart": 1994,
-  "yearEnd": 2015,
+  "yearStart": 1999,
+  "yearEnd": 1999,
   "overview": "Award-winning sitcom starring Dawn French who is assigned as the Vicar of the rural parish of Dibley.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/74873-4.jpg",
   "backdropURL": null,
@@ -17,38 +17,15 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": 3,
-      "episodes": [
-        {
-          "archiveID": "vo-d-s-01-e-04-the-window-and-the-weather.avi",
-          "seasonNumber": 3,
-          "episodeNumber": 2,
-          "title": "Winter",
-          "overview": "Alice solves the problem of the Christmas show by proposing that she and Hugo play Mary and Joseph in a Nativity play.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/284/710325.jpg",
-          "airDate": "1999-12-25",
-          "year": 1999,
-          "runtimeSeconds": 2400,
-          "videoFile": {
-            "name": "VoD S03E02 Winter.avi.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 222267501,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/vo-d-s-01-e-04-the-window-and-the-weather.avi/VoD%20S03E02%20Winter.avi.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 4,
+      "seasonNumber": 1,
       "episodes": [
         {
           "archiveID": "vicar-of-dibley-s-01-e-01-arrival.avi",
-          "seasonNumber": 4,
+          "seasonNumber": 1,
           "episodeNumber": 1,
-          "title": "Vicar Of Dibley",
+          "title": "The Arrival",
           "overview": null,
-          "stillURL": null,
+          "stillURL": "https://archive.org/services/img/vicar-of-dibley-s-01-e-01-arrival.avi",
           "airDate": null,
           "year": null,
           "runtimeSeconds": null,
@@ -59,6 +36,24 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/vicar-of-dibley-s-01-e-01-arrival.avi/Vicar%20Of%20Dibley%20S04E01%20The%20Handsome%20Stranger.mp4"
+        },
+        {
+          "archiveID": "vo-d-s-01-e-04-the-window-and-the-weather.avi",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Window and the Weather",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/vo-d-s-01-e-04-the-window-and-the-weather.avi",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": 2400,
+          "videoFile": {
+            "name": "VoD S03E02 Winter.avi.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 222267501,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/vo-d-s-01-e-04-the-window-and-the-weather.avi/VoD%20S03E02%20Winter.avi.mp4"
         }
       ]
     },
