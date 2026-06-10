@@ -19,11 +19,15 @@ do 206" — it was a **HEAD-request artifact**. Range works on GET.
 
 ## The shipped pattern (Decision 029, WEB-DESIGN §2)
 
-- Browse/search: `catalog-index.json` (Pages, ~2.9 MB, popularity-sorted
-  tuples `[id, title, year, contentType, poster]`, schema 2 — handle 4-field
-  schema-1 rows; built by `tools/build_catalog_index.py`).
-- Shelves: `featured.json` curated → index lookup; dynamic → Archive scrape
-  API via `js/api.js`, sessionStorage-cached 1h.
+- Browse/search: `catalog-index.json` (Pages, ~5.4 MB, popularity-sorted
+  tuples `[id, title, year, contentType, poster]` + a top-level `shelves`
+  map, schema 3 — handle shorter older rows; built by
+  `tools/build_catalog_index.py`).
+- Shelves: the index's editorial `shelves` map (the apps' item_shelves
+  analog), cross-shelf deduped + day-seed rotated client-side. **Never the
+  live scrape API for consumer surfaces** — audited 2026-06-10: scrape
+  bypassed the rights audit + adult filter AND returned one identical list
+  for every `-downloads` shelf (WEB-DESIGN §2.3).
 - Detail/playback: `archive.org/metadata/{id}` via `js/api.js`
   (`API.fetchMetadata` + `API.summarize` picks the playable derivative —
   keep in sync with Swift `DerivativePicker`).
