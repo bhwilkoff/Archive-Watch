@@ -122,7 +122,7 @@ this table in the same change set; cross-link the platform design doc.
 | Watched / hide-watched | ✅ | ✅ Watched tab + hide-watched toggle | ⏳ | ⏳ | |
 | Continue Watching progress | ✅ | ✅ | ✅ | ✅ | |
 | Local persistence (offline-first) | ✅ SwiftData | ✅ SwiftData (reuse) | ✅ IndexedDB | ✅ user.sqlite + DataStore | |
-| Per-ecosystem sync (own cloud) | ✅ CloudKit | 🚧 CloudKit reuse (launch + sign-in + foreground + 60s live triggers, tvOS parity; on-device cross-device verify owner-pending) | ⏳ Google Drive App Data (web↔web) | ⏳ Google Drive App Data (device↔device) | Decided: each island on the user's own free cloud, no backend (plan §6) |
+| Per-ecosystem sync (own cloud) | ✅ CloudKit | ✅ CloudKit (query-free AWSync records; owner-verified iPhone↔Apple TV 2026-06-11 after Production schema deploy) | ⏳ Google Drive App Data (web↔web) | ⏳ Google Drive App Data (device↔device) | Decided: each island on the user's own free cloud, no backend (plan §6) |
 | Cross-ecosystem sync (all 4) | 🚫 | 🚫 | 🚫 | 🚫 | Out of scope by owner choice — unneeded complexity |
 
 ## 7. Settings + account

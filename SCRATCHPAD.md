@@ -244,11 +244,10 @@ App 1.2.17 (build 30), iOS + tvOS sims green.
   fetched by record ID — no queries, no indexes; merge semantics unchanged
   (tombstones → union favs → LWW playlists/progress). Sync status is now
   @Observable + surfaced in Settings→Account (Last sync / error / Sync Now)
-  on BOTH platforms — never silent again. OWNER STEP REMAINING: run a dev
-  build signed-in once, then CloudKit Dashboard → Deploy Schema Changes to
-  Production (TestFlight talks to Production, which never JIT-creates types);
-  also don't mix Xcode-installed (Dev env) with TestFlight (Prod env) builds
-  when testing cross-device. Runbook updated.
+  on BOTH platforms — never silent again. Owner deployed the schema to
+  Production and **VERIFIED CROSS-DEVICE SYNC WORKING iPhone↔Apple TV
+  (2026-06-11)** — #11/#11b finally closed end-to-end. Runbook updated
+  (Production deploy step; don't mix Dev/TestFlight builds when testing).
 - **Detail view "often not rendering correctly"** (owner screenshot: text
   clipped off both edges): reproduced via AW_START_ITEM + diagnosed with
   temporary width probes — a fill-mode AsyncImage reports its COVER size and
