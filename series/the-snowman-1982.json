@@ -1,115 +1,118 @@
 {
- "version": 2,
- "seriesID": "the-snowman-1982",
- "tvmazeID": 65563,
- "title": "The Snowman",
- "yearStart": 1982,
- "yearEnd": 2012,
- "overview": "The Snowman, created and illustrated by Raymond Briggs, is one of the world's most popular and iconic picture books which perfectly captures the wonder and innocence of childhood. This timeless and magical tale tells a story of imagination and friendship as well as love and loss.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/433/1083855.jpg",
- "backdropURL": null,
- "genres": [
-  "Adventure",
-  "Children"
- ],
- "networks": [
-  "Channel 4"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 2,
-   "episodes": [
+  "version": 2,
+  "seriesID": "the-snowman-1982",
+  "tvmazeID": 65563,
+  "title": "The Snowman",
+  "yearStart": 1982,
+  "yearEnd": 2012,
+  "overview": "The Snowman, created and illustrated by Raymond Briggs, is one of the world's most popular and iconic picture books which perfectly captures the wonder and innocence of childhood. This timeless and magical tale tells a story of imagination and friendship as well as love and loss.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/433/1083855.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Adventure",
+    "Children"
+  ],
+  "networks": [
+    "Channel 4"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "pingu-s02e26-pingu-builds-a-snowman",
-     "seasonNumber": 2,
-     "episodeNumber": 26,
-     "title": "pingu-s02e26-pingu-builds-a-snowman",
-     "overview": "Pingu season 2 episode 26",
-     "stillURL": "https://archive.org/services/img/pingu-s02e26-pingu-builds-a-snowman",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 325,
-     "videoFile": {
-      "name": "pingu-s02e26-pingu-builds-a-snowman.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 33799480,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/pingu-s02e26-pingu-builds-a-snowman/pingu-s02e26-pingu-builds-a-snowman.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 6,
-   "episodes": [
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "pingu-s02e26-pingu-builds-a-snowman",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "pingu-s02e26-pingu-builds-a-snowman",
+          "overview": "Pingu season 2 episode 26",
+          "stillURL": "https://archive.org/services/img/pingu-s02e26-pingu-builds-a-snowman",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 325,
+          "videoFile": {
+            "name": "pingu-s02e26-pingu-builds-a-snowman.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 33799480,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/pingu-s02e26-pingu-builds-a-snowman/pingu-s02e26-pingu-builds-a-snowman.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "pingu-s06e26-pingu-and-the-abominable-snowman",
-     "seasonNumber": 6,
-     "episodeNumber": 26,
-     "title": "pingu-s06e26-pingu-and-the-abominable-snowman",
-     "overview": "Pingu season 6 episode 26",
-     "stillURL": "https://archive.org/services/img/pingu-s06e26-pingu-and-the-abominable-snowman",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 312,
-     "videoFile": {
-      "name": "pingu-s06e26-pingu-and-the-abominable-snowman.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 32442249,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/pingu-s06e26-pingu-and-the-abominable-snowman/pingu-s06e26-pingu-and-the-abominable-snowman.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 1982,
-   "episodes": [
+      "seasonNumber": 6,
+      "episodes": [
+        {
+          "archiveID": "pingu-s06e26-pingu-and-the-abominable-snowman",
+          "seasonNumber": 6,
+          "episodeNumber": 26,
+          "title": "pingu-s06e26-pingu-and-the-abominable-snowman",
+          "overview": "Pingu season 6 episode 26",
+          "stillURL": "https://archive.org/services/img/pingu-s06e26-pingu-and-the-abominable-snowman",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 312,
+          "videoFile": {
+            "name": "pingu-s06e26-pingu-and-the-abominable-snowman.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 32442249,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/pingu-s06e26-pingu-and-the-abominable-snowman/pingu-s06e26-pingu-and-the-abominable-snowman.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "TheSnowman_201305",
-     "seasonNumber": 1982,
-     "episodeNumber": 1,
-     "title": "The Snowman",
-     "overview": "This timeless and magical tale tells a story of imagination and friendship as well as love and loss.",
-     "stillURL": null,
-     "airDate": "1982-12-26",
-     "year": 1982,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Snowman .mp4",
-      "format": "h.264",
-      "sizeBytes": 187071819,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/TheSnowman_201305/The%20Snowman%20.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+      "seasonNumber": 1982,
+      "episodes": [
+        {
+          "archiveID": "TheSnowman_201305",
+          "seasonNumber": 1982,
+          "episodeNumber": 1,
+          "title": "The Snowman",
+          "overview": "This timeless and magical tale tells a story of imagination and friendship as well as love and loss.",
+          "stillURL": null,
+          "airDate": "1982-12-26",
+          "year": 1982,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Snowman .mp4",
+            "format": "h.264",
+            "sizeBytes": 187071819,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheSnowman_201305/The%20Snowman%20.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "cbeebies-balamory-s04-episode-10-the-snowman",
-     "seasonNumber": null,
-     "episodeNumber": 10,
-     "title": "CBeebies | Balamory - S04 Episode 10",
-     "overview": "<div><b>Copyright Disclaimer under Section 107 of the copyright act 1976, allowance is made for fair use for purposes such as criticism, comment, news reporting, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favour of fair use.</b></div><div>-</div><div><br /></div><div><div>In this episode:</div><div>It's a beautiful snowy day in Balamory, and Miss Hoolie is planning to visit the Mcleod family, but Josie Jump brings in the news that Christopher has a terrible cold. Josie Jump and Miss Hoolie come up with a novel way of entertaining him.</div></div><div><br /></div><div>Original air date: 15th April 2005</div>",
-     "stillURL": "https://archive.org/services/img/cbeebies-balamory-s04-episode-10-the-snowman",
-     "airDate": null,
-     "year": 2009,
-     "runtimeSeconds": 1155,
-     "videoFile": {
-      "name": "CBeebies _ Balamory - S04 Episode 10 (The Snowman).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 325580107,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/cbeebies-balamory-s04-episode-10-the-snowman/CBeebies%20_%20Balamory%20-%20S04%20Episode%2010%20%28The%20Snowman%29.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "cbeebies-balamory-s04-episode-10-the-snowman",
+          "seasonNumber": null,
+          "episodeNumber": 10,
+          "title": "CBeebies | Balamory - S04 Episode 10",
+          "overview": "<div><b>Copyright Disclaimer under Section 107 of the copyright act 1976, allowance is made for fair use for purposes such as criticism, comment, news reporting, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favour of fair use.</b></div><div>-</div><div><br /></div><div><div>In this episode:</div><div>It's a beautiful snowy day in Balamory, and Miss Hoolie is planning to visit the Mcleod family, but Josie Jump brings in the news that Christopher has a terrible cold. Josie Jump and Miss Hoolie come up with a novel way of entertaining him.</div></div><div><br /></div><div>Original air date: 15th April 2005</div>",
+          "stillURL": "https://archive.org/services/img/cbeebies-balamory-s04-episode-10-the-snowman",
+          "airDate": null,
+          "year": 2009,
+          "runtimeSeconds": 1155,
+          "videoFile": {
+            "name": "CBeebies _ Balamory - S04 Episode 10 (The Snowman).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 325580107,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cbeebies-balamory-s04-episode-10-the-snowman/CBeebies%20_%20Balamory%20-%20S04%20Episode%2010%20%28The%20Snowman%29.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 4,
- "canonicalEpisodesCount": 2
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": 2,
+  "seriesImdbID": "tt3615280",
+  "canonicalEpisodeCount": 0,
+  "canonicalSeasons": null
 }

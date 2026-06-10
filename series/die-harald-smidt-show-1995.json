@@ -1,115 +1,117 @@
 {
- "version": 2,
- "seriesID": "die-harald-smidt-show-1995",
- "tvmazeID": 8099,
- "title": "Die Harald Smidt Show",
- "yearStart": 1995,
- "yearEnd": 2003,
- "overview": null,
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/29/73638.jpg",
- "backdropURL": null,
- "genres": [],
- "networks": [
-  "Sat.1"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": null,
-   "episodes": [
+  "version": 2,
+  "seriesID": "die-harald-smidt-show-1995",
+  "tvmazeID": 8099,
+  "title": "Die Harald Smidt Show",
+  "yearStart": 1995,
+  "yearEnd": 2003,
+  "overview": null,
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/29/73638.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Sat.1"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "32552398",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Die Harald Schmidt Show",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/lQcE1AzjDP5zJRUW76PMRn7ai9W.jpg",
-     "airDate": null,
-     "year": 1996,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "DieHaraldSchmidtShow-0039-1996-01-27HelgeSchneiderMiroslavNemecundUdoWachtveitl.mp4",
-      "format": "h.264",
-      "sizeBytes": 388715855,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/32552398/DieHaraldSchmidtShow-0039-1996-01-27HelgeSchneiderMiroslavNemecundUdoWachtveitl.mp4"
-    },
-    {
-     "archiveID": "85767493",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Die Harald Schmidt Show",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/lQcE1AzjDP5zJRUW76PMRn7ai9W.jpg",
-     "airDate": null,
-     "year": 1995,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Die Harald Schmidt Show - 0016 - 1995-12-27 - Marcel Reif, Brigitte Mira, Rolf Zacher, Meat Loaf.mp4",
-      "format": "h.264",
-      "sizeBytes": 442724399,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/85767493/Die Harald Schmidt Show - 0016 - 1995-12-27 - Marcel Reif, Brigitte Mira, Rolf Zacher, Meat Loaf.mp4"
-    },
-    {
-     "archiveID": "85487166",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Die Harald Schmidt Show",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/lQcE1AzjDP5zJRUW76PMRn7ai9W.jpg",
-     "airDate": null,
-     "year": 1997,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "DieHaraldSchmidtShow-0198-1997-01-07-TomHanks,MichaelMittermeier.mp4",
-      "format": "h.264",
-      "sizeBytes": 303236872,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/85487166/DieHaraldSchmidtShow-0198-1997-01-07-TomHanks,MichaelMittermeier.mp4"
-    },
-    {
-     "archiveID": "87577577",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Die Harald Schmidt Show",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/lQcE1AzjDP5zJRUW76PMRn7ai9W.jpg",
-     "airDate": null,
-     "year": 1998,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "DieHaraldSchmidtShow-0381-1998-02-26-RudiCarell,SabineMarcus.mp4",
-      "format": "h.264",
-      "sizeBytes": 300732471,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/87577577/DieHaraldSchmidtShow-0381-1998-02-26-RudiCarell,SabineMarcus.mp4"
-    },
-    {
-     "archiveID": "94223842",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Die Harald Schmidt Show - 1996",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/lQcE1AzjDP5zJRUW76PMRn7ai9W.jpg",
-     "airDate": null,
-     "year": 1996,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "DieHaraldSchmidtShow-0073-1996-03-16SaskiaValenciaFalcoIngoAppelt.mp4",
-      "format": "h.264",
-      "sizeBytes": 350390081,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/94223842/DieHaraldSchmidtShow-0073-1996-03-16SaskiaValenciaFalcoIngoAppelt.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "32552398",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Die Harald Schmidt Show",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lQcE1AzjDP5zJRUW76PMRn7ai9W.jpg",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "DieHaraldSchmidtShow-0039-1996-01-27HelgeSchneiderMiroslavNemecundUdoWachtveitl.mp4",
+            "format": "h.264",
+            "sizeBytes": 388715855,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/32552398/DieHaraldSchmidtShow-0039-1996-01-27HelgeSchneiderMiroslavNemecundUdoWachtveitl.mp4"
+        },
+        {
+          "archiveID": "85767493",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Die Harald Schmidt Show",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lQcE1AzjDP5zJRUW76PMRn7ai9W.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Die Harald Schmidt Show - 0016 - 1995-12-27 - Marcel Reif, Brigitte Mira, Rolf Zacher, Meat Loaf.mp4",
+            "format": "h.264",
+            "sizeBytes": 442724399,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/85767493/Die Harald Schmidt Show - 0016 - 1995-12-27 - Marcel Reif, Brigitte Mira, Rolf Zacher, Meat Loaf.mp4"
+        },
+        {
+          "archiveID": "85487166",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Die Harald Schmidt Show",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lQcE1AzjDP5zJRUW76PMRn7ai9W.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "DieHaraldSchmidtShow-0198-1997-01-07-TomHanks,MichaelMittermeier.mp4",
+            "format": "h.264",
+            "sizeBytes": 303236872,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/85487166/DieHaraldSchmidtShow-0198-1997-01-07-TomHanks,MichaelMittermeier.mp4"
+        },
+        {
+          "archiveID": "87577577",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Die Harald Schmidt Show",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lQcE1AzjDP5zJRUW76PMRn7ai9W.jpg",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "DieHaraldSchmidtShow-0381-1998-02-26-RudiCarell,SabineMarcus.mp4",
+            "format": "h.264",
+            "sizeBytes": 300732471,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/87577577/DieHaraldSchmidtShow-0381-1998-02-26-RudiCarell,SabineMarcus.mp4"
+        },
+        {
+          "archiveID": "94223842",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Die Harald Schmidt Show - 1996",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lQcE1AzjDP5zJRUW76PMRn7ai9W.jpg",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "DieHaraldSchmidtShow-0073-1996-03-16SaskiaValenciaFalcoIngoAppelt.mp4",
+            "format": "h.264",
+            "sizeBytes": 350390081,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/94223842/DieHaraldSchmidtShow-0073-1996-03-16SaskiaValenciaFalcoIngoAppelt.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 5,
- "canonicalEpisodesCount": 1364
+  ],
+  "episodesCount": 5,
+  "canonicalEpisodesCount": 1364,
+  "seriesImdbID": null,
+  "canonicalEpisodeCount": 0
 }
