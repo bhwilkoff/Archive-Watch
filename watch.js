@@ -25,10 +25,18 @@
     let dbp = null;
     function open() {
       dbp ??= new Promise((res, rej) => {
-        const req = indexedDB.open('archivewatch', 1);
+        const req = indexedDB.open('archivewatch', 2);
         req.onupgradeneeded = () => {
-          req.result.createObjectStore('favorites', { keyPath: 'id' });
-          req.result.createObjectStore('progress', { keyPath: 'id' });
+          const db = req.result;
+          if (!db.objectStoreNames.contains('favorites')) {
+            db.createObjectStore('favorites', { keyPath: 'id' });
+          }
+          if (!db.objectStoreNames.contains('progress')) {
+            db.createObjectStore('progress', { keyPath: 'id' });
+          }
+          if (!db.objectStoreNames.contains('playlists')) {
+            db.createObjectStore('playlists', { keyPath: 'id' });
+          }
         };
         req.onsuccess = () => res(req.result);
         req.onerror = () => rej(req.error);
@@ -68,6 +76,18 @@
       saveProgress: (id, position, duration, title) =>
         tx('progress', 'readwrite',
           s => s.put({ id, position, duration, title, at: Date.now() })),
+      playlists: () => getAll('playlists'),
+      savePlaylist: pl =>
+        tx('playlists', 'readwrite', s => s.put({ ...pl, modifiedAt: Date.now() })),
+      deletePlaylist: id => tx('playlists', 'readwrite', s => s.delete(id)),
+      togglePlaylistItem: async (plID, archiveID) => {
+        const pl = (await getAll('playlists')).find(p => p.id === plID);
+        if (!pl) return false;
+        const i = pl.archiveIDs.indexOf(archiveID);
+        if (i >= 0) pl.archiveIDs.splice(i, 1); else pl.archiveIDs.push(archiveID);
+        await DB.savePlaylist(pl);
+        return i < 0;
+      },
     };
   })();
 
@@ -300,7 +320,8 @@
   /* ---------------------------------------------------------------- *
    * Router — URL-driven state (the web superpower)                    *
    * ---------------------------------------------------------------- */
-  const VIEWS = ['home', 'browse', 'search', 'library', 'item', 'series', 'about'];
+  const VIEWS = ['home', 'browse', 'search', 'library', 'item', 'series', 'about',
+                 'surprise', 'playlist'];
   let browseObserver = null;   // disconnected on every view switch
 
   function route() {
@@ -321,6 +342,8 @@
     if (name === 'library') Library.render();
     if (name === 'item') Item.render(decodeURIComponent(seg[1] || ''));
     if (name === 'series') SeriesView.render(decodeURIComponent(seg[1] || ''));
+    if (name === 'surprise') Surprise.render();
+    if (name === 'playlist') PlaylistView.render(decodeURIComponent(seg[1] || ''));
   }
 
   function showView(name) {
@@ -347,27 +370,109 @@
       // Cross-shelf dedup (the apps' Home rule): an item shows once, in the
       // first shelf that claims it, so Home isn't aliases of one popular list.
       const used = new Set(heroIDs);
+      const shelfSection = (title, subtitle, rows) => {
+        const sec = document.createElement('section');
+        sec.className = 'shelf';
+        const h = document.createElement('h2');
+        h.textContent = title;
+        sec.append(h);
+        if (subtitle) {
+          const s = document.createElement('p');
+          s.className = 'muted shelf-sub';
+          s.textContent = subtitle;
+          sec.append(s);
+        }
+        const rail = document.createElement('div');
+        rail.className = 'shelf-row';
+        rail.append(...rows.map(card));
+        sec.append(rail);
+        return sec;
+      };
+      host.append(this.categoryTiles());
       for (const shelf of Data.featured?.shelves || []) {
         const rows = Data.shelfRows(shelf, 32)
           .filter(r => Data.isPro(r) && !used.has(r[0])).slice(0, 16);
         if (rows.length < 4) continue;
         rows.forEach(r => used.add(r[0]));
-        const sec = document.createElement('section');
-        sec.className = 'shelf';
-        const h = document.createElement('h2');
-        h.textContent = shelf.title;
-        const rail = document.createElement('div');
-        rail.className = 'shelf-row';
-        rail.append(...rows.map(card));
-        sec.append(h, rail);
-        host.append(sec);
+        host.append(shelfSection(shelf.title, shelf.subtitle, rows));
       }
+      // Hidden Gems (apps' parity row): designed art from the popularity TAIL.
+      const tail = Data.rows.slice(Math.floor(Data.rows.length * 0.4));
+      const gems = shuffle(tail.filter(r => Data.isPro(r) && !used.has(r[0]))).slice(0, 16);
+      if (gems.length >= 6) {
+        gems.forEach(r => used.add(r[0]));
+        host.append(shelfSection('Hidden Gems', 'Lovingly restored, rarely watched', gems));
+      }
+      // Public Domain Day: this year's newly-free class (currentYear - 95).
+      const pdYear = new Date().getFullYear() - 95;
+      const pd = shuffle(Data.rows.filter(r =>
+        r[2] === pdYear && Data.isPro(r) && !used.has(r[0]))).slice(0, 16);
+      if (pd.length >= 6) {
+        host.append(shelfSection('Public Domain Day',
+          `Class of ${pdYear} — newly free to share`, pd));
+      }
+      host.append(this.eraTiles());   // last row, matching the apps
       if (!host.children.length) {
         const p = document.createElement('p');
         p.className = 'muted';
         p.textContent = 'Shelves are unavailable right now — try Browse.';
         host.append(p);
       }
+    },
+
+    /** Category tiles (apps' Browse-by-Category row): featured.json accents,
+        count-gated ≥30 so a near-empty grid never ships behind a tile. */
+    categoryTiles() {
+      const counts = {};
+      for (const r of Data.rows) counts[r[3]] = (counts[r[3]] || 0) + 1;
+      const sec = document.createElement('section');
+      sec.className = 'shelf';
+      const h = document.createElement('h2');
+      h.textContent = 'Browse by Category';
+      const rail = document.createElement('div');
+      rail.className = 'shelf-row tile-row';
+      for (const cat of Data.featured?.categories || []) {
+        if ((counts[cat.id] || 0) < 30) continue;
+        const a = document.createElement('a');
+        a.className = 'cat-tile';
+        a.href = `#/browse?type=${encodeURIComponent(cat.id)}`;
+        a.style.setProperty('--tile-accent', cat.accent || '#555');
+        a.textContent = cat.displayName;
+        rail.append(a);
+      }
+      sec.append(h, rail);
+      return sec;
+    },
+
+    /** Era tiles (apps' Browse-by-Era row) — the LAST Home row. */
+    eraTiles() {
+      const counts = {};
+      for (const r of Data.rows) {
+        if (!r[2]) continue;
+        const d = Math.floor(r[2] / 10) * 10;
+        if (d >= 1890 && d <= 2020) counts[d] = (counts[d] || 0) + 1;
+      }
+      const sec = document.createElement('section');
+      sec.className = 'shelf';
+      const h = document.createElement('h2');
+      h.textContent = 'Browse by Era';
+      const rail = document.createElement('div');
+      rail.className = 'shelf-row tile-row';
+      for (const d of Object.keys(counts).map(Number).sort((a, b) => a - b)) {
+        const a = document.createElement('a');
+        a.className = 'era-tile';
+        a.href = `#/browse?decade=${d}`;
+        const big = document.createElement('strong');
+        big.textContent = `${d}s`;
+        const sub = document.createElement('span');
+        sub.textContent = eraLabel(d + 5).toUpperCase();
+        const n = document.createElement('em');
+        n.textContent = `${counts[d].toLocaleString()} titles`;
+        a.append(big, sub, n);
+        rail.append(a);
+      }
+      sec.append(h, rail);
+      return sec;
     },
 
     /** Marquee hero (WEB-DESIGN §4.1): a native scroll-snap carousel over the
@@ -601,6 +706,77 @@
         .map(f => Data.byID.get(f.id)).filter(Boolean);
       fillGrid($('library-favs'), favs);
       $('library-favs-empty').hidden = favs.length > 0;
+
+      const playlists = (await DB.playlists().catch(() => []))
+        .sort((a, b) => (b.modifiedAt || 0) - (a.modifiedAt || 0));
+      const host = $('library-playlists');
+      host.replaceChildren(...playlists.map(pl => {
+        const a = document.createElement('a');
+        a.className = 'playlist-card';
+        a.href = `#/playlist/${encodeURIComponent(pl.id)}`;
+        const t = document.createElement('strong');
+        t.textContent = pl.name;
+        const n = document.createElement('span');
+        n.textContent = `${pl.archiveIDs.length} titles`;
+        a.append(t, n);
+        return a;
+      }));
+      $('library-playlists-empty').hidden = playlists.length > 0;
+    },
+  };
+
+  /* ---------------------------------------------------------------- *
+   * Surprise — the serendipity grid (apps' re-rollable tiles)         *
+   * ---------------------------------------------------------------- */
+  const Surprise = {
+    wired: false,
+    render() {
+      if (!this.wired) {
+        this.wired = true;
+        $('surprise-reroll').onclick = () => this.deal();
+      }
+      this.deal();
+    },
+    deal() {
+      // One tile per major category plus extra popular picks — every tile a
+      // designed-art random draw, fresh on every visit/re-roll.
+      const byType = {};
+      for (const r of Data.rows) {
+        if (!Data.isPro(r)) continue;
+        (byType[r[3]] ??= []).push(r);
+      }
+      const picks = [];
+      const seen = new Set();
+      for (const t of Object.keys(byType)) {
+        const pool = byType[t];
+        const pick = pool[Math.floor(Math.random() * pool.length)];
+        if (pick && !seen.has(pick[0])) { seen.add(pick[0]); picks.push(pick); }
+      }
+      const pro = Data.rows.filter(r => Data.isPro(r) && !seen.has(r[0]));
+      while (picks.length < 12 && pro.length) {
+        const pick = pro.splice(Math.floor(Math.random() * pro.length), 1)[0];
+        seen.add(pick[0]); picks.push(pick);
+      }
+      fillGrid($('surprise-grid'), shuffle(picks));
+    },
+  };
+
+  /* ---------------------------------------------------------------- *
+   * Playlist view                                                     *
+   * ---------------------------------------------------------------- */
+  const PlaylistView = {
+    async render(id) {
+      const pl = (await DB.playlists().catch(() => [])).find(p => p.id === id);
+      if (!pl) { location.hash = '#/library'; return; }
+      $('playlist-title').textContent = pl.name;
+      const rows = pl.archiveIDs.map(aid => Data.byID.get(aid)).filter(Boolean);
+      fillGrid($('playlist-grid'), rows);
+      $('playlist-empty').hidden = rows.length > 0;
+      $('playlist-delete').onclick = async () => {
+        if (!confirm(`Delete the playlist “${pl.name}”?`)) return;
+        await DB.deletePlaylist(id).catch(() => {});
+        location.hash = '#/library';
+      };
     },
   };
 
@@ -636,6 +812,8 @@
       $('item-fav').onclick = async () =>
         this.favUI(await DB.toggleFavorite(id).catch(() => false));
       $('item-share').onclick = () => this.shareMenu(row);
+      $('item-playlist').onclick = () => this.playlistMenu(id);
+      this.related(row);
       $('item-play').onclick = () => {
         const d = this.current.detail;
         if (d?.downloadURL) {
@@ -757,6 +935,50 @@
       b.textContent = on ? '♥ Favorited' : '♡ Favorite';
     },
 
+    /** More Like This (apps' related query, index approximation): same type,
+        same era ±15y, designed art, never self. */
+    related(row) {
+      const [id, , year, type] = row;
+      const host = $('item-related');
+      const rows = shuffle(Data.rows.filter(r =>
+        r[0] !== id && r[3] === type && Data.isPro(r) &&
+        (!year || !r[2] || Math.abs(r[2] - year) <= 15))).slice(0, 12);
+      $('item-related-row').replaceChildren(...rows.map(card));
+      host.hidden = rows.length < 4;
+    },
+
+    /** Add-to-playlist dialog: toggle membership per playlist, create new. */
+    async playlistMenu(archiveID) {
+      const dlg = $('playlistmenu');
+      const renderList = async () => {
+        const playlists = await DB.playlists().catch(() => []);
+        $('playlistmenu-list').replaceChildren(...playlists.map(pl => {
+          const b = document.createElement('button');
+          b.className = 'btn-ghost';
+          const inList = pl.archiveIDs.includes(archiveID);
+          b.textContent = `${inList ? '✓ ' : ''}${pl.name} (${pl.archiveIDs.length})`;
+          b.onclick = async () => {
+            await DB.togglePlaylistItem(pl.id, archiveID).catch(() => {});
+            renderList();
+          };
+          return b;
+        }));
+      };
+      $('playlistmenu-new').onclick = async () => {
+        const name = prompt('Playlist name');
+        if (!name || !name.trim()) return;
+        await DB.savePlaylist({
+          id: `pl-${Date.now().toString(36)}`,
+          name: name.trim(), archiveIDs: [archiveID],
+          createdAt: Date.now(),
+        }).catch(() => {});
+        renderList();
+      };
+      $('playlistmenu-cancel').onclick = () => dlg.close();
+      await renderList();
+      dlg.showModal();
+    },
+
     fail(msg) {
       const e = $('item-error');
       e.textContent = msg;
@@ -849,7 +1071,15 @@
         resume badges hydrate once IndexedDB answers. */
     episodes(series, season) {
       const host = $('series-episodes');
-      const rows = (season.episodes || []).filter(e => e.downloadURL).map(ep => {
+      const playable = (season.episodes || []).filter(e => e.downloadURL);
+      // The binge queue (apps' episode auto-advance): when an episode ends,
+      // the next one in the season plays automatically.
+      const queue = playable.map(e => ({
+        id: e.archiveID,
+        title: [series.title, epLabel(e)].filter(Boolean).join(' · '),
+        url: e.downloadURL,
+      }));
+      const rows = playable.map((ep, qi) => {
         const b = document.createElement('button');
         b.className = 'episode';
         b.dataset.ep = ep.archiveID;
@@ -868,11 +1098,7 @@
           txt.append(o);
         }
         b.append(img, txt);
-        b.onclick = () => Player.start({
-          id: ep.archiveID,
-          title: [series.title, epLabel(ep)].filter(Boolean).join(' · '),
-          url: ep.downloadURL,
-        });
+        b.onclick = () => Player.start({ ...queue[qi], queue, queueIndex: qi });
         return b;
       });
       host.replaceChildren(...rows);
@@ -915,9 +1141,11 @@
       await this.start({ id, title: row[1], url });
     },
 
-    /** Direct-URL entry (episodes carry downloadURL in the series spine). */
-    async start({ id, title, url }) {
-      this.ctx = { id, title };
+    /** Direct-URL entry (episodes carry downloadURL in the series spine).
+        `queue`/`queueIndex` enable episode binge: on ended, the next queued
+        episode plays (the apps' auto-advance parity). */
+    async start({ id, title, url, queue = null, queueIndex = 0 }) {
+      this.ctx = { id, title, queue, queueIndex };
       const video = $('video');
 
       $('player-title').textContent = title;
@@ -942,7 +1170,16 @@
         this.stallTimer = setTimeout(() => this.recover('stall'), 12000);
       };
       video.onplaying = () => clearTimeout(this.stallTimer);
-      video.onended = () => { this.persist(); this.close(); };
+      video.onended = () => {
+        this.persist();
+        const { queue, queueIndex } = this.ctx || {};
+        if (queue && queueIndex + 1 < queue.length) {
+          const next = queue[queueIndex + 1];
+          this.start({ ...next, queue, queueIndex: queueIndex + 1 });
+        } else {
+          this.close();
+        }
+      };
     },
 
     recover(kind) {

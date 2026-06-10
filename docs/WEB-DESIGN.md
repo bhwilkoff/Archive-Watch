@@ -67,7 +67,11 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
 
 ## §4 Surfaces
 
-- **§4.1 Home** = the Marquee hero + featured shelves
+- **§4.1 Home** = the Marquee hero + Browse-by-Category accent tiles
+  (count-gated ≥30, featured.json accents) + featured shelves + Hidden Gems
+  (designed art from the popularity tail) + Public Domain Day (year =
+  currentYear−95) + Browse-by-Era tiles LAST (the apps' Home order,
+  2026-06-11 parity wave)
   (horizontal scroll-snap rails). Order follows `featured.json`; items are
   **cross-shelf deduped** (first shelf claims the item — the apps' Home rule),
   shelves under 4 items are dropped, and the hero pool (top-300) and every
@@ -115,6 +119,19 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   (never gated on storage) and play their `downloadURL` directly; resume
   badges hydrate from IndexedDB afterward. Old `#/item/series:*` links
   redirect here.
+
+
+- **§4.9 Surprise** (`#/surprise`, topnav): a re-rollable grid — one random
+  designed-art pick per content type plus popular extras, fresh per visit
+  (2026-06-11 parity wave).
+- **§4.10 Playlists** live in IndexedDB (`playlists` store, schema v2):
+  Detail "＋ Playlist" opens the add/create dialog; Library lists playlists →
+  `#/playlist/{id}` grid with delete. Same verb as the apps; Drive sync joins
+  later (Decision 028 §6).
+- **§4.11 Episode binge**: playing an episode passes the season's playable
+  queue; `ended` auto-advances to the next episode (the apps' auto-advance).
+- **§4.12 More Like This** on Detail: same type, ±15 years, designed art,
+  shuffled 12 (index approximation of the apps' related query).
 
 ## §5 Playback
 

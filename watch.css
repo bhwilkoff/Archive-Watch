@@ -374,6 +374,51 @@ input[type="search"] {
 .about-foot a:hover { color: var(--text); }
 .about-back { margin-top: 4px; }
 
+/* ---- discovery tiles (Browse by Category / Era — apps' Home rows) ---- */
+.shelf .shelf-sub { margin: -4px var(--pad) 4px; }
+.tile-row { align-items: stretch; }
+.cat-tile, .era-tile {
+  flex: 0 0 auto; min-width: 130px; min-height: 84px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 12px; border-radius: 10px; text-decoration: none;
+  color: #fff; font-weight: 700;
+  background: linear-gradient(135deg, var(--tile-accent, #555),
+              color-mix(in srgb, var(--tile-accent, #555) 55%, black));
+}
+.era-tile { --tile-accent: #6b6f78; }
+.era-tile strong {
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 1.5rem; font-weight: 900;
+}
+.era-tile span {
+  font-size: 0.6rem; letter-spacing: 0.14em; opacity: 0.9; font-weight: 700;
+}
+.era-tile em { font-style: normal; font-size: 0.7rem; opacity: 0.75; font-weight: 600; }
+
+/* ---- surprise ---- */
+.surprise-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-right: var(--pad);
+}
+.surprise-head h1 { flex: 1; }
+#surprise-reroll { border: 0; }
+
+/* ---- playlists ---- */
+.playlist-list { display: flex; flex-direction: column; gap: 10px; padding: 4px var(--pad); }
+.playlist-card {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  background: var(--bg-raise); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 12px 14px;
+  color: var(--text); text-decoration: none; font-weight: 600;
+}
+.playlist-card span { color: var(--text-dim); font-size: 0.85rem; font-weight: 500; }
+.dlg-title { margin: 0 0 10px; padding: 0; font-size: 1.05rem; }
+
+/* ---- detail: more like this ---- */
+#item-related { margin-top: 18px; }
+#item-related h2 { margin: 0 0 8px; padding: 0; }
+#item-related .shelf-row { padding-left: 0; padding-right: 0; }
+
 /* ---- share menu ---- */
 dialog.sharemenu {
   background: var(--bg-raise); color: var(--text);
