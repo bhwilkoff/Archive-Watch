@@ -7,6 +7,9 @@ import SwiftUI
 struct RootView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
+    @Environment(AccountStore.self) private var account
+    @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.modelContext) private var modelContext
     private let inbox = IntentInbox.shared
 
     var body: some View {
@@ -24,6 +27,10 @@ struct RootView: View {
                 Tab(Router.Tab.browse.title, systemImage: Router.Tab.browse.systemImage, value: Router.Tab.browse) {
                     NavigationStack(path: $router.browsePath) { BrowseView().withItemDestination() }
                 }
+                Tab(Router.Tab.channels.title, systemImage: Router.Tab.channels.systemImage,
+                    value: Router.Tab.channels) {
+                    NavigationStack(path: $router.channelsPath) { ChannelsView().withItemDestination() }
+                }
                 Tab(Router.Tab.search.title, systemImage: Router.Tab.search.systemImage,
                     value: Router.Tab.search, role: .search) {
                     NavigationStack(path: $router.searchPath) { SearchView().withItemDestination() }
@@ -39,6 +46,35 @@ struct RootView: View {
             // Siri/Shortcuts + deep links land in the inbox; act once foreground.
             .onChange(of: inbox.request) { handle(inbox.request) }
             .task { handle(inbox.request) }
+            // Screenshot/dev affordance (the tvOS RootView hooks, iOS twin):
+            // AW_START_TAB=channels lands on a tab, AW_START_ITEM=<archiveID>
+            // deep-opens that Detail. No-ops unless the env vars are set.
+            .task {
+                let env = ProcessInfo.processInfo.environment
+                if let raw = env["AW_START_TAB"], let t = Router.Tab(rawValue: raw) {
+                    router.tab = t
+                }
+                if let id = env["AW_START_ITEM"], let item = store.item(id) {
+                    router.openDetail(item)
+                }
+            }
+            // #11b live sync, the tvOS ContentView triggers mirrored (the iPhone
+            // previously synced only at launch + after local edits, so Library
+            // changes made on the Apple TV never arrived mid-session). Gated on
+            // sign-in: Decision 022 — nothing leaves the device until opted in.
+            .onChange(of: scenePhase) { _, phase in
+                if phase == .active && account.isSignedIn {
+                    Task { await CloudKitSyncService.shared.sync(modelContext) }
+                }
+            }
+            .task {
+                while !Task.isCancelled {
+                    try? await Task.sleep(nanoseconds: 60_000_000_000)
+                    if scenePhase == .active && account.isSignedIn {
+                        await CloudKitSyncService.shared.sync(modelContext)
+                    }
+                }
+            }
         }
     }
 

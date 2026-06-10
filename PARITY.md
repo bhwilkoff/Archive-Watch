@@ -73,7 +73,7 @@ this table in the same change set; cross-link the platform design doc.
 | Hidden Gems shelf | ✅ | ✅ | ⏳ | ✅ | shared query |
 | Director shelves | ✅ | ✅ | ⏳ | ⏳ | shared query |
 | Continue Watching | ✅ | ✅ | ✅ | ✅ | progress store (see §6) |
-| Modes row | ✅ | ✅ capsule row (Channels/Surprise/Cartoon/PD Day) | ⏳ | ⏳ | links to §5 |
+| Modes row | ✅ | ➖ removed 2026-06-10 (Channels = tab; Surprise/Cartoon/PD via Home shuffle → Surprise grid) | ⏳ | ⏳ | links to §5 |
 | Public Domain Day section | ✅ | ✅ Home shelf + year-chip explorer | ⏳ | ✅ Home row | seasonal, shared |
 
 ## 3. Discover — Movies / TV / Collections / Search
@@ -85,13 +85,13 @@ this table in the same change set; cross-link the platform design doc.
 | TV series → season → episode | ✅ | ✅ series grid → `SeriesDetailView` (SeriesStore) → episode play | ✅ `#/series/{slug}` (spine from Pages) → episode play + resume | ✅ TV scope → SeriesDetail → play | `series/*.json` shared |
 | Prev/next episode in player | ✅ | ✅ overlay capsule + binge auto-advance | ⏳ | ⏳ | EpisodeQueue swaps next on end |
 | Collections landing + blurbs | ✅ | ✅ `CollectionMetadata` list → `CollectionGridView` | ⏳ | ⏳ | `collection_metadata.json` shared |
-| Full-text search (FTS5) | ✅ | ✅ `.searchable` | 🚧 client title search over index (FTS5 upgrade = WEB-DESIGN §2.4) | ✅ debounced FTS5 `SearchBar` | same FTS5 index in `catalog.sqlite` |
+| Full-text search (FTS5) | ✅ | ✅ `.searchable` + type/decade filter menu | 🚧 client title search over index (FTS5 upgrade = WEB-DESIGN §2.4) | ✅ debounced FTS5 `SearchBar` | same FTS5 index in `catalog.sqlite` |
 
 ## 4. Detail + Playback
 
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
-| Detail (backdrop, metadata, cast) | ✅ | ✅ scroll + Play/Favorite/Share + cast row | ✅ poster + curated synopsis + cast/crew bubbles (catalog shards) | ✅ backdrop + cast row + favorite | shared item record |
+| Detail (backdrop, metadata, cast) | ✅ | ✅ framed 2:3 poster hero + tappable cast/crew → person filmography | ✅ poster + curated synopsis + cast/crew bubbles (catalog shards) | ✅ backdrop + cast row + favorite | shared item record; iOS person browse = `CatalogDB.byPerson` |
 | More Like This | ✅ | ✅ | ⏳ | ✅ | shared `related` query |
 | Video playback | ✅ AVPlayerVC | ✅ AVPlayerVC (reused) | ✅ HTML5 `<video>` in `<dialog>` | ✅ Media3 `PlayerView` | |
 | Resilient streaming | ✅ `ResilientStreamLoader` | ✅ reuse Swift loader | ✅ range-native + reconnect/reseek wrapper | ✅ OkHttp source + patient `LoadErrorHandlingPolicy` | Archive idle-reset resilience per platform |
@@ -122,7 +122,7 @@ this table in the same change set; cross-link the platform design doc.
 | Watched / hide-watched | ✅ | ✅ Watched tab + hide-watched toggle | ⏳ | ⏳ | |
 | Continue Watching progress | ✅ | ✅ | ✅ | ✅ | |
 | Local persistence (offline-first) | ✅ SwiftData | ✅ SwiftData (reuse) | ✅ IndexedDB | ✅ user.sqlite + DataStore | |
-| Per-ecosystem sync (own cloud) | ✅ CloudKit | 🚧 CloudKit reuse (UI + sync-on-launch/sign-in shipped; on-device cross-device verify owner-pending) | ⏳ Google Drive App Data (web↔web) | ⏳ Google Drive App Data (device↔device) | Decided: each island on the user's own free cloud, no backend (plan §6) |
+| Per-ecosystem sync (own cloud) | ✅ CloudKit | 🚧 CloudKit reuse (launch + sign-in + foreground + 60s live triggers, tvOS parity; on-device cross-device verify owner-pending) | ⏳ Google Drive App Data (web↔web) | ⏳ Google Drive App Data (device↔device) | Decided: each island on the user's own free cloud, no backend (plan §6) |
 | Cross-ecosystem sync (all 4) | 🚫 | 🚫 | 🚫 | 🚫 | Out of scope by owner choice — unneeded complexity |
 
 ## 7. Settings + account

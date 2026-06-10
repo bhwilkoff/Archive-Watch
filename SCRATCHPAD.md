@@ -233,7 +233,35 @@ focus / layout / animation bugs.
 
 ## Session Log
 
-### 2026-06-10 (night) — Series-episode wrong-content audit shipped to CI
+### 2026-06-10 (late) — iPhone/iPad wave: Channels tab, contrast audit, tappable cast, live sync, framed posters, search filters
+Owner's 7-item iOS punch list, all sim-verified (iPhone 17 Pro + iPad Pro 11"
+26.5; tvOS re-verified green). App 1.2.16 (build 29). iOS-DESIGN §2.1 amended
+(five tabs incl. Channels), PARITY rows updated.
+- **Channels = top-level tab**; Home modes pill row REMOVED (Surprise/Cartoon/
+  PD Day live behind the Home shuffle button → Surprise grid).
+- **Contrast audit**: root cause = global AccentColor #0047FF under forced
+  dark mode (bordered buttons/links drew dark-blue-on-dark). Fix: dark-
+  appearance AccentColor variant (#4D7DFF) + Apple-style white SiwA button.
+  Everything else already white/secondary/orange.
+- **Cast/crew bubbles tappable** → BrowseFilterRoute(person:) →
+  FilteredGridView via CatalogDB.byPerson (tvOS PersonChip parity; director
+  leads the row with role captions).
+- **Library sync**: iOS only synced at launch + after local edits — added the
+  tvOS live triggers (foreground + 60s timer), sign-in gated. NOTE: most
+  likely the owner never signed in on iPhone because the SiwA button was
+  unreadable; on-device cross-device verify still owner-pending
+  (cloudkit-setup runbook).
+- **Detail poster framing**: hero rendered FILL-cropped (top of art cut off).
+  Rebuilt DetailHero: explicit-height aspect-FIT 2:3 poster (rounded+shadow)
+  over blurred ambient backdrop; 340pt iPhone / 460pt iPad; TMDb w185/342/500
+  → w780 + OMDb _SX300 → _SX800 upsizing on Detail only.
+- **Search filters**: type/decade Menu (Browse facet vocabulary) over FTS
+  results, filled-icon active state + clear action; tv-series results route
+  to SeriesDetail.
+- **iOS screenshot hooks**: AW_START_TAB / AW_START_ITEM env vars now work on
+  iOS (tvOS RootView twin) — drive Detail/tab screenshots via
+  SIMCTL_CHILD_AW_START_ITEM=… simctl launch; cold start needs ~25s before
+  the shot.
 User found a South Park frame on the AitF page — it was the thumbnail of a
 bliptv REVIEW VLOG about an AitF episode (the vlog opens with a South Park
 clip; archive.org auto-thumbnailed it). New tool

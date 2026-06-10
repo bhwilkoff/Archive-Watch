@@ -41,7 +41,6 @@ struct HomeView: View {
                 if !heroItems.isEmpty {
                     HeroCarousel(items: heroItems)
                 }
-                ModesRow()
                 if !continueItems.isEmpty {
                     Shelf(title: "Continue Watching", subtitle: nil, items: continueItems)
                 }

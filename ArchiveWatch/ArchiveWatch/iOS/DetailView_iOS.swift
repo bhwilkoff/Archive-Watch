@@ -19,7 +19,8 @@ struct DetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                DetailHero(url: item.backdropURLParsed ?? item.posterURLParsed)
+                DetailHero(poster: Self.upsized(item.posterURLParsed),
+                           backdrop: Self.upsized(item.backdropURLParsed))
 
                 VStack(alignment: .leading, spacing: 12) {
                     Text(item.title).font(.title.bold())
@@ -50,7 +51,9 @@ struct DetailView: View {
                     if let s = item.synopsis, !s.isEmpty {
                         Text(s).font(.body).foregroundStyle(.primary.opacity(0.9))
                     }
-                    if !item.cast.isEmpty { CastRow(cast: item.cast) }
+                    if !item.cast.isEmpty || item.director?.isEmpty == false {
+                        CastRow(cast: item.cast, director: item.director)
+                    }
                     relatedSection
                 }
                 .padding(.horizontal)
@@ -75,6 +78,19 @@ struct DetailView: View {
     }
     private var shareURL: URL {
         URL(string: "https://archivewatch.org/item/\(item.archiveID)")!
+    }
+
+    /// Detail wants sharper art than shelf tiles: upgrade known CDN size tokens
+    /// (TMDb /t/p/wNNN, OMDb/Amazon _SX300) to detail-appropriate sizes. URLs
+    /// without a recognized token pass through untouched.
+    static func upsized(_ url: URL?) -> URL? {
+        guard let s = url?.absoluteString else { return nil }
+        var out = s
+        for small in ["/t/p/w185/", "/t/p/w342/", "/t/p/w500/"] {
+            out = out.replacingOccurrences(of: small, with: "/t/p/w780/")
+        }
+        out = out.replacingOccurrences(of: "_SX300", with: "_SX800")
+        return URL(string: out) ?? url
     }
 
     private func toggleFavorite() {
@@ -105,51 +121,85 @@ struct DetailView: View {
     }
 }
 
-// Detail header artwork. Shows the art aspect-FIT so a 2:3 poster or a 16:9
-// backdrop is never cropped/zoomed, over a blurred fill of the same image so the
-// letterbox area reads as intentional rather than empty.
+// Detail header artwork: the POSTER, aspect-fit and explicitly height-framed so
+// it can never render fill-cropped (owner report 2026-06-10: posters were
+// cropped/low-res on the title view), floating over a blurred ambient fill of
+// the backdrop (or the poster itself). Taller on iPad/regular width.
 private struct DetailHero: View {
-    let url: URL?
+    let poster: URL?
+    let backdrop: URL?
+    @Environment(\.horizontalSizeClass) private var hSize
+
+    private var height: CGFloat { hSize == .regular ? 460 : 340 }
+
     var body: some View {
         ZStack {
-            PosterImage(url: url)                       // ambient fill (cropped is fine, it's blurred)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            PosterImage(url: backdrop ?? poster)        // ambient (cropped is fine, it's blurred)
+                .frame(maxWidth: .infinity)
+                .frame(height: height)
                 .clipped()
-                .blur(radius: 24)
-                .overlay(Color.black.opacity(0.35))
-            PosterImage(url: url, contentMode: .fit)    // the real artwork, uncropped
-                .padding(.vertical, 10)
+                .blur(radius: 28)
+                .overlay(Color.black.opacity(0.45))
+            PosterImage(url: poster ?? backdrop, contentMode: .fit)
+                .frame(height: height - 32)             // explicit frame: fit math is deterministic
+                .clipShape(.rect(cornerRadius: 12))
+                .shadow(color: .black.opacity(0.5), radius: 14, y: 6)
         }
         .frame(maxWidth: .infinity)
-        .frame(height: 300)
+        .frame(height: height)
         .clipped()
     }
 }
 
+// Tappable cast & crew (#4 parity with tvOS PersonChip): each bubble pushes a
+// browse of that person's other titles via the FTS names index. Director leads.
 private struct CastRow: View {
     let cast: [Catalog.CastMember]
+    var director: String? = nil
+    @Environment(Router.self) private var router
+
     /// TMDb profile paths are stored as "/abc.jpg"; full URLs pass through.
     static func profileURL(_ path: String?) -> URL? {
         guard let p = path, !p.isEmpty else { return nil }
         if p.hasPrefix("http") { return URL(string: p) }
         return URL(string: "https://image.tmdb.org/t/p/w185\(p)")
     }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Cast").font(.title3).fontWeight(.semibold)
+            Text("Cast & Crew").font(.title3).fontWeight(.semibold)
             ScrollView(.horizontal) {
                 LazyHStack(spacing: 16) {
+                    if let d = director, !d.isEmpty {
+                        bubble(name: d, role: "Director", profilePath: nil)
+                    }
                     ForEach(cast.prefix(12), id: \.name) { member in
-                        VStack(spacing: 4) {
-                            PosterImage(url: Self.profileURL(member.profilePath))
-                                .frame(width: 64, height: 64).clipShape(.circle)
-                            Text(member.name).font(.caption2).lineLimit(2)
-                                .frame(width: 72).multilineTextAlignment(.center)
-                        }
+                        bubble(name: member.name, role: member.character,
+                               profilePath: member.profilePath)
                     }
                 }
             }.scrollIndicators(.hidden)
         }
+    }
+
+    private func bubble(name: String, role: String?, profilePath: String?) -> some View {
+        Button {
+            router.push(BrowseFilterRoute(title: name, person: name))
+        } label: {
+            VStack(spacing: 4) {
+                PosterImage(url: Self.profileURL(profilePath))
+                    .frame(width: 64, height: 64).clipShape(.circle)
+                    .overlay(Circle().strokeBorder(.white.opacity(0.1)))
+                Text(name).font(.caption2).lineLimit(2)
+                    .frame(width: 72).multilineTextAlignment(.center)
+                    .foregroundStyle(.primary)
+                if let role, !role.isEmpty {
+                    Text(role).font(.system(size: 9)).foregroundStyle(.secondary)
+                        .lineLimit(1).frame(width: 72)
+                }
+            }
+        }
+        .buttonStyle(.plain)
     }
 }
 

@@ -66,11 +66,14 @@ plain. Copy lives in `featured.json` / `collection_metadata.json`, not Swift.
 
 ## §2 — Navigation shell
 
-2.1 **Four content tabs, hard set: Home · Browse · Search · Library.**
-Settings is intentionally NOT a tab — it lives behind the gear in Home's nav
-bar, presented as a sheet (a destination, not a peer of the content verbs).
-The tab bar is reserved for content verbs; adding a fifth tab requires
-amending this rule first. Search uses `role: .search` so the system places it
+2.1 **Five content tabs, hard set: Home · Browse · Channels · Search ·
+Library.** (Amended 2026-06-10, owner: "Channels should be a top level
+navigation and not just a pill on the home page" — Channels graduated from
+the Home modes row, which was removed in the same change.) Settings is
+intentionally NOT a tab — it lives behind the gear in Home's nav bar,
+presented as a sheet (a destination, not a peer of the content verbs). The
+tab bar is reserved for content verbs; adding a sixth tab requires amending
+this rule first. Search uses `role: .search` so the system places it
 natively.
 
 2.2 **One shell, both form factors.** The root is
@@ -103,12 +106,14 @@ New entry points (intents, widget URLs, `archivewatch://` hosts) extend
 `IntentInbox.Request` + the `RootView.handle` switch; they never touch
 `Router` directly from outside the view tree.
 
-2.6 **Modes are pushes on iOS, not takeovers.** Channels, Cartoon Mode,
-Surprise, and Public Domain Day are ordinary pushed screens reached from
-Home's Modes row / toolbar (and registered per §2.3) — back-swipe always
-works. Only the player goes full-screen (§4.4). This deliberately inverts
-tvOS-DESIGN §9 ("a mode replaces the shell"): on the phone the nav bar IS the
-exit affordance.
+2.6 **Modes are pushes on iOS, not takeovers.** Cartoon Mode, Surprise, and
+Public Domain Day are ordinary pushed screens reached from Home's shuffle
+toolbar button → Surprise grid (and registered per §2.3) — back-swipe always
+works. (Channels is a tab per §2.1 since 2026-06-10; the Home modes pill row
+was removed the same day — owner: the pills "are all accessible from the
+'shuffle' button".) Only the player goes full-screen (§4.4). This
+deliberately inverts tvOS-DESIGN §9 ("a mode replaces the shell"): on the
+phone the nav bar IS the exit affordance.
 
 ---
 

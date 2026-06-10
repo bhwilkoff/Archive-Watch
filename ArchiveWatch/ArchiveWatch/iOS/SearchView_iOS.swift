@@ -2,14 +2,30 @@
 import SwiftUI
 
 // Search: native `.searchable` (the search-role tab hosts it). FTS5 over the same
-// catalog.sqlite index the tvOS app uses; results in a poster grid.
+// catalog.sqlite index the tvOS app uses; results in a poster grid. Type/decade
+// filters (the Browse facet vocabulary) narrow the result set — owner request
+// 2026-06-10: "implement filters on the search view".
 struct SearchView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
     @State private var query = ""
     @State private var results: [Catalog.Item] = []
+    @State private var contentType: String? = nil
+    @State private var decade: Int? = nil
 
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
+    private let types: [(String, String?)] = [
+        ("All", nil), ("Films", "feature-film"), ("TV", "tv-series"),
+        ("Silent", "silent-film"), ("Animation", "animation"), ("Shorts", "short-film"),
+        ("Newsreels", "newsreel"), ("Documentary", "documentary"), ("Ephemera", "ephemeral")]
+
+    private var filtered: [Catalog.Item] {
+        results.filter { item in
+            (contentType == nil || item.contentType == contentType) &&
+            (decade == nil || item.year.map { ($0 / 10) * 10 == decade! } == true)
+        }
+    }
+    private var filterActive: Bool { contentType != nil || decade != nil }
 
     var body: some View {
         Group {
@@ -17,13 +33,20 @@ struct SearchView: View {
                 ContentUnavailableView("Search the archive",
                     systemImage: "magnifyingglass",
                     description: Text("Title, director, cast, genre, country, or synopsis."))
-            } else if results.isEmpty {
-                ContentUnavailableView.search(text: query)
+            } else if filtered.isEmpty {
+                if filterActive && !results.isEmpty {
+                    ContentUnavailableView("No matches with these filters",
+                        systemImage: "line.3.horizontal.decrease.circle",
+                        description: Text("\(results.count) results are hidden by the "
+                                          + "type/decade filters. Clear them to see all."))
+                } else {
+                    ContentUnavailableView.search(text: query)
+                }
             } else {
                 ScrollView {
                     LazyVGrid(columns: cols, spacing: 18) {
-                        ForEach(results) { item in
-                            Button { router.openDetail(item) } label: { PosterTile(item: item) }
+                        ForEach(filtered) { item in
+                            Button { open(item) } label: { PosterTile(item: item) }
                                 .buttonStyle(.plain)
                         }
                     }.padding()
@@ -33,10 +56,40 @@ struct SearchView: View {
         .navigationTitle("Search")
         .searchable(text: $query, placement: .navigationBarDrawer(displayMode: .always),
                     prompt: "Films, shows, people…")
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Menu("Filter", systemImage: filterActive
+                     ? "line.3.horizontal.decrease.circle.fill"
+                     : "line.3.horizontal.decrease.circle") {
+                    Picker("Type", selection: $contentType) {
+                        ForEach(types, id: \.1) { Text($0.0).tag($0.1) }
+                    }
+                    Picker("Decade", selection: $decade) {
+                        Text("All Decades").tag(Int?.none)
+                        ForEach(decades, id: \.self) { Text(verbatim: "\($0)s").tag(Int?.some($0)) }
+                    }
+                    if filterActive {
+                        Button("Clear Filters", role: .destructive) {
+                            contentType = nil; decade = nil
+                        }
+                    }
+                }
+            }
+        }
         .task(id: query) {
             guard query.count >= 2 else { results = []; return }
             try? await Task.sleep(for: .milliseconds(180))   // debounce
             if !Task.isCancelled { results = store.search(query) }
+        }
+    }
+
+    private var decades: [Int] { store.decadeCounts().keys.sorted(by: >) }
+
+    private func open(_ item: Catalog.Item) {
+        if item.contentType == "tv-series" {
+            router.searchPath.append(SeriesRef(card: item))
+        } else {
+            router.openDetail(item)
         }
     }
 }

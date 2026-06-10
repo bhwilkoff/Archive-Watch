@@ -100,12 +100,17 @@ struct SettingsView: View {
                              + "progress from iCloud and signs you out. Titles saved on this device stay here.")
                     }
             } else {
+                // Apple's canonical white-on-dark sign-in button. The app runs
+                // dark, so the old `.bordered` style drew #0047FF accent text on
+                // dark gray — unreadable (owner report 2026-06-10).
                 Button { account.startSignIn() } label: {
                     Label("Sign in with Apple", systemImage: "applelogo")
                         .fontWeight(.semibold)
+                        .foregroundStyle(.black)
                         .frame(maxWidth: .infinity)
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(.borderedProminent)
+                .tint(.white)
                 if let err = account.signInError {
                     Label(err, systemImage: "exclamationmark.triangle.fill")
                         .font(.callout).foregroundStyle(.orange)

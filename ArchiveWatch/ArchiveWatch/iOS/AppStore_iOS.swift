@@ -116,6 +116,7 @@ final class AppStore {
         db?.browseCount(contentType: contentType, decade: decade, genre: genre, year: year) ?? 0
     }
     func search(_ q: String) -> [Catalog.Item] { db?.search(q) ?? [] }
+    func byPerson(_ name: String) -> [Catalog.Item] { db?.byPerson(name) ?? [] }
     func item(_ id: String) -> Catalog.Item? { db?.item(id) }
     func itemsByIDs(_ ids: [String]) -> [Catalog.Item] { db?.itemsByIDs(ids) ?? [] }
     func related(to item: Catalog.Item) -> [Catalog.Item] { db?.related(to: item) ?? [] }
