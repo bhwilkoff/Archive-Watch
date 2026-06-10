@@ -220,15 +220,24 @@
     a.href = type === 'tv-series'
       ? `#/series/${encodeURIComponent(id.replace(/^series:/, ''))}`
       : `#/item/${encodeURIComponent(id)}`;
-    const img = document.createElement('img');
-    img.loading = 'lazy';
-    img.alt = '';
-    img.src = Data.poster(row);
-    img.onerror = () => { img.onerror = null; img.src = API.thumbnailURL(id); };
+    let art;
+    if (type === 'tv-series' && !row[4]) {
+      // series: ids aren't archive.org items — no thumbnail exists to fetch
+      art = placeholderArt(row);
+    } else {
+      const img = document.createElement('img');
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.alt = '';
+      wireArt(img,
+        type === 'tv-series' ? [row[4]] : [Data.poster(row), API.thumbnailURL(id)],
+        null, () => img.replaceWith(placeholderArt(row)));
+      art = img;
+    }
     const t = document.createElement('span'); t.className = 't'; t.textContent = title;
     const y = document.createElement('span'); y.className = 'y';
     y.textContent = year ? String(year) : '';
-    a.append(img, t, y);
+    a.append(art, t, y);
     return a;
   }
 
@@ -240,6 +249,52 @@
     const d = document.createElement('div');
     d.innerHTML = s || '';
     return (d.textContent || '').trim();
+  }
+
+  /** archive.org throttles image bursts (transient 503s on /services/img and
+      /download), so a one-shot onerror fallback left tiles broken until a
+      manual refresh. Walk the fallback chain, then retry the whole chain up
+      to twice with jittered backoff — removing src first so the browser
+      actually re-requests instead of ignoring a same-value assignment. */
+  function wireArt(img, urls, onLoad, onFail) {
+    const chain = [...new Set(urls.filter(Boolean))];
+    if (!chain.length) { if (onFail) onFail(); return; }
+    // Persistent imgs (detail/series posters) get re-wired on navigation; the
+    // token keeps a pending retry from clobbering the next title's art.
+    const token = img.dataset.artToken = String(Number(img.dataset.artToken || 0) + 1);
+    let step = 0, round = 0;
+    const set = () => { img.removeAttribute('src'); img.src = chain[step]; };
+    img.onerror = () => {
+      if (step < chain.length - 1) { step++; set(); return; }
+      if (round >= 2) { img.onerror = null; if (onFail) onFail(); return; }
+      round++; step = 0;
+      setTimeout(() => {
+        if (img.isConnected && img.dataset.artToken === token) set();
+      }, 1800 * round + Math.random() * 700);
+    };
+    if (onLoad) img.onload = () => onLoad(img.currentSrc || img.src);
+    set();
+  }
+
+  /** Decision 013 semantic accents — content meaning only, never chrome. */
+  const TYPE_ACCENTS = {
+    'feature-film': '#FF5C35', 'tv-series': '#2D5BFF', 'silent-film': '#C9A66B',
+    'animation': '#FF4D8D', 'newsreel': '#8A8F98', 'documentary': '#3FA796',
+    'ephemeral': '#7C5BBA', 'short-film': '#E8A317',
+  };
+
+  /** The apps' procedural typographic card, web twin: shown when an item has
+      no real/generated art to fetch (series: ids aren't archive.org items, so
+      /services/img would return the Archive's generic placeholder) or when
+      every fetch attempt failed. Never an archive.org placeholder. */
+  function placeholderArt(row) {
+    const d = document.createElement('div');
+    d.className = 'card-ph';
+    d.style.setProperty('--ph-accent', TYPE_ACCENTS[row[3]] || '#555');
+    const s = document.createElement('span');
+    s.textContent = row[1];
+    d.append(s);
+    return d;
   }
 
   /* ---------------------------------------------------------------- *
@@ -339,14 +394,15 @@
 
         const ambient = document.createElement('div');
         ambient.className = 'hero-ambient';
-        ambient.style.backgroundImage = `url("${Data.poster(row)}")`;
 
         const poster = document.createElement('img');
         poster.className = 'hero-poster';
         poster.alt = '';
         poster.loading = i === 0 ? 'eager' : 'lazy';
-        poster.src = Data.poster(row);
-        poster.onerror = () => { poster.onerror = null; poster.src = API.thumbnailURL(id); };
+        // Ambient mirrors whatever art actually loaded (it shares the HTTP
+        // cache entry), so a throttled poster can't strand a blank backdrop.
+        wireArt(poster, [Data.poster(row), API.thumbnailURL(id)],
+          src => { ambient.style.backgroundImage = `url("${src}")`; });
 
         const copy = document.createElement('div');
         copy.className = 'hero-copy';
@@ -566,8 +622,7 @@
       $('item-title').textContent = row[1];
       $('item-meta').textContent = [row[2], row[3].replace(/-/g, ' ')]
         .filter(Boolean).join(' · ');
-      $('item-poster').src = Data.poster(row);
-      $('item-poster').onerror = () => { $('item-poster').src = API.thumbnailURL(id); };
+      wireArt($('item-poster'), [Data.poster(row), API.thumbnailURL(id)]);
       $('item-desc').textContent = '';
       $('item-cast').replaceChildren();
       $('item-cast').hidden = true;
@@ -736,7 +791,11 @@
       $('series-title').textContent = card ? card[1] : slug;
       $('series-meta').textContent = '';
       $('series-overview').textContent = '';
-      $('series-poster').src = card ? Data.poster(card) : '';
+      // Only real art — services/img on a series: id returns the Archive's
+      // generic placeholder; an empty 2:3 well is quieter until the spine's
+      // posterURL (if any) arrives below.
+      if (card && card[4]) wireArt($('series-poster'), [card[4]]);
+      else $('series-poster').removeAttribute('src');
       $('series-season').hidden = true;
       $('series-error').hidden = true;
       $('series-loading').hidden = false;
@@ -767,7 +826,7 @@
       $('series-meta').textContent = [yr, `${eps.length} playable episodes`]
         .filter(Boolean).join(' · ');
       $('series-overview').textContent = stripHTML(series.overview || '').slice(0, 600);
-      if (series.posterURL) $('series-poster').src = series.posterURL;
+      if (series.posterURL) wireArt($('series-poster'), [series.posterURL]);
 
       const seasons = (series.seasons || []).filter(s => (s.episodes || []).some(e => e.downloadURL));
       if (!seasons.length) {
@@ -796,8 +855,7 @@
         b.dataset.ep = ep.archiveID;
         const img = document.createElement('img');
         img.loading = 'lazy'; img.alt = '';
-        img.src = ep.stillURL || API.thumbnailURL(ep.archiveID);
-        img.onerror = () => { img.onerror = null; img.src = API.thumbnailURL(ep.archiveID); };
+        wireArt(img, [ep.stillURL, API.thumbnailURL(ep.archiveID)]);
         const txt = document.createElement('span');
         const n = document.createElement('span'); n.className = 'ep-n';
         n.textContent = epLabel(ep);

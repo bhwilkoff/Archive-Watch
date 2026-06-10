@@ -114,21 +114,50 @@
     </section>
 
     <section id="view-about" hidden>
-      <h1>About</h1>
-      <p>Archive Watch turns the Internet Archive's public-domain moving-image
-         collection — feature films, classic TV, newsreels, silent cinema,
-         animation, ephemeral film — into a cinematheque. Every title is public
-         domain or otherwise free to share. No account, no tracking; your
-         favorites and progress stay in this browser.</p>
-      <h2>Sources &amp; attribution</h2>
-      <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
-      <p>Posters, backdrops, cast, and synopses come from The Movie Database
-         (TMDb), with Wikidata, Wikimedia Commons, and the Library of Congress
-         as fallbacks. Films, television, and ephemera are served by the
-         Internet Archive.</p>
-      <p><a href="https://archive.org/donate" target="_blank" rel="noopener">Support the Internet Archive →</a></p>
-      <p class="muted">Also on Apple TV and iPhone — search the App Store for “Archive Watch”.
-         <a href="privacy.html">Privacy</a> · <a href="curate/">Suggest &amp; curate</a></p>
+      <div class="about">
+        <header class="about-head">
+          <h1>About &amp; Attribution</h1>
+          <a class="about-close" href="#/" aria-label="Close — back to Home">✕</a>
+        </header>
+
+        <div class="about-brand">
+          <img src="assets/app-icon/app-icon.png" alt="" width="60" height="36">
+          <div>
+            <strong>Archive Watch</strong>
+            <span>A cinematheque for the Internet Archive</span>
+          </div>
+        </div>
+
+        <p class="about-lede">Feature films, classic TV, newsreels, silent
+           cinema, animation, ephemeral film — every title is public domain or
+           otherwise free to share. No account, no tracking; your favorites and
+           progress stay in this browser.</p>
+
+        <section class="about-card">
+          <h2>Sources &amp; attribution</h2>
+          <p class="about-notice">This product uses the TMDB API but is not
+             endorsed or certified by TMDB.</p>
+          <p>Posters, backdrops, cast, and synopses come from The Movie Database
+             (TMDb), with Wikidata, Wikimedia Commons, and the Library of
+             Congress as fallbacks. Films, television, and ephemera are served
+             by the Internet Archive.</p>
+        </section>
+
+        <section class="about-card">
+          <h2>Support the Internet Archive</h2>
+          <p>Archive Watch is free, with no ads and no account. If it earns a
+             place in your evenings, the library it draws from runs on
+             donations.</p>
+          <a class="btn-primary about-donate" href="https://archive.org/donate"
+             target="_blank" rel="noopener">Donate to the Internet Archive ↗</a>
+        </section>
+
+        <p class="muted about-foot">Also on Apple TV and iPhone — search the
+           App Store for “Archive Watch”.<br>
+           <a href="privacy.html">Privacy</a> · <a href="curate/">Suggest &amp; curate</a></p>
+
+        <a class="btn-ghost about-back" href="#/">← Back to Home</a>
+      </div>
     </section>
 
     <p id="apperror" class="error" hidden></p>

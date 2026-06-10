@@ -136,7 +136,15 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
 - **§6.2 Density from removing chrome**: cards are poster + two text lines,
   nothing else. System font stack; no webfonts (no build step, no FOUT).
 - **§6.3 Posters are 2:3** `object-fit: cover`, falling back
-  index-poster → `services/img/{id}` on error.
+  index-poster → `services/img/{id}` on error, with the whole chain retried
+  up to twice on jittered backoff (`wireArt`) — archive.org throttles image
+  bursts with transient 503s, so a one-shot fallback left tiles broken until
+  a manual refresh. When nothing fetchable remains, render the local
+  typographic placeholder card (`card-ph`, serif title + Decision-013 accent
+  bar), never the Archive's generic gray placeholder. `series:` ids are NOT
+  archive.org items — never request `services/img/series:*` (it returns that
+  generic placeholder); a poster-less series card goes straight to the
+  typographic card.
 
 ## §7 PWA + offline
 

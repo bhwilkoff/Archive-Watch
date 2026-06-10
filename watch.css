@@ -220,6 +220,25 @@ a { color: var(--color-accent); }
 }
 .card .y { color: var(--text-dim); font-size: 0.75rem; }
 
+/* Typographic placeholder card (no fetchable art): serif title on the raised
+   canvas with the type's semantic accent bar (Decision 013). */
+.card-ph {
+  width: 100%; aspect-ratio: 2 / 3; border-radius: var(--radius);
+  background: var(--bg-raise); border: 1px solid var(--border);
+  position: relative; overflow: hidden;
+  display: flex; align-items: flex-end; padding: 10px;
+}
+.card-ph::before {
+  content: ""; position: absolute; inset: 0 auto 0 0; width: 4px;
+  background: var(--ph-accent, #555);
+}
+.card-ph span {
+  font-family: "Iowan Old Style", Palatino, Georgia, "Times New Roman", serif;
+  font-weight: 800; font-size: 0.92rem; line-height: 1.2;
+  overflow: hidden; display: -webkit-box;
+  -webkit-line-clamp: 6; -webkit-box-orient: vertical;
+}
+
 .sentinel { height: 1px; }
 
 /* ---- chips + controls ---- */
@@ -318,6 +337,42 @@ input[type="search"] {
   display: block; color: var(--text-dim); font-size: 0.66rem;
   text-transform: uppercase; letter-spacing: 0.08em;
 }
+
+/* ---- about & attribution (WEB-DESIGN §6.1/§6.2, §8.1) ----
+   Same raised-card vocabulary as episodes/buttons; ✕ + Back close it. */
+.about { padding: var(--pad); max-width: 680px; margin: 0 auto; }
+.about-head { display: flex; align-items: center; justify-content: space-between; }
+.about-head h1 { margin: 0; }
+.about-close {
+  flex: none; width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-raise); border: 1px solid var(--border);
+  border-radius: 999px; color: var(--text); text-decoration: none;
+  font-size: 0.95rem;
+}
+.about-close:hover { border-color: var(--text-dim); }
+.about-brand {
+  display: flex; align-items: center; gap: 12px; margin: 18px 0 4px;
+}
+.about-brand img { border-radius: 8px; display: block; }
+.about-brand strong { display: block; font-size: 1.05rem; }
+.about-brand span { color: var(--text-dim); font-size: 0.85rem; }
+.about-lede { color: #d9d9d9; margin: 12px 0 18px; }
+.about-card {
+  background: var(--bg-raise); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 14px 16px; margin: 14px 0;
+}
+.about-card h2 { margin: 0 0 8px; }
+.about-card p { margin: 8px 0; color: #d9d9d9; font-size: 0.95rem; }
+.about-notice { font-weight: 600; color: var(--text); }
+.about-donate {
+  display: inline-block; margin-top: 6px; text-decoration: none;
+  font-size: 0.95rem; padding: 10px 18px;
+}
+.about-foot { margin: 18px 0 8px; padding: 0; line-height: 1.8; }
+.about-foot a { color: var(--text-dim); font-weight: 600; }
+.about-foot a:hover { color: var(--text); }
+.about-back { margin-top: 4px; }
 
 /* ---- share menu ---- */
 dialog.sharemenu {
