@@ -1,5 +1,6 @@
 #if os(iOS)
 import SwiftUI
+import SwiftData
 
 // Native iOS shell: a bottom TabView (iPhone). Each tab is a NavigationStack with a
 // shared `navigationDestination` for Catalog.Item → Detail. Search is its own tab
