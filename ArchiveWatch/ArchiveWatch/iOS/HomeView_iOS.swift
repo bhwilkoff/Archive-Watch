@@ -128,8 +128,16 @@ struct HomeView: View {
 private struct HeroCarousel: View {
     let items: [Catalog.Item]
     @Environment(Router.self) private var router
+    @Environment(\.horizontalSizeClass) private var hSize
     @State private var index = 0
     private let autoAdvance = Timer.publish(every: 7, on: .main, in: .common).autoconnect()
+
+    // iPhone portrait: a full-bleed banner ~16:9. iPad / regular width: a
+    // width-capped, centered 16:9 card so a wide screen doesn't stretch a short
+    // strip into an extreme crop. Heights track ~16:9 of the respective widths.
+    private var isRegular: Bool { hSize == .regular }
+    private var cardMaxWidth: CGFloat? { isRegular ? 760 : nil }   // nil = full width
+    private var cardHeight: CGFloat { isRegular ? 428 : 232 }      // 760*9/16 ≈ 428
 
     var body: some View {
         TabView(selection: $index) {
@@ -140,7 +148,7 @@ private struct HeroCarousel: View {
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .always))
-        .frame(height: 264)
+        .frame(height: cardHeight + 32)   // + room for the page dots
         .onReceive(autoAdvance) { _ in
             guard items.count > 1 else { return }
             withAnimation(.easeInOut) { index = (index + 1) % items.count }
@@ -149,8 +157,8 @@ private struct HeroCarousel: View {
 
     private func card(_ item: Catalog.Item) -> some View {
         PosterImage(url: item.backdropURLParsed ?? item.posterURLParsed)
-            .frame(maxWidth: .infinity)
-            .frame(height: 232)
+            .frame(maxWidth: cardMaxWidth ?? .infinity)
+            .frame(height: cardHeight)
             .clipShape(.rect(cornerRadius: 16))
             .overlay(alignment: .bottomLeading) {
                 VStack(alignment: .leading, spacing: 2) {
@@ -165,6 +173,7 @@ private struct HeroCarousel: View {
                                            startPoint: .top, endPoint: .bottom))
             }
             .clipShape(.rect(cornerRadius: 16))
+            .frame(maxWidth: .infinity)   // center the (capped) card on iPad
             .padding(.horizontal)
             .padding(.bottom, 28)   // room for the page dots
     }
