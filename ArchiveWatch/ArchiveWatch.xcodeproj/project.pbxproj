@@ -10,7 +10,7 @@
 		B7AC53E22F93BA0500F50803 /* featured.json in Resources */ = {isa = PBXBuildFile; fileRef = B7AC53E12F93BA0500F50803 /* featured.json */; };
 		B7AC53E62F93BA0500F50803 /* collections.json in Resources */ = {isa = PBXBuildFile; fileRef = B7AC53E52F93BA0500F50803 /* collections.json */; };
 		DD00000000000000000000B2 /* ArchiveWatchTopShelf.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DD00000000000000000000A1 /* ArchiveWatchTopShelf.appex */; platformFilters = (tvos, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		DE00000000000000000000B2 /* ArchiveWatchWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DE00000000000000000000A1 /* ArchiveWatchWidgets.appex */; platformFilters = (ios, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DE00000000000000000000B2 /* ArchiveWatchWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DE00000000000000000000A1 /* ArchiveWatchWidgets.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -292,9 +292,7 @@
 		};
 		DE00000000000000000000B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			platformFilters = (
-				ios,
-			);
+			platformFilter = ios;
 			target = DE00000000000000000000A3 /* ArchiveWatchWidgets */;
 			targetProxy = DE00000000000000000000B3 /* PBXContainerItemProxy */;
 		};
