@@ -233,6 +233,42 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-10 (later) — Share links, app handoff, owner follow-ups, web quality wave
+All on `main`, pushed, LIVE at archivewatch.org. App version unchanged (1.2.15).
+- **Share links → archivewatch.org everywhere**: tvOS ShareSheet QR (items
+  /item/{id}, series /series/{slug}, loc: stays loc.gov), iOS Detail + new
+  SeriesDetail toolbar ShareLink (slug percent-encoded), Android Detail share
+  action (ACTION_SEND). Web Detail shows the share MENU (<dialog>): Open in
+  app (archivewatch:// on Apple; intent:// w/ fallback on Android), Share
+  link, archive.org. All three app platforms re-built green.
+- **Owner follow-ups DONE**: Associated Domains entitlement in
+  ArchiveWatch.entitlements (applinks+webcredentials; registers at next
+  archive); Android App Links (autoVerify manifest filter + MainActivity
+  routes /item + /series); **upload keystore ~/keystores/archivewatch-
+  upload.jks, creds in ~/.gradle/gradle.properties — NEVER in git**; signed
+  assembleRelease verified; assetlinks.json LIVE (upload+debug SHA256s; add
+  Play App Signing print at enrollment); .nojekyll (Jekyll was dropping
+  .well-known); docs/app-store-listing.md URLs → archivewatch.org (ASC paste
+  = owner; no API key on this machine). HTTPS enforced (owner).
+- **Web fixes (user reports)**: detail SHARDS details/{00..ff}.json
+  (build_web_details.py, FNV-1a low byte, in publish-db daily) carry
+  downloadURL/synopsis/director/cast(+TMDb profilePath)/genres/runtime/
+  backdrop → Detail + playback are catalog-first (archive.org metadata API
+  hangs 30s+ on some items; now a bounded fallback only). Cast/crew bubble
+  row on Detail. Per-visit random hero/shelves. Rail scroll-padding inset
+  fix. **Home = professional art only** (index schema 4 `pro` col); **TV
+  shelves = series cards** (decade from shelf id → SeriesDetail). Editor's
+  Picks (2/7 pro) + Newsreels (3) dropped off Home until ≥4 pro posters —
+  flagged to owner; exemption for curated shelves is a one-liner if wanted.
+- **Verification pattern that works**: execute the real watch.js in a Node
+  DOM shim (headless Chrome --virtual-time-budget distorts timers/
+  AbortSignal; --timeout dumps at load, pre-hydration). Pixel-measure
+  layout via PIL on screenshots. Pages CDN caches 600s — cache-bust checks.
+- **Resume next**: owner archive (registers Associated Domains → verify AASA
+  via Apple CDN), ASC URL paste, decide Editor's Picks exemption vs art
+  refresh, Android next wave (ANDROID-DESIGN §7), web FTS5/SQLite upgrade
+  (WEB-DESIGN §2.5), iPad/device spot-checks.
+
 ### 2026-06-10 — archivewatch.org goes live: viewer at root, curator at /curate/
 Owner purchased archivewatch.org + pointed Pages at it (CNAME committed).
 Restructured per Decision 030: the consumer viewer moved /watch/ → site ROOT
