@@ -25,17 +25,24 @@ struct PlayerView: UIViewControllerRepresentable {
         videoURL = item.videoURLParsed
         queue = store.map { MovieAutoplayQueue(start: item, store: $0) }
     }
-    /// Play a TV episode. Pass `series` to binge-advance to the next episode on end.
-    init(episode: Episode, in series: Series? = nil) {
+    /// Play a TV episode. Pass `series` to binge-advance to the next episode on
+    /// end; `onAdvance` reports the new archiveID so a host view's episode state
+    /// stays truthful (manual prev/next relies on it).
+    init(episode: Episode, in series: Series? = nil, onAdvance: ((String) -> Void)? = nil) {
         archiveID = episode.archiveID
         videoURL = episode.videoURLParsed
         queue = series.map { EpisodeQueue(series: $0, start: episode) }
+        self.onAdvance = onAdvance
     }
+
+    private var onAdvance: ((String) -> Void)? = nil
 
     @Environment(\.modelContext) private var ctx
     @Environment(\.dismiss) private var dismiss
 
-    func makeCoordinator() -> Coordinator { Coordinator(archiveID: archiveID, ctx: ctx, queue: queue) }
+    func makeCoordinator() -> Coordinator {
+        Coordinator(archiveID: archiveID, ctx: ctx, queue: queue, onAdvance: onAdvance)
+    }
 
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let vc = AVPlayerViewController()
@@ -79,13 +86,16 @@ struct PlayerView: UIViewControllerRepresentable {
         private(set) var archiveID: String
         let ctx: ModelContext
         let queue: PlaybackQueue?
+        let onAdvance: ((String) -> Void)?
         var loader: ResilientStreamLoader?
         private var timeObserver: Any?
         private var endObserver: NSObjectProtocol?
         private weak var player: AVPlayer?
 
-        init(archiveID: String, ctx: ModelContext, queue: PlaybackQueue?) {
+        init(archiveID: String, ctx: ModelContext, queue: PlaybackQueue?,
+             onAdvance: ((String) -> Void)? = nil) {
             self.archiveID = archiveID; self.ctx = ctx; self.queue = queue
+            self.onAdvance = onAdvance
         }
 
         func observe(_ player: AVPlayer, item playerItem: AVPlayerItem) {
@@ -114,6 +124,7 @@ struct PlayerView: UIViewControllerRepresentable {
             persist(player)   // captures end position → WatchProgress marks complete
             guard let player, let nxt = queue?.next(afterFinishing: archiveID) else { return }
             archiveID = nxt.id
+            onAdvance?(nxt.id)
             let (asset, loader) = ResilientStreamLoader.makeAsset(for: nxt.url)
             self.loader = loader
             let item = AVPlayerItem(asset: asset)

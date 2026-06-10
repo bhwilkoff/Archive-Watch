@@ -7,6 +7,7 @@ import SwiftData
 struct LibraryView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
+    @Environment(\.modelContext) private var ctx
     @Query(sort: \Favorite.addedAt, order: .reverse) private var favorites: [Favorite]
     @Query private var progress: [WatchProgress]
     @Query(sort: \Playlist.createdAt, order: .reverse) private var playlists: [Playlist]
@@ -55,14 +56,23 @@ struct LibraryView: View {
             ContentUnavailableView("No playlists yet", systemImage: "rectangle.stack",
                 description: Text("Add titles to a playlist from their detail page."))
         } else {
-            List(playlists) { pl in
-                NavigationLink {
-                    grid(store.itemsByIDs(pl.archiveIDs), empty: "Empty playlist", icon: "rectangle.stack")
-                        .navigationTitle(pl.name)
-                } label: {
-                    VStack(alignment: .leading) {
-                        Text(pl.name).font(.headline)
-                        Text("\(pl.archiveIDs.count) titles").font(.caption).foregroundStyle(.secondary)
+            List {
+                ForEach(playlists) { pl in
+                    NavigationLink {
+                        grid(store.itemsByIDs(pl.archiveIDs), empty: "Empty playlist", icon: "rectangle.stack")
+                            .navigationTitle(pl.name)
+                    } label: {
+                        VStack(alignment: .leading) {
+                            Text(pl.name).font(.headline)
+                            Text("\(pl.archiveIDs.count) titles").font(.caption).foregroundStyle(.secondary)
+                        }
+                    }
+                }
+                .onDelete { offsets in
+                    for i in offsets {
+                        let pl = playlists[i]
+                        ctx.delete(pl)
+                        SyncNudge.recordDeletion("pl:\(pl.id)", in: ctx)
                     }
                 }
             }

@@ -50,7 +50,7 @@ struct SeriesDetailView: View {
         .navigationTitle(series?.title ?? card.title)
         .navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(item: $playingEpisode) { ep in
-            PlayerView(episode: ep, in: series).ignoresSafeArea()
+            EpisodePlayerContainer(start: ep, in: series).ignoresSafeArea()
         }
         .task { await load() }
     }
@@ -109,6 +109,55 @@ struct SeriesDetailView: View {
         let eps = (series?.episodesCount ?? card.episodesCount).map { "\($0) episodes" }
         let line = [yr, eps].compactMap { $0 }.joined(separator: " · ")
         return line.isEmpty ? nil : line
+    }
+}
+
+// Hosts the player with manual prev/next episode controls (PARITY §3 "prev/next
+// episode in player"). AVPlayerViewController on iOS has no custom-transport API,
+// so the chevrons live in a small overlay capsule; switching recreates the player
+// via .id, and each episode keeps its own resume position. Auto-advance (binge)
+// reports back through onAdvance so the chevrons stay anchored to what's playing.
+private struct EpisodePlayerContainer: View {
+    let series: Series?
+    @State private var episode: Episode
+
+    init(start: Episode, in series: Series?) {
+        self.series = series
+        _episode = State(initialValue: start)
+    }
+
+    private var prev: Episode? { series?.episode(before: episode) }
+    private var next: Episode? { series?.episode(after: episode) }
+
+    var body: some View {
+        PlayerView(episode: episode, in: series) { advancedID in
+            if let e = series?.flatEpisodes.first(where: { $0.archiveID == advancedID }) {
+                episode = e
+            }
+        }
+        .id(episode.archiveID)
+        .overlay(alignment: .topTrailing) {
+            if series != nil, prev != nil || next != nil {
+                HStack(spacing: 18) {
+                    Button { if let p = prev { episode = p } } label: {
+                        Image(systemName: "backward.end.fill")
+                    }
+                    .disabled(prev == nil)
+                    if let n = episode.numberLabel {
+                        Text(n).font(.caption.weight(.semibold)).foregroundStyle(.white)
+                    }
+                    Button { if let n = next { episode = n } } label: {
+                        Image(systemName: "forward.end.fill")
+                    }
+                    .disabled(next == nil)
+                }
+                .font(.body)
+                .tint(.white)
+                .padding(.horizontal, 14).padding(.vertical, 8)
+                .background(.black.opacity(0.45), in: .capsule)
+                .padding(.top, 8).padding(.trailing, 16)
+            }
+        }
     }
 }
 

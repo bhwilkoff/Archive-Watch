@@ -12,6 +12,7 @@ struct DetailView: View {
     @Environment(\.modelContext) private var ctx
     @Query private var favorites: [Favorite]
     @State private var playing = false
+    @State private var addingToPlaylist = false
 
     private var isFav: Bool { favorites.contains { $0.archiveID == item.archiveID } }
 
@@ -36,6 +37,12 @@ struct DetailView: View {
                         }
                         .buttonStyle(.bordered)
 
+                        Button { addingToPlaylist = true } label: {
+                            Image(systemName: "text.badge.plus")
+                                .accessibilityLabel("Add to playlist")
+                        }
+                        .buttonStyle(.bordered)
+
                         ShareLink(item: shareURL) { Image(systemName: "square.and.arrow.up") }
                             .buttonStyle(.bordered)
                     }
@@ -52,6 +59,9 @@ struct DetailView: View {
         .navigationTitle(item.title).navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(isPresented: $playing) {
             PlayerView(item: item, autoplayIn: store).ignoresSafeArea()
+        }
+        .sheet(isPresented: $addingToPlaylist) {
+            AddToPlaylistSheet(archiveID: item.archiveID)
         }
     }
 
