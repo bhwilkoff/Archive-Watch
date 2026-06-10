@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand chrome tokens (shared design system; mirror ui/theme/Color.kt). -->
+    <color name="brand_primary">#FFFF5C35</color>
+    <color name="brand_background">#FF0A0A0A</color>
+    <color name="brand_surface">#FF141414</color>
+</resources>

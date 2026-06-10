@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- FILL IN: exclude any local-state path that contains tokens
+         or secrets. DataStore-encrypted preferences should already
+         be safe, but explicit exclusions document intent. -->
+    <!-- <exclude domain="sharedpref" path="secrets.xml"/> -->
+</full-backup-content>

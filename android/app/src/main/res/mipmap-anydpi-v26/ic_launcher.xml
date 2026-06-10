@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Adaptive icon — mandatory since API 26 -->
+    <background android:drawable="@color/brand_background"/>
+    <foreground android:drawable="@drawable/ic_launcher_foreground"/>
+    <!-- Monochrome layer for themed icons on Android 13+. Ship a
+         hand-tuned mask — auto-generation is lossy. -->
+    <monochrome android:drawable="@drawable/ic_launcher_foreground"/>
+</adaptive-icon>

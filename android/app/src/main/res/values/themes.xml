@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.ArchiveWatch.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/brand_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="postSplashScreenTheme">@style/Theme.ArchiveWatch</item>
+    </style>
+
+    <!-- A cinema, not a settings app: the app theme is always dark
+         (ANDROID-DESIGN theme rules); Compose pins the dark scheme. -->
+    <style name="Theme.ArchiveWatch" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/brand_background</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@android:color/transparent</item>
+        <item name="android:navigationBarColor" tools:targetApi="l">@android:color/transparent</item>
+        <item name="android:enforceNavigationBarContrast" tools:targetApi="q">false</item>
+        <item name="android:enforceStatusBarContrast" tools:targetApi="q">false</item>
+    </style>
+</resources>

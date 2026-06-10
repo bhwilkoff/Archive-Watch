@@ -1,0 +1,45 @@
+# Gradle
+.gradle/
+build/
+local.properties
+**/.gradle/
+# gradle/wrapper/gradle-wrapper.jar IS committed — needed for ./gradlew
+# to work on first clone before Android Studio runs.
+
+# IntelliJ / Android Studio
+.idea/
+*.iml
+captures/
+.cxx/
+
+# Generated
+.kotlin/
+gen/
+out/
+
+# NDK
+.externalNativeBuild/
+.cxx/
+
+# Lint
+lint/intermediates/
+lint/generated/
+lint/outputs/
+lint/tmp/
+
+# Native debug symbols (Android Studio output)
+native-debug-symbols.zip
+
+# Secrets — keep keystores + Firebase out of git
+keystore/
+*.jks
+*.keystore
+google-services.json
+play-service-account.json
+release-notes/
+
+# Bundles / APKs
+*.aab
+*.apk
+*.ap_
+*.dex
