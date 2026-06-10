@@ -5,9 +5,9 @@ cinema, not a streaming funnel. Updated 2026-06-05 for the Channels TV-guide +
 vintage-commercials + native create flows.
 
 ## Required URLs (live on GitHub Pages)
-- **Privacy Policy:** https://bhwilkoff.github.io/Archive-Watch/privacy.html
-- **Support:** https://bhwilkoff.github.io/Archive-Watch/support.html
-- **Marketing (optional):** https://bhwilkoff.github.io/Archive-Watch/
+- **Privacy Policy:** https://archivewatch.org/privacy.html
+- **Support:** https://archivewatch.org/support.html
+- **Marketing (optional):** https://archivewatch.org/ (the web viewer — every shared title is watchable here)
 
 ## Identifiers / basics
 - Bundle ID `app.archivewatch.tvos` · Team `L2G756LY8N` · Platform **tvOS** · Min **tvOS 26.0**

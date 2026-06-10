@@ -34,11 +34,24 @@ class MainActivity : ComponentActivity() {
         handleDeepLink(intent)
     }
 
-    /** archivewatch://item/{id} → Detail (same scheme as tvOS/iOS). */
+    /** archivewatch://item/{id} (same scheme as tvOS/iOS) and verified App
+        Links from https://archivewatch.org/item/{id} + /series/{slug} → the
+        matching surface. */
     private fun handleDeepLink(intent: Intent?) {
         val uri = intent?.data ?: return
         if (uri.scheme == "archivewatch" && uri.host == "item") {
             uri.lastPathSegment?.let { DeepLinks.pendingItem.value = it }
+            return
+        }
+        if (uri.host == "archivewatch.org") {
+            val segs = uri.pathSegments
+            if (segs.size >= 2) {
+                when (segs[0]) {
+                    "item" -> DeepLinks.pendingItem.value = segs[1]
+                    // The series card id in the catalog is "series:<slug>".
+                    "series" -> DeepLinks.pendingItem.value = "series:${segs[1]}"
+                }
+            }
         }
     }
 }

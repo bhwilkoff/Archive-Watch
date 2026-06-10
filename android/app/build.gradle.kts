@@ -58,6 +58,22 @@ android {
         vectorDrawables { useSupportLibrary = true }
     }
 
+    signingConfigs {
+        // Upload key lives OUTSIDE git (~/keystores); creds come from the
+        // user-level ~/.gradle/gradle.properties. Release stays buildable
+        // (unsigned) on machines without them. Play App Signing will hold
+        // the production key once the Play listing exists.
+        create("release") {
+            val keystorePath = providers.gradleProperty("UPLOAD_KEYSTORE_PATH").orNull
+            if (keystorePath != null) {
+                storeFile = file(keystorePath)
+                storePassword = providers.gradleProperty("UPLOAD_KEYSTORE_PASSWORD").orNull
+                keyAlias = providers.gradleProperty("UPLOAD_KEY_ALIAS").orNull
+                keyPassword = providers.gradleProperty("UPLOAD_KEY_PASSWORD").orNull
+            }
+        }
+    }
+
     buildTypes {
         debug {
             applicationIdSuffix = ".debug"
@@ -71,6 +87,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
             )
+            signingConfig = signingConfigs.getByName("release")
         }
     }
 

@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.archivewatch.android",
+      "sha256_cert_fingerprints": [
+        "51:D7:75:95:7D:06:E3:BE:81:51:66:58:07:31:F8:00:C2:26:86:83:35:BC:17:89:56:10:93:45:A7:B2:FC:69",
+        "E2:25:5E:2C:DF:2A:6B:35:D6:A5:8C:6C:79:CC:0C:86:FB:BA:76:88:E9:DF:82:49:60:D0:DA:5C:3D:39:73:C2"
+      ]
+    }
+  }
+]
