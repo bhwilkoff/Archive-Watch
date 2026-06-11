@@ -30,13 +30,13 @@ widths the app shows the nav RAIL (left), so the Browse shot is a rail tap,
 not a bottom-bar tap.
 
 Screenshot regeneration: deep links drive navigation —
-`adb shell am start -a android.intent.action.VIEW -d "archivewatch://item/{id}" app.archivewatch.android`
+`adb shell am start -a android.intent.action.VIEW -d "archivewatch://item/{id}" com.archivewatch.app`
 (also `://channels`, `://surprise`, `https://archivewatch.org/series/{slug}`).
 Use archiveIDs that exist in the LIVE full DB (the IMDb dedup drops duplicate
 copies — seed-only ids spin; check with the catalog-db release asset).
 
 ## Identifiers / basics
-- Package `app.archivewatch.android` · versionName **1.2.24** · versionCode 1
+- Package `com.archivewatch.app` · versionName **1.2.24** · versionCode 1
 - minSdk 29 (Android 10) · targetSdk 36
 - Upload key: `~/keystores/archivewatch-upload.jks` (creds in
   `~/.gradle/gradle.properties` — NEVER in git)

@@ -1283,7 +1283,7 @@
         dlg.close();
         location.href = Platform.android
           ? `intent://item/${encodeURIComponent(row[0])}#Intent;scheme=archivewatch;` +
-            `package=app.archivewatch.android;S.browser_fallback_url=` +
+            `package=com.archivewatch.app;S.browser_fallback_url=` +
             `${encodeURIComponent(location.href)};end`
           : `archivewatch://item/${encodeURIComponent(row[0])}`;
       };

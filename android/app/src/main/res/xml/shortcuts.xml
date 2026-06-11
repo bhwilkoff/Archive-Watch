@@ -11,7 +11,7 @@
         <intent
             android:action="android.intent.action.VIEW"
             android:data="archivewatch://surprise"
-            android:targetPackage="app.archivewatch.android"
+            android:targetPackage="com.archivewatch.app"
             android:targetClass="app.archivewatch.android.MainActivity" />
     </shortcut>
     <shortcut
@@ -22,7 +22,7 @@
         <intent
             android:action="android.intent.action.VIEW"
             android:data="archivewatch://channels"
-            android:targetPackage="app.archivewatch.android"
+            android:targetPackage="com.archivewatch.app"
             android:targetClass="app.archivewatch.android.MainActivity" />
     </shortcut>
 </shortcuts>

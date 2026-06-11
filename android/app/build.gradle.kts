@@ -49,7 +49,10 @@ android {
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "app.archivewatch.android"
+        // Play Console app record was created as com.archivewatch.app — the
+        // applicationId must match it. The Kotlin namespace above stays
+        // app.archivewatch.android (source packages don't move).
+        applicationId = "com.archivewatch.app"
         minSdk = 29
         targetSdk = 36
         versionCode = 1
