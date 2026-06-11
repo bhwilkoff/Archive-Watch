@@ -852,6 +852,14 @@
     return { schedule, dayAnchor };
   })();
 
+  // Web stand-ins for the apps' SF Symbol channel icons.
+  const CHANNEL_ICONS = {
+    drama: '🎭', comedy: '😄', noir: '🔍', thrill: '⚡', horror: '🌙',
+    western: '🤠', scifi: '🚀', silent: '🎞️', cartoon: '🖌️', news: '📰',
+    docs: '🌍', tv: '📺', 'tv-comedy': '📺', 'tv-drama': '📺',
+    'tv-western': '📺',
+  };
+
   const ChannelsView = {
     data: null,
     built: false,
@@ -875,7 +883,9 @@
       this.built = true;
       const now = new Date();
       const anchor = Scheduler.dayAnchor(now);
-      const PPM = 4;   // px per minute → 26h ≈ 6200px wide, scrolls fine
+      // px per minute — tighter on phones so a feature film isn't two screens
+      // wide and shorts stay tappable.
+      const PPM = window.innerWidth < 600 ? 3 : 4;
       const totalMin = 26 * 60 + (now.getTime() - anchor.getTime()) / 60e3;
       const stripW = Math.ceil(totalMin * PPM);
 
@@ -908,6 +918,7 @@
         rail.style.setProperty('--ch-accent', ch.accent);
         const dot = document.createElement('span');
         dot.className = 'epg-dot';
+        dot.textContent = CHANNEL_ICONS[ch.id] || '📺';
         const name = document.createElement('span');
         name.textContent = ch.title;
         rail.append(dot, name);
@@ -916,13 +927,17 @@
         strip.style.width = `${stripW}px`;
         for (const slot of slots) {
           const left = (slot.start - anchor.getTime()) / 60e3 * PPM;
-          const width = Math.max(18, (slot.end - slot.start) / 60e3 * PPM - 3);
+          const width = Math.max(16, (slot.end - slot.start) / 60e3 * PPM - 3);
           const b = document.createElement('button');
           b.className = 'epg-block';
+          b.title = slot.prog[1];   // tooltip carries the title for tiny blocks
           if (slot.start <= now.getTime() && slot.end > now.getTime()) {
             b.classList.add('airing');
             b.style.setProperty('--ch-accent', ch.accent);
+          } else if (slot.end <= now.getTime()) {
+            b.classList.add('past');   // already aired — recede, don't shout
           }
+          if (width < 52) b.classList.add('tiny');   // no readable room: art only
           b.style.left = `${left}px`;
           b.style.width = `${width}px`;
           const t = document.createElement('span');
@@ -1345,14 +1360,23 @@
       $('player-error').hidden = true;
       video.src = url;
 
+      // Seek AFTER metadata arrives — Safari/Chrome can silently drop a
+      // currentTime set on a src that hasn't loaded yet (join-in-progress
+      // landed at 0:00 instead of mid-program).
+      let seekTo = 0;
       if (startAt > 0) {
-        video.currentTime = startAt;
+        seekTo = startAt;
       } else if (persist) {
         const saved = await DB.progressFor(id);
         if (saved && saved.position > 10 && (!saved.duration ||
             saved.position / saved.duration < 0.95)) {
-          video.currentTime = saved.position;
+          seekTo = saved.position;
         }
+      }
+      if (seekTo > 0) {
+        if (video.readyState >= 1) video.currentTime = seekTo;
+        else video.addEventListener('loadedmetadata',
+          () => { video.currentTime = seekTo; }, { once: true });
       }
 
       $('player').showModal();

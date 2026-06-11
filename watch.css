@@ -457,8 +457,10 @@ input[type="search"] {
   text-align: center; line-height: 1.15;
 }
 .epg-dot {
-  width: 14px; height: 14px; border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px; border-radius: 7px;
   background: var(--ch-accent, #555);
+  font-size: 0.85rem; line-height: 1;
 }
 .epg-strip { position: relative; flex: 0 0 auto; height: 60px; }
 .epg-block {
@@ -473,6 +475,9 @@ input[type="search"] {
   background: var(--ch-accent, var(--color-primary));
   border-color: transparent; color: #fff;
 }
+.epg-block.past { opacity: 0.45; }      /* already aired — recede */
+.epg-block.tiny .epg-bt,
+.epg-block.tiny .epg-bw { display: none; }   /* no readable room; title= tooltip */
 .epg-bt {
   font-size: 0.72rem; font-weight: 600; line-height: 1.2;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
@@ -482,6 +487,18 @@ input[type="search"] {
 .epg-now {
   position: absolute; top: 0; bottom: 0; width: 2px; z-index: 1;
   background: var(--color-primary); opacity: 0.8; pointer-events: none;
+}
+
+/* Phone: tighter rail + type so the listing keeps its proportions. */
+@media (max-width: 600px) {
+  :root { --epg-rail-w: 70px; }
+  .epg { margin: 8px 8px 16px; max-height: calc(100dvh - 190px); }
+  .epg-rail { font-size: 0.56rem; padding: 3px; }
+  .epg-dot { width: 22px; height: 22px; font-size: 0.75rem; }
+  .epg-row { height: 54px; margin: 2px 0; }
+  .epg-strip { height: 54px; }
+  .epg-block { height: 54px; padding: 4px 5px; border-radius: 6px; }
+  .epg-bt { font-size: 0.66rem; }
 }
 
 /* ---- share menu ---- */
