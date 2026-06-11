@@ -22,6 +22,9 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
         vc.player = player
         vc.speeds = AVPlaybackSpeed.systemDefaultSpeeds   // #5: native speed menu
         vc.transportBarCustomMenuItems = menuItems
+        // tvOS PiP (swipe up / TV button while playing → corner window). Needs
+        // the `audio` UIBackgroundModes entry, added alongside this.
+        vc.allowsPictureInPicturePlayback = true
         return vc
     }
 
@@ -60,6 +63,7 @@ struct EpisodeAVPlayerContainer: UIViewControllerRepresentable {
         let vc = AVPlayerViewController()
         vc.player = player
         vc.speeds = AVPlaybackSpeed.systemDefaultSpeeds   // #5: native speed menu
+        vc.allowsPictureInPicturePlayback = true          // tvOS PiP
         context.coordinator.apply(to: vc)
         return vc
     }

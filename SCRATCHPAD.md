@@ -233,6 +233,29 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-13 (later) — Background play + PiP for iOS and Apple TV
+Owner: "Can you enable background play and Picture in Picture for iOS and
+Apple TV?" App 1.2.24 (b37); iOS + tvOS sims both build green.
+- **Info.plist**: `audio` added to UIBackgroundModes (shared universal
+  target — enables background audio on iOS and PiP on both).
+- **tvOS** (`AVPlayerScreen.swift`): both player containers set
+  `allowsPictureInPicturePlayback = true` — swipe up / TV button while
+  playing → corner PiP window.
+- **iOS** (`PlayerView_iOS.swift`): already had PiP + auto-PiP from
+  inline; ADDED background play via the supported AVKit technique —
+  Coordinator is now NSObject + AVPlayerViewControllerDelegate, detaches
+  `vc.player` on didEnterBackground (audio keeps running on the .playback
+  session) and reattaches on willEnterForeground; PiP-aware (skips the
+  detach while PiP owns the video; PiP state tracked via delegate
+  callbacks; restore handler completes true since the full-screen player
+  stays in the hierarchy).
+- PARITY: PiP tvOS cell n/a → ✅; new "Background play" row (tvOS n/a —
+  TV apps suspend; Android ⏳ MediaSessionService).
+- Owner spot-check on device: background a playing film (audio should
+  continue + lock-screen controls), Home-swipe auto-PiP on iPhone, tvOS
+  PiP via the TV button.
+
+
 ### 2026-06-13 — Autonomous full-queue parity wave (web + Android)
 Owner: "Go ahead and do all of them autonomously." App 1.2.23 (b36);
 Android assembleDebug green; web JS-checked + headless-verified

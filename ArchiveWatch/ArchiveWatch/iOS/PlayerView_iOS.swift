@@ -63,6 +63,8 @@ struct PlayerView: UIViewControllerRepresentable {
         let vc = AVPlayerViewController()
         vc.allowsPictureInPicturePlayback = true
         vc.canStartPictureInPictureAutomaticallyFromInline = true
+        vc.delegate = context.coordinator
+        context.coordinator.playerVC = vc
 
         // iOS/iPadOS REQUIRE an active .playback audio session or AVPlayer
         // frequently fails to start, stalls, or plays silently — especially with
@@ -100,15 +102,19 @@ struct PlayerView: UIViewControllerRepresentable {
     }
 
     @MainActor
-    final class Coordinator {
+    final class Coordinator: NSObject, AVPlayerViewControllerDelegate {
         private(set) var archiveID: String
         let ctx: ModelContext
         let queue: PlaybackQueue?
         let onAdvance: ((String) -> Void)?
         let persistsProgress: Bool
         var loader: ResilientStreamLoader?
+        weak var playerVC: AVPlayerViewController?
         private var timeObserver: Any?
         private var endObserver: NSObjectProtocol?
+        private var backgroundObserver: NSObjectProtocol?
+        private var foregroundObserver: NSObjectProtocol?
+        private var isPiPActive = false
         private weak var player: AVPlayer?
 
         init(archiveID: String, ctx: ModelContext, queue: PlaybackQueue?,
@@ -128,6 +134,53 @@ struct PlayerView: UIViewControllerRepresentable {
                 MainActor.assumeIsolated { self?.persistCurrent() }
             }
             registerEnd(for: playerItem)
+
+            // Background play: AVKit pauses any player it is DISPLAYING when the
+            // app backgrounds. The supported way to keep audio running (with the
+            // `audio` background mode + .playback session) is to detach the player
+            // from the view controller on background and reattach on foreground.
+            // Skipped while PiP owns the video — detaching would kill the PiP window.
+            backgroundObserver = NotificationCenter.default.addObserver(
+                forName: UIApplication.didEnterBackgroundNotification, object: nil,
+                queue: .main) { [weak self] _ in
+                MainActor.assumeIsolated { self?.enterBackground() }
+            }
+            foregroundObserver = NotificationCenter.default.addObserver(
+                forName: UIApplication.willEnterForegroundNotification, object: nil,
+                queue: .main) { [weak self] _ in
+                MainActor.assumeIsolated { self?.enterForeground() }
+            }
+        }
+
+        private func enterBackground() {
+            guard !isPiPActive, let vc = playerVC, vc.player != nil else { return }
+            persist(player)
+            vc.player = nil
+        }
+
+        private func enterForeground() {
+            guard let vc = playerVC, vc.player == nil, let player else { return }
+            vc.player = player
+        }
+
+        // MARK: AVPlayerViewControllerDelegate (PiP lifecycle)
+
+        func playerViewControllerWillStartPictureInPicture(_ vc: AVPlayerViewController) {
+            isPiPActive = true
+        }
+
+        func playerViewControllerDidStopPictureInPicture(_ vc: AVPlayerViewController) {
+            isPiPActive = false
+        }
+
+        // The full-screen player stays in the hierarchy while PiP runs, so
+        // restoring from the PiP window is just "show it again".
+        func playerViewController(
+            _ vc: AVPlayerViewController,
+            restoreUserInterfaceForPictureInPictureStopWithCompletionHandler
+            completionHandler: @escaping (Bool) -> Void
+        ) {
+            completionHandler(true)
         }
 
         /// On end-of-item: persist (marks it complete) and, if a queue supplies a
@@ -190,6 +243,8 @@ struct PlayerView: UIViewControllerRepresentable {
         deinit {
             if let t = timeObserver { player?.removeTimeObserver(t) }
             if let e = endObserver { NotificationCenter.default.removeObserver(e) }
+            if let b = backgroundObserver { NotificationCenter.default.removeObserver(b) }
+            if let f = foregroundObserver { NotificationCenter.default.removeObserver(f) }
         }
     }
 }

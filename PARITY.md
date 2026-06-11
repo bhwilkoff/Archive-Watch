@@ -102,7 +102,8 @@ this table in the same change set; cross-link the platform design doc.
 | Resume across launches | ✅ | ✅ `WatchProgress` (item + per-episode) | ✅ IndexedDB progress | ✅ user.sqlite (10s–95%) | progress store (§6) |
 | Subtitles / audio / speed | ✅ | ✅ native AVKit | 🚧 speed selector ✅ (persisted); `<track>` subtitles ⏳ (rare on Archive files) | ✅ subtitle button + Media3 speed control | |
 | Autoplay / continuous play | ✅ F4 engine | ✅ shared F4 engine (PlaybackQueue + AutoplayMode setting) | ⏳ port engine (JS) | ⏳ Media3 playlist | F4 queue logic shared via Core |
-| Picture-in-Picture | n/a | ✅ AVKit PiP | ✅ (Chrome + Safari presentation-mode APIs) | ⏳ Activity PiP | new affordance on mobile/web |
+| Picture-in-Picture | ✅ AVKit PiP (`allowsPictureInPicturePlayback`) | ✅ AVKit PiP + auto-PiP from inline | ✅ (Chrome + Safari presentation-mode APIs) | ⏳ Activity PiP | tvOS PiP corner window since tvOS 14 |
+| Background play (audio continues) | n/a (TV apps suspend) | ✅ `audio` background mode + detach-on-background | ✅ (browser keeps audio; MediaSession controls) | ⏳ MediaSessionService foreground service | iOS: AVKit detach/reattach technique, PiP-aware |
 | Cast / AirPlay | ✅ AirPlay | ✅ AirPlay (AVKit) | ⏳ Remote Playback API | ⏳ Google Cast (needs Cast SDK + device-tested receiver — deliberate defer) | each platform's native cast |
 
 ## 5. Surprise + Immersive modes

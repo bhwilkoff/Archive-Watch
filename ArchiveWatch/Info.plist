@@ -60,6 +60,11 @@
     </array>
     <key>UIBackgroundModes</key>
     <array>
+        <!-- `audio` enables background play (iOS) and Picture in Picture
+             (both platforms) — the player's .playback session keeps audio
+             running when the app backgrounds. fetch/processing are the
+             What's New refresh. -->
+        <string>audio</string>
         <string>fetch</string>
         <string>processing</string>
     </array>
