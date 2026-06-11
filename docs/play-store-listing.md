@@ -16,7 +16,18 @@ developer account → app record → store listing → testing track → product
                                          The Invisible Man (1933), Four Star
                                          Playhouse (series), Surprise,
                                          Superman: Electric Earthquake, Browse
+        tablet-7/                      — 6 shots, 1200×1920 (Tablet_7 AVD):
+                                         Home, Channels, Invisible Man, Four
+                                         Star Playhouse, Superman, Browse
+        tablet-10/                     — same 6, 1600×2560 (Tablet_10 AVD)
         ArchiveWatch-1.2.24.aab        — signed release App Bundle (upload this)
+
+Tablet AVDs were cloned from the Pixel 9 Pro config (no cmdline-tools on this
+box) — gotcha: the copied config.ini carries `skin.name`/`skin.path`, and the
+SKIN overrides hw.lcd.* (first boot came up 1280×2856); set
+`skin.name=<W>x<H>` + delete hardware-qemu.ini before booting. On tablet
+widths the app shows the nav RAIL (left), so the Browse shot is a rail tap,
+not a bottom-bar tap.
 
 Screenshot regeneration: deep links drive navigation —
 `adb shell am start -a android.intent.action.VIEW -d "archivewatch://item/{id}" app.archivewatch.android`
@@ -80,8 +91,8 @@ Paste from the "Listing copy" section below + upload:
 - App icon: `icon-512.png`
 - Feature graphic: `feature-graphic-1024x500.png`
 - Phone screenshots: everything in `phone/` (order as numbered)
-- 7"/10" tablet screenshots: optional — add later for tablet featuring
-  (capture from a tablet AVD when wanted).
+- 7"/10" tablet screenshots: upload from `tablet-7/` and `tablet-10/`
+  (the Console required them for this listing).
 
 ### 5. Play App Signing + first upload
 1. Release → **Testing → Internal testing** → Create release.
