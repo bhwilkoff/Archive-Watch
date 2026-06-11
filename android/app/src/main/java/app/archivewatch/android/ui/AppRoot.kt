@@ -46,12 +46,18 @@ import app.archivewatch.android.ui.screens.SurpriseScreen
 fun AppRoot(container: AppContainer) {
     val nav = remember { Nav() }
 
-    // archivewatch://item/{id} deep link → Detail.
+    // archivewatch://item/{id} deep link → Detail; a "series:" id (the
+    // archivewatch.org/series/{slug} App Link) → the series page, else a
+    // shared series link lands on a dead "Not playable" Detail.
     LaunchedEffect(Unit) {
         DeepLinks.pendingItem.collect { id ->
             if (id != null) {
                 DeepLinks.pendingItem.value = null
-                nav.push(Route.Detail(id))
+                if (id.startsWith("series:")) {
+                    nav.push(Route.Series(id.removePrefix("series:")))
+                } else {
+                    nav.push(Route.Detail(id))
+                }
             }
         }
     }

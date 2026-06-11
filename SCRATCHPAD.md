@@ -233,6 +233,38 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-14 — tvOS APPROVED; iOS submitted; Google Play prep complete
+tvOS 1.2.24 approved by App Review; owner submitted iOS/iPadOS same day
+(listing Part 2 + 7+7 screenshots, commit c1785da). Then full Play Console
+prep (owner: "walk me through the steps"):
+- **docs/play-store-listing.md** — complete walkthrough (account → app →
+  declarations → listing → Play App Signing → production) + paste-ready copy
+  (short/full description, release notes), exact Data Safety answers
+  (nothing collected), IARC guidance, the personal-account 12-tester/14-day
+  gotcha, and the post-enrollment assetlinks step (add the Play signing cert
+  SHA-256 — REQUIRED or App Links break in the Play build).
+- **Assets** at ~/Desktop/ArchiveWatch-PlayStore-Assets/: signed AAB
+  (1.2.24/vc1, upload-key verified = assetlinks print), icon-512, feature
+  graphic, 8 Pixel 9 Pro screenshots (deep-link-driven; SystemUI demo mode).
+- **ICON INCIDENT (twice)**: Play assets were first generated from
+  assets/app-icon/icon-1024.svg — the OLD illustrated moon the owner has
+  repeatedly said to delete. The photographic 1902 still
+  (AppIcon.appiconset/icon-1024.png) is THE icon. The SVG masters +
+  preview.html + tools/render-app-icon.sh are now DELETED from the repo;
+  memory file app_icon_photographic_only.md written.
+- **Android fixes found via screenshots** (all in the uploaded AAB):
+  versionName 1.0.0→1.2.24; manifest now resolves archivewatch://surprise +
+  /channels (only ://item was declared — external links failed);
+  archivewatch.org/series/{slug} App Link routed to a dead movie Detail
+  ("Not playable") instead of SeriesDetailScreen (AppRoot now strips the
+  series: prefix → Route.Series); DetailScreen got the SeriesDetail-style
+  8s-timeout error state (an id missing from the live DB — e.g. a copy the
+  IMDb dedup dropped — used to spin FOREVER; screenshot ids must come from
+  the LIVE DB, not the seed).
+- Emulator lesson: boot ONE sim/emulator at a time (iOS 26 sims dual-boot
+  wedged "Waiting on System App"; the user had to close them).
+
+
 ### 2026-06-13 (later) — Background play + PiP for iOS and Apple TV
 Owner: "Can you enable background play and Picture in Picture for iOS and
 Apple TV?" App 1.2.24 (b37); iOS + tvOS sims both build green.

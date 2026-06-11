@@ -31,12 +31,17 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
 
-            <!-- archivewatch://item/{id} — same scheme as tvOS/iOS -->
+            <!-- archivewatch://item/{id} — same scheme as tvOS/iOS. The
+                 surprise/channels hosts are handled by MainActivity (App
+                 Shortcuts deliver them explicitly) but must also be declared
+                 here or external VIEW intents to them fail to resolve. -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <data android:scheme="archivewatch" android:host="item"/>
+                <data android:host="surprise"/>
+                <data android:host="channels"/>
             </intent-filter>
 
             <!-- Verified App Links: archivewatch.org share URLs open the app

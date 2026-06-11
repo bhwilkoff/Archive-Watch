@@ -61,6 +61,7 @@ import androidx.compose.ui.unit.dp
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.data.PlaySpec
+import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.LoadingBox
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.PosterImage
@@ -89,7 +90,16 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
 
     val current = item
     if (current == null) {
-        LoadingBox()
+        // db.item() returns null both while the DB is opening AND for an id
+        // that isn't in the catalog (e.g. a stale share link to an archive
+        // copy the IMDb dedup dropped) — without a timeout that second case
+        // spins forever. Same pattern as SeriesDetailScreen.
+        val failed by produceState(false, archiveID, dbVersion) {
+            kotlinx.coroutines.delay(8_000)
+            value = true
+        }
+        if (failed) EmptyState("This title isn't in the catalog anymore — it may have moved. Try searching its name.")
+        else LoadingBox()
         return
     }
 

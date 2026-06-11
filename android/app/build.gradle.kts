@@ -53,7 +53,9 @@ android {
         minSdk = 29
         targetSdk = 36
         versionCode = 1
-        versionName = "1.0.0"
+        // Marketing version tracks the Apple apps (AppVersion.xcconfig) so a
+        // user report names one version family across platforms.
+        versionName = "1.2.24"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables { useSupportLibrary = true }
