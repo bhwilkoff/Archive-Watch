@@ -1,8 +1,9 @@
-# App Store + TestFlight submission copy — Archive Watch (tvOS)
+# App Store + TestFlight submission copy — Archive Watch
 
 Paste-ready. Character limits noted; drafts are within them. Tone: a repertory
-cinema, not a streaming funnel. Updated 2026-06-05 for the Channels TV-guide +
-vintage-commercials + native create flows.
+cinema, not a streaming funnel. Part 1 = tvOS (submitted + approved 2026-06-11).
+Part 2 (below the tvOS section) = **iOS/iPadOS** — added as a second platform on
+the SAME App Store Connect app record.
 
 ## Required URLs (live on GitHub Pages)
 - **Privacy Policy:** https://archivewatch.org/privacy.html
@@ -189,3 +190,198 @@ To regenerate any screen: launch the Debug build with
 `SIMCTL_CHILD_AW_START_TAB=<home|channels|browse|tvShows|collections|surprise|favorites>`
 or `SIMCTL_CHILD_AW_START_ITEM=<archiveID>` (env hooks in Router/RootView, no-ops
 in production).
+
+---
+---
+
+# Part 2 — iOS / iPadOS (added 2026-06-11, app version 1.2.24 build 37)
+
+The iPhone/iPad version ships from the SAME universal target and bundle ID
+(`app.archivewatch.tvos`), so in App Store Connect it is **a new platform on the
+existing app record**, not a new app:
+
+ASC → Archive Watch → **+ Add Platform → iOS** → a new "1.2.24 Prepare for
+Submission" page appears with its own description / keywords / screenshots /
+review fields (everything below). Archive from Xcode with **Any iOS Device
+(arm64)** selected and upload — same scheme, same signing team `L2G756LY8N`.
+
+## Identifiers / basics (iOS)
+- Same bundle ID `app.archivewatch.tvos` · Team `L2G756LY8N` · Min **iOS 26.0**
+- Devices: iPhone + iPad (TARGETED_DEVICE_FAMILY 1,2)
+- Price/category/copyright: unchanged (Free, Entertainment + Education,
+  `© 2026 Ben Wilkoff`)
+- Export compliance auto-answered in-binary (`ITSAppUsesNonExemptEncryption=false`)
+
+## ⚠️ App-level fields shared with the tvOS listing
+**Name** and **Subtitle** live on the App Information page and are shared across
+platforms — the current subtitle `A cinematheque for Apple TV` would be wrong on
+an iPhone product page. Change it (takes effect with this submission, also shown
+on the tvOS listing):
+
+### Subtitle (≤30, app-level — replaces the tvOS-only one)
+`A public-domain cinematheque`
+
+(28 chars. Alternatives if it reads stiff: `Watch the public domain` (23),
+`Classic film, free forever` (26).)
+
+## Promotional Text (≤170 — iOS version, editable anytime)
+`Now on iPhone and iPad — the whole cinematheque in your pocket, with Live
+Channels, Picture in Picture, background audio, and sync with your Apple TV.`
+
+## Keywords (≤100, comma-separated, no spaces — iOS version)
+`public domain,classic movies,silent film,old tv,cinema,documentary,free movies,retro,film noir,commercials`
+
+(Same proven set as tvOS; "iphone/ipad" are never useful as keywords.)
+
+## Description (≤4000 — iOS version)
+```
+Archive Watch turns the Internet Archive's vast public-domain moving-image
+collection into a cinematheque you can carry — feature films, classic
+television, silent cinema, animation, newsreels, and the strange, wonderful
+world of vintage commercials and ephemeral film.
+
+Every title is presented with the care of a great repertory house: real posters,
+cast, synopses, and genres, so a 1920s silent and a 1950s sci-fi B-movie look as
+considered as anything on a modern streaming service.
+
+LIVE CHANNELS — A REAL TV GUIDE
+- A programmed channel guide, laid out like a true TV listing: see what's on
+  now and next, scroll the broadcast day
+- Tune in and it plays straight through, one title rolling into the next
+- Vintage public-domain commercials play between programs — the 1990s-TV feel
+- Build your own channel from any mix of genre, type, and era
+
+A REPERTORY HOUSE, NOT A FEED
+- Hand-curated shelves alongside the most-watched titles from the Archive
+- Browse by decade, genre, and collection
+- Classic TV with real series, seasons, and episodes — binge straight through
+- Tap any actor or director to wander their whole filmography
+- Surprise Me — for when you'd rather be delighted than decide
+
+MADE FOR IPHONE AND IPAD
+- Picture in Picture — keep watching while you do anything else
+- Background play — lock the screen and the audio keeps going, with full
+  lock-screen controls
+- AirPlay to any TV
+- Continue Watching and Editor's Picks widgets on your Home Screen
+- Cartoon Mode, playlists, search filters, and resume everywhere
+
+YOUR APPLE TV, IN SYNC
+- Optional Sign in with Apple syncs favorites, playlists, progress, and your
+  custom channels between iPhone, iPad, and Apple TV — through your own
+  iCloud, never our servers
+
+FREE, AND RESPECTFUL OF YOU
+- No subscription, no in-app purchases, no ads
+- No account required to watch
+- No tracking, no analytics — nothing about you is collected
+
+All content is sourced from the public domain via the Internet Archive. Metadata
+and artwork come from TMDb, Wikidata, Wikimedia Commons, and the Library of
+Congress. This product uses the TMDb API but is not endorsed or certified by TMDb.
+
+If you'd rather wander a well-stocked repertory cinema than doomscroll a
+recommendation feed, Archive Watch is for you.
+```
+
+## What's New / release notes (iOS 1.2.24 — first iPhone/iPad release)
+```
+Archive Watch arrives on iPhone and iPad — the same cinematheque as the Apple
+TV app, rebuilt touch-first:
+
+- Live Channels as a real TV-listing guide: scroll the broadcast day, tune in,
+  and it just plays (vintage commercials included).
+- Picture in Picture and background play with lock-screen controls.
+- Home Screen widgets: Continue Watching and Editor's Picks.
+- Tap any cast or crew name to browse their filmography.
+- Optional Sign in with Apple keeps favorites, playlists, progress, and your
+  custom channels in sync with your Apple TV — via your own iCloud.
+```
+
+## App Review notes (iOS — paste into the version's Review Information)
+```
+Archive Watch surfaces public-domain moving images from the Internet Archive
+(feature films, classic TV, silent cinema, animation, newsreels, and vintage
+commercials). Content is public domain; metadata/artwork from TMDb (attributed
+on the Settings screen), Wikidata, Wikimedia Commons, and the Library of
+Congress.
+
+No account is required. Sign in with Apple is optional and only enables iCloud
+sync of the user's own favorites/progress to their private database; account
+deletion is provided in Settings (Guideline 5.1.1(v)). No data is collected by
+the developer (see the PrivacyInfo manifest + Privacy Policy).
+
+UIBackgroundModes `audio` is used for continued playback of the film's audio
+when the app is backgrounded (with lock-screen Now Playing controls) and for
+Picture in Picture — both are user-facing playback features, reachable by
+playing any title and pressing the side button or swiping Home.
+
+Export compliance is declared in-binary (ITSAppUsesNonExemptEncryption = false;
+HTTPS/TLS + Apple frameworks only). Some archival streams can be slow or
+briefly unavailable on the source side — retry or pick another title.
+```
+
+- **Sign-in required to review?** No. Demo account: not needed.
+- **Contact:** Ben Wilkoff · ben@learningischange.com
+
+## App Privacy (unchanged answer, updated rationale)
+**Data Not Collected** still holds: no backend, no analytics. CloudKit sync is
+NOW ENABLED in this build (unlike the first tvOS submission), but synced
+favorites/progress live in the user's private iCloud database, which the
+developer cannot read — under Apple's definitions ("collected" = transmitted off
+device AND accessible to the developer) that is not collection. If a reviewer
+pushes back, the fallback declaration is: Identifiers → User ID (the Sign in
+with Apple identifier), App Functionality only, not linked to identity, not
+used for tracking.
+
+## Age rating
+Same questionnaire, same answers as tvOS → expect the same ~12+ (mature filter
+defaults ON; no unrestricted web access).
+
+## URLs (unchanged, already live)
+- Privacy `https://archivewatch.org/privacy.html` · Support
+  `https://archivewatch.org/support.html` · Marketing `https://archivewatch.org/`
+
+---
+
+## Screenshots (iOS — captured from the iOS 26 simulators)
+
+Live OUTSIDE the repo (upload assets, regenerable):
+
+    ~/Desktop/ArchiveWatch-AppStore-Screenshots-iOS/
+        iphone-6.9/   — 1320×2868 portrait (iPhone 17 Pro Max sim)
+        ipad-13/      — 2064×2752 portrait (iPad Pro 13-inch M5 sim)
+
+ASC requires ONE iPhone size (6.9" or 6.5") and ONE iPad size (13") for an app
+that runs on iPad — both sets below. Upload order (up to 10 each):
+1. `01-Home.png`        — hero + shelves
+2. `02-Channels.png`    — the touch EPG (now-line + ruler)
+3. `03-Detail-HisGirlFriday.png`
+4. `04-Detail-Metropolis.png`
+5. `05-Detail-NightOfTheLivingDead.png`
+6. `06-Browse.png`
+7. `07-Detail-Superman.png` — color Fleischer cartoon (shows range + cast row)
+
+(Search/Library are empty states on a fresh install — skipped.)
+
+To regenerate: install the Debug build on the sim and launch with
+`SIMCTL_CHILD_AW_START_TAB=<home|browse|channels|search|library>` (the iOS tab
+raw values) or `SIMCTL_CHILD_AW_START_ITEM=<archiveID>`; wait ~25–30 s on cold
+start (seed DB load) before `xcrun simctl io <udid> screenshot`. Boot ONE sim
+at a time (two iOS 26 sims booting together can wedge "Waiting on System App").
+
+---
+
+## Owner submission checklist (iOS)
+1. ASC → My Apps → Archive Watch → **+ → Add Platform → iOS**.
+2. App Information: change **Subtitle** to the platform-neutral one above.
+3. On the iOS 1.2.24 version page: paste Promotional Text, Description,
+   Keywords, What's New, Review notes; URLs carry over.
+4. Upload both screenshot sets from `~/Desktop/ArchiveWatch-AppStore-Screenshots-iOS/`.
+5. Age rating: re-run questionnaire (same answers as tvOS).
+6. App Privacy: confirm **Data Not Collected** (see note above).
+7. Xcode: destination **Any iOS Device (arm64)** → Product → Archive →
+   Distribute → App Store Connect. (Version/build 1.2.24/37 come from
+   AppVersion.xcconfig; build 37 is shared with the tvOS track — fine, build
+   numbers are per-platform in ASC.)
+8. Select the build on the version page → Add for Review → Submit.
