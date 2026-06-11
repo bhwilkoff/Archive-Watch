@@ -94,6 +94,11 @@ android {
                 "proguard-rules.pro",
             )
             signingConfig = signingConfigs.getByName("release")
+            // Embed native-lib symbol tables (BUNDLE-METADATA/…debugsymbols)
+            // so Play can symbolicate crashes/ANRs in libsqliteJni & friends —
+            // clears the Console's "no debug symbols" warning. Needs an NDK
+            // (auto-provisioned via cmdline-tools).
+            ndk { debugSymbolLevel = "SYMBOL_TABLE" }
         }
     }
 
