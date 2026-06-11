@@ -233,6 +233,37 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-15 — Title-first PD discovery: the inverted pipeline (Decision 032)
+All four store submissions are IN REVIEW (tvOS approved; iOS, Play internal
+track submitted). Owner: "use our multiple APIs ... to instead go the other
+direction and identify all of the titles that we should be searching
+archive.org for that are public domain or have otherwise lost their
+copyright."
+- **tools/discover_pd_wants.py** — three metadata-first feeds emit
+  iaid-less WANTS into the existing discovery_candidates.json queue; the
+  EXISTING ingest step hunts archive.org per want by title+year
+  (archive_lib.resolve_title) and everything downstream (enrichment,
+  Decision-026 match verify, Decision-027 rights audit) applies unchanged:
+  W = Wikipedia's curated "List of films in the public domain in the United
+  States" (row carries the lapse REASON → pdEvidence; NOTE: it's a LIST
+  page — the category does not exist); T = TMDb /discover pre-PD-cutoff
+  (rolling current_year−95), popularity-first, imdb id resolved only for
+  survivors of dedup; A = Wikidata pre-cutoff films with imdb but NO P6216
+  flag, SHARDED BY DECADE (one big query or deep OFFSET pages 504/truncate
+  on WDQS).
+- **First production run: 2,907 wants queued** (2,466 wikidata-age, 440
+  tmdb, 1 wikipedia), 2,900 with an IMDb id attached. The single Wikipedia
+  find is a gem — March of the Wooden Soldiers (1934 Laurel & Hardy, PD by
+  notice defect); the other 125 curated US-PD films were ALREADY held
+  (validates both the back catalog and the dedup).
+- Wired into discover-content.yml (wants step before ingest;
+  wants_tmdb_pages dispatch input). Report: shared/editorial/
+  wants_report.csv per run. DECISIONS 032 logged.
+- Next ideas (not built): --retry-unresolved sweep as new uploads appear;
+  more curated feeds (national archives, AFI) as additional sources in the
+  same tool.
+
+
 ### 2026-06-14 (later) — Android polish: channel icons, search filters, designed-art parity
 Owner: "add the correct icons for channels interface on Android and
 filtering on the search tab as well. Also, can you apply the same

@@ -1106,3 +1106,48 @@ chunk/retry/pin lines, AWSTALL stall events, AWBUF buffer depth; `AW_AUTOPLAY=1`
 reset); startup metadata reads go from ~1.5 s to ~50 ms once pinned. The
 pinned URL lives only for the loader's lifetime (one playback session), so
 node rotation between sessions is harmless.
+
+---
+
+## 032 — Title-first PD discovery: a metadata-sourced wants list hunted on archive.org
+*Date: 2026-06-12*
+
+Discovery gains an INVERTED direction: `tools/discover_pd_wants.py` enumerates
+films the metadata world says are public domain or lost-copyright — Wikipedia's
+curated "List of films in the public domain in the United States" (each row
+carries the year AND the lapse reason: not renewed / no notice / dedicated),
+TMDb `/discover` for everything released before the rolling US PD-by-age cutoff
+(`current year − 95`, popularity-first), and Wikidata films published before the
+cutoff that have an IMDb id but no P6216 flag — and queues each title we don't
+already hold as an `iaid`-less candidate in `shared/editorial/
+discovery_candidates.json`. The EXISTING ingest step then hunts archive.org for
+each want by title+year (`archive_lib.resolve_title`), confirms a playable
+derivative, and ingests through the same enrichment / match-verify / rights
+gates as every other item. Wired into `discover-content.yml` ahead of ingest;
+per-run report at `shared/editorial/wants_report.csv`.
+
+**Why**: every prior feed walks archive.org-first (collections, scrape, Wikidata
+P724) and so can only find what Archive's own metadata surfaces — obscure or
+badly-labelled PD uploads stay invisible. Going metadata-first flips the search:
+a curated/derivable list of titles KNOWN to be free (the renewal-failure canon,
+PD-by-age) hunts the Archive for copies, and every want arrives with identity
+attached (IMDb/Wikidata/TMDb ids), so the match is corroborated per Decision 026
+and enrichment is instant — "impeccable metadata" from the moment of ingest.
+First full run validated the approach AND the back catalog: 125 of the 126
+curated Wikipedia US-PD films were already held.
+
+**How to apply**: new wants sources (other curated PD lists, registries,
+national-archive catalogs) belong in this tool as feeds, not as new pipelines —
+emit into the same candidate queue and let ingest/audit do the rest. A want must
+carry at least title+year and ideally an external id; never queue a bare title.
+`PD_YEAR_CUTOFF` is computed, not hardcoded — don't pin it. The Wikipedia list
+parse keys on table rows that lead with a wikilink and carry a year column; if
+the page's table format changes, fix the parser rather than switching to a
+category crawl (the "films in the public domain" CATEGORY does not exist —
+verified 2026-06-12).
+
+**Consequences**: the candidate queue can now contain wants whose Archive copy
+doesn't exist yet — `status="unresolved"` marks a miss and is never retried
+daily; a periodic `--retry-unresolved` sweep (future) could re-hunt as new
+uploads appear. The rights gate stays Decision 027's audit — a want's
+`pdEvidence` documents the nomination reason but never bypasses confirmation.

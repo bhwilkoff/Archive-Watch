@@ -24,6 +24,9 @@ on:
     - cron: '42 3 * * *'
   workflow_dispatch:
     inputs:
+      wants_tmdb_pages:
+        description: 'TMDb discover pages for the PD-wants feed (20 titles each)'
+        required: false
       discover_limit:
         description: 'Max rows per Wikidata SPARQL feed'
         required: false
@@ -112,6 +115,18 @@ jobs:
           python tools/discover_wikidata_pd.py \
             --limit ${{ github.event.inputs.discover_limit || '8000' }} \
             | tee discover.log
+
+      - name: Discover PD wants (title-first: Wikipedia US-PD list + TMDb pre-cutoff + Wikidata age)
+        env:
+          TMDB_BEARER_TOKEN: ${{ secrets.TMDB_BEARER_TOKEN }}
+        run: |
+          # The INVERTED pipeline: enumerate films the metadata world says are
+          # PD / lost-copyright (curated renewal-failure list, PD-by-age) and
+          # queue them as iaid-less wants — the ingest step below hunts
+          # archive.org for each by title+year (archive_lib.resolve_title).
+          python tools/discover_pd_wants.py \
+            --tmdb-pages ${{ github.event.inputs.wants_tmdb_pages || '40' }} \
+            | tee wants.log
 
       - name: Discover candidates (Archive collections + Public Domain Day)
         run: |
