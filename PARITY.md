@@ -84,7 +84,7 @@ this table in the same change set; cross-link the platform design doc.
 | Infinite scroll / paging | ✅ | ✅ `.onAppear` paging | ✅ IntersectionObserver | ✅ paging on scroll | |
 | TV series → season → episode | ✅ | ✅ series grid → `SeriesDetailView` (SeriesStore) → episode play | ✅ `#/series/{slug}` (spine from Pages) → episode play + resume | ✅ TV scope → SeriesDetail → play | `series/*.json` shared |
 | Prev/next episode in player | ✅ | ✅ overlay capsule + binge auto-advance | ✅ season queue auto-advance on `ended` | ✅ Media3 queue (native next/prev + advance) | EpisodeQueue swaps next on end |
-| Collections landing + blurbs | ✅ | ✅ `CollectionMetadata` list → `CollectionGridView` | ⏳ | ⏳ | `collection_metadata.json` shared |
+| Collections landing + blurbs | ✅ | ✅ `CollectionMetadata` list → `CollectionGridView` | ✅ `#/collections` (index collections map, schema 5) | ✅ Browse → Collections (item_collections query) | `collection_metadata.json` shared |
 | Full-text search (FTS5) | ✅ | ✅ `.searchable` + type/decade filter menu | 🚧 client title search over index (FTS5 upgrade = WEB-DESIGN §2.4) | ✅ debounced FTS5 `SearchBar` | same FTS5 index in `catalog.sqlite` |
 | Search result filters | ⏳ (Browse facets cover the verb) | ✅ type/decade `Menu` over FTS results | ⏳ | ⏳ | audit addition 2026-06-12 |
 
@@ -94,16 +94,16 @@ this table in the same change set; cross-link the platform design doc.
 |---|---|---|---|---|---|
 | Detail (backdrop, metadata, cast) | ✅ | ✅ framed 2:3 poster hero + tappable cast/crew → person filmography | ✅ poster + curated synopsis + cast/crew bubbles (catalog shards) | ✅ backdrop + cast row + favorite | shared item record; iOS person browse = `CatalogDB.byPerson` |
 | More Like This | ✅ | ✅ | ✅ (type + era ±15y, designed art) | ✅ | shared `related` query |
-| Cast → person filmography | ✅ PersonChip → FTS names browse | ✅ tappable bubbles → byPerson grid | ⏳ (blocked on FTS upgrade, WEB-DESIGN §2.5) | ⏳ (FTS available; next wave) | audit addition 2026-06-12 |
-| Share titles / series | ✅ ShareSheet + QR | ✅ ShareLink (item + series) | ✅ share menu + open-in-app (item; series page share ⏳) | ✅ ACTION_SEND (item) | archivewatch.org/item|series URLs (Decision 030) |
-| Now Playing / lock-screen media controls | ✅ externalMetadata (tvOS Info panel) | ✅ AVKit (lock screen + Control Center) | ⏳ MediaSession API | ⏳ Media3 MediaSession + notification | audit addition 2026-06-12 |
+| Cast → person filmography | ✅ PersonChip → FTS names browse | ✅ tappable bubbles → byPerson grid | ⏳ (blocked on FTS upgrade, WEB-DESIGN §2.5) | ✅ tappable cast → FTS person grid | audit addition 2026-06-12 |
+| Share titles / series | ✅ ShareSheet + QR | ✅ ShareLink (item + series) | ✅ share menu + open-in-app (item + series) | ✅ ACTION_SEND (item) | archivewatch.org/item|series URLs (Decision 030) |
+| Now Playing / lock-screen media controls | ✅ externalMetadata (tvOS Info panel) | ✅ AVKit (lock screen + Control Center) | ✅ MediaSession (metadata + play/pause/seek/next/prev) | ✅ Media3 MediaSession | audit addition 2026-06-12 |
 | Video playback | ✅ AVPlayerVC | ✅ AVPlayerVC (reused) | ✅ HTML5 `<video>` in `<dialog>` | ✅ Media3 `PlayerView` | |
 | Resilient streaming | ✅ `ResilientStreamLoader` | ✅ reuse Swift loader | ✅ range-native + reconnect/reseek wrapper | ✅ OkHttp source + patient `LoadErrorHandlingPolicy` | Archive idle-reset resilience per platform |
 | Resume across launches | ✅ | ✅ `WatchProgress` (item + per-episode) | ✅ IndexedDB progress | ✅ user.sqlite (10s–95%) | progress store (§6) |
-| Subtitles / audio / speed | ✅ | ✅ native AVKit | ⏳ `<track>` + rate control | ⏳ Media3 track selector | |
+| Subtitles / audio / speed | ✅ | ✅ native AVKit | 🚧 speed selector ✅ (persisted); `<track>` subtitles ⏳ (rare on Archive files) | ✅ subtitle button + Media3 speed control | |
 | Autoplay / continuous play | ✅ F4 engine | ✅ shared F4 engine (PlaybackQueue + AutoplayMode setting) | ⏳ port engine (JS) | ⏳ Media3 playlist | F4 queue logic shared via Core |
-| Picture-in-Picture | n/a | ✅ AVKit PiP | ⏳ `requestPictureInPicture()` | ⏳ Media3 PiP | new affordance on mobile/web |
-| Cast / AirPlay | ✅ AirPlay | ✅ AirPlay (AVKit) | ⏳ Remote Playback API | ⏳ Google Cast | each platform's native cast |
+| Picture-in-Picture | n/a | ✅ AVKit PiP | ✅ (Chrome + Safari presentation-mode APIs) | ⏳ Activity PiP | new affordance on mobile/web |
+| Cast / AirPlay | ✅ AirPlay | ✅ AirPlay (AVKit) | ⏳ Remote Playback API | ⏳ Google Cast (needs Cast SDK + device-tested receiver — deliberate defer) | each platform's native cast |
 
 ## 5. Surprise + Immersive modes
 
@@ -111,8 +111,8 @@ this table in the same change set; cross-link the platform design doc.
 |---|---|---|---|---|---|
 | Surprise / random actions | ✅ | ✅ Surprise grid (11 tiles, re-roll on tap) | ✅ `#/surprise` re-roll grid (topnav) | ✅ Surprise grid (Home shuffle → re-roll) | shared random queries |
 | Channels (EPG guide) | ✅ proportional grid | ✅ proportional touch EPG (pinned ruler, window paging) | ✅ sticky-rail/ruler CSS listing (`#/channels`, pools from `channel-pools.json`, JS scheduler) | ✅ Compose proportional guide (Channels tab, Kotlin scheduler) | date-seeded `ChannelScheduler` ported per platform; 6 AM local broadcast day everywhere |
-| Create / user channels | ✅ synced | ✅ Form sheet + swipe-delete, synced | ⏳ | ⏳ | AWSync `channels` blob (2026-06-12 — the earlier "synced" claim was aspirational; now real) |
-| Cartoon / Kids mode | ✅ | ✅ characters + themes + marathon | ⏳ | ⏳ | color/B&W flags shared |
+| Create / user channels | ✅ synced | ✅ Form sheet + swipe-delete, synced | ✅ type/era form (no genre in the index; rail-tap deletes) | ✅ chip-picker dialog + long-press delete | Apple: AWSync `channels` blob; W+A local-only until Drive sync |
+| Cartoon / Kids mode | ✅ | ✅ characters + themes + marathon | ✅ `#/cartoons` (character shelves + marathon from the color-emphasized pool) | ✅ character shelves + marathon queue | color/B&W flags shared |
 | Commercial-break controls (on/off + length) | ✅ guide header pills + Settings | ✅ guide toolbar toggle (length cap tvOS-only) | ⏳ (weave always on) | ⏳ (weave always on) | audit addition 2026-06-12; #89 weave itself ships everywhere |
 | Party Play (muted) | ✅ | 🔮 (iPad-leaning) | ⏳ | 🔮 (tablet-leaning) | ambient mode; phone de-emphasized |
 | Cover-art screensaver | ✅ + idle trigger | 🔮 ambient (iPad) | ⏳ ambient (desktop) | 🔮 ambient (tablet) | idle auto-trigger is a 10-foot/lean-back idiom |
@@ -147,7 +147,7 @@ this table in the same change set; cross-link the platform design doc.
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
 | Home-screen surface | ✅ Top Shelf | ✅ WidgetKit (small + medium; Continue Watching / Editor's Picks) | 🚫 (PWA shortcuts only) | ⏳ home-screen widgets | App Group snapshot; deep-links into the app |
-| Voice / shortcuts | ✅ App Intents + Siri | ✅ App Intents + Siri (Surprise / Random Film / Browse) | n/a | ⏳ App Actions + App Shortcuts | "surprise me", "random film" |
+| Voice / shortcuts | ✅ App Intents + Siri | ✅ App Intents + Siri (Surprise / Random Film / Browse) | n/a | ✅ App Shortcuts (Surprise / Channels deep links) | "surprise me", "random film" |
 | Spotlight / system search | n/a | 🔮 Core Spotlight | n/a | 🔮 App Search | |
 | Installable app | App Store | App Store | ✅ **PWA (installable; shell+catalog offline)** | Play Store | web = zero-install reach |
 | Handoff / continuity | 🔮 | 🔮 | n/a | n/a | NSUserActivity already declared |

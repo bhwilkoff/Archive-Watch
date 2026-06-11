@@ -21,6 +21,10 @@ import androidx.compose.runtime.remember
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.ui.screens.BrowseScreen
 import app.archivewatch.android.ui.screens.ChannelsScreen
+import app.archivewatch.android.ui.screens.CartoonScreen
+import app.archivewatch.android.ui.screens.CollectionGridScreen
+import app.archivewatch.android.ui.screens.CollectionsScreen
+import app.archivewatch.android.ui.screens.PersonScreen
 import app.archivewatch.android.ui.screens.DetailScreen
 import app.archivewatch.android.ui.screens.HomeScreen
 import app.archivewatch.android.ui.screens.LibraryScreen
@@ -48,6 +52,18 @@ fun AppRoot(container: AppContainer) {
             if (id != null) {
                 DeepLinks.pendingItem.value = null
                 nav.push(Route.Detail(id))
+            }
+        }
+    }
+    // App Shortcut actions (archivewatch://surprise | /channels).
+    LaunchedEffect(Unit) {
+        DeepLinks.pendingAction.collect { action ->
+            if (action != null) {
+                DeepLinks.pendingAction.value = null
+                when (action) {
+                    "surprise" -> nav.push(Route.Surprise)
+                    "channels" -> { nav.stack.clear(); nav.tab = Tab.Channels }
+                }
             }
         }
     }
@@ -110,6 +126,10 @@ fun AppRoot(container: AppContainer) {
                             is Route.Player -> PlayerScreen(container, nav, route.spec)
                             is Route.Filtered -> FilteredGridScreen(container, nav, route)
                             is Route.Playlist -> PlaylistScreen(container, nav, route.playlistID)
+                            is Route.Collection -> CollectionGridScreen(container, nav, route)
+                            is Route.Person -> PersonScreen(container, nav, route.name)
+                            Route.Collections -> CollectionsScreen(container, nav)
+                            Route.Cartoon -> CartoonScreen(container, nav)
                             Route.Surprise -> SurpriseScreen(container, nav)
                             Route.Settings -> SettingsScreen(container, nav)
                         }

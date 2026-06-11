@@ -38,6 +38,18 @@ def main():
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
     items = catalog.get("items", catalog if isinstance(catalog, list) else [])
 
+    # Curated collection ids (collection_metadata.json) → membership map, so
+    # the web viewer can render the Collections surface (schema 5, additive).
+    curated_collections = []
+    cm = REPO / "ArchiveWatch" / "ArchiveWatch" / "collection_metadata.json"
+    if cm.exists():
+        try:
+            curated_collections = [c["id"] for c in
+                                   json.loads(cm.read_text()).get("collections", [])]
+        except Exception:  # noqa: BLE001
+            curated_collections = []
+    curated_lower = {c.lower(): c for c in curated_collections}
+
     adult = set()
     if FEATURED.exists():
         try:
@@ -48,6 +60,7 @@ def main():
 
     rows = []
     shelf_members: dict[str, list[tuple]] = {}
+    collection_members: dict[str, list[tuple]] = {}
     for it in items:
         if it.get("excluded"):          # rights audit (Decision 027)
             continue
@@ -76,6 +89,9 @@ def main():
         pop_score = it.get("popularityScore") or 0
         for shelf_id in (it.get("shelves") or []):
             shelf_members.setdefault(shelf_id, []).append((designed, pop_score, aid))
+        for c in cols:
+            if (canon := curated_lower.get(c)):
+                collection_members.setdefault(canon, []).append((designed, pop_score, aid))
 
     # Sort by popularity so the most useful titles search/scroll first.
     pop = {it.get("archiveID"): (it.get("popularityScore") or 0) for it in items}
@@ -87,18 +103,24 @@ def main():
         for sid, members in sorted(shelf_members.items())
     }
 
+    collections = {
+        cid: [aid for _, _, aid in sorted(members, reverse=True)[:120]]
+        for cid, members in sorted(collection_members.items())
+    }
+
     out = {
-        "schema": 4,
+        "schema": 5,
         "updatedAt": catalog.get("updatedAt") or "",
         "count": len(rows),
         "fields": ["id", "title", "year", "contentType", "poster", "pro"],
         "shelves": shelves,
+        "collections": collections,
         "items": rows,
     }
     OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     mb = OUT.stat().st_size / 1_000_000
     print(f"[index] wrote {OUT.name}: {len(rows):,} items, "
-          f"{len(shelves)} shelves, {mb:.1f} MB", flush=True)
+          f"{len(shelves)} shelves, {len(collections)} collections, {mb:.1f} MB", flush=True)
     return 0
 
 

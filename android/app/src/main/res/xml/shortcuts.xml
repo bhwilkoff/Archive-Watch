@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- App Shortcuts (long-press launcher icon) — the Android analog of the
+     Siri/App Intents quick actions (PARITY §8). Each deep-links via the
+     archivewatch:// scheme MainActivity already parses. -->
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="surprise"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_rotate"
+        android:shortcutShortLabel="@string/shortcut_surprise">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="archivewatch://surprise"
+            android:targetPackage="app.archivewatch.android"
+            android:targetClass="app.archivewatch.android.MainActivity" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="channels"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_view"
+        android:shortcutShortLabel="@string/shortcut_channels">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="archivewatch://channels"
+            android:targetPackage="app.archivewatch.android"
+            android:targetClass="app.archivewatch.android.MainActivity" />
+    </shortcut>
+</shortcuts>

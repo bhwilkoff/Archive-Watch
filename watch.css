@@ -501,6 +501,22 @@ input[type="search"] {
   .epg-bt { font-size: 0.66rem; }
 }
 
+/* ---- collections ---- */
+.coll-list {
+  display: grid; gap: 12px; padding: 8px var(--pad);
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+.coll-card {
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 14px 16px; border-radius: var(--radius);
+  background: var(--bg-raise); border: 1px solid var(--border);
+  border-left: 4px solid var(--coll-accent, #555);
+  color: var(--text); text-decoration: none;
+}
+.coll-card strong { font-size: 1rem; }
+.coll-card span { color: var(--text-dim); font-size: 0.85rem; line-height: 1.35; }
+.coll-card em { font-style: normal; color: var(--text-dim); font-size: 0.75rem; }
+
 /* ---- share menu ---- */
 dialog.sharemenu {
   background: var(--bg-raise); color: var(--text);

@@ -2,6 +2,7 @@ package app.archivewatch.android.ui.screens
 
 import android.content.Intent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -220,9 +221,11 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
             ) {
                 items(current.cast.sortedBy { it.order }.take(15), key = { it.name }) { member ->
+                    // Tap → person filmography (parity with the apps' PersonChip).
                     Column(
                         horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier.width(72.dp),
+                        modifier = Modifier.width(72.dp)
+                            .clickable { nav.push(Route.Person(member.name)) },
                     ) {
                         Box(
                             Modifier

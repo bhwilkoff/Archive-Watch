@@ -43,6 +43,10 @@ class MainActivity : ComponentActivity() {
             uri.lastPathSegment?.let { DeepLinks.pendingItem.value = it }
             return
         }
+        if (uri.scheme == "archivewatch" && uri.host in setOf("surprise", "channels")) {
+            DeepLinks.pendingAction.value = uri.host
+            return
+        }
         if (uri.host == "archivewatch.org") {
             val segs = uri.pathSegments
             if (segs.size >= 2) {

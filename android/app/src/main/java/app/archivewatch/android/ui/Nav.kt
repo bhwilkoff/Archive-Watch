@@ -20,6 +20,10 @@ sealed interface Route {
     data class Filtered(val title: String, val contentType: String? = null,
                         val decade: Int? = null) : Route
     data class Playlist(val playlistID: String) : Route
+    data class Collection(val id: String, val title: String, val blurb: String? = null) : Route
+    data class Person(val name: String) : Route
+    data object Collections : Route
+    data object Cartoon : Route
     data object Surprise : Route
     data object Settings : Route
 }
@@ -43,7 +47,9 @@ class Nav {
     }
 }
 
-/** archivewatch://item/{id} hand-off from MainActivity to AppRoot. */
+/** archivewatch://item/{id} (+ /surprise, /channels) hand-off from
+    MainActivity to AppRoot. */
 object DeepLinks {
     val pendingItem = MutableStateFlow<String?>(null)
+    val pendingAction = MutableStateFlow<String?>(null)   // "surprise" | "channels"
 }

@@ -59,6 +59,7 @@
           <option value="old">Oldest</option>
         </select>
         <span id="browse-count" class="muted"></span>
+        <a class="btn-ghost" href="#/collections">Collections</a>
       </div>
       <div id="browse-grid" class="grid"></div>
       <div id="browse-sentinel" class="sentinel" aria-hidden="true"></div>
@@ -86,8 +87,11 @@
     </section>
 
     <section id="view-channels" hidden>
-      <h1>Channels</h1>
-      <p class="muted">A broadcast day, scheduled fresh at 6 AM — scroll the listing, tap to tune in.</p>
+      <div class="surprise-head">
+        <h1>Channels</h1>
+        <button id="channels-create" class="btn-ghost">＋ New channel</button>
+      </div>
+      <p class="muted">A broadcast day, scheduled fresh at 6 AM — scroll the listing, tap to tune in. Tap a channel you created to delete it.</p>
       <p id="channels-error" class="error" hidden></p>
       <div id="epg" class="epg"></div>
     </section>
@@ -99,6 +103,28 @@
       </div>
       <p class="muted">A fresh hand from the archive — tap any tile, or re-roll the lot.</p>
       <div id="surprise-grid" class="grid"></div>
+      <p><a class="btn-ghost" href="#/cartoons">🖌️ Cartoon Mode — animation all day</a></p>
+    </section>
+
+    <section id="view-collections" hidden>
+      <h1>Collections</h1>
+      <p class="muted">Curated corners of the archive, each with its own character.</p>
+      <div id="collections-list" class="coll-list"></div>
+    </section>
+
+    <section id="view-collection" hidden>
+      <h1 id="collection-title"></h1>
+      <p id="collection-blurb" class="muted"></p>
+      <div id="collection-grid" class="grid"></div>
+    </section>
+
+    <section id="view-cartoons" hidden>
+      <div class="surprise-head">
+        <h1>Cartoon Mode</h1>
+        <button id="cartoons-marathon" class="btn-primary">▶ Marathon</button>
+      </div>
+      <p class="muted">Classic animation, color first — pick a character or let the marathon roll.</p>
+      <div id="cartoons-shelves"></div>
     </section>
 
     <section id="view-playlist" hidden>
@@ -139,6 +165,7 @@
         <div class="detail-body">
           <h1 id="series-title"></h1>
           <p id="series-meta" class="muted"></p>
+          <p><button id="series-share" class="btn-ghost">Share</button></p>
           <p id="series-overview"></p>
           <select id="series-season" aria-label="Season" hidden></select>
           <p id="series-loading" class="muted">Loading episodes…</p>
@@ -222,6 +249,14 @@
   <dialog id="player">
     <div class="player-head">
       <span id="player-title"></span>
+      <select id="player-rate" aria-label="Playback speed">
+        <option value="0.75">0.75×</option>
+        <option value="1" selected>1×</option>
+        <option value="1.25">1.25×</option>
+        <option value="1.5">1.5×</option>
+        <option value="2">2×</option>
+      </select>
+      <button id="player-pip" aria-label="Picture in picture" hidden>⧉</button>
       <button id="player-close" aria-label="Close player">✕</button>
     </div>
     <video id="video" controls playsinline preload="auto"></video>

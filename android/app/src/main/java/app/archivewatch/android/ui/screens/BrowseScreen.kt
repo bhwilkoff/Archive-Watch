@@ -38,6 +38,7 @@ import app.archivewatch.android.data.BrowseSort
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.Nav
+import app.archivewatch.android.ui.Route
 import app.archivewatch.android.ui.PosterTile
 import java.text.NumberFormat
 
@@ -109,6 +110,9 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
         topBar = {
             TopAppBar(
                 title = { Text("Browse") },
+                actions = {
+                    TextButton(onClick = { nav.push(Route.Collections) }) { Text("Collections") }
+                },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.background,
                 ),

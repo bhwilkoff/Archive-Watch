@@ -23,6 +23,8 @@
             android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboardHidden|uiMode"
             android:theme="@style/Theme.ArchiveWatch.Splash"
             android:windowSoftInputMode="adjustResize">
+            <meta-data android:name="android.app.shortcuts"
+                       android:resource="@xml/shortcuts" />
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

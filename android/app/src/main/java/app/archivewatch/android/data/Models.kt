@@ -165,3 +165,18 @@ data class QueueEntry(
     val subtitle: String? = null,
     val url: String,
 )
+
+
+@kotlinx.serialization.Serializable
+data class CollectionMetadataFile(
+    val collections: List<CollectionMeta> = emptyList(),
+)
+
+@kotlinx.serialization.Serializable
+data class CollectionMeta(
+    val id: String,
+    val title: String,
+    val blurb: String? = null,
+    val accent: String? = null,
+    val category: String? = null,
+)

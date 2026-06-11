@@ -18,6 +18,7 @@ import androidx.media3.common.MediaMetadata
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.datasource.okhttp.OkHttpDataSource
 import androidx.media3.exoplayer.ExoPlayer
+import androidx.media3.session.MediaSession
 import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
 import androidx.media3.exoplayer.upstream.DefaultLoadErrorHandlingPolicy
 import androidx.media3.exoplayer.upstream.LoadErrorHandlingPolicy
@@ -102,6 +103,12 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             }
     }
 
+    // Lock-screen / notification media controls (the MediaSession parity row).
+    val mediaSession = remember(player) {
+        MediaSession.Builder(context, player).build()
+    }
+    DisposableEffect(mediaSession) { onDispose { mediaSession.release() } }
+
     // Resume when 10s < saved position < 95% of duration. Channel lineups
     // skip this (join-in-progress beats per-title resume).
     LaunchedEffect(spec.id) {
@@ -144,6 +151,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 keepScreenOn = true
                 setShowNextButton(spec.queue.size > 1)
                 setShowPreviousButton(spec.queue.size > 1)
+                setShowSubtitleButton(true)   // archive files rarely carry tracks; harmless when absent
             }
         },
         update = { view -> view.player = player },

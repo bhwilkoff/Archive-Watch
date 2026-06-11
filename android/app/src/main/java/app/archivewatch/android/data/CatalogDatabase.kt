@@ -166,6 +166,15 @@ class CatalogDatabase private constructor(
         return tokens.joinToString(" ") { "\"$it\"*" }
     }
 
+    suspend fun byCollection(collection: String, limit: Int = 240): List<CatalogItem> = items(
+        """SELECT j.json FROM item_collections c
+           JOIN item_json j ON j.archiveID = c.archiveID
+           JOIN items i ON i.archiveID = c.archiveID
+           WHERE c.collection = ?$adultAnd
+           ORDER BY i.popularityScore DESC LIMIT ?""",
+        listOf(collection, limit),
+    )
+
     suspend fun seriesCards(limit: Int = 500): List<CatalogItem> = items(
         "$itemSelect WHERE i.contentType = 'tv-series'$adultAnd$typeAnd" +
             " ORDER BY i.episodesCount DESC LIMIT ?",

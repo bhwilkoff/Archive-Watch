@@ -3,6 +3,7 @@ package app.archivewatch.android.ui.screens
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,6 +18,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material3.Button
@@ -73,12 +75,24 @@ import java.util.Locale
 @Composable
 fun ChannelsScreen(container: AppContainer, nav: Nav) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
+    val userChanges by container.userState.changes.collectAsState()
     var windowStartMs by remember { mutableStateOf<Long?>(null) }   // null = live
+    var showCreate by remember { mutableStateOf(false) }
 
-    val guide by produceState<List<GuideChannel>?>(null, dbVersion) {
+    val guide by produceState<List<GuideChannel>?>(null, dbVersion, userChanges) {
         val db = container.catalog.db ?: return@produceState
         val nowMs = System.currentTimeMillis()
-        value = ChannelPresets.all.mapNotNull { preset ->
+        // User channels lead the guide (same as the Apple apps).
+        val user = container.userState.userChannels().mapNotNull { uc ->
+            val pool = db.browse(
+                contentType = uc.contentType, genre = uc.genre,
+                decade = uc.decade, limit = 150,
+            ).filter { it.downloadURL != null }
+            val slots = ChannelScheduler.schedule("user-${uc.id}", pool, nowMs)
+            if (slots.isEmpty()) null
+            else GuideChannel("user-${uc.id}", uc.name, "#0047FF", slots)
+        }
+        val presets = ChannelPresets.all.mapNotNull { preset ->
             val pool = db.browse(
                 contentType = preset.contentType, genre = preset.genre,
                 limit = 90,
@@ -87,12 +101,18 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
             if (slots.isEmpty()) null
             else GuideChannel(preset.id, preset.title, preset.accentHex, slots)
         }
+        value = user + presets
     }
 
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text("Channels", fontWeight = FontWeight.Bold) },
+                actions = {
+                    IconButton(onClick = { showCreate = true }) {
+                        Icon(Icons.Default.Add, contentDescription = "Create channel")
+                    }
+                },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.background,
                 ),
@@ -109,6 +129,9 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
         val start = windowStartMs ?: nowMs
         val endMs = start + windowMinutes * 60_000L
 
+        if (showCreate) {
+            CreateChannelDialog(container) { showCreate = false }
+        }
         Column(Modifier.fillMaxSize().padding(padding)) {
             // Window controls: earlier / label / later / now.
             Row(
@@ -148,6 +171,9 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
                         channel = ch, startMs = start, endMs = endMs,
                         windowMinutes = windowMinutes, railW = railW, nowMs = nowMs,
                         onTune = { slot -> tune(container, nav, ch, slot) },
+                        onDelete = if (ch.id.startsWith("user-")) ({
+                            container.userState.deleteUserChannel(ch.id.removePrefix("user-"))
+                        }) else null,
                     )
                 }
                 item(key = "footer") { Spacer(Modifier.height(24.dp)) }
@@ -240,16 +266,23 @@ private fun Ruler(startMs: Long, windowMinutes: Int, railW: androidx.compose.ui.
 @Composable
 private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
                             windowMinutes: Int, railW: androidx.compose.ui.unit.Dp,
-                            nowMs: Long, onTune: suspend (ScheduledProgram) -> Unit) {
+                            nowMs: Long, onTune: suspend (ScheduledProgram) -> Unit,
+                            onDelete: (suspend () -> Unit)? = null) {
     val accent = colorFromHex(channel.accentHex) ?: MaterialTheme.colorScheme.primary
     val scope = androidx.compose.runtime.rememberCoroutineScope()
     Row(
         Modifier.fillMaxWidth().padding(horizontal = 8.dp, vertical = 2.dp),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
-        // Rail: accent chip + name.
+        // Rail: accent chip + name; long-press a user channel's rail to delete.
         Column(
-            Modifier.width(railW).height(64.dp),
+            Modifier.width(railW).height(64.dp)
+                .then(if (onDelete != null) {
+                    Modifier.combinedClickable(
+                        onClick = {},
+                        onLongClick = { scope.launch { onDelete() } },
+                    )
+                } else Modifier),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
@@ -324,6 +357,81 @@ private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
                     val x = (((visStart - startMs) / 60_000f) * pxPerMin).toInt()
                     p.placeRelative(x, 0)
                 }
+            }
+        }
+    }
+}
+
+
+/** Create a channel: genre / type / era filters (the Apple apps' form). */
+@Composable
+private fun CreateChannelDialog(container: AppContainer, onDone: () -> Unit) {
+    val scope = androidx.compose.runtime.rememberCoroutineScope()
+    var name by remember { mutableStateOf("") }
+    var genre by remember { mutableStateOf<String?>(null) }
+    var type by remember { mutableStateOf<String?>(null) }
+    var decade by remember { mutableStateOf<Int?>(null) }
+    val genres = listOf("Drama", "Comedy", "Crime", "Thriller", "Horror",
+                        "Western", "Science Fiction", "Romance", "Mystery")
+    val types = listOf("feature-film", "animation", "silent-film",
+                       "short-film", "newsreel", "tv-special")
+    val decades = (1900..2010 step 10).toList()
+    val autoName = listOfNotNull(decade?.let { "${'$'}{it}s" }, genre,
+        type?.replace('-', ' ')).joinToString(" ").ifEmpty { "My Channel" }
+
+    androidx.compose.material3.AlertDialog(
+        onDismissRequest = onDone,
+        title = { Text("Create a Channel") },
+        confirmButton = {
+            androidx.compose.material3.TextButton(
+                onClick = {
+                    scope.launch {
+                        container.userState.createUserChannel(
+                            name.trim().ifEmpty { autoName }, genre, type, decade)
+                        onDone()
+                    }
+                },
+                enabled = genre != null || type != null || decade != null,
+            ) { Text("Create") }
+        },
+        dismissButton = {
+            androidx.compose.material3.TextButton(onClick = onDone) { Text("Cancel") }
+        },
+        text = {
+            Column {
+                PickRow("Genre", genres, genre) { genre = it }
+                PickRow("Type", types.map { it.replace('-', ' ') }, type?.replace('-', ' ')) { sel ->
+                    type = sel?.replace(' ', '-')
+                }
+                PickRow("Era", decades.map { "${'$'}{it}s" }, decade?.let { "${'$'}{it}s" }) { sel ->
+                    decade = sel?.removeSuffix("s")?.toIntOrNull()
+                }
+                androidx.compose.material3.OutlinedTextField(
+                    value = name, onValueChange = { name = it },
+                    label = { Text(autoName) }, singleLine = true,
+                )
+            }
+        },
+    )
+}
+
+/** One-line horizontal chip picker (tap again to clear). */
+@Composable
+private fun PickRow(label: String, options: List<String>, selected: String?,
+                    onPick: (String?) -> Unit) {
+    Column(Modifier.padding(vertical = 4.dp)) {
+        Text(label, style = MaterialTheme.typography.labelMedium,
+             color = MaterialTheme.colorScheme.onSurfaceVariant)
+        androidx.compose.foundation.lazy.LazyRow(
+            horizontalArrangement = Arrangement.spacedBy(6.dp),
+        ) {
+            items(options.size, key = { options[it] }) { i ->
+                val opt = options[i]
+                androidx.compose.material3.FilterChip(
+                    selected = selected == opt,
+                    onClick = { onPick(if (selected == opt) null else opt) },
+                    label = { Text(opt) },
+                )
             }
         }
     }

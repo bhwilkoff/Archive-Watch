@@ -29,6 +29,7 @@ val syncSharedAssets = tasks.register<SyncSharedAssets>("syncSharedAssets") {
     sources.from(
         File(repoRoot, "ArchiveWatch/ArchiveWatch/seed.sqlite"),
         File(repoRoot, "featured.json"),
+        File(repoRoot, "ArchiveWatch/ArchiveWatch/collection_metadata.json"),
     )
 }
 

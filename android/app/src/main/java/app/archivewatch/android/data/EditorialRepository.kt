@@ -24,7 +24,20 @@ class EditorialRepository(
     }
 
     @Volatile private var featuredCache: Featured? = null
+    @Volatile private var collectionsCache: List<CollectionMeta>? = null
     private val seriesCache = ConcurrentHashMap<String, SeriesDetail>()
+
+    /** Curated collections (collection_metadata.json, bundled at build). */
+    suspend fun collections(): List<CollectionMeta> {
+        collectionsCache?.let { return it }
+        return try {
+            val text = context.assets.open("collection_metadata.json")
+                .bufferedReader().readText()
+            json.decodeFromString<CollectionMetadataFile>(text).collections
+        } catch (_: Throwable) {
+            emptyList()
+        }.also { collectionsCache = it }
+    }
 
     suspend fun featured(): Featured? {
         featuredCache?.let { return it }

@@ -25,7 +25,7 @@
     let dbp = null;
     function open() {
       dbp ??= new Promise((res, rej) => {
-        const req = indexedDB.open('archivewatch', 2);
+        const req = indexedDB.open('archivewatch', 3);
         req.onupgradeneeded = () => {
           const db = req.result;
           if (!db.objectStoreNames.contains('favorites')) {
@@ -36,6 +36,9 @@
           }
           if (!db.objectStoreNames.contains('playlists')) {
             db.createObjectStore('playlists', { keyPath: 'id' });
+          }
+          if (!db.objectStoreNames.contains('channels')) {
+            db.createObjectStore('channels', { keyPath: 'id' });
           }
         };
         req.onsuccess = () => res(req.result);
@@ -77,6 +80,9 @@
         tx('progress', 'readwrite',
           s => s.put({ id, position, duration, title, at: Date.now() })),
       playlists: () => getAll('playlists'),
+      userChannels: () => getAll('channels'),
+      saveUserChannel: ch => tx('channels', 'readwrite', s => s.put(ch)),
+      deleteUserChannel: id => tx('channels', 'readwrite', s => s.delete(id)),
       savePlaylist: pl =>
         tx('playlists', 'readwrite', s => s.put({ ...pl, modifiedAt: Date.now() })),
       deletePlaylist: id => tx('playlists', 'readwrite', s => s.delete(id)),
@@ -108,6 +114,7 @@
       const idx = await idxR.json();
       this.rows = idx.items || [];
       this.shelves = idx.shelves || {};
+      this.collections = idx.collections || {};
       this.rows.forEach(r => this.byID.set(r[0], r));
       if (featR.ok) this.featured = await featR.json();
     },
@@ -321,7 +328,8 @@
    * Router — URL-driven state (the web superpower)                    *
    * ---------------------------------------------------------------- */
   const VIEWS = ['home', 'browse', 'search', 'library', 'item', 'series', 'about',
-                 'surprise', 'playlist', 'channels'];
+                 'surprise', 'playlist', 'channels', 'collections', 'collection',
+                 'cartoons'];
   let browseObserver = null;   // disconnected on every view switch
 
   function route() {
@@ -345,6 +353,9 @@
     if (name === 'surprise') Surprise.render();
     if (name === 'playlist') PlaylistView.render(decodeURIComponent(seg[1] || ''));
     if (name === 'channels') ChannelsView.render();
+    if (name === 'collections') Collections.renderList();
+    if (name === 'collection') Collections.renderOne(decodeURIComponent(seg[1] || ''));
+    if (name === 'cartoons') Cartoons.render();
   }
 
   function showView(name) {
@@ -782,6 +793,92 @@
   };
 
   /* ---------------------------------------------------------------- *
+   * Collections — curated Archive collections (PARITY §3)             *
+   * ---------------------------------------------------------------- */
+  const Collections = {
+    meta: null,
+    async loadMeta() {
+      if (this.meta) return this.meta;
+      try {
+        const r = await fetch(new URL('ArchiveWatch/ArchiveWatch/collection_metadata.json',
+                                      PAGES_ROOT));
+        this.meta = (await r.json()).collections || [];
+      } catch { this.meta = []; }
+      return this.meta;
+    },
+    async renderList() {
+      const metas = await this.loadMeta();
+      const host = $('collections-list');
+      const available = metas.filter(m => (Data.collections[m.id] || []).length >= 6);
+      host.replaceChildren(...available.map(m => {
+        const a = document.createElement('a');
+        a.className = 'coll-card';
+        a.href = `#/collection/${encodeURIComponent(m.id)}`;
+        a.style.setProperty('--coll-accent', m.accent || '#555');
+        const t = document.createElement('strong'); t.textContent = m.title;
+        const b = document.createElement('span'); b.textContent = m.blurb || '';
+        const n = document.createElement('em');
+        n.textContent = `${(Data.collections[m.id] || []).length} titles`;
+        a.append(t, b, n);
+        return a;
+      }));
+    },
+    async renderOne(id) {
+      const metas = await this.loadMeta();
+      const m = metas.find(x => x.id === id);
+      $('collection-title').textContent = m?.title || id;
+      $('collection-blurb').textContent = m?.blurb || '';
+      const rows = (Data.collections[id] || [])
+        .map(aid => Data.byID.get(aid)).filter(Boolean);
+      fillGrid($('collection-grid'), rows);
+    },
+  };
+
+  /* ---------------------------------------------------------------- *
+   * Cartoon Mode — kid-leaning animation surface (PARITY §5)          *
+   * ---------------------------------------------------------------- */
+  const CARTOON_CHARACTERS = [
+    ['Popeye', ['popeye']], ['Betty Boop', ['betty boop']],
+    ['Porky Pig', ['porky']], ['Mr. Magoo', ['magoo']],
+    ['Looney Tunes', ['looney']], ['Felix the Cat', ['felix']],
+    ['Daffy Duck', ['daffy']], ['Bosko', ['bosko']],
+    ['Mighty Mouse', ['mighty mouse']], ['Casper', ['casper']],
+    ['Superman', ['superman']], ['Little Lulu', ['little lulu']],
+  ];
+
+  const Cartoons = {
+    rendered: false,
+    async render() {
+      if (this.rendered) return;
+      this.rendered = true;
+      // Marathon plays the channel-pools cartoon pool (color-emphasized,
+      // URLs baked) — the web twin of the apps' marathon lineup.
+      $('cartoons-marathon').onclick = async () => {
+        const pools = await ChannelsView.loadPools();
+        const cartoon = pools?.channels?.find(c => c.id === 'cartoon');
+        if (!cartoon) return;
+        const queue = shuffle(cartoon.programs).map(p =>
+          ({ id: p[0], title: `${p[1]} · Cartoon Marathon`, url: p[3] }));
+        if (queue.length) Player.start({ ...queue[0], queue, queueIndex: 0, persist: false });
+      };
+      const host = $('cartoons-shelves');
+      const animation = Data.rows.filter(r => r[3] === 'animation');
+      for (const [name, terms] of CARTOON_CHARACTERS) {
+        const rows = animation.filter(r =>
+          terms.some(t => r[1].toLowerCase().includes(t))).slice(0, 20);
+        if (rows.length < 4) continue;
+        const sec = document.createElement('section');
+        sec.className = 'shelf';
+        const h = document.createElement('h2'); h.textContent = name;
+        const rail = document.createElement('div'); rail.className = 'shelf-row';
+        rail.append(...rows.map(card));
+        sec.append(h, rail);
+        host.append(sec);
+      }
+    },
+  };
+
+  /* ---------------------------------------------------------------- *
    * Channels — the EPG guide (PARITY §5, the apps' date-seeded grid)  *
    *                                                                   *
    * Pools come precomputed (channel-pools.json, build_channel_pools)  *
@@ -864,22 +961,28 @@
     data: null,
     built: false,
 
+    async loadPools() {
+      if (!this.data) {
+        const r = await fetch(new URL('channel-pools.json', PAGES_ROOT),
+                              { signal: AbortSignal.timeout(15000) });
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        this.data = await r.json();
+      }
+      return this.data;
+    },
+
     async render() {
       const host = $('epg');
       if (this.built) return;
-      if (!this.data) {
-        try {
-          const r = await fetch(new URL('channel-pools.json', PAGES_ROOT),
-                                { signal: AbortSignal.timeout(15000) });
-          if (!r.ok) throw new Error(`HTTP ${r.status}`);
-          this.data = await r.json();
-        } catch (err) {
-          $('channels-error').textContent =
-            `The channel guide couldn't load (${err.message}).`;
-          $('channels-error').hidden = false;
-          return;
-        }
+      try {
+        await this.loadPools();
+      } catch (err) {
+        $('channels-error').textContent =
+          `The channel guide couldn't load (${err.message}).`;
+        $('channels-error').hidden = false;
+        return;
       }
+      $('channels-create').onclick = () => this.createDialog();
       this.built = true;
       const now = new Date();
       const anchor = Scheduler.dayAnchor(now);
@@ -909,7 +1012,22 @@
       ruler.append(ticksHost);
       host.replaceChildren(ruler);
 
-      for (const ch of this.data.channels) {
+      // User channels first (type/era filters over the index — the web can't
+      // filter by genre; the create form says so). Program entries resolve
+      // their playback URLs lazily at tune time via the detail shards.
+      const userChannels = await DB.userChannels().catch(() => []);
+      const guideChannels = [
+        ...userChannels.map(uc => ({
+          id: `user-${uc.id}`, title: uc.name, accent: '#0047FF', user: true,
+          programs: Data.rows
+            .filter(r => (!uc.type || r[3] === uc.type) &&
+                         (!uc.decade || (r[2] && Math.floor(r[2] / 10) * 10 === uc.decade)))
+            .slice(0, 150)
+            .map(r => [r[0], r[1], null, null, r[3]]),
+        })).filter(c => c.programs.length >= 5),
+        ...this.data.channels,
+      ];
+      for (const ch of guideChannels) {
         const slots = Scheduler.schedule(ch.id, ch.programs, now);
         const row = document.createElement('div');
         row.className = 'epg-row';
@@ -918,10 +1036,20 @@
         rail.style.setProperty('--ch-accent', ch.accent);
         const dot = document.createElement('span');
         dot.className = 'epg-dot';
-        dot.textContent = CHANNEL_ICONS[ch.id] || '📺';
+        dot.textContent = ch.user ? '📡' : (CHANNEL_ICONS[ch.id] || '📺');
         const name = document.createElement('span');
         name.textContent = ch.title;
         rail.append(dot, name);
+        if (ch.user) {
+          rail.style.cursor = 'pointer';
+          rail.title = 'Tap to delete this channel';
+          rail.onclick = async () => {
+            if (!confirm(`Delete the channel “${ch.title}”?`)) return;
+            await DB.deleteUserChannel(ch.id.slice(5)).catch(() => {});
+            this.built = false;
+            this.render();
+          };
+        }
         const strip = document.createElement('div');
         strip.className = 'epg-strip';
         strip.style.width = `${stripW}px`;
@@ -967,7 +1095,7 @@
     /** Tune in: lineup from the tapped slot, commercials woven, join live
         slots in progress. Channel playback never persists resume progress
         (the apps' rule). */
-    tune(ch, slots, slot) {
+    async tune(ch, slots, slot) {
       const idx = slots.indexOf(slot);
       const lineup = slots.slice(idx);
       const ads = shuffle(this.data.commercials || []);
@@ -979,10 +1107,43 @@
           queue.push({ id: ad[0], title: `${ad[1]} · Commercial break`, url: ad[3] });
         }
       });
+      // User-channel entries carry no baked URL — resolve the first few from
+      // the detail shards (shared shard fetches are cached); unplayable items
+      // drop out of the queue.
+      const unresolved = queue.filter(q => !q.url).slice(0, 12);
+      if (unresolved.length) {
+        await Promise.all(unresolved.map(async q => {
+          const det = await Details.get(q.id).catch(() => null);
+          q.url = det?.downloadURL || null;
+        }));
+      }
+      const playable = queue.filter(q => q.url);
+      if (!playable.length) return;
       const now = Date.now();
-      const startAt = (slot.start <= now && slot.end > now)
+      const startAt = (slot.start <= now && slot.end > now && playable[0].id === slot.prog[0])
         ? Math.max(0, (now - slot.start) / 1000) : 0;
-      Player.start({ ...queue[0], queue, queueIndex: 0, startAt, persist: false });
+      Player.start({ ...playable[0], queue: playable, queueIndex: 0, startAt, persist: false });
+    },
+
+    /** Create-channel dialog: type + era only (the web index has no genre —
+        the form says so; the apps' genre channels stay preset-only here). */
+    async createDialog() {
+      const type = prompt(
+        'Channel type — one of: feature-film, silent-film, animation, '
+        + 'short-film, newsreel, tv-special (blank = any)') || '';
+      const decadeRaw = prompt('Era decade, e.g. 1950 (blank = any)') || '';
+      const decade = Number(decadeRaw) || null;
+      if (!type && !decade) return;
+      const name = prompt('Channel name',
+        [decade ? `${decade}s` : '', type.replace(/-/g, ' ')].filter(Boolean).join(' ')
+        || 'My Channel');
+      if (!name) return;
+      await DB.saveUserChannel({
+        id: Date.now().toString(36), name: name.trim(),
+        type: type.trim() || null, decade, createdAt: Date.now(),
+      }).catch(() => {});
+      this.built = false;
+      this.render();
     },
   };
 
@@ -1228,6 +1389,17 @@
       $('series-error').hidden = true;
       $('series-loading').hidden = false;
       $('series-episodes').replaceChildren();
+      $('series-share').onclick = async () => {
+        const url = `${PAGES_ROOT}series/${encodeURIComponent(slug)}`;
+        try {
+          if (navigator.share) { await navigator.share({ title: $('series-title').textContent, url }); return; }
+        } catch { /* fall through */ }
+        try {
+          await navigator.clipboard.writeText(url);
+          $('series-share').textContent = 'Link copied ✓';
+          setTimeout(() => { $('series-share').textContent = 'Share'; }, 1600);
+        } catch { /* no clipboard */ }
+      };
 
       let series;
       try {
@@ -1380,7 +1552,34 @@
       }
 
       $('player').showModal();
+      video.playbackRate = Number(localStorage.getItem('aw_rate') || 1);
+      $('player-rate').value = String(video.playbackRate);
       try { await video.play(); } catch { /* user gesture rules; controls remain */ }
+
+      // Lock-screen / media-key controls (the MediaSession parity row).
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title, artist: 'Archive Watch',
+        });
+        navigator.mediaSession.setActionHandler('play', () => video.play());
+        navigator.mediaSession.setActionHandler('pause', () => video.pause());
+        navigator.mediaSession.setActionHandler('seekbackward',
+          () => { video.currentTime = Math.max(0, video.currentTime - 10); });
+        navigator.mediaSession.setActionHandler('seekforward',
+          () => { video.currentTime += 10; });
+        const hasNext = queue && queueIndex + 1 < queue.length;
+        navigator.mediaSession.setActionHandler('nexttrack', hasNext ? () => {
+          this.persist();
+          this.start({ ...queue[queueIndex + 1], queue,
+                       queueIndex: queueIndex + 1, persist });
+        } : null);
+        navigator.mediaSession.setActionHandler('previoustrack',
+          queue && queueIndex > 0 ? () => {
+            this.persist();
+            this.start({ ...queue[queueIndex - 1], queue,
+                         queueIndex: queueIndex - 1, persist });
+          } : null);
+      }
 
       clearInterval(this.saveTimer);
       this.saveTimer = setInterval(() => this.persist(), 10000);
@@ -1445,6 +1644,30 @@
   async function boot() {
     $('player-close').onclick = () => Player.close();
     $('player').addEventListener('cancel', e => { e.preventDefault(); Player.close(); });
+
+    // Playback speed (persisted) + Picture-in-Picture (Chrome and Safari APIs).
+    $('player-rate').onchange = () => {
+      const rate = Number($('player-rate').value) || 1;
+      $('video').playbackRate = rate;
+      localStorage.setItem('aw_rate', String(rate));
+    };
+    const video = $('video');
+    const pipSupported = document.pictureInPictureEnabled
+      || typeof video.webkitSetPresentationMode === 'function';
+    if (pipSupported) {
+      $('player-pip').hidden = false;
+      $('player-pip').onclick = () => {
+        if (typeof video.webkitSetPresentationMode === 'function') {
+          video.webkitSetPresentationMode(
+            video.webkitPresentationMode === 'picture-in-picture'
+              ? 'inline' : 'picture-in-picture');
+        } else if (document.pictureInPictureElement) {
+          document.exitPictureInPicture().catch(() => {});
+        } else {
+          video.requestPictureInPicture().catch(() => {});
+        }
+      };
+    }
 
     try {
       await Data.load();

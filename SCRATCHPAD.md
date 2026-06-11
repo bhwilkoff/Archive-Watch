@@ -233,6 +233,28 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-13 — Autonomous full-queue parity wave (web + Android)
+Owner: "Go ahead and do all of them autonomously." App 1.2.23 (b36);
+Android assembleDebug green; web JS-checked + headless-verified
+(collections, cartoons render).
+- **Web**: MediaSession (lock-screen/media-key play/pause/seek/next/prev),
+  PiP button (Chrome + Safari APIs), persisted playback-speed selector,
+  series-page Share; Collections (#/collections via the index's NEW
+  collections map — build_catalog_index schema 5, 26 curated collections);
+  Cartoon Mode (#/cartoons: character shelves + Marathon from the cartoon
+  channel pool); user channels (type/era form — index has no genre; IDB v3
+  'channels' store; lazy URL resolution via detail shards; rail tap
+  deletes). SW v10.
+- **Android**: media3-session MediaSession + subtitle button; Collections
+  (byCollection over item_collections + bundled collection_metadata.json);
+  Cartoon Mode (Surprise → Cartoons); cast tap → PersonScreen (FTS); user
+  channels (user.sqlite, chip-picker dialog, guide rows lead, long-press
+  deletes); static App Shortcuts (Surprise/Channels deep links).
+- **Deliberately deferred** (PARITY notes say why): Google Cast, Android
+  Activity-PiP, Glance widgets, web subtitles; OWNER-blocked: Drive OAuth
+  (sync W+A), Pages→Actions flip (web FTS → person browse/real search).
+
+
 ### 2026-06-12 (night) — Parity completeness audit + gap closures
 App 1.2.22 (b35); all three app builds green. Owner: "audit all features to
 ensure we have identified all of the items that should go in the parity

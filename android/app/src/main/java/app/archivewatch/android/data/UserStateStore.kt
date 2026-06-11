@@ -22,6 +22,15 @@ data class WatchProgress(
         get() = positionMs > 10_000 && durationMs > 0 && positionMs < durationMs * 95 / 100
 }
 
+data class UserChannelRec(
+    val id: String,
+    val name: String,
+    val genre: String?,
+    val contentType: String?,
+    val decade: Int?,
+    val createdAt: Long,
+)
+
 data class UserPlaylist(
     val id: String,
     val name: String,
@@ -58,6 +67,11 @@ class UserStateStore(context: Context) {
             "CREATE TABLE IF NOT EXISTS playlists (" +
                 "id TEXT PRIMARY KEY, name TEXT, ids TEXT, " +
                 "createdAt INTEGER, modifiedAt INTEGER)",
+        )
+        connection.execSQL(
+            "CREATE TABLE IF NOT EXISTS channels (" +
+                "id TEXT PRIMARY KEY, name TEXT, genre TEXT, " +
+                "contentType TEXT, decade INTEGER, createdAt INTEGER)",
         )
     }
 
@@ -170,6 +184,36 @@ class UserStateStore(context: Context) {
         query(
             "SELECT id FROM progress WHERE duration > 0 AND position >= duration * 95 / 100",
         ) { it.getText(0) }.toSet()
+    }
+
+    // --- user channels ---
+
+    suspend fun userChannels(): List<UserChannelRec> = dbCall {
+        query("SELECT id, name, genre, contentType, decade, createdAt FROM channels ORDER BY createdAt DESC") {
+            UserChannelRec(
+                id = it.getText(0), name = it.getText(1),
+                genre = if (it.isNull(2)) null else it.getText(2),
+                contentType = if (it.isNull(3)) null else it.getText(3),
+                decade = if (it.isNull(4)) null else it.getLong(4).toInt(),
+                createdAt = it.getLong(5),
+            )
+        }
+    }
+
+    suspend fun createUserChannel(name: String, genre: String?, contentType: String?, decade: Int?) {
+        val now = System.currentTimeMillis()
+        dbCall {
+            exec(
+                "INSERT OR REPLACE INTO channels (id, name, genre, contentType, decade, createdAt) VALUES (?, ?, ?, ?, ?, ?)",
+                listOf("uc-" + now.toString(36), name, genre, contentType, decade, now),
+            )
+        }
+        _changes.value += 1
+    }
+
+    suspend fun deleteUserChannel(id: String) {
+        dbCall { exec("DELETE FROM channels WHERE id = ?", listOf(id)) }
+        _changes.value += 1
     }
 
     // --- plumbing ---
