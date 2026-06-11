@@ -259,6 +259,15 @@ copyright."
 - Wired into discover-content.yml (wants step before ingest;
   wants_tmdb_pages dispatch input). Report: shared/editorial/
   wants_report.csv per run. DECISIONS 032 logged.
+- **First hunt (CI run 27373679696, same day): 223/600 wants matched on
+  archive.org → +216 new films ingested** (137 matched items had no
+  playable video; 547 resolver hits were items already held — the
+  ingest-level archiveID/imdb dedup is the real guard). ~2,300 wants
+  remain; the nightly run drains ~600.
+- CI caveat: WDQS 504s EVERY decade shard from GitHub runners (datacenter
+  IP throttling) — the wikidata-age feed effectively runs only from a
+  residential IP (like discover_loc); Wikipedia + TMDb feeds run fine in
+  CI. The locally-run age feed's 2,466 wants are committed in the queue.
 - Next ideas (not built): --retry-unresolved sweep as new uploads appear;
   more curated feeds (national archives, AFI) as additional sources in the
   same tool.
