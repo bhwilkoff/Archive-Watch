@@ -233,6 +233,30 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-12 (night) — Parity completeness audit + gap closures
+App 1.2.22 (b35); all three app builds green. Owner: "audit all features to
+ensure we have identified all of the items that should go in the parity
+matrix."
+- **Audit found 5 missing rows** (added): Share titles/series; Commercial-
+  break controls; Search result filters; Cast → person filmography; Now
+  Playing / lock-screen media controls (MediaSession gap on web+Android).
+- **Audit found 4 wrong/stale cells** (corrected): user-channel "(synced)"
+  claim was FALSE (AWSync never carried channels; ch: tombstones never
+  applied) — now REAL: AWSync gains a `channels` blob (same record type, no
+  new schema deploy needed) + ch: tombstone application + UserChannel
+  merge, both Apple platforms; Android autoplay = toggle-only (🚧, engine
+  wiring pending); web director shelves blocked on index data; web
+  hide-watched blocked on a settings surface.
+- **Gap closures shipped**: iOS Channels commercial-breaks toolbar toggle
+  (AppStore_iOS setting; weave gated — was unconditional; per-ad length cap
+  stays tvOS-only, noted); Android Home director shelves (topDirectors/
+  byDirector were already in CatalogDatabase).
+- Remaining ⏳ queue (by size): Cartoon Mode W+A; Collections W+A; user
+  channels W+A; MediaSession W+A; subtitles/speed W+A; PiP/Cast; Android
+  cast-tap person browse; widgets/App Shortcuts; OWNER-blocked: Drive OAuth
+  (sync W+A), Pages→Actions flip (web FTS5 → person browse, real search).
+
+
 ### 2026-06-12 (later) — Channels everywhere: iOS true EPG grid + Android & Web ports
 App 1.2.21 (b34). Owner: "both the channels port to the other platforms and
 a rework of the channels view on iOS... the true grid that is essential for

@@ -71,7 +71,7 @@ this table in the same change set; cross-link the platform design doc.
 | Category tiles | ✅ | ✅ tile row → filtered grid | ✅ accent tiles → `#/browse?type=` | ✅ tile row → filtered grid | accent colors from `featured.json`; count-gated ≥30 everywhere |
 | Decade tiles | ✅ | ✅ era tiles + counts | ✅ era tiles + counts (last Home row) | ✅ era tiles + counts (last Home row) | |
 | Hidden Gems shelf | ✅ | ✅ | ✅ (popularity-tail designed art) | ✅ | shared query |
-| Director shelves | ✅ | ✅ | ⏳ | ⏳ | shared query |
+| Director shelves | ✅ | ✅ | ⏳ (index lacks director data) | ✅ | shared query |
 | Continue Watching | ✅ | ✅ | ✅ | ✅ | progress store (see §6) |
 | Modes row | ✅ | ➖ removed 2026-06-10 (Channels = tab; Surprise/Cartoon/PD via Home shuffle → Surprise grid) | ⏳ | ⏳ | links to §5 |
 | Public Domain Day section | ✅ | ✅ Home shelf + year-chip explorer | ✅ Home shelf | ✅ Home row | seasonal, shared |
@@ -86,6 +86,7 @@ this table in the same change set; cross-link the platform design doc.
 | Prev/next episode in player | ✅ | ✅ overlay capsule + binge auto-advance | ✅ season queue auto-advance on `ended` | ✅ Media3 queue (native next/prev + advance) | EpisodeQueue swaps next on end |
 | Collections landing + blurbs | ✅ | ✅ `CollectionMetadata` list → `CollectionGridView` | ⏳ | ⏳ | `collection_metadata.json` shared |
 | Full-text search (FTS5) | ✅ | ✅ `.searchable` + type/decade filter menu | 🚧 client title search over index (FTS5 upgrade = WEB-DESIGN §2.4) | ✅ debounced FTS5 `SearchBar` | same FTS5 index in `catalog.sqlite` |
+| Search result filters | ⏳ (Browse facets cover the verb) | ✅ type/decade `Menu` over FTS results | ⏳ | ⏳ | audit addition 2026-06-12 |
 
 ## 4. Detail + Playback
 
@@ -93,6 +94,9 @@ this table in the same change set; cross-link the platform design doc.
 |---|---|---|---|---|---|
 | Detail (backdrop, metadata, cast) | ✅ | ✅ framed 2:3 poster hero + tappable cast/crew → person filmography | ✅ poster + curated synopsis + cast/crew bubbles (catalog shards) | ✅ backdrop + cast row + favorite | shared item record; iOS person browse = `CatalogDB.byPerson` |
 | More Like This | ✅ | ✅ | ✅ (type + era ±15y, designed art) | ✅ | shared `related` query |
+| Cast → person filmography | ✅ PersonChip → FTS names browse | ✅ tappable bubbles → byPerson grid | ⏳ (blocked on FTS upgrade, WEB-DESIGN §2.5) | ⏳ (FTS available; next wave) | audit addition 2026-06-12 |
+| Share titles / series | ✅ ShareSheet + QR | ✅ ShareLink (item + series) | ✅ share menu + open-in-app (item; series page share ⏳) | ✅ ACTION_SEND (item) | archivewatch.org/item|series URLs (Decision 030) |
+| Now Playing / lock-screen media controls | ✅ externalMetadata (tvOS Info panel) | ✅ AVKit (lock screen + Control Center) | ⏳ MediaSession API | ⏳ Media3 MediaSession + notification | audit addition 2026-06-12 |
 | Video playback | ✅ AVPlayerVC | ✅ AVPlayerVC (reused) | ✅ HTML5 `<video>` in `<dialog>` | ✅ Media3 `PlayerView` | |
 | Resilient streaming | ✅ `ResilientStreamLoader` | ✅ reuse Swift loader | ✅ range-native + reconnect/reseek wrapper | ✅ OkHttp source + patient `LoadErrorHandlingPolicy` | Archive idle-reset resilience per platform |
 | Resume across launches | ✅ | ✅ `WatchProgress` (item + per-episode) | ✅ IndexedDB progress | ✅ user.sqlite (10s–95%) | progress store (§6) |
@@ -107,8 +111,9 @@ this table in the same change set; cross-link the platform design doc.
 |---|---|---|---|---|---|
 | Surprise / random actions | ✅ | ✅ Surprise grid (11 tiles, re-roll on tap) | ✅ `#/surprise` re-roll grid (topnav) | ✅ Surprise grid (Home shuffle → re-roll) | shared random queries |
 | Channels (EPG guide) | ✅ proportional grid | ✅ proportional touch EPG (pinned ruler, window paging) | ✅ sticky-rail/ruler CSS listing (`#/channels`, pools from `channel-pools.json`, JS scheduler) | ✅ Compose proportional guide (Channels tab, Kotlin scheduler) | date-seeded `ChannelScheduler` ported per platform; 6 AM local broadcast day everywhere |
-| Create / user channels | ✅ | ✅ Form sheet + swipe-delete (synced) | ⏳ | ⏳ | filter spec shared |
+| Create / user channels | ✅ synced | ✅ Form sheet + swipe-delete, synced | ⏳ | ⏳ | AWSync `channels` blob (2026-06-12 — the earlier "synced" claim was aspirational; now real) |
 | Cartoon / Kids mode | ✅ | ✅ characters + themes + marathon | ⏳ | ⏳ | color/B&W flags shared |
+| Commercial-break controls (on/off + length) | ✅ guide header pills + Settings | ✅ guide toolbar toggle (length cap tvOS-only) | ⏳ (weave always on) | ⏳ (weave always on) | audit addition 2026-06-12; #89 weave itself ships everywhere |
 | Party Play (muted) | ✅ | 🔮 (iPad-leaning) | ⏳ | 🔮 (tablet-leaning) | ambient mode; phone de-emphasized |
 | Cover-art screensaver | ✅ + idle trigger | 🔮 ambient (iPad) | ⏳ ambient (desktop) | 🔮 ambient (tablet) | idle auto-trigger is a 10-foot/lean-back idiom |
 | VHS effect overlay | ✅ Metal | 🔮 Metal (reuse) | 🔮 WebGL/CSS | 🔮 AGSL `RenderEffect` | optional polish; per-platform shader |
@@ -119,7 +124,7 @@ this table in the same change set; cross-link the platform design doc.
 |---|---|---|---|---|---|
 | Favorites | ✅ | ✅ Detail heart + Library | ✅ heart + Library (IndexedDB) | ✅ | local store per platform |
 | Playlists | ✅ | ✅ add/create sheet + swipe-delete | ✅ IndexedDB + dialog + `#/playlist/{id}` | ✅ user.sqlite + dialog + Library tab | |
-| Watched / hide-watched | ✅ | ✅ Watched tab + hide-watched toggle | ⏳ | ✅ hide-watched Settings toggle (Home filter) | |
+| Watched / hide-watched | ✅ | ✅ Watched tab + hide-watched toggle | ⏳ (needs a web settings surface) | ✅ hide-watched Settings toggle (Home filter) | |
 | Continue Watching progress | ✅ | ✅ | ✅ | ✅ | |
 | Local persistence (offline-first) | ✅ SwiftData | ✅ SwiftData (reuse) | ✅ IndexedDB | ✅ user.sqlite + DataStore | |
 | Per-ecosystem sync (own cloud) | ✅ CloudKit | ✅ CloudKit (query-free AWSync records; owner-verified iPhone↔Apple TV 2026-06-11 after Production schema deploy) | ⏳ Google Drive App Data (web↔web) | ⏳ Google Drive App Data (device↔device) | Decided: each island on the user's own free cloud, no backend (plan §6) |
@@ -131,7 +136,7 @@ this table in the same change set; cross-link the platform design doc.
 |---|---|---|---|---|---|
 | Mature-content filter (default ON) | ✅ | ✅ Settings toggle (cog → sheet) | n/a (index pre-filtered upstream) | ✅ Settings toggle | `isAdult` flag baked into catalog (Decision 012/adult pass) |
 | Category visibility toggles | ✅ | ✅ | ⏳ | ⏳ | |
-| Autoplay/playback options | ✅ | ✅ autoplay-next picker | ⏳ | ⏳ | |
+| Autoplay/playback options | ✅ | ✅ autoplay-next picker | ⏳ | 🚧 toggle shipped; engine wiring pending | |
 | TMDb attribution (required) | ✅ | ✅ verbatim notice | ✅ verbatim notice (#/about) | ✅ verbatim notice | Decision 007 — verbatim notice all platforms |
 | Donate to Internet Archive | ✅ | ✅ | ✅ | ✅ | Decision 010 |
 | Sign-in (sync gate, optional) | ✅ Sign in w/ Apple | ✅ Sign in w/ Apple (Settings → Account & Sync) | ⏳ Sign in w/ Google (Drive App Data) | ⏳ Sign in w/ Google (Drive App Data) | only gates sync; browse/play always work offline-first |

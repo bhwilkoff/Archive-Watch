@@ -51,6 +51,15 @@ struct ChannelsView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    store.channelCommercialBreaks.toggle()
+                } label: {
+                    Image(systemName: store.channelCommercialBreaks ? "tv.fill" : "tv.slash")
+                        .accessibilityLabel(store.channelCommercialBreaks
+                            ? "Commercial breaks on" : "Commercial breaks off")
+                }
+            }
+            ToolbarItem(placement: .topBarTrailing) {
                 Button { showCreate = true } label: {
                     Image(systemName: "plus").accessibilityLabel("Create channel")
                 }
@@ -140,9 +149,9 @@ struct ChannelsView: View {
         playing = ChannelLineup(items: weaveCommercials(into: Array(programs)), startOffset: offset)
     }
 
-    /// #89: drop a vintage PD commercial between programs.
+    /// #89: drop a vintage PD commercial between programs (gated by setting).
     private func weaveCommercials(into programs: [Catalog.Item]) -> [Catalog.Item] {
-        guard programs.count > 1 else { return programs }
+        guard store.channelCommercialBreaks, programs.count > 1 else { return programs }
         let ads = store.randomCommercials(limit: 60).filter { $0.videoURLParsed != nil }
         guard !ads.isEmpty else { return programs }
         var out: [Catalog.Item] = []

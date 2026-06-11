@@ -52,7 +52,7 @@ final class CloudKitSyncService {
 
     private static let recordType = "AWSync"
     private enum Blob: String, CaseIterable {
-        case tombstones, favorites, playlists, progress
+        case tombstones, favorites, playlists, progress, channels
         var recordID: CKRecord.ID { CKRecord.ID(recordName: rawValue) }
     }
 
@@ -73,6 +73,11 @@ final class CloudKitSyncService {
         var lastWatchedAt: Date; var seriesID: String?; var episodeTitle: String?
     }
     private struct TombstoneEntry: Codable { var key: String; var deletedAt: Date }
+    private struct ChannelEntry: Codable {
+        var id: String; var name: String
+        var genre: String?; var contentType: String?; var decade: Int?
+        var createdAt: Date
+    }
 
     // MARK: - Public API
 
@@ -102,12 +107,14 @@ final class CloudKitSyncService {
             let favs = mergeFavorites(context, decode(records[.favorites]!), tombs)
             let lists = mergePlaylists(context, decode(records[.playlists]!), tombs)
             let progress = mergeProgress(context, decode(records[.progress]!), tombs)
+            let channels = mergeChannels(context, decode(records[.channels]!), tombs)
             try context.save()
             // 3. Push the merged truth back.
             try await save(database, records[.tombstones]!, encode(tombs))
             try await save(database, records[.favorites]!, encode(favs))
             try await save(database, records[.playlists]!, encode(lists))
             try await save(database, records[.progress]!, encode(progress))
+            try await save(database, records[.channels]!, encode(channels))
             lastSyncAt = Date()
             lastError = nil
         } catch {
@@ -194,6 +201,7 @@ final class CloudKitSyncService {
         let favs = dict((try? ctx.fetch(FetchDescriptor<Favorite>())) ?? [], \.archiveID)
         let lists = dict((try? ctx.fetch(FetchDescriptor<Playlist>())) ?? [], \.id)
         let progress = dict((try? ctx.fetch(FetchDescriptor<WatchProgress>())) ?? [], \.archiveID)
+        let channels = dict((try? ctx.fetch(FetchDescriptor<UserChannel>())) ?? [], \.id)
 
         var surviving: [TombstoneEntry] = []
         for t in tombs {
@@ -212,8 +220,11 @@ final class CloudKitSyncService {
             case "wp":
                 itemTime = progress[id]?.lastWatchedAt
                 deleteLocal = { progress[id].map { ctx.delete($0) } }
+            case "ch":
+                itemTime = channels[id]?.createdAt
+                deleteLocal = { channels[id].map { ctx.delete($0) } }
             default:
-                surviving.append(t)   // unknown kind (e.g. "ch:") — carry along
+                surviving.append(t)   // unknown kind — carry along
                 continue
             }
             if let itemTime, itemTime > t.deletedAt {
@@ -312,6 +323,29 @@ final class CloudKitSyncService {
                                          seriesID: e.seriesID,
                                          episodeTitle: e.episodeTitle))
                 merged[e.archiveID] = e
+            }
+        }
+        return Array(merged.values)
+    }
+
+    private func mergeChannels(_ ctx: ModelContext, _ cloud: [ChannelEntry],
+                               _ tombs: [TombstoneEntry]) -> [ChannelEntry] {
+        let tombByKey = dictValues(tombs)
+        let local = dict((try? ctx.fetch(FetchDescriptor<UserChannel>())) ?? [], \.id)
+        var merged: [String: ChannelEntry] = [:]
+        for c in local.values {
+            merged[c.id] = ChannelEntry(id: c.id, name: c.name, genre: c.genre,
+                                        contentType: c.contentType, decade: c.decade,
+                                        createdAt: c.createdAt)
+        }
+        for e in cloud {
+            if let dead = tombByKey["ch:\(e.id)"], dead >= e.createdAt { continue }
+            if merged[e.id] == nil {
+                let uc = UserChannel(id: e.id, name: e.name, genre: e.genre,
+                                     contentType: e.contentType, decade: e.decade)
+                uc.createdAt = e.createdAt
+                ctx.insert(uc)
+                merged[e.id] = e
             }
         }
         return Array(merged.values)

@@ -71,6 +71,14 @@ final class AppStore {
         didSet { UserDefaults.standard.set(autoplayMode.rawValue, forKey: "autoplayMode") }
     }
 
+    // Channels: vintage commercials between programs (tvOS parity; the
+    // per-ad length CAP remains tvOS-only — see PARITY notes).
+    var channelCommercialBreaks: Bool = UserDefaults.standard.object(
+        forKey: "channelCommercialBreaks") as? Bool ?? true {
+        didSet { UserDefaults.standard.set(channelCommercialBreaks,
+                                           forKey: "channelCommercialBreaks") }
+    }
+
     // MARK: load
 
     func load() async {

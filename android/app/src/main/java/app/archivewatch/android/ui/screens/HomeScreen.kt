@@ -54,6 +54,7 @@ private data class HomePayload(
     val continueWatching: List<CatalogItem> = emptyList(),
     val shelves: List<Pair<String, List<CatalogItem>>> = emptyList(),
     val hiddenGems: List<CatalogItem> = emptyList(),
+    val directorShelves: List<Pair<String, List<CatalogItem>>> = emptyList(),
     val publicDomainYear: Int = 0,
     val publicDomainDay: List<CatalogItem> = emptyList(),
     val categories: List<app.archivewatch.android.data.FeaturedCategory> = emptyList(),
@@ -109,6 +110,10 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
             continueWatching = continueWatching,
             shelves = shelves,
             hiddenGems = db.hiddenGems(20).filter { it.archiveID !in watched },
+            directorShelves = db.topDirectors().mapNotNull { d ->
+                val films = db.byDirector(d).filter { it.archiveID !in watched }
+                if (films.size >= 6) d to films else null
+            },
             publicDomainYear = pdYear,
             publicDomainDay = db.browse(year = pdYear, limit = 24)
                 .filter { it.archiveID !in watched },
@@ -175,6 +180,13 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
                         subtitle = "Lesser-known finds worth a look",
                         onItem = { nav.openItem(it.archiveID, it.seriesID, it.contentType) },
                     )
+                }
+            }
+            payload.directorShelves.forEach { (director, films) ->
+                item(key = "dir-$director") {
+                    ShelfRow("Directed by $director", films, onItem = {
+                        nav.openItem(it.archiveID, it.seriesID, it.contentType)
+                    })
                 }
             }
             if (payload.publicDomainDay.isNotEmpty()) {
