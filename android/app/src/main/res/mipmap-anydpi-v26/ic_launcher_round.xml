@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Adaptive icon — mandatory since API 26 -->
+    <!-- The brand icon is the photographic 1902 Méliès still (the ONLY
+         icon — the illustrated vector was retired 2026-06-11). Full-bleed
+         bitmap foreground; the moon sits inside the safe zone. -->
     <background android:drawable="@color/brand_background"/>
-    <foreground android:drawable="@drawable/ic_launcher_foreground"/>
-    <!-- Monochrome layer for themed icons on Android 13+. Ship a
-         hand-tuned mask — auto-generation is lossy. -->
-    <monochrome android:drawable="@drawable/ic_launcher_foreground"/>
+    <foreground android:drawable="@mipmap/ic_launcher_foreground"/>
 </adaptive-icon>
