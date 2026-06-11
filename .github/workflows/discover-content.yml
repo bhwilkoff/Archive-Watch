@@ -116,7 +116,7 @@ jobs:
             --limit ${{ github.event.inputs.discover_limit || '8000' }} \
             | tee discover.log
 
-      - name: Discover PD wants (title-first: Wikipedia US-PD list + TMDb pre-cutoff + Wikidata age)
+      - name: Discover PD wants (title-first — Wikipedia US-PD list + TMDb pre-cutoff + Wikidata age)
         env:
           TMDB_BEARER_TOKEN: ${{ secrets.TMDB_BEARER_TOKEN }}
         run: |
