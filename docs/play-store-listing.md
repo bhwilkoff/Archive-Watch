@@ -36,7 +36,7 @@ Use archiveIDs that exist in the LIVE full DB (the IMDb dedup drops duplicate
 copies — seed-only ids spin; check with the catalog-db release asset).
 
 ## Identifiers / basics
-- Package `com.archivewatch.app` · versionName **1.2.24** · versionCode 1
+- Package `com.archivewatch.app` · versionName **1.2.24** · versionCode 2
 - minSdk 29 (Android 10) · targetSdk 36
 - Upload key: `~/keystores/archivewatch-upload.jks` (creds in
   `~/.gradle/gradle.properties` — NEVER in git)

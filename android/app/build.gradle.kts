@@ -55,7 +55,9 @@ android {
         applicationId = "com.archivewatch.app"
         minSdk = 29
         targetSdk = 36
-        versionCode = 1
+        // Play rejects ANY previously-uploaded versionCode — bump +1 before
+        // every Play upload, even if that upload was never released.
+        versionCode = 2
         // Marketing version tracks the Apple apps (AppVersion.xcconfig) so a
         // user report names one version family across platforms.
         versionName = "1.2.24"
