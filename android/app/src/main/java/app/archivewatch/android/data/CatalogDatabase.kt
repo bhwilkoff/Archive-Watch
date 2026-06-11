@@ -38,7 +38,17 @@ class CatalogDatabase private constructor(
         } catch (_: Throwable) {
             null
         }
+
+        /** Editorial demotion (featured.json `deprioritizedSeries`): these ids
+            sort LAST in TV lists — still searchable/playable, never the
+            marquee (iOS/tvOS parity). Set when featured.json decodes; static
+            so it survives the seed→full DB swap. */
+        var demotedIDs: Set<String> = emptySet()
     }
+
+    private val demoteOrder: String
+        get() = if (demotedIDs.isEmpty()) "" else
+            "(i.archiveID IN (${demotedIDs.joinToString(",") { "'${it.replace("'", "''")}'" }})) ASC, "
 
     fun close() {
         try { connection.close() } catch (_: Throwable) {}
@@ -103,9 +113,18 @@ class CatalogDatabase private constructor(
         val (where, binds) = browseWhere(contentType, decade, genre, year, homeOnly)
         val genreJoin = if (genre != null) " JOIN item_genres g ON g.archiveID = i.archiveID AND g.genre = ?" else ""
         val genreBind = if (genre != null) listOf(genre) else emptyList()
+        // Popular = demoted ids last, designed (professional) artwork first,
+        // then popularity; series cards have NULL popularityScore, so
+        // episodesCount breaks their ties (iOS/tvOS parity).
+        val order = if (sort == BrowseSort.POPULAR) {
+            demoteOrder +
+                "(i.hasRealArtwork = 1 AND COALESCE(i.artworkSource,'') != 'generated') DESC, " +
+                "COALESCE(i.popularityScore, 0) DESC, " +
+                "COALESCE(i.episodesCount, 0) DESC, i.imdbVotes DESC"
+        } else sort.sql
         return items(
             "SELECT j.json FROM items i$genreJoin JOIN item_json j ON j.archiveID = i.archiveID" +
-                " WHERE $where ORDER BY ${sort.sql} LIMIT ? OFFSET ?",
+                " WHERE $where ORDER BY $order LIMIT ? OFFSET ?",
             genreBind + binds + listOf(limit, offset),
         )
     }
@@ -135,8 +154,18 @@ class CatalogDatabase private constructor(
         homeOnly: Boolean,
     ): Pair<String, List<Any?>> {
         val binds = mutableListOf<Any?>()
-        val sb = StringBuilder("i.contentType != 'tv-series'")
-        if (contentType != null) { sb.append(" AND i.contentType = ?"); binds.add(contentType) }
+        // An explicit tv-series request browses the SERIES CARDS (poster-gated:
+        // a poster-less card in a curated category grid reads as broken);
+        // otherwise series cards are excluded. The old unconditional exclusion
+        // contradicted the explicit filter and returned zero rows — the same
+        // bug that emptied Classic TV on iOS/tvOS (fixed there 2026-06-11).
+        val sb = if (contentType == "tv-series") {
+            StringBuilder("i.contentType = 'tv-series' AND i.hasRealArtwork = 1")
+        } else {
+            val b = StringBuilder("i.contentType != 'tv-series'")
+            if (contentType != null) { b.append(" AND i.contentType = ?"); binds.add(contentType) }
+            b
+        }
         if (decade != null) { sb.append(" AND i.decade = ?"); binds.add(decade) }
         if (year != null) { sb.append(" AND i.year = ?"); binds.add(year) }
         sb.append(adultAnd).append(typeAnd)
@@ -177,7 +206,9 @@ class CatalogDatabase private constructor(
 
     suspend fun seriesCards(limit: Int = 500): List<CatalogItem> = items(
         "$itemSelect WHERE i.contentType = 'tv-series'$adultAnd$typeAnd" +
-            " ORDER BY i.episodesCount DESC LIMIT ?",
+            " ORDER BY $demoteOrder" +
+            "(i.hasRealArtwork = 1 AND COALESCE(i.artworkSource,'') != 'generated') DESC," +
+            " i.episodesCount DESC LIMIT ?",
         listOf(limit),
     )
 

@@ -12,7 +12,7 @@
 - ✅ **Shipped** · 🚧 **In progress** · ⏳ **Planned (committed)** · 🔮 **Future (agreed, no date)** · 🚫 **Out of scope (with reason)** · n/a **platform-inapplicable**
 
 > **Android Phase P4 v1 spine (2026-06-09): SHIPPED** — native Kotlin + Compose M3
-> (`android/`, applicationId `app.archivewatch.android`): contract-compliant data
+> (`android/`, applicationId `com.archivewatch.app`): contract-compliant data
 > layer (seed → .zz download/inflate/swap via BundledSQLiteDriver FTS5), Home /
 > Browse / Search / Detail / SeriesDetail / Media3 player (resilient
 > LoadErrorHandlingPolicy) / Library / Settings, deep links. assembleDebug green +
@@ -86,7 +86,7 @@ this table in the same change set; cross-link the platform design doc.
 | Prev/next episode in player | ✅ | ✅ overlay capsule + binge auto-advance | ✅ season queue auto-advance on `ended` | ✅ Media3 queue (native next/prev + advance) | EpisodeQueue swaps next on end |
 | Collections landing + blurbs | ✅ | ✅ `CollectionMetadata` list → `CollectionGridView` | ✅ `#/collections` (index collections map, schema 5) | ✅ Browse → Collections (item_collections query) | `collection_metadata.json` shared |
 | Full-text search (FTS5) | ✅ | ✅ `.searchable` + type/decade filter menu | 🚧 client title search over index (FTS5 upgrade = WEB-DESIGN §2.4) | ✅ debounced FTS5 `SearchBar` | same FTS5 index in `catalog.sqlite` |
-| Search result filters | ⏳ (Browse facets cover the verb) | ✅ type/decade `Menu` over FTS results | ⏳ | ⏳ | audit addition 2026-06-12 |
+| Search result filters | ⏳ (Browse facets cover the verb) | ✅ type/decade `Menu` over FTS results | ⏳ | ✅ type/decade chips over FTS results (facets present in results only) | audit addition 2026-06-12 |
 
 ## 4. Detail + Playback
 

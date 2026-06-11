@@ -233,6 +233,29 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-14 (later) — Android polish: channel icons, search filters, designed-art parity
+Owner: "add the correct icons for channels interface on Android and
+filtering on the search tab as well. Also, can you apply the same
+poster/title filtering on Android that we do for iOS (only professional
+posters, etc.)" All emulator-verified (release build).
+- **Channels rail icons**: Material twins of the iOS preset SF Symbols
+  (TheaterComedy/Mood/Search/Bolt/Nightlight/Landscape/Science/Movie/
+  Brush/Newspaper/Public/Tv; user channels = Star), white on the accent
+  chip.
+- **Search filters**: type/decade FilterChips + dropdowns over FTS results
+  (only facets PRESENT in the results are offered; active chip shows ✕ to
+  clear) — iOS Search-filter parity.
+- **Designed-art/browse parity (CatalogDatabase)**: POPULAR sort is now
+  demoted-last + designed-art-first + popularity + episodesCount (the iOS
+  CatalogDB order verbatim); browseWhere got the explicit tv-series branch
+  (series cards, hasRealArtwork-gated) — the contradictory WHERE meant
+  Android Home NEVER showed the Classic TV tile (count=0 → gated out);
+  seriesCards orders demoted-last + designed-first; featured.json
+  deprioritizedSeries now decodes into CatalogDatabase.demotedIDs (SNL
+  no longer leads any TV list). Verified: Classic TV tile on Home opens a
+  poster-gated series grid; SNL absent from the top.
+
+
 ### 2026-06-14 — tvOS APPROVED; iOS submitted; Google Play prep complete
 tvOS 1.2.24 approved by App Review; owner submitted iOS/iPadOS same day
 (listing Part 2 + 7+7 screenshots, commit c1785da). Then full Play Console

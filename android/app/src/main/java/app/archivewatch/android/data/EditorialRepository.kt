@@ -48,7 +48,10 @@ class EditorialRepository(
                 }.getOrNull()
             fetched?.let {
                 runCatching { json.decodeFromString<Featured>(it) }.getOrNull()
-            }?.also { featuredCache = it }
+            }?.also {
+                featuredCache = it
+                CatalogDatabase.demotedIDs = it.deprioritizedSeries.toSet()
+            }
         }
     }
 

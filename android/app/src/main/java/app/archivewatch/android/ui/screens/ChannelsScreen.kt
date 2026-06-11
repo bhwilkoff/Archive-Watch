@@ -19,6 +19,19 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Bolt
+import androidx.compose.material.icons.filled.Brush
+import androidx.compose.material.icons.filled.Landscape
+import androidx.compose.material.icons.filled.Mood
+import androidx.compose.material.icons.filled.Movie
+import androidx.compose.material.icons.filled.Newspaper
+import androidx.compose.material.icons.filled.Nightlight
+import androidx.compose.material.icons.filled.Public
+import androidx.compose.material.icons.filled.Science
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.TheaterComedy
+import androidx.compose.material.icons.filled.Tv
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material3.Button
@@ -288,7 +301,14 @@ private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
         ) {
             Box(
                 Modifier.size(26.dp).clip(RoundedCornerShape(6.dp)).background(accent),
-            )
+                contentAlignment = Alignment.Center,
+            ) {
+                Icon(
+                    channelIcon(channel.id), contentDescription = null,
+                    tint = Color.White,
+                    modifier = Modifier.size(17.dp),
+                )
+            }
             Text(
                 channel.title,
                 style = MaterialTheme.typography.labelSmall,
@@ -435,4 +455,23 @@ private fun PickRow(label: String, options: List<String>, selected: String?,
             }
         }
     }
+}
+
+
+/** Per-channel rail glyph — the Material twin of the iOS preset SF Symbols
+    (Models/Channels.swift); user-created channels get a star. */
+private fun channelIcon(id: String): androidx.compose.ui.graphics.vector.ImageVector = when {
+    id.startsWith("user-") -> Icons.Default.Star
+    id == "drama" -> Icons.Default.TheaterComedy
+    id == "comedy" -> Icons.Default.Mood
+    id == "noir" -> Icons.Default.Search
+    id == "thrill" -> Icons.Default.Bolt
+    id == "horror" -> Icons.Default.Nightlight
+    id == "western" -> Icons.Default.Landscape
+    id == "scifi" -> Icons.Default.Science
+    id == "silent" -> Icons.Default.Movie
+    id == "cartoon" -> Icons.Default.Brush
+    id == "news" -> Icons.Default.Newspaper
+    id == "docs" -> Icons.Default.Public
+    else -> Icons.Default.Tv   // tv / tv-comedy / tv-drama / tv-western
 }

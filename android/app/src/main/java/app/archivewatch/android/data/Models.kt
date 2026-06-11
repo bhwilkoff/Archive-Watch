@@ -70,6 +70,9 @@ data class Featured(
     val version: Int = 1,
     val categories: List<FeaturedCategory> = emptyList(),
     val shelves: List<FeaturedShelf> = emptyList(),
+    // Editorial demotion (curate dashboard): these series ids sort LAST in
+    // every TV list — still searchable/playable, never the marquee.
+    val deprioritizedSeries: List<String> = emptyList(),
 )
 
 @Serializable
