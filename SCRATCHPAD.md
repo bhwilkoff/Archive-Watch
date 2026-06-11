@@ -268,6 +268,11 @@ copyright."
   IP throttling) — the wikidata-age feed effectively runs only from a
   residential IP (like discover_loc); Wikipedia + TMDb feeds run fine in
   CI. The locally-run age feed's 2,466 wants are committed in the queue.
+- **Full local drain (same day, owner ask)**: top-up +2,297 wants
+  (residential IP gets past the WDQS 504s), then resolver matched
+  1,542/4,164 (37%) → **+1,487 films ingested, 0 errors — catalog 40,189
+  items**. Remediated, rights-stamped, published; publish-db dispatched.
+  End state: 1,694 ingested / 2,999 unresolved / 40 no-video / 31 dup.
 - Next ideas (not built): --retry-unresolved sweep as new uploads appear;
   more curated feeds (national archives, AFI) as additional sources in the
   same tool.
