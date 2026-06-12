@@ -53,6 +53,7 @@ private data class HomePayload(
     val hero: List<CatalogItem> = emptyList(),
     val continueWatching: List<CatalogItem> = emptyList(),
     val shelves: List<Pair<String, List<CatalogItem>>> = emptyList(),
+    val topRated: List<CatalogItem> = emptyList(),
     val hiddenGems: List<CatalogItem> = emptyList(),
     val directorShelves: List<Pair<String, List<CatalogItem>>> = emptyList(),
     val publicDomainYear: Int = 0,
@@ -109,6 +110,7 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
             hero = hero,
             continueWatching = continueWatching,
             shelves = shelves,
+            topRated = db.topRated().filter { it.archiveID !in watched },
             hiddenGems = db.hiddenGems(20).filter { it.archiveID !in watched },
             directorShelves = db.topDirectors().mapNotNull { d ->
                 val films = db.byDirector(d).filter { it.archiveID !in watched }
@@ -170,6 +172,16 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
             payload.shelves.forEach { (title, items) ->
                 item(key = "shelf-$title") {
                     ShelfRow(title, items, onItem = { nav.openItem(it.archiveID, it.seriesID, it.contentType) })
+                }
+            }
+            if (payload.topRated.isNotEmpty()) {
+                item(key = "toprated") {
+                    ShelfRow(
+                        "Top Rated",
+                        payload.topRated,
+                        subtitle = "The crowd's verdict — IMDb favorites",
+                        onItem = { nav.openItem(it.archiveID, it.seriesID, it.contentType) },
+                    )
                 }
             }
             if (payload.hiddenGems.isNotEmpty()) {

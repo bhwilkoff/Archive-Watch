@@ -233,6 +233,25 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-15 (later) — Top Rated shelf + rating sort (tvOS/iOS/Android)
+Owner (after noticing the IMDb star on Detail): "we should allow for
+sorting by star rating as one of the filters on browse and it should be
+its own shelf on the Home Screen." App 1.2.25 (b38) / Android vc3; all
+three platforms build green.
+- **Shared CatalogDB**: Sort gains `.rating` (NULLS LAST + votes
+  tiebreak, demote-aware); new `topRated(limit:24, minVotes:1000)` —
+  home-gated, designed-art, votes floor so tiny-sample 9.8s can't outrank
+  classics. SQL-verified against the live DB: City Lights / M / Citizen
+  Kane / Sherlock Jr. / The Gold Rush lead.
+- **tvOS**: TopRatedShelf (above Hidden Gems on Home); Browse sort menu
+  "Top Rated" (TVShowsView switch made exhaustive — series sort by rating
+  then episode depth). **iOS**: Home shelf + Browse Picker option (cross-
+  shelf dedup includes the new shelf). **Android**: BrowseSort.RATING
+  (menu auto-includes), CatalogDatabase.topRated, Home row above Hidden
+  Gems. **Web**: ⏳ — catalog-index has no rating column; additive schema
+  bump then trivial (PARITY row notes it).
+
+
 ### 2026-06-15 — Title-first PD discovery: the inverted pipeline (Decision 032)
 All four store submissions are IN REVIEW (tvOS approved; iOS, Play internal
 track submitted). Owner: "use our multiple APIs ... to instead go the other

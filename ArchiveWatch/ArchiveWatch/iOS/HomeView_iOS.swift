@@ -19,6 +19,7 @@ struct HomeView: View {
     @State private var heroItems: [Catalog.Item] = []
     @State private var payloads: [ShelfPayload] = []
     @State private var gems: [Catalog.Item] = []
+    @State private var topRated: [Catalog.Item] = []
     @State private var pdItems: [Catalog.Item] = []
     @State private var directorShelves: [(name: String, items: [Catalog.Item])] = []
     @State private var showSettings = false
@@ -47,6 +48,10 @@ struct HomeView: View {
                 CategoryTilesRow()
                 ForEach(payloads.prefix(2)) { payload in
                     Shelf(title: payload.shelf.title, subtitle: payload.shelf.subtitle, items: payload.items)
+                }
+                if !topRated.isEmpty {
+                    Shelf(title: "Top Rated",
+                          subtitle: "The crowd's verdict — IMDb favorites", items: topRated)
                 }
                 if !gems.isEmpty {
                     Shelf(title: "Hidden Gems",
@@ -107,6 +112,8 @@ struct HomeView: View {
         store.completedArchiveIDs = Set(progress.filter(\.isComplete).map(\.archiveID))
         heroItems = loadHero()
         gems = store.filteringWatched(store.hiddenGems())
+        topRated = store.filteringWatched(
+            store.topRated().filter(\.hasProfessionalArtwork))
         pdItems = store.filteringWatched(
             store.browse(year: pdYear, sort: .popular, limit: 24).filter(\.hasDesignedArtwork))
         directorShelves = store.topDirectors().map { d in
@@ -136,6 +143,7 @@ struct HomeView: View {
     private func dedupedPayloads() -> [ShelfPayload] {
         var used = Set(heroItems.map(\.archiveID)).union(continueItems.map(\.archiveID))
             .union(gems.map(\.archiveID)).union(pdItems.map(\.archiveID))
+            .union(topRated.map(\.archiveID))
             .union(directorShelves.flatMap { $0.items.map(\.archiveID) })
         var out: [ShelfPayload] = []
         for shelf in shelves {

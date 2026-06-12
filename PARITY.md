@@ -71,6 +71,7 @@ this table in the same change set; cross-link the platform design doc.
 | Category tiles | ✅ | ✅ tile row → filtered grid | ✅ accent tiles → `#/browse?type=` | ✅ tile row → filtered grid | accent colors from `featured.json`; count-gated ≥30 everywhere |
 | Decade tiles | ✅ | ✅ era tiles + counts | ✅ era tiles + counts (last Home row) | ✅ era tiles + counts (last Home row) | |
 | Hidden Gems shelf | ✅ | ✅ | ✅ (popularity-tail designed art) | ✅ | shared query |
+| Top Rated shelf (IMDb score) + rating sort in Browse | ✅ shelf + sort | ✅ shelf + sort | ⏳ (index lacks a rating column — additive schema bump, then trivial) | ✅ shelf + sort | votes floor ≥1,000; owner request 2026-06-12 |
 | Director shelves | ✅ | ✅ | ⏳ (index lacks director data) | ✅ | shared query |
 | Continue Watching | ✅ | ✅ | ✅ | ✅ | progress store (see §6) |
 | Modes row | ✅ | ➖ removed 2026-06-10 (Channels = tab; Surprise/Cartoon/PD via Home shuffle → Surprise grid) | ⏳ | ⏳ | links to §5 |

@@ -88,6 +88,7 @@ struct BrowseView: View {
             }
             Picker("Sort", selection: $sort) {
                 Text("Popular").tag(CatalogDB.Sort.popular)
+                Text("Top Rated").tag(CatalogDB.Sort.rating)
                 Text("A–Z").tag(CatalogDB.Sort.alphabetical)
                 Text("Newest").tag(CatalogDB.Sort.newest)
                 Text("Oldest").tag(CatalogDB.Sort.oldest)

@@ -218,6 +218,15 @@ class CatalogDatabase private constructor(
         listOf(to.contentType, to.archiveID, limit),
     )
 
+    /** "Top Rated" — IMDb favorites; the votes floor keeps tiny-sample
+        curios from outranking the classics (iOS/tvOS parity). */
+    suspend fun topRated(limit: Int = 24, minVotes: Int = 1000): List<CatalogItem> = items(
+        "$itemSelect WHERE i.imdbRating IS NOT NULL AND COALESCE(i.imdbVotes, 0) >= ?" +
+            " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$typeAnd" +
+            " ORDER BY i.imdbRating DESC, i.imdbVotes DESC LIMIT ?",
+        listOf(minVotes, limit),
+    )
+
     suspend fun hiddenGems(limit: Int = 20): List<CatalogItem> = items(
         "$itemSelect WHERE i.hasRealArtwork = 1 AND i.qualityScore >= 60 AND i.popularityScore <= 40" +
             "$adultAnd$homeAnd$notCommercial$typeAnd ORDER BY i.qualityScore DESC LIMIT ?",
@@ -312,6 +321,7 @@ class CatalogDatabase private constructor(
 
 enum class BrowseSort(val label: String, val sql: String) {
     POPULAR("Popular", "i.popularityScore DESC, i.imdbVotes DESC"),
+    RATING("Top Rated", "i.imdbRating IS NULL, i.imdbRating DESC, COALESCE(i.imdbVotes, 0) DESC"),
     ALPHABETICAL("A–Z", "i.title COLLATE NOCASE ASC"),
     NEWEST("Newest", "i.year DESC"),
     OLDEST("Oldest", "i.year ASC"),

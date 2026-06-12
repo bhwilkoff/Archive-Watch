@@ -19,6 +19,7 @@ struct BrowseFilter: Hashable, Sendable {
 
 enum BrowseSort: String, CaseIterable, Identifiable {
     case popular      = "Popular"
+    case rating       = "Top Rated"
     case alphabetical = "A–Z"
     case newest       = "Newest"
     case oldest       = "Oldest"
@@ -65,6 +66,7 @@ struct BrowseView: View {
     private var dbSort: CatalogDB.Sort {
         switch sort {
         case .popular, .random: return .popular
+        case .rating:           return .rating
         case .alphabetical:     return .alphabetical
         case .newest:           return .newest
         case .oldest:           return .oldest

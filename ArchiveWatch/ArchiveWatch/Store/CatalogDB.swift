@@ -17,7 +17,7 @@ final class CatalogDB {
     private let handle: OpaquePointer
     private let decoder = JSONDecoder()
 
-    enum Sort { case popular, alphabetical, newest, oldest }
+    enum Sort { case popular, rating, alphabetical, newest, oldest }
 
     /// Opens the DB read-only. Returns nil if the file is missing/corrupt.
     init?(path: String) {
@@ -216,6 +216,15 @@ final class CatalogDB {
                 COALESCE(i.popularityScore, 0) DESC, \
                 COALESCE(i.episodesCount, 0) DESC, i.imdbVotes DESC
                 """
+        case .rating:
+            // The IMDb community's verdict. Votes-floored ordering isn't
+            // needed here (NULLS LAST keeps unrated items browsable at the
+            // tail); the vote count only breaks rating ties.
+            order = """
+                \(demoteOrder)\
+                i.imdbRating IS NULL, i.imdbRating DESC, \
+                COALESCE(i.imdbVotes, 0) DESC
+                """
         case .alphabetical: order = "i.title COLLATE NOCASE ASC"
         case .newest:       order = "i.year DESC"
         case .oldest:       order = "i.year ASC"
@@ -352,6 +361,18 @@ final class CatalogDB {
             WHERE i.hasRealArtwork = 1 AND i.qualityScore >= 60
               AND i.popularityScore <= 40 \(adultAnd) \(homeAnd) \(notCommercial) \(typeAnd)
             ORDER BY i.qualityScore DESC LIMIT \(limit)
+        """)
+    }
+
+    /// "Top Rated" — the IMDb crowd's favorites. A votes floor keeps a
+    /// 9.8-with-a-dozen-votes curio from outranking a beloved classic.
+    /// Home surface → home-gated, designed art only.
+    func topRated(limit: Int = 24, minVotes: Int = 1000) -> [Catalog.Item] {
+        items("""
+            SELECT j.json FROM items i JOIN item_json j USING(archiveID)
+            WHERE i.imdbRating IS NOT NULL AND COALESCE(i.imdbVotes, 0) >= \(minVotes)
+              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(typeAnd)
+            ORDER BY i.imdbRating DESC, i.imdbVotes DESC LIMIT \(limit)
         """)
     }
 

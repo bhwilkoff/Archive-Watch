@@ -95,6 +95,7 @@ struct HomeView: View {
                     ShelfRow(shelf: payload.shelf, items: payload.items)
                 }
                 PublicDomainShelf()   // #15b: current Public Domain class
+                TopRatedShelf()
                 HiddenGemsShelf()
                 DirectorShelvesSection()
                 DecadeTilesRow()
