@@ -554,5 +554,7 @@
       "order": 2,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/20/50042.jpg"
     }
-  ]
+  ],
+  "seriesImdbID": null,
+  "canonicalEpisodeCount": 0
 }
