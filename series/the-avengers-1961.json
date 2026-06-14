@@ -4,7 +4,7 @@
   "tvmazeID": 1929,
   "title": "The Avengers",
   "yearStart": 1961,
-  "yearEnd": 1967,
+  "yearEnd": 1969,
   "overview": "Urbane John Steed and a variety of partners work for an elite organization tasked with investigating criminal and espionage matters within the UK. Their opponents use everything from standard techniques to robots and other science fiction gadgetry.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/71020-4.jpg",
   "backdropURL": null,
@@ -338,8 +338,5 @@
       "order": 12,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/6103.jpg"
     }
-  ],
-  "seriesImdbID": "tt0054518",
-  "canonicalEpisodeCount": 94,
-  "canonicalSeasons": 7
+  ]
 }

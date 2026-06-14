@@ -3,8 +3,8 @@
   "seriesID": "caillou-1998",
   "tvmazeID": 12083,
   "title": "Caillou",
-  "yearStart": 1997,
-  "yearEnd": 2003,
+  "yearStart": 1998,
+  "yearEnd": 2009,
   "overview": "This show is about the life of a young bald boy named Caillou, his family and his friends. It is based on the books by Christine L'Heureux and Helene Despeteaux, which is highly popular in the Quebec area in Canada. There are actually two versions of the show. The first version premiered in late 1998, is only 5 minutes in length, consists of 65 episodes, and is fully animated. The plot line of this version is that a grandmother reads her grandchildren a Caillou book. While this version enjoys success in some countries outside the US, it was never formally aired in the US. The second version, which premiered in late 2000, has the show extended to 30 minutes, and has puppets, music and live action segments thrown in. The animation parts, however, are a mixture of the first version of the show with the \"grandma reading to kids\" part of the story lopped off and some new stories (however...",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/77953-2.jpg",
   "backdropURL": null,
@@ -485,8 +485,5 @@
       "order": 9,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0262153",
-  "canonicalEpisodeCount": 106,
-  "canonicalSeasons": 8
+  ]
 }

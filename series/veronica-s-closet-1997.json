@@ -20,24 +20,6 @@
       "seasonNumber": 2,
       "episodes": [
         {
-          "archiveID": "VeronicaSClosetVeronicaGetsHerClosetBackS3E1",
-          "seasonNumber": 2,
-          "episodeNumber": 1,
-          "title": "Veronica Gets Her Closet Back",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/VeronicaSClosetVeronicaGetsHerClosetBackS3E1",
-          "airDate": "1998-09-24",
-          "year": 1998,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Veronica_s-Closet-Veronica-Gets-Her-Closet-Back-_S3E1_.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 189374015,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/VeronicaSClosetVeronicaGetsHerClosetBackS3E1/Veronica_s-Closet-Veronica-Gets-Her-Closet-Back-_S3E1_.mp4"
-        },
-        {
           "archiveID": "veronicasclosets2e4veronicasdogdayafternoonconvertvideoonline.com",
           "seasonNumber": 2,
           "episodeNumber": 4,
@@ -72,6 +54,29 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/veronicasclosets2e5veronicascrushedpartialconvertvideoonline.com/Veronica%27s%20Closet%20%28S2E5%2C%20Veronica%27s%20Crushed%2C%20partial%29%20%28convert-video-online.com%29.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "VeronicaSClosetVeronicaGetsHerClosetBackS3E1",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Veronica's New Boss",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/VeronicaSClosetVeronicaGetsHerClosetBackS3E1",
+          "airDate": "1999-09-20",
+          "year": 1999,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Veronica_s-Closet-Veronica-Gets-Her-Closet-Back-_S3E1_.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 189374015,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/VeronicaSClosetVeronicaGetsHerClosetBackS3E1/Veronica_s-Closet-Veronica-Gets-Her-Closet-Back-_S3E1_.mp4"
         }
       ]
     }
@@ -135,8 +140,5 @@
       "order": 8,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/296566/photo/64ef0dc300f90.jpg"
     }
-  ],
-  "seriesImdbID": "tt0118506",
-  "canonicalEpisodeCount": 59,
-  "canonicalSeasons": 3
+  ]
 }

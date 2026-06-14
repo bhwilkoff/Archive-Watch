@@ -24,12 +24,12 @@
           "archiveID": "everybody-loves-raymond-s-01-e-01-pilot-theatical-version",
           "seasonNumber": 1,
           "episodeNumber": 1,
-          "title": "Everybody Loves Raymond S01E01 Pilot Theatrical Version",
-          "overview": "Debra yearns for a peaceful and quiet birthday at home with just Raymond. So he tells his parents and brother that there's no party. ",
-          "stillURL": "https://archive.org/services/img/everybody-loves-raymond-s-01-e-01-pilot-theatical-version",
-          "airDate": null,
+          "title": "Pilot",
+          "overview": "Tired of their interference, Debra tries to prevent Ray's parents and brother from coming over on her birthday.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/495/1238230.jpg",
+          "airDate": "1996-09-13",
           "year": 1996,
-          "runtimeSeconds": 1286,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "Everybody Loves Raymond S01E01 Pilot Theatical Version.ia.mp4",
             "format": "h.264 IA",
@@ -45,7 +45,7 @@
           "title": "Pilot",
           "overview": "Tired of their interference, Debra tries to prevent Ray's parents and brother from coming over on her birthday.",
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/495/1238230.jpg",
-          "airDate": "1996-09-13",
+          "airDate": null,
           "year": 1996,
           "runtimeSeconds": 1800,
           "videoFile": {
@@ -62,7 +62,7 @@
       "seasonNumber": 5,
       "episodes": [
         {
-          "archiveID": "everybody-loves-raymond-complete-series_202512",
+          "archiveID": "everybody-loves-raymond-complete-series_202601",
           "seasonNumber": 5,
           "episodeNumber": 2,
           "title": "Italy",
@@ -77,10 +77,10 @@
             "sizeBytes": 90237125,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_202512/Everybody%20Loves%20Raymond%20S05E02%20-%20Italy%20%28Part%202%29.mp4"
+          "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_202601/Everybody%20Loves%20Raymond%20S05E02%20-%20Italy%20%28Part%202%29.mp4"
         },
         {
-          "archiveID": "everybody-loves-raymond-complete-series_202601",
+          "archiveID": "everybody-loves-raymond-complete-series_202512",
           "seasonNumber": 5,
           "episodeNumber": 2,
           "title": "Italy (2)",
@@ -95,7 +95,7 @@
             "sizeBytes": 90237125,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_202601/Everybody%20Loves%20Raymond%20S05E02%20-%20Italy%20%28Part%202%29.mp4"
+          "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_202512/Everybody%20Loves%20Raymond%20S05E02%20-%20Italy%20%28Part%202%29.mp4"
         }
       ]
     },
@@ -218,8 +218,5 @@
       "order": 11,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261871/photo/65a09cac9bf98.jpg"
     }
-  ],
-  "seriesImdbID": "tt0115167",
-  "canonicalEpisodeCount": 204,
-  "canonicalSeasons": 9
+  ]
 }

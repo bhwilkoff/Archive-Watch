@@ -1,0 +1,109 @@
+{
+  "version": 2,
+  "seriesID": "yes-minister-1980",
+  "tvmazeID": 1606,
+  "title": "Yes Minister",
+  "yearStart": 1980,
+  "yearEnd": 1984,
+  "overview": "Satirical sitcom set in the office of a UK Cabinet minister, Jim Hacker MP, who struggles with Civil Service bureaucracy and political machinations as he tries to get on with government business.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76829-4.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "BBC Two"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "yes-minister-1980-1984",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Yes Minister",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Yes Minister - S03E08 - Party games.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1134952690,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/yes-minister-1980-1984/Yes%20Minister%20-%20S03E08%20-%20Party%20games.ia.mp4"
+        },
+        {
+          "archiveID": "WishYouWereHere2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Yes Minister",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Yes Prime Minister/2x05 - Power to the People.mp4",
+            "format": "h.264",
+            "sizeBytes": 190607237,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/WishYouWereHere2/Yes%20Prime%20Minister/2x05%20-%20Power%20to%20the%20People.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 21,
+  "tvdbID": "76829",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Derek Fowlds",
+      "character": "Bernard Woolley",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/379903/photo/635fefb2b00b0.jpg"
+    },
+    {
+      "name": "Paul Eddington",
+      "character": "James Hacker",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/263765/5feab8ff5701f.jpg"
+    },
+    {
+      "name": "Nigel Hawthorne",
+      "character": "Sir Humphrey Appleby",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/282420/photo/640b1fd275f55.jpg"
+    },
+    {
+      "name": "John Nettleton",
+      "character": "Sir Arnold Robinson",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258490/photo/640b20b01da0f.jpg"
+    },
+    {
+      "name": "Neil Fitzwiliam",
+      "character": "Frank Weisel",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7988433/photo/640b21e5ef440.jpg"
+    },
+    {
+      "name": "Arthur Cox",
+      "character": "George - Jim's Driver",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/283299/photo/640b26eb6a966.jpg"
+    },
+    {
+      "name": "John Savident",
+      "character": "Sir Frederick 'Jumbo' Stewart",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/314989/photo/62a270984b35e.jpg"
+    }
+  ]
+}

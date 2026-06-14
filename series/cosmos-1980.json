@@ -25,12 +25,12 @@
           "archiveID": "youtube-7UieUBPiGkw",
           "seasonNumber": 1,
           "episodeNumber": 1,
-          "title": "Cosmos S1-E1 | 4K - Remastered",
-          "overview": "Remastered Edition of Cosmos: A Personal Voyage (Episode 1)<br /><br />The following principles were carefully considered during the editing process:<br /><br />*No scenes featuring Carl Sagan have been altered.<br />*The pacing and narrative of the original episode remain unchanged.<br />*Only computer-generated visuals have been updated, using modern imagery from official sources, including NASA, ESA, and ISRO. Additional visuals have been captured using SpaceEngine.<br />*All replaced scenes include source credits in the bottom-left corner.<br /><br />This project is a tribute to the scientific spirit and enduring legacy of Cosmos: A Personal Voyage.",
-          "stillURL": "https://archive.org/services/img/youtube-7UieUBPiGkw",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3626,
+          "title": "The Shores of the Cosmic Ocean",
+          "overview": "At the beginning of this cosmic journey across space and time, Dr. Carl Sagan takes us to the edge of the universe aboard a spaceship of the imagination. Through beautiful special effects, we witness quasars, exploding galaxies, star clusters, supernovas, and pulsars. Returning to our solar system, we enter a re-creation of the Alexandrian Library, the seat of learning on Earth 2,000 years ago.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/252/632003.jpg",
+          "airDate": "1980-09-28",
+          "year": 1980,
+          "runtimeSeconds": 3600,
           "videoFile": {
             "name": "7UieUBPiGkw.mp4",
             "format": "h.264",
@@ -46,7 +46,7 @@
           "title": "The Shores of the Cosmic Ocean",
           "overview": "At the beginning of this cosmic journey across space and time, Dr. Carl Sagan takes us to the edge of the universe aboard a spaceship of the imagination. Through beautiful special effects, we witness quasars, exploding galaxies, star clusters, supernovas, and pulsars. Returning to our solar system, we enter a re-creation of the Alexandrian Library, the seat of learning on Earth 2,000 years ago.",
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/252/632003.jpg",
-          "airDate": "1980-09-28",
+          "airDate": null,
           "year": 1980,
           "runtimeSeconds": 3600,
           "videoFile": {
@@ -79,24 +79,6 @@
           "archiveID": "cosmos-s01e02-some-of-the-things-that-molecules-do-with-subtitles-by-vaibhav-khade",
           "seasonNumber": 1,
           "episodeNumber": 2,
-          "title": "Cosmos S01E02 Some Of The Things That Molecules Do with subtitles by Vaibhav khade",
-          "overview": "Cosmos S01E02 Some Of The Things That Molecules Do with subtitles by Vaibhav khade",
-          "stillURL": "https://archive.org/services/img/cosmos-s01e02-some-of-the-things-that-molecules-do-with-subtitles-by-vaibhav-khade",
-          "airDate": null,
-          "year": 2014,
-          "runtimeSeconds": 2714,
-          "videoFile": {
-            "name": "Cosmos_S01E02_Some_of_the_Things_That_Molecules_Do.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 446241536,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/cosmos-s01e02-some-of-the-things-that-molecules-do-with-subtitles-by-vaibhav-khade/Cosmos_S01E02_Some_of_the_Things_That_Molecules_Do.ia.mp4"
-        },
-        {
-          "archiveID": "carl-sagan-cosmos-special-edition-1986-ep-02",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
           "title": "One Voice in the Cosmic Fugue",
           "overview": "Dr. Sagan's cosmic calendar makes the history of the universe understandable and frames the origin of the Earth and the evolution of life. We see the evolutionary process unfold, from microbes to humans. Our understanding of how life developed on Earth enables us to venture to other worlds for imaginative speculations on what forms life might take elsewhere.",
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/252/632002.jpg",
@@ -104,12 +86,12 @@
           "year": 1980,
           "runtimeSeconds": 3600,
           "videoFile": {
-            "name": "Carl Sagan Cosmos Special Edition 1986 ep02.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 145809904,
+            "name": "Cosmos_S01E02_Some_of_the_Things_That_Molecules_Do.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 446241536,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/carl-sagan-cosmos-special-edition-1986-ep-02/Carl%20Sagan%20Cosmos%20Special%20Edition%201986%20ep02.mp4"
+          "downloadURL": "https://archive.org/download/cosmos-s01e02-some-of-the-things-that-molecules-do-with-subtitles-by-vaibhav-khade/Cosmos_S01E02_Some_of_the_Things_That_Molecules_Do.ia.mp4"
         },
         {
           "archiveID": "Cosmos-1980-S01E02-One-Voice-In-The-Cosmic-Fugue-720p-by-Vaibhav-khade",
@@ -277,12 +259,12 @@
           "archiveID": "cosmos-s01e09-the-lost-worlds-of-planet-earth-with-subtitles-by-vaibhav-khade",
           "seasonNumber": 1,
           "episodeNumber": 9,
-          "title": "Cosmos S01E09 The Lost Worlds Of Planet Earth with subtitles by Vaibhav khade",
-          "overview": "Cosmos S01E09 The Lost Worlds Of Planet Earth with subtitles by Vaibhav khade",
-          "stillURL": "https://archive.org/services/img/cosmos-s01e09-the-lost-worlds-of-planet-earth-with-subtitles-by-vaibhav-khade",
-          "airDate": null,
-          "year": 2014,
-          "runtimeSeconds": 2658,
+          "title": "The Lives of the Stars",
+          "overview": "Using computer animation and amazing astronomical art, Dr. Sagan shows how stars are born, live, die, and sometimes collapse to form neutron stars or black holes. We then journey into the future to witness \"the last perfect day on Earth,\" 5 billion years from now, after which the sun will engulf our planet in the fires of its death throes.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/252/631993.jpg",
+          "airDate": "1980-11-23",
+          "year": 1980,
+          "runtimeSeconds": 3600,
           "videoFile": {
             "name": "Cosmos_S01E09_The_Lost_Worlds_of_Planet_Earth.ia.mp4",
             "format": "h.264 IA",
@@ -298,7 +280,7 @@
           "title": "The Lives of the Stars",
           "overview": "Using computer animation and amazing astronomical art, Dr. Sagan shows how stars are born, live, die, and sometimes collapse to form neutron stars or black holes. We then journey into the future to witness \"the last perfect day on Earth,\" 5 billion years from now, after which the sun will engulf our planet in the fires of its death throes.",
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/252/631993.jpg",
-          "airDate": "1980-11-23",
+          "airDate": null,
           "year": 1980,
           "runtimeSeconds": 3600,
           "videoFile": {
@@ -313,12 +295,12 @@
           "archiveID": "cosmos-s01e10-the-electric-boy-with-subtitles-by-vaibhav-khade",
           "seasonNumber": 1,
           "episodeNumber": 10,
-          "title": "Cosmos S01E10 The Electric Boy with subtitles by Vaibhav khade",
-          "overview": "Cosmos S01E10 The Electric Boy with subtitles by Vaibhav khade",
-          "stillURL": "https://archive.org/services/img/cosmos-s01e10-the-electric-boy-with-subtitles-by-vaibhav-khade",
-          "airDate": null,
-          "year": 2014,
-          "runtimeSeconds": 2555,
+          "title": "The Edge of Forever",
+          "overview": "Dr. Sagan leads us on some awesome trips — to a time when galaxies were beginning to form, to India to explore the infinite cycles of Hindu cosmology, and to show how humans of this century discovered the expanding universe and its origin in the big bang. He disappears down a black hole and reappears in New Mexico to show us an array of 17 telescopes probing the farthest reaches of space.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/252/631992.jpg",
+          "airDate": "1980-11-30",
+          "year": 1980,
+          "runtimeSeconds": 3600,
           "videoFile": {
             "name": "Cosmos_S01E10_The_Electric_Boy.ia.mp4",
             "format": "h.264 IA",
@@ -334,7 +316,7 @@
           "title": "The Edge of Forever",
           "overview": "Dr. Sagan leads us on some awesome trips — to a time when galaxies were beginning to form, to India to explore the infinite cycles of Hindu cosmology, and to show how humans of this century discovered the expanding universe and its origin in the big bang. He disappears down a black hole and reappears in New Mexico to show us an array of 17 telescopes probing the farthest reaches of space.",
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/252/631992.jpg",
-          "airDate": "1980-11-30",
+          "airDate": null,
           "year": 1980,
           "runtimeSeconds": 3600,
           "videoFile": {
@@ -362,24 +344,6 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/hindi-cosmos-s01e11-the-immortals-audiotrack-1080p-by-vaibhav-khade/Cosmos_S01E11_The_Immortals_audiotrack.mp4"
-        },
-        {
-          "archiveID": "cosmos-possible-worlds-s01e12-coming-of-age-in-the-anthropocene-1080p-by-vaibhav-khade",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "Cosmos Possible Worlds S01E12 1080p by Vaibhav khade",
-          "overview": "Cosmos Possible Worlds S01E12 ( Coming Of Age In The Anthropocene ) 1080p by Vaibhav khade with English Subtitles...<div><br /></div><div>Email : vaibhavkhade911@gmail.com</div>",
-          "stillURL": "https://archive.org/services/img/cosmos-possible-worlds-s01e12-coming-of-age-in-the-anthropocene-1080p-by-vaibhav-khade",
-          "airDate": null,
-          "year": 2020,
-          "runtimeSeconds": 2635,
-          "videoFile": {
-            "name": "Cosmos Possible Worlds S01E12 Coming of Age In The Anthropocene  [1080p x265 10bit FS90 Joy].ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 510741211,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/cosmos-possible-worlds-s01e12-coming-of-age-in-the-anthropocene-1080p-by-vaibhav-khade/Cosmos%20Possible%20Worlds%20S01E12%20Coming%20of%20Age%20In%20The%20Anthropocene%20%20%5B1080p%20x265%2010bit%20FS90%20Joy%5D.ia.mp4"
         },
         {
           "archiveID": "cosmos-s01e12-the-world-set-free-with-subtitles-by-vaibhav-khade",
@@ -418,13 +382,31 @@
           "downloadURL": "https://archive.org/download/cosmos.-a.-space-time.-odyssey.-s01e12/Cosmos.A.SpaceTime.Odyssey.S01E12.mp4"
         },
         {
-          "archiveID": "hindi-cosmos-s01e12-the-world-set-free-audiotrack-1080p-by-vaibhav-khade",
+          "archiveID": "cosmos-possible-worlds-s01e12-coming-of-age-in-the-anthropocene-1080p-by-vaibhav-khade",
           "seasonNumber": 1,
           "episodeNumber": 12,
           "title": "Encyclopedia Galactica",
           "overview": "Are there alien intelligences? How could we communicate with them? What about UFOs? The answers to these questions take us to Egypt to decode ancient hieroglyphics, to the largest radio telescope on Earth, and, in the Spaceship of the Imagination, to visit other civilizations in space. Dr. Sagan answers questions such as: \"What is the life span of a planetary civilization?\" and \"Will we one day hook up with a network of civilizations in the Milky Way galaxy?",
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/252/631990.jpg",
           "airDate": "1980-12-14",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Cosmos Possible Worlds S01E12 Coming of Age In The Anthropocene  [1080p x265 10bit FS90 Joy].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 510741211,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cosmos-possible-worlds-s01e12-coming-of-age-in-the-anthropocene-1080p-by-vaibhav-khade/Cosmos%20Possible%20Worlds%20S01E12%20Coming%20of%20Age%20In%20The%20Anthropocene%20%20%5B1080p%20x265%2010bit%20FS90%20Joy%5D.ia.mp4"
+        },
+        {
+          "archiveID": "hindi-cosmos-s01e12-the-world-set-free-audiotrack-1080p-by-vaibhav-khade",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Encyclopedia Galactica",
+          "overview": "Are there alien intelligences? How could we communicate with them? What about UFOs? The answers to these questions take us to Egypt to decode ancient hieroglyphics, to the largest radio telescope on Earth, and, in the Spaceship of the Imagination, to visit other civilizations in space. Dr. Sagan answers questions such as: \"What is the life span of a planetary civilization?\" and \"Will we one day hook up with a network of civilizations in the Milky Way galaxy?",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/252/631990.jpg",
+          "airDate": null,
           "year": 1980,
           "runtimeSeconds": 3600,
           "videoFile": {
@@ -475,6 +457,24 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/carl-sagan-cosmos-special-edition-1986-ep-01/Carl%20Sagan%20Cosmos%20Special%20Edition%201986%20ep01.ia.mp4"
+        },
+        {
+          "archiveID": "carl-sagan-cosmos-special-edition-1986-ep-02",
+          "seasonNumber": null,
+          "episodeNumber": 2,
+          "title": "One Voice in the Cosmic Fugue",
+          "overview": "Dr. Sagan's cosmic calendar makes the history of the universe understandable and frames the origin of the Earth and the evolution of life. We see the evolutionary process unfold, from microbes to humans. Our understanding of how life developed on Earth enables us to venture to other worlds for imaginative speculations on what forms life might take elsewhere.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/252/632002.jpg",
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Carl Sagan Cosmos Special Edition 1986 ep02.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 145809904,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/carl-sagan-cosmos-special-edition-1986-ep-02/Carl%20Sagan%20Cosmos%20Special%20Edition%201986%20ep02.mp4"
         },
         {
           "archiveID": "carl-sagan-cosmos-special-edition-1986-ep-05",
@@ -568,8 +568,5 @@
       "order": 1,
       "profilePath": "https://artworks.thetvdb.com/banners/person/336747/5e96209606d39.jpg"
     }
-  ],
-  "seriesImdbID": "tt0081846",
-  "canonicalEpisodeCount": 13,
-  "canonicalSeasons": 1
+  ]
 }

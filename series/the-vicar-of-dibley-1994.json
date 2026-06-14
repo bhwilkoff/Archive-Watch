@@ -3,8 +3,8 @@
   "seriesID": "the-vicar-of-dibley-1994",
   "tvmazeID": 1530,
   "title": "The Vicar of Dibley",
-  "yearStart": 1999,
-  "yearEnd": 1999,
+  "yearStart": 1994,
+  "yearEnd": 2015,
   "overview": "Award-winning sitcom starring Dawn French who is assigned as the Vicar of the rural parish of Dibley.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/74873-4.jpg",
   "backdropURL": null,
@@ -24,11 +24,11 @@
           "seasonNumber": 1,
           "episodeNumber": 1,
           "title": "The Arrival",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/vicar-of-dibley-s-01-e-01-arrival.avi",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
+          "overview": "Dibley is a perfect village somewhere in England, full of some of the strangest people. They've always been happy with their aged vicar, Reverend Pottle, but suddenly he dies. But none of the villagers are quite ready forthe new vicar when she does turn up.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/284/710338.jpg",
+          "airDate": "1994-11-10",
+          "year": 1994,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "Vicar Of Dibley S04E01 The Handsome Stranger.mp4",
             "format": "h.264",
@@ -36,15 +36,20 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/vicar-of-dibley-s-01-e-01-arrival.avi/Vicar%20Of%20Dibley%20S04E01%20The%20Handsome%20Stranger.mp4"
-        },
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
         {
           "archiveID": "vo-d-s-01-e-04-the-window-and-the-weather.avi",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "The Window and the Weather",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/vo-d-s-01-e-04-the-window-and-the-weather.avi",
-          "airDate": null,
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "Winter",
+          "overview": "Alice solves the problem of the Christmas show by proposing that she and Hugo play Mary and Joseph in a Nativity play.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/284/710325.jpg",
+          "airDate": "1999-12-25",
           "year": 1999,
           "runtimeSeconds": 2400,
           "videoFile": {
@@ -60,6 +65,24 @@
     {
       "seasonNumber": null,
       "episodes": [
+        {
+          "archiveID": "the_vicar_of_dibley-_season_01_-_episode_01___57d9ba5180e99",
+          "seasonNumber": null,
+          "episodeNumber": 1,
+          "title": "the vicar of dibley- season 01 - episode 01 the arrival",
+          "overview": "British comedy classic ",
+          "stillURL": "https://archive.org/services/img/the_vicar_of_dibley-_season_01_-_episode_01___57d9ba5180e99",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1715,
+          "videoFile": {
+            "name": "the_vicar_of_dibley-_season_01_-_episode_01___57d9ba5180e99.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 91776775,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the_vicar_of_dibley-_season_01_-_episode_01___57d9ba5180e99/the_vicar_of_dibley-_season_01_-_episode_01___57d9ba5180e99.mp4"
+        },
         {
           "archiveID": "bbc-co-uk-p00bpkz5",
           "seasonNumber": null,
@@ -77,24 +100,6 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/bbc-co-uk-p00bpkz5/p00bpkz5.mp4"
-        },
-        {
-          "archiveID": "the_vicar_of_dibley-_season_01_-_episode_01___57d9ba5180e99",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "the vicar of dibley- season 01 - episode 01 the arrival",
-          "overview": "British comedy classic ",
-          "stillURL": "https://archive.org/services/img/the_vicar_of_dibley-_season_01_-_episode_01___57d9ba5180e99",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1715,
-          "videoFile": {
-            "name": "the_vicar_of_dibley-_season_01_-_episode_01___57d9ba5180e99.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 91776775,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the_vicar_of_dibley-_season_01_-_episode_01___57d9ba5180e99/the_vicar_of_dibley-_season_01_-_episode_01___57d9ba5180e99.mp4"
         }
       ]
     }
@@ -158,8 +163,5 @@
       "order": 8,
       "profilePath": "https://artworks.thetvdb.com/banners/person/304773/631f678ebfdee.jpg"
     }
-  ],
-  "seriesImdbID": "tt0108981",
-  "canonicalEpisodeCount": 17,
-  "canonicalSeasons": 4
+  ]
 }

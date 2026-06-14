@@ -2967,7 +2967,7 @@
       "name": "Andrew Dismukes",
       "character": "Andrew Dismukes",
       "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8289873/photo/6074b91cafbc1.jpg"
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8289873/photo/6a2ac20483d25.jpg"
     },
     {
       "name": "Chloe Fineman",
@@ -3059,8 +3059,5 @@
       "order": 17,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/404911/photo/63272514a74de.jpg"
     }
-  ],
-  "seriesImdbID": "tt0072562",
-  "canonicalEpisodeCount": 571,
-  "canonicalSeasons": 51
+  ]
 }
