@@ -4,7 +4,7 @@
   "tvmazeID": 1606,
   "title": "Yes Minister",
   "yearStart": 1980,
-  "yearEnd": 1984,
+  "yearEnd": 1980,
   "overview": "Satirical sitcom set in the office of a UK Cabinet minister, Jim Hacker MP, who struggles with Civil Service bureaucracy and political machinations as he tries to get on with government business.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/76829-4.jpg",
   "backdropURL": null,
@@ -16,6 +16,29 @@
   ],
   "creator": null,
   "seasons": [
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "yes-minister-party-games",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "Yes Minister - Party games",
+          "overview": "<span style=\"color:rgb(51,51,51);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Funny scene </span><span style=\"color:rgb(51,51,51);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#333333\" face=\"Helvetica Neue, Helvetica, Arial, sans-serif\"><span>from the 'Yes, Minister' series. </span></font></span>",
+          "stillURL": "https://archive.org/services/img/yes-minister-party-games",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 129,
+          "videoFile": {
+            "name": "Yes Minister - Party games.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 6473574,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/yes-minister-party-games/Yes%20Minister%20-%20Party%20games.ia.mp4"
+        }
+      ]
+    },
     {
       "seasonNumber": null,
       "episodes": [
@@ -58,7 +81,7 @@
       ]
     }
   ],
-  "episodesCount": 2,
+  "episodesCount": 3,
   "canonicalEpisodesCount": 21,
   "tvdbID": "76829",
   "artworkSource": "tvdb",
@@ -105,5 +128,8 @@
       "order": 6,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/314989/photo/62a270984b35e.jpg"
     }
-  ]
+  ],
+  "seriesImdbID": "tt0080306",
+  "canonicalEpisodeCount": 22,
+  "canonicalSeasons": 3
 }

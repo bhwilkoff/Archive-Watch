@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "updated_at": "2026-06-14T08:26:25Z",
+  "updated_at": "2026-06-15T10:14:36Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 14594,
+    "total": 14595,
     "wanted": 14448,
-    "fulfilled": 146,
+    "fulfilled": 147,
     "series_with_gaps": 265
   },
   "wants": [
@@ -144334,6 +144334,17 @@
       "episodeImdbID": "tt0751820",
       "status": "wanted",
       "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 3,
+      "episode": 8,
+      "title": "Party Games",
+      "episodeImdbID": "tt0751812",
+      "status": "fulfilled",
+      "added_at": "2026-06-15T10:02:05Z",
+      "fulfilled_at": "2026-06-15T10:14:36Z"
     },
     {
       "seriesID": "you-are-there-1953",
