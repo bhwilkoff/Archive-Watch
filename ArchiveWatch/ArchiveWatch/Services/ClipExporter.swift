@@ -181,12 +181,12 @@ actor ClipExporter {
     // MARK: Video export (trim + reframe + caption + credit)
 
     /// Orchestrates the video export. A color grade / blurred-fill reframe
-    /// (Core Image) and the caption+credit overlay (CALayer animation tool)
-    /// can't share one `AVMutableVideoComposition`, so when either Core Image
-    /// feature is requested the clip is rendered in two passes: pass 1 grades
-    /// + reframes the clip range to the render canvas with Core Image; pass 2
-    /// burns the overlay + applies speed on that already-framed clip. A plain
-    /// letterbox clip with no look skips pass 1 (single CALayer-tool pass).
+    /// (Core Image filter applier) and the caption+credit overlay (Core
+    /// Animation tool) can't share one video composition, so when either Core
+    /// Image feature is requested the clip is rendered in two passes: pass 1
+    /// grades + reframes the clip range to the render canvas with Core Image;
+    /// pass 2 burns the overlay + applies speed on that already-framed clip. A
+    /// plain letterbox clip with no look skips pass 1 (single overlay pass).
     func exportVideo(_ spec: ClipSpec,
                      onProgress: @escaping @Sendable (Double) -> Void) async throws -> URL {
         let needsCorePass = spec.look != .none || spec.blurredFill
@@ -206,7 +206,11 @@ actor ClipExporter {
     }
 
     /// Pass 1: Core Image grade + reframe (letterbox or blurred-fill) over the
-    /// clip range, output at the render canvas size, re-timed to 0.
+    /// clip range, output at the render canvas size, re-timed to 0. iOS 26/27
+    /// API: the modern `AVVideoComposition(applyingFiltersTo:applier:)` has no
+    /// renderSize parameter, so the clip is trimmed into an `AVMutableComposition`
+    /// whose `naturalSize` sets the CI render canvas; the applier reframes the
+    /// source frame into `request.renderSize`.
     private func applyGradeAndReframe(_ spec: ClipSpec,
                                       onProgress: @escaping @Sendable (Double) -> Void) async throws -> URL {
         let asset = AVURLAsset(url: spec.sourceURL)
@@ -219,18 +223,31 @@ actor ClipExporter {
         let renderSize = spec.aspect.videoRenderSize(source: oriented)
         let look = spec.look
         let blurred = spec.blurredFill
-        let vc = AVMutableVideoComposition(asset: asset) { request in
-            let graded = look.apply(to: request.sourceImage)
-            let out = Self.reframe(graded, into: renderSize, blurredFill: blurred)
-            request.finish(with: out, context: nil)
+
+        let comp = AVMutableComposition()
+        comp.naturalSize = renderSize
+        guard let vTrack = comp.addMutableTrack(withMediaType: .video,
+                                                preferredTrackID: kCMPersistentTrackID_Invalid) else {
+            throw ClipExportError.exportFailed
         }
-        vc.renderSize = renderSize
-        guard let session = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality) else {
+        vTrack.preferredTransform = preferred
+        let range = CMTimeRange(start: CMTime(seconds: spec.inSeconds, preferredTimescale: 600),
+                                duration: CMTime(seconds: spec.durationSeconds, preferredTimescale: 600))
+        try vTrack.insertTimeRange(range, of: srcV, at: .zero)
+        if let srcA = try await asset.loadTracks(withMediaType: .audio).first,
+           let aTrack = comp.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid) {
+            try? aTrack.insertTimeRange(range, of: srcA, at: .zero)
+        }
+
+        let vc = try await AVVideoComposition(applyingFiltersTo: comp, applier: { request in
+            let graded = look.apply(to: request.sourceImage)
+            let out = Self.reframe(graded, into: request.renderSize, blurredFill: blurred)
+            return AVCIImageFilteringResult(resultImage: out)
+        })
+        guard let session = AVAssetExportSession(asset: comp, presetName: AVAssetExportPresetHighestQuality) else {
             throw ClipExportError.cannotCreateExportSession
         }
         session.videoComposition = vc
-        session.timeRange = CMTimeRange(start: CMTime(seconds: spec.inSeconds, preferredTimescale: 600),
-                                        duration: CMTime(seconds: spec.durationSeconds, preferredTimescale: 600))
         let out = Self.clipsDir.appendingPathComponent("aw-grade-\(UUID().uuidString.prefix(8)).mp4")
         try? FileManager.default.removeItem(at: out)
         try await Self.runExport(session, to: out, onProgress: onProgress)
@@ -304,18 +321,19 @@ actor ClipExporter {
         }
 
         let renderSize = spec.aspect.videoRenderSize(source: oriented)
-        let vc = AVMutableVideoComposition()
-        vc.renderSize = renderSize
-        vc.frameDuration = CMTime(value: 1, timescale: 30)
 
-        let instr = AVMutableVideoCompositionInstruction()
-        instr.timeRange = CMTimeRange(start: .zero, duration: outputDuration)
-        instr.backgroundColor = UIColor.black.cgColor    // letterbox matte
-        let layer = AVMutableVideoCompositionLayerInstruction(assetTrack: vTrack)
+        // iOS 26/27 Configuration-based video composition (replaces the
+        // deprecated AVMutableVideoComposition + AVMutable*Instruction).
+        var layerCfg = AVVideoCompositionLayerInstruction.Configuration(trackID: vTrack.trackID)
         let fit = Self.aspectFit(oriented, into: renderSize)
-        layer.setTransform(preferred.concatenating(fit), at: .zero)
-        instr.layerInstructions = [layer]
-        vc.instructions = [instr]
+        layerCfg.setTransform(preferred.concatenating(fit), at: .zero)
+        let layerInstr = AVVideoCompositionLayerInstruction(configuration: layerCfg)
+
+        var instrCfg = AVVideoCompositionInstruction.Configuration()
+        instrCfg.timeRange = CMTimeRange(start: .zero, duration: outputDuration)
+        instrCfg.backgroundColor = UIColor.black.cgColor    // letterbox matte
+        instrCfg.layerInstructions = [layerInstr]
+        let instruction = AVVideoCompositionInstruction(configuration: instrCfg)
 
         // Overlays (always burn the provenance credit; timed auto-captions when
         // present, else the static caption). Cue times are clip-relative, so
@@ -329,7 +347,15 @@ actor ClipExporter {
         parent.addSublayer(videoLayer)
         Self.addOverlays(to: parent, size: renderSize, caption: spec.caption, credit: spec.creditLine,
                          cues: displayCues, totalDuration: total)
-        vc.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, in: parent)
+        let toolCfg = AVVideoCompositionCoreAnimationTool.Configuration(
+            postProcessingAsVideoLayer: videoLayer, containingLayer: parent)
+
+        var cfg = AVVideoComposition.Configuration()
+        cfg.renderSize = renderSize
+        cfg.frameDuration = CMTime(value: 1, timescale: 30)
+        cfg.instructions = [instruction]
+        cfg.animationTool = AVVideoCompositionCoreAnimationTool(configuration: toolCfg)
+        let vc = AVVideoComposition(configuration: cfg)
 
         guard let session = AVAssetExportSession(asset: comp, presetName: AVAssetExportPresetHighestQuality) else {
             throw ClipExportError.cannotCreateExportSession

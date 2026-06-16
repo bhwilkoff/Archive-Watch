@@ -296,6 +296,16 @@ against the iOS 26 SDK; no iOS 26 sim runtime installed here so no on-sim run).
   `HslAdjustment`/`Contrast` — export only, no live preview/vignette) + Speed
   (`SpeedChangeEffect` + `SonicAudioProcessor`, A/V synced). Both via background
   agents, verified.
+- **iOS 26/27 API migration (owner: "anchor on 26/27, not iOS 18"):** the
+  Xcode-Cloud deprecation warnings (`AVMutableVideoComposition` etc.) are GONE —
+  migrated the whole video pipeline to the **Configuration-based API**
+  (`AVVideoComposition.Configuration` + `AVVideoCompositionInstruction/
+  LayerInstruction.Configuration` + `AVVideoCompositionCoreAnimationTool.Configuration`
+  + async `AVVideoComposition(applyingFiltersTo:applier:)` returning
+  `AVCIImageFilteringResult`). Custom renderSize for the CI pass via
+  `AVMutableComposition.naturalSize`. Discovered the exact (Swift-only) API by
+  probing the iOS 27 SDK with swiftc + swift-api-digester. Clean build, ZERO
+  deprecation warnings (1.3.0 b42). Binding API note: CREATE-STUDIO-PLAN §5c.
 - **STILL deferred** (CREATE-STUDIO-PLAN §4): multi-clip stitch + transitions
   (the "montage" — largest remaining), beat-sync, range-download optimization,
   clip-definition sync, Android GIF/blurred-fill/auto-captions/live-preview.

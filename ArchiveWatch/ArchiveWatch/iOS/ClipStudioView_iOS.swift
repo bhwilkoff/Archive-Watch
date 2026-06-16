@@ -78,15 +78,19 @@ final class ClipStudioModel {
     }
 
     /// Live grade preview — set a Core Image videoComposition on the player so
-    /// the selected look shows in the preview (native CIFilter-handler preview).
+    /// the selected look shows in the preview. iOS 26/27 API:
+    /// `AVVideoComposition(applyingFiltersTo:applier:)` (async).
     func applyLookPreview() {
         guard let item = player?.currentItem, let asset = sourceAsset else { return }
         guard look != .none else { item.videoComposition = nil; return }
         let look = self.look
-        item.videoComposition = AVMutableVideoComposition(asset: asset) { request in
-            let graded = look.apply(to: request.sourceImage.clampedToExtent())
-                .cropped(to: request.sourceImage.extent)
-            request.finish(with: graded, context: nil)
+        Task {
+            let vc = try? await AVVideoComposition(applyingFiltersTo: asset, applier: { request in
+                let graded = look.apply(to: request.sourceImage.clampedToExtent())
+                    .cropped(to: request.sourceImage.extent)
+                return AVCIImageFilteringResult(resultImage: graded)
+            })
+            if let vc, player?.currentItem === item { item.videoComposition = vc }
         }
     }
 

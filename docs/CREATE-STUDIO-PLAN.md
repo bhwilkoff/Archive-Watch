@@ -183,6 +183,28 @@ after. Rejected as the default because it fragments the flow into two modals
 and can't preview the reframe/caption — but it is a one-screen swap if a
 strictly-native trim is preferred.
 
+## 5c. iOS 26/27 video-composition API (binding)
+
+The app targets iOS 26 (SDK 27). The legacy `AVMutableVideoComposition` +
+`AVMutable*Instruction` + the synchronous CIFilter init are all deprecated.
+**Use the Configuration-based API — do not reintroduce the deprecated types:**
+- Video composition: `AVVideoComposition.Configuration` (set `renderSize`,
+  `frameDuration`, `instructions`, `animationTool`) → `AVVideoComposition(configuration:)`.
+- Instructions: `AVVideoCompositionInstruction.Configuration` →
+  `AVVideoCompositionInstruction(configuration:)`; layer:
+  `AVVideoCompositionLayerInstruction.Configuration(trackID:)` →
+  `AVVideoCompositionLayerInstruction(configuration:)`.
+- Core Animation overlay: `AVVideoCompositionCoreAnimationTool.Configuration(
+  postProcessingAsVideoLayer:containingLayer:)` → `init(configuration:)`.
+- Core Image filtering: `async AVVideoComposition(applyingFiltersTo:applier:)`
+  where the applier is `(AVCIImageFilteringParameters) async throws ->
+  AVCIImageFilteringResult` (use `request.sourceImage` / `request.renderSize`;
+  return `AVCIImageFilteringResult(resultImage:)`).
+- **Custom render size for a CI pass**: the CI applier init has no renderSize
+  param, so trim into an `AVMutableComposition` and set its `naturalSize` to the
+  target — that becomes the CI `renderSize`. (This is the blurred-fill/reframe
+  path; verify the source-frame framing on device.)
+
 ## 6. New views / surfaces this introduces (for the design doc)
 
 - **ClipStudioView** (iOS) — full-screen editor sheet from Detail.
