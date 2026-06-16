@@ -233,6 +233,20 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-16 (latest+2) — Clip Studio iOS caption preview fix + Set Start UX + re-transcribe (b47/b48)
+- **b47**: auto-caption cues weren't previewing — cues are clip-relative (0-based)
+  but `activeCaption` matched them against the absolute `playheadSeconds`; fixed to
+  match `playheadSeconds - inSeconds`.
+- **b48** (owner asks): (1) **Set Start/Set End now anchor a fresh selection** at
+  the playhead (in = playhead, out = playhead + defaultClipLen when the old bound
+  is invalid/too far) instead of clamping to a stale opposite bound — so the band
+  + handles appear at the playhead ready to adjust on the first press. (2)
+  **Transcript re-anchors when in/out change**: `captionRange` tracks the range
+  cues were generated for; any range change (setStart/setEnd/trim/setFormat) when
+  cues exist schedules a **debounced (0.8s) re-transcribe** for the new range
+  (converges if changed mid-transcribe); panel shows "Updating captions…";
+  clear/teardown cancel. Build green vs iOS 26 SDK.
+
 ### 2026-06-16 (latest+1) — Android Clip Studio full parity (native), vc6
 Owner: same feature set on Android, native. Via background agent; assembleDebug
 GREEN (clean --rerun-tasks), changes scoped to android/ + ANDROID-DESIGN §4.8.

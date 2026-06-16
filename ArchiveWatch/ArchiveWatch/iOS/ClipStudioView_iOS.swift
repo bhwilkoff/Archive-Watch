@@ -60,6 +60,10 @@ final class ClipStudioModel {
     var playheadSeconds: Double = 0
     var isPlaying = false
     private var timeObserver: Any?
+    /// Absolute film range the current cues were transcribed for; used to detect
+    /// when a re-trim has made them stale.
+    private var captionRange: ClosedRange<Double>?
+    private var retranscribeTask: Task<Void, Never>?
 
     var resultURL: URL?
 
@@ -125,10 +129,14 @@ final class ClipStudioModel {
         thumbnails = imgs
     }
 
+    /// Default selection length when (re)anchoring with Set Start/End.
+    private var defaultClipLen: Double { min(format.maxDuration, max(0.5, min(15, duration))) }
+
     /// Switching to GIF clamps the selection to the tighter GIF length cap.
     func setFormat(_ f: ClipFormat) {
         format = f
         if clipDuration > f.maxDuration { outSeconds = inSeconds + f.maxDuration }
+        captionsRefreshIfRangeChanged()
     }
 
     func seek(to t: Double) {
@@ -160,16 +168,28 @@ final class ClipStudioModel {
         outSeconds = newOut
         playheadSeconds = previewAt
         seekFast(to: previewAt)
+        captionsRefreshIfRangeChanged()
     }
 
-    /// Mark the clip's start / end at the current playhead (no handle dance).
+    /// Mark the clip's START at the playhead. Anchors a fresh forward selection
+    /// (so the band + handles appear right at the new start, ready to adjust)
+    /// instead of clamping to a stale end behind the playhead.
     func setStart() {
-        inSeconds = max(0, min(playheadSeconds, outSeconds - 0.5))
-        if clipDuration > format.maxDuration { outSeconds = inSeconds + format.maxDuration }
+        let p = max(0, min(playheadSeconds, duration - 0.5))
+        inSeconds = p
+        if outSeconds <= p + 0.5 || outSeconds > p + format.maxDuration {
+            outSeconds = min(duration, p + defaultClipLen)
+        }
+        captionsRefreshIfRangeChanged()
     }
+    /// Mark the clip's END at the playhead; anchor a fresh backward selection.
     func setEnd() {
-        outSeconds = min(duration, max(playheadSeconds, inSeconds + 0.5))
-        if clipDuration > format.maxDuration { inSeconds = outSeconds - format.maxDuration }
+        let p = min(duration, max(playheadSeconds, 0.5))
+        outSeconds = p
+        if inSeconds >= p - 0.5 || inSeconds < p - format.maxDuration {
+            inSeconds = max(0, p - defaultClipLen)
+        }
+        captionsRefreshIfRangeChanged()
     }
 
     func togglePlay() {
@@ -198,6 +218,7 @@ final class ClipStudioModel {
     }
 
     func teardown() {
+        retranscribeTask?.cancel()
         if let o = timeObserver { player?.removeTimeObserver(o); timeObserver = nil }
         player?.pause()
     }
@@ -251,15 +272,42 @@ final class ClipStudioModel {
         guard let source = sourceURL, !transcribing else { return }
         transcribing = true
         defer { transcribing = false }
+        let inAt = inSeconds, lenAt = clipDuration
         do {
             captionCues = try await ClipExporter.shared.transcribe(
-                sourceURL: source, inSeconds: inSeconds, duration: clipDuration)
+                sourceURL: source, inSeconds: inAt, duration: lenAt)
+            captionRange = inAt...(inAt + lenAt)
         } catch {
             errorMessage = error.localizedDescription
         }
+        // If the clip moved while transcribing, the cues are already stale —
+        // converge by scheduling another pass.
+        captionsRefreshIfRangeChanged()
     }
 
-    func clearCaptions() { captionCues = [] }
+    /// When the clip range changes after a transcript exists, the cues no longer
+    /// match the spoken content, so re-transcribe the new range — debounced so it
+    /// fires once the user settles, not on every drag tick.
+    func captionsRefreshIfRangeChanged() {
+        guard !captionCues.isEmpty else { return }
+        let cur = inSeconds...(max(inSeconds, outSeconds))
+        if let r = captionRange,
+           abs(r.lowerBound - cur.lowerBound) < 0.1, abs(r.upperBound - cur.upperBound) < 0.1 {
+            return
+        }
+        retranscribeTask?.cancel()
+        retranscribeTask = Task { [weak self] in
+            try? await Task.sleep(nanoseconds: 800_000_000)
+            guard !Task.isCancelled, let self else { return }
+            await self.autoCaption()
+        }
+    }
+
+    func clearCaptions() {
+        retranscribeTask?.cancel()
+        captionCues = []
+        captionRange = nil
+    }
 }
 
 struct ClipStudioView: View {
@@ -361,7 +409,9 @@ struct ClipStudioView: View {
                         .disabled(model.transcribing || model.clipDuration < 0.5)
                     } else {
                         HStack {
-                            Label("\(model.captionCues.count) timed captions", systemImage: "captions.bubble.fill")
+                            Label(model.transcribing ? "Updating captions…"
+                                                       : "\(model.captionCues.count) timed captions",
+                                  systemImage: "captions.bubble.fill")
                                 .font(.subheadline).foregroundStyle(Brand.primary)
                             Spacer()
                             Button("Clear") { model.clearCaptions() }.font(.subheadline)
