@@ -44,10 +44,15 @@ final class ClipStudioModel {
 
     var hasCaption: Bool { !caption.isEmpty || !captionCues.isEmpty }
     /// The caption text to show on the preview right now: the active timed cue
-    /// at the playhead, else the static caption.
+    /// at the playhead, else the static caption. Cue times are CLIP-RELATIVE
+    /// (0-based — `transcribe` extracts the [in,out] audio to a clip that
+    /// re-bases to 0), so match against the playhead's offset INTO the clip,
+    /// not the absolute film time (which was the bug: an absolute playhead at
+    /// e.g. 120s never fell inside cues at 0–15s, so nothing previewed).
     var activeCaption: String? {
         if !captionCues.isEmpty {
-            return captionCues.first { playheadSeconds >= $0.start && playheadSeconds < $0.end }?.text
+            let rel = playheadSeconds - inSeconds
+            return captionCues.first { rel >= $0.start && rel < $0.end }?.text
         }
         return caption.isEmpty ? nil : caption
     }
