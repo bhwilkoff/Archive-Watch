@@ -74,12 +74,19 @@ Detail view (and later the player), is a single full-screen editor:
 | **Export** | MP4 (H.264, shareable everywhere) **or** GIF (≤480px, 12fps, looping). | `AVAssetExportSession` / `AVAssetImageGenerator` + ImageIO |
 | **Save / share** | Save to Photos (add-only permission) + system share sheet. | PhotoKit + `ShareLink` |
 
-**Source acquisition:** the editor downloads the full source MP4 to
-`Caches` with visible progress, then edits the local file (the research's
-robust recommendation — a complete local `moov`-bearing file gives
-predictable AVFoundation behavior). Cached so repeat edits are instant.
-*Known v1 cost:* downloading a feature to clip 15s is wasteful — **v2**
-should range-download only the needed window keyed on the `moov` index.
+**Source acquisition (do NOT download the whole file):** archive.org films
+can be hours long and many gigabytes. The editor edits **directly off the
+remote stream** via `ResilientStreamLoader` (the same byte-range,
+redirect/reset-resilient path used for playback — Decision 021/031), opened by
+`ClipExporter.openSource(_:)`. `AVAssetExportSession` and `AVAssetImageGenerator`
+read only the ranges the ≤60s clip needs (moov + the clip's samples), so memory
+and bandwidth stay bounded no matter how long the film is. The returned loader
+must be retained for the asset's lifetime (`AVURLAsset` holds its
+resource-loader delegate weakly) — callers use
+`defer { withExtendedLifetime(loader) {} }`. Local file URLs (our own
+clip-sized intermediates) open directly. *History: a v1 that downloaded the
+whole file first failed with "Cannot Open" on long/large films — never
+reintroduce a full-file download.*
 
 **Persistence:** a `VideoClip` SwiftData model records each saved clip's
 definition (source id, in/out, aspect, caption, format) + the cached output
@@ -121,9 +128,9 @@ lives in `Services/` guarded `#if os(iOS)`.
   a multi-source picker/sequence UI on `insertTimeRange` ×N. *The largest
   remaining piece — the "montage fan-edit."*
 - **Beat detection + snap-to-beat trimming.**
-- **Range-download optimization** — fetch only the clip window keyed on the
-  `moov` index instead of the whole film (improves the wait before editing a
-  feature).
+- ~~Range-download optimization~~ — **done differently:** the editor now streams
+  the source via `ResilientStreamLoader` (reads only needed ranges), which
+  supersedes the download-then-optimize plan.
 - **Cross-device sync** of clip definitions (CloudKit / Drive App Data).
 - **Android v2+**: GIF (WebP/vendored encoder), blurred-fill (custom GL effect),
   auto-captions, Media3 live preview.

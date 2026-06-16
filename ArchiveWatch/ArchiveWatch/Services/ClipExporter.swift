@@ -156,26 +156,24 @@ actor ClipExporter {
         try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
         return dir
     }
-    private static var sourcesDir: URL {
-        let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("clip-sources", isDirectory: true)
-        try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
-        return dir
-    }
-
     static func renderURL(filename: String) -> URL { clipsDir.appendingPathComponent(filename) }
 
     // MARK: Source acquisition
 
-    /// Download the full source MP4 to Caches (the editor needs a complete
-    /// local file). Cached, so re-editing the same film is instant.
-    /// v2: range-download just the clip window keyed on the moov index.
-    func prepareSource(remote: URL, archiveID: String,
-                       onProgress: @escaping @Sendable (Double) -> Void) async throws -> URL {
-        let safe = archiveID.replacingOccurrences(of: "/", with: "_")
-        let dest = Self.sourcesDir.appendingPathComponent("\(safe).mp4")
-        if FileManager.default.fileExists(atPath: dest.path) { onProgress(1); return dest }
-        return try await ProgressDownloader(dest: dest, onProgress: onProgress).run(remote)
+    /// Open the editing source. Archive.org films can be hours long and many
+    /// gigabytes, so we NEVER download the whole file — we edit directly off the
+    /// remote stream through `ResilientStreamLoader` (the same byte-range,
+    /// redirect- and reset-resilient path used for playback). `AVAssetExportSession`
+    /// reads only the ranges the ≤60s clip needs (moov + the clip's samples), so
+    /// memory and bandwidth stay bounded regardless of the film's length. Local
+    /// file URLs (our own clip-sized intermediates) open directly.
+    ///
+    /// The returned loader (nil for local files) MUST be retained for the
+    /// asset's whole lifetime — `AVURLAsset` holds its resource-loader delegate
+    /// weakly. Callers keep it alive with `defer { withExtendedLifetime(loader) {} }`.
+    nonisolated static func openSource(_ url: URL) -> (asset: AVURLAsset, loader: ResilientStreamLoader?) {
+        if url.isFileURL { return (AVURLAsset(url: url), nil) }
+        return ResilientStreamLoader.makeAsset(for: url)
     }
 
     // MARK: Video export (trim + reframe + caption + credit)
@@ -213,7 +211,8 @@ actor ClipExporter {
     /// source frame into `request.renderSize`.
     private func applyGradeAndReframe(_ spec: ClipSpec,
                                       onProgress: @escaping @Sendable (Double) -> Void) async throws -> URL {
-        let asset = AVURLAsset(url: spec.sourceURL)
+        let (asset, loader) = Self.openSource(spec.sourceURL)
+        defer { withExtendedLifetime(loader) {} }
         guard let srcV = try await asset.loadTracks(withMediaType: .video).first else {
             throw ClipExportError.noVideoTrack
         }
@@ -288,7 +287,8 @@ actor ClipExporter {
     /// burned caption/credit. `spec.look` is expected to be `.none` here.
     private func renderComposition(_ spec: ClipSpec,
                                    onProgress: @escaping @Sendable (Double) -> Void) async throws -> URL {
-        let asset = AVURLAsset(url: spec.sourceURL)
+        let (asset, loader) = Self.openSource(spec.sourceURL)
+        defer { withExtendedLifetime(loader) {} }
         guard let srcV = try await asset.loadTracks(withMediaType: .video).first else {
             throw ClipExportError.noVideoTrack
         }
@@ -384,7 +384,8 @@ actor ClipExporter {
 
     func exportGIF(_ spec: ClipSpec,
                    onProgress: @escaping @Sendable (Double) -> Void) async throws -> URL {
-        let asset = AVURLAsset(url: spec.sourceURL)
+        let (asset, loader) = Self.openSource(spec.sourceURL)
+        defer { withExtendedLifetime(loader) {} }
         guard let srcV = try await asset.loadTracks(withMediaType: .video).first else {
             throw ClipExportError.noVideoTrack
         }
@@ -465,7 +466,8 @@ actor ClipExporter {
         guard let recognizer = SFSpeechRecognizer(locale: Locale.current) ?? SFSpeechRecognizer(),
               recognizer.isAvailable else { throw ClipExportError.speechUnavailable }
 
-        let asset = AVURLAsset(url: sourceURL)
+        let (asset, loader) = Self.openSource(sourceURL)
+        defer { withExtendedLifetime(loader) {} }
         guard let session = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A) else {
             throw ClipExportError.cannotCreateExportSession
         }
@@ -705,60 +707,6 @@ actor ClipExporter {
         }
         let desc = "Public-domain source: \(spec.sourceDetailsURL) · Clipped with Archive Watch (archivewatch.org)"
         return [item(.commonKeyTitle, spec.title), item(.commonKeyDescription, desc)]
-    }
-}
-
-// URLSession download with progress, bridged to async/await. The download
-// task streams to a temp file (bounded memory) and reports byte progress;
-// the temp file is moved to `dest` synchronously in the finish callback
-// (the system deletes it the moment the callback returns).
-private final class ProgressDownloader: NSObject, URLSessionDownloadDelegate, @unchecked Sendable {
-    private let dest: URL
-    private let onProgress: @Sendable (Double) -> Void
-    private var continuation: CheckedContinuation<URL, Error>?
-    private var session: URLSession?
-
-    init(dest: URL, onProgress: @escaping @Sendable (Double) -> Void) {
-        self.dest = dest
-        self.onProgress = onProgress
-    }
-
-    func run(_ url: URL) async throws -> URL {
-        let cfg = URLSessionConfiguration.default
-        cfg.waitsForConnectivity = true
-        let session = URLSession(configuration: cfg, delegate: self, delegateQueue: nil)
-        self.session = session
-        return try await withCheckedThrowingContinuation { c in
-            self.continuation = c
-            session.downloadTask(with: url).resume()
-        }
-    }
-
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask,
-                    didWriteData bytesWritten: Int64, totalBytesWritten: Int64,
-                    totalBytesExpectedToWrite: Int64) {
-        guard totalBytesExpectedToWrite > 0 else { return }
-        onProgress(Double(totalBytesWritten) / Double(totalBytesExpectedToWrite))
-    }
-
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask,
-                    didFinishDownloadingTo location: URL) {
-        do {
-            try? FileManager.default.removeItem(at: dest)
-            try FileManager.default.moveItem(at: location, to: dest)
-            continuation?.resume(returning: dest)
-        } catch {
-            continuation?.resume(throwing: error)
-        }
-        continuation = nil
-        session.finishTasksAndInvalidate()
-    }
-
-    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        guard let error else { return }   // success handled in didFinishDownloadingTo
-        continuation?.resume(throwing: error)
-        continuation = nil
-        session.finishTasksAndInvalidate()
     }
 }
 

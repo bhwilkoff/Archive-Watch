@@ -18,13 +18,15 @@ final class ClipStudioModel {
 
     let item: Catalog.Item
     var phase: Phase = .preparing
-    var prepProgress: Double = 0
     var exportProgress: Double = 0
     var errorMessage: String?
 
-    var localSource: URL?
+    // The REMOTE archive.org URL — we edit directly off the resilient stream,
+    // never a full download (films can be hours long / multi-GB).
+    var sourceURL: URL?
     var player: AVPlayer?
     private var sourceAsset: AVURLAsset?
+    private var loader: ResilientStreamLoader?   // retained for the preview asset's lifetime
     var duration: Double = 0
     var thumbnails: [UIImage] = []
 
@@ -44,7 +46,7 @@ final class ClipStudioModel {
     var clipDuration: Double { max(0, outSeconds - inSeconds) }
     /// Output length after speed (source selection ÷ speed).
     var outputDuration: Double { speed > 0 ? clipDuration / speed : clipDuration }
-    var canExport: Bool { clipDuration >= 0.5 && localSource != nil }
+    var canExport: Bool { clipDuration >= 0.5 && sourceURL != nil }
 
     init(item: Catalog.Item) { self.item = item }
 
@@ -54,27 +56,20 @@ final class ClipStudioModel {
             return
         }
         do {
-            let (stream, cont) = AsyncStream.makeStream(of: Double.self)
-            let pt = Task { for await p in stream { self.prepProgress = p } }
-            let local = try await ClipExporter.shared.prepareSource(
-                remote: remote, archiveID: item.archiveID) { cont.yield($0) }
-            cont.finish(); pt.cancel()
-            localSource = local
-            try await loadAsset(local)
+            sourceURL = remote
+            // Edit off the resilient remote stream — no download (Decision 021).
+            let (asset, loader) = ClipExporter.openSource(remote)
+            self.loader = loader
+            sourceAsset = asset
+            let dur = try await asset.load(.duration).seconds
+            duration = dur.isFinite ? dur : 0
+            outSeconds = min(duration > 0 ? duration : 15, 15)
+            player = AVPlayer(playerItem: AVPlayerItem(asset: asset))
+            await generateThumbnails(asset: asset)
             phase = .editing
         } catch {
             errorMessage = error.localizedDescription
         }
-    }
-
-    private func loadAsset(_ url: URL) async throws {
-        let asset = AVURLAsset(url: url)
-        sourceAsset = asset
-        let dur = try await asset.load(.duration).seconds
-        duration = dur.isFinite ? dur : 0
-        outSeconds = min(duration, 15)
-        player = AVPlayer(playerItem: AVPlayerItem(asset: asset))
-        await generateThumbnails(asset: asset)
     }
 
     /// Live grade preview — set a Core Image videoComposition on the player so
@@ -122,11 +117,11 @@ final class ClipStudioModel {
     }
 
     func export(into ctx: ModelContext) async {
-        guard let local = localSource else { return }
+        guard let source = sourceURL else { return }
         phase = .exporting
         exportProgress = 0
         let spec = ClipSpec(
-            sourceURL: local, archiveID: item.archiveID, title: item.title,
+            sourceURL: source, archiveID: item.archiveID, title: item.title,
             sourceDetailsURL: item.sourceDetailsURL, creditLine: item.clipCreditLine,
             inSeconds: inSeconds, durationSeconds: clipDuration, aspect: aspect,
             caption: caption.trimmingCharacters(in: .whitespacesAndNewlines), format: format,
@@ -166,12 +161,12 @@ final class ClipStudioModel {
     }
 
     func autoCaption() async {
-        guard let local = localSource, !transcribing else { return }
+        guard let source = sourceURL, !transcribing else { return }
         transcribing = true
         defer { transcribing = false }
         do {
             captionCues = try await ClipExporter.shared.transcribe(
-                sourceURL: local, inSeconds: inSeconds, duration: clipDuration)
+                sourceURL: source, inSeconds: inSeconds, duration: clipDuration)
         } catch {
             errorMessage = error.localizedDescription
         }
@@ -222,9 +217,8 @@ struct ClipStudioView: View {
 
     private var preparing: some View {
         VStack(spacing: 16) {
-            ProgressView(value: model.prepProgress)
-                .progressViewStyle(.linear).tint(Brand.primary).frame(maxWidth: 240)
-            Text("Preparing clip…").font(.subheadline).foregroundStyle(.secondary)
+            ProgressView().tint(Brand.primary)
+            Text("Loading clip…").font(.subheadline).foregroundStyle(.secondary)
             Text(model.item.title).font(.caption).foregroundStyle(.tertiary)
                 .lineLimit(1).padding(.horizontal)
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
