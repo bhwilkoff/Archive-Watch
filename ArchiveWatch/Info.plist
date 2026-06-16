@@ -45,6 +45,10 @@
          but the universal Info.plist carries it harmlessly. -->
     <key>NSPhotoLibraryAddUsageDescription</key>
     <string>Save the clips and GIFs you create from public-domain films to your photo library.</string>
+    <!-- Clip Studio auto-captions (Decision 033 v2): on-device speech
+         recognition transcribes a clip's audio into timed captions. -->
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>Transcribe a clip's audio on your device to add timed captions.</string>
     <key>CFBundleURLTypes</key>
     <array>
         <dict>

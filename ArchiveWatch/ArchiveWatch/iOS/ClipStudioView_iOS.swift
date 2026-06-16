@@ -34,7 +34,10 @@ final class ClipStudioModel {
     var format: ClipFormat = .video
     var look: ClipLook = .none
     var speed: Double = 1
+    var blurredFill: Bool = false
     var caption: String = ""
+    var captionCues: [CaptionCue] = []
+    var transcribing = false
 
     var resultURL: URL?
 
@@ -123,7 +126,7 @@ final class ClipStudioModel {
             sourceDetailsURL: item.sourceDetailsURL, creditLine: item.clipCreditLine,
             inSeconds: inSeconds, durationSeconds: clipDuration, aspect: aspect,
             caption: caption.trimmingCharacters(in: .whitespacesAndNewlines), format: format,
-            look: look, speed: speed)
+            look: look, speed: speed, blurredFill: blurredFill, captionCues: captionCues)
         do {
             let (stream, cont) = AsyncStream.makeStream(of: Double.self)
             let pt = Task { for await p in stream { self.exportProgress = p } }
@@ -157,6 +160,20 @@ final class ClipStudioModel {
         do { try await ClipExporter.shared.saveToPhotos(url, format: format) }
         catch { errorMessage = error.localizedDescription }
     }
+
+    func autoCaption() async {
+        guard let local = localSource, !transcribing else { return }
+        transcribing = true
+        defer { transcribing = false }
+        do {
+            captionCues = try await ClipExporter.shared.transcribe(
+                sourceURL: local, inSeconds: inSeconds, duration: clipDuration)
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+    }
+
+    func clearCaptions() { captionCues = [] }
 }
 
 struct ClipStudioView: View {
@@ -232,6 +249,10 @@ struct ClipStudioView: View {
                     Picker("Frame", selection: $model.aspect) {
                         ForEach(ClipAspect.allCases) { Text($0.label).tag($0) }
                     }.pickerStyle(.segmented)
+                    if model.aspect != .original {
+                        Toggle("Blurred-fill background", isOn: $model.blurredFill)
+                            .font(.subheadline).tint(Brand.primary)
+                    }
                 }
                 labeled("Look") {
                     Picker("Look", selection: Binding(
@@ -245,8 +266,23 @@ struct ClipStudioView: View {
                     }.pickerStyle(.segmented)
                 }
                 labeled("Caption") {
-                    TextField("Add a caption (optional)", text: $model.caption, axis: .vertical)
-                        .lineLimit(1...2).textFieldStyle(.roundedBorder)
+                    if model.captionCues.isEmpty {
+                        TextField("Add a caption (optional)", text: $model.caption, axis: .vertical)
+                            .lineLimit(1...2).textFieldStyle(.roundedBorder)
+                        Button { Task { await model.autoCaption() } } label: {
+                            Label(model.transcribing ? "Transcribing…" : "Auto-caption from speech",
+                                  systemImage: "captions.bubble")
+                                .font(.subheadline)
+                        }
+                        .disabled(model.transcribing || model.clipDuration < 0.5)
+                    } else {
+                        HStack {
+                            Label("\(model.captionCues.count) timed captions", systemImage: "captions.bubble.fill")
+                                .font(.subheadline).foregroundStyle(Brand.primary)
+                            Spacer()
+                            Button("Clear") { model.clearCaptions() }.font(.subheadline)
+                        }
+                    }
                 }
                 Button { rangeTask?.cancel(); Task { await model.export(into: ctx) } } label: {
                     Label("Create \(model.format.label)", systemImage: "wand.and.stars")

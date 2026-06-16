@@ -117,12 +117,14 @@ this table in the same change set; cross-link the platform design doc.
 |---|---|---|---|---|---|
 | Create entry point (rights-gated) | n/a (lean-back) | 🚧 scissors button on Detail (PD/CC only via `isClippable`) | 🚫 (viewer) | 🚧 `ContentCut` action on DetailScreen (rights-gated) | hidden, not disabled, when not clippable |
 | Trim (frame-accurate, length-capped) | n/a | 🚧 custom filmstrip + handles over native `AVAssetImageGenerator`/`AVPlayer` | 🚫 | 🚧 custom filmstrip + handles over `MediaMetadataRetriever` | no native trimmer component on either platform (5b) |
-| Reframe (Original/1:1/9:16/16:9, letterbox) | n/a | 🚧 `AVMutableVideoComposition` renderSize + transform | 🚫 | 🚧 Media3 `Presentation.createForWidthAndHeight` | blurred-fill bg = v2 |
+| Reframe (Original/1:1/9:16/16:9, letterbox) | n/a | 🚧 `AVMutableVideoComposition` renderSize + transform | 🚫 | 🚧 Media3 `Presentation.createForWidthAndHeight` | |
+| Blurred-fill reframe background | n/a | 🚧 Core Image `CIGaussianBlur` (video) / CG blur (GIF) | 🚫 | 🔮 custom GL effect | v2 shipped iOS 2026-06-16 |
+| Auto-captions (timed, burned-in) | n/a | 🚧 `SFSpeechRecognizer` on-device → timed CALayer cues (MP4) | 🚫 | 🔮 | v2 shipped iOS 2026-06-16; SpeechAnalyzer = future upgrade |
 | Caption + provenance credit (burned-in) | n/a | 🚧 CALayer tool (video) / Core Graphics (GIF) | 🚫 | 🚧 Media3 `OverlayEffect` + `BitmapOverlay` (Canvas-rendered) | always-on archivewatch.org · PD credit + source in metadata |
 | Export MP4 / GIF | n/a | 🚧 `AVAssetExportSession` / `AVAssetImageGenerator`+ImageIO | 🚫 | 🚧 Media3 `Transformer` (**MP4 only** — no native GIF encoder) | GIF is Android's weak native story |
 | Save to Photos / share | n/a | 🚧 PhotoKit (add-only) + `ShareLink` | 🚫 | 🚧 `MediaStore.Video` + `ACTION_SEND`/FileProvider | |
-| Color-grade Looks (Silent/Noir/Faded/Techni/B&W) | n/a | 🚧 CIFilter chains, two-pass video + per-frame GIF, live preview | 🚫 | 🔮 Media3 `RgbMatrix`/`SingleColorLut` | v2 shipped iOS 2026-06-16 |
-| Speed (0.5×/1×/2×) | n/a | 🚧 `scaleTimeRange` (A/V together) | 🚫 | 🔮 `SpeedChangeEffect` | v2 shipped iOS 2026-06-16 |
+| Color-grade Looks (Silent/Noir/Faded/Techni/B&W) | n/a | 🚧 CIFilter chains, two-pass video + per-frame GIF, live preview | 🚫 | 🚧 Media3 `RgbAdjustment`/`RgbFilter`/`HslAdjustment`/`Contrast` (export only — no live preview, no vignette) | v2 both platforms 2026-06-16 |
+| Speed (0.5×/1×/2×) | n/a | 🚧 `scaleTimeRange` (A/V together) | 🚫 | 🚧 `SpeedChangeEffect` + `SonicAudioProcessor` (A/V synced) | v2 both platforms 2026-06-16 |
 | Saved clips library | n/a | 🚧 `VideoClip` SwiftData + Library "Clips" section (share/revisit/delete) | 🚫 | 🚧 `user.sqlite` clips table + Library "Clips" tab (share/delete) | re-create from definition if render evicted |
 | Editor live preview | n/a | 🚧 AVKit `VideoPlayer` + play-range | 🚫 | ⏳ static first-frame (Media3 preview player later) | Android v1 shows first frame + caption hint |
 | v2 deferred: blurred-fill / stitch / transitions / auto-captions / beat-sync | n/a | 🔮 (same composition spine) | 🚫 | 🔮 | additive — `docs/CREATE-STUDIO-PLAN.md` §4 |

@@ -284,10 +284,21 @@ against the iOS 26 SDK; no iOS 26 sim runtime installed here so no on-sim run).
   ContentCut button on DetailScreen, user.sqlite clips table + Library "Clips"
   tab, Route.ClipStudio nav. **MP4 only** (no native GIF encoder); editor shows
   a static first-frame preview (Media3 preview player later). ANDROID-DESIGN
-  §4.8 added. Emulator run owner-pending. DEFERRED next wave (documented,
-  CREATE-STUDIO-PLAN §4): blurred-fill bg, auto-captions (SpeechAnalyzer),
-  multi-clip stitch + transitions, beat-sync, range-download optimization,
-  clip-definition sync.
+  §4.8 added. Emulator run owner-pending.
+- **Deferred wave (same session, owner: "keep working on the deferred ideas… test
+  the full thing"):** more deferred items shipped, both build-green.
+  **iOS (1.3.0 b41):** *blurred-fill* reframe bg (CIGaussianBlur, unified into a
+  Core Image grade+reframe pass → overlay pass; GIF via CG blur; toggle per
+  non-Original aspect) + *auto-captions* (`SFSpeechRecognizer` on-device, m4a
+  extract → cues ~7 words/2.2s → timed CALayer opacity-keyframe overlays,
+  speed-mapped; MP4 only; `NSSpeechRecognitionUsageDescription` added).
+  **Android v2 (vc5):** color Looks (Media3 `RgbAdjustment`/`RgbFilter`/
+  `HslAdjustment`/`Contrast` — export only, no live preview/vignette) + Speed
+  (`SpeedChangeEffect` + `SonicAudioProcessor`, A/V synced). Both via background
+  agents, verified.
+- **STILL deferred** (CREATE-STUDIO-PLAN §4): multi-clip stitch + transitions
+  (the "montage" — largest remaining), beat-sync, range-download optimization,
+  clip-definition sync, Android GIF/blurred-fill/auto-captions/live-preview.
 - **NOT YET**: on-device run (needs iOS 26 sim/device — owner; only iOS 18.5
   sims on this box, so iOS is compile-verified via `-destination
   'generic/platform=iOS'`, not run).

@@ -96,29 +96,37 @@ lives in `Services/` guarded `#if os(iOS)`.
 
 **Shipped (iOS, 2026-06-16):**
 - **Color-grade "Looks"** — Silent (sepia) / Noir / Faded / Technicolor / B&W,
-  native CIFilter chains (`ClipLook`). Applied two-pass for video (a Core Image
-  grade pass over the clip range, then the proven reframe+overlay pass — the
-  CIFilter handler and the CALayer overlay tool can't share one
-  `AVMutableVideoComposition`) and per-frame for GIF. Live grade preview on the
-  player via a CIFilter-handler `videoComposition`.
+  native CIFilter chains (`ClipLook`). Live grade preview on the player.
 - **Speed** — 0.5× / 1× / 2× via `scaleTimeRange` (A/V scaled together).
 - **Clips library** — a Clips section in iOS Library lists saved `VideoClip`s
   (share the cached render / revisit source / delete); definition is the source
   of truth if the render is evicted.
+- **Blurred-fill reframe background** — the "Instagram" archival adaptation: a
+  scaled-up `CIGaussianBlur` of the frame behind the centered fit, toggleable
+  per non-Original aspect. Unified into the Core Image pass (grade + reframe in
+  one handler → overlay pass); GIF gets it via a blurred Core Graphics bg.
+- **Auto-captions** — `SFSpeechRecognizer` on-device transcription of the clip
+  range → cues grouped ~7 words/≤2.2s → burned in as timed CALayer overlays
+  (per-cue opacity keyframes, speed-mapped). MP4 only (GIF keeps the static
+  caption). `SpeechAnalyzer` (iOS 26) is the future upgrade.
 
-**Still deferred (next wave, additive):**
-- **Blurred-fill reframe background** (`CIGaussianBlur` composite) — needs the
-  single-pass CIFilter-handler reframe path (or a custom `AVVideoCompositing`);
-  v1/v2 ship solid-matte letterbox.
-- **Auto-captions** — `SpeechAnalyzer`/`SpeechTranscriber` (iOS 26) →
-  `SFSpeechRecognizer` fallback → timed burned-in cues (the overlay path must
-  render per-time text).
+  > **The two passes:** a color grade / blurred-fill reframe (Core Image) and
+  > the caption+credit overlay (CALayer animation tool) can't share one
+  > `AVMutableVideoComposition`, so when either CI feature is on the video
+  > renders in two passes (CI grade+reframe → overlay+speed). A plain letterbox
+  > clip with no look stays single-pass.
+
+**Still deferred (next wave, additive on the same spine):**
 - **Multi-clip stitching** (montage) + **hard-cut → crossfade transitions** —
-  a multi-source picker/sequence UI on `insertTimeRange` ×N.
+  a multi-source picker/sequence UI on `insertTimeRange` ×N. *The largest
+  remaining piece — the "montage fan-edit."*
 - **Beat detection + snap-to-beat trimming.**
 - **Range-download optimization** — fetch only the clip window keyed on the
-  `moov` index instead of the whole film.
+  `moov` index instead of the whole film (improves the wait before editing a
+  feature).
 - **Cross-device sync** of clip definitions (CloudKit / Drive App Data).
+- **Android v2+**: GIF (WebP/vendored encoder), blurred-fill (custom GL effect),
+  auto-captions, Media3 live preview.
 
 ---
 

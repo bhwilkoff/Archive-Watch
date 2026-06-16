@@ -4,6 +4,7 @@ import UIKit
 import ImageIO
 import UniformTypeIdentifiers
 import Photos
+import Speech
 
 // Clip Studio export engine (iOS/iPadOS only — see docs/CREATE-STUDIO-PLAN.md).
 // Native frameworks only (Decision 028): AVFoundation for video, ImageIO for
@@ -104,6 +105,14 @@ enum ClipLook: String, CaseIterable, Identifiable, Sendable {
     }
 }
 
+// A timed auto-caption cue (start/end relative to the clip, 0-based seconds).
+struct CaptionCue: Sendable, Hashable, Identifiable {
+    var text: String
+    var start: Double
+    var end: Double
+    var id: Double { start }
+}
+
 struct ClipSpec: Sendable {
     var sourceURL: URL          // local file (post-download)
     var archiveID: String
@@ -117,10 +126,13 @@ struct ClipSpec: Sendable {
     var format: ClipFormat
     var look: ClipLook = .none
     var speed: Double = 1        // 0.5 = slow-mo, 2 = fast; output duration = clip/speed
+    var blurredFill: Bool = false   // reframe background: blurred-fill vs solid letterbox
+    var captionCues: [CaptionCue] = []   // timed auto-captions (override the static caption when present)
 }
 
 enum ClipExportError: LocalizedError {
-    case noVideoTrack, cannotCreateExportSession, exportFailed, gifFailed, photoPermissionDenied
+    case noVideoTrack, cannotCreateExportSession, exportFailed, gifFailed
+    case photoPermissionDenied, speechDenied, speechUnavailable, noSpeechFound
     var errorDescription: String? {
         switch self {
         case .noVideoTrack:             return "This title has no video track to clip."
@@ -128,6 +140,9 @@ enum ClipExportError: LocalizedError {
         case .exportFailed:             return "The clip couldn't be rendered."
         case .gifFailed:                return "The GIF couldn't be encoded."
         case .photoPermissionDenied:    return "Photos access is needed to save. Enable it in Settings."
+        case .speechDenied:             return "Speech recognition access is needed for auto-captions. Enable it in Settings."
+        case .speechUnavailable:        return "Speech recognition isn't available right now."
+        case .noSpeechFound:            return "No spoken words were found in this clip."
         }
     }
 }
@@ -165,50 +180,91 @@ actor ClipExporter {
 
     // MARK: Video export (trim + reframe + caption + credit)
 
-    /// Orchestrates the video export. A color grade (look) and the
-    /// reframe+overlay can't share one `AVMutableVideoComposition` (CIFilter
-    /// handler vs CALayer animation tool are mutually exclusive), so a graded
-    /// clip is rendered in two passes: pass 1 grades just the clip range with
-    /// Core Image; pass 2 reframes + overlays + time-scales the graded clip
-    /// with the proven CALayer-tool path. `.none` skips pass 1 entirely.
+    /// Orchestrates the video export. A color grade / blurred-fill reframe
+    /// (Core Image) and the caption+credit overlay (CALayer animation tool)
+    /// can't share one `AVMutableVideoComposition`, so when either Core Image
+    /// feature is requested the clip is rendered in two passes: pass 1 grades
+    /// + reframes the clip range to the render canvas with Core Image; pass 2
+    /// burns the overlay + applies speed on that already-framed clip. A plain
+    /// letterbox clip with no look skips pass 1 (single CALayer-tool pass).
     func exportVideo(_ spec: ClipSpec,
                      onProgress: @escaping @Sendable (Double) -> Void) async throws -> URL {
-        guard spec.look != .none else {
+        let needsCorePass = spec.look != .none || spec.blurredFill
+        guard needsCorePass else {
             return try await renderComposition(spec, onProgress: onProgress)
         }
-        let graded = try await applyLook(spec.look, sourceURL: spec.sourceURL,
-                                         inSeconds: spec.inSeconds, duration: spec.durationSeconds) {
-            onProgress($0 * 0.5)
-        }
+        let framed = try await applyGradeAndReframe(spec) { onProgress($0 * 0.5) }
         var s2 = spec
-        s2.sourceURL = graded
+        s2.sourceURL = framed
         s2.look = .none
+        s2.blurredFill = false
+        s2.aspect = .original   // already framed to the canvas; pass 2 only overlays + speeds
         s2.inSeconds = 0
         let out = try await renderComposition(s2) { onProgress(0.5 + $0 * 0.5) }
-        try? FileManager.default.removeItem(at: graded)
+        try? FileManager.default.removeItem(at: framed)
         return out
     }
 
-    /// Pass 1: Core Image color grade over just the clip range, re-timed to 0.
-    private func applyLook(_ look: ClipLook, sourceURL: URL,
-                           inSeconds: Double, duration: Double,
-                           onProgress: @escaping @Sendable (Double) -> Void) async throws -> URL {
-        let asset = AVURLAsset(url: sourceURL)
-        let vc = AVMutableVideoComposition(asset: asset) { request in
-            let graded = look.apply(to: request.sourceImage.clampedToExtent())
-                .cropped(to: request.sourceImage.extent)
-            request.finish(with: graded, context: nil)
+    /// Pass 1: Core Image grade + reframe (letterbox or blurred-fill) over the
+    /// clip range, output at the render canvas size, re-timed to 0.
+    private func applyGradeAndReframe(_ spec: ClipSpec,
+                                      onProgress: @escaping @Sendable (Double) -> Void) async throws -> URL {
+        let asset = AVURLAsset(url: spec.sourceURL)
+        guard let srcV = try await asset.loadTracks(withMediaType: .video).first else {
+            throw ClipExportError.noVideoTrack
         }
+        let natural = try await srcV.load(.naturalSize)
+        let preferred = try await srcV.load(.preferredTransform)
+        let oriented = natural.applying(preferred).aw_abs
+        let renderSize = spec.aspect.videoRenderSize(source: oriented)
+        let look = spec.look
+        let blurred = spec.blurredFill
+        let vc = AVMutableVideoComposition(asset: asset) { request in
+            let graded = look.apply(to: request.sourceImage)
+            let out = Self.reframe(graded, into: renderSize, blurredFill: blurred)
+            request.finish(with: out, context: nil)
+        }
+        vc.renderSize = renderSize
         guard let session = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality) else {
             throw ClipExportError.cannotCreateExportSession
         }
         session.videoComposition = vc
-        session.timeRange = CMTimeRange(start: CMTime(seconds: inSeconds, preferredTimescale: 600),
-                                        duration: CMTime(seconds: duration, preferredTimescale: 600))
+        session.timeRange = CMTimeRange(start: CMTime(seconds: spec.inSeconds, preferredTimescale: 600),
+                                        duration: CMTime(seconds: spec.durationSeconds, preferredTimescale: 600))
         let out = Self.clipsDir.appendingPathComponent("aw-grade-\(UUID().uuidString.prefix(8)).mp4")
         try? FileManager.default.removeItem(at: out)
         try await Self.runExport(session, to: out, onProgress: onProgress)
         return out
+    }
+
+    /// Core Image reframe: fit the (graded) source into `target`, centered,
+    /// over either a solid-black letterbox matte or a scaled-up gaussian-blur
+    /// of the same frame (the "Instagram" blurred-fill look for archival 4:3).
+    nonisolated static func reframe(_ image: CIImage, into target: CGSize, blurredFill: Bool) -> CIImage {
+        let ext = image.extent
+        guard ext.width > 0, ext.height > 0, ext.width.isFinite, ext.height.isFinite else { return image }
+        let normalized = image.transformed(by: CGAffineTransform(translationX: -ext.origin.x, y: -ext.origin.y))
+        let w = ext.width, h = ext.height
+        let fitScale = min(target.width / w, target.height / h)
+        let fw = w * fitScale, fh = h * fitScale
+        let fg = normalized
+            .transformed(by: CGAffineTransform(scaleX: fitScale, y: fitScale))
+            .transformed(by: CGAffineTransform(translationX: (target.width - fw) / 2, y: (target.height - fh) / 2))
+        let bgBase: CIImage
+        if blurredFill {
+            let fillScale = max(target.width / w, target.height / h)
+            let bw = w * fillScale, bh = h * fillScale
+            bgBase = normalized
+                .transformed(by: CGAffineTransform(scaleX: fillScale, y: fillScale))
+                .transformed(by: CGAffineTransform(translationX: (target.width - bw) / 2, y: (target.height - bh) / 2))
+                .clampedToExtent()
+                .applyingFilter("CIGaussianBlur", parameters: [kCIInputRadiusKey: 36])
+                .applyingFilter("CIColorControls", parameters: [kCIInputBrightnessKey: -0.08])
+        } else {
+            bgBase = CIImage(color: CIColor(red: 0, green: 0, blue: 0))
+        }
+        let bg = bgBase.cropped(to: CGRect(origin: .zero, size: target))
+        return fg.composited(over: bg).cropped(to: CGRect(origin: .zero, size: target))
     }
 
     /// Pass 2 (and the only pass when `.none`): trim + reframe + speed +
@@ -261,11 +317,18 @@ actor ClipExporter {
         instr.layerInstructions = [layer]
         vc.instructions = [instr]
 
-        // Overlays (always burn the provenance credit; caption when present).
+        // Overlays (always burn the provenance credit; timed auto-captions when
+        // present, else the static caption). Cue times are clip-relative, so
+        // map them onto the speed-scaled output timeline.
+        let total = outputDuration.seconds
+        let displayCues = spec.captionCues.map {
+            CaptionCue(text: $0.text, start: $0.start / spec.speed, end: $0.end / spec.speed)
+        }
         let parent = CALayer(); parent.frame = CGRect(origin: .zero, size: renderSize)
         let videoLayer = CALayer(); videoLayer.frame = parent.frame
         parent.addSublayer(videoLayer)
-        Self.addOverlays(to: parent, size: renderSize, caption: spec.caption, credit: spec.creditLine)
+        Self.addOverlays(to: parent, size: renderSize, caption: spec.caption, credit: spec.creditLine,
+                         cues: displayCues, totalDuration: total)
         vc.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, in: parent)
 
         guard let session = AVAssetExportSession(asset: comp, presetName: AVAssetExportPresetHighestQuality) else {
@@ -335,6 +398,7 @@ actor ClipExporter {
         for await result in gen.images(for: times) {
             if case let .success(_, image, _) = result {
                 let composed = Self.composeGIFFrame(image, canvas: canvas, look: spec.look,
+                                                     blurredFill: spec.blurredFill,
                                                      caption: spec.caption, credit: spec.creditLine)
                 CGImageDestinationAddImage(dest, composed, frameProps)
             }
@@ -360,6 +424,68 @@ actor ClipExporter {
         }
     }
 
+    // MARK: Auto-captions (on-device speech → timed cues)
+
+    /// Transcribe the clip's audio into timed caption cues. Extracts the
+    /// clip-range audio to m4a first (SFSpeech wants an audio file), then runs
+    /// on-device recognition when supported (offline, no length limit). Returns
+    /// cues grouped to ~7 words / ≤2.2s. iOS-26 `SpeechAnalyzer` is the future
+    /// upgrade; `SFSpeechRecognizer` is the lower-risk path used here.
+    func transcribe(sourceURL: URL, inSeconds: Double, duration: Double) async throws -> [CaptionCue] {
+        let auth = await withCheckedContinuation { (c: CheckedContinuation<SFSpeechRecognizerAuthorizationStatus, Never>) in
+            SFSpeechRecognizer.requestAuthorization { c.resume(returning: $0) }
+        }
+        guard auth == .authorized else { throw ClipExportError.speechDenied }
+        guard let recognizer = SFSpeechRecognizer(locale: Locale.current) ?? SFSpeechRecognizer(),
+              recognizer.isAvailable else { throw ClipExportError.speechUnavailable }
+
+        let asset = AVURLAsset(url: sourceURL)
+        guard let session = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A) else {
+            throw ClipExportError.cannotCreateExportSession
+        }
+        let audioURL = Self.clipsDir.appendingPathComponent("aw-audio-\(UUID().uuidString.prefix(8)).m4a")
+        try? FileManager.default.removeItem(at: audioURL)
+        session.timeRange = CMTimeRange(start: CMTime(seconds: inSeconds, preferredTimescale: 600),
+                                        duration: CMTime(seconds: duration, preferredTimescale: 600))
+        try await session.export(to: audioURL, as: .m4a)
+        defer { try? FileManager.default.removeItem(at: audioURL) }
+
+        let request = SFSpeechURLRecognitionRequest(url: audioURL)
+        request.shouldReportPartialResults = false
+        request.addsPunctuation = true
+        if recognizer.supportsOnDeviceRecognition { request.requiresOnDeviceRecognition = true }
+
+        let segments: [SFTranscriptionSegment] = try await withCheckedThrowingContinuation { cont in
+            recognizer.recognitionTask(with: request) { result, error in
+                if let error { cont.resume(throwing: error); return }
+                if let result, result.isFinal { cont.resume(returning: result.bestTranscription.segments) }
+            }
+        }
+        let cues = Self.groupIntoCues(segments)
+        guard !cues.isEmpty else { throw ClipExportError.noSpeechFound }
+        return cues
+    }
+
+    /// Group word segments into readable caption cues (~7 words or ≤2.2s).
+    nonisolated static func groupIntoCues(_ segments: [SFTranscriptionSegment]) -> [CaptionCue] {
+        var cues: [CaptionCue] = []
+        var words: [String] = []
+        var start = 0.0, end = 0.0
+        func flush() {
+            guard !words.isEmpty else { return }
+            cues.append(CaptionCue(text: words.joined(separator: " "), start: start, end: max(end, start + 0.6)))
+            words.removeAll()
+        }
+        for seg in segments {
+            if words.isEmpty { start = seg.timestamp }
+            words.append(seg.substring)
+            end = seg.timestamp + seg.duration
+            if (end - start) >= 2.2 || words.count >= 7 { flush() }
+        }
+        flush()
+        return cues
+    }
+
     // MARK: Helpers (nonisolated — pure)
 
     /// Scale-to-fit + center transform mapping the oriented source into the
@@ -376,7 +502,9 @@ actor ClipExporter {
     /// CALayer overlays for the video export. NOTE the Core Animation
     /// coordinate system is bottom-left origin (y grows upward) — credit sits
     /// near the bottom, caption in the lower-third title-safe band.
-    nonisolated static func addOverlays(to parent: CALayer, size: CGSize, caption: String, credit: String) {
+    nonisolated static func addOverlays(to parent: CALayer, size: CGSize,
+                                        caption: String, credit: String,
+                                        cues: [CaptionCue] = [], totalDuration: Double = 0) {
         let scale: CGFloat = 3
         // Provenance credit — small, bottom-centered, always present.
         let creditLayer = makeTextLayer(credit,
@@ -389,6 +517,35 @@ actor ClipExporter {
                                    width: size.width, height: max(22, size.width * 0.03))
         parent.addSublayer(creditLayer)
 
+        let capFrame = CGRect(x: size.width * 0.06, y: size.height * 0.085,
+                              width: size.width * 0.88, height: size.height * 0.24)
+
+        // Timed auto-captions take precedence: one layer per cue, shown only
+        // during its window via an opacity keyframe animation over the clip.
+        if !cues.isEmpty, totalDuration > 0 {
+            for cue in cues {
+                let layer = makeTextLayer(cue.text,
+                                          fontSize: max(28, size.width * 0.046),
+                                          weight: .bold, color: .white, alignment: .center)
+                layer.contentsScale = scale
+                layer.isWrapped = true
+                layer.frame = capFrame
+                layer.opacity = 0
+                let s = min(max(cue.start / totalDuration, 0), 1)
+                let e = min(max(cue.end / totalDuration, s), 1)
+                let anim = CAKeyframeAnimation(keyPath: "opacity")
+                anim.values = [0, 0, 1, 1, 0, 0]
+                anim.keyTimes = [0, max(0, s - 0.0001), s, e, min(1, e + 0.0001), 1].map { NSNumber(value: $0) }
+                anim.duration = totalDuration
+                anim.beginTime = AVCoreAnimationBeginTimeAtZero   // literal 0 = "now" (won't render)
+                anim.isRemovedOnCompletion = false
+                anim.fillMode = .both
+                layer.add(anim, forKey: "opacity")
+                parent.addSublayer(layer)
+            }
+            return
+        }
+
         guard !caption.isEmpty else { return }
         let capLayer = makeTextLayer(caption,
                                      fontSize: max(30, size.width * 0.050),
@@ -397,9 +554,7 @@ actor ClipExporter {
                                      alignment: .center)
         capLayer.contentsScale = scale
         capLayer.isWrapped = true
-        let h = size.height * 0.24
-        capLayer.frame = CGRect(x: size.width * 0.06, y: size.height * 0.085,
-                                width: size.width * 0.88, height: h)
+        capLayer.frame = capFrame
         parent.addSublayer(capLayer)
     }
 
@@ -436,8 +591,17 @@ actor ClipExporter {
         return sharedCIContext.createCGImage(graded, from: source.extent) ?? cg
     }
 
+    /// Gaussian-blur a CGImage via Core Image (for the GIF blurred-fill bg).
+    nonisolated static func blurred(_ cg: CGImage, radius: Double = 12) -> CGImage {
+        let src = CIImage(cgImage: cg)
+        let out = src.clampedToExtent()
+            .applyingFilter("CIGaussianBlur", parameters: [kCIInputRadiusKey: radius])
+            .cropped(to: src.extent)
+        return sharedCIContext.createCGImage(out, from: src.extent) ?? cg
+    }
+
     nonisolated static func composeGIFFrame(_ cg: CGImage, canvas: CGSize, look: ClipLook,
-                                            caption: String, credit: String) -> CGImage {
+                                            blurredFill: Bool, caption: String, credit: String) -> CGImage {
         let frame = applyLook(look, to: cg)
         let imgSize = CGSize(width: frame.width, height: frame.height)
         let fmt = UIGraphicsImageRendererFormat()
@@ -447,6 +611,14 @@ actor ClipExporter {
         let ui = renderer.image { ctx in
             UIColor.black.setFill()
             ctx.fill(CGRect(origin: .zero, size: canvas))
+            if blurredFill {
+                // Scaled-up, blurred copy filling the canvas behind the frame.
+                let bg = UIImage(cgImage: blurred(frame))
+                let fill = aspectFillRect(imgSize, into: canvas)
+                bg.draw(in: fill, blendMode: .normal, alpha: 1)
+                UIColor.black.withAlphaComponent(0.08).setFill()
+                ctx.fill(CGRect(origin: .zero, size: canvas))
+            }
             let rect = aspectFitRect(imgSize, into: canvas)
             UIImage(cgImage: frame).draw(in: rect)
 
@@ -466,6 +638,13 @@ actor ClipExporter {
     nonisolated static func aspectFitRect(_ src: CGSize, into dst: CGSize) -> CGRect {
         guard src.width > 0, src.height > 0 else { return CGRect(origin: .zero, size: dst) }
         let scale = min(dst.width / src.width, dst.height / src.height)
+        let w = src.width * scale, h = src.height * scale
+        return CGRect(x: (dst.width - w) / 2, y: (dst.height - h) / 2, width: w, height: h)
+    }
+
+    nonisolated static func aspectFillRect(_ src: CGSize, into dst: CGSize) -> CGRect {
+        guard src.width > 0, src.height > 0 else { return CGRect(origin: .zero, size: dst) }
+        let scale = max(dst.width / src.width, dst.height / src.height)
         let w = src.width * scale, h = src.height * scale
         return CGRect(x: (dst.width - w) / 2, y: (dst.height - h) / 2, width: w, height: h)
     }
