@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-06-15T10:14:36Z",
+  "updated_at": "2026-06-16T09:28:28Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 14595,
-    "wanted": 14448,
+    "total": 14596,
+    "wanted": 14449,
     "fulfilled": 147,
     "series_with_gaps": 265
   },
@@ -23376,6 +23376,16 @@
       "episodeImdbID": "tt0555070",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "death-valley-days-1952",
+      "seriesTitle": "Death Valley Days",
+      "season": 1,
+      "episode": 18,
+      "title": "Land of the Free",
+      "episodeImdbID": "tt0556653",
+      "status": "wanted",
+      "added_at": "2026-06-16T09:28:28Z"
     },
     {
       "seriesID": "death-valley-days-1952",
