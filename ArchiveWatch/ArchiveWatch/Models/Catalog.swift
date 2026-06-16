@@ -157,6 +157,37 @@ struct Catalog: Decodable, Sendable {
             return nil
         }
 
+        /// Whether Clip Studio (the Create feature) is offered for this item.
+        /// Defense in depth on top of Decision 027 (copyrighted titles are
+        /// already excluded from the catalog upstream): only offer clipping
+        /// for content we can confidently call free. A playable video is
+        /// required; rightsStatus must be PD/CC or absent (nil → "" → allowed,
+        /// since the visible catalog is PD/CC-only post-027). An explicit
+        /// "unknown" / rights-reserved status is NOT clippable.
+        var isClippable: Bool {
+            guard videoURLParsed != nil else { return false }
+            switch (rightsStatus ?? "").lowercased() {
+            case "", "public_domain", "publicdomain", "public-domain", "cc0", "creative_commons":
+                return true
+            case let s where s.hasPrefix("cc") || s.contains("public"):
+                return true
+            default:
+                return false
+            }
+        }
+
+        /// Canonical archive.org source page for provenance/attribution.
+        var sourceDetailsURL: String { "https://archive.org/details/\(archiveID)" }
+
+        /// Burned-in provenance credit line for exported clips — the
+        /// attribution wedge (CREATE-STUDIO-PLAN §1). Public domain by default;
+        /// names a CC dedication when that's the right.
+        var clipCreditLine: String {
+            let rights = (rightsStatus ?? "").lowercased().contains("creative")
+                ? "Creative Commons" : "Public Domain"
+            return "archivewatch.org · \(rights)"
+        }
+
         static func == (lhs: Item, rhs: Item) -> Bool { lhs.archiveID == rhs.archiveID }
         func hash(into hasher: inout Hasher) { hasher.combine(archiveID) }
     }

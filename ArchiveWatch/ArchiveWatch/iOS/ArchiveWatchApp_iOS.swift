@@ -49,7 +49,7 @@ struct ArchiveWatchApp: App {
     // so an iPhone signed into the same iCloud account syncs WITH the Apple TV.
     private static func makeModelContainer() -> ModelContainer {
         let schema = Schema([WatchProgress.self, Favorite.self, Playlist.self,
-                             UserChannel.self, Tombstone.self])
+                             UserChannel.self, Tombstone.self, VideoClip.self])
         let config = ModelConfiguration(schema: schema, cloudKitDatabase: .none)
         if let c = try? ModelContainer(for: schema, configurations: config) { return c }
         let mem = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)

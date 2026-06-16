@@ -107,6 +107,23 @@ this table in the same change set; cross-link the platform design doc.
 | Background play (audio continues) | n/a (TV apps suspend) | ✅ `audio` background mode + detach-on-background | ✅ (browser keeps audio; MediaSession controls) | ⏳ MediaSessionService foreground service | iOS: AVKit detach/reattach technique, PiP-aware |
 | Cast / AirPlay | ✅ AirPlay | ✅ AirPlay (AVKit) | ⏳ Remote Playback API | ⏳ Google Cast (needs Cast SDK + device-tested receiver — deliberate defer) | each platform's native cast |
 
+## 4b. Create — Clip Studio (phone-differentiating; Decision 033)
+
+> The native phone apps *create*, not just consume. iOS-first; engine is 100%
+> native (AVFoundation/ImageIO/PhotoKit · Media3 Transformer). tvOS/web stay
+> lean-back viewers. Plan: `docs/CREATE-STUDIO-PLAN.md`.
+
+| Feature | tvOS | iOS | Web | Android | Notes |
+|---|---|---|---|---|---|
+| Create entry point (rights-gated) | n/a (lean-back) | 🚧 scissors button on Detail (PD/CC only via `isClippable`) | 🚫 (viewer) | ⏳ | hidden, not disabled, when not clippable |
+| Trim (frame-accurate, length-capped) | n/a | 🚧 custom filmstrip + handles over native `AVAssetImageGenerator`/`AVPlayer` | 🚫 | ⏳ Media3 `ClippingConfiguration` | no native trimmer component on either platform (5b) |
+| Reframe (Original/1:1/9:16/16:9, letterbox) | n/a | 🚧 `AVMutableVideoComposition` renderSize + transform | 🚫 | ⏳ Media3 `Presentation` | blurred-fill bg = v2 |
+| Caption + provenance credit (burned-in) | n/a | 🚧 CALayer tool (video) / Core Graphics (GIF) | 🚫 | ⏳ Media3 `OverlayEffect`/`TextOverlay` | always-on archivewatch.org · PD credit + source in metadata |
+| Export MP4 / GIF | n/a | 🚧 `AVAssetExportSession` / `AVAssetImageGenerator`+ImageIO | 🚫 | ⏳ Transformer / WebP (no native GIF encoder) | GIF is Android's weak native story |
+| Save to Photos / share | n/a | 🚧 PhotoKit (add-only) + `ShareLink` | 🚫 | ⏳ `MediaStore` + `ACTION_SEND` | |
+| Saved clips library | n/a | ⏳ `VideoClip` SwiftData model persists definitions | 🚫 | ⏳ | re-export from definition if render evicted |
+| v2: stitch / transitions / speed / LUT grade / auto-captions | n/a | 🔮 (same composition spine) | 🚫 | 🔮 | additive — `docs/CREATE-STUDIO-PLAN.md` §4 |
+
 ## 5. Surprise + Immersive modes
 
 | Feature | tvOS | iOS | Web | Android | Notes |

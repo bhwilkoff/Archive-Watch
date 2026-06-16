@@ -233,6 +233,45 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-16 — Clip Studio: native clip/GIF/fan-edit creation on iOS (Decision 033)
+Owner: differentiate the native phone apps from tvOS/web — "phones are meant to
+create content and not just consume it." Build a feature set for clipping
+public-domain archive.org content into "fan edits", GIFs, and social-ready
+content, launched from Detail / Now Playing. Researched, planned, iOS v1
+foundation built (**iOS generic-device build green** — `BUILD SUCCEEDED`
+against the iOS 26 SDK; no iOS 26 sim runtime installed here so no on-sim run).
+- **Research** (2 briefs): `docs/research/social-clip-creation.md` (formats:
+  9:16@1080×1920 universal, 4:5 feed, H.264/AAC MP4 30fps; GIF ≤480px/12fps;
+  burned-in captions; blur-pad fill for archival 4:3; the fan-edit craft +
+  attribution culture — wedge = auto provenance credits) and
+  `docs/research/video-clipping-native-frameworks.md` (the native tool suite,
+  iOS + Android parity, capability→framework matrix, v1 scope).
+- **Plan**: `docs/CREATE-STUDIO-PLAN.md` (binding) — learning-orientation test
+  (PASS, with the no-one-tap-auto-edit guardrail), rights gate, v1 set, v2
+  backlog on the same composition spine, Android parity, **§5b native-first
+  audit**.
+- **iOS v1 foundation shipped** (all native frameworks, no 3rd-party):
+  `Services/ClipExporter.swift` (actor engine — download-to-Caches, trim +
+  reframe + caption + provenance-credit MP4 via AVMutableComposition/
+  AVMutableVideoComposition + CALayer tool; GIF via AVAssetImageGenerator +
+  ImageIO with Core Graphics caption; PhotoKit save), `Models/VideoClip.swift`
+  (SwiftData, registered in the iOS schema), `iOS/ClipStudioView_iOS.swift`
+  (@Observable model + editor: VideoPlayer preview, custom trim filmstrip,
+  segmented format/aspect Pickers, caption TextField, progress, result →
+  Save/Share), `Catalog.Item.isClippable` + `clipCreditLine` +
+  `sourceDetailsURL` rights gate, scissors "Create" button on `DetailView_iOS`
+  (hidden when not clippable), `NSPhotoLibraryAddUsageDescription` in Info.plist.
+- **Native-first** (owner mid-task ask): verified vs current API docs — engine
+  + every UI surface use native primitives; the ONLY custom piece is the trim
+  timeline because neither Apple (`UIVideoEditorController` = trim-only) nor
+  Google (Media3 = demo UI only) ships a reusable trimmer; Apple's own sample
+  editors build it custom on AVFoundation. Logged + the
+  `UIVideoEditorController`-for-trim swap noted as an option (Decision 033 §
+  native-first). **Asked owner** which trim UI they prefer.
+- **NOT YET**: on-device run (needs an iOS 26 sim/device — owner), Android port,
+  v2 craft tools, a "Clips" Library surface. NOT committed/pushed pending the
+  trim-UI answer + owner review.
+
 ### 2026-06-15 (later) — Top Rated shelf + rating sort (tvOS/iOS/Android)
 Owner (after noticing the IMDb star on Detail): "we should allow for
 sorting by star rating as one of the filters on browse and it should be

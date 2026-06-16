@@ -1151,3 +1151,60 @@ doesn't exist yet — `status="unresolved"` marks a miss and is never retried
 daily; a periodic `--retry-unresolved` sweep (future) could re-hunt as new
 uploads appear. The rights gate stays Decision 027's audit — a want's
 `pdEvidence` documents the nomination reason but never bypasses confirmation.
+
+---
+
+## 033 — Clip Studio: native on-device clip/GIF/fan-edit creation differentiates the phone apps
+*Date: 2026-06-16*
+
+The native iPhone/iPad app gains **Clip Studio** — a rights-gated editor,
+launched from a scissors "Create" button on Detail, that trims a public-domain
+archive.org film, reframes it for social (1:1 / 9:16 / 16:9), burns in a
+user caption plus an always-on `archivewatch.org · Public Domain` provenance
+credit, and exports an MP4 or looping GIF to Photos / the share sheet. The
+processing engine is **100% native frameworks** — AVFoundation
+(`AVMutableComposition` + `AVMutableVideoComposition` + `AVAssetExportSession`),
+ImageIO (`CGImageDestination` for GIF), PhotoKit, `AVAssetImageGenerator` — with
+the Android port on Media3 `Transformer`. The shared engine lives in
+`Services/ClipExporter.swift` guarded `#if os(iOS)`; the editor UI is
+`iOS/ClipStudioView_iOS.swift`. **tvOS and web stay lean-back viewers** — no
+editing affordance (no text entry / direct-manipulation timeline at ten feet or
+in a viewer-only PWA). Full plan: `docs/CREATE-STUDIO-PLAN.md`.
+
+**Why**: phones are creation devices, not just consumption screens — the owner's
+brief is to differentiate the native phone apps from the tvOS/web viewers by
+turning the public-domain catalog into raw material for "fan edits." This passes
+the learning-orientation test (CLAUDE.md) — it invites participation and
+deepens engagement with archival film — **on one condition: do not ship a
+one-tap "auto fan-edit" generator.** The editorial cut is the meaningful human
+act; automating it strips the learning. So the rule is *automate the mechanical
+(frame extraction, encoding, reframe math, attribution generation), preserve
+the meaningful (which moment, what caption, where to cut)*. The distinctive
+wedge is auto-generated provenance credits — turning the Internet Archive's
+attribution norm into a culturally-native feature.
+
+**How to apply**: clipping is offered ONLY for `Catalog.Item.isClippable`
+(playable video + PD/CC/absent rightsStatus; explicit copyright/`unknown` is
+not clippable) — defense in depth over Decision 027's upstream exclusion. The
+affordance is HIDDEN, not disabled, when not clippable. Editing operates on a
+LOCAL file (download to `Caches` first — the editor needs a complete
+`moov`-bearing file, not the play-as-you-go `ResilientStreamLoader` range
+stream); v2 should range-download just the clip window keyed on the moov index
+instead of the whole film. Every export burns the provenance credit and embeds
+the `archive.org/details/{id}` source in `AVMetadataItem`s — never remove that.
+New craft tools (stitch, transitions, speed ramps, LUT grade, `SpeechAnalyzer`
+auto-captions) are ADDITIVE on the same `AVMutableComposition` /
+`AVMutableVideoComposition` spine — do not rebuild the engine for them.
+
+**Native-first note** (`native-platform-first`): the engine and every UI
+surface use native primitives (AVKit `VideoPlayer`, `Picker(.segmented)`,
+`TextField`, `ShareLink`, PhotoKit, `.sheet`/`.toolbar`/`ProgressView`). The
+ONE custom element is the trim timeline (filmstrip + drag handles), because
+neither Apple nor Google ships a reusable timeline-trimmer:
+`UIVideoEditorController` is trim-only / quality-preset-only / UIKit-modal and
+can't host reframe+caption+GIF, and Media3 ships only a demo editor UI. Apple's
+own editor sample code builds the timeline custom on AVFoundation — so custom
+here is the platform-endorsed path, kept thin (it only positions handles over
+native thumbnails and seeks a native player). Re-evaluate on each major OS
+release in case a reusable trimmer ships. `UIVideoEditorController`-for-trim
+remains a one-screen swap if a strictly-native trim bar is ever preferred.

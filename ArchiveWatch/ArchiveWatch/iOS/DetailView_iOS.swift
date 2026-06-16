@@ -13,6 +13,7 @@ struct DetailView: View {
     @Query private var favorites: [Favorite]
     @State private var playing = false
     @State private var addingToPlaylist = false
+    @State private var clipping = false
 
     private var isFav: Bool { favorites.contains { $0.archiveID == item.archiveID } }
 
@@ -44,6 +45,17 @@ struct DetailView: View {
                         }
                         .buttonStyle(.bordered)
 
+                        // Create: clip / GIF / fan-edit this title (Decision 033).
+                        // Rights-gated — only public-domain / CC content (the
+                        // affordance is hidden, not disabled, when not clippable).
+                        if item.isClippable {
+                            Button { clipping = true } label: {
+                                Image(systemName: "scissors")
+                                    .accessibilityLabel("Create a clip or GIF")
+                            }
+                            .buttonStyle(.bordered)
+                        }
+
                         ShareLink(item: shareURL) { Image(systemName: "square.and.arrow.up") }
                             .buttonStyle(.bordered)
                     }
@@ -65,6 +77,9 @@ struct DetailView: View {
         }
         .sheet(isPresented: $addingToPlaylist) {
             AddToPlaylistSheet(archiveID: item.archiveID)
+        }
+        .sheet(isPresented: $clipping) {
+            ClipStudioView(item: item)
         }
         // Dev affordance (with AW_START_ITEM): start playback immediately so
         // playback diagnostics can run unattended on the simulator.
