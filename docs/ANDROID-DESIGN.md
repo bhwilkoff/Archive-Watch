@@ -148,6 +148,25 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   GIF encoder; v1 ships MP4 only (PARITY gap; WebP / vendored encoder later).
   The human makes every editorial choice; never a one-tap auto-edit
   (CREATE-STUDIO-PLAN §1, learning-orientation).
+  - **v2 — Looks + Speed (CREATE-STUDIO-PLAN §4, Decision 033 v2).** A color-
+    grade **Look** `SegmentedButton` (six options mirroring iOS `ClipLook`:
+    None / Silent / Noir / Faded / Technicolor / B&W) and a **Speed**
+    `SegmentedButton` (0.5× / 1× / 2×, mirroring iOS), both persisted into
+    `ClipSpec` and applied at export. iOS grades with CIFilter chains; Media3
+    has no named film presets, so `ClipLook.videoEffects()` maps each look to
+    the closest **native `androidx.media3.effect`** effect (no third-party):
+    Silent → `RgbAdjustment` warm sepia (red up / blue down); Noir →
+    `RgbFilter.createGrayscaleFilter()` + `Contrast` lift; Faded → `Contrast`
+    down + `HslAdjustment` desaturate; Technicolor → `HslAdjustment` saturation
+    up + slight `Contrast`; B&W → `RgbFilter.createGrayscaleFilter()`. The grade
+    is prepended to the video-effects list (graded frames, then reframe +
+    overlay — the burned caption/credit stay un-graded, matching the iOS
+    two-pass intent). Speed adds a video `SpeedChangeEffect(multiplier)` plus a
+    matching `SonicAudioProcessor.setSpeed(...)` audio processor so A/V stay in
+    sync. **Deferred vs iOS:** no vignette on the Faded look (Media3 1.9.4 has
+    no native vignette effect) and no live grade preview on the editor frame
+    (the iOS player-side CIFilter preview has no cheap Media3 analog; the static
+    preview thumbnail is un-graded) — both noted as PARITY gaps.
 
 ## §5 Player
 

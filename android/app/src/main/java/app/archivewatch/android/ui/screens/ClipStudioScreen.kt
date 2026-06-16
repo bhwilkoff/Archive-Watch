@@ -78,7 +78,9 @@ import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.data.ClipAspect
 import app.archivewatch.android.data.ClipExporter
 import app.archivewatch.android.data.ClipFormat
+import app.archivewatch.android.data.ClipLook
 import app.archivewatch.android.data.ClipSpec
+import app.archivewatch.android.data.ClipSpeed
 import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.LoadingBox
 import app.archivewatch.android.ui.Nav
@@ -123,6 +125,8 @@ fun ClipStudioScreen(container: AppContainer, nav: Nav, archiveID: String) {
     var inSeconds by remember { mutableDoubleStateOf(0.0) }
     var outSeconds by remember { mutableDoubleStateOf(15.0) }
     var aspect by remember { mutableStateOf(ClipAspect.VERTICAL) }
+    var look by remember { mutableStateOf(ClipLook.NONE) }
+    var speed by remember { mutableStateOf(ClipSpeed.ONE) }
     var caption by remember { mutableStateOf("") }
     var resultFile by remember { mutableStateOf<File?>(null) }
     var saved by remember { mutableStateOf(false) }
@@ -192,11 +196,15 @@ fun ClipStudioScreen(container: AppContainer, nav: Nav, archiveID: String) {
                         outSeconds = outSeconds,
                         clipDuration = clipDuration,
                         aspect = aspect,
+                        look = look,
+                        speed = speed,
                         caption = caption,
                         error = error,
                         canExport = clipDuration >= 0.5 && localSource != null,
                         onTrim = { newIn, newOut -> inSeconds = newIn; outSeconds = newOut },
                         onAspect = { aspect = it },
+                        onLook = { look = it },
+                        onSpeed = { speed = it },
                         onCaption = { caption = it },
                         onExport = {
                             val local = localSource ?: return@EditingPhase
@@ -216,6 +224,8 @@ fun ClipStudioScreen(container: AppContainer, nav: Nav, archiveID: String) {
                                         aspect = aspect,
                                         caption = caption.trim(),
                                         format = format,
+                                        look = look,
+                                        speed = speed,
                                     )
                                     val out = container.clipExporter.exportVideo(spec) { p ->
                                         exportProgress = p.toFloat()
@@ -303,11 +313,15 @@ private fun EditingPhase(
     outSeconds: Double,
     clipDuration: Double,
     aspect: ClipAspect,
+    look: ClipLook,
+    speed: ClipSpeed,
     caption: String,
     error: String?,
     canExport: Boolean,
     onTrim: (Double, Double) -> Unit,
     onAspect: (ClipAspect) -> Unit,
+    onLook: (ClipLook) -> Unit,
+    onSpeed: (ClipSpeed) -> Unit,
     onCaption: (String) -> Unit,
     onExport: () -> Unit,
 ) {
@@ -383,6 +397,33 @@ private fun EditingPhase(
                         onClick = { onAspect(a) },
                         shape = SegmentedButtonDefaults.itemShape(i, ClipAspect.entries.size),
                     ) { Text(a.label) }
+                }
+            }
+        }
+
+        // Color-grade Look picker — native SegmentedButton (6 short labels,
+        // mirrors iOS ClipLook). Grade is applied to the source frames at export.
+        LabeledSection("Look") {
+            SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
+                ClipLook.entries.forEachIndexed { i, l ->
+                    SegmentedButton(
+                        selected = look == l,
+                        onClick = { onLook(l) },
+                        shape = SegmentedButtonDefaults.itemShape(i, ClipLook.entries.size),
+                    ) { Text(l.label, maxLines = 1) }
+                }
+            }
+        }
+
+        // Speed picker — native SegmentedButton (0.5× / 1× / 2×, A/V together).
+        LabeledSection("Speed") {
+            SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
+                ClipSpeed.entries.forEachIndexed { i, s ->
+                    SegmentedButton(
+                        selected = speed == s,
+                        onClick = { onSpeed(s) },
+                        shape = SegmentedButtonDefaults.itemShape(i, ClipSpeed.entries.size),
+                    ) { Text(s.label) }
                 }
             }
         }

@@ -13,11 +13,18 @@ import android.text.TextPaint
 import androidx.annotation.OptIn
 import androidx.media3.common.Effect
 import androidx.media3.common.MediaItem
+import androidx.media3.common.audio.AudioProcessor
+import androidx.media3.common.audio.SonicAudioProcessor
 import androidx.media3.common.util.Size
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.effect.BitmapOverlay
+import androidx.media3.effect.Contrast
+import androidx.media3.effect.HslAdjustment
 import androidx.media3.effect.OverlayEffect
 import androidx.media3.effect.Presentation
+import androidx.media3.effect.RgbAdjustment
+import androidx.media3.effect.RgbFilter
+import androidx.media3.effect.SpeedChangeEffect
 import androidx.media3.effect.StaticOverlaySettings
 import androidx.media3.effect.TextureOverlay
 import androidx.media3.transformer.Composition
@@ -93,6 +100,83 @@ enum class ClipFormat(val label: String, val maxDuration: Double, val fileExtens
     }
 }
 
+/**
+ * Color-grade "looks" — era-appropriate film treatments for repertory PD
+ * cinema (CREATE-STUDIO-PLAN §4, Decision 033 v2). The Android twin of the iOS
+ * `ClipLook`; the SAME six look names, mapped to native `androidx.media3.effect`
+ * effects (no third-party). `NONE` is a no-op fast path.
+ *
+ * iOS uses CIFilter chains; Media3 has no equivalent named film presets, so each
+ * look maps to the closest native RGB/HSL/grayscale effect:
+ *  - SILENT      → sepia warm tone via `RgbAdjustment` (boost red, cut blue),
+ *                  contrast-flattened slightly (≈ iOS CISepiaTone).
+ *  - NOIR        → grayscale (`RgbFilter.createGrayscaleFilter()`) + a contrast
+ *                  lift for the high-key noir punch (≈ iOS CIPhotoEffectNoir).
+ *  - FADED       → reduced contrast + desaturation (`Contrast` < 0 +
+ *                  `HslAdjustment` saturation down) (≈ iOS CIPhotoEffectFade).
+ *                  No vignette: Media3 1.9.4 has no native vignette effect.
+ *  - TECHNICOLOR → boosted saturation (`HslAdjustment` saturation up) + slight
+ *                  contrast (≈ iOS CIPhotoEffectChrome + saturation 1.25).
+ *  - MONO (B&W)  → grayscale (`RgbFilter.createGrayscaleFilter()`)
+ *                  (≈ iOS CIPhotoEffectMono).
+ */
+enum class ClipLook(val label: String) {
+    NONE("None"),
+    SILENT("Silent"),
+    NOIR("Noir"),
+    FADED("Faded"),
+    TECHNICOLOR("Techni"),
+    MONO("B&W");
+
+    /** Native Media3 video effects for this look. Empty for NONE. */
+    @OptIn(UnstableApi::class)
+    fun videoEffects(): List<Effect> = when (this) {
+        NONE -> emptyList()
+        // Warm sepia: lift red, hold green, cut blue. Approximates CISepiaTone.
+        SILENT -> listOf(
+            RgbAdjustment.Builder()
+                .setRedScale(1.25f)
+                .setGreenScale(1.02f)
+                .setBlueScale(0.72f)
+                .build(),
+        )
+        // Grayscale + contrast lift for the high-contrast noir look.
+        NOIR -> listOf(
+            RgbFilter.createGrayscaleFilter(),
+            Contrast(0.30f),
+        )
+        // Washed/faded: drop contrast, desaturate. (No native vignette in 1.9.4.)
+        FADED -> listOf(
+            Contrast(-0.20f),
+            HslAdjustment.Builder().adjustSaturation(-40f).build(),
+        )
+        // Punchy color: saturation up + a touch of contrast.
+        TECHNICOLOR -> listOf(
+            HslAdjustment.Builder().adjustSaturation(35f).build(),
+            Contrast(0.12f),
+        )
+        // Straight grayscale.
+        MONO -> listOf(RgbFilter.createGrayscaleFilter())
+    }
+
+    companion object {
+        fun from(raw: String): ClipLook =
+            entries.firstOrNull { it.name.equals(raw, ignoreCase = true) } ?: NONE
+    }
+}
+
+/** Playback speed for the export — mirrors iOS 0.5× / 1× / 2×. */
+enum class ClipSpeed(val multiplier: Float, val label: String) {
+    HALF(0.5f, "0.5×"),
+    ONE(1f, "1×"),
+    TWO(2f, "2×");
+
+    companion object {
+        fun from(raw: String): ClipSpeed =
+            entries.firstOrNull { it.name.equals(raw, ignoreCase = true) } ?: ONE
+    }
+}
+
 data class ClipSpec(
     val sourceFile: File,
     val archiveID: String,
@@ -104,6 +188,8 @@ data class ClipSpec(
     val aspect: ClipAspect,
     val caption: String,
     val format: ClipFormat,
+    val look: ClipLook = ClipLook.NONE,
+    val speed: ClipSpeed = ClipSpeed.ONE,
 )
 
 sealed class ClipExportException(message: String) : Exception(message) {
@@ -208,6 +294,15 @@ class ClipExporter(
             .build()
 
         val effects = mutableListOf<Effect>()
+        // Color grade FIRST, on the raw frames, before reframe/overlay (so the
+        // burned-in caption + credit stay un-graded, matching the iOS two-pass
+        // intent where the grade only touches the source clip).
+        effects.addAll(spec.look.videoEffects())
+        // Speed (video): a GL speed effect re-times the frames. The matching
+        // audio speed is applied as an AudioProcessor below so A/V stay in sync.
+        if (spec.speed != ClipSpeed.ONE) {
+            effects.add(SpeedChangeEffect(spec.speed.multiplier))
+        }
         // Reframe to the chosen canvas (letterbox/pillarbox into the matte).
         if (spec.aspect != ClipAspect.ORIGINAL) {
             effects.add(
@@ -220,8 +315,17 @@ class ClipExporter(
         // single bitmap overlay sized to the render canvas.
         effects.add(makeOverlayEffect(renderSize, spec.caption, spec.creditLine))
 
+        // Audio speed (Sonic) keeps the soundtrack in step with the video
+        // SpeedChangeEffect. Empty list = no audio processing for 1× speed.
+        val audioProcessors: List<AudioProcessor> =
+            if (spec.speed != ClipSpeed.ONE) {
+                listOf(SonicAudioProcessor().apply { setSpeed(spec.speed.multiplier) })
+            } else {
+                emptyList()
+            }
+
         val edited = EditedMediaItem.Builder(mediaItem)
-            .setEffects(Effects(ImmutableList.of(), ImmutableList.copyOf(effects)))
+            .setEffects(Effects(ImmutableList.copyOf(audioProcessors), ImmutableList.copyOf(effects)))
             .build()
 
         suspendCancellableCoroutine { cont ->
