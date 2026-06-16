@@ -233,6 +233,24 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-16 (latest) — Clip Studio: styleable, positionable, live-preview captions
+Owner: show captions on the preview + control where they go (on video / below
+video / location) and how they look (font, etc.). Shipped (1.3.0 b46, green):
+- **`CaptionStyle`** (ClipExporter): normalized `position` (drag-anywhere),
+  `font` (Sans/Round/Serif/Mono via UIFontDescriptor design), `sizeScale`
+  (S/M/L), `color` (white/yellow/black), `background` (shadow/box/plain).
+- **Live preview**: the active caption (timed cue at the playhead, else the
+  static caption) renders on the `AVPlayerLayer` preview in the chosen style and
+  is **draggable** to position — on the video OR into the letterbox bars
+  ("below video"). WYSIWYG because the preview box shares the export aspect.
+- **Burn-in honors the style**: a shared `renderCaptionImage` draws the caption
+  to a content-sized image (font/color/size/box/shadow) placed at
+  `style.position` — video via image CALayers (timed cues keep their opacity
+  keyframes), GIF via Core Graphics. Provenance credit still pinned bottom.
+- UI: Captions panel gained Font/Size/Color/Background segmented pickers (shown
+  once a caption/cues exist) + a drag hint. SwiftUI↔UIKit style mappings kept in
+  lockstep. NOT yet: editing the transcribed cue TEXT (easy follow-up).
+
 ### 2026-06-16 (later) — Clip Studio trim UI rebuilt CapCut-style + stream-not-download
 Owner on-device feedback: (1) "Cannot Open" — v1 downloaded the whole film;
 fixed by editing off the ResilientStreamLoader remote stream (b44). (2) The

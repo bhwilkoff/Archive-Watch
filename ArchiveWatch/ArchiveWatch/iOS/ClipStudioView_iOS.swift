@@ -39,7 +39,18 @@ final class ClipStudioModel {
     var blurredFill: Bool = false
     var caption: String = ""
     var captionCues: [CaptionCue] = []
+    var captionStyle = CaptionStyle()
     var transcribing = false
+
+    var hasCaption: Bool { !caption.isEmpty || !captionCues.isEmpty }
+    /// The caption text to show on the preview right now: the active timed cue
+    /// at the playhead, else the static caption.
+    var activeCaption: String? {
+        if !captionCues.isEmpty {
+            return captionCues.first { playheadSeconds >= $0.start && playheadSeconds < $0.end }?.text
+        }
+        return caption.isEmpty ? nil : caption
+    }
 
     var playheadSeconds: Double = 0
     var isPlaying = false
@@ -195,7 +206,8 @@ final class ClipStudioModel {
             sourceDetailsURL: item.sourceDetailsURL, creditLine: item.clipCreditLine,
             inSeconds: inSeconds, durationSeconds: clipDuration, aspect: aspect,
             caption: caption.trimmingCharacters(in: .whitespacesAndNewlines), format: format,
-            look: look, speed: speed, blurredFill: blurredFill, captionCues: captionCues)
+            look: look, speed: speed, blurredFill: blurredFill, captionCues: captionCues,
+            captionStyle: captionStyle)
         do {
             let (stream, cont) = AsyncStream.makeStream(of: Double.self)
             let pt = Task { for await p in stream { self.exportProgress = p } }
@@ -332,7 +344,7 @@ struct ClipStudioView: View {
                         Text("0.5×").tag(0.5); Text("1×").tag(1.0); Text("2×").tag(2.0)
                     }.pickerStyle(.segmented)
                 }
-                labeled("Caption") {
+                labeled("Captions") {
                     if model.captionCues.isEmpty {
                         TextField("Add a caption (optional)", text: $model.caption, axis: .vertical)
                             .lineLimit(1...2).textFieldStyle(.roundedBorder)
@@ -349,6 +361,24 @@ struct ClipStudioView: View {
                             Spacer()
                             Button("Clear") { model.clearCaptions() }.font(.subheadline)
                         }
+                    }
+                    if model.hasCaption {
+                        Picker("Font", selection: $model.captionStyle.font) {
+                            ForEach(CaptionFont.allCases) { Text($0.label).tag($0) }
+                        }.pickerStyle(.segmented)
+                        HStack(spacing: 10) {
+                            Picker("Size", selection: $model.captionStyle.sizeScale) {
+                                Text("S").tag(0.8); Text("M").tag(1.0); Text("L").tag(1.3)
+                            }.pickerStyle(.segmented)
+                            Picker("Color", selection: $model.captionStyle.color) {
+                                ForEach(CaptionColor.allCases) { Text($0.label).tag($0) }
+                            }.pickerStyle(.segmented)
+                        }
+                        Picker("Background", selection: $model.captionStyle.background) {
+                            ForEach(CaptionBackground.allCases) { Text($0.label).tag($0) }
+                        }.pickerStyle(.segmented)
+                        Text("Drag the caption on the preview to place it (on the video or in the bars).")
+                            .font(.caption2).foregroundStyle(.tertiary)
                     }
                 }
                 Button { model.pause(); Task { await model.export(into: ctx) } } label: {
@@ -386,32 +416,63 @@ struct ClipStudioView: View {
     // MARK: Pieces
 
     // Controls-free AVPlayerLayer preview (the timeline is the only scrubber).
-    // Tap anywhere to play/pause the selection; a play glyph shows when paused.
+    // Tap to play/pause the selection; a play glyph shows when paused. The
+    // caption renders LIVE in the chosen style and is DRAGGABLE to position it
+    // (matches the burn-in because the preview box shares the export aspect).
     private var preview: some View {
-        ZStack {
-            PlayerLayerView(player: model.player)
-            VStack {
-                Spacer()
-                if model.captionCues.isEmpty, !model.caption.isEmpty {
-                    Text(model.caption).font(.headline.bold()).foregroundStyle(.white)
-                        .multilineTextAlignment(.center).shadow(radius: 4)
-                        .padding(.horizontal).padding(.bottom, 4)
+        GeometryReader { geo in
+            let W = geo.size.width, H = geo.size.height
+            ZStack {
+                PlayerLayerView(player: model.player)
+                VStack {
+                    Spacer()
+                    Text(model.item.clipCreditLine).font(.caption2)
+                        .foregroundStyle(.white.opacity(0.85)).shadow(radius: 3).padding(.bottom, 6)
                 }
-                Text(model.item.clipCreditLine).font(.caption2)
-                    .foregroundStyle(.white.opacity(0.85)).shadow(radius: 3).padding(.bottom, 6)
+                if let text = model.activeCaption {
+                    captionPreview(text, boxWidth: W)
+                        .position(x: model.captionStyle.position.x * W,
+                                  y: model.captionStyle.position.y * H)
+                        .gesture(DragGesture().onChanged { v in
+                            model.captionStyle.position = CGPoint(
+                                x: min(0.95, max(0.05, v.location.x / W)),
+                                y: min(0.97, max(0.03, v.location.y / H)))
+                        })
+                }
+                if !model.isPlaying {
+                    Image(systemName: "play.circle.fill").font(.system(size: 50))
+                        .symbolRenderingMode(.palette).foregroundStyle(.white, .black.opacity(0.35))
+                        .shadow(radius: 6).allowsHitTesting(false)
+                }
             }
-            if !model.isPlaying {
-                Image(systemName: "play.circle.fill").font(.system(size: 50))
-                    .symbolRenderingMode(.palette).foregroundStyle(.white, .black.opacity(0.35))
-                    .shadow(radius: 6).allowsHitTesting(false)
-            }
+            .frame(width: W, height: H)
+            .background(Color.black)
+            .clipShape(.rect(cornerRadius: 12))
+            .contentShape(Rectangle())
+            .onTapGesture { model.togglePlay() }
         }
         .aspectRatio(model.aspect.ratio ?? (16.0 / 9.0), contentMode: .fit)
         .frame(maxHeight: 300)
-        .background(Color.black)
-        .clipShape(.rect(cornerRadius: 12))
-        .contentShape(Rectangle())
-        .onTapGesture { model.togglePlay() }
+    }
+
+    @ViewBuilder private func captionPreview(_ text: String, boxWidth: CGFloat) -> some View {
+        let s = model.captionStyle
+        let size = max(11, boxWidth * 0.05 * s.sizeScale)
+        Text(text)
+            .font(s.font.swiftUIFont(size: size))
+            .foregroundStyle(s.color.swiftUIColor)
+            .multilineTextAlignment(.center)
+            .lineLimit(3)
+            .shadow(color: s.background == .shadow ? .black.opacity(0.9) : .clear,
+                    radius: s.background == .shadow ? size * 0.14 : 0, y: size * 0.04)
+            .padding(.horizontal, s.background == .box ? size * 0.5 : 0)
+            .padding(.vertical, s.background == .box ? size * 0.35 : 0)
+            .background {
+                if s.background == .box {
+                    RoundedRectangle(cornerRadius: size * 0.4).fill(.black.opacity(0.55))
+                }
+            }
+            .frame(maxWidth: boxWidth * 0.86)
     }
 
     // CapCut-style timeline: scroll the filmstrip to scrub (preview follows the
@@ -490,6 +551,30 @@ struct ClipStudioView: View {
         guard let src = CGImageSourceCreateWithURL(url as CFURL, nil),
               let cg = CGImageSourceCreateImageAtIndex(src, 0, nil) else { return nil }
         return UIImage(cgImage: cg)
+    }
+}
+
+// SwiftUI mappings for the caption style (the engine's UIKit mappings live in
+// ClipExporter); kept in lockstep so the live preview matches the burn-in.
+extension CaptionFont {
+    func swiftUIFont(size: CGFloat) -> Font {
+        let design: Font.Design
+        switch self {
+        case .system: design = .default
+        case .rounded: design = .rounded
+        case .serif: design = .serif
+        case .mono: design = .monospaced
+        }
+        return .system(size: size, weight: .bold, design: design)
+    }
+}
+extension CaptionColor {
+    var swiftUIColor: Color {
+        switch self {
+        case .white: return .white
+        case .yellow: return Color(red: 1, green: 0.84, blue: 0.04)
+        case .black: return .black
+        }
     }
 }
 

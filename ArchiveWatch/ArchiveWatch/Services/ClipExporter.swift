@@ -113,6 +113,58 @@ struct CaptionCue: Sendable, Hashable, Identifiable {
     var id: Double { start }
 }
 
+// Caption look + placement, shared by the live preview and the burn-in so the
+// editor is WYSIWYG (Decision 033). Applies to both the static caption and the
+// timed auto-caption cues.
+enum CaptionFont: String, CaseIterable, Identifiable, Sendable {
+    case system, rounded, serif, mono
+    var id: String { rawValue }
+    var label: String {
+        switch self { case .system: return "Sans"; case .rounded: return "Round"
+                      case .serif: return "Serif"; case .mono: return "Mono" }
+    }
+    func uiFont(size: CGFloat) -> UIFont {
+        let base = UIFont.systemFont(ofSize: size, weight: .bold)
+        let design: UIFontDescriptor.SystemDesign
+        switch self {
+        case .system: return base
+        case .rounded: design = .rounded
+        case .serif: design = .serif
+        case .mono: design = .monospaced
+        }
+        if let d = base.fontDescriptor.withDesign(design) { return UIFont(descriptor: d, size: size) }
+        return base
+    }
+}
+
+enum CaptionColor: String, CaseIterable, Identifiable, Sendable {
+    case white, yellow, black
+    var id: String { rawValue }
+    var label: String { rawValue.capitalized }
+    var uiColor: UIColor {
+        switch self {
+        case .white: return .white
+        case .yellow: return UIColor(red: 1.0, green: 0.84, blue: 0.04, alpha: 1)
+        case .black: return .black
+        }
+    }
+}
+
+enum CaptionBackground: String, CaseIterable, Identifiable, Sendable {
+    case shadow, box, none
+    var id: String { rawValue }
+    var label: String { self == .none ? "Plain" : rawValue.capitalized }
+}
+
+struct CaptionStyle: Sendable, Equatable {
+    /// Normalized center of the caption in the render canvas (0,0 = top-left).
+    var position: CGPoint = CGPoint(x: 0.5, y: 0.82)
+    var font: CaptionFont = .system
+    var sizeScale: Double = 1.0          // 0.8 small · 1.0 medium · 1.3 large
+    var color: CaptionColor = .white
+    var background: CaptionBackground = .shadow
+}
+
 struct ClipSpec: Sendable {
     var sourceURL: URL          // local file (post-download)
     var archiveID: String
@@ -128,6 +180,7 @@ struct ClipSpec: Sendable {
     var speed: Double = 1        // 0.5 = slow-mo, 2 = fast; output duration = clip/speed
     var blurredFill: Bool = false   // reframe background: blurred-fill vs solid letterbox
     var captionCues: [CaptionCue] = []   // timed auto-captions (override the static caption when present)
+    var captionStyle: CaptionStyle = CaptionStyle()
 }
 
 enum ClipExportError: LocalizedError {
@@ -346,7 +399,7 @@ actor ClipExporter {
         let videoLayer = CALayer(); videoLayer.frame = parent.frame
         parent.addSublayer(videoLayer)
         Self.addOverlays(to: parent, size: renderSize, caption: spec.caption, credit: spec.creditLine,
-                         cues: displayCues, totalDuration: total)
+                         cues: displayCues, totalDuration: total, style: spec.captionStyle)
         let toolCfg = AVVideoCompositionCoreAnimationTool.Configuration(
             postProcessingAsVideoLayer: videoLayer, containingLayer: parent)
 
@@ -426,7 +479,8 @@ actor ClipExporter {
             if case let .success(_, image, _) = result {
                 let composed = Self.composeGIFFrame(image, canvas: canvas, look: spec.look,
                                                      blurredFill: spec.blurredFill,
-                                                     caption: spec.caption, credit: spec.creditLine)
+                                                     caption: spec.caption, credit: spec.creditLine,
+                                                     style: spec.captionStyle)
                 CGImageDestinationAddImage(dest, composed, frameProps)
             }
             done += 1
@@ -527,37 +581,41 @@ actor ClipExporter {
             .concatenating(CGAffineTransform(translationX: tx, y: ty))
     }
 
-    /// CALayer overlays for the video export. NOTE the Core Animation
-    /// coordinate system is bottom-left origin (y grows upward) — credit sits
-    /// near the bottom, caption in the lower-third title-safe band.
+    /// CALayer overlays for the video export. The provenance credit is pinned
+    /// bottom-center (CA bottom-left origin). The caption / timed cues are
+    /// rendered to images by `renderCaptionImage` (honoring the user's style)
+    /// and placed at `style.position` — so the burn-in matches the live preview.
     nonisolated static func addOverlays(to parent: CALayer, size: CGSize,
                                         caption: String, credit: String,
-                                        cues: [CaptionCue] = [], totalDuration: Double = 0) {
-        let scale: CGFloat = 3
+                                        cues: [CaptionCue] = [], totalDuration: Double = 0,
+                                        style: CaptionStyle = CaptionStyle()) {
         // Provenance credit — small, bottom-centered, always present.
         let creditLayer = makeTextLayer(credit,
                                          fontSize: max(16, size.width * 0.020),
                                          weight: .medium,
                                          color: UIColor.white.withAlphaComponent(0.85),
                                          alignment: .center)
-        creditLayer.contentsScale = scale
+        creditLayer.contentsScale = 2
         creditLayer.frame = CGRect(x: 0, y: size.height * 0.022,
                                    width: size.width, height: max(22, size.width * 0.03))
         parent.addSublayer(creditLayer)
 
-        let capFrame = CGRect(x: size.width * 0.06, y: size.height * 0.085,
-                              width: size.width * 0.88, height: size.height * 0.24)
+        func place(_ img: UIImage) -> CALayer {
+            let layer = CALayer()
+            layer.contents = img.cgImage
+            layer.contentsGravity = .resizeAspect
+            let w = img.size.width, h = img.size.height
+            let cx = CGFloat(style.position.x) * size.width
+            let cyCA = size.height - CGFloat(style.position.y) * size.height   // top-left → CA bottom-left
+            layer.frame = CGRect(x: cx - w / 2, y: cyCA - h / 2, width: w, height: h)
+            return layer
+        }
 
-        // Timed auto-captions take precedence: one layer per cue, shown only
-        // during its window via an opacity keyframe animation over the clip.
+        // Timed auto-captions take precedence: one image-layer per cue, shown
+        // only during its window via an opacity keyframe over the clip.
         if !cues.isEmpty, totalDuration > 0 {
             for cue in cues {
-                let layer = makeTextLayer(cue.text,
-                                          fontSize: max(28, size.width * 0.046),
-                                          weight: .bold, color: .white, alignment: .center)
-                layer.contentsScale = scale
-                layer.isWrapped = true
-                layer.frame = capFrame
+                let layer = place(renderCaptionImage(cue.text, style: style, canvasWidth: size.width))
                 layer.opacity = 0
                 let s = min(max(cue.start / totalDuration, 0), 1)
                 let e = min(max(cue.end / totalDuration, s), 1)
@@ -575,15 +633,48 @@ actor ClipExporter {
         }
 
         guard !caption.isEmpty else { return }
-        let capLayer = makeTextLayer(caption,
-                                     fontSize: max(30, size.width * 0.050),
-                                     weight: .bold,
-                                     color: .white,
-                                     alignment: .center)
-        capLayer.contentsScale = scale
-        capLayer.isWrapped = true
-        capLayer.frame = capFrame
-        parent.addSublayer(capLayer)
+        parent.addSublayer(place(renderCaptionImage(caption, style: style, canvasWidth: size.width)))
+    }
+
+    /// Render a caption to a content-sized image honoring the style (font,
+    /// color, size, background). Drawn at canvas pixel scale so it's crisp in
+    /// the export and identical (modulo scale) to the SwiftUI live preview.
+    nonisolated static func renderCaptionImage(_ text: String, style: CaptionStyle,
+                                               canvasWidth: CGFloat) -> UIImage {
+        let fontSize = max(12, canvasWidth * 0.05 * style.sizeScale)
+        let font = style.font.uiFont(size: fontSize)
+        let maxTextWidth = canvasWidth * 0.86
+        let para = NSMutableParagraphStyle()
+        para.alignment = .center
+        para.lineBreakMode = .byWordWrapping
+        var attrs: [NSAttributedString.Key: Any] = [
+            .font: font, .foregroundColor: style.color.uiColor, .paragraphStyle: para
+        ]
+        if style.background == .shadow {
+            let sh = NSShadow()
+            sh.shadowColor = UIColor.black.withAlphaComponent(0.9)
+            sh.shadowBlurRadius = fontSize * 0.14
+            sh.shadowOffset = CGSize(width: 0, height: fontSize * 0.04)
+            attrs[.shadow] = sh
+        }
+        let str = NSAttributedString(string: text, attributes: attrs)
+        let bounds = str.boundingRect(
+            with: CGSize(width: maxTextWidth, height: .greatestFiniteMagnitude),
+            options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil)
+        let pad = fontSize * (style.background == .box ? 0.5 : 0.3)
+        let boxSize = CGSize(width: ceil(bounds.width) + pad * 2, height: ceil(bounds.height) + pad * 2)
+        let fmt = UIGraphicsImageRendererFormat()
+        fmt.scale = 1
+        fmt.opaque = false
+        return UIGraphicsImageRenderer(size: boxSize, format: fmt).image { _ in
+            if style.background == .box {
+                UIColor.black.withAlphaComponent(0.55).setFill()
+                UIBezierPath(roundedRect: CGRect(origin: .zero, size: boxSize),
+                             cornerRadius: pad * 0.8).fill()
+            }
+            str.draw(with: CGRect(x: pad, y: pad, width: bounds.width, height: bounds.height),
+                     options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil)
+        }
     }
 
     nonisolated static func makeTextLayer(_ string: String, fontSize: CGFloat,
@@ -629,7 +720,8 @@ actor ClipExporter {
     }
 
     nonisolated static func composeGIFFrame(_ cg: CGImage, canvas: CGSize, look: ClipLook,
-                                            blurredFill: Bool, caption: String, credit: String) -> CGImage {
+                                            blurredFill: Bool, caption: String, credit: String,
+                                            style: CaptionStyle) -> CGImage {
         let frame = applyLook(look, to: cg)
         let imgSize = CGSize(width: frame.width, height: frame.height)
         let fmt = UIGraphicsImageRendererFormat()
@@ -654,10 +746,14 @@ actor ClipExporter {
             drawText(credit, font: creditFont, color: UIColor.white.withAlphaComponent(0.85),
                      canvas: canvas, fromBottom: canvas.height * 0.03, height: creditFont.lineHeight + 2)
 
+            // Static caption at the styled position (GIF has no timed cues; UIKit
+            // top-left coords map directly to style.position).
             if !caption.isEmpty {
-                let capFont = UIFont.systemFont(ofSize: max(16, canvas.width * 0.060), weight: .bold)
-                drawText(caption, font: capFont, color: .white,
-                         canvas: canvas, fromBottom: canvas.height * 0.12, height: capFont.lineHeight * 2.2)
+                let capImg = renderCaptionImage(caption, style: style, canvasWidth: canvas.width)
+                let cx = CGFloat(style.position.x) * canvas.width
+                let cy = CGFloat(style.position.y) * canvas.height
+                capImg.draw(in: CGRect(x: cx - capImg.size.width / 2, y: cy - capImg.size.height / 2,
+                                       width: capImg.size.width, height: capImg.size.height))
             }
         }
         return ui.cgImage ?? cg
