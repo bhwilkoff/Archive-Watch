@@ -15,7 +15,38 @@ short App Review Information note, and the evidence to attach.
 
 ---
 
-## 1. Reply to paste into App Store Connect (Resolution Center)
+## 0. Short reply (≤4000 chars) + PDF attachment
+
+App Store Connect's free-response field caps at 4000 characters, so use the
+trimmed reply below (3,403 chars) **and attach the PDF**:
+- **PDF:** `~/Desktop/ArchiveWatch-Rights-Documentation.pdf` (generated from
+  `docs/app-store-rights-evidence.html`). Regenerate with:
+  `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --no-pdf-header-footer --print-to-pdf="$HOME/Desktop/ArchiveWatch-Rights-Documentation.pdf" "file://$PWD/docs/app-store-rights-evidence.html"`
+
+> Thank you for the review. We want to resolve the 5.2.3 concern directly, because Archive Watch is built specifically to avoid it. Full documentation is attached as a PDF ("Archive Watch — Content Rights & Sourcing Documentation"); the summary follows.
+>
+> **WHAT THE APP IS** — Archive Watch is a dedicated browser and player for the public-domain moving-image collections of the Internet Archive (archive.org) — a registered 501(c)(3) nonprofit digital public library. It surfaces public-domain feature films, classic TV, newsreels, silent cinema, and animation that the Internet Archive already makes freely available to the public. It is, in effect, a specialized client for the same openly-accessible works any web browser can watch at archive.org. The app is free, with no ads and no in-app purchases.
+>
+> **WHERE THE CONTENT COMES FROM** — Every playable title streams directly from the Internet Archive's own public servers (the archive.org/download/… endpoints it provides for public access). The app hosts nothing, caches nothing server-side, and re-streams nothing. There is NO proprietary or commercial streaming service involved — no integration with or scraping of any paid/subscription catalog (no Netflix/YouTube/etc.). We access only the Internet Archive's openly-published public collections (e.g. archive.org/details/feature_films).
+>
+> **WHY IT DOES NOT INFRINGE THIRD-PARTY RIGHTS** — Every playable item is either (a) in the public domain — by expiration of term, failure to renew, or publication without the copyright notice U.S. law then required — or (b) released by its creator under a Creative Commons / CC0 license that expressly permits redistribution. Public-domain works have no rights-holder whose rights could be violated; CC/CC0 works are licensed precisely for this access.
+>
+> **WE PROACTIVELY SCREEN OUT ANYTHING THAT MIGHT STILL BE UNDER COPYRIGHT** — Before publishing the catalog the app uses, we run an automated rights audit that EXCLUDES any item not confidently free, anchored on each work's own Internet Archive license metadata and U.S. public-domain rules:
+> • Before 1929: public domain by age — kept.
+> • 1929–1963: within the Internet Archive's curated public-domain film collections — kept.
+> • 1964–1977: the documented public-domain-by-notice/renewal-defect era (e.g. Night of the Living Dead) — kept where appropriate.
+> • 1978 and later: EXCLUDED by default; kept only if the work's own Internet Archive record carries a genuine CC0/Creative Commons license. A bare "Public Domain Mark," a missing license, or an uploader claim is NOT treated as a rescue.
+> Modern branded commercials (1995+) and rips/compilations are excluded regardless of any uploader tag. The audit produces a per-title evidence manifest (Internet Archive URL, year, license URL, inclusion basis) for every title in the app — available in full on request.
+>
+> **METADATA / DISCOVERY SERVICES** — Posters, synopses, and cast are drawn for visual enrichment ONLY (never the video stream) from TMDB, Wikidata, Wikimedia Commons, and the Library of Congress, used within each provider's API terms. We display the required TMDB attribution in-app.
+>
+> The attached PDF includes representative verified example titles (1902–2008) with direct Internet Archive links and the full methodology. We are glad to provide the complete per-title manifest or make any in-app change that would help. Thank you.
+>
+> — Ben Wilkoff · ben@learningischange.com
+
+---
+
+## 1. Reply to paste into App Store Connect (Resolution Center) — long form (if no attachment)
 
 > Thank you for the review. We want to resolve the 5.2.3 concern directly,
 > because Archive Watch is built specifically to avoid it.
