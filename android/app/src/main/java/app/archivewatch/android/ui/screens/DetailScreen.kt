@@ -32,6 +32,7 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.TextButton
 import app.archivewatch.android.data.UserPlaylist
+import androidx.compose.material.icons.filled.ContentCut
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
@@ -197,6 +198,17 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                         Icons.AutoMirrored.Filled.PlaylistAdd,
                         contentDescription = "Add to playlist",
                     )
+                }
+                // Create (Clip Studio) — rights-gated (CREATE-STUDIO-PLAN §2).
+                // Hidden, not disabled, when the item isn't clippable.
+                if (current.isClippable) {
+                    IconButton(onClick = { nav.push(Route.ClipStudio(current.archiveID)) }) {
+                        Icon(
+                            Icons.Default.ContentCut,
+                            contentDescription = "Create a clip",
+                            tint = MaterialTheme.colorScheme.primary,
+                        )
+                    }
                 }
                 IconButton(onClick = {
                     val send = Intent(Intent.ACTION_SEND).apply {

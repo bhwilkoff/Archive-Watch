@@ -277,8 +277,14 @@ against the iOS 26 SDK; no iOS 26 sim runtime installed here so no on-sim run).
   can't co-exist in one videoComposition] + per-frame GIF + live grade preview
   on the player), **Speed** (0.5/1/2× via scaleTimeRange), **Clips library**
   (Library "Clips" section: share render / revisit source / delete).
-  **Android port: ran in a background agent** (Media3 Transformer; MP4 only —
-  no native GIF encoder). DEFERRED next wave (documented,
+  **Android port shipped + assembleDebug GREEN** (vc4 / 1.3.0): Media3
+  `Transformer` (trim via ClippingConfiguration, reframe via Presentation,
+  caption+credit via OverlayEffect+BitmapOverlay), custom filmstrip trim
+  (MediaMetadataRetriever), MediaStore save + ACTION_SEND share, rights-gated
+  ContentCut button on DetailScreen, user.sqlite clips table + Library "Clips"
+  tab, Route.ClipStudio nav. **MP4 only** (no native GIF encoder); editor shows
+  a static first-frame preview (Media3 preview player later). ANDROID-DESIGN
+  §4.8 added. Emulator run owner-pending. DEFERRED next wave (documented,
   CREATE-STUDIO-PLAN §4): blurred-fill bg, auto-captions (SpeechAnalyzer),
   multi-clip stitch + transitions, beat-sync, range-download optimization,
   clip-definition sync.

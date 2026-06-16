@@ -40,6 +40,26 @@ data class UserPlaylist(
 )
 
 /**
+ * A saved Clip Studio export definition — the Android twin of the iOS
+ * `VideoClip` SwiftData model (CREATE-STUDIO-PLAN §3). Records the editorial
+ * choices (source, in/out, aspect, caption, format) plus the cached output
+ * filename so the Clips section in Library can re-share. If the cached file
+ * is evicted, the definition is enough to re-export.
+ */
+data class VideoClip(
+    val id: String,
+    val sourceArchiveID: String,
+    val sourceTitle: String,
+    val inSeconds: Double,
+    val durationSeconds: Double,
+    val aspect: String,
+    val format: String,
+    val caption: String,
+    val renderFilename: String,
+    val createdAt: Long,
+)
+
+/**
  * Per-item user records (favorites, watch progress) in a tiny local
  * `user.sqlite` via the same BundledSQLiteDriver — the offline-first
  * local store (Drive App Data sync is the next wave, plan §6).
@@ -72,6 +92,13 @@ class UserStateStore(context: Context) {
             "CREATE TABLE IF NOT EXISTS channels (" +
                 "id TEXT PRIMARY KEY, name TEXT, genre TEXT, " +
                 "contentType TEXT, decade INTEGER, createdAt INTEGER)",
+        )
+        // Clip Studio exports (CREATE-STUDIO-PLAN §3). Mirrors VideoClip.
+        connection.execSQL(
+            "CREATE TABLE IF NOT EXISTS clips (" +
+                "id TEXT PRIMARY KEY, sourceArchiveID TEXT, sourceTitle TEXT, " +
+                "inSeconds REAL, durationSeconds REAL, aspect TEXT, format TEXT, " +
+                "caption TEXT, renderFilename TEXT, createdAt INTEGER)",
         )
     }
 
@@ -216,6 +243,60 @@ class UserStateStore(context: Context) {
         _changes.value += 1
     }
 
+    // --- clips (Clip Studio) ---
+
+    suspend fun clips(): List<VideoClip> = dbCall {
+        query(
+            "SELECT id, sourceArchiveID, sourceTitle, inSeconds, durationSeconds, " +
+                "aspect, format, caption, renderFilename, createdAt " +
+                "FROM clips ORDER BY createdAt DESC",
+        ) {
+            VideoClip(
+                id = it.getText(0),
+                sourceArchiveID = it.getText(1),
+                sourceTitle = it.getText(2),
+                inSeconds = it.getDouble(3),
+                durationSeconds = it.getDouble(4),
+                aspect = it.getText(5),
+                format = it.getText(6),
+                caption = it.getText(7),
+                renderFilename = it.getText(8),
+                createdAt = it.getLong(9),
+            )
+        }
+    }
+
+    suspend fun saveClip(
+        sourceArchiveID: String,
+        sourceTitle: String,
+        inSeconds: Double,
+        durationSeconds: Double,
+        aspect: String,
+        format: String,
+        caption: String,
+        renderFilename: String,
+    ) {
+        val now = System.currentTimeMillis()
+        dbCall {
+            exec(
+                "INSERT OR REPLACE INTO clips (id, sourceArchiveID, sourceTitle, " +
+                    "inSeconds, durationSeconds, aspect, format, caption, " +
+                    "renderFilename, createdAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                listOf(
+                    "clip-" + now.toString(36), sourceArchiveID, sourceTitle,
+                    inSeconds, durationSeconds, aspect, format, caption,
+                    renderFilename, now,
+                ),
+            )
+        }
+        _changes.value += 1
+    }
+
+    suspend fun deleteClip(id: String) {
+        dbCall { exec("DELETE FROM clips WHERE id = ?", listOf(id)) }
+        _changes.value += 1
+    }
+
     // --- plumbing ---
 
     private suspend fun <T> dbCall(block: () -> T): T =
@@ -255,6 +336,7 @@ class UserStateStore(context: Context) {
                 is String -> stmt.bindText(idx, value)
                 is Int -> stmt.bindLong(idx, value.toLong())
                 is Long -> stmt.bindLong(idx, value)
+                is Double -> stmt.bindDouble(idx, value)
                 else -> stmt.bindText(idx, value.toString())
             }
         }

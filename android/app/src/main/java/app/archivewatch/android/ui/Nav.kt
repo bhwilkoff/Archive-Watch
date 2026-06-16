@@ -22,6 +22,7 @@ sealed interface Route {
     data class Playlist(val playlistID: String) : Route
     data class Collection(val id: String, val title: String, val blurb: String? = null) : Route
     data class Person(val name: String) : Route
+    data class ClipStudio(val archiveID: String) : Route
     data object Collections : Route
     data object Cartoon : Route
     data object Surprise : Route

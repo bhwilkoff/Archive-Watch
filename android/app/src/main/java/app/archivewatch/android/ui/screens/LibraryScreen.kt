@@ -36,10 +36,22 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Arrangement as RowArrangement
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items as listItems
+import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Share
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.platform.LocalContext
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.material3.Card
 import app.archivewatch.android.data.UserPlaylist
+import app.archivewatch.android.data.VideoClip
+import kotlinx.coroutines.launch
 
-/** Library — Favorites and Continue Watching, both from user.sqlite. */
+/** Library — Favorites, Continue Watching, Playlists, Clips; all user.sqlite. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LibraryScreen(container: AppContainer, nav: Nav) {
@@ -58,6 +70,9 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
     val playlists by produceState<List<UserPlaylist>>(emptyList(), userChanges) {
         value = container.userState.playlists()
     }
+    val clips by produceState<List<VideoClip>>(emptyList(), userChanges) {
+        value = container.userState.clips()
+    }
 
     Scaffold(
         topBar = {
@@ -73,8 +88,13 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
         Column(Modifier.fillMaxSize().padding(padding)) {
             TabRow(selectedTabIndex = tabIndex) {
                 Tab(selected = tabIndex == 0, onClick = { tabIndex = 0 }, text = { Text("Favorites") })
-                Tab(selected = tabIndex == 1, onClick = { tabIndex = 1 }, text = { Text("Continue Watching") })
+                Tab(selected = tabIndex == 1, onClick = { tabIndex = 1 }, text = { Text("Continue") })
                 Tab(selected = tabIndex == 2, onClick = { tabIndex = 2 }, text = { Text("Playlists") })
+                Tab(selected = tabIndex == 3, onClick = { tabIndex = 3 }, text = { Text("Clips") })
+            }
+            if (tabIndex == 3) {
+                ClipsTab(container, clips)
+                return@Column
             }
             if (tabIndex == 2) {
                 if (playlists.isEmpty()) {
@@ -119,6 +139,68 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
                             nav.openItem(item.archiveID, item.seriesID, item.contentType)
                         })
                     }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Clips tab — saved Clip Studio exports (CREATE-STUDIO-PLAN §3 / §4.8). Tap to
+ * share the cached MP4; long-press to delete the saved definition.
+ */
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+private fun ClipsTab(container: AppContainer, clips: List<VideoClip>) {
+    val scope = rememberCoroutineScope()
+    val context = LocalContext.current
+    if (clips.isEmpty()) {
+        EmptyState("No clips yet — open a public-domain title and tap the scissors to create one.")
+        return
+    }
+    LazyColumn(
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        listItems(clips, key = { it.id }) { clip ->
+            Card(
+                modifier = Modifier.combinedClickable(
+                    onClick = {
+                        val file = container.clipExporter.renderFile(clip.renderFilename)
+                        if (file.exists()) {
+                            val uri: Uri = androidx.core.content.FileProvider.getUriForFile(
+                                context, "${context.packageName}.fileprovider", file,
+                            )
+                            val send = Intent(Intent.ACTION_SEND).apply {
+                                type = "video/mp4"
+                                putExtra(Intent.EXTRA_STREAM, uri)
+                                putExtra(Intent.EXTRA_TEXT,
+                                    "Clipped from archive.org with Archive Watch · archivewatch.org")
+                                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                            }
+                            context.startActivity(Intent.createChooser(send, null))
+                        }
+                    },
+                    onLongClick = { scope.launch { container.userState.deleteClip(clip.id) } },
+                ),
+            ) {
+                Row(
+                    Modifier.padding(16.dp),
+                    verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
+                ) {
+                    Column(Modifier.weight(1f)) {
+                        Text(
+                            clip.caption.ifBlank { clip.sourceTitle },
+                            style = MaterialTheme.typography.titleSmall,
+                        )
+                        Text(
+                            "${clip.sourceTitle} · ${String.format("%.1fs", clip.durationSeconds)} · ${clip.aspect}",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                    Icon(Icons.Default.Share, contentDescription = "Share clip",
+                         tint = MaterialTheme.colorScheme.primary)
                 }
             }
         }

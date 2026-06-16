@@ -31,6 +31,7 @@ data class CatalogItem(
     val qualityScore: Int? = null,
     val isSilentFilm: Boolean? = null,
     val colorMode: String? = null,
+    val rightsStatus: String? = null,
     val seriesID: String? = null,
     val episodesCount: Int? = null,
 ) {
@@ -47,6 +48,42 @@ data class CatalogItem(
         get() = posterURL ?: archiveThumb
     val archiveThumb: String
         get() = "https://archive.org/services/img/$archiveID"
+
+    /**
+     * Whether Clip Studio (the Create feature) is offered for this item —
+     * the Android twin of `Catalog.Item.isClippable` (CREATE-STUDIO-PLAN §2,
+     * Decision 033). Defense in depth on top of Decision 027 (copyrighted
+     * titles are already excluded upstream): only offer clipping for content
+     * we can confidently call free. A playable video is required; rightsStatus
+     * must be PD/CC or absent (null/"" → allowed, since the visible catalog is
+     * PD/CC-only post-027). An explicit rights-reserved status is NOT clippable.
+     */
+    val isClippable: Boolean
+        get() {
+            if (downloadURL.isNullOrBlank()) return false
+            val s = (rightsStatus ?: "").lowercase()
+            return when (s) {
+                "", "public_domain", "publicdomain", "public-domain",
+                "cc0", "creative_commons" -> true
+                else -> s.startsWith("cc") || s.contains("public")
+            }
+        }
+
+    /** Canonical archive.org source page for provenance/attribution. */
+    val sourceDetailsURL: String
+        get() = "https://archive.org/details/$archiveID"
+
+    /**
+     * Burned-in provenance credit line for exported clips — the attribution
+     * wedge (CREATE-STUDIO-PLAN §1). Public domain by default; names a CC
+     * dedication when that's the right.
+     */
+    val clipCreditLine: String
+        get() {
+            val rights = if ((rightsStatus ?: "").lowercase().contains("creative"))
+                "Creative Commons" else "Public Domain"
+            return "archivewatch.org · $rights"
+        }
 }
 
 @Serializable

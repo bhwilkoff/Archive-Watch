@@ -56,6 +56,18 @@
                 <data android:pathPrefix="/series/"/>
             </intent-filter>
         </activity>
+
+        <!-- Share exported Clip Studio clips via ACTION_SEND (FileProvider
+             grants the receiving app temporary read on the cached file). -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
     <queries>

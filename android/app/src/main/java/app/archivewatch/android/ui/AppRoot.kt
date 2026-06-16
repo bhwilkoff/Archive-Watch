@@ -25,6 +25,7 @@ import app.archivewatch.android.ui.screens.CartoonScreen
 import app.archivewatch.android.ui.screens.CollectionGridScreen
 import app.archivewatch.android.ui.screens.CollectionsScreen
 import app.archivewatch.android.ui.screens.PersonScreen
+import app.archivewatch.android.ui.screens.ClipStudioScreen
 import app.archivewatch.android.ui.screens.DetailScreen
 import app.archivewatch.android.ui.screens.HomeScreen
 import app.archivewatch.android.ui.screens.LibraryScreen
@@ -134,6 +135,7 @@ fun AppRoot(container: AppContainer) {
                             is Route.Playlist -> PlaylistScreen(container, nav, route.playlistID)
                             is Route.Collection -> CollectionGridScreen(container, nav, route)
                             is Route.Person -> PersonScreen(container, nav, route.name)
+                            is Route.ClipStudio -> ClipStudioScreen(container, nav, route.archiveID)
                             Route.Collections -> CollectionsScreen(container, nav)
                             Route.Cartoon -> CartoonScreen(container, nav)
                             Route.Surprise -> SurpriseScreen(container, nav)

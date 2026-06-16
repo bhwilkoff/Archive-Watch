@@ -105,9 +105,10 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   This. SeriesDetail is the variant with a season dropdown (null season =
   "More Episodes") and an episode list; "X of Y episodes" uses
   `canonicalEpisodesCount`.
-- **§4.5 Library** = Favorites / Continue Watching tabs over `user.sqlite`.
-  Empty states are explicit sentences, never blank space
-  (`universal-feature-states`).
+- **§4.5 Library** = Favorites / Continue Watching / Playlists / **Clips**
+  tabs over `user.sqlite`. The Clips tab lists saved Clip Studio exports
+  (§4.8) and re-shares them; long-press deletes. Empty states are explicit
+  sentences, never blank space (`universal-feature-states`).
 - **§4.6 Tiles are poster + two text lines, nothing else** (density from
   removing chrome). Poster fallback chain per contract §8: `posterURL` →
   `https://archive.org/services/img/{id}`. Stable `key`s on every
@@ -124,6 +125,29 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   (`data/ChannelScheduler.kt`) keeps the apps' constants — FNV-1a(channel+
   day) seed, SplitMix64, 6 AM local anchor, per-type runtime defaults,
   2-minute buffer. Never regress the guide to a list.
+
+- **§4.8 Clip Studio is the Create surface** (CREATE-STUDIO-PLAN §5,
+  Decision 033) — the Android twin of iOS `ClipStudioView`. A scissors
+  "Create" action in the Detail action row (`Icons.Default.ContentCut`),
+  **rights-gated on `CatalogItem.isClippable`** (playable video + PD/CC or
+  absent `rightsStatus`) and **hidden, not disabled**, when not clippable.
+  It pushes `Route.ClipStudio` — a single screen with a Cancel/Done
+  lifecycle that runs four phases: prepare (download the source MP4 to
+  cacheDir with progress), edit (preview + custom thumbnail-filmstrip trim
+  timeline + aspect `SegmentedButton` Original/9:16/1:1/16:9 + caption
+  `OutlinedTextField`), render (Media3 `Transformer`: `ClippingConfiguration`
+  trim → `Presentation` reframe → `OverlayEffect`/`BitmapOverlay` burning the
+  caption + the always-on `archivewatch.org · Public Domain` provenance
+  credit), and result (preview + Save to `MediaStore.Video` + Share via
+  `ACTION_SEND`/FileProvider). The engine (`data/ClipExporter.kt`) serializes
+  exports (one hardware encoder) and edits a complete local file, not the
+  range stream. The trim timeline is the one custom layer (no native Android
+  trimmer — plan §5b); everything else is native Media3 / Compose M3. Saved
+  definitions persist to the `clips` table (mirrors iOS `VideoClip`) so §4.5
+  can re-share. **GIF export is deferred on Android** — there is no native
+  GIF encoder; v1 ships MP4 only (PARITY gap; WebP / vendored encoder later).
+  The human makes every editorial choice; never a one-tap auto-edit
+  (CREATE-STUDIO-PLAN §1, learning-orientation).
 
 ## §5 Player
 
