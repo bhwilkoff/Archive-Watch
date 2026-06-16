@@ -116,19 +116,20 @@ this table in the same change set; cross-link the platform design doc.
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
 | Create entry point (rights-gated) | n/a (lean-back) | 🚧 scissors button on Detail (PD/CC only via `isClippable`) | 🚫 (viewer) | 🚧 `ContentCut` action on DetailScreen (rights-gated) | hidden, not disabled, when not clippable |
-| Trim (frame-accurate, length-capped) | n/a | 🚧 CapCut-style timeline: `UIScrollView` scroll-to-scrub + fixed playhead + pinch-zoom + Set Start/End + band handles; controls-free `AVPlayerLayer` preview | 🚫 | 🚧 custom filmstrip + handles over `MediaMetadataRetriever` | no native trimmer on either platform (5b); iOS timeline rebuilt 2026-06-16 |
+| Source = stream, not download | n/a | 🚧 `ResilientStreamLoader` remote asset | 🚫 | 🚧 ranged `MediaMetadataRetriever` + `OkHttpDataSource` (ExoPlayer preview + Transformer read remote) | never download the whole film (hours-long) — both platforms 2026-06-16 |
+| Trim (frame-accurate, length-capped) | n/a | 🚧 CapCut-style timeline: `UIScrollView` scroll-to-scrub + fixed playhead + pinch-zoom + Set Start/End + band handles; controls-free `AVPlayerLayer` preview | 🚫 | 🚧 CapCut-style timeline: custom `View` scroll-to-scrub + fixed playhead + `ScaleGestureDetector` pinch-zoom + `OverScroller` momentum + Set Start/End + band handles; controls-free `PlayerView` | no native trimmer on either platform (5b); both rebuilt 2026-06-16 |
 | Reframe (Original/1:1/9:16/16:9, letterbox) | n/a | 🚧 `AVMutableVideoComposition` renderSize + transform | 🚫 | 🚧 Media3 `Presentation.createForWidthAndHeight` | |
-| Blurred-fill reframe background | n/a | 🚧 Core Image `CIGaussianBlur` (video) / CG blur (GIF) | 🚫 | 🔮 custom GL effect | v2 shipped iOS 2026-06-16 |
-| Auto-captions (timed, burned-in) | n/a | 🚧 `SFSpeechRecognizer` on-device → timed cues, live preview + styled burn-in (MP4) | 🚫 | 🔮 | iOS 2026-06-16; SpeechAnalyzer = future upgrade |
-| Caption styling (font/size/color/bg) + drag-to-position + live preview | n/a | 🚧 `CaptionStyle` (4 fonts · S/M/L · white/yellow/black · shadow/box/plain · normalized position); WYSIWYG live preview, drag to place on video or in bars | 🚫 | 🔮 | iOS 2026-06-16 |
-| Caption + provenance credit (burned-in) | n/a | 🚧 image-rendered caption at styled position (video CALayer / GIF Core Graphics); credit pinned bottom | 🚫 | 🚧 Media3 `OverlayEffect` + `BitmapOverlay` (Canvas-rendered) | always-on archivewatch.org · PD credit + source in metadata |
+| Blurred-fill reframe background | n/a | 🚧 Core Image `CIGaussianBlur` (video) / CG blur (GIF) | 🚫 | 🔮 needs custom `GlEffect`/AGSL shader (Media3 1.9.4 has no scaled blur-fill) | iOS 2026-06-16 |
+| Auto-captions (timed, burned-in) | n/a | 🚧 `SFSpeechRecognizer` on-device → timed cues, live preview + styled burn-in (MP4) | 🚫 | 🔮 no native file transcription (`SpeechRecognizer` is mic-only; no cloud/ML-Kit by rule) | iOS 2026-06-16; SpeechAnalyzer = future upgrade |
+| Caption styling (font/size/color/bg) + drag-to-position + live preview | n/a | 🚧 `CaptionStyle` (4 fonts · S/M/L · white/yellow/black · shadow/box/plain · normalized position); WYSIWYG live preview, drag to place on video or in bars | 🚫 | 🚧 `CaptionStyle` (Typeface fonts [Round→sans, no rounded system family] · S/M/L · colors · bg); draggable Compose preview; `BitmapOverlay` burn-in | both platforms 2026-06-16 |
+| Caption + provenance credit (burned-in) | n/a | 🚧 image-rendered caption at styled position (video CALayer / GIF Core Graphics); credit pinned bottom | 🚫 | 🚧 Canvas/Paint `Bitmap` at styled position via Media3 `OverlayEffect` + `BitmapOverlay`; credit pinned bottom | always-on archivewatch.org · PD credit + source in metadata |
 | Export MP4 / GIF | n/a | 🚧 `AVAssetExportSession` / `AVAssetImageGenerator`+ImageIO | 🚫 | 🚧 Media3 `Transformer` (**MP4 only** — no native GIF encoder) | GIF is Android's weak native story |
 | Save to Photos / share | n/a | 🚧 PhotoKit (add-only) + `ShareLink` | 🚫 | 🚧 `MediaStore.Video` + `ACTION_SEND`/FileProvider | |
 | Color-grade Looks (Silent/Noir/Faded/Techni/B&W) | n/a | 🚧 CIFilter chains, two-pass video + per-frame GIF, live preview | 🚫 | 🚧 Media3 `RgbAdjustment`/`RgbFilter`/`HslAdjustment`/`Contrast` (export only — no live preview, no vignette) | v2 both platforms 2026-06-16 |
 | Speed (0.5×/1×/2×) | n/a | 🚧 `scaleTimeRange` (A/V together) | 🚫 | 🚧 `SpeedChangeEffect` + `SonicAudioProcessor` (A/V synced) | v2 both platforms 2026-06-16 |
 | Saved clips library | n/a | 🚧 `VideoClip` SwiftData + Library "Clips" section (share/revisit/delete) | 🚫 | 🚧 `user.sqlite` clips table + Library "Clips" tab (share/delete) | re-create from definition if render evicted |
-| Editor live preview | n/a | 🚧 AVKit `VideoPlayer` + play-range | 🚫 | ⏳ static first-frame (Media3 preview player later) | Android v1 shows first frame + caption hint |
-| v2 deferred: blurred-fill / stitch / transitions / auto-captions / beat-sync | n/a | 🔮 (same composition spine) | 🚫 | 🔮 | additive — `docs/CREATE-STUDIO-PLAN.md` §4 |
+| Editor live preview | n/a | 🚧 controls-free `AVPlayerLayer`, timeline is sole scrubber | 🚫 | 🚧 controls-free `PlayerView` streaming, timeline is sole scrubber | both platforms 2026-06-16 (Android was static first-frame) |
+| v2 deferred: stitch / transitions / beat-sync | n/a | 🔮 (same composition spine) | 🚫 | 🔮 | additive — `docs/CREATE-STUDIO-PLAN.md` §4 |
 
 ## 5. Surprise + Immersive modes
 

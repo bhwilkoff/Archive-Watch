@@ -233,6 +233,36 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-16 (latest+1) — Android Clip Studio full parity (native), vc6
+Owner: same feature set on Android, native. Via background agent; assembleDebug
+GREEN (clean --rerun-tasks), changes scoped to android/ + ANDROID-DESIGN §4.8.
+Closed the recent iOS gaps the native-Android way:
+- **Stream, not download** (iOS b44 parity): dropped the whole-file download —
+  `ClipExporter.probeSource` (ranged `MediaMetadataRetriever`), `streamThumbnails`
+  (progressive), ExoPlayer preview on `OkHttpDataSource`, and Transformer reads a
+  remote clipped MediaItem via `DefaultAssetLoaderFactory`/`DefaultMediaSourceFactory`
+  (only the ≤60s ranges + moov fetched).
+- **CapCut-style timeline** (iOS b45 parity): new `ui/ClipTimeline.kt` — a raw
+  custom `View` (not HorizontalScrollView, so programmatic follow composes with
+  pinch/drag — same reason iOS owns a raw UIScrollView): filmstrip scrolls under
+  a fixed center playhead (scroll = scrub → live tolerant seekTo),
+  `ScaleGestureDetector` pinch-zoom (keeps center time), `OverScroller` momentum,
+  selection band + handles, Set Start/End primary, `follow()` auto-scroll during
+  playback stopping at the out point, tap preview = play/pause.
+- **Caption styling + live preview** (iOS b46 parity): `CaptionStyle`
+  (normalized position, font/size/color/background); draggable Compose `Text`
+  over a controls-free `PlayerView`; burn-in renders the same text to a
+  canvas-sized `Bitmap` (`renderOverlayBitmap`) placed via `BitmapOverlay` —
+  WYSIWYG. Font/Size/Color/Background SegmentedButtons; credit pinned bottom.
+- Looks + speed kept working with the rebuilt UI.
+- **DEFERRED (documented, ANDROID-DESIGN §4.8):** blurred-fill (Media3 1.9.4 has
+  no scaled-blur-fill effect → needs custom GlEffect/AGSL shader), auto-captions
+  (no native file transcription; SpeechRecognizer is mic-only; no cloud/ML-Kit by
+  rule — styling still applies to typed captions), GIF (no native encoder). Font
+  divergence: Round→SANS_SERIF (stock Android has no rounded system family).
+- Emulator-verify pending (scrub-vs-stream, pinch/drag/follow interplay,
+  caption burn-in position vs preview, remote export without buffering whole film).
+
 ### 2026-06-16 (latest) — Clip Studio: styleable, positionable, live-preview captions
 Owner: show captions on the preview + control where they go (on video / below
 video / location) and how they look (font, etc.). Shipped (1.3.0 b46, green):

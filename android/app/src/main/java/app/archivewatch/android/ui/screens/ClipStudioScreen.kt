@@ -1,18 +1,21 @@
 package app.archivewatch.android.ui.screens
 
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
+import androidx.annotation.OptIn
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.gestures.detectHorizontalDragGestures
+import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -30,6 +33,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.Download
+import androidx.compose.material.icons.filled.PlayCircle
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
@@ -49,6 +53,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -63,29 +68,48 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.input.pointer.positionChange
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
+import androidx.media3.common.MediaItem
+import androidx.media3.common.Player
+import androidx.media3.common.util.UnstableApi
+import androidx.media3.datasource.okhttp.OkHttpDataSource
+import androidx.media3.exoplayer.ExoPlayer
+import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
+import androidx.media3.ui.PlayerView
 import app.archivewatch.android.app.AppContainer
+import app.archivewatch.android.data.CaptionBackground
+import app.archivewatch.android.data.CaptionColor
+import app.archivewatch.android.data.CaptionFont
+import app.archivewatch.android.data.CaptionSize
+import app.archivewatch.android.data.CaptionStyle
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.data.ClipAspect
-import app.archivewatch.android.data.ClipExporter
 import app.archivewatch.android.data.ClipFormat
 import app.archivewatch.android.data.ClipLook
 import app.archivewatch.android.data.ClipSpec
 import app.archivewatch.android.data.ClipSpeed
 import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.LoadingBox
+import app.archivewatch.android.ui.ClipTimeline
 import app.archivewatch.android.ui.Nav
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
@@ -94,15 +118,20 @@ private enum class Phase { PREPARING, EDITING, EXPORTING, RESULT }
 
 /**
  * Clip Studio — the Android content-creation surface (CREATE-STUDIO-PLAN §5,
- * Decision 033). A modal task: prepare the source, trim on a thumbnail
- * filmstrip, reframe + caption, export an MP4 via Media3 Transformer, then
- * save to MediaStore / share. The human makes every editorial choice; the
- * engine handles the mechanical work. Native Compose M3 throughout.
+ * Decision 033). A modal task: open the remote film, trim on a CapCut-style
+ * scrolling timeline, reframe + grade + caption (styled, draggable, WYSIWYG),
+ * export an MP4 via Media3 Transformer, then save to MediaStore / share. The
+ * human makes every editorial choice; the engine handles the mechanical work.
+ * Native Compose M3 + Media3 throughout.
  *
- * GIF is omitted on Android v1 (no native encoder — PARITY gap); the format
- * is fixed to Video.
+ * STREAM, DON'T DOWNLOAD (parity with iOS b44): the preview ExoPlayer, the
+ * filmstrip thumbnails, and the Transformer source all read the REMOTE
+ * archive.org URL directly over ranged HTTP — nothing is downloaded.
+ *
+ * GIF is omitted on Android (no native encoder — PARITY / ANDROID-DESIGN gap);
+ * the format is fixed to Video.
  */
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, UnstableApi::class)
 @Composable
 fun ClipStudioScreen(container: AppContainer, nav: Nav, archiveID: String) {
     val context = LocalContext.current
@@ -114,30 +143,76 @@ fun ClipStudioScreen(container: AppContainer, nav: Nav, archiveID: String) {
     }
 
     var phase by remember { mutableStateOf(Phase.PREPARING) }
-    var prepProgress by remember { mutableFloatStateOf(0f) }
     var exportProgress by remember { mutableFloatStateOf(0f) }
     var error by remember { mutableStateOf<String?>(null) }
 
-    var localSource by remember { mutableStateOf<File?>(null) }
+    var sourceURL by remember { mutableStateOf<String?>(null) }
     var duration by remember { mutableDoubleStateOf(0.0) }
-    val thumbnails = remember { mutableStateListOf<Bitmap>() }
+    val thumbnails = remember { mutableStateListOf<Bitmap?>() }
 
     var inSeconds by remember { mutableDoubleStateOf(0.0) }
     var outSeconds by remember { mutableDoubleStateOf(15.0) }
+    var playhead by remember { mutableDoubleStateOf(0.0) }
+    var isPlaying by remember { mutableStateOf(false) }
     var aspect by remember { mutableStateOf(ClipAspect.VERTICAL) }
     var look by remember { mutableStateOf(ClipLook.NONE) }
     var speed by remember { mutableStateOf(ClipSpeed.ONE) }
     var caption by remember { mutableStateOf("") }
+    var captionStyle by remember { mutableStateOf(CaptionStyle()) }
     var resultFile by remember { mutableStateOf<File?>(null) }
     var saved by remember { mutableStateOf(false) }
     var exportJob by remember { mutableStateOf<Job?>(null) }
 
     val clipDuration = (outSeconds - inSeconds).coerceAtLeast(0.0)
     val format = ClipFormat.VIDEO
-
     val current = item
 
-    // Prepare: download the source, then read duration + thumbnails.
+    // The preview player streams the remote source directly (no download). Built
+    // once per source URL; controls-free — the timeline is the only scrubber.
+    val player = remember(sourceURL) {
+        val url = sourceURL ?: return@remember null
+        val httpFactory = OkHttpDataSource.Factory(container.okHttp)
+            .setUserAgent("ArchiveWatch-Android/1.0")
+        ExoPlayer.Builder(context)
+            .setMediaSourceFactory(DefaultMediaSourceFactory(httpFactory))
+            .build()
+            .apply {
+                setMediaItem(MediaItem.fromUri(url))
+                playWhenReady = false
+                prepare()
+            }
+    }
+    DisposableEffect(player) {
+        onDispose { player?.release() }
+    }
+
+    // Reflect ExoPlayer play state changes (e.g. ended) into our isPlaying flag.
+    DisposableEffect(player) {
+        val p = player ?: return@DisposableEffect onDispose {}
+        val listener = object : Player.Listener {
+            override fun onIsPlayingChanged(playing: Boolean) { isPlaying = playing }
+        }
+        p.addListener(listener)
+        onDispose { p.removeListener(listener) }
+    }
+
+    // While playing, drive the playhead from the player and stop at the out point.
+    LaunchedEffect(isPlaying, player) {
+        val p = player ?: return@LaunchedEffect
+        while (isActive && isPlaying) {
+            val s = p.currentPosition / 1000.0
+            playhead = s
+            if (s >= outSeconds) {
+                p.pause()
+                p.seekTo((outSeconds * 1000).toLong())
+                playhead = outSeconds
+                isPlaying = false
+            }
+            delay(33)
+        }
+    }
+
+    // Prepare: probe the remote stream for size/duration, then stream thumbnails.
     LaunchedEffect(current?.archiveID) {
         val it = current ?: return@LaunchedEffect
         if (phase != Phase.PREPARING) return@LaunchedEffect
@@ -147,18 +222,18 @@ fun ClipStudioScreen(container: AppContainer, nav: Nav, archiveID: String) {
             return@LaunchedEffect
         }
         try {
-            val local = container.clipExporter.prepareSource(url, it.archiveID) { p ->
-                prepProgress = p.toFloat()
-            }
-            localSource = local
-            withContext(Dispatchers.IO) {
-                val (dur, thumbs) = loadAsset(local)
-                duration = dur
-                outSeconds = minOf(dur, 15.0)
-                thumbnails.clear()
-                thumbnails.addAll(thumbs)
-            }
+            val info = container.clipExporter.probeSource(url)
+                ?: throw IllegalStateException("This title has no video to clip.")
+            sourceURL = url
+            duration = info.durationSeconds
+            outSeconds = minOf(info.durationSeconds.takeIf { d -> d > 0 } ?: 15.0, 15.0)
+            val n = 40
+            repeat(n) { thumbnails.add(null) }
             phase = Phase.EDITING
+            // Fill the filmstrip progressively off the stream.
+            container.clipExporter.streamThumbnails(url, info.durationSeconds, n) { idx, bmp ->
+                if (idx < thumbnails.size) thumbnails[idx] = bmp
+            }
         } catch (e: Exception) {
             error = e.message ?: "Couldn't prepare the clip."
         }
@@ -186,35 +261,75 @@ fun ClipStudioScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 error != null && phase == Phase.PREPARING ->
                     EmptyState(error ?: "Couldn't prepare the clip.")
                 else -> when (phase) {
-                    Phase.PREPARING -> ProgressPhase(prepProgress, "Preparing clip…", current.title)
+                    Phase.PREPARING -> ProgressPhase(0f, "Loading clip…", current.title)
                     Phase.EXPORTING -> ProgressPhase(exportProgress, "Rendering ${format.label}…", null)
                     Phase.EDITING -> EditingPhase(
                         item = current,
+                        player = player,
                         thumbnails = thumbnails,
                         duration = duration,
                         inSeconds = inSeconds,
                         outSeconds = outSeconds,
+                        playhead = playhead,
+                        isPlaying = isPlaying,
                         clipDuration = clipDuration,
+                        outputDuration = if (speed.multiplier > 0) clipDuration / speed.multiplier else clipDuration,
                         aspect = aspect,
                         look = look,
                         speed = speed,
                         caption = caption,
+                        captionStyle = captionStyle,
                         error = error,
-                        canExport = clipDuration >= 0.5 && localSource != null,
-                        onTrim = { newIn, newOut -> inSeconds = newIn; outSeconds = newOut },
+                        canExport = clipDuration >= 0.5 && sourceURL != null,
+                        onScrub = { t ->
+                            player?.let {
+                                if (isPlaying) it.pause()
+                                playhead = t.coerceIn(0.0, duration)
+                                it.seekTo((playhead * 1000).toLong())
+                            }
+                        },
+                        onTogglePlay = {
+                            val p = player ?: return@EditingPhase
+                            if (isPlaying) {
+                                p.pause()
+                            } else {
+                                if (playhead < inSeconds || playhead >= outSeconds - 0.05) {
+                                    playhead = inSeconds
+                                    p.seekTo((inSeconds * 1000).toLong())
+                                }
+                                p.play()
+                            }
+                        },
+                        onSetStart = {
+                            inSeconds = playhead.coerceIn(0.0, outSeconds - 0.5)
+                            if (clipDuration > format.maxDuration) outSeconds = inSeconds + format.maxDuration
+                        },
+                        onSetEnd = {
+                            outSeconds = playhead.coerceIn(inSeconds + 0.5, duration)
+                            if (clipDuration > format.maxDuration) inSeconds = outSeconds - format.maxDuration
+                        },
+                        onTrim = { newIn, newOut, previewAt ->
+                            player?.let { if (isPlaying) it.pause() }
+                            inSeconds = newIn
+                            outSeconds = newOut
+                            playhead = previewAt
+                            player?.seekTo((previewAt * 1000).toLong())
+                        },
                         onAspect = { aspect = it },
                         onLook = { look = it },
                         onSpeed = { speed = it },
                         onCaption = { caption = it },
+                        onCaptionStyle = { captionStyle = it },
                         onExport = {
-                            val local = localSource ?: return@EditingPhase
+                            val url = sourceURL ?: return@EditingPhase
                             error = null
+                            player?.pause()
                             phase = Phase.EXPORTING
                             exportProgress = 0f
                             exportJob = scope.launch {
                                 try {
                                     val spec = ClipSpec(
-                                        sourceFile = local,
+                                        sourceURL = url,
                                         archiveID = current.archiveID,
                                         title = current.title,
                                         sourceDetailsURL = current.sourceDetailsURL,
@@ -226,6 +341,7 @@ fun ClipStudioScreen(container: AppContainer, nav: Nav, archiveID: String) {
                                         format = format,
                                         look = look,
                                         speed = speed,
+                                        captionStyle = captionStyle,
                                     )
                                     val out = container.clipExporter.exportVideo(spec) { p ->
                                         exportProgress = p.toFloat()
@@ -252,15 +368,12 @@ fun ClipStudioScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     Phase.RESULT -> ResultPhase(
                         resultFile = resultFile,
                         aspect = aspect,
-                        creditLine = current.clipCreditLine,
                         title = current.title,
                         saved = saved,
                         onSave = {
                             val out = resultFile ?: return@ResultPhase
                             scope.launch {
-                                val ok = withContext(Dispatchers.IO) {
-                                    saveToGallery(context, out)
-                                }
+                                val ok = withContext(Dispatchers.IO) { saveToGallery(context, out) }
                                 if (ok) saved = true else error = "Couldn't save to your gallery."
                             }
                         },
@@ -285,10 +398,7 @@ private fun ProgressPhase(progress: Float, label: String, subtitle: String?) {
         verticalArrangement = Arrangement.Center,
     ) {
         if (progress > 0f) {
-            LinearProgressIndicator(
-                progress = { progress },
-                modifier = Modifier.fillMaxWidth(0.7f),
-            )
+            LinearProgressIndicator(progress = { progress }, modifier = Modifier.fillMaxWidth(0.7f))
         } else {
             CircularProgressIndicator()
         }
@@ -303,92 +413,97 @@ private fun ProgressPhase(progress: Float, label: String, subtitle: String?) {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, UnstableApi::class)
 @Composable
 private fun EditingPhase(
     item: CatalogItem,
-    thumbnails: List<Bitmap>,
+    player: ExoPlayer?,
+    thumbnails: List<Bitmap?>,
     duration: Double,
     inSeconds: Double,
     outSeconds: Double,
+    playhead: Double,
+    isPlaying: Boolean,
     clipDuration: Double,
+    outputDuration: Double,
     aspect: ClipAspect,
     look: ClipLook,
     speed: ClipSpeed,
     caption: String,
+    captionStyle: CaptionStyle,
     error: String?,
     canExport: Boolean,
-    onTrim: (Double, Double) -> Unit,
+    onScrub: (Double) -> Unit,
+    onTogglePlay: () -> Unit,
+    onSetStart: () -> Unit,
+    onSetEnd: () -> Unit,
+    onTrim: (Double, Double, Double) -> Unit,
     onAspect: (ClipAspect) -> Unit,
     onLook: (ClipLook) -> Unit,
     onSpeed: (ClipSpeed) -> Unit,
     onCaption: (String) -> Unit,
+    onCaptionStyle: (CaptionStyle) -> Unit,
     onExport: () -> Unit,
 ) {
+    val hasCaption = caption.isNotEmpty()
     Column(
         Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(18.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
-        // Preview frame (first thumbnail under the chosen aspect, caption +
-        // credit composited in the preview as a hint — the export burns them).
-        Box(
-            Modifier
-                .fillMaxWidth()
-                .aspectRatio(aspect.ratio ?: (16f / 9f))
-                .clip(RoundedCornerShape(12.dp))
-                .background(Color.Black),
-            contentAlignment = Alignment.Center,
-        ) {
-            thumbnails.firstOrNull()?.let {
-                Image(
-                    bitmap = it.asImageBitmap(),
-                    contentDescription = null,
-                    contentScale = ContentScale.Fit,
-                    modifier = Modifier.fillMaxSize(),
-                )
-            }
-            Column(
-                Modifier.fillMaxSize().padding(8.dp),
-                verticalArrangement = Arrangement.Bottom,
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                if (caption.isNotEmpty()) {
-                    Text(
-                        caption,
-                        color = Color.White,
-                        fontWeight = FontWeight.Bold,
-                        textAlign = TextAlign.Center,
-                        style = MaterialTheme.typography.titleMedium,
-                    )
-                }
-                Spacer(Modifier.height(4.dp))
-                Text(
-                    item.clipCreditLine,
-                    color = Color.White.copy(alpha = 0.85f),
-                    style = MaterialTheme.typography.labelSmall,
-                )
-            }
+        // Controls-free streaming preview + draggable styled caption overlay.
+        CaptionedPreview(
+            player = player,
+            aspect = aspect,
+            creditLine = item.clipCreditLine,
+            caption = caption,
+            captionStyle = captionStyle,
+            isPlaying = isPlaying,
+            onTogglePlay = onTogglePlay,
+            onCaptionMove = { x, y -> onCaptionStyle(captionStyle.copy(posX = x, posY = y)) },
+        )
+
+        // Playhead / clip-length / total readout.
+        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+            Text(timecode(playhead), style = MaterialTheme.typography.labelMedium, color = Color.White)
+            Text(
+                if (speed == ClipSpeed.ONE) String.format("Clip %.1fs", clipDuration)
+                else String.format("Clip %.1fs→%.1fs", clipDuration, outputDuration),
+                style = MaterialTheme.typography.labelMedium,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.primary,
+            )
+            Text(timecode(duration), style = MaterialTheme.typography.labelMedium,
+                 color = MaterialTheme.colorScheme.onSurfaceVariant)
         }
 
-        // Trim timeline (custom — no native Android trimmer; plan §5b).
-        TrimStrip(
+        // CapCut timeline: scroll the filmstrip under a fixed center playhead to
+        // scrub, pinch to zoom, mark Set Start/End or drag the band handles.
+        ClipTimeline(
             thumbnails = thumbnails,
             duration = duration,
             inSeconds = inSeconds,
             outSeconds = outSeconds,
+            playhead = playhead,
+            isPlaying = isPlaying,
             maxClip = ClipFormat.VIDEO.maxDuration,
+            onScrub = onScrub,
             onTrim = onTrim,
+            modifier = Modifier.fillMaxWidth().height(76.dp),
         )
-        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-            Text(timecode(inSeconds), style = MaterialTheme.typography.labelMedium,
-                 color = MaterialTheme.colorScheme.onSurfaceVariant)
-            Text(String.format("%.1fs", clipDuration), style = MaterialTheme.typography.labelMedium,
-                 fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary)
-            Text(timecode(outSeconds), style = MaterialTheme.typography.labelMedium,
-                 color = MaterialTheme.colorScheme.onSurfaceVariant)
-        }
 
-        // Frame (aspect) picker — native SegmentedButton.
+        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+            OutlinedButton(onClick = onSetStart, modifier = Modifier.weight(1f)) { Text("Set Start") }
+            OutlinedButton(onClick = onSetEnd, modifier = Modifier.weight(1f)) { Text("Set End") }
+        }
+        Text(
+            "Drag the filmstrip to scrub · pinch to zoom · mark Set Start/End at the playhead, or drag the handles.",
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth(),
+        )
+
+        // Frame (aspect) picker.
         LabeledSection("Frame") {
             SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
                 ClipAspect.entries.forEachIndexed { i, a ->
@@ -401,8 +516,7 @@ private fun EditingPhase(
             }
         }
 
-        // Color-grade Look picker — native SegmentedButton (6 short labels,
-        // mirrors iOS ClipLook). Grade is applied to the source frames at export.
+        // Color-grade Look picker (6 short labels, mirrors iOS ClipLook).
         LabeledSection("Look") {
             SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
                 ClipLook.entries.forEachIndexed { i, l ->
@@ -415,7 +529,7 @@ private fun EditingPhase(
             }
         }
 
-        // Speed picker — native SegmentedButton (0.5× / 1× / 2×, A/V together).
+        // Speed picker (0.5× / 1× / 2×, A/V together).
         LabeledSection("Speed") {
             SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
                 ClipSpeed.entries.forEachIndexed { i, s ->
@@ -428,7 +542,7 @@ private fun EditingPhase(
             }
         }
 
-        // Caption entry — native TextField.
+        // Caption entry + (once typed) style controls.
         LabeledSection("Caption") {
             OutlinedTextField(
                 value = caption,
@@ -437,18 +551,61 @@ private fun EditingPhase(
                 modifier = Modifier.fillMaxWidth(),
                 maxLines = 2,
             )
+            if (hasCaption) {
+                // Font
+                SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
+                    CaptionFont.entries.forEachIndexed { i, f ->
+                        SegmentedButton(
+                            selected = captionStyle.font == f,
+                            onClick = { onCaptionStyle(captionStyle.copy(font = f)) },
+                            shape = SegmentedButtonDefaults.itemShape(i, CaptionFont.entries.size),
+                        ) { Text(f.label, maxLines = 1) }
+                    }
+                }
+                // Size + Color
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                    SingleChoiceSegmentedButtonRow(Modifier.weight(1f)) {
+                        CaptionSize.entries.forEachIndexed { i, s ->
+                            SegmentedButton(
+                                selected = captionStyle.size == s,
+                                onClick = { onCaptionStyle(captionStyle.copy(size = s)) },
+                                shape = SegmentedButtonDefaults.itemShape(i, CaptionSize.entries.size),
+                            ) { Text(s.label) }
+                        }
+                    }
+                    SingleChoiceSegmentedButtonRow(Modifier.weight(1.6f)) {
+                        CaptionColor.entries.forEachIndexed { i, c ->
+                            SegmentedButton(
+                                selected = captionStyle.color == c,
+                                onClick = { onCaptionStyle(captionStyle.copy(color = c)) },
+                                shape = SegmentedButtonDefaults.itemShape(i, CaptionColor.entries.size),
+                            ) { Text(c.label, maxLines = 1) }
+                        }
+                    }
+                }
+                // Background
+                SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
+                    CaptionBackground.entries.forEachIndexed { i, b ->
+                        SegmentedButton(
+                            selected = captionStyle.background == b,
+                            onClick = { onCaptionStyle(captionStyle.copy(background = b)) },
+                            shape = SegmentedButtonDefaults.itemShape(i, CaptionBackground.entries.size),
+                        ) { Text(b.label, maxLines = 1) }
+                    }
+                }
+                Text(
+                    "Drag the caption on the preview to place it (on the video or in the bars).",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
         }
 
         error?.let {
-            Text(it, color = MaterialTheme.colorScheme.error,
-                 style = MaterialTheme.typography.bodySmall)
+            Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
         }
 
-        Button(
-            onClick = onExport,
-            enabled = canExport,
-            modifier = Modifier.fillMaxWidth(),
-        ) {
+        Button(onClick = onExport, enabled = canExport, modifier = Modifier.fillMaxWidth()) {
             Icon(Icons.Default.AutoAwesome, contentDescription = null)
             Spacer(Modifier.width(8.dp))
             Text("Create ${ClipFormat.VIDEO.label}")
@@ -464,11 +621,156 @@ private fun EditingPhase(
     }
 }
 
+/**
+ * Controls-free streaming preview (PlayerView, useController=false) with a
+ * draggable Compose caption overlay in the chosen style (WYSIWYG — the preview
+ * box shares the export aspect, so where the caption sits here is where it
+ * burns in). Tap the surface to play/pause the selection.
+ */
+@OptIn(UnstableApi::class)
+@Composable
+private fun CaptionedPreview(
+    player: ExoPlayer?,
+    aspect: ClipAspect,
+    creditLine: String,
+    caption: String,
+    captionStyle: CaptionStyle,
+    isPlaying: Boolean,
+    onTogglePlay: () -> Unit,
+    onCaptionMove: (Float, Float) -> Unit,
+) {
+    BoxWithConstraints(
+        Modifier
+            .fillMaxWidth()
+            .aspectRatio(aspect.ratio ?: (16f / 9f))
+            .clip(RoundedCornerShape(12.dp))
+            .background(Color.Black)
+            .pointerInput(Unit) { detectTapGestures(onTap = { onTogglePlay() }) },
+    ) {
+        val boxW = constraints.maxWidth.toFloat()
+        val boxH = constraints.maxHeight.toFloat()
+        AndroidView(
+            factory = { ctx ->
+                PlayerView(ctx).apply {
+                    useController = false
+                    setBackgroundColor(android.graphics.Color.BLACK)
+                }
+            },
+            update = { it.player = player },
+            modifier = Modifier.fillMaxSize(),
+        )
+
+        // Provenance credit — pinned bottom-center (always present).
+        Text(
+            creditLine,
+            color = Color.White.copy(alpha = 0.85f),
+            style = MaterialTheme.typography.labelSmall,
+            modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 6.dp),
+        )
+
+        // Draggable styled caption.
+        if (caption.isNotEmpty()) {
+            CaptionOverlay(
+                text = caption,
+                style = captionStyle,
+                boxW = boxW,
+                boxH = boxH,
+                onMove = onCaptionMove,
+            )
+        }
+
+        // Play affordance when paused.
+        if (!isPlaying) {
+            Icon(
+                Icons.Default.PlayCircle,
+                contentDescription = "Play",
+                tint = Color.White.copy(alpha = 0.85f),
+                modifier = Modifier.align(Alignment.Center).width(50.dp).height(50.dp),
+            )
+        }
+    }
+}
+
+@Composable
+private fun CaptionOverlay(
+    text: String,
+    style: CaptionStyle,
+    boxW: Float,
+    boxH: Float,
+    onMove: (Float, Float) -> Unit,
+) {
+    val density = LocalDensity.current
+    val fontSizeSp = with(density) { (boxW * 0.05f * style.size.scale).coerceAtLeast(11f).toSp() }
+    val fontFamily = when (style.font) {
+        CaptionFont.SANS -> FontFamily.SansSerif
+        CaptionFont.ROUND -> FontFamily.SansSerif
+        CaptionFont.SERIF -> FontFamily.Serif
+        CaptionFont.MONO -> FontFamily.Monospace
+    }
+    val color = when (style.color) {
+        CaptionColor.WHITE -> Color.White
+        CaptionColor.YELLOW -> Color(0xFFFFD60A)
+        CaptionColor.BLACK -> Color.Black
+    }
+
+    // Position is the normalized CENTER; offset by half the measured size so the
+    // drawn box centers on (posX, posY).
+    var sizePx by remember { mutableStateOf(androidx.compose.ui.unit.IntSize.Zero) }
+    Box(
+        Modifier
+            .offset {
+                IntOffset(
+                    (style.posX * boxW - sizePx.width / 2f).toInt(),
+                    (style.posY * boxH - sizePx.height / 2f).toInt(),
+                )
+            }
+            .width(with(density) { (boxW * 0.86f).toDp() })
+            .onSizeChanged { sizePx = it }
+            .then(
+                if (style.background == CaptionBackground.BOX) {
+                    Modifier.background(Color.Black.copy(alpha = 0.55f), RoundedCornerShape(6.dp))
+                        .padding(horizontal = 8.dp, vertical = 4.dp)
+                } else {
+                    Modifier
+                },
+            )
+            .pointerInput(boxW, boxH) {
+                detectDragGestures { change, _ ->
+                    change.consume()
+                    val cx = (style.posX * boxW + change.positionChange().x).coerceIn(boxW * 0.05f, boxW * 0.95f)
+                    val cy = (style.posY * boxH + change.positionChange().y).coerceIn(boxH * 0.03f, boxH * 0.97f)
+                    onMove(cx / boxW, cy / boxH)
+                }
+            },
+        contentAlignment = Alignment.Center,
+    ) {
+        Text(
+            text,
+            color = color,
+            fontFamily = fontFamily,
+            fontWeight = FontWeight.Bold,
+            fontSize = fontSizeSp,
+            textAlign = TextAlign.Center,
+            maxLines = 3,
+            style = if (style.background == CaptionBackground.SHADOW) {
+                MaterialTheme.typography.bodyLarge.copy(
+                    shadow = androidx.compose.ui.graphics.Shadow(
+                        color = Color.Black.copy(alpha = 0.9f),
+                        offset = Offset(0f, 2f),
+                        blurRadius = with(density) { (fontSizeSp.toPx() * 0.14f) },
+                    ),
+                )
+            } else {
+                MaterialTheme.typography.bodyLarge
+            },
+        )
+    }
+}
+
 @Composable
 private fun ResultPhase(
     resultFile: File?,
     aspect: ClipAspect,
-    creditLine: String,
     title: String,
     saved: Boolean,
     onSave: () -> Unit,
@@ -535,137 +837,7 @@ private fun LabeledSection(title: String, content: @Composable () -> Unit) {
     }
 }
 
-/**
- * Two-handle trim selection over a thumbnail filmstrip. The custom layer
- * (no native Android trimmer — plan §5b) only positions two draggable handles
- * over native MediaMetadataRetriever thumbnails and reports in/out times.
- */
-@Composable
-private fun TrimStrip(
-    thumbnails: List<Bitmap>,
-    duration: Double,
-    inSeconds: Double,
-    outSeconds: Double,
-    maxClip: Double,
-    onTrim: (Double, Double) -> Unit,
-) {
-    val density = LocalDensity.current
-    var widthPx by remember { mutableFloatStateOf(0f) }
-    val stripHeight = 56.dp
-    val safeDur = duration.coerceAtLeast(0.001)
-
-    Box(
-        Modifier
-            .fillMaxWidth()
-            .height(stripHeight)
-            .clip(RoundedCornerShape(8.dp))
-            .background(Color.Black)
-            .onSizeChanged { widthPx = it.width.toFloat() }
-            .pointerInput(duration, maxClip, inSeconds, outSeconds) {
-                detectHorizontalDragGestures { change, _ ->
-                    val w = size.width.toFloat()
-                    if (w <= 0f) return@detectHorizontalDragGestures
-                    val inX = (inSeconds / safeDur * w).toFloat()
-                    val outX = (outSeconds / safeDur * w).toFloat()
-                    val x = change.position.x
-                    val raw = (x / w * duration)
-                    // Move the nearer handle (clamped to a 0.5s min + format cap).
-                    if (kotlin.math.abs(x - inX) <= kotlin.math.abs(x - outX)) {
-                        val t = raw.coerceIn(0.0, outSeconds - 0.5)
-                        val clamped = maxOf(t, outSeconds - maxClip)
-                        onTrim(clamped, outSeconds)
-                    } else {
-                        val t = raw.coerceIn(inSeconds + 0.5, duration)
-                        val clamped = minOf(t, inSeconds + maxClip)
-                        onTrim(inSeconds, clamped)
-                    }
-                }
-            },
-    ) {
-        // Filmstrip
-        Row(Modifier.fillMaxSize()) {
-            val n = thumbnails.size.coerceAtLeast(1)
-            thumbnails.forEach { bmp ->
-                Image(
-                    bitmap = bmp.asImageBitmap(),
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.fillMaxSize().weight(1f / n),
-                )
-            }
-        }
-
-        val w = widthPx
-        if (w > 0f) {
-            val inX = (inSeconds / safeDur * w).toFloat()
-            val outX = (outSeconds / safeDur * w).toFloat()
-            // Dim outside the selection.
-            Box(
-                Modifier
-                    .width(with(density) { inX.coerceAtLeast(0f).toDp() })
-                    .fillMaxSize()
-                    .background(Color.Black.copy(alpha = 0.55f)),
-            )
-            Box(
-                Modifier
-                    .offset(x = with(density) { outX.toDp() })
-                    .width(with(density) { (w - outX).coerceAtLeast(0f).toDp() })
-                    .fillMaxSize()
-                    .background(Color.Black.copy(alpha = 0.55f)),
-            )
-            // Selection outline + two handles.
-            Box(
-                Modifier
-                    .offset(x = with(density) { inX.toDp() })
-                    .width(with(density) { (outX - inX).coerceAtLeast(0f).toDp() })
-                    .fillMaxSize()
-                    .background(Color.Transparent)
-                    .border(3.dp, MaterialTheme.colorScheme.primary, RoundedCornerShape(6.dp)),
-            )
-            HandleBar(Modifier.offset(x = with(density) { (inX - 8f).toDp() }))
-            HandleBar(Modifier.offset(x = with(density) { (outX - 8f).toDp() }))
-        }
-    }
-}
-
-@Composable
-private fun HandleBar(modifier: Modifier) {
-    Box(
-        modifier
-            .width(16.dp)
-            .fillMaxSize()
-            .clip(RoundedCornerShape(4.dp))
-            .background(MaterialTheme.colorScheme.primary),
-    )
-}
-
-// MARK: Asset helpers (off the main thread)
-
-/** Read clip duration + a 12-thumbnail filmstrip from a local file. */
-private fun loadAsset(file: File): Pair<Double, List<Bitmap>> {
-    val retriever = MediaMetadataRetriever()
-    return try {
-        retriever.setDataSource(file.absolutePath)
-        val durMs = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)?.toLongOrNull() ?: 0L
-        val duration = durMs / 1000.0
-        val thumbs = mutableListOf<Bitmap>()
-        if (duration > 0) {
-            val n = 12
-            for (i in 0 until n) {
-                val tUs = (duration * i / n * 1_000_000).toLong()
-                retriever.getFrameAtTime(tUs, MediaMetadataRetriever.OPTION_CLOSEST_SYNC)?.let {
-                    // Downscale for the strip.
-                    thumbs.add(Bitmap.createScaledBitmap(it, 160, (160 * it.height / it.width).coerceAtLeast(1), true))
-                }
-            }
-        }
-        Pair(duration, thumbs)
-    } catch (_: Exception) {
-        Pair(0.0, emptyList())
-    } finally {
-        runCatching { retriever.release() }
-    }
-}
+// MARK: small helpers
 
 private fun firstFrame(file: File): Bitmap? {
     val retriever = MediaMetadataRetriever()
@@ -680,7 +852,7 @@ private fun firstFrame(file: File): Bitmap? {
 }
 
 /** Save an exported MP4 to the device gallery via MediaStore. */
-private fun saveToGallery(context: android.content.Context, file: File): Boolean {
+private fun saveToGallery(context: Context, file: File): Boolean {
     return try {
         val resolver = context.contentResolver
         val values = ContentValues().apply {
@@ -711,7 +883,7 @@ private fun saveToGallery(context: android.content.Context, file: File): Boolean
 }
 
 /** Share an exported clip via ACTION_SEND + FileProvider. */
-private fun shareClip(context: android.content.Context, file: File) {
+private fun shareClip(context: Context, file: File) {
     val uri: Uri = androidx.core.content.FileProvider.getUriForFile(
         context, "${context.packageName}.fileprovider", file,
     )

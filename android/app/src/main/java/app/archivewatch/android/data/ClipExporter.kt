@@ -5,8 +5,10 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.RectF
 import android.graphics.Typeface
 import android.media.MediaMetadataRetriever
+import android.net.Uri
 import android.os.Handler
 import android.os.Looper
 import android.text.TextPaint
@@ -17,6 +19,7 @@ import androidx.media3.common.audio.AudioProcessor
 import androidx.media3.common.audio.SonicAudioProcessor
 import androidx.media3.common.util.Size
 import androidx.media3.common.util.UnstableApi
+import androidx.media3.datasource.okhttp.OkHttpDataSource
 import androidx.media3.effect.BitmapOverlay
 import androidx.media3.effect.Contrast
 import androidx.media3.effect.HslAdjustment
@@ -27,6 +30,7 @@ import androidx.media3.effect.RgbFilter
 import androidx.media3.effect.SpeedChangeEffect
 import androidx.media3.effect.StaticOverlaySettings
 import androidx.media3.effect.TextureOverlay
+import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
 import androidx.media3.transformer.Composition
 import androidx.media3.transformer.EditedMediaItem
 import androidx.media3.transformer.Effects
@@ -40,7 +44,6 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
-import okhttp3.Request
 import java.io.File
 import java.util.UUID
 import kotlin.coroutines.resume
@@ -52,15 +55,18 @@ import kotlin.coroutines.resumeWithException
  * 028): Jetpack Media3 `Transformer` for the trim/reframe/overlay/encode
  * pipeline; `MediaStore` to save (handled in the screen).
  *
- * Editing operates on a LOCAL file (the research's robust path — a complete
- * moov-bearing file gives predictable behavior, unlike the play-as-you-go
- * range stream the player uses). The engine downloads the source to cacheDir
- * first, then trims / reframes / overlays / encodes. Exports are serialized
- * (one hardware video encoder; concurrent sessions contend + overheat).
+ * STREAM, DON'T DOWNLOAD (CREATE-STUDIO-PLAN §3, parity with iOS b44).
+ * Archive.org films can be hours long and many gigabytes, so we NEVER
+ * download the whole file. Media3 `Transformer` reads the REMOTE URI
+ * directly through an `OkHttpDataSource` (the same byte-range, redirect-
+ * resilient path the player uses), so only the ranges the ≤60s clip needs
+ * (moov + the clip's samples) are read. Thumbnails come from a ranged
+ * `MediaMetadataRetriever.setDataSource(url, headers)`. The whole-file
+ * download path is gone.
  *
- * GIF: Android has NO native GIF encoder, so v1 ships MP4 only — the GIF gap
- * is documented in PARITY (WebP / a vendored encoder is a later option; we do
- * NOT add a third-party GIF lib).
+ * GIF: Android has NO native GIF encoder, so MP4 only — the GIF gap is
+ * documented in PARITY / ANDROID-DESIGN (WebP / a vendored encoder is a
+ * later option; we do NOT add a third-party GIF lib).
  */
 enum class ClipAspect(val label: String) {
     ORIGINAL("Original"),
@@ -108,8 +114,8 @@ enum class ClipFormat(val label: String, val maxDuration: Double, val fileExtens
  *
  * iOS uses CIFilter chains; Media3 has no equivalent named film presets, so each
  * look maps to the closest native RGB/HSL/grayscale effect:
- *  - SILENT      → sepia warm tone via `RgbAdjustment` (boost red, cut blue),
- *                  contrast-flattened slightly (≈ iOS CISepiaTone).
+ *  - SILENT      → sepia warm tone via `RgbAdjustment` (boost red, cut blue)
+ *                  (≈ iOS CISepiaTone).
  *  - NOIR        → grayscale (`RgbFilter.createGrayscaleFilter()`) + a contrast
  *                  lift for the high-key noir punch (≈ iOS CIPhotoEffectNoir).
  *  - FADED       → reduced contrast + desaturation (`Contrast` < 0 +
@@ -177,8 +183,91 @@ enum class ClipSpeed(val multiplier: Float, val label: String) {
     }
 }
 
+// MARK: Caption style (font / size / color / background / position)
+
+/**
+ * Caption typeface family — the Android twin of iOS `CaptionFont`. Same four
+ * choices, mapped to native `Typeface` families.
+ *  - SANS  → DEFAULT (system sans, bold)    (≈ iOS .system)
+ *  - ROUND → sans-serif (no rounded family in stock Android; SANS_SERIF bold,
+ *            the nearest native equivalent — documented divergence)
+ *  - SERIF → Typeface.SERIF                   (≈ iOS .serif)
+ *  - MONO  → Typeface.MONOSPACE               (≈ iOS .mono)
+ */
+enum class CaptionFont(val label: String) {
+    SANS("Sans"),
+    ROUND("Round"),
+    SERIF("Serif"),
+    MONO("Mono");
+
+    fun typeface(): Typeface = when (this) {
+        SANS -> Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
+        ROUND -> Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD)
+        SERIF -> Typeface.create(Typeface.SERIF, Typeface.BOLD)
+        MONO -> Typeface.create(Typeface.MONOSPACE, Typeface.BOLD)
+    }
+
+    companion object {
+        fun from(raw: String): CaptionFont =
+            entries.firstOrNull { it.name.equals(raw, ignoreCase = true) } ?: SANS
+    }
+}
+
+/** Caption fill color — white / yellow / black (mirrors iOS `CaptionColor`). */
+enum class CaptionColor(val label: String, val argb: Int) {
+    WHITE("White", Color.WHITE),
+    YELLOW("Yellow", Color.argb(255, 255, 214, 10)),
+    BLACK("Black", Color.BLACK);
+
+    companion object {
+        fun from(raw: String): CaptionColor =
+            entries.firstOrNull { it.name.equals(raw, ignoreCase = true) } ?: WHITE
+    }
+}
+
+/** Caption backing — drop shadow / solid box / plain (mirrors iOS). */
+enum class CaptionBackground(val label: String) {
+    SHADOW("Shadow"),
+    BOX("Box"),
+    PLAIN("Plain");
+
+    companion object {
+        fun from(raw: String): CaptionBackground =
+            entries.firstOrNull { it.name.equals(raw, ignoreCase = true) } ?: SHADOW
+    }
+}
+
+/** Caption size step — S / M / L (scale factor on the base size). */
+enum class CaptionSize(val label: String, val scale: Float) {
+    SMALL("S", 0.8f),
+    MEDIUM("M", 1.0f),
+    LARGE("L", 1.3f);
+
+    companion object {
+        fun from(raw: String): CaptionSize =
+            entries.firstOrNull { it.name.equals(raw, ignoreCase = true) } ?: MEDIUM
+    }
+}
+
+/**
+ * Caption look + placement, shared by the live preview (Compose) and the
+ * burn-in (Canvas) so the editor is WYSIWYG (CREATE-STUDIO-PLAN §3, parity
+ * with iOS b46). `posX`/`posY` are the NORMALIZED center of the caption in
+ * the render canvas (0,0 = top-left, 1,1 = bottom-right) — the caption can be
+ * dragged onto the video OR into the letterbox bars.
+ */
+data class CaptionStyle(
+    val posX: Float = 0.5f,
+    val posY: Float = 0.82f,
+    val font: CaptionFont = CaptionFont.SANS,
+    val size: CaptionSize = CaptionSize.MEDIUM,
+    val color: CaptionColor = CaptionColor.WHITE,
+    val background: CaptionBackground = CaptionBackground.SHADOW,
+)
+
 data class ClipSpec(
-    val sourceFile: File,
+    /** Remote archive.org URL — the engine streams it; nothing is downloaded. */
+    val sourceURL: String,
     val archiveID: String,
     val title: String,
     val sourceDetailsURL: String,
@@ -190,6 +279,7 @@ data class ClipSpec(
     val format: ClipFormat,
     val look: ClipLook = ClipLook.NONE,
     val speed: ClipSpeed = ClipSpeed.ONE,
+    val captionStyle: CaptionStyle = CaptionStyle(),
 )
 
 sealed class ClipExportException(message: String) : Exception(message) {
@@ -208,83 +298,91 @@ class ClipExporter(
 
     private val clipsDir: File
         get() = File(context.cacheDir, "clips").apply { mkdirs() }
-    private val sourcesDir: File
-        get() = File(context.cacheDir, "clip-sources").apply { mkdirs() }
 
     fun renderFile(filename: String): File = File(clipsDir, filename)
 
-    // MARK: Source acquisition
+    // MARK: Source inspection (ranged — no download)
 
     /**
-     * Download the full source MP4 to cacheDir (the editor needs a complete
-     * local file). Cached, so re-editing the same film is instant. v2:
-     * range-download just the clip window keyed on the moov index.
+     * Read the oriented (rotation-applied) video size + duration directly off
+     * the REMOTE stream via a ranged `MediaMetadataRetriever`. Only the moov
+     * atom is fetched, not the whole file.
      */
-    suspend fun prepareSource(
-        remoteURL: String,
-        archiveID: String,
-        onProgress: (Double) -> Unit,
-    ): File = withContext(Dispatchers.IO) {
-        val safe = archiveID.replace('/', '_')
-        val dest = File(sourcesDir, "$safe.mp4")
-        if (dest.exists() && dest.length() > 0) {
-            onProgress(1.0)
-            return@withContext dest
+    suspend fun probeSource(remoteURL: String): SourceInfo? = withContext(Dispatchers.IO) {
+        val retriever = MediaMetadataRetriever()
+        try {
+            retriever.setDataSource(remoteURL, retrieverHeaders())
+            val w = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH)?.toIntOrNull()
+            val h = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT)?.toIntOrNull()
+            val rot = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION)?.toIntOrNull() ?: 0
+            val durMs = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)?.toLongOrNull() ?: 0L
+            if (w == null || h == null) return@withContext null
+            val (ow, oh) = if (rot == 90 || rot == 270) Pair(h, w) else Pair(w, h)
+            SourceInfo(width = ow, height = oh, durationSeconds = durMs / 1000.0)
+        } catch (_: Exception) {
+            null
+        } finally {
+            runCatching { retriever.release() }
         }
-        val request = Request.Builder()
-            .url(remoteURL)
-            .header("User-Agent", "ArchiveWatch-Android/1.0")
-            .build()
-        okHttp.newCall(request).execute().use { response ->
-            if (!response.isSuccessful) {
-                throw ClipExportException.Failed("Couldn't download the source (HTTP ${response.code}).")
-            }
-            val body = response.body ?: throw ClipExportException.Failed("Empty response from the source.")
-            val total = body.contentLength()
-            val tmp = File(sourcesDir, "$safe.part")
-            body.byteStream().use { input ->
-                tmp.outputStream().use { output ->
-                    val buf = ByteArray(64 * 1024)
-                    var written = 0L
-                    while (true) {
-                        val n = input.read(buf)
-                        if (n < 0) break
-                        output.write(buf, 0, n)
-                        written += n
-                        if (total > 0) onProgress(written.toDouble() / total)
-                    }
-                }
-            }
-            if (dest.exists()) dest.delete()
-            if (!tmp.renameTo(dest)) {
-                tmp.copyTo(dest, overwrite = true)
-                tmp.delete()
-            }
-        }
-        onProgress(1.0)
-        dest
     }
 
-    // MARK: Video export (trim + reframe + caption + credit)
+    /**
+     * Grab `count` filmstrip thumbnails across the duration directly off the
+     * remote stream (ranged). Emits each frame as it decodes via `onFrame` so
+     * the timeline fills in progressively (the iOS `generateThumbnails` shape).
+     */
+    suspend fun streamThumbnails(
+        remoteURL: String,
+        durationSeconds: Double,
+        count: Int,
+        onFrame: (index: Int, bitmap: Bitmap) -> Unit,
+    ) = withContext(Dispatchers.IO) {
+        if (durationSeconds <= 0) return@withContext
+        val retriever = MediaMetadataRetriever()
+        try {
+            retriever.setDataSource(remoteURL, retrieverHeaders())
+            for (i in 0 until count) {
+                val tUs = (durationSeconds * (i + 0.5) / count * 1_000_000).toLong()
+                val frame = retriever.getFrameAtTime(tUs, MediaMetadataRetriever.OPTION_CLOSEST_SYNC)
+                if (frame != null) {
+                    val scaled = Bitmap.createScaledBitmap(
+                        frame,
+                        160,
+                        (160 * frame.height / frame.width).coerceAtLeast(1),
+                        true,
+                    )
+                    withContext(Dispatchers.Main) { onFrame(i, scaled) }
+                }
+            }
+        } catch (_: Exception) {
+            // Partial filmstrips are acceptable — the editor stays usable.
+        } finally {
+            runCatching { retriever.release() }
+        }
+    }
+
+    private fun retrieverHeaders(): Map<String, String> =
+        mapOf("User-Agent" to "ArchiveWatch-Android/1.0")
+
+    // MARK: Video export (trim + reframe + caption + credit) — off the stream
 
     suspend fun exportVideo(
         spec: ClipSpec,
         onProgress: (Double) -> Unit,
     ): File = exportMutex.withLock {
-        val (srcW, srcH) = orientedSize(spec.sourceFile)
-            ?: throw ClipExportException.NoVideoTrack
-        val renderSize = spec.aspect.renderSize(srcW, srcH)
+        val info = probeSource(spec.sourceURL) ?: throw ClipExportException.NoVideoTrack
+        val renderSize = spec.aspect.renderSize(info.width, info.height)
 
         val out = File(clipsDir, "ArchiveWatch-${UUID.randomUUID().toString().take(8)}.mp4")
         if (out.exists()) out.delete()
 
         // Trim window. Media3 ClippingConfiguration uses millis on the source
-        // timeline; positiveAndZero clamps a slightly-overrun out-point.
+        // timeline; the engine reads only these sample ranges over HTTP.
         val startMs = (spec.inSeconds * 1000).toLong()
         val endMs = ((spec.inSeconds + spec.durationSeconds) * 1000).toLong()
 
         val mediaItem = MediaItem.Builder()
-            .setUri(android.net.Uri.fromFile(spec.sourceFile))
+            .setUri(Uri.parse(spec.sourceURL))
             .setClippingConfiguration(
                 MediaItem.ClippingConfiguration.Builder()
                     .setStartPositionMs(startMs)
@@ -311,9 +409,10 @@ class ClipExporter(
                 ),
             )
         }
-        // Always-on provenance credit + optional caption, burned in as a
-        // single bitmap overlay sized to the render canvas.
-        effects.add(makeOverlayEffect(renderSize, spec.caption, spec.creditLine))
+        // Always-on provenance credit + optional styled caption, burned in as a
+        // single canvas-sized bitmap overlay (caption placed at its normalized
+        // position so the burn-in matches the live preview).
+        effects.add(makeOverlayEffect(renderSize, spec.caption, spec.creditLine, spec.captionStyle))
 
         // Audio speed (Sonic) keeps the soundtrack in step with the video
         // SpeedChangeEffect. Empty list = no audio processing for 1× speed.
@@ -328,11 +427,25 @@ class ClipExporter(
             .setEffects(Effects(ImmutableList.copyOf(audioProcessors), ImmutableList.copyOf(effects)))
             .build()
 
+        // The remote source is read through an OkHttpDataSource (ranged GETs,
+        // the player's resilient path), wired into the Transformer via an
+        // AssetLoader backed by a DefaultMediaSourceFactory. Nothing downloads.
+        val httpFactory = OkHttpDataSource.Factory(okHttp).setUserAgent("ArchiveWatch-Android/1.0")
+        val assetLoaderFactory =
+            androidx.media3.transformer.DefaultAssetLoaderFactory(
+                context,
+                androidx.media3.transformer.DefaultDecoderFactory(context),
+                androidx.media3.common.util.Clock.DEFAULT,
+                DefaultMediaSourceFactory(httpFactory),
+                androidx.media3.datasource.DataSourceBitmapLoader(context),
+            )
+
         suspendCancellableCoroutine { cont ->
             val main = Handler(Looper.getMainLooper())
             // Transformer must be built + started on a Looper thread.
             main.post {
                 val transformer = Transformer.Builder(context)
+                    .setAssetLoaderFactory(assetLoaderFactory)
                     .addListener(object : Transformer.Listener {
                         override fun onCompleted(composition: Composition, result: ExportResult) {
                             onProgress(1.0)
@@ -390,25 +503,37 @@ class ClipExporter(
         out
     }
 
-    // MARK: Overlay (caption + credit) rendered to a bitmap
+    // MARK: Overlay (styled caption + credit) rendered to a bitmap
 
     @OptIn(UnstableApi::class)
-    private fun makeOverlayEffect(canvas: Size, caption: String, credit: String): OverlayEffect {
-        val bitmap = renderOverlayBitmap(canvas.width, canvas.height, caption, credit)
-        // Centered, full-canvas overlay (the bitmap is already laid out in
-        // canvas coordinates, transparent except the text).
+    private fun makeOverlayEffect(
+        canvas: Size,
+        caption: String,
+        credit: String,
+        style: CaptionStyle,
+    ): OverlayEffect {
+        val bitmap = renderOverlayBitmap(canvas.width, canvas.height, caption, credit, style)
+        // The bitmap is already laid out in canvas coordinates (the caption sits
+        // at its normalized position, the credit bottom-center), so a centered
+        // full-canvas overlay places everything exactly where it was drawn.
         val settings = StaticOverlaySettings.Builder().build()
         val overlay: TextureOverlay = BitmapOverlay.createStaticBitmapOverlay(bitmap, settings)
         return OverlayEffect(ImmutableList.of(overlay))
     }
 
     /**
-     * Draw the caption (lower-third, title-safe) + the always-on provenance
-     * credit (small, bottom-centered) onto a transparent canvas-sized bitmap.
-     * Self-contained Android Canvas so the burned-in text matches the iOS
-     * Core Animation overlay path.
+     * Draw the styled caption (at its normalized position) + the always-on
+     * provenance credit (small, bottom-centered) onto a transparent canvas-
+     * sized bitmap. Self-contained Android Canvas so the burned-in text matches
+     * the Compose live preview (WYSIWYG, parity with iOS b46).
      */
-    private fun renderOverlayBitmap(w: Int, h: Int, caption: String, credit: String): Bitmap {
+    fun renderOverlayBitmap(
+        w: Int,
+        h: Int,
+        caption: String,
+        credit: String,
+        style: CaptionStyle,
+    ): Bitmap {
         val bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bmp)
 
@@ -428,23 +553,53 @@ class ClipExporter(
         )
 
         if (caption.isNotEmpty()) {
-            val capPaint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
-                color = Color.WHITE
-                textSize = maxOf(30f, w * 0.050f)
-                typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
-                textAlign = Paint.Align.CENTER
-                setShadowLayer(4f, 0f, 1f, Color.argb(230, 0, 0, 0))
-            }
-            // Up to two lines, lower-third.
-            val lines = wrapText(caption, capPaint, w * 0.88f, maxLines = 2)
-            val lineHeight = capPaint.fontSpacing
-            var baseline = h - h * 0.12f - (lines.size - 1) * lineHeight
-            for (line in lines) {
-                canvas.drawText(line, w / 2f, baseline, capPaint)
-                baseline += lineHeight
-            }
+            drawStyledCaption(canvas, w, h, caption, style)
         }
         return bmp
+    }
+
+    /**
+     * Draw the caption centered on its normalized position with the chosen
+     * font / size / color / background. Wraps to up to 3 lines at 86% width
+     * (the iOS `renderCaptionImage` layout).
+     */
+    private fun drawStyledCaption(canvas: Canvas, w: Int, h: Int, caption: String, style: CaptionStyle) {
+        val fontSize = maxOf(12f, w * 0.05f * style.size.scale)
+        val paint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = style.color.argb
+            textSize = fontSize
+            typeface = style.font.typeface()
+            textAlign = Paint.Align.CENTER
+            if (style.background == CaptionBackground.SHADOW) {
+                setShadowLayer(fontSize * 0.14f, 0f, fontSize * 0.04f, Color.argb(230, 0, 0, 0))
+            }
+        }
+        val maxTextWidth = w * 0.86f
+        val lines = wrapText(caption, paint, maxTextWidth, maxLines = 3)
+        val lineHeight = paint.fontSpacing
+        val textBlockHeight = lineHeight * lines.size
+
+        val cx = style.posX * w
+        val cy = style.posY * h
+
+        // Box background sits behind the whole text block.
+        if (style.background == CaptionBackground.BOX) {
+            val padX = fontSize * 0.5f
+            val padY = fontSize * 0.35f
+            val widest = lines.maxOf { paint.measureText(it) }
+            val boxW = (widest + padX * 2).coerceAtMost(w.toFloat())
+            val boxH = textBlockHeight + padY * 2
+            val boxPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.argb(140, 0, 0, 0) }
+            val rect = RectF(cx - boxW / 2, cy - boxH / 2, cx + boxW / 2, cy + boxH / 2)
+            canvas.drawRoundRect(rect, fontSize * 0.4f, fontSize * 0.4f, boxPaint)
+        }
+
+        // First baseline so the block is vertically centered on cy.
+        var baseline = cy - textBlockHeight / 2 - paint.ascent()
+        for (line in lines) {
+            canvas.drawText(line, cx, baseline, paint)
+            baseline += lineHeight
+        }
     }
 
     private fun ellipsize(text: String, paint: Paint, maxWidth: Float): String {
@@ -471,27 +626,12 @@ class ClipExporter(
             }
         }
         if (lines.size < maxLines && current.isNotEmpty()) lines.add(current.toString())
-        // Truncate the last line if there's overflow.
         if (lines.size == maxLines) {
             lines[maxLines - 1] = ellipsize(lines[maxLines - 1], paint, maxWidth)
         }
         return lines.ifEmpty { listOf("") }
     }
-
-    /** Oriented (rotation-applied) video size from the source file. */
-    private fun orientedSize(file: File): Pair<Int, Int>? {
-        val retriever = MediaMetadataRetriever()
-        return try {
-            retriever.setDataSource(file.absolutePath)
-            val w = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH)?.toIntOrNull()
-            val h = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT)?.toIntOrNull()
-            val rot = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_ROTATION)?.toIntOrNull() ?: 0
-            if (w == null || h == null) return null
-            if (rot == 90 || rot == 270) Pair(h, w) else Pair(w, h)
-        } catch (_: Exception) {
-            null
-        } finally {
-            runCatching { retriever.release() }
-        }
-    }
 }
+
+/** Oriented video size + duration probed off the remote stream. */
+data class SourceInfo(val width: Int, val height: Int, val durationSeconds: Double)

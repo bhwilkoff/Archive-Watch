@@ -132,22 +132,59 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   **rights-gated on `CatalogItem.isClippable`** (playable video + PD/CC or
   absent `rightsStatus`) and **hidden, not disabled**, when not clippable.
   It pushes `Route.ClipStudio` — a single screen with a Cancel/Done
-  lifecycle that runs four phases: prepare (download the source MP4 to
-  cacheDir with progress), edit (preview + custom thumbnail-filmstrip trim
-  timeline + aspect `SegmentedButton` Original/9:16/1:1/16:9 + caption
-  `OutlinedTextField`), render (Media3 `Transformer`: `ClippingConfiguration`
-  trim → `Presentation` reframe → `OverlayEffect`/`BitmapOverlay` burning the
-  caption + the always-on `archivewatch.org · Public Domain` provenance
-  credit), and result (preview + Save to `MediaStore.Video` + Share via
-  `ACTION_SEND`/FileProvider). The engine (`data/ClipExporter.kt`) serializes
-  exports (one hardware encoder) and edits a complete local file, not the
-  range stream. The trim timeline is the one custom layer (no native Android
-  trimmer — plan §5b); everything else is native Media3 / Compose M3. Saved
+  lifecycle that runs four phases: prepare (probe the REMOTE stream for
+  size/duration), edit (live preview + CapCut timeline + reframe/look/speed/
+  caption controls), render (Media3 `Transformer`: `ClippingConfiguration`
+  trim → look effects → `SpeedChangeEffect` → `Presentation` reframe →
+  `OverlayEffect`/`BitmapOverlay` burning the styled caption + the always-on
+  `archivewatch.org · Public Domain` provenance credit), and result (preview +
+  Save to `MediaStore.Video` + Share via `ACTION_SEND`/FileProvider). Saved
   definitions persist to the `clips` table (mirrors iOS `VideoClip`) so §4.5
   can re-share. **GIF export is deferred on Android** — there is no native
-  GIF encoder; v1 ships MP4 only (PARITY gap; WebP / vendored encoder later).
+  GIF encoder; we ship MP4 only (PARITY gap; WebP / vendored encoder later).
   The human makes every editorial choice; never a one-tap auto-edit
   (CREATE-STUDIO-PLAN §1, learning-orientation).
+  - **v3 — Stream-not-download + CapCut timeline + styled captions
+    (CREATE-STUDIO-PLAN §3/§5b, parity with iOS b44/b45/b46).**
+    - **STREAM, DON'T DOWNLOAD.** Archive.org films are hours long / multi-GB,
+      so nothing is downloaded. The preview `ExoPlayer`, the filmstrip
+      thumbnails, and the `Transformer` source all read the remote URL over
+      ranged HTTP via `OkHttpDataSource`. The editor's preview uses a
+      controls-free `PlayerView` (`useController=false`); thumbnails come from
+      `MediaMetadataRetriever.setDataSource(url, headers)`; the Transformer is
+      given a `DefaultAssetLoaderFactory` wrapping a `DefaultMediaSourceFactory
+      (OkHttpDataSource.Factory)` so only the ≤60 s clip's sample ranges + moov
+      are read. The whole-file `prepareSource` download path is gone
+      (`ClipExporter.probeSource`/`streamThumbnails`/`exportVideo(sourceURL)`).
+    - **CapCut timeline (`ui/ClipTimeline.kt`, custom `View`).** The filmstrip
+      SCROLLS under a FIXED center playhead — scrolling IS scrubbing, and the
+      preview seeks to the frame under the playhead live (the screen does a
+      tolerant `seekTo` on each `onScrub`; clip BOUNDS stay frame-accurate via
+      `Set Start`/`Set End`/handle times). `ScaleGestureDetector` PINCH-zooms
+      the pixels-per-second, preserving the centered time; `GestureDetector` +
+      `OverScroller` give native momentum scrolling. The selection is a
+      highlighted band with drag handles, but the PRIMARY mark is the Compose
+      `Set Start` / `Set End` buttons (no two-handle dance). Both ends center
+      because the content is conceptually padded by half the viewport. During
+      playback the strip auto-scrolls (`follow()`) so the playing frame stays
+      under the playhead, stopping at the out point. Tap the preview to
+      play/pause the selection. (Built as a raw `View`, not a
+      `HorizontalScrollView`, so programmatic `follow()` composes cleanly with
+      pinch + handle drags — the same reason iOS owns a raw `UIScrollView`.)
+    - **Styled, draggable captions (WYSIWYG).** `CaptionStyle` carries a
+      normalized position (drag anywhere — on the video or into the letterbox
+      bars), font (`CaptionFont`: Sans/Round/Serif/Mono → `Typeface`), size
+      (S/M/L), color (white/yellow/black), and background (shadow/box/plain).
+      The live preview is a Compose `Text` over the player, draggable to set the
+      normalized position; the burn-in renders the same text to a canvas-sized
+      `Bitmap` (`ClipExporter.renderOverlayBitmap`) placed at that position via
+      `BitmapOverlay`, so what you place is what burns in. Font/Size/Color/
+      Background `SegmentedButton`s appear once a caption exists; the credit
+      stays pinned bottom-center.
+    - **Font mapping (vs iOS `CaptionFont`):** Sans → `Typeface.DEFAULT` bold;
+      **Round → `Typeface.SANS_SERIF` bold** (stock Android has no rounded
+      system family — documented divergence; nearest native equivalent);
+      Serif → `Typeface.SERIF` bold; Mono → `Typeface.MONOSPACE` bold.
   - **v2 — Looks + Speed (CREATE-STUDIO-PLAN §4, Decision 033 v2).** A color-
     grade **Look** `SegmentedButton` (six options mirroring iOS `ClipLook`:
     None / Silent / Noir / Faded / Technicolor / B&W) and a **Speed**
@@ -165,8 +202,25 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
     matching `SonicAudioProcessor.setSpeed(...)` audio processor so A/V stay in
     sync. **Deferred vs iOS:** no vignette on the Faded look (Media3 1.9.4 has
     no native vignette effect) and no live grade preview on the editor frame
-    (the iOS player-side CIFilter preview has no cheap Media3 analog; the static
-    preview thumbnail is un-graded) — both noted as PARITY gaps.
+    (the iOS player-side CIFilter preview has no cheap Media3 analog; the live
+    preview plays the un-graded source — the grade applies at export) — both
+    noted as PARITY gaps.
+  - **Deliberately deferred (best-effort items that need a heavy/cloud dep —
+    NOT shipped, by Decision 028's no-heavy-third-party rule):**
+    - **Blurred-fill reframe** (iOS uses a CIGaussianBlur composite behind the
+      letterboxed frame). Media3 1.9.4 has no built-in scaled-blur-fill effect;
+      a correct version needs a custom `GlEffect`/AGSL shader doing a two-layer
+      (blurred cover + sharp fit) composite. Deferred to keep the wave native +
+      lean; the letterbox matte stays. Tracked as a PARITY gap.
+    - **Auto-captions (speech → timed cues).** iOS uses on-device
+      `SFSpeechRecognizer` against the clip's extracted audio. Android has NO
+      good native FILE-based transcription API — `SpeechRecognizer` is
+      microphone-oriented and not designed to transcribe an arbitrary media
+      file, and ML Kit / a cloud STT would violate the no-heavy-third-party /
+      no-cloud rule. Deferred with this reason; the caption STYLING above
+      applies to typed captions regardless. Revisit if a native on-device
+      file-transcription API lands (e.g. a future `SpeechRecognizer` file mode
+      or an AICore on-device model).
 
 ## §5 Player
 
