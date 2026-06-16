@@ -71,6 +71,39 @@ enum ClipAspect: String, CaseIterable, Identifiable, Sendable {
     }
 }
 
+// Color-grade "looks" — era-appropriate film treatments for repertory PD
+// cinema (Decision 033 v2). Applied with native Core Image CIFilters; no
+// third-party. `.none` is a no-op fast path.
+enum ClipLook: String, CaseIterable, Identifiable, Sendable {
+    case none, silent, noir, faded, technicolor, mono
+    var id: String { rawValue }
+    var label: String {
+        switch self {
+        case .none:       return "None"
+        case .silent:     return "Silent"
+        case .noir:       return "Noir"
+        case .faded:      return "Faded"
+        case .technicolor:return "Techni"
+        case .mono:       return "B&W"
+        }
+    }
+    /// CIFilter chain for this look. Identity for `.none`.
+    func apply(to image: CIImage) -> CIImage {
+        switch self {
+        case .none:        return image
+        case .silent:      return image.applyingFilter("CISepiaTone", parameters: [kCIInputIntensityKey: 0.85])
+        case .noir:        return image.applyingFilter("CIPhotoEffectNoir")
+        case .faded:       return image
+                .applyingFilter("CIPhotoEffectFade")
+                .applyingFilter("CIVignette", parameters: ["inputIntensity": 1.0, "inputRadius": 1.6])
+        case .technicolor: return image
+                .applyingFilter("CIPhotoEffectChrome")
+                .applyingFilter("CIColorControls", parameters: [kCIInputSaturationKey: 1.25])
+        case .mono:        return image.applyingFilter("CIPhotoEffectMono")
+        }
+    }
+}
+
 struct ClipSpec: Sendable {
     var sourceURL: URL          // local file (post-download)
     var archiveID: String
@@ -82,6 +115,8 @@ struct ClipSpec: Sendable {
     var aspect: ClipAspect
     var caption: String
     var format: ClipFormat
+    var look: ClipLook = .none
+    var speed: Double = 1        // 0.5 = slow-mo, 2 = fast; output duration = clip/speed
 }
 
 enum ClipExportError: LocalizedError {
@@ -130,8 +165,56 @@ actor ClipExporter {
 
     // MARK: Video export (trim + reframe + caption + credit)
 
+    /// Orchestrates the video export. A color grade (look) and the
+    /// reframe+overlay can't share one `AVMutableVideoComposition` (CIFilter
+    /// handler vs CALayer animation tool are mutually exclusive), so a graded
+    /// clip is rendered in two passes: pass 1 grades just the clip range with
+    /// Core Image; pass 2 reframes + overlays + time-scales the graded clip
+    /// with the proven CALayer-tool path. `.none` skips pass 1 entirely.
     func exportVideo(_ spec: ClipSpec,
                      onProgress: @escaping @Sendable (Double) -> Void) async throws -> URL {
+        guard spec.look != .none else {
+            return try await renderComposition(spec, onProgress: onProgress)
+        }
+        let graded = try await applyLook(spec.look, sourceURL: spec.sourceURL,
+                                         inSeconds: spec.inSeconds, duration: spec.durationSeconds) {
+            onProgress($0 * 0.5)
+        }
+        var s2 = spec
+        s2.sourceURL = graded
+        s2.look = .none
+        s2.inSeconds = 0
+        let out = try await renderComposition(s2) { onProgress(0.5 + $0 * 0.5) }
+        try? FileManager.default.removeItem(at: graded)
+        return out
+    }
+
+    /// Pass 1: Core Image color grade over just the clip range, re-timed to 0.
+    private func applyLook(_ look: ClipLook, sourceURL: URL,
+                           inSeconds: Double, duration: Double,
+                           onProgress: @escaping @Sendable (Double) -> Void) async throws -> URL {
+        let asset = AVURLAsset(url: sourceURL)
+        let vc = AVMutableVideoComposition(asset: asset) { request in
+            let graded = look.apply(to: request.sourceImage.clampedToExtent())
+                .cropped(to: request.sourceImage.extent)
+            request.finish(with: graded, context: nil)
+        }
+        guard let session = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality) else {
+            throw ClipExportError.cannotCreateExportSession
+        }
+        session.videoComposition = vc
+        session.timeRange = CMTimeRange(start: CMTime(seconds: inSeconds, preferredTimescale: 600),
+                                        duration: CMTime(seconds: duration, preferredTimescale: 600))
+        let out = Self.clipsDir.appendingPathComponent("aw-grade-\(UUID().uuidString.prefix(8)).mp4")
+        try? FileManager.default.removeItem(at: out)
+        try await Self.runExport(session, to: out, onProgress: onProgress)
+        return out
+    }
+
+    /// Pass 2 (and the only pass when `.none`): trim + reframe + speed +
+    /// burned caption/credit. `spec.look` is expected to be `.none` here.
+    private func renderComposition(_ spec: ClipSpec,
+                                   onProgress: @escaping @Sendable (Double) -> Void) async throws -> URL {
         let asset = AVURLAsset(url: spec.sourceURL)
         guard let srcV = try await asset.loadTracks(withMediaType: .video).first else {
             throw ClipExportError.noVideoTrack
@@ -149,9 +232,19 @@ actor ClipExporter {
         let range = CMTimeRange(start: CMTime(seconds: spec.inSeconds, preferredTimescale: 600),
                                 duration: CMTime(seconds: spec.durationSeconds, preferredTimescale: 600))
         try vTrack.insertTimeRange(range, of: srcV, at: .zero)
-        if let srcA, let aTrack = comp.addMutableTrack(withMediaType: .audio,
-                                                       preferredTrackID: kCMPersistentTrackID_Invalid) {
-            try? aTrack.insertTimeRange(range, of: srcA, at: .zero)
+        var aTrack: AVMutableCompositionTrack?
+        if let srcA {
+            aTrack = comp.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
+            try? aTrack?.insertTimeRange(range, of: srcA, at: .zero)
+        }
+
+        // Speed: time-scale both tracks together (keeps A/V in sync).
+        var outputDuration = range.duration
+        if spec.speed != 1, spec.speed > 0 {
+            outputDuration = CMTime(seconds: spec.durationSeconds / spec.speed, preferredTimescale: 600)
+            let full = CMTimeRange(start: .zero, duration: range.duration)
+            vTrack.scaleTimeRange(full, toDuration: outputDuration)
+            aTrack?.scaleTimeRange(full, toDuration: outputDuration)
         }
 
         let renderSize = spec.aspect.videoRenderSize(source: oriented)
@@ -160,7 +253,7 @@ actor ClipExporter {
         vc.frameDuration = CMTime(value: 1, timescale: 30)
 
         let instr = AVMutableVideoCompositionInstruction()
-        instr.timeRange = CMTimeRange(start: .zero, duration: range.duration)
+        instr.timeRange = CMTimeRange(start: .zero, duration: outputDuration)
         instr.backgroundColor = UIColor.black.cgColor    // letterbox matte
         let layer = AVMutableVideoCompositionLayerInstruction(assetTrack: vTrack)
         let fit = Self.aspectFit(oriented, into: renderSize)
@@ -183,15 +276,19 @@ actor ClipExporter {
 
         let out = Self.clipsDir.appendingPathComponent("ArchiveWatch-\(UUID().uuidString.prefix(8)).mp4")
         try? FileManager.default.removeItem(at: out)
+        try await Self.runExport(session, to: out, onProgress: onProgress)
+        return out
+    }
 
+    private static func runExport(_ session: AVAssetExportSession, to url: URL,
+                                  onProgress: @escaping @Sendable (Double) -> Void) async throws {
         let progressTask = Task {
             for await state in session.states(updateInterval: 0.2) {
                 if case .exporting(let p) = state { onProgress(p.fractionCompleted) }
             }
         }
         defer { progressTask.cancel() }
-        try await session.export(to: out, as: .mp4)
-        return out
+        try await session.export(to: url, as: .mp4)
     }
 
     // MARK: GIF export (frames → ImageIO, reframe + caption + credit baked in)
@@ -215,8 +312,10 @@ actor ClipExporter {
 
         let fps = 12.0
         let count = max(1, Int(spec.durationSeconds * fps))
+        // Speed stretches/compresses which source span the fixed output frames
+        // sample (GIF has no audio, so this is just resampling).
         let times = (0..<count).map {
-            CMTime(seconds: spec.inSeconds + Double($0) / fps, preferredTimescale: 600)
+            CMTime(seconds: spec.inSeconds + (Double($0) / fps) * spec.speed, preferredTimescale: 600)
         }
 
         let out = Self.clipsDir.appendingPathComponent("ArchiveWatch-\(UUID().uuidString.prefix(8)).gif")
@@ -235,7 +334,7 @@ actor ClipExporter {
         var done = 0
         for await result in gen.images(for: times) {
             if case let .success(_, image, _) = result {
-                let composed = Self.composeGIFFrame(image, canvas: canvas,
+                let composed = Self.composeGIFFrame(image, canvas: canvas, look: spec.look,
                                                      caption: spec.caption, credit: spec.creditLine)
                 CGImageDestinationAddImage(dest, composed, frameProps)
             }
@@ -326,9 +425,21 @@ actor ClipExporter {
     /// the canvas (black matte), then the caption + credit in UIKit coords
     /// (top-left origin). Self-contained Core Graphics so GIF gets the same
     /// reframe + provenance the video export gets.
-    nonisolated static func composeGIFFrame(_ cg: CGImage, canvas: CGSize,
+    /// Shared Core Image context for GIF look application (created once;
+    /// recreating per frame tanks performance).
+    nonisolated static let sharedCIContext = CIContext()
+
+    nonisolated static func applyLook(_ look: ClipLook, to cg: CGImage) -> CGImage {
+        guard look != .none else { return cg }
+        let source = CIImage(cgImage: cg)
+        let graded = look.apply(to: source)
+        return sharedCIContext.createCGImage(graded, from: source.extent) ?? cg
+    }
+
+    nonisolated static func composeGIFFrame(_ cg: CGImage, canvas: CGSize, look: ClipLook,
                                             caption: String, credit: String) -> CGImage {
-        let imgSize = CGSize(width: cg.width, height: cg.height)
+        let frame = applyLook(look, to: cg)
+        let imgSize = CGSize(width: frame.width, height: frame.height)
         let fmt = UIGraphicsImageRendererFormat()
         fmt.scale = 1
         fmt.opaque = true
@@ -337,7 +448,7 @@ actor ClipExporter {
             UIColor.black.setFill()
             ctx.fill(CGRect(origin: .zero, size: canvas))
             let rect = aspectFitRect(imgSize, into: canvas)
-            UIImage(cgImage: cg).draw(in: rect)
+            UIImage(cgImage: frame).draw(in: rect)
 
             let creditFont = UIFont.systemFont(ofSize: max(11, canvas.width * 0.026), weight: .medium)
             drawText(credit, font: creditFont, color: UIColor.white.withAlphaComponent(0.85),

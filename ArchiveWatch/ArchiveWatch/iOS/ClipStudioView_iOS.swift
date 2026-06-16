@@ -3,6 +3,7 @@ import SwiftUI
 import SwiftData
 import AVKit
 import AVFoundation
+import CoreImage
 import ImageIO
 import UIKit
 
@@ -23,6 +24,7 @@ final class ClipStudioModel {
 
     var localSource: URL?
     var player: AVPlayer?
+    private var sourceAsset: AVURLAsset?
     var duration: Double = 0
     var thumbnails: [UIImage] = []
 
@@ -30,11 +32,15 @@ final class ClipStudioModel {
     var outSeconds: Double = 15
     var aspect: ClipAspect = .vertical
     var format: ClipFormat = .video
+    var look: ClipLook = .none
+    var speed: Double = 1
     var caption: String = ""
 
     var resultURL: URL?
 
     var clipDuration: Double { max(0, outSeconds - inSeconds) }
+    /// Output length after speed (source selection ÷ speed).
+    var outputDuration: Double { speed > 0 ? clipDuration / speed : clipDuration }
     var canExport: Bool { clipDuration >= 0.5 && localSource != nil }
 
     init(item: Catalog.Item) { self.item = item }
@@ -60,11 +66,25 @@ final class ClipStudioModel {
 
     private func loadAsset(_ url: URL) async throws {
         let asset = AVURLAsset(url: url)
+        sourceAsset = asset
         let dur = try await asset.load(.duration).seconds
         duration = dur.isFinite ? dur : 0
         outSeconds = min(duration, 15)
-        player = AVPlayer(url: url)
+        player = AVPlayer(playerItem: AVPlayerItem(asset: asset))
         await generateThumbnails(asset: asset)
+    }
+
+    /// Live grade preview — set a Core Image videoComposition on the player so
+    /// the selected look shows in the preview (native CIFilter-handler preview).
+    func applyLookPreview() {
+        guard let item = player?.currentItem, let asset = sourceAsset else { return }
+        guard look != .none else { item.videoComposition = nil; return }
+        let look = self.look
+        item.videoComposition = AVMutableVideoComposition(asset: asset) { request in
+            let graded = look.apply(to: request.sourceImage.clampedToExtent())
+                .cropped(to: request.sourceImage.extent)
+            request.finish(with: graded, context: nil)
+        }
     }
 
     private func generateThumbnails(asset: AVAsset) async {
@@ -102,7 +122,8 @@ final class ClipStudioModel {
             sourceURL: local, archiveID: item.archiveID, title: item.title,
             sourceDetailsURL: item.sourceDetailsURL, creditLine: item.clipCreditLine,
             inSeconds: inSeconds, durationSeconds: clipDuration, aspect: aspect,
-            caption: caption.trimmingCharacters(in: .whitespacesAndNewlines), format: format)
+            caption: caption.trimmingCharacters(in: .whitespacesAndNewlines), format: format,
+            look: look, speed: speed)
         do {
             let (stream, cont) = AsyncStream.makeStream(of: Double.self)
             let pt = Task { for await p in stream { self.exportProgress = p } }
@@ -212,6 +233,17 @@ struct ClipStudioView: View {
                         ForEach(ClipAspect.allCases) { Text($0.label).tag($0) }
                     }.pickerStyle(.segmented)
                 }
+                labeled("Look") {
+                    Picker("Look", selection: Binding(
+                        get: { model.look }, set: { model.look = $0; model.applyLookPreview() })) {
+                        ForEach(ClipLook.allCases) { Text($0.label).tag($0) }
+                    }.pickerStyle(.menu).tint(Brand.primary)
+                }
+                labeled("Speed") {
+                    Picker("Speed", selection: $model.speed) {
+                        Text("0.5×").tag(0.5); Text("1×").tag(1.0); Text("2×").tag(2.0)
+                    }.pickerStyle(.segmented)
+                }
                 labeled("Caption") {
                     TextField("Add a caption (optional)", text: $model.caption, axis: .vertical)
                         .lineLimit(1...2).textFieldStyle(.roundedBorder)
@@ -286,7 +318,10 @@ struct ClipStudioView: View {
             HStack {
                 Text(timecode(model.inSeconds))
                 Spacer()
-                Text(String(format: "%.1fs", model.clipDuration)).foregroundStyle(Brand.primary).bold()
+                Text(model.speed == 1
+                     ? String(format: "%.1fs", model.clipDuration)
+                     : String(format: "%.1fs→%.1fs", model.clipDuration, model.outputDuration))
+                    .foregroundStyle(Brand.primary).bold()
                 Spacer()
                 Text(timecode(model.outSeconds))
             }.font(.caption.monospacedDigit()).foregroundStyle(.secondary)

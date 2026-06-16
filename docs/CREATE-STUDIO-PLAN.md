@@ -92,13 +92,33 @@ lives in `Services/` guarded `#if os(iOS)`.
 
 ---
 
-## 4. v2+ backlog (same composition spine — additive, do not rebuild)
+## 4. v2 — status (same composition spine — additive, do not rebuild)
 
-Multi-clip stitching (montage) · hard-cut → crossfade transitions · speed
-ramps / slow-mo · color-grade LUT picker (vintage looks; `CIColorCube`) ·
-blurred-fill reframe background (`CIGaussianBlur` compositor) · auto-captions
-(`SpeechAnalyzer` iOS 26 → `SFSpeechRecognizer` fallback) · beat detection +
-snap-to-beat trimming · "Clips" library surface + cross-device sync.
+**Shipped (iOS, 2026-06-16):**
+- **Color-grade "Looks"** — Silent (sepia) / Noir / Faded / Technicolor / B&W,
+  native CIFilter chains (`ClipLook`). Applied two-pass for video (a Core Image
+  grade pass over the clip range, then the proven reframe+overlay pass — the
+  CIFilter handler and the CALayer overlay tool can't share one
+  `AVMutableVideoComposition`) and per-frame for GIF. Live grade preview on the
+  player via a CIFilter-handler `videoComposition`.
+- **Speed** — 0.5× / 1× / 2× via `scaleTimeRange` (A/V scaled together).
+- **Clips library** — a Clips section in iOS Library lists saved `VideoClip`s
+  (share the cached render / revisit source / delete); definition is the source
+  of truth if the render is evicted.
+
+**Still deferred (next wave, additive):**
+- **Blurred-fill reframe background** (`CIGaussianBlur` composite) — needs the
+  single-pass CIFilter-handler reframe path (or a custom `AVVideoCompositing`);
+  v1/v2 ship solid-matte letterbox.
+- **Auto-captions** — `SpeechAnalyzer`/`SpeechTranscriber` (iOS 26) →
+  `SFSpeechRecognizer` fallback → timed burned-in cues (the overlay path must
+  render per-time text).
+- **Multi-clip stitching** (montage) + **hard-cut → crossfade transitions** —
+  a multi-source picker/sequence UI on `insertTimeRange` ×N.
+- **Beat detection + snap-to-beat trimming.**
+- **Range-download optimization** — fetch only the clip window keyed on the
+  `moov` index instead of the whole film.
+- **Cross-device sync** of clip definitions (CloudKit / Drive App Data).
 
 ---
 

@@ -119,10 +119,12 @@ this table in the same change set; cross-link the platform design doc.
 | Trim (frame-accurate, length-capped) | n/a | 🚧 custom filmstrip + handles over native `AVAssetImageGenerator`/`AVPlayer` | 🚫 | ⏳ Media3 `ClippingConfiguration` | no native trimmer component on either platform (5b) |
 | Reframe (Original/1:1/9:16/16:9, letterbox) | n/a | 🚧 `AVMutableVideoComposition` renderSize + transform | 🚫 | ⏳ Media3 `Presentation` | blurred-fill bg = v2 |
 | Caption + provenance credit (burned-in) | n/a | 🚧 CALayer tool (video) / Core Graphics (GIF) | 🚫 | ⏳ Media3 `OverlayEffect`/`TextOverlay` | always-on archivewatch.org · PD credit + source in metadata |
-| Export MP4 / GIF | n/a | 🚧 `AVAssetExportSession` / `AVAssetImageGenerator`+ImageIO | 🚫 | ⏳ Transformer / WebP (no native GIF encoder) | GIF is Android's weak native story |
+| Export MP4 / GIF | n/a | 🚧 `AVAssetExportSession` / `AVAssetImageGenerator`+ImageIO | 🚫 | ⏳ Transformer (MP4 only — no native GIF encoder) | GIF is Android's weak native story |
 | Save to Photos / share | n/a | 🚧 PhotoKit (add-only) + `ShareLink` | 🚫 | ⏳ `MediaStore` + `ACTION_SEND` | |
-| Saved clips library | n/a | ⏳ `VideoClip` SwiftData model persists definitions | 🚫 | ⏳ | re-export from definition if render evicted |
-| v2: stitch / transitions / speed / LUT grade / auto-captions | n/a | 🔮 (same composition spine) | 🚫 | 🔮 | additive — `docs/CREATE-STUDIO-PLAN.md` §4 |
+| Color-grade Looks (Silent/Noir/Faded/Techni/B&W) | n/a | 🚧 CIFilter chains, two-pass video + per-frame GIF, live preview | 🚫 | 🔮 Media3 `RgbMatrix`/`SingleColorLut` | v2 shipped iOS 2026-06-16 |
+| Speed (0.5×/1×/2×) | n/a | 🚧 `scaleTimeRange` (A/V together) | 🚫 | 🔮 `SpeedChangeEffect` | v2 shipped iOS 2026-06-16 |
+| Saved clips library | n/a | 🚧 `VideoClip` SwiftData + Library "Clips" section (share/revisit/delete) | 🚫 | ⏳ | re-create from definition if render evicted |
+| v2 deferred: blurred-fill / stitch / transitions / auto-captions / beat-sync | n/a | 🔮 (same composition spine) | 🚫 | 🔮 | additive — `docs/CREATE-STUDIO-PLAN.md` §4 |
 
 ## 5. Surprise + Immersive modes
 

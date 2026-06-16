@@ -11,9 +11,10 @@ struct LibraryView: View {
     @Query(sort: \Favorite.addedAt, order: .reverse) private var favorites: [Favorite]
     @Query private var progress: [WatchProgress]
     @Query(sort: \Playlist.createdAt, order: .reverse) private var playlists: [Playlist]
+    @Query(sort: \VideoClip.createdAt, order: .reverse) private var clips: [VideoClip]
     @State private var section: Section = .favorites
 
-    enum Section: String, CaseIterable, Identifiable { case favorites, watched, playlists
+    enum Section: String, CaseIterable, Identifiable { case favorites, watched, playlists, clips
         var id: String { rawValue }; var title: String { rawValue.capitalized } }
 
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
@@ -30,6 +31,7 @@ struct LibraryView: View {
             case .watched: grid(store.itemsByIDs(progress.filter(\.isComplete).map(\.archiveID)),
                                 empty: "Nothing watched yet", icon: "checkmark.circle")
             case .playlists: playlistList
+            case .clips: clipsList
             }
         }
         .navigationTitle("Library")
@@ -73,6 +75,49 @@ struct LibraryView: View {
                         let pl = playlists[i]
                         ctx.delete(pl)
                         SyncNudge.recordDeletion("pl:\(pl.id)", in: ctx)
+                    }
+                }
+            }
+        }
+    }
+
+    // Clips made in Clip Studio (Decision 033). Share the rendered file if it's
+    // still cached; tap to revisit the source film. Delete removes the cached
+    // render too. If a render was evicted under disk pressure, the clip stays
+    // listed (re-create from its source) — the definition is the source of truth.
+    @ViewBuilder private var clipsList: some View {
+        if clips.isEmpty {
+            ContentUnavailableView("No clips yet", systemImage: "scissors",
+                description: Text("Make clips and GIFs from a film's detail page (the Create button)."))
+        } else {
+            List {
+                ForEach(clips) { clip in
+                    let fileURL = clip.renderFilename.map { ClipExporter.renderURL(filename: $0) }
+                    let exists = fileURL.map { FileManager.default.fileExists(atPath: $0.path) } ?? false
+                    HStack {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(clip.caption.isEmpty ? clip.sourceTitle : clip.caption)
+                                .font(.headline).lineLimit(1)
+                            Text("\(clip.format.uppercased()) · \(String(format: "%.1fs", clip.durationSeconds))"
+                                 + (exists ? "" : " · render cleared"))
+                                .font(.caption).foregroundStyle(.secondary)
+                        }
+                        Spacer()
+                        if exists, let fileURL {
+                            ShareLink(item: fileURL) { Image(systemName: "square.and.arrow.up") }
+                                .labelStyle(.iconOnly)
+                        }
+                    }
+                    .contentShape(Rectangle())
+                    .onTapGesture { if let item = store.item(clip.sourceArchiveID) { router.openDetail(item) } }
+                }
+                .onDelete { offsets in
+                    for i in offsets {
+                        let clip = clips[i]
+                        if let f = clip.renderFilename {
+                            try? FileManager.default.removeItem(at: ClipExporter.renderURL(filename: f))
+                        }
+                        ctx.delete(clip)
                     }
                 }
             }

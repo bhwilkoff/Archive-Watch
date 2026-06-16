@@ -11,7 +11,7 @@
 //   CURRENT_PROJECT_VERSION — build number; integer, bumped so every App Store
 //                             upload is unique/monotonic.
 MARKETING_VERSION = 1.3.0
-CURRENT_PROJECT_VERSION = 39
+CURRENT_PROJECT_VERSION = 40
 
 // Optional per-developer secrets (gitignored). The `?` makes it optional so
 // the project still builds on machines where Secrets.xcconfig is absent.

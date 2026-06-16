@@ -268,9 +268,23 @@ against the iOS 26 SDK; no iOS 26 sim runtime installed here so no on-sim run).
   editors build it custom on AVFoundation. Logged + the
   `UIVideoEditorController`-for-trim swap noted as an option (Decision 033 §
   native-first). **Asked owner** which trim UI they prefer.
-- **NOT YET**: on-device run (needs an iOS 26 sim/device — owner), Android port,
-  v2 craft tools, a "Clips" Library surface. NOT committed/pushed pending the
-  trim-UI answer + owner review.
+- **v1 committed/pushed** to main (df941c0, 1.3.0 b39). Owner picked the
+  integrated custom timeline.
+- **v2 (same session, owner: "proceed with v2 and all documented next steps"):**
+  iOS v2 shipped + green (1.3.0 b40) — **Color-grade Looks** (Silent/Noir/Faded/
+  Technicolor/B&W; native CIFilter chains, two-pass video [grade pass → proven
+  reframe+overlay pass, since the CIFilter handler and the CALayer overlay tool
+  can't co-exist in one videoComposition] + per-frame GIF + live grade preview
+  on the player), **Speed** (0.5/1/2× via scaleTimeRange), **Clips library**
+  (Library "Clips" section: share render / revisit source / delete).
+  **Android port: ran in a background agent** (Media3 Transformer; MP4 only —
+  no native GIF encoder). DEFERRED next wave (documented,
+  CREATE-STUDIO-PLAN §4): blurred-fill bg, auto-captions (SpeechAnalyzer),
+  multi-clip stitch + transitions, beat-sync, range-download optimization,
+  clip-definition sync.
+- **NOT YET**: on-device run (needs iOS 26 sim/device — owner; only iOS 18.5
+  sims on this box, so iOS is compile-verified via `-destination
+  'generic/platform=iOS'`, not run).
 
 ### 2026-06-15 (later) — Top Rated shelf + rating sort (tvOS/iOS/Android)
 Owner (after noticing the IMDb star on Detail): "we should allow for
