@@ -178,11 +178,27 @@ code. Verified against current API/design docs (June 2026):
   component.
 
 **Decision:** build the trim timeline custom (it's the platform-endorsed
-path for an editor richer than trim-only), keep that custom layer *thin* (it
-only positions two handles over native `AVAssetImageGenerator` thumbnails and
-seeks a native `AVPlayer`; all rendering is native), and re-evaluate on each
-major OS release in case Apple/Google ship a reusable trimmer. Logged as
-Decision 033.
+path for an editor richer than trim-only) on **native primitives**, and
+re-evaluate on each major OS release in case Apple/Google ship a reusable
+trimmer. Logged as Decision 033.
+
+**Timeline interaction model (rebuilt 2026-06-16 after owner feedback — the
+first version's two rigid handles + a separate, disconnected preview scrubber
+were unintuitive).** Now follows the CapCut / iMovie idioms, on native pieces
+(`UIScrollView`, `AVPlayerLayer`, `AVAssetImageGenerator`):
+- The **filmstrip scrolls under a fixed center playhead** — scrolling IS
+  scrubbing; the preview shows the playhead frame live (`UIScrollView` with
+  `contentInset = width/2` so both ends center). There is **one** scrubber; the
+  preview is a controls-free `AVPlayerLayer` (no AVKit transport UI).
+- **Pinch to zoom** the timeline (`UIPinchGestureRecognizer` rescales
+  points-per-second, preserving the centered time) — essential for hours-long films.
+- Selection is a **band with drag handles**, but the primary path is **Set Start
+  / Set End at the playhead** (no two-handle dance). Clip bounds use the exact
+  playhead/handle time; scrub previews use tolerant seeks for fluidity.
+- **Tap the preview to play/pause** the selection; the strip auto-scrolls so the
+  playing frame stays under the playhead, stopping at the out point.
+- Files: `iOS/ClipTimeline_iOS.swift` (`PlayerLayerView` + `ClipTimelineView` +
+  `ClipTimelineUIView`).
 
 *Alternative on the table for the owner:* use `UIVideoEditorController` for
 the trim sub-step (strictly native trim bar), then layer reframe/caption/GIF

@@ -233,6 +233,29 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-16 (later) — Clip Studio trim UI rebuilt CapCut-style + stream-not-download
+Owner on-device feedback: (1) "Cannot Open" — v1 downloaded the whole film;
+fixed by editing off the ResilientStreamLoader remote stream (b44). (2) The
+custom trim UI was unintuitive — two rigid handles you alternate-drag, no zoom
+for long videos, and a preview play/pause + scrubber disconnected from the clip
+timeline. Researched CapCut + iMovie idioms and rebuilt:
+- **`iOS/ClipTimeline_iOS.swift`** (new): `ClipTimelineView` on a real
+  `UIScrollView` — filmstrip **scrolls under a fixed center playhead** (scroll =
+  scrub, preview follows live), **pinch-to-zoom** (rescales points/sec, keeps
+  center time), selection **band + drag handles**, and **Set Start/End at the
+  playhead** as the primary mark (kills the two-handle dance). During playback
+  the strip auto-scrolls to keep the playing frame under the playhead.
+  `PlayerLayerView` = controls-free `AVPlayerLayer` so the timeline is the ONLY
+  scrubber (removed the AVKit `VideoPlayer` whose own scrubber was the
+  "disconnected" one). Tap preview = play/pause selection.
+- Model gained playheadSeconds/isPlaying + a periodic time observer (auto-stops
+  at the out point), scrub/trim/setStart/setEnd/togglePlay/teardown; scrubbing
+  uses tolerant seeks for fluidity (clip BOUNDS stay frame-accurate via the
+  exact playhead/handle time). Thumbnails: 12 → 30, and the editor now shows
+  immediately while the strip fills in (no block on remote thumbnail fetch).
+  Removed the old SwiftUI `TrimStrip`. Build green vs iOS 26 SDK (b45).
+  On-device gesture feel = owner-verify.
+
 ### 2026-06-16 — Clip Studio: native clip/GIF/fan-edit creation on iOS (Decision 033)
 Owner: differentiate the native phone apps from tvOS/web — "phones are meant to
 create content and not just consume it." Build a feature set for clipping

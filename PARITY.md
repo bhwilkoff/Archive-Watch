@@ -116,7 +116,7 @@ this table in the same change set; cross-link the platform design doc.
 | Feature | tvOS | iOS | Web | Android | Notes |
 |---|---|---|---|---|---|
 | Create entry point (rights-gated) | n/a (lean-back) | 🚧 scissors button on Detail (PD/CC only via `isClippable`) | 🚫 (viewer) | 🚧 `ContentCut` action on DetailScreen (rights-gated) | hidden, not disabled, when not clippable |
-| Trim (frame-accurate, length-capped) | n/a | 🚧 custom filmstrip + handles over native `AVAssetImageGenerator`/`AVPlayer` | 🚫 | 🚧 custom filmstrip + handles over `MediaMetadataRetriever` | no native trimmer component on either platform (5b) |
+| Trim (frame-accurate, length-capped) | n/a | 🚧 CapCut-style timeline: `UIScrollView` scroll-to-scrub + fixed playhead + pinch-zoom + Set Start/End + band handles; controls-free `AVPlayerLayer` preview | 🚫 | 🚧 custom filmstrip + handles over `MediaMetadataRetriever` | no native trimmer on either platform (5b); iOS timeline rebuilt 2026-06-16 |
 | Reframe (Original/1:1/9:16/16:9, letterbox) | n/a | 🚧 `AVMutableVideoComposition` renderSize + transform | 🚫 | 🚧 Media3 `Presentation.createForWidthAndHeight` | |
 | Blurred-fill reframe background | n/a | 🚧 Core Image `CIGaussianBlur` (video) / CG blur (GIF) | 🚫 | 🔮 custom GL effect | v2 shipped iOS 2026-06-16 |
 | Auto-captions (timed, burned-in) | n/a | 🚧 `SFSpeechRecognizer` on-device → timed CALayer cues (MP4) | 🚫 | 🔮 | v2 shipped iOS 2026-06-16; SpeechAnalyzer = future upgrade |

@@ -41,6 +41,10 @@ final class ClipStudioModel {
     var captionCues: [CaptionCue] = []
     var transcribing = false
 
+    var playheadSeconds: Double = 0
+    var isPlaying = false
+    private var timeObserver: Any?
+
     var resultURL: URL?
 
     var clipDuration: Double { max(0, outSeconds - inSeconds) }
@@ -65,8 +69,8 @@ final class ClipStudioModel {
             duration = dur.isFinite ? dur : 0
             outSeconds = min(duration > 0 ? duration : 15, 15)
             player = AVPlayer(playerItem: AVPlayerItem(asset: asset))
-            await generateThumbnails(asset: asset)
-            phase = .editing
+            phase = .editing                       // show the editor immediately…
+            await generateThumbnails(asset: asset) // …the filmstrip fills in as frames arrive
         } catch {
             errorMessage = error.localizedDescription
         }
@@ -96,8 +100,8 @@ final class ClipStudioModel {
         gen.maximumSize = CGSize(width: 160, height: 160)
         gen.requestedTimeToleranceBefore = CMTime(seconds: 1, preferredTimescale: 600)
         gen.requestedTimeToleranceAfter = CMTime(seconds: 1, preferredTimescale: 600)
-        let n = 12
-        let times = (0..<n).map { CMTime(seconds: duration * Double($0) / Double(n), preferredTimescale: 600) }
+        let n = 30
+        let times = (0..<n).map { CMTime(seconds: duration * (Double($0) + 0.5) / Double(n), preferredTimescale: 600) }
         var imgs: [UIImage] = []
         for await result in gen.images(for: times) {
             if case let .success(_, image, _) = result { imgs.append(UIImage(cgImage: image)) }
@@ -114,6 +118,72 @@ final class ClipStudioModel {
     func seek(to t: Double) {
         player?.seek(to: CMTime(seconds: t, preferredTimescale: 600),
                      toleranceBefore: .zero, toleranceAfter: .zero)
+    }
+
+    /// Tolerant seek for fluid live scrubbing. Clip BOUNDS stay frame-accurate
+    /// because Set Start/End and the export use the exact scroll/handle time
+    /// (`playheadSeconds` / in / out) — only the preview frame is approximate.
+    private func seekFast(to t: Double) {
+        let tol = CMTime(seconds: 0.12, preferredTimescale: 600)
+        player?.seek(to: CMTime(seconds: t, preferredTimescale: 600),
+                     toleranceBefore: tol, toleranceAfter: tol)
+    }
+
+    /// User scrubbed the timeline — stop playback and move the preview to `t`.
+    func scrub(to t: Double) {
+        if isPlaying { pause() }
+        let c = max(0, min(t, duration))
+        playheadSeconds = c
+        seekFast(to: c)
+    }
+
+    /// A trim handle moved: adopt the new bounds and show the dragged edge.
+    func trim(inSeconds newIn: Double, outSeconds newOut: Double, previewAt: Double) {
+        if isPlaying { pause() }
+        inSeconds = newIn
+        outSeconds = newOut
+        playheadSeconds = previewAt
+        seekFast(to: previewAt)
+    }
+
+    /// Mark the clip's start / end at the current playhead (no handle dance).
+    func setStart() {
+        inSeconds = max(0, min(playheadSeconds, outSeconds - 0.5))
+        if clipDuration > format.maxDuration { outSeconds = inSeconds + format.maxDuration }
+    }
+    func setEnd() {
+        outSeconds = min(duration, max(playheadSeconds, inSeconds + 0.5))
+        if clipDuration > format.maxDuration { inSeconds = outSeconds - format.maxDuration }
+    }
+
+    func togglePlay() {
+        guard let p = player else { return }
+        if isPlaying { pause(); return }
+        installTimeObserver()
+        if playheadSeconds < inSeconds || playheadSeconds >= outSeconds - 0.05 {
+            seek(to: inSeconds); playheadSeconds = inSeconds
+        }
+        p.play(); isPlaying = true
+    }
+
+    func pause() { player?.pause(); isPlaying = false }
+
+    private func installTimeObserver() {
+        guard let p = player, timeObserver == nil else { return }
+        timeObserver = p.addPeriodicTimeObserver(
+            forInterval: CMTime(value: 1, timescale: 30), queue: .main) { [weak self] t in
+            guard let self, self.isPlaying else { return }
+            let s = t.seconds
+            self.playheadSeconds = s
+            if s >= self.outSeconds {
+                self.pause(); self.seek(to: self.outSeconds); self.playheadSeconds = self.outSeconds
+            }
+        }
+    }
+
+    func teardown() {
+        if let o = timeObserver { player?.removeTimeObserver(o); timeObserver = nil }
+        player?.pause()
     }
 
     func export(into ctx: ModelContext) async {
@@ -179,7 +249,6 @@ struct ClipStudioView: View {
     @Environment(\.modelContext) private var ctx
     @Environment(\.dismiss) private var dismiss
     @State private var model: ClipStudioModel
-    @State private var rangeTask: Task<Void, Never>?
     @State private var saved = false
 
     init(item: Catalog.Item) { _model = State(initialValue: ClipStudioModel(item: item)) }
@@ -210,7 +279,7 @@ struct ClipStudioView: View {
         }
         .preferredColorScheme(.dark)
         .task { if model.phase == .preparing { await model.prepare() } }
-        .onDisappear { rangeTask?.cancel(); model.player?.pause() }
+        .onDisappear { model.teardown() }
     }
 
     // MARK: Phases
@@ -282,7 +351,7 @@ struct ClipStudioView: View {
                         }
                     }
                 }
-                Button { rangeTask?.cancel(); Task { await model.export(into: ctx) } } label: {
+                Button { model.pause(); Task { await model.export(into: ctx) } } label: {
                     Label("Create \(model.format.label)", systemImage: "wand.and.stars")
                         .frame(maxWidth: .infinity)
                 }
@@ -316,14 +385,14 @@ struct ClipStudioView: View {
 
     // MARK: Pieces
 
+    // Controls-free AVPlayerLayer preview (the timeline is the only scrubber).
+    // Tap anywhere to play/pause the selection; a play glyph shows when paused.
     private var preview: some View {
         ZStack {
-            if let player = model.player {
-                VideoPlayer(player: player)
-            } else { Color.black }
+            PlayerLayerView(player: model.player)
             VStack {
                 Spacer()
-                if !model.caption.isEmpty {
+                if model.captionCues.isEmpty, !model.caption.isEmpty {
                     Text(model.caption).font(.headline.bold()).foregroundStyle(.white)
                         .multilineTextAlignment(.center).shadow(radius: 4)
                         .padding(.horizontal).padding(.bottom, 4)
@@ -331,34 +400,56 @@ struct ClipStudioView: View {
                 Text(model.item.clipCreditLine).font(.caption2)
                     .foregroundStyle(.white.opacity(0.85)).shadow(radius: 3).padding(.bottom, 6)
             }
+            if !model.isPlaying {
+                Image(systemName: "play.circle.fill").font(.system(size: 50))
+                    .symbolRenderingMode(.palette).foregroundStyle(.white, .black.opacity(0.35))
+                    .shadow(radius: 6).allowsHitTesting(false)
+            }
         }
         .aspectRatio(model.aspect.ratio ?? (16.0 / 9.0), contentMode: .fit)
         .frame(maxHeight: 300)
         .background(Color.black)
         .clipShape(.rect(cornerRadius: 12))
-        .overlay(alignment: .bottomTrailing) {
-            Button { playRange() } label: {
-                Image(systemName: "play.circle.fill").font(.title)
-                    .symbolRenderingMode(.palette).foregroundStyle(.white, Brand.primary)
-            }.padding(10)
-        }
+        .contentShape(Rectangle())
+        .onTapGesture { model.togglePlay() }
     }
 
+    // CapCut-style timeline: scroll the filmstrip to scrub (preview follows the
+    // playhead), pinch to zoom, mark Set Start/End at the playhead, or drag the
+    // band handles.
     private var trim: some View {
-        VStack(spacing: 6) {
-            TrimStrip(thumbnails: model.thumbnails, duration: model.duration,
-                      inSeconds: $model.inSeconds, outSeconds: $model.outSeconds,
-                      maxClip: model.format.maxDuration) { model.seek(to: $0) }
+        VStack(spacing: 8) {
             HStack {
-                Text(timecode(model.inSeconds))
+                Text(timecode(model.playheadSeconds)).foregroundStyle(.white)
                 Spacer()
                 Text(model.speed == 1
-                     ? String(format: "%.1fs", model.clipDuration)
-                     : String(format: "%.1fs→%.1fs", model.clipDuration, model.outputDuration))
+                     ? "Clip \(String(format: "%.1fs", model.clipDuration))"
+                     : "Clip \(String(format: "%.1fs→%.1fs", model.clipDuration, model.outputDuration))")
                     .foregroundStyle(Brand.primary).bold()
                 Spacer()
-                Text(timecode(model.outSeconds))
-            }.font(.caption.monospacedDigit()).foregroundStyle(.secondary)
+                Text(timecode(model.duration)).foregroundStyle(.secondary)
+            }.font(.caption.monospacedDigit())
+
+            ClipTimelineView(
+                duration: model.duration, thumbnails: model.thumbnails,
+                inSeconds: model.inSeconds, outSeconds: model.outSeconds,
+                playheadSeconds: model.playheadSeconds, isPlaying: model.isPlaying,
+                maxClip: model.format.maxDuration,
+                onScrub: { model.scrub(to: $0) },
+                onTrim: { i, o, p in model.trim(inSeconds: i, outSeconds: o, previewAt: p) }
+            )
+            .frame(height: 92)
+
+            HStack(spacing: 12) {
+                Button { model.setStart() } label: {
+                    Label("Set Start", systemImage: "arrow.left.to.line").frame(maxWidth: .infinity)
+                }.buttonStyle(.bordered)
+                Button { model.setEnd() } label: {
+                    Label("Set End", systemImage: "arrow.right.to.line").frame(maxWidth: .infinity)
+                }.buttonStyle(.bordered)
+            }
+            Text("Drag the filmstrip to scrub · pinch to zoom · mark Set Start/End at the playhead, or drag the handles.")
+                .font(.caption2).foregroundStyle(.tertiary).multilineTextAlignment(.center)
         }
     }
 
@@ -390,18 +481,6 @@ struct ClipStudioView: View {
         }.frame(maxWidth: .infinity, alignment: .leading)
     }
 
-    private func playRange() {
-        guard let p = model.player else { return }
-        model.seek(to: model.inSeconds)
-        p.play()
-        let dur = model.clipDuration
-        rangeTask?.cancel()
-        rangeTask = Task {
-            try? await Task.sleep(nanoseconds: UInt64(dur * 1_000_000_000))
-            p.pause()
-        }
-    }
-
     private func timecode(_ s: Double) -> String {
         let total = Int(s.rounded())
         return String(format: "%d:%02d", total / 60, total % 60)
@@ -414,69 +493,4 @@ struct ClipStudioView: View {
     }
 }
 
-// Two-handle trim selection over a thumbnail filmstrip. Dragging a handle
-// sets the in/out point (clamped to a 0.5s minimum and the format's max),
-// and scrubs the preview to the handle's time.
-private struct TrimStrip: View {
-    let thumbnails: [UIImage]
-    let duration: Double
-    @Binding var inSeconds: Double
-    @Binding var outSeconds: Double
-    let maxClip: Double
-    var onScrub: (Double) -> Void
-
-    private let stripHeight: CGFloat = 56
-    private let handleW: CGFloat = 16
-
-    var body: some View {
-        GeometryReader { geo in
-            let w = geo.size.width
-            let safeDur = max(duration, 0.001)
-            let inX = CGFloat(inSeconds / safeDur) * w
-            let outX = CGFloat(outSeconds / safeDur) * w
-            ZStack(alignment: .leading) {
-                HStack(spacing: 0) {
-                    ForEach(Array(thumbnails.enumerated()), id: \.offset) { _, img in
-                        Image(uiImage: img).resizable().aspectRatio(contentMode: .fill)
-                            .frame(width: w / CGFloat(max(thumbnails.count, 1)), height: stripHeight)
-                            .clipped()
-                    }
-                }
-                .frame(width: w, height: stripHeight)
-                .clipShape(.rect(cornerRadius: 8))
-                .background(Color.black)
-
-                Rectangle().fill(.black.opacity(0.55)).frame(width: inX, height: stripHeight)
-                Rectangle().fill(.black.opacity(0.55))
-                    .frame(width: max(0, w - outX), height: stripHeight).offset(x: outX)
-                RoundedRectangle(cornerRadius: 6).stroke(Brand.primary, lineWidth: 3)
-                    .frame(width: max(0, outX - inX), height: stripHeight).offset(x: inX)
-
-                handle.offset(x: inX - handleW / 2)
-                    .gesture(DragGesture().onChanged { v in
-                        let raw = Double(v.location.x / w) * duration
-                        let t = min(max(raw, 0), outSeconds - 0.5)
-                        let clamped = max(t, outSeconds - maxClip)
-                        inSeconds = clamped; onScrub(clamped)
-                    })
-                handle.offset(x: outX - handleW / 2)
-                    .gesture(DragGesture().onChanged { v in
-                        let raw = Double(v.location.x / w) * duration
-                        let t = min(max(raw, inSeconds + 0.5), duration)
-                        let clamped = min(t, inSeconds + maxClip)
-                        outSeconds = clamped; onScrub(clamped)
-                    })
-            }
-        }
-        .frame(height: stripHeight)
-    }
-
-    private var handle: some View {
-        RoundedRectangle(cornerRadius: 4).fill(Brand.primary)
-            .frame(width: handleW, height: stripHeight + 10)
-            .overlay(Image(systemName: "equal").font(.system(size: 11, weight: .black))
-                .foregroundStyle(.white).rotationEffect(.degrees(90)))
-            .shadow(radius: 2)
-    }
-}
 #endif
