@@ -110,7 +110,7 @@ jobs:
           for attempt in 1 2 3 4 5; do
             if git push; then echo "pushed (attempt $attempt)"; break; fi
             echo "push rejected; rebasing onto latest main (attempt $attempt)…"
-            git pull --rebase origin main || { git rebase --abort; exit 1; }
+            git pull --rebase --autostash origin main || { git rebase --abort 2>/dev/null; exit 1; }
             sleep $((RANDOM % 5 + 2))
           done
 

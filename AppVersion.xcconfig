@@ -3,15 +3,19 @@
 // Xcode identity panel; that creates a per-target override that shadows
 // this file and causes targets to drift apart again.
 
-// Versioning convention (Claude manages this per change set):
+// Versioning convention:
 //   MARKETING_VERSION       — user-facing, three-part major.minor.PATCH; bump the
 //                             PATCH +1 each change set (1.0.1 -> 1.0.2 -> ...).
 //                             Slow march to 2.0; Apple preserves this format
 //                             exactly (no leading-zero normalization).
-//   CURRENT_PROJECT_VERSION — build number; integer, bumped so every App Store
-//                             upload is unique/monotonic.
+//   CURRENT_PROJECT_VERSION — build number. **AUTO-SET in Xcode Cloud** by
+//                             ci_scripts/ci_post_clone.sh from the git commit
+//                             count, so every archive/TestFlight upload is unique
+//                             and monotonic with no manual bumping. The value
+//                             below is only the local-build fallback — do NOT
+//                             hand-bump it per change set anymore (CI overrides it).
 MARKETING_VERSION = 1.3.0
-CURRENT_PROJECT_VERSION = 48
+CURRENT_PROJECT_VERSION = 523
 
 // Optional per-developer secrets (gitignored). The `?` makes it optional so
 // the project still builds on machines where Secrets.xcconfig is absent.
