@@ -1252,3 +1252,53 @@ the dev box can't reproduce archive.org's load-balancer.
 without waiting out the retry budget; the remaining failure mode is ALL nodes
 degraded (rare, mid-rotation), which clears the blacklist and falls back to the
 origin coin-flip as before.
+
+---
+
+## 035 — Hide orphaned TV-episode duplicates; clear unanchored episode posters
+*Date: 2026-06-18*
+
+`tools/dedupe_orphan_episodes.py` (wired into publish-db, idempotent, no network)
+hides standalone items that are DUPLICATES of an episode already mapped onto a
+series spine: it sets a reversible `excluded=true` (+ `episodeDuplicate`,
+`duplicateOf`) when an orphan (`tv-special`/`feature-film`, `seriesID` null) has
+BOTH (a) a series identity drawn from its OWN naming — the multi-word series name
+appears as a CONTIGUOUS phrase in the title prefix, the synopsis prefix (before
+the first colon, near the start), or the archiveID slug — AND (b) a parsed
+`(season,episode)` that is a FILLED slot in that same spine (held by a different
+archiveID). The matched spine must be unambiguous. Separately, `remediate_catalog`
+rule 0d now also clears `tvmaze`/`external`-sourced posters (not just
+tvdb/tmdb/omdb) on unanchored items (no imdbID/tmdbID/year) — POSTER ONLY.
+
+**Why**: owner report — "The Devil's Laughter" showed as a film with a foreign
+film's poster. It's One Step Beyond S1E11, already correctly in the spine as
+`S1E11THEDEVILSLAUGHTER`; the item shown was a SECOND upload
+(`OSB-11_The_Devils_Laughter`) the canonical TV pipeline (Decision 016) never
+mapped, so it floated as a `tv-special` (which `browseSQL` still surfaces in
+Movies — it only excludes `tv-series`) carrying a title-matched TVmaze poster
+(`artworkSource="external"` = "host we don't label", treated as real art). 412
+orphan episode-like items exist. Matching them is a minefield: descriptions
+cross-reference OTHER shows (a *Thriller* episode's synopsis mentions "One Step
+Beyond"), generic "Pilot"/"Episode 1" titles collide across series, and
+same-named FILMS vs SHOWS are different works ("The Lone Star Ranger" film vs
+"The Lone Ranger"; "Man with a Movie Camera" vs "Man with a Camera"; "C-Man" vs
+"The Man from U.N.C.L.E"). Token-subset series matching + title-only episode
+matching produced 173+ matches riddled with false positives that would hide real
+films. Requiring BOTH a contiguous-phrase series name from the item's own naming
+AND a filled (S,E) slot collapses it to 7 confirmed, zero false positives.
+
+**How to apply**: precision over recall — it is better to leave a duplicate
+visible than to hide a real film. Do NOT loosen to token-subset series matching
+or title-only episode matching (both conflate distinct works). Keep the
+`_NOT_SINGLE` guard (promos/trailers/whole-season/multi-episode bundles parse a
+spurious (S,E) and mis-map). Never hard-delete — `excluded` is reversible, and
+the canonical episode stays in its spine so no content is lost. The deeper,
+unsolved problem (orphan episodes whose series has NO spine, or whose (S,E) slot
+is empty) belongs in the canonical TV pipeline (build/reconcile), not a blanket
+exclude. Whether `tv-special` should appear in Movies browse at all is an open
+IA question (binding-design-doc-discipline) — left to the owner.
+
+**Consequences**: 7 confirmed duplicates hidden now; the step re-derives them
+every build from `series/` + catalog, so new ingests are covered without a
+persisted Release mutation. Complements Decision 016 (canonical TV), 026 (match
+correctness), 027 (rights exclusion) — same reversible-`excluded` mechanism.

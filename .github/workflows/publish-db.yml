@@ -49,6 +49,11 @@ jobs:
       - name: Remediate catalog data quality
         run: python tools/remediate_catalog.py
 
+      # Hide orphaned TV-episode DUPLICATES that masquerade as standalone films
+      # (deterministic from the series/ spines + catalog; no network; idempotent).
+      - name: Dedupe orphan episodes
+        run: python tools/dedupe_orphan_episodes.py --apply | tee dedupe.log
+
       - name: Metadata quality audit (report)
         run: |
           python tools/audit_metadata.py --top 2000 | tee audit.log

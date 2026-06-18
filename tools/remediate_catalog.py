@@ -689,15 +689,16 @@ def remediate(items):
         if fix_animation_liveaction_match(it):
             stats["anim_liveaction_cleared"] += 1
 
-        # 0d) UNANCHORED EXTERNAL POSTER: a designed poster (tvdb/tmdb/omdb)
-        # adopted by a TITLE-ONLY match with zero corroboration — no imdbID, no
-        # tmdbID, AND no year — is as likely wrong as right (the yearless 1979
-        # "The Swap" pulled a modern Disney film's poster). Strip the POSTER ONLY
-        # so it falls back to a real Archive frame / generated cover; keep the
-        # synopsis + cast (those were often sourced correctly from elsewhere).
-        # The TVDB movie enricher now refuses yearless matches, so this is
-        # durable — the poster won't be re-adopted on the next enrichment cron.
-        if (it.get("artworkSource") or "").lower() in ("tvdb", "tmdb", "omdb") \
+        # 0d) UNANCHORED EXTERNAL POSTER: a designed poster (tvdb/tmdb/omdb, or a
+        # TVmaze image classified `tvmaze`/`external`) adopted by a TITLE-ONLY
+        # match with zero corroboration — no imdbID, no tmdbID, AND no year — is
+        # as likely wrong as right (the yearless 1979 "The Swap" pulled a modern
+        # Disney film's poster; the One Step Beyond episode "The Devil's Laughter"
+        # pulled a foreign film's TVmaze poster). Strip the POSTER ONLY so it
+        # falls back to a real Archive frame / generated cover; keep the synopsis
+        # + cast (those were often sourced correctly from elsewhere). The TVDB
+        # movie enricher refuses yearless matches, so this is durable.
+        if (it.get("artworkSource") or "").lower() in ("tvdb", "tmdb", "omdb", "tvmaze", "external") \
                 and it.get("posterURL") \
                 and not it.get("imdbID") and not it.get("tmdbID") \
                 and it.get("year") is None:
