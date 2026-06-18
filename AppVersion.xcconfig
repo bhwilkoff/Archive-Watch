@@ -3,19 +3,18 @@
 // Xcode identity panel; that creates a per-target override that shadows
 // this file and causes targets to drift apart again.
 
-// Versioning convention:
-//   MARKETING_VERSION       — user-facing, three-part major.minor.PATCH; bump the
-//                             PATCH +1 each change set (1.0.1 -> 1.0.2 -> ...).
-//                             Slow march to 2.0; Apple preserves this format
-//                             exactly (no leading-zero normalization).
-//   CURRENT_PROJECT_VERSION — build number. **AUTO-SET in Xcode Cloud** by
-//                             ci_scripts/ci_post_clone.sh from the git commit
-//                             count, so every archive/TestFlight upload is unique
-//                             and monotonic with no manual bumping. The value
-//                             below is only the local-build fallback — do NOT
-//                             hand-bump it per change set anymore (CI overrides it).
-MARKETING_VERSION = 1.3.1
-CURRENT_PROJECT_VERSION = 523
+// Versioning convention — Claude bumps BOTH on EVERY commit (Xcode Cloud uses
+// these committed values directly; it does NOT auto-manage them):
+//   MARKETING_VERSION       — CFBundleShortVersionString, three-part major.minor.PATCH.
+//                             Bump PATCH +1 every commit. An already-approved train is
+//                             "closed" (ITMS-90186/90062), so the version must always
+//                             stay ahead of the last upload — bumping each commit keeps it so.
+//                             Apple preserves the format exactly (no leading-zero normalization).
+//   CURRENT_PROJECT_VERSION — CFBundleVersion build number, integer. Bump +1 every commit
+//                             so every archive/TestFlight upload is unique + monotonic.
+// All targets (app + widgets + top shelf) inherit both via the project base configuration.
+MARKETING_VERSION = 1.3.2
+CURRENT_PROJECT_VERSION = 524
 
 // Optional per-developer secrets (gitignored). The `?` makes it optional so
 // the project still builds on machines where Secrets.xcconfig is absent.
