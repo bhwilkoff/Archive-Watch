@@ -1302,3 +1302,61 @@ IA question (binding-design-doc-discipline) — left to the owner.
 every build from `series/` + catalog, so new ingests are covered without a
 persisted Release mutation. Complements Decision 016 (canonical TV), 026 (match
 correctness), 027 (rights exclusion) — same reversible-`excluded` mechanism.
+
+---
+
+## 036 — TV never appears in Movies; orphan episodes fold into series spines
+*Date: 2026-06-18*
+
+Two coordinated changes make TV organize itself correctly instead of leaking
+into Movies as standalone "films":
+
+1. **Browse taxonomy (app):** `CatalogDB` now excludes BOTH `tv-series` AND
+   `tv-special` from every film surface — Movies/Browse grid (`browseSQL`/
+   `browseCount`), Home discovery shelves + director/quality rows (new shared
+   `notStandaloneTV` clause), and Random Film (`randomPlayable`). `tv-special`
+   is requestable ONLY explicitly, surfaced by a new "TV Specials" entry on the
+   TV tab (`tvSpecials()` query → `BrowseFilter(category:"tv-special")`).
+
+2. **Orphan fold-in (pipeline):** `build_canonical_tv.gather_raw_targets` now
+   also pools episode-marked `tv-special`/`feature-film` orphans (no seriesID) —
+   previously INVISIBLE to the builder, so they floated as standalone films.
+   Each is pooled under its extracted SERIES name (for TVmaze resolution) while
+   keeping its EPISODE title (for the mapper's SxE/fuzzy slotting), so it folds
+   into a new or existing spine — creating a spine even for a show where we hold
+   ONE episode. `dedupe_orphan_episodes` runs FIRST (tv-canonical) to exclude
+   already-mapped duplicates so they don't pool as spine "extras"; reconcile now
+   drops a folded item REGARDLESS of its old contentType (the episode_ids check
+   moved out of the `tv-series`-only branch — a tv-special folded into a spine
+   used to survive as a duplicate card).
+
+**Why**: owner directive — "TV shows should never appear in Movies … every
+single tv show that we have data for should organize into its correct
+season/episode (even if it is only one) … rather than haphazardly," plus "look
+for the other episodes in our regular wants scripts." Research found 2,306
+`tv-special` orphans leaking into Movies; 269 are episode-marked (152 belong to
+shows with no spine, 117 to existing spines). Identification is reliable: 11/13
+sampled no-spine series resolved correctly to TVmaze. Crucially, the
+episode-level wants engine ALREADY runs daily (`build_episode_wants.py` →
+`episode_wants.json`, 14.6k wants, hunted by `backfill_tv_episodes.py`) but only
+for shows that HAVE a spine — so folding orphans in automatically enrolls their
+shows in episode-hunting (validated: Fu Manchu's 3 orphans → a new spine with
+`canonicalEpisodesCount=13`, so wants generate for the missing 10). No new wants
+engine was needed — the spine was the missing link.
+
+**How to apply**: fold-in is CONSERVATIVE by owner decision — episode-marked
+orphans only (`_orphan_is_episode`: SxE/NxNN/"Season N Episode M"); do not mine
+unmarked tv-specials (many are genuine one-off specials, not episodes). Extract
+the series name from the item's OWN naming (synopsis-prefix-before-colon, then
+title-before-marker, then archiveID slug) — never a buried cross-reference. The
+existing mismap guard (name-plausibility floor + identity-token overlap) and
+`audit_series_episodes` still gate inclusion. Always run `dedupe_orphan_episodes`
+before `build_canonical_tv` so duplicates are excluded, not folded as extras.
+tv-specials that don't resolve stay `tv-special` and live in the TV Specials
+grid — never Movies.
+
+**Consequences**: the standalone `tv-special` set shrinks as orphans fold into
+spines each weekly TV run; the residual genuine specials surface on the TV tab.
+iOS/Android/web get the data-layer exclusion via shared CatalogDB-equivalents
+but still need their own TV Specials surface (parity follow-up). Complements
+Decision 016 (canonical TV) and 035 (duplicate exclusion).

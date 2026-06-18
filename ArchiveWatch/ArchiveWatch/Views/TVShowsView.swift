@@ -21,6 +21,7 @@ struct TVShowsView: View {
     @State private var sort: BrowseSort = .popular
     @State private var shuffleSeed = 0
     @State private var items: [Catalog.Item] = []
+    @State private var specialsCount = 0
     @FocusState private var focusedArchiveID: String?
 
     private let cols = Array(repeating: GridItem(.fixed(240), spacing: 28), count: 5)
@@ -91,6 +92,7 @@ struct TVShowsView: View {
         .background(Color.black.ignoresSafeArea())
         .task {
             items = computeItems()
+            specialsCount = store.dbTVSpecialsCount()
             try? await Task.sleep(for: .milliseconds(40))
             focusedArchiveID = items.first?.archiveID
         }
@@ -114,6 +116,16 @@ struct TVShowsView: View {
                     .foregroundStyle(.white.opacity(0.5))
             }
             Spacer()
+            // Standalone TV specials/episodes not folded into a series live here,
+            // OUT of Movies (owner directive 2026-06-18). Shown only when present.
+            if specialsCount > 0 {
+                Button {
+                    router.tvShowsPath.append(BrowseFilter(category: "tv-special"))
+                } label: {
+                    Label("TV Specials", systemImage: "tv")
+                }
+                .padding(.trailing, 8)
+            }
             SortPicker(sort: $sort, shuffle: { shuffleSeed &+= 1 })
         }
     }

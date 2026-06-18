@@ -57,6 +57,13 @@ jobs:
             --per-collection ${{ github.event.inputs.tv_discover_per_collection || '1500' }} \
             | tee tvdisc.log
 
+      # Exclude orphan-episode DUPLICATES (an episode already mapped in a spine)
+      # BEFORE the canonical build, so build_canonical_tv's orphan-fold-in skips
+      # them (excluded) instead of pooling them as duplicate "extras" in the
+      # spine. New (non-duplicate) episodes are left for the fold-in to map.
+      - name: Dedupe orphan episodes
+        run: python tools/dedupe_orphan_episodes.py --apply | tee dedupe.log
+
       - name: Build canonical TV (TVmaze spine + Archive map + MP4 re-pick)
         run: |
           python tools/build_canonical_tv.py \

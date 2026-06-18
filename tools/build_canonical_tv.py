@@ -576,9 +576,48 @@ def slugify(title, year):
     return f"{base}-{year}" if year else base
 
 
+_SEASON_EP_RE = re.compile(r"season\s*\d+\s*episode\s*\d+|series\s*\d+\s*episode\s*\d+", re.I)
+# where a title/slug stops being the series name and starts being episode info
+_ORPHAN_CUT = re.compile(r"\s*(?:[|:]|s\d{1,2}\s*[._x-]?\s*e\d{1,3}|season\s*\d+"
+                         r"|series\s*\d+|episode\s*\d+|\bep\.?\s*\d+|\d{1,2}x\d{2})", re.I)
+
+
+def _orphan_is_episode(it):
+    """A standalone item that is really a SPECIFIC TV episode — carries an SxE /
+    NxNN marker (title/archiveID/filename) or a 'Season N Episode M' synopsis.
+    Conservative: a marker is required (owner decision — episode-marked only)."""
+    name = (it.get("videoFile") or {}).get("name") or ""
+    blob = f"{it.get('archiveID') or ''} {it.get('title') or ''} {name}"
+    syn = it.get("synopsis") if isinstance(it.get("synopsis"), str) else ""
+    return bool(SXE_RE.search(blob) or re.search(r"\d{1,2}x\d{2}", blob)
+                or _SEASON_EP_RE.search(syn))
+
+
+def _orphan_series_name(it):
+    """Best-guess SERIES name for an orphan episode, from the item's OWN naming
+    (not a buried cross-reference): synopsis prefix before the first colon
+    (handles 'One Step Beyond: <ep> ...' where the title is just the episode),
+    then the title up to its episode marker, then the archiveID slug. Returns a
+    clean_title()'d name of >=2 words, else ''."""
+    syn = it.get("synopsis") if isinstance(it.get("synopsis"), str) else ""
+    cands = []
+    if ":" in syn[:50]:
+        pre = syn.split(":", 1)[0]
+        if 2 <= len(pre.split()) <= 6:
+            cands.append(pre)
+    cands.append(_ORPHAN_CUT.split(it.get("title") or "")[0])
+    cands.append(_ORPHAN_CUT.split(re.sub(r"[_-]", " ", it.get("archiveID") or ""))[0])
+    for c in cands:
+        cleaned = clean_title(c)
+        if len(cleaned.split()) >= 2:
+            return cleaned
+    return ""
+
+
 def gather_raw_targets(titles_filter):
     """Return raw (rawTitle, year, items[], kind) tuples — existing clustered
-    series + misclassified singles — before canonical resolution."""
+    series + misclassified singles + episode-marked orphans — before canonical
+    resolution."""
     targets = []
     for f in sorted(SERIES_DIR.glob("*.json")):
         d = json.loads(f.read_text())
@@ -594,6 +633,24 @@ def gather_raw_targets(titles_filter):
                   "stillURL": it.get("posterURL"), "year": it.get("year"),
                   "runtimeSeconds": it.get("runtimeSeconds")}
             targets.append((it.get("title"), it.get("year"), [ep], "single", it["archiveID"]))
+        # Episode-marked ORPHANS: items typed tv-special/feature with no seriesID
+        # that are really a TV episode. They were invisible to this builder (only
+        # tv-series + discovery were pooled), so they floated as standalone
+        # "films". Pool them under their SERIES name (resolution) while keeping
+        # the EPISODE title in the item (so the mapper's SxE/fuzzy match slots
+        # them). The mismap guard + audit_series_episodes still gate inclusion;
+        # excluded items (rights / confirmed duplicates) are skipped.
+        elif (it.get("contentType") in ("tv-special", "feature-film")
+                and not it.get("seriesID") and not it.get("excluded")
+                and _orphan_is_episode(it)):
+            sname = _orphan_series_name(it)
+            if not sname:
+                continue
+            ep = {"archiveID": it["archiveID"], "title": it.get("title"),
+                  "downloadURL": it.get("downloadURL"), "videoFile": it.get("videoFile"),
+                  "stillURL": it.get("posterURL"), "year": it.get("year"),
+                  "runtimeSeconds": it.get("runtimeSeconds")}
+            targets.append((sname, it.get("year"), [ep], "orphan-episode", it["archiveID"]))
     # Freshly-discovered TV items (discover_tv_shows.py) — new shows not yet in
     # the catalog. downloadURL is None; the mapper re-picks the MP4 by id.
     disc = REPO / "shared" / "editorial" / "tv_discovery.json"

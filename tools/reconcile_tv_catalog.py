@@ -161,13 +161,17 @@ def main():
         kept, dropped_old_series, dropped_to_episode, reclassed = [], 0, 0, 0
         for it in items:
             ct = it.get("contentType")
+            aid = it.get("archiveID")
+            # An item whose archiveID is now an episode in a spine must be
+            # dropped REGARDLESS of its old contentType — an orphan that was
+            # typed `tv-special` (or anything else) and then folded into a
+            # series would otherwise survive as a duplicate standalone card.
+            if aid in episode_ids:
+                dropped_to_episode += 1
+                continue
             if ct == "tv-series":
                 if it.get("seriesID"):
                     dropped_old_series += 1      # rebuilt from series/*.json
-                    continue
-                aid = it.get("archiveID")
-                if aid in episode_ids:
-                    dropped_to_episode += 1       # now an episode in a series
                     continue
                 if aid in reclassify_ids:
                     it = dict(it); it["contentType"] = "tv-special"; reclassed += 1

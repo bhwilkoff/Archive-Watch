@@ -218,6 +218,7 @@ struct BrowseView: View {
         if filter.isEmpty { return "All Titles" }
         if let d = filter.decade { return "The \(d)s" }
         if let c = filter.category {
+            if c == "tv-special" { return "TV Specials" }
             return store.featured?.category(id: c)?.displayName ?? c.capitalized
         }
         if let g = filter.genre { return g.capitalized }

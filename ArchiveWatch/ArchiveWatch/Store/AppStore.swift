@@ -228,6 +228,7 @@ final class AppStore {
     }
     func dbSearch(_ q: String) -> [Catalog.Item] { db?.search(q) ?? [] }
     func dbSeriesCards() -> [Catalog.Item] { db?.seriesCards() ?? [] }
+    func dbTVSpecialsCount() -> Int { db?.tvSpecialsCount() ?? 0 }
     func dbItem(_ id: String) -> Catalog.Item? { db?.item(id) }
     func dbRelated(to item: Catalog.Item) -> [Catalog.Item] { db?.related(to: item) ?? [] }
     func dbDecadeCounts() -> [Int: Int] { db?.decadeCounts() ?? [:] }

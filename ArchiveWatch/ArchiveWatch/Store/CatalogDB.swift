@@ -140,6 +140,15 @@ final class CatalogDB {
     /// the three intentional surfaces omit it.
     private let notCommercial = "AND i.contentType != 'commercial'"
 
+    /// Standalone TV (tv-special: specials + episodes not folded into a series
+    /// spine) must NEVER appear on film surfaces — Home discovery shelves,
+    /// Random Film, director/quality rows (owner directive 2026-06-18: "TV shows
+    /// should never appear in Movies"). tv-series cards are handled per-query
+    /// (they DO lead TV shelves); this clause only drops tv-special. tv-specials
+    /// surface solely via the TV tab's TV Specials grid (browse contentType:
+    /// "tv-special").
+    private let notStandaloneTV = "AND i.contentType != 'tv-special'"
+
     // MARK: - Queries the views use
 
     /// One Home shelf. Items with real designed artwork lead (#7 — never put a
@@ -155,7 +164,7 @@ final class CatalogDB {
             SELECT j.json FROM item_shelves s
             JOIN item_json j USING(archiveID)
             JOIN items i USING(archiveID)
-            WHERE s.shelfID = ?1 \(adultAnd) \(homeAnd) \(notCommercial) \(typeAnd)
+            WHERE s.shelfID = ?1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd)
             ORDER BY i.hasRealArtwork DESC, s.position
             LIMIT \(limit)
         """, [shelfID])
@@ -189,8 +198,15 @@ final class CatalogDB {
             // poster-less series stay reachable via Browse→TV and Search).
             where_.append("i.contentType = 'tv-series'")
             where_.append("i.hasRealArtwork = 1")
+        } else if contentType == "tv-special" {
+            // The TV Specials grid (TV tab): standalone specials/episodes that
+            // aren't (yet) folded into a series spine. Surfaced ONLY here.
+            where_.append("i.contentType = 'tv-special'")
         } else {
-            where_.append("i.contentType != 'tv-series'")
+            // TV never appears in Movies/general browse — neither series cards
+            // NOR tv-specials (owner directive 2026-06-18: "TV shows should
+            // never appear in Movies"). Each has its own TV-tab surface.
+            where_.append("i.contentType NOT IN ('tv-series','tv-special')")
             if let contentType { where_.append("i.contentType = ?"); binds.append(contentType) }
         }
         if hideAdult { where_.append("i.isAdult = 0") }
@@ -297,8 +313,10 @@ final class CatalogDB {
         if contentType == "tv-series" {
             where_.append("i.contentType = 'tv-series'")
             where_.append("i.hasRealArtwork = 1")   // match browseSQL's poster gate
+        } else if contentType == "tv-special" {
+            where_.append("i.contentType = 'tv-special'")
         } else {
-            where_.append("i.contentType != 'tv-series'")
+            where_.append("i.contentType NOT IN ('tv-series','tv-special')")
             if let contentType { where_.append("i.contentType = ?"); binds.append(contentType) }
         }
         if hideAdult { where_.append("i.isAdult = 0") }
@@ -324,7 +342,7 @@ final class CatalogDB {
             SELECT j.json FROM items_fts f
             JOIN item_json j ON j.archiveID = f.archiveID
             JOIN items i ON i.archiveID = f.archiveID
-            WHERE items_fts MATCH ? \(adultAnd) \(notCommercial) \(typeAnd)
+            WHERE items_fts MATCH ? \(adultAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd)
             ORDER BY rank
             LIMIT \(limit)
         """, [q])
@@ -337,6 +355,27 @@ final class CatalogDB {
             WHERE i.contentType = 'tv-series' \(adultAnd) \(typeAnd)
             ORDER BY \(demoteOrder) i.episodesCount DESC
         """)
+    }
+
+    /// Standalone TV specials/episodes not (yet) folded into a series spine —
+    /// the TV tab's "TV Specials" grid. Designed art first so the surface reads
+    /// well; the long tail stays reachable by scroll. Kept OFF every film surface
+    /// (see notStandaloneTV) so TV never appears in Movies.
+    func tvSpecials(limit: Int = 2000) -> [Catalog.Item] {
+        items("""
+            SELECT j.json FROM items i JOIN item_json j USING(archiveID)
+            WHERE i.contentType = 'tv-special' \(adultAnd) \(typeAnd)
+            ORDER BY (i.hasRealArtwork = 1) DESC, i.popularityScore DESC
+            LIMIT \(limit)
+        """)
+    }
+
+    /// Count of standalone TV specials (TV tab card count / gating).
+    func tvSpecialsCount() -> Int {
+        scalarRows("""
+            SELECT '', COUNT(*) FROM items i
+            WHERE i.contentType = 'tv-special' \(adultAnd) \(typeAnd)
+        """).first?.1 ?? 0
     }
 
     /// Full item by id (Detail screen).
@@ -359,7 +398,7 @@ final class CatalogDB {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
             WHERE i.hasRealArtwork = 1 AND i.qualityScore >= 60
-              AND i.popularityScore <= 40 \(adultAnd) \(homeAnd) \(notCommercial) \(typeAnd)
+              AND i.popularityScore <= 40 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd)
             ORDER BY i.qualityScore DESC LIMIT \(limit)
         """)
     }
@@ -371,7 +410,7 @@ final class CatalogDB {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
             WHERE i.imdbRating IS NOT NULL AND COALESCE(i.imdbVotes, 0) >= \(minVotes)
-              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(typeAnd)
+              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd)
             ORDER BY i.imdbRating DESC, i.imdbVotes DESC LIMIT \(limit)
         """)
     }
@@ -382,7 +421,7 @@ final class CatalogDB {
     func topDirectors(minFilms: Int = 3, limit: Int = 4) -> [(name: String, count: Int)] {
         scalarRows("""
             SELECT i.director, COUNT(*) c FROM items i
-            WHERE i.director IS NOT NULL AND i.director != '' AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(typeAnd)
+            WHERE i.director IS NOT NULL AND i.director != '' AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd)
             GROUP BY i.director HAVING c >= \(minFilms)
             ORDER BY c DESC, i.director LIMIT \(limit)
         """).map { (name: $0.0, count: $0.1) }
@@ -391,7 +430,7 @@ final class CatalogDB {
     func byDirector(_ name: String, limit: Int = 20, homeOnly: Bool = false) -> [Catalog.Item] {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
-            WHERE i.director = ? AND i.hasRealArtwork = 1 \(adultAnd) \(homeOnly ? homeAnd : "") \(notCommercial) \(typeAnd)
+            WHERE i.director = ? AND i.hasRealArtwork = 1 \(adultAnd) \(homeOnly ? homeAnd : "") \(notCommercial) \(notStandaloneTV) \(typeAnd)
             ORDER BY i.popularityScore DESC LIMIT \(limit)
         """, [name])
     }
@@ -436,7 +475,7 @@ final class CatalogDB {
 
     /// A random playable (non-series) item, optionally of a content type.
     func randomPlayable(contentType: String? = nil) -> Catalog.Item? {
-        var where_ = ["i.contentType != 'tv-series'"]
+        var where_ = ["i.contentType NOT IN ('tv-series','tv-special')"]
         if hideAdult { where_.append("i.isAdult = 0") }
         // Random Film must never land on a commercial; Random Commercial passes
         // contentType: "commercial" explicitly to opt back in.
@@ -480,7 +519,7 @@ final class CatalogDB {
             JOIN item_json j USING(archiveID)
             JOIN item_genres g ON g.archiveID = i.archiveID
             WHERE g.genre IN (\(placeholders)) AND i.contentType != 'tv-series'
-              \(adultAnd) \(notCommercial) \(typeAnd)
+              \(adultAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd)
             ORDER BY RANDOM() LIMIT 1
         """, genres).first
     }
