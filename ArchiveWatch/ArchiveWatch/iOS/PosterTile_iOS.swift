@@ -13,15 +13,19 @@ struct PosterTile: View {
                 .frame(width: width, height: width * 1.5)
                 .clipShape(.rect(cornerRadius: 10))
                 .overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(.white.opacity(0.08)))
+            // Reserve a uniform text block (2 title lines + 1 year line) so tiles
+            // WITH a year aren't clipped by shorter year-less neighbors sharing a
+            // LazyHStack row — the row adopts one height, and an un-reserved year
+            // line gets cut on iPad where the larger metrics expose the mismatch.
             Text(item.title)
                 .font(.caption).fontWeight(.medium)
                 .foregroundStyle(.primary)
-                .lineLimit(2).truncationMode(.tail)
-            if let y = item.year {
-                Text(verbatim: String(y)).font(.caption2).foregroundStyle(.secondary)
-            }
+                .lineLimit(2, reservesSpace: true).truncationMode(.tail)
+            Text(verbatim: item.year.map(String.init) ?? " ")
+                .font(.caption2).foregroundStyle(.secondary)
+                .lineLimit(1)
         }
-        .frame(width: width)
+        .frame(width: width, alignment: .leading)
     }
 }
 

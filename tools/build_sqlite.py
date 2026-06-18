@@ -157,6 +157,12 @@ def dedupe_by_imdb(items):
         return (r, i.get("imdbVotes") or 0, i.get("archiveID") or "")
     best = {}
     for it in items:
+        # An excluded item (rights audit / dead-on-Archive — Decision 027) must
+        # never WIN dedup: it's dropped at insertion, so if it won it would take
+        # its live IMDb siblings down with it and the whole title would vanish.
+        # Skip excluded items here; a live copy then wins and surfaces normally.
+        if it.get("excluded"):
+            continue
         k = it.get("imdbID")
         if not k:
             continue

@@ -1,0 +1,73 @@
+name: Check Archive liveness
+
+# Probes archive.org/metadata for catalog items and marks genuinely-dead items
+# (dark / removed / no playable derivative) excluded=true (reversible), and
+# refreshes stale download URLs for live items whose baked filename was
+# re-derived (tools/check_liveness.py). A dead item that won IMDb dedup used to
+# HIDE its live siblings (the Niagara Falls 1941 case) — excluding it lets a live
+# copy surface. Transient timeouts/5xx are left UNCONFIRMED, never wrongly hidden.
+# IMDb-cluster members are checked first. Catalog lives on the release
+# (Decision 018): fetch -> check -> publish -> DB.
+
+on:
+  schedule:
+    - cron: '0 6 * * 3'   # weekly, Wed 06:00 UTC
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max items to probe this run (0 = all)'
+        required: false
+        default: '8000'
+      clusters_only:
+        description: 'Only probe multi-copy IMDb clusters (true/false)'
+        required: false
+        default: 'false'
+      refresh:
+        description: 'Re-check already-checked items (true/false)'
+        required: false
+        default: 'false'
+
+concurrency:
+  group: catalog-writers
+  cancel-in-progress: false
+
+jobs:
+  liveness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Check liveness
+        run: |
+          python tools/check_liveness.py \
+            --limit ${{ github.event.inputs.limit || '8000' }} \
+            ${{ github.event.inputs.clusters_only == 'true' && '--clusters-only' || '' }} \
+            ${{ github.event.inputs.refresh == 'true' && '--refresh' || '' }} | tee liveness.log
+          echo "## Archive liveness" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 liveness.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Remediate catalog data quality
+        run: python tools/remediate_catalog.py
+
+      - name: Publish catalog to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py publish
+
+      - name: Rebuild app DB
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run publish-db.yml

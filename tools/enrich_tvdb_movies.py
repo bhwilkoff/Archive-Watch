@@ -45,12 +45,20 @@ def norm(s: str) -> str:
 def needs(it: dict) -> bool:
     if it.get("contentType") not in TARGET_TYPES:
         return False
+    # A yearless item can't be matched by title alone — two different films can
+    # share a title (the 1979 De Niro "The Swap" matched a modern same-named
+    # film's poster). Require a year to corroborate (Decision 026); yearless
+    # items get a real frame from the cover-generation pipeline instead.
+    if not it.get("year"):
+        return False
     if it.get("artworkSource") in KEEP_SOURCES and it.get("posterURL"):
         return False
     return True
 
 
 def best_match(results: list, title: str, year):
+    if year is None:
+        return None
     nt = norm(title)
     best, bs = None, -1.0
     for r in results:
