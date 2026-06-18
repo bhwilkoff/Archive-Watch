@@ -1208,3 +1208,47 @@ here is the platform-endorsed path, kept thin (it only positions handles over
 native thumbnails and seeks a native player). Re-evaluate on each major OS
 release in case a reusable trimmer ships. `UIVideoEditorController`-for-trim
 remains a one-screen swap if a strictly-native trim bar is ever preferred.
+
+---
+
+## 034 — Stream loader fails over across Archive storage nodes
+*Date: 2026-06-18*
+
+`ResilientStreamLoader` now fetches an item's storage-node list from
+`archive.org/metadata/{id}` (the chosen `server` + `alternate_locations.workable`
+nodes), and on a HARD node failure (5xx/403/404) it blacklists that node's host
+and switches its range requests to a healthy known node directly, instead of
+re-resolving through the origin's `/download/` 302 (which load-balances and can
+re-pin the same bad node). The metadata fetch is best-effort and one-time per
+loader; if it fails, `alternateBases` stays nil and behavior is byte-identical to
+Decision 031 (origin 302 + pin-from-redirect). When every known node has been
+blacklisted, the set is cleared so playback never deadlocks. All new state
+(`failedHosts`, `alternateBases`) is confined to the loader's serial `queue`.
+
+**Why**: owner report "Niagara Falls (1941) doesn't play at all." Measured
+2026-06-18: archive.org was actively rotating that item across storage nodes and
+load-balancing `/download/` between them — one node (`dn720409.ca`) returned 500
+on ~3/5 byte-range requests while the primary (`dn600303.us`) served 5/5. The
+Decision-031 loader pins whatever node the first 302 lands on and, on failure,
+drops the pin and re-resolves through the origin — but the origin can re-pick the
+degraded node, so recovery was a coin-flip per retry (and a full failed stream
+attempt each time). Archive publishes the healthy alternates in its own metadata,
+so switching to them deterministically is strictly better than re-rolling.
+
+**How to apply**: a timeout/connection-reset is the EXPECTED Decision-021 idle
+drop — do NOT blacklist a node for it (that would rotate away from a healthy node
+on normal resets); only a 5xx/403/404 is a node-health signal. Keep the metadata
+fetch best-effort and OFF the first-byte critical path (it's kicked off async from
+the content-info probe; the probe itself still uses the origin so first-play
+latency is unchanged). Preserve every Decision 021/031 invariant: short idle
+timeout, resume-from-offset, streaming delivery, no bitrate ceiling,
+queue-confined state. Diagnostics stay env-gated (`AW_PLAYBACK_DIAG=1` →
+`AWSTREAM alternates:` / `AWSTREAM node … failed … rotating`). Needs on-device
+validation (living-room Wi-Fi, real node weather) before it's considered proven —
+the dev box can't reproduce archive.org's load-balancer.
+
+**Consequences**: playback issues one extra `/metadata` GET per play session
+(cheap, parallel to the probe). The loader is now resilient to a single bad node
+without waiting out the retry budget; the remaining failure mode is ALL nodes
+degraded (rare, mid-rotation), which clears the blacklist and falls back to the
+origin coin-flip as before.

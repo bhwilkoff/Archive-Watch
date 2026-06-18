@@ -66,6 +66,19 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
     // so the next attempt re-resolves through the origin.
     private var pinnedURL: URL?
 
+    // NODE FAILOVER (2026-06-18): archive.org load-balances /download/ across
+    // several storage nodes and a single one can be degraded (returns 5xx for
+    // the whole file) while its siblings serve fine — so re-resolving through
+    // the origin's 302 can keep re-pinning the bad node (a coin-flip per retry).
+    // We fetch the item's OWN node list from /metadata (server + the workable
+    // alternates) and, when a node hard-fails, blacklist its host and switch to
+    // a healthy known node directly. Best-effort + fail-safe: if metadata is
+    // unavailable, `alternateBases` stays nil and behavior is exactly as before
+    // (origin 302 + pin-from-redirect). All three are queue-confined.
+    private var failedHosts: Set<String> = []
+    private var alternateBases: [URL]?
+    private var alternatesRequested = false
+
     // 8 MB ranges: with STREAMING delivery (bytes reach the player as they
     // arrive, not at chunk completion) a large chunk has no latency downside,
     // and it quarters how often we pay per-request time-to-first-byte.
@@ -137,8 +150,84 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
         }
     }
 
+    // MARK: Node selection / failover (all queue-confined)
+
+    /// The URL to request: a healthy pinned node, else a healthy known alternate
+    /// node (hitting it directly skips the origin's 302 round-trip — a Decision
+    /// 031 win too), else the origin (which 302-redirects to whatever node it
+    /// picks). MUST be called on `queue`.
+    private func currentTarget() -> URL {
+        if let p = pinnedURL, !failedHosts.contains(p.host ?? "") { return p }
+        if let alts = alternateBases,
+           let healthy = alts.first(where: { !failedHosts.contains($0.host ?? "") }) {
+            return healthy
+        }
+        return realURL
+    }
+
+    /// Blacklist a node's host after a HARD failure (5xx/403/404 — node-health
+    /// signals, NOT the expected idle-connection resets) and drop the pin. If
+    /// every known node has failed, forgive them all so we never deadlock with
+    /// only the origin coin-flip — they may have recovered. MUST be on `queue`.
+    private func markNodeFailed(_ url: URL) {
+        if let h = url.host { failedHosts.insert(h) }
+        pinnedURL = nil
+        if let alts = alternateBases {
+            let known = Set(alts.compactMap { $0.host })
+            if !known.isEmpty && known.isSubset(of: failedHosts) { failedHosts.removeAll() }
+        }
+    }
+
+    /// Best-effort, once-per-loader: fetch the item's storage nodes from
+    /// /metadata so failover has explicit healthy alternates to switch to.
+    /// Never throws into the playback path.
+    private func ensureAlternates() {
+        queue.async {
+            guard !self.alternatesRequested else { return }
+            self.alternatesRequested = true
+            Task { await self.loadAlternates() }
+        }
+    }
+
+    private func loadAlternates() async {
+        // realURL.absoluteString == https://archive.org/download/{id}/{encFile}
+        let s = realURL.absoluteString
+        guard realURL.host?.hasSuffix("archive.org") == true,
+              let r = s.range(of: "/download/") else { return }
+        let after = s[r.upperBound...]
+        guard let slash = after.firstIndex(of: "/") else { return }
+        let id = String(after[..<slash])
+        let encFile = String(after[after.index(after: slash)...])   // keep encoding
+        let metaID = id.removingPercentEncoding ?? id
+        guard let metaURL = URL(string: "https://archive.org/metadata/\(metaID)") else { return }
+
+        var req = URLRequest(url: metaURL)
+        req.timeoutInterval = firstByteTimeout
+        guard let (data, resp) = try? await session.data(for: req),
+              let http = resp as? HTTPURLResponse, http.statusCode == 200,
+              let obj = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any] else { return }
+
+        var bases: [URL] = []
+        var seen = Set<String>()
+        func add(_ server: String?, _ dir: String?) {
+            guard let server, let dir, !server.isEmpty,
+                  let u = URL(string: "https://\(server)\(dir)/\(encFile)"),
+                  seen.insert(server).inserted else { return }
+            bases.append(u)
+        }
+        add(obj["server"] as? String, obj["dir"] as? String)
+        if let alt = obj["alternate_locations"] as? [String: Any],
+           let workable = alt["workable"] as? [[String: Any]] {
+            for w in workable { add(w["server"] as? String, w["dir"] as? String) }
+        }
+        guard !bases.isEmpty else { return }
+        queue.sync { self.alternateBases = bases }
+        if Self.diag { NSLog("AWSTREAM alternates: %d node(s) for %@", bases.count, metaID) }
+    }
+
     private func fillContentInfo(_ info: AVAssetResourceLoadingContentInformationRequest,
                                  _ request: AVAssetResourceLoadingRequest) async {
+        ensureAlternates()
         // A ranged GET both proves byte-range support (206) and yields the total
         // length via Content-Range — more reliable than HEAD on Archive nodes.
         // #10: retry with backoff (the first handshake to a cold node is the most
@@ -158,7 +247,7 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
                 // Pin the post-redirect storage node so every data chunk skips
                 // the origin's 302 round trip (~0.5-1.0s saved per request).
                 if let final = response.url, final != realURL {
-                    queue.sync { self.pinnedURL = final }
+                    queue.sync { if !self.failedHosts.contains(final.host ?? "") { self.pinnedURL = final } }
                     if Self.diag { NSLog("AWSTREAM pinned node %@ (probe)", final.host ?? "?") }
                 }
 
@@ -201,7 +290,7 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
             if let upperBound, offset >= upperBound { request.finishLoading(); return }
 
             let hi = upperBound.map { min(offset + chunkSize, $0) } ?? (offset + chunkSize)
-            let target = queue.sync { pinnedURL } ?? realURL
+            let target = queue.sync { currentTarget() }
             var req = URLRequest(url: target)
             req.setValue("bytes=\(offset)-\(hi - 1)", forHTTPHeaderField: "Range")
             req.networkServiceType = .video
@@ -220,7 +309,7 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
                 offset += Int64(stream.delivered)
                 if stream.delivered > 0 { retries = 0 }    // progress → reset backoff
                 if let final = stream.finalURL, final != target {
-                    queue.sync { pinnedURL = final }
+                    queue.sync { if !failedHosts.contains(final.host ?? "") { pinnedURL = final } }
                     if Self.diag { NSLog("AWSTREAM pinned node %@", final.host ?? "?") }
                 }
                 if stream.delivered == 0 {
@@ -240,9 +329,20 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
                     request.finishLoading(); return
                 }
                 if request.isCancelled || Task.isCancelled { return }
-                // A pinned node can rotate/expire — fall back to the origin
-                // (which re-resolves a fresh node) before burning retries.
-                if target != realURL { queue.sync { pinnedURL = nil } }
+                // A HARD server error (5xx/403/404) means THIS node is degraded —
+                // blacklist its host and switch to a healthy known alternate
+                // (markNodeFailed). A timeout/reset is the EXPECTED Decision-021
+                // idle drop, not a node-health signal: just drop the pin and
+                // re-resolve, exactly as before. `currentTarget()` picks the next.
+                let st = stream.status
+                queue.sync {
+                    if (500...599).contains(st) || st == 403 || st == 404 {
+                        markNodeFailed(target)
+                        if Self.diag { NSLog("AWSTREAM node %@ failed (status %d) -> rotating", target.host ?? "?", st) }
+                    } else if target != realURL {
+                        pinnedURL = nil
+                    }
+                }
                 retries += 1
                 if Self.diag { NSLog("AWSTREAM retry#%d off=%lld err=%@", retries, offset, "\(error)") }
                 if retries > maxRetries { request.finishLoading(with: error as NSError); return }
