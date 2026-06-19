@@ -1381,27 +1381,33 @@ externalMetadata already satisfy the owner). Per platform:
   `syncOverlay()` mirrors the SAME user-activity signal the browser uses
   (pointer/touch + a 3.2s timer; stays up while paused). Synopsis from
   `Details.get(id)`.
-- **iOS** (`PlayerView_iOS.swift`): AVPlayerViewController shows NO title on iOS
-  and exposes no controls-visibility callback, so the overlay is hosted in
-  `contentOverlayView` (between video and controls) and revealed by a
-  pass-through `UITapGestureRecognizer` (`cancelsTouchesInView = false` +
-  `shouldRecognizeSimultaneouslyWith` → true) plus a 4s auto-hide timer that
-  mirrors the controls. `PlaybackQueue.next` now also returns title+description
-  so the overlay updates on binge-advance.
+- **iOS** (`PlayerView_iOS.swift`): set `externalMetadata` on the AVPlayerItem
+  (`commonIdentifierTitle` + `commonIdentifierDescription` + the empty
+  creation-date overrides) — AVPlayerViewController then renders the title in
+  its OWN chrome, shown/hidden WITH the transport controls, surviving load and
+  recallable on tap. This is the Apple TV app's behavior and mirrors the tvOS
+  player verbatim. A FIRST attempt used a custom `contentOverlayView` overlay
+  with a tap recognizer + timer; it was WRONG (showed before load, faded on its
+  own timer, and AVKit's gestures swallowed the tap so it couldn't be recalled)
+  and was removed. `PlaybackQueue.next` returns title+description so the next
+  episode's metadata is set on binge-advance.
 
 **Why**: a title/description visible alongside the controls is a standard player
 affordance the mobile + web apps lacked (the web title sat in a static header
 bar; iOS showed nothing). Owner request 2026-06-18, scoped to "the mobile app
 and the web app" — tvOS already does this natively and the owner likes it.
 
-**How to apply**: NEVER replace the native transport — these are overlays only
-(iOS-DESIGN §8.5 / ANDROID-DESIGN §5.1). On Apple, do NOT KVO private control
-views to detect visibility (not App-Store-safe); the pass-through tap + timer is
-the sanctioned technique and its ~timer-based sync is an accepted approximation
-(controls reveal on play/pause-button presses won't trigger it — minor). Android
-is the only platform with a true visibility event; prefer it there. Keep the
-overlay non-interactive (`pointer-events:none` / `isUserInteractionEnabled =
-false`) so it never blocks the controls. Description text is clamped (2-3 lines).
+**How to apply**: NEVER replace the native transport. On iOS, do NOT build a
+custom synced overlay (a `contentOverlayView` overlay + tap/timer was tried and
+failed — see above); use the player's OWN chrome via `externalMetadata`, which
+AVKit syncs to its controls for free (no private API, no KVO of control views).
+On Android + web (which DO own a custom overlay over the surface), keep it
+non-interactive (`pointer-events:none` / non-touchable) so it never blocks the
+controls; Android has a true `setControllerVisibilityListener` event (prefer it),
+web mirrors the browser's user-activity timer. Description text is clamped.
+NOTE: `simctl` screenshots do NOT capture AVPlayerViewController's chrome — the
+iOS title overlay can only be verified on a real device / Simulator UI, not via
+automated screenshots.
 
 **Consequences**: `PlaySpec` (Android) + `PlaybackQueue.next` (iOS) signatures
 changed (additive/internal). Other Android `PlaySpec(` call sites (channels,

@@ -89,6 +89,11 @@ struct PlayerView: UIViewControllerRepresentable {
         let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
         context.coordinator.loader = loader   // retain (delegate is held weakly)
         let pItem = AVPlayerItem(asset: asset)
+        // Native title+description: AVPlayerViewController renders externalMetadata
+        // in its own chrome, shown/hidden WITH the transport controls (the Apple TV
+        // app's behavior). This replaces a custom overlay — it's controls-synced
+        // for free and survives load.
+        pItem.externalMetadata = playerExternalMetadata(title: overlayTitle, description: overlayDescription)
         pItem.preferredForwardBufferDuration = 300
         let player = AVPlayer(playerItem: pItem)
         vc.player = player
@@ -102,8 +107,6 @@ struct PlayerView: UIViewControllerRepresentable {
             player.seek(to: CMTime(seconds: p, preferredTimescale: 600))
         }
         player.play()
-        context.coordinator.installInfoOverlay(on: vc, title: overlayTitle,
-                                               description: overlayDescription)
         return vc
     }
 
@@ -115,7 +118,7 @@ struct PlayerView: UIViewControllerRepresentable {
     }
 
     @MainActor
-    final class Coordinator: NSObject, AVPlayerViewControllerDelegate, UIGestureRecognizerDelegate {
+    final class Coordinator: NSObject, AVPlayerViewControllerDelegate {
         private(set) var archiveID: String
         let ctx: ModelContext
         let queue: PlaybackQueue?
@@ -129,8 +132,6 @@ struct PlayerView: UIViewControllerRepresentable {
         private var foregroundObserver: NSObjectProtocol?
         private var isPiPActive = false
         private weak var player: AVPlayer?
-        private var infoOverlay: PlayerInfoOverlay?
-        private var overlayHideTimer: Timer?
 
         init(archiveID: String, ctx: ModelContext, queue: PlaybackQueue?,
              onAdvance: ((String) -> Void)? = nil, persistsProgress: Bool = true) {
@@ -178,48 +179,6 @@ struct PlayerView: UIViewControllerRepresentable {
             vc.player = player
         }
 
-        // MARK: Title+description overlay (synced with transport controls)
-
-        /// Host a title+description overlay in `contentOverlayView` (between the
-        /// video and the controls). AVPlayerViewController exposes no
-        /// controls-visibility callback, so a tap recognizer (pass-through:
-        /// cancelsTouchesInView=false + simultaneous recognition) mirrors the
-        /// reveal and a 4s timer mirrors the auto-hide — the App-Store-safe
-        /// technique (no private API). Title shows in sync with the controls.
-        func installInfoOverlay(on vc: AVPlayerViewController, title: String, description: String?) {
-            guard let container = vc.contentOverlayView else { return }
-            let overlay = PlayerInfoOverlay()
-            overlay.update(title: title, description: description)
-            overlay.translatesAutoresizingMaskIntoConstraints = false
-            container.addSubview(overlay)
-            NSLayoutConstraint.activate([
-                overlay.leadingAnchor.constraint(equalTo: container.leadingAnchor),
-                overlay.trailingAnchor.constraint(equalTo: container.trailingAnchor),
-                overlay.topAnchor.constraint(equalTo: container.topAnchor),
-            ])
-            infoOverlay = overlay
-            let tap = UITapGestureRecognizer(target: self, action: #selector(overlayTapped))
-            tap.cancelsTouchesInView = false
-            tap.delegate = self
-            container.addGestureRecognizer(tap)
-            showOverlayThenFade()
-        }
-
-        @objc private func overlayTapped() { showOverlayThenFade() }
-
-        // Never block AVPlayerViewController's own tap-to-toggle-controls.
-        nonisolated func gestureRecognizer(
-            _ gestureRecognizer: UIGestureRecognizer,
-            shouldRecognizeSimultaneouslyWith other: UIGestureRecognizer) -> Bool { true }
-
-        private func showOverlayThenFade() {
-            infoOverlay?.setVisible(true)
-            overlayHideTimer?.invalidate()
-            overlayHideTimer = Timer.scheduledTimer(withTimeInterval: 4.0, repeats: false) { [weak self] _ in
-                MainActor.assumeIsolated { self?.infoOverlay?.setVisible(false) }
-            }
-        }
-
         // MARK: AVPlayerViewControllerDelegate (PiP lifecycle)
 
         func playerViewControllerWillStartPictureInPicture(_ vc: AVPlayerViewController) {
@@ -255,11 +214,10 @@ struct PlayerView: UIViewControllerRepresentable {
             guard let player, let nxt = queue?.next(afterFinishing: archiveID) else { return }
             archiveID = nxt.id
             onAdvance?(nxt.id)
-            infoOverlay?.update(title: nxt.title, description: nxt.description)
-            showOverlayThenFade()   // briefly surface the new title on advance
             let (asset, loader) = ResilientStreamLoader.makeAsset(for: nxt.url)
             self.loader = loader
             let item = AVPlayerItem(asset: asset)
+            item.externalMetadata = playerExternalMetadata(title: nxt.title, description: nxt.description)
             item.preferredForwardBufferDuration = 300
             player.replaceCurrentItem(with: item)
             registerEnd(for: item)
@@ -304,67 +262,39 @@ struct PlayerView: UIViewControllerRepresentable {
             if let e = endObserver { NotificationCenter.default.removeObserver(e) }
             if let b = backgroundObserver { NotificationCenter.default.removeObserver(b) }
             if let f = foregroundObserver { NotificationCenter.default.removeObserver(f) }
-            overlayHideTimer?.invalidate()
         }
     }
 }
 
-// MARK: - Title+description overlay view
+// MARK: - Native player metadata (title + description in AVKit's chrome)
 
-/// A top scrim with a title + (clamped) description, hosted in the player's
-/// `contentOverlayView`. Non-interactive so it never blocks the transport
-/// controls beneath it; the Coordinator fades it in/out with the controls.
-private final class PlayerInfoOverlay: UIView {
-    private let gradient = CAGradientLayer()
-    private let titleLabel = UILabel()
-    private let descLabel = UILabel()
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        isUserInteractionEnabled = false
-        alpha = 0
-
-        gradient.colors = [UIColor.black.withAlphaComponent(0.65).cgColor,
-                           UIColor.clear.cgColor]
-        layer.addSublayer(gradient)
-
-        titleLabel.font = .systemFont(ofSize: 22, weight: .bold)
-        titleLabel.textColor = .white
-        titleLabel.numberOfLines = 2
-        descLabel.font = .systemFont(ofSize: 14, weight: .regular)
-        descLabel.textColor = UIColor.white.withAlphaComponent(0.85)
-        descLabel.numberOfLines = 3
-
-        let stack = UIStackView(arrangedSubviews: [titleLabel, descLabel])
-        stack.axis = .vertical
-        stack.spacing = 4
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(stack)
-        NSLayoutConstraint.activate([
-            stack.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            stack.trailingAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            stack.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            stack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -28),
-        ])
+/// External metadata for the AVPlayerItem so AVPlayerViewController shows the
+/// title + description in its OWN controls overlay, synced with the transport
+/// (the Apple TV app's behavior). The empty creation-date overrides blank the
+/// MP4's bogus embedded year (see tvOS `suppressedDateMetadata`).
+private func playerExternalMetadata(title: String, description: String?) -> [AVMetadataItem] {
+    func entry(_ id: AVMetadataIdentifier, _ value: String) -> AVMetadataItem? {
+        guard !value.isEmpty else { return nil }
+        let m = AVMutableMetadataItem()
+        m.identifier = id
+        m.value = value as NSString
+        m.extendedLanguageTag = "und"
+        return m
     }
-
-    @available(*, unavailable) required init?(coder: NSCoder) { fatalError() }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        gradient.frame = bounds
+    var meta = [entry(.commonIdentifierTitle, title)]
+    if let d = description?.trimmingCharacters(in: .whitespacesAndNewlines), !d.isEmpty {
+        meta.append(entry(.commonIdentifierDescription, d))
     }
-
-    func update(title: String, description: String?) {
-        titleLabel.text = title
-        let d = description?.trimmingCharacters(in: .whitespacesAndNewlines)
-        descLabel.text = d
-        descLabel.isHidden = (d == nil || d!.isEmpty)
+    let dateBlanks: [AVMetadataItem] = ([
+        .commonIdentifierCreationDate, .quickTimeMetadataCreationDate, .quickTimeUserDataCreationDate,
+    ] as [AVMetadataIdentifier]).map { id in
+        let m = AVMutableMetadataItem()
+        m.identifier = id
+        m.value = "" as NSString
+        m.extendedLanguageTag = "und"
+        return m
     }
-
-    func setVisible(_ visible: Bool) {
-        UIView.animate(withDuration: 0.3) { self.alpha = visible ? 1 : 0 }
-    }
+    return meta.compactMap { $0 } + dateBlanks
 }
 
 // MARK: - Playback queues (what plays next)
