@@ -185,6 +185,9 @@ data class PlaySpec(
     val id: String,
     val title: String,
     val subtitle: String? = null,
+    // Synopsis shown in the player's title+description overlay (which fades with
+    // the transport controls). Distinct from `subtitle` (lock-screen line).
+    val description: String? = null,
     val url: String,
     val runtimeSeconds: Int? = null,
     // Episode binge (the apps' auto-advance): the season's playable queue,

@@ -1543,6 +1543,16 @@
       $('player-error').hidden = true;
       video.src = url;
 
+      // Title + description overlay (fades with the controls — see syncOverlay).
+      $('player-overlay-title').textContent = title;
+      $('player-overlay-desc').textContent = '';
+      Details.get(id).then(det => {
+        if (this.ctx?.id === id && det?.synopsis) {
+          $('player-overlay-desc').textContent = det.synopsis;
+        }
+      }).catch(() => {});
+      this.syncOverlay();
+
       // Seek AFTER metadata arrives — Safari/Chrome can silently drop a
       // currentTime set on a src that hasn't loaded yet (join-in-progress
       // landed at 0:00 instead of mid-program).
@@ -1637,11 +1647,40 @@
       DB.saveProgress(this.ctx.id, video.currentTime, video.duration, this.ctx.title);
     },
 
+    /** Show the title/description overlay and mirror the native controls'
+        activity timer: visible on pointer/touch activity and while paused,
+        auto-hiding ~3.2s after the last interaction during playback. HTML5
+        `<video controls>` exposes no controls-visibility event, so we mirror
+        the same user-activity signal the browser uses (web-platform idiom). */
+    overlayHideTimer: null,
+    syncOverlay() {
+      const ov = $('player-overlay');
+      const video = $('video');
+      if (!ov) return;
+      const show = () => {
+        ov.classList.remove('hidden');
+        clearTimeout(this.overlayHideTimer);
+        if (!video.paused) {
+          this.overlayHideTimer = setTimeout(() => ov.classList.add('hidden'), 3200);
+        }
+      };
+      if (!this._overlayBound) {
+        this._overlayBound = true;
+        const stage = ov.parentElement;
+        ['pointermove', 'pointerdown', 'touchstart'].forEach(ev =>
+          stage.addEventListener(ev, show, { passive: true }));
+        video.addEventListener('pause', show);   // controls stay up while paused
+        video.addEventListener('play', show);     // then auto-hide via the timer
+      }
+      show();
+    },
+
     close() {
       const video = $('video');
       this.persist();
       clearInterval(this.saveTimer);
       clearTimeout(this.stallTimer);
+      clearTimeout(this.overlayHideTimer);
       video.pause();
       video.removeAttribute('src');
       video.load();

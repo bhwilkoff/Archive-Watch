@@ -17,6 +17,11 @@ struct PlayerView: UIViewControllerRepresentable {
     let archiveID: String
     let videoURL: URL?
     let queue: PlaybackQueue?
+    // Shown in the title+description overlay that fades with the transport
+    // controls (AVPlayerViewController shows no title on iOS, so this overlay is
+    // the only place the user sees what's playing).
+    var overlayTitle: String = ""
+    var overlayDescription: String? = nil
 
     /// Play a movie/standalone item. Pass `store` to enable movie autoplay
     /// (gated by `store.autoplayMode`; .off means play just this one).
@@ -24,6 +29,8 @@ struct PlayerView: UIViewControllerRepresentable {
         archiveID = item.archiveID
         videoURL = item.videoURLParsed
         queue = store.map { MovieAutoplayQueue(start: item, store: $0) }
+        overlayTitle = item.title
+        overlayDescription = item.synopsis
     }
     /// Play a TV episode. Pass `series` to binge-advance to the next episode on
     /// end; `onAdvance` reports the new archiveID so a host view's episode state
@@ -33,6 +40,8 @@ struct PlayerView: UIViewControllerRepresentable {
         videoURL = episode.videoURLParsed
         queue = series.map { EpisodeQueue(series: $0, start: episode) }
         self.onAdvance = onAdvance
+        overlayTitle = episode.title
+        overlayDescription = episode.overview
     }
 
     /// Tune into a channel lineup (programs + woven commercials), starting the
@@ -45,6 +54,8 @@ struct PlayerView: UIViewControllerRepresentable {
         queue = LineupQueue(lineup: lineup, startAt: first.archiveID)
         self.startOffset = startOffset
         persistsProgress = false   // live TV: no resume, no Watched pollution
+        overlayTitle = first.title
+        overlayDescription = first.synopsis
     }
 
     private var onAdvance: ((String) -> Void)? = nil
@@ -91,6 +102,8 @@ struct PlayerView: UIViewControllerRepresentable {
             player.seek(to: CMTime(seconds: p, preferredTimescale: 600))
         }
         player.play()
+        context.coordinator.installInfoOverlay(on: vc, title: overlayTitle,
+                                               description: overlayDescription)
         return vc
     }
 
@@ -102,7 +115,7 @@ struct PlayerView: UIViewControllerRepresentable {
     }
 
     @MainActor
-    final class Coordinator: NSObject, AVPlayerViewControllerDelegate {
+    final class Coordinator: NSObject, AVPlayerViewControllerDelegate, UIGestureRecognizerDelegate {
         private(set) var archiveID: String
         let ctx: ModelContext
         let queue: PlaybackQueue?
@@ -116,6 +129,8 @@ struct PlayerView: UIViewControllerRepresentable {
         private var foregroundObserver: NSObjectProtocol?
         private var isPiPActive = false
         private weak var player: AVPlayer?
+        private var infoOverlay: PlayerInfoOverlay?
+        private var overlayHideTimer: Timer?
 
         init(archiveID: String, ctx: ModelContext, queue: PlaybackQueue?,
              onAdvance: ((String) -> Void)? = nil, persistsProgress: Bool = true) {
@@ -163,6 +178,48 @@ struct PlayerView: UIViewControllerRepresentable {
             vc.player = player
         }
 
+        // MARK: Title+description overlay (synced with transport controls)
+
+        /// Host a title+description overlay in `contentOverlayView` (between the
+        /// video and the controls). AVPlayerViewController exposes no
+        /// controls-visibility callback, so a tap recognizer (pass-through:
+        /// cancelsTouchesInView=false + simultaneous recognition) mirrors the
+        /// reveal and a 4s timer mirrors the auto-hide — the App-Store-safe
+        /// technique (no private API). Title shows in sync with the controls.
+        func installInfoOverlay(on vc: AVPlayerViewController, title: String, description: String?) {
+            guard let container = vc.contentOverlayView else { return }
+            let overlay = PlayerInfoOverlay()
+            overlay.update(title: title, description: description)
+            overlay.translatesAutoresizingMaskIntoConstraints = false
+            container.addSubview(overlay)
+            NSLayoutConstraint.activate([
+                overlay.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+                overlay.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+                overlay.topAnchor.constraint(equalTo: container.topAnchor),
+            ])
+            infoOverlay = overlay
+            let tap = UITapGestureRecognizer(target: self, action: #selector(overlayTapped))
+            tap.cancelsTouchesInView = false
+            tap.delegate = self
+            container.addGestureRecognizer(tap)
+            showOverlayThenFade()
+        }
+
+        @objc private func overlayTapped() { showOverlayThenFade() }
+
+        // Never block AVPlayerViewController's own tap-to-toggle-controls.
+        nonisolated func gestureRecognizer(
+            _ gestureRecognizer: UIGestureRecognizer,
+            shouldRecognizeSimultaneouslyWith other: UIGestureRecognizer) -> Bool { true }
+
+        private func showOverlayThenFade() {
+            infoOverlay?.setVisible(true)
+            overlayHideTimer?.invalidate()
+            overlayHideTimer = Timer.scheduledTimer(withTimeInterval: 4.0, repeats: false) { [weak self] _ in
+                MainActor.assumeIsolated { self?.infoOverlay?.setVisible(false) }
+            }
+        }
+
         // MARK: AVPlayerViewControllerDelegate (PiP lifecycle)
 
         func playerViewControllerWillStartPictureInPicture(_ vc: AVPlayerViewController) {
@@ -198,6 +255,8 @@ struct PlayerView: UIViewControllerRepresentable {
             guard let player, let nxt = queue?.next(afterFinishing: archiveID) else { return }
             archiveID = nxt.id
             onAdvance?(nxt.id)
+            infoOverlay?.update(title: nxt.title, description: nxt.description)
+            showOverlayThenFade()   // briefly surface the new title on advance
             let (asset, loader) = ResilientStreamLoader.makeAsset(for: nxt.url)
             self.loader = loader
             let item = AVPlayerItem(asset: asset)
@@ -245,7 +304,66 @@ struct PlayerView: UIViewControllerRepresentable {
             if let e = endObserver { NotificationCenter.default.removeObserver(e) }
             if let b = backgroundObserver { NotificationCenter.default.removeObserver(b) }
             if let f = foregroundObserver { NotificationCenter.default.removeObserver(f) }
+            overlayHideTimer?.invalidate()
         }
+    }
+}
+
+// MARK: - Title+description overlay view
+
+/// A top scrim with a title + (clamped) description, hosted in the player's
+/// `contentOverlayView`. Non-interactive so it never blocks the transport
+/// controls beneath it; the Coordinator fades it in/out with the controls.
+private final class PlayerInfoOverlay: UIView {
+    private let gradient = CAGradientLayer()
+    private let titleLabel = UILabel()
+    private let descLabel = UILabel()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        isUserInteractionEnabled = false
+        alpha = 0
+
+        gradient.colors = [UIColor.black.withAlphaComponent(0.65).cgColor,
+                           UIColor.clear.cgColor]
+        layer.addSublayer(gradient)
+
+        titleLabel.font = .systemFont(ofSize: 22, weight: .bold)
+        titleLabel.textColor = .white
+        titleLabel.numberOfLines = 2
+        descLabel.font = .systemFont(ofSize: 14, weight: .regular)
+        descLabel.textColor = UIColor.white.withAlphaComponent(0.85)
+        descLabel.numberOfLines = 3
+
+        let stack = UIStackView(arrangedSubviews: [titleLabel, descLabel])
+        stack.axis = .vertical
+        stack.spacing = 4
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(stack)
+        NSLayoutConstraint.activate([
+            stack.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            stack.trailingAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            stack.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            stack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -28),
+        ])
+    }
+
+    @available(*, unavailable) required init?(coder: NSCoder) { fatalError() }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradient.frame = bounds
+    }
+
+    func update(title: String, description: String?) {
+        titleLabel.text = title
+        let d = description?.trimmingCharacters(in: .whitespacesAndNewlines)
+        descLabel.text = d
+        descLabel.isHidden = (d == nil || d!.isEmpty)
+    }
+
+    func setVisible(_ visible: Bool) {
+        UIView.animate(withDuration: 0.3) { self.alpha = visible ? 1 : 0 }
     }
 }
 
@@ -254,7 +372,8 @@ struct PlayerView: UIViewControllerRepresentable {
 @MainActor
 protocol PlaybackQueue: AnyObject {
     /// The next item to play after `archiveID` finishes, or nil to stop.
-    func next(afterFinishing archiveID: String) -> (id: String, url: URL)?
+    /// Carries title/description so the player's overlay updates on advance.
+    func next(afterFinishing archiveID: String) -> (id: String, url: URL, title: String, description: String?)?
 }
 
 /// Movie continuous play: delegates to the shared ContinuousPlayback engine using
@@ -265,11 +384,11 @@ final class MovieAutoplayQueue: PlaybackQueue {
     private var current: Catalog.Item
     init(start: Catalog.Item, store: AppStore) { self.current = start; self.store = store }
 
-    func next(afterFinishing _: String) -> (id: String, url: URL)? {
+    func next(afterFinishing _: String) -> (id: String, url: URL, title: String, description: String?)? {
         guard let n = ContinuousPlayback.next(after: current, mode: store.autoplayMode, store: store),
               let u = n.videoURLParsed else { return nil }
         current = n
-        return (n.archiveID, u)
+        return (n.archiveID, u, n.title, n.synopsis)
     }
 }
 
@@ -283,10 +402,12 @@ final class LineupQueue: PlaybackQueue {
         idx = lineup.firstIndex(where: { $0.archiveID == archiveID }) ?? 0
     }
 
-    func next(afterFinishing _: String) -> (id: String, url: URL)? {
+    func next(afterFinishing _: String) -> (id: String, url: URL, title: String, description: String?)? {
         idx += 1
         while idx < items.count {
-            if let u = items[idx].videoURLParsed { return (items[idx].archiveID, u) }
+            if let u = items[idx].videoURLParsed {
+                return (items[idx].archiveID, u, items[idx].title, items[idx].synopsis)
+            }
             idx += 1
         }
         return nil
@@ -300,10 +421,10 @@ final class EpisodeQueue: PlaybackQueue {
     private var current: Episode
     init(series: Series, start: Episode) { self.series = series; self.current = start }
 
-    func next(afterFinishing _: String) -> (id: String, url: URL)? {
+    func next(afterFinishing _: String) -> (id: String, url: URL, title: String, description: String?)? {
         guard let n = series.episode(after: current), let u = n.videoURLParsed else { return nil }
         current = n
-        return (n.archiveID, u)
+        return (n.archiveID, u, n.title, n.overview)
     }
 }
 

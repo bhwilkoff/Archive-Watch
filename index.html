@@ -259,7 +259,14 @@
       <button id="player-pip" aria-label="Picture in picture" hidden>⧉</button>
       <button id="player-close" aria-label="Close player">✕</button>
     </div>
-    <video id="video" controls playsinline preload="auto"></video>
+    <div class="player-stage">
+      <video id="video" controls playsinline preload="auto"></video>
+      <!-- Title + description overlay; fades in/out with the video controls. -->
+      <div id="player-overlay" class="player-overlay" aria-hidden="true">
+        <strong id="player-overlay-title"></strong>
+        <p id="player-overlay-desc"></p>
+      </div>
+    </div>
     <p id="player-error" class="error" hidden></p>
   </dialog>
 

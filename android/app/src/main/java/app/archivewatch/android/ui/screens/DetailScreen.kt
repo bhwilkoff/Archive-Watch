@@ -172,6 +172,7 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                                     PlaySpec(
                                         id = current.archiveID,
                                         title = current.title,
+                                        description = current.synopsis,
                                         url = url,
                                         runtimeSeconds = current.runtimeSeconds,
                                     ),

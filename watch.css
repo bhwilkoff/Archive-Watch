@@ -541,7 +541,24 @@ dialog#player::backdrop { background: rgba(0, 0, 0, 0.85); }
 .player-head button {
   background: none; border: 0; color: var(--text); font-size: 1.1rem; padding: 4px 8px;
 }
+.player-stage { position: relative; }
 #video { width: 100%; aspect-ratio: 16 / 9; display: block; background: #000; }
+/* Title + description overlay — a top scrim over the video that fades IN/OUT in
+   sync with the native controls (watch.js mirrors the controls' activity timer).
+   pointer-events:none so it never blocks the controls underneath. */
+.player-overlay {
+  position: absolute; top: 0; left: 0; right: 0;
+  padding: 16px 20px 36px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65), transparent);
+  color: #fff; pointer-events: none;
+  opacity: 1; transition: opacity 0.3s ease;
+}
+.player-overlay.hidden { opacity: 0; }
+.player-overlay strong { display: block; font-size: 1.25rem; line-height: 1.2; }
+.player-overlay p {
+  margin: 6px 0 0; font-size: 0.95rem; opacity: 0.85; max-width: 60ch;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
 
 /* ---- larger screens ---- */
 @media (min-width: 700px) {

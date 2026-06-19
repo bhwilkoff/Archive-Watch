@@ -1,20 +1,42 @@
 package app.archivewatch.android.ui.screens
 
+import android.view.View
 import androidx.annotation.OptIn
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.media3.common.MediaItem
 import androidx.media3.common.MediaMetadata
+import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.datasource.okhttp.OkHttpDataSource
 import androidx.media3.exoplayer.ExoPlayer
@@ -91,6 +113,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                                 MediaMetadata.Builder()
                                     .setTitle(spec.title)
                                     .setSubtitle(spec.subtitle)
+                                    .setDescription(spec.description)
                                     .build(),
                             )
                             .build(),
@@ -144,19 +167,83 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
         }
     }
 
-    AndroidView(
-        factory = { ctx ->
-            PlayerView(ctx).apply {
-                useController = true
-                keepScreenOn = true
-                setShowNextButton(spec.queue.size > 1)
-                setShowPreviousButton(spec.queue.size > 1)
-                setShowSubtitleButton(true)   // archive files rarely carry tracks; harmless when absent
+    // Title + description overlay that fades in/out IN SYNC with the transport
+    // controls. Media3 exposes the controller's visibility natively
+    // (setControllerVisibilityListener) — no timer mirroring needed. The text
+    // tracks the CURRENT item so a binged episode updates it on advance.
+    var controlsVisible by remember { mutableStateOf(true) }
+    var nowTitle by remember { mutableStateOf(spec.title) }
+    var nowDescription by remember { mutableStateOf(spec.description) }
+    DisposableEffect(player) {
+        val listener = object : Player.Listener {
+            override fun onMediaItemTransition(item: MediaItem?, reason: Int) {
+                item?.mediaMetadata?.let { md ->
+                    nowTitle = md.title?.toString() ?: spec.title
+                    nowDescription = md.description?.toString() ?: md.subtitle?.toString()
+                }
             }
-        },
-        update = { view -> view.player = player },
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.Black),
-    )
+        }
+        player.addListener(listener)
+        onDispose { player.removeListener(listener) }
+    }
+
+    Box(modifier = Modifier.fillMaxSize().background(Color.Black)) {
+        AndroidView(
+            factory = { ctx ->
+                PlayerView(ctx).apply {
+                    useController = true
+                    keepScreenOn = true
+                    setShowNextButton(spec.queue.size > 1)
+                    setShowPreviousButton(spec.queue.size > 1)
+                    setShowSubtitleButton(true)   // archive files rarely carry tracks; harmless when absent
+                    setControllerVisibilityListener(
+                        PlayerView.ControllerVisibilityListener { visibility ->
+                            controlsVisible = visibility == View.VISIBLE
+                        },
+                    )
+                }
+            },
+            update = { view -> view.player = player },
+            modifier = Modifier.fillMaxSize(),
+        )
+
+        AnimatedVisibility(
+            visible = controlsVisible,
+            enter = fadeIn(),
+            exit = fadeOut(),
+            modifier = Modifier.align(Alignment.TopStart).fillMaxWidth(),
+        ) {
+            // A top scrim keeps white text legible over bright frames (the
+            // bottom transport bar already has Media3's own scrim).
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(
+                        Brush.verticalGradient(
+                            listOf(Color.Black.copy(alpha = 0.55f), Color.Transparent),
+                        ),
+                    )
+                    .windowInsetsPadding(WindowInsets.systemBars)
+                    .padding(horizontal = 20.dp, vertical = 16.dp),
+            ) {
+                Text(
+                    text = nowTitle,
+                    style = MaterialTheme.typography.titleLarge,
+                    color = Color.White,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                nowDescription?.takeIf { it.isNotBlank() }?.let { desc ->
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        text = desc,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = Color.White.copy(alpha = 0.85f),
+                        maxLines = 3,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
+            }
+        }
+    }
 }
