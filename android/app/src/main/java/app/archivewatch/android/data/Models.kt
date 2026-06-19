@@ -205,6 +205,8 @@ data class PlaySpec(
     // the transport controls). Distinct from `subtitle` (lock-screen line).
     val description: String? = null,
     val url: String,
+    // Side-loaded subtitle tracks (Decision 039) — Media3 plays SRT/VTT natively.
+    val captions: List<Caption> = emptyList(),
     val runtimeSeconds: Int? = null,
     // Episode binge (the apps' auto-advance): the season's playable queue,
     // loaded as Media3 items so next/previous and end-of-item advance are

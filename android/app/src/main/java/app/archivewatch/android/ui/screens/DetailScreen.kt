@@ -174,6 +174,7 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                                         title = current.title,
                                         description = current.synopsis,
                                         url = url,
+                                        captions = current.captions ?: emptyList(),
                                         runtimeSeconds = current.runtimeSeconds,
                                     ),
                                 ),

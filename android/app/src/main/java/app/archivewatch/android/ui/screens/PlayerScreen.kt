@@ -1,5 +1,6 @@
 package app.archivewatch.android.ui.screens
 
+import android.net.Uri
 import android.view.View
 import androidx.annotation.OptIn
 import androidx.compose.animation.AnimatedVisibility
@@ -34,8 +35,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.media3.common.C
 import androidx.media3.common.MediaItem
 import androidx.media3.common.MediaMetadata
+import androidx.media3.common.MimeTypes
 import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.datasource.okhttp.OkHttpDataSource
@@ -109,6 +112,24 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                         MediaItem.Builder()
                             .setUri(spec.url)
                             .setMediaId(spec.id)
+                            // Side-loaded subtitles (Decision 039): Media3 plays
+                            // SRT/VTT natively and lists them in the subtitle
+                            // button. English (auto) defaults on.
+                            .setSubtitleConfigurations(
+                                spec.captions.map { c ->
+                                    MediaItem.SubtitleConfiguration.Builder(Uri.parse(c.url))
+                                        .setMimeType(
+                                            if (c.format == "vtt") MimeTypes.TEXT_VTT
+                                            else MimeTypes.APPLICATION_SUBRIP,
+                                        )
+                                        .setLanguage(c.lang)
+                                        .setLabel(c.displayLabel)
+                                        .setSelectionFlags(
+                                            if (c.lang == "en") C.SELECTION_FLAG_DEFAULT else 0,
+                                        )
+                                        .build()
+                                },
+                            )
                             .setMediaMetadata(
                                 MediaMetadata.Builder()
                                     .setTitle(spec.title)
