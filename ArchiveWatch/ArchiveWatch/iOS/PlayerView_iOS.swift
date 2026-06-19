@@ -21,6 +21,7 @@ struct PlayerView: UIViewControllerRepresentable {
     // controls (AVPlayerViewController shows no title on iOS, so this overlay is
     // the only place the user sees what's playing).
     var overlayTitle: String = ""
+    var overlaySubtitle: String? = nil
     var overlayDescription: String? = nil
 
     /// Play a movie/standalone item. Pass `store` to enable movie autoplay
@@ -30,6 +31,8 @@ struct PlayerView: UIViewControllerRepresentable {
         videoURL = item.videoURLParsed
         queue = store.map { MovieAutoplayQueue(start: item, store: $0) }
         overlayTitle = item.title
+        overlaySubtitle = [item.year.map(String.init), item.genres.first]
+            .compactMap { $0 }.joined(separator: " · ")
         overlayDescription = item.synopsis
     }
     /// Play a TV episode. Pass `series` to binge-advance to the next episode on
@@ -72,8 +75,10 @@ struct PlayerView: UIViewControllerRepresentable {
 
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let vc = AVPlayerViewController()
-        vc.allowsPictureInPicturePlayback = true
+        vc.allowsPictureInPicturePlayback = true          // PiP button (#1)
         vc.canStartPictureInPictureAutomaticallyFromInline = true
+        vc.speeds = AVPlaybackSpeed.systemDefaultSpeeds   // native speed menu (#7, iOS 16+)
+        vc.updatesNowPlayingInfoCenter = true             // lock-screen / Control Center
         vc.delegate = context.coordinator
         context.coordinator.playerVC = vc
 
@@ -93,7 +98,8 @@ struct PlayerView: UIViewControllerRepresentable {
         // in its own chrome, shown/hidden WITH the transport controls (the Apple TV
         // app's behavior). This replaces a custom overlay — it's controls-synced
         // for free and survives load.
-        pItem.externalMetadata = playerExternalMetadata(title: overlayTitle, description: overlayDescription)
+        pItem.externalMetadata = playerExternalMetadata(title: overlayTitle, subtitle: overlaySubtitle,
+                                                        description: overlayDescription)
         pItem.preferredForwardBufferDuration = 300
         let player = AVPlayer(playerItem: pItem)
         vc.player = player
@@ -272,7 +278,8 @@ struct PlayerView: UIViewControllerRepresentable {
 /// title + description in its OWN controls overlay, synced with the transport
 /// (the Apple TV app's behavior). The empty creation-date overrides blank the
 /// MP4's bogus embedded year (see tvOS `suppressedDateMetadata`).
-private func playerExternalMetadata(title: String, description: String?) -> [AVMetadataItem] {
+private func playerExternalMetadata(title: String, subtitle: String? = nil,
+                                    description: String?) -> [AVMetadataItem] {
     func entry(_ id: AVMetadataIdentifier, _ value: String) -> AVMetadataItem? {
         guard !value.isEmpty else { return nil }
         let m = AVMutableMetadataItem()
@@ -282,7 +289,12 @@ private func playerExternalMetadata(title: String, description: String?) -> [AVM
         return m
     }
     var meta = [entry(.commonIdentifierTitle, title)]
+    if let s = subtitle?.trimmingCharacters(in: .whitespacesAndNewlines), !s.isEmpty {
+        // Subtitle line under the title (WWDC22 player title/subtitle/info layout).
+        meta.append(entry(.iTunesMetadataTrackSubTitle, s))
+    }
     if let d = description?.trimmingCharacters(in: .whitespacesAndNewlines), !d.isEmpty {
+        // Tapping the title reveals iOS's native info panel with this description.
         meta.append(entry(.commonIdentifierDescription, d))
     }
     let dateBlanks: [AVMetadataItem] = ([
