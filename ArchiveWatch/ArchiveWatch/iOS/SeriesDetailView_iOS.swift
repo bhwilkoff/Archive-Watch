@@ -53,7 +53,7 @@ struct SeriesDetailView: View {
             ToolbarItem(placement: .topBarTrailing) {
                 Menu {
                     Button { Callsheet.open(Callsheet.url(for: card)) } label: {
-                        Label("Open in Callsheet", systemImage: "person.text.rectangle")
+                        Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
                     }
                     ShareLink(item: shareURL) {
                         Label("Share link…", systemImage: "square.and.arrow.up")
@@ -124,7 +124,7 @@ struct SeriesDetailView: View {
                                 seriesTitle: series?.title ?? card.title,
                                 season: ep.seasonNumber, episode: ep.episodeNumber))
                         } label: {
-                            Label("Open in Callsheet", systemImage: "person.text.rectangle")
+                            Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
                         }
                     }
             }

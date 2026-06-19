@@ -60,6 +60,13 @@
             </array>
         </dict>
     </array>
+    <!-- Schemes we QUERY with canOpenURL (NOT ones we handle). `callsheet` lets
+         "Open in Callsheet" detect whether Callsheet is installed and relabel to
+         "Get Callsheet" otherwise (Decision 038). -->
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>callsheet</string>
+    </array>
     <key>NSUserActivityTypes</key>
     <array>
         <string>com.bhwilkoff.archivewatch.viewing</string>

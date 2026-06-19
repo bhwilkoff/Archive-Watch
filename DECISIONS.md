@@ -1438,9 +1438,12 @@ fall back cleanly, so web is out. TMDB ids are required by Callsheet (no IMDb);
 we already store `tmdbID`, and search covers the rest.
 
 **How to apply**: keep it to films + TV (`Callsheet.supports` — newsreel/
-ephemeral/home-movie/commercial have no Callsheet entry). Opening a scheme needs
-NO Info.plist entry (only `canOpenURL` would need `LSApplicationQueriesSchemes`);
-the completion-handler fallback avoids that. Do not scrape or use undocumented
+ephemeral/home-movie/commercial have no Callsheet entry). We detect installation
+with `canOpenURL("callsheet://")` to label the action "Open in Callsheet" vs "Get
+Callsheet" and route accordingly — which REQUIRES `callsheet` in the Info.plist
+`LSApplicationQueriesSchemes` array (added). Opening a scheme alone would need no
+declaration; only the canOpenURL probe does. No App-Review/entitlement/portal
+change is needed either way. Do not scrape or use undocumented
 endpoints — only the published open/search scheme. Person deep-links
 (`callsheet://open/person/{id}`) are possible but BLOCKED until the catalog's
 `CastMember` carries a TMDB person id (today it stores only name + profilePath) —

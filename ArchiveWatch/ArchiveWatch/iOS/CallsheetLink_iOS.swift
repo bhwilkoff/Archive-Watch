@@ -2,14 +2,29 @@
 import UIKit
 
 // "Open in Callsheet" — deep-link a title into Callsheet (callsheetapp.com), the
-// cast/crew companion app, via its public URL scheme. If Callsheet isn't
-// installed, UIApplication.open's completion fires `false` and we send the user
-// to the App Store instead (the native "get the app" fallback). Opening a scheme
-// needs no Info.plist entry (only canOpenURL would). Callsheet is iPhone/iPad
-// only, so this lives in the iOS target.
+// cast/crew companion app, via its public URL scheme. We detect whether Callsheet
+// is installed with `canOpenURL` so the menu reads "Open in Callsheet" (installed)
+// or "Get Callsheet" (not), and route accordingly — installed → the deep link,
+// not installed → the App Store. canOpenURL("callsheet://") REQUIRES `callsheet`
+// in the Info.plist `LSApplicationQueriesSchemes` array (added for this). Callsheet
+// is iPhone/iPad only, so this lives in the iOS target.
 enum Callsheet {
     static let appStoreURL =
         URL(string: "https://apps.apple.com/us/app/callsheet-find-cast-crew/id1672356376")!
+
+    /// Is Callsheet installed? Drives the menu label + open routing.
+    /// Needs `callsheet` in Info.plist LSApplicationQueriesSchemes.
+    @MainActor static var isInstalled: Bool {
+        guard let probe = URL(string: "callsheet://") else { return false }
+        return UIApplication.shared.canOpenURL(probe)
+    }
+
+    @MainActor static var actionTitle: String {
+        isInstalled ? "Open in Callsheet" : "Get Callsheet"
+    }
+    @MainActor static var actionIcon: String {
+        isInstalled ? "person.text.rectangle" : "arrow.down.app"
+    }
 
     // Films + TV have cast/crew in Callsheet; newsreel/ephemeral/home-movie/
     // commercial don't, so the action is hidden for those.
@@ -53,10 +68,11 @@ enum Callsheet {
         return URL(string: s)
     }
 
-    /// Open the URL in Callsheet, falling back to the App Store if it's not
-    /// installed. Always lands somewhere useful.
+    /// Open the title in Callsheet when installed; otherwise go straight to the
+    /// App Store. The completion-handler fallback covers the rare case where
+    /// canOpenURL said yes but the specific deep link can't open.
     @MainActor static func open(_ url: URL?) {
-        guard let url else { UIApplication.shared.open(appStoreURL); return }
+        guard isInstalled, let url else { UIApplication.shared.open(appStoreURL); return }
         UIApplication.shared.open(url, options: [:]) { opened in
             if !opened { UIApplication.shared.open(appStoreURL) }
         }

@@ -59,7 +59,7 @@ struct DetailView: View {
                         Menu {
                             if Callsheet.supports(item) {
                                 Button { Callsheet.open(Callsheet.url(for: item)) } label: {
-                                    Label("Open in Callsheet", systemImage: "person.text.rectangle")
+                                    Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
                                 }
                             }
                             ShareLink(item: shareURL) {
