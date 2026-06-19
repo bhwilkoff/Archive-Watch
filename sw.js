@@ -2,7 +2,7 @@
    Shell: cache-first (instant offline open). Data (catalog index, featured):
    network-first with cache fallback, so the catalog stays fresh online and the
    app still opens with the last-good copy offline. Video is NEVER cached. */
-const SHELL = 'aw-root-shell-v14';
+const SHELL = 'aw-root-shell-v15';
 const DATA = 'aw-root-data-v1';
 const SHELL_URLS = [
   './', 'index.html', 'watch.css', 'watch.js', 'manifest.json', 'js/api.js',

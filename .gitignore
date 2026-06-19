@@ -88,3 +88,5 @@ ios/.swiftpm/
 **/*.xcodeproj/xcuserdata/
 **/*.xcodeproj/project.xcworkspace/xcuserdata/
 tools/audit_series_episodes.csv
+subs/
+subs.tar.gz

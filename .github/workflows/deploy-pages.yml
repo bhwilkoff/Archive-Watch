@@ -1,0 +1,63 @@
+name: Deploy Pages
+
+# Publishes the site to GitHub Pages via Actions (Decision 029 §2.4 / 039) so we
+# can host generated subtitle assets at /subs/ — archive.org sends no CORS, but
+# Pages does (web <track>) and AVPlayer reads it (Apple HLS). The artifact is the
+# repo working tree MINUS .git (identical to the old Pages-from-branch serving)
+# PLUS /subs fetched from the subtitle-assets release. INERT until the owner flips
+# Settings → Pages → Source: GitHub Actions.
+#
+# Triggers: every push to main (site/catalog-index/details changes) and after the
+# subtitle enrichment run (new /subs). Manual dispatch for a forced redeploy.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Enrich subtitles"]
+    types: [completed]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Fetch subtitle assets (/subs)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p subs
+          if gh release view subtitle-assets >/dev/null 2>&1; then
+            gh release download subtitle-assets -p 'subs.tar.gz' -O subs.tar.gz || true
+            [ -f subs.tar.gz ] && tar xzf subs.tar.gz && rm -f subs.tar.gz
+          fi
+          echo "subs files: $(find subs -type f | wc -l)"
+
+      - name: Assemble site
+        run: |
+          # Mirror exactly what Pages-from-main served (whole tree minus .git),
+          # plus the fetched /subs. Missing a path here would break the live site
+          # on flip, so we copy everything rather than enumerate.
+          mkdir _site
+          rsync -a --exclude='.git' --exclude='_site' ./ _site/
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

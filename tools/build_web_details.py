@@ -83,6 +83,10 @@ def main():
                 continue
             path = c.get("profilePath")
             cast.append([name, path] if path else name)
+        # Subtitle tracks for the web <track> element — the Pages-hosted VTT
+        # (CORS-OK; archive.org's SRT is not). [lang, label, vttURL] each.
+        captions = [[c.get("lang"), c.get("label"), c.get("vttURL")]
+                    for c in (it.get("captions") or []) if c.get("vttURL")]
         record = [
             it.get("downloadURL"),
             synopsis or None,
@@ -91,6 +95,7 @@ def main():
             (it.get("genres") or [])[:3] or None,
             it.get("runtimeSeconds"),
             it.get("backdropURL"),
+            captions or None,
         ]
         # Trim trailing nulls so empty tails cost nothing on the wire.
         while record and record[-1] is None:

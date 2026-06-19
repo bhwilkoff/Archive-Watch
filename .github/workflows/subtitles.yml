@@ -44,13 +44,42 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py fetch
 
-      - name: Enrich subtitles
+      - name: Enrich subtitles (detect archive.org captions)
         run: |
           python tools/enrich_subtitles.py \
             --limit ${{ github.event.inputs.limit || '8000' }} \
             ${{ github.event.inputs.refresh == 'true' && '--refresh' || '' }} | tee subs.log
           echo "## Subtitle enrichment" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 subs.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
+      # Build the web VTT + Apple HLS assets and ACCUMULATE them into the
+      # subtitle-assets release (each run only builds items missing subtitleHLS,
+      # so fetch the prior set first and re-upload the union).
+      - name: Fetch existing subtitle assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p subs
+          if gh release view subtitle-assets >/dev/null 2>&1; then
+            gh release download subtitle-assets -p 'subs.tar.gz' -O subs.tar.gz || true
+            [ -f subs.tar.gz ] && tar xzf subs.tar.gz && rm -f subs.tar.gz
+          fi
+
+      - name: Build subtitle assets (VTT + HLS)
+        run: |
+          python tools/build_subtitle_assets.py \
+            --limit ${{ github.event.inputs.limit || '8000' }} | tee subsbuild.log
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 subsbuild.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Publish subtitle assets to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tar czf subs.tar.gz subs
+          gh release view subtitle-assets >/dev/null 2>&1 || \
+            gh release create subtitle-assets --title "Subtitle assets (rolling)" \
+              --notes "VTT + HLS subtitle assets served to Pages at /subs (Decision 039)."
+          gh release upload subtitle-assets subs.tar.gz --clobber
 
       - name: Remediate catalog data quality
         run: python tools/remediate_catalog.py

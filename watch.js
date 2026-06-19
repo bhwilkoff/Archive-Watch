@@ -201,6 +201,7 @@
         genres: rec[4] || null,
         runtimeSeconds: rec[5] || null,
         backdropURL: rec[6] || null,
+        captions: rec[7] || null,   // [[lang, label, vttURL], …]
       };
     },
   };
@@ -1555,14 +1556,26 @@
 
       $('player-title').textContent = title;
       $('player-error').hidden = true;
+      video.querySelectorAll('track').forEach(t => t.remove());   // clear last title's subs
       video.src = url;
 
       // Title + description overlay (fades with the controls — see syncOverlay).
       $('player-overlay-title').textContent = title;
       $('player-overlay-desc').textContent = '';
       Details.get(id).then(det => {
-        if (this.ctx?.id === id && det?.synopsis) {
-          $('player-overlay-desc').textContent = det.synopsis;
+        if (this.ctx?.id !== id) return;
+        if (det?.synopsis) $('player-overlay-desc').textContent = det.synopsis;
+        // Native subtitles (Decision 039): same-origin VTT on Pages → a <track>
+        // the browser lists in its own CC menu. English defaults on.
+        for (const [lang, label, vttURL] of (det?.captions || [])) {
+          if (!vttURL) continue;
+          const tr = document.createElement('track');
+          tr.kind = 'subtitles';
+          tr.srclang = lang;
+          tr.label = label || (lang || '').toUpperCase();
+          tr.src = vttURL;
+          if (lang === 'en') tr.default = true;
+          video.appendChild(tr);
         }
       }).catch(() => {});
       this.syncOverlay();
