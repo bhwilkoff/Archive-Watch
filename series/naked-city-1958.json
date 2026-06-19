@@ -3,8 +3,8 @@
   "seriesID": "naked-city-1958",
   "tvmazeID": 14401,
   "title": "Naked City",
-  "yearStart": 1958,
-  "yearEnd": 1963,
+  "yearStart": 1960,
+  "yearEnd": 1960,
   "overview": "Naked City was inspired by the 1948 motion picture The Naked City. Filmed on location in New York City, the series centered on the detectives of NYPD's 65th Precinct.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/76686-1.jpg",
   "backdropURL": null,
@@ -18,16 +18,16 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": 2,
+      "seasonNumber": 1,
       "episodes": [
         {
           "archiveID": "naked-city-s-01-e-01-meridian",
-          "seasonNumber": 2,
-          "episodeNumber": 4,
-          "title": "Down the Long Night",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Meridian",
           "overview": null,
-          "stillURL": "https://archive.org/download/archivewatch-covers/naked-city-s-01-e-01-meridian.038dcb0d.jpg",
-          "airDate": "1960-11-02",
+          "stillURL": "https://archive.org/services/img/naked-city-s-01-e-01-meridian",
+          "airDate": null,
           "year": 1960,
           "runtimeSeconds": 3600,
           "videoFile": {

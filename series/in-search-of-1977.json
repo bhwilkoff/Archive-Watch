@@ -3,8 +3,8 @@
   "seriesID": "in-search-of-1977",
   "tvmazeID": 1476,
   "title": "In Search of.....",
-  "yearStart": 1977,
-  "yearEnd": 2002,
+  "yearStart": 1978,
+  "yearEnd": 1978,
   "overview": "Leonard Nimoy, hosts and narrates this documentary series that takes you to the world of Unsolved Mysteries and those strange and unusual things in the world that defy explanation and often understanding. The world is filled with unexplained mysteries, paranormal phenomena, strange creatures, and other things that go bump in the night. The topics are entertaining and engrossing. Lost civilizations, extraterrestrials, myths and monsters, missing persons, magic and witchcraft, unexplained phenomena. In Search Of cameras travel the world, seeking out these great mysteries. This program was the result the work of scientists, researchers and a group of highly-skilled technicians and results in a series of programs that are varied and each is worth viewing..",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/71309-1.jpg",
   "backdropURL": null,
@@ -18,6 +18,29 @@
   ],
   "creator": null,
   "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "In_Search_of_S02E23_The_Coming_Ice_Age",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "In Search of... S02E23 The Coming Ice Age",
+          "overview": "<p class=\"MsoNormal\"><span lang=\"en-au\" xml:lang=\"en-au\">Climate Change Hoax</span></p><p class=\"MsoNormal\">An inquiry into whether the dramatic\nweather changes in America's northern states mean that a new ice age is\napproaching.<br /></p>\n\n<p class=\"MsoNormal\"><span lang=\"en-au\" xml:lang=\"en-au\">Episode aired May 1978</span></p><p></p>\n\n<p class=\"MsoNormal\"><span lang=\"en-au\" xml:lang=\"en-au\">Pat Bushnell, James Hayes, Chester C.\nLangway Jr.</span></p><p></p>",
+          "stillURL": "https://archive.org/services/img/In_Search_of_S02E23_The_Coming_Ice_Age",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": 1269,
+          "videoFile": {
+            "name": "1978 MAY In Search of... The Coming Ice Age.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 226049518,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In_Search_of_S02E23_The_Coming_Ice_Age/1978%20MAY%20In%20Search%20of...%20The%20Coming%20Ice%20Age.mp4"
+        }
+      ]
+    },
     {
       "seasonNumber": 3,
       "episodes": [
@@ -42,7 +65,7 @@
       ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 2,
   "canonicalEpisodesCount": 152,
   "tvdbID": "71309",
   "artworkSource": "tvdb",
@@ -65,5 +88,8 @@
       "order": 2,
       "profilePath": "https://artworks.thetvdb.com/banners/person/268766/25868241.jpg"
     }
-  ]
+  ],
+  "seriesImdbID": "tt1792659",
+  "canonicalEpisodeCount": 0,
+  "canonicalSeasons": null
 }

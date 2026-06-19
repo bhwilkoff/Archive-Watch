@@ -4,7 +4,7 @@
   "tvmazeID": 3509,
   "title": "American Experience",
   "yearStart": 1988,
-  "yearEnd": null,
+  "yearEnd": 2025,
   "overview": "American Experience is TV's most-watched history series and brings to life incredible characters and compelling stories from our past that inform our understanding of the world today. Acclaimed by viewers and critics alike, American Experience documentaries have been honored with every major broadcast award, including 30 Emmy Awards, 4 duPont-Columbia Awards, and 18 George Foster Peabody Awards.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/71638-4.jpg",
   "backdropURL": null,
@@ -19,6 +19,24 @@
     {
       "seasonNumber": 1,
       "episodes": [
+        {
+          "archiveID": "american-experience-radio-bikini-1988",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "American Experience: Radio Bikini (1988)",
+          "overview": "<div>This Academy Award-nominated documentary about nuclear testing at Bikini\n Atoll (Operation Crossroads) in 1946 aired as an episode of the \nlong-running PBS program \"American Experience\". It was seen via PBS \nmember station WNET in Newark, NJ. <br /></div><div><br /></div><div>Some viewers may find parts of the video disturbing. <br /></div><div><br /></div><div>Posted for educational and historical purposes only. All material is \nunder the copyright of their original holders. No copyright infringement\n is intended.</div>",
+          "stillURL": "https://archive.org/services/img/american-experience-radio-bikini-1988",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3606,
+          "videoFile": {
+            "name": "American Experience Radio Bikini -1988-.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 217706050,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/american-experience-radio-bikini-1988/American%20Experience%20Radio%20Bikini%20-1988-.mp4"
+        },
         {
           "archiveID": "the-american-experience-hearts-and-hands-s-1-e-12",
           "seasonNumber": 1,
@@ -38,10 +56,182 @@
           "downloadURL": "https://archive.org/download/the-american-experience-hearts-and-hands-s-1-e-12/The American Experience- Hearts and Hands (S1E12).ia.mp4"
         }
       ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "american-experience-the-crash-of-1929-2009",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "American Experience — The Crash Of 1929 ( 2009)",
+          "overview": "#Worldwar2 #wwii #nationalsocialism #thirdreich #nsdap #jwo #nwo #communismkills #whitegenocide #music #EuropeanPride #Wehrmacht #WorldWar1 #wwi #TreatyofVersailles #jewworldorder #betterdeadthanred #newworldorder  #greatestally",
+          "stillURL": "https://archive.org/services/img/american-experience-the-crash-of-1929-2009",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3273,
+          "videoFile": {
+            "name": "American Experience — The Crash of 1929 (2009).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 235510282,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/american-experience-the-crash-of-1929-2009/American%20Experience%20%E2%80%94%20The%20Crash%20of%201929%20%282009%29.ia.mp4"
+        },
+        {
+          "archiveID": "coney-island-american-experience-1990",
+          "seasonNumber": 3,
+          "episodeNumber": 14,
+          "title": "Coney Island (American Experience) (1990)  /  Little Fugitive (1953)",
+          "overview": "\"CONEY ISLAND\" (American Experience)  ((1990))<div>dir - Ken Burns</div><div><br /></div><div>\"LITTLEST FUGITIVE\"  ((1953))</div><div>dir - Morris &amp; Ruth Orkin with Ray Anthony                                               with Richie Sandrusco</div><div><br /></div><div>+ 8 short subject films showing Coney Island 1900 - 1940</div>",
+          "stillURL": "https://archive.org/services/img/coney-island-american-experience-1990",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": 559,
+          "videoFile": {
+            "name": "ConeyIsl1940.mp4",
+            "format": "h.264",
+            "sizeBytes": 53483396,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/coney-island-american-experience-1990/ConeyIsl1940.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "american-experience-s-05-e-03-the-donner-party-october-28-1992",
+          "seasonNumber": 5,
+          "episodeNumber": 3,
+          "title": "The Donner Party - American Experience S05E03 (October 28, 1992)",
+          "overview": "<div>In 1846, a large wagon train left <a href=\"https://en.wikipedia.org/wiki/Springfield,_Illinois\" title=\"Springfield, Illinois\" rel=\"ugc nofollow\">Springfield, Illinois</a>, for <a href=\"https://en.wikipedia.org/wiki/California\" title=\"California\" rel=\"ugc nofollow\">California</a>. In July of that year, following the advice of <i>The Emigrants' Guide to Oregon and California</i> written by a pro-emigration promoter named <a href=\"https://en.wikipedia.org/wiki/Lansford_Hastings\" title=\"Lansford Hastings\" rel=\"ugc nofollow\">Lansford Hastings</a>, the Donner party left the main body of emigrants to take a never before tried \"shortcut\" across the <a href=\"https://en.wikipedia.org/wiki/Great_Basin_Divide\" title=\"Great Basin Divide\" rel=\"ugc nofollow\">Great Basin</a>.</div><div><br /></div><div>The Donner Party arrived at the foot of the <a href=\"https://en.wikipedia.org/wiki/Sierra_Nevada_(U.S.)\" class=\"mw-redirect\" title=\"Sierra Nevada (U.S.)\" rel=\"ugc nofollow\">Sierra Nevada</a>,\n the last mountain pass before California, weeks behind schedule and \nshort of food. The first blizzard of the season started only one day \nbefore they planned to head up and over the Sierra Nevada. With 95% of \ntheir journey already completed, they would be forced to wait months to \nmake the final push, enduring the most unfavorable Sierra Nevada winter \nin history. The group was trapped on the eastern side of the Sierra for \nfive months, culminating in death and cannibalism. Of the 87 men, women,\n and children in the Donner Party only 46 survived to reach California.</div>",
+          "stillURL": "https://archive.org/services/img/american-experience-s-05-e-03-the-donner-party-october-28-1992",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": 5085,
+          "videoFile": {
+            "name": "American Experience - S05E03 - The Donner Party (October 28, 1992).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 725631283,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/american-experience-s-05-e-03-the-donner-party-october-28-1992/American%20Experience%20-%20S05E03%20-%20The%20Donner%20Party%20%28October%2028%2C%201992%29.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 6,
+      "episodes": [
+        {
+          "archiveID": "captured-file-265",
+          "seasonNumber": 6,
+          "episodeNumber": 1,
+          "title": "Opening And Closing To The American Experience: Amelia Earhart: The Price Of Courage 1995 Descriptive Video Service VHS",
+          "overview": "This is the Opening And Closing To The American Experience: Amelia Earhart: The Price Of Courage 1995 Descriptive Video Service VHS release. Rena Baskin is heard describing the Shanachie logo while Peter Haydu describes the program.",
+          "stillURL": "https://archive.org/services/img/captured-file-265",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": 262,
+          "videoFile": {
+            "name": "Captured_file_265.mp4",
+            "format": "h.264",
+            "sizeBytes": 26589467,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/captured-file-265/Captured_file_265.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 8,
+      "episodes": [
+        {
+          "archiveID": "american-experience-the-battle-over-citizen-kane",
+          "seasonNumber": 8,
+          "episodeNumber": 7,
+          "title": "American Experience The Battle Over Citizen Kane",
+          "overview": "The American Experience episode The Battle Over Citizen Kane. It takes a look at the making of Citizen Kane and the film's star Orson Wells.",
+          "stillURL": "https://archive.org/services/img/american-experience-the-battle-over-citizen-kane",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": 6812,
+          "videoFile": {
+            "name": "y2mate.com - The Battle Over Citizen Kane_480p.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 484883954,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/american-experience-the-battle-over-citizen-kane/y2mate.com%20-%20The%20Battle%20Over%20Citizen%20Kane_480p.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 11,
+      "episodes": [
+        {
+          "archiveID": "american-experience-s-11-e-01-02-winter-spirit-of-the-age-spring-change-is-in-th",
+          "seasonNumber": 11,
+          "episodeNumber": 1,
+          "title": "America 1900 (Part 1 & 2) - American Experience S11E01 (November 18, 1998)",
+          "overview": "<font face=\"Muli, Trebuchet MS, sans-serif\"><span style=\"font-size:18px;\">America 1900 presents a comprehensive picture of what life was like in the United States at the turn of the century. Both the program and the site offer compelling images, information, and documents about American life. Students will be able to grasp historical concepts and issues through the stories of ordinary people across the country. Diverse voices and faces will help expand students' knowledge and understanding of the time period and how it relates to our lives today. The program also explores key themes such as the impact of technology, the rise of racism, immigration and the search for a national identity, and the rise of America as a world power. A film by David Grubin Productions, Inc. Produced and directed by David Grubin. Written by Judy Crichton and David Grubin. </span></font>",
+          "stillURL": "https://archive.org/services/img/american-experience-s-11-e-01-02-winter-spirit-of-the-age-spring-change-is-in-th",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": 4453,
+          "videoFile": {
+            "name": "American Experience - S11E01-02 (Winter, Spirit of the Age - Spring, Change Is in the Air) America 1900 (November 18, 1998).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 761654357,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/american-experience-s-11-e-01-02-winter-spirit-of-the-age-spring-change-is-in-th/American%20Experience%20-%20S11E01-02%20%28Winter%2C%20Spirit%20of%20the%20Age%20-%20Spring%2C%20Change%20Is%20in%20the%20Air%29%20America%201900%20%28November%2018%2C%201998%29.mp4"
+        },
+        {
+          "archiveID": "american-experience-s-11-e-03-hoover-dam-january-18-1999",
+          "seasonNumber": 11,
+          "episodeNumber": 3,
+          "title": "Hoover Dam - American Experience S11E03 (January 18, 1999)",
+          "overview": "<p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\">It has been compared to the Acropolis of Ancient\nGreece and the Coliseum of Imperial Rome. Rising 726 feet above the raging\nwaters of the Colorado River, it was called by the man whose name it bears “the\ngreatest engineering work of its character ever attempted by the hand of man.”\nIn fact, Hoover Dam reflected the engineering genius and design philosophy of\nthe time. And, in the midst of the Great Depression, it was a symbol of hope\nfor the dispossessed.</span></p><p></p><p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\"> </span></p><p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\">Winding through California’s richly fertile Imperial\nValley, the Colorado River was wildly unpredictable—flooding in the spring,\ndrying up in the summer. The only way to harness this indispensable resource\nwas to build a dam, which in turn would provide badly needed electricity to the\nwestern states. It was a brilliantly conceived scheme, uniting public works and\nprivate enterprise. A giant construction company was formed by six previously\nsmalltime contractors.</span></p><p></p><p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\"> </span></p><p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\">The engineering problems were stupendous, the\nsolutions ingenious. Before work could start, the river had to be diverted.\nFour tunnels, each 50 feet in diameter (which today could accommodate a 747\nwithout the wings), were drilled through the solid rock walls of the Black\nCanyon. Men called “high-scalers,” lowered in bosun’s chairs, stripped the\ncanyon walls of loose rock.</span></p><p></p><p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\"> </span></p><p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\">For two years, workers poured concrete 24 hours a day,\nseven days a week. Working conditions were dangerous, pay was low, housing\ninadequate. But it was the Depression, and many were grateful to have work.\nFive thousand men and their families settled in the Nevada desert. There were\ntwo mess halls, each seating 600; the dishwasher was sixteen feet long.</span></p><p></p><p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\"> </span></p><p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\">The federal government built Boulder City, an\nefficiently run, well-ordered company town, but dozens of tent cities sprang\nup—honky-tonk towns dotted the road from the dam to the small town of Las\nVegas.</span></p><p></p><p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\"> </span></p><p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\">In 1935 the job was finished under budget and ahead of\nschedule. But Hoover Dam also raised policy questions about the economic and\nenvironmental impact of large scale irrigation throughout the West.</span></p><p></p><p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\"> </span></p><p style=\"margin:0px 0px 1.66667em;\">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\">Temporarily renamed\nBoulder Dam by the Roosevelt Administration, the project’s electrical output\nhelped build the ships and planes used in World War II; its water grew fruits\nand vegetables in California. It tamed a wild river and, for a time, renewed faith\nin American ingenuity and technology.</span></p><p style=\"margin:0px 0px 1.66667em;\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\"><br /></span></p><p style=\"margin:0px 0px 1.66667em;\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\"><br /></span></p><p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\">Runtime: 00:52:29</span></p><p></p><p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\">Frame width: 640</span></p><p></p><p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\">Frame height: 480</span></p><p></p><p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\">Data rate: 703 kbps</span></p><p></p><p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\">Total bitrate: 831 kbps</span></p><p></p><p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\">Frame rate: 23.98 fps</span></p><p></p><p style=\"margin:0px 0px 1.66667em;\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\">\n\n\n\n\n\n\n\n\n\n\n\n<span style=\"font-size:12pt;line-height:107%;\">Video tracks: H264\n(High @L3.0)</span></span></p><p style=\"margin:0px 0px 1.66667em;\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\"><span style=\"font-size:12pt;line-height:107%;\"><br /></span></span></p><p style=\"margin:0px 0px 1.66667em;\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\"><span style=\"font-size:12pt;line-height:107%;\"></span></span></p><p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\">Audio tracks: AAAC 2.0</span></p><p></p>\n\n<p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\">Bit rate: 128 kbps</span></p><p></p>\n\n<p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\">Channels: 2 (stereo)</span></p><p></p>\n\n<p class=\"MsoNormal\"><span style=\"font-size:12pt;line-height:107%;font-family:'Times New Roman', serif;\">Audio sample rate: 44.100 kHz</span></p>",
+          "stillURL": "https://archive.org/services/img/american-experience-s-11-e-03-hoover-dam-january-18-1999",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": 3149,
+          "videoFile": {
+            "name": "American Experience - S11E03 - Hoover Dam (January 18, 1999).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 330288669,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/american-experience-s-11-e-03-hoover-dam-january-18-1999/American%20Experience%20-%20S11E03%20-%20Hoover%20Dam%20%28January%2018%2C%201999%29.mp4"
+        },
+        {
+          "archiveID": "the-american-experience-meltdown-at-three-milse-island",
+          "seasonNumber": 11,
+          "episodeNumber": 6,
+          "title": "The American Experience: Meltdown At Three Mile Island",
+          "overview": "VHS transfer",
+          "stillURL": "https://archive.org/services/img/the-american-experience-meltdown-at-three-milse-island",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": 3394,
+          "videoFile": {
+            "name": "The American Experience - Meltdown At Three Milse Island.mp4",
+            "format": "h.264",
+            "sizeBytes": 355369322,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-american-experience-meltdown-at-three-milse-island/The%20American%20Experience%20-%20Meltdown%20At%20Three%20Milse%20Island.mp4"
+        }
+      ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 10,
   "canonicalEpisodesCount": 420,
   "tvdbID": "71638",
-  "artworkSource": "tvdb"
+  "artworkSource": "tvdb",
+  "seriesImdbID": "tt0094416",
+  "canonicalEpisodeCount": 243,
+  "canonicalSeasons": 37
 }

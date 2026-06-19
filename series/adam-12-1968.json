@@ -4,7 +4,7 @@
   "tvmazeID": 2119,
   "title": "Adam-12",
   "yearStart": 1968,
-  "yearEnd": 1975,
+  "yearEnd": 1968,
   "overview": "Race through the streets of Los Angeles with Adam-12, the series that defined the police drama genre. Still mourning the death of his former partner, Officer Pete Malloy is teamed with rookie Officer Jim Reed and together they serve and protect the City of Angels as \"Adam-12\", their unit's radio call number. Watch a these brothers in blue struggle to manage the job's demands and frustrations, as they battle drug dealers, intervene in domestic disputes and pursue suspects in high-speed chases.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/78686-1.jpg",
   "backdropURL": null,
@@ -40,9 +40,101 @@
           "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E11.Log.111.Snake.In.The.Trunk.mp4"
         }
       ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "the-family-chase-uk-s2-e8",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "The Family Chase (12 May 2019 | S2 E8): Adam/Carrie/Yvonne/Phoebe",
+          "overview": "<span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">The Family Chase UK S2 E8</span><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;\">Aired 23 November 2024 at 9.00PM GMT on Challenge (UK)</div>",
+          "stillURL": "https://archive.org/services/img/the-family-chase-uk-s2-e8",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2789,
+          "videoFile": {
+            "name": "The Family Chase UK S2 E8.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 409317808,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-family-chase-uk-s2-e8/The%20Family%20Chase%20UK%20S2%20E8.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "the-chase-uk-s4-e6",
+          "seasonNumber": 4,
+          "episodeNumber": 6,
+          "title": "The Chase (12 September 2011 | S4 E6): Sharon/Adam/Ryan/Brenda",
+          "overview": "Challenge (UK) currently skips this episode.<div><br /></div><div>The Chase UK S4 E6</div>",
+          "stillURL": "https://archive.org/services/img/the-chase-uk-s4-e6",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2683,
+          "videoFile": {
+            "name": "The Chase S4 E6.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 215448772,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-chase-uk-s4-e6/The%20Chase%20S4%20E6.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 8,
+      "episodes": [
+        {
+          "archiveID": "the-chase-uk-s8-e70",
+          "seasonNumber": 8,
+          "episodeNumber": 70,
+          "title": "The Chase (12 January 2015 | S8 E70): Emma/Adam/Natalie/Peter",
+          "overview": "Challenge (UK) currently skips this episode.<div><br /></div><div>The Chase UK S8 E70</div>",
+          "stillURL": "https://archive.org/services/img/the-chase-uk-s8-e70",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2842,
+          "videoFile": {
+            "name": "The Chase UK S8 E70.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 281973879,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-chase-uk-s8-e70/The%20Chase%20UK%20S8%20E70.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 12,
+      "episodes": [
+        {
+          "archiveID": "the-chase-uk-s12-e3",
+          "seasonNumber": 12,
+          "episodeNumber": 3,
+          "title": "The Chase (12 April 2018 | S12 E3): Abi/Nigel/Adam/Gill",
+          "overview": "<span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">The Chase UK S12 E3</span><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;\">Aired 12 July 2023 at 9.00PM BST on Challenge (UK)</div>",
+          "stillURL": "https://archive.org/services/img/the-chase-uk-s12-e3",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3588,
+          "videoFile": {
+            "name": "The Chase UK S12 E3.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 424617854,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-chase-uk-s12-e3/The%20Chase%20UK%20S12%20E3.ia.mp4"
+        }
+      ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 5,
   "canonicalEpisodesCount": 174,
   "tvdbID": "78686",
   "artworkSource": "tvdb",
@@ -119,5 +211,8 @@
       "order": 11,
       "profilePath": null
     }
-  ]
+  ],
+  "seriesImdbID": "tt0062539",
+  "canonicalEpisodeCount": 140,
+  "canonicalSeasons": 7
 }

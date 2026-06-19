@@ -4,7 +4,7 @@
   "tvmazeID": 79727,
   "title": "Law of the Plainsman",
   "yearStart": 1959,
-  "yearEnd": 1960,
+  "yearEnd": 1959,
   "overview": "An Apache Indian becomes a Deputy U.S. Marshal.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/78445-1.jpg",
   "backdropURL": null,
@@ -19,6 +19,24 @@
     {
       "seasonNumber": 1,
       "episodes": [
+        {
+          "archiveID": "law-of-the-plainsman-tv-1959-s01e02-full-circle",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Law Of The Plainsman TV 1959 colorized s01e02 Full Circle",
+          "overview": "A highly educated Apache (Michael Ansara) has returned to New Mexico as a deputy marshal. In this episode, on the trail of an outlaw, he enters a town where the sheriff (Lyle Bettger) no longer has a good gun hand and the deputy (Wayne Rogers) is being threatened by the gang he recently broke away from. Featuring Gail Kobe as the sheriff's wife.",
+          "stillURL": "https://archive.org/services/img/law-of-the-plainsman-tv-1959-s01e02-full-circle",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1517,
+          "videoFile": {
+            "name": "Law of the Plainsman TV 1959 colorized s01e02 Full Circle.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 162775341,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/law-of-the-plainsman-tv-1959-s01e02-full-circle/Law%20of%20the%20Plainsman%20TV%201959%20colorized%20s01e02%20Full%20Circle.mp4"
+        },
         {
           "archiveID": "s-01-e-28-lotp-jebs-daughters",
           "seasonNumber": 1,
@@ -40,7 +58,7 @@
       ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 2,
   "canonicalEpisodesCount": 30,
   "tvdbID": "78445",
   "artworkSource": "tvdb",
@@ -75,5 +93,8 @@
       "order": 4,
       "profilePath": null
     }
-  ]
+  ],
+  "seriesImdbID": "tt0052483",
+  "canonicalEpisodeCount": 30,
+  "canonicalSeasons": 1
 }
