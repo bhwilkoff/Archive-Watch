@@ -20,6 +20,10 @@ on:
         description: 'Re-check already-scanned items (true/false)'
         required: false
         default: 'false'
+      build_assets:
+        description: 'Build + publish web VTT / Apple HLS assets to /subs. ONLY after Pages→Actions is flipped (else subtitleHLS 404s).'
+        required: false
+        default: 'false'
 
 concurrency:
   group: catalog-writers
@@ -56,6 +60,7 @@ jobs:
       # subtitle-assets release (each run only builds items missing subtitleHLS,
       # so fetch the prior set first and re-upload the union).
       - name: Fetch existing subtitle assets
+        if: ${{ github.event.inputs.build_assets == 'true' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -66,12 +71,14 @@ jobs:
           fi
 
       - name: Build subtitle assets (VTT + HLS)
+        if: ${{ github.event.inputs.build_assets == 'true' }}
         run: |
           python tools/build_subtitle_assets.py \
             --limit ${{ github.event.inputs.limit || '8000' }} | tee subsbuild.log
           echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 subsbuild.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Publish subtitle assets to release
+        if: ${{ github.event.inputs.build_assets == 'true' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
