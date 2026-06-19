@@ -71,6 +71,10 @@ class CatalogDatabase private constructor(
         " AND (i.rightsStatus IN ('public_domain','creative_commons')" +
             " OR (i.year >= 1888 AND i.year <= 1977))"
     private val notCommercial = " AND i.contentType != 'commercial'"
+    // Standalone TV (tv-special) never appears on film surfaces — Home shelves,
+    // discovery rows, Random Film (owner directive 2026-06-18: "TV shows should
+    // never appear in Movies"). Surfaced only via the TV scope's TV Specials grid.
+    private val notStandaloneTV = " AND i.contentType != 'tv-special'"
 
     private val itemSelect =
         "SELECT j.json FROM items i JOIN item_json j ON j.archiveID = i.archiveID"
@@ -81,7 +85,7 @@ class CatalogDatabase private constructor(
         """SELECT j.json FROM item_shelves s
            JOIN items i ON i.archiveID = s.archiveID
            JOIN item_json j ON j.archiveID = s.archiveID
-           WHERE s.shelfID = ?$adultAnd$homeAnd$notCommercial$typeAnd
+           WHERE s.shelfID = ?$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd
            ORDER BY i.hasRealArtwork DESC, s.position LIMIT ?""",
         listOf(shelfID, limit),
     )
@@ -161,8 +165,12 @@ class CatalogDatabase private constructor(
         // bug that emptied Classic TV on iOS/tvOS (fixed there 2026-06-11).
         val sb = if (contentType == "tv-series") {
             StringBuilder("i.contentType = 'tv-series' AND i.hasRealArtwork = 1")
+        } else if (contentType == "tv-special") {
+            // The TV Specials grid (TV scope): standalone specials/episodes.
+            StringBuilder("i.contentType = 'tv-special'")
         } else {
-            val b = StringBuilder("i.contentType != 'tv-series'")
+            // TV never appears in Movies — neither series cards NOR tv-specials.
+            val b = StringBuilder("i.contentType NOT IN ('tv-series','tv-special')")
             if (contentType != null) { b.append(" AND i.contentType = ?"); binds.add(contentType) }
             b
         }
@@ -212,6 +220,20 @@ class CatalogDatabase private constructor(
         listOf(limit),
     )
 
+    /** Standalone TV specials/episodes not folded into a series spine — the TV
+        scope's "TV Specials" grid. Kept OFF every film surface (notStandaloneTV). */
+    suspend fun tvSpecials(limit: Int = 500): List<CatalogItem> = items(
+        "$itemSelect WHERE i.contentType = 'tv-special'$adultAnd$typeAnd" +
+            " ORDER BY (i.hasRealArtwork = 1) DESC, i.popularityScore DESC LIMIT ?",
+        listOf(limit),
+    )
+
+    suspend fun tvSpecialsCount(): Int = dbCall {
+        queryRaw(
+            "SELECT COUNT(*) FROM items i WHERE i.contentType = 'tv-special'$adultAnd$typeAnd",
+        ) { it.getLong(0).toInt() }.firstOrNull() ?: 0
+    }
+
     suspend fun related(to: CatalogItem, limit: Int = 20): List<CatalogItem> = items(
         "$itemSelect WHERE i.contentType = ? AND i.archiveID != ?$adultAnd$typeAnd" +
             " ORDER BY i.popularityScore DESC LIMIT ?",
@@ -222,14 +244,14 @@ class CatalogDatabase private constructor(
         curios from outranking the classics (iOS/tvOS parity). */
     suspend fun topRated(limit: Int = 24, minVotes: Int = 1000): List<CatalogItem> = items(
         "$itemSelect WHERE i.imdbRating IS NOT NULL AND COALESCE(i.imdbVotes, 0) >= ?" +
-            " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$typeAnd" +
+            " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd" +
             " ORDER BY i.imdbRating DESC, i.imdbVotes DESC LIMIT ?",
         listOf(minVotes, limit),
     )
 
     suspend fun hiddenGems(limit: Int = 20): List<CatalogItem> = items(
         "$itemSelect WHERE i.hasRealArtwork = 1 AND i.qualityScore >= 60 AND i.popularityScore <= 40" +
-            "$adultAnd$homeAnd$notCommercial$typeAnd ORDER BY i.qualityScore DESC LIMIT ?",
+            "$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd ORDER BY i.qualityScore DESC LIMIT ?",
         listOf(limit),
     )
 
@@ -237,7 +259,7 @@ class CatalogDatabase private constructor(
         queryRaw(
             """SELECT i.director, COUNT(*) AS c FROM items i
                WHERE i.director IS NOT NULL AND i.director != '' AND i.hasRealArtwork = 1
-               $adultAnd$homeAnd$notCommercial$typeAnd
+               $adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd
                GROUP BY i.director HAVING c >= ? ORDER BY c DESC, i.director LIMIT ?""",
             listOf(minFilms, limit),
         ) { it.getText(0) }
@@ -245,7 +267,7 @@ class CatalogDatabase private constructor(
 
     suspend fun byDirector(name: String, limit: Int = 20, homeOnly: Boolean = false): List<CatalogItem> = items(
         "$itemSelect WHERE i.director = ? AND i.hasRealArtwork = 1" +
-            "$adultAnd$notCommercial$typeAnd${if (homeOnly) homeAnd else ""}" +
+            "$adultAnd$notCommercial$notStandaloneTV$typeAnd${if (homeOnly) homeAnd else ""}" +
             " ORDER BY i.popularityScore DESC LIMIT ?",
         listOf(name, limit),
     )
@@ -260,7 +282,7 @@ class CatalogDatabase private constructor(
 
     suspend fun randomPlayable(contentType: String? = null): CatalogItem? {
         val binds = mutableListOf<Any?>()
-        var where = "i.contentType != 'tv-series'"
+        var where = "i.contentType NOT IN ('tv-series','tv-special')"
         if (contentType != null) { where += " AND i.contentType = ?"; binds.add(contentType) }
         where += adultAnd + typeAnd
         if (contentType != "commercial") where += notCommercial

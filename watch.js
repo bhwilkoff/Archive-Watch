@@ -130,6 +130,13 @@
       return row[5] === 1 || (row[5] === undefined && !!row[4]);
     },
 
+    /** A film-surface row: never TV (series cards OR standalone tv-specials).
+        TV has its own browse chips; it must never appear in film grids/shelves
+        (owner directive 2026-06-18). */
+    isFilm(row) {
+      return !TV_TYPES.has(row[3]);
+    },
+
     /** Resolve a featured.json shelf through the index's editorial shelves
         map — the same curated item_shelves assignments the apps query, so
         Home inherits the rights audit + adult filter and every shelf has its
@@ -403,14 +410,14 @@
       host.append(this.categoryTiles());
       for (const shelf of Data.featured?.shelves || []) {
         const rows = Data.shelfRows(shelf, 32)
-          .filter(r => Data.isPro(r) && !used.has(r[0])).slice(0, 16);
+          .filter(r => Data.isPro(r) && Data.isFilm(r) && !used.has(r[0])).slice(0, 16);
         if (rows.length < 4) continue;
         rows.forEach(r => used.add(r[0]));
         host.append(shelfSection(shelf.title, shelf.subtitle, rows));
       }
       // Hidden Gems (apps' parity row): designed art from the popularity TAIL.
       const tail = Data.rows.slice(Math.floor(Data.rows.length * 0.4));
-      const gems = shuffle(tail.filter(r => Data.isPro(r) && !used.has(r[0]))).slice(0, 16);
+      const gems = shuffle(tail.filter(r => Data.isPro(r) && Data.isFilm(r) && !used.has(r[0]))).slice(0, 16);
       if (gems.length >= 6) {
         gems.forEach(r => used.add(r[0]));
         host.append(shelfSection('Hidden Gems', 'Lovingly restored, rarely watched', gems));
@@ -418,7 +425,7 @@
       // Public Domain Day: this year's newly-free class (currentYear - 95).
       const pdYear = new Date().getFullYear() - 95;
       const pd = shuffle(Data.rows.filter(r =>
-        r[2] === pdYear && Data.isPro(r) && !used.has(r[0]))).slice(0, 16);
+        r[2] === pdYear && Data.isPro(r) && Data.isFilm(r) && !used.has(r[0]))).slice(0, 16);
       if (pd.length >= 6) {
         host.append(shelfSection('Public Domain Day',
           `Class of ${pdYear} — newly free to share`, pd));
@@ -493,7 +500,7 @@
     hero() {
       // A wide pre-screened pool (designed art, popularity-ranked) dealt
       // randomly per visit — the hero is different every time.
-      const pool = shuffle(Data.rows.filter(r => Data.isPro(r)).slice(0, 300)).slice(0, 6);
+      const pool = shuffle(Data.rows.filter(r => Data.isPro(r) && Data.isFilm(r)).slice(0, 300)).slice(0, 6);
       if (!pool.length) return [];
       const el = $('hero');
       const rail = $('hero-rail');
@@ -584,11 +591,15 @@
    * ---------------------------------------------------------------- */
   const TYPES = [
     ['', 'All'], ['feature-film', 'Films'], ['tv-series', 'TV'],
+    ['tv-special', 'TV Specials'],
     ['silent-film', 'Silent'], ['animation', 'Animation'],
     ['short-film', 'Shorts'], ['newsreel', 'Newsreels'],
     ['documentary', 'Documentary'], ['ephemeral', 'Ephemera'],
     ['commercial', 'Commercials'],
   ];
+  // TV never appears in the "All" film grid (owner directive 2026-06-18) — both
+  // series cards and standalone tv-specials are reachable only via their chips.
+  const TV_TYPES = new Set(['tv-series', 'tv-special']);
 
   const Browse = {
     filtered: [],
@@ -601,7 +612,7 @@
       this.controls(type, decade, sort);
 
       this.filtered = Data.rows.filter(r =>
-        (!type || r[3] === type) &&
+        (type ? r[3] === type : !TV_TYPES.has(r[3])) &&
         (!decade || (r[2] && Math.floor(r[2] / 10) * 10 === Number(decade))));
       if (sort === 'az') this.filtered = [...this.filtered].sort((a, b) => a[1].localeCompare(b[1]));
       if (sort === 'new') this.filtered = [...this.filtered].sort((a, b) => (b[2] || 0) - (a[2] || 0));
@@ -754,7 +765,7 @@
       // designed-art random draw, fresh on every visit/re-roll.
       const byType = {};
       for (const r of Data.rows) {
-        if (!Data.isPro(r)) continue;
+        if (!Data.isPro(r) || !Data.isFilm(r)) continue;   // Random Film never lands on TV
         (byType[r[3]] ??= []).push(r);
       }
       const picks = [];
@@ -764,7 +775,7 @@
         const pick = pool[Math.floor(Math.random() * pool.length)];
         if (pick && !seen.has(pick[0])) { seen.add(pick[0]); picks.push(pick); }
       }
-      const pro = Data.rows.filter(r => Data.isPro(r) && !seen.has(r[0]));
+      const pro = Data.rows.filter(r => Data.isPro(r) && Data.isFilm(r) && !seen.has(r[0]));
       while (picks.length < 12 && pro.length) {
         const pick = pro.splice(Math.floor(Math.random() * pro.length), 1)[0];
         seen.add(pick[0]); picks.push(pick);

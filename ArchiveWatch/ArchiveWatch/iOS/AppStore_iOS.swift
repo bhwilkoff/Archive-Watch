@@ -130,6 +130,7 @@ final class AppStore {
     func itemsByIDs(_ ids: [String]) -> [Catalog.Item] { db?.itemsByIDs(ids) ?? [] }
     func related(to item: Catalog.Item) -> [Catalog.Item] { db?.related(to: item) ?? [] }
     func seriesCards() -> [Catalog.Item] { db?.seriesCards() ?? [] }
+    func tvSpecialsCount() -> Int { db?.tvSpecialsCount() ?? 0 }
     func hiddenGems() -> [Catalog.Item] { db?.hiddenGems() ?? [] }
     func topRated() -> [Catalog.Item] { db?.topRated() ?? [] }
     func byCollection(_ id: String) -> [Catalog.Item] { db?.byCollection(id) ?? [] }

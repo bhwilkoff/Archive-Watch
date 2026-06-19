@@ -27,6 +27,7 @@ struct BrowseView: View {
 
     // TV state
     @State private var series: [Catalog.Item] = []
+    @State private var specialsCount = 0
 
     private let types: [(String, String?)] = [
         ("All", nil), ("Films", "feature-film"), ("Silent", "silent-film"),
@@ -56,6 +57,7 @@ struct BrowseView: View {
         .task {
             if items.isEmpty { reload() }
             if series.isEmpty { series = store.seriesCards() }
+            specialsCount = store.tvSpecialsCount()
         }
         .id(store.dbVersion)
     }
@@ -113,6 +115,24 @@ struct BrowseView: View {
 
     private var tvGrid: some View {
         ScrollView {
+            // Standalone TV specials/episodes not folded into a series live here,
+            // OUT of the Films grid (owner directive 2026-06-18). Shown only when present.
+            if specialsCount > 0 {
+                Button {
+                    router.browsePath.append(BrowseFilterRoute(title: "TV Specials",
+                                                               contentType: "tv-special"))
+                } label: {
+                    HStack {
+                        Label("TV Specials", systemImage: "tv")
+                        Spacer()
+                        Text("\(specialsCount)").foregroundStyle(.secondary)
+                        Image(systemName: "chevron.right").font(.footnote).foregroundStyle(.tertiary)
+                    }
+                    .padding(.horizontal).padding(.vertical, 12)
+                }
+                .buttonStyle(.plain)
+                Divider().padding(.leading)
+            }
             LazyVGrid(columns: cols, spacing: 18) {
                 ForEach(series) { card in
                     Button { router.browsePath.append(SeriesRef(card: card)) } label: {

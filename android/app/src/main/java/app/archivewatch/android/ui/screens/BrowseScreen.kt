@@ -70,6 +70,7 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
     var loading by remember { mutableStateOf(true) }
     val items = remember { mutableStateListOf<CatalogItem>() }
     var decades by remember { mutableStateOf<List<Pair<Int, Int>>>(emptyList()) }
+    var specialsCount by remember { mutableIntStateOf(0) }
 
     // Reset + first page whenever a facet, sort, or the DB changes.
     LaunchedEffect(dbVersion, scope, decade, sort) {
@@ -83,6 +84,7 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
             items.addAll(cards)
             total = cards.size
             endReached = true
+            specialsCount = db.tvSpecialsCount()
         } else {
             total = db.browseCount(contentType = scope.contentType, decade = decade)
             val page = db.browse(
@@ -152,6 +154,15 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
+            }
+
+            // Standalone TV specials/episodes not folded into a series — out of
+            // the film grids (owner directive 2026-06-18), reachable here.
+            if (scope == Scope.TV && specialsCount > 0) {
+                TextButton(
+                    onClick = { nav.push(Route.Filtered(title = "TV Specials", contentType = "tv-special")) },
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                ) { Text("TV Specials ($specialsCount) →") }
             }
 
             when {
