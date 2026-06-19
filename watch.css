@@ -369,6 +369,10 @@ input[type="search"] {
   display: inline-block; margin-top: 6px; text-decoration: none;
   font-size: 0.95rem; padding: 10px 18px;
 }
+.store-links {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;
+}
+.store-links a { text-decoration: none; font-size: 0.95rem; padding: 10px 16px; }
 .about-foot { margin: 18px 0 8px; padding: 0; line-height: 1.8; }
 .about-foot a { color: var(--text-dim); font-weight: 600; }
 .about-foot a:hover { color: var(--text); }

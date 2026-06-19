@@ -350,6 +350,7 @@
     let name = seg[0] || 'home';
     if (!VIEWS.includes(name)) name = 'home';
     showView(name);
+    updateSmartBanner(name, seg);
 
     if (name === 'home') Home.render();
     if (name === 'browse') Browse.render(q);
@@ -363,6 +364,19 @@
     if (name === 'collections') Collections.renderList();
     if (name === 'collection') Collections.renderOne(decodeURIComponent(seg[1] || ''));
     if (name === 'cartoons') Cartoons.render();
+  }
+
+  /** Point the iOS Smart App Banner's `app-argument` at the current page's
+      universal link, so "Open" in the native banner deep-links into the app
+      (item/series open their detail; everything else opens to home). Native
+      Safari renders the banner from the meta tag — we only refresh its target. */
+  function updateSmartBanner(name, seg) {
+    const meta = document.querySelector('meta[name="apple-itunes-app"]');
+    if (!meta) return;
+    let arg = 'https://archivewatch.org/';
+    if (name === 'item' && seg[1]) arg += `item/${encodeURIComponent(decodeURIComponent(seg[1]))}`;
+    else if (name === 'series' && seg[1]) arg += `series/${encodeURIComponent(decodeURIComponent(seg[1]))}`;
+    meta.setAttribute('content', `app-id=6776697407, app-argument=${arg}`);
   }
 
   function showView(name) {

@@ -6,6 +6,9 @@
   <title>Archive Watch — watch the public domain</title>
   <meta name="description" content="A cinematheque for the Internet Archive — feature films, classic TV, silent cinema, animation, newsreels. Free, public domain, no account.">
   <meta name="theme-color" content="#0A0A0A">
+  <!-- Native iOS Safari "Get app" banner (iPhone/iPad). app-argument is updated
+       per-route in watch.js so "Open" deep-links to the page you're viewing. -->
+  <meta name="apple-itunes-app" content="app-id=6776697407, app-argument=https://archivewatch.org/">
   <link rel="canonical" href="https://archivewatch.org/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Archive Watch">
@@ -214,8 +217,20 @@
              target="_blank" rel="noopener">Donate to the Internet Archive ↗</a>
         </section>
 
-        <p class="muted about-foot">Also on Apple TV and iPhone — search the
-           App Store for “Archive Watch”.<br>
+        <section class="about-card">
+          <h2>Get the app</h2>
+          <p>Archive Watch is also a native app — on Apple TV, iPhone, and iPad,
+             and on Android. Same catalog, lean-back living-room playback, and
+             (on phones) Clip Studio for making shareable clips.</p>
+          <div class="store-links">
+            <a class="btn-primary" href="https://apps.apple.com/us/app/archive-watch/id6776697407"
+               target="_blank" rel="noopener">App Store (iPhone · iPad · Apple TV) ↗</a>
+            <a class="btn-primary" href="https://play.google.com/store/apps/details?id=com.archivewatch.app"
+               target="_blank" rel="noopener">Google Play (Android) ↗</a>
+          </div>
+        </section>
+
+        <p class="muted about-foot">
            <a href="privacy.html">Privacy</a> · <a href="curate/">Suggest &amp; curate</a></p>
 
         <a class="btn-ghost about-back" href="#/">← Back to Home</a>
@@ -228,6 +243,10 @@
   <footer class="foot">
     <img src="assets/app-icon/app-icon.png" alt="" width="30" height="18">
     <a href="#/about">About &amp; attribution</a>
+    <span aria-hidden="true">·</span>
+    <a href="https://apps.apple.com/us/app/archive-watch/id6776697407" target="_blank" rel="noopener">App Store</a>
+    <span aria-hidden="true">·</span>
+    <a href="https://play.google.com/store/apps/details?id=com.archivewatch.app" target="_blank" rel="noopener">Google Play</a>
     <span aria-hidden="true">·</span>
     <a href="https://archive.org/donate" target="_blank" rel="noopener">Support the Archive</a>
   </footer>

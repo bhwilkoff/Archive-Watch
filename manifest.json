@@ -10,5 +10,10 @@
   "theme_color": "#0A0A0A",
   "icons": [
     { "src": "assets/app-icon/favicon.png", "sizes": "256x256", "type": "image/png", "purpose": "any" }
-  ]
+  ],
+  "related_applications": [
+    { "platform": "play", "id": "com.archivewatch.app", "url": "https://play.google.com/store/apps/details?id=com.archivewatch.app" },
+    { "platform": "itunes", "url": "https://apps.apple.com/us/app/archive-watch/id6776697407" }
+  ],
+  "prefer_related_applications": false
 }

@@ -9,6 +9,14 @@
   moving-image collection, presented with the care of a great repertory house.
 </p>
 
+<p align="center">
+  <a href="https://apps.apple.com/us/app/archive-watch/id6776697407"><b>App Store</b> (iPhone · iPad · Apple TV)</a>
+  &nbsp;·&nbsp;
+  <a href="https://play.google.com/store/apps/details?id=com.archivewatch.app"><b>Google Play</b> (Android)</a>
+  &nbsp;·&nbsp;
+  <a href="https://archivewatch.org/"><b>Web</b></a>
+</p>
+
 ---
 
 **Archive Watch** turns the Internet Archive's vast public-domain library —
@@ -24,7 +32,7 @@ and collects no personal data. It's built for the curious viewer who'd rather
 wander a well-stocked repertory cinema than doomscroll a recommendation feed.
 
 - **Primary platform:** tvOS 17+ (built against **tvOS 26 / Liquid Glass**)
-- **Status:** in TestFlight; preparing for App Store submission
+- **Status:** live on the App Store (iOS · iPadOS · tvOS) and Google Play (Android); web app at [archivewatch.org](https://archivewatch.org/)
 - **Catalog:** ~37,000 public-domain titles, enriched and curated
 
 ## Features
