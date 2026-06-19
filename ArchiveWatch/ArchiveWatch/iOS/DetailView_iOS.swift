@@ -56,8 +56,22 @@ struct DetailView: View {
                             .buttonStyle(.bordered)
                         }
 
-                        ShareLink(item: shareURL) { Image(systemName: "square.and.arrow.up") }
-                            .buttonStyle(.bordered)
+                        Menu {
+                            if Callsheet.supports(item) {
+                                Button { Callsheet.open(Callsheet.url(for: item)) } label: {
+                                    Label("Open in Callsheet", systemImage: "person.text.rectangle")
+                                }
+                            }
+                            ShareLink(item: shareURL) {
+                                Label("Share link…", systemImage: "square.and.arrow.up")
+                            }
+                            Link(destination: archiveOrgURL) {
+                                Label("View on archive.org", systemImage: "globe")
+                            }
+                        } label: {
+                            Image(systemName: "square.and.arrow.up")
+                        }
+                        .buttonStyle(.bordered)
                     }
 
                     if let s = item.synopsis, !s.isEmpty {
@@ -101,6 +115,9 @@ struct DetailView: View {
     }
     private var shareURL: URL {
         URL(string: "https://archivewatch.org/item/\(item.archiveID)")!
+    }
+    private var archiveOrgURL: URL {
+        URL(string: "https://archive.org/details/\(item.archiveID)") ?? shareURL
     }
 
     /// Detail wants sharper art than shelf tiles: upgrade known CDN size tokens

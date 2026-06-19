@@ -1414,3 +1414,34 @@ changed (additive/internal). Other Android `PlaySpec(` call sites (channels,
 explore, series) pass no description yet — the overlay shows title-only there
 until they're wired (follow-up). Per-platform binding docs to note the new
 overlay surface.
+
+---
+
+## 038 — "Open in Callsheet" via the callsheet:// URL scheme (iOS only)
+*Date: 2026-06-19*
+
+The iOS/iPadOS app deep-links a title into **Callsheet** (the cast/crew
+companion app) from an actions menu on the share button — Detail and
+SeriesDetail (series + per-episode context menu). Uses Callsheet's public URL
+scheme (callsheetapp.com/url-schemes): `callsheet://open/movie/{tmdbID}` /
+`callsheet://open/tv/{tmdbID}` when we hold a `tmdbID` (47% of titles), else the
+title-search fallback `callsheet://search/{movie|tv}?q={title}` (Callsheet
+ignores the media type on search, so any nameable title resolves; episodes add
+`&season=&episode=`). If Callsheet isn't installed, `UIApplication.open`'s
+completion fires `false` and we open its App Store page (id1672356376) — the
+native "get the app" fallback. Logic lives in `Callsheet` (CallsheetLink_iOS.swift).
+
+**Why**: owner request + Callsheet's author (Casey Liss) endorsing the URL-scheme
+approach over Shortcuts. Callsheet is iPhone/iPad ONLY, so this is an iOS feature
+— tvOS/Android can't open it (no app), and a browser can't detect install or
+fall back cleanly, so web is out. TMDB ids are required by Callsheet (no IMDb);
+we already store `tmdbID`, and search covers the rest.
+
+**How to apply**: keep it to films + TV (`Callsheet.supports` — newsreel/
+ephemeral/home-movie/commercial have no Callsheet entry). Opening a scheme needs
+NO Info.plist entry (only `canOpenURL` would need `LSApplicationQueriesSchemes`);
+the completion-handler fallback avoids that. Do not scrape or use undocumented
+endpoints — only the published open/search scheme. Person deep-links
+(`callsheet://open/person/{id}`) are possible but BLOCKED until the catalog's
+`CastMember` carries a TMDB person id (today it stores only name + profilePath) —
+a pipeline enhancement, not done here.

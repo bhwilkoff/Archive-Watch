@@ -100,6 +100,7 @@ this table in the same change set; cross-link the platform design doc.
 | More Like This | ✅ | ✅ | ✅ (type + era ±15y, designed art) | ✅ | shared `related` query |
 | Cast → person filmography | ✅ PersonChip → FTS names browse | ✅ tappable bubbles → byPerson grid | ⏳ (blocked on FTS upgrade, WEB-DESIGN §2.5) | ✅ tappable cast → FTS person grid | audit addition 2026-06-12 |
 | Share titles / series | ✅ ShareSheet + QR | ✅ ShareLink (item + series) | ✅ share menu + open-in-app (item + series) | ✅ ACTION_SEND (item) | archivewatch.org/item|series URLs (Decision 030) |
+| Open in Callsheet (cast/crew app) | n/a (Callsheet is iPhone/iPad only) | ✅ actions menu on Detail + SeriesDetail (+ per-episode); App Store fallback | n/a | n/a | Decision 038; `callsheet://open\|search` by tmdbID/title |
 | Now Playing / lock-screen media controls | ✅ externalMetadata (tvOS Info panel) | ✅ AVKit (lock screen + Control Center) | ✅ MediaSession (metadata + play/pause/seek/next/prev) | ✅ Media3 MediaSession | audit addition 2026-06-12 |
 | Title+description in player (with controls) | ✅ native Info tab + externalMetadata (owner-approved as-is) | ✅ native `externalMetadata` (AVKit chrome, synced — the Apple TV app's way) | ✅ `.player-overlay` mirrors control activity (pointer/touch + 3.2s) | ✅ Media3 `setControllerVisibilityListener` (exact) | Decision 037; owner request 2026-06-18 (mobile + web) |
 | Video playback | ✅ AVPlayerVC | ✅ AVPlayerVC (reused) | ✅ HTML5 `<video>` in `<dialog>` | ✅ Media3 `PlayerView` | |

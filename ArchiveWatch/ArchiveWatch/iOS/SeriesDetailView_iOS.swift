@@ -51,7 +51,16 @@ struct SeriesDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                ShareLink(item: shareURL) { Image(systemName: "square.and.arrow.up") }
+                Menu {
+                    Button { Callsheet.open(Callsheet.url(for: card)) } label: {
+                        Label("Open in Callsheet", systemImage: "person.text.rectangle")
+                    }
+                    ShareLink(item: shareURL) {
+                        Label("Share link…", systemImage: "square.and.arrow.up")
+                    }
+                } label: {
+                    Image(systemName: "square.and.arrow.up")
+                }
             }
         }
         .fullScreenCover(item: $playingEpisode) { ep in
@@ -109,6 +118,15 @@ struct SeriesDetailView: View {
             ForEach(shownEpisodes) { ep in
                 Button { playingEpisode = ep } label: { EpisodeRow(episode: ep) }
                     .buttonStyle(.plain)
+                    .contextMenu {
+                        Button {
+                            Callsheet.open(Callsheet.episodeURL(
+                                seriesTitle: series?.title ?? card.title,
+                                season: ep.seasonNumber, episode: ep.episodeNumber))
+                        } label: {
+                            Label("Open in Callsheet", systemImage: "person.text.rectangle")
+                        }
+                    }
             }
         }
     }
