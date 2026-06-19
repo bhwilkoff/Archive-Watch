@@ -96,6 +96,12 @@ struct Catalog: Decodable, Sendable {
         // unchanged.
         let colorMode: String?
 
+        // Subtitle/caption tracks (tools/enrich_subtitles.py). Additive +
+        // optional. Each is a side-loadable track the players attach to the
+        // progressive MP4 (archive.org's own ASR captions, OpenSubtitles, or
+        // generated). nil/absent = no captions known yet.
+        let captions: [Caption]?
+
         var id: String { archiveID }
         var posterURLParsed: URL? { posterURL.flatMap(URL.init(string:)) }
         var backdropURLParsed: URL? { backdropURL.flatMap(URL.init(string:)) }
@@ -204,6 +210,20 @@ struct Catalog: Decodable, Sendable {
         let character: String?
         let order: Int
         let profilePath: String?
+    }
+
+    /// A subtitle/caption track that players side-load onto the video.
+    /// `format` is "srt" or "vtt"; web/Apple convert SRT→VTT, Android plays
+    /// either natively. `source` records provenance (archive-asr, archive,
+    /// opensubtitles, generated) for labeling + attribution.
+    struct Caption: Decodable, Sendable, Hashable {
+        let lang: String            // BCP-47-ish: "en", "es", "fr", …
+        let label: String?          // display label, e.g. "English (auto)"
+        let format: String          // "srt" | "vtt"
+        let url: String
+        let source: String?
+        var urlParsed: URL? { URL(string: url) }
+        var displayLabel: String { label ?? lang.uppercased() }
     }
 }
 

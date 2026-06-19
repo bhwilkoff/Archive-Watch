@@ -34,6 +34,9 @@ data class CatalogItem(
     val rightsStatus: String? = null,
     val seriesID: String? = null,
     val episodesCount: Int? = null,
+    // Subtitle/caption tracks (tools/enrich_subtitles.py) — side-loaded onto the
+    // Media3 player via SubtitleConfiguration. Additive + optional.
+    val captions: List<Caption>? = null,
 ) {
     // Derived predicates mirrored from the Swift model (contract §7).
     val hasDesignedArtwork: Boolean
@@ -98,6 +101,19 @@ data class CastMember(
         get() = profilePath?.let {
             if (it.startsWith("http")) it else "https://image.tmdb.org/t/p/w185$it"
         }
+}
+
+/** A side-loadable subtitle/caption track (tools/enrich_subtitles.py).
+    Media3 plays SRT + VTT natively via SubtitleConfiguration. */
+@Serializable
+data class Caption(
+    val lang: String,
+    val label: String? = null,
+    val format: String = "srt",
+    val url: String,
+    val source: String? = null,
+) {
+    val displayLabel: String get() = label ?: lang.uppercase()
 }
 
 // --- featured.json (contract §6.1) ---

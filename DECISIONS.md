@@ -1448,3 +1448,50 @@ endpoints — only the published open/search scheme. Person deep-links
 (`callsheet://open/person/{id}`) are possible but BLOCKED until the catalog's
 `CastMember` carries a TMDB person id (today it stores only name + profilePath) —
 a pipeline enhancement, not done here.
+
+---
+
+## 039 — Subtitles: layered sources, side-loaded as tracks; archive.org ASR first
+*Date: 2026-06-19*
+
+Subtitles are delivered as a new additive `captions` field on each catalog item
+(`[{lang, label, format, url, source}]`) that every client SIDE-LOADS onto the
+progressive MP4 — never re-encoded into the video. Coverage is layered across
+sources, cheapest/cleanest first:
+1. **archive.org's own caption files** (`tools/enrich_subtitles.py`, Phase 1):
+   most Archive video items ship auto-generated ASR captions (`<name>.asr.srt`)
+   or uploader subs (`.srt`/`.vtt`, sometimes `Film.es.srt`). FREE, already
+   hosted on the same item we stream, zero ToS/redistribution issue. Measured
+   ~33% of films overall, ~73% of the most popular — the backbone.
+2. **OpenSubtitles** by imdb/tmdb id (Phase 3): human-made, multi-language, for
+   titles Archive didn't caption. Non-commercial use + a back-link are their ToS
+   conditions — Archive Watch is free/non-commercial (Decision 010), so it fits;
+   fetch on-demand (download caps) and attribute.
+3. **Whisper-generated VTT** (Phase 4): fills the remaining gaps. We own the
+   output (the films are public domain), so it's freely hostable like covers.
+
+**Why**: owner wants robust coverage across all titles, multi-language, even via
+multiple sources. No single community DB covers obscure PD films, but archive.org
+already ASR-captions a large share for free, so it's the backbone; the others
+layer on. Side-loading (not burning into video) keeps the highest-quality
+derivative (Decision 021) untouched and lets the user pick a language.
+
+**How to apply (per-platform mechanics — they differ a LOT)**:
+- **Android** (Media3): EASY — `MediaItem.SubtitleConfiguration` side-loads SRT
+  or VTT directly. Native.
+- **Web** (`<video>`): EASY — a `<track kind="subtitles">`, but the element
+  requires **VTT**, so convert SRT→VTT client-side (trivial: WEBVTT header +
+  `,`→`.` in timestamps) into a blob URL.
+- **Apple** (iOS/tvOS, AVPlayer): HARD — AVPlayer cannot side-load a sidecar
+  `.vtt`/`.srt` onto a progressive MP4. The native path is to synthesize an HLS
+  master playlist (MP4 variant + `EXT-X-MEDIA:TYPE=SUBTITLES` → a VTT subtitle
+  playlist) via an `AVAssetResourceLoaderDelegate`. This COLLIDES with
+  `ResilientStreamLoader` (Decision 021/031): going HLS hands the connection back
+  to AVFoundation and loses the resume-on-reset resilience. So Apple subtitles
+  need a careful design (e.g. a subtitle-only HLS layer that still streams the
+  MP4 bytes through our loader) and on-device validation — deferred, NOT done in
+  Phase 1. Don't naively swap the progressive MP4 for HLS.
+
+Phase 1 (this entry): the pipeline + the `captions` schema on the Swift + Kotlin
+models + the weekly `subtitles.yml`. The per-platform players (web `<track>`,
+Android `SubtitleConfiguration`, the Apple HLS layer) are the next phases.
