@@ -2944,9 +2944,32 @@
           "downloadURL": "https://archive.org/download/saturday-night-live-s-25-e-06-jennifer-aniston-sting_202501/Saturday Night Live S25E06 Jennifer Aniston, Sting.mp4"
         }
       ]
+    },
+    {
+      "seasonNumber": 41,
+      "episodes": [
+        {
+          "archiveID": "saturday-night-live-s-41-e-12-larry-david_202501",
+          "seasonNumber": 41,
+          "episodeNumber": 12,
+          "title": "Larry David / The 1975",
+          "overview": "Larry David hosts; The 1975 performs.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/78/195015.jpg",
+          "airDate": "2016-02-06",
+          "year": 2016,
+          "runtimeSeconds": 5400,
+          "videoFile": {
+            "name": "Saturday Night Live S41E12 Larry David.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 529529347,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-41-e-12-larry-david_202501/Saturday Night Live S41E12 Larry David.mp4"
+        }
+      ]
     }
   ],
-  "episodesCount": 156,
+  "episodesCount": 157,
   "canonicalEpisodesCount": 1008,
   "tvdbID": "76177",
   "artworkSource": "tvdb",

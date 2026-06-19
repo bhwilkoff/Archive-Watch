@@ -1,0 +1,105 @@
+{
+  "version": 2,
+  "seriesID": "get-smart-1965",
+  "tvmazeID": 4340,
+  "title": "Get Smart",
+  "yearStart": 1965,
+  "yearEnd": 1970,
+  "overview": "In 1965 the cold war was made a little warmer and a lot funnier due in part to the efforts of an inept, underpaid, overzealous spy: Maxwell Smart, Agent 86. The hit comedy series Get Smart is the creation of comic geniuses Buck Henry and Mel Brooks.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70386-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy",
+    "Science-Fiction",
+    "Espionage"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "get-smart-s-04-e-08-the-return-of-the-ancient-mariner.mp-4",
+          "seasonNumber": 4,
+          "episodeNumber": 8,
+          "title": "The Return of the Ancient Mariner",
+          "overview": "With an attempt to kidnap Admiral Hardgrade in the works, Max has him stay in his apartment.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/235/588520.jpg",
+          "airDate": "1968-11-09",
+          "year": 1968,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Get Smart S04E08 (The Return of the Ancient Mariner).mp4.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 153349642,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/get-smart-s-04-e-08-the-return-of-the-ancient-mariner.mp-4/Get%20Smart%20S04E08%20%28The%20Return%20of%20the%20Ancient%20Mariner%29.mp4.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 138,
+  "tvdbID": "70386",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Don Adams",
+      "character": "Maxwell Smart",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/270713/photo/63209386adb7b.jpg"
+    },
+    {
+      "name": "Barbara Feldon",
+      "character": "Agent 99",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259197/photo/61e09c2f74c9b.jpg"
+    },
+    {
+      "name": "Edward Platt",
+      "character": "Chief",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259047/photo/64942c7253ae2.jpg"
+    },
+    {
+      "name": "Bernie Kopell",
+      "character": "Siegfried",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/257477/5e9c9a65bfc49.jpg"
+    },
+    {
+      "name": "King Moody",
+      "character": "Starker",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/277606/photo/61e09d281244e.jpg"
+    },
+    {
+      "name": "Robert Karvelas",
+      "character": "Larabee",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/308531/photo/61e09de91c879.jpg"
+    },
+    {
+      "name": "Victor French",
+      "character": "Agent 44",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259629/photo/660c030d61de9.jpg"
+    },
+    {
+      "name": "David Ketchum",
+      "character": "Agent 13",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261656/photo/61e09d99aebbc.jpg"
+    },
+    {
+      "name": "Jane Dulo",
+      "character": "99's Mother",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/276390/photo/61e09b71e0442.jpg"
+    }
+  ]
+}

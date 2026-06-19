@@ -1,0 +1,98 @@
+{
+  "version": 2,
+  "seriesID": "it-s-about-time-1966",
+  "tvmazeID": 15850,
+  "title": "It's About Time",
+  "yearStart": 1966,
+  "yearEnd": 1967,
+  "overview": "It's about time, it's about space, about strange people in the strangest place. That is what this show is about. Hector and Mac are two astronauts who break the time barrier and travel back in time to the prehistoric period. Gronk is a cave man with his wife Shadd. In the middle of its run due to low ratings, the creators reversed the concept so that Hector and Mac made it to the twentieth century. They brought with them the prehistoric group.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77540-3.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy",
+    "Science-Fiction"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Have I Got a Girl for You",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265.0a3dd711.jpg",
+          "airDate": "1966-11-06",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "It's About Time/Season 01/It's About Time (1966) - S01E09 - Have I Got a Girl for You - 480p 1.0 HDTV h265.mp4",
+            "format": "h.264",
+            "sizeBytes": 147640268,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It%27s%20About%20Time/Season%2001/It%27s%20About%20Time%20%281966%29%20-%20S01E09%20-%20Have%20I%20Got%20a%20Girl%20for%20You%20-%20480p%201.0%20HDTV%20h265.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 26,
+  "tvdbID": "77540",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Jack Mullaney",
+      "character": "Hector",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265690/photo/64943c801a66b.jpg"
+    },
+    {
+      "name": "Pat Cardi",
+      "character": "Breer",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Mary Grace",
+      "character": "Mlor",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Cliff Norton",
+      "character": "Boss",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Imogene Coca",
+      "character": "Shadd",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257516/photo/64b9a4d94b07b.jpg"
+    },
+    {
+      "name": "Joe E. Ross",
+      "character": "Gronk",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/276907/photo/63f9f9aa0a5c3.jpg"
+    },
+    {
+      "name": "Frank Aletter",
+      "character": "Mac",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256881/photo/63b34f41a43df.jpg"
+    },
+    {
+      "name": "Mike Mazurki",
+      "character": "Clon",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265071/photo/6493b21276b9b.jpg"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "version": 2,
+  "seriesID": "in-search-of-1977",
+  "tvmazeID": 1476,
+  "title": "In Search of.....",
+  "yearStart": 1977,
+  "yearEnd": 2002,
+  "overview": "Leonard Nimoy, hosts and narrates this documentary series that takes you to the world of Unsolved Mysteries and those strange and unusual things in the world that defy explanation and often understanding. The world is filled with unexplained mysteries, paranormal phenomena, strange creatures, and other things that go bump in the night. The topics are entertaining and engrossing. Lost civilizations, extraterrestrials, myths and monsters, missing persons, magic and witchcraft, unexplained phenomena. In Search Of cameras travel the world, seeking out these great mysteries. This program was the result the work of scientists, researchers and a group of highly-skilled technicians and results in a series of programs that are varied and each is worth viewing..",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71309-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Mystery",
+    "History",
+    "Supernatural"
+  ],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "Cryogenics",
+          "overview": "Cryogenics: Scientists are discovering new methods to prolong human life and, in the case of cryogenics, to suspend the possibility of life for centuries.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/517/1293207.jpg",
+          "airDate": "1978-10-19",
+          "year": 1978,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/S03E06 - Cryogenics.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 919645805,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/S03E06%20-%20Cryogenics.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 152,
+  "tvdbID": "71309",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Leonard Nimoy",
+      "character": "Host (1977 - 1982)",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/253725/62087665.jpg"
+    },
+    {
+      "name": "Mitch Pileggi",
+      "character": "Host (2002)",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Zachary Quinto",
+      "character": "Host (2018-)",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/268766/25868241.jpg"
+    }
+  ]
+}

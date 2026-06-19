@@ -1,0 +1,45 @@
+{
+ "version": 2,
+ "seriesID": "gamecenter-cx-2003",
+ "tvmazeID": 12968,
+ "title": "GameCenter CX",
+ "yearStart": 2003,
+ "yearEnd": null,
+ "overview": "GameCenter CX is a Japanese gaming-variety show starring Shinya Arino, who plays home console video games from previous decades and usually attempts to get the game's ending within a single day. He is supported by the show's assistant directors and sometimes other staff, both via moral support and actual gameplay. He also is featured in segments interspersed throughout the episodes where he goes to local arcade centers, as well as segments where he does a variety of things, such as interviews with game designers, showcasing classic console hardware or games, or a made up game show where the staff participate.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/44/111417.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "Fuji TV"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 6,
+   "episodes": [
+    {
+     "archiveID": "e4c96f04fafac6f2a88b986369bfae50",
+     "seasonNumber": 6,
+     "episodeNumber": 7,
+     "title": "Septentrion (SOS)",
+     "overview": null,
+     "stillURL": "https://archive.org/download/archivewatch-covers/e4c96f04fafac6f2a88b986369bfae50.b31d9426.jpg",
+     "airDate": "2007-02-07",
+     "year": 2007,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "GameCenter_CX_S06E07_-S.O.S.__SomethingAwfulGCCX_.mp4",
+      "format": "h.264",
+      "sizeBytes": 361060281,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/e4c96f04fafac6f2a88b986369bfae50/GameCenter_CX_S06E07_-S.O.S.__SomethingAwfulGCCX_.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 1,
+ "canonicalEpisodesCount": 430
+}

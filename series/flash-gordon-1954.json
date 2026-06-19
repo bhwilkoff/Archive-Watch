@@ -92,6 +92,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/FlashGordon-TheBrainMachine-1955/FlashGordon121-TheBrainMachine.mp4"
+        },
+        {
+          "archiveID": "flash-gordon-s-01-e-23-the-water-world-mennace",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "The Water World Menace",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/flash-gordon-s-01-e-23-the-water-world-mennace.009d8d2f.jpg",
+          "airDate": "1955-03-25",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Flash Gordon - S01E23 - The Water World Mennace.mp4",
+            "format": "h.264",
+            "sizeBytes": 155245198,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/flash-gordon-s-01-e-23-the-water-world-mennace/Flash Gordon - S01E23 - The Water World Mennace.mp4"
         }
       ]
     },
@@ -173,7 +191,7 @@
       ]
     }
   ],
-  "episodesCount": 8,
+  "episodesCount": 9,
   "canonicalEpisodesCount": 39,
   "tvdbID": "70331",
   "artworkSource": "tvdb",
@@ -208,8 +226,5 @@
       "order": 4,
       "profilePath": "https://artworks.thetvdb.com/banners/person/8169003/5ebddabe149e6.jpg"
     }
-  ],
-  "seriesImdbID": "tt0140738",
-  "canonicalEpisodeCount": 12,
-  "canonicalSeasons": 1
+  ]
 }

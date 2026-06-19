@@ -1,0 +1,109 @@
+{
+  "version": 2,
+  "seriesID": "the-life-of-riley-1949",
+  "tvmazeID": 24262,
+  "title": "The Life of Riley",
+  "yearStart": 1949,
+  "yearEnd": 1950,
+  "overview": "The first of two televised versions based on the radio series, Jackie Gleason played Chester A. Riley, a riveter with Stevenson Aircraft and Associates. He lived with his wife Peggy; and their children, Babs and Junior.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/75736-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Night School",
+          "overview": null,
+          "stillURL": "https://m.media-amazon.com/images/M/MV5BYzNkNmJjYWEtOTFlOC00ZjUxLTk0NWYtZDk1Mzc5YjI4ZTFhXkEyXkFqcGdeQXVyMDUyOTUyNQ@@._V1_SX300.jpg",
+          "airDate": "1949-12-06",
+          "year": 1949,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life Of Riley S01 E10 Night School.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 62619489,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20Of%20Riley%20S01%20E10%20Night%20School.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 26,
+  "tvdbID": "75736",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Jackie Gleason",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/255018/photo/683bb6d34871a.jpg"
+    },
+    {
+      "name": "Lanny Rees",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Bill Green",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Gloria Winters",
+      "character": "",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/260322/photo/63eea8dfc89e2.jpg"
+    },
+    {
+      "name": "George McDonald",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "John Brown",
+      "character": "",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Bob Jellison",
+      "character": "",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Sid Tomack",
+      "character": "",
+      "order": 7,
+      "profilePath": null
+    },
+    {
+      "name": "Rosemary DeCamp",
+      "character": "",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257647/photo/64bab99d8f5f7.jpg"
+    },
+    {
+      "name": "Maxine Semon",
+      "character": "",
+      "order": 9,
+      "profilePath": null
+    }
+  ]
+}

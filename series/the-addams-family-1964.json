@@ -1,0 +1,141 @@
+{
+  "version": 2,
+  "seriesID": "the-addams-family-1964",
+  "tvmazeID": 4042,
+  "title": "The Addams Family",
+  "yearStart": 1964,
+  "yearEnd": 1966,
+  "overview": "The Addams Family is the creation of American cartoonist Charles Addams. A satirical inversion of the ideal of the perfect American nuclear family, they are an eccentric wealthy family who delight in everything grotesque and macabre, and are never really aware that people find them bizarre or frightening. In fact, they themselves are often terrified by \"normal\" people.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77137-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy",
+    "Family",
+    "Horror"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-addams-family__season-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Addams Family",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/the-addams-family__season-1.e1830822.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Addams Family -- 1x24 -- Crisis in the Addams Family.mp4",
+            "format": "h.264",
+            "sizeBytes": 154705348,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-addams-family__season-1/The Addams Family -- 1x24 -- Crisis in the Addams Family.mp4"
+        },
+        {
+          "archiveID": "the-addams-family__season-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Addams Family",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/the-addams-family__season-2.722808f4.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Addams Family -- 2x23 -- Morticia, the Decorator.mp4",
+            "format": "h.264",
+            "sizeBytes": 150994146,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-addams-family__season-2/The Addams Family -- 2x23 -- Morticia, the Decorator.mp4"
+        },
+        {
+          "archiveID": "the-addams-family_202510",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Addams Family",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Addams Family S1 E28 - My Son the Chimp.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 559481480,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-family_202510/The%20Addams%20Family%20S1%20E28%20-%20My%20Son%20the%20Chimp.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3,
+  "canonicalEpisodesCount": 64,
+  "tvdbID": "77137",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Carolyn Jones",
+      "character": "Morticia Addams",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264267/photo/641b6e663e453.jpg"
+    },
+    {
+      "name": "John Astin",
+      "character": "Gomez Addams",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257373/photo/68b83690dea6e.jpg"
+    },
+    {
+      "name": "Jackie Coogan",
+      "character": "Fester Frump",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/52992.jpg"
+    },
+    {
+      "name": "Ted Cassidy",
+      "character": "Lurch",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/289542/photo/61dbc09245ba0.jpg"
+    },
+    {
+      "name": "Marie Blake",
+      "character": "Grandmama Addams",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/52997.jpg"
+    },
+    {
+      "name": "Lisa Loring",
+      "character": "Wednesday Addams",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/361733/photo/63d888f1c4de7.jpg"
+    },
+    {
+      "name": "Ken Weatherwax",
+      "character": "Pugsley Addams",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/52999.jpg"
+    },
+    {
+      "name": "Thing",
+      "character": "Itself",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/557201.jpg"
+    },
+    {
+      "name": "Felix Silla",
+      "character": "Itt",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/318247/photo/60cfdf25c1a77.jpg"
+    }
+  ]
+}

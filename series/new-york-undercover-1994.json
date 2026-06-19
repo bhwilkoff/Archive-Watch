@@ -1,0 +1,151 @@
+{
+  "version": 2,
+  "seriesID": "new-york-undercover-1994",
+  "tvmazeID": 5598,
+  "title": "New York Undercover",
+  "yearStart": 1994,
+  "yearEnd": 1999,
+  "overview": "New York Undercover is an American television police procedural series chronicling the work of the New York Police Department's 4th Precinct. It ran for four seasons on the FOX network from 1994 to 1998. Filmed on location in New York, NYU is a show about a squad of young urban detectives, J.C. Williams, a recently separated cop trying to be a good father to his son, and Eddie Torres, a young Puerto Rican who struggles with his heritage, who work the streets of New York undercover. Despite all the pain and troubles they go through with their lives, whether it involved their cases or home life, at the end of the day, they relax to the smooth music performed by different artists at Natalie's.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76233-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Crime"
+  ],
+  "networks": [
+    "FOX"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "NewYorkUndercoverS1E16",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Mama Said Knock You Out",
+          "overview": "Detectives JC and Torres investigate a drug on streets that took the life of a promising boxer.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/266/667339.jpg",
+          "airDate": "1995-02-02",
+          "year": 1995,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "New-York-Undercover-_S1E16_.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 348474073,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NewYorkUndercoverS1E16/New-York-Undercover-_S1E16_.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "NewYorkUndercoverS4E11GoingNative",
+          "seasonNumber": 4,
+          "episodeNumber": 11,
+          "title": "Going Native",
+          "overview": "The unit goes after the leader of a criminal empire who is extorting money from several businesses in Manhattan. This case turns personal for Barker when he is reunited with an old flame and is treated like family by the target. Meanwhile JC and Nina try to find where their relationship is at after sleeping together.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/267/667592.jpg",
+          "airDate": "1998-06-11",
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "New-York-Undercover-_S4E11-Going-Native_.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 465692121,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NewYorkUndercoverS4E11GoingNative/New-York-Undercover-_S4E11-Going-Native_.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 89,
+  "tvdbID": "76233",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Malik Yoba",
+      "character": "Detective J.C. Williams",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/255811/photo/62388d6c39be6.jpg"
+    },
+    {
+      "name": "Michael DeLorenzo",
+      "character": "Detective Eddie Torres",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/44398.jpg"
+    },
+    {
+      "name": "Patti D'Arbanville",
+      "character": "Lt. Virginia Cooper",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253852/photo/6783af8767116.jpg"
+    },
+    {
+      "name": "Lauren Velez",
+      "character": "Detective Nina Moreno",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/44395.jpg"
+    },
+    {
+      "name": "Jonathan LaPaglia",
+      "character": "Detective Tommy McNamara",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/317085/photo/619f1d26a7d5d.jpg"
+    },
+    {
+      "name": "Marisa Ryan",
+      "character": "Detective Nell Delaney",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/44392.jpg"
+    },
+    {
+      "name": "Josh Hopkins",
+      "character": "Detective Alec Stone",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/303927/photo/608c7621ba9d5.jpg"
+    },
+    {
+      "name": "Thomas Mikal Ford",
+      "character": "Lt. Malcolm Barker",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/309309/photo/62aea477dd056.jpg"
+    },
+    {
+      "name": "Michael Michele",
+      "character": "Sandy Gill",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/272962/photo/68d04d8fa489d.jpg"
+    },
+    {
+      "name": "George O. Gore II",
+      "character": "Gregory \"G\" Williams",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253254/photo/631dd0af4b85c.jpg"
+    },
+    {
+      "name": "Fatima Faloye",
+      "character": "Chantel Tierney",
+      "order": 10,
+      "profilePath": null
+    },
+    {
+      "name": "Dick Wolf",
+      "character": "",
+      "order": 11,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/339992/photo/63713fb07c0e7.jpg"
+    },
+    {
+      "name": "Kevin Arkadie",
+      "character": "",
+      "order": 12,
+      "profilePath": null
+    }
+  ]
+}

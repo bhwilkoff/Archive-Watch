@@ -40,6 +40,24 @@
           "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E01E02.BluRay.1080p.AC3.H265-d3g.mp4"
         },
         {
+          "archiveID": "knight.-rider.-s-01-e-03.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Good Day at White Rock",
+          "overview": "Michael's vacation plans in a peaceful town are interrupted by a gang of malicious bikers and a frightened sheriff.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323019.jpg",
+          "airDate": "1982-10-08",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Knight.Rider.S01E03.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 285940953,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-03.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E03.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
           "archiveID": "knight.-rider.-s-01-e-04.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
           "seasonNumber": 1,
           "episodeNumber": 4,
@@ -1569,7 +1587,7 @@
       ]
     }
   ],
-  "episodesCount": 85,
+  "episodesCount": 86,
   "canonicalEpisodesCount": 84,
   "tvdbID": "77216",
   "artworkSource": "tvdb",

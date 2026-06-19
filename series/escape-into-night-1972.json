@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "seriesID": "escape-into-night-1972",
+  "tvmazeID": 24994,
+  "title": "Escape Into Night",
+  "yearStart": 1972,
+  "yearEnd": 1972,
+  "overview": "Compelled to find her own amusement whilst confined to bed after a riding accident, Marianne fills her sketchpad with drawings of an imaginary place. When she sleeps she dreams of her imaginary world and realises that the more she draws in her waking hours, the more she can explore when she sleeps. She draws a house to investigate in her dreams and is shocked to find a boy looking at her through one of its windows...",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/215111-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Children",
+    "Fantasy"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "escape_into_night",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/escape_into_night.2265dfcb.jpg",
+          "airDate": "1972-05-17",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01.E05.mp4",
+            "format": "h.264",
+            "sizeBytes": 148107108,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/escape_into_night/S01.E05.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 6,
+  "tvdbID": "215111",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Vikki Chambers",
+      "character": "Marianne Austin",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Sonia Graham",
+      "character": "Mrs Austen",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Steven Jones",
+      "character": "Mark",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Patricia Maynard",
+      "character": "Miss Chesterfield",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Edmund Pegge",
+      "character": "Dr Burton",
+      "order": 4,
+      "profilePath": null
+    }
+  ]
+}

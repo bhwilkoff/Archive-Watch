@@ -126,9 +126,32 @@
           "downloadURL": "https://archive.org/download/pinklady6/pink lady 6.ia.mp4"
         }
       ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "krofft-supershow-s-2-e-11",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Show 27",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/174/435547.jpg",
+          "airDate": "1977-11-19",
+          "year": 1977,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "KROFFT SUPERSHOW S2E11.mp4",
+            "format": "h.264",
+            "sizeBytes": 276051811,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/krofft-supershow-s-2-e-11/KROFFT SUPERSHOW S2E11.mp4"
+        }
+      ]
     }
   ],
-  "episodesCount": 6,
+  "episodesCount": 7,
   "canonicalEpisodesCount": 32,
   "tvdbID": "73405",
   "cast": [
@@ -162,8 +185,5 @@
       "order": 4,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0074014",
-  "canonicalEpisodeCount": 29,
-  "canonicalSeasons": 2
+  ]
 }

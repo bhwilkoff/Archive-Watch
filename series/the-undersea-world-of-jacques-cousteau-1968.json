@@ -1,0 +1,56 @@
+{
+  "version": 2,
+  "seriesID": "the-undersea-world-of-jacques-cousteau-1968",
+  "tvmazeID": 26058,
+  "title": "The Undersea World of Jacques Cousteau",
+  "yearStart": 1968,
+  "yearEnd": 1976,
+  "overview": "The Undersea World of Jacques Cousteau is a nonfiction documentary television series focusing on marine biodiversity, directed by Alan Landsburg and hosted by French filmmaker, researcher and marine explorer, Jacques Cousteau. It also featured his family including sons Jean-Michel and Philippe-Pierre, along with grandson Fabian Cousteau. English narration was by Richard Johnson (BBC version) and Rod Serling (US edition).",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/186581/posters/641ed23f645fc.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Nature",
+    "Travel"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-undersea-world-of-jacques-cousteau-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "The Incredible March of the Spiny Lobsters",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/the-undersea-world-of-jacques-cousteau-1976.6a0a91dd.jpg",
+          "airDate": "1976-05-30",
+          "year": 1976,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "files/S01E36 - The Incredible March of the Spiny Lobsters.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 500439532,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E36%20-%20The%20Incredible%20March%20of%20the%20Spiny%20Lobsters.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 36,
+  "tvdbID": "186581",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Jacques-Yves Cousteau",
+      "character": "Jacques-Yves Cousteau",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/292058.jpg"
+    }
+  ]
+}

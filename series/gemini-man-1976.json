@@ -1,0 +1,87 @@
+{
+  "version": 2,
+  "seriesID": "gemini-man-1976",
+  "tvmazeID": 3659,
+  "title": "Gemini Man",
+  "yearStart": 1976,
+  "yearEnd": 1976,
+  "overview": "Sam Casey is an agent for INTERSECT, a government think-tank and operations center specilizing in secret missions. While on a diving assignment, Sam was affected by the radiation from an underwater explosion. The radiation rendered him invisible, but INTERSECT devised a way to control his invisibility, by fitting him with a computerized watch that kept him visible. He could, however, shut it off, and become invisible again, for short periods of time. If he did this for more than 15 minutes in any 24 hour period he would die. This ability to become invisible made him a very effective agent.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77198-3.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Science-Fiction"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "geminiman_202203",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Smithereens",
+          "overview": "Special agent Sam Casey poses as a truck driver to safely transport a top secret liquid cargo, unaware that it has been replaced by a highly volatile chemical.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1117301.jpg",
+          "airDate": "1976-09-23",
+          "year": 1976,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Gemini Man S01E01 Smithereens.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 160921383,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/geminiman_202203/Gemini Man S01E01 Smithereens.ia.mp4"
+        },
+        {
+          "archiveID": "gemini-man-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": null,
+          "title": "Gemini Man - 1976",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/gemini-man-complete-series-1976",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Gemini Man S01E00 - Pilot.mp4",
+            "format": "h.264",
+            "sizeBytes": 537527257,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/gemini-man-complete-series-1976/Gemini Man S01E00 - Pilot.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 11,
+  "tvdbID": "77198",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Katherine Crawford",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "William Sylvester",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Ben Murphy",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    }
+  ]
+}

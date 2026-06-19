@@ -1,0 +1,47 @@
+{
+  "version": 2,
+  "seriesID": "jude-the-obscure-1971",
+  "tvmazeID": 22529,
+  "title": "Jude the Obscure",
+  "yearStart": 1971,
+  "yearEnd": 1971,
+  "overview": "An uncompromising BBC adaptation of one of Thomas Hardy's most bitter and controversial novels. Born into rural poverty, young Jude Fawley refuses to accept his lot in life. But Victorian England is a society in which everyone has their place. As his dreams are shattered, Jude lashes out at the world and his life spirals out of control…",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/5d6445e421965.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama"
+  ],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "jude-the-obscure-1971-s-01-e-05",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "To Aldbrickham",
+          "overview": "Sue has left her husband, Phillotson, and gone to Jude, although she insists they use seperate bedrooms. Jude starts divorce proceedings from Arabella.",
+          "stillURL": "https://archive.org/download/archivewatch-covers/jude-the-obscure-1971-s-01-e-05.c654f625.jpg",
+          "airDate": "1971-03-06",
+          "year": 1971,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jude The Obscure 1971 S01E05.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 90523953,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jude-the-obscure-1971-s-01-e-05/Jude%20The%20Obscure%201971%20S01E05.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 6,
+  "tvdbID": "324839",
+  "artworkSource": "tvdb"
+}

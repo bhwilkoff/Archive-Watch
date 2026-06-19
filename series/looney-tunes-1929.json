@@ -1,0 +1,128 @@
+{
+  "version": 2,
+  "seriesID": "looney-tunes-1929",
+  "tvmazeID": 4533,
+  "title": "Looney Tunes",
+  "yearStart": 1929,
+  "yearEnd": 2014,
+  "overview": "They're the cartoons you grew up with and the ones your own kids will come to know and love. Welcome back to the wonderful, wacky world of Warner Bros. Looney Tunes, starring Bugs Bunny, Daffy Duck, Porky Pig, Road Runner and all their zany friends. Brought to life by the creative genius of Tex Avery, Chuck Jones and Friz Freleng, these classic cartoon characters are some of the best ever to grace the animated stage.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/72514-7.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy",
+    "Children"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "looney_tunes",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Looney Tunes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/looney_tunes.74040deb.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 472,
+          "videoFile": {
+            "name": "Looney Tunes S01E01 Sinkin' in the Bathtub.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 49855651,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/looney_tunes/Looney%20Tunes%20S01E01%20Sinkin%27%20in%20the%20Bathtub.ia.mp4"
+        },
+        {
+          "archiveID": "LTT101",
+          "seasonNumber": 1,
+          "episodeNumber": 262,
+          "title": "Looney Tunes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/LTT101.e4d4a6c6.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 2066,
+          "videoFile": {
+            "name": "Looney.Tunes.S01E262.Whizzard.of.Ow.&.My.Generation.G.G.Gap.&.Cock.720p.TUBI.WEB-DL.AAC2.0.H.264.mp4",
+            "format": "h.264",
+            "sizeBytes": 203951129,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LTT101/Looney.Tunes.S01E262.Whizzard.of.Ow.%26.My.Generation.G.G.Gap.%26.Cock.720p.TUBI.WEB-DL.AAC2.0.H.264.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 1042,
+  "tvdbID": "72514",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Mel Blanc",
+      "character": "Bugs Bunny, Daffy Duck, Elmer Fudd, Porky Pig, Yosemite Sam, Sylvester the Cat, Tweety Bird, Sylvest",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/257637/primary.jpg"
+    },
+    {
+      "name": "June Foray",
+      "character": "Granny, Witch Hazel, various others",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/256339/5f951a187a6b4.jpg"
+    },
+    {
+      "name": "Arthur Q. Bryan",
+      "character": "Elmer Fudd",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264390/photo/61fd5a2f3d49a.jpg"
+    },
+    {
+      "name": "Billy Bletcher",
+      "character": "Papa Bear, Spike, various others",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/308697/photo/64932a0e06332.jpg"
+    },
+    {
+      "name": "Bea Benaderet",
+      "character": "Mama Bear, various others",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264357/photo/686c77f77f4d4.jpg"
+    },
+    {
+      "name": "Stan Freberg",
+      "character": "Pete Puma, Junior Bear, Bertie, various others",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/282005/photo/6106df1d70117.jpg"
+    },
+    {
+      "name": "Daws Butler",
+      "character": "Nasty Canasta, Ralph Krumden, Ned Morton, various others",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/321055/photo/61139b3bb0c4f.jpg"
+    },
+    {
+      "name": "Robert C. Bruce",
+      "character": "Narrator",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/345845/photo/686c75baa2ff1.jpg"
+    },
+    {
+      "name": "Larry Storch",
+      "character": "Cool Cat",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/254613/photo/686c769471f31.jpg"
+    },
+    {
+      "name": "Dave Barry",
+      "character": "various celebrity voices",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253528/photo/64d55586c74f5.jpg"
+    }
+  ]
+}

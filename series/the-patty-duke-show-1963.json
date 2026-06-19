@@ -1,0 +1,133 @@
+{
+  "version": 2,
+  "seriesID": "the-patty-duke-show-1963",
+  "tvmazeID": 17402,
+  "title": "The Patty Duke Show",
+  "yearStart": 1963,
+  "yearEnd": 1966,
+  "overview": "The Patty Duke Show was a sitcom that ran on ABC from 1963-1966.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/72265-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "The Raffle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/the-patty-duke-show-the-complete-series-1963-1966.239330aa.jpg",
+          "airDate": "1965-01-27",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E20 - The Raffle.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 324937383,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E20 - The Raffle.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 104,
+  "tvdbID": "72265",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Patty Duke",
+      "character": "Patty Lane",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257588/photo/62f1c7f7517f6.jpg"
+    },
+    {
+      "name": "Patty Duke Astin",
+      "character": "Cathy Lane",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "William Schallert",
+      "character": "Martin Lane",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/260004/photo/62f1c66a6ef1f.jpg"
+    },
+    {
+      "name": "Jean Byron",
+      "character": "Natalie Lane",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/256384/5eeea353ebac9.jpg"
+    },
+    {
+      "name": "Paul O'Keefe",
+      "character": "Ross Lane",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Eddie Applegate",
+      "character": "",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/338005/photo/65940e5f2b0a3.jpg"
+    },
+    {
+      "name": "Alberta Grant",
+      "character": "",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Kitty Sullivan",
+      "character": "",
+      "order": 7,
+      "profilePath": null
+    },
+    {
+      "name": "Ann Alford",
+      "character": "",
+      "order": 8,
+      "profilePath": null
+    },
+    {
+      "name": "Robyn Miller",
+      "character": "",
+      "order": 9,
+      "profilePath": null
+    },
+    {
+      "name": "Susan Melvin",
+      "character": "",
+      "order": 10,
+      "profilePath": null
+    },
+    {
+      "name": "John McGiver",
+      "character": "",
+      "order": 11,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265588/photo/6495b2f3328b9.jpg"
+    },
+    {
+      "name": "Skip Hinnant",
+      "character": "",
+      "order": 12,
+      "profilePath": null
+    },
+    {
+      "name": "Kelly Wood",
+      "character": "",
+      "order": 13,
+      "profilePath": null
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "version": 2,
+  "seriesID": "planet-of-the-apes-1974",
+  "tvmazeID": 1133,
+  "title": "Planet of the Apes",
+  "yearStart": 1974,
+  "yearEnd": 1974,
+  "overview": "After their spacecraft travels through a time warp, two astronauts from 1981 crash-land back on Earth in the year 3085--a time when intelligent apes rule and humans have been reduced to servants or pets. Captured by the apes and sentenced to death, they are saved by a curious chimpanzee name Galen. But now all three are on the run, trying to keep one step ahead of the gorilla army led by General Urko, who is determined to kill the renegades.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/73565-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Adventure",
+    "Science-Fiction"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "planet-of-the-apes-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Escape from Tomorrow",
+          "overview": "Two Earth astronauts find themselves thrown through a time warp to Earth... over 500 years in the future where apes now rule the planet and humans are considered little more than dumb animals.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/89/224586.jpg",
+          "airDate": "1974-09-13",
+          "year": 1974,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Planet of the ApesS01E01 Escape From Tomorrow.mp4",
+            "format": "h.264",
+            "sizeBytes": 271528740,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/planet-of-the-apes-complete-series-1974/Planet of the ApesS01E01 Escape From Tomorrow.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 14,
+  "tvdbID": "73565",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Roddy McDowall",
+      "character": "Galen",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253872/photo/62387709ed796.jpg"
+    },
+    {
+      "name": "James Naughton",
+      "character": "Major Peter J. Burke",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/26230.jpg"
+    },
+    {
+      "name": "Ron Harper",
+      "character": "Colonel Alan Virdon",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/26231.jpg"
+    },
+    {
+      "name": "Mark Lenard",
+      "character": "General Urko",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/283985/photo/6073219bef916.jpg"
+    },
+    {
+      "name": "Booth Colman",
+      "character": "Zaius",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262703/photo/62daf6a30ab1c.jpg"
+    },
+    {
+      "name": "Ron Stein",
+      "character": "First Gorilla",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Eldon Burke",
+      "character": "Chilot",
+      "order": 6,
+      "profilePath": null
+    }
+  ]
+}

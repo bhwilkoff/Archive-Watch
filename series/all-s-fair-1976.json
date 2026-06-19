@@ -1,0 +1,98 @@
+{
+  "version": 2,
+  "seriesID": "all-s-fair-1976",
+  "tvmazeID": 57496,
+  "title": "All's Fair",
+  "yearStart": 1976,
+  "yearEnd": 1977,
+  "overview": "All's Fair is an American sitcom starring Richard Crenna as a conservative political columnist and Bernadette Peters as a liberal photographer, and their romantic mismatch because of age and political opinions.",
+  "posterURL": "https://artworks.thetvdb.com/banners/series/387708/posters/5f4d2101e6bea.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy",
+    "Romance"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Charley's Father",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/allsfair.e5e0f0c1.jpg",
+          "airDate": "1977-05-30",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E24- Charley's Father.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1062854577,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/S01E24-%20Charley%27s%20Father.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 24,
+  "tvdbID": "387708",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Norman Lear",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Richard Crenna",
+      "character": "Richard C. Barrington",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/254367/photo/65e44f887e91e.jpg"
+    },
+    {
+      "name": "Lee Chamberlin",
+      "character": "Lucy Daniels",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/292029/photo/670377ac6bd60.jpg"
+    },
+    {
+      "name": "J.A. Preston",
+      "character": "Allen Brooks",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/266579/photo/6703783aa8b45.jpg"
+    },
+    {
+      "name": "Judith Kahan",
+      "character": "Ginger Livingston",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/313636/photo/670379172f7e2.jpg"
+    },
+    {
+      "name": "Jack Dodson",
+      "character": "Senator Wayne Joplin",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/277489/photo/65030268e2715.jpg"
+    },
+    {
+      "name": "Michael Keaton",
+      "character": "Lanny Wolf",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/253664/primary.jpg"
+    },
+    {
+      "name": "Bernadette Peters",
+      "character": "Charlotte (Charley) Drake",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253571/photo/613bf1d162019.jpg"
+    }
+  ]
+}

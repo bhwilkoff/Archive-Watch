@@ -1,0 +1,111 @@
+{
+  "version": 2,
+  "seriesID": "the-adventures-of-dr-fu-manchu-1956",
+  "tvmazeID": 18670,
+  "title": "The Adventures of Dr. Fu Manchu",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": "Dr. Fu Manchu, evil genius and possessor of seemingly unlimited financial resources, has pledged to bring about the downfall of western civilization to avenge unknown wrongs of the past. Only Sir Dennis Nayland-Smith of the Yard is able to thwart his evil plans, ranging from assassination to germ attacks to sparking an all-out war.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/5ba9a7a5d0378.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Adventure",
+    "Crime",
+    "Thriller"
+  ],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TheAdventuresOfDrFuManchuS1e1",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Prisoner of Dr. Fu Manchu",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/63/159763.jpg",
+          "airDate": "1956-09-03",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "FuManchu01_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 115177005,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfDrFuManchuS1e1/FuManchu01_512kb.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfDrFuManchuS1e9",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Death Ship of Dr. Fu Manchu",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/63/159763.jpg",
+          "airDate": "1956-10-29",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "FuManchu02_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 114785783,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfDrFuManchuS1e9/FuManchu02_512kb.mp4"
+        },
+        {
+          "archiveID": "AdventuresOfDrFuManchuS1e11",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Master Plan of Dr. Fu Manchu",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/63/159763.jpg",
+          "airDate": "1956-11-12",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "FuManchu_MasterPlan.mp4",
+            "format": "h.264",
+            "sizeBytes": 165336270,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AdventuresOfDrFuManchuS1e11/FuManchu_MasterPlan.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3,
+  "canonicalEpisodesCount": 13,
+  "tvdbID": "276506",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Clark Howat",
+      "character": "Dr. John Petrie",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256374/photo/63bb1d6c62c80.jpg"
+    },
+    {
+      "name": "Carla Balenda",
+      "character": "Betty Leonard",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Glen Gordon",
+      "character": "Dr. Fu Manchu",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/323516.jpg"
+    },
+    {
+      "name": "Lester Matthews",
+      "character": "Sir Dennis Nayland Smith",
+      "order": 3,
+      "profilePath": null
+    }
+  ]
+}

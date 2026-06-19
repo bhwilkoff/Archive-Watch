@@ -1,0 +1,85 @@
+{
+  "version": 2,
+  "seriesID": "star-maidens-1976",
+  "tvmazeID": 3672,
+  "title": "Star Maidens",
+  "yearStart": 1976,
+  "yearEnd": 1976,
+  "overview": "TV series of British/German origin, and set in the \"present\" Earth of the 1970s. A planet from another solar system drifts into Earth's system and is detected by some Earth scientists who investigate. The surface of this planet is no longer habitable and the residents have moved to a high-tech underground city. The society is ruled by the women, who of course, are all beautiful. Men are considered mentally inferior and are divided into two categories: the \"adequately intelligent\" who are selected by women to act as their personal \"domestics\" for household chores, and the remainder who are forced to perform menial labor under the supervision of female guards. The guards are attired nicely in visored helmets, boots, hot pants, and elbow-length gloves which are used to control the men through some sort of apparent force. Scientists from Earth (one men and one woman) find their way to the planet",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/78209-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Science-Fiction"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "star-maidens-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "What Have They Done to the Rain?",
+          "overview": "Rudi is labouring on the surface when rain starts reacting catastrophically with toxic waste in the soil, threatening the whole civilisation. Rudi knows why, but will the Council listen to a man?",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/516/1292422.jpg",
+          "airDate": "1976-10-27",
+          "year": 1976,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Star Maidens S01E09 - What Have They Done to the Rain.mp4",
+            "format": "h.264",
+            "sizeBytes": 145137801,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/star-maidens-complete-series-1976/Star Maidens S01E09 - What Have They Done to the Rain.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 13,
+  "tvdbID": "78209",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Judy Geeson",
+      "character": "Supreme Councillor Fulvia",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/280599/photo/684da21c7d297.jpg"
+    },
+    {
+      "name": "Dawn Addams",
+      "character": "President Clara",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/280684/5fdf1baef06e1.jpg"
+    },
+    {
+      "name": "Gareth Thomas",
+      "character": "Shem",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/307220/photo/62fbde152e95f.jpg"
+    },
+    {
+      "name": "Derek Farr",
+      "character": "Professor Evans",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/115151.jpg"
+    },
+    {
+      "name": "Christiane Krüger",
+      "character": "Chief Security Controller Octavia",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/303816/5fe17811da690.jpg"
+    },
+    {
+      "name": "Pierre Brice",
+      "character": "Adam",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/290684/5fe43417b1009.jpg"
+    }
+  ]
+}

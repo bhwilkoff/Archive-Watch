@@ -1,0 +1,85 @@
+{
+  "version": 2,
+  "seriesID": "the-bob-newhart-show-1972",
+  "tvmazeID": 5734,
+  "title": "The Bob Newhart Show",
+  "yearStart": 1972,
+  "yearEnd": 1978,
+  "overview": "Dr. Robert Hartley is a Chicago psychologist living with his schoolteacher wife Emily. Complicating life for the serene, stammering doc is his neighbor, Howard, a flighty navigator; and Bob's coworkers, dentist Jerry and flippant receptionist Carol.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/78089-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "TheBobNewhartShow",
+          "seasonNumber": 3,
+          "episodeNumber": 14,
+          "title": "Serve for Daylight",
+          "overview": "Bob wants to win a tennis match but doesn't think his doubles partner, Emily, is good enough to win.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/571/1429772.jpg",
+          "airDate": "1974-12-14",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Bob Newhart Show - Season 3/The Bob Newhart Show s03e14 - Serve For Daylight.mp4",
+            "format": "h.264",
+            "sizeBytes": 160525819,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheBobNewhartShow/The%20Bob%20Newhart%20Show%20-%20Season%203/The%20Bob%20Newhart%20Show%20s03e14%20-%20Serve%20For%20Daylight.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 142,
+  "tvdbID": "78089",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Bob Newhart",
+      "character": "Dr. Robert 'Bob' Hartley",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/248191/primary.jpg"
+    },
+    {
+      "name": "Suzanne Pleshette",
+      "character": "Emily Hartley",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253440/photo/627a15efb0ae6.jpg"
+    },
+    {
+      "name": "Peter Bonerz",
+      "character": "Dr. Jerry Robinson",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/61436.jpg"
+    },
+    {
+      "name": "Bill Daily",
+      "character": "Howard Borden",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/310218/photo/6318da3fae114.jpg"
+    },
+    {
+      "name": "Marcia Wallace",
+      "character": "Carol Kester",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256403/photo/657e35946dff2.jpg"
+    },
+    {
+      "name": "Jack Riley",
+      "character": "Elliot Carlin",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256617/photo/62f2f92a50ce0.jpg"
+    }
+  ]
+}

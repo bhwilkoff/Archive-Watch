@@ -346,24 +346,6 @@
           "downloadURL": "https://archive.org/download/hindi-cosmos-s01e11-the-immortals-audiotrack-1080p-by-vaibhav-khade/Cosmos_S01E11_The_Immortals_audiotrack.mp4"
         },
         {
-          "archiveID": "cosmos-s01e12-the-world-set-free-with-subtitles-by-vaibhav-khade",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "Cosmos S01E12 The World Set Free with subtitles by Vaibhav khade",
-          "overview": "Cosmos S01E12 The World Set Free with subtitles by Vaibhav khade",
-          "stillURL": "https://archive.org/services/img/cosmos-s01e12-the-world-set-free-with-subtitles-by-vaibhav-khade",
-          "airDate": null,
-          "year": 2014,
-          "runtimeSeconds": 2523,
-          "videoFile": {
-            "name": "Cosmos_S01E12_The_World_Set_Free.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 407133303,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/cosmos-s01e12-the-world-set-free-with-subtitles-by-vaibhav-khade/Cosmos_S01E12_The_World_Set_Free.ia.mp4"
-        },
-        {
           "archiveID": "cosmos.-a.-space-time.-odyssey.-s01e12",
           "seasonNumber": 1,
           "episodeNumber": 12,
@@ -382,13 +364,31 @@
           "downloadURL": "https://archive.org/download/cosmos.-a.-space-time.-odyssey.-s01e12/Cosmos.A.SpaceTime.Odyssey.S01E12.mp4"
         },
         {
-          "archiveID": "cosmos-possible-worlds-s01e12-coming-of-age-in-the-anthropocene-1080p-by-vaibhav-khade",
+          "archiveID": "cosmos-s01e12-the-world-set-free-with-subtitles-by-vaibhav-khade",
           "seasonNumber": 1,
           "episodeNumber": 12,
           "title": "Encyclopedia Galactica",
           "overview": "Are there alien intelligences? How could we communicate with them? What about UFOs? The answers to these questions take us to Egypt to decode ancient hieroglyphics, to the largest radio telescope on Earth, and, in the Spaceship of the Imagination, to visit other civilizations in space. Dr. Sagan answers questions such as: \"What is the life span of a planetary civilization?\" and \"Will we one day hook up with a network of civilizations in the Milky Way galaxy?",
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/252/631990.jpg",
           "airDate": "1980-12-14",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Cosmos_S01E12_The_World_Set_Free.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 407133303,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cosmos-s01e12-the-world-set-free-with-subtitles-by-vaibhav-khade/Cosmos_S01E12_The_World_Set_Free.ia.mp4"
+        },
+        {
+          "archiveID": "cosmos-possible-worlds-s01e12-coming-of-age-in-the-anthropocene-1080p-by-vaibhav-khade",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Encyclopedia Galactica",
+          "overview": "Are there alien intelligences? How could we communicate with them? What about UFOs? The answers to these questions take us to Egypt to decode ancient hieroglyphics, to the largest radio telescope on Earth, and, in the Spaceship of the Imagination, to visit other civilizations in space. Dr. Sagan answers questions such as: \"What is the life span of a planetary civilization?\" and \"Will we one day hook up with a network of civilizations in the Milky Way galaxy?",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/252/631990.jpg",
+          "airDate": null,
           "year": 1980,
           "runtimeSeconds": 3600,
           "videoFile": {

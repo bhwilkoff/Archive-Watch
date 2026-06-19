@@ -1,0 +1,97 @@
+{
+  "version": 2,
+  "seriesID": "the-girl-with-something-extra-1973",
+  "tvmazeID": 24659,
+  "title": "The Girl with Something Extra",
+  "yearStart": 1973,
+  "yearEnd": 1974,
+  "overview": "The trials and tribulations of a young couple: John Burton, an attorney with the Los Angeles firm of Metcalf, Klein and Associates, and his wife, Sally, a bona fide psychic who can read his every thought. Stories relate John's attempts to cope with the comical situations that develop when Sally inadvertently invades the privacy of his mind.",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/72937/posters/60e86edbd15db.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "The-Girl-With-Something-Extra-1973",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "A Gift for the Gifted",
+          "overview": "John tries to hide Sally's birthday present from her mind-reading powers.",
+          "stillURL": "https://archive.org/download/archivewatch-covers/The-Girl-With-Something-Extra-1973.11d7870f.jpg",
+          "airDate": "1973-09-28",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E03 - A Gift for the Gifted.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 377838914,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E03 - A Gift for the Gifted.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 22,
+  "tvdbID": "72937",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Zohra Lampert",
+      "character": "Anne",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262548/photo/666e129ba9692.jpg"
+    },
+    {
+      "name": "Sally Field",
+      "character": "Sally Burton",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/257814/primary.jpg"
+    },
+    {
+      "name": "Stephanie Edwards",
+      "character": "Angela",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/352476/photo/666e132eac27a.jpg"
+    },
+    {
+      "name": "Henry Jones",
+      "character": "Owen Metcalf",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/255682/photo/6467f4197066b.jpg"
+    },
+    {
+      "name": "William Windom",
+      "character": "Stuart Kline",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/256365/5f8dc173c05c0.jpg"
+    },
+    {
+      "name": "Jack Sheldon",
+      "character": "Jerry Burton",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/313200/photo/633b1cede9ce3.jpg"
+    },
+    {
+      "name": "Teri Garr",
+      "character": "Amber",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253797/photo/65539276a02bc.jpg"
+    },
+    {
+      "name": "John Davidson",
+      "character": "John Burton",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253520/photo/6498b980d34ba.jpg"
+    }
+  ]
+}

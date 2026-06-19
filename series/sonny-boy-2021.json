@@ -1,0 +1,157 @@
+{
+  "version": 2,
+  "seriesID": "sonny-boy-2021",
+  "tvmazeID": 55347,
+  "title": "Sonny Boy",
+  "yearStart": 2021,
+  "yearEnd": 2021,
+  "overview": "The science-fiction ensemble drama centers around 36 boys and girls. On August 16, midway through a seemingly endless summer vacation, middle school third-year student Nagara, the mysterious transfer student Nozomi, and classmates such as Mizuho and Asakaze, are suddenly transported from their tranquil daily lives to a school adrift in an alternate dimension. They must survive with the super powers that have awakened within them.",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/401948/posters/60cc9366c9a94.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Anime"
+  ],
+  "networks": [
+    "Tokyo MX"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "sonny-boy-s-01-e-12-a-two-year-recess",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "This Salmon Chazuke Is Missing Its Salmon Nya",
+          "overview": "In a vast frozen waste, twins Sou and Seiji have been fighting each other for millennia. Ms. Aki says that to change the world, they need the twins' \"Reverse\" power, and Nagara and Mizuho come to assist. Yamabiko questions Sakura, one of Mizuho's cats.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/391/979062.jpg",
+          "airDate": "2021-09-09",
+          "year": 2021,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Sonny Boy [BD][1080p][HEVC 10bit x265][Dual Audio][Tenrai-Sensei]/Season 1/Sonny Boy - S01E09 - This Salmon Chazuke Is Missing Its Salmon Nya.mp4",
+            "format": "h.264",
+            "sizeBytes": 147516569,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/sonny-boy-s-01-e-12-a-two-year-recess/Sonny%20Boy%20%5BBD%5D%5B1080p%5D%5BHEVC%2010bit%20x265%5D%5BDual%20Audio%5D%5BTenrai-Sensei%5D/Season%201/Sonny%20Boy%20-%20S01E09%20-%20This%20Salmon%20Chazuke%20Is%20Missing%20Its%20Salmon%20Nya.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 12,
+  "tvdbID": "401948",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Aoi Ichikawa",
+      "character": "Nagara",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/7980962/62090ac412931.jpg"
+    },
+    {
+      "name": "Saori Onishi",
+      "character": "Nozomi",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/463683/5fb0249716649.jpg"
+    },
+    {
+      "name": "Aoi Yuki",
+      "character": "Mizuho",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7864377/photo/619d0ed6bb40f.jpg"
+    },
+    {
+      "name": "Chiaki Kobayashi",
+      "character": "Asakaze",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/7891643/primary.jpg"
+    },
+    {
+      "name": "Hiroki Gotou",
+      "character": "Rajdhani",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/7888024/62090b87140af.jpg"
+    },
+    {
+      "name": "Kenjiro Tsuda",
+      "character": "Yamabiko",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/303154/61a0c5b34437f.jpg"
+    },
+    {
+      "name": "Ami Naito",
+      "character": "Hoshi",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8747887/photo/61178dadac8cd.jpg"
+    },
+    {
+      "name": "Hana Satou",
+      "character": "Pony",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8052172/photo/61ea3396cbc4f.jpg"
+    },
+    {
+      "name": "Yoji Ueda",
+      "character": "Cap",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8085473/photo/62e235c6b46e3.jpg"
+    },
+    {
+      "name": "Shouta Yamamoto",
+      "character": "Hayato",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/7951825/primary.jpg"
+    },
+    {
+      "name": "Kana Ogino",
+      "character": "Shanghai",
+      "order": 10,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8747888/photo/61178fecb3e61.jpg"
+    },
+    {
+      "name": "Ai Kakuma",
+      "character": "Aki",
+      "order": 11,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/460210/5f191e98041dc.jpg"
+    },
+    {
+      "name": "Yuka Ozaki",
+      "character": "Kossetsu",
+      "order": 12,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/486798/primary.jpg"
+    },
+    {
+      "name": "Rie Hikisaka",
+      "character": "Hime",
+      "order": 13,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/614665/5f777fa3dd734.jpg"
+    },
+    {
+      "name": "Kouji Yusa",
+      "character": "War",
+      "order": 14,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/7864374/5f3a11f799593.jpg"
+    },
+    {
+      "name": "Yoshiaki Hasegawa",
+      "character": "Koumori-senpai",
+      "order": 15,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/7888295/primary.jpg"
+    },
+    {
+      "name": "Taiki Matsuno",
+      "character": "Futatsuboshi",
+      "order": 16,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/313248/photo/64eb2ec3591ef.jpg"
+    },
+    {
+      "name": "Ayana Taketatsu",
+      "character": "Kodama",
+      "order": 17,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/302377/61e1ac092d2ca.jpg"
+    }
+  ]
+}

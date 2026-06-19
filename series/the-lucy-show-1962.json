@@ -1,0 +1,103 @@
+{
+  "version": 2,
+  "seriesID": "the-lucy-show-1962",
+  "tvmazeID": 14377,
+  "title": "The Lucy Show",
+  "yearStart": 1962,
+  "yearEnd": 1968,
+  "overview": "The Lucy Show was an American sitcom that aired on CBS from 1962–68. It was Lucille Ball's follow-up to I Love Lucy.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70695-4.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Lucy and the Little League",
+          "overview": "Lucy coaches Jerry in little league, but is expelled from the game for mouthing off to the referee.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377400.jpg",
+          "airDate": "1963-04-15",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E28 - Lucy and the Little League.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 750135401,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E28 - Lucy and the Little League.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 156,
+  "tvdbID": "70695",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Lucille Ball",
+      "character": "Lucy Carmichael",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264332/photo/655973e17b37f.jpg"
+    },
+    {
+      "name": "Vivian Vance",
+      "character": "Vivian Bagley",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/264335/5ef622858d2cb.jpg"
+    },
+    {
+      "name": "Gale Gordon",
+      "character": "Mr. Theodore J.Mooney",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/264380/5ef6229795dce.jpg"
+    },
+    {
+      "name": "Mary Jane Croft",
+      "character": "Mary Jane Lewis / Audrey Simmons",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/264433/5ef622b07c9a6.jpg"
+    },
+    {
+      "name": "Candy Moore",
+      "character": "Chris Carmichael",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/269986/5ef622c293c1c.jpg"
+    },
+    {
+      "name": "Jimmy Garrett",
+      "character": "Jerry Carmichael",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7970430/photo/6398c94bb9e19.jpg"
+    },
+    {
+      "name": "Ralph Hart",
+      "character": "Sherman Bagley",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/272257/5ef622e98dbcd.jpg"
+    },
+    {
+      "name": "Dick Martin",
+      "character": "Harry Conners",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/255728/5ef62300aa264.jpg"
+    },
+    {
+      "name": "Roy Roberts",
+      "character": "Mr.Winfield Cheever /Harrison Cheever / Admiral",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258191/photo/6495830ab21ea.jpg"
+    }
+  ]
+}

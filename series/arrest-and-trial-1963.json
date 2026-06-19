@@ -1,0 +1,122 @@
+{
+  "version": 2,
+  "seriesID": "arrest-and-trial-1963",
+  "tvmazeID": 13451,
+  "title": "Arrest and Trial",
+  "yearStart": 1963,
+  "yearEnd": 1964,
+  "overview": "Arrest and Trial was an ABC crime drama that was divided into two forty-five parts -- in the first part (Arrest), the police would search for and arrest the criminals, and the in second part (Trial), the lawyers would defend the accused at trial, most often succeeding.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76567-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Crime"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "ARRESTAndTRIALS01E17OnwardAndUpward1964",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Onward and Upward",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/ARRESTAndTRIALS01E17OnwardAndUpward1964.4ae590c0.jpg",
+          "airDate": "1964-01-19",
+          "year": 1964,
+          "runtimeSeconds": 5400,
+          "videoFile": {
+            "name": "ARREST and TRIAL S01E17 Onward and Upward (1964).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 590185712,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ARRESTAndTRIALS01E17OnwardAndUpward1964/ARREST%20and%20TRIAL%20S01E17%20Onward%20and%20Upward%20%281964%29.mp4"
+        },
+        {
+          "archiveID": "ArrestAndTrial1963",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Modus Operandi",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ArrestAndTrial1963",
+          "airDate": "1964-03-15",
+          "year": 1964,
+          "runtimeSeconds": 5400,
+          "videoFile": {
+            "name": "S01E25 Modus Operandi.mp4",
+            "format": "h.264",
+            "sizeBytes": 458490052,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ArrestAndTrial1963/S01E25%20Modus%20Operandi.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 30,
+  "tvdbID": "76567",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "John Kerr",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Ben Gazzara",
+      "character": "",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256682/photo/6283f721b3b94.jpg"
+    },
+    {
+      "name": "Joanne Miya",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Don Galloway",
+      "character": "",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265802/photo/63acaa5751e8f.jpg"
+    },
+    {
+      "name": "Noah Keen",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Chuck Connors",
+      "character": "",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Joe Higgins",
+      "character": "",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "John Larch",
+      "character": "",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265562/photo/638d04377f26b.jpg"
+    },
+    {
+      "name": "Roger Perry",
+      "character": "",
+      "order": 8,
+      "profilePath": null
+    }
+  ]
+}

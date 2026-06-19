@@ -692,6 +692,24 @@
           "downloadURL": "https://archive.org/download/S2E15THEHAND_201804/S2E15%20-%20THE%20HAND.mp4"
         },
         {
+          "archiveID": "OSB-38_The_Justice_Tree",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "The Justice Tree",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OSB-38_The_Justice_Tree",
+          "airDate": "1960-01-05",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "OSB-38_The_Justice_Tree.mp4",
+            "format": "h.264",
+            "sizeBytes": 156056249,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/OSB-38_The_Justice_Tree/OSB-38_The_Justice_Tree.mp4"
+        },
+        {
           "archiveID": "S2E17EARTHQUAKE",
           "seasonNumber": 2,
           "episodeNumber": 17,
@@ -1730,7 +1748,7 @@
       ]
     }
   ],
-  "episodesCount": 94,
+  "episodesCount": 95,
   "canonicalEpisodesCount": 97,
   "tvdbID": "76479",
   "artworkSource": "tvdb",

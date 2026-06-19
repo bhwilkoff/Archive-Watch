@@ -1,0 +1,86 @@
+{
+  "version": 2,
+  "seriesID": "the-adventurer-1972",
+  "tvmazeID": 28032,
+  "title": "The Adventurer",
+  "yearStart": 1972,
+  "yearEnd": 1974,
+  "overview": "Basically an updating of Gene Barry's \"Amos Burke, Secret Agent\" character, Gene Bradley is a wealthy government agent, who, posing as an American movie star, travels the globe in search of adventure, intrigue and danger.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70998-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Adventure"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-adventurer-",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Mr Calloway is a Very Cautious Man",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/khSBh0dDnPsWel6P2zyZCQ2UnMp.jpg",
+          "airDate": "1974-02-08",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The_Adventurer_-_S01E19_-_Mr_Calloway_is_a_Very_Cautious_Man.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 754989827,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-adventurer-/The_Adventurer_-_S01E19_-_Mr_Calloway_is_a_Very_Cautious_Man.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 26,
+  "tvdbID": "70998",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Gene Barry",
+      "character": "Gene Bradley",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256364/photo/63ac8ceeb8504.jpg"
+    },
+    {
+      "name": "Barry Morse",
+      "character": "Mr. Parminter",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265636/photo/61dd029cf25a8.jpg"
+    },
+    {
+      "name": "Catherine Schell",
+      "character": "Diane Marsh",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Garrick Hagon",
+      "character": "Gavin Jones",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261289/photo/6532df35defd6.jpg"
+    },
+    {
+      "name": "Monty Berman",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Dennis Spooner",
+      "character": "",
+      "order": 5,
+      "profilePath": null
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "version": 2,
+  "seriesID": "hawaii-five-o-1968",
+  "tvmazeID": 962,
+  "title": "Hawaii Five-O",
+  "yearStart": 1968,
+  "yearEnd": 1980,
+  "overview": "Hawaii Five-0 was filmed entirely on location in Hawaii, the show followed Jack Lord as he played Steve McGarrett, head of an elite state police unit investigating \"organized crime, murder, assassination attempts, foreign agents, felonies of every type.\" James MacArthur played his second-in-command Danny (\"Danno\") Williams, with local actors Kam Fong, Zulu, Al Harrington, and Herman Wedemeyer, among others, playing members of the Five-O team.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71223-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Crime"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "hawaii-five-o-S2E3-480p",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Forty Feet High and It Kills!",
+          "overview": "Agents of the People's Republic of China use a false tidal-wave forecast to mask the kidnapping of a scientist (Will Geer).",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/309/774140.jpg",
+          "airDate": "1969-10-08",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "hawaii-five-o-S2E3-480p.mp4",
+            "format": "h.264",
+            "sizeBytes": 283288268,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hawaii-five-o-S2E3-480p/hawaii-five-o-S2E3-480p.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 284,
+  "tvdbID": "71223",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Peggy Ryan",
+      "character": "Jenny",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/287834/photo/649fc1558f6db.jpg"
+    },
+    {
+      "name": "William Smith",
+      "character": "James Carew",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256501/photo/648341bcc1ff5.jpg"
+    },
+    {
+      "name": "James MacArthur",
+      "character": "Det. Danny Williams",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/263175/photo/63d8147f78b89.jpg"
+    },
+    {
+      "name": "Morgan White",
+      "character": "Walter Stewart",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/287835/photo/649fc2fdd6dbc.jpg"
+    },
+    {
+      "name": "Herman Wedemeyer",
+      "character": "Duke",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8094391/photo/649fc373e63b2.jpg"
+    },
+    {
+      "name": "Laura Sode",
+      "character": "Luana",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Al Harrington",
+      "character": "Det. Ben Kokua",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/7903.jpg"
+    },
+    {
+      "name": "Zulu",
+      "character": "Det. Kono Kalakaua",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/7904.jpg"
+    },
+    {
+      "name": "Bill Edwards",
+      "character": "Jonathan Kaye",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/287840/photo/649fc45c1d4fa.jpg"
+    },
+    {
+      "name": "Joseph Sirola",
+      "character": "Jonathan Kaye",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265003/photo/63372807b5d33.jpg"
+    },
+    {
+      "name": "Lyle Bettger",
+      "character": "Jonathan Kaye",
+      "order": 10,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/269973/photo/649fc5f170889.jpg"
+    },
+    {
+      "name": "Tim O'Kelley",
+      "character": "Danny \"Danno\" Williams",
+      "order": 11,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8149057/photo/649fc6aa1de10.jpg"
+    },
+    {
+      "name": "Maggi Parker",
+      "character": "May",
+      "order": 12,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8149059/photo/649fc73a172c0.jpg"
+    },
+    {
+      "name": "Douglas Mossman",
+      "character": "Frank Kamana",
+      "order": 13,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259457/photo/649fc7c542391.jpg"
+    },
+    {
+      "name": "Harry Endo",
+      "character": "Che Fong",
+      "order": 14,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8008834/photo/63bdb7de51a67.jpg"
+    },
+    {
+      "name": "Al Eben",
+      "character": "Doc Bergman",
+      "order": 15,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/287844/photo/649fc87fd2ed9.jpg"
+    },
+    {
+      "name": "Richard Denning",
+      "character": "Governor",
+      "order": 16,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259337/photo/649fc8e7d0d70.jpg"
+    },
+    {
+      "name": "Sharon Farrell",
+      "character": "Lori Wilson",
+      "order": 17,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262845/photo/649fc93b63c9e.jpg"
+    }
+  ]
+}

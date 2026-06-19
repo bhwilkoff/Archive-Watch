@@ -1,0 +1,98 @@
+{
+  "version": 2,
+  "seriesID": "adam-adamant-lives-1966",
+  "tvmazeID": 15062,
+  "title": "Adam Adamant Lives!",
+  "yearStart": 1966,
+  "yearEnd": 1967,
+  "overview": "Adam Adamant Lives features an adventurer born in 1867 who is revived from hibernation in 1966. Adamant vanished in 1902 when Edward VII had been on the throne just one year. Now Adam must negotiate the mod 1960s with the aid of Georgina Jones, and discovers that evil has a new face but is the same as in 1902.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/78429-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "adam-adamant-lives-complete-series-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Sweet Smell of Disaster",
+          "overview": "A blue carnation, the symbol of success for a high-pressure sales campaign, is also the symbol for something far more sinister.",
+          "stillURL": "https://archive.org/download/archivewatch-covers/adam-adamant-lives-complete-series-1966.508e5bc7.jpg",
+          "airDate": "1966-07-14",
+          "year": 1966,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "Adam Adamant Lives S01E04 - Sweet Smell Of Disaster.mp4",
+            "format": "h.264",
+            "sizeBytes": 287789621,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/adam-adamant-lives-complete-series-1966/Adam Adamant Lives S01E04 - Sweet Smell Of Disaster.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 29,
+  "tvdbID": "78429",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Peter Ducrow",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Kenneth Brenda",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Bernard Shine",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Gerald Harper",
+      "character": "",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/377870/photo/63f15863de683.jpg"
+    },
+    {
+      "name": "Jack May",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Bartlett Mullins",
+      "character": "",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Frank Jarvis",
+      "character": "",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258536/photo/68657f9bc5109.jpg"
+    },
+    {
+      "name": "Juliet Harmer",
+      "character": "",
+      "order": 7,
+      "profilePath": null
+    }
+  ]
+}

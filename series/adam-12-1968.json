@@ -1,0 +1,123 @@
+{
+  "version": 2,
+  "seriesID": "adam-12-1968",
+  "tvmazeID": 2119,
+  "title": "Adam-12",
+  "yearStart": 1968,
+  "yearEnd": 1975,
+  "overview": "Race through the streets of Los Angeles with Adam-12, the series that defined the police drama genre. Still mourning the death of his former partner, Officer Pete Malloy is teamed with rookie Officer Jim Reed and together they serve and protect the City of Angels as \"Adam-12\", their unit's radio call number. Watch a these brothers in blue struggle to manage the job's demands and frustrations, as they battle drug dealers, intervene in domestic disputes and pursue suspects in high-speed chases.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/78686-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Action",
+    "Crime"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "adam-12.-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Log 111: Snake in the Trunk",
+          "overview": "Reed is on a high due a to meeting he and other probationers had with the Chief of Police. A ditsy young woman reports her 1958 Ford convertible stolen while she went in a liquor store. She left the keys in the car, has no paperwork, doesn't know the license number or other details but she needs it by 6:00 pm for a date! She finally tells the officers her pet 8 foot boa constrictor is in the trunk as she was coming from the vet. Every squad car is suddenly very careful with all 1958 white convertibles. They spot a fire in a house and rescue two drug users passed out in the fire. They break up a dispute between two women when Reed tells them to stop the water fight or their pictures will be taken as they look when booked. They pull over a white car and the driver doesn't have the proper paperwork. He doesn't want them to search the trunk but Malloy does and finds marijuana. Another squad car reports finding Arthur when the thieves encounter the snake in a dark garage and scream for help.",
+          "stillURL": "https://archive.org/download/archivewatch-covers/adam-12.-s-01.b3ad9641.jpg",
+          "airDate": "1968-12-07",
+          "year": 1968,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Adam-12.S01E11.Log.111.Snake.In.The.Trunk.mp4",
+            "format": "h.264",
+            "sizeBytes": 150461996,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E11.Log.111.Snake.In.The.Trunk.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 174,
+  "tvdbID": "78686",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Kent McCord",
+      "character": "Officer James A. Reed",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261844/photo/60e8d00514f7c.jpg"
+    },
+    {
+      "name": "Martin Milner",
+      "character": "Officer Peter J. Malloy",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256398/photo/62e2e28966ebb.jpg"
+    },
+    {
+      "name": "William Boyett",
+      "character": "Sgt. MacDonald",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264839/photo/6498c294a705d.jpg"
+    },
+    {
+      "name": "Gary Crosby",
+      "character": "Officer Ed Wells",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265164/photo/6494ec477a967.jpg"
+    },
+    {
+      "name": "Robert Donner",
+      "character": "T.J.",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256600/photo/64f986a9060d1.jpg"
+    },
+    {
+      "name": "William Stevens",
+      "character": "Officer Jerry Walters",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265658/photo/64f9875c1909f.jpg"
+    },
+    {
+      "name": "Claude Johnson",
+      "character": "Officer Brinkman",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256440/photo/64f98808c7422.jpg"
+    },
+    {
+      "name": "William Elliott",
+      "character": "Officer Grant",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/327969/photo/64f9886349be3.jpg"
+    },
+    {
+      "name": "Fred Stromsoe",
+      "character": "Officer Jerry Woods",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/320447/photo/64f989595aba8.jpg"
+    },
+    {
+      "name": "Mikki Jamison",
+      "character": "Mrs. Jean Reed (1969-1970)",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7877062/photo/64f98ac9851a5.jpg"
+    },
+    {
+      "name": "Kristin Nelson",
+      "character": "Mrs. Jean Reed (1974-1975)",
+      "order": 10,
+      "profilePath": null
+    },
+    {
+      "name": "Shaaron Claridge",
+      "character": "Dispatcher (Voice)",
+      "order": 11,
+      "profilePath": null
+    }
+  ]
+}

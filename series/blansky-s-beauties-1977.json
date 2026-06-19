@@ -1,0 +1,145 @@
+{
+  "version": 2,
+  "seriesID": "blansky-s-beauties-1977",
+  "tvmazeID": 32951,
+  "title": "Blansky's Beauties",
+  "yearStart": 1977,
+  "yearEnd": 1977,
+  "overview": "Blansky's Beauties can be considered a spinoff of Happy Days. Nancy Walker stars as Howard's cousin Nancy Blansky from Las Vegas, who introduced him to Marion. She's a dynamic den mother to a bevy of beautiful Las Vegas showgirls.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77636-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "blanskysbeauties",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "My Nephew's Debut",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/blanskysbeauties.78a1f877.jpg",
+          "airDate": "1977-04-30",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E10.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 139087802,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blanskysbeauties/S01E10.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 13,
+  "tvdbID": "77636",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Scott Baio",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Pat Morita",
+      "character": "",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/253753/5f3dbb7fba624.jpg"
+    },
+    {
+      "name": "Elaine Bolton",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Lynda Goodfriend",
+      "character": "",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Rhonda Bates",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Gerri Reddick",
+      "character": "",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Antoinette Yuskis",
+      "character": "",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Johnny Desmond",
+      "character": "",
+      "order": 7,
+      "profilePath": null
+    },
+    {
+      "name": "Jill Owens",
+      "character": "",
+      "order": 8,
+      "profilePath": null
+    },
+    {
+      "name": "Taafe O'Connell",
+      "character": "",
+      "order": 9,
+      "profilePath": null
+    },
+    {
+      "name": "Nancy Walker",
+      "character": "",
+      "order": 10,
+      "profilePath": null
+    },
+    {
+      "name": "Caren Kaye",
+      "character": "",
+      "order": 11,
+      "profilePath": null
+    },
+    {
+      "name": "Eddie Mekka",
+      "character": "",
+      "order": 12,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/314821/photo/637d19ddaf131.jpg"
+    },
+    {
+      "name": "George Pentecost",
+      "character": "",
+      "order": 13,
+      "profilePath": null
+    },
+    {
+      "name": "Shirley Kirkes",
+      "character": "",
+      "order": 14,
+      "profilePath": null
+    },
+    {
+      "name": "Bond Gideon",
+      "character": "",
+      "order": 15,
+      "profilePath": null
+    }
+  ]
+}

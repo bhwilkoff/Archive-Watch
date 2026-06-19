@@ -1,0 +1,56 @@
+{
+  "version": 2,
+  "seriesID": "the-world-at-war-1973",
+  "tvmazeID": 3291,
+  "title": "The World at War",
+  "yearStart": 1973,
+  "yearEnd": 1974,
+  "overview": "Laurence Olivier narrates the landmark 26-part British documentary series telling the story of World War II, profiling its main campaigns and highlighting the human cost on all sides of the conflict.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/79309-5.jpg",
+  "backdropURL": null,
+  "genres": [
+    "War",
+    "History"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-world-at-war-complete-series-1973",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Genocide (1941 - 1945)",
+          "overview": "The Nazi's are racist; the Aryans are a master race, others, particularly the Jews are sub-human. Himmler's SS sets about ridding Europe of millions of Jews. The Nazis kill 6 million Jews in specially created death camps in their determination to create a purified Aryan race.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/323/808306.jpg",
+          "airDate": "1974-03-27",
+          "year": 1974,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The World At War 1973 S01E20.720p.Bluray.x264.anoXmous_.mp4",
+            "format": "h.264",
+            "sizeBytes": 313682789,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-world-at-war-complete-series-1973/The World At War 1973 S01E20.720p.Bluray.x264.anoXmous_.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 26,
+  "tvdbID": "79309",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Laurence Olivier",
+      "character": "Narrator",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/289844/photo/60970e8903536.jpg"
+    }
+  ]
+}

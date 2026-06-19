@@ -1,0 +1,79 @@
+{
+  "version": 2,
+  "seriesID": "here-s-lucy-1968",
+  "tvmazeID": 14149,
+  "title": "Here's Lucy",
+  "yearStart": 1968,
+  "yearEnd": 1974,
+  "overview": "Lucy works at the Unique Employment Agency which is run by her brother-in-law Harry Carter, and the show featured a special guest star each episode who usually played themselves.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70699-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "heres-lucy-the-complete-series-1968-1974",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Lucy Meets the Burtons",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/heres-lucy-the-complete-series-1968-1974.c69d4115.jpg",
+          "airDate": "1970-09-14",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Here's Lucy (The Complete Series) [1968 - 1974]/Season 3/S03E01 - Lucy Meets the Burtons.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 265095315,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/heres-lucy-the-complete-series-1968-1974/Here%27s%20Lucy%20%28The%20Complete%20Series%29%20%5B1968%20-%201974%5D/Season%203/S03E01%20-%20Lucy%20Meets%20the%20Burtons.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 144,
+  "tvdbID": "70699",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Lucille Ball",
+      "character": "Lucy Carter",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264332/photo/655973e17b37f.jpg"
+    },
+    {
+      "name": "Gale Gordon",
+      "character": "Harrison Carter",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/264380/5ef614ff62e5f.jpg"
+    },
+    {
+      "name": "Lucie Arnaz",
+      "character": "Kim Carter",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/254162/5ef61513bf875.jpg"
+    },
+    {
+      "name": "Desi Arnaz Jr.",
+      "character": "Craig Carter",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/257502/5ef614c5b8182.jpg"
+    },
+    {
+      "name": "Mary Jane Croft",
+      "character": "Mary Jane Lewis",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/264433/5ef61cd96079a.jpg"
+    }
+  ]
+}

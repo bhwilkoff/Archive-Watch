@@ -1,0 +1,126 @@
+{
+  "version": 2,
+  "seriesID": "oh-no-it-s-selwyn-froggitt-1976",
+  "tvmazeID": 31142,
+  "title": "Oh No, It's Selwyn Froggitt!",
+  "yearStart": 1976,
+  "yearEnd": 1977,
+  "overview": "Selwyn Froggitt, a well read clumsy buffoon smashes his way through his sleepy Yorkshire village of Scarsdale in these 30 minute 1970's comedies. Starring Bill Maynard in the title role, he creates this loveable Oaf perfectly, cushioned by a terrific supporting cast of character actors. Referring to The Times supplement for his knowledgeable information, with shovel in hand his schemes and plans create a fitting end to every episode. Disaster!",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/113661-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "oh-no-its-selwyn-froggitt-complete-series-1974",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "A Little Learning",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/oh-no-its-selwyn-froggitt-complete-series-1974.0e62f30f.jpg",
+          "airDate": "1977-12-13",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Oh No Its Selwyn Froggitt S03E06.mp4",
+            "format": "h.264",
+            "sizeBytes": 146183248,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-complete-series-1974/Oh No Its Selwyn Froggitt S03E06.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "oh-no-its-selwyn-froggitt-1974-78",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "OH NO IT'S SELWYN FROGGITT",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OH NO IT SELWYN FROGGITT (74-78)/307.Oh No Its Selwyn Froggitt...Around The Houses.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 120745506,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-1974-78/OH%20NO%20IT%20SELWYN%20FROGGITT%20%2874-78%29/307.Oh%20No%20Its%20Selwyn%20Froggitt...Around%20The%20Houses.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 21,
+  "tvdbID": "113661",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Bill Maynard",
+      "character": "Selwyn Froggitt",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/353223/photo/63225bcf5fb08.jpg"
+    },
+    {
+      "name": "Robert Keegan",
+      "character": "Maurice Froggitt",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Megs Jenkins",
+      "character": "Mrs. Froggitt",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Richard Davies",
+      "character": "Clive",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/300363/photo/629e657835ae3.jpg"
+    },
+    {
+      "name": "Bill Dean",
+      "character": "Jack",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Harold Goodwin",
+      "character": "Harry",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264088/photo/6943ff45d20fd.jpg"
+    },
+    {
+      "name": "Ray Mort",
+      "character": "Ray",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Rosemary Martin",
+      "character": "Vera Parkinson (Series 1)",
+      "order": 7,
+      "profilePath": null
+    },
+    {
+      "name": "Lynda Baron",
+      "character": "Vera Parkinson (Series 2 & 3)",
+      "order": 8,
+      "profilePath": null
+    }
+  ]
+}

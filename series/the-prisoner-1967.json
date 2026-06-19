@@ -22,6 +22,24 @@
       "seasonNumber": 1,
       "episodes": [
         {
+          "archiveID": "the.prisoner.s01.e12.a.change.of.mind",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "A Change of Mind",
+          "overview": "After becoming involved in a fight with two thugs, Number Six is declared \"unmutual\" by The Village committee and recommend he undergoes \"instant social treatment\". However, due to Number Six's importance he is not administered the treatment, only tricked into thinking he has had it. Number Six later realises this and manages to get The Village doctor on his side. With her help he has plans for Number Two.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/887095.jpg",
+          "airDate": "1967-12-31",
+          "year": 1967,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "The.Prisoner.S01E12.A.Change.Of.Mind.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 484627268,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.prisoner.s01.e12.a.change.of.mind/The.Prisoner.S01E12.A.Change.Of.Mind.ia.mp4"
+        },
+        {
           "archiveID": "the-prisoner-complete-series-1967",
           "seasonNumber": 1,
           "episodeNumber": 13,
@@ -83,7 +101,7 @@
       ]
     }
   ],
-  "episodesCount": 3,
+  "episodesCount": 4,
   "canonicalEpisodesCount": 17,
   "tvdbID": "74805",
   "artworkSource": "tvdb",
@@ -112,8 +130,5 @@
       "order": 3,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/411489.jpg"
     }
-  ],
-  "seriesImdbID": "tt0061287",
-  "canonicalEpisodeCount": 17,
-  "canonicalSeasons": 1
+  ]
 }

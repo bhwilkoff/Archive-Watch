@@ -1,0 +1,62 @@
+{
+  "version": 2,
+  "seriesID": "it-takes-a-thief-1968",
+  "tvmazeID": 5518,
+  "title": "It Takes a Thief",
+  "yearStart": 1968,
+  "yearEnd": 1970,
+  "overview": "Alexander Mundy was a cat burglar and professional thief who had style, class and talent. He made only one mistake—getting caught. While serving a sentence in San Jobel Prison, he was contacted by representatives of the US Government spy agency, SIA. They offered to get him out if he would put his talents to work stealing for the government. Accepting the offer, he worked closely with an SIA department head, Noah Bain, who was his boss, aide, associate, friend and watchdog. During the second season he was now a free agent and his new SIA contact was Wallie Powers. Alexander's dad Alister became a semi-regular who was also a retired thief, from whom he had learned all his skills, and who occasionally teamed with his son on special jobs.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76398-3.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "it-takes-a-thief-complete-series-1968",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "A Thief is a Thief (a.k.a. Magnificent Thief)",
+          "overview": "The newest recruit, a paroled master thief, is sent by the S.I.A. to steal a briefcase with unknown documents from a Middle Eastern courier. The contents may help to stop an information leak that is causing their top agents to be killed.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/520/1300322.jpg",
+          "airDate": "1968-01-09",
+          "year": 1968,
+          "runtimeSeconds": 5400,
+          "videoFile": {
+            "name": "It Takes a Thief S01E01 - A Thief Is a Thief.mp4",
+            "format": "h.264",
+            "sizeBytes": 369172298,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/it-takes-a-thief-complete-series-1968/It Takes a Thief S01E01 - A Thief Is a Thief.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 66,
+  "tvdbID": "76398",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Robert Wagner",
+      "character": "Alexander \"Al\" Mundy",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/253785/5faef981b9e28.jpg"
+    },
+    {
+      "name": "Malachi Throne",
+      "character": "Noah Bain",
+      "order": 1,
+      "profilePath": null
+    }
+  ]
+}

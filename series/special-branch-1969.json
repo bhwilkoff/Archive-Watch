@@ -1,0 +1,127 @@
+{
+  "version": 2,
+  "seriesID": "special-branch-1969",
+  "tvmazeID": 8760,
+  "title": "Special Branch",
+  "yearStart": 1969,
+  "yearEnd": 1974,
+  "overview": "Special Branch is a British television series made by Thames Television for ITV and shown between 1969 and 1974.Special Branch was a police drama series, centred on members of the Special Branch anti-espionage and anti-terrorist department of the London Metropolitan Police.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/75123-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Crime"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "special-branch-complete-series-1969",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Error of Judgement",
+          "overview": "Inman sends Jordan to investigate the leader of a pro- germ-warfare group.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/584/1462027.jpg",
+          "airDate": "1970-10-21",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Special Branch S02E11 - Error Of Judgement.mp4",
+            "format": "h.264",
+            "sizeBytes": 300390728,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/special-branch-complete-series-1969/Special Branch S02E11 - Error Of Judgement.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "special-branch-1969-73",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "SPECIAL BRANCH",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "SPECIAL BRANCH (1969)/211.Special Branch...Error of Judgement.mp4",
+            "format": "h.264",
+            "sizeBytes": 305653300,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/special-branch-1969-73/SPECIAL%20BRANCH%20%281969%29/211.Special%20Branch...Error%20of%20Judgement.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 53,
+  "tvdbID": "75123",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Derren Nesbitt",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Wensley Pithey",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Fulton Mackay",
+      "character": "",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/293516/photo/629fcc803d50f.jpg"
+    },
+    {
+      "name": "Patrick Mower",
+      "character": "",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/303683/photo/630a10e5a0d4b.jpg"
+    },
+    {
+      "name": "Paul Eddington",
+      "character": "",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/263765/5feab8ff5701f.jpg"
+    },
+    {
+      "name": "Roger Rowland",
+      "character": "",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Frederick Jaeger",
+      "character": "",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "George Sewell",
+      "character": "",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/294130/photo/645906fa6e17e.jpg"
+    },
+    {
+      "name": "Jennifer Wilson",
+      "character": "",
+      "order": 8,
+      "profilePath": null
+    }
+  ]
+}

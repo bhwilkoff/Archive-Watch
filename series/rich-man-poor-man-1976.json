@@ -1,0 +1,91 @@
+{
+  "version": 2,
+  "seriesID": "rich-man-poor-man-1976",
+  "tvmazeID": 13349,
+  "title": "Rich Man, Poor Man",
+  "yearStart": 1976,
+  "yearEnd": 1977,
+  "overview": "The story of Rudy & Tom Jordache - two brothers who battled through their conflicting lifestyles in two different ways. Based on the best-selling novel by Irwin Shaw, we are taken on a roller-coaster ride starting in Port Philip, New York in 1945 through to the French Riviera in the mid-60's. A classic tale of Rags to Riches and Happiness to Heartbreak.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77151-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "8-u-e-08-s-04f-i-vc-s-1",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Chapter 1",
+          "overview": "As World War II ends, a 20 year odyssey begins for brothers Rudy and Tom Jordache. Two brothers couldn't be more opposite as they compete for the attention of their bitter, embattled immigrant parents. Rudy is hard at work at the family bakery trying to figure a way to pay for college, while Tom gets caught in pranks and fights. As Rudy prepares for graduation from high school, events begin to set each on a path of his own. It's the beginning of an unforgettable tale of two destinies that although quite different, can never be separated.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/439/1099854.jpg",
+          "airDate": "1976-02-01",
+          "year": 1976,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "Rich Man Poor Man (1976) S01E01 Part I Chapters 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 296261483,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/8-u-e-08-s-04f-i-vc-s-1/Rich%20Man%20Poor%20Man%20%281976%29%20S01E01%20Part%20I%20Chapters%201.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 34,
+  "tvdbID": "77151",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Peter Strauss",
+      "character": "Rudy Jordache",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/53136.jpg"
+    },
+    {
+      "name": "Nick Nolte",
+      "character": "Tom Jordache",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/278308/photo/6553a309a4965.jpg"
+    },
+    {
+      "name": "Gregg Henry",
+      "character": "Wesley Jordache",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/316473.jpg"
+    },
+    {
+      "name": "William Smith",
+      "character": "Anthony Falconetti",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256501/photo/648341bcc1ff5.jpg"
+    },
+    {
+      "name": "Kay Lenz",
+      "character": "Kate Jordache",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/316474.jpg"
+    },
+    {
+      "name": "Susan Blakely",
+      "character": "Julie Prescott",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253574/photo/64e74c55dc8bd.jpg"
+    },
+    {
+      "name": "Leigh J. McCloskey",
+      "character": "",
+      "order": 6,
+      "profilePath": null
+    }
+  ]
+}

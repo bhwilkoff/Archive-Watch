@@ -1,0 +1,126 @@
+{
+  "version": 2,
+  "seriesID": "not-on-your-nellie-1974",
+  "tvmazeID": 36239,
+  "title": "Not on Your Nellie",
+  "yearStart": 1974,
+  "yearEnd": 1975,
+  "overview": "Nellie Pickersgill is a strong willed woman, and hater of strong drink. In spite of this, she leaves her home in Bolton, and moves to London to help her father Jed to run his pub The Brown Cow. Jed spends his time propping up the bar, gambling and groping passing females. Nellie disapproves of her father's lifestyle choices as she does of the loose women employed as barmaids and the assortment of odd characters who frequent the pub.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/78288-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "not-on-your-nellie-complete-series-1974",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "The Lady with the Lamp",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/153/382880.jpg",
+          "airDate": "1975-02-21",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Not on Your Nellie S02E05 The Lady with the Lamp.mp4",
+            "format": "h.264",
+            "sizeBytes": 147893332,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/Not on Your Nellie S02E05 The Lady with the Lamp.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "not-on-your-nellie-1974-75",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "NOT ON YOUR NELLIE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NOT ON YOUR NELLIE (1974-75)/205.Not on Your Nellie...The Lady with the Lamp.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 145063344,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/not-on-your-nellie-1974-75/NOT%20ON%20YOUR%20NELLIE%20%281974-75%29/205.Not%20on%20Your%20Nellie...The%20Lady%20with%20the%20Lamp.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 17,
+  "tvdbID": "78288",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Hylda Baker",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/63330.jpg"
+    },
+    {
+      "name": "Wendy Richard",
+      "character": "",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/300816/photo/62bd836ac91e7.jpg"
+    },
+    {
+      "name": "Alexandra Dane",
+      "character": "",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/445381/photo/69f1e21019e3a.jpg"
+    },
+    {
+      "name": "Sue Nicholls",
+      "character": "",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7965420/photo/625bbc6fa452b.jpg"
+    },
+    {
+      "name": "David Rayner",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Roger Howlett",
+      "character": "",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Jack Douglas",
+      "character": "",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253570/photo/623b98bc6140a.jpg"
+    },
+    {
+      "name": "Leo Dolan",
+      "character": "",
+      "order": 7,
+      "profilePath": null
+    },
+    {
+      "name": "John Barrett",
+      "character": "",
+      "order": 8,
+      "profilePath": null
+    }
+  ]
+}

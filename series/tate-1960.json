@@ -1,0 +1,53 @@
+{
+  "version": 2,
+  "seriesID": "tate-1960",
+  "tvmazeID": 40982,
+  "title": "Tate",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": "One-armed gunfighter, Tate, travels the west looking for work as a fast gun.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77506-2.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "tateseason1",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Return of Jessica Jackson",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/tateseason1.45e0d800.jpg",
+          "airDate": "1960-09-14",
+          "year": 1960,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Tate-s01e12-QUIET AFTER THE STORM.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 93154140,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/tateseason1/Tate-s01e12-QUIET%20AFTER%20THE%20STORM.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 13,
+  "tvdbID": "77506",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "David McLean",
+      "character": "Tate",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/56264.jpg"
+    }
+  ]
+}

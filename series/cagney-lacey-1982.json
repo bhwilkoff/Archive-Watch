@@ -1,0 +1,204 @@
+{
+  "version": 2,
+  "seriesID": "cagney-lacey-1982",
+  "tvmazeID": 12374,
+  "title": "Cagney & Lacey",
+  "yearStart": 1982,
+  "yearEnd": 1988,
+  "overview": "Cagney & Lacey is a police procedural about two New York City police detectives who live very different lives. Christine Cagney is a single, career-minded woman, while Mary Beth Lacey is a married working mother. The series was set in a fictionalized version of Manhattan's 14th Precinct (known as \"Midtown South\").",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77501-6.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Crime"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "cagney-lacey-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "You Call This Plain Clothes?",
+          "overview": "The policewomen go undercover to nail a maniac who preys on prostitutes.",
+          "stillURL": "https://archive.org/services/img/cagney-lacey-s-01",
+          "airDate": "1982-03-25",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Cagney & Lacey S01E01 Bang, Bang, You're Dead (aka You Call This Plain Clothes).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 282708783,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cagney-lacey-s-01/Cagney & Lacey S01E01 Bang, Bang, You're Dead (aka You Call This Plain Clothes).mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "cagney-and-lacey-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Affirmative Action",
+          "overview": "A new detective wants to prove herself to Chris and Mary Beth, who see her as a hotheaded novice.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/bAdrchPABFuHK44G3dKXXRIIRiH.jpg",
+          "airDate": "1983-01-24",
+          "year": 1983,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Cagney and Lacey S02E13-Affirmative Action.mp4",
+            "format": "h.264",
+            "sizeBytes": 286027099,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cagney-and-lacey-season-2/Cagney and Lacey S02E13-Affirmative Action.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "cagney-lacey-s-04",
+          "seasonNumber": 4,
+          "episodeNumber": 13,
+          "title": "Happily Ever After",
+          "overview": "Cagney considers marriage when Dory pops the question; a man steals a large sum of money to court a wealthy woman.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/bAdrchPABFuHK44G3dKXXRIIRiH.jpg",
+          "airDate": "1985-01-14",
+          "year": 1985,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Cagney & Lacey S04E13 Happily Ever After.mp4",
+            "format": "h.264",
+            "sizeBytes": 281684755,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cagney-lacey-s-04/Cagney & Lacey S04E13 Happily Ever After.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3,
+  "canonicalEpisodesCount": 125,
+  "tvdbID": "77501",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Tyne Daly",
+      "character": "Det. Mary beth Lacey",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/253543/primary.jpg"
+    },
+    {
+      "name": "Sharon Gless",
+      "character": "Christine Cagney",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/254130/5ee3ee8cd9c14.jpg"
+    },
+    {
+      "name": "John Karlen",
+      "character": "Harvey Lacey",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/255290/photo/635f10dae1547.jpg"
+    },
+    {
+      "name": "Al Waxman",
+      "character": "Lt. Bert Samuels",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/291441/photo/64c3fc2862722.jpg"
+    },
+    {
+      "name": "Carl Lumbly",
+      "character": "Mark Petrie",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/275096/photo/66c6b2f5b08e7.jpg"
+    },
+    {
+      "name": "Martin Kove",
+      "character": "Victor Isbecki",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/289157/photo/650ca9bbad5a9.jpg"
+    },
+    {
+      "name": "Sidney Clute",
+      "character": "Paul La Guardia",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257437/photo/61cd8ca830bdf.jpg"
+    },
+    {
+      "name": "Harvey Atkin",
+      "character": "Ronald Coleman",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/281989/photo/61cd8d0fcf900.jpg"
+    },
+    {
+      "name": "Robert Hegyes",
+      "character": "Manny Esposito",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261798/photo/61cd8da1c25b3.jpg"
+    },
+    {
+      "name": "Troy Slaten",
+      "character": "Michael Lacy",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7929315/photo/61cd8e7c8b65b.jpg"
+    },
+    {
+      "name": "Tony La Torre",
+      "character": "Harvey Lacey Jr.",
+      "order": 10,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7885626/photo/61cd8f4b0ddce.jpg"
+    },
+    {
+      "name": "Paul Mantee",
+      "character": "Al Corassa",
+      "order": 11,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259582/photo/61cd8fbbd9155.jpg"
+    },
+    {
+      "name": "Stephen Macht",
+      "character": "David Keeler",
+      "order": 12,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256930/photo/614a3c8d11e80.jpg"
+    },
+    {
+      "name": "Barry Laws",
+      "character": "",
+      "order": 13,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8010267/photo/61cd905e9cb24.jpg"
+    },
+    {
+      "name": "Dick O'Neill",
+      "character": "",
+      "order": 14,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/272551/photo/61cd90c8d3de0.jpg"
+    },
+    {
+      "name": "Meg Foster",
+      "character": "Christine Cagney (1)",
+      "order": 15,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/274338/photo/6873dfe875333.jpg"
+    },
+    {
+      "name": "Amanda Wyss",
+      "character": "Bridget Cagney",
+      "order": 16,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/274979/photo/61cd91d0c2895.jpg"
+    },
+    {
+      "name": "Barry Primus",
+      "character": "Sgt. Dory McKenna",
+      "order": 17,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/287132/photo/61cd924a6e63a.jpg"
+    }
+  ]
+}

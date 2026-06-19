@@ -1,0 +1,67 @@
+{
+  "version": 2,
+  "seriesID": "whispering-smith-1961",
+  "tvmazeID": 16099,
+  "title": "Whispering Smith",
+  "yearStart": 1961,
+  "yearEnd": 1961,
+  "overview": "Whispering Smith was a detective on the Denver, Colorado Police Department in the 1870s. This show took case histories from Smith's adventures. George Romack was Smith's partner and John Richards was the police chief.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70778-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Western"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "whispering-smith-s-01-e-19-swift-justice",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Swift Justice",
+          "overview": null,
+          "stillURL": "https://m.media-amazon.com/images/M/MV5BMzEyYjE3NzgtY2YwNC00OWI5LTg4YjktYjEzN2RlYTUyOWRmXkEyXkFqcGdeQXVyNDA3OTk2OTY@._V1_SX300.jpg",
+          "airDate": "1961-09-11",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Whispering Smith S01E19 Swift Justice.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 119266262,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/whispering-smith-s-01-e-19-swift-justice/Whispering%20Smith%20S01E19%20Swift%20Justice.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 26,
+  "tvdbID": "70778",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Sam Buffington",
+      "character": "John Richards",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/4071.jpg"
+    },
+    {
+      "name": "Guy Mitchell",
+      "character": "George Romack",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/4072.jpg"
+    },
+    {
+      "name": "Audie Murphy",
+      "character": "Tom 'Whispering' Smith",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/276603/primary.jpg"
+    }
+  ]
+}

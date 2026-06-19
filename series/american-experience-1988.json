@@ -1,0 +1,47 @@
+{
+  "version": 2,
+  "seriesID": "american-experience-1988",
+  "tvmazeID": 3509,
+  "title": "American Experience",
+  "yearStart": 1988,
+  "yearEnd": null,
+  "overview": "American Experience is TV's most-watched history series and brings to life incredible characters and compelling stories from our past that inform our understanding of the world today. Acclaimed by viewers and critics alike, American Experience documentaries have been honored with every major broadcast award, including 30 Emmy Awards, 4 duPont-Columbia Awards, and 18 George Foster Peabody Awards.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71638-4.jpg",
+  "backdropURL": null,
+  "genres": [
+    "History"
+  ],
+  "networks": [
+    "PBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-american-experience-hearts-and-hands-s-1-e-12",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Hearts and Hands",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/216/541261.jpg",
+          "airDate": "1988-12-20",
+          "year": 1988,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The American Experience- Hearts and Hands (S1E12).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1027026168,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-american-experience-hearts-and-hands-s-1-e-12/The American Experience- Hearts and Hands (S1E12).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 420,
+  "tvdbID": "71638",
+  "artworkSource": "tvdb"
+}

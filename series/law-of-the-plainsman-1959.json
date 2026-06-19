@@ -1,0 +1,79 @@
+{
+  "version": 2,
+  "seriesID": "law-of-the-plainsman-1959",
+  "tvmazeID": 79727,
+  "title": "Law of the Plainsman",
+  "yearStart": 1959,
+  "yearEnd": 1960,
+  "overview": "An Apache Indian becomes a Deputy U.S. Marshal.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/78445-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Western"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Blood Trails",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/s-01-e-28-lotp-jebs-daughters.6fe563f7.jpg",
+          "airDate": "1959-11-05",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E06 LOTP Blood Trails.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 332817740,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E06 LOTP Blood Trails.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 30,
+  "tvdbID": "78445",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Robert Harland",
+      "character": "Deputy Billy Lordan",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Dayton Lummis",
+      "character": "Marshal Andy Morrison",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Gina Gillespie",
+      "character": "Tess Wilkins",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Michael Ansara",
+      "character": "Deputy Marshal Sam Buckhart",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/257917/5fd7ef7fed685.jpg"
+    },
+    {
+      "name": "Nora Marlowe",
+      "character": "Martha Commager",
+      "order": 4,
+      "profilePath": null
+    }
+  ]
+}

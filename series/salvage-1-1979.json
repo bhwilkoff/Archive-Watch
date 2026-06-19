@@ -1,0 +1,93 @@
+{
+  "version": 2,
+  "seriesID": "salvage-1-1979",
+  "tvmazeID": 19337,
+  "title": "Salvage 1",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": "Once upon a time, a junkman had a dream... \"I'm gonna build a spaceship, go to the moon, salvage all the junk that's up there, bring it back and sell it.\" So he put together a team. An ex-astronaut...a fuel expert...they built a rocketship... And they went to the moon.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76178-3.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy",
+    "Adventure",
+    "Science-Fiction"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "salvage-1-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Shangri-La Lil",
+          "overview": "WWII and a very special airplane are at the center of this episode. Harry makes a journey to a Burmese jungle to bring back Shangri-La Lil, the B-25 bomber he piloted in WWII.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/508/1271336.jpg",
+          "airDate": "1979-02-05",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Salvage-1 S01E04 Shangri-la Lil 576p.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2809467598,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/salvage-1-complete-series/Salvage-1%20S01E04%20Shangri-la%20Lil%20576p.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 20,
+  "tvdbID": "76178",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Joel Higgins",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Trish Stewart",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Andy Griffith",
+      "character": "",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/254341/photo/63485d1faad19.jpg"
+    },
+    {
+      "name": "Richard Jaeckel",
+      "character": "",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262872/photo/60930fe076042.jpg"
+    },
+    {
+      "name": "Jacqueline Scott",
+      "character": "",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258088/photo/635c24f2b1402.jpg"
+    },
+    {
+      "name": "J. Jay Saunders",
+      "character": "",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Heather McAdam",
+      "character": "",
+      "order": 6,
+      "profilePath": null
+    }
+  ]
+}

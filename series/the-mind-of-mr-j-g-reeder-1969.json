@@ -1,0 +1,56 @@
+{
+  "version": 2,
+  "seriesID": "the-mind-of-mr-j-g-reeder-1969",
+  "tvmazeID": 37193,
+  "title": "The Mind of Mr. J.G. Reeder",
+  "yearStart": 1969,
+  "yearEnd": 1971,
+  "overview": "The Mind of Mr. J.G. Reeder is a British television series based on the feats of one of Edgar Wallace's most interesting heroes. It was made by Thames TV in 1969, with a second season following in 1971.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/249129-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Crime"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-mind-of-jg-reeder-complete-series-1969",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Sheer Melodrama",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/the-mind-of-jg-reeder-complete-series-1969.3cf38ea7.jpg",
+          "airDate": "1969-05-14",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Mind of JG Reeder S01E04 - Sheer Melodrama.mp4",
+            "format": "h.264",
+            "sizeBytes": 301543744,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-mind-of-jg-reeder-complete-series-1969/The Mind of JG Reeder S01E04 - Sheer Melodrama.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 16,
+  "tvdbID": "249129",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Hugh Burden",
+      "character": "J.G. Reeder",
+      "order": 0,
+      "profilePath": null
+    }
+  ]
+}

@@ -40,6 +40,52 @@
       ]
     },
     {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "mister-ed-s-02-",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Ed's Ancestors",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/mister-ed-s-02-.c2c0dae4.jpg",
+          "airDate": "1961-10-15",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mister Ed S02E03 Ed's Ancestors.mp4",
+            "format": "h.264",
+            "sizeBytes": 148214694,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mister-ed-s-02-/Mister Ed S02E03 Ed's Ancestors.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "mister-ed-s-03",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "The Bashful Clipper",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/mister-ed-s-03.eaeea746.jpg",
+          "airDate": "1962-10-18",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mister Ed S03E04 The Bashful Clipper.mp4",
+            "format": "h.264",
+            "sizeBytes": 148359497,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mister-ed-s-03/Mister Ed S03E04 The Bashful Clipper.mp4"
+        }
+      ]
+    },
+    {
       "seasonNumber": 4,
       "episodes": [
         {
@@ -104,7 +150,7 @@
       ]
     }
   ],
-  "episodesCount": 4,
+  "episodesCount": 6,
   "canonicalEpisodesCount": 143,
   "tvdbID": "78045",
   "artworkSource": "tvdb",
@@ -157,8 +203,5 @@
       "order": 7,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/211071.jpg"
     }
-  ],
-  "seriesImdbID": "tt0054557",
-  "canonicalEpisodeCount": 131,
-  "canonicalSeasons": 6
+  ]
 }

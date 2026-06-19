@@ -1,0 +1,91 @@
+{
+  "version": 2,
+  "seriesID": "stark-raving-mad-1999",
+  "tvmazeID": 4462,
+  "title": "Stark Raving Mad",
+  "yearStart": 1999,
+  "yearEnd": 2000,
+  "overview": "Stark Raving Mad centers on eccentric horror author Ian Stark whose first novel, Below Ground, turns him into an overnight sensation. A practical-joker by nature, Ian spends the bulk of his time harassing his uptight new editor, Henry McNeely. Sharing Ian's loft apartment are Jake Donovan, his mindless assistant, and lovable but horny mutt Edgar. Living across the hall is Maddie Keller, who tends bar downstairs in the pub that the gang frequents. Henry's snobby girlfriend Tess Faraday spends a lot of time hanging out with Henry's new friends, though she resents them for taking up so much of Henry's time.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/72033-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "stark-raving-mad-s1-e1-pilot",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Pilot",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/stark-raving-mad-s1-e1-pilot",
+          "airDate": "1999-09-23",
+          "year": 1999,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Stark.Raving.Mad - S1E1 - Pilot.mp4",
+            "format": "h.264",
+            "sizeBytes": 119894206,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/stark-raving-mad-s1-e1-pilot/Stark.Raving.Mad - S1E1 - Pilot.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 22,
+  "tvdbID": "72033",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Tony Shalhoub",
+      "character": "Ian Stark",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/326603/photo/64d242402424c.jpg"
+    },
+    {
+      "name": "Eddie McClintock",
+      "character": "Jake Donovan",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Heather Paige Kent",
+      "character": "Maddie",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Dorie Barton",
+      "character": "Tess Farraday",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Neil Patrick Harris",
+      "character": "Henry McNeeley",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/253954/primary.jpg"
+    },
+    {
+      "name": "Harriet Sansom Harris",
+      "character": "Audrey Radford",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/281415/photo/6346b0200458c.jpg"
+    },
+    {
+      "name": "Chris Sarandon",
+      "character": "Cesar",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/268786/primary.jpg"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "version": 2,
+  "seriesID": "soldiers-of-fortune-1955",
+  "tvmazeID": 56744,
+  "title": "Soldiers of Fortune",
+  "yearStart": 1955,
+  "yearEnd": 1957,
+  "overview": "Tim Kelly and Toubo Smith, a pair of professional troubleshooters, take armchair viewers on action-filled adventures in unusual places worldwide.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/241551-1.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "soldiers.of.-fortune.-s-01-e-06",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Gypsy Prince",
+          "overview": null,
+          "stillURL": "https://commons.wikimedia.org/wiki/Special:FilePath/Soldiers_of_Fortune_%281919%29_-_3.jpg?width=600",
+          "airDate": "1955-03-02",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Soldiers.of.Fortune.S01E06.mp4",
+            "format": "h.264",
+            "sizeBytes": 156245684,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/soldiers.of.-fortune.-s-01-e-06/Soldiers.of.Fortune.S01E06.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 52,
+  "tvdbID": "241551",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "John Russell",
+      "character": "Tim Kelly",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259870/photo/64b976544bb4f.jpg"
+    },
+    {
+      "name": "Chick Chandler",
+      "character": "Toubo Smith",
+      "order": 1,
+      "profilePath": null
+    }
+  ]
+}

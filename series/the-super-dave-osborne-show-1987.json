@@ -1,0 +1,45 @@
+{
+ "version": 2,
+ "seriesID": "the-super-dave-osborne-show-1987",
+ "tvmazeID": 16823,
+ "title": "The Super Dave Osborne Show",
+ "yearStart": 1987,
+ "yearEnd": 1987,
+ "overview": "Battered and abused stuntman Super Dave Osborne gets his own nighttime talk show. In between interviews Osborne, with the help of his partner and promoter, Fuji, performs his classic stunts that never quite seem to go as planned.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/56/140544.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "Paramount+ with Showtime"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 3,
+   "episodes": [
+    {
+     "archiveID": "the-super-dave-osborne-show",
+     "seasonNumber": 3,
+     "episodeNumber": 22,
+     "title": "Tennis Court",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/56/140544.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "The Super Dave Osborne Show/The Super Dave Osborne Show - Season 3/The Super Dave Osborne Show - S03E22.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 181620655,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-super-dave-osborne-show/The Super Dave Osborne Show/The Super Dave Osborne Show - Season 3/The Super Dave Osborne Show - S03E22.ia.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 1,
+ "canonicalEpisodesCount": 97
+}

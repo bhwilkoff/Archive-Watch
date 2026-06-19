@@ -1,0 +1,79 @@
+{
+  "version": 2,
+  "seriesID": "count-duckula-1988",
+  "tvmazeID": 9486,
+  "title": "Count Duckula",
+  "yearStart": 1988,
+  "yearEnd": 1993,
+  "overview": "This is a very clever cartoon from Cosgrove-Hall, the same group that produced Dangermouse. It is about a vampire duck that, due to a mishap during the re-animation process, is now a vegetarian. He uses a special machine in his castle to transport it to different places in search of treasure, money, and fame as a musician. He is accompanied by Igor, the family butler, who is a believer in the Old Ways of being a vampire. He is disappointed that the Count is not as evil as the old Count used to be. Also in the castle is Nanny, the nursemaid. She is big and dimwitted. Duckula is constantly being hunted by Dr. Von Goosewing, a vampire hunter.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76307-3.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Children"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "CountDuckula_201706",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Restoration Comedy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/CountDuckula_201706.aded4a7c.jpg",
+          "airDate": "1988-10-04",
+          "year": 1988,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Count Duckula S01E05.mp4",
+            "format": "h.264",
+            "sizeBytes": 141857947,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CountDuckula_201706/Count Duckula S01E05.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 65,
+  "tvdbID": "76307",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "David Jason",
+      "character": "Count Duckula",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/45099.jpg"
+    },
+    {
+      "name": "Barry Clayton",
+      "character": "Narrator",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Jack May",
+      "character": "Igor",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Jimmy Hibbert",
+      "character": "|Sviatoslav|Dr. Von Goosewing|",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Brian Trueman",
+      "character": "|Nanny|Dmitri|",
+      "order": 4,
+      "profilePath": null
+    }
+  ]
+}

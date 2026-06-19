@@ -1,0 +1,151 @@
+{
+  "version": 2,
+  "seriesID": "bracken-s-world-1969",
+  "tvmazeID": 17388,
+  "title": "Bracken's World",
+  "yearStart": 1969,
+  "yearEnd": 1970,
+  "overview": "Bracken's World was a drama series broadcast on NBC from 1969-1970. John Bracken is the head of the fictional Century Studios in Hollywood. The series focuses on the behind the scenes activities of cast and crew in the studios.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/73160-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Move in for a Close-Up",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-12-move-in-for-the-close-up",
+          "airDate": "1969-12-12",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E12 - Move In for the Close-Up.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 274659018,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E12%20-%20Move%20In%20for%20the%20Close-Up.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 41,
+  "tvdbID": "73160",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Leslie Nielsen",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/256447/5f66422ad9fa5.jpg"
+    },
+    {
+      "name": "Linda Harrison",
+      "character": "",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/289474/photo/659469c29e963.jpg"
+    },
+    {
+      "name": "Dennis Cole",
+      "character": "",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/289048/photo/63ac952d837e5.jpg"
+    },
+    {
+      "name": "Elizabeth Allen",
+      "character": "",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265931/photo/60ae664ccd6db.jpg"
+    },
+    {
+      "name": "Kathleen Hughes",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Eleanor Parker",
+      "character": "",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Karen Jensen",
+      "character": "",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Stephen Oliver",
+      "character": "",
+      "order": 7,
+      "profilePath": null
+    },
+    {
+      "name": "Jeanne Cooper",
+      "character": "",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/252955/photo/615e58ca4b3e4.jpg"
+    },
+    {
+      "name": "Bettye Ackerman",
+      "character": "",
+      "order": 9,
+      "profilePath": null
+    },
+    {
+      "name": "Marie Windsor",
+      "character": "",
+      "order": 10,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259028/photo/6495f261f0739.jpg"
+    },
+    {
+      "name": "Gary Dubin",
+      "character": "",
+      "order": 11,
+      "profilePath": null
+    },
+    {
+      "name": "Warren Stevens",
+      "character": "",
+      "order": 12,
+      "profilePath": null
+    },
+    {
+      "name": "Peter Haskell",
+      "character": "",
+      "order": 13,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257039/photo/63dd423408f80.jpg"
+    },
+    {
+      "name": "William Traylor",
+      "character": "",
+      "order": 14,
+      "profilePath": null
+    },
+    {
+      "name": "Laraine Stephens",
+      "character": "",
+      "order": 15,
+      "profilePath": null
+    },
+    {
+      "name": "Madlyn Rhue",
+      "character": "",
+      "order": 16,
+      "profilePath": null
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "version": 2,
+  "seriesID": "the-judy-garland-show-1963",
+  "tvmazeID": 14905,
+  "title": "The Judy Garland Show",
+  "yearStart": 1963,
+  "yearEnd": 1964,
+  "overview": "The Judy Garland Show is an American musical variety television series that aired on CBS.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/78577-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Music"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-judy-garland-show-1963-Full",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Judy Garland Show #7",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8aUVlLAmOrRzyVIFutNljFZUICN.jpg",
+          "airDate": "1963-09-29",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "03 - The Judy Garland Show (1963) S01E01, S01E03.mp4",
+            "format": "h.264",
+            "sizeBytes": 741634652,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-judy-garland-show-1963-Full/03 - The Judy Garland Show (1963) S01E01, S01E03.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 26,
+  "tvdbID": "78577",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Judy Garland",
+      "character": "Self - Hostess",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/410193/photo/60ec42f6bc2dc.jpg"
+    },
+    {
+      "name": "Jerry Van Dyke",
+      "character": "Self",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/254268/photo/631a77e311def.jpg"
+    }
+  ]
+}

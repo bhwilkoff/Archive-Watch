@@ -17,6 +17,29 @@
   "creator": null,
   "seasons": [
     {
+      "seasonNumber": 0,
+      "episodes": [
+        {
+          "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series",
+          "seasonNumber": 0,
+          "episodeNumber": null,
+          "title": "The Adventures of Ozzie and Harriet",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/the-adventures-of-ozzie-and-harriet-the-complete-series.d9432ea1.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Season 01/S00E00 - Here Comes the Nelsons (1952 Movie).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 808535091,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2001/S00E00%20-%20Here%20Comes%20the%20Nelsons%20%281952%20Movie%29.mp4"
+        }
+      ]
+    },
+    {
       "seasonNumber": 1,
       "episodes": [
         {
@@ -1808,7 +1831,7 @@
       ]
     }
   ],
-  "episodesCount": 97,
+  "episodesCount": 98,
   "canonicalEpisodesCount": 435,
   "tvdbID": "71598",
   "artworkSource": "tvdb",

@@ -1,0 +1,56 @@
+{
+  "version": 2,
+  "seriesID": "danger-man-1960",
+  "tvmazeID": 16146,
+  "title": "Danger Man",
+  "yearStart": 1960,
+  "yearEnd": 1968,
+  "overview": "Every government has its secret service branch. America, CIA; France, Deuxième Bureau; England, MI5. NATO also has its own. A messy job? Well that's when they usually call on me or someone like me. Oh yes, my name is Drake, John Drake.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76164-4.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "danger-man-s-01-e-01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "View from the Villa",
+          "overview": "MI-5 Agent John Drake is in Rome investigating the murder of a banker who's embezzled a large amount of gold from his employers.The trail leads through a seemingly uninterested wife and a lady friend of the banker who may not want to be found.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/5wCJ8Rt9PA1j6jzzmUQg0EjsxwV.jpg",
+          "airDate": "1960-09-11",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Danger Man S01E01.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 540089341,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/danger-man-s-01-e-01/Danger Man S01E01.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 86,
+  "tvdbID": "76164",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Patrick McGoohan",
+      "character": "John Drake",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256717/photo/63abd92177043.jpg"
+    }
+  ]
+}

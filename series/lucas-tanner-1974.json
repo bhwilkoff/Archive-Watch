@@ -1,0 +1,97 @@
+{
+  "version": 2,
+  "seriesID": "lucas-tanner-1974",
+  "tvmazeID": 11515,
+  "title": "Lucas Tanner",
+  "yearStart": 1974,
+  "yearEnd": 1975,
+  "overview": "Lucas Tanner teaches in the suburbs of St. Louis, and does what's best for his kids... no matter what his superiors say.",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/76558/posters/64976816d35f6.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Lucas-Tanner-1974-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Requiem for a Son",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Lucas-Tanner-1974-Series",
+          "airDate": "1975-03-12",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner (23 of 23)/S01E21 - A Touch of Bribery.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 268815662,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Lucas-Tanner-1974-Series/Lucas%20Tanner%20%2823%20of%2023%29/S01E21%20-%20A%20Touch%20of%20Bribery.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 23,
+  "tvdbID": "76558",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Kimberly Beck",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/283536/photo/6750cc968b698.jpg"
+    },
+    {
+      "name": "Rosemary Murphy",
+      "character": "",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256684/photo/62e0ad092985a.jpg"
+    },
+    {
+      "name": "Trish Soodik",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Michael Dwight Smith",
+      "character": "",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "John Randolph",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Robbie Rist",
+      "character": "",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Alan Abelew",
+      "character": "",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "David Hartman",
+      "character": "Lucas Tanner",
+      "order": 7,
+      "profilePath": null
+    }
+  ]
+}

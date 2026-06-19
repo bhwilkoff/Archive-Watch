@@ -1,0 +1,79 @@
+{
+  "version": 2,
+  "seriesID": "lotsa-luck-1973",
+  "tvmazeID": 24245,
+  "title": "Lotsa Luck",
+  "yearStart": 1973,
+  "yearEnd": 1974,
+  "overview": "The trials and tribulations of Stanley Belmont, a clerk in the lost-'n-found department of the New York City Bus Lines.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70586-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "lotsa-luck",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Get Off My Back",
+          "overview": "Stan hurts his back at home and Bummy tries to help him make it look like he has an accident at work.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/506/1266939.jpg",
+          "airDate": "1974-03-15",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "s01e22 - Get Off My Back.mp4",
+            "format": "h.264",
+            "sizeBytes": 159296743,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lotsa-luck/s01e22 - Get Off My Back.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 22,
+  "tvdbID": "70586",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Dom DeLuise",
+      "character": "Stanley Belmont",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/254317/photo/63abe5182e373.jpg"
+    },
+    {
+      "name": "Kathleen Freeman",
+      "character": "Iris Belmont",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259084/photo/613c00e4b5aa5.jpg"
+    },
+    {
+      "name": "Wynn Irwin",
+      "character": "Arthur Swann",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264549/photo/68cf67ac751a5.jpg"
+    },
+    {
+      "name": "Beverly Sanders",
+      "character": "Olive Swann",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261590/photo/68cf683820e0c.jpg"
+    },
+    {
+      "name": "Jack Knight",
+      "character": "Bumny Pfitzer",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/252144/photo/68cf68b611345.jpg"
+    }
+  ]
+}

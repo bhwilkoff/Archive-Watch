@@ -1,0 +1,69 @@
+{
+  "version": 2,
+  "seriesID": "randall-hopkirk-deceased-1969",
+  "tvmazeID": 2585,
+  "title": "Randall & Hopkirk (Deceased)",
+  "yearStart": 1969,
+  "yearEnd": 1970,
+  "overview": "Randall and Hopkirk (Deceased) is a late 1960s British private detective television series starring Mike Pratt and Kenneth Cope as the private detectives Jeff Randall and Marty Hopkirk, respectively. The series was created by Dennis Spooner and produced by Monty Berman. In the initial episode Hopkirk was murdered in the line of duty, but returned as a ghost only Randall was able to see or hear to help his former partner fight crime from beyond the grave. ITC film corporation produced a single series of 26 episodes during 1968 and 1969 which were aired between September 1969 and March 1970. The pilot episode was originally broadcast on ITV in the United Kingdom on Friday 19 September 1969 on ATV Midlands.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71555-3.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Action",
+    "Adventure"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "randall-hopkirk-deceased-complete-series-1969",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Ghost Who Saved the Bank at Monte Carlo",
+          "overview": "Marty's eccentric old aunt, Clara, unaware of his death, comes to the agency, seeking a bodyguard to accompany her to the roulette tables of Monte Carlo where she hopes to put into practice her foolproof winning system. Jeff and Jeannie go with her and she wins a fortune but two gangs, one British, one French, are after her secret and steal her 'little red book' though this proves to be worthless as her system is in her head. When heavies abduct Jean, the best way to save her seems to be to show that Clara can lose as well as win, requiring Marty to 'doctor' the roulette wheel.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/273/684037.jpg",
+          "airDate": "1969-11-30",
+          "year": 1969,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "Randall & Hopkirk (Deceased) - S01E11 - The Ghost Who Saved the Bank at Monte Carlo (1969) [(DivX)].mp4",
+            "format": "h.264",
+            "sizeBytes": 286022483,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/randall-hopkirk-deceased-complete-series-1969/Randall & Hopkirk (Deceased) - S01E11 - The Ghost Who Saved the Bank at Monte Carlo (1969) [(DivX)].mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 26,
+  "tvdbID": "71555",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Mike Pratt",
+      "character": "Jeff Randall",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/318718/photo/69315bf83c796.jpg"
+    },
+    {
+      "name": "Kenneth Cope",
+      "character": "Marty Hopkirk",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258584/photo/69b5092a39c0b.jpg"
+    },
+    {
+      "name": "Annette Andre",
+      "character": "Jeannie Hopkirk",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/282515/photo/69b5066b9bfed.jpg"
+    }
+  ]
+}

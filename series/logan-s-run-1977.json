@@ -1,0 +1,74 @@
+{
+  "version": 2,
+  "seriesID": "logan-s-run-1977",
+  "tvmazeID": 9977,
+  "title": "Logan's Run",
+  "yearStart": 1977,
+  "yearEnd": 1978,
+  "overview": "Logan's Run is a spin-off from the 1976 film of the same name. The series depicted Logan and Jessica-pursued by Francis traveling in a futuristic hovercraft-like vehicle on a cross-country trek to Sanctuary in a post-apocalyptic America. The domed city was seen only in the pilot and two other episodes, using recycled footage from the film. In a change from the book and film, the television series had the city run by a cabal of elderly citizens; Francis has been promised a life beyond thirty as a city elder if he can bring back the fugitives. Logan and Jessica were joined on their journey by an android named Rem.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71216-4.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Adventure",
+    "Science-Fiction"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "logans-run-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Logan's Run",
+          "overview": "In the 24th century, survivors of a nuclear war live in a domed city where they are allowed to stay alive only until age 30. \"Runners,\" who refuse to die in the extermination ceremony known as Carousel, are hunted down and killed by enforcers called Sandmen. Logan is a Sandman who's begun to question the system, and he and a woman named Jessica leave the city to look for a mysterious place called Sanctuary. Along the way they meet an android named Rem, who joins them in their quest. The three of them are being pursued by a Sandman named Francis.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/140/351928.jpg",
+          "airDate": "1977-09-16",
+          "year": 1977,
+          "runtimeSeconds": 5400,
+          "videoFile": {
+            "name": "Logans Run S01E01 - Pilot.mp4",
+            "format": "h.264",
+            "sizeBytes": 422213940,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/logans-run-complete-series-1977/Logans%20Run%20S01E01%20-%20Pilot.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 14,
+  "tvdbID": "71216",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Randolph Powell",
+      "character": "Francis 7",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/7844.jpg"
+    },
+    {
+      "name": "Heather Menzies",
+      "character": "Jessica 6",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/7845.jpg"
+    },
+    {
+      "name": "Gregory Harrison",
+      "character": "Logan 5",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/254257/photo/68165a1714c1b.jpg"
+    },
+    {
+      "name": "Donald Moffat",
+      "character": "Rem",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257120/photo/621de952d3054.jpg"
+    }
+  ]
+}
