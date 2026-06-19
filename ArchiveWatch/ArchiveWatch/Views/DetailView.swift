@@ -675,9 +675,18 @@ struct PlayerScreen: View {
         playback = .loading
         let active = current ?? catalogItem
         let playURL = active?.videoURLParsed ?? url
-        let (asset, loader) = ResilientStreamLoader.makeAsset(for: playURL)
-        streamLoader = loader
-        let playerItem = AVPlayerItem(asset: asset)
+        let playerItem: AVPlayerItem
+        if let hls = active?.subtitleHLSURL {
+            // Native HLS subtitles (Decision 039): the Info/CC menu lists the
+            // WebVTT tracks. Captioned titles use AVFoundation's native HLS path
+            // instead of ResilientStreamLoader (byte-range = the resilience
+            // upgrade). streamLoader stays nil.
+            playerItem = AVPlayerItem(url: hls)
+        } else {
+            let (asset, loader) = ResilientStreamLoader.makeAsset(for: playURL)
+            streamLoader = loader
+            playerItem = AVPlayerItem(asset: asset)
+        }
         if let active {
             playerItem.externalMetadata = makeExternalMetadata(for: active)
         }

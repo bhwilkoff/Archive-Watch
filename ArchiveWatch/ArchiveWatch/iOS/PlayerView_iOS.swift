@@ -23,12 +23,16 @@ struct PlayerView: UIViewControllerRepresentable {
     var overlayTitle: String = ""
     var overlaySubtitle: String? = nil
     var overlayDescription: String? = nil
+    // When present, the player loads this HLS playlist (MP4 + WebVTT) instead of
+    // the bare MP4, so AVPlayerViewController shows native subtitles (Decision 039).
+    var subtitleHLSURL: URL? = nil
 
     /// Play a movie/standalone item. Pass `store` to enable movie autoplay
     /// (gated by `store.autoplayMode`; .off means play just this one).
     init(item: Catalog.Item, autoplayIn store: AppStore? = nil) {
         archiveID = item.archiveID
         videoURL = item.videoURLParsed
+        subtitleHLSURL = item.subtitleHLSURL
         queue = store.map { MovieAutoplayQueue(start: item, store: $0) }
         overlayTitle = item.title
         overlaySubtitle = [item.year.map(String.init), item.genres.first]
@@ -89,11 +93,21 @@ struct PlayerView: UIViewControllerRepresentable {
         try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .moviePlayback)
         try? AVAudioSession.sharedInstance().setActive(true)
 
-        guard let url = videoURL else { return vc }
-
-        let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
-        context.coordinator.loader = loader   // retain (delegate is held weakly)
-        let pItem = AVPlayerItem(asset: asset)
+        let pItem: AVPlayerItem
+        if let hls = subtitleHLSURL {
+            // Native HLS (Decision 039): AVPlayerViewController shows the CC menu
+            // for the WebVTT tracks. The MP4 streams as the HLS variant, so on
+            // captioned titles we use AVFoundation's native HLS path instead of
+            // ResilientStreamLoader (byte-range segments would restore loader-
+            // grade resilience — the documented robustness upgrade).
+            pItem = AVPlayerItem(url: hls)
+        } else if let url = videoURL {
+            let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
+            context.coordinator.loader = loader   // retain (delegate is held weakly)
+            pItem = AVPlayerItem(asset: asset)
+        } else {
+            return vc
+        }
         // Native title+description: AVPlayerViewController renders externalMetadata
         // in its own chrome, shown/hidden WITH the transport controls (the Apple TV
         // app's behavior). This replaces a custom overlay — it's controls-synced

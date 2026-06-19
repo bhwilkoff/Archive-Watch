@@ -102,7 +102,14 @@ struct Catalog: Decodable, Sendable {
         // generated). nil/absent = no captions known yet.
         let captions: [Caption]?
 
+        // HLS master playlist (tools/build_subtitle_assets.py) that wraps the
+        // MP4 + WebVTT subtitle tracks — the NATIVE way AVPlayerViewController
+        // shows a CC menu (Decision 039). Present only once the Pages assets are
+        // built. Apple players use this URL instead of the bare MP4.
+        let subtitleHLS: String?
+
         var id: String { archiveID }
+        var subtitleHLSURL: URL? { subtitleHLS.flatMap(URL.init(string:)) }
         var posterURLParsed: URL? { posterURL.flatMap(URL.init(string:)) }
         var backdropURLParsed: URL? { backdropURL.flatMap(URL.init(string:)) }
         var videoURLParsed: URL? { downloadURL.flatMap(URL.init(string:)) }
@@ -220,8 +227,9 @@ struct Catalog: Decodable, Sendable {
         let lang: String            // BCP-47-ish: "en", "es", "fr", …
         let label: String?          // display label, e.g. "English (auto)"
         let format: String          // "srt" | "vtt"
-        let url: String
+        let url: String             // archive.org source (Android side-loads this)
         let source: String?
+        let vttURL: String?         // CORS-hosted VTT on Pages (web `<track>`)
         var urlParsed: URL? { URL(string: url) }
         var displayLabel: String { label ?? lang.uppercased() }
     }
