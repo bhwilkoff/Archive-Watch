@@ -226,6 +226,19 @@ def _year_compatible(a, b):
     return ya is None or yb is None or abs(ya - yb) <= 2
 
 
+def _color_compatible(a, b):
+    """B&W vs color is a hard version distinction — a B&W original and a color
+    remake/colorization of the same title are different works. Unknown on either
+    side does not contradict."""
+    ca, cb = a.get("colorMode"), b.get("colorMode")
+    return not (ca and cb and ca != cb)
+
+
+def _color_match(a, b):
+    ca, cb = a.get("colorMode"), b.get("colorMode")
+    return bool(ca) and ca == cb
+
+
 def _video_quality(i):
     """Higher = better playable copy. qualityScore + resolution hints from the
     filename, demoting tiny mobile derivatives (512kb/ipod/64kb)."""
@@ -250,25 +263,32 @@ def _real_art_rank(i):
 
 
 def _same_film(a, b):
-    """True when two same-titled copies are CONFIDENTLY the same film. Requires
-    positive corroboration (shared imdb, matching year, or matching runtime) and
-    NO contradiction (different imdb, year apart >2, runtime apart beyond tol). A
-    bare no-imdb copy (no year, no runtime) only attaches to an imdb-bearing copy —
-    never to another bare copy — so generic-title collisions never chain-merge."""
+    """True when two same-titled copies are CONFIDENTLY the same film. Color and
+    year must be compatible (B&W vs color = different version; years apart >2 =
+    different film). Beyond that:
+      - same imdb id  → same film;
+      - imdb anchor + no-imdb copy → same film (the imdb + title + colour fix the
+        identity), tolerating a CORRUPTED runtime up to 40% — runtime is the most
+        error-prone field (a 1959 House on Haunted Hill copy carried a bogus 93-min
+        runtime + the 1999 director, yet is plainly the same B&W film);
+      - no-imdb + no-imdb → require TIGHT runtime agreement or same-year+one-runtime
+        -unknown, and never two bare copies (so generic-title collisions can't
+        chain-merge)."""
     ia, ib = a.get("imdbID"), b.get("imdbID")
     if ia and ib:
-        return ia == ib                               # same film iff same id
-    if not _year_compatible(a, b) or not _runtime_compatible(a, b):
+        return ia == ib
+    if not _year_compatible(a, b) or not _color_compatible(a, b):
         return False
-    ya, yb = a.get("year"), b.get("year")
     ra, rb = a.get("runtimeSeconds") or 0, b.get("runtimeSeconds") or 0
-    if ra > 0 and rb > 0:                             # tight runtime agreement
-        if abs(ra - rb) <= max(0.10 * max(ra, rb), 90):
-            return True
+    if ia or ib:                                      # imdb anchor + no-imdb copy
+        if ra > 0 and rb > 0 and abs(ra - rb) > 0.40 * max(ra, rb):
+            return False                              # too far off even for bad data
+        return True
+    ya, yb = a.get("year"), b.get("year")             # both no-imdb
+    if ra > 0 and rb > 0 and abs(ra - rb) <= max(0.10 * max(ra, rb), 90):
+        return True
     if ya and yb and abs(ya - yb) <= 1 and (ra == 0 or rb == 0):
-        return True                                   # same year, runtime unknown on one
-    if (ia or ib) and (ra == 0 or rb == 0) and (ya is None or yb is None):
-        return True                                   # imdb anchor absorbs a bare copy
+        return True
     return False
 
 
@@ -291,18 +311,20 @@ def _title_quality(t):
 
 
 def _consistent(group):
-    """A merge component must name a single film: at most one imdb id, runtime
-    span within tolerance, and year span <=2 — relaxed to <=5 when the runtimes
-    all tightly agree, since identical title + identical runtime is decisive and a
-    larger year gap is then almost always a metadata typo (e.g. a "Doomsday
-    Machine" copy mislabelled 1976 vs the real 1972)."""
+    """A merge component must name a single film: at most one imdb id, no B&W +
+    colour mix, and a sane year span. Runtime span is enforced only for no-imdb-
+    ONLY components — when an imdb anchors the component, its identity is fixed and
+    corrupted runtimes on re-uploads are tolerated."""
     imdbs = {m.get("imdbID") for m in group if m.get("imdbID")}
     if len(imdbs) > 1:
         return False
-    rts = [m["runtimeSeconds"] for m in group if m.get("runtimeSeconds")]
-    if rts and max(rts) - min(rts) > max(0.12 * max(rts), 150):
+    colors = {m.get("colorMode") for m in group if m.get("colorMode")}
+    if len(colors) > 1:
         return False
+    rts = [m["runtimeSeconds"] for m in group if m.get("runtimeSeconds")]
     tight = len(rts) >= 2 and (max(rts) - min(rts)) <= max(0.10 * max(rts), 90)
+    if not imdbs and rts and max(rts) - min(rts) > max(0.12 * max(rts), 150):
+        return False
     yrs = [m["year"] for m in group if m.get("year")]
     if yrs and max(yrs) - min(yrs) > (5 if tight else 2):
         return False
