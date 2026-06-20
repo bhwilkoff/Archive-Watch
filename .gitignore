@@ -90,3 +90,4 @@ ios/.swiftpm/
 tools/audit_series_episodes.csv
 subs/
 subs.tar.gz
+tools/whisper_manifest.jsonl
