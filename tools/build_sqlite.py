@@ -187,11 +187,16 @@ def dedupe_by_imdb(items):
 # Re-upload qualifiers stripped before comparing titles, so "Carnival Of Souls
 # 1962" / "...video quality upgrade" / "... 720p" all normalize to the same key.
 _DUPE_QUALIFIERS = [
-    "video quality upgrade", "quality upgrade", "ipod video version", "ipod video",
-    "full movie", "the complete film", "complete film", "remastered", "restored",
-    "widescreen", "colorized", "cult film", "cult classic", "public domain",
-    "1080p", "720p", "480p", "4k", "hd",
+    "video quality upgrade", "quality upgrade", "video upgrade", "ipod video version",
+    "ipod video", "full movie", "full film", "the complete film", "complete film",
+    "remastered", "remaster", "restored", "restoration", "widescreen", "fullscreen",
+    "colorized", "colourized", "cult film", "cult classic", "public domain",
+    "hi res", "high quality", "best quality", "upgrade",
+    "1080p", "720p", "480p", "2160p", "4k", "hd ", " hd",
 ]
+
+_FILM_TYPES = {"feature-film", "short-film", "silent-film", "animation",
+               "documentary", "feature"}
 
 
 def _dupe_title_key(title):
@@ -203,36 +208,104 @@ def _dupe_title_key(title):
     return t
 
 
-def drop_noimdb_dupes_of_captioned(items):
-    """Hide a no-imdb re-upload when an imdb-tagged CAPTIONED copy of the SAME
-    film exists, so the user lands on the subtitled card instead of a caption-
-    less duplicate (the 'Carnival Of Souls 1962' / 'Reefer Madness (1936)' class).
-    Precision over recall (Decision 035): require an EXACT normalized-title match
-    to a captioned imdb winner + a year match (when both have a year), and never
-    touch trailers or multi-title compilations. Only fires when there's a
-    captioned twin, so a genuinely-unique no-imdb film is never dropped."""
-    cap = {}   # normalized title -> a captioned imdb-tagged item
+def _runtime_compatible(a, b):
+    """True if two runtimes plausibly belong to the same film (guards the
+    1959-original vs 1999-remake case where titles collide but lengths don't)."""
+    ra, rb = a.get("runtimeSeconds") or 0, b.get("runtimeSeconds") or 0
+    if ra <= 0 or rb <= 0:
+        return True                                   # no runtime to contradict
+    tol = max(0.15 * max(ra, rb), 150)                # 15% or 2.5 min, whichever larger
+    return abs(ra - rb) <= tol
+
+
+def _year_compatible(a, b):
+    ya, yb = a.get("year"), b.get("year")
+    return ya is None or yb is None or abs(ya - yb) <= 2
+
+
+def _video_quality(i):
+    """Higher = better playable copy. qualityScore + resolution hints from the
+    filename, demoting tiny mobile derivatives (512kb/ipod/64kb)."""
+    q = i.get("qualityScore") or 0
+    url = (i.get("downloadURL") or "").lower()
+    if any(x in url for x in ("1080", "1920", "2160", "4k")):
+        q += 5
+    elif "720" in url:
+        q += 3
+    elif "480" in url:
+        q += 1
+    if any(x in url for x in ("512kb", "256kb", "64kb", "ipod", "_ipod", "mobile")):
+        q -= 6
+    return q
+
+
+def _real_art_rank(i):
+    if not (i.get("hasRealArtwork") or i.get("artworkSource") not in (None, "archive")):
+        return 0
+    return {"tmdb": 4, "tvdb": 4, "wikidata": 3, "commons": 3,
+            "generated": 2}.get(i.get("artworkSource"), 1)
+
+
+def merge_film_duplicates(items):
+    """Collapse re-uploads of the SAME film into ONE best card, then graft the
+    film-level metadata so the surviving card is best-of-everything.
+
+    Acts ONLY on title-key clusters that contain EXACTLY ONE imdb id — that imdb
+    anchors the film's identity. Multi-imdb clusters are DISTINCT films (remakes /
+    adaptations: Cleopatra, Oliver Twist) and all-no-imdb clusters are too ambiguous
+    (generic titles like "Public Domain Animation"): both are left untouched. A
+    no-imdb copy joins the anchor only when year- AND runtime-compatible (so the
+    1959 House on Haunted Hill original never absorbs the 1999 remake that shares
+    its title but runs 18 min longer). The survivor is the best VIDEO + captions
+    copy; the anchor's imdb / year / poster / director / rating are grafted onto it
+    when it lacks them — so the user lands on one card with the best video, the CC
+    track, and real artwork instead of N split copies. Precision over recall
+    (Decision 035): when in doubt, keep the copies separate. Runs AFTER
+    dedupe_by_imdb (so each imdb already has a single survivor)."""
+    clusters = {}
     for it in items:
-        if it.get("subtitleHLS") and it.get("imdbID"):
-            cap.setdefault(_dupe_title_key(it.get("title")), it)
-    if not cap:
-        return items
-    out, dropped = [], 0
-    for it in items:
-        title = it.get("title") or ""
-        low = title.lower()
-        if (not it.get("imdbID") and not it.get("subtitleHLS")
-                and "trailer" not in low and "&" not in title and " and " not in low):
-            twin = cap.get(_dupe_title_key(title))
-            if twin:
-                ty, wy = it.get("year"), twin.get("year")
-                if ty is None or wy is None or abs(ty - wy) <= 1:
-                    dropped += 1
-                    continue
-        out.append(it)
-    if dropped:
-        print(f"[dedup] dropped {dropped} no-imdb dupes of captioned films")
-    return out
+        if it.get("contentType") in _FILM_TYPES and not it.get("excluded"):
+            k = _dupe_title_key(it.get("title"))
+            if len(k) >= 4:
+                clusters.setdefault(k, []).append(it)
+
+    drop_ids, grafted = set(), 0
+    GRAFT = ("imdbID", "tmdbID", "year", "director", "imdbRating", "imdbVotes",
+             "contentRating", "language")
+    for members in clusters.values():
+        if len(members) < 2:
+            continue
+        imdb_ids = {m.get("imdbID") for m in members if m.get("imdbID")}
+        if len(imdb_ids) != 1:
+            continue                                  # 0 or many imdb → don't touch
+        anchor = next(m for m in members if m.get("imdbID"))
+        group = [anchor] + [m for m in members
+                            if not m.get("imdbID")
+                            and _year_compatible(m, anchor)
+                            and _runtime_compatible(m, anchor)]
+        if len(group) < 2:
+            continue
+        winner = max(group, key=lambda i: (1 if i.get("subtitleHLS") else 0,
+                                           _video_quality(i), _real_art_rank(i),
+                                           i.get("imdbVotes") or 0))
+        # graft film-level identity/metadata onto the winner (copy-independent)
+        for f in GRAFT:
+            if not winner.get(f) and anchor.get(f):
+                winner[f] = anchor[f]
+        best_art = max(group, key=_real_art_rank)
+        if _real_art_rank(best_art) > _real_art_rank(winner):
+            for f in ("posterURL", "artworkSource", "hasRealArtwork", "backdropURL"):
+                if best_art.get(f) is not None:
+                    winner[f] = best_art[f]
+        for m in group:
+            if m["archiveID"] != winner["archiveID"]:
+                drop_ids.add(m["archiveID"])
+        grafted += 1
+
+    if drop_ids:
+        print(f"[dedup] merged {len(drop_ids)} film re-uploads into "
+              f"{grafted} best cards (title+imdb+runtime)")
+    return [it for it in items if it["archiveID"] not in drop_ids]
 
 
 def create_schema(db):
@@ -437,7 +510,7 @@ def build_db_obj(cat, out_db, rotate_seed="0"):
     """Compile an in-memory catalog dict into a SQLite DB at out_db. Returns
     (cat, n_items, n_series, n_eps)."""
     deduped = dedupe_by_imdb(cat["items"])
-    deduped = drop_noimdb_dupes_of_captioned(deduped)
+    deduped = merge_film_duplicates(deduped)
     if out_db.exists():
         out_db.unlink()
     db = sqlite3.connect(out_db)

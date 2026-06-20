@@ -1547,3 +1547,57 @@ The bundled per-platform players (Decision 039) consume the resulting `captions`
 `subtitleHLS` unchanged. If GitHub's macOS runners turn out to lack Metal, the same
 job still runs on CPU (slower, still free, still zero-load on the Air) — the workflow
 does not hard-require GPU.
+
+---
+
+## 040 — Collapse same-film re-uploads into one best card (title + single-imdb anchor + runtime), grafting metadata
+*Date: 2026-06-20*
+
+`build_sqlite.merge_film_duplicates()` collapses multiple archive.org uploads of
+the SAME film into ONE card and grafts the film-level metadata onto the survivor,
+running after `dedupe_by_imdb`. It acts ONLY on normalized-title clusters that
+contain EXACTLY ONE imdb id (the imdb anchors the film's identity); a no-imdb copy
+joins the anchor only when year-compatible (|Δ|≤2) AND runtime-compatible (within
+15% / 2.5 min). The survivor is the best **video + captions** copy (`_video_quality`
+= qualityScore + filename resolution, demoting 512kb/ipod derivatives; captions are
+the top tiebreak so the CC copy wins); the anchor's imdb / tmdb / year / director /
+rating and the cluster's best artwork are grafted onto it. Multi-imdb clusters
+(distinct films — Cleopatra, Oliver Twist adaptations) and all-no-imdb clusters
+(generic titles — "Public Domain Animation" ×31) are LEFT UNTOUCHED. Replaces
+`drop_noimdb_dupes_of_captioned`.
+
+**Why**: the catalog holds many duplicate uploads of one film, and the imdb-only
+dedup couldn't see them as the same film because re-uploads usually carry NO imdb
+id — so the user saw, e.g., FOUR "House on Haunted Hill" cards. Worse, the strengths
+were split across copies: one copy had the imdb + 1959 + a TMDb poster but was a
+low-res iPod derivative, while the good 720p video sat on a no-imdb card. Tapping
+the nice-looking card gave bad video; tapping the good-video card gave a thumb-art
+card with no metadata — "the app serves the wrong thing." The recent caption-wins
+dedup (the subtitle fix) made it worse: the whisper batch captions EVERY uncaptioned
+copy independently, so a film got captioned 4× and `drop_noimdb_dupes_of_captioned`
+(which only dropped a no-imdb copy that had NO captions) stopped firing entirely.
+Measured: 700 title-clusters with >1 film copy (~858 redundant cards); 179 are the
+safe single-imdb-anchor case (~195 cards). Validated end-to-end: 208 re-uploads
+merged into 189 best cards, **0 imdb ids lost, 0 duplicated, 0 captions lost**; House
+collapses to one 720p card stamped with tt0051744 + 1959 + TMDb poster + William
+Castle, and the 1999 remake (William Malone, +18 min runtime, no imdb) correctly
+stays a separate card.
+
+**How to apply**: precision over recall (Decision 035) — NEVER merge a multi-imdb
+cluster (distinct films) or an all-no-imdb cluster (generic-title collisions). The
+runtime guard is load-bearing: it is the only thing separating the 1959 House on
+Haunted Hill from the 1999 remake that shares its exact title and has no imdb/year.
+Grafting copies only film-level (copy-independent) fields — imdb/tmdb/year/director/
+rating/artwork — NEVER video URL or captions (those are a matched pair on one exact
+archiveID; the winner keeps its own). The fix is PURE DATA in the shared DB, so all
+four platforms (tvOS/iOS/Android/web query the same `catalog.sqlite`) get it with no
+app build; republish via `publish-db`. The still-open, riskier class is all-no-imdb
+duplicate clusters that ARE one film (e.g. "Werewolf of Washington" ×4) — needs
+stronger corroboration (same year + runtime + a non-generic title guard) before it
+can be merged safely; deferred.
+
+**Consequences**: the served DB shrinks by the merged count (~200 now; grows as the
+whisper batch captions more copies — re-running publish-db re-derives the merge each
+build, so it self-maintains). `dedupe_by_imdb` still runs first. The Swift in-memory
+`AppStore.dedupedByIMDb` mirror is now a subset of the DB-level policy; browse/search/
+detail read the DB so they get the full merge, but the mirror could be aligned later.
