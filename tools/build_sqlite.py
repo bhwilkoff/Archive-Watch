@@ -192,6 +192,8 @@ _DUPE_QUALIFIERS = [
     "remastered", "remaster", "restored", "restoration", "widescreen", "fullscreen",
     "colorized", "colourized", "cult film", "cult classic", "public domain",
     "hi res", "high quality", "best quality", "upgrade",
+    "quality print", "widescreen print", " print", "telecine", " scan",
+    "complete uncut", "uncut", "feature film",
     "1080p", "720p", "480p", "2160p", "4k", "hd ", " hd",
 ]
 
@@ -203,9 +205,10 @@ def _dupe_title_key(title):
     t = (title or "").lower()
     for q in _DUPE_QUALIFIERS:
         t = t.replace(q, " ")
-    t = re.sub(r"\b(19|20)\d\d\b", " ", t)   # strip 4-digit years
-    t = re.sub(r"[^a-z0-9]", "", t)
-    return t
+    t = re.sub(r"(?<!\d)(19|20)\d\d(?!\d)", " ", t)   # strip 4-digit years (even glued)
+    t = re.sub(r"[^a-z0-9]+", " ", t).strip()
+    t = re.sub(r"^(the|a|an) ", "", t)            # strip a leading article
+    return t.replace(" ", "")
 
 
 def _runtime_compatible(a, b):
@@ -288,16 +291,20 @@ def _title_quality(t):
 
 
 def _consistent(group):
-    """A merge component must name a single film: at most one imdb id, year span
-    <=2, runtime span within tolerance."""
+    """A merge component must name a single film: at most one imdb id, runtime
+    span within tolerance, and year span <=2 — relaxed to <=5 when the runtimes
+    all tightly agree, since identical title + identical runtime is decisive and a
+    larger year gap is then almost always a metadata typo (e.g. a "Doomsday
+    Machine" copy mislabelled 1976 vs the real 1972)."""
     imdbs = {m.get("imdbID") for m in group if m.get("imdbID")}
     if len(imdbs) > 1:
         return False
-    yrs = [m["year"] for m in group if m.get("year")]
-    if yrs and max(yrs) - min(yrs) > 2:
-        return False
     rts = [m["runtimeSeconds"] for m in group if m.get("runtimeSeconds")]
     if rts and max(rts) - min(rts) > max(0.12 * max(rts), 150):
+        return False
+    tight = len(rts) >= 2 and (max(rts) - min(rts)) <= max(0.10 * max(rts), 90)
+    yrs = [m["year"] for m in group if m.get("year")]
+    if yrs and max(yrs) - min(yrs) > (5 if tight else 2):
         return False
     return True
 
