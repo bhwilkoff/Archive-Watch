@@ -1601,3 +1601,34 @@ whisper batch captions more copies — re-running publish-db re-derives the merg
 build, so it self-maintains). `dedupe_by_imdb` still runs first. The Swift in-memory
 `AppStore.dedupedByIMDb` mirror is now a subset of the DB-level policy; browse/search/
 detail read the DB so they get the full merge, but the mirror could be aligned later.
+
+---
+
+## 040a — Extend the dup-merge to multi-imdb attach + no-imdb runtime-corroborated sets
+*Date: 2026-06-20*
+
+`merge_film_duplicates` (Decision 040) was generalized from "single-imdb anchor
+only" to a per-title-cluster **union-find** over a `_same_film` edge test, with a
+`_consistent` gate before any component merges. `_same_film` requires positive
+corroboration (shared imdb, matching year, or tight runtime agreement) AND no
+contradiction (different imdb, year apart >2, runtime apart beyond tol); a bare
+no-imdb copy (no year, no runtime) attaches ONLY to an imdb-bearing copy, never to
+another bare copy. This now also (a) attaches a no-imdb copy to the RIGHT film in a
+multi-imdb cluster (by runtime/year), and (b) merges no-imdb-only duplicate sets when
+runtimes corroborate (Werewolf of Washington ×4, Messiah of Evil ×4, Moon of the Wolf
+×3). The survivor additionally grafts the cleanest title (`_title_quality` demotes
+uploader/filename strings like `y2mate.is-…`).
+
+**Why**: the owner pushed — "there have to be hundreds or thousands of these." The
+single-imdb-only pass left the no-imdb duplicate sets (the largest visible-clutter
+class) untouched. Measured: of 170 no-imdb clusters, 82+ are confidently one film by
+runtime agreement; total confident merges rose from 208 → **360 re-uploads into 315
+cards**, still with 0 imdb lost / 0 duplicated / 0 captions lost.
+
+**How to apply**: the `_consistent` gate is the safety net for union-find's
+transitivity — if a component ends up naming two imdb ids or spanning >2 years /
+mismatched runtimes, it is NOT merged (left fully separate). Keep the bare-copy rule
+(attach only to an imdb anchor) — it is what stops generic-title collisions ("Public
+Domain Animation" ×31 distinct cartoons) from chain-merging. STILL deferred: no-imdb
+clusters with NO runtime on the copies (can't corroborate) — these need enrichment to
+add imdb/runtime first, then they merge automatically on the next build.

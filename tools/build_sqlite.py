@@ -246,22 +246,76 @@ def _real_art_rank(i):
             "generated": 2}.get(i.get("artworkSource"), 1)
 
 
-def merge_film_duplicates(items):
-    """Collapse re-uploads of the SAME film into ONE best card, then graft the
-    film-level metadata so the surviving card is best-of-everything.
+def _same_film(a, b):
+    """True when two same-titled copies are CONFIDENTLY the same film. Requires
+    positive corroboration (shared imdb, matching year, or matching runtime) and
+    NO contradiction (different imdb, year apart >2, runtime apart beyond tol). A
+    bare no-imdb copy (no year, no runtime) only attaches to an imdb-bearing copy —
+    never to another bare copy — so generic-title collisions never chain-merge."""
+    ia, ib = a.get("imdbID"), b.get("imdbID")
+    if ia and ib:
+        return ia == ib                               # same film iff same id
+    if not _year_compatible(a, b) or not _runtime_compatible(a, b):
+        return False
+    ya, yb = a.get("year"), b.get("year")
+    ra, rb = a.get("runtimeSeconds") or 0, b.get("runtimeSeconds") or 0
+    if ra > 0 and rb > 0:                             # tight runtime agreement
+        if abs(ra - rb) <= max(0.10 * max(ra, rb), 90):
+            return True
+    if ya and yb and abs(ya - yb) <= 1 and (ra == 0 or rb == 0):
+        return True                                   # same year, runtime unknown on one
+    if (ia or ib) and (ra == 0 or rb == 0) and (ya is None or yb is None):
+        return True                                   # imdb anchor absorbs a bare copy
+    return False
 
-    Acts ONLY on title-key clusters that contain EXACTLY ONE imdb id — that imdb
-    anchors the film's identity. Multi-imdb clusters are DISTINCT films (remakes /
-    adaptations: Cleopatra, Oliver Twist) and all-no-imdb clusters are too ambiguous
-    (generic titles like "Public Domain Animation"): both are left untouched. A
-    no-imdb copy joins the anchor only when year- AND runtime-compatible (so the
-    1959 House on Haunted Hill original never absorbs the 1999 remake that shares
-    its title but runs 18 min longer). The survivor is the best VIDEO + captions
-    copy; the anchor's imdb / year / poster / director / rating are grafted onto it
-    when it lacks them — so the user lands on one card with the best video, the CC
-    track, and real artwork instead of N split copies. Precision over recall
-    (Decision 035): when in doubt, keep the copies separate. Runs AFTER
-    dedupe_by_imdb (so each imdb already has a single survivor)."""
+
+def _title_quality(t):
+    """Prefer a clean human title over an uploader/filename string."""
+    t = (t or "").strip()
+    low = t.lower()
+    s = 0
+    if " " in t:
+        s += 2
+    if any(c.islower() for c in t) and any(c.isupper() for c in t):
+        s += 1
+    if any(x in low for x in (".com", "http", "www", ".is", ".net", "_", "upload",
+                              "y2mate", "filescn", "xvid", "divx", "x264")):
+        s -= 4
+    if t.isupper():
+        s -= 1
+    s -= max(0, len(t) - 64) // 16
+    return s
+
+
+def _consistent(group):
+    """A merge component must name a single film: at most one imdb id, year span
+    <=2, runtime span within tolerance."""
+    imdbs = {m.get("imdbID") for m in group if m.get("imdbID")}
+    if len(imdbs) > 1:
+        return False
+    yrs = [m["year"] for m in group if m.get("year")]
+    if yrs and max(yrs) - min(yrs) > 2:
+        return False
+    rts = [m["runtimeSeconds"] for m in group if m.get("runtimeSeconds")]
+    if rts and max(rts) - min(rts) > max(0.12 * max(rts), 150):
+        return False
+    return True
+
+
+def merge_film_duplicates(items):
+    """Collapse re-uploads of the SAME film — across single-imdb, multi-imdb, AND
+    no-imdb cases — into ONE best card, grafting best-of-everything onto it.
+
+    For each normalized-title cluster, build connected components via `_same_film`
+    (positive imdb/year/runtime corroboration, no contradiction), then merge each
+    consistent component of size >1. The survivor is the best VIDEO + captions copy;
+    the cluster's best imdb/tmdb/year/director/rating, best artwork, and cleanest
+    title are grafted onto it. DISTINCT films that merely share a title never merge:
+    different imdb ids, year spreads >2 (Cleopatra 1917/1934/1963), and mismatched
+    runtimes (House on Haunted Hill 1959 75min vs 1999 remake 93min) all break the
+    edge; bare no-imdb copies attach only to an imdb anchor, so generic-title
+    collisions ("Public Domain Animation" ×31 different cartoons) stay separate.
+    Precision over recall (Decision 035). Runs AFTER dedupe_by_imdb."""
     clusters = {}
     for it in items:
         if it.get("contentType") in _FILM_TYPES and not it.get("excluded"):
@@ -269,42 +323,58 @@ def merge_film_duplicates(items):
             if len(k) >= 4:
                 clusters.setdefault(k, []).append(it)
 
-    drop_ids, grafted = set(), 0
     GRAFT = ("imdbID", "tmdbID", "year", "director", "imdbRating", "imdbVotes",
              "contentRating", "language")
+    drop_ids, merged = set(), 0
     for members in clusters.values():
         if len(members) < 2:
             continue
-        imdb_ids = {m.get("imdbID") for m in members if m.get("imdbID")}
-        if len(imdb_ids) != 1:
-            continue                                  # 0 or many imdb → don't touch
-        anchor = next(m for m in members if m.get("imdbID"))
-        group = [anchor] + [m for m in members
-                            if not m.get("imdbID")
-                            and _year_compatible(m, anchor)
-                            and _runtime_compatible(m, anchor)]
-        if len(group) < 2:
-            continue
-        winner = max(group, key=lambda i: (1 if i.get("subtitleHLS") else 0,
-                                           _video_quality(i), _real_art_rank(i),
-                                           i.get("imdbVotes") or 0))
-        # graft film-level identity/metadata onto the winner (copy-independent)
-        for f in GRAFT:
-            if not winner.get(f) and anchor.get(f):
-                winner[f] = anchor[f]
-        best_art = max(group, key=_real_art_rank)
-        if _real_art_rank(best_art) > _real_art_rank(winner):
-            for f in ("posterURL", "artworkSource", "hasRealArtwork", "backdropURL"):
-                if best_art.get(f) is not None:
-                    winner[f] = best_art[f]
-        for m in group:
-            if m["archiveID"] != winner["archiveID"]:
-                drop_ids.add(m["archiveID"])
-        grafted += 1
+        # union-find over the cluster using _same_film edges
+        parent = list(range(len(members)))
+
+        def find(x):
+            while parent[x] != x:
+                parent[x] = parent[parent[x]]
+                x = parent[x]
+            return x
+
+        for i in range(len(members)):
+            for j in range(i + 1, len(members)):
+                if _same_film(members[i], members[j]):
+                    parent[find(i)] = find(j)
+        comps = {}
+        for i in range(len(members)):
+            comps.setdefault(find(i), []).append(members[i])
+
+        for group in comps.values():
+            if len(group) < 2 or not _consistent(group):
+                continue
+            winner = max(group, key=lambda i: (1 if i.get("subtitleHLS") else 0,
+                                               _video_quality(i), _real_art_rank(i),
+                                               i.get("imdbVotes") or 0))
+            donor = next((m for m in group if m.get("imdbID")), None)  # canonical metadata
+            for f in GRAFT:
+                if not winner.get(f):
+                    src = donor if (donor and donor.get(f)) else \
+                        next((m for m in group if m.get(f)), None)
+                    if src:
+                        winner[f] = src[f]
+            best_art = max(group, key=_real_art_rank)
+            if _real_art_rank(best_art) > _real_art_rank(winner):
+                for f in ("posterURL", "artworkSource", "hasRealArtwork", "backdropURL"):
+                    if best_art.get(f) is not None:
+                        winner[f] = best_art[f]
+            best_title = max(group, key=lambda m: _title_quality(m.get("title")))
+            if _title_quality(best_title.get("title")) > _title_quality(winner.get("title")):
+                winner["title"] = best_title["title"]
+            for m in group:
+                if m["archiveID"] != winner["archiveID"]:
+                    drop_ids.add(m["archiveID"])
+            merged += 1
 
     if drop_ids:
         print(f"[dedup] merged {len(drop_ids)} film re-uploads into "
-              f"{grafted} best cards (title+imdb+runtime)")
+              f"{merged} best cards (title + imdb/year/runtime corroboration)")
     return [it for it in items if it["archiveID"] not in drop_ids]
 
 
