@@ -184,6 +184,57 @@ def dedupe_by_imdb(items):
     return out
 
 
+# Re-upload qualifiers stripped before comparing titles, so "Carnival Of Souls
+# 1962" / "...video quality upgrade" / "... 720p" all normalize to the same key.
+_DUPE_QUALIFIERS = [
+    "video quality upgrade", "quality upgrade", "ipod video version", "ipod video",
+    "full movie", "the complete film", "complete film", "remastered", "restored",
+    "widescreen", "colorized", "cult film", "cult classic", "public domain",
+    "1080p", "720p", "480p", "4k", "hd",
+]
+
+
+def _dupe_title_key(title):
+    t = (title or "").lower()
+    for q in _DUPE_QUALIFIERS:
+        t = t.replace(q, " ")
+    t = re.sub(r"\b(19|20)\d\d\b", " ", t)   # strip 4-digit years
+    t = re.sub(r"[^a-z0-9]", "", t)
+    return t
+
+
+def drop_noimdb_dupes_of_captioned(items):
+    """Hide a no-imdb re-upload when an imdb-tagged CAPTIONED copy of the SAME
+    film exists, so the user lands on the subtitled card instead of a caption-
+    less duplicate (the 'Carnival Of Souls 1962' / 'Reefer Madness (1936)' class).
+    Precision over recall (Decision 035): require an EXACT normalized-title match
+    to a captioned imdb winner + a year match (when both have a year), and never
+    touch trailers or multi-title compilations. Only fires when there's a
+    captioned twin, so a genuinely-unique no-imdb film is never dropped."""
+    cap = {}   # normalized title -> a captioned imdb-tagged item
+    for it in items:
+        if it.get("subtitleHLS") and it.get("imdbID"):
+            cap.setdefault(_dupe_title_key(it.get("title")), it)
+    if not cap:
+        return items
+    out, dropped = [], 0
+    for it in items:
+        title = it.get("title") or ""
+        low = title.lower()
+        if (not it.get("imdbID") and not it.get("subtitleHLS")
+                and "trailer" not in low and "&" not in title and " and " not in low):
+            twin = cap.get(_dupe_title_key(title))
+            if twin:
+                ty, wy = it.get("year"), twin.get("year")
+                if ty is None or wy is None or abs(ty - wy) <= 1:
+                    dropped += 1
+                    continue
+        out.append(it)
+    if dropped:
+        print(f"[dedup] dropped {dropped} no-imdb dupes of captioned films")
+    return out
+
+
 def create_schema(db):
     db.executescript("""
     PRAGMA journal_mode = OFF;
@@ -386,6 +437,7 @@ def build_db_obj(cat, out_db, rotate_seed="0"):
     """Compile an in-memory catalog dict into a SQLite DB at out_db. Returns
     (cat, n_items, n_series, n_eps)."""
     deduped = dedupe_by_imdb(cat["items"])
+    deduped = drop_noimdb_dupes_of_captioned(deduped)
     if out_db.exists():
         out_db.unlink()
     db = sqlite3.connect(out_db)
