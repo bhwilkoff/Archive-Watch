@@ -45,6 +45,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import threading
 from pathlib import Path
 
 import requests
@@ -117,27 +118,39 @@ def clean_vtt(vtt: str) -> tuple[str, int]:
 def transcribe(item, model, session, keep_wav=False) -> str:
     """Generate subs/<id>/ for one item. Returns a status string."""
     iaid = item["archiveID"]
-    try:
-        meta = A.archive_meta(iaid, session)
-    except Exception:
-        return "unreachable"
-    fname = pick_audio_file(meta)
-    if not fname:
-        return "no-audio"
-    audio_url = A.download_url(iaid, fname)
+    # Extract audio from the EXACT file the app plays (downloadURL), so the
+    # subtitle timeline matches playback and we never transcribe a stray extra
+    # (e.g. a director-commentary MP3 that ranks "smallest"). Fall back to the
+    # smallest audio-bearing derivative only if downloadURL has no usable audio.
+    audio_url = item.get("downloadURL")
+    if not audio_url:
+        try:
+            meta = A.archive_meta(iaid, session)
+        except Exception:
+            return "unreachable"
+        fname = pick_audio_file(meta)
+        if not fname:
+            return "no-audio"
+        audio_url = A.download_url(iaid, fname)
 
     sid = safe_dir(iaid)
     out = SUBS_DIR / sid
     with tempfile.TemporaryDirectory() as td:
         wav = Path(td) / "a.wav"
         # Stream-transcode just the audio to 16 kHz mono (whisper's native input);
-        # ffmpeg pulls only what it needs from the remote progressive file.
-        ff = subprocess.run(
-            ["ffmpeg", "-nostdin", "-hide_banner", "-loglevel", "error",
-             "-i", audio_url, "-vn", "-ac", "1", "-ar", "16000",
-             "-c:a", "pcm_s16le", str(wav), "-y"],
-            capture_output=True, text=True, timeout=2400)
-        if ff.returncode != 0 or not wav.exists() or wav.stat().st_size < 32000:
+        # ffmpeg pulls only what it needs from the remote progressive file. Retry
+        # once — archive.org drops idle connections mid-download (Decision 021).
+        ok = False
+        for _ in range(2):
+            ff = subprocess.run(
+                ["ffmpeg", "-nostdin", "-hide_banner", "-loglevel", "error",
+                 "-i", audio_url, "-vn", "-ac", "1", "-ar", "16000",
+                 "-c:a", "pcm_s16le", str(wav), "-y"],
+                capture_output=True, text=True, timeout=2400)
+            if ff.returncode == 0 and wav.exists() and wav.stat().st_size >= 32000:
+                ok = True
+                break
+        if not ok:
             return "audio-fail"
         stem = Path(td) / "out"
         wh = subprocess.run(
@@ -177,6 +190,8 @@ def transcribe(item, model, session, keep_wav=False) -> str:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--workers", type=int, default=3,
+                    help="concurrent films (downloads overlap to keep the GPU fed)")
     ap.add_argument("--model", default=os.path.expanduser("~/.cache/whisper/ggml-small.en.bin"))
     ap.add_argument("--min-pop", type=int, default=0, help="only items at/above this popularityScore")
     ap.add_argument("--types", default="", help="comma-list to restrict contentType (default: all non-silent)")
@@ -222,26 +237,43 @@ def main() -> int:
     targets.sort(key=lambda it: it.get("popularityScore") or 0, reverse=True)
     if args.limit:
         targets = targets[:args.limit]
-    print(f"[whisper] {len(targets)} films to transcribe (model {Path(args.model).name})", flush=True)
+    print(f"[whisper] {len(targets)} films to transcribe "
+          f"(model {Path(args.model).name}, workers {args.workers})", flush=True)
 
     def flush():
         tmp = CATALOG.with_suffix(".json.tmp")
         json.dump(cat, open(tmp, "w"), ensure_ascii=False, separators=(",", ":"))
         tmp.replace(CATALOG)
 
+    # Each film is independent (own tempdir, mutates only its own item), so they
+    # run concurrently: ffmpeg downloads (bandwidth-bound) overlap so the Metal
+    # GPU stays fed by whisper-cli. Shared state (catalog flush, manifest, tally)
+    # is lock-guarded. Resumable — already-captioned items were filtered out, so
+    # a re-run after a crash skips everything built so far.
     from collections import Counter
+    from concurrent.futures import ThreadPoolExecutor, as_completed
     tally = Counter()
+    lock = threading.Lock()
     mf = open(MANIFEST, "a")
-    for n, it in enumerate(targets, 1):
-        status = transcribe(it, args.model, session)
-        key = status.split("_")[0]
-        tally[key] += 1
-        mf.write(json.dumps({"id": it["archiveID"], "status": status}) + "\n"); mf.flush()
-        if status.startswith("built"):
-            print(f"[{n}/{len(targets)}] {it['archiveID']}: {status}", flush=True)
-        if n % 25 == 0 or n == len(targets):
-            flush()
-            print(f"[{n}/{len(targets)}] {dict(tally)}", flush=True)
+    done = 0
+
+    def work(it):
+        status = transcribe(it, args.model, requests.Session())
+        with lock:
+            nonlocal done
+            done += 1
+            tally[status.split("_")[0]] += 1
+            mf.write(json.dumps({"id": it["archiveID"], "status": status}) + "\n"); mf.flush()
+            if status.startswith("built"):
+                print(f"[{done}/{len(targets)}] {it['archiveID']}: {status}", flush=True)
+            if done % 25 == 0 or done == len(targets):
+                flush()
+                print(f"[{done}/{len(targets)}] {dict(tally)}", flush=True)
+
+    with ThreadPoolExecutor(max_workers=args.workers) as ex:
+        futs = [ex.submit(work, it) for it in targets]
+        for _ in as_completed(futs):
+            pass
     flush()
     print(f"[whisper] done: {dict(tally)}", flush=True)
     return 0
