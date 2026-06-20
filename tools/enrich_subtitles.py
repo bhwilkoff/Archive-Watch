@@ -33,6 +33,7 @@ import json
 import re
 import sys
 import threading
+import urllib.parse
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -44,6 +45,51 @@ import archive_lib as A  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
+
+# archive.org tags caption files with these `format` values in the search index
+# (.srt → "SubRip", .vtt → "Web Video Text Tracks"). The advancedsearch API
+# returns an item's full format list AND accepts many identifiers per query, so
+# a batched search pre-filter tells us which items even HAVE a caption file —
+# letting us skip the per-item /metadata fetch for the ~84% that don't (verified
+# reliable: format:SubRip ⇔ a real .srt exists). Items absent from the search
+# index fall through to a /metadata fetch so nothing is missed.
+SEARCH_URL = "https://archive.org/advancedsearch.php"
+CAPTION_FORMATS = {"SubRip", "Web Video Text Tracks"}
+SEARCH_BATCH = 60          # ids per advancedsearch query (URL-length safe)
+
+
+def search_caption_filter(targets, workers, session):
+    """Return {archiveID: 'cc'|'none'} for targets resolvable via the search
+    index. Ids NOT in the returned dict were absent from search (dark/just-
+    ingested) and must fall through to a /metadata fetch."""
+    verdict = {}
+    lock = threading.Lock()
+    batches = [targets[i:i + SEARCH_BATCH] for i in range(0, len(targets), SEARCH_BATCH)]
+
+    def do(batch):
+        ids = [it["archiveID"] for it in batch]
+        q = "identifier:(" + " OR ".join(ids) + ")"
+        url = (SEARCH_URL + "?" +
+               urllib.parse.urlencode({"q": q, "rows": len(ids), "output": "json"}) +
+               "&fl[]=identifier&fl[]=format")
+        try:
+            r = session.get(url, headers={"User-Agent": A.UA}, timeout=30)
+            docs = r.json()["response"]["docs"]
+        except Exception:
+            return {}                       # whole batch falls back to /metadata
+        out = {}
+        for d in docs:
+            fmts = d.get("format") or []
+            if isinstance(fmts, str):
+                fmts = [fmts]
+            out[d["identifier"]] = "cc" if any(f in CAPTION_FORMATS for f in fmts) else "none"
+        return out
+
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        for res in ex.map(do, batches):
+            with lock:
+                verdict.update(res)
+    return verdict
 
 CAPTION_EXTS = (".srt", ".vtt")            # formats every client can use (Android
                                            # natively; web/Apple convert SRT→VTT).
@@ -125,6 +171,8 @@ def main() -> int:
     ap.add_argument("--workers", type=int, default=12)
     ap.add_argument("--refresh", action="store_true", help="re-check already-checked items")
     ap.add_argument("--dry-run", action="store_true", help="report only; write nothing")
+    ap.add_argument("--no-prefilter", action="store_true",
+                    help="skip the search pre-filter; /metadata-fetch every item (old behavior)")
     args = ap.parse_args()
 
     if not CATALOG.exists():
@@ -156,6 +204,24 @@ def main() -> int:
         tmp = CATALOG.with_suffix(".json.tmp")
         json.dump(cat, open(tmp, "w"), ensure_ascii=False, separators=(",", ":"))
         tmp.replace(CATALOG)
+
+    # Phase A — batched search pre-filter. Items the index says have NO caption
+    # file are marked checked WITHOUT a /metadata fetch (the big win); only
+    # caption-bearing + not-indexed items proceed to Phase B.
+    verdict = {}
+    if targets and not args.no_prefilter:
+        verdict = search_caption_filter(targets, args.workers, session)
+        skipped = [it for it in targets if verdict.get(it["archiveID"]) == "none"]
+        for it in skipped:
+            if not args.dry_run:
+                it["captionsChecked"] = True
+                it.pop("captions", None)
+            tally["none"] += 1
+        if not args.dry_run and skipped:
+            flush()
+        targets = [it for it in targets if verdict.get(it["archiveID"]) != "none"]
+        print(f"[subs] prefilter: skipped {len(skipped)} no-caption items; "
+              f"{len(targets)} need /metadata", flush=True)
 
     def work(it):
         try:

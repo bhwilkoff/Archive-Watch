@@ -32,6 +32,7 @@ import json
 import re
 import sys
 import threading
+import time
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -98,13 +99,21 @@ def build_for(item, session) -> str:
     base = f"{PAGES_BASE}/{sid}"
     langs = []
     for c in caps:
-        try:
-            r = session.get(c["url"], headers={"User-Agent": A.UA}, timeout=40)
-            if r.status_code != 200 or not r.text.strip():
-                continue
-            vtt = c["url"].lower().endswith(".vtt") and r.text or srt_to_vtt(r.text)
-        except requests.RequestException:
+        text = None
+        for attempt in range(3):              # archive.org 503s under load; retry
+            try:
+                r = session.get(c["url"], headers={"User-Agent": A.UA}, timeout=40)
+                if r.status_code == 200 and r.text.strip():
+                    text = r.text
+                    break
+                if r.status_code not in (429, 500, 502, 503, 504):
+                    break                     # a real 404/permission error: give up
+            except requests.RequestException:
+                pass
+            time.sleep(1.5 * (attempt + 1))   # linear backoff
+        if text is None:
             continue
+        vtt = text if c["url"].lower().endswith(".vtt") else srt_to_vtt(text)
         out.mkdir(parents=True, exist_ok=True)
         fname = f"{c['lang']}.vtt"
         (out / fname).write_text(vtt, encoding="utf-8")
@@ -124,7 +133,7 @@ def build_for(item, session) -> str:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0)
-    ap.add_argument("--workers", type=int, default=8)
+    ap.add_argument("--workers", type=int, default=16)
     ap.add_argument("--probe", help="convert one archiveID + print, write nothing to catalog")
     args = ap.parse_args()
 
