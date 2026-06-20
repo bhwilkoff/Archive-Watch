@@ -154,7 +154,14 @@ def dedupe_by_imdb(items):
             r += 2
         if i.get("runtimeSeconds"):
             r += 1
-        return (r, i.get("imdbVotes") or 0, i.get("archiveID") or "")
+        # A captioned upload carries its OWN matching WebVTT/HLS subtitle track
+        # (Decision 039), so it must win dedup — otherwise a film's only subtitled
+        # copy gets dropped in favor of a caption-less sibling and the app plays
+        # the deduped copy with no CC button even though captions exist. Top
+        # priority (ahead of artwork/votes) since the subs+video are a matched
+        # pair on that exact archiveID; can't be grafted onto another copy.
+        return (1 if i.get("subtitleHLS") else 0, r,
+                i.get("imdbVotes") or 0, i.get("archiveID") or "")
     best = {}
     for it in items:
         # An excluded item (rights audit / dead-on-Archive — Decision 027) must
