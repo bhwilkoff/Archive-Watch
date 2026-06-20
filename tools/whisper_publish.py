@@ -23,6 +23,7 @@ from __future__ import annotations
 import argparse
 import gzip
 import json
+import re
 import subprocess
 import sys
 import tempfile
@@ -31,6 +32,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 LOCAL = REPO / "catalog.json"
 SUBS = REPO / "subs"
+DONE_MD = REPO / "docs" / "whisper-captions-done.md"   # human accuracy checklist
 TAG = "catalog-source"
 ASSET = "catalog.json.gz"
 SUBS_TAG = "subtitle-assets"
@@ -66,12 +68,77 @@ def merge_delta_files(paths):
     return merged
 
 
+_DONE_HEADER = (
+    "# Whisper auto-caption accuracy checklist\n\n"
+    "Films auto-captioned by whisper.cpp (Decision 039 Phase 4). Each whisper run\n"
+    "APPENDS new films here — your ticks and notes above are preserved.\n\n"
+    "To spot-check one: open **watch** and turn on captions, or read the raw **vtt**.\n"
+    "Tick the box once you've confirmed it reads correctly; strike through or note\n"
+    "any that are wrong so we can re-run them with a bigger model.\n\n"
+)
+
+
+def update_done_list(items, path=DONE_MD):
+    """APPEND-ONLY checklist of whisper-captioned films. New films are added under
+    the existing content (dedup by archiveID), so manual ticks/notes survive every
+    re-run. Returns the number of newly-appended rows."""
+    films = [it for it in items
+             if it.get("subtitleHLS")
+             and any(c.get("source") == "whisper" for c in (it.get("captions") or []))]
+    films.sort(key=lambda it: it.get("popularityScore") or 0, reverse=True)
+
+    body = path.read_text(encoding="utf-8") if path.exists() else _DONE_HEADER
+    seen = set(re.findall(r"/item/([^\s)]+)\)", body))   # ids already listed
+    rows = []
+    for it in films:
+        iaid = it["archiveID"]
+        if iaid in seen:
+            continue
+        seen.add(iaid)
+        title = (it.get("title") or iaid).replace("\n", " ").strip()
+        year = it.get("year") or ""
+        ct = it.get("contentType") or ""
+        vtt = next((c.get("vttURL") or c.get("url")
+                    for c in it["captions"] if c.get("source") == "whisper"), "")
+        yr = f" ({year})" if year else ""
+        rows.append(f"- [ ] **{title}**{yr} · {ct} · "
+                    f"[watch](https://archivewatch.org/item/{iaid}) · [vtt]({vtt})")
+    if not rows and path.exists():
+        return 0
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(body.rstrip("\n") + "\n" + "\n".join(rows) + ("\n" if rows else ""),
+                    encoding="utf-8")
+    return len(rows)
+
+
+def fetch_release_catalog():
+    """Download + parse the current catalog-source release catalog."""
+    with tempfile.TemporaryDirectory() as td:
+        gz = Path(td) / ASSET
+        gh("release", "download", TAG, "-p", ASSET, "-O", str(gz))
+        with gzip.open(gz, "rt", encoding="utf-8") as f:
+            cat = json.load(f)
+    return cat["items"] if isinstance(cat, dict) else cat
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--no-rebuild", action="store_true")
     ap.add_argument("--apply-deltas", nargs="+", default=[],
                     help="shard delta JSON files (CI); union them instead of reading local catalog.json")
+    ap.add_argument("--done-list-only", action="store_true",
+                    help="just (re)generate docs/whisper-captions-done.md from the live release "
+                         "catalog (+ local catalog.json if present) and exit; no upload/publish")
     args = ap.parse_args()
+
+    if args.done_list_only:
+        items = fetch_release_catalog()
+        if LOCAL.exists():                         # include not-yet-published local builds
+            loc = json.load(open(LOCAL))
+            items = items + (loc["items"] if isinstance(loc, dict) else loc)
+        added = update_done_list(items)
+        print(f"[pub] done-list: +{added} films -> {DONE_MD.relative_to(REPO)}")
+        return 0
 
     if args.apply_deltas:
         deltas = merge_delta_files(args.apply_deltas)
@@ -118,6 +185,9 @@ def main() -> int:
             json.dump(cat, f, ensure_ascii=False, separators=(",", ":"))
         gh("release", "upload", TAG, f"{out_gz}#{ASSET}", "--clobber")
         print(f"[pub] catalog: applied {applied}/{len(deltas)} deltas onto the live release", flush=True)
+        # Append newly-captioned films to the human accuracy checklist (append-only).
+        added = update_done_list(items)
+        print(f"[pub] done-list: +{added} films -> {DONE_MD.relative_to(REPO)}", flush=True)
 
     # 3. Rebuild the served DB + Pages.
     if not args.no_rebuild:

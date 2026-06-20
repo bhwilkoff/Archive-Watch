@@ -163,3 +163,15 @@ jobs:
           files=(deltas/deltas-*.json)
           if [ ${#files[@]} -eq 0 ]; then echo "no deltas to publish"; exit 0; fi
           python tools/whisper_publish.py --apply-deltas "${files[@]}"
+
+      - name: Commit the accuracy checklist (append-only)
+        run: |
+          if git diff --quiet -- docs/whisper-captions-done.md; then
+            echo "no checklist changes"; exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase --autostash origin main || true
+          git add docs/whisper-captions-done.md
+          git commit -m "whisper subs: update accuracy checklist [skip ci]"
+          git push origin main
