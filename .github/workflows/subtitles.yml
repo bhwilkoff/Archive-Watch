@@ -100,3 +100,26 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh workflow run publish-db.yml
+
+      # Self-chain: archive.org throttles runner IPs, so each run scans a bounded
+      # batch (the `[subs] N items to scan` line = min(unchecked, limit)). If this
+      # run scanned a FULL batch (N >= limit), unchecked items remain — queue the
+      # next run (the catalog-writers concurrency group serializes it, so at most
+      # one runs + one queued; no runaway). When a run scans fewer than `limit`
+      # the backlog is drained and the chain stops; persistently-unreachable
+      # items (never marked captionsChecked) are left for the weekly cron. Only
+      # for build_assets campaigns (the active full drain), not the weekly scan.
+      - name: Continue draining (self-chain)
+        if: ${{ github.event.inputs.build_assets == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          LIMIT="${{ github.event.inputs.limit || '8000' }}"
+          SCANNED=$(grep -oE '\[subs\] [0-9]+ items to scan' subs.log | grep -oE '[0-9]+' | head -1)
+          echo "scanned=$SCANNED limit=$LIMIT"
+          if [ "$LIMIT" -gt 0 ] && [ -n "$SCANNED" ] && [ "$SCANNED" -ge "$LIMIT" ]; then
+            echo "Full batch scanned — backlog remains; queuing next run."
+            gh workflow run subtitles.yml -f limit="$LIMIT" -f refresh=false -f build_assets=true
+          else
+            echo "Backlog drained (scanned < limit) — chain complete."
+          fi
