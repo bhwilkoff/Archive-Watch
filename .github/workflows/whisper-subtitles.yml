@@ -1,0 +1,165 @@
+name: Whisper subtitles (macOS)
+
+# Decision 039 Phase 4 — generate English auto-captions for uncaptioned PD films by
+# transcribing their OWN audio with whisper.cpp. ORIGINALLY a Mac-first batch, moved
+# to CI because the owner's machine is a fanless 8 GB M3 Air that a --workers 4 run
+# made unusable (and shut down). This repo is PUBLIC, so macOS runners (Apple
+# Silicon, Metal-if-available) are free — the right venue offloads all the heat/RAM/
+# time off the Air. See the Decision 039 amendment (2026-06-20).
+#
+# Shape: a popularity-sorted, already-captioned-filtered target list is split across
+# N matrix shards (separate runners — NOT threads on one machine). Each shard runs a
+# time-boxed batch and uploads subs/ + a compact delta file as artifacts. A single
+# dependent publish job merges them and applies additively (whisper_publish.py), so
+# the 5 shards never clobber the shared release. Head-first falls out of the sort;
+# the long tail is drained by the weekly schedule over successive runs.
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Cap the popularity head BEFORE sharding (0 = all uncaptioned, drains tail over weeks)'
+        required: false
+        default: '2000'
+      shard_count:
+        description: 'Parallel macOS runners to split the work across (<=5 free-tier concurrent)'
+        required: false
+        default: '5'
+      min_pop:
+        description: 'Only transcribe items at/above this popularityScore'
+        required: false
+        default: '0'
+      max_minutes:
+        description: 'Per-shard wall-clock budget (keep under the 6 h job cap)'
+        required: false
+        default: '300'
+      model:
+        description: 'whisper.cpp model (base.en = light/cool/fast; small.en = more accurate)'
+        required: false
+        default: 'ggml-base.en.bin'
+  schedule:
+    - cron: '0 8 * * 6'   # weekly, Sat 08:00 UTC — chew the tail head-first
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      shards: ${{ steps.gen.outputs.shards }}
+    steps:
+      - id: gen
+        env:
+          N: ${{ github.event.inputs.shard_count || '5' }}
+        run: echo "shards=$(python3 -c "import json,os;print(json.dumps(list(range(int(os.environ['N'])))))")" >> "$GITHUB_OUTPUT"
+
+  transcribe:
+    needs: setup
+    runs-on: macos-15
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        shard: ${{ fromJSON(needs.setup.outputs.shards) }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+
+      - name: Install whisper.cpp + ffmpeg
+        run: |
+          brew install whisper-cpp ffmpeg || brew install ffmpeg
+          echo "## Runner GPU / Metal" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          whisper-cli -h 2>&1 | grep -iE 'metal|gpu|family' | head -6 >> "$GITHUB_STEP_SUMMARY" || echo '(no Metal init line — running on CPU)' >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Cache whisper model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/whisper
+          key: whisper-model-${{ github.event.inputs.model || 'ggml-base.en.bin' }}
+
+      - name: Download model if missing
+        env:
+          MODEL: ${{ github.event.inputs.model || 'ggml-base.en.bin' }}
+        run: |
+          mkdir -p ~/.cache/whisper
+          if [ ! -f ~/.cache/whisper/"$MODEL" ]; then
+            curl -fL "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/$MODEL" \
+              -o ~/.cache/whisper/"$MODEL"
+          fi
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Transcribe shard ${{ matrix.shard }}
+        env:
+          MODEL: ${{ github.event.inputs.model || 'ggml-base.en.bin' }}
+        run: |
+          python tools/whisper_subtitles.py \
+            --model ~/.cache/whisper/"$MODEL" \
+            --workers 1 \
+            --limit ${{ github.event.inputs.limit || '2000' }} \
+            --min-pop ${{ github.event.inputs.min_pop || '0' }} \
+            --shard-index ${{ matrix.shard }} \
+            --shard-count ${{ github.event.inputs.shard_count || '5' }} \
+            --max-minutes ${{ github.event.inputs.max_minutes || '300' }} \
+            --deltas-out deltas-${{ matrix.shard }}.json | tee whisper.log
+          echo "## Shard ${{ matrix.shard }}" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"; tail -3 whisper.log >> "$GITHUB_STEP_SUMMARY"; echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload shard artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: whisper-shard-${{ matrix.shard }}
+          path: |
+            subs/
+            deltas-${{ matrix.shard }}.json
+          if-no-files-found: ignore
+          retention-days: 3
+
+  publish:
+    needs: transcribe
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+      actions: write
+    concurrency:
+      group: catalog-writers      # serialize the release apply with the other crons
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Download all shard artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Merge subs + delta files
+        run: |
+          mkdir -p subs
+          # union every shard's subs/ into ./subs (disjoint dirs per item, safe)
+          for d in artifacts/whisper-shard-*/subs; do [ -d "$d" ] && cp -R "$d/." subs/ || true; done
+          mkdir -p deltas
+          for f in artifacts/whisper-shard-*/deltas-*.json; do [ -f "$f" ] && cp "$f" deltas/ || true; done
+          echo "subs dirs: $(ls subs 2>/dev/null | wc -l); delta files: $(ls deltas 2>/dev/null | wc -l)"
+
+      - name: Publish caption deltas (additive)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          shopt -s nullglob
+          files=(deltas/deltas-*.json)
+          if [ ${#files[@]} -eq 0 ]; then echo "no deltas to publish"; exit 0; fi
+          python tools/whisper_publish.py --apply-deltas "${files[@]}"

@@ -1495,3 +1495,55 @@ derivative (Decision 021) untouched and lets the user pick a language.
 Phase 1 (this entry): the pipeline + the `captions` schema on the Swift + Kotlin
 models + the weekly `subtitles.yml`. The per-platform players (web `<track>`,
 Android `SubtitleConfiguration`, the Apple HLS layer) are the next phases.
+
+---
+
+## 039a — Whisper auto-captioning runs in CI (sharded macOS), not on the owner's Mac
+*Date: 2026-06-20*
+
+Phase 4 of Decision 039 (whisper.cpp auto-captioning of uncaptioned PD films) is
+amended to run as its PRIMARY venue in GitHub Actions
+(`.github/workflows/whisper-subtitles.yml`) across N free **macOS (Apple-Silicon)**
+runners, instead of as an unattended batch on the owner's Mac. The target list
+(popularity-sorted, already-captioned-filtered) is split with `--shard-index/
+--shard-count` across a matrix of `macos-15` runners; each shard runs `--workers 1`
+under a `--max-minutes` budget (under the 6 h job cap) and uploads `subs/` + a
+compact `--deltas-out` file as artifacts; a single dependent publish job merges them
+and applies additively via `whisper_publish.py --apply-deltas` (so parallel shards
+never clobber the shared `catalog-source` release). Head-first falls out of the
+popularity sort; the long tail is drained by the weekly schedule. The script also
+got gentle defaults for any LOCAL run: `--workers 1` (was 3), `--max-minutes`,
+`--threads`, and docs to wrap it in `taskpolicy -b` with `ggml-base.en.bin`.
+
+**Why**: Decision 039 specified "Mac-first, not in CI," reasoning whisper.cpp+Metal
+is Apple-Silicon-only and the audio pull is bandwidth-heavy. But the owner's machine
+is a **fanless 8 GB M3 MacBook Air**, and a `--workers 4` run (4 concurrent
+whisper-cli + 4 ffmpeg + the 74 MB catalog held in-process) drove it into memory
+pressure + sustained thermal load until it became unusable and **shut down** — only
+29 of 22,835 films done. Two facts overturn the original reasoning: (1) this repo is
+**PUBLIC**, so GitHub's macOS runners (Apple Silicon, Metal-if-available, else CPU)
+are **free** within fair-use — the cost objection is gone; (2) the work is
+embarrassingly parallel and bandwidth/heat is the runner's problem, not the Air's.
+Offloading removes the resource event entirely while keeping the same additive,
+resumable, head-first design. 22,835 films is also not finishable on the Air at any
+gentleness, so a free fleet of runners draining it over weeks is the only realistic
+path to broad coverage.
+
+**How to apply**: scale whisper transcription by adding SHARDS (separate runners),
+never by raising `--workers` on one machine — a single Metal GPU gains nothing from
+concurrent jobs but pays multiplied RAM + heat (this is what crashed the Air). Keep
+the publish single + additive (`--apply-deltas` from the merged shard delta files);
+do NOT have each shard run `whisper_publish.py` independently (5 concurrent
+fetch→clobber publishes race and drop deltas). If a LOCAL run is ever needed on a
+small/fanless Mac, use `--workers 1`, a `--max-minutes` budget, `ggml-base.en.bin`,
+and wrap the process in `taskpolicy -b` (background QoS → efficiency cores, machine
+stays responsive). Validate any runner-side change with a tiny dispatch
+(`-f limit=3 -f shard_count=1`) before a big batch — the job summary prints whether
+Metal initialized vs CPU fallback.
+
+**Consequences**: whisper Phase 4 joins the other catalog-writer crons; its publish
+job uses `concurrency: catalog-writers` so the release apply serializes with them.
+The bundled per-platform players (Decision 039) consume the resulting `captions`/
+`subtitleHLS` unchanged. If GitHub's macOS runners turn out to lack Metal, the same
+job still runs on CPU (slower, still free, still zero-load on the Air) — the workflow
+does not hard-require GPU.

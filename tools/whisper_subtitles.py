@@ -13,27 +13,39 @@ Silicon — ~10-20x realtime with small.en), writes a WebVTT + the tiny HLS set 
 publish/deploy path serves it to every platform), and records on the item:
 `captions:[{lang:en, source:"whisper", vttURL, ...}]` + `subtitleHLS`.
 
-This is a Mac-first, resumable, popularity-first BATCH (like the cover protocol,
-Decision 023/024): whisper.cpp + Metal is Apple-Silicon only, and the audio pull
-is bandwidth-heavy, so it runs unattended on the owner's Mac under `caffeinate`,
-not in CI. Resumable via the catalog's `captions` field + `whisper_manifest.jsonl`.
+A resumable, popularity-first, SHARDABLE batch (like the cover protocol, Decision
+023/024). PRIMARY VENUE is now CI: `.github/workflows/whisper-subtitles.yml` runs
+this across N free macOS (Apple-Silicon) runners, head-first, time-boxed — see the
+Decision 039 amendment (2026-06-20). It originally ran on the owner's Mac, but a
+fanless 8 GB M3 Air at --workers 4 became unusable and shut the machine down;
+offloading to CI takes all the heat/RAM/time off the Air. Resumable via the
+catalog's `captions` field + `whisper_manifest.jsonl` (already-captioned items are
+filtered, so a re-run skips everything built so far).
+
+GENTLE ON ANY ONE MACHINE: --workers defaults to 1 (a single Metal GPU gains
+nothing from concurrent jobs but pays multiplied RAM + heat); scale by adding
+SHARDS on separate runners, not threads. --max-minutes time-boxes a run; --limit
+caps the popularity head. On a small/fanless Mac, also wrap the process in
+`taskpolicy -b` (background QoS → efficiency cores, low-priority I/O, machine stays
+responsive) and prefer the lighter `ggml-base.en.bin` model.
 
 Skips: silent films (no dialogue), items already captioned, the excluded set, and
 items with no audio-bearing derivative. NEVER transcribes a non-PD item (the rights
 gate is upstream — excluded items are filtered out).
 
-Setup (once):
+Setup (once, for a LOCAL run):
   brew install whisper-cpp ffmpeg
   mkdir -p ~/.cache/whisper && curl -L \
-    https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.en.bin \
-    -o ~/.cache/whisper/ggml-small.en.bin
+    https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-base.en.bin \
+    -o ~/.cache/whisper/ggml-base.en.bin
 
-Run (catalog_release.py fetch first):
-  python tools/whisper_subtitles.py --limit 500 --model ~/.cache/whisper/ggml-small.en.bin
-Then publish (reuses the existing path):
-  tar czf subs.tar.gz subs && gh release upload subtitle-assets subs.tar.gz --clobber
-  python tools/remediate_catalog.py && python tools/catalog_release.py publish
-  gh workflow run deploy-pages.yml ; gh workflow run publish-db.yml
+Gentle local run (catalog_release.py fetch first):
+  caffeinate -i taskpolicy -b python tools/whisper_subtitles.py \
+    --model ~/.cache/whisper/ggml-base.en.bin --workers 1 --limit 500 --max-minutes 120
+Then publish (additive, race-safe):
+  python tools/whisper_publish.py
+
+CI (preferred): gh workflow run whisper-subtitles.yml -f limit=2000 -f shard_count=5
 """
 
 from __future__ import annotations
@@ -115,7 +127,7 @@ def clean_vtt(vtt: str) -> tuple[str, int]:
     return vtt, real
 
 
-def transcribe(item, model, session, keep_wav=False) -> str:
+def transcribe(item, model, session, keep_wav=False, threads=0) -> str:
     """Generate subs/<id>/ for one item. Returns a status string."""
     iaid = item["archiveID"]
     # Extract audio from the EXACT file the app plays (downloadURL), so the
@@ -153,10 +165,11 @@ def transcribe(item, model, session, keep_wav=False) -> str:
         if not ok:
             return "audio-fail"
         stem = Path(td) / "out"
-        wh = subprocess.run(
-            ["whisper-cli", "-m", model, "-f", str(wav), "-ovtt",
-             "-of", str(stem), "--language", "en", "--no-prints"],
-            capture_output=True, text=True, timeout=7200)
+        cmd = ["whisper-cli", "-m", model, "-f", str(wav), "-ovtt",
+               "-of", str(stem), "--language", "en", "--no-prints"]
+        if threads > 0:
+            cmd += ["-t", str(threads)]
+        wh = subprocess.run(cmd, capture_output=True, text=True, timeout=7200)
         vtt_path = stem.with_suffix(".vtt")
         if wh.returncode != 0 or not vtt_path.exists():
             return "whisper-fail"
@@ -189,12 +202,30 @@ def transcribe(item, model, session, keep_wav=False) -> str:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--limit", type=int, default=0)
-    ap.add_argument("--workers", type=int, default=3,
-                    help="concurrent films (downloads overlap to keep the GPU fed)")
+    ap.add_argument("--limit", type=int, default=0,
+                    help="cap the popularity-sorted target window (the 'head') BEFORE sharding")
+    # Default 1: there is a single Metal GPU, so concurrent whisper-cli jobs thrash
+    # it for ~no throughput gain while multiplying RAM + heat. A fanless 8 GB Air
+    # was made unusable (and shut down) by --workers 4. Scale via the CI matrix
+    # (separate runners), NOT threads. Bump only on a machine with RAM to spare.
+    ap.add_argument("--workers", type=int, default=1,
+                    help="concurrent films on ONE machine (keep at 1 on 8 GB / fanless; scale via CI shards)")
     ap.add_argument("--model", default=os.path.expanduser("~/.cache/whisper/ggml-small.en.bin"))
+    ap.add_argument("--threads", type=int, default=0,
+                    help="whisper-cli CPU threads (-t); 0 = whisper default")
     ap.add_argument("--min-pop", type=int, default=0, help="only items at/above this popularityScore")
     ap.add_argument("--types", default="", help="comma-list to restrict contentType (default: all non-silent)")
+    # Sharding: split the popularity-sorted (and --limit-capped) target list across
+    # N independent runners. Shard k takes targets[k::N], so every shard works a
+    # cross-section of the head. Used by the macOS CI matrix to parallelize across
+    # machines instead of overloading one.
+    ap.add_argument("--shard-index", type=int, default=0)
+    ap.add_argument("--shard-count", type=int, default=1)
+    # Wall-clock budget: stop starting new films after this many minutes (keeps a CI
+    # job under the 6 h cap, or a local night gentle). In-flight films finish.
+    ap.add_argument("--max-minutes", type=int, default=0, help="0 = no budget")
+    ap.add_argument("--deltas-out", default="",
+                    help="also write {id: caption-fields} JSON for built items (for the CI publish job)")
     ap.add_argument("--probe", help="transcribe one archiveID, keep the wav, write nothing to catalog")
     args = ap.parse_args()
 
@@ -213,7 +244,7 @@ def main() -> int:
         it = next((i for i in items if i["archiveID"] == args.probe), None)
         if not it:
             print("not found"); return 1
-        print(transcribe(it, args.model, session, keep_wav=True))
+        print(transcribe(it, args.model, session, keep_wav=True, threads=args.threads))
         print("subtitleHLS:", it.get("subtitleHLS"))
         return 0
 
@@ -235,36 +266,57 @@ def main() -> int:
 
     targets = [it for it in items if candidate(it)]
     targets.sort(key=lambda it: it.get("popularityScore") or 0, reverse=True)
-    if args.limit:
+    if args.limit:                                # define the popularity head FIRST
         targets = targets[:args.limit]
+    if args.shard_count > 1:                       # then split the head across runners
+        targets = targets[args.shard_index::args.shard_count]
     print(f"[whisper] {len(targets)} films to transcribe "
-          f"(model {Path(args.model).name}, workers {args.workers})", flush=True)
+          f"(model {Path(args.model).name}, workers {args.workers}, "
+          f"shard {args.shard_index}/{args.shard_count}, "
+          f"budget {args.max_minutes or 'none'} min)", flush=True)
+
+    # Caption fields whisper sets on each built item — also exported (per shard) for
+    # the CI publish job so it never has to merge full mutated catalogs.
+    DELTA_KEYS = ("captions", "subtitleHLS", "captionsChecked", "whisperGenerated")
+    deltas = {}
 
     def flush():
         tmp = CATALOG.with_suffix(".json.tmp")
         json.dump(cat, open(tmp, "w"), ensure_ascii=False, separators=(",", ":"))
         tmp.replace(CATALOG)
+        if args.deltas_out:
+            dtmp = Path(args.deltas_out + ".tmp")
+            json.dump(deltas, open(dtmp, "w"), ensure_ascii=False, separators=(",", ":"))
+            dtmp.replace(args.deltas_out)
 
     # Each film is independent (own tempdir, mutates only its own item), so they
     # run concurrently: ffmpeg downloads (bandwidth-bound) overlap so the Metal
     # GPU stays fed by whisper-cli. Shared state (catalog flush, manifest, tally)
     # is lock-guarded. Resumable — already-captioned items were filtered out, so
     # a re-run after a crash skips everything built so far.
+    import time
     from collections import Counter
     from concurrent.futures import ThreadPoolExecutor, as_completed
     tally = Counter()
     lock = threading.Lock()
     mf = open(MANIFEST, "a")
     done = 0
+    deadline = time.monotonic() + args.max_minutes * 60 if args.max_minutes else None
 
     def work(it):
-        status = transcribe(it, args.model, requests.Session())
+        nonlocal done
+        if deadline and time.monotonic() > deadline:  # budget spent: no-op the rest
+            with lock:
+                done += 1
+                tally["budget"] += 1
+            return
+        status = transcribe(it, args.model, requests.Session(), threads=args.threads)
         with lock:
-            nonlocal done
             done += 1
             tally[status.split("_")[0]] += 1
             mf.write(json.dumps({"id": it["archiveID"], "status": status}) + "\n"); mf.flush()
             if status.startswith("built"):
+                deltas[it["archiveID"]] = {k: it[k] for k in DELTA_KEYS if k in it}
                 print(f"[{done}/{len(targets)}] {it['archiveID']}: {status}", flush=True)
             if done % 25 == 0 or done == len(targets):
                 flush()
