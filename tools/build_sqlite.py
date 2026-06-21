@@ -103,12 +103,24 @@ def _shelf_ids_for(it):
     return ids
 
 
+# `porno?\b` matches "porn"/"porno" as a word (or suffix like "Altersporno") but
+# NOT "Pornographers" (Imamura's 1966 classic) — that's why it's not "pornograph".
+_ADULT_TITLE_RE = re.compile(r"(porno?\b|\bxxx\b|hentai)", re.I)
+
+
 def _is_adult(it):
     # Honor the item-level flag set by remediate_catalog.py (subject/genre/
     # title keyword detection — catches adult films that aren't in an adult
     # COLLECTION, e.g. foreign sexploitation like "Carne"). Then fall back to
     # the collection markers.
     if it.get("isAdult"):
+        return 1
+    # High-confidence explicit title markers (catches blatant items + dupes the
+    # remediate flag missed, e.g. "Altersporno (No Subtitel)"). Deliberately tight
+    # — only terms that never appear in legit film titles; NOT "hardcore" (the
+    # 1979 Schrader film) or "naked"/"sex" (real cult titles). Subtle foreign
+    # softcore stays a curation judgment call, not a keyword.
+    if _ADULT_TITLE_RE.search(it.get("title") or ""):
         return 1
     for c in (it.get("collections") or []):
         cl = str(c).lower()
@@ -292,6 +304,26 @@ _COURSEWARE_COLLECTIONS = {"mit_ocw"}
 
 def _is_courseware(it):
     return any(c in _COURSEWARE_COLLECTIONS for c in (it.get("collections") or []))
+
+
+# Mega-compilations (many films crammed into ONE archive.org item — "Public Domain
+# Movies", "PD Cartoon Collection", grindhouse double features) are not single films
+# but rack up huge view counts, so the popularity sort floats them to the top of
+# Movies. Detect by title and exclude from the film catalog. Precision: the count+
+# plural pattern is 1-3 digits so a 4-digit YEAR ("Rebecca (1940 Film Noir)") never
+# matches, and bare "collection"/"feature" needs a film/cartoon qualifier.
+_COMPILATION_RE = re.compile(
+    r"\b(public domain movies|movie pack|movie collection|cartoon collection|"
+    r"cartoons? compilation|films? collection|complete collection|"
+    r"(double|triple|quadruple) feature|\bcompilation\b|mega ?pack|"
+    r"all[\s-]in[\s-]one|grindhouse experi)\b", re.I)
+_COMPILATION_COUNT_RE = re.compile(   # NOT "episodes" — preserve movie serials
+    r"\b\d{1,3}\s+(movies|films|cartoons|features|shorts)\b", re.I)
+
+
+def _is_compilation(it):
+    t = it.get("title") or ""
+    return bool(_COMPILATION_RE.search(t) or _COMPILATION_COUNT_RE.search(t))
 
 
 def _pop_score(it):
@@ -536,7 +568,7 @@ def populate_items(db, items, rotate_seed="0"):
         # Rights audit (Decision 027): items flagged excluded=true stay in
         # catalog.json (reversible) but are never inserted, so they vanish from
         # every app surface. Mirrors the isAdult gate but harder — a full skip.
-        if it.get("excluded") or _is_courseware(it):
+        if it.get("excluded") or _is_courseware(it) or _is_compilation(it):
             continue
         aid = it["archiveID"]
         item_rows.append((
