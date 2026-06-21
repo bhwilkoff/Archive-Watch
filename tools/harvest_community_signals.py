@@ -74,14 +74,21 @@ def fetch_adv_batch(ids, session):
     return out
 
 
-def fetch_views_batch(ids, session):
-    """all_time/last_30day/last_7day views for a batch, keyed by identifier."""
+def fetch_views_batch(ids, session, tries=3):
+    """all_time/last_30day/last_7day views for a batch, keyed by identifier. The
+    be-api views service throws transient 502s under load — retry with backoff."""
     url = VIEWS_API + ",".join(ids)
-    r = session.get(url, headers={"User-Agent": A.UA}, timeout=40)
-    r.raise_for_status()
-    data = r.json()
-    # response is {id: {all_time, last_30day, last_7day, have_data}}
-    return data if isinstance(data, dict) else {}
+    last = None
+    for attempt in range(tries):
+        try:
+            r = session.get(url, headers={"User-Agent": A.UA}, timeout=40)
+            r.raise_for_status()
+            data = r.json()
+            return data if isinstance(data, dict) else {}
+        except Exception as e:                        # 502 / timeout / parse
+            last = e
+            time.sleep(1.0 * (attempt + 1))
+    raise last
 
 
 def apply_signals(it, adv, views):
@@ -104,8 +111,10 @@ def apply_signals(it, adv, views):
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0, help="cap items processed (popularity-first)")
-    ap.add_argument("--batch", type=int, default=80, help="ids per advancedsearch call")
-    ap.add_argument("--views-batch", type=int, default=60, help="ids per views call")
+    # advancedsearch silently returns 0 docs for an OR of >~50 ids (query-clause /
+    # length limit), so 50 is the safe ceiling — verified live.
+    ap.add_argument("--batch", type=int, default=50, help="ids per advancedsearch call (<=50)")
+    ap.add_argument("--views-batch", type=int, default=40, help="ids per views call")
     ap.add_argument("--stale-days", type=int, default=6,
                     help="re-harvest items whose signalsCheckedAt is older than this")
     ap.add_argument("--sleep", type=float, default=0.3, help="pause between calls (be polite)")
