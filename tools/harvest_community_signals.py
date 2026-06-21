@@ -101,11 +101,11 @@ def apply_signals(it, adv, views):
         it["numReviews"] = int(adv.get("num_reviews") or 0)
         ar = adv.get("avg_rating")
         it["avgRating"] = round(float(ar), 2) if ar not in (None, "") else None
+        it["signalsCheckedAt"] = _today()             # stamp only on real adv data
     if views is not None and views.get("have_data"):
         it["viewsAllTime"] = int(views.get("all_time") or 0)
         it["views30d"] = int(views.get("last_30day") or 0)
         it["views7d"] = int(views.get("last_7day") or 0)
-    it["signalsCheckedAt"] = _today()
 
 
 def main() -> int:
@@ -139,7 +139,10 @@ def main() -> int:
             return True
         return age >= args.stale_days
 
-    targets = [it for it in items if it.get("archiveID") and stale(it)]
+    # Harvest an item if it never got download data yet (self-heals partial runs /
+    # transient failures) or its signals are stale.
+    targets = [it for it in items
+               if it.get("archiveID") and (it.get("downloads") is None or stale(it))]
     targets.sort(key=lambda it: it.get("popularityScore") or 0, reverse=True)
     if args.limit:
         targets = targets[:args.limit]
