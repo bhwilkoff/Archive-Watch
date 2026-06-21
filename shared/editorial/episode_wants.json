@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-06-20T08:12:12Z",
+  "updated_at": "2026-06-21T08:38:20Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 16584,
-    "wanted": 16368,
+    "total": 16974,
+    "wanted": 16758,
     "fulfilled": 216,
-    "series_with_gaps": 326
+    "series_with_gaps": 340
   },
   "wants": [
     {
@@ -11878,6 +11878,246 @@
       "added_at": "2026-06-03T23:58:16Z"
     },
     {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 1,
+      "title": "Call It a Lifetime",
+      "episodeImdbID": "tt0515183",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 2,
+      "title": "Isn't It a Lovely View",
+      "episodeImdbID": "tt0515187",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 3,
+      "title": "Tears from a Silver Dipper",
+      "episodeImdbID": "tt0515197",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 4,
+      "title": "A Shield Is for Hiding Behind",
+      "episodeImdbID": "tt0515180",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 5,
+      "title": "My Name Is Martin Burnham",
+      "episodeImdbID": "tt0515190",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 6,
+      "title": "A Flame in the Dark",
+      "episodeImdbID": "tt0515178",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 9,
+      "title": "Inquest Into a Bleeding Heart",
+      "episodeImdbID": "tt0515186",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 10,
+      "title": "The Quality of Justice",
+      "episodeImdbID": "tt0515200",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 11,
+      "title": "We May Be Better Strangers",
+      "episodeImdbID": "tt0515205",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 12,
+      "title": "Journey into Darkness",
+      "episodeImdbID": "tt0515188",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 13,
+      "title": "Some Weeks Are All Mondays",
+      "episodeImdbID": "tt0515195",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 14,
+      "title": "Run, Little Man, Run",
+      "episodeImdbID": "tt0515193",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 15,
+      "title": "Funny Man with a Monkey",
+      "episodeImdbID": "tt0515184",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 16,
+      "title": "Signals of an Ancient Flame",
+      "episodeImdbID": "tt0515194",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 18,
+      "title": "An Echo of Conscience",
+      "episodeImdbID": "tt0515181",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 19,
+      "title": "Somewhat Lower Than the Angels",
+      "episodeImdbID": "tt0515196",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 21,
+      "title": "The Best There Is",
+      "episodeImdbID": "tt0515198",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 22,
+      "title": "A Roll of the Dice",
+      "episodeImdbID": "tt0515179",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 24,
+      "title": "A Circle of Strangers",
+      "episodeImdbID": "tt0515177",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 26,
+      "title": "Tigers Are for Jungles",
+      "episodeImdbID": "tt0515204",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 27,
+      "title": "The Revenge of the Worm",
+      "episodeImdbID": "tt0515201",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 28,
+      "title": "He Ran for His Life",
+      "episodeImdbID": "tt0515185",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 29,
+      "title": "Those Which Love Has Made",
+      "episodeImdbID": "tt0515203",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "arrest-and-trial-1963",
+      "seriesTitle": "Arrest and Trial",
+      "season": 1,
+      "episode": 30,
+      "title": "Birds of a Feather",
+      "episodeImdbID": "tt0515182",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
       "seriesID": "arthur-of-the-britons-1972",
       "seriesTitle": "Arthur of the Britons",
       "season": 1,
@@ -13237,6 +13477,436 @@
       "episodeImdbID": "tt1497410",
       "status": "wanted",
       "added_at": "2026-06-19T09:23:32Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 1,
+      "episode": 10,
+      "title": "Dancin' the Day Away",
+      "episodeImdbID": "tt1348364",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 1,
+      "episode": 11,
+      "title": "A Wagon of a Different Color",
+      "episodeImdbID": "tt1348348",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 1,
+      "episode": 20,
+      "title": "Spring Fever",
+      "episodeImdbID": "tt0954578",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 2,
+      "episode": 8,
+      "title": "The Ojolympics",
+      "episodeImdbID": "tt1348407",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 2,
+      "episode": 12,
+      "title": "Bear's Birthday Bash",
+      "episodeImdbID": "tt0954564",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 2,
+      "episode": 13,
+      "title": "Picture This",
+      "episodeImdbID": "tt1348393",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 2,
+      "episode": 14,
+      "title": "The Big Blue Housecall",
+      "episodeImdbID": "tt1348405",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 2,
+      "episode": 20,
+      "title": "Tutter's Tiny Trip",
+      "episodeImdbID": "tt1348413",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 2,
+      "episode": 24,
+      "title": "Buggin'",
+      "episodeImdbID": "tt1348360",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 2,
+      "episode": 25,
+      "title": "Love Is All You Need",
+      "episodeImdbID": "tt1348386",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 2,
+      "episode": 27,
+      "title": "As Different as Day and Night",
+      "episodeImdbID": "tt1348353",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 2,
+      "episode": 33,
+      "title": "I Was Just Thinking",
+      "episodeImdbID": "tt1348375",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 2,
+      "episode": 36,
+      "title": "Call It a Day",
+      "episodeImdbID": "tt0954565",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 3,
+      "episode": 1,
+      "title": "Friends at Play",
+      "episodeImdbID": "tt1055417",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 3,
+      "episode": 2,
+      "title": "Nothing to Fear",
+      "episodeImdbID": "tt1348390",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 3,
+      "episode": 4,
+      "title": "The Senseless Detectives",
+      "episodeImdbID": "tt0954581",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 3,
+      "episode": 11,
+      "title": "Bear's Secret Cave",
+      "episodeImdbID": "tt1348357",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 3,
+      "episode": 12,
+      "title": "Smellorama",
+      "episodeImdbID": "tt1348399",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 3,
+      "episode": 16,
+      "title": "That Healing Feeling",
+      "episodeImdbID": "tt1348402",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 3,
+      "episode": 19,
+      "title": "Words, Words, Words",
+      "episodeImdbID": "tt1348423",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 3,
+      "episode": 22,
+      "title": "The Best Thanksgiving Ever",
+      "episodeImdbID": "tt1348404",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 3,
+      "episode": 25,
+      "title": "A Berry Bear Christmas: Part 1",
+      "episodeImdbID": "tt1348344",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 3,
+      "episode": 26,
+      "title": "A Berry Bear Christmas: Part 2",
+      "episodeImdbID": "tt1348345",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 4,
+      "episode": 1,
+      "title": "Welcome to Woodland Valley: Part 1",
+      "episodeImdbID": "tt1348417",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 4,
+      "episode": 2,
+      "title": "Welcome to Woodland Valley: Part 2",
+      "episodeImdbID": "tt1348418",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 4,
+      "episode": 3,
+      "title": "Step by Step",
+      "episodeImdbID": "tt1348400",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 4,
+      "episode": 4,
+      "title": "The First Day at Mouse School",
+      "episodeImdbID": "tt0954568",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 4,
+      "episode": 5,
+      "title": "Rockin' Rocko",
+      "episodeImdbID": "tt1348395",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 4,
+      "episode": 6,
+      "title": "When Harry Met Hallie",
+      "episodeImdbID": "tt1348420",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 4,
+      "episode": 7,
+      "title": "Show and Tell",
+      "episodeImdbID": "tt1348398",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 4,
+      "episode": 8,
+      "title": "Tutter Gathers Some Moss",
+      "episodeImdbID": "tt1348412",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 4,
+      "episode": 10,
+      "title": "At the Old Bear Game",
+      "episodeImdbID": "tt1348354",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 4,
+      "episode": 11,
+      "title": "The Amazing Skippy",
+      "episodeImdbID": "tt1348403",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 4,
+      "episode": 12,
+      "title": "Let's Hit the Road",
+      "episodeImdbID": "tt1348382",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 4,
+      "episode": 14,
+      "title": "Show Your Stuff",
+      "episodeImdbID": "tt1348397",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 5,
+      "episode": 1,
+      "title": "The View from You",
+      "episodeImdbID": "tt1348409",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 5,
+      "episode": 2,
+      "title": "To Clean or Not to Clean",
+      "episodeImdbID": "tt1348411",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 5,
+      "episode": 3,
+      "title": "Great Ball of Firefighters",
+      "episodeImdbID": "tt1348370",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 5,
+      "episode": 4,
+      "title": "Grandma Flutter's 100th Birthday",
+      "episodeImdbID": "tt1348368",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 5,
+      "episode": 5,
+      "title": "Tutter's First Big Sleepover Bash",
+      "episodeImdbID": "tt0954584",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 5,
+      "episode": 6,
+      "title": "Volunteers of Woodland Valley",
+      "episodeImdbID": "tt1348414",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 5,
+      "episode": 7,
+      "title": "Let It Go",
+      "episodeImdbID": "tt1348381",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "bear-in-the-big-blue-house-1997",
+      "seriesTitle": "Bear in the Big Blue House",
+      "season": 5,
+      "episode": 8,
+      "title": "This Is Your Life, Bear",
+      "episodeImdbID": "tt0954583",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
     },
     {
       "seriesID": "beat-the-clock-1950",
@@ -19551,6 +20221,746 @@
       "episodeImdbID": "tt0533823",
       "status": "wanted",
       "added_at": "2026-06-05T08:10:01Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 1,
+      "episode": 2,
+      "title": "Pop Used to Work Chinatown",
+      "episodeImdbID": "tt0535163",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 1,
+      "episode": 3,
+      "title": "Beyond the Golden Door",
+      "episodeImdbID": "tt0535101",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 1,
+      "episode": 4,
+      "title": "Street Scene",
+      "episodeImdbID": "tt0535178",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 1,
+      "episode": 5,
+      "title": "Suffer the Children",
+      "episodeImdbID": "tt0535180",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 1,
+      "episode": 6,
+      "title": "Better Than Equal",
+      "episodeImdbID": "tt0535100",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 2,
+      "episode": 1,
+      "title": "Witness to an Incident",
+      "episodeImdbID": "tt0535208",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 2,
+      "episode": 3,
+      "title": "Beauty Burglars",
+      "episodeImdbID": "tt0535099",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 2,
+      "episode": 4,
+      "title": "High Steel",
+      "episodeImdbID": "tt0535132",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 2,
+      "episode": 5,
+      "title": "Hot Line",
+      "episodeImdbID": "tt0535135",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 2,
+      "episode": 8,
+      "title": "Conduct Unbecoming",
+      "episodeImdbID": "tt0535109",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 2,
+      "episode": 11,
+      "title": "Hopes and Dreams",
+      "episodeImdbID": "tt0535134",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 2,
+      "episode": 12,
+      "title": "The Grandest Jewel Thief of Them All",
+      "episodeImdbID": "tt0535188",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 2,
+      "episode": 14,
+      "title": "Open and Shut Case",
+      "episodeImdbID": "tt0535156",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 2,
+      "episode": 15,
+      "title": "Jane Doe #37",
+      "episodeImdbID": "tt0535139",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 2,
+      "episode": 16,
+      "title": "Date Rape",
+      "episodeImdbID": "tt0535113",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 2,
+      "episode": 18,
+      "title": "Chop Shop",
+      "episodeImdbID": "tt0535107",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 2,
+      "episode": 19,
+      "title": "Let Them Eat Pretzels",
+      "episodeImdbID": "tt0535142",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 2,
+      "episode": 20,
+      "title": "The Gang's All Here",
+      "episodeImdbID": "tt0535186",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 2,
+      "episode": 22,
+      "title": "The Informant",
+      "episodeImdbID": "tt0535189",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 3,
+      "episode": 1,
+      "title": "Matinee",
+      "episodeImdbID": "tt0535146",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 3,
+      "episode": 2,
+      "title": "A Killer's Dozen",
+      "episodeImdbID": "tt0535091",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 3,
+      "episode": 6,
+      "title": "Partners",
+      "episodeImdbID": "tt0535161",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 4,
+      "episode": 1,
+      "title": "Child Witness",
+      "episodeImdbID": "tt0535105",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 4,
+      "episode": 2,
+      "title": "Heat",
+      "episodeImdbID": "tt0535130",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 4,
+      "episode": 5,
+      "title": "Fathers & Daughters",
+      "episodeImdbID": "tt0535123",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 4,
+      "episode": 6,
+      "title": "Taxicab Murders",
+      "episodeImdbID": "tt0535181",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 4,
+      "episode": 7,
+      "title": "Unusual Occurence",
+      "episodeImdbID": "tt0535201",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 4,
+      "episode": 9,
+      "title": "Hooked",
+      "episodeImdbID": "tt0535133",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 4,
+      "episode": 10,
+      "title": "Lady Luck",
+      "episodeImdbID": "tt0535140",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 4,
+      "episode": 11,
+      "title": "Out of Control",
+      "episodeImdbID": "tt0535159",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 4,
+      "episode": 14,
+      "title": "Rules of the Game",
+      "episodeImdbID": "tt0535171",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 4,
+      "episode": 15,
+      "title": "Stress",
+      "episodeImdbID": "tt0535179",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 4,
+      "episode": 16,
+      "title": "Who Says It's Fair: Part 1",
+      "episodeImdbID": "tt0535206",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 4,
+      "episode": 18,
+      "title": "Lost and Found",
+      "episodeImdbID": "tt0535143",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 4,
+      "episode": 21,
+      "title": "Violation",
+      "episodeImdbID": "tt0535204",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 4,
+      "episode": 22,
+      "title": "Organized Crime",
+      "episodeImdbID": "tt0535158",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 5,
+      "episode": 2,
+      "title": "Ordinary Hero",
+      "episodeImdbID": "tt0535157",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 5,
+      "episode": 3,
+      "title": "The Psychic",
+      "episodeImdbID": "tt0535192",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 5,
+      "episode": 4,
+      "title": "Lottery",
+      "episodeImdbID": "tt0535144",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 5,
+      "episode": 5,
+      "title": "Entrapment",
+      "episodeImdbID": "tt0535119",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 5,
+      "episode": 9,
+      "title": "Old Ghosts",
+      "episodeImdbID": "tt0535153",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 5,
+      "episode": 10,
+      "title": "Power",
+      "episodeImdbID": "tt0535165",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 5,
+      "episode": 11,
+      "title": "Play It Again, Santa",
+      "episodeImdbID": "tt0535162",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 5,
+      "episode": 13,
+      "title": "Act of Conscience",
+      "episodeImdbID": "tt0535093",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 5,
+      "episode": 14,
+      "title": "DWI",
+      "episodeImdbID": "tt0535112",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 5,
+      "episode": 16,
+      "title": "Family Connections",
+      "episodeImdbID": "tt0535122",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 5,
+      "episode": 17,
+      "title": "Post Partum",
+      "episodeImdbID": "tt0535164",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 5,
+      "episode": 19,
+      "title": "Exit Stage Center",
+      "episodeImdbID": "tt0535120",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 5,
+      "episode": 20,
+      "title": "Capitalism",
+      "episodeImdbID": "tt0535104",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 5,
+      "episode": 23,
+      "title": "Model Citizens",
+      "episodeImdbID": "tt0535147",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 6,
+      "episode": 2,
+      "title": "Culture Clash",
+      "episodeImdbID": "tt0535111",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 6,
+      "episode": 3,
+      "title": "Sorry, Right Number",
+      "episodeImdbID": "tt0535176",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 6,
+      "episode": 4,
+      "title": "Disenfranchised",
+      "episodeImdbID": "tt0535115",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 6,
+      "episode": 6,
+      "title": "The Zealot",
+      "episodeImdbID": "tt0535195",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 6,
+      "episode": 9,
+      "title": "Revenge",
+      "episodeImdbID": "tt0535167",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 6,
+      "episode": 11,
+      "title": "Cost of Living",
+      "episodeImdbID": "tt0535110",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 6,
+      "episode": 12,
+      "title": "Waste Deep",
+      "episodeImdbID": "tt0535205",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 6,
+      "episode": 14,
+      "title": "Ahead of the Game",
+      "episodeImdbID": "tt0535095",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 6,
+      "episode": 15,
+      "title": "Easy Does It",
+      "episodeImdbID": "tt0535118",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 6,
+      "episode": 22,
+      "title": "Turn, Turn, Turn: Part 2",
+      "episodeImdbID": "tt0535199",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 7,
+      "episode": 1,
+      "title": "No Vacancy",
+      "episodeImdbID": "tt0535150",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 7,
+      "episode": 2,
+      "title": "The City Is Burning",
+      "episodeImdbID": "tt0535184",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 7,
+      "episode": 3,
+      "title": "Loves Me Not",
+      "episodeImdbID": "tt0535145",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 7,
+      "episode": 6,
+      "title": "Video Verite",
+      "episodeImdbID": "tt0535203",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 7,
+      "episode": 7,
+      "title": "Greed",
+      "episodeImdbID": "tt0535127",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 7,
+      "episode": 8,
+      "title": "Secrets",
+      "episodeImdbID": "tt0535174",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 7,
+      "episode": 10,
+      "title": "Old Flames",
+      "episodeImdbID": "tt0535152",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 7,
+      "episode": 11,
+      "title": "Trading Places",
+      "episodeImdbID": "tt0535197",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 7,
+      "episode": 12,
+      "title": "Shadow of a Doubt",
+      "episodeImdbID": "tt0535175",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 7,
+      "episode": 14,
+      "title": "School Daze",
+      "episodeImdbID": "tt0535173",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 7,
+      "episode": 15,
+      "title": "Land of the Free",
+      "episodeImdbID": "tt0535141",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 7,
+      "episode": 16,
+      "title": "A Class Act",
+      "episodeImdbID": "tt0535087",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 7,
+      "episode": 18,
+      "title": "Amends",
+      "episodeImdbID": "tt0535096",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "cagney-lacey-1982",
+      "seriesTitle": "Cagney & Lacey",
+      "season": 7,
+      "episode": 19,
+      "title": "Friendly Fire",
+      "episodeImdbID": "tt0535126",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
     },
     {
       "seriesID": "caillou-1998",
@@ -51624,6 +53034,56 @@
       "fulfilled_at": "2026-06-02T08:55:06Z"
     },
     {
+      "seriesID": "gemini-man-1976",
+      "seriesTitle": "Gemini Man",
+      "season": 1,
+      "episode": 3,
+      "title": "Sam Casey, Sam Casey",
+      "episodeImdbID": "tt0586011",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "gemini-man-1976",
+      "seriesTitle": "Gemini Man",
+      "season": 1,
+      "episode": 5,
+      "title": "Run Sam, Run",
+      "episodeImdbID": "tt0586009",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "gemini-man-1976",
+      "seriesTitle": "Gemini Man",
+      "season": 1,
+      "episode": 6,
+      "title": "Targets",
+      "episodeImdbID": "tt0845711",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "gemini-man-1976",
+      "seriesTitle": "Gemini Man",
+      "season": 1,
+      "episode": 8,
+      "title": "Escape Hatch",
+      "episodeImdbID": "tt0586005",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "gemini-man-1976",
+      "seriesTitle": "Gemini Man",
+      "season": 1,
+      "episode": 10,
+      "title": "Return of the Lion",
+      "episodeImdbID": "tt0586008",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
       "seriesID": "general-electric-theater-1953",
       "seriesTitle": "General Electric Theater",
       "season": 1,
@@ -66573,6 +68033,166 @@
       "added_at": "2026-06-07T07:52:55Z"
     },
     {
+      "seriesID": "just-the-ten-of-us-1988",
+      "seriesTitle": "Just the Ten of Us",
+      "season": 1,
+      "episode": 2,
+      "title": "First Day at School",
+      "episodeImdbID": "tt0618093",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "just-the-ten-of-us-1988",
+      "seriesTitle": "Just the Ten of Us",
+      "season": 2,
+      "episode": 9,
+      "title": "Personal Best",
+      "episodeImdbID": "tt1098785",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "just-the-ten-of-us-1988",
+      "seriesTitle": "Just the Ten of Us",
+      "season": 2,
+      "episode": 11,
+      "title": "Head of the Class",
+      "episodeImdbID": "tt1098782",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "just-the-ten-of-us-1988",
+      "seriesTitle": "Just the Ten of Us",
+      "season": 2,
+      "episode": 19,
+      "title": "Puberty Blues",
+      "episodeImdbID": "tt0618099",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "just-the-ten-of-us-1988",
+      "seriesTitle": "Just the Ten of Us",
+      "season": 2,
+      "episode": 20,
+      "title": "Rock n' Roll Fantasy",
+      "episodeImdbID": "tt0618104",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "just-the-ten-of-us-1988",
+      "seriesTitle": "Just the Ten of Us",
+      "season": 3,
+      "episode": 3,
+      "title": "Who Cut the Cheese?",
+      "episodeImdbID": "tt0618121",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "just-the-ten-of-us-1988",
+      "seriesTitle": "Just the Ten of Us",
+      "season": 3,
+      "episode": 4,
+      "title": "Risky Business",
+      "episodeImdbID": "tt0618103",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "just-the-ten-of-us-1988",
+      "seriesTitle": "Just the Ten of Us",
+      "season": 3,
+      "episode": 6,
+      "title": "A Couple of Swells",
+      "episodeImdbID": "tt0618083",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "just-the-ten-of-us-1988",
+      "seriesTitle": "Just the Ten of Us",
+      "season": 3,
+      "episode": 8,
+      "title": "Dangerous Liaison",
+      "episodeImdbID": "tt0618090",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "just-the-ten-of-us-1988",
+      "seriesTitle": "Just the Ten of Us",
+      "season": 3,
+      "episode": 11,
+      "title": "Skateboard",
+      "episodeImdbID": "tt0618107",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "just-the-ten-of-us-1988",
+      "seriesTitle": "Just the Ten of Us",
+      "season": 3,
+      "episode": 12,
+      "title": "Highway to Heaven",
+      "episodeImdbID": "tt0618095",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "just-the-ten-of-us-1988",
+      "seriesTitle": "Just the Ten of Us",
+      "season": 3,
+      "episode": 13,
+      "title": "Comedy Tonight",
+      "episodeImdbID": "tt0618089",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "just-the-ten-of-us-1988",
+      "seriesTitle": "Just the Ten of Us",
+      "season": 3,
+      "episode": 15,
+      "title": "Perfect Date",
+      "episodeImdbID": "tt0618097",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "just-the-ten-of-us-1988",
+      "seriesTitle": "Just the Ten of Us",
+      "season": 3,
+      "episode": 17,
+      "title": "Snow Job: Part 2",
+      "episodeImdbID": "tt0618110",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "just-the-ten-of-us-1988",
+      "seriesTitle": "Just the Ten of Us",
+      "season": 3,
+      "episode": 18,
+      "title": "False Impressions",
+      "episodeImdbID": "tt0618092",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "just-the-ten-of-us-1988",
+      "seriesTitle": "Just the Ten of Us",
+      "season": 3,
+      "episode": 22,
+      "title": "Smoke 'Em If You Got 'Em",
+      "episodeImdbID": "tt0618109",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
       "seriesID": "kappa-mikey-2006",
       "seriesTitle": "Kappa Mikey",
       "season": 1,
@@ -66746,6 +68366,1016 @@
       "status": "fulfilled",
       "added_at": "2026-06-02T08:32:33Z",
       "fulfilled_at": "2026-06-02T08:55:06Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 1,
+      "episode": 2,
+      "title": "Hot Line Host",
+      "episodeImdbID": "tt0619956",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 1,
+      "episode": 3,
+      "title": "Kensington Achievement Award",
+      "episodeImdbID": "tt0619958",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 1,
+      "episode": 4,
+      "title": "The Tax Audit",
+      "episodeImdbID": "tt0620003",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 1,
+      "episode": 5,
+      "title": "Save Old George",
+      "episodeImdbID": "tt0619970",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 1,
+      "episode": 6,
+      "title": "Where's Cathy?",
+      "episodeImdbID": "tt0620011",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 1,
+      "episode": 7,
+      "title": "Half-Way Home",
+      "episodeImdbID": "tt0619954",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 1,
+      "episode": 8,
+      "title": "The Lady Who Came to Dinner",
+      "episodeImdbID": "tt0619992",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 1,
+      "episode": 9,
+      "title": "The Joy of Kensington",
+      "episodeImdbID": "tt0619991",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 1,
+      "episode": 10,
+      "title": "The Gambler",
+      "episodeImdbID": "tt0619986",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 1,
+      "episode": 12,
+      "title": "Scout's Honour",
+      "episodeImdbID": "tt0619972",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 1,
+      "episode": 13,
+      "title": "The Christmas Show",
+      "episodeImdbID": "tt0619981",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 1,
+      "episode": 14,
+      "title": "Detroit Story",
+      "episodeImdbID": "tt0619945",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 1,
+      "episode": 15,
+      "title": "Cathy's Hobby",
+      "episodeImdbID": "tt0619940",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 1,
+      "episode": 16,
+      "title": "Duke's Dilemma",
+      "episodeImdbID": "tt1591875",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 1,
+      "episode": 17,
+      "title": "Delma's Decision",
+      "episodeImdbID": "tt1591873",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 1,
+      "episode": 18,
+      "title": "Happy Anniversary",
+      "episodeImdbID": "tt1591878",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 1,
+      "title": "Fertility for Two",
+      "episodeImdbID": "tt1591876",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 2,
+      "title": "The Partners",
+      "episodeImdbID": "tt1592636",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 5,
+      "title": "Delma's Fur",
+      "episodeImdbID": "tt1591874",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 6,
+      "title": "The Reunion",
+      "episodeImdbID": "tt1591885",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 7,
+      "title": "Gestalt of Kensington",
+      "episodeImdbID": "tt0619948",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 8,
+      "title": "Welcome to Canada",
+      "episodeImdbID": "tt1202112",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 9,
+      "title": "The Friend",
+      "episodeImdbID": "tt0619985",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 10,
+      "title": "Duke's New Job",
+      "episodeImdbID": "tt0619947",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 11,
+      "title": "Prisoner of Kensington",
+      "episodeImdbID": "tt0619967",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 12,
+      "title": "The Holiday",
+      "episodeImdbID": "tt0619988",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 13,
+      "title": "The End of the World",
+      "episodeImdbID": "tt0619984",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 14,
+      "title": "The Lottery",
+      "episodeImdbID": "tt1591884",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 15,
+      "title": "Gladys' Teddy Bear",
+      "episodeImdbID": "tt0619950",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 16,
+      "title": "Bunny of Kensington",
+      "episodeImdbID": "tt0619937",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 17,
+      "title": "Mary Theresa Is Missing",
+      "episodeImdbID": "tt0619962",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 18,
+      "title": "Cathy's Parents",
+      "episodeImdbID": "tt0619941",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 19,
+      "title": "The Central Tech Tiger",
+      "episodeImdbID": "tt0619980",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 20,
+      "title": "The Crush",
+      "episodeImdbID": "tt0619983",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 21,
+      "title": "Tiny's Job",
+      "episodeImdbID": "tt0620008",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 22,
+      "title": "Gladys' Problem",
+      "episodeImdbID": "tt1591877",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 2,
+      "episode": 23,
+      "title": "The Quiz Show",
+      "episodeImdbID": "tt0619999",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 1,
+      "title": "Cathy's New Career",
+      "episodeImdbID": "tt1591872",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 2,
+      "title": "The Comic",
+      "episodeImdbID": "tt0619982",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 3,
+      "title": "The Prom",
+      "episodeImdbID": "tt0619997",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 4,
+      "title": "The Hostage",
+      "episodeImdbID": "tt0619989",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 5,
+      "title": "The Boiler",
+      "episodeImdbID": "tt0619979",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 6,
+      "title": "Hotel Buffalo",
+      "episodeImdbID": "tt0619957",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 7,
+      "title": "The Photographer",
+      "episodeImdbID": "tt0619996",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 8,
+      "title": "The Teacher",
+      "episodeImdbID": "tt0620004",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 9,
+      "title": "The Move",
+      "episodeImdbID": "tt0619993",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 10,
+      "title": "Gladys' Restaurant",
+      "episodeImdbID": "tt0619949",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 11,
+      "title": "The Hero",
+      "episodeImdbID": "tt0619987",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 12,
+      "title": "The Dance Studio",
+      "episodeImdbID": "tt1591881",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 13,
+      "title": "The Suitor",
+      "episodeImdbID": "tt0620002",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 14,
+      "title": "The Wizard",
+      "episodeImdbID": "tt0620007",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 15,
+      "title": "The Hustler",
+      "episodeImdbID": "tt0619990",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 16,
+      "title": "Big Daddy",
+      "episodeImdbID": "tt1592638",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 17,
+      "title": "Racehorse",
+      "episodeImdbID": "tt0619969",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 19,
+      "title": "Las Vegas",
+      "episodeImdbID": "tt1592639",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 20,
+      "title": "The Old Flame",
+      "episodeImdbID": "tt0619994",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 21,
+      "title": "King's Cousin",
+      "episodeImdbID": "tt0619966",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 3,
+      "episode": 22,
+      "title": "The Blood of Kings",
+      "episodeImdbID": "tt0619978",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 1,
+      "title": "King's First Date",
+      "episodeImdbID": "tt0891807",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 2,
+      "title": "Summer of '56",
+      "episodeImdbID": "tt0619974",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 3,
+      "title": "School Daze",
+      "episodeImdbID": "tt0619971",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 4,
+      "title": "The Invitation",
+      "episodeImdbID": "tt0893136",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 5,
+      "title": "Words and Music",
+      "episodeImdbID": "tt0620013",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 6,
+      "title": "Carol's Arrival",
+      "episodeImdbID": "tt0619938",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 7,
+      "title": "Double Standard",
+      "episodeImdbID": "tt0619946",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 8,
+      "title": "The Purse Snatcher",
+      "episodeImdbID": "tt0619998",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 9,
+      "title": "The Third Party",
+      "episodeImdbID": "tt0620005",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 10,
+      "title": "Big Brother",
+      "episodeImdbID": "tt0619935",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 12,
+      "title": "The Houseguest",
+      "episodeImdbID": "tt0897125",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 13,
+      "title": "With This Ring",
+      "episodeImdbID": "tt0885920",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 14,
+      "title": "Guido's Job",
+      "episodeImdbID": "tt0619953",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 15,
+      "title": "Over the Hill",
+      "episodeImdbID": "tt0870427",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 16,
+      "title": "Dear Aunt Martha",
+      "episodeImdbID": "tt0619944",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 17,
+      "title": "The Best Man",
+      "episodeImdbID": "tt0619975",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 19,
+      "title": "True Confessions",
+      "episodeImdbID": "tt0620009",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 20,
+      "title": "White Lace Gloves",
+      "episodeImdbID": "tt0620012",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 21,
+      "title": "The Fishing Trip",
+      "episodeImdbID": "tt0875949",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 22,
+      "title": "Cyrano de Kensington",
+      "episodeImdbID": "tt0619943",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 4,
+      "episode": 23,
+      "title": "The PMO",
+      "episodeImdbID": "tt0619995",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 1,
+      "title": "King's Brave New World",
+      "episodeImdbID": "tt0619959",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 3,
+      "title": "Life Begins at 40",
+      "episodeImdbID": "tt0619960",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 4,
+      "title": "Home Is Where the Heartburn Is",
+      "episodeImdbID": "tt0619955",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 5,
+      "title": "The Rivals",
+      "episodeImdbID": "tt0620000",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 6,
+      "title": "Born to Boogie",
+      "episodeImdbID": "tt0619936",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 7,
+      "title": "The Blind Date",
+      "episodeImdbID": "tt0619977",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 8,
+      "title": "Masters and Johnson and King",
+      "episodeImdbID": "tt0619963",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 9,
+      "title": "The Bet",
+      "episodeImdbID": "tt0619976",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 10,
+      "title": "Pawn to King Four",
+      "episodeImdbID": "tt0619965",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 11,
+      "title": "Down But Not Out",
+      "episodeImdbID": "tt0894263",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 12,
+      "title": "The Hat Trick",
+      "episodeImdbID": "tt0890475",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 13,
+      "title": "Catch 23",
+      "episodeImdbID": "tt0619939",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 14,
+      "title": "The Total Woman",
+      "episodeImdbID": "tt0620006",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 15,
+      "title": "Look Ma, No Cavities",
+      "episodeImdbID": "tt0619961",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 16,
+      "title": "Sign of the Bull",
+      "episodeImdbID": "tt0619973",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 17,
+      "title": "Good News, Bad News",
+      "episodeImdbID": "tt0619951",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 18,
+      "title": "The Spirit of Joy",
+      "episodeImdbID": "tt0620001",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 19,
+      "title": "War and Peace",
+      "episodeImdbID": "tt0620010",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 20,
+      "title": "Counter Attack",
+      "episodeImdbID": "tt0619942",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 21,
+      "title": "Green-Eyed Monster",
+      "episodeImdbID": "tt0619952",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 22,
+      "title": "Purple Passion",
+      "episodeImdbID": "tt0619968",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "king-of-kensington-1975",
+      "seriesTitle": "King of Kensington",
+      "season": 5,
+      "episode": 23,
+      "title": "Movin' On",
+      "episodeImdbID": "tt0619964",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
     },
     {
       "seriesID": "knight-rider-1982",
@@ -81688,6 +84318,246 @@
       "added_at": "2026-06-20T07:57:19Z"
     },
     {
+      "seriesID": "new-york-undercover-1994",
+      "seriesTitle": "New York Undercover",
+      "season": 1,
+      "episode": 23,
+      "title": "The Shooter",
+      "episodeImdbID": "tt0659852",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "new-york-undercover-1994",
+      "seriesTitle": "New York Undercover",
+      "season": 1,
+      "episode": 24,
+      "title": "Manchild",
+      "episodeImdbID": "tt0659821",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "new-york-undercover-1994",
+      "seriesTitle": "New York Undercover",
+      "season": 1,
+      "episode": 26,
+      "title": "Catman Comes Back",
+      "episodeImdbID": "tt0659793",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "new-york-undercover-1994",
+      "seriesTitle": "New York Undercover",
+      "season": 2,
+      "episode": 10,
+      "title": "Color Lines",
+      "episodeImdbID": "tt0659796",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "new-york-undercover-1994",
+      "seriesTitle": "New York Undercover",
+      "season": 2,
+      "episode": 12,
+      "title": "Internal Affairs",
+      "episodeImdbID": "tt0659815",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "new-york-undercover-1994",
+      "seriesTitle": "New York Undercover",
+      "season": 2,
+      "episode": 24,
+      "title": "No Greater Love",
+      "episodeImdbID": "tt0659825",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "new-york-undercover-1994",
+      "seriesTitle": "New York Undercover",
+      "season": 3,
+      "episode": 6,
+      "title": "Kill the Noise",
+      "episodeImdbID": "tt0659817",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "new-york-undercover-1994",
+      "seriesTitle": "New York Undercover",
+      "season": 3,
+      "episode": 16,
+      "title": "Outrage",
+      "episodeImdbID": "tt0659828",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "new-york-undercover-1994",
+      "seriesTitle": "New York Undercover",
+      "season": 3,
+      "episode": 17,
+      "title": "The Promised Land",
+      "episodeImdbID": "tt0659850",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "new-york-undercover-1994",
+      "seriesTitle": "New York Undercover",
+      "season": 4,
+      "episode": 12,
+      "title": "The Troubles",
+      "episodeImdbID": "tt0659855",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "not-on-your-nellie-1974",
+      "seriesTitle": "Not on Your Nellie",
+      "season": 1,
+      "episode": 1,
+      "title": "Nellie Comes to Town",
+      "episodeImdbID": "tt0953106",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "not-on-your-nellie-1974",
+      "seriesTitle": "Not on Your Nellie",
+      "season": 1,
+      "episode": 2,
+      "title": "Something in the Night",
+      "episodeImdbID": "tt0662512",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "not-on-your-nellie-1974",
+      "seriesTitle": "Not on Your Nellie",
+      "season": 1,
+      "episode": 3,
+      "title": "The Anniversary Present",
+      "episodeImdbID": "tt0662513",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "not-on-your-nellie-1974",
+      "seriesTitle": "Not on Your Nellie",
+      "season": 1,
+      "episode": 5,
+      "title": "The Apartment",
+      "episodeImdbID": "tt0662514",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "not-on-your-nellie-1974",
+      "seriesTitle": "Not on Your Nellie",
+      "season": 1,
+      "episode": 6,
+      "title": "Bring on the Dancing Girls",
+      "episodeImdbID": "tt0662506",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "not-on-your-nellie-1974",
+      "seriesTitle": "Not on Your Nellie",
+      "season": 1,
+      "episode": 7,
+      "title": "The Wind of Change",
+      "episodeImdbID": "tt0662517",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "not-on-your-nellie-1974",
+      "seriesTitle": "Not on Your Nellie",
+      "season": 2,
+      "episode": 1,
+      "title": "Brief Encounter",
+      "episodeImdbID": "tt0662505",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "not-on-your-nellie-1974",
+      "seriesTitle": "Not on Your Nellie",
+      "season": 2,
+      "episode": 2,
+      "title": "High Society",
+      "episodeImdbID": "tt0662510",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "not-on-your-nellie-1974",
+      "seriesTitle": "Not on Your Nellie",
+      "season": 2,
+      "episode": 3,
+      "title": "Requiem for a Heavyweight",
+      "episodeImdbID": "tt0662511",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "not-on-your-nellie-1974",
+      "seriesTitle": "Not on Your Nellie",
+      "season": 2,
+      "episode": 4,
+      "title": "Do Unto Others",
+      "episodeImdbID": "tt0662508",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "not-on-your-nellie-1974",
+      "seriesTitle": "Not on Your Nellie",
+      "season": 2,
+      "episode": 6,
+      "title": "Feeling the Draught",
+      "episodeImdbID": "tt0662509",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "not-on-your-nellie-1974",
+      "seriesTitle": "Not on Your Nellie",
+      "season": 3,
+      "episode": 1,
+      "title": "Be Prepared",
+      "episodeImdbID": "tt0662504",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "not-on-your-nellie-1974",
+      "seriesTitle": "Not on Your Nellie",
+      "season": 3,
+      "episode": 3,
+      "title": "The French Correction",
+      "episodeImdbID": "tt0662515",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "not-on-your-nellie-1974",
+      "seriesTitle": "Not on Your Nellie",
+      "season": 3,
+      "episode": 4,
+      "title": "Called to the Bar",
+      "episodeImdbID": "tt0662507",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
       "seriesID": "oh-grow-up-1999",
       "seriesTitle": "Oh Grow Up",
       "season": 1,
@@ -81746,6 +84616,96 @@
       "episodeImdbID": "tt0664616",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "oh-no-it-s-selwyn-froggitt-1976",
+      "seriesTitle": "Oh No, It's Selwyn Froggitt!",
+      "season": 1,
+      "episode": 0,
+      "title": "Pilot: Oh No, It's Selwyn Froggitt",
+      "episodeImdbID": "tt0957816",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "oh-no-it-s-selwyn-froggitt-1976",
+      "seriesTitle": "Oh No, It's Selwyn Froggitt!",
+      "season": 1,
+      "episode": 1,
+      "title": "Three Fifths of the World Loves a Lover",
+      "episodeImdbID": "tt0957819",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "oh-no-it-s-selwyn-froggitt-1976",
+      "seriesTitle": "Oh No, It's Selwyn Froggitt!",
+      "season": 1,
+      "episode": 2,
+      "title": "We Are the Masters Now",
+      "episodeImdbID": "tt0957820",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "oh-no-it-s-selwyn-froggitt-1976",
+      "seriesTitle": "Oh No, It's Selwyn Froggitt!",
+      "season": 1,
+      "episode": 5,
+      "title": "The Master Builder",
+      "episodeImdbID": "tt0957034",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "oh-no-it-s-selwyn-froggitt-1976",
+      "seriesTitle": "Oh No, It's Selwyn Froggitt!",
+      "season": 2,
+      "episode": 1,
+      "title": "Daze of Hope",
+      "episodeImdbID": "tt0957813",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "oh-no-it-s-selwyn-froggitt-1976",
+      "seriesTitle": "Oh No, It's Selwyn Froggitt!",
+      "season": 2,
+      "episode": 7,
+      "title": "Just Cause and Impediment",
+      "episodeImdbID": "tt0957814",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "oh-no-it-s-selwyn-froggitt-1976",
+      "seriesTitle": "Oh No, It's Selwyn Froggitt!",
+      "season": 3,
+      "episode": 5,
+      "title": "Sling Along with Selwyn",
+      "episodeImdbID": "tt0957817",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "oh-no-it-s-selwyn-froggitt-1976",
+      "seriesTitle": "Oh No, It's Selwyn Froggitt!",
+      "season": 3,
+      "episode": 7,
+      "title": "Around the Houses",
+      "episodeImdbID": "tt0957812",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "oh-no-it-s-selwyn-froggitt-1976",
+      "seriesTitle": "Oh No, It's Selwyn Froggitt!",
+      "season": 3,
+      "episode": 8,
+      "title": "On the Feast of Selwyn",
+      "episodeImdbID": "tt0957815",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
     },
     {
       "seriesID": "our-miss-brooks-1952",
@@ -105558,6 +108518,246 @@
       "added_at": "2026-06-06T07:00:09Z"
     },
     {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 1,
+      "episode": 1,
+      "title": "Troika",
+      "episodeImdbID": "tt0706519",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 1,
+      "episode": 2,
+      "title": "Smokescreen",
+      "episodeImdbID": "tt0706507",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 1,
+      "episode": 3,
+      "title": "The Promised Land",
+      "episodeImdbID": "tt0706516",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 1,
+      "episode": 4,
+      "title": "A Date with Leonidas",
+      "episodeImdbID": "tt0706472",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 1,
+      "episode": 5,
+      "title": "The Kazmirov Affair",
+      "episodeImdbID": "tt0706513",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 1,
+      "episode": 7,
+      "title": "You Don't Exist",
+      "episodeImdbID": "tt0706522",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 1,
+      "episode": 11,
+      "title": "Exit a Diplomat",
+      "episodeImdbID": "tt0706490",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 1,
+      "episode": 12,
+      "title": "Care of Her Majesty",
+      "episodeImdbID": "tt0706479",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 1,
+      "episode": 13,
+      "title": "Visitor from Moscow",
+      "episodeImdbID": "tt0706520",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 1,
+      "episode": 14,
+      "title": "Time Bomb",
+      "episodeImdbID": "tt0706518",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 2,
+      "episode": 2,
+      "title": "Dinner Date",
+      "episodeImdbID": "tt0706484",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 2,
+      "episode": 7,
+      "title": "Not to Be Trusted",
+      "episodeImdbID": "tt0706499",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 3,
+      "episode": 3,
+      "title": "Inquisition",
+      "episodeImdbID": "tt0706493",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 3,
+      "episode": 4,
+      "title": "Assault",
+      "episodeImdbID": "tt0706476",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 3,
+      "episode": 6,
+      "title": "Red Herring",
+      "episodeImdbID": "tt0706501",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 3,
+      "episode": 7,
+      "title": "Death by Drowning",
+      "episodeImdbID": "tt0706482",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 3,
+      "episode": 8,
+      "title": "All the King's Men",
+      "episodeImdbID": "tt0706475",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 3,
+      "episode": 9,
+      "title": "Threat",
+      "episodeImdbID": "tt0706517",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 3,
+      "episode": 10,
+      "title": "The Other Man",
+      "episodeImdbID": "tt0706514",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 3,
+      "episode": 11,
+      "title": "You won't remember me",
+      "episodeImdbID": "tt0706523",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 4,
+      "episode": 5,
+      "title": "Something About a Soldier",
+      "episodeImdbID": "tt0706508",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 4,
+      "episode": 7,
+      "title": "Sounds Sinister",
+      "episodeImdbID": "tt0706510",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 4,
+      "episode": 8,
+      "title": "Entente Cordiale",
+      "episodeImdbID": "tt0706488",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "special-branch-1969",
+      "seriesTitle": "Special Branch",
+      "season": 4,
+      "episode": 12,
+      "title": "Diversion",
+      "episodeImdbID": "tt0706485",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
       "seriesID": "spectreman-1971",
       "seriesTitle": "Spectreman",
       "season": 1,
@@ -116727,6 +119927,26 @@
       "episodeImdbID": "tt0506536",
       "status": "wanted",
       "added_at": "2026-06-13T07:56:51Z"
+    },
+    {
+      "seriesID": "the-amazing-spider-man-1977",
+      "seriesTitle": "The Amazing Spider-Man",
+      "season": 1,
+      "episode": 1,
+      "title": "Spider-Man",
+      "episodeImdbID": "tt0075671",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-amazing-spider-man-1977",
+      "seriesTitle": "The Amazing Spider-Man",
+      "season": 1,
+      "episode": 6,
+      "title": "Escort to Danger",
+      "episodeImdbID": "tt0511077",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
     },
     {
       "seriesID": "the-avengers-1961",
@@ -154067,6 +157287,286 @@
       "added_at": "2026-06-07T07:52:55Z"
     },
     {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 1,
+      "title": "Rendezvous with Yesterday",
+      "episodeImdbID": "tt0723767",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 2,
+      "title": "One Way to the Moon",
+      "episodeImdbID": "tt0723763",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 3,
+      "title": "End of the World",
+      "episodeImdbID": "tt0723756",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 4,
+      "title": "The Day the Sky Fell In",
+      "episodeImdbID": "tt0723772",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 5,
+      "title": "The Last Patrol",
+      "episodeImdbID": "tt0723776",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 6,
+      "title": "Crack of Doom",
+      "episodeImdbID": "tt0723753",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 7,
+      "title": "Revenge of the Gods",
+      "episodeImdbID": "tt0723769",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 8,
+      "title": "Massacre",
+      "episodeImdbID": "tt0723760",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 9,
+      "title": "Devil's Island",
+      "episodeImdbID": "tt0723755",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 11,
+      "title": "Secret Weapon",
+      "episodeImdbID": "tt0723770",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 12,
+      "title": "The Death Trap",
+      "episodeImdbID": "tt0723773",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 13,
+      "title": "The Alamo",
+      "episodeImdbID": "tt0723771",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 14,
+      "title": "Night of the Long Knives",
+      "episodeImdbID": "tt0723762",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 15,
+      "title": "Invasion",
+      "episodeImdbID": "tt0723758",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 16,
+      "title": "The Revenge of Robin Hood",
+      "episodeImdbID": "tt0723768",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 17,
+      "title": "Kill Two by Two",
+      "episodeImdbID": "tt0723759",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 18,
+      "title": "Visitors from Beyond the Stars",
+      "episodeImdbID": "tt0723779",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 19,
+      "title": "The Ghost of Nero",
+      "episodeImdbID": "tt0723774",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 21,
+      "title": "Idol of Death",
+      "episodeImdbID": "tt0723757",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 22,
+      "title": "Billy the Kid",
+      "episodeImdbID": "tt0723751",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 23,
+      "title": "Pirates of Deadman's Island",
+      "episodeImdbID": "tt0723764",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 24,
+      "title": "Chase Through Time",
+      "episodeImdbID": "tt0723752",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 25,
+      "title": "The Death Merchant",
+      "episodeImdbID": "tt0723754",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 26,
+      "title": "Attack of the Barbarians",
+      "episodeImdbID": "tt0723750",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 27,
+      "title": "Merlin the Magician",
+      "episodeImdbID": "tt0723761",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 28,
+      "title": "The Kidnappers",
+      "episodeImdbID": "tt0723775",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 29,
+      "title": "Raiders from Outer Space",
+      "episodeImdbID": "tt0394946",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-time-tunnel-1966",
+      "seriesTitle": "The Time Tunnel",
+      "season": 1,
+      "episode": 30,
+      "title": "Town of Terror",
+      "episodeImdbID": "tt0723778",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
       "seriesID": "the-tony-randall-show-1976",
       "seriesTitle": "The Tony Randall Show",
       "season": 1,
@@ -156687,6 +160187,256 @@
       "episodeImdbID": "tt1982531",
       "status": "wanted",
       "added_at": "2026-06-07T07:52:55Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 1,
+      "title": "A New Germany: 1933-1939",
+      "episodeImdbID": "tt1129863",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 2,
+      "title": "Distant War: September 1939-May 1940",
+      "episodeImdbID": "tt1129867",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 3,
+      "title": "France Falls: May-June 1940",
+      "episodeImdbID": "tt1129868",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 4,
+      "title": "Alone: May 1940-May 1941",
+      "episodeImdbID": "tt1129864",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 5,
+      "title": "Barbarossa: June-December 1941",
+      "episodeImdbID": "tt1129866",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 6,
+      "title": "Banzai! Japan 1931-1942",
+      "episodeImdbID": "tt1129865",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 7,
+      "title": "On Our Way: U.S.A. 1939-1942",
+      "episodeImdbID": "tt1129876",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 8,
+      "title": "The Desert: North Africa - 1940-1943",
+      "episodeImdbID": "tt1129883",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 9,
+      "title": "Stalingrad: June 1942-February 1943",
+      "episodeImdbID": "tt1129881",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 10,
+      "title": "Wolf Pack: U-Boats in the Atlantic - 1939-1944",
+      "episodeImdbID": "tt1129886",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 11,
+      "title": "Red Star: The Soviet Union - 1941-1943",
+      "episodeImdbID": "tt1129879",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 12,
+      "title": "Whirlwind: Bombing Germany - September 1939-April 1944",
+      "episodeImdbID": "tt1129885",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 13,
+      "title": "Tough Old Gut: Italy - November 1942-June 1944",
+      "episodeImdbID": "tt1129884",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 14,
+      "title": "It's a Lovely Day Tomorrow: Burma - 1942-1944",
+      "episodeImdbID": "tt1130691",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 15,
+      "title": "Home Fires: Britain - 1940-1944",
+      "episodeImdbID": "tt1129870",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 16,
+      "title": "Inside the Reich: Germany - 1940-1944",
+      "episodeImdbID": "tt1129871",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 17,
+      "title": "Morning: June-August 1944",
+      "episodeImdbID": "tt1129873",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 18,
+      "title": "Occupation: Holland - 1940-1944",
+      "episodeImdbID": "tt1129875",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 19,
+      "title": "Pincers: August 1944-March 1945",
+      "episodeImdbID": "tt1129878",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 21,
+      "title": "Nemesis: Germany - February-May 1945",
+      "episodeImdbID": "tt1129874",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 22,
+      "title": "Japan: 1941-1945",
+      "episodeImdbID": "tt1129872",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 23,
+      "title": "Pacific: February 1942-July 1945",
+      "episodeImdbID": "tt1129877",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 24,
+      "title": "The Bomb: February-September 1945",
+      "episodeImdbID": "tt1129882",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 25,
+      "title": "Reckoning: 1945... and After",
+      "episodeImdbID": "tt1130692",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-world-at-war-1973",
+      "seriesTitle": "The World at War",
+      "season": 1,
+      "episode": 26,
+      "title": "Remember",
+      "episodeImdbID": "tt1129880",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
     },
     {
       "seriesID": "the-x-s-2005",
@@ -162718,6 +166468,156 @@
       "episodeImdbID": "tt2437846",
       "status": "wanted",
       "added_at": "2026-06-05T08:10:01Z"
+    },
+    {
+      "seriesID": "whispering-smith-1961",
+      "seriesTitle": "Whispering Smith",
+      "season": 1,
+      "episode": 1,
+      "title": "The Blind Gun",
+      "episodeImdbID": "tt0747432",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "whispering-smith-1961",
+      "seriesTitle": "Whispering Smith",
+      "season": 1,
+      "episode": 2,
+      "title": "The Grudge",
+      "episodeImdbID": "tt0747435",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "whispering-smith-1961",
+      "seriesTitle": "Whispering Smith",
+      "season": 1,
+      "episode": 3,
+      "title": "The Devil's Share",
+      "episodeImdbID": "tt0747434",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "whispering-smith-1961",
+      "seriesTitle": "Whispering Smith",
+      "season": 1,
+      "episode": 4,
+      "title": "Stake-Out",
+      "episodeImdbID": "tt0747430",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "whispering-smith-1961",
+      "seriesTitle": "Whispering Smith",
+      "season": 1,
+      "episode": 5,
+      "title": "Safety Valve",
+      "episodeImdbID": "tt0747428",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "whispering-smith-1961",
+      "seriesTitle": "Whispering Smith",
+      "season": 1,
+      "episode": 6,
+      "title": "Stain of Justice",
+      "episodeImdbID": "tt0747429",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "whispering-smith-1961",
+      "seriesTitle": "Whispering Smith",
+      "season": 1,
+      "episode": 8,
+      "title": "The Quest",
+      "episodeImdbID": "tt0747440",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "whispering-smith-1961",
+      "seriesTitle": "Whispering Smith",
+      "season": 1,
+      "episode": 10,
+      "title": "Death at Even Money",
+      "episodeImdbID": "tt0747425",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "whispering-smith-1961",
+      "seriesTitle": "Whispering Smith",
+      "season": 1,
+      "episode": 13,
+      "title": "Cross Cut",
+      "episodeImdbID": "tt0747423",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "whispering-smith-1961",
+      "seriesTitle": "Whispering Smith",
+      "season": 1,
+      "episode": 14,
+      "title": "Double Edge",
+      "episodeImdbID": "tt0747426",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "whispering-smith-1961",
+      "seriesTitle": "Whispering Smith",
+      "season": 1,
+      "episode": 15,
+      "title": "Trademark",
+      "episodeImdbID": "tt0747441",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "whispering-smith-1961",
+      "seriesTitle": "Whispering Smith",
+      "season": 1,
+      "episode": 20,
+      "title": "The Idol",
+      "episodeImdbID": "tt0747437",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "whispering-smith-1961",
+      "seriesTitle": "Whispering Smith",
+      "season": 1,
+      "episode": 21,
+      "title": "String of Circumstances",
+      "episodeImdbID": "tt1121759",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "whispering-smith-1961",
+      "seriesTitle": "Whispering Smith",
+      "season": 1,
+      "episode": 24,
+      "title": "Trial of the Avengers",
+      "episodeImdbID": "tt1121762",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "whispering-smith-1961",
+      "seriesTitle": "Whispering Smith",
+      "season": 1,
+      "episode": 25,
+      "title": "Prayer of a Chance",
+      "episodeImdbID": "tt1120854",
+      "status": "wanted",
+      "added_at": "2026-06-21T08:38:20Z"
     },
     {
       "seriesID": "wildlife-on-one-1977",
