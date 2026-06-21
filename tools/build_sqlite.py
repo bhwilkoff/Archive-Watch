@@ -282,6 +282,18 @@ def _community_copy_score(i):
     return s
 
 
+# University courseware (MIT OpenCourseWare lecture videos) is in the `mit_ocw`
+# collection — educational lectures, not cinema. They have huge archive.org view
+# counts (students), so the community-signal popularity sort floated them to the
+# top of Movies; exclude the whole collection from this film catalog (a cinematheque,
+# not a course catalog). Reversible (remove the collection from the set).
+_COURSEWARE_COLLECTIONS = {"mit_ocw"}
+
+
+def _is_courseware(it):
+    return any(c in _COURSEWARE_COLLECTIONS for c in (it.get("collections") or []))
+
+
 def _pop_score(it):
     """Catalog sort score stored in the popularityScore column. Blends current watch
     momentum (30-day views), recent + all-time downloads, vote-floored rating, and
@@ -524,7 +536,7 @@ def populate_items(db, items, rotate_seed="0"):
         # Rights audit (Decision 027): items flagged excluded=true stay in
         # catalog.json (reversible) but are never inserted, so they vanish from
         # every app surface. Mirrors the isAdult gate but harder — a full skip.
-        if it.get("excluded"):
+        if it.get("excluded") or _is_courseware(it):
             continue
         aid = it["archiveID"]
         item_rows.append((
