@@ -55,6 +55,12 @@ jobs:
           echo "## Community signals" >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"; tail -3 signals.log >> "$GITHUB_STEP_SUMMARY"; echo '```' >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Harvest + filter genuine reviews
+        run: |
+          python tools/harvest_reviews.py --limit ${{ github.event.inputs.limit || '0' }} | tee reviews.log
+          echo "## Reviews" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"; tail -2 reviews.log >> "$GITHUB_STEP_SUMMARY"; echo '```' >> "$GITHUB_STEP_SUMMARY"
+
       - name: Publish catalog to release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
