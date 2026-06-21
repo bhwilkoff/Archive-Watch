@@ -33,6 +33,7 @@ import argparse
 import datetime as _dt
 import gzip
 import json
+import math
 import random
 import re
 import shutil
@@ -262,6 +263,46 @@ def _real_art_rank(i):
             "generated": 2}.get(i.get("artworkSource"), 1)
 
 
+_TRAILER_RE = re.compile(r"trailer|teaser|\bclip\b|excerpt|promo|sample", re.I)
+
+
+def _community_copy_score(i):
+    """How much a real audience VETTED this exact upload — the strongest "canonical
+    copy" signal (research §B). Raw downloads alone is a trap (a film's trailer can
+    out-download the film), so weight rated+reviewed and favourited copies, log-damp
+    reach, and penalise trailer/clip uploads. Degrades to 0 before signals are
+    harvested, so dedup falls back to resolution/captions as before."""
+    ar = i.get("avgRating") or 0
+    nr = i.get("numReviews") or 0
+    nf = i.get("numFavorites") or 0
+    dl = i.get("downloads") or 0
+    s = 3.0 * ar * math.log10(1 + nr) + 2.0 * math.log10(1 + nf) + math.log10(1 + dl)
+    if _TRAILER_RE.search((i.get("title") or "") + " " + (i.get("archiveID") or "")):
+        s -= 8
+    return s
+
+
+def _pop_score(it):
+    """Catalog sort score stored in the popularityScore column. Blends current watch
+    momentum (30-day views), recent + all-time downloads, vote-floored rating, and
+    favourites (research §C); recency terms decay so a "hot now" lens falls out for
+    free. Falls back to the legacy popularityScore until signals are harvested."""
+    if it.get("downloads") is None and it.get("views30d") is None:
+        return it.get("popularityScore") or 0
+    v30 = it.get("views30d") or 0
+    mo = it.get("downloadsMonth") or 0
+    dl = it.get("downloads") or 0
+    nf = it.get("numFavorites") or 0
+    nr = it.get("numReviews") or 0
+    ar = it.get("avgRating")
+    C, m = 3.7, 10                                    # catalog-mean rating, vote floor
+    bayes = ((nr / (nr + m)) * ar + (m / (nr + m)) * C) if ar else C
+    s = (0.45 * math.log10(1 + v30) + 0.20 * math.log10(1 + mo)
+         + 0.20 * math.log10(1 + dl) + 0.10 * (bayes / 5.0)
+         + 0.05 * math.log10(1 + nf))
+    return int(round(s * 1000))
+
+
 def _same_film(a, b):
     """True when two same-titled copies are CONFIDENTLY the same film. Color and
     year must be compatible (B&W vs color = different version; years apart >2 =
@@ -379,8 +420,8 @@ def merge_film_duplicates(items):
             if len(group) < 2 or not _consistent(group):
                 continue
             winner = max(group, key=lambda i: (1 if i.get("subtitleHLS") else 0,
-                                               _video_quality(i), _real_art_rank(i),
-                                               i.get("imdbVotes") or 0))
+                                               _community_copy_score(i) + _video_quality(i),
+                                               _real_art_rank(i), i.get("imdbVotes") or 0))
             donor = next((m for m in group if m.get("imdbID")), None)  # canonical metadata
             for f in GRAFT:
                 if not winner.get(f):
@@ -491,7 +532,7 @@ def populate_items(db, items, rotate_seed="0"):
             it.get("runtimeSeconds"), _t(it.get("contentType")), _t(it.get("posterURL")),
             1 if (it.get("hasRealArtwork") or it.get("artworkSource") not in (None, "archive")) else 0,
             _t(it.get("artworkSource")), _t(it.get("imdbID")), it.get("imdbRating"),
-            it.get("imdbVotes"), it.get("popularityScore"), it.get("qualityScore"),
+            it.get("imdbVotes"), _pop_score(it), it.get("qualityScore"),
             1 if (it.get("isSilentFilm") or it.get("contentType") == "silent-film") else 0,
             _t(it.get("rightsStatus")), _t(it.get("contentRating")), _t(it.get("language")),
             _t(it.get("network")), _t(it.get("director")), _t(it.get("seriesID")),

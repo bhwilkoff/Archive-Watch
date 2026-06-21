@@ -1,0 +1,66 @@
+name: Community signals harvest
+
+# Pulls archive.org's built-in usage/community signals onto every catalog item
+# (tools/harvest_community_signals.py): downloads (all-time / week / month),
+# num_favorites, avg_rating, num_reviews, and views (all-time / 30d / 7d). These
+# additive fields feed build_sqlite's popularity sort (popScore) and best-UPLOAD
+# selection (copyScore, Decision 040) — see docs/research/archive-org-community-
+# signals.md. Resumable via signalsCheckedAt (re-harvests items older than
+# --stale-days); the weekly schedule keeps the whole catalog current since the
+# recency signals decay. Catalog lives on the release (Decision 018):
+# fetch -> harvest -> publish -> rebuild DB.
+
+on:
+  schedule:
+    - cron: '0 9 * * 0'    # weekly, Sun 09:00 UTC
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max items to harvest this run (0 = all stale)'
+        required: false
+        default: '0'
+      stale_days:
+        description: 'Re-harvest items whose signals are older than this many days'
+        required: false
+        default: '6'
+
+concurrency:
+  group: catalog-writers
+  cancel-in-progress: false
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Harvest community signals
+        run: |
+          python tools/harvest_community_signals.py \
+            --limit ${{ github.event.inputs.limit || '0' }} \
+            --stale-days ${{ github.event.inputs.stale_days || '6' }} | tee signals.log
+          echo "## Community signals" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"; tail -3 signals.log >> "$GITHUB_STEP_SUMMARY"; echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish catalog to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py publish
+
+      - name: Rebuild app DB
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run publish-db.yml
