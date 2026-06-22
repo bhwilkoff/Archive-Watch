@@ -1,0 +1,120 @@
+name: Free subtitles (SubSource)
+
+# Decision 039 Phase 3: harvest English subtitles from the free SubSource API (by
+# imdb id, title+year fallback), per film, with a last-cue-vs-runtime sync guard.
+# Runs on GitHub's open-internet runners (so the provider host is reachable, unlike
+# the dev sandbox) in the catalog-writers concurrency group (no clobbering CI).
+# Builds the same VTT+HLS /subs assets the archive.org phase does, accumulates them
+# into the subtitle-assets release, then republishes catalog + Pages + DB. Self-chains
+# to drain the catalog over many runs; films attempted-but-not-found are marked
+# freeSubsChecked so they aren't retried every run.
+
+on:
+  workflow_dispatch:
+    inputs:
+      provider:
+        description: 'subsource (workhorse) or subdl'
+        required: false
+        default: 'subsource'
+      limit:
+        description: 'Max films to attempt this run'
+        required: false
+        default: '2000'
+      upgrade:
+        description: 'Replace machine (whisper/asr) captions on popular titles'
+        required: false
+        default: 'false'
+
+concurrency:
+  group: catalog-writers
+  cancel-in-progress: false
+
+jobs:
+  free-subs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install requests
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Fetch existing subtitle assets (/subs)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p subs
+          if gh release view subtitle-assets >/dev/null 2>&1; then
+            gh release download subtitle-assets -p 'subs.tar.gz' -O subs.tar.gz || true
+            [ -f subs.tar.gz ] && tar xzf subs.tar.gz && rm -f subs.tar.gz
+          fi
+          echo "existing subs files: $(find subs -type f | wc -l)"
+
+      - name: Harvest subtitles
+        env:
+          SUBSOURCE_API_KEY: ${{ secrets.SUBSOURCE_API_KEY }}
+          SUBDL_API_KEY: ${{ secrets.SUBDL_API_KEY }}
+        run: |
+          python tools/free_subtitles.py \
+            --provider ${{ github.event.inputs.provider || 'subsource' }} \
+            --limit ${{ github.event.inputs.limit || '2000' }} \
+            --sleep 1.5 \
+            ${{ github.event.inputs.upgrade == 'true' && '--upgrade' || '' }} | tee subs.log
+          echo "## Free subtitles (${{ github.event.inputs.provider || 'subsource' }})" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 subs.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Publish subtitle assets to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tar czf subs.tar.gz subs
+          gh release view subtitle-assets >/dev/null 2>&1 || \
+            gh release create subtitle-assets --title "Subtitle assets (rolling)" \
+              --notes "VTT + HLS subtitle assets served to Pages at /subs (Decision 039)."
+          gh release upload subtitle-assets subs.tar.gz --clobber
+
+      - name: Remediate catalog data quality
+        run: python tools/remediate_catalog.py
+
+      - name: Publish catalog to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py publish
+
+      - name: Deploy Pages (/subs) + rebuild app DB
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh workflow run deploy-pages.yml
+          gh workflow run publish-db.yml
+
+      # Self-chain: free_subtitles prints "[subs] <prov>: N targets" = min(remaining,
+      # limit). If N >= limit, the batch was full and more remain — queue the next run
+      # (the catalog-writers concurrency group serializes it). When N < limit the
+      # backlog is drained (attempted films are freeSubsChecked) and the chain stops.
+      - name: Continue draining (self-chain)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PROV="${{ github.event.inputs.provider || 'subsource' }}"
+          LIMIT="${{ github.event.inputs.limit || '2000' }}"
+          N=$(grep -oE "\[subs\] $PROV: [0-9]+ targets" subs.log | grep -oE '[0-9]+' | head -1)
+          echo "targets=$N limit=$LIMIT"
+          if [ "$LIMIT" -gt 0 ] && [ -n "$N" ] && [ "$N" -ge "$LIMIT" ]; then
+            echo "Full batch — backlog remains; queuing next run."
+            gh workflow run free-subtitles.yml -f provider="$PROV" -f limit="$LIMIT"
+          else
+            echo "Backlog drained — chain complete."
+          fi

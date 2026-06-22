@@ -294,6 +294,8 @@ def main() -> int:
                          "published onto a freshly-fetched catalog without clobbering CI")
     ap.add_argument("--upgrade", action="store_true",
                     help="also replace machine (whisper/asr) captions")
+    ap.add_argument("--refresh", action="store_true",
+                    help="re-attempt films already tried (ignore freeSubsChecked)")
     args = ap.parse_args()
 
     if not Path(NODE).exists() and not shutil.which("node"):
@@ -330,12 +332,18 @@ def main() -> int:
             return False
         if args.provider == "subdl" and not it.get("imdbID"):
             return False
+        # a title-only match must be sync-verifiable — require an imdb id OR a runtime
+        if not it.get("imdbID") and not it.get("runtimeSeconds"):
+            return False
         caps = it.get("captions")
-        if not caps:
-            return True
-        if args.upgrade:
-            return all(c.get("source") in ("whisper", "archive-asr") for c in caps)
-        return False
+        if caps:
+            if args.upgrade:
+                return all(c.get("source") in ("whisper", "archive-asr") for c in caps)
+            return False
+        # uncaptioned: skip films we already attempted (so the sweep drains)
+        if it.get("freeSubsChecked") and not args.refresh:
+            return False
+        return True
 
     targets = [it for it in items if candidate(it)]
     targets.sort(key=lambda it: it.get("popularityScore") or 0, reverse=True)
@@ -360,6 +368,7 @@ def main() -> int:
             print(f"[{n}] {it['archiveID']}: error {e!r}", flush=True)
             tally["error"] += 1
             continue
+        it["freeSubsChecked"] = True             # attempted — don't retry next sweep
         if not srt:
             tally["no-match"] += 1
             continue
