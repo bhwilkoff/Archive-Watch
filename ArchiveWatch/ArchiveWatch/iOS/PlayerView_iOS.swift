@@ -101,6 +101,10 @@ struct PlayerView: UIViewControllerRepresentable {
             // ResilientStreamLoader (byte-range segments would restore loader-
             // grade resilience — the documented robustness upgrade).
             pItem = AVPlayerItem(url: hls)
+            // A non-faststart (moov-at-EOF) MP4 can fail to start as a single HLS
+            // segment. Arm a fallback to the resilient MP4 loader (handles
+            // moov-at-EOF via byte-range seeks) so the film still plays (sans CC).
+            context.coordinator.fallbackVideoURL = videoURL
         } else if let url = videoURL {
             let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
             context.coordinator.loader = loader   // retain (delegate is held weakly)
@@ -114,6 +118,7 @@ struct PlayerView: UIViewControllerRepresentable {
         // for free and survives load.
         pItem.externalMetadata = playerExternalMetadata(title: overlayTitle, subtitle: overlaySubtitle,
                                                         description: overlayDescription)
+        context.coordinator.fallbackMetadata = pItem.externalMetadata
         pItem.preferredForwardBufferDuration = 300
         let player = AVPlayer(playerItem: pItem)
         vc.player = player
@@ -152,6 +157,13 @@ struct PlayerView: UIViewControllerRepresentable {
         private var foregroundObserver: NSObjectProtocol?
         private var isPiPActive = false
         private weak var player: AVPlayer?
+        // HLS-subtitle → resilient-MP4 fallback (non-faststart MP4s fail to start
+        // as a single HLS segment; the loader handles moov-at-EOF via byte ranges).
+        var fallbackVideoURL: URL?
+        var fallbackMetadata: [AVMetadataItem] = []
+        private var didFallback = false
+        private var statusObs: NSKeyValueObservation?
+        private var fallbackWork: DispatchWorkItem?
 
         init(archiveID: String, ctx: ModelContext, queue: PlaybackQueue?,
              onAdvance: ((String) -> Void)? = nil, persistsProgress: Bool = true) {
@@ -171,6 +183,21 @@ struct PlayerView: UIViewControllerRepresentable {
             }
             registerEnd(for: playerItem)
 
+            // HLS-subtitle → resilient-MP4 fallback. If the HLS item fails, or
+            // never becomes ready within a grace window (a non-faststart MP4 as a
+            // single HLS segment can hang), recreate playback through the resilient
+            // loader so the film plays even without the caption track.
+            if fallbackVideoURL != nil {
+                statusObs = playerItem.observe(\.status, options: [.new]) { [weak self] item, _ in
+                    MainActor.assumeIsolated { if item.status == .failed { self?.fallbackToLoader() } }
+                }
+                let work = DispatchWorkItem { [weak self] in
+                    if self?.player?.currentItem?.status != .readyToPlay { self?.fallbackToLoader() }
+                }
+                fallbackWork = work
+                DispatchQueue.main.asyncAfter(deadline: .now() + 15, execute: work)
+            }
+
             // Background play: AVKit pauses any player it is DISPLAYING when the
             // app backgrounds. The supported way to keep audio running (with the
             // `audio` background mode + .playback session) is to detach the player
@@ -186,6 +213,23 @@ struct PlayerView: UIViewControllerRepresentable {
                 queue: .main) { [weak self] _ in
                 MainActor.assumeIsolated { self?.enterForeground() }
             }
+        }
+
+        private func fallbackToLoader() {
+            guard !didFallback, let url = fallbackVideoURL, let player else { return }
+            didFallback = true
+            fallbackWork?.cancel(); fallbackWork = nil
+            statusObs = nil
+            let pos = player.currentTime()
+            let (asset, ldr) = ResilientStreamLoader.makeAsset(for: url)
+            loader = ldr
+            let item = AVPlayerItem(asset: asset)
+            item.externalMetadata = fallbackMetadata
+            item.preferredForwardBufferDuration = 300
+            registerEnd(for: item)
+            player.replaceCurrentItem(with: item)
+            if pos.seconds > 5 { player.seek(to: pos) }
+            player.play()
         }
 
         private func enterBackground() {
