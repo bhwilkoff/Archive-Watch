@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-06-21T08:38:20Z",
+  "updated_at": "2026-06-22T09:49:05Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 16974,
-    "wanted": 16758,
+    "total": 17041,
+    "wanted": 16825,
     "fulfilled": 216,
-    "series_with_gaps": 340
+    "series_with_gaps": 342
   },
   "wants": [
     {
@@ -116879,6 +116879,606 @@
       "added_at": "2026-06-06T07:00:09Z"
     },
     {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 1,
+      "title": "The Addams Family Goes to School",
+      "episodeImdbID": "tt0505457",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 2,
+      "title": "Morticia and the Psychiatrist",
+      "episodeImdbID": "tt0505439",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 3,
+      "title": "Fester's Punctured Romance",
+      "episodeImdbID": "tt0505421",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 4,
+      "title": "Gomez, the Politician",
+      "episodeImdbID": "tt0505425",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 5,
+      "title": "The Addams Family Tree",
+      "episodeImdbID": "tt0505462",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 6,
+      "title": "Morticia Joins the Ladies League",
+      "episodeImdbID": "tt0505436",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 7,
+      "title": "Halloween with the Addams Family",
+      "episodeImdbID": "tt0505428",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 8,
+      "title": "Green-Eyed Gomez",
+      "episodeImdbID": "tt0505427",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 9,
+      "title": "The New Neighbors Meet the Addams Family",
+      "episodeImdbID": "tt0505467",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 10,
+      "title": "Wednesday Leaves Home",
+      "episodeImdbID": "tt0505474",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 11,
+      "title": "The Addams Family Meet the VIPs",
+      "episodeImdbID": "tt0505458",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 12,
+      "title": "Morticia, the Matchmaker",
+      "episodeImdbID": "tt0505446",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 13,
+      "title": "Lurch Learns to Dance",
+      "episodeImdbID": "tt0505431",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 14,
+      "title": "Art and the Addams Family",
+      "episodeImdbID": "tt0505414",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 15,
+      "title": "The Addams Family Meets a Beatnik",
+      "episodeImdbID": "tt0505459",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 16,
+      "title": "The Addams Family Meets the Undercover Man",
+      "episodeImdbID": "tt0505460",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 17,
+      "title": "Mother Lurch Visits the Addams Family",
+      "episodeImdbID": "tt0505449",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 18,
+      "title": "Uncle Fester's Illness",
+      "episodeImdbID": "tt0505471",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 19,
+      "title": "The Addams Family Splurges",
+      "episodeImdbID": "tt0505461",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 20,
+      "title": "Cousin Itt Visits the Addams Family",
+      "episodeImdbID": "tt0505417",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 21,
+      "title": "The Addams Family in Court",
+      "episodeImdbID": "tt0505464",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 22,
+      "title": "Amnesia in the Addams Family",
+      "episodeImdbID": "tt0832978",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 23,
+      "title": "Thing Is Missing",
+      "episodeImdbID": "tt0505470",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 24,
+      "title": "Crisis in the Addams Family",
+      "episodeImdbID": "tt0505419",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 25,
+      "title": "Lurch and His Harpsichord",
+      "episodeImdbID": "tt0505432",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 26,
+      "title": "Morticia, the Breadwinner",
+      "episodeImdbID": "tt0505444",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 27,
+      "title": "The Addams Family and the Spaceman",
+      "episodeImdbID": "tt0505463",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 28,
+      "title": "My Son, the Chimp",
+      "episodeImdbID": "tt0832979",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 29,
+      "title": "Morticia's Favorite Charity",
+      "episodeImdbID": "tt0505441",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 30,
+      "title": "Progress and the Addams Family",
+      "episodeImdbID": "tt0505455",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 31,
+      "title": "Uncle Fester's Toupee",
+      "episodeImdbID": "tt0505472",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 33,
+      "title": "Lurch, the Teenage Idol",
+      "episodeImdbID": "tt0505435",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 1,
+      "episode": 34,
+      "title": "The Winning of Morticia Addams",
+      "episodeImdbID": "tt0505469",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 1,
+      "title": "My Fair Cousin Itt",
+      "episodeImdbID": "tt0505450",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 2,
+      "title": "Morticia's Romance: Part 1",
+      "episodeImdbID": "tt0505442",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 3,
+      "title": "Morticia's Romance: Part 2",
+      "episodeImdbID": "tt0505443",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 4,
+      "title": "Morticia Meets Royalty",
+      "episodeImdbID": "tt0505437",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 5,
+      "title": "Gomez, the People's Choice",
+      "episodeImdbID": "tt0505424",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 6,
+      "title": "Cousin Itt's Problem",
+      "episodeImdbID": "tt0505418",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 7,
+      "title": "Halloween - Addams Style",
+      "episodeImdbID": "tt0505429",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 8,
+      "title": "Morticia, the Writer",
+      "episodeImdbID": "tt0505448",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 9,
+      "title": "Morticia, the Sculptress",
+      "episodeImdbID": "tt0505447",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 10,
+      "title": "Gomez, the Reluctant Lover",
+      "episodeImdbID": "tt0505426",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 11,
+      "title": "Feud in the Addams Family",
+      "episodeImdbID": "tt0505422",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 12,
+      "title": "Gomez, the Cat Burglar",
+      "episodeImdbID": "tt0505423",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 13,
+      "title": "Portrait of Gomez",
+      "episodeImdbID": "tt0505454",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 14,
+      "title": "Morticia's Dilemma",
+      "episodeImdbID": "tt0505440",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 15,
+      "title": "Christmas with the Addams Family",
+      "episodeImdbID": "tt0505416",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 16,
+      "title": "Uncle Fester, Tycoon",
+      "episodeImdbID": "tt0505473",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 17,
+      "title": "Morticia and Gomez vs. Fester and Grandmama",
+      "episodeImdbID": "tt0505438",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 19,
+      "title": "The Great Treasure Hunt",
+      "episodeImdbID": "tt0505466",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 20,
+      "title": "Ophelia Finds Romance",
+      "episodeImdbID": "tt0505451",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 21,
+      "title": "Pugsley's Allowance",
+      "episodeImdbID": "tt0505456",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 22,
+      "title": "Happy Birthday, Grandma Frump",
+      "episodeImdbID": "tt0505430",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 23,
+      "title": "Morticia, the Decorator",
+      "episodeImdbID": "tt0505445",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 24,
+      "title": "Ophelia Visits Morticia",
+      "episodeImdbID": "tt0505452",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 25,
+      "title": "Addams Cum Laude",
+      "episodeImdbID": "tt0505413",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 28,
+      "title": "The Addams Policy",
+      "episodeImdbID": "tt0505465",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 29,
+      "title": "Lurch's Grand Romance",
+      "episodeImdbID": "tt0505433",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-addams-family-1964",
+      "seriesTitle": "The Addams Family",
+      "season": 2,
+      "episode": 30,
+      "title": "Ophelia's Career",
+      "episodeImdbID": "tt0505453",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
       "seriesID": "the-adventurer-1972",
       "seriesTitle": "The Adventurer",
       "season": 1,
@@ -117097,6 +117697,76 @@
       "episodeImdbID": "tt0505611",
       "status": "wanted",
       "added_at": "2026-06-20T07:57:19Z"
+    },
+    {
+      "seriesID": "the-adventures-of-dr-fu-manchu-1956",
+      "seriesTitle": "The Adventures of Dr. Fu Manchu",
+      "season": 1,
+      "episode": 3,
+      "title": "The Secret of Fu Manchu",
+      "episodeImdbID": "tt0505853",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-adventures-of-dr-fu-manchu-1956",
+      "seriesTitle": "The Adventures of Dr. Fu Manchu",
+      "season": 1,
+      "episode": 5,
+      "title": "Dr. Fu Manchu, Incorporated",
+      "episodeImdbID": "tt0901701",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-adventures-of-dr-fu-manchu-1956",
+      "seriesTitle": "The Adventures of Dr. Fu Manchu",
+      "season": 1,
+      "episode": 6,
+      "title": "The Plague of Dr. Fu Manchu",
+      "episodeImdbID": "tt0505850",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-adventures-of-dr-fu-manchu-1956",
+      "seriesTitle": "The Adventures of Dr. Fu Manchu",
+      "season": 1,
+      "episode": 7,
+      "title": "The Slave of Dr. Fu Manchu",
+      "episodeImdbID": "tt0901700",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-adventures-of-dr-fu-manchu-1956",
+      "seriesTitle": "The Adventures of Dr. Fu Manchu",
+      "season": 1,
+      "episode": 8,
+      "title": "Dr. Fu Manchu's Raid",
+      "episodeImdbID": "tt0505844",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-adventures-of-dr-fu-manchu-1956",
+      "seriesTitle": "The Adventures of Dr. Fu Manchu",
+      "season": 1,
+      "episode": 12,
+      "title": "The Satellites of Dr. Fu Manchu",
+      "episodeImdbID": "tt0505852",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
+    },
+    {
+      "seriesID": "the-adventures-of-dr-fu-manchu-1956",
+      "seriesTitle": "The Adventures of Dr. Fu Manchu",
+      "season": 1,
+      "episode": 13,
+      "title": "The Assassins of Dr. Fu Manchu",
+      "episodeImdbID": "tt0505845",
+      "status": "wanted",
+      "added_at": "2026-06-22T09:49:05Z"
     },
     {
       "seriesID": "the-adventures-of-ellery-queen-1950",
