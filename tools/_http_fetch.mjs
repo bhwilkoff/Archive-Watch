@@ -19,5 +19,6 @@ try {
   const buf = Buffer.from(await res.arrayBuffer());
   process.stdout.write(JSON.stringify({ status: res.status, body_b64: buf.toString("base64") }));
 } catch (e) {
-  process.stdout.write(JSON.stringify({ status: 0, error: String((e && e.message) || e) }));
+  const cause = e && e.cause ? (e.cause.code || e.cause.message || "") : "";
+  process.stdout.write(JSON.stringify({ status: 0, error: String((e && e.message) || e), cause: String(cause) }));
 }

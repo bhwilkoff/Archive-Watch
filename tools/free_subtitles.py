@@ -70,7 +70,11 @@ def http(method, url, headers=None, timeout=60):
         r = json.loads(p.stdout)
     except ValueError:
         return 0, b""
-    return r.get("status", 0), base64.b64decode(r.get("body_b64", "") or "")
+    status = r.get("status", 0)
+    if status == 0 and r.get("error"):
+        print(f"[subs] fetch error {url[:70]}: {r.get('error')} {r.get('cause') or ''}",
+              file=sys.stderr, flush=True)
+    return status, base64.b64decode(r.get("body_b64", "") or "")
 
 
 def _last_cue_seconds(srt_text: str):
@@ -128,6 +132,11 @@ def _json(body):
         return json.loads(body.decode("utf-8", "replace"))
     except ValueError:
         return None
+
+
+def _is_english(sub):
+    lang = str(sub.get("language") or sub.get("lang") or "").lower()
+    return "english" in lang or lang in ("en", "eng")
 
 
 # ------------------------------- SubDL provider -------------------------------
@@ -215,7 +224,9 @@ class SubSource:
             {"movieId": mid, "language": "english"}), hdr)
         if st != 200:
             return None
-        for sub in _unwrap(_json(body))[:12]:
+        subs = _unwrap(_json(body))
+        eng = [s for s in subs if _is_english(s)]
+        for sub in (eng or subs)[:12]:           # never ship a non-English track as English
             sid = sub.get("subtitleId") or sub.get("id")
             if not sid:
                 continue
@@ -271,6 +282,8 @@ def main() -> int:
                     help="dump the raw API response for one film and exit (verify shape first)")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--min-pop", type=int, default=0)
+    ap.add_argument("--sleep", type=float, default=1.0,
+                    help="seconds between films (~3 reqs each; keeps SubSource under 60/min)")
     ap.add_argument("--upgrade", action="store_true",
                     help="also replace machine (whisper/asr) captions")
     args = ap.parse_args()
@@ -349,7 +362,7 @@ def main() -> int:
         print(f"[{n}] {it['archiveID']}: built", flush=True)
         if tally["built"] % 25 == 0:
             flush()
-        time.sleep(0.3)
+        time.sleep(args.sleep)
     flush()
     print(f"[subs] done: {dict(tally)}", flush=True)
     return 0
