@@ -202,6 +202,7 @@
         runtimeSeconds: rec[5] || null,
         backdropURL: rec[6] || null,
         captions: rec[7] || null,   // [[lang, label, vttURL], …]
+        community: rec[8] || null,  // {r:avgRating, v:views, f:favorites, rv:[[stars,title,body,reviewer,date],…]}
       };
     },
   };
@@ -430,6 +431,19 @@
         rows.forEach(r => used.add(r[0]));
         host.append(shelfSection(shelf.title, shelf.subtitle, rows));
       }
+      // Community shelves (archive.org usage signals; index computes them vote-
+      // floored). Render from the index shelves map, dedup-aware like the apps.
+      const communityShelf = (id, title, subtitle) => {
+        const rows = (Data.shelves[id] || []).map(x => Data.byID.get(x))
+          .filter(r => r && Data.isPro(r) && Data.isFilm(r) && !used.has(r[0])).slice(0, 16);
+        if (rows.length >= 4) {
+          rows.forEach(r => used.add(r[0]));
+          host.append(shelfSection(title, subtitle, rows));
+        }
+      };
+      communityShelf('watching-now', 'Watching Now', 'Most-viewed on archive.org this month');
+      communityShelf('community-favorites', 'Community Favorites', 'Most-favorited by archive.org viewers');
+      communityShelf('most-discussed', 'Most Discussed', 'The films people are talking about');
       // Hidden Gems (apps' parity row): designed art from the popularity TAIL.
       const tail = Data.rows.slice(Math.floor(Data.rows.length * 0.4));
       const gems = shuffle(tail.filter(r => Data.isPro(r) && Data.isFilm(r) && !used.has(r[0]))).slice(0, 16);
@@ -1195,6 +1209,8 @@
       $('item-desc').textContent = '';
       $('item-cast').replaceChildren();
       $('item-cast').hidden = true;
+      $('item-community').replaceChildren();
+      $('item-community').hidden = true;
       $('item-error').hidden = true;
       $('item-play').disabled = true;
 
@@ -1231,6 +1247,7 @@
         if (meta) $('item-meta').textContent = meta;
         if (det.synopsis) $('item-desc').textContent = det.synopsis;
         this.castRow(det);
+        this.communityRow(det);
         if (det.downloadURL) {
           $('item-play').disabled = false;
           return;                              // playable — done, no archive.org call
@@ -1297,6 +1314,57 @@
       d.className = 'person-initial';
       d.textContent = (name || '?').trim()[0].toUpperCase();
       return d;
+    },
+
+    /** archive.org community stats + pipeline-filtered reviews (P2). The reviews
+        are already filtered upstream (comment_fit.py) to genuine reviews of the
+        title — never file-quality or inappropriate comments. */
+    communityRow(det) {
+      const host = $('item-community');
+      const c = det && det.community;
+      if (!c) { host.hidden = true; return; }
+      host.replaceChildren();
+      const compact = n => n >= 1e6 ? (n / 1e6).toFixed(1) + 'M'
+        : n >= 1e3 ? (n / 1e3).toFixed(1) + 'K' : String(n);
+      const stats = [];
+      if (c.r) stats.push(`★ ${c.r.toFixed(1)}`);
+      if (c.v) stats.push(`▶ ${compact(c.v)} views`);
+      if (c.f) stats.push(`♥ ${compact(c.f)} favorites`);
+      if (stats.length) {
+        const p = document.createElement('p');
+        p.className = 'muted community-stats';
+        p.textContent = stats.join('   ');
+        host.append(p);
+      }
+      const reviews = c.rv || [];
+      if (reviews.length) {
+        const h = document.createElement('h2');
+        h.textContent = 'From archive.org viewers';
+        host.append(h);
+        for (const [stars, title, body, reviewer, date] of reviews.slice(0, 6)) {
+          const card = document.createElement('div');
+          card.className = 'review-card';
+          const head = [stars ? '★'.repeat(stars) : '', title || ''].filter(Boolean).join('  ');
+          if (head) {
+            const t = document.createElement('p');
+            t.className = 'review-head';
+            t.textContent = head;
+            card.append(t);
+          }
+          if (body) {
+            const b = document.createElement('p');
+            b.className = 'review-body';
+            b.textContent = body;
+            card.append(b);
+          }
+          const m = document.createElement('p');
+          m.className = 'review-meta muted';
+          m.textContent = (reviewer || 'Archive viewer') + (date ? ` · ${date}` : '');
+          card.append(m);
+          host.append(card);
+        }
+      }
+      host.hidden = !host.children.length;
     },
 
     /** The share menu (§4.6): one Share button opens a small dialog with

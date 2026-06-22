@@ -87,6 +87,19 @@ def main():
         # (CORS-OK; archive.org's SRT is not). [lang, label, vttURL] each.
         captions = [[c.get("lang"), c.get("label"), c.get("vttURL")]
                     for c in (it.get("captions") or []) if c.get("vttURL")]
+        # archive.org community signals + pipeline-filtered reviews (Decision P2).
+        # [stars, title, body, reviewer, date] per review; community is null unless
+        # there's a stat or a review (trailing-null trim then drops it).
+        rv = [[r.get("stars"), r.get("title"), r.get("body"), r.get("reviewer"), r.get("date")]
+              for r in (it.get("reviews") or [])[:6]]
+        community = None
+        if it.get("avgRating") or it.get("numFavorites") or it.get("viewsAllTime") or rv:
+            community = {
+                "r": it.get("avgRating"),
+                "v": it.get("viewsAllTime") or it.get("downloads"),
+                "f": it.get("numFavorites"),
+                "rv": rv or None,
+            }
         record = [
             it.get("downloadURL"),
             synopsis or None,
@@ -96,6 +109,7 @@ def main():
             it.get("runtimeSeconds"),
             it.get("backdropURL"),
             captions or None,
+            community,
         ]
         # Trim trailing nulls so empty tails cost nothing on the wire.
         while record and record[-1] is None:

@@ -58,9 +58,11 @@ def main():
         except Exception:  # noqa: BLE001
             adult = set()
 
+    _FILM = {"feature-film", "short-film", "silent-film", "animation", "documentary", "feature"}
     rows = []
     shelf_members: dict[str, list[tuple]] = {}
     collection_members: dict[str, list[tuple]] = {}
+    community: dict[str, list[tuple]] = {"watching-now": [], "community-favorites": [], "most-discussed": []}
     for it in items:
         if it.get("excluded"):          # rights audit (Decision 027)
             continue
@@ -92,6 +94,15 @@ def main():
         for c in cols:
             if (canon := curated_lower.get(c)):
                 collection_members.setdefault(canon, []).append((designed, pop_score, aid))
+        # Community shelves — vote-floored to recognized films (apps' parity): raw
+        # counts are dominated by un-IMDb'd foreign edge cases, which have no votes.
+        if pro and (it.get("imdbVotes") or 0) >= 1000 and it.get("contentType") in _FILM:
+            if (it.get("views30d") or 0) > 0:
+                community["watching-now"].append((it["views30d"], aid))
+            if (it.get("numFavorites") or 0) > 0:
+                community["community-favorites"].append((it["numFavorites"], aid))
+            if (it.get("numReviews") or 0) > 0:
+                community["most-discussed"].append((it["numReviews"], aid))
 
     # Sort by popularity so the most useful titles search/scroll first.
     pop = {it.get("archiveID"): (it.get("popularityScore") or 0) for it in items}
@@ -102,6 +113,10 @@ def main():
         sid: [aid for _, _, aid in sorted(members, reverse=True)[:60]]
         for sid, members in sorted(shelf_members.items())
     }
+    # Community shelves: sorted by their signal (views / favorites / reviews).
+    for sid, members in community.items():
+        if members:
+            shelves[sid] = [aid for _, aid in sorted(members, reverse=True)[:60]]
 
     collections = {
         cid: [aid for _, _, aid in sorted(members, reverse=True)[:120]]
