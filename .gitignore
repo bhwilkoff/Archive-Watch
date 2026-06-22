@@ -46,6 +46,8 @@ node_modules/
 .env
 .env.local
 *.key
+*.env
+tools/subtitle_keys.env
 credentials.json
 Secrets.xcconfig
 .claude/scheduled_tasks.lock

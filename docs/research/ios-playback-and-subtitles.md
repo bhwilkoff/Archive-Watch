@@ -36,50 +36,60 @@ rule is "prefer `.ia.mp4`", not "assume non-`.ia` is broken.")*
 
 ---
 
-## Sourcing subtitles (the actual work)
+## Sourcing subtitles (the actual work) — FREE, on-demand, no bulk download
 
-Whisper is GONE (Decision 039b — it hallucinated). Two sources remain, layered:
+Whisper is GONE (Decision 039b — it hallucinated). **OpenSubtitles.com's API is now
+effectively paid** (~20 free downloads/day), and the **full OpenSubtitles dump is 127 GB
+(no disk)** — both rejected. The plan is layered, all $0:
 
 ### 1. archive.org's own captions — the backbone (already shipped)
 `enrich_subtitles.py` harvests each item's `.asr.srt`/uploader `.srt`/`.vtt`. **Best
 source for PD cinema:** free, already hosted, no redistribution/ToS issue, and
 **perfectly in sync** (it's the same upload we stream). ~4,800 films.
 
-### 2. OpenSubtitles — human-quality top-up for the popular head (owner getting a key)
-REST API `https://api.opensubtitles.com/api/v1` (verified against the official docs):
-- **Auth:** `Api-Key` header on every request (free key from the account → API
-  Consumers) + optional `POST /login` → 24h JWT to raise the download cap. Required
-  `User-Agent: ArchiveWatch v…`. Read `base_url` from the login response (VIP host).
-- **Search (FREE, unlimited, not quota-counted):**
-  `GET /subtitles?imdb_id={tt}&languages=en&order_by=download_count&machine_translated=exclude&ai_translated=exclude`.
-  Pick the top human result; prefer `from_trusted`, track `hearing_impaired`. The
-  `file_id` is in `attributes.files[0].file_id` (NOT the subtitle `id`).
-- **Download (quota-counted):** `POST /download {"file_id":…}` → a temporary `link` +
-  `remaining` + `reset_time`; then `GET link` → SRT. Caps: **5/day anon, ~20/day free,
-  ~1000/day VIP** (per authed user; 406/429 = cap hit).
-- **ToS:** non-commercial use allowed + attribution back-link (we have one). **Bulk
-  re-hosting subtitle files at scale is the gray area — email OpenSubtitles before a
-  large sustained run.**
+### 2. SubDL + SubSource — free, on-demand top-up (`tools/free_subtitles.py`)
+Per-film community APIs — tiny `.srt` each, **no bulk download**, only the matched files
+hit disk. Both need a free key (gitignored `tools/subtitle_keys.env`).
+- **SubDL** (PRIMARY, matches by **imdb_id** — we have ~47%): `GET
+  https://api.subdl.com/api/v1/subtitles?api_key=…&imdb_id=tt…&type=movie&languages=EN`
+  → JSON `subtitles[]`; each `url` is a `.zip` under `https://dl.subdl.com` holding the
+  SRT. Caps: ~2,000 searches/day but **~300 downloads/day/IP** (the real limit → a slow
+  trickle; run it for the imdb-having head).
+- **SubSource** (WORKHORSE, matches by **title+year**): free key, **~7,200 req/day**
+  (60/min) → ~2,400–3,600 films/day, so a full ~25–30k sweep is **~1–2 weeks**, not days.
+  Weaker matching → the sync guard matters more here.
+- Run **popularity-first**; the head is covered in a day or two, the sweep harvests
+  whatever exists over ~2 weeks.
+- **ToS:** free/non-commercial + attribution (we link both on About). Shipping only the
+  PD-matched subset is clean.
+- **Response shapes are from each provider's docs**; the harness can't reach these hosts
+  (egress allowlist), so `--probe tt…` dumps the raw response to lock the parser to
+  reality on the owner's Mac before a full run.
 
-### Matching (precision-first)
-`imdb_id` (we have ~47%) → `tmdb_id` → `query=title&year` → `moviehash` (64-bit hash of
-the file's first+last 64KB; the gold standard for *sync*, and we already do ranged MP4
-reads so we can compute it offline). Expect a **high no-match rate on obscure pre-1965
-PD films** — OpenSubtitles indexes modern rips, not silents.
+### Coverage reality (set expectations)
+SubDL/SubSource index **modern releases, not obscure pre-1965 PD prints**, so expect a
+**high no-match rate on the tail**. The *yield* is the limiter, not the rate: ~a week of
+sweeping nets a **few thousand** subs on top of the ASR backbone, weighted to the popular
+head. The long tail stays uncaptioned until a real sub exists — **accurate-or-none**.
 
 ### THE correctness guard (most important finding): sync verification
 PD films have many redundant scans of *different runtimes*, so a downloaded sub is often
 timed to a different cut (fixed offset) or different FPS (linear drift, ~4% at 23.976 vs
 25). **Cheap, decisive check (no viewing needed): parse the SRT, take the LAST cue's end
 timestamp, compare to `item.runtimeSeconds`; if it deviates by >~10%, REJECT the sub.**
-This auto-rejects the dominant failure mode. Pair with `moviehash` matches (perfect sync
-by construction) wherever we can afford to hash.
+Already wired into `free_subtitles.py`. This auto-rejects the dominant failure mode —
+critical for SubSource's weaker title+year matching.
 
-### Other sources (ranked for pre-1965 PD)
-1. archive.org ASR (backbone, in-sync). 2. OpenSubtitles (head top-up). 3. **SubDL**
-(subscene's successor; 300/day anon by `imdb_id`/`tmdb_id` — a more generous second
-community source to fill OS gaps). Skip YIFY/YTS (modern-release catalog, no PD),
-Subscene (shut down May 2024), Wikisource transcripts (untimed prose, not captions).
+### Rejected sources (don't revisit)
+- **OpenSubtitles.com API** — now paid / 20-dl-day cap. `tools/opensubtitles_subtitles.py`
+  kept only as a tiny VIP backstop if the owner ever buys VIP; not the plan.
+- **127 GB `opensubs.db` dump** (milahu/archive.org) — real timed SRT indexed to IMDb,
+  but no disk. `tools/subtitle_dump_match.py` documents it (coverage probe needs only the
+  294 MB `subtitles_all.txt.gz` index; extract needs the 127 GB DB) — fallback only.
+- **OPUS / Helsinki-NLP corpus** — the common downloads are MT text with timing stripped;
+  only `raw/en.zip` keeps timing and needs a custom parser. Not worth it.
+- OpenSubtitles.org legacy XML-RPC (VIP-only since 2024), bipuldey19 scraper (dead
+  mirror), Podnapisi (~33% uptime), Subscene (shut down 2024), YIFY (modern-only).
 
 ---
 
@@ -88,12 +98,9 @@ Subscene (shut down May 2024), Wikisource transcripts (untimed prose, not captio
 1. **Keep the native HLS delivery** (it works — Fantastic Planet). Ensure captioned
    films use the H.264 `.ia.mp4` video so skip works.
 2. **archive.org ASR** = the coverage backbone (in-sync, free).
-3. **OpenSubtitles** = popularity-first human top-up for the head (quota makes it
-   hundreds-not-thousands on free; VIP for more). Harden `opensubtitles_subtitles.py`
-   with the **sync-verification guard** + a never-re-download cache + quota backoff.
-4. **SubDL** = optional second community source for OS gaps.
+3. **SubDL** = imdb-id top-up for the head (300 dl/day/IP trickle).
+4. **SubSource** = the title+year workhorse for the ~2-week full sweep (7,200 req/day).
 
-The long tail that whisper would have (badly) filled simply stays uncaptioned until a
-real sub exists — **accurate-or-none** is the owner's standard. Delivery is unchanged
-across platforms: Apple = HLS rendition (native CC + skip), Android = `SubtitleConfiguration`,
-web = `<track>`; OpenSubtitles/SubDL feed the SAME SRT→VTT→HLS pipeline as archive.org.
+Delivery is unchanged across platforms: Apple = HLS rendition (native CC + skip),
+Android = `SubtitleConfiguration`, web = `<track>`; every source feeds the SAME
+SRT→VTT→HLS pipeline as archive.org.
