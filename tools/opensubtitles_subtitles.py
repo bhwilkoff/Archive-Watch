@@ -123,6 +123,16 @@ class OpenSubs:
             return None, remaining
 
 
+def _last_cue_seconds(srt_text):
+    """End time (seconds) of the LAST cue in an SRT, or None. Used by the sync guard."""
+    import re
+    times = re.findall(r"-->\s*(\d{2}):(\d{2}):(\d{2})[,.](\d{3})", srt_text)
+    if not times:
+        return None
+    h, m, s, ms = times[-1]
+    return int(h) * 3600 + int(m) * 60 + int(s) + int(ms) / 1000
+
+
 def write_assets(item, srt_text):
     """SRT → subs/<id>/ (VTT + HLS) + record captions. Mirrors the other phases."""
     sid = safe_dir(item["archiveID"])
@@ -201,6 +211,16 @@ def main() -> int:
             break
         if not srt:
             tally["dl-fail"] += 1
+            continue
+        # SYNC GUARD (the #1 correctness risk for PD films — many redundant scans of
+        # DIFFERENT runtimes/FPS, so a sub can be timed to a different cut). Reject if
+        # the last cue lands >10% off our film's runtime; an in-sync sub's final cue
+        # is within the last few % of the film. Cheap, no viewing needed.
+        rt = it.get("runtimeSeconds") or 0
+        last = _last_cue_seconds(srt)
+        if rt and last and abs(last - rt) / rt > 0.10:
+            tally["sync-reject"] += 1
+            print(f"[{n}] {it['archiveID']}: SYNC-REJECT (last cue {int(last)}s vs runtime {rt}s)", flush=True)
             continue
         write_assets(it, srt)
         tally["built"] += 1

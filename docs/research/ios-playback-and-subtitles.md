@@ -1,114 +1,99 @@
-# Research: iOS/tvOS playback + sidecar subtitles + scrubbing
+# Subtitle strategy: native HLS (proven) + sourcing beyond archive.org
 
-*Date: 2026-06-22. Findings cross-verified against Apple docs, WWDC, Apple developer
-forums, and shipping AVPlayer subtitle libraries (sources inline).*
+*Date: 2026-06-22. Built on the configuration the owner VERIFIED working on-device,
+plus sourcing research (OpenSubtitles docs cited inline).*
 
-Two problems the owner hit while testing, both rooted in how Apple's AVPlayer treats
-archive.org's progressive MP4s:
+## What works — and it's fully native (no overlays)
 
-1. **~3,938 films are effectively unplayable on modern iPhone/tvOS** — their only
-   derivative is `512Kb MPEG4` (MPEG-4 Part 2), or `.ogv`/`.mkv`/`.avi`.
-2. **Captioned films can't scrub** (Santa Fe Trail) **and non-faststart ones can't
-   start** (King Solomon's) — because we wrap the MP4 in a *single-segment HLS*
-   playlist to show WebVTT captions.
+**Fantastic Planet plays natively with native skip AND the native subtitle (CC)
+menu.** That is the whole architecture, and it's already shipped:
+- Video: the film's **H.264 `.ia.mp4`** derivative (archive.org's standardized
+  faststart H.264 remux). `downloadURL = …H264.AAC.ia.mp4`.
+- Subtitles: a **native HLS subtitle rendition** — `master.m3u8` with
+  `#EXT-X-MEDIA:TYPE=SUBTITLES` → a WebVTT playlist (`build_subtitle_assets.py`),
+  the MP4 as the video, served to `AVPlayerViewController`.
+- Result: AVPlayer shows the **native CC menu**, **native scrubbing/skip**, native
+  transport. Nothing custom.
 
-The two are independent; both have a definitive fix.
+**This is the target config for every captioned film. Do NOT build custom subtitle
+overlays** — they're unnecessary; the native HLS path does all three.
 
----
+### The one requirement: captioned films must use the H.264 `.ia.mp4` video
 
-## Part 1 — Unplayable formats (corrected by on-device evidence)
+The HLS video segment points at `item.downloadURL`. The films that worked are on the
+H.264 `.ia.mp4` derivative (Fantastic Planet). The films that broke (the now-removed
+whisper set — Santa Fe Trail/King Solomon's) pointed at **raw, non-`.ia` originals**
+(often non-faststart, sometimes MPEG-4-Part-2), where the single-segment HLS can't
+seek / can't start.
 
-**The "4,000 unplayable" was a misdiagnosis. MPEG-4 Part 2 (`512Kb MPEG4`) DOES play
-on the owner's device** — Gumbasia (320×240 MPEG-4 Simple Profile) plays correctly.
-Apple dropped MPEG-4 Part 2 from the iPhone 16/17 *spec sheets*, but the **software
-decoder still handles Simple-Profile MP4-container files** in practice. So the **3,913
-`512kb` films need no action** — they play (slower start on non-faststart files, which
-the owner explicitly doesn't mind). Faststart is a start-LATENCY optimization, not a
-playability requirement.
-
-**Only the non-MP4 containers are genuinely stuck:** `.ogv` (Theora), `.mkv`
-(Matroska), `.avi`/`.divx` (DivX/XVID), and MPEG-2 (`_mpeg2video`) are not AVPlayer-
-playable, and `pick_video` finds **no MP4 derivative** for them on archive.org. After
-removing `.mov` (QuickTime — plays) and the 512kb files (play), this is just **16
-obscure long-tail items**. They were **excluded** (so they never show a broken player).
-`tools/repick_derivatives.py` re-points any such item to an MP4 derivative when one
-exists (H.264 OR MPEG-4-in-MP4 — both play); the 16 simply have none.
-
-**A mass H.264 transcode is NOT needed.** If specific notable stuck titles are wanted
-later (e.g. Chaplin's *The Immigrant* 1917, which exists only as `.mkv` here), the fix
-for THOSE is a small `ffmpeg -c:v libx264 -pix_fmt yuv420p -movflags +faststart …`
-transcode hosted on a GitHub Release or archive.org — a per-title cleanup, not a 4,000-
-film batch. Sources: [iPhone 17 specs](https://www.apple.com/iphone-17/specs/),
-[archive.org H.264 derivatives](https://blog.archive.org/2013/02/09/new-mp4-h-264-derivative-technique-simpler-and-easy/) (kept for reference; the agent's "mp4v unplayable" was inferred and the device disproved it for Simple Profile).
+**Action:** for any film we caption, the `subtitleHLS` video must be the H.264 faststart
+derivative. Of 4,831 currently-captioned items only ~334 are on `.ia.mp4`; the rest
+should be re-pointed to their `.ia.mp4` (archive.org derives one for most popular films;
+the existing faststart re-pick covers this). Where no H.264 `.ia.mp4` exists, that film
+is a candidate for the legacy-codec follow-up (rare) — caption it only once it has a
+playable H.264. *(Note: a raw original can also be faststart H.264 and work; the safe
+rule is "prefer `.ia.mp4`", not "assume non-`.ia` is broken.")*
 
 ---
 
-## Part 2 — Subtitles + scrubbing together: the custom overlay
+## Sourcing subtitles (the actual work)
 
-**The owner is right that this is not impossible** — but the native CC menu cannot do
-it, and the HLS approach we shipped is the wrong tool.
+Whisper is GONE (Decision 039b — it hallucinated). Two sources remain, layered:
 
-**Why the current HLS path breaks (HIGH confidence):**
-- AVPlayer has **no public API** to side-load a remote `.vtt`/`.srt` onto a progressive
-  MP4 for the native CC menu (Apple-staff confirmed on the forums). The native subtitle
-  UI only lists tracks *inside the asset* or *in an HLS manifest*.
-- So we wrapped the MP4 in HLS — but the only HLS we can build from a non-fragmented
-  progressive MP4 is a **single segment** (`#EXTINF:<whole film>`). HLS seeks to
-  *segment boundaries*; with one segment the only seek point is t=0 → **no scrubbing**.
-  And single-segment HLS must locate `moov` to start → **fails on non-faststart MP4s**.
-- `EXT-X-BYTERANGE` can't rescue it: byte ranges of a progressive MP4 aren't
-  independently decodable (they must start on a keyframe / carry an fMP4 init segment).
-  Making it seekable means **fragmenting** the video (a remux), i.e. Part 1's hosting
-  problem again.
-- `AVMutableComposition` can't add a downloaded VTT as a selectable track either
-  (Apple-staff: *"not possible to use AVMutableComposition to establish media selection
-  groups for the subtitles"*). `textStyleRules`/`AVMediaSelectionGroup` only style/select
-  tracks that already exist.
+### 1. archive.org's own captions — the backbone (already shipped)
+`enrich_subtitles.py` harvests each item's `.asr.srt`/uploader `.srt`/`.vtt`. **Best
+source for PD cinema:** free, already hosted, no redistribution/ToS issue, and
+**perfectly in sync** (it's the same upload we stream). ~4,800 films.
 
-**The fix every AVPlayer-based player uses: a custom subtitle overlay.**
-- Play the **bare progressive MP4** (via `ResilientStreamLoader`) — AVPlayer gives
-  **full native scrubbing** on progressive MP4 (it range-requests the tail `moov` then
-  seeks; our loader already serves arbitrary ranges + reports `contentLength`).
-- Fetch + parse the WebVTT into a time-sorted cue list, and render the **active cue as a
-  custom text view**, synced via `addPeriodicTimeObserver` (binary-search by playhead).
-  This is exactly what the shipping AVPlayer subtitle libraries do
-  ([mhergon/AVPlayerViewController-Subtitles](https://github.com/mhergon/AVPlayerViewController-Subtitles),
-  [ASBPlayerSubtitling](https://github.com/autresphere/ASBPlayerSubtitling)); VLC/Infuse
-  use their *own* decoder, not AVPlayer, so they're not our model.
-- We already have the building blocks: the **Clip Studio caption overlay** (Decision
-  033/037) renders timed cues over an `AVPlayerLayer`.
+### 2. OpenSubtitles — human-quality top-up for the popular head (owner getting a key)
+REST API `https://api.opensubtitles.com/api/v1` (verified against the official docs):
+- **Auth:** `Api-Key` header on every request (free key from the account → API
+  Consumers) + optional `POST /login` → 24h JWT to raise the download cap. Required
+  `User-Agent: ArchiveWatch v…`. Read `base_url` from the login response (VIP host).
+- **Search (FREE, unlimited, not quota-counted):**
+  `GET /subtitles?imdb_id={tt}&languages=en&order_by=download_count&machine_translated=exclude&ai_translated=exclude`.
+  Pick the top human result; prefer `from_trusted`, track `hearing_impaired`. The
+  `file_id` is in `attributes.files[0].file_id` (NOT the subtitle `id`).
+- **Download (quota-counted):** `POST /download {"file_id":…}` → a temporary `link` +
+  `remaining` + `reset_time`; then `GET link` → SRT. Caps: **5/day anon, ~20/day free,
+  ~1000/day VIP** (per authed user; 406/429 = cap hit).
+- **ToS:** non-commercial use allowed + attribution back-link (we have one). **Bulk
+  re-hosting subtitle files at scale is the gray area — email OpenSubtitles before a
+  large sustained run.**
 
-**Tradeoffs (accepted):**
-- No native CC menu / language picker → build a minimal **CC on/off + language control**
-  ourselves.
-- Custom view isn't a system caption → honor the user's Settings → Accessibility →
-  caption styling manually; clamp/scale for 10-foot tvOS.
-- Position over **our own `AVPlayerLayer`** (not `AVPlayerViewController.contentOverlayView`
-  — Decision 037 showed AVKit's gestures/timing fight an overlay there), so captions
-  land inside the picture, not the letterbox bars, and fade with the transport via the
-  same user-activity timer pattern Decision 037 used on web.
+### Matching (precision-first)
+`imdb_id` (we have ~47%) → `tmdb_id` → `query=title&year` → `moviehash` (64-bit hash of
+the file's first+last 64KB; the gold standard for *sync*, and we already do ranged MP4
+reads so we can compute it offline). Expect a **high no-match rate on obscure pre-1965
+PD films** — OpenSubtitles indexes modern rips, not silents.
 
-**This is the unifying fix:** moving captioned playback OFF the HLS path and onto
-`[ResilientStreamLoader + overlay]` simultaneously restores **scrubbing**, fixes the
-**non-faststart start** failures, and keeps **subtitles** — and it preserves the
-Decision-021/031/034 node-failover/resume resilience that HLS threw away.
+### THE correctness guard (most important finding): sync verification
+PD films have many redundant scans of *different runtimes*, so a downloaded sub is often
+timed to a different cut (fixed offset) or different FPS (linear drift, ~4% at 23.976 vs
+25). **Cheap, decisive check (no viewing needed): parse the SRT, take the LAST cue's end
+timestamp, compare to `item.runtimeSeconds`; if it deviates by >~10%, REJECT the sub.**
+This auto-rejects the dominant failure mode. Pair with `moviehash` matches (perfect sync
+by construction) wherever we can afford to hash.
 
-**Alternative (deferred):** server-side fMP4/CMAF remux + a real multi-segment HLS gives
-the *native* CC menu + scrubbing, but it re-hosts every captioned film AND replaces our
-resilient loader with AVFoundation's own (flaky on archive.org nodes). Only worth it
-per-title if the native CC chrome is specifically wanted.
+### Other sources (ranked for pre-1965 PD)
+1. archive.org ASR (backbone, in-sync). 2. OpenSubtitles (head top-up). 3. **SubDL**
+(subscene's successor; 300/day anon by `imdb_id`/`tmdb_id` — a more generous second
+community source to fill OS gaps). Skip YIFY/YTS (modern-release catalog, no PD),
+Subscene (shut down May 2024), Wikisource transcripts (untimed prose, not captions).
 
 ---
 
-## Recommended sequencing
+## Strategy, ranked
 
-1. **Subtitle overlay (Apple players)** — the higher-leverage fix: it restores
-   scrubbing + start for ALL captioned films AND keeps subtitles, with no hosting cost.
-   Implement on a shared `AVPlayerLayer` transport for iOS + tvOS; Android/web already
-   side-load VTT natively and keep both (no change).
-2. **Transcode pipeline** — drain the 3,938 unplayable films (popularity-first) once the
-   IAS3 keys are in CI. Independent of #1.
+1. **Keep the native HLS delivery** (it works — Fantastic Planet). Ensure captioned
+   films use the H.264 `.ia.mp4` video so skip works.
+2. **archive.org ASR** = the coverage backbone (in-sync, free).
+3. **OpenSubtitles** = popularity-first human top-up for the head (quota makes it
+   hundreds-not-thousands on free; VIP for more). Harden `opensubtitles_subtitles.py`
+   with the **sync-verification guard** + a never-re-download cache + quota backoff.
+4. **SubDL** = optional second community source for OS gaps.
 
-Both keep the catalog/data plane unchanged; #2 only rewrites `downloadURL`s as films are
-transcoded. This is also the right home for **OpenSubtitles**: the same overlay renders
-its cues, and the same side-load schema carries them.
+The long tail that whisper would have (badly) filled simply stays uncaptioned until a
+real sub exists — **accurate-or-none** is the owner's standard. Delivery is unchanged
+across platforms: Apple = HLS rendition (native CC + skip), Android = `SubtitleConfiguration`,
+web = `<track>`; OpenSubtitles/SubDL feed the SAME SRT→VTT→HLS pipeline as archive.org.
