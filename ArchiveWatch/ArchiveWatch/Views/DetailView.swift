@@ -49,6 +49,9 @@ struct DetailView: View {
                         .padding(.horizontal, 80)
                         .padding(.top, 40)
                         .padding(.bottom, 48)
+                    CommunityDetailSection(item: item)
+                        .padding(.horizontal, 80)
+                        .padding(.bottom, 48)
                     relatedSection
                 }
             }

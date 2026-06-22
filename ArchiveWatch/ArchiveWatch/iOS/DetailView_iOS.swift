@@ -80,6 +80,7 @@ struct DetailView: View {
                     if !item.cast.isEmpty || item.director?.isEmpty == false {
                         CastRow(cast: item.cast, director: item.director)
                     }
+                    CommunityDetailSection(item: item)
                     relatedSection
                 }
                 .padding(.horizontal)

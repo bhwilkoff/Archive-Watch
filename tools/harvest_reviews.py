@@ -73,10 +73,18 @@ def pick_reviews(raw, keep):
             "reviewer": (rv.get("reviewer") or "").strip()[:60],
             "title": (rv.get("reviewtitle") or "").strip()[:120],
             "body": body,
-            "stars": rv.get("stars"),
+            "stars": _stars(rv.get("stars")),         # normalize to int|null for clients
             "date": (rv.get("reviewdate") or "")[:10],
         })
     return out, len(raw)
+
+
+def _stars(v):
+    try:
+        n = int(float(v))
+    except (TypeError, ValueError):
+        return None
+    return n if 1 <= n <= 5 else None                 # 0 = a comment, not a rating
 
 
 def main() -> int:

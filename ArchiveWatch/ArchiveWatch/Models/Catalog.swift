@@ -108,6 +108,20 @@ struct Catalog: Decodable, Sendable {
         // built. Apple players use this URL instead of the bare MP4.
         let subtitleHLS: String?
 
+        // Community / usage signals harvested from archive.org
+        // (tools/harvest_community_signals.py). Additive + optional. Power the
+        // community-aware popularity sort and the Detail-page community stats.
+        let downloads: Int?
+        let numFavorites: Int?
+        let avgRating: Double?
+        let numReviews: Int?
+        let viewsAllTime: Int?
+        let views30d: Int?
+        // Genuine reviews of the TITLE, filtered in the pipeline
+        // (tools/comment_fit.py) so the app only ever shows reviews about the FILM
+        // — never file-quality talk or inappropriate comments. nil = none kept.
+        let reviews: [Review]?
+
         var id: String { archiveID }
         var subtitleHLSURL: URL? { subtitleHLS.flatMap(URL.init(string:)) }
         var posterURLParsed: URL? { posterURL.flatMap(URL.init(string:)) }
@@ -159,6 +173,32 @@ struct Catalog: Decodable, Sendable {
             if v >= 1_000_000 { return String(format: "%.1fM", Double(v) / 1_000_000) }
             if v >= 1_000     { return "\(v / 1000)K" }
             return "\(v)"
+        }
+
+        /// Compact archive.org community counts for the Detail stats row.
+        private static func compact(_ n: Int) -> String {
+            if n >= 1_000_000 { return String(format: "%.1fM", Double(n) / 1_000_000) }
+            if n >= 1_000     { return String(format: "%.1fK", Double(n) / 1_000) }
+            return "\(n)"
+        }
+        /// "304K views" worth of all-time views, or nil.
+        var viewsDisplay: String? {
+            guard let v = viewsAllTime ?? downloads, v > 0 else { return nil }
+            return Self.compact(v)
+        }
+        /// Favorite count, e.g. "730", or nil.
+        var favoritesDisplay: String? {
+            guard let f = numFavorites, f > 0 else { return nil }
+            return Self.compact(f)
+        }
+        /// archive.org community star rating "4.8", or nil if unrated.
+        var avgRatingDisplay: String? {
+            guard let r = avgRating, r > 0 else { return nil }
+            return String(format: "%.1f", r)
+        }
+        /// Genuine, pipeline-filtered reviews to show on Detail (already fit-checked).
+        var displayReviews: [Review] {
+            (reviews ?? []).filter { ($0.body?.isEmpty == false) || ($0.title?.isEmpty == false) }
         }
 
         /// Human byline for the Detail screen. For features: director. For TV: network.
@@ -232,6 +272,18 @@ struct Catalog: Decodable, Sendable {
         let vttURL: String?         // CORS-hosted VTT on Pages (web `<track>`)
         var urlParsed: URL? { URL(string: url) }
         var displayLabel: String { label ?? lang.uppercased() }
+    }
+
+    /// A genuine review of the title, already pipeline-filtered (comment_fit.py)
+    /// — the app never has to judge fit at runtime, only display these.
+    struct Review: Decodable, Sendable, Hashable, Identifiable {
+        let reviewer: String?
+        let title: String?
+        let body: String?
+        let stars: Int?             // 1...5, or nil for an unrated comment
+        let date: String?           // "YYYY-MM-DD"
+        var id: String { (reviewer ?? "") + "|" + (date ?? "") + "|" + (title ?? "") }
+        var displayName: String { (reviewer?.isEmpty == false ? reviewer : nil) ?? "Archive viewer" }
     }
 }
 
