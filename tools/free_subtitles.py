@@ -1,53 +1,50 @@
 #!/usr/bin/env python3
 """
 free_subtitles.py — fetch English subtitles from the FREE, on-demand community APIs
-(SubDL primary, SubSource secondary), per film, by IMDb id (Decision 039 Phase 3).
+(SubDL + SubSource), per film, by IMDb id (Decision 039 Phase 3).
 
 WHY this instead of a dump or OpenSubtitles.com: OpenSubtitles.com's API is effectively
 paid (~20 free dl/day) and the full OpenSubtitles dump is 127 GB (no disk). SubDL +
-SubSource are $0 with a free key, search per-film by id/title, and return tiny .srt
-files — so the only disk used is the matched subtitles themselves. No bulk download.
+SubSource are $0 with a free key, search per-film, and return tiny .srt files — so the
+only disk used is the matched subtitles. No bulk download.
 
-  - SubDL:     free key, search by imdb_id, ~2,000 req/day but ~300 DOWNLOADS/day/IP.
-               GET https://api.subdl.com/api/v1/subtitles -> JSON; each result `url`
-               is a .zip under https://dl.subdl.com containing the .srt.
-  - SubSource: free key, ~7,200 req/day (60/min) — the workhorse, but matches by
-               title+year (weaker than imdb), so the SYNC GUARD matters more.
+  - SubDL:     free key, search by imdb_id. ~2,000 req/day but ~300 DOWNLOADS/day/IP.
+  - SubSource: free key, ~7,200 req/day (60/min) — the workhorse; ALSO supports imdb.
 
-Run popularity-first; it sweeps the catalog over ~1-2 weeks and harvests whatever the
-community actually has (a few thousand on top of the archive.org ASR backbone, mostly
-the popular head). Obscure pre-1965 PD prints mostly won't be there — that's expected;
-accurate-or-none is the standard.
+Both API specs are SOURCE-VERIFIED from maintained clients (subdl_api_cli;
+moviecollection/sub-source .NET wrapper). The only envelope uncertainty (SubSource's
+outer JSON wrapper) is handled by _unwrap() + revealed by `--probe`.
 
-Auth (gitignored env / CI secret — NEVER commit):
-  export SUBDL_API_KEY=...        # free: subdl.com -> profile -> API
-  export SUBSOURCE_API_KEY=...    # free: subsource.net -> profile (optional, for --provider subsource)
+NETWORK: requests go through Node (tools/_http_fetch.mjs) because macOS system Python's
+LibreSSL 2.8.3 can't TLS-handshake with Cloudflare (subdl/subsource are behind it).
+Node's modern OpenSSL works. Requires `node` on PATH (Homebrew: /opt/homebrew/bin/node).
+
+Auth (gitignored — NEVER commit):
+  source tools/subtitle_keys.env      # exports SUBDL_API_KEY + SUBSOURCE_API_KEY
 
 Run (catalog_release.py fetch first):
-  python tools/free_subtitles.py --provider subdl --limit 300
-  python tools/free_subtitles.py --provider subsource --limit 3000
+  python3 tools/free_subtitles.py --provider subdl     --probe tt0063350   # verify shape
+  python3 tools/free_subtitles.py --provider subdl     --limit 300         # imdb head
+  python3 tools/free_subtitles.py --provider subsource --limit 3000        # daily sweep
 Then publish via the existing path (tar subs -> subtitle-assets release -> catalog
-publish -> deploy-pages -> publish-db), same as the other phases.
-
-VERIFY-ON-FIRST-RUN: this sandbox couldn't reach api.subdl.com / api.subsource.net, so
-the request/response shapes below are from each provider's published docs. The first
-keyed run on the owner's Mac confirms them; the parse points are isolated in
-_subdl_search/_subdl_fetch and _subsource_* and log raw payloads on mismatch.
+publish -> deploy-pages -> publish-db).
 """
 
 from __future__ import annotations
 
 import argparse
+import base64
 import io
 import json
 import os
+import shutil
+import subprocess
 import sys
 import time
 import zipfile
 from collections import Counter
 from pathlib import Path
-
-import requests
+from urllib.parse import quote, urlencode
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_subtitle_assets import srt_to_vtt, hls_manifests, safe_dir, PAGES_BASE, SUBS_DIR  # noqa: E402
@@ -55,6 +52,25 @@ from build_subtitle_assets import srt_to_vtt, hls_manifests, safe_dir, PAGES_BAS
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
 UA = "ArchiveWatch/1.0 (https://archivewatch.org)"
+NODE = shutil.which("node") or "/opt/homebrew/bin/node"
+HELPER = Path(__file__).resolve().parent / "_http_fetch.mjs"
+
+
+def http(method, url, headers=None, timeout=60):
+    """GET/POST via Node (modern TLS). Returns (status:int, body:bytes)."""
+    spec = {"method": method, "url": url, "headers": {"User-Agent": UA, **(headers or {})}}
+    try:
+        p = subprocess.run([NODE, str(HELPER)], input=json.dumps(spec),
+                           capture_output=True, text=True, timeout=timeout)
+    except (subprocess.TimeoutExpired, FileNotFoundError):
+        return 0, b""
+    if not p.stdout:
+        return 0, b""
+    try:
+        r = json.loads(p.stdout)
+    except ValueError:
+        return 0, b""
+    return r.get("status", 0), base64.b64decode(r.get("body_b64", "") or "")
 
 
 def _last_cue_seconds(srt_text: str):
@@ -66,12 +82,12 @@ def _last_cue_seconds(srt_text: str):
     return int(h) * 3600 + int(m) * 60 + int(s) + int(ms) / 1000
 
 
-def _pick_srt_from_zip(content: bytes) -> str | None:
-    """Return the largest .srt member of a zip, decoded."""
+def _pick_srt_from_zip(content: bytes):
+    """Largest .srt member of a zip, decoded — or the raw bytes if it isn't a zip
+    (SubDL unpack / direct .srt)."""
     try:
         zf = zipfile.ZipFile(io.BytesIO(content))
     except zipfile.BadZipFile:
-        # some providers return the .srt directly, not zipped
         for enc in ("utf-8", "windows-1252", "iso-8859-1"):
             try:
                 return content.decode(enc)
@@ -81,14 +97,37 @@ def _pick_srt_from_zip(content: bytes) -> str | None:
     srts = [n for n in zf.namelist() if n.lower().endswith(".srt")]
     if not srts:
         return None
-    name = max(srts, key=lambda n: zf.getinfo(n).file_size)
-    raw = zf.read(name)
+    raw = zf.read(max(srts, key=lambda n: zf.getinfo(n).file_size))
     for enc in ("utf-8", "windows-1252", "iso-8859-1"):
         try:
             return raw.decode(enc)
         except UnicodeDecodeError:
             continue
     return raw.decode("utf-8", "replace")
+
+
+def _unwrap(obj):
+    """SubSource responses may be wrapped ({data:[...]}, {results:[...]}, etc.).
+    Return the first list found among the common envelope keys, else [] / the list."""
+    if isinstance(obj, list):
+        return obj
+    if isinstance(obj, dict):
+        for k in ("data", "results", "subtitles", "movies", "found", "items"):
+            v = obj.get(k)
+            if isinstance(v, list):
+                return v
+            if isinstance(v, dict):
+                inner = _unwrap(v)
+                if inner:
+                    return inner
+    return []
+
+
+def _json(body):
+    try:
+        return json.loads(body.decode("utf-8", "replace"))
+    except ValueError:
+        return None
 
 
 # ------------------------------- SubDL provider -------------------------------
@@ -99,39 +138,35 @@ class SubDL:
 
     def __init__(self, key):
         self.key = key
-        self.s = requests.Session()
-        self.s.headers.update({"User-Agent": UA, "Accept": "application/json"})
+
+    def _search_url(self, imdb):
+        return self.SEARCH + "?" + urlencode({
+            "api_key": self.key, "imdb_id": imdb, "type": "movie",
+            "languages": "EN", "subs_per_page": 10})
+
+    def probe_search(self, item):
+        return http("GET", self._search_url(item.get("imdbID") or "tt0000000"))
 
     def best_srt(self, item):
-        """imdb_id search -> best English .srt text, or None."""
         imdb = item.get("imdbID")
         if not imdb:
             return None
-        try:
-            r = self.s.get(self.SEARCH, params={
-                "api_key": self.key, "imdb_id": imdb, "type": "movie",
-                "languages": "EN", "subs_per_page": 10}, timeout=30)
-            if r.status_code != 200:
-                return None
-            data = r.json()
-        except (requests.RequestException, ValueError):
+        st, body = http("GET", self._search_url(imdb))
+        if st != 200:
             return None
-        subs = data.get("subtitles") or []
-        # English first; SubDL gives no download_count, so order is the API's relevance.
-        for sub in subs:
-            if (sub.get("language") or sub.get("lang") or "").lower() not in ("en", "english", ""):
+        data = _json(body) or {}
+        for sub in (data.get("subtitles") or []):
+            lang = (sub.get("lang") or sub.get("language") or "").lower()
+            if lang not in ("english", "en", ""):
                 continue
-            url = sub.get("url") or ""
-            if not url:
+            u = sub.get("url") or ""
+            if not u:
                 continue
-            full = url if url.startswith("http") else self.DL_BASE + url
-            try:
-                z = self.s.get(full, timeout=40)
-                if z.status_code != 200 or not z.content:
-                    continue
-            except requests.RequestException:
+            full = u if u.startswith("http") else self.DL_BASE + u
+            st2, zb = http("GET", full)
+            if st2 != 200 or not zb:
                 continue
-            srt = _pick_srt_from_zip(z.content)
+            srt = _pick_srt_from_zip(zb)
             if srt and srt.strip():
                 return srt
         return None
@@ -139,48 +174,55 @@ class SubDL:
 
 # ----------------------------- SubSource provider -----------------------------
 class SubSource:
-    """Title+year matching. Endpoint paths per the published docs / community wrapper;
-    confirm on first keyed run (logs raw payloads on parse failure)."""
+    """Current v1 REST API (GET + X-API-Key). imdb search supported; title+year
+    fallback. Multi-step: movies/search -> movieId -> subtitles?movieId -> download."""
     name = "subsource"
-    BASE = "https://api.subsource.net/api"
+    BASE = "https://api.subsource.net/api/v1"
 
     def __init__(self, key):
-        self.s = requests.Session()
-        self.s.headers.update({"User-Agent": UA, "Accept": "application/json"})
-        if key:
-            self.s.headers["X-API-Key"] = key
+        self.key = key
+
+    def _hdr(self):
+        return {"X-API-Key": self.key} if self.key else {}
+
+    def _search_url(self, item):
+        imdb = item.get("imdbID")
+        if imdb:
+            return f"{self.BASE}/movies/search?" + urlencode({"searchType": "imdb", "imdb": imdb})
+        title = item.get("title") or ""
+        q = {"searchType": "text", "q": title}
+        if item.get("year"):
+            q["year"] = item["year"]
+        return f"{self.BASE}/movies/search?" + urlencode(q)
+
+    def probe_search(self, item):
+        return http("GET", self._search_url(item), self._hdr())
 
     def best_srt(self, item):
-        title = item.get("title") or ""
-        if not title:
+        if not item.get("imdbID") and not item.get("title"):
             return None
-        try:
-            r = self.s.get(f"{self.BASE}/searchMovie", params={"query": title}, timeout=30)
-            if r.status_code != 200:
-                return None
-            found = (r.json().get("found") or r.json().get("results") or r.json())
-        except (requests.RequestException, ValueError):
+        hdr = self._hdr()
+        st, body = http("GET", self._search_url(item), hdr)
+        if st != 200:
             return None
-        movie = found[0] if isinstance(found, list) and found else None
-        if not movie:
+        movies = _unwrap(_json(body))
+        if not movies:
             return None
-        link = movie.get("linkName") or movie.get("link") or movie.get("id")
-        try:
-            sr = self.s.get(f"{self.BASE}/getMovie", params={"movieName": link, "langs": "english"}, timeout=30)
-            subs = (sr.json().get("subs") or sr.json().get("subtitles") or [])
-        except (requests.RequestException, ValueError):
+        mid = movies[0].get("movieId") or movies[0].get("id")
+        if not mid:
             return None
-        for sub in subs[:10]:
-            sub_id = sub.get("subId") or sub.get("id")
-            if not sub_id:
+        st, body = http("GET", f"{self.BASE}/subtitles?" + urlencode(
+            {"movieId": mid, "language": "english"}), hdr)
+        if st != 200:
+            return None
+        for sub in _unwrap(_json(body))[:12]:
+            sid = sub.get("subtitleId") or sub.get("id")
+            if not sid:
                 continue
-            try:
-                dl = self.s.get(f"{self.BASE}/downloadSub/{sub_id}", timeout=40)
-                if dl.status_code != 200 or not dl.content:
-                    continue
-            except requests.RequestException:
+            st2, zb = http("GET", f"{self.BASE}/subtitles/{sid}/download", hdr)
+            if st2 != 200 or not zb:
                 continue
-            srt = _pick_srt_from_zip(dl.content)
+            srt = _pick_srt_from_zip(zb)
             if srt and srt.strip():
                 return srt
         return None
@@ -206,34 +248,20 @@ def write_assets(item, srt_text, source):
 
 
 def _probe(prov, ident):
-    """Dump the RAW API response for one film so the response shape is verified
-    against reality (not docs) before a full run. Run this FIRST on the owner's Mac."""
+    """Dump the RAW step-1 response so the JSON shape is verified against reality."""
+    is_tt = str(ident).startswith("tt")
+    item = {"imdbID": ident if is_tt else None, "title": None if is_tt else ident,
+            "year": None, "archiveID": "PROBE", "downloadURL": "x", "runtimeSeconds": 0}
     print(f"[probe] {prov.name}: {ident}")
-    item = {"imdbID": ident if str(ident).startswith("tt") else None,
-            "title": None if str(ident).startswith("tt") else ident,
-            "archiveID": "PROBE", "downloadURL": "x", "runtimeSeconds": 0}
-    try:
-        if prov.name == "subdl":
-            r = prov.s.get(prov.SEARCH, params={
-                "api_key": prov.key, "imdb_id": item["imdbID"], "type": "movie",
-                "languages": "EN", "subs_per_page": 5}, timeout=30)
-            print(f"[probe] search HTTP {r.status_code}")
-            print(f"[probe] raw: {r.text[:1200]}")
-        else:
-            r = prov.s.get(f"{prov.BASE}/searchMovie", params={"query": item["title"]}, timeout=30)
-            print(f"[probe] searchMovie HTTP {r.status_code}")
-            print(f"[probe] raw: {r.text[:1200]}")
-        srt = prov.best_srt(item)
-        if srt:
-            print(f"[probe] best_srt OK: {len(srt)} chars, last cue "
-                  f"{_last_cue_seconds(srt)}s, first lines:\n{srt[:200]}")
-        else:
-            print("[probe] best_srt returned None (shape mismatch? paste the raw above)")
-    except requests.exceptions.SSLError as e:
-        print(f"[probe] SSL ERROR: {e}\n[probe] your python's TLS is too old for Cloudflare; "
-              "run with a modern python (brew install python) or tell me and I'll switch to node.")
-    except Exception as e:
-        print(f"[probe] ERROR: {e!r}")
+    st, body = prov.probe_search(item)
+    print(f"[probe] step-1 HTTP {st}")
+    print(f"[probe] raw: {body.decode('utf-8', 'replace')[:1500]}")
+    srt = prov.best_srt(item)
+    if srt:
+        print(f"[probe] best_srt OK: {len(srt)} chars; last cue {_last_cue_seconds(srt)}s\n"
+              f"--- first lines ---\n{srt[:200]}")
+    else:
+        print("[probe] best_srt returned None — paste the raw above and I'll fix the parser")
 
 
 def main() -> int:
@@ -247,13 +275,21 @@ def main() -> int:
                     help="also replace machine (whisper/asr) captions")
     args = ap.parse_args()
 
+    if not Path(NODE).exists() and not shutil.which("node"):
+        print("[subs] node not found (needed for TLS). brew install node"); return 2
+    if not HELPER.exists():
+        print(f"[subs] missing {HELPER}"); return 2
+
     if args.provider == "subdl":
         key = os.environ.get("SUBDL_API_KEY")
         if not key:
-            print("[subs] SUBDL_API_KEY not set (free: subdl.com -> profile -> API)"); return 2
+            print("[subs] SUBDL_API_KEY not set (source tools/subtitle_keys.env)"); return 2
         prov = SubDL(key)
     else:
-        prov = SubSource(os.environ.get("SUBSOURCE_API_KEY"))
+        key = os.environ.get("SUBSOURCE_API_KEY")
+        if not key:
+            print("[subs] SUBSOURCE_API_KEY not set (source tools/subtitle_keys.env)"); return 2
+        prov = SubSource(key)
 
     if args.probe:
         _probe(prov, args.probe)
@@ -271,7 +307,6 @@ def main() -> int:
             return False
         if (it.get("popularityScore") or 0) < args.min_pop:
             return False
-        # SubDL matches by imdb; SubSource by title.
         if args.provider == "subdl" and not it.get("imdbID"):
             return False
         caps = it.get("captions")
@@ -296,8 +331,8 @@ def main() -> int:
     for n, it in enumerate(targets, 1):
         try:
             srt = prov.best_srt(it)
-        except Exception as e:  # never let one item kill the sweep
-            print(f"[{n}] {it['archiveID']}: error {e}", flush=True)
+        except Exception as e:
+            print(f"[{n}] {it['archiveID']}: error {e!r}", flush=True)
             tally["error"] += 1
             continue
         if not srt:
@@ -314,7 +349,7 @@ def main() -> int:
         print(f"[{n}] {it['archiveID']}: built", flush=True)
         if tally["built"] % 25 == 0:
             flush()
-        time.sleep(0.5)
+        time.sleep(0.3)
     flush()
     print(f"[subs] done: {dict(tally)}", flush=True)
     return 0
