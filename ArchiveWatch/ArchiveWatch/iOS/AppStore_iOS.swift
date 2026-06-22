@@ -133,6 +133,9 @@ final class AppStore {
     func tvSpecialsCount() -> Int { db?.tvSpecialsCount() ?? 0 }
     func hiddenGems() -> [Catalog.Item] { db?.hiddenGems() ?? [] }
     func topRated() -> [Catalog.Item] { db?.topRated() ?? [] }
+    func mostDiscussed() -> [Catalog.Item] { db?.mostDiscussed() ?? [] }
+    func communityFavorites() -> [Catalog.Item] { db?.communityFavorites() ?? [] }
+    func watchingNow() -> [Catalog.Item] { db?.watchingNow() ?? [] }
     func byCollection(_ id: String) -> [Catalog.Item] { db?.byCollection(id) ?? [] }
     func decadeCounts() -> [Int: Int] { db?.decadeCounts() ?? [:] }
     func topDirectors() -> [(name: String, count: Int)] { db?.topDirectors() ?? [] }

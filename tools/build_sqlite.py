@@ -505,7 +505,8 @@ def create_schema(db):
       qualityScore INTEGER, isSilentFilm INTEGER, rightsStatus TEXT,
       contentRating TEXT, language TEXT, network TEXT, director TEXT,
       seriesID TEXT, yearEnd INTEGER, seasonsCount INTEGER, episodesCount INTEGER,
-      isAdult INTEGER
+      isAdult INTEGER,
+      numFavorites INTEGER, numReviews INTEGER, avgRating REAL, views30d INTEGER
     );
     -- Full item as JSON in a side table so the lean `items` table stays small
     -- for scalar WHERE/ORDER scans; the app JOINs this only for the handful of
@@ -582,6 +583,8 @@ def populate_items(db, items, rotate_seed="0"):
             _t(it.get("network")), _t(it.get("director")), _t(it.get("seriesID")),
             it.get("yearEnd"), it.get("seasonsCount"), it.get("episodesCount"),
             _is_adult(it),
+            it.get("numFavorites"), it.get("numReviews"), it.get("avgRating"),
+            it.get("views30d"),
         ))
         json_rows.append((aid, json.dumps(it, ensure_ascii=False, separators=(",", ":"))))
         for g in (it.get("genres") or []):
@@ -608,7 +611,7 @@ def populate_items(db, items, rotate_seed="0"):
         ]).strip()
         fts_rows.append((aid, it.get("title") or "", names, extra))
 
-    db.executemany("INSERT OR IGNORE INTO items VALUES (%s)" % ",".join("?" * 25), item_rows)
+    db.executemany("INSERT OR IGNORE INTO items VALUES (%s)" % ",".join("?" * 29), item_rows)
     db.executemany("INSERT OR IGNORE INTO item_json VALUES (?,?)", json_rows)
     db.executemany("INSERT INTO item_genres VALUES (?,?)", genre_rows)
     db.executemany("INSERT INTO item_collections VALUES (?,?)", coll_rows)
@@ -654,6 +657,9 @@ def create_indexes(db):
     CREATE INDEX idx_coll_coll      ON item_collections(collection);
     CREATE INDEX idx_items_director ON items(director);
     CREATE INDEX idx_items_quality  ON items(qualityScore);
+    CREATE INDEX idx_items_reviews  ON items(numReviews DESC);
+    CREATE INDEX idx_items_favs     ON items(numFavorites DESC);
+    CREATE INDEX idx_items_views30d ON items(views30d DESC);
     CREATE INDEX idx_shelves_shelf  ON item_shelves(shelfID);
     CREATE INDEX idx_episodes_series ON episodes(seriesID, position);
     """)

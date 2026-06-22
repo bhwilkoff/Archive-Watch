@@ -20,6 +20,9 @@ struct HomeView: View {
     @State private var payloads: [ShelfPayload] = []
     @State private var gems: [Catalog.Item] = []
     @State private var topRated: [Catalog.Item] = []
+    @State private var watchingNow: [Catalog.Item] = []
+    @State private var communityFavorites: [Catalog.Item] = []
+    @State private var mostDiscussed: [Catalog.Item] = []
     @State private var pdItems: [Catalog.Item] = []
     @State private var directorShelves: [(name: String, items: [Catalog.Item])] = []
     @State private var showSettings = false
@@ -52,6 +55,18 @@ struct HomeView: View {
                 if !topRated.isEmpty {
                     Shelf(title: "Top Rated",
                           subtitle: "The crowd's verdict — IMDb favorites", items: topRated)
+                }
+                if !watchingNow.isEmpty {
+                    Shelf(title: "Watching Now",
+                          subtitle: "Most-viewed on archive.org this month", items: watchingNow)
+                }
+                if !communityFavorites.isEmpty {
+                    Shelf(title: "Community Favorites",
+                          subtitle: "Most-favorited by archive.org viewers", items: communityFavorites)
+                }
+                if !mostDiscussed.isEmpty {
+                    Shelf(title: "Most Discussed",
+                          subtitle: "The films people are talking about", items: mostDiscussed)
                 }
                 if !gems.isEmpty {
                     Shelf(title: "Hidden Gems",
@@ -114,6 +129,9 @@ struct HomeView: View {
         gems = store.filteringWatched(store.hiddenGems())
         topRated = store.filteringWatched(
             store.topRated().filter(\.hasProfessionalArtwork))
+        watchingNow = store.filteringWatched(store.watchingNow().filter(\.hasProfessionalArtwork))
+        communityFavorites = store.filteringWatched(store.communityFavorites().filter(\.hasProfessionalArtwork))
+        mostDiscussed = store.filteringWatched(store.mostDiscussed().filter(\.hasProfessionalArtwork))
         pdItems = store.filteringWatched(
             store.browse(year: pdYear, sort: .popular, limit: 24).filter(\.hasDesignedArtwork))
         directorShelves = store.topDirectors().map { d in

@@ -96,6 +96,9 @@ struct HomeView: View {
                 }
                 PublicDomainShelf()   // #15b: current Public Domain class
                 TopRatedShelf()
+                WatchingNowShelf()
+                CommunityFavoritesShelf()
+                MostDiscussedShelf()
                 HiddenGemsShelf()
                 DirectorShelvesSection()
                 DecadeTilesRow()

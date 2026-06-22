@@ -415,6 +415,42 @@ final class CatalogDB {
         """)
     }
 
+    // Community shelves (archive.org usage signals, tools/harvest_community_signals.py).
+    // All vote-floored to RECOGNIZED films: raw community counts are dominated by
+    // obscure foreign edge cases (un-IMDb'd softcore, "The Child Molester") that the
+    // adult filter can't catch from metadata, but those have no IMDb votes — so the
+    // same minVotes discipline as Top Rated keeps these curated shelves clean.
+
+    /// "Most Discussed" — films the community wrote the most genuine reviews about.
+    func mostDiscussed(limit: Int = 24, minVotes: Int = 1000) -> [Catalog.Item] {
+        items("""
+            SELECT j.json FROM items i JOIN item_json j USING(archiveID)
+            WHERE COALESCE(i.numReviews, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= \(minVotes)
+              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd)
+            ORDER BY i.numReviews DESC LIMIT \(limit)
+        """)
+    }
+
+    /// "Community Favorites" — most-favorited on archive.org.
+    func communityFavorites(limit: Int = 24, minVotes: Int = 1000) -> [Catalog.Item] {
+        items("""
+            SELECT j.json FROM items i JOIN item_json j USING(archiveID)
+            WHERE COALESCE(i.numFavorites, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= \(minVotes)
+              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd)
+            ORDER BY i.numFavorites DESC LIMIT \(limit)
+        """)
+    }
+
+    /// "Watching Now" — most views in the last 30 days (current momentum).
+    func watchingNow(limit: Int = 24, minVotes: Int = 1000) -> [Catalog.Item] {
+        items("""
+            SELECT j.json FROM items i JOIN item_json j USING(archiveID)
+            WHERE COALESCE(i.views30d, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= \(minVotes)
+              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd)
+            ORDER BY i.views30d DESC LIMIT \(limit)
+        """)
+    }
+
     /// Most-prolific directors (≥ minFilms with designed art) → (name, count).
     /// Home surface → home-gated so we don't headline a director whose only
     /// shown films would be filtered off Home.

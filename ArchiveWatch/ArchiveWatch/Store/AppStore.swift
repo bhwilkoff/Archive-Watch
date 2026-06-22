@@ -238,6 +238,9 @@ final class AppStore {
     func dbItemsByIDs(_ ids: [String]) -> [Catalog.Item] { db?.itemsByIDs(ids) ?? [] }
     func dbHiddenGems() -> [Catalog.Item] { db?.hiddenGems() ?? [] }
     func dbTopRated() -> [Catalog.Item] { db?.topRated() ?? [] }
+    func dbMostDiscussed() -> [Catalog.Item] { db?.mostDiscussed() ?? [] }
+    func dbCommunityFavorites() -> [Catalog.Item] { db?.communityFavorites() ?? [] }
+    func dbWatchingNow() -> [Catalog.Item] { db?.watchingNow() ?? [] }
     func dbTopDirectors() -> [(name: String, count: Int)] { db?.topDirectors() ?? [] }
     func dbByDirector(_ name: String, homeOnly: Bool = false) -> [Catalog.Item] { db?.byDirector(name, homeOnly: homeOnly) ?? [] }
     func dbByPerson(_ name: String) -> [Catalog.Item] { db?.byPerson(name) ?? [] }   // #4
