@@ -54,6 +54,9 @@ private data class HomePayload(
     val continueWatching: List<CatalogItem> = emptyList(),
     val shelves: List<Pair<String, List<CatalogItem>>> = emptyList(),
     val topRated: List<CatalogItem> = emptyList(),
+    val watchingNow: List<CatalogItem> = emptyList(),
+    val communityFavorites: List<CatalogItem> = emptyList(),
+    val mostDiscussed: List<CatalogItem> = emptyList(),
     val hiddenGems: List<CatalogItem> = emptyList(),
     val directorShelves: List<Pair<String, List<CatalogItem>>> = emptyList(),
     val publicDomainYear: Int = 0,
@@ -111,6 +114,9 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
             continueWatching = continueWatching,
             shelves = shelves,
             topRated = db.topRated().filter { it.archiveID !in watched },
+            watchingNow = db.watchingNow().filter { it.archiveID !in watched && it.hasProfessionalArtwork },
+            communityFavorites = db.communityFavorites().filter { it.archiveID !in watched && it.hasProfessionalArtwork },
+            mostDiscussed = db.mostDiscussed().filter { it.archiveID !in watched && it.hasProfessionalArtwork },
             hiddenGems = db.hiddenGems(20).filter { it.archiveID !in watched },
             directorShelves = db.topDirectors().mapNotNull { d ->
                 val films = db.byDirector(d).filter { it.archiveID !in watched }
@@ -182,6 +188,27 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
                         subtitle = "The crowd's verdict — IMDb favorites",
                         onItem = { nav.openItem(it.archiveID, it.seriesID, it.contentType) },
                     )
+                }
+            }
+            if (payload.watchingNow.isNotEmpty()) {
+                item(key = "watchingnow") {
+                    ShelfRow("Watching Now", payload.watchingNow,
+                        subtitle = "Most-viewed on archive.org this month",
+                        onItem = { nav.openItem(it.archiveID, it.seriesID, it.contentType) })
+                }
+            }
+            if (payload.communityFavorites.isNotEmpty()) {
+                item(key = "commfav") {
+                    ShelfRow("Community Favorites", payload.communityFavorites,
+                        subtitle = "Most-favorited by archive.org viewers",
+                        onItem = { nav.openItem(it.archiveID, it.seriesID, it.contentType) })
+                }
+            }
+            if (payload.mostDiscussed.isNotEmpty()) {
+                item(key = "mostdisc") {
+                    ShelfRow("Most Discussed", payload.mostDiscussed,
+                        subtitle = "The films people are talking about",
+                        onItem = { nav.openItem(it.archiveID, it.seriesID, it.contentType) })
                 }
             }
             if (payload.hiddenGems.isNotEmpty()) {

@@ -37,7 +37,34 @@ data class CatalogItem(
     // Subtitle/caption tracks (tools/enrich_subtitles.py) — side-loaded onto the
     // Media3 player via SubtitleConfiguration. Additive + optional.
     val captions: List<Caption>? = null,
+    // Community / usage signals harvested from archive.org
+    // (tools/harvest_community_signals.py). Additive + optional.
+    val downloads: Int? = null,
+    val numFavorites: Int? = null,
+    val avgRating: Double? = null,
+    val numReviews: Int? = null,
+    val viewsAllTime: Int? = null,
+    val views30d: Int? = null,
+    // Genuine reviews of the TITLE, pre-filtered in the pipeline
+    // (tools/comment_fit.py) — never file-quality or inappropriate comments.
+    val reviews: List<Review>? = null,
 ) {
+    // Community display helpers (mirror the Swift Catalog.Item helpers).
+    val viewsDisplay: String?
+        get() = (viewsAllTime ?: downloads)?.takeIf { it > 0 }?.let { compact(it) }
+    val favoritesDisplay: String?
+        get() = numFavorites?.takeIf { it > 0 }?.let { compact(it) }
+    val avgRatingDisplay: String?
+        get() = avgRating?.takeIf { it > 0 }?.let { String.format(java.util.Locale.US, "%.1f", it) }
+    val displayReviews: List<Review>
+        get() = reviews.orEmpty().filter { !it.body.isNullOrEmpty() || !it.title.isNullOrEmpty() }
+
+    private fun compact(n: Int): String = when {
+        n >= 1_000_000 -> String.format(java.util.Locale.US, "%.1fM", n / 1_000_000.0)
+        n >= 1_000 -> String.format(java.util.Locale.US, "%.1fK", n / 1_000.0)
+        else -> n.toString()
+    }
+
     // Derived predicates mirrored from the Swift model (contract §7).
     val hasDesignedArtwork: Boolean
         get() = hasRealArtwork ?: (artworkSource != null && artworkSource != "archive")
@@ -114,6 +141,18 @@ data class Caption(
     val source: String? = null,
 ) {
     val displayLabel: String get() = label ?: lang.uppercase()
+}
+
+/** A genuine review of the title, already pipeline-filtered (comment_fit.py). */
+@Serializable
+data class Review(
+    val reviewer: String? = null,
+    val title: String? = null,
+    val body: String? = null,
+    val stars: Int? = null,
+    val date: String? = null,
+) {
+    val displayName: String get() = reviewer?.takeIf { it.isNotBlank() } ?: "Archive viewer"
 }
 
 // --- featured.json (contract §6.1) ---

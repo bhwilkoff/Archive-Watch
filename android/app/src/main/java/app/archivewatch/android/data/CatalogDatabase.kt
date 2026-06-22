@@ -249,6 +249,30 @@ class CatalogDatabase private constructor(
         listOf(minVotes, limit),
     )
 
+    /** Community shelves (archive.org usage signals). Vote-floored to recognized
+        films — raw counts are dominated by un-IMDb'd foreign edge cases the metadata
+        adult filter can't catch, but those have no votes (iOS/tvOS parity). */
+    suspend fun watchingNow(limit: Int = 24, minVotes: Int = 1000): List<CatalogItem> = items(
+        "$itemSelect WHERE COALESCE(i.views30d, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= ?" +
+            " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd" +
+            " ORDER BY i.views30d DESC LIMIT ?",
+        listOf(minVotes, limit),
+    )
+
+    suspend fun communityFavorites(limit: Int = 24, minVotes: Int = 1000): List<CatalogItem> = items(
+        "$itemSelect WHERE COALESCE(i.numFavorites, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= ?" +
+            " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd" +
+            " ORDER BY i.numFavorites DESC LIMIT ?",
+        listOf(minVotes, limit),
+    )
+
+    suspend fun mostDiscussed(limit: Int = 24, minVotes: Int = 1000): List<CatalogItem> = items(
+        "$itemSelect WHERE COALESCE(i.numReviews, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= ?" +
+            " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd" +
+            " ORDER BY i.numReviews DESC LIMIT ?",
+        listOf(minVotes, limit),
+    )
+
     suspend fun hiddenGems(limit: Int = 20): List<CatalogItem> = items(
         "$itemSelect WHERE i.hasRealArtwork = 1 AND i.qualityScore >= 60 AND i.popularityScore <= 40" +
             "$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd ORDER BY i.qualityScore DESC LIMIT ?",

@@ -61,6 +61,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
+import app.archivewatch.android.data.Review
 import app.archivewatch.android.data.PlaySpec
 import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.LoadingBox
@@ -279,6 +280,8 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
             }
         }
 
+        CommunityDetailSection(current)
+
         if (related.isNotEmpty()) {
             Spacer(Modifier.height(8.dp))
             ShelfRow("More Like This", related, onItem = {
@@ -286,6 +289,74 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
             })
         }
         Spacer(Modifier.height(32.dp))
+    }
+}
+
+// archive.org community stats + genuine reviews (pre-filtered in the pipeline,
+// comment_fit.py). Parity with the Apple CommunityDetailSection. Renders nothing
+// when there's no data.
+@Composable
+private fun CommunityDetailSection(item: CatalogItem) {
+    val reviews = item.displayReviews
+    val hasStats = item.avgRatingDisplay != null || item.viewsDisplay != null || item.favoritesDisplay != null
+    if (!hasStats && reviews.isEmpty()) return
+
+    if (hasStats) {
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(24.dp),
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+        ) {
+            item.avgRatingDisplay?.let { CommunityStat("★", it, "rating") }
+            item.viewsDisplay?.let { CommunityStat("▶", it, "views") }
+            item.favoritesDisplay?.let { CommunityStat("♥", it, "favorites") }
+        }
+    }
+    if (reviews.isNotEmpty()) {
+        SectionHeader("From archive.org viewers")
+        Column(
+            modifier = Modifier.padding(horizontal = 16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            reviews.take(6).forEach { ReviewCard(it) }
+        }
+    }
+}
+
+@Composable
+private fun CommunityStat(symbol: String, value: String, caption: String) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Text("$symbol ", style = MaterialTheme.typography.titleMedium)
+        Column {
+            Text(value, style = MaterialTheme.typography.titleSmall)
+            Text(caption, style = MaterialTheme.typography.labelSmall, color = Color.Gray)
+        }
+    }
+}
+
+@Composable
+private fun ReviewCard(review: Review) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(10.dp))
+            .background(BrandSurface)
+            .padding(12.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        val header = buildString {
+            review.stars?.takeIf { it > 0 }?.let { append("★".repeat(it)).append("  ") }
+            review.title?.takeIf { it.isNotBlank() }?.let { append(it) }
+        }.trim()
+        if (header.isNotEmpty()) {
+            Text(header, style = MaterialTheme.typography.titleSmall, maxLines = 1,
+                overflow = TextOverflow.Ellipsis)
+        }
+        review.body?.takeIf { it.isNotBlank() }?.let {
+            Text(it, style = MaterialTheme.typography.bodySmall, color = Color.LightGray,
+                maxLines = 6, overflow = TextOverflow.Ellipsis)
+        }
+        Text(review.displayName + (review.date?.let { " · $it" } ?: ""),
+            style = MaterialTheme.typography.labelSmall, color = Color.Gray)
     }
 }
 
