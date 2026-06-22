@@ -72,6 +72,8 @@ this table in the same change set; cross-link the platform design doc.
 | Decade tiles | ✅ | ✅ era tiles + counts | ✅ era tiles + counts (last Home row) | ✅ era tiles + counts (last Home row) | |
 | Hidden Gems shelf | ✅ | ✅ | ✅ (popularity-tail designed art) | ✅ | shared query |
 | Top Rated shelf (IMDb score) + rating sort in Browse | ✅ shelf + sort | ✅ shelf + sort | ⏳ (index lacks a rating column — additive schema bump, then trivial) | ✅ shelf + sort | votes floor ≥1,000; owner request 2026-06-12 |
+| Community shelves (Watching Now / Community Favorites / Most Discussed) | ✅ | ✅ | ✅ (index computes the 3 shelves) | ✅ | archive.org views/favorites/reviews; vote-floored ≥1,000 so un-IMDb'd edge cases never lead |
+| Detail community (stats + genuine reviews) | ✅ | ✅ | ✅ (detail-shard `rec[8]`) | ✅ | reviews filtered in the pipeline (`comment_fit.py`) — never file-quality/inappropriate; baked into the catalog |
 | Director shelves | ✅ | ✅ | ⏳ (index lacks director data) | ✅ | shared query |
 | Continue Watching | ✅ | ✅ | ✅ | ✅ | progress store (see §6) |
 | Modes row | ✅ | ➖ removed 2026-06-10 (Channels = tab; Surprise/Cartoon/PD via Home shuffle → Surprise grid) | ⏳ | ⏳ | links to §5 |

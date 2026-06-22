@@ -1632,3 +1632,53 @@ mismatched runtimes, it is NOT merged (left fully separate). Keep the bare-copy 
 Domain Animation" ×31 distinct cartoons) from chain-merging. STILL deferred: no-imdb
 clusters with NO runtime on the copies (can't corroborate) — these need enrichment to
 add imdb/runtime first, then they merge automatically on the next build.
+
+---
+
+## 041 — archive.org community signals: harvested, used for sort/best-copy, surfaced as vote-floored shelves + pipeline-filtered reviews
+*Date: 2026-06-22*
+
+Archive Watch consumes archive.org's built-in usage/community data — views (all-
+time / 30-day), favorites (`num_favorites`), ratings (`avg_rating`), and reviews —
+harvested onto every catalog item by `tools/harvest_community_signals.py` (batched
+advancedsearch + the be-api views bulk endpoint) and used four ways: (1) a
+recency+quality **popularity sort** (`build_sqlite._pop_score`: 30-day views +
+recent/all-time downloads + vote-floored rating + favorites); (2) **best-UPLOAD
+selection** (`_community_copy_score` feeds the Decision-040 dedup winner — a film's
+trailer can out-download the film, so weight rated+reviewed+favorited copies and
+penalise trailers); (3) **community Home shelves** (Watching Now / Community
+Favorites / Most Discussed) on all four platforms; (4) **reviews on Detail**, but
+ONLY genuine reviews of the title. Reviews are filtered in the PIPELINE
+(`tools/comment_fit.py`, run by `tools/harvest_reviews.py`) and the surviving ones
+BAKED into the catalog `reviews` field; every client just displays them.
+
+**Why**: (a) the signals make popularity reflect what people actually watch now and
+make best-copy reflect what a real audience vetted — far better than the legacy
+all-time-downloads proxy. (b) The community shelves are **vote-floored to
+imdbVotes≥1000** because raw community counts are dominated by obscure un-IMDb'd
+foreign edge cases (softcore, "The Child Molester") that the metadata adult filter
+CANNOT catch — but those have no IMDb votes, so the same floor as Top Rated keeps
+the curated shelves clean. (c) Reviews are filtered in the pipeline, not at runtime:
+archive.org "reviews" are a comment box mixing genuine reviews with file/upload
+talk ("what format is the audio?", "request a re-rip", even 5★ "I downloaded the
+DVD-5 version, the picture is cleaner") and inappropriate/spam. Owner rule: Detail
+shows genuine reviews of the FILM only — never about the video file, never
+inappropriate. A pipeline scorer is deterministic, reviewable, needs no runtime LLM,
+and means one implementation instead of four. Validated 12/12 on real reviews + 0
+false-keeps on fresh data; of 10,531 items scanned, ~5,500 had ALL reviews dropped.
+
+**How to apply**: new community surfaces read the harvested fields
+(numFavorites/numReviews/avgRating/views30d are DB COLUMNS; full `reviews` ride in
+item_json / detail-shard `rec[8]`). NEVER judge review fit at runtime — extend
+`comment_fit.py` (the file/inappropriate lexicons) and re-harvest. Keep the
+imdbVotes floor on any community-ranked shelf. The harvest is weekly
+(`community-signals.yml`, catalog-writers concurrency) + resumable; the metadata
+review API is slow/flaky, so harvest_reviews retries and is best run with a long
+budget. Reviews are baked (not live-fetched) — fast, offline, already filtered.
+
+**Consequences**: additive catalog fields + 4 new DB columns + 3 computed web-index
+shelves + a detail-shard element. The better popularity sort EXPOSED pre-existing
+curation gaps (educational courseware, mega-compilations, un-flagged foreign adult)
+that the old compressed sort buried — addressed by `build_sqlite` exclusions
+(`mit_ocw`, `_is_compilation`) + a tightened adult-title marker; subtle foreign
+softcore remains a fuzzy residual handled by the shelf vote-floor.

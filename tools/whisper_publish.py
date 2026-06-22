@@ -180,10 +180,14 @@ def main() -> int:
             if d:
                 it.update(d)
                 applied += 1
-        out_gz = Path(td) / "out.json.gz"
+        # Upload a file named EXACTLY like the asset. The `path#asset` rename form
+        # with --clobber SILENTLY NO-OPS (verified 2026-06-22: the asset's
+        # size/updatedAt never change, gh returns 0) — so name it correctly and
+        # --clobber matches by name.
+        out_gz = Path(td) / ASSET
         with gzip.open(out_gz, "wt", encoding="utf-8") as f:
             json.dump(cat, f, ensure_ascii=False, separators=(",", ":"))
-        gh("release", "upload", TAG, f"{out_gz}#{ASSET}", "--clobber")
+        gh("release", "upload", TAG, str(out_gz), "--clobber")
         print(f"[pub] catalog: applied {applied}/{len(deltas)} deltas onto the live release", flush=True)
         # Append newly-captioned films to the human accuracy checklist (append-only).
         added = update_done_list(items)
