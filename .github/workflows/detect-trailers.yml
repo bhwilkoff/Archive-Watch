@@ -1,0 +1,59 @@
+name: Detect trailers posing as films
+
+# tools/detect_trailers.py: finds items whose ACTUAL archive.org file duration is a
+# small fraction of the matched film runtime (a trailer/clip wrong-matched to the
+# full film, e.g. a 161-sec "One Flew Over the Cuckoo's Nest" matched to the 133-min
+# film). Reclassifies them contentType="trailer" (drops out of Home + film grids,
+# still searchable) and EXCLUDES modern / recognized-studio copyrighted trailers.
+# Resumable via trailerChecked; bounded per run (per-item metadata fetch, and the
+# archive.org metadata API is slow). Catalog lives on the release (Decision 018):
+# fetch -> detect -> publish -> rebuild DB.
+
+on:
+  schedule:
+    - cron: '0 6 * * 3'    # weekly, Wed 06:00 UTC
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max long-runtime film items to check this run'
+        required: false
+        default: '4000'
+
+concurrency:
+  group: catalog-writers
+  cancel-in-progress: false
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Detect trailers
+        run: |
+          python tools/detect_trailers.py --limit ${{ github.event.inputs.limit || '4000' }} | tee trailers.log
+          echo "## Trailer detection" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"; tail -3 trailers.log >> "$GITHUB_STEP_SUMMARY"; echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish catalog to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py publish
+
+      - name: Rebuild app DB
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run publish-db.yml
