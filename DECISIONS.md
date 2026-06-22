@@ -1682,3 +1682,34 @@ curation gaps (educational courseware, mega-compilations, un-flagged foreign adu
 that the old compressed sort buried — addressed by `build_sqlite` exclusions
 (`mit_ocw`, `_is_compilation`) + a tightened adult-title marker; subtle foreign
 softcore remains a fuzzy residual handled by the shelf vote-floor.
+
+---
+
+## 039b — Whisper auto-captioning ABANDONED; subtitles come from archive.org ASR + OpenSubtitles only
+*Date: 2026-06-22*
+
+Reverses Decision 039 Phase 4 and Decision 039a. Whisper.cpp transcription of films'
+own audio is REMOVED entirely: the workflow (`whisper-subtitles.yml`), the tools
+(`whisper_subtitles.py`, `whisper_publish.py`), the runbook + accuracy checklist are
+deleted, and all 44 whisper-generated `captions`/`subtitleHLS` were un-wired from the
+catalog. Subtitles now come ONLY from (1) archive.org's own ASR/uploader captions
+(`enrich_subtitles.py`, the backbone, ~4,800 films) and (2) OpenSubtitles by imdb/tmdb
+id (human-made, `opensubtitles_subtitles.py`, gated on the owner's API key).
+
+**Why**: owner tested the whisper output on-device and it was unusable — on old films
+with poor or music-heavy audio whisper HALLUCINATES coherent-sounding but wrong text
+(White Zombie's track bore no resemblance to the dialogue; silent films like Steamboat
+Willie got fabricated cues). Quality is too variable to ship, and a wrong subtitle is
+worse than none. Human-made OpenSubtitles is the quality path on the same side-load
+plumbing. Detecting good-vs-hallucinated whisper output at scale proved unreliable
+(period-density/short-cue heuristics caught the worst but not the borderline).
+
+**How to apply**: do NOT reintroduce on-device/auto speech-to-text for subtitles. New
+subtitle coverage goes through OpenSubtitles (human) or archive.org's own files. The
+`captions[]` side-load schema + the per-platform readers (Android SubtitleConfiguration,
+web `<track>`, Apple HLS) are unchanged and stay — only the whisper SOURCE is gone.
+
+**Note (separate, unresolved)**: the Apple HLS-subtitle path is single-segment, which
+breaks scrubbing + non-faststart start on captioned films — this affects ALL captioned
+films on iOS/tvOS (archive-ASR + future OpenSubtitles), not just whisper, and is a
+distinct problem from this decision.
