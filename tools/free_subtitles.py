@@ -56,25 +56,30 @@ NODE = shutil.which("node") or "/opt/homebrew/bin/node"
 HELPER = Path(__file__).resolve().parent / "_http_fetch.mjs"
 
 
-def http(method, url, headers=None, timeout=60):
-    """GET/POST via Node (modern TLS). Returns (status:int, body:bytes)."""
+def http(method, url, headers=None, timeout=60, retries=2):
+    """GET/POST via Node (modern TLS). Returns (status:int, body:bytes). Retries on
+    429 (rate limit) with backoff so long sweeps survive SubSource's 60/min cap."""
     spec = {"method": method, "url": url, "headers": {"User-Agent": UA, **(headers or {})}}
-    try:
-        p = subprocess.run([NODE, str(HELPER)], input=json.dumps(spec),
-                           capture_output=True, text=True, timeout=timeout)
-    except (subprocess.TimeoutExpired, FileNotFoundError):
-        return 0, b""
-    if not p.stdout:
-        return 0, b""
-    try:
-        r = json.loads(p.stdout)
-    except ValueError:
-        return 0, b""
-    status = r.get("status", 0)
-    if status == 0 and r.get("error"):
-        print(f"[subs] fetch error {url[:70]}: {r.get('error')} {r.get('cause') or ''}",
-              file=sys.stderr, flush=True)
-    return status, base64.b64decode(r.get("body_b64", "") or "")
+    for attempt in range(retries + 1):
+        try:
+            p = subprocess.run([NODE, str(HELPER)], input=json.dumps(spec),
+                               capture_output=True, text=True, timeout=timeout)
+        except (subprocess.TimeoutExpired, FileNotFoundError):
+            return 0, b""
+        if not p.stdout:
+            return 0, b""
+        try:
+            r = json.loads(p.stdout)
+        except ValueError:
+            return 0, b""
+        status = r.get("status", 0)
+        if status == 429 and attempt < retries:
+            time.sleep(20 * (attempt + 1))
+            continue
+        if status == 0 and r.get("error"):
+            print(f"[subs] fetch error {url[:70]}: {r.get('error')} {r.get('cause') or ''}",
+                  file=sys.stderr, flush=True)
+        return status, base64.b64decode(r.get("body_b64", "") or "")
 
 
 def _last_cue_seconds(srt_text: str):
@@ -284,6 +289,9 @@ def main() -> int:
     ap.add_argument("--min-pop", type=int, default=0)
     ap.add_argument("--sleep", type=float, default=1.0,
                     help="seconds between films (~3 reqs each; keeps SubSource under 60/min)")
+    ap.add_argument("--deltas-out", metavar="PATH",
+                    help="also write {archiveID: {captions, subtitleHLS}} so a long run can be "
+                         "published onto a freshly-fetched catalog without clobbering CI")
     ap.add_argument("--upgrade", action="store_true",
                     help="also replace machine (whisper/asr) captions")
     args = ap.parse_args()
@@ -335,10 +343,14 @@ def main() -> int:
         targets = targets[:args.limit]
     print(f"[subs] {prov.name}: {len(targets):,} targets", flush=True)
 
+    deltas = {}
+
     def flush():
         tmp = CATALOG.with_suffix(".json.tmp")
         json.dump(cat, open(tmp, "w"), ensure_ascii=False, separators=(",", ":"))
         tmp.replace(CATALOG)
+        if args.deltas_out:
+            json.dump(deltas, open(args.deltas_out, "w"), ensure_ascii=False)
 
     tally = Counter()
     for n, it in enumerate(targets, 1):
@@ -358,6 +370,7 @@ def main() -> int:
             print(f"[{n}] {it['archiveID']}: SYNC-REJECT (last cue {int(last)}s vs runtime {rt}s)", flush=True)
             continue
         write_assets(it, srt, prov.name)
+        deltas[it["archiveID"]] = {"captions": it["captions"], "subtitleHLS": it["subtitleHLS"]}
         tally["built"] += 1
         print(f"[{n}] {it['archiveID']}: built", flush=True)
         if tally["built"] % 25 == 0:
