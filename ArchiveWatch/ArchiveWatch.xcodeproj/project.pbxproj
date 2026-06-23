@@ -62,8 +62,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				catalog.json,
-				macOS/Info-macOS.plist,
-				macOS/ArchiveWatch-macOS.entitlements,
+				"macOS/Info-macOS.plist",
 			);
 			target = B7AC53CC2F93BA0300F50803 /* ArchiveWatch */;
 		};
@@ -71,8 +70,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				catalog.json,
-				macOS/Info-macOS.plist,
-				macOS/ArchiveWatch-macOS.entitlements,
+				"macOS/Info-macOS.plist",
 			);
 			target = EE00000000000000000000A3 /* ArchiveWatchMac */;
 		};
@@ -256,7 +254,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2640;
-				LastUpgradeCheck = 2650;
+				LastUpgradeCheck = 2700;
 				TargetAttributes = {
 					B7AC53CC2F93BA0300F50803 = {
 						CreatedOnToolsVersion = 26.4;
@@ -498,6 +496,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ArchiveWatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = L2G756LY8N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
@@ -534,6 +533,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ArchiveWatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = L2G756LY8N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
@@ -680,6 +680,7 @@
 				CODE_SIGN_ENTITLEMENTS = "ArchiveWatch/macOS/ArchiveWatch-macOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = L2G756LY8N;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -693,15 +694,16 @@
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.archivewatch.macos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -712,6 +714,7 @@
 				CODE_SIGN_ENTITLEMENTS = "ArchiveWatch/macOS/ArchiveWatch-macOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = L2G756LY8N;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -725,14 +728,15 @@
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.archivewatch.macos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

@@ -12,31 +12,37 @@ struct PosterCard: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 8).fill(.quaternary)
-                if let url = item.posterURLParsed {
-                    AsyncImage(url: url) { img in
-                        img.resizable().aspectRatio(contentMode: .fill)
-                    } placeholder: { Color.clear }
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                } else {
-                    Text(item.title)
-                        .font(.caption).fontWeight(.semibold)
-                        .multilineTextAlignment(.center)
-                        .padding(6).foregroundStyle(.secondary)
+            // The RoundedRectangle owns the 2:3 layout size; the poster fills via
+            // .overlay so a fill-mode AsyncImage (which reports oversized "cover"
+            // dimensions) can never drive the card's layout. Without this the cards
+            // adopt the image's cover size and overlap (the fill-image layout trap;
+            // see iOS Detail fix + tvOS playbook).
+            RoundedRectangle(cornerRadius: 8)
+                .fill(.quaternary)
+                .aspectRatio(2.0 / 3.0, contentMode: .fit)
+                .overlay {
+                    if let url = item.posterURLParsed {
+                        AsyncImage(url: url) { img in
+                            img.resizable().scaledToFill()
+                        } placeholder: { Color.clear }
+                    } else {
+                        Text(item.title)
+                            .font(.caption).fontWeight(.semibold)
+                            .multilineTextAlignment(.center)
+                            .padding(6).foregroundStyle(.secondary)
+                    }
                 }
-            }
-            .aspectRatio(2.0/3.0, contentMode: .fit)
-            .overlay(alignment: .bottomLeading) {
-                if let r = item.imdbRatingDisplay {
-                    Label(r, systemImage: "star.fill")
-                        .font(.caption2).padding(4)
-                        .background(.ultraThinMaterial, in: Capsule())
-                        .padding(6)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+                .overlay(alignment: .bottomLeading) {
+                    if let r = item.imdbRatingDisplay {
+                        Label(r, systemImage: "star.fill")
+                            .font(.caption2).padding(4)
+                            .background(.ultraThinMaterial, in: Capsule())
+                            .padding(6)
+                    }
                 }
-            }
-            .shadow(radius: hovering ? 8 : 2, y: hovering ? 4 : 1)
-            .scaleEffect(hovering ? 1.03 : 1.0)
+                .shadow(radius: hovering ? 8 : 2, y: hovering ? 4 : 1)
+                .scaleEffect(hovering ? 1.03 : 1.0)
 
             Text(item.title).font(.caption).fontWeight(.medium).lineLimit(1)
             if let y = item.year {

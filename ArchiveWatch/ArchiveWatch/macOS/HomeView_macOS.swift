@@ -43,11 +43,6 @@ struct HeroBanner: View {
 
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            if let url = item.backdropURLParsed ?? item.posterURLParsed {
-                AsyncImage(url: url) { img in
-                    img.resizable().aspectRatio(contentMode: .fill)
-                } placeholder: { Color.black.opacity(0.2) }
-            }
             LinearGradient(colors: [.clear, .black.opacity(0.75)],
                            startPoint: .center, endPoint: .bottom)
             VStack(alignment: .leading, spacing: 8) {
@@ -66,7 +61,17 @@ struct HeroBanner: View {
             }
             .padding(24).foregroundStyle(.white)
         }
+        .frame(maxWidth: .infinity)
         .frame(height: 320)
+        // Backdrop as .background so the fill-mode image can't drive layout
+        // (same fill-image trap as the poster cards).
+        .background {
+            if let url = item.backdropURLParsed ?? item.posterURLParsed {
+                AsyncImage(url: url) { img in
+                    img.resizable().scaledToFill()
+                } placeholder: { Color.black.opacity(0.2) }
+            }
+        }
         .clipShape(RoundedRectangle(cornerRadius: 14))
     }
 }
