@@ -37,6 +37,13 @@ struct ArchiveWatchMacApp: App {
                     guard phase == .active, account.isSignedIn else { return }
                     Task { await CloudKitSyncService.shared.sync(modelContainer.mainContext) }
                 }
+                // Deep links (archivewatch://item/{id} · /surprise · /random) and
+                // Universal Links (https://archivewatch.org/item/{id}) — the share URLs
+                // every platform emits. Routes into the detail column.
+                .onOpenURL { route($0) }
+                .onContinueUserActivity(NSUserActivityTypeBrowsingWeb) { activity in
+                    if let url = activity.webpageURL { route(url) }
+                }
         }
         .modelContainer(modelContainer)
         .commands {
@@ -52,6 +59,24 @@ struct ArchiveWatchMacApp: App {
                 .environment(store)
                 .environment(account)
         }
+    }
+
+    /// Route a deep link / universal link into the detail column. Handles item links
+    /// (open Detail) and surprise/random (open a random playable Detail) — the same
+    /// scope iOS's onOpenURL covers.
+    private func route(_ url: URL) {
+        let parts = url.pathComponents.filter { $0 != "/" }
+        let host = url.host
+        if host == "surprise" || host == "random"
+            || parts.contains("surprise") || parts.contains("random") {
+            if let item = store.randomPlayable() { router.openDetail(item) }
+            return
+        }
+        // archivewatch://item/{id}  or  https://archivewatch.org/item/{id}
+        var id: String?
+        if let i = parts.firstIndex(of: "item"), i + 1 < parts.count { id = parts[i + 1] }
+        else if host == "item", let first = parts.first { id = first }
+        if let id, let item = store.item(id) { router.openDetail(item) }
     }
 
     private static func makeModelContainer() -> ModelContainer {

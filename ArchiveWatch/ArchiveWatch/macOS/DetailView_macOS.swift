@@ -1,13 +1,21 @@
 #if os(macOS)
 import SwiftUI
+import SwiftData
 
-// Detail: poster + metadata + play, synopsis, cast (tappable → person), More Like This,
-// community reviews. The "Open in Creation Studio" affordance lands here in a later phase.
+// Detail: poster + metadata + play, favorite, share, add-to-playlist, synopsis, cast
+// (tappable → person), More Like This, community reviews. The "Open in Creation Studio"
+// affordance lands here in a later phase.
 
 struct DetailView: View {
     let item: Catalog.Item
     @Environment(AppStore.self) private var store
     @Environment(AppRouter.self) private var router
+    @Environment(\.modelContext) private var ctx
+    @Query private var favorites: [Favorite]
+    @State private var showPlaylistSheet = false
+
+    private var isFav: Bool { favorites.contains { $0.archiveID == item.archiveID } }
+    private var shareURL: URL { URL(string: "https://archivewatch.org/item/\(item.archiveID)")! }
 
     var body: some View {
         ScrollView {
@@ -33,6 +41,21 @@ struct DetailView: View {
             .padding(28)
         }
         .navigationTitle(item.title)
+        .sheet(isPresented: $showPlaylistSheet) {
+            AddToPlaylistSheet(archiveID: item.archiveID)
+        }
+    }
+
+    private func toggleFavorite() {
+        if let f = favorites.first(where: { $0.archiveID == item.archiveID }) {
+            ctx.delete(f)
+            // Tombstone so the removal propagates on CloudKit pull (documented "fav:<id>"
+            // keying; the app's foreground/sign-in sync triggers push it).
+            ctx.insert(Tombstone(key: "fav:\(item.archiveID)"))
+        } else {
+            ctx.insert(Favorite(archiveID: item.archiveID))
+        }
+        try? ctx.save()
     }
 
     private var header: some View {
@@ -61,12 +84,24 @@ struct DetailView: View {
                     Text(item.genres.prefix(4).joined(separator: " · "))
                         .font(.callout).foregroundStyle(.secondary)
                 }
-                HStack {
+                HStack(spacing: 10) {
                     if item.videoURLParsed != nil {
                         Button { router.play(item) } label: {
                             Label("Play", systemImage: "play.fill")
                         }.buttonStyle(.borderedProminent).controlSize(.large)
                     }
+                    Button { toggleFavorite() } label: {
+                        Label(isFav ? "Favorited" : "Favorite",
+                              systemImage: isFav ? "heart.fill" : "heart")
+                    }
+                    .controlSize(.large)
+                    .help(isFav ? "Remove from Favorites" : "Add to Favorites")
+                    Button { showPlaylistSheet = true } label: {
+                        Label("Add to Playlist", systemImage: "text.badge.plus")
+                    }
+                    .controlSize(.large)
+                    ShareLink(item: shareURL) { Label("Share", systemImage: "square.and.arrow.up") }
+                        .controlSize(.large)
                     Link(destination: URL(string: item.sourceDetailsURL)!) {
                         Label("archive.org", systemImage: "link")
                     }

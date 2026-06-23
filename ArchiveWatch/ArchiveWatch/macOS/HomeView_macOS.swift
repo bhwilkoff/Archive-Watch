@@ -1,11 +1,13 @@
 #if os(macOS)
 import SwiftUI
+import SwiftData
 
 // Home = curated shelves over the shared CatalogDB queries (same shelves the other
 // platforms show). Re-queries when the full DB swaps in (store.dbVersion).
 
 struct HomeView: View {
     @Environment(AppStore.self) private var store
+    @Query private var progress: [WatchProgress]
     @State private var topRated: [Catalog.Item] = []
     @State private var gems: [Catalog.Item] = []
     @State private var watching: [Catalog.Item] = []
@@ -26,14 +28,19 @@ struct HomeView: View {
         }
         .navigationTitle("Home")
         .task(id: store.dbVersion) { reload() }
+        .onChange(of: store.hideWatchedOnHome) { reload() }
     }
 
     private func reload() {
-        topRated  = store.topRated()
-        gems      = store.hiddenGems()
-        watching  = store.watchingNow()
-        discussed = store.mostDiscussed()
-        favorites = store.communityFavorites()
+        // Feed the store's completed set so hideWatchedOnHome actually filters the
+        // shelves (the Settings toggle was a no-op until this was wired — parity
+        // with HomeView_iOS).
+        store.completedArchiveIDs = Set(progress.filter(\.isComplete).map(\.archiveID))
+        topRated  = store.filteringWatched(store.topRated())
+        gems      = store.filteringWatched(store.hiddenGems())
+        watching  = store.filteringWatched(store.watchingNow())
+        discussed = store.filteringWatched(store.mostDiscussed())
+        favorites = store.filteringWatched(store.communityFavorites())
     }
 }
 
