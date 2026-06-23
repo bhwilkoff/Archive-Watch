@@ -307,8 +307,22 @@ cache-then-export (credit optional).
   for the selected overlay (text, position preset, color, size, shadow, start/length,
   delete). Preview rebuilds live (Rule 3b). Overlays ride into the export unchanged.
 
-**Next:** Unit 6 — audio import + mix (#4: N audio tracks + `AVMutableAudioMixInputParameters`
-volume ramps), then Unit 7 — multi-format / quality export incl. ProRes (#5).
+**Unit 6 — audio mix (#4): SHIPPED 2026-06-23.**
+- Model: per-clip `TimelineClip.audioVolume` (0…1.5, tolerant decode — pre-#4 clips → 1.0).
+- Engine (`CompositionBuilder`): builds an `AVMutableAudioMix` — `AVMutableAudioMixInputParameters`
+  on the shared audio track with `setVolume(_:at:)` stepped at each clip boundary, so each
+  clip's segment plays at its own level (Rule 3c; per-clip volume needs one track + steps,
+  not N tracks). Returned in `BuiltComposition.audioMix` and applied to BOTH the preview
+  (`item.audioMix`) and the export (`session.audioMix`) — preview == export.
+- UI: a "Clip" inspector section (when a clip is selected) with a speaker icon + volume
+  slider + percent. Live preview reflects the change.
+- *Deferred to the NSDocument/bookmark unit:* importing an external music bed + voiceover
+  record — both need persistent file access (security-scoped bookmarks / copy-into-package),
+  which is the budgeted `NSDocument` migration. Per-clip mix lands now without it.
+
+**Next:** Unit 7 — multi-format / quality export incl. ProRes (#5): an export-settings sheet
+(preset/resolution/aspect) over the existing `ExportService`. (The two-pass grade→overlay
+split, Rule 3d, still waits on color grades, a later feature.)
 
 ---
 

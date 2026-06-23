@@ -88,16 +88,33 @@ struct TimelineClip: Codable, Identifiable, Hashable, Sendable {
     var timelineStart: TimeStamp       // position on the timeline
     var track: Int                     // video: 0 = main A, 1 = overlay B (A/B scheme, Rule 3c)
     var label: String
+    var audioVolume: Double            // this clip's audio level in the mix, 0…1.5 (#4)
 
     /// Duration on the timeline equals the source window's duration (no speed change in
     /// Phase 1 — speed ramps are a later layer on the same spine).
     var timelineRange: TimeRange { TimeRange(start: timelineStart, duration: sourceRange.duration) }
 
     init(id: UUID = UUID(), proxyClipID: UUID? = nil, catalogItemID: String, sourceURL: URL,
-         sourceRange: TimeRange, timelineStart: TimeStamp, track: Int = 0, label: String) {
+         sourceRange: TimeRange, timelineStart: TimeStamp, track: Int = 0, label: String,
+         audioVolume: Double = 1.0) {
         self.id = id; self.proxyClipID = proxyClipID; self.catalogItemID = catalogItemID
         self.sourceURL = sourceURL; self.sourceRange = sourceRange
         self.timelineStart = timelineStart; self.track = track; self.label = label
+        self.audioVolume = audioVolume
+    }
+
+    // Tolerant decode: pre-#4 clips default to full volume (additive-schema discipline).
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        id = try c.decode(UUID.self, forKey: .id)
+        proxyClipID = try c.decodeIfPresent(UUID.self, forKey: .proxyClipID)
+        catalogItemID = try c.decode(String.self, forKey: .catalogItemID)
+        sourceURL = try c.decode(URL.self, forKey: .sourceURL)
+        sourceRange = try c.decode(TimeRange.self, forKey: .sourceRange)
+        timelineStart = try c.decode(TimeStamp.self, forKey: .timelineStart)
+        track = try c.decode(Int.self, forKey: .track)
+        label = try c.decode(String.self, forKey: .label)
+        audioVolume = try c.decodeIfPresent(Double.self, forKey: .audioVolume) ?? 1.0
     }
 
     static func from(_ proxy: ProxyClip, at start: TimeStamp, track: Int = 0) -> TimelineClip {

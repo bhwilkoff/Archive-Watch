@@ -252,6 +252,22 @@ private struct ProjectInspector: View {
                         get: { model.textOverlays.first(where: { $0.id == id }) ?? ov },
                         set: { model.updateOverlay($0) }),
                     onDelete: { model.deleteOverlay(id) })
+            } else if let clip = model.selectedClip {
+                // When a clip is selected, edit its audio level (#4).
+                Section("Clip") {
+                    Text(clip.label).font(.subheadline).lineLimit(2)
+                    LabeledContent("Audio") {
+                        HStack {
+                            Image(systemName: clip.audioVolume == 0 ? "speaker.slash" : "speaker.wave.2")
+                                .foregroundStyle(.secondary)
+                            Slider(value: Binding(get: { clip.audioVolume },
+                                                  set: { model.setClipVolume(clip.id, $0) }),
+                                   in: 0...1.5)
+                            Text("\(Int(clip.audioVolume * 100))%").font(.caption.monospacedDigit())
+                                .foregroundStyle(.secondary).frame(width: 42, alignment: .trailing)
+                        }
+                    }
+                }
             }
             Section("Project") {
                 LabeledContent("Clips", value: "\(project.timeline.clips.count)")

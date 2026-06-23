@@ -62,6 +62,15 @@ final class EditorModel {
         scheduleRebuild()
     }
 
+    var selectedClip: TimelineClip? { clips.first { $0.id == selectedClipID } }
+
+    /// Set a clip's audio volume in the mix (#4).
+    func setClipVolume(_ id: UUID, _ vol: Double) {
+        guard let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
+        document.project.timeline.clips[i].audioVolume = max(0, min(1.5, vol))
+        scheduleRebuild()
+    }
+
     /// Add a clip from a saved proxy (dragged from the Library, or just-marked).
     func addClip(from proxy: ProxyClip) {
         let clip = TimelineClip.from(proxy, at: .zero)

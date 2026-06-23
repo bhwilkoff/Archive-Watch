@@ -32,10 +32,13 @@ enum CreationStudioSelfTest {
         while store.randomPlayable() == nil && tries < 60 {
             try? await Task.sleep(for: .seconds(1)); tries += 1
         }
-        guard let a = store.randomPlayable(), let aURL = a.videoURLParsed else {
+        // Prefer commercials — short AND they always have audio (so the #4 mute test is
+        // meaningful; the catalog is otherwise heavy on silent-era films).
+        guard let a = store.randomPlayable(contentType: "commercial") ?? store.randomPlayable(),
+              let aURL = a.videoURLParsed else {
             log("FAIL — no playable catalog item after \(tries)s"); return
         }
-        let b = store.randomPlayable() ?? a
+        let b = store.randomPlayable(contentType: "commercial") ?? store.randomPlayable() ?? a
         let bURL = b.videoURLParsed ?? aURL
 
         // A 2-clip cross-title timeline: an 8s window from each title, back to back.
@@ -43,10 +46,11 @@ enum CreationStudioSelfTest {
         timeline.clips = [
             TimelineClip(catalogItemID: a.archiveID, sourceURL: aURL,
                          sourceRange: TimeRange(startSeconds: 3, durationSeconds: 8),
-                         timelineStart: .zero, track: 0, label: a.title),
+                         timelineStart: .zero, track: 0, label: a.title, audioVolume: 1.0),
+            // #4: clip B is MUTED — the [8,16s] half of the export should be silent.
             TimelineClip(catalogItemID: b.archiveID, sourceURL: bURL,
                          sourceRange: TimeRange(startSeconds: 3, durationSeconds: 8),
-                         timelineStart: TimeStamp(seconds: 8), track: 0, label: b.title),
+                         timelineStart: TimeStamp(seconds: 8), track: 0, label: b.title, audioVolume: 0.0),
         ]
         // Phase 2 #3: a timed text overlay (yellow, centered, t=2–9s).
         timeline.textOverlays = [

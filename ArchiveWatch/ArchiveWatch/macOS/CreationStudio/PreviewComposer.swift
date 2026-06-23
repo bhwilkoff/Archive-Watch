@@ -26,12 +26,14 @@ enum PreviewComposer {
         for clip in ordered {
             let (asset, loader) = ResilientStreamLoader.makeAsset(for: clip.sourceURL)
             if let loader { loaders.append(loader) }
-            resolved.append(.init(asset: asset, insertRange: clip.sourceRange.cmRange))
+            resolved.append(.init(asset: asset, insertRange: clip.sourceRange.cmRange,
+                                  audioVolume: clip.audioVolume))
         }
         let built = try await CompositionBuilder.build(
             resolved: resolved, timeline: timeline, creditLine: creditLine)
         let item = AVPlayerItem(asset: built.composition)
         item.videoComposition = built.videoComposition
+        item.audioMix = built.audioMix
         item.preferredForwardBufferDuration = 5   // editing scrub, not long playback
         return Preview(playerItem: item, loaders: loaders, duration: built.duration)
     }

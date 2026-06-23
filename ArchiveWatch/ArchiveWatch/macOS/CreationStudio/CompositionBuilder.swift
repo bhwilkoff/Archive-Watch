@@ -20,6 +20,7 @@ import AppKit
 struct BuiltComposition {
     let composition: AVMutableComposition
     let videoComposition: AVVideoComposition
+    let audioMix: AVAudioMix?
     let duration: CMTime
 }
 
@@ -31,6 +32,7 @@ enum CompositionBuilder {
     struct ResolvedClip {
         let asset: AVURLAsset
         let insertRange: CMTimeRange
+        var audioVolume: Double = 1.0
     }
 
     /// Compile resolved clips (in timeline order) into the (composition, videoComposition)
@@ -48,6 +50,7 @@ enum CompositionBuilder {
         let renderSize = timeline.renderSize.cgSize
 
         var instructions: [AVVideoCompositionInstruction] = []
+        var volumePoints: [(CMTime, Float)] = []      // per-clip audio level (#4)
         var cursor = CMTime.zero
 
         for r in resolved {
@@ -59,6 +62,7 @@ enum CompositionBuilder {
             try vTrack.insertTimeRange(insertRange, of: srcV, at: cursor)
             if let aTrack, let srcA = try await asset.loadTracks(withMediaType: .audio).first {
                 try? aTrack.insertTimeRange(insertRange, of: srcA, at: cursor)
+                volumePoints.append((cursor, Float(max(0, r.audioVolume))))   // volume from this clip's start
             }
 
             // Per-clip aspect-fit transform (orient → fit into the render canvas, letterboxed).
@@ -106,8 +110,22 @@ enum CompositionBuilder {
             cfg.animationTool = AVVideoCompositionCoreAnimationTool(configuration: toolCfg)
         }
 
+        // Audio mix — each clip's segment plays at its own volume (#4). Step the volume at
+        // every clip boundary on the shared audio track (Rule 3c: N-track mixing with
+        // AVMutableAudioMixInputParameters; per-clip volume needs only one track + steps).
+        var audioMix: AVAudioMix?
+        if let aTrack = comp.tracks(withMediaType: .audio).first,
+           volumePoints.contains(where: { $0.1 != 1 }) {
+            let params = AVMutableAudioMixInputParameters(track: aTrack)
+            for (t, v) in volumePoints { params.setVolume(v, at: t) }
+            let mix = AVMutableAudioMix()
+            mix.inputParameters = [params]
+            audioMix = mix
+        }
+
         return BuiltComposition(composition: comp,
                                 videoComposition: AVVideoComposition(configuration: cfg),
+                                audioMix: audioMix,
                                 duration: cursor)
     }
 

@@ -48,7 +48,8 @@ final class ExportService {
                 guard let url = cached[clip.id] else { continue }
                 let asset = AVURLAsset(url: url)
                 let dur = try await asset.load(.duration)               // the cached file IS the window
-                resolved.append(.init(asset: asset, insertRange: CMTimeRange(start: .zero, duration: dur)))
+                resolved.append(.init(asset: asset, insertRange: CMTimeRange(start: .zero, duration: dur),
+                                      audioVolume: clip.audioVolume))
             }
             let built = try await CompositionBuilder.build(
                 resolved: resolved, timeline: project.timeline, creditLine: creditLine)
@@ -60,6 +61,7 @@ final class ExportService {
                 throw CreationStudioError.cannotCreateExportSession
             }
             session.videoComposition = built.videoComposition
+            session.audioMix = built.audioMix
             // Embed the archive.org source(s) only when attribution is on — a clean
             // export leaves no trace (owner decision: attribution is optional).
             if creditLine != nil {
