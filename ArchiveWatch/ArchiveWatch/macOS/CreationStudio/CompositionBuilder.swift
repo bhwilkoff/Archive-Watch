@@ -38,8 +38,15 @@ enum CompositionBuilder {
     /// Compile resolved clips (in timeline order) into the (composition, videoComposition)
     /// pair. `creditLine == nil` means a clean export — no burned attribution (owner
     /// decision: attribution is optional). Shared by preview + export.
+    ///
+    /// `bakeOverlays` burns the timed text + provenance credit via the Core Animation tool.
+    /// EXPORT passes true; PREVIEW passes FALSE — AVVideoCompositionCoreAnimationTool is
+    /// offline-render-only and AVPlayerItem.setVideoComposition rejects it (a hard crash:
+    /// "AVVideoCompositionCoreAnimationTool is for offline rendering only"). The clip splices,
+    /// reframe transforms, and audio mix are identical either way, so the preview frame still
+    /// matches the export; the editor draws overlays live over the program monitor instead.
     static func build(resolved: [ResolvedClip], timeline: Timeline,
-                      creditLine: String?) async throws -> BuiltComposition {
+                      creditLine: String?, bakeOverlays: Bool = true) async throws -> BuiltComposition {
         let comp = AVMutableComposition()
         guard let vTrack = comp.addMutableTrack(withMediaType: .video,
                                                 preferredTrackID: kCMPersistentTrackID_Invalid) else {
@@ -97,7 +104,7 @@ enum CompositionBuilder {
         // pass: no CI grade yet, so the two-pass grade→overlay split, Rule 3d, isn't needed
         // until color grades arrive.)
         let totalDuration = cursor.seconds
-        if creditLine != nil || !timeline.textOverlays.isEmpty {
+        if bakeOverlays, creditLine != nil || !timeline.textOverlays.isEmpty {
             let parent = CALayer(); parent.frame = CGRect(origin: .zero, size: renderSize)
             let videoLayer = CALayer(); videoLayer.frame = parent.frame
             parent.addSublayer(videoLayer)

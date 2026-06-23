@@ -29,8 +29,11 @@ enum PreviewComposer {
             resolved.append(.init(asset: asset, insertRange: clip.sourceRange.cmRange,
                                   audioVolume: clip.audioVolume))
         }
+        // bakeOverlays: false — the Core Animation overlay tool is offline-render-only and
+        // crashes AVPlayerItem.setVideoComposition. The clip/reframe/audio recipe is identical
+        // to export; text + credit are drawn live over the program monitor instead.
         let built = try await CompositionBuilder.build(
-            resolved: resolved, timeline: timeline, creditLine: creditLine)
+            resolved: resolved, timeline: timeline, creditLine: creditLine, bakeOverlays: false)
         let item = AVPlayerItem(asset: built.composition)
         item.videoComposition = built.videoComposition
         item.audioMix = built.audioMix
