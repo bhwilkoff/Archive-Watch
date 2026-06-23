@@ -183,5 +183,38 @@ From `creation-studio-nle-ux-teardown.md`:
 
 ---
 
+## 10. Phase 1 progress log
+
+**Unit 1 — foundation + spike #1 (the `NSDocument`/package seam): SHIPPED 2026-06-23.**
+- Data model (`macOS/CreationStudio/CreationModels.swift`): `ProxyClip` / `TimelineClip` /
+  `Timeline` / `ClipProject`, OTIO-shaped Codable (Rule 4a), **CMTime-exact** times
+  (`TimeStamp`=value/timescale, `TimeRange`=start+duration) so frame-accurate boundaries
+  survive round-trips and don't cap Phase 3 shot-level / Phase 4 word-level granularity.
+- Proxy-clip **Library** (`LibraryClip.swift`): app-global SwiftData `@Model` (Rule
+  "Library ≠ Project"), references only, with a `ProxyClip` bridge. Added to the macOS
+  ModelContainer schema. (CloudKit annotation-layer sync = a Phase-1.x follow-up.)
+- `.archiveproj` **document** (`ClipProjectDocument.swift`): a `ReferenceFileDocument`
+  over a directory **package** FileWrapper (Rule 2b — `timeline.json` + room for
+  `caches/`/`imports/`), exported UTType `org.archivewatch.project` (Info-macOS.plist).
+- **Editor scene** (`EditorScene_macOS.swift`): a `DocumentGroup` adding a
+  `NavigationSplitView` editor (library sidebar + program-monitor/timeline detail +
+  `.inspector`) alongside the WindowGroup Library face.
+- **Spike #1 result: PASS.** Validated on-device end-to-end — New Project → editor renders
+  → Save writes a `.archiveproj` package (a directory containing decodable, diffable
+  pretty/sorted-keys `timeline.json`) → reopen decodes it back into the editor.
+- **Gotcha logged:** with a WindowGroup (first scene) + a DocumentGroup, SwiftUI binds ⌘N
+  to the WindowGroup (a new Library window, not a project). Fix: `CommandGroup(replacing:
+  .newItem)` → "New Project" via `NSDocumentController.shared.newDocument(nil)`.
+- **Known limitation (the budgeted NSDocument migration):** `ReferenceFileDocument`
+  exposes no document file URL and saves on the main thread — fine for the timeline JSON,
+  but Unit 2/3 (resolving relative cache paths + security-scoped bookmarks to the archive
+  cache) needs the `NSDocument` + `NSHostingController` backbone. Migrate the document
+  backbone when the engine first needs the document URL — not before.
+
+**Next:** Unit 2 — the composition engine + cache-then-export (spike #3), Configuration-
+based AVFoundation per Rule 3e (confirm macOS 26 SDK symbols with `swift-api-digester` first).
+
+---
+
 *Amend, don't contradict. New views/features quote the rule they satisfy or the amendment
 they propose.*

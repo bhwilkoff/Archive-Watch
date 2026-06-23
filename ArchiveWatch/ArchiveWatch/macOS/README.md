@@ -84,9 +84,15 @@ woven commercials, create/right-click-delete user channels), and the discovery
 modes via Surprise: Cartoon Mode (character + theme shelves + marathon, shared
 `KidsContent`), Party Play (muted color eye-candy lineup), and Screensaver (a wall
 of professional poster art).
-**Not yet** (later phases per `docs/macOS-DESIGN.md`): the Creation Studio
-`DocumentGroup` editor, the proxy-clip library, the stock/subtitle indices. The
-sidebar + single split-view is intentionally Mac-native, not the iOS tab bar.
+The sidebar + single split-view is intentionally Mac-native, not the iOS tab bar.
+
+**Creation Studio (Phase 1, in progress — `macOS/CreationStudio/`, see
+`docs/macOS-DESIGN.md` §10):** the `.archiveproj` `DocumentGroup` editor scaffold +
+the OTIO-shaped Codable timeline model + the SwiftData proxy-clip Library are in
+(Unit 1 — the document/package seam is validated end-to-end). **Not yet:** the
+composition + cache-then-export engine (Unit 2), the AppKit `NSView`+`CALayer`
+timeline (Unit 3), browser→library→timeline wire-up (Unit 4), then Phases 2–5
+(layers, stock index, supercut, publishing).
 
 ## Known refinements (cheap follow-ups)
 

@@ -53,5 +53,46 @@
 	<array>
 		<string>com.bhwilkoff.archivewatch.viewing</string>
 	</array>
+	<!-- Creation Studio `.archiveproj` document type (docs/macOS-DESIGN.md §2). An
+	     exported PACKAGE type (a directory bundle, Rule 2b) holding the timeline JSON +
+	     project-local imports — never archive.org bytes. Must match
+	     UTType(exportedAs: "org.archivewatch.project"). -->
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeIdentifier</key>
+			<string>org.archivewatch.project</string>
+			<key>UTTypeDescription</key>
+			<string>Archive Watch Project</string>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>com.apple.package</string>
+			</array>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>archiveproj</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>Archive Watch Project</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSTypeIsPackage</key>
+			<true/>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>org.archivewatch.project</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

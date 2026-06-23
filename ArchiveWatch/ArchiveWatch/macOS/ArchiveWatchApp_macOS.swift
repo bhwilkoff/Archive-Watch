@@ -1,6 +1,7 @@
 #if os(macOS)
 import SwiftUI
 import SwiftData
+import AppKit
 
 // Phase 0 macOS shell — parity face on the shared Swift Core (CatalogDB, AppStore,
 // ResilientStreamLoader, CloudKitSyncService). The Creation Studio DocumentGroup
@@ -48,11 +49,28 @@ struct ArchiveWatchMacApp: App {
         .modelContainer(modelContainer)
         .commands {
             SidebarCommands()
+            // With a WindowGroup (first) + a DocumentGroup, SwiftUI binds ⌘N to the
+            // WindowGroup (a new Library window). Re-point New at a new Creation Studio
+            // PROJECT — NSDocumentController routes to the DocumentGroup's document type.
+            CommandGroup(replacing: .newItem) {
+                Button("New Project") { NSDocumentController.shared.newDocument(nil) }
+                    .keyboardShortcut("n", modifiers: .command)
+            }
             CommandGroup(after: .newItem) {
                 Button("Surprise Me") { router.surprise(store) }
                     .keyboardShortcut("r", modifiers: [.command, .shift])
             }
         }
+
+        // Creation Studio editor (docs/macOS-DESIGN.md §2). A DocumentGroup bound to the
+        // `.archiveproj` package — the FCP "project timeline" face, distinct from the
+        // WindowGroup Library face above. File ▸ New (⌘N) creates a project. The proxy-clip
+        // LIBRARY is the shared SwiftData store (Rule "Library ≠ Project").
+        DocumentGroup(newDocument: { ClipProjectDocument() }) { configuration in
+            ProjectEditorView(document: configuration.document)
+                .environment(store)
+        }
+        .modelContainer(modelContainer)
 
         Settings {
             SettingsView()
@@ -81,7 +99,8 @@ struct ArchiveWatchMacApp: App {
 
     private static func makeModelContainer() -> ModelContainer {
         let schema = Schema([WatchProgress.self, Favorite.self, Playlist.self,
-                             UserChannel.self, Tombstone.self, VideoClip.self])
+                             UserChannel.self, Tombstone.self, VideoClip.self,
+                             LibraryClip.self])
         let config = ModelConfiguration(schema: schema, cloudKitDatabase: .none)
         if let c = try? ModelContainer(for: schema, configurations: config) { return c }
         let mem = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
