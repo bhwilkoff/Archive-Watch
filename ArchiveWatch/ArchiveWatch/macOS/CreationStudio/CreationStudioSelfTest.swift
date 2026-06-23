@@ -86,6 +86,14 @@ enum CreationStudioSelfTest {
                 log("ENDED[\(variant)] in unexpected phase")
             }
         }
+
+        // #5: a ProRes .mov export (reuses the warm cache) to confirm the format path.
+        let proURL = ProjectMediaCache.directory.appendingPathComponent("selftest-prores.mov")
+        let proExporter = ExportService()
+        await proExporter.export(ClipProject(title: "SelfTest", timeline: timeline, burnAttribution: false),
+                                 to: proURL, format: .proRes422)
+        if case .done = proExporter.phase { log("DONE[prores] — \(proURL.lastPathComponent)") }
+        else if case .failed(let m) = proExporter.phase { log("FAIL[prores] — \(m)") }
     }
 }
 #endif

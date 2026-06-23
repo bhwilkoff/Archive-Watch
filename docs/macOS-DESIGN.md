@@ -320,9 +320,22 @@ cache-then-export (credit optional).
   record — both need persistent file access (security-scoped bookmarks / copy-into-package),
   which is the budgeted `NSDocument` migration. Per-clip mix lands now without it.
 
-**Next:** Unit 7 — multi-format / quality export incl. ProRes (#5): an export-settings sheet
-(preset/resolution/aspect) over the existing `ExportService`. (The two-pass grade→overlay
-split, Rule 3d, still waits on color grades, a later feature.)
+**Unit 7 — multi-format / quality export incl. ProRes (#5): SHIPPED 2026-06-23. PHASE 2 COMPLETE.**
+- `ExportFormat` (H.264·MP4 / ProRes 422·MOV / ProRes 4444·MOV) → preset + `AVFileType` +
+  extension. ProRes uses `AVAssetExportPresetAppleProRes422LPCM`/`…4444LPCM` (LPCM audio,
+  `.mov`); all honor the project render size via the videoComposition (not fixed-dimension
+  presets). `ExportService.export(_:to:format:)` threads it through.
+- UI: an "Export" settings sheet (radio format picker + blurb) → "Choose Destination…" save
+  panel with the format's content type.
+- Validated via the self-test: the ProRes `.mov` is genuine `prores` video (1920×1080, PCM
+  audio) at 235 MB vs the H.264 MP4 at 19.6 MB — the expected master-vs-share contrast.
+
+**Phase 2 (Layers) is done** — timed text overlays (#3), per-clip audio mix (#4), and
+multi-format/ProRes export (#5), all additive on the composition spine. **Next: Phase 3 —
+Stock archive (#6):** the CI shot-mining pipeline (PySceneDetect → Vision classify →
+MobileCLIP embeddings → `clips.sqlite`) + the Storyblocks-style shot browser, which slots
+into the existing `ClipBrowserSheet`. (The two-pass grade→overlay split, Rule 3d, still
+waits on color grades, a later feature.)
 
 ---
 

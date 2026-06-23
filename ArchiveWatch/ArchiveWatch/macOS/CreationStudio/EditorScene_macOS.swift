@@ -20,6 +20,7 @@ struct ProjectEditorView: View {
     @State private var inspectorShown = true
     @State private var exporter = ExportService()
     @State private var showBrowser = false
+    @State private var showExportSheet = false
 
     init(document: ClipProjectDocument) {
         self.document = document
@@ -88,7 +89,7 @@ struct ProjectEditorView: View {
                 Button { model.addTextOverlay() } label: {
                     Label("Add Text", systemImage: "textformat")
                 }.disabled(document.project.timeline.clips.isEmpty)
-                Button { export() } label: {
+                Button { showExportSheet = true } label: {
                     Label("Export", systemImage: "square.and.arrow.up")
                 }
                 .disabled(document.project.timeline.clips.isEmpty || exporter.isBusy)
@@ -102,6 +103,9 @@ struct ProjectEditorView: View {
         .sheet(isPresented: $showBrowser) {
             ClipBrowserSheet { proxy in addToLibraryAndTimeline(proxy) }
                 .environment(store)
+        }
+        .sheet(isPresented: $showExportSheet) {
+            ExportSettingsSheet { format in runExport(format) }
         }
     }
 
@@ -168,14 +172,45 @@ struct ProjectEditorView: View {
         }
     }
 
-    private func export() {
+    private func runExport(_ format: ExportFormat) {
         let panel = NSSavePanel()
-        panel.allowedContentTypes = [.mpeg4Movie]
-        panel.nameFieldStringValue = document.project.title.isEmpty ? "Archive Watch.mp4"
-            : "\(document.project.title).mp4"
+        panel.allowedContentTypes = [format == .h264 ? .mpeg4Movie : .quickTimeMovie]
+        let base = document.project.title.isEmpty ? "Archive Watch" : document.project.title
+        panel.nameFieldStringValue = "\(base).\(format.fileExtension)"
         guard panel.runModal() == .OK, let url = panel.url else { return }
         let project = document.project
-        Task { await exporter.export(project, to: url) }
+        Task { await exporter.export(project, to: url, format: format) }
+    }
+}
+
+// MARK: - Export settings (#5)
+
+private struct ExportSettingsSheet: View {
+    let onExport: (ExportFormat) -> Void
+    @Environment(\.dismiss) private var dismiss
+    @State private var format: ExportFormat = .h264
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Text("Export").font(.title2.bold()).padding([.top, .horizontal], 18)
+            Form {
+                Picker("Format", selection: $format) {
+                    ForEach(ExportFormat.allCases) { Text($0.rawValue).tag($0) }
+                }
+                .pickerStyle(.radioGroup)
+                Text(format.blurb).font(.caption).foregroundStyle(.secondary)
+            }
+            .formStyle(.grouped)
+            Divider()
+            HStack {
+                Spacer()
+                Button("Cancel") { dismiss() }
+                Button("Choose Destination…") { dismiss(); onExport(format) }
+                    .keyboardShortcut(.defaultAction)
+            }
+            .padding(14)
+        }
+        .frame(width: 420)
     }
 }
 

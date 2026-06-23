@@ -9,6 +9,33 @@ import Observation
 // reaches the exporter. Provenance credit is burned in (CompositionBuilder) and the
 // source archive.org pages embedded in metadata (Rule 5b / learning gate). Progress is
 // observable so the editor can show it; caching is the first 40%, the encode the rest.
+// Export formats (#5). H.264/MP4 shares everywhere; ProRes/MOV is the editing/archival
+// master. All honor the project's render size via the videoComposition (these presets are
+// not fixed-dimension, unlike AVAssetExportPreset1920x1080).
+enum ExportFormat: String, CaseIterable, Identifiable {
+    case h264 = "H.264 · MP4"
+    case proRes422 = "ProRes 422 · MOV"
+    case proRes4444 = "ProRes 4444 · MOV"
+    var id: String { rawValue }
+
+    var preset: String {
+        switch self {
+        case .h264:      AVAssetExportPresetHighestQuality
+        case .proRes422: AVAssetExportPresetAppleProRes422LPCM
+        case .proRes4444: AVAssetExportPresetAppleProRes4444LPCM
+        }
+    }
+    var fileType: AVFileType { self == .h264 ? .mp4 : .mov }
+    var fileExtension: String { self == .h264 ? "mp4" : "mov" }
+    var blurb: String {
+        switch self {
+        case .h264:       "Shareable everywhere — best for posting online."
+        case .proRes422:  "High-quality master for re-editing. Large file."
+        case .proRes4444: "Maximum quality (and alpha). Largest file."
+        }
+    }
+}
+
 @MainActor
 @Observable
 final class ExportService {
@@ -24,7 +51,7 @@ final class ExportService {
     /// can override this once the real browser supplies the item — Phase 1 ships PD-only.
     nonisolated static let defaultCredit = "archivewatch.org · Public Domain"
 
-    func export(_ project: ClipProject, to url: URL) async {
+    func export(_ project: ClipProject, to url: URL, format: ExportFormat = .h264) async {
         guard !project.timeline.clips.isEmpty else { phase = .failed("The timeline is empty."); return }
         phase = .caching; progress = 0; outputURL = nil
         // Attribution is optional (owner decision): burn the credit only when the project
@@ -57,7 +84,7 @@ final class ExportService {
             // 3) Export the local composition (reliable — nothing remote reaches the exporter).
             phase = .exporting
             guard let session = AVAssetExportSession(asset: built.composition,
-                                                     presetName: AVAssetExportPresetHighestQuality) else {
+                                                     presetName: format.preset) else {
                 throw CreationStudioError.cannotCreateExportSession
             }
             session.videoComposition = built.videoComposition
@@ -78,7 +105,7 @@ final class ExportService {
                 }
             }
             defer { progressTask.cancel() }
-            try await session.export(to: url, as: .mp4)
+            try await session.export(to: url, as: format.fileType)
 
             progress = 1
             outputURL = url
