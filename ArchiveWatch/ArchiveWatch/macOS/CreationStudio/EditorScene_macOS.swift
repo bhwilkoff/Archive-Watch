@@ -33,10 +33,14 @@ struct ProjectEditorView: View {
     }
 
     var body: some View {
-        NavigationSplitView {
+        // A fixed 3-pane editor — NOT NavigationSplitView/.inspector (whose columns stay
+        // user-draggable and let the window inflate). Fixed-width side panels + a flexible
+        // center, so the window resizes like a normal Mac window with the panels pinned.
+        HStack(spacing: 0) {
             LibrarySidebar()
-                .navigationSplitViewColumnWidth(240)        // fixed width — not user-resizable
-        } detail: {
+                .frame(width: 240)
+            Divider()
+
             VSplitView {
                 // Program monitor — the live preview (rebuild-and-swap composition, Rule 3b).
                 ZStack {
@@ -45,8 +49,7 @@ struct ProjectEditorView: View {
                         ContentUnavailableView("Empty Timeline", systemImage: "timeline.selection")
                             .foregroundStyle(.white.opacity(0.5))
                     } else {
-                        // controlsStyle .none — the transport bar below is the only transport.
-                        VideoPlayerNS(player: model.player, controlsStyle: .none)
+                        VideoPlayerNS(player: model.player, controlsStyle: .none)   // transport bar is the only transport
                     }
                     if model.isBuildingPreview {
                         VStack(spacing: 6) {
@@ -70,12 +73,16 @@ struct ProjectEditorView: View {
                         }
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .overlay(alignment: .bottom) { exportStatusBar }
+
+            if inspectorShown {
+                Divider()
+                ProjectInspector(project: project, model: model)
+                    .frame(width: 280)
+            }
         }
-        .inspector(isPresented: $inspectorShown) {
-            ProjectInspector(project: project, model: model)
-                .inspectorColumnWidth(280)                  // fixed width — not user-resizable
-        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .toolbar {
             ToolbarItem(placement: .principal) {
                 TextField("Project title", text: project.title)
@@ -192,23 +199,30 @@ struct ProjectEditorView: View {
 // (clipping the inspector). Runs once: caps an oversized window to fit, centered; never shrinks
 // a window the user has already sized down, and never fights manual resizes afterward.
 private struct WindowFitter: NSViewRepresentable {
-    func makeNSView(context: Context) -> NSView {
-        let v = NSView()
-        DispatchQueue.main.async { fit(v.window) }
-        return v
-    }
+    func makeNSView(context: Context) -> NSView { FitView() }
     func updateNSView(_ nsView: NSView, context: Context) {}
 
-    private func fit(_ window: NSWindow?) {
-        guard let window, let vis = (window.screen ?? NSScreen.main)?.visibleFrame else { return }
-        var f = window.frame
-        let maxW = min(1280, vis.width - 40), maxH = min(820, vis.height - 40)
-        guard f.width > maxW || f.height > maxH || !vis.contains(f) else { return }
-        f.size.width = min(f.width, maxW)
-        f.size.height = min(f.height, maxH)
-        f.origin.x = max(vis.minX + 20, min(f.origin.x, vis.maxX - f.width - 20))
-        f.origin.y = max(vis.minY + 20, min(f.origin.y, vis.maxY - f.height - 20))
-        window.setFrame(f, display: true)
+    final class FitView: NSView {
+        private var fitted = false
+        override func viewDidMoveToWindow() {
+            super.viewDidMoveToWindow()
+            guard !fitted, window != nil else { return }
+            fitted = true
+            // Run AFTER state restoration has set the window's frame, else we'd cap a
+            // not-yet-restored size and restoration would re-inflate it.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in self?.fit() }
+        }
+        private func fit() {
+            guard let window, let vis = (window.screen ?? NSScreen.main)?.visibleFrame else { return }
+            var f = window.frame
+            let maxW = min(1280, vis.width - 40), maxH = min(840, vis.height - 40)
+            if f.width <= maxW && f.height <= maxH && vis.contains(f) { return }
+            f.size.width = min(f.width, maxW)
+            f.size.height = min(f.height, maxH)
+            f.origin.x = max(vis.minX + 20, min(f.origin.x, vis.maxX - f.width - 20))
+            f.origin.y = max(vis.minY + 20, min(f.origin.y, vis.maxY - f.height - 20))
+            window.setFrame(f, display: true, animate: false)
+        }
     }
 }
 
