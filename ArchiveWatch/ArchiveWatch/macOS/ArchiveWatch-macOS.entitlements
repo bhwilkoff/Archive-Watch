@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- App Sandbox (required for macOS App Store) + outgoing network for archive.org/TMDb -->
+	<key>com.apple.security.app-sandbox</key>
+	<true/>
+	<key>com.apple.security.network.client</key>
+	<true/>
+	<!-- Creation Studio will export/import files; user-selected scope is the sandboxed path -->
+	<key>com.apple.security.files.user-selected.read-write</key>
+	<true/>
+	<!-- Same CloudKit container as tvOS/iOS → favorites/playlists/progress sync for free -->
+	<key>com.apple.developer.icloud-container-identifiers</key>
+	<array>
+		<string>iCloud.app.archivewatch.tvos</string>
+	</array>
+	<key>com.apple.developer.icloud-services</key>
+	<array>
+		<string>CloudKit</string>
+	</array>
+	<key>com.apple.developer.applesignin</key>
+	<array>
+		<string>Default</string>
+	</array>
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>group.app.archivewatch.tvos</string>
+	</array>
+	<key>com.apple.developer.associated-domains</key>
+	<array>
+		<string>applinks:archivewatch.org</string>
+		<string>webcredentials:archivewatch.org</string>
+	</array>
+</dict>
+</plist>

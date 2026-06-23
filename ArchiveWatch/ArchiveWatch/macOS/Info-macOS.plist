@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>org.archivewatch.deeplink</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>archivewatch</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>com.bhwilkoff.archivewatch.viewing</string>
+	</array>
+	<key>LSMinimumSystemVersion</key>
+	<string>15.0</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>© 2026 Ben Wilkoff. Video hosted by the Internet Archive.</string>
+</dict>
+</plist>
