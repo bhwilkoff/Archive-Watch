@@ -27,10 +27,15 @@ struct RootView: View {
                     .navigationDestination(for: CollectionRoute.self) {
                         GridView(title: $0.title, items: store.byCollection($0.id))
                     }
+                    .navigationDestination(for: SeriesRef.self) { SeriesDetailView(card: $0.card) }
             }
         }
         .sheet(item: $router.nowPlaying) { item in
             PlayerWindow(item: item)
+                .frame(minWidth: 720, minHeight: 460)
+        }
+        .sheet(item: $router.nowPlayingEpisode) { ctx in
+            EpisodePlayer(context: ctx)
                 .frame(minWidth: 720, minHeight: 460)
         }
         .overlay {

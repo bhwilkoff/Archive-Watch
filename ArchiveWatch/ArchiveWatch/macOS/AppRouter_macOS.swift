@@ -30,12 +30,21 @@ final class AppRouter {
 
     var section: Section = .home
     var path = NavigationPath()
-    var nowPlaying: Catalog.Item?          // drives the player window/sheet
+    var nowPlaying: Catalog.Item?          // drives the item player sheet
+    var nowPlayingEpisode: EpisodeContext? // drives the episode player sheet
 
-    func openDetail(_ item: Catalog.Item) { path.append(item) }
+    // A tv-series card drills into the season/episode list, not the movie Detail.
+    func openDetail(_ item: Catalog.Item) {
+        if item.contentType == "tv-series" { path.append(SeriesRef(card: item)) }
+        else { path.append(item) }
+    }
     func openPerson(_ name: String) { path.append(PersonRoute(name: name)) }
     func openCollection(_ id: String, _ title: String) { path.append(CollectionRoute(id: id, title: title)) }
     func play(_ item: Catalog.Item) { nowPlaying = item }
+    func playEpisode(_ episode: Episode, in series: Series?) {
+        guard let series else { return }
+        nowPlayingEpisode = EpisodeContext(series: series, episode: episode)
+    }
 
     func surprise(_ store: AppStore) {
         if let item = store.db?.randomPlayable() { play(item) }

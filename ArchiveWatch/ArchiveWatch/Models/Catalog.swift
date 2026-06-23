@@ -437,8 +437,9 @@ struct Episode: Decodable, Sendable, Hashable, Identifiable {
 // path so the destination has both the Episode and its parent Series.
 // That lets the player compute prev/next without a second fetch.
 
-struct EpisodeContext: Hashable, Sendable {
+struct EpisodeContext: Hashable, Sendable, Identifiable {
     let series: Series
     let episode: Episode
+    var id: String { episode.archiveID }
 }
 
