@@ -76,10 +76,10 @@ struct ArchiveWatchMacApp: App {
         DocumentGroup(newDocument: { MainActor.assumeIsolated { ClipProjectDocument() } }) { configuration in
             ProjectEditorView(document: configuration.document)
                 .environment(store)
-                .frame(minWidth: 900, minHeight: 600)
+                .frame(minWidth: 740, minHeight: 500)   // fixed sidebars (240+280) + a shrinkable center
         }
         .modelContainer(modelContainer)
-        .defaultSize(width: 1280, height: 800)
+        .defaultSize(width: 1200, height: 760)
 
         Settings {
             SettingsView()

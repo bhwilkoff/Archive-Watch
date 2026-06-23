@@ -60,7 +60,51 @@ struct RootView: View {
         case .surprise:    SurpriseView()
         case .search:      SearchView()
         case .library:     LibraryView()
+        case .create:      CreationStudioLanding()
         }
+    }
+}
+
+// Creation Studio is a Mac-exclusive DocumentGroup editor (Decision 042). This in-app landing
+// makes it reachable from the main window (not just File ▸ New): start a new project or reopen
+// a recent one — each opens its own editor window.
+private struct CreationStudioLanding: View {
+    @State private var recents: [URL] = []
+
+    var body: some View {
+        VStack(spacing: 18) {
+            Image(systemName: "movieclapper.fill")
+                .font(.system(size: 60)).foregroundStyle(.tint)
+            Text("Creation Studio").font(.largeTitle.bold())
+            Text("Cut public-domain films from the archive into clips, montages, and supercuts — then export to share. A Mac-only editor.")
+                .font(.title3).foregroundStyle(.secondary)
+                .multilineTextAlignment(.center).frame(maxWidth: 480)
+
+            Button { NSDocumentController.shared.newDocument(nil) } label: {
+                Label("New Project", systemImage: "plus").padding(.horizontal, 6)
+            }
+            .controlSize(.large).buttonStyle(.borderedProminent).keyboardShortcut("n")
+
+            if !recents.isEmpty {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Recent Projects").font(.headline).padding(.bottom, 2)
+                    ForEach(recents.prefix(8), id: \.self) { url in
+                        Button {
+                            NSDocumentController.shared.openDocument(withContentsOf: url, display: true) { _, _, _ in }
+                        } label: {
+                            Label(url.deletingPathExtension().lastPathComponent, systemImage: "doc.fill")
+                        }
+                        .buttonStyle(.link)
+                    }
+                }
+                .frame(maxWidth: 480, alignment: .leading)
+                .padding(.top, 8)
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(40)
+        .navigationTitle("Creation Studio")
+        .onAppear { recents = NSDocumentController.shared.recentDocumentURLs }
     }
 }
 #endif

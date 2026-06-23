@@ -35,7 +35,7 @@ struct ProjectEditorView: View {
     var body: some View {
         NavigationSplitView {
             LibrarySidebar()
-                .navigationSplitViewColumnWidth(min: 200, ideal: 240, max: 320)
+                .navigationSplitViewColumnWidth(240)        // fixed width — not user-resizable
         } detail: {
             VSplitView {
                 // Program monitor — the live preview (rebuild-and-swap composition, Rule 3b).
@@ -74,7 +74,7 @@ struct ProjectEditorView: View {
         }
         .inspector(isPresented: $inspectorShown) {
             ProjectInspector(project: project, model: model)
-                .inspectorColumnWidth(min: 220, ideal: 280, max: 360)
+                .inspectorColumnWidth(280)                  // fixed width — not user-resizable
         }
         .toolbar {
             ToolbarItem(placement: .principal) {
@@ -110,6 +110,7 @@ struct ProjectEditorView: View {
         .sheet(isPresented: $showExportSheet) {
             ExportSettingsSheet { format in runExport(format) }
         }
+        .background(WindowFitter())     // keep the window within the screen (DocumentGroup ignores .defaultSize)
     }
 
     /// A marked clip joins the proxy-clip Library (for reuse) and the timeline.
@@ -183,6 +184,31 @@ struct ProjectEditorView: View {
         guard panel.runModal() == .OK, let url = panel.url else { return }
         let project = document.project
         Task { await exporter.export(project, to: url, format: format) }
+    }
+}
+
+// Keeps the editor window within the visible screen and at a sensible opening size — the
+// DocumentGroup ignores .defaultSize, so a new window can open wider than a smaller display
+// (clipping the inspector). Runs once: caps an oversized window to fit, centered; never shrinks
+// a window the user has already sized down, and never fights manual resizes afterward.
+private struct WindowFitter: NSViewRepresentable {
+    func makeNSView(context: Context) -> NSView {
+        let v = NSView()
+        DispatchQueue.main.async { fit(v.window) }
+        return v
+    }
+    func updateNSView(_ nsView: NSView, context: Context) {}
+
+    private func fit(_ window: NSWindow?) {
+        guard let window, let vis = (window.screen ?? NSScreen.main)?.visibleFrame else { return }
+        var f = window.frame
+        let maxW = min(1280, vis.width - 40), maxH = min(820, vis.height - 40)
+        guard f.width > maxW || f.height > maxH || !vis.contains(f) else { return }
+        f.size.width = min(f.width, maxW)
+        f.size.height = min(f.height, maxH)
+        f.origin.x = max(vis.minX + 20, min(f.origin.x, vis.maxX - f.width - 20))
+        f.origin.y = max(vis.minY + 20, min(f.origin.y, vis.maxY - f.height - 20))
+        window.setFrame(f, display: true)
     }
 }
 
