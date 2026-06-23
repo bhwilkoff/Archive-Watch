@@ -53,8 +53,7 @@ struct ProjectEditorView: View {
                         // Live text overlays — the Core Animation tool is EXPORT-only, so render
                         // them here (timed to the playhead, placed in the 16:9 video frame) so the
                         // preview is WYSIWYG and "Add Text" is visible.
-                        TextOverlayPreview(overlays: model.textOverlays, playhead: model.playheadSeconds,
-                                           renderSize: model.project.timeline.renderSize)
+                        TextOverlayPreview(model: model, renderSize: model.project.timeline.renderSize)
                     }
                     if model.isBuildingPreview {
                         VStack(spacing: 6) {
@@ -235,30 +234,48 @@ private struct WindowFitter: NSViewRepresentable {
 // Core Animation tool, which can't run in live playback). Placed inside the 16:9 video frame so
 // position matches the export; shown only while the playhead is inside each overlay's range.
 private struct TextOverlayPreview: View {
-    let overlays: [TextOverlay]
-    let playhead: Double
+    let model: EditorModel
     let renderSize: RenderSize
 
     var body: some View {
         GeometryReader { geo in
             let rect = fitRect(aspect: renderSize.width / max(1, renderSize.height), in: geo.size)
             ForEach(active) { ov in
+                let selected = model.selectedOverlayID == ov.id
                 Text(ov.text)
                     .font(.system(size: max(8, rect.width * ov.fontScale), weight: .bold))
                     .foregroundStyle(Color(CompositionBuilder.cgColor(hex: ov.colorHex)))
                     .shadow(color: ov.hasBackground ? .black.opacity(0.85) : .clear,
                             radius: max(1, rect.width * ov.fontScale * 0.06), x: 0, y: 1)
                     .multilineTextAlignment(.center)
-                    .frame(maxWidth: rect.width * 0.9)
+                    .padding(4)
+                    .overlay {     // selection ring + drag affordance
+                        if selected {
+                            RoundedRectangle(cornerRadius: 4)
+                                .strokeBorder(Color.accentColor, style: StrokeStyle(lineWidth: 1, dash: [4, 3]))
+                        }
+                    }
+                    .frame(maxWidth: rect.width * 0.92)
                     .position(x: rect.minX + ov.positionX * rect.width,
                               y: rect.minY + ov.positionY * rect.height)
+                    .gesture(
+                        DragGesture(coordinateSpace: .local)
+                            .onChanged { value in
+                                guard rect.width > 1, rect.height > 1,
+                                      var o = model.textOverlays.first(where: { $0.id == ov.id }) else { return }
+                                model.selectedOverlayID = ov.id
+                                o.positionX = min(1, max(0, (value.location.x - rect.minX) / rect.width))
+                                o.positionY = min(1, max(0, (value.location.y - rect.minY) / rect.height))
+                                model.updateOverlay(o)
+                            }
+                    )
             }
         }
-        .allowsHitTesting(false)
     }
 
     private var active: [TextOverlay] {
-        overlays.filter { playhead >= $0.timelineRange.start.seconds && playhead <= $0.timelineRange.endSeconds }
+        let t = model.playheadSeconds
+        return model.textOverlays.filter { t >= $0.timelineRange.start.seconds && t <= $0.timelineRange.endSeconds }
     }
     private func fitRect(aspect: Double, in size: CGSize) -> CGRect {
         let a = max(0.1, aspect)

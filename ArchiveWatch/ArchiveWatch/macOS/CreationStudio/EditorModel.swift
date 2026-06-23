@@ -192,19 +192,19 @@ final class EditorModel {
         document.project.timeline.textOverlays.append(ov)
         selectedOverlayID = ov.id
         selectedClipID = nil
-        scheduleRebuild()
+        // No preview rebuild: overlays aren't baked into the preview composition (the Core
+        // Animation tool is export-only) — the live SwiftUI overlay shows them; export reads
+        // them at export time. Skipping the rebuild keeps text editing/dragging instant.
     }
 
     func updateOverlay(_ ov: TextOverlay) {
         guard let i = document.project.timeline.textOverlays.firstIndex(where: { $0.id == ov.id }) else { return }
         document.project.timeline.textOverlays[i] = ov
-        scheduleRebuild()
     }
 
     func deleteOverlay(_ id: UUID) {
         document.project.timeline.textOverlays.removeAll { $0.id == id }
         if selectedOverlayID == id { selectedOverlayID = nil }
-        scheduleRebuild()
     }
 
     /// Magnetic main track: clips lie end-to-end in ARRAY order, no gaps (Rule 7c). Array order
