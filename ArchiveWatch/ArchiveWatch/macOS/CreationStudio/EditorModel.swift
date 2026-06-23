@@ -62,6 +62,16 @@ final class EditorModel {
         scheduleRebuild()
     }
 
+    /// Add a clip from a saved proxy (dragged from the Library, or just-marked).
+    func addClip(from proxy: ProxyClip) {
+        let clip = TimelineClip.from(proxy, at: .zero)
+        document.project.timeline.clips.append(clip)
+        relayout()
+        selectedClipID = clip.id
+        generateThumbnails(for: clip)
+        scheduleRebuild()
+    }
+
     func deleteClip(_ id: UUID) {
         document.project.timeline.clips.removeAll { $0.id == id }
         thumbnails[id] = nil

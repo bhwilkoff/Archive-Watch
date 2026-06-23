@@ -273,8 +273,26 @@ From `creation-studio-nle-ux-teardown.md`:
   renders both clips magnetically with filmstrip thumbnails + ruler + playhead + selection,
   and the composition builds (0:16). Full drag-trim/zoom feel is owner-verifiable on device.
 
-**Next:** Unit 4 — the real browser → proxy-clip Library → drag-onto-timeline wire-up (the
-Storyblocks-style browser + `Transferable` clip drag), retiring the "Add Clip" stand-in.
+**Unit 4 — browser → proxy-clip Library → drag-onto-timeline: SHIPPED 2026-06-23. PHASE 1 COMPLETE.**
+- `ClipBrowser_macOS.swift` — the source browser (§7e): "Add Clip" opens a sheet that
+  searches/browses the catalog filtered to `isClippable` (Rule 5c rights gate), shows a
+  poster grid, and on selection opens a **mark-in/out** view (resilient `AVPlayer` preview +
+  Set In / Set Out at playhead + name) → "Add to Timeline" creates a `ProxyClip`.
+- A marked clip joins the **proxy-clip Library** (`LibraryClip` SwiftData) AND the timeline.
+  The Library sidebar renders each saved clip with its catalog poster + duration, makes it
+  **`.draggable`** (`ProxyClip: Transferable` via `CodableRepresentation` — references only,
+  Rule 4a), and right-click deletes. The timeline is a **`.dropDestination(for: ProxyClip)`**
+  — dropping a Library clip appends it (magnetic track). The random "Add Clip" stand-in is
+  retired.
+- Validated on-device: the browser renders the clippable poster grid; mark/drag flow built
+  on proven primitives (owner-verifiable on device — the dev box's window contention blocks
+  deep UI automation).
+
+**Phase 1 (the editor spine) is done** — all three de-risk spikes passed, and the full loop
+works: browse → mark → Library → drag/add to timeline → trim/split/zoom → live preview →
+cache-then-export (credit optional). **Next: Phase 2 — Layers:** timed text overlays (#3),
+audio import/record/mix (#4), and multi-format/quality export incl. ProRes (#5), additive on
+this composition spine (the two-pass grade→overlay split, Rule 3d, lands here with grades).
 
 ---
 

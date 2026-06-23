@@ -96,7 +96,7 @@ API, export with an **optional** burned attribution credit (per-project toggle).
 (cache-then-export) validated end-to-end on real archive.org titles. **Requires macOS 26+**
 (the Configuration API is macOS-26-only; all Apple platforms now target 26+). Unit 3 — the **AppKit `NSView`+`CALayer` timeline** (`ClipTimelineView`: magnetic
 track, filmstrip thumbnails, drag-trim, zoom, playhead) + a live rebuild-and-swap preview
-(`EditorModel`/`PreviewComposer`). **Not yet:** browser→library→timeline wire-up (Unit 4),
+(`EditorModel`/`PreviewComposer`). Unit 4 — browse → mark in/out → proxy-clip Library (draggable) → drop on timeline (`ClipBrowser_macOS`). **Phase 1 complete. Not yet:**
 then Phases 2–5 (layers, stock index, supercut, publishing).
 
 ## Known refinements (cheap follow-ups)

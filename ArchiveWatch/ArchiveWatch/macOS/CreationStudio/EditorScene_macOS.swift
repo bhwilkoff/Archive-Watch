@@ -15,9 +15,11 @@ import UniformTypeIdentifiers
 struct ProjectEditorView: View {
     @ObservedObject var document: ClipProjectDocument
     @Environment(AppStore.self) private var store
+    @Environment(\.modelContext) private var ctx
     @State private var model: EditorModel
     @State private var inspectorShown = true
     @State private var exporter = ExportService()
+    @State private var showBrowser = false
 
     init(document: ClipProjectDocument) {
         self.document = document
@@ -56,6 +58,12 @@ struct ProjectEditorView: View {
                     Divider()
                     ClipTimelineView(model: model)
                         .frame(minHeight: 170)
+                        // Drag a clip from the Library onto the timeline. Magnetic single
+                        // track, so the drop appends at the end regardless of drop x.
+                        .dropDestination(for: ProxyClip.self) { proxies, _ in
+                            proxies.forEach { model.addClip(from: $0) }
+                            return !proxies.isEmpty
+                        }
                 }
             }
             .overlay(alignment: .bottom) { exportStatusBar }
@@ -71,9 +79,7 @@ struct ProjectEditorView: View {
                     .frame(minWidth: 200)
             }
             ToolbarItemGroup {
-                // UNIT-3 SCAFFOLD: pull a real archive.org title from the catalog. Unit 4
-                // replaces this with the real browser → library → drag-onto-timeline.
-                Button { addClip() } label: {
+                Button { showBrowser = true } label: {
                     Label("Add Clip", systemImage: "plus.rectangle.on.folder")
                 }
                 Button { model.splitAtPlayhead() } label: {
@@ -90,6 +96,17 @@ struct ProjectEditorView: View {
         }
         .task { if !document.project.timeline.clips.isEmpty { await model.rebuildPreview() } }
         .onChange(of: document.project.burnAttribution) { Task { await model.rebuildPreview() } }
+        .sheet(isPresented: $showBrowser) {
+            ClipBrowserSheet { proxy in addToLibraryAndTimeline(proxy) }
+                .environment(store)
+        }
+    }
+
+    /// A marked clip joins the proxy-clip Library (for reuse) and the timeline.
+    private func addToLibraryAndTimeline(_ proxy: ProxyClip) {
+        ctx.insert(LibraryClip(from: proxy))
+        try? ctx.save()
+        model.addClip(from: proxy)
     }
 
     private var transportBar: some View {
@@ -148,11 +165,6 @@ struct ProjectEditorView: View {
         }
     }
 
-    private func addClip() {
-        guard let item = store.randomPlayable(), let url = item.videoURLParsed else { return }
-        model.addClip(catalogItemID: item.archiveID, sourceURL: url, title: item.title)
-    }
-
     private func export() {
         let panel = NSSavePanel()
         panel.allowedContentTypes = [.mpeg4Movie]
@@ -167,6 +179,8 @@ struct ProjectEditorView: View {
 // MARK: - Library sidebar (proxy-clip library — Unit 4 wires the real grid + drag-drop)
 
 private struct LibrarySidebar: View {
+    @Environment(AppStore.self) private var store
+    @Environment(\.modelContext) private var ctx
     @Query(sort: \LibraryClip.addedAt, order: .reverse) private var clips: [LibraryClip]
 
     var body: some View {
@@ -175,22 +189,47 @@ private struct LibrarySidebar: View {
                 ContentUnavailableView {
                     Label("No Clips Yet", systemImage: "film.stack")
                 } description: {
-                    Text("Mark in/out on an archive.org title to build your clip library, then drag clips onto the timeline.")
+                    Text("Use “Add Clip” to mark an in/out point on a public-domain title. Saved clips appear here — drag them onto the timeline.")
                 }
             } else {
                 List(clips) { clip in
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(clip.label).font(.subheadline).lineLimit(1)
-                        Text(rangeLabel(clip)).font(.caption).foregroundStyle(.secondary)
-                    }
+                    LibraryRow(clip: clip, poster: store.item(clip.catalogItemID)?.posterURLParsed)
+                        .draggable(clip.proxyClip ?? ProxyClip(
+                            catalogItemID: clip.catalogItemID,
+                            sourceURL: URL(string: clip.sourceURLString) ?? URL(fileURLWithPath: "/"),
+                            sourceRange: TimeRange(startSeconds: clip.inSeconds,
+                                                   durationSeconds: max(0.1, clip.outSeconds - clip.inSeconds)),
+                            label: clip.label, title: clip.title))
+                        .contextMenu {
+                            Button("Delete", role: .destructive) { ctx.delete(clip); try? ctx.save() }
+                        }
                 }
             }
         }
         .navigationTitle("Library")
     }
+}
 
-    private func rangeLabel(_ c: LibraryClip) -> String {
-        String(format: "%@ · %.1fs", c.title, max(0, c.outSeconds - c.inSeconds))
+private struct LibraryRow: View {
+    let clip: LibraryClip
+    let poster: URL?
+    var body: some View {
+        HStack(spacing: 10) {
+            RoundedRectangle(cornerRadius: 4).fill(.quaternary)
+                .frame(width: 44, height: 30)
+                .overlay {
+                    if let poster { AsyncImage(url: poster) { $0.resizable().scaledToFill() } placeholder: { Color.clear } }
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 4))
+            VStack(alignment: .leading, spacing: 1) {
+                Text(clip.label).font(.subheadline).lineLimit(1)
+                Text(String(format: "%.1fs", max(0, clip.outSeconds - clip.inSeconds)))
+                    .font(.caption).foregroundStyle(.secondary)
+            }
+            Spacer(minLength: 0)
+            Image(systemName: "line.3.horizontal").font(.caption2).foregroundStyle(.tertiary)
+        }
+        .contentShape(Rectangle())
     }
 }
 
