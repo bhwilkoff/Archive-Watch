@@ -39,40 +39,47 @@ enum ProjectMediaCache {
         return base
     }
 
-    /// Stable local path for a clip window, keyed by source id + in/out ms so the same
-    /// window is cached once and reused across re-exports.
-    static func clipURL(for clip: TimelineClip) -> URL {
-        let inMs = Int((clip.sourceRange.start.seconds * 1000).rounded())
-        let outMs = Int((clip.sourceRange.endSeconds * 1000).rounded())
-        let safeID = clip.catalogItemID.replacingOccurrences(of: "/", with: "_")
-        return directory.appendingPathComponent("clip-\(safeID)-\(inMs)-\(outMs).mp4")
+    /// Stable local path for a SOURCE window, keyed by source id + the cached span's start/end
+    /// ms — so a generous window (clip ± handles) is cached once and reused while the user
+    /// trims inside it (no re-cache per trim).
+    static func windowURL(catalogItemID: String, startSeconds: Double, endSeconds: Double) -> URL {
+        let inMs = Int((startSeconds * 1000).rounded()), outMs = Int((endSeconds * 1000).rounded())
+        let safeID = catalogItemID.replacingOccurrences(of: "/", with: "_")
+        return directory.appendingPathComponent("win-\(safeID)-\(inMs)-\(outMs).mp4")
     }
 }
 
 enum ClipCacheService {
-    /// Cache a clip's in/out window to a local faststart MP4 and return its URL. Reuses
-    /// an existing cache file.
-    ///
-    /// Tries PASSTHROUGH first (fast stream-copy, Rule 4b's `ffmpeg -c copy` spirit — only
-    /// the window's bytes are fetched). archive.org content is wildly varied, though, and
-    /// passthrough only works when the source codec is MP4-compatible (H.264/AAC); for
-    /// MPEG-2 / H.265 / odd containers it fails. So on failure we fall back to a re-encode
-    /// preset (H.264) — slower but universal. The final composition re-encodes anyway, so
-    /// the fallback costs time, not quality.
+    /// Cache a clip's EXACT in/out window (export path — precise bounds, cached once).
     static func cachedURL(for clip: TimelineClip, attempts: Int = 3) async throws -> URL {
-        let out = ProjectMediaCache.clipURL(for: clip)
+        try await cachedWindow(catalogItemID: clip.catalogItemID, sourceURL: clip.sourceURL,
+                               startSeconds: clip.sourceRange.start.seconds,
+                               endSeconds: clip.sourceRange.endSeconds, attempts: attempts)
+    }
+
+    /// Cache an arbitrary [start, end] source window to a local faststart MP4 and return its
+    /// URL (reusing an existing file). The editor caches a GENEROUS window (clip ± handles) so
+    /// trimming within it needs no re-cache — only the composition's insert range changes.
+    ///
+    /// Tries PASSTHROUGH first (fast stream-copy — only the window's bytes are fetched), then a
+    /// universal H.264 re-encode for sources passthrough can't copy (MPEG-2 / H.265 / odd
+    /// containers). Retries on transient failures: a fresh attempt builds a NEW
+    /// ResilientStreamLoader that re-resolves a healthy archive.org node (Decision 034).
+    static func cachedWindow(catalogItemID: String, sourceURL: URL,
+                             startSeconds: Double, endSeconds: Double, attempts: Int = 3) async throws -> URL {
+        let s = max(0, startSeconds), e = max(s + 0.1, endSeconds)
+        let out = ProjectMediaCache.windowURL(catalogItemID: catalogItemID, startSeconds: s, endSeconds: e)
         if FileManager.default.fileExists(atPath: out.path) { return out }
 
-        // Retry on transient failures: archive.org rotates/throttles storage nodes, so a fresh
-        // attempt builds a NEW ResilientStreamLoader that re-resolves a healthy node (Decision
-        // 034). Each attempt tries passthrough (stream-copy) then a universal H.264 re-encode.
+        let range = CMTimeRange(start: CMTime(seconds: s, preferredTimescale: 600),
+                                duration: CMTime(seconds: e - s, preferredTimescale: 600))
         var lastError: Error = CreationStudioError.cannotCreateExportSession
         for attempt in 0..<max(1, attempts) {
             do {
                 do {
-                    try await transcodeWindow(clip, preset: AVAssetExportPresetPassthrough, to: out)
+                    try await transcode(sourceURL, range: range, preset: AVAssetExportPresetPassthrough, to: out)
                 } catch {
-                    try await transcodeWindow(clip, preset: AVAssetExportPresetHighestQuality, to: out)
+                    try await transcode(sourceURL, range: range, preset: AVAssetExportPresetHighestQuality, to: out)
                 }
                 return out
             } catch {
@@ -81,14 +88,14 @@ enum ClipCacheService {
                 if attempt < attempts - 1 { try? await Task.sleep(for: .seconds(1)) }   // brief backoff
             }
         }
-        let e = lastError as NSError
+        let er = lastError as NSError
         FileHandle.standardError.write(Data(
-            "AWCS CACHE FAIL \(clip.catalogItemID) after \(attempts) tries: [\(e.domain) \(e.code) \(e.localizedDescription)]\n".utf8))
+            "AWCS CACHE FAIL \(catalogItemID) after \(attempts) tries: [\(er.domain) \(er.code) \(er.localizedDescription)]\n".utf8))
         throw lastError
     }
 
-    private static func transcodeWindow(_ clip: TimelineClip, preset: String, to out: URL) async throws {
-        let (asset, loader) = ResilientStreamLoader.makeAsset(for: clip.sourceURL)
+    private static func transcode(_ sourceURL: URL, range: CMTimeRange, preset: String, to out: URL) async throws {
+        let (asset, loader) = ResilientStreamLoader.makeAsset(for: sourceURL)
         // AVURLAsset holds its resource-loader delegate weakly — keep the loader alive for
         // the whole export (the iOS engine's `withExtendedLifetime` pattern).
         defer { withExtendedLifetime(loader) {} }
@@ -96,7 +103,7 @@ enum ClipCacheService {
         guard let session = AVAssetExportSession(asset: asset, presetName: preset) else {
             throw CreationStudioError.cannotCreateExportSession
         }
-        session.timeRange = clip.sourceRange.cmRange
+        session.timeRange = range
         session.shouldOptimizeForNetworkUse = true        // moov-at-front (faststart)
 
         let staging = out.deletingLastPathComponent()

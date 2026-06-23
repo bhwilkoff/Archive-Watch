@@ -31,6 +31,14 @@ final class EditorModel {
     @ObservationIgnored private var timeObserver: Any?
     @ObservationIgnored private let thumbGen = ThumbnailGenerator()
 
+    /// A locally-cached GENEROUS source window (clip ± handles). Trimming within
+    /// [sourceStart, sourceEnd] reuses this file — only the composition's insert range
+    /// changes, so no re-cache and no "Preparing clips" per trim.
+    struct CachedWindow { let url: URL; let sourceStart: Double; let sourceEnd: Double }
+    @ObservationIgnored private var clipCache: [UUID: CachedWindow] = [:]
+    /// Extra source footage cached on each side of a clip so small trims are free.
+    static let cacheHandle = 12.0
+
     static let minPPS = 6.0, maxPPS = 600.0
 
     init(document: ClipProjectDocument) {
@@ -83,7 +91,7 @@ final class EditorModel {
 
     func deleteClip(_ id: UUID) {
         document.project.timeline.clips.removeAll { $0.id == id }
-        thumbnails[id] = nil
+        thumbnails[id] = nil; clipCache[id] = nil
         if selectedClipID == id { selectedClipID = nil }
         relayout(); scheduleRebuild()
     }
@@ -92,6 +100,7 @@ final class EditorModel {
     func retryClip(_ id: UUID) {
         clipPrep[id] = nil
         thumbnails[id] = nil
+        clipCache[id] = nil          // force a fresh cache attempt
         scheduleRebuild()
     }
 
@@ -105,8 +114,9 @@ final class EditorModel {
         if let newOutSeconds { outS = max(newOutSeconds, inS + 0.1) }
         clip.sourceRange = TimeRange(startSeconds: inS, durationSeconds: outS - inS)
         document.project.timeline.clips[i] = clip
-        thumbnails[id] = nil          // range changed → regenerate from the new cached window
-        clipPrep[id] = nil
+        // Only the filmstrip needs refreshing for the new sub-range — the cached generous window
+        // is reused (no re-cache) as long as the trim stays inside it, so trimming is instant.
+        thumbnails[id] = nil
         relayout(); scheduleRebuild()
     }
 
@@ -128,7 +138,10 @@ final class EditorModel {
             timelineStart: .zero, track: 0, label: clip.label)
         document.project.timeline.clips[i] = left
         document.project.timeline.clips.insert(right, at: i + 1)
-        thumbnails[clip.id] = nil; clipPrep[clip.id] = nil   // both halves re-derive their windows
+        // Both halves come from the same source — share the cached generous window so neither
+        // re-caches; just refresh each half's filmstrip for its new sub-range.
+        if let w = clipCache[clip.id] { clipCache[right.id] = w }
+        thumbnails[clip.id] = nil; thumbnails[right.id] = nil
         relayout(); scheduleRebuild()
     }
 
@@ -194,22 +207,20 @@ final class EditorModel {
         guard !timelineClips.isEmpty else {
             player.replaceCurrentItem(with: nil); return
         }
-        isBuildingPreview = true
-        defer { isBuildingPreview = false }
+        // Show "Preparing clips…" only if the rebuild is actually slow (a cold cache). A rebuild
+        // that reuses already-cached windows is near-instant and must not flash the overlay.
+        let overlay = Task { @MainActor [weak self] in
+            try? await Task.sleep(for: .milliseconds(300))
+            if !Task.isCancelled { self?.isBuildingPreview = true }
+        }
+        defer { overlay.cancel(); isBuildingPreview = false }
 
         var resolved: [CompositionBuilder.ResolvedClip] = []
         for clip in timelineClips {
-            if clipPrep[clip.id] != .ready { clipPrep[clip.id] = .caching }
             do {
-                let url = try await ClipCacheService.cachedURL(for: clip)   // fast if already cached
+                let r = try await resolveLocal(clip)
                 if Task.isCancelled { return }
-                clipPrep[clip.id] = .ready
-                if thumbnails[clip.id] == nil { generateThumbnails(clip.id, localURL: url) }
-                let asset = AVURLAsset(url: url)
-                let dur = try await asset.load(.duration)                   // the cached file IS the window
-                resolved.append(.init(asset: asset,
-                                      insertRange: CMTimeRange(start: .zero, duration: dur),
-                                      audioVolume: clip.audioVolume))
+                resolved.append(r)
             } catch {
                 clipPrep[clip.id] = .failed                                 // skip a clip that won't cache
             }
@@ -234,6 +245,56 @@ final class EditorModel {
         }
     }
 
+    /// Resolve a clip to a LOCAL asset + the insert range within it. Reuses a cached GENEROUS
+    /// window whenever the trim falls inside it (instant — no re-cache); otherwise caches a new
+    /// generous window (clip ± handles) so subsequent trims are free.
+    private func resolveLocal(_ clip: TimelineClip) async throws -> CompositionBuilder.ResolvedClip {
+        let inS = clip.sourceRange.start.seconds
+        let outS = clip.sourceRange.endSeconds
+
+        if let w = clipCache[clip.id], w.sourceStart <= inS + 0.05, w.sourceEnd + 0.05 >= outS,
+           FileManager.default.fileExists(atPath: w.url.path) {
+            clipPrep[clip.id] = .ready
+            ensureThumbnails(clip, window: w)
+            return makeResolved(clip, window: w)
+        }
+
+        if clipPrep[clip.id] != .ready { clipPrep[clip.id] = .caching }
+        let cacheStart = max(0, inS - Self.cacheHandle)
+        let cacheEnd = outS + Self.cacheHandle                     // clamped to source end by the cache service
+        let url = try await ClipCacheService.cachedWindow(
+            catalogItemID: clip.catalogItemID, sourceURL: clip.sourceURL,
+            startSeconds: cacheStart, endSeconds: cacheEnd)
+        if Task.isCancelled { throw CancellationError() }
+        let actualDur = (try? await AVURLAsset(url: url).load(.duration).seconds) ?? (cacheEnd - cacheStart)
+        let window = CachedWindow(url: url, sourceStart: cacheStart, sourceEnd: cacheStart + actualDur)
+        clipCache[clip.id] = window
+        clipPrep[clip.id] = .ready
+        thumbnails[clip.id] = nil
+        ensureThumbnails(clip, window: window)
+        return makeResolved(clip, window: window)
+    }
+
+    /// The clip's in/out expressed as an insert range INTO the cached window file (file t=0 is
+    /// the window's source start), clamped to what the file actually holds.
+    private func makeResolved(_ clip: TimelineClip, window: CachedWindow) -> CompositionBuilder.ResolvedClip {
+        let inS = clip.sourceRange.start.seconds
+        let startInFile = max(0, inS - window.sourceStart)
+        let avail = max(0.05, window.sourceEnd - inS)
+        let dur = min(clip.sourceRange.duration.seconds, avail)
+        return .init(asset: AVURLAsset(url: window.url),
+                     insertRange: CMTimeRange(start: CMTime(seconds: startInFile, preferredTimescale: 600),
+                                              duration: CMTime(seconds: max(0.05, dur), preferredTimescale: 600)),
+                     audioVolume: clip.audioVolume)
+    }
+
+    private func ensureThumbnails(_ clip: TimelineClip, window: CachedWindow) {
+        guard thumbnails[clip.id] == nil else { return }
+        let startInFile = max(0, clip.sourceRange.start.seconds - window.sourceStart)
+        generateThumbnails(clip.id, url: window.url,
+                           startSeconds: startInFile, durationSeconds: clip.sourceRange.duration.seconds)
+    }
+
     // MARK: - Transport
 
     func togglePlay() { isPlaying ? pause() : play() }
@@ -253,11 +314,12 @@ final class EditorModel {
 
     // MARK: - Thumbnails (filmstrip)
 
-    /// Generate the filmstrip from the LOCAL cached window (fast + frame-accurate) — not the
-    /// remote film. The window file spans exactly the clip's in/out, so frames map directly.
-    private func generateThumbnails(_ clipID: UUID, localURL: URL) {
+    /// Generate the filmstrip for a clip's [start, start+duration] sub-range WITHIN the LOCAL
+    /// cached window (fast + frame-accurate) — not the remote film.
+    private func generateThumbnails(_ clipID: UUID, url: URL, startSeconds: Double, durationSeconds: Double) {
         Task { [weak self] in
-            let imgs = await self?.thumbGen.thumbnails(url: localURL, count: 10) ?? []
+            let imgs = await self?.thumbGen.thumbnails(
+                url: url, startSeconds: startSeconds, durationSeconds: durationSeconds, count: 10) ?? []
             await MainActor.run { self?.thumbnails[clipID] = imgs }
         }
     }
@@ -270,19 +332,18 @@ final class EditorModel {
     }
 }
 
-// Off-main filmstrip thumbnails from a LOCAL cached window file (fast, no remote streaming).
+// Off-main filmstrip thumbnails from a sub-range of a LOCAL cached window file (no remote stream).
 actor ThumbnailGenerator {
-    func thumbnails(url: URL, count: Int) async -> [CGImage] {
+    func thumbnails(url: URL, startSeconds: Double, durationSeconds: Double, count: Int) async -> [CGImage] {
         let asset = AVURLAsset(url: url)
         let gen = AVAssetImageGenerator(asset: asset)
         gen.appliesPreferredTrackTransform = true
         gen.maximumSize = CGSize(width: 240, height: 240)
         gen.requestedTimeToleranceBefore = .zero            // local file → exact is cheap + accurate
         gen.requestedTimeToleranceAfter = CMTime(value: 1, timescale: 10)
-        guard let dur = try? await asset.load(.duration), dur.seconds > 0 else { return [] }
-        let span = dur.seconds
+        let span = max(0.1, durationSeconds)
         let times = (0..<max(1, count)).map { i in
-            CMTime(seconds: span * (Double(i) + 0.5) / Double(count), preferredTimescale: 600)
+            CMTime(seconds: startSeconds + span * (Double(i) + 0.5) / Double(count), preferredTimescale: 600)
         }
         var out: [CGImage] = []
         for t in times { if let (img, _) = try? await gen.image(at: t) { out.append(img) } }

@@ -48,7 +48,9 @@ enum CreationStudioSelfTest {
         let editor = EditorModel(document: editDoc)
         editor.addClip(catalogItemID: a.archiveID, sourceURL: aURL, title: a.title)
         editor.addClip(catalogItemID: b.archiveID, sourceURL: bURL, title: b.title)
-        await editor.rebuildPreview()
+        let cacheT0 = Date()
+        await editor.rebuildPreview()                      // cold cache of both generous windows
+        let coldMs = Int(Date().timeIntervalSince(cacheT0) * 1000)
         var pst = 0
         for _ in 0..<80 {
             pst = editor.player.currentItem?.status.rawValue ?? -1
@@ -57,7 +59,17 @@ enum CreationStudioSelfTest {
         }
         let pdur = editor.player.currentItem?.duration.seconds ?? 0
         let prep = editor.clipPrep.values.map { "\($0)" }.sorted().joined(separator: ",")
-        log("PREVIEW itemStatus=\(pst) duration=\(String(format: "%.1f", pdur))s clips=\(editor.clips.count) prep=[\(prep)]")
+        log("PREVIEW itemStatus=\(pst) duration=\(String(format: "%.1f", pdur))s clips=\(editor.clips.count) coldCacheMs=\(coldMs) prep=[\(prep)]")
+
+        // REUSE-ON-TRIM CHECK: nudge clip 0's in-point +1.5s (inside the ±12s handle) and rebuild.
+        // It must REUSE the cached generous window (rebuild in well under a second), NOT re-cache.
+        if let c0 = editor.clips.first {
+            editor.trim(c0.id, newInSeconds: c0.sourceRange.start.seconds + 1.5)
+            let trimT0 = Date()
+            await editor.rebuildPreview()
+            let trimMs = Int(Date().timeIntervalSince(trimT0) * 1000)
+            log("TRIM-REUSE rebuild=\(trimMs)ms (reused cache if « coldCacheMs) status=\(editor.player.currentItem?.status.rawValue ?? -1)")
+        }
 
         // A 2-clip cross-title timeline: an 8s window from each title, back to back.
         var timeline = Timeline()
