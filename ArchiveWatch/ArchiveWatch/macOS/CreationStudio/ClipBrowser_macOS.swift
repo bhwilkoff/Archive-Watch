@@ -2,6 +2,7 @@
 import SwiftUI
 import AVKit
 import AVFoundation
+import Combine
 import UniformTypeIdentifiers
 import CoreTransferable
 
@@ -158,17 +159,25 @@ struct MarkClipView: View {
     @State private var player = AVPlayer()
     @State private var loader: ResilientStreamLoader?
     @State private var phase: LoadPhase = .loading
+    @State private var isPlaying = false
+    @State private var currentTime = 0.0
+    @State private var duration = 0.0
+    @State private var scrubTime = 0.0
+    @State private var scrubbing = false
     @State private var inSeconds = 0.0
     @State private var outSeconds = 8.0
     @State private var label = ""
 
     private enum LoadPhase { case loading, ready, failed }
+    private let tick = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
 
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
                 Color.black
-                VideoPlayerNS(player: player).opacity(phase == .ready ? 1 : 0)
+                // controlsStyle .none: AVKit's heavy inline overlay (giant play + skip + the raw
+                // release-filename title) is wrong for a marking sheet — we draw our own transport.
+                VideoPlayerNS(player: player, controlsStyle: .none).opacity(phase == .ready ? 1 : 0)
                 switch phase {
                 case .loading:
                     ProgressView("Loading video…").controlSize(.large).tint(.white)
@@ -188,6 +197,34 @@ struct MarkClipView: View {
                 }
             }
             .frame(width: 720, height: 405)   // fixed 16:9 preview (films letterbox cleanly)
+
+            // Compact custom transport: play/pause + scrubber + timecodes.
+            HStack(spacing: 12) {
+                Button { togglePlay() } label: {
+                    Image(systemName: isPlaying ? "pause.fill" : "play.fill")
+                        .font(.title3).frame(width: 20)
+                }
+                .buttonStyle(.borderless)
+                Text(timecode(currentTime)).font(.caption.monospacedDigit())
+                    .foregroundStyle(.secondary).frame(width: 56, alignment: .leading)
+                Slider(value: $scrubTime, in: 0...max(duration, 0.1)) { editing in
+                    scrubbing = editing
+                    if !editing { seek(to: scrubTime, exact: true) }   // lock the frame on release
+                }
+                Text(timecode(duration)).font(.caption.monospacedDigit())
+                    .foregroundStyle(.secondary).frame(width: 56, alignment: .trailing)
+            }
+            .padding(.horizontal, 16).padding(.vertical, 10)
+            .disabled(phase != .ready)
+            .onChange(of: scrubTime) { _, new in
+                if scrubbing { currentTime = new; seek(to: new, exact: false) }   // smooth live scrub
+            }
+            .onReceive(tick) { _ in
+                guard phase == .ready else { return }
+                isPlaying = player.timeControlStatus == .playing
+                let t = player.currentTime().seconds
+                if t.isFinite, !scrubbing { currentTime = t; scrubTime = t }
+            }
 
             Form {
                 HStack {
@@ -214,7 +251,20 @@ struct MarkClipView: View {
         }
         .task { await load() }
         .onDisappear { player.pause() }
-        .frame(width: 720, height: 612)
+        .frame(width: 720, height: 660)
+    }
+
+    private func togglePlay() {
+        if player.timeControlStatus == .playing { player.pause() } else { player.play() }
+    }
+
+    private func seek(to seconds: Double, exact: Bool) {
+        let t = CMTime(seconds: max(0, seconds), preferredTimescale: 600)
+        if exact {
+            player.seek(to: t, toleranceBefore: .zero, toleranceAfter: .zero)
+        } else {
+            player.seek(to: t)   // tolerant = smooth while dragging
+        }
     }
 
     // Load the source through the shared resilient loader (Decision 021/031/034) and surface
@@ -229,6 +279,7 @@ struct MarkClipView: View {
         let pi = AVPlayerItem(asset: asset)
         pi.preferredForwardBufferDuration = 30
         player.replaceCurrentItem(with: pi)
+        if let d = try? await asset.load(.duration), d.seconds.isFinite { duration = d.seconds }
         // Hold the clean "Loading…" overlay until playback actually STARTS (not merely
         // .readyToPlay) so AVKit's own oversized buffering spinner/controls never show through.
         for _ in 0..<300 {            // poll up to ~60s (cancels on disappear via .task)
@@ -265,7 +316,11 @@ struct MarkClipView: View {
     }
 
     private func timecode(_ s: Double) -> String {
-        String(format: "%d:%02d.%d", Int(s) / 60, Int(s) % 60, Int((s.truncatingRemainder(dividingBy: 1)) * 10))
+        let total = max(0, Int(s))
+        let h = total / 3600, m = (total % 3600) / 60, sec = total % 60
+        // H:MM:SS for feature-length sources; M:SS.t for short marks.
+        if h > 0 { return String(format: "%d:%02d:%02d", h, m, sec) }
+        return String(format: "%d:%02d.%d", m, sec, Int((s.truncatingRemainder(dividingBy: 1)) * 10))
     }
 }
 #endif

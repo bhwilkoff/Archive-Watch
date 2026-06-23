@@ -314,16 +314,23 @@ final class ChannelEngine {
 
 struct VideoPlayerNS: NSViewRepresentable {
     let player: AVPlayer
+    /// Default `.inline` for the main player; the clip-marking sheet passes `.none` and
+    /// supplies its own compact transport (AVKit's inline overlay is too heavy for a sheet).
+    var controlsStyle: AVPlayerViewControlsStyle = .inline
+
     func makeNSView(context: Context) -> AVPlayerView {
         let v = AVPlayerView()
         v.player = player
-        v.controlsStyle = .inline
-        v.allowsPictureInPicturePlayback = true
-        v.showsFullScreenToggleButton = true
+        v.controlsStyle = controlsStyle
+        let chrome = controlsStyle != .none
+        v.allowsPictureInPicturePlayback = chrome
+        v.showsFullScreenToggleButton = chrome
+        v.videoGravity = .resizeAspect
         return v
     }
     func updateNSView(_ v: AVPlayerView, context: Context) {
         if v.player !== player { v.player = player }
+        if v.controlsStyle != controlsStyle { v.controlsStyle = controlsStyle }
     }
 }
 #endif
