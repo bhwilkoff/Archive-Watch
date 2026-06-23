@@ -2,6 +2,7 @@
 import SwiftUI
 import SwiftData
 import AppKit
+import AVKit
 import UniformTypeIdentifiers
 
 // The Creation Studio editor scene (docs/macOS-DESIGN.md §2 — the DocumentGroup face,
@@ -44,12 +45,14 @@ struct ProjectEditorView: View {
                         ContentUnavailableView("Empty Timeline", systemImage: "timeline.selection")
                             .foregroundStyle(.white.opacity(0.5))
                     } else {
-                        VideoPlayerNS(player: model.player)
+                        // controlsStyle .none — the transport bar below is the only transport.
+                        VideoPlayerNS(player: model.player, controlsStyle: .none)
                     }
                     if model.isBuildingPreview {
-                        ProgressView().controlSize(.small).tint(.white)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-                            .padding(10)
+                        VStack(spacing: 6) {
+                            ProgressView().controlSize(.small).tint(.white)
+                            Text("Preparing clips…").font(.caption).foregroundStyle(.white.opacity(0.7))
+                        }
                     }
                 }
                 .frame(minHeight: 220)

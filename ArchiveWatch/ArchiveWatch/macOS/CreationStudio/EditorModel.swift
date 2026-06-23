@@ -23,8 +23,10 @@ final class EditorModel {
     var pointsPerSecond: Double = 60
     var thumbnails: [UUID: [CGImage]] = [:]
     var isBuildingPreview = false
+    /// Per-clip media-prep state for the timeline UI: caching the local window / ready / failed.
+    var clipPrep: [UUID: ClipPrep] = [:]
+    enum ClipPrep: Equatable { case caching, ready, failed }
 
-    @ObservationIgnored private var preview: PreviewComposer.Preview?   // retains loaders
     @ObservationIgnored private var rebuildTask: Task<Void, Never>?
     @ObservationIgnored private var timeObserver: Any?
     @ObservationIgnored private let thumbGen = ThumbnailGenerator()
@@ -58,8 +60,7 @@ final class EditorModel {
         document.project.timeline.clips.append(clip)
         relayout()
         selectedClipID = clip.id
-        generateThumbnails(for: clip)
-        scheduleRebuild()
+        scheduleRebuild()          // caching + thumbnails happen in the rebuild (from the local window)
     }
 
     var selectedClip: TimelineClip? { clips.first { $0.id == selectedClipID } }
@@ -77,7 +78,6 @@ final class EditorModel {
         document.project.timeline.clips.append(clip)
         relayout()
         selectedClipID = clip.id
-        generateThumbnails(for: clip)
         scheduleRebuild()
     }
 
@@ -98,6 +98,8 @@ final class EditorModel {
         if let newOutSeconds { outS = max(newOutSeconds, inS + 0.1) }
         clip.sourceRange = TimeRange(startSeconds: inS, durationSeconds: outS - inS)
         document.project.timeline.clips[i] = clip
+        thumbnails[id] = nil          // range changed → regenerate from the new cached window
+        clipPrep[id] = nil
         relayout(); scheduleRebuild()
     }
 
@@ -119,7 +121,7 @@ final class EditorModel {
             timelineStart: .zero, track: 0, label: clip.label)
         document.project.timeline.clips[i] = left
         document.project.timeline.clips.insert(right, at: i + 1)
-        generateThumbnails(for: right)
+        thumbnails[clip.id] = nil; clipPrep[clip.id] = nil   // both halves re-derive their windows
         relayout(); scheduleRebuild()
     }
 
@@ -176,18 +178,49 @@ final class EditorModel {
         }
     }
 
+    /// Rebuild the preview from LOCALLY-CACHED clip windows — never N concurrent remote streams
+    /// (the Rule 4b reliability win). Each clip's in/out window is cached to a small local MP4
+    /// once (reused across rebuilds AND shared with export), so the preview is fast, plays
+    /// through every clip, and is frame-identical to the export.
     func rebuildPreview() async {
-        guard !document.project.timeline.clips.isEmpty else {
-            player.replaceCurrentItem(with: nil); preview = nil; return
+        let timelineClips = clips
+        guard !timelineClips.isEmpty else {
+            player.replaceCurrentItem(with: nil); return
         }
         isBuildingPreview = true
         defer { isBuildingPreview = false }
+
+        var resolved: [CompositionBuilder.ResolvedClip] = []
+        for clip in timelineClips {
+            if clipPrep[clip.id] != .ready { clipPrep[clip.id] = .caching }
+            do {
+                let url = try await ClipCacheService.cachedURL(for: clip)   // fast if already cached
+                if Task.isCancelled { return }
+                clipPrep[clip.id] = .ready
+                if thumbnails[clip.id] == nil { generateThumbnails(clip.id, localURL: url) }
+                let asset = AVURLAsset(url: url)
+                let dur = try await asset.load(.duration)                   // the cached file IS the window
+                resolved.append(.init(asset: asset,
+                                      insertRange: CMTimeRange(start: .zero, duration: dur),
+                                      audioVolume: clip.audioVolume))
+            } catch {
+                clipPrep[clip.id] = .failed                                 // skip a clip that won't cache
+            }
+        }
+        guard !resolved.isEmpty, !Task.isCancelled else { return }
+
+        // bakeOverlays:false — the Core Animation overlay tool is offline-only (crashes
+        // AVPlayerItem). Same clip/reframe/audio recipe as export, so the preview frame matches.
         let credit = document.project.burnAttribution ? ExportService.defaultCredit : nil
         do {
-            let built = try await PreviewComposer.build(timeline: document.project.timeline, creditLine: credit)
+            let built = try await CompositionBuilder.build(
+                resolved: resolved, timeline: document.project.timeline,
+                creditLine: credit, bakeOverlays: false)
             guard !Task.isCancelled else { return }
-            preview = built                                   // retains loaders
-            player.replaceCurrentItem(with: built.playerItem)
+            let item = AVPlayerItem(asset: built.composition)
+            item.videoComposition = built.videoComposition
+            item.audioMix = built.audioMix
+            player.replaceCurrentItem(with: item)
             seek(toSeconds: min(playheadSeconds, totalDuration))
         } catch {
             // Leave the previous preview in place on a transient build failure.
@@ -213,12 +246,12 @@ final class EditorModel {
 
     // MARK: - Thumbnails (filmstrip)
 
-    private func generateThumbnails(for clip: TimelineClip) {
+    /// Generate the filmstrip from the LOCAL cached window (fast + frame-accurate) — not the
+    /// remote film. The window file spans exactly the clip's in/out, so frames map directly.
+    private func generateThumbnails(_ clipID: UUID, localURL: URL) {
         Task { [weak self] in
-            let imgs = await self?.thumbGen.thumbnails(
-                url: clip.sourceURL, startSeconds: clip.sourceRange.start.seconds,
-                endSeconds: clip.sourceRange.endSeconds, count: 10) ?? []
-            await MainActor.run { self?.thumbnails[clip.id] = imgs }
+            let imgs = await self?.thumbGen.thumbnails(url: localURL, count: 10) ?? []
+            await MainActor.run { self?.thumbnails[clipID] = imgs }
         }
     }
 
@@ -230,25 +263,22 @@ final class EditorModel {
     }
 }
 
-// Off-main filmstrip thumbnail generation over the resilient remote asset.
+// Off-main filmstrip thumbnails from a LOCAL cached window file (fast, no remote streaming).
 actor ThumbnailGenerator {
-    func thumbnails(url: URL, startSeconds: Double, endSeconds: Double, count: Int) async -> [CGImage] {
-        let (asset, loader) = await MainActor.run { ResilientStreamLoader.makeAsset(for: url) }
-        defer { withExtendedLifetime(loader) {} }
+    func thumbnails(url: URL, count: Int) async -> [CGImage] {
+        let asset = AVURLAsset(url: url)
         let gen = AVAssetImageGenerator(asset: asset)
         gen.appliesPreferredTrackTransform = true
-        gen.maximumSize = CGSize(width: 240, height: 240)   // small — speed over fidelity
-        gen.requestedTimeToleranceBefore = CMTime(value: 1, timescale: 2)
-        gen.requestedTimeToleranceAfter = CMTime(value: 1, timescale: 2)
-        let span = max(0.1, endSeconds - startSeconds)
-        let times = (0..<max(1, count)).map { i -> NSValue in
-            let t = startSeconds + span * (Double(i) + 0.5) / Double(count)
-            return NSValue(time: CMTime(seconds: t, preferredTimescale: 600))
+        gen.maximumSize = CGSize(width: 240, height: 240)
+        gen.requestedTimeToleranceBefore = .zero            // local file → exact is cheap + accurate
+        gen.requestedTimeToleranceAfter = CMTime(value: 1, timescale: 10)
+        guard let dur = try? await asset.load(.duration), dur.seconds > 0 else { return [] }
+        let span = dur.seconds
+        let times = (0..<max(1, count)).map { i in
+            CMTime(seconds: span * (Double(i) + 0.5) / Double(count), preferredTimescale: 600)
         }
         var out: [CGImage] = []
-        for t in times {
-            if let (img, _) = try? await gen.image(at: t.timeValue) { out.append(img) }
-        }
+        for t in times { if let (img, _) = try? await gen.image(at: t) { out.append(img) } }
         return out
     }
 }

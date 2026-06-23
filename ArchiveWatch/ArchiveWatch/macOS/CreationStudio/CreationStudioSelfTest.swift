@@ -41,6 +41,24 @@ enum CreationStudioSelfTest {
         let b = store.randomPlayable(contentType: "commercial") ?? store.randomPlayable() ?? a
         let bURL = b.videoURLParsed ?? aURL
 
+        // PREVIEW PIPELINE CHECK (cache-first): a real EditorModel builds a 2-clip preview from
+        // LOCAL cached windows; its AVPlayerItem must reach .readyToPlay (1) with the full
+        // 2-clip duration — proving the timeline preview shows video and plays through, not black.
+        let editDoc = ClipProjectDocument()
+        let editor = EditorModel(document: editDoc)
+        editor.addClip(catalogItemID: a.archiveID, sourceURL: aURL, title: a.title)
+        editor.addClip(catalogItemID: b.archiveID, sourceURL: bURL, title: b.title)
+        await editor.rebuildPreview()
+        var pst = 0
+        for _ in 0..<80 {
+            pst = editor.player.currentItem?.status.rawValue ?? -1
+            if pst != 0 { break }                  // 0 unknown · 1 ready · 2 failed
+            try? await Task.sleep(for: .milliseconds(500))
+        }
+        let pdur = editor.player.currentItem?.duration.seconds ?? 0
+        let prep = editor.clipPrep.values.map { "\($0)" }.sorted().joined(separator: ",")
+        log("PREVIEW itemStatus=\(pst) duration=\(String(format: "%.1f", pdur))s clips=\(editor.clips.count) prep=[\(prep)]")
+
         // A 2-clip cross-title timeline: an 8s window from each title, back to back.
         var timeline = Timeline()
         timeline.clips = [

@@ -59,17 +59,32 @@ enum ClipCacheService {
     /// MPEG-2 / H.265 / odd containers it fails. So on failure we fall back to a re-encode
     /// preset (H.264) — slower but universal. The final composition re-encodes anyway, so
     /// the fallback costs time, not quality.
-    static func cachedURL(for clip: TimelineClip) async throws -> URL {
+    static func cachedURL(for clip: TimelineClip, attempts: Int = 3) async throws -> URL {
         let out = ProjectMediaCache.clipURL(for: clip)
         if FileManager.default.fileExists(atPath: out.path) { return out }
 
-        do {
-            try await transcodeWindow(clip, preset: AVAssetExportPresetPassthrough, to: out)
-        } catch {
-            // Passthrough couldn't stream-copy this source — re-encode to H.264.
-            try await transcodeWindow(clip, preset: AVAssetExportPresetHighestQuality, to: out)
+        // Retry on transient failures: archive.org rotates/throttles storage nodes, so a fresh
+        // attempt builds a NEW ResilientStreamLoader that re-resolves a healthy node (Decision
+        // 034). Each attempt tries passthrough (stream-copy) then a universal H.264 re-encode.
+        var lastError: Error = CreationStudioError.cannotCreateExportSession
+        for attempt in 0..<max(1, attempts) {
+            do {
+                do {
+                    try await transcodeWindow(clip, preset: AVAssetExportPresetPassthrough, to: out)
+                } catch {
+                    try await transcodeWindow(clip, preset: AVAssetExportPresetHighestQuality, to: out)
+                }
+                return out
+            } catch {
+                lastError = error
+                if Task.isCancelled { throw error }
+                if attempt < attempts - 1 { try? await Task.sleep(for: .seconds(1)) }   // brief backoff
+            }
         }
-        return out
+        let e = lastError as NSError
+        FileHandle.standardError.write(Data(
+            "AWCS CACHE FAIL \(clip.catalogItemID) after \(attempts) tries: [\(e.domain) \(e.code) \(e.localizedDescription)]\n".utf8))
+        throw lastError
     }
 
     private static func transcodeWindow(_ clip: TimelineClip, preset: String, to out: URL) async throws {
