@@ -149,6 +149,104 @@ private struct PlayerSurface: View {
     }
 }
 
+// MARK: - Channel lineup player (Channels tune-in)
+//
+// Plays an ordered lineup (programs + woven commercials) straight through, joining
+// the first program in progress at `startOffset` (#92). Live TV semantics: NO resume,
+// NO WatchProgress writes (persistsProgress=false on the other platforms). On
+// end-of-item it swaps the next playable item onto the same player. Mirrors the iOS
+// LineupQueue advance, AppKit-side.
+struct ChannelPlayer: View {
+    let lineup: [Catalog.Item]
+    let startOffset: TimeInterval
+    @Environment(\.dismiss) private var dismiss
+    @State private var engine = ChannelEngine()
+
+    var body: some View {
+        ZStack {
+            Color.black
+            if let player = engine.player {
+                VideoPlayerNS(player: player).ignoresSafeArea()
+            } else if engine.failed {
+                ContentUnavailableView("Channel unavailable", systemImage: "tv.slash")
+            } else {
+                ProgressView().controlSize(.large).tint(.white)
+            }
+        }
+        .onAppear { engine.start(lineup: lineup, startOffset: startOffset) }
+        .onDisappear { engine.stop() }
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) { Button("Done") { dismiss() } }
+            ToolbarItem(placement: .navigation) {
+                Text(engine.nowTitle).font(.headline).lineLimit(1)
+            }
+        }
+    }
+}
+
+@MainActor
+@Observable
+final class ChannelEngine {
+    var player: AVPlayer?
+    var nowTitle = ""
+    var failed = false
+
+    private var items: [Catalog.Item] = []
+    private var idx = 0
+    private var loader: ResilientStreamLoader?   // retained for the asset's lifetime
+    private var endObserver: NSObjectProtocol?
+
+    func start(lineup: [Catalog.Item], startOffset: TimeInterval) {
+        guard player == nil else { return }   // onAppear can fire more than once
+        items = lineup
+        idx = lineup.firstIndex { $0.videoURLParsed != nil } ?? 0
+        guard idx < items.count, let url = items[idx].videoURLParsed else { failed = true; return }
+        let p = AVPlayer(playerItem: makeItem(for: url))
+        nowTitle = items[idx].title
+        if startOffset > 5 { p.seek(to: CMTime(seconds: startOffset, preferredTimescale: 600)) }
+        p.play()
+        player = p
+    }
+
+    private func makeItem(for url: URL) -> AVPlayerItem {
+        let (asset, l) = ResilientStreamLoader.makeAsset(for: url)
+        loader = l
+        let item = AVPlayerItem(asset: asset)
+        item.preferredForwardBufferDuration = 300
+        registerEnd(for: item)
+        return item
+    }
+
+    private func registerEnd(for item: AVPlayerItem) {
+        if let e = endObserver { NotificationCenter.default.removeObserver(e) }
+        endObserver = NotificationCenter.default.addObserver(
+            forName: .AVPlayerItemDidPlayToEndTime, object: item, queue: .main) { [weak self] _ in
+            MainActor.assumeIsolated { self?.advance() }
+        }
+    }
+
+    private func advance() {
+        guard let player else { return }
+        idx += 1
+        while idx < items.count {
+            if let url = items[idx].videoURLParsed {
+                player.replaceCurrentItem(with: makeItem(for: url))
+                nowTitle = items[idx].title
+                player.play()
+                return
+            }
+            idx += 1
+        }
+        // Lineup exhausted — let it sit on the final frame; the user dismisses.
+    }
+
+    func stop() {
+        if let e = endObserver { NotificationCenter.default.removeObserver(e); endObserver = nil }
+        player?.pause()
+        player = nil
+    }
+}
+
 struct VideoPlayerNS: NSViewRepresentable {
     let player: AVPlayer
     func makeNSView(context: Context) -> AVPlayerView {

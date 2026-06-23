@@ -72,11 +72,14 @@ itself. Everything else is already in the project.
 ## Phase 0 scope / non-goals
 
 In: browse, home shelves, detail, native player (resilient stream + resume),
-search, library, settings, CloudKit sync, deep-link scheme.
+search, library, settings, CloudKit sync, deep-link scheme, TV series
+season/episode drill-in (`SeriesStore`), Collections, Surprise, Public Domain
+Day, and Channels (a proportional EPG guide — fixed rail + pinned ruler +
+runtime-sized blocks, window paged by Earlier/Later/Now, tune-in lineup player
+with woven commercials, create/right-click-delete user channels).
 **Not yet** (later phases per `docs/macOS-DESIGN.md`): the Creation Studio
-`DocumentGroup` editor, TV series episode drill-in (`SeriesStore`), Channels,
-Surprise grid, the proxy-clip library, the stock/subtitle indices. The sidebar +
-single split-view is intentionally Mac-native, not the iOS tab bar.
+`DocumentGroup` editor, the proxy-clip library, the stock/subtitle indices. The
+sidebar + single split-view is intentionally Mac-native, not the iOS tab bar.
 
 ## Known refinements (cheap follow-ups)
 
@@ -84,5 +87,7 @@ single split-view is intentionally Mac-native, not the iOS tab bar.
   use a `contentOverlayView` or the window title — deferred).
 - `NSCollectionView` migration for very large grids (Rule 7b) — `LazyVGrid` is fine
   for now.
-- TV section currently lists series cards routing to `DetailView`; the
-  season/episode drill-in is a later port of `SeriesStore`.
+- Channels uses a fixed-window EPG (window paged by Earlier/Later/Now), not a 2D
+  frozen-rail/frozen-column scroll — the offset-mirrored 2D approach rendered the
+  rail unreliably; the windowed model is the proven tvOS/iOS layout and renders
+  correctly. A horizontally-scrollable full-day grid is a possible later refinement.

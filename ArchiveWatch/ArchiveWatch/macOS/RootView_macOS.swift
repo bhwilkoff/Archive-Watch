@@ -52,6 +52,7 @@ struct RootView: View {
         case .home:        HomeView()
         case .movies:      BrowseView(contentType: nil, title: "Movies")
         case .tv:          GridView(title: "TV", items: store.seriesCards())
+        case .channels:    ChannelsView()
         case .collections: CollectionsList()
         case .surprise:    SurpriseView()
         case .search:      SearchView()
