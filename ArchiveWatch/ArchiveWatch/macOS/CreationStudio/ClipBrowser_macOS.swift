@@ -157,15 +157,35 @@ struct MarkClipView: View {
 
     @State private var player = AVPlayer()
     @State private var loader: ResilientStreamLoader?
+    @State private var phase: LoadPhase = .loading
     @State private var inSeconds = 0.0
     @State private var outSeconds = 8.0
     @State private var label = ""
+
+    private enum LoadPhase { case loading, ready, failed }
 
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
                 Color.black
-                VideoPlayerNS(player: player)
+                VideoPlayerNS(player: player).opacity(phase == .ready ? 1 : 0)
+                switch phase {
+                case .loading:
+                    ProgressView("Loading video…").controlSize(.large).tint(.white)
+                        .foregroundStyle(.white)
+                case .failed:
+                    VStack(spacing: 10) {
+                        Image(systemName: "exclamationmark.triangle").font(.largeTitle)
+                            .foregroundStyle(.secondary)
+                        Text("Couldn't load this video.").foregroundStyle(.white)
+                        Text("archive.org may be busy — try again, or add the clip and preview it on the timeline.")
+                            .font(.caption).foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center).frame(maxWidth: 320)
+                        Button("Retry") { Task { await load() } }
+                    }
+                case .ready:
+                    EmptyView()
+                }
             }
             .frame(minWidth: 640, minHeight: 380)
 
@@ -192,16 +212,33 @@ struct MarkClipView: View {
             }
             .padding(12)
         }
-        .onAppear(perform: open)
+        .task { await load() }
         .onDisappear { player.pause() }
         .frame(width: 700, height: 640)
     }
 
-    private func open() {
-        guard let url = item.videoURLParsed else { return }
+    // Load the source through the shared resilient loader (Decision 021/031/034) and surface
+    // a real loading/ready/failed state — archive.org cold-starts can take many seconds, and a
+    // silent black frame reads as "broken." Auto-play on ready so the user sees it working and
+    // can scrub to a mark. The clip is addable even if playback fails (the default 0–8s window).
+    private func load() async {
+        phase = .loading
+        guard let url = item.videoURLParsed else { phase = .failed; return }
         let (asset, l) = ResilientStreamLoader.makeAsset(for: url)
         loader = l
-        player.replaceCurrentItem(with: AVPlayerItem(asset: asset))
+        let pi = AVPlayerItem(asset: asset)
+        pi.preferredForwardBufferDuration = 30
+        player.replaceCurrentItem(with: pi)
+        for _ in 0..<300 {            // poll status up to ~60s (cancels on disappear via .task)
+            if Task.isCancelled { return }
+            switch pi.status {
+            case .readyToPlay: phase = .ready; player.play(); return
+            case .failed:      phase = .failed; return
+            default:           break
+            }
+            try? await Task.sleep(for: .milliseconds(200))
+        }
+        if phase != .ready { phase = .failed }
     }
 
     private func currentSeconds() -> Double {
