@@ -187,7 +187,7 @@ struct MarkClipView: View {
                     EmptyView()
                 }
             }
-            .frame(minWidth: 640, minHeight: 380)
+            .frame(width: 720, height: 405)   // fixed 16:9 preview (films letterbox cleanly)
 
             Form {
                 HStack {
@@ -214,7 +214,7 @@ struct MarkClipView: View {
         }
         .task { await load() }
         .onDisappear { player.pause() }
-        .frame(width: 700, height: 640)
+        .frame(width: 720, height: 612)
     }
 
     // Load the source through the shared resilient loader (Decision 021/031/034) and surface
@@ -229,12 +229,18 @@ struct MarkClipView: View {
         let pi = AVPlayerItem(asset: asset)
         pi.preferredForwardBufferDuration = 30
         player.replaceCurrentItem(with: pi)
-        for _ in 0..<300 {            // poll status up to ~60s (cancels on disappear via .task)
+        // Hold the clean "Loading…" overlay until playback actually STARTS (not merely
+        // .readyToPlay) so AVKit's own oversized buffering spinner/controls never show through.
+        for _ in 0..<300 {            // poll up to ~60s (cancels on disappear via .task)
             if Task.isCancelled { return }
             switch pi.status {
-            case .readyToPlay: phase = .ready; player.play(); return
-            case .failed:      phase = .failed; return
-            default:           break
+            case .readyToPlay:
+                player.play()
+                if player.timeControlStatus == .playing { phase = .ready; return }
+            case .failed:
+                phase = .failed; return
+            default:
+                break
             }
             try? await Task.sleep(for: .milliseconds(200))
         }
