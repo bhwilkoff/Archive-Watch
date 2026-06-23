@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Complete macOS Info.plist (GENERATE_INFOPLIST_FILE = NO). Like the universal
+  Info.plist, bundle id / version / TMDb token stay driven by build-setting
+  variables so nothing drifts from AppVersion.xcconfig / Secrets.xcconfig.
+-->
 <plist version="1.0">
 <dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>15.0</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.entertainment</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>© 2026 Ben Wilkoff. Video hosted by the Internet Archive.</string>
+	<!-- Export compliance: only standard, exempt encryption (HTTPS/TLS to public
+	     APIs + Apple's CloudKit / Sign in with Apple). Auto-answers the App Store
+	     Connect export question for every build. -->
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>TMDB_BEARER_TOKEN</key>
+	<string>$(TMDB_BEARER_TOKEN)</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -17,9 +53,5 @@
 	<array>
 		<string>com.bhwilkoff.archivewatch.viewing</string>
 	</array>
-	<key>LSMinimumSystemVersion</key>
-	<string>15.0</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>© 2026 Ben Wilkoff. Video hosted by the Internet Archive.</string>
 </dict>
 </plist>

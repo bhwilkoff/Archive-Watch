@@ -62,6 +62,8 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				catalog.json,
+				macOS/Info-macOS.plist,
+				macOS/ArchiveWatch-macOS.entitlements,
 			);
 			target = B7AC53CC2F93BA0300F50803 /* ArchiveWatch */;
 		};
@@ -69,6 +71,8 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				catalog.json,
+				macOS/Info-macOS.plist,
+				macOS/ArchiveWatch-macOS.entitlements,
 			);
 			target = EE00000000000000000000A3 /* ArchiveWatchMac */;
 		};
