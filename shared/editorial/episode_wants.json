@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-06-22T09:49:05Z",
+  "updated_at": "2026-06-23T07:33:34Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 17041,
-    "wanted": 16825,
+    "total": 17262,
+    "wanted": 17046,
     "fulfilled": 216,
-    "series_with_gaps": 342
+    "series_with_gaps": 343
   },
   "wants": [
     {
@@ -88566,6 +88566,2216 @@
       "episodeImdbID": "tt0682530",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 1,
+      "episode": 2,
+      "title": "Red Gets a Delivery",
+      "episodeImdbID": "tt1506220",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 1,
+      "episode": 3,
+      "title": "The Rookies",
+      "episodeImdbID": "tt1506228",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 1,
+      "episode": 4,
+      "title": "Head BNF in Charge",
+      "episodeImdbID": "tt1506204",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 1,
+      "episode": 5,
+      "title": "The Package Is in the Open",
+      "episodeImdbID": "tt1506227",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 1,
+      "episode": 11,
+      "title": "Knock, Knock. Who's There? Pain.",
+      "episodeImdbID": "tt1506210",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 1,
+      "episode": 12,
+      "title": "Down, But Not Out",
+      "episodeImdbID": "tt1506201",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 1,
+      "episode": 16,
+      "title": "A Slightly Crueler Cruller",
+      "episodeImdbID": "tt1506194",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 2,
+      "episode": 1,
+      "title": "Everything Old Is New Again",
+      "episodeImdbID": "tt1506203",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 2,
+      "episode": 8,
+      "title": "Nine-Tenths of the Law",
+      "episodeImdbID": "tt1506215",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 2,
+      "episode": 10,
+      "title": "Radar Love",
+      "episodeImdbID": "tt1506219",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 2,
+      "episode": 11,
+      "title": "I Dream of Meanie",
+      "episodeImdbID": "tt1506207",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 3,
+      "episode": 4,
+      "title": "You're the Bomb, Yo",
+      "episodeImdbID": "tt1508560",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 3,
+      "episode": 8,
+      "title": "We're Being Watched",
+      "episodeImdbID": "tt1508559",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 3,
+      "episode": 14,
+      "title": "Have We Met?",
+      "episodeImdbID": "tt1508546",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 4,
+      "episode": 2,
+      "title": "Hunting Time",
+      "episodeImdbID": "tt1512286",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 4,
+      "episode": 4,
+      "title": "Fair Competition",
+      "episodeImdbID": "tt1512281",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 4,
+      "episode": 14,
+      "title": "You Keep Using That Word",
+      "episodeImdbID": "tt1512299",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 4,
+      "episode": 17,
+      "title": "Right to Remain Silenced",
+      "episodeImdbID": "tt1512290",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 4,
+      "episode": 19,
+      "title": "Two for One",
+      "episodeImdbID": "tt1512297",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 5,
+      "episode": 1,
+      "title": "You Can't Park Here",
+      "episodeImdbID": "tt1607363",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 5,
+      "episode": 2,
+      "title": "Got Your Back",
+      "episodeImdbID": "tt1734183",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 5,
+      "episode": 3,
+      "title": "Baby Steps",
+      "episodeImdbID": "tt2117510",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 5,
+      "episode": 4,
+      "title": "Sibling Arrivalries",
+      "episodeImdbID": "tt2117518",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 5,
+      "episode": 5,
+      "title": "The Grif Reaper",
+      "episodeImdbID": "tt2117522",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 5,
+      "episode": 6,
+      "title": "In Memoriam",
+      "episodeImdbID": "tt2117513",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 5,
+      "episode": 9,
+      "title": "Brass Tacks",
+      "episodeImdbID": "tt2117512",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 5,
+      "episode": 10,
+      "title": "The Nesting Theory",
+      "episodeImdbID": "tt2117524",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 5,
+      "episode": 11,
+      "title": "Spelunked",
+      "episodeImdbID": "tt2117519",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 5,
+      "episode": 12,
+      "title": "The Haystack",
+      "episodeImdbID": "tt2117523",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 5,
+      "episode": 13,
+      "title": "Terms and Provisions",
+      "episodeImdbID": "tt2117521",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 5,
+      "episode": 14,
+      "title": "Missed Direction",
+      "episodeImdbID": "tt2117515",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 5,
+      "episode": 16,
+      "title": "Biting the Hand",
+      "episodeImdbID": "tt2117511",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 5,
+      "episode": 18,
+      "title": "Loading...",
+      "episodeImdbID": "tt2117514",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 5,
+      "episode": 19,
+      "title": "The Wrong Crowd",
+      "episodeImdbID": "tt2117525",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 5,
+      "episode": 21,
+      "title": "Same Old, Same Old",
+      "episodeImdbID": "tt2117517",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 5,
+      "episode": 22,
+      "title": "Repent, the End Is Near",
+      "episodeImdbID": "tt2117516",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 6,
+      "episode": 2,
+      "title": "Chapter 2",
+      "episodeImdbID": "tt8198760",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 6,
+      "episode": 3,
+      "title": "Chapter 3",
+      "episodeImdbID": "tt8198766",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 6,
+      "episode": 4,
+      "title": "Chapter 4",
+      "episodeImdbID": "tt8198786",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 6,
+      "episode": 5,
+      "title": "Chapter 5",
+      "episodeImdbID": "tt8198790",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 6,
+      "episode": 6,
+      "title": "Chapter 6",
+      "episodeImdbID": "tt8198792",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 6,
+      "episode": 7,
+      "title": "Chapter 7",
+      "episodeImdbID": "tt8198820",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 6,
+      "episode": 8,
+      "title": "Chapter 8",
+      "episodeImdbID": "tt8198824",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 6,
+      "episode": 9,
+      "title": "Chapter 9",
+      "episodeImdbID": "tt8198830",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 6,
+      "episode": 10,
+      "title": "Chapter 10",
+      "episodeImdbID": "tt8198842",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 6,
+      "episode": 11,
+      "title": "Chapter 11",
+      "episodeImdbID": "tt8216050",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 6,
+      "episode": 12,
+      "title": "Chapter 12",
+      "episodeImdbID": "tt8210322",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 6,
+      "episode": 14,
+      "title": "Chapter 14",
+      "episodeImdbID": "tt8210366",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 6,
+      "episode": 15,
+      "title": "Chapter 15",
+      "episodeImdbID": "tt8210370",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 6,
+      "episode": 16,
+      "title": "Chapter 16",
+      "episodeImdbID": "tt8210376",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 6,
+      "episode": 17,
+      "title": "Chapter 17",
+      "episodeImdbID": "tt8210382",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 6,
+      "episode": 18,
+      "title": "Chapter 18",
+      "episodeImdbID": "tt8210390",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 6,
+      "episode": 19,
+      "title": "Chapter 19",
+      "episodeImdbID": "tt8210394",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 7,
+      "episode": 0,
+      "title": "Episode #7.0",
+      "episodeImdbID": "tt32580293",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 7,
+      "episode": 2,
+      "title": "Free Refills",
+      "episodeImdbID": "tt10543644",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 7,
+      "episode": 3,
+      "title": "Visiting Hours",
+      "episodeImdbID": "tt10543650",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 7,
+      "episode": 4,
+      "title": "Catching Up",
+      "episodeImdbID": "tt10543656",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 7,
+      "episode": 5,
+      "title": "Local Host",
+      "episodeImdbID": "tt10543660",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 7,
+      "episode": 6,
+      "title": "One New Message",
+      "episodeImdbID": "tt10543666",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 7,
+      "episode": 7,
+      "title": "Bon Voyage",
+      "episodeImdbID": "tt10543672",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 7,
+      "episode": 8,
+      "title": "Directions",
+      "episodeImdbID": "tt10543678",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 7,
+      "episode": 9,
+      "title": "My House, From Here",
+      "episodeImdbID": "tt10543682",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 7,
+      "episode": 10,
+      "title": "Lay of the Land",
+      "episodeImdbID": "tt10543688",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 7,
+      "episode": 11,
+      "title": "Dumb Cop, Bad Cop",
+      "episodeImdbID": "tt10543696",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 7,
+      "episode": 12,
+      "title": "Well Hello",
+      "episodeImdbID": "tt10543698",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 7,
+      "episode": 13,
+      "title": "Called Up",
+      "episodeImdbID": "tt10543702",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 7,
+      "episode": 14,
+      "title": "The Installation",
+      "episodeImdbID": "tt10543714",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 7,
+      "episode": 15,
+      "title": "Watch The Flank",
+      "episodeImdbID": "tt10543726",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 7,
+      "episode": 17,
+      "title": "Trust Issues",
+      "episodeImdbID": "tt14534186",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 7,
+      "episode": 18,
+      "title": "Hang Time",
+      "episodeImdbID": "tt10543774",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 7,
+      "episode": 19,
+      "title": "Think You Know Someone",
+      "episodeImdbID": "tt10543790",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 8,
+      "episode": 2,
+      "title": "Drink Your Ovaltine",
+      "episodeImdbID": "tt10895672",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 8,
+      "episode": 3,
+      "title": "Upon Further Review",
+      "episodeImdbID": "tt10895674",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 8,
+      "episode": 4,
+      "title": "Recovering One",
+      "episodeImdbID": "tt10895676",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 8,
+      "episode": 5,
+      "title": "4th and Twenty",
+      "episodeImdbID": "tt10895678",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 8,
+      "episode": 7,
+      "title": "And Don't Call Me Shirley",
+      "episodeImdbID": "tt10895682",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 8,
+      "episode": 8,
+      "title": "Pursuing the Archive",
+      "episodeImdbID": "tt10895684",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 8,
+      "episode": 9,
+      "title": "Backup Plans",
+      "episodeImdbID": "tt10895686",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 8,
+      "episode": 10,
+      "title": "This One Goes to Eleven",
+      "episodeImdbID": "tt10895688",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 8,
+      "episode": 11,
+      "title": "Restraining Orders",
+      "episodeImdbID": "tt10895690",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 8,
+      "episode": 12,
+      "title": "Snooze Button",
+      "episodeImdbID": "tt10895692",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 8,
+      "episode": 13,
+      "title": "Battle of the Exes",
+      "episodeImdbID": "tt10895694",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 8,
+      "episode": 14,
+      "title": "Reconfiguration",
+      "episodeImdbID": "tt10895696",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 8,
+      "episode": 15,
+      "title": "Check Your Local Listings",
+      "episodeImdbID": "tt10895698",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 8,
+      "episode": 16,
+      "title": "Standardized Testing",
+      "episodeImdbID": "tt10895700",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 8,
+      "episode": 17,
+      "title": "Tenth Percentile",
+      "episodeImdbID": "tt10895704",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 8,
+      "episode": 18,
+      "title": "Rally Cap",
+      "episodeImdbID": "tt10895706",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 8,
+      "episode": 19,
+      "title": "Reunion",
+      "episodeImdbID": "tt10895708",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 8,
+      "episode": 20,
+      "title": "N+1",
+      "episodeImdbID": "tt10895710",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 9,
+      "episode": 2,
+      "title": "The Twins",
+      "episodeImdbID": "tt10903020",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 9,
+      "episode": 3,
+      "title": "Number One",
+      "episodeImdbID": "tt10903024",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 9,
+      "episode": 4,
+      "title": "Evacuation Plan",
+      "episodeImdbID": "tt10903026",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 9,
+      "episode": 5,
+      "title": "Realignment",
+      "episodeImdbID": "tt10903028",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 9,
+      "episode": 6,
+      "title": "Familiar Feelings",
+      "episodeImdbID": "tt10903030",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 9,
+      "episode": 7,
+      "title": "Case File 01.045",
+      "episodeImdbID": "tt10903032",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 9,
+      "episode": 8,
+      "title": "Shaking the Foundation",
+      "episodeImdbID": "tt10903034",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 9,
+      "episode": 9,
+      "title": "Captive Audience",
+      "episodeImdbID": "tt10903036",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 9,
+      "episode": 10,
+      "title": "Introductions",
+      "episodeImdbID": "tt10903038",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 9,
+      "episode": 11,
+      "title": "Lifting the Veil",
+      "episodeImdbID": "tt10903040",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 9,
+      "episode": 12,
+      "title": "Mid-Game Substitution",
+      "episodeImdbID": "tt10903052",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 9,
+      "episode": 13,
+      "title": "Planning the Heist",
+      "episodeImdbID": "tt10903064",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 9,
+      "episode": 14,
+      "title": "Son of a Bitch",
+      "episodeImdbID": "tt10903072",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 9,
+      "episode": 15,
+      "title": "The Sarcophagus",
+      "episodeImdbID": "tt10903084",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 9,
+      "episode": 16,
+      "title": "Hell's Angel",
+      "episodeImdbID": "tt10903094",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 9,
+      "episode": 17,
+      "title": "Spiral",
+      "episodeImdbID": "tt10903100",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 9,
+      "episode": 18,
+      "title": "Labor Pains",
+      "episodeImdbID": "tt10903102",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 9,
+      "episode": 19,
+      "title": "Whole Lot of Shaking",
+      "episodeImdbID": "tt10903108",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 9,
+      "episode": 20,
+      "title": "Hate to Say Goodbye",
+      "episodeImdbID": "tt10903114",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 10,
+      "episode": 2,
+      "title": "Heavy Metal",
+      "episodeImdbID": "tt10903160",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 10,
+      "episode": 3,
+      "title": "Follow the Leader",
+      "episodeImdbID": "tt10903172",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 10,
+      "episode": 4,
+      "title": "Turbulence",
+      "episodeImdbID": "tt10903176",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 10,
+      "episode": 5,
+      "title": "The New Kid",
+      "episodeImdbID": "tt10903178",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 10,
+      "episode": 6,
+      "title": "What's the \"I\" Stand For?",
+      "episodeImdbID": "tt10903180",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 10,
+      "episode": 7,
+      "title": "Oversight",
+      "episodeImdbID": "tt10903182",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 10,
+      "episode": 8,
+      "title": "Fall From Heaven",
+      "episodeImdbID": "tt10903186",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 10,
+      "episode": 9,
+      "title": "Fighting Fire",
+      "episodeImdbID": "tt10903188",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 10,
+      "episode": 10,
+      "title": "C.T.",
+      "episodeImdbID": "tt10903190",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 10,
+      "episode": 11,
+      "title": "Out of Body",
+      "episodeImdbID": "tt10903192",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 10,
+      "episode": 12,
+      "title": "Out of Mind",
+      "episodeImdbID": "tt10903198",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 10,
+      "episode": 13,
+      "title": "Greenish-Blue With Envy",
+      "episodeImdbID": "tt10903200",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 10,
+      "episode": 14,
+      "title": "New and Improved",
+      "episodeImdbID": "tt10903202",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 10,
+      "episode": 15,
+      "title": "Three's a Crowd",
+      "episodeImdbID": "tt10903204",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 10,
+      "episode": 16,
+      "title": "Happy Birthday",
+      "episodeImdbID": "tt10903206",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 10,
+      "episode": 17,
+      "title": "Remember Me How I Was",
+      "episodeImdbID": "tt10903208",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 10,
+      "episode": 18,
+      "title": "Change of Plans",
+      "episodeImdbID": "tt10903212",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 10,
+      "episode": 20,
+      "title": "Reckless",
+      "episodeImdbID": "tt10903232",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 10,
+      "episode": 21,
+      "title": "True Colors",
+      "episodeImdbID": "tt10903220",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 10,
+      "episode": 22,
+      "title": "Don't Say It",
+      "episodeImdbID": "tt10903224",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 11,
+      "episode": 2,
+      "title": "Get Your Tucks in a Row",
+      "episodeImdbID": "tt10903278",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 11,
+      "episode": 3,
+      "title": "Barriers to Entry",
+      "episodeImdbID": "tt10903286",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 11,
+      "episode": 4,
+      "title": "Heavy Mettle",
+      "episodeImdbID": "tt10903296",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 11,
+      "episode": 5,
+      "title": "A Real Fixer Upper",
+      "episodeImdbID": "tt10903302",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 11,
+      "episode": 6,
+      "title": "S.O.S.",
+      "episodeImdbID": "tt10903306",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 11,
+      "episode": 7,
+      "title": "Can I Keep It",
+      "episodeImdbID": "tt10903310",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 11,
+      "episode": 8,
+      "title": "The Grass is Greener. The Blues are Bluer.",
+      "episodeImdbID": "tt10903312",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 11,
+      "episode": 9,
+      "title": "A House Divided, Then Multiplied",
+      "episodeImdbID": "tt10903314",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 11,
+      "episode": 10,
+      "title": "Long Live the King",
+      "episodeImdbID": "tt10903316",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 11,
+      "episode": 12,
+      "title": "Finders Keepers",
+      "episodeImdbID": "tt10903336",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 11,
+      "episode": 13,
+      "title": "+1 Follower",
+      "episodeImdbID": "tt10903342",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 11,
+      "episode": 14,
+      "title": "Reconciliation",
+      "episodeImdbID": "tt10903350",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 11,
+      "episode": 15,
+      "title": "Neighborhood Watch",
+      "episodeImdbID": "tt10903360",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 11,
+      "episode": 16,
+      "title": "FAQ",
+      "episodeImdbID": "tt10903370",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 11,
+      "episode": 17,
+      "title": "Ready... Aim...",
+      "episodeImdbID": "tt10903378",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 11,
+      "episode": 18,
+      "title": "Fire",
+      "episodeImdbID": "tt10903384",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 11,
+      "episode": 19,
+      "title": "Lost But Not Forgotten",
+      "episodeImdbID": "tt10903386",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 12,
+      "episode": 1,
+      "title": "Oh Captains, My Captains",
+      "episodeImdbID": "tt4182248",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 12,
+      "episode": 2,
+      "title": "Hit and Run",
+      "episodeImdbID": "tt4182254",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 12,
+      "episode": 3,
+      "title": "Something Else Entirely",
+      "episodeImdbID": "tt4182264",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 12,
+      "episode": 4,
+      "title": "Teaming with Problems",
+      "episodeImdbID": "tt4182270",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 12,
+      "episode": 6,
+      "title": "Reflections",
+      "episodeImdbID": "tt4182276",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 12,
+      "episode": 7,
+      "title": "Self Assessment",
+      "episodeImdbID": "tt3976216",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 12,
+      "episode": 8,
+      "title": "Thin Ice",
+      "episodeImdbID": "tt4182278",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 12,
+      "episode": 9,
+      "title": "The Federal Army of Chorus",
+      "episodeImdbID": "tt4182260",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 12,
+      "episode": 10,
+      "title": "Cloak and Dagger",
+      "episodeImdbID": "tt4182284",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 12,
+      "episode": 11,
+      "title": "Long Time No See",
+      "episodeImdbID": "tt7941068",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 12,
+      "episode": 12,
+      "title": "The Reunion",
+      "episodeImdbID": "tt7941150",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 12,
+      "episode": 14,
+      "title": "Crash Site Crashers",
+      "episodeImdbID": "tt7949428",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 12,
+      "episode": 15,
+      "title": "Accentuate the Interrogative",
+      "episodeImdbID": "tt7949490",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 12,
+      "episode": 16,
+      "title": "Out of the Frying Pan",
+      "episodeImdbID": "tt7949632",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 12,
+      "episode": 18,
+      "title": "Fed vs. New",
+      "episodeImdbID": "tt7949674",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 12,
+      "episode": 19,
+      "title": "You Know Who We Are",
+      "episodeImdbID": "tt7949688",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 13,
+      "episode": 3,
+      "title": "What's Yours is Ours",
+      "episodeImdbID": "tt7951562",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 13,
+      "episode": 6,
+      "title": "Along Came a Spider",
+      "episodeImdbID": "tt7951732",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 13,
+      "episode": 10,
+      "title": "Temple of the Key",
+      "episodeImdbID": "tt7952046",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 13,
+      "episode": 11,
+      "title": "Dish Best Served",
+      "episodeImdbID": "tt8216060",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 13,
+      "episode": 17,
+      "title": "All or Nothing",
+      "episodeImdbID": "tt10903470",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 13,
+      "episode": 18,
+      "title": "Great Destroyers",
+      "episodeImdbID": "tt10903486",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 13,
+      "episode": 20,
+      "title": "The End",
+      "episodeImdbID": "tt10903494",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 14,
+      "episode": 5,
+      "title": "The Brick Gulch Chronicles",
+      "episodeImdbID": "tt7865990",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 14,
+      "episode": 9,
+      "title": "Club",
+      "episodeImdbID": "tt7867586",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 14,
+      "episode": 12,
+      "title": "Fight the Good Fight",
+      "episodeImdbID": "tt7867780",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 14,
+      "episode": 13,
+      "title": "Meta vs. Carolina: Dawn of Awesome",
+      "episodeImdbID": "tt7867910",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 14,
+      "episode": 15,
+      "title": "Caboose's Guide to Making Friends",
+      "episodeImdbID": "tt7868268",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 14,
+      "episode": 17,
+      "title": "Get Bent",
+      "episodeImdbID": "tt7868518",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 14,
+      "episode": 20,
+      "title": "RvB Throwdown",
+      "episodeImdbID": "tt7868878",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 14,
+      "episode": 22,
+      "title": "The &quot;Mission&quot;",
+      "episodeImdbID": "tt7869550",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 15,
+      "episode": 1,
+      "title": "Prologue",
+      "episodeImdbID": "tt7869728",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 15,
+      "episode": 3,
+      "title": "The Mother of Destruction",
+      "episodeImdbID": "tt7953902",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 15,
+      "episode": 4,
+      "title": "Chorus Lessons",
+      "episodeImdbID": "tt7953912",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 15,
+      "episode": 5,
+      "title": "Previously On",
+      "episodeImdbID": "tt7954056",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 15,
+      "episode": 6,
+      "title": "Reacts",
+      "episodeImdbID": "tt7954198",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 15,
+      "episode": 7,
+      "title": "Nightmare on Planet Evil",
+      "episodeImdbID": "tt7954252",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 15,
+      "episode": 8,
+      "title": "A Fistful of Colours",
+      "episodeImdbID": "tt7957084",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 15,
+      "episode": 9,
+      "title": "Rigged",
+      "episodeImdbID": "tt7957282",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 15,
+      "episode": 10,
+      "title": "Battlescars",
+      "episodeImdbID": "tt7957370",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 15,
+      "episode": 11,
+      "title": "Belly of the Beast",
+      "episodeImdbID": "tt8102506",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 15,
+      "episode": 12,
+      "title": "Blue vs. Red",
+      "episodeImdbID": "tt8102514",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 15,
+      "episode": 14,
+      "title": "True Colors",
+      "episodeImdbID": "tt8102558",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 15,
+      "episode": 16,
+      "title": "Grif Does a Rescue",
+      "episodeImdbID": "tt8102794",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 15,
+      "episode": 17,
+      "title": "Quicksave",
+      "episodeImdbID": "tt8102808",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 15,
+      "episode": 18,
+      "title": "Desolation",
+      "episodeImdbID": "tt8102814",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 15,
+      "episode": 19,
+      "title": "Red vs Red",
+      "episodeImdbID": "tt8102830",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 15,
+      "episode": 20,
+      "title": "Blue vs Blue",
+      "episodeImdbID": "tt8102860",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 15,
+      "episode": 21,
+      "title": "Epilogues",
+      "episodeImdbID": "tt8102904",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 16,
+      "episode": 1,
+      "title": "The Shisno",
+      "episodeImdbID": "tt8288760",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 16,
+      "episode": 2,
+      "title": "Incendiary Incidents",
+      "episodeImdbID": "tt8319842",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 16,
+      "episode": 3,
+      "title": "Lost Time",
+      "episodeImdbID": "tt8390750",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 16,
+      "episode": 5,
+      "title": "Headshots",
+      "episodeImdbID": "tt8409536",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 16,
+      "episode": 6,
+      "title": "A Pizza the Action",
+      "episodeImdbID": "tt8442488",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 16,
+      "episode": 7,
+      "title": "It Just Winked at Me",
+      "episodeImdbID": "tt8471724",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 16,
+      "episode": 8,
+      "title": "Recovery",
+      "episodeImdbID": "tt8531718",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 16,
+      "episode": 9,
+      "title": "Walk and Talk",
+      "episodeImdbID": "tt8539924",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 16,
+      "episode": 10,
+      "title": "Caboose's Travels",
+      "episodeImdbID": "tt8574890",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 16,
+      "episode": 11,
+      "title": "Sword Loser",
+      "episodeImdbID": "tt8608800",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 16,
+      "episode": 12,
+      "title": "Docudrama",
+      "episodeImdbID": "tt8648280",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 16,
+      "episode": 13,
+      "title": "A Time for Hammers",
+      "episodeImdbID": "tt8684388",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 16,
+      "episode": 14,
+      "title": "Lights Out",
+      "episodeImdbID": "tt8706410",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 16,
+      "episode": 15,
+      "title": "Paradox",
+      "episodeImdbID": "tt8735344",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 17,
+      "episode": 3,
+      "title": "Schrödingin'",
+      "episodeImdbID": "tt10069362",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 17,
+      "episode": 5,
+      "title": "The Not-So-Good Ol' Days",
+      "episodeImdbID": "tt10118646",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 17,
+      "episode": 6,
+      "title": "Self-Fulfilling Odyssey",
+      "episodeImdbID": "tt10118674",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 17,
+      "episode": 7,
+      "title": "Limbo",
+      "episodeImdbID": "tt10118688",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 17,
+      "episode": 8,
+      "title": "Finally",
+      "episodeImdbID": "tt10118710",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 17,
+      "episode": 9,
+      "title": "Succession",
+      "episodeImdbID": "tt10118740",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 17,
+      "episode": 10,
+      "title": "Killing Time",
+      "episodeImdbID": "tt10118742",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 18,
+      "episode": 1,
+      "title": "Viper",
+      "episodeImdbID": "tt13432832",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 18,
+      "episode": 3,
+      "title": "Duo",
+      "episodeImdbID": "tt13532950",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 18,
+      "episode": 5,
+      "title": "Sideways",
+      "episodeImdbID": "tt13612004",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 18,
+      "episode": 7,
+      "title": "For Power",
+      "episodeImdbID": "tt14666176",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 18,
+      "episode": 8,
+      "title": "For Power Pt. 2",
+      "episodeImdbID": "tt14666880",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
+    },
+    {
+      "seriesID": "red-vs-blue-2003",
+      "seriesTitle": "Red vs. Blue",
+      "season": 19,
+      "episode": 0,
+      "title": "Restoration - The Final Season",
+      "episodeImdbID": "tt28310690",
+      "status": "wanted",
+      "added_at": "2026-06-23T07:33:34Z"
     },
     {
       "seriesID": "rescue-77-1999",
