@@ -226,7 +226,7 @@ enum Modes {
         var seen = Set<String>()
         var out: [Catalog.Item] = []
         for mix in mixes {
-            for it in mix where it.posterURLParsed != nil && pro.contains(it.artworkSource ?? "") {
+            for it in mix where it.posterURLParsed != nil && pro.contains(it.artworkSource) {
                 if seen.insert(it.archiveID).inserted { out.append(it) }
             }
         }

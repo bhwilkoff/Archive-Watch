@@ -70,7 +70,10 @@ struct ArchiveWatchMacApp: App {
         // `.archiveproj` package — the FCP "project timeline" face, distinct from the
         // WindowGroup Library face above. File ▸ New (⌘N) creates a project. The proxy-clip
         // LIBRARY is the shared SwiftData store (Rule "Library ≠ Project").
-        DocumentGroup(newDocument: { ClipProjectDocument() }) { configuration in
+        // newDocument is an @Sendable (nonisolated) closure, but SwiftUI creates documents on
+        // the main thread (NSDocumentController) — assumeIsolated is the native bridge to the
+        // main-actor ClipProjectDocument initializer.
+        DocumentGroup(newDocument: { MainActor.assumeIsolated { ClipProjectDocument() } }) { configuration in
             ProjectEditorView(document: configuration.document)
                 .environment(store)
         }

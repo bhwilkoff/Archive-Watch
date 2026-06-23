@@ -22,11 +22,16 @@ extension UTType {
     static let archiveProject = UTType(exportedAs: "org.archivewatch.project")
 }
 
-// Not @MainActor: ReferenceFileDocument's snapshot/fileWrapper run off the main thread
-// (the snapshot VALUE crosses threads, not the object). SwiftUI mutates `project` on the
-// main thread from the editor view; the serializer only touches the passed Sendable
-// snapshot + nonisolated statics — no shared mutable state crosses threads.
-final class ClipProjectDocument: ReferenceFileDocument {
+// @MainActor: the live, observable `project` is mutable state edited from the main-thread
+// editor views, so the document is main-actor-isolated — which is what makes that mutable
+// `@Published` stored state Sendable-safe under the Swift 6 language mode. ReferenceFileDocument
+// is a `@preconcurrency` Sendable protocol with nonisolated requirements, so the conformance is
+// annotated `@preconcurrency` (Apple's native mechanism for adopting strict concurrency against
+// a pre-concurrency protocol). `fileWrapper(snapshot:)` stays `nonisolated`: SwiftUI serialises
+// the passed Sendable snapshot off the main thread, and it only touches that snapshot +
+// nonisolated statics — never `project`.
+@MainActor
+final class ClipProjectDocument: @preconcurrency ReferenceFileDocument {
     typealias Snapshot = ClipProject
 
     static var readableContentTypes: [UTType] { [.archiveProject] }

@@ -113,7 +113,7 @@ final class EditorModel {
         var left = clip
         left.sourceRange = TimeRange(startSeconds: clip.sourceRange.start.seconds,
                                      durationSeconds: offsetInClip)
-        var right = TimelineClip(
+        let right = TimelineClip(
             proxyClipID: clip.proxyClipID, catalogItemID: clip.catalogItemID, sourceURL: clip.sourceURL,
             sourceRange: TimeRange(startSeconds: cutSource, durationSeconds: clip.sourceRange.endSeconds - cutSource),
             timelineStart: .zero, track: 0, label: clip.label)

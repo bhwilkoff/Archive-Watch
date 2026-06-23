@@ -73,7 +73,7 @@ enum CreationStudioSelfTest {
             switch exporter.phase {
             case .done:
                 let size = (try? FileManager.default.attributesOfItem(atPath: out.path)[.size] as? Int) ?? 0
-                log("DONE[\(variant)] in \(dt)s — \(out.lastPathComponent) (\((size ?? 0) / 1024) KB)")
+                log("DONE[\(variant)] in \(dt)s — \(out.lastPathComponent) (\(size / 1024) KB)")
                 // Read provenance metadata back via AVFoundation's COMMON view (maps the
                 // format-specific atoms back to common identifiers — the right reader).
                 let common = (try? await AVURLAsset(url: out).load(.commonMetadata)) ?? []
