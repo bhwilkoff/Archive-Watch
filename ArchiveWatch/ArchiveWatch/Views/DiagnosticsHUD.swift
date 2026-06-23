@@ -18,7 +18,8 @@ import Combine
 // it — it's inert when disabled) before declaring a fix complete.
 enum AWDiagnostics {
     /// Master switch. Off by default; set true during an investigation.
-    static var enabled = false
+    /// MainActor-isolated: it's only ever read from the `.diagnostics()` view modifier (UI).
+    @MainActor static var enabled = false
 }
 
 struct DiagnosticsHUD: View {

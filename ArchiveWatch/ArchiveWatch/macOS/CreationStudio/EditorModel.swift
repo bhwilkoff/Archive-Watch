@@ -222,7 +222,9 @@ final class EditorModel {
         }
     }
 
-    deinit {
+    // isolated deinit (SE-0371) so cleanup can touch the MainActor-isolated player/observer
+    // natively under the Swift 6 language mode — no nonisolated(unsafe) escape hatch needed.
+    isolated deinit {
         if let t = timeObserver { player.removeTimeObserver(t) }
         rebuildTask?.cancel()
     }

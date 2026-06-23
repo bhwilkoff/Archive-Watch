@@ -49,7 +49,7 @@ final class StockIndex {
             sqlite3_close(handle); return nil
         }
     }
-    deinit { sqlite3_close(handle) }
+    isolated deinit { sqlite3_close(handle) }   // SE-0371: touch the MainActor handle natively
 
     /// Shots matching a free-text query over tags + title (LIKE for the sample; the real
     /// index will add MobileCLIP/sqlite-vec semantic search).

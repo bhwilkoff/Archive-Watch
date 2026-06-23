@@ -321,7 +321,9 @@ struct PlayerView: UIViewControllerRepresentable {
             try? ctx.save()
         }
 
-        deinit {
+        // isolated deinit (SE-0371): touch the MainActor-isolated observers natively under
+        // the Swift 6 language mode without a nonisolated(unsafe) escape hatch.
+        isolated deinit {
             if let t = timeObserver { player?.removeTimeObserver(t) }
             if let e = endObserver { NotificationCenter.default.removeObserver(e) }
             if let b = backgroundObserver { NotificationCenter.default.removeObserver(b) }

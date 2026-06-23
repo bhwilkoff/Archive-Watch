@@ -262,7 +262,10 @@ actor ClipExporter {
     /// renderSize parameter, so the clip is trimmed into an `AVMutableComposition`
     /// whose `naturalSize` sets the CI render canvas; the applier reframes the
     /// source frame into `request.renderSize`.
-    private func applyGradeAndReframe(_ spec: ClipSpec,
+    // @MainActor (like the macOS ExportService): the composition build + export are awaited I/O
+    // and AVFoundation runs the heavy work on its own queues, so nothing blocks main — and it
+    // keeps the non-Sendable session in one isolation domain for the progress Task.
+    @MainActor private func applyGradeAndReframe(_ spec: ClipSpec,
                                       onProgress: @escaping @Sendable (Double) -> Void) async throws -> URL {
         let (asset, loader) = Self.openSource(spec.sourceURL)
         defer { withExtendedLifetime(loader) {} }
@@ -338,7 +341,7 @@ actor ClipExporter {
 
     /// Pass 2 (and the only pass when `.none`): trim + reframe + speed +
     /// burned caption/credit. `spec.look` is expected to be `.none` here.
-    private func renderComposition(_ spec: ClipSpec,
+    @MainActor private func renderComposition(_ spec: ClipSpec,
                                    onProgress: @escaping @Sendable (Double) -> Void) async throws -> URL {
         let (asset, loader) = Self.openSource(spec.sourceURL)
         defer { withExtendedLifetime(loader) {} }
@@ -422,6 +425,10 @@ actor ClipExporter {
         return out
     }
 
+    // @MainActor so the progress Task inherits that global-actor isolation and `session` is
+    // never shared across concurrency domains (mirrors the macOS ExportService pattern). The
+    // async `session.export` offloads internally, so it never blocks the main thread.
+    @MainActor
     private static func runExport(_ session: AVAssetExportSession, to url: URL,
                                   onProgress: @escaping @Sendable (Double) -> Void) async throws {
         let progressTask = Task {
@@ -537,13 +544,16 @@ actor ClipExporter {
         request.addsPunctuation = true
         if recognizer.supportsOnDeviceRecognition { request.requiresOnDeviceRecognition = true }
 
-        let segments: [SFTranscriptionSegment] = try await withCheckedThrowingContinuation { cont in
+        // Group into Sendable CaptionCues INSIDE the callback so no non-Sendable
+        // [SFTranscriptionSegment] crosses the continuation (Swift 6 region isolation).
+        let cues: [CaptionCue] = try await withCheckedThrowingContinuation { cont in
             recognizer.recognitionTask(with: request) { result, error in
                 if let error { cont.resume(throwing: error); return }
-                if let result, result.isFinal { cont.resume(returning: result.bestTranscription.segments) }
+                if let result, result.isFinal {
+                    cont.resume(returning: Self.groupIntoCues(result.bestTranscription.segments))
+                }
             }
         }
-        let cues = Self.groupIntoCues(segments)
         guard !cues.isEmpty else { throw ClipExportError.noSpeechFound }
         return cues
     }

@@ -76,7 +76,7 @@ struct EpisodeAVPlayerContainer: UIViewControllerRepresentable {
 
     func makeCoordinator() -> Coordinator { Coordinator(self) }
 
-    final class Coordinator {
+    @MainActor final class Coordinator {
         var parent: EpisodeAVPlayerContainer
         init(_ parent: EpisodeAVPlayerContainer) { self.parent = parent }
 
