@@ -1713,3 +1713,67 @@ web `<track>`, Apple HLS) are unchanged and stay — only the whisper SOURCE is 
 breaks scrubbing + non-faststart start on captioned films — this affects ALL captioned
 films on iOS/tvOS (archive-ASR + future OpenSubtitles), not just whisper, and is a
 distinct problem from this decision.
+
+---
+
+## 042 — macOS "Creation Studio": a Mac-exclusive multi-clip editor, not the iOS app resized
+*Date: 2026-06-22*
+
+Archive Watch gets a native **macOS** app that is two things at once: a parity
+browse/play/library face on the shared Swift Core, AND a **Mac-EXCLUSIVE "Creation
+Studio"** — a multi-clip timeline editor that composes clips across different archive.org
+titles into one exported film. The binding spec is `docs/macOS-DESIGN.md`; the API/UX
+research is `docs/research/creation-studio-README.md` + seven briefs. The architecture is
+fixed on four load-bearing decisions: (1) **one Timeline model compiles to one
+`(AVMutableComposition, AVVideoComposition.Configuration, AVMutableAudioMix)` triple that
+serves BOTH preview and export** (`AVComposition` is an `AVAsset`); (2) clips are
+**non-destructive proxy references** to remote archive.org ranges (OTIO-shaped Codable, we
+own the annotation layer / archive.org owns the bytes), and export is **cache-then-export**
+— pre-fetch only each clip's moov-snapped in/out byte range via `ResilientStreamLoader` to
+a local faststart MP4, NEVER stream remote into `AVAssetExportSession` (which fails on
+remote URLs); (3) **no backend, three data planes** — shared read-only SQLite on a
+Release/Pages (catalog + a new stock `clips.sqlite` and `subtitle.sqlite`, query-on-disk +
+WASM-Range on web), a user annotation layer (proxy-clip library + `.archiveproj` projects
+in SwiftData + iCloud, references only), and disposable device-local caches; (4) the
+flagship **text→supercut (#9)** gets word-level timing from macOS-26 SpeechTranscriber
+**validated against the held caption text** (token-diff: the caption is ground truth for
+*what was said*, the recognizer supplies *when*) — the Decision-039b hallucination fix
+applied to timing, with MFA for the rough-audio tail.
+
+**Why**: phones create ONE clip (iOS Clip Studio, Decision 033); the Mac assembles a film.
+The owner's brief is explicit — make a first-class Mac app that ENABLES new capabilities,
+"not just a retread of old iOS/iPadOS/tvOS ways of doing things." Creation Studio belongs
+ONLY on macOS because its features structurally require four things the touch/TV/web
+platforms cannot host: a full filesystem + document model, subprocess CLI tools
+(ffmpeg/PySceneDetect/MFA), heavy/long-running/background compute, and a
+pointer+keyboard+menu+multi-window editor. The shared Swift Core (already extracted for
+iOS — `CatalogDB`, `ResilientStreamLoader`, models, `CloudKitSyncService`) means the
+parity face is ~free and the Mac joins the same CloudKit container; the genuinely new work
+is the editor, the stock-archive miner, and the supercut.
+
+**How to apply**: quote `docs/macOS-DESIGN.md` before adding any window/scene/view/engine
+path/index/feature. The non-negotiables: **Library ≠ Project** (proxy library is app-
+global SwiftData+iCloud; project is the `.archiveproj` document); **cache-then-export,
+never stream-into-export**; the **two-pass grade→overlay render** (CI filter + CALayer tool
+can't share one `AVVideoComposition` — inherited Decision-033 constraint); **the
+no-auto-edit learning gate** — #9 (supercut) and #6 (auto-tagged stock) MUST yield an
+EDITABLE timeline of candidates, never a one-tap finished cut (automate the mechanical,
+preserve the meaningful); **provenance burned + sources embedded on every export**;
+**rights-gated `isClippable` only**. Reuse the Core verbatim; rebuild only the Mac-native
+shell (SwiftUI scenes + AppKit for the timeline `NSView`+`CALayer` and the browser
+`NSCollectionView`). `sqlite-vec` (a SQLite extension that links into the SQLite the app
+already uses) + **MobileCLIP** (a Core ML model) are permitted as "Apple frameworks + an
+extension + a model," NOT third-party Swift packages; heavy tools stay subprocess/CI.
+De-risk with three spikes before Phase 1 ships: the `NSDocument`/security-scoped-bookmark
+seam, the AppKit timeline scroll/zoom/hit-test, and one real cache-then-export round trip.
+
+**Consequences**: two new CI-built shared indices (`clips.sqlite` stock = PySceneDetect →
+Vision classify → MobileCLIP embeddings; `subtitle.sqlite` = FTS5 cues + a word-timing
+table) join the publish pipeline, additive and popularity-first like the cover/subtitle
+pipelines. Two new project skills (`macos-creation-studio-engine`,
+`macos-native-app-shell`) and the binding `docs/macOS-DESIGN.md` are the authoring
+backlog. Phasing: 0 shell+parity → 1 editor spine (proxy library + timeline +
+cache-export) → 2 text/audio layers + multi-format export → 3 stock archive (#6) → 4
+search + supercut (#8,#9) → 5 publish (#7, archive.org IAS3 first, YouTube
+Private/Unlisted until Google verification). YouTube uploads from an unverified OAuth app
+are forced Private + 100-user-capped, so public sharing leads with archive.org.
