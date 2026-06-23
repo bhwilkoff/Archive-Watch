@@ -5,21 +5,24 @@ import AppKit
 import UniformTypeIdentifiers
 
 // The Creation Studio editor scene (docs/macOS-DESIGN.md §2 — the DocumentGroup face,
-// distinct from the WindowGroup Library face; Rule "Library ≠ Project"). This is the
-// Mac-native NLE shell: a NavigationSplitView with the proxy-clip library on the leading
-// side, the timeline + preview in the detail column, and a trailing .inspector().
-//
-// UNIT 1 SCAFFOLD: the library sidebar, the AppKit NSView+CALayer timeline (spike #2),
-// the AVFoundation preview, and the cache-then-export engine (spike #3) land in Units 2–4.
-// For now the detail column lists the timeline's clips and the toolbar can mutate the
-// project — enough to prove the document seam (spike #1): open → edit title/clips →
-// autosave the package → reopen with state intact.
+// distinct from the WindowGroup Library face; Rule "Library ≠ Project"). The Mac-native NLE
+// shell: a NavigationSplitView with the proxy-clip library on the leading side, a VSplitView
+// detail column holding the program monitor (live preview) over the transport + AppKit
+// timeline (ClipTimelineView), and a trailing .inspector(). All editor state + edits live in
+// EditorModel; the document autosaves the .archiveproj. (Library sidebar grid + drag-onto-
+// timeline = Unit 4; the "Add Clip" toolbar button is the Unit-3 stand-in.)
 
 struct ProjectEditorView: View {
     @ObservedObject var document: ClipProjectDocument
     @Environment(AppStore.self) private var store
+    @State private var model: EditorModel
     @State private var inspectorShown = true
     @State private var exporter = ExportService()
+
+    init(document: ClipProjectDocument) {
+        self.document = document
+        _model = State(initialValue: EditorModel(document: document))
+    }
 
     private var project: Binding<ClipProject> {
         Binding(get: { document.project }, set: { document.project = $0 })
@@ -30,8 +33,32 @@ struct ProjectEditorView: View {
             LibrarySidebar()
                 .navigationSplitViewColumnWidth(min: 200, ideal: 240, max: 320)
         } detail: {
-            TimelinePlaceholder(project: project)
-                .overlay(alignment: .bottom) { exportStatusBar }
+            VSplitView {
+                // Program monitor — the live preview (rebuild-and-swap composition, Rule 3b).
+                ZStack {
+                    Color.black
+                    if document.project.timeline.clips.isEmpty {
+                        ContentUnavailableView("Empty Timeline", systemImage: "timeline.selection")
+                            .foregroundStyle(.white.opacity(0.5))
+                    } else {
+                        VideoPlayerNS(player: model.player)
+                    }
+                    if model.isBuildingPreview {
+                        ProgressView().controlSize(.small).tint(.white)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+                            .padding(10)
+                    }
+                }
+                .frame(minHeight: 220)
+
+                VStack(spacing: 0) {
+                    transportBar
+                    Divider()
+                    ClipTimelineView(model: model)
+                        .frame(minHeight: 170)
+                }
+            }
+            .overlay(alignment: .bottom) { exportStatusBar }
         }
         .inspector(isPresented: $inspectorShown) {
             ProjectInspector(project: project)
@@ -44,20 +71,44 @@ struct ProjectEditorView: View {
                     .frame(minWidth: 200)
             }
             ToolbarItemGroup {
-                // UNIT-2 SCAFFOLD: pull a real archive.org title from the catalog and add an
-                // ~8s window. Unit 4 replaces this with the real browser → library → drag.
-                Button { addDemoClip() } label: {
+                // UNIT-3 SCAFFOLD: pull a real archive.org title from the catalog. Unit 4
+                // replaces this with the real browser → library → drag-onto-timeline.
+                Button { addClip() } label: {
                     Label("Add Clip", systemImage: "plus.rectangle.on.folder")
                 }
+                Button { model.splitAtPlayhead() } label: {
+                    Label("Split", systemImage: "scissors")
+                }.disabled(document.project.timeline.clips.isEmpty)
                 Button { export() } label: {
                     Label("Export", systemImage: "square.and.arrow.up")
                 }
-                .disabled(project.wrappedValue.timeline.clips.isEmpty || exporter.isBusy)
+                .disabled(document.project.timeline.clips.isEmpty || exporter.isBusy)
                 Button { inspectorShown.toggle() } label: {
                     Label("Inspector", systemImage: "sidebar.trailing")
                 }
             }
         }
+        .task { if !document.project.timeline.clips.isEmpty { await model.rebuildPreview() } }
+        .onChange(of: document.project.burnAttribution) { Task { await model.rebuildPreview() } }
+    }
+
+    private var transportBar: some View {
+        HStack(spacing: 14) {
+            Button { model.togglePlay() } label: {
+                Image(systemName: model.isPlaying ? "pause.fill" : "play.fill")
+            }
+            .keyboardShortcut(.space, modifiers: [])
+            Text(timecode(model.playheadSeconds) + " / " + timecode(model.totalDuration))
+                .font(.caption.monospacedDigit()).foregroundStyle(.secondary)
+            Spacer()
+            Button { model.zoom(by: 1.0 / 1.5) } label: { Image(systemName: "minus.magnifyingglass") }
+            Button { model.zoom(by: 1.5) } label: { Image(systemName: "plus.magnifyingglass") }
+        }
+        .padding(.horizontal, 14).padding(.vertical, 6)
+    }
+
+    private func timecode(_ s: Double) -> String {
+        String(format: "%d:%02d", Int(s) / 60, Int(s) % 60)
     }
 
     @ViewBuilder private var exportStatusBar: some View {
@@ -97,14 +148,9 @@ struct ProjectEditorView: View {
         }
     }
 
-    private func addDemoClip() {
+    private func addClip() {
         guard let item = store.randomPlayable(), let url = item.videoURLParsed else { return }
-        let start = document.project.timeline.durationSeconds
-        let clip = TimelineClip(
-            catalogItemID: item.archiveID, sourceURL: url,
-            sourceRange: TimeRange(startSeconds: 3, durationSeconds: 8),
-            timelineStart: TimeStamp(seconds: start), track: 0, label: item.title)
-        document.project.timeline.clips.append(clip)
+        model.addClip(catalogItemID: item.archiveID, sourceURL: url, title: item.title)
     }
 
     private func export() {
@@ -148,57 +194,6 @@ private struct LibrarySidebar: View {
     }
 }
 
-// MARK: - Timeline placeholder (Unit 3 replaces this with the AppKit NSView+CALayer NLE)
-
-private struct TimelinePlaceholder: View {
-    @Binding var project: ClipProject
-
-    var body: some View {
-        VStack(spacing: 0) {
-            // Program monitor placeholder (Unit 2 wires the AVPlayer preview).
-            ZStack {
-                Rectangle().fill(.black)
-                Image(systemName: "play.rectangle")
-                    .font(.system(size: 44)).foregroundStyle(.white.opacity(0.25))
-            }
-            .frame(maxWidth: .infinity)
-            .frame(height: 280)
-
-            Divider()
-
-            // Timeline track listing (placeholder for the magnetic AppKit timeline).
-            if project.timeline.clips.isEmpty {
-                ContentUnavailableView {
-                    Label("Empty Timeline", systemImage: "timeline.selection")
-                } description: {
-                    Text("Drag clips from the Library onto the timeline. (The AppKit timeline arrives in Unit 3.)")
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-            } else {
-                List {
-                    ForEach(project.timeline.clips) { clip in
-                        HStack {
-                            Image(systemName: "rectangle.on.rectangle.angled")
-                                .foregroundStyle(.secondary)
-                            VStack(alignment: .leading, spacing: 1) {
-                                Text(clip.label).font(.subheadline)
-                                Text(String(format: "in %.1fs · %.1fs long · track %d",
-                                            clip.sourceRange.start.seconds,
-                                            clip.sourceRange.duration.seconds, clip.track))
-                                    .font(.caption).foregroundStyle(.secondary)
-                            }
-                            Spacer()
-                            Text(String(format: "@ %.1fs", clip.timelineStart.seconds))
-                                .font(.caption.monospacedDigit()).foregroundStyle(.tertiary)
-                        }
-                    }
-                    .onDelete { project.timeline.clips.remove(atOffsets: $0) }
-                }
-            }
-        }
-    }
-}
-
 // MARK: - Inspector
 
 private struct ProjectInspector: View {
@@ -216,7 +211,7 @@ private struct ProjectInspector: View {
             } header: {
                 Text("Export")
             } footer: {
-                Text("Adds a small “archivewatch.org · Public Domain” credit to the video. Turn off for a clean export — the archive.org source is still recorded in the file’s metadata.")
+                Text("Adds a small “archivewatch.org · Public Domain” credit to the video. Turn off for a clean export.")
                     .font(.caption).foregroundStyle(.secondary)
             }
             Section("Canvas") {

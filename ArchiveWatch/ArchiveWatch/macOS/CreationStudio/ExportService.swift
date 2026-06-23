@@ -40,10 +40,18 @@ final class ExportService {
                 progress = Double(i + 1) / Double(clips.count) * 0.4
             }
 
-            // 2) Compile the (composition, videoComposition) — reads LOCAL files only.
+            // 2) Compile the (composition, videoComposition) from the LOCAL cached files.
             phase = .composing
+            let ordered = clips.sorted { $0.timelineStart.seconds < $1.timelineStart.seconds }
+            var resolved: [CompositionBuilder.ResolvedClip] = []
+            for clip in ordered {
+                guard let url = cached[clip.id] else { continue }
+                let asset = AVURLAsset(url: url)
+                let dur = try await asset.load(.duration)               // the cached file IS the window
+                resolved.append(.init(asset: asset, insertRange: CMTimeRange(start: .zero, duration: dur)))
+            }
             let built = try await CompositionBuilder.build(
-                timeline: project.timeline, cachedURLs: cached, creditLine: creditLine)
+                resolved: resolved, timeline: project.timeline, creditLine: creditLine)
 
             // 3) Export the local composition (reliable — nothing remote reaches the exporter).
             phase = .exporting

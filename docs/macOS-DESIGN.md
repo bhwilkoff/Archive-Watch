@@ -253,8 +253,28 @@ From `creation-studio-nle-ux-teardown.md`:
   frame + objective bottom-band diff) and the clean export (no credit) — the codec fallback
   made it robust across varied content. Known follow-up: source metadata embedding (above).
 
-**Next:** Unit 3 — the AppKit `NSView`+`CALayer` timeline (spike #2): magnification, hit-test,
-filmstrip thumbnails, drag-trim. Then Unit 4 — browser → library → timeline wire-up.
+**Unit 3 — the AppKit timeline (spike #2) + live preview: SHIPPED 2026-06-23.**
+- `TimelineView_macOS.swift` (`ClipTimelineView` — renamed off SwiftUI's `TimelineView`):
+  an `NSView`+`CALayer` document view in an `NSScrollView` (Rule 7b). Renders the magnetic
+  main track — clip blocks sized by duration × **points-per-second** (zoom re-tiles crisply
+  rather than NSScrollView magnification, which would blur), filmstrip thumbnails
+  (`AVAssetImageGenerator` off the resilient remote asset), ruler, red playhead, selection,
+  and trim handles. Interaction: click-to-scrub, click-to-select, **drag-trim handles**,
+  ⌘/⌥-scroll zoom, Space/⌫/B keys (Rule 7c CapCut-approachable).
+- `EditorModel.swift` — the @Observable editor state + edits: magnetic single-track layout
+  (relayout after every change), add/trim/split/delete, debounced rebuild-and-swap preview
+  (Rule 3b), playhead↔player sync, zoom, filmstrip thumbnails.
+- `PreviewComposer.swift` — the live preview composition built from the REMOTE resilient
+  assets (so a trim is just a new insert range, NO re-cache) — same recipe as export, so
+  preview == export (Rule 3a). `CompositionBuilder` refactored to a shared core
+  (`ResolvedClip`) that both preview (remote) and export (cached) use.
+- Editor scene rebuilt: program monitor (preview `AVPlayer`) over transport + the timeline.
+- **Spike #2 result: PASS.** Validated on-device — New Project → Add Clip ×2 → the timeline
+  renders both clips magnetically with filmstrip thumbnails + ruler + playhead + selection,
+  and the composition builds (0:16). Full drag-trim/zoom feel is owner-verifiable on device.
+
+**Next:** Unit 4 — the real browser → proxy-clip Library → drag-onto-timeline wire-up (the
+Storyblocks-style browser + `Transferable` clip drag), retiring the "Add Clip" stand-in.
 
 ---
 

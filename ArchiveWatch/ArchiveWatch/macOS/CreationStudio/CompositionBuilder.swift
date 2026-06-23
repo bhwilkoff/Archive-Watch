@@ -23,10 +23,19 @@ struct BuiltComposition {
 }
 
 enum CompositionBuilder {
-    /// Compile a timeline whose clips have been cached to LOCAL files (`cachedURLs`).
-    /// `creditLine == nil` means a clean export — no burned attribution (owner decision:
-    /// attribution is optional, not mandatory).
-    static func build(timeline: Timeline, cachedURLs: [UUID: URL],
+    /// One clip already resolved to a loaded asset + the source range to splice in. EXPORT
+    /// resolves to local cached files ([0, fileDuration]); PREVIEW resolves to the remote
+    /// resilient asset + the live in/out range — same recipe, different source backing, so
+    /// "preview == export" holds (Rule 3a).
+    struct ResolvedClip {
+        let asset: AVURLAsset
+        let insertRange: CMTimeRange
+    }
+
+    /// Compile resolved clips (in timeline order) into the (composition, videoComposition)
+    /// pair. `creditLine == nil` means a clean export — no burned attribution (owner
+    /// decision: attribution is optional). Shared by preview + export.
+    static func build(resolved: [ResolvedClip], timeline: Timeline,
                       creditLine: String?) async throws -> BuiltComposition {
         let comp = AVMutableComposition()
         guard let vTrack = comp.addMutableTrack(withMediaType: .video,
@@ -39,19 +48,16 @@ enum CompositionBuilder {
 
         var instructions: [AVVideoCompositionInstruction] = []
         var cursor = CMTime.zero
-        let ordered = timeline.clips.sorted { $0.timelineStart.seconds < $1.timelineStart.seconds }
 
-        for clip in ordered {
-            guard let url = cachedURLs[clip.id] else { continue }
-            let asset = AVURLAsset(url: url)
+        for r in resolved {
+            let asset = r.asset
             guard let srcV = try await asset.loadTracks(withMediaType: .video).first else { continue }
-            let dur = try await asset.load(.duration)
-            guard dur.isNumeric, dur > .zero else { continue }
-            let srcRange = CMTimeRange(start: .zero, duration: dur)   // local file IS the window
+            let insertRange = r.insertRange
+            guard insertRange.duration.isNumeric, insertRange.duration > .zero else { continue }
 
-            try vTrack.insertTimeRange(srcRange, of: srcV, at: cursor)
+            try vTrack.insertTimeRange(insertRange, of: srcV, at: cursor)
             if let aTrack, let srcA = try await asset.loadTracks(withMediaType: .audio).first {
-                try? aTrack.insertTimeRange(srcRange, of: srcA, at: cursor)
+                try? aTrack.insertTimeRange(insertRange, of: srcA, at: cursor)
             }
 
             // Per-clip aspect-fit transform (orient → fit into the render canvas, letterboxed).
@@ -66,12 +72,12 @@ enum CompositionBuilder {
             let layerInstr = AVVideoCompositionLayerInstruction(configuration: layerCfg)
 
             var instrCfg = AVVideoCompositionInstruction.Configuration()
-            instrCfg.timeRange = CMTimeRange(start: cursor, duration: dur)
+            instrCfg.timeRange = CMTimeRange(start: cursor, duration: insertRange.duration)
             instrCfg.backgroundColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)   // letterbox matte
             instrCfg.layerInstructions = [layerInstr]
             instructions.append(AVVideoCompositionInstruction(configuration: instrCfg))
 
-            cursor = cursor + dur
+            cursor = cursor + insertRange.duration
         }
 
         guard !instructions.isEmpty else { throw CreationStudioError.noClips }

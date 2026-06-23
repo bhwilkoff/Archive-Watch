@@ -22,7 +22,7 @@ Binding spec: `docs/macOS-DESIGN.md`. Research: `docs/research/creation-studio-R
 | `LibraryView_macOS.swift` | Continue Watching / Favorites / Playlists (SwiftData) |
 | `SettingsView_macOS.swift` | Account, content filter, TMDb attribution, donate |
 | `ArchiveWatch-macOS.entitlements` | App Sandbox + network + **same CloudKit container** + Sign in with Apple + app group + associated domains |
-| `Info-macOS.plist` | `archivewatch://` scheme, user-activity types, min macOS 15 |
+| `Info-macOS.plist` | `archivewatch://` scheme, user-activity types, min macOS 26 |
 
 ## Target status — created programmatically (no Xcode GUI needed)
 
@@ -32,7 +32,7 @@ tvOS/iOS targets re-verified unbroken. It was wired by a direct, additive edit o
 `project.pbxproj` (objectVersion 77) rather than the Xcode GUI:
 
 - New `PBXNativeTarget` **ArchiveWatchMac** (`app.archivewatch.macos`, `SDKROOT =
-  macosx`, `MACOSX_DEPLOYMENT_TARGET = 15.0`), Debug+Release configs, and a
+  macosx`, `MACOSX_DEPLOYMENT_TARGET = 26.0`), Debug+Release configs, and a
   shared scheme (Xcode auto-generates it from the target).
 - **Core is reused, not copied.** The target points its
   `fileSystemSynchronizedGroups` at the SAME `ArchiveWatch` folder as the
@@ -94,8 +94,9 @@ engine**: cache each clip window to a local faststart MP4 (AVFoundation passthro
 `ResilientStreamLoader`, codec-fallback), compile via the Configuration-based AVFoundation
 API, export with an **optional** burned attribution credit (per-project toggle). Spike #3
 (cache-then-export) validated end-to-end on real archive.org titles. **Requires macOS 26+**
-(the Configuration API is macOS-26-only; all Apple platforms now target 26+). **Not yet:**
-the AppKit `NSView`+`CALayer` timeline (Unit 3), browser→library→timeline wire-up (Unit 4),
+(the Configuration API is macOS-26-only; all Apple platforms now target 26+). Unit 3 — the **AppKit `NSView`+`CALayer` timeline** (`ClipTimelineView`: magnetic
+track, filmstrip thumbnails, drag-trim, zoom, playhead) + a live rebuild-and-swap preview
+(`EditorModel`/`PreviewComposer`). **Not yet:** browser→library→timeline wire-up (Unit 4),
 then Phases 2–5 (layers, stock index, supercut, publishing).
 
 ## Known refinements (cheap follow-ups)
