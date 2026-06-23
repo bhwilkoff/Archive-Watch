@@ -262,7 +262,7 @@ final class EditorModel {
         if clipPrep[clip.id] != .ready { clipPrep[clip.id] = .caching }
         let cacheStart = max(0, inS - Self.cacheHandle)
         let cacheEnd = outS + Self.cacheHandle                     // clamped to source end by the cache service
-        let url = try await ClipCacheService.cachedWindow(
+        let url = try await CacheCoordinator.window(                // coalesces concurrent same-window caches
             catalogItemID: clip.catalogItemID, sourceURL: clip.sourceURL,
             startSeconds: cacheStart, endSeconds: cacheEnd)
         if Task.isCancelled { throw CancellationError() }

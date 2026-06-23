@@ -49,6 +49,27 @@ enum ProjectMediaCache {
     }
 }
 
+// Coalesces concurrent requests for the SAME window into one cache task — so two overlapping
+// preview rebuilds (e.g. rapid edits) never download the same window twice.
+@MainActor
+enum CacheCoordinator {
+    private static var inFlight: [String: Task<URL, Error>] = [:]
+
+    static func window(catalogItemID: String, sourceURL: URL,
+                       startSeconds: Double, endSeconds: Double) async throws -> URL {
+        let key = ProjectMediaCache.windowURL(catalogItemID: catalogItemID,
+                                              startSeconds: max(0, startSeconds),
+                                              endSeconds: max(startSeconds + 0.1, endSeconds)).path
+        if let existing = inFlight[key] { return try await existing.value }
+        let task = Task { try await ClipCacheService.cachedWindow(
+            catalogItemID: catalogItemID, sourceURL: sourceURL,
+            startSeconds: startSeconds, endSeconds: endSeconds) }
+        inFlight[key] = task
+        defer { inFlight[key] = nil }
+        return try await task.value
+    }
+}
+
 enum ClipCacheService {
     /// Cache a clip's EXACT in/out window (export path — precise bounds, cached once).
     static func cachedURL(for clip: TimelineClip, attempts: Int = 3) async throws -> URL {
@@ -75,11 +96,18 @@ enum ClipCacheService {
                                 duration: CMTime(seconds: e - s, preferredTimescale: 600))
         var lastError: Error = CreationStudioError.cannotCreateExportSession
         for attempt in 0..<max(1, attempts) {
+            let t0 = Date()
             do {
+                var path = "passthrough"
                 do {
                     try await transcode(sourceURL, range: range, preset: AVAssetExportPresetPassthrough, to: out)
                 } catch {
+                    path = "reencode"
                     try await transcode(sourceURL, range: range, preset: AVAssetExportPresetHighestQuality, to: out)
+                }
+                if ProcessInfo.processInfo.environment["AW_CS_DIAG"] != nil {
+                    FileHandle.standardError.write(Data(
+                        "AWCS CACHE \(catalogItemID) \(path) \(Int(s))–\(Int(e))s in \(Int(Date().timeIntervalSince(t0) * 1000))ms\n".utf8))
                 }
                 return out
             } catch {
