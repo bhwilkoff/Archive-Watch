@@ -1,3 +1,4 @@
+#if os(iOS) || os(tvOS)
 import BackgroundTasks
 import Foundation
 
@@ -27,3 +28,4 @@ enum BackgroundRefresh {
         schedule()
     }
 }
+#endif

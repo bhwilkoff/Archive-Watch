@@ -1,4 +1,5 @@
-#if os(iOS)
+// Shared by iOS and macOS (pointer/AppKit sibling of UIKit; tvOS has its own variant).
+#if os(iOS) || os(macOS)
 import SwiftUI
 import Observation
 

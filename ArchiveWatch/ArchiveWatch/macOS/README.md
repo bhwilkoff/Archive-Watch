@@ -24,37 +24,50 @@ Binding spec: `docs/macOS-DESIGN.md`. Research: `docs/research/creation-studio-R
 | `ArchiveWatch-macOS.entitlements` | App Sandbox + network + **same CloudKit container** + Sign in with Apple + app group + associated domains |
 | `Info-macOS.plist` | `archivewatch://` scheme, user-activity types, min macOS 15 |
 
-## Owner step — create the Xcode target (GUI)
+## Target status — created programmatically (no Xcode GUI needed)
 
-These files compile only inside an Xcode target. Until then, SourceKit shows
-"Cannot find AppStore/Catalog/… in scope" on every file — these are the known
-**phantom errors** (CLAUDE.md): the symbols live in the shared Core and resolve
-once the files join a target that also compiles the Core. Steps:
+The `ArchiveWatchMac` target now exists in `ArchiveWatch.xcodeproj` and **compiles
+clean for macOS** (`-destination 'generic/platform=macOS'`), with the shipping
+tvOS/iOS targets re-verified unbroken. It was wired by a direct, additive edit of
+`project.pbxproj` (objectVersion 77) rather than the Xcode GUI:
 
-1. **File ▸ New ▸ Target ▸ macOS ▸ App.** Name `ArchiveWatchMac`, SwiftUI,
-   SwiftData, bundle id `app.archivewatch.macos`. Delete its auto-generated
-   `ContentView.swift` + `…App.swift` (this folder replaces them).
-2. **Add the `macOS/` group** to the new target (the 13 files above).
-3. **Add the SHARED Core to the target** (Target Membership checkbox) — reuse,
-   do NOT copy:
-   - `Models/` (Catalog, UserState, Channels, ContentItem, Taxonomy, VideoClip, …)
-   - `Networking/` (ResilientStreamLoader, ArchiveClient, HTTPClient, TMDbClient,
-     ArtworkResolver, DerivativePicker, EnrichmentService, WikidataClient)
-   - `Store/` (AppStore, CatalogDB, AccountStore) — NOTE: `AppStore`/`AccountStore`
-     have iOS/tvOS variants; add the shared one and confirm there's no `#if`
-     collision (the macOS app uses the shared `CatalogDB`/`AppStore` query surface).
-   - `Services/` (CatalogLoader, CatalogRefreshService, CloudKitSyncService,
-     SeriesStore, ImageLoader, CollectionMetadata, SplitMix, helpers)
-   - Resources: bundle **`seed.sqlite`** and **`featured.json`** in the target.
-4. **Set entitlements** to `macOS/ArchiveWatch-macOS.entitlements`; **Info.plist**
-   to `macOS/Info-macOS.plist` (or merge its keys). Enable capabilities: iCloud
-   (CloudKit, container `iCloud.app.archivewatch.tvos`), Sign in with Apple, App
-   Groups (`group.app.archivewatch.tvos`), Associated Domains.
-5. **Wire `AppVersion.xcconfig`** to the target (Decision 003 — never the identity
-   panel).
-6. Build for **My Mac** (macOS 15+). Fix any genuine cross-platform `#if os()`
-   gaps the shared files surface (e.g. UIKit-only code in a shared file should be
-   guarded; flag these — they belong in the platform folders, not the Core).
+- New `PBXNativeTarget` **ArchiveWatchMac** (`app.archivewatch.macos`, `SDKROOT =
+  macosx`, `MACOSX_DEPLOYMENT_TARGET = 15.0`), Debug+Release configs, and a
+  shared scheme (Xcode auto-generates it from the target).
+- **Core is reused, not copied.** The target points its
+  `fileSystemSynchronizedGroups` at the SAME `ArchiveWatch` folder as the
+  universal target — so every Core file (`Models/`, `Networking/`, `Services/`,
+  `Store/`) is shared automatically; per-platform `#if os()` guards select what
+  compiles. `seed.sqlite` rides the synchronized group; `featured.json` +
+  `collections.json` are in the target's Resources phase; `catalog.json` is
+  excepted (mirrors the main target).
+- Entitlements → `ArchiveWatch/macOS/ArchiveWatch-macOS.entitlements`;
+  Info.plist → `ArchiveWatch/macOS/Info-macOS.plist`; version inherited from
+  `AppVersion.xcconfig` at the project level (Decision 003 — no identity panel).
+
+**Cross-platform gaps that were fixed** (the `#if os()` work the Core needed):
+the macOS shell is modeled on the **iOS** app, so the iOS variants of `AppStore`,
+`Color(hex:)`, and `SplitMix` (`iOS/*_iOS.swift`) were widened from `#if os(iOS)`
+to `#if os(iOS) || os(macOS)` — they're SwiftUI/Foundation-only and UIKit-clean.
+`Services/ImageLoader.swift` (UIImage, tvOS/iOS-only consumers) was wrapped in
+`#if canImport(UIKit)`; `Services/BackgroundRefresh.swift` (BGTaskScheduler,
+unavailable on macOS) was guarded to iOS/tvOS; `Store/AccountStore.swift` got a
+macOS `presentationAnchor` (NSWindow). The tvOS `Store/AppStore.swift` is
+untouched.
+
+### The one remaining OWNER step — signing & capabilities (only to RUN/ship)
+
+The target builds with signing **off**. To run on *My Mac* or archive, the bundle
+id `app.archivewatch.macos` needs its capabilities registered in your Apple
+Developer account (these can't be done from here — they touch your portal/iCloud):
+
+- **iCloud / CloudKit** — container `iCloud.app.archivewatch.tvos` (the SAME
+  container as tvOS/iOS, so the Mac syncs with them).
+- **Sign in with Apple**, **App Groups** (`group.app.archivewatch.tvos`),
+  **Associated Domains** (`applinks:archivewatch.org`).
+
+With those enabled and automatic signing on, a local Debug "My Mac" build signs
+itself. Everything else is already in the project.
 
 ## Phase 0 scope / non-goals
 

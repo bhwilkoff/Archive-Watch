@@ -11,6 +11,8 @@
 		B7AC53E62F93BA0500F50803 /* collections.json in Resources */ = {isa = PBXBuildFile; fileRef = B7AC53E52F93BA0500F50803 /* collections.json */; };
 		DD00000000000000000000B2 /* ArchiveWatchTopShelf.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DD00000000000000000000A1 /* ArchiveWatchTopShelf.appex */; platformFilters = (tvos, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DE00000000000000000000B2 /* ArchiveWatchWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DE00000000000000000000A1 /* ArchiveWatchWidgets.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EE00000000000000000000B2 /* featured.json in Resources */ = {isa = PBXBuildFile; fileRef = B7AC53E12F93BA0500F50803 /* featured.json */; };
+		EE00000000000000000000B6 /* collections.json in Resources */ = {isa = PBXBuildFile; fileRef = B7AC53E52F93BA0500F50803 /* collections.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,7 @@
 		B7AC53E52F93BA0500F50803 /* collections.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = collections.json; path = ../docs/taxonomy/collections.json; sourceTree = "<group>"; };
 		DD00000000000000000000A1 /* ArchiveWatchTopShelf.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ArchiveWatchTopShelf.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE00000000000000000000A1 /* ArchiveWatchWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ArchiveWatchWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE00000000000000000000A1 /* ArchiveWatchMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArchiveWatchMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -62,6 +65,13 @@
 			);
 			target = B7AC53CC2F93BA0300F50803 /* ArchiveWatch */;
 		};
+		EE00000000000000000000E0 /* Exceptions for "ArchiveWatch" folder in "ArchiveWatchMac" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				catalog.json,
+			);
+			target = EE00000000000000000000A3 /* ArchiveWatchMac */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -69,6 +79,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				B7AC53E02F93BA0300F50803 /* Exceptions for "ArchiveWatch" folder in "ArchiveWatch" target */,
+				EE00000000000000000000E0 /* Exceptions for "ArchiveWatch" folder in "ArchiveWatchMac" target */,
 			);
 			path = ArchiveWatch;
 			sourceTree = "<group>";
@@ -107,6 +118,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EE00000000000000000000A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -129,6 +147,7 @@
 				B7AC53CD2F93BA0300F50803 /* ArchiveWatch.app */,
 				DD00000000000000000000A1 /* ArchiveWatchTopShelf.appex */,
 				DE00000000000000000000A1 /* ArchiveWatchWidgets.appex */,
+				EE00000000000000000000A1 /* ArchiveWatchMac.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,6 +222,28 @@
 			productReference = DE00000000000000000000A1 /* ArchiveWatchWidgets.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		EE00000000000000000000A3 /* ArchiveWatchMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE00000000000000000000A4 /* Build configuration list for PBXNativeTarget "ArchiveWatchMac" */;
+			buildPhases = (
+				EE00000000000000000000A7 /* Sources */,
+				EE00000000000000000000A8 /* Frameworks */,
+				EE00000000000000000000A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				B7AC53CF2F93BA0300F50803 /* ArchiveWatch */,
+			);
+			name = ArchiveWatchMac;
+			packageProductDependencies = (
+			);
+			productName = ArchiveWatchMac;
+			productReference = EE00000000000000000000A1 /* ArchiveWatchMac.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -220,6 +261,9 @@
 						CreatedOnToolsVersion = 26.4;
 					};
 					DE00000000000000000000A3 = {
+						CreatedOnToolsVersion = 26.4;
+					};
+					EE00000000000000000000A3 = {
 						CreatedOnToolsVersion = 26.4;
 					};
 				};
@@ -241,6 +285,7 @@
 				B7AC53CC2F93BA0300F50803 /* ArchiveWatch */,
 				DD00000000000000000000A3 /* ArchiveWatchTopShelf */,
 				DE00000000000000000000A3 /* ArchiveWatchWidgets */,
+				EE00000000000000000000A3 /* ArchiveWatchMac */,
 			);
 		};
 /* End PBXProject section */
@@ -252,6 +297,15 @@
 			files = (
 				B7AC53E22F93BA0500F50803 /* featured.json in Resources */,
 				B7AC53E62F93BA0500F50803 /* collections.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE00000000000000000000A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE00000000000000000000B2 /* featured.json in Resources */,
+				EE00000000000000000000B6 /* collections.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +327,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		DE00000000000000000000A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE00000000000000000000A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -608,6 +669,70 @@
 			};
 			name = Release;
 		};
+		EE00000000000000000000A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "ArchiveWatch/macOS/ArchiveWatch-macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = L2G756LY8N;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "ArchiveWatch/macOS/Info-macOS.plist";
+				INFOPLIST_KEY_TMDB_BEARER_TOKEN = "$(TMDB_BEARER_TOKEN)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.archivewatch.macos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EE00000000000000000000A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "ArchiveWatch/macOS/ArchiveWatch-macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = L2G756LY8N;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "ArchiveWatch/macOS/Info-macOS.plist";
+				INFOPLIST_KEY_TMDB_BEARER_TOKEN = "$(TMDB_BEARER_TOKEN)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.archivewatch.macos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -643,6 +768,15 @@
 			buildConfigurations = (
 				DE00000000000000000000A5 /* Debug */,
 				DE00000000000000000000A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE00000000000000000000A4 /* Build configuration list for PBXNativeTarget "ArchiveWatchMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE00000000000000000000A5 /* Debug */,
+				EE00000000000000000000A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

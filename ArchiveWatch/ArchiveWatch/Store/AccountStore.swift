@@ -1,7 +1,11 @@
 import Foundation
 import AuthenticationServices
 import Observation
+#if canImport(UIKit)
 import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
 
 // #11 (Decision 022): Sign in with Apple — the only auth, no external providers.
 // Sign-in is OPTIONAL: it gates only cross-Apple-TV sync (Decision 009's "no
@@ -93,6 +97,7 @@ private final class SignInCoordinator: NSObject,
     }
 
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        #if canImport(UIKit)
         let scenes = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }
         let scene = scenes.first { $0.activationState == .foregroundActive } ?? scenes.first
         // The app's real window in every practical case.
@@ -104,5 +109,9 @@ private final class SignInCoordinator: NSObject,
         // remains.) presentationAnchor is only called while presenting, so a
         // window scene always exists here.
         return UIWindow(windowScene: scene!)
+        #else
+        // macOS: the key window is the SiwA presentation anchor.
+        return NSApplication.shared.keyWindow ?? NSApplication.shared.windows.first ?? NSWindow()
+        #endif
     }
 }

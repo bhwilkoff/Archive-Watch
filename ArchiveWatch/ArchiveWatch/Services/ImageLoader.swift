@@ -1,3 +1,7 @@
+// UIImage-based decode pipeline for the tvOS/iOS shelves+grids. The macOS app
+// uses native AsyncImage instead, so this whole file is UIKit-only — its only
+// consumers (Views/RemoteImage, Views/ScreensaverView) are tvOS-guarded.
+#if canImport(UIKit)
 import Foundation
 import UIKit
 import ImageIO
@@ -108,3 +112,4 @@ actor ImageLoader {
         }.value
     }
 }
+#endif
