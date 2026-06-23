@@ -124,9 +124,10 @@ credit is burned and no source metadata is embedded (a truly clean export). The 
 "never strip it" stance is superseded: attribution is encouraged and is the social wedge,
 but the user owns their export. *(The no-auto-edit gate, Rule 5a, is the real learning
 principle and is UNCHANGED — mandatory attribution was a secondary wedge, not the gate.)*
-NOTE: embedding the source in file metadata is a known follow-up — common-identifier
-`AVMetadataItem`s don't land in the `.mp4` atoms (read-back returns nil); the burned
-credit is the verified provenance.
+NOTE: source-in-metadata embedding is FIXED (2026-06-23) — common-identifier `AVMetadataItem`s
+don't write to `.mp4`, so we also emit the iTunes `ilst` keys (`.iTunesMetadataSongName` ©nam
+/ `.iTunesMetadataUserComment` ©cmt); ffprobe confirms `title` + `comment` (the archive.org
+source URLs) in the export. Embedded only when attribution is on (clean export = no trace).
 
 **Rule 5c — clipping is rights-gated.** Only `isClippable` items (playable + PD/CC/absent
 rightsStatus) enter the library or a timeline. Defense in depth over the catalog's

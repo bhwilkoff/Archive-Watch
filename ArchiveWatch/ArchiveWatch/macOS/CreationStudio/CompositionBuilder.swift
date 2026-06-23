@@ -232,11 +232,9 @@ enum CompositionBuilder {
     /// Provenance metadata embedded in the exported file (Rule 5b): title + the
     /// archive.org source page(s) of every clip in the cut.
     static func provenanceMetadata(title: String, catalogItemIDs: [String]) -> [AVMetadataItem] {
-        // KNOWN FOLLOW-UP: common-identifier items don't reliably land in the .mp4 atom
-        // set — a self-test read-back (both ffprobe and AVFoundation's .commonMetadata)
-        // returns nil. The burned-in visible credit is the VERIFIED provenance; embedding
-        // the source in file metadata needs the iTunes/QuickTime identifiers (©nam/©cmt /
-        // mdta) or a .mov container. Tracked, not blocking — attribution is optional anyway.
+        // Common-identifier items don't land in the .mp4 atom set (read-back nil); the
+        // iTunes `ilst` keys (©nam / ©cmt) DO — and they cover .mov too. Provide both so the
+        // archive.org source is embedded regardless of container.
         func item(_ id: AVMetadataIdentifier, _ value: String) -> AVMetadataItem {
             let m = AVMutableMetadataItem()
             m.identifier = id
@@ -247,7 +245,12 @@ enum CompositionBuilder {
         let sources = Array(Set(catalogItemIDs)).sorted()
             .map { "https://archive.org/details/\($0)" }.joined(separator: " · ")
         let desc = "Public-domain source(s): \(sources) · Created with Archive Watch (archivewatch.org)"
-        return [item(.commonIdentifierTitle, title), item(.commonIdentifierDescription, desc)]
+        return [
+            item(.commonIdentifierTitle, title),
+            item(.commonIdentifierDescription, desc),
+            item(.iTunesMetadataSongName, title),       // ©nam — ffprobe "title" in .mp4
+            item(.iTunesMetadataUserComment, desc),     // ©cmt — ffprobe "comment"
+        ]
     }
 }
 #endif
