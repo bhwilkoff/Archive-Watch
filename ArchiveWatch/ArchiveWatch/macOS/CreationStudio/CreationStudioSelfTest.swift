@@ -48,7 +48,13 @@ enum CreationStudioSelfTest {
                          sourceRange: TimeRange(startSeconds: 3, durationSeconds: 8),
                          timelineStart: TimeStamp(seconds: 8), track: 0, label: b.title),
         ]
-        log("clips: \(a.archiveID) + \(b.archiveID); expected duration ~16s")
+        // Phase 2 #3: a timed text overlay (yellow, centered, t=2–9s).
+        timeline.textOverlays = [
+            TextOverlay(text: "ARCHIVE WATCH",
+                        timelineRange: TimeRange(startSeconds: 2, durationSeconds: 7),
+                        positionX: 0.5, positionY: 0.5, fontScale: 0.07, colorHex: "#FFD60A")
+        ]
+        log("clips: \(a.archiveID) + \(b.archiveID); + 1 text overlay; expected duration ~16s")
 
         // Export BOTH ways: with the attribution credit (default), then a CLEAN export
         // (owner decision — attribution is optional). The clean run reuses the cached

@@ -2,6 +2,7 @@
 import Foundation
 import AVFoundation
 import QuartzCore
+import AppKit
 
 // Timeline → composition compiler (docs/macOS-DESIGN.md §3). Rule 3a: ONE model compiles
 // to the (AVMutableComposition, AVVideoComposition) pair that feeds BOTH preview and
@@ -87,13 +88,19 @@ enum CompositionBuilder {
         cfg.frameDuration = CMTime(value: 1, timescale: Int32(max(1, timeline.frameRate.rounded())))
         cfg.instructions = instructions
 
-        // Burn the provenance credit ONLY when requested — a clean export skips the
-        // Core Animation overlay pass entirely (owner decision; attribution optional).
-        if let creditLine {
+        // Core Animation overlay pass — burned timed text overlays (#3) + the optional
+        // provenance credit. Skipped entirely for a clean export with no overlays. (Single
+        // pass: no CI grade yet, so the two-pass grade→overlay split, Rule 3d, isn't needed
+        // until color grades arrive.)
+        let totalDuration = cursor.seconds
+        if creditLine != nil || !timeline.textOverlays.isEmpty {
             let parent = CALayer(); parent.frame = CGRect(origin: .zero, size: renderSize)
             let videoLayer = CALayer(); videoLayer.frame = parent.frame
             parent.addSublayer(videoLayer)
-            addCredit(creditLine, to: parent, size: renderSize)
+            for ov in timeline.textOverlays {
+                addTextOverlay(ov, to: parent, size: renderSize, total: totalDuration)
+            }
+            if let creditLine { addCredit(creditLine, to: parent, size: renderSize) }
             let toolCfg = AVVideoCompositionCoreAnimationTool.Configuration(
                 postProcessingAsVideoLayer: videoLayer, containingLayer: parent)
             cfg.animationTool = AVVideoCompositionCoreAnimationTool(configuration: toolCfg)
@@ -112,6 +119,80 @@ enum CompositionBuilder {
         let tx = (dst.width - w) / 2, ty = (dst.height - h) / 2
         return CGAffineTransform(scaleX: scale, y: scale)
             .concatenating(CGAffineTransform(translationX: tx, y: ty))
+    }
+
+    /// A timed text overlay: a CATextLayer shown only during its window via an opacity
+    /// keyframe over the whole composition (the proven iOS timed-caption pattern — note the
+    /// AVCoreAnimationBeginTimeAtZero + fillMode/isRemovedOnCompletion gotchas).
+    private static func addTextOverlay(_ ov: TextOverlay, to parent: CALayer,
+                                       size: CGSize, total: Double) {
+        guard total > 0, !ov.text.isEmpty,
+              let img = renderTextImage(ov, canvasSize: size) else { return }
+        // Render to a CGImage in a plain CALayer (an ANIMATED CATextLayer does not render in
+        // the Core Animation tool; an image layer does — the proven iOS timed-cue path).
+        let layer = CALayer()
+        layer.contents = img
+        layer.contentsGravity = .resizeAspect
+        let w = CGFloat(img.width) / 2, h = CGFloat(img.height) / 2   // image is @2x
+        let cx = ov.positionX * size.width
+        let cyBottom = size.height - ov.positionY * size.height       // y from TOP; CA origin bottom-left
+        layer.frame = CGRect(x: cx - w / 2, y: cyBottom - h / 2, width: w, height: h)
+
+        let s = min(max(ov.timelineRange.start.seconds / total, 0), 1)
+        let e = min(max(ov.timelineRange.endSeconds / total, s), 1)
+        layer.opacity = 0
+        let anim = CAKeyframeAnimation(keyPath: "opacity")
+        anim.values = [0, 0, 1, 1, 0, 0]
+        anim.keyTimes = [0, max(0, s - 0.0001), s, e, min(1, e + 0.0001), 1].map { NSNumber(value: $0) }
+        anim.duration = total
+        anim.beginTime = AVCoreAnimationBeginTimeAtZero          // literal 0 = "now" (won't render)
+        anim.isRemovedOnCompletion = false
+        anim.fillMode = .both
+        layer.add(anim, forKey: "opacity")
+        parent.addSublayer(layer)
+    }
+
+    /// Render an overlay's text to a @2x CGImage via Core Graphics (NSAttributedString) —
+    /// crisp, and reliable inside the Core Animation tool.
+    private static func renderTextImage(_ ov: TextOverlay, canvasSize: CGSize) -> CGImage? {
+        let scale: CGFloat = 2
+        let fontSize = max(8, canvasSize.width * ov.fontScale) * scale
+        let font = NSFont.boldSystemFont(ofSize: fontSize)
+        let para = NSMutableParagraphStyle(); para.alignment = .center; para.lineBreakMode = .byWordWrapping
+        let nsColor = NSColor(cgColor: cgColor(hex: ov.colorHex)) ?? .white
+        var attrs: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: nsColor, .paragraphStyle: para]
+        if ov.hasBackground {
+            let sh = NSShadow()
+            sh.shadowColor = NSColor.black.withAlphaComponent(0.9)
+            sh.shadowBlurRadius = fontSize * 0.14
+            sh.shadowOffset = CGSize(width: 0, height: -fontSize * 0.04)
+            attrs[.shadow] = sh
+        }
+        let str = NSAttributedString(string: ov.text, attributes: attrs)
+        let maxW = canvasSize.width * 0.86 * scale
+        let bounds = str.boundingRect(with: CGSize(width: maxW, height: .greatestFiniteMagnitude),
+                                      options: [.usesLineFragmentOrigin, .usesFontLeading])
+        let pad = fontSize * 0.4
+        let w = Int(ceil(bounds.width) + pad * 2), h = Int(ceil(bounds.height) + pad * 2)
+        guard w > 1, h > 1,
+              let ctx = CGContext(data: nil, width: w, height: h, bitsPerComponent: 8, bytesPerRow: 0,
+                                  space: CGColorSpaceCreateDeviceRGB(),
+                                  bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return nil }
+        let ns = NSGraphicsContext(cgContext: ctx, flipped: false)
+        NSGraphicsContext.saveGraphicsState(); NSGraphicsContext.current = ns
+        str.draw(with: CGRect(x: pad, y: pad, width: CGFloat(w) - pad * 2, height: CGFloat(h) - pad * 2),
+                 options: [.usesLineFragmentOrigin, .usesFontLeading])
+        NSGraphicsContext.restoreGraphicsState()
+        return ctx.makeImage()
+    }
+
+    /// Parse "#RRGGBB" / "#RGB" → CGColor (no SwiftUI dependency in the engine).
+    static func cgColor(hex: String) -> CGColor {
+        var s = hex.hasPrefix("#") ? String(hex.dropFirst()) : hex
+        if s.count == 3 { s = s.map { "\($0)\($0)" }.joined() }
+        guard s.count == 6, let v = UInt32(s, radix: 16) else { return CGColor(gray: 1, alpha: 1) }
+        return CGColor(red: CGFloat((v >> 16) & 0xFF) / 255, green: CGFloat((v >> 8) & 0xFF) / 255,
+                       blue: CGFloat(v & 0xFF) / 255, alpha: 1)
     }
 
     /// The burned "archivewatch.org · Public Domain" credit, pinned bottom-center

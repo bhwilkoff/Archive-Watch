@@ -115,16 +115,51 @@ struct RenderSize: Codable, Hashable, Sendable {
     static let hd1080 = RenderSize(width: 1920, height: 1080)
 }
 
+/// A timed text overlay (title / lower-third / caption) burned in over the timeline via
+/// the Core Animation tool (Phase 2 #3). Timeline-global with its own on-screen window, so
+/// a title can sit over any clip or a gap. Position is normalized (0…1); y is from the TOP.
+struct TextOverlay: Codable, Identifiable, Hashable, Sendable {
+    var id: UUID
+    var text: String
+    var timelineRange: TimeRange        // when it's visible on the timeline
+    var positionX: Double               // 0…1, 0.5 = center
+    var positionY: Double               // 0…1 from top, 0.85 = lower third
+    var fontScale: Double               // fraction of render width
+    var colorHex: String
+    var hasBackground: Bool             // legibility shadow
+
+    init(id: UUID = UUID(), text: String, timelineRange: TimeRange,
+         positionX: Double = 0.5, positionY: Double = 0.85, fontScale: Double = 0.05,
+         colorHex: String = "#FFFFFF", hasBackground: Bool = true) {
+        self.id = id; self.text = text; self.timelineRange = timelineRange
+        self.positionX = positionX; self.positionY = positionY; self.fontScale = fontScale
+        self.colorHex = colorHex; self.hasBackground = hasBackground
+    }
+}
+
 /// The ordered set of clips + render settings. Compiles (Unit 2) to the single
 /// (AVMutableComposition, AVVideoComposition.Configuration, AVMutableAudioMix) triple
 /// that feeds BOTH preview and export (Rule 3a).
 struct Timeline: Codable, Hashable, Sendable {
     var clips: [TimelineClip]
+    var textOverlays: [TextOverlay]
     var frameRate: Double
     var renderSize: RenderSize
 
-    init(clips: [TimelineClip] = [], frameRate: Double = 30, renderSize: RenderSize = .hd1080) {
-        self.clips = clips; self.frameRate = frameRate; self.renderSize = renderSize
+    init(clips: [TimelineClip] = [], textOverlays: [TextOverlay] = [],
+         frameRate: Double = 30, renderSize: RenderSize = .hd1080) {
+        self.clips = clips; self.textOverlays = textOverlays
+        self.frameRate = frameRate; self.renderSize = renderSize
+    }
+
+    // Tolerant decode: projects written before `textOverlays` existed default to [] (the
+    // additive-schema discipline — old .archiveproj files keep opening). Encode synthesized.
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        clips = try c.decode([TimelineClip].self, forKey: .clips)
+        textOverlays = try c.decodeIfPresent([TextOverlay].self, forKey: .textOverlays) ?? []
+        frameRate = try c.decode(Double.self, forKey: .frameRate)
+        renderSize = try c.decode(RenderSize.self, forKey: .renderSize)
     }
 
     /// Timeline end = the furthest clip end across all tracks.

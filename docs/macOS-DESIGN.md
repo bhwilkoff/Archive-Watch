@@ -290,9 +290,25 @@ From `creation-studio-nle-ux-teardown.md`:
 
 **Phase 1 (the editor spine) is done** — all three de-risk spikes passed, and the full loop
 works: browse → mark → Library → drag/add to timeline → trim/split/zoom → live preview →
-cache-then-export (credit optional). **Next: Phase 2 — Layers:** timed text overlays (#3),
-audio import/record/mix (#4), and multi-format/quality export incl. ProRes (#5), additive on
-this composition spine (the two-pass grade→overlay split, Rule 3d, lands here with grades).
+cache-then-export (credit optional).
+
+## 11. Phase 2 progress log — Layers
+
+**Unit 5 — timed text overlays (#3): SHIPPED 2026-06-23.**
+- Model: `TextOverlay` (text, timeline window, normalized position, font scale, color,
+  legibility shadow) on `Timeline.textOverlays` (tolerant decode — old projects → []).
+- Render (`CompositionBuilder`): each overlay is rendered to a **@2x CGImage** (Core
+  Graphics / `NSAttributedString`) in a plain `CALayer` with an opacity keyframe over its
+  window, added to the Core Animation tool alongside the optional credit. **Gotcha logged:**
+  an *animated* `CATextLayer` does NOT render in the tool (a static one does) — the proven
+  iOS path renders timed text to an image layer; same here. Still single-pass (no CI grade
+  yet → the two-pass grade→overlay split, Rule 3d, is not needed until grades land).
+- UI: an "Add Text" toolbar button (adds at the playhead) + an inspector `TextOverlayEditor`
+  for the selected overlay (text, position preset, color, size, shadow, start/length,
+  delete). Preview rebuilds live (Rule 3b). Overlays ride into the export unchanged.
+
+**Next:** Unit 6 — audio import + mix (#4: N audio tracks + `AVMutableAudioMixInputParameters`
+volume ramps), then Unit 7 — multi-format / quality export incl. ProRes (#5).
 
 ---
 

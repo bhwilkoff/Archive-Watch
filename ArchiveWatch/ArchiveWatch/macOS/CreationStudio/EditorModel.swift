@@ -114,6 +114,35 @@ final class EditorModel {
         relayout(); scheduleRebuild()
     }
 
+    // MARK: - Text overlays (#3)
+
+    var selectedOverlayID: UUID?
+    var textOverlays: [TextOverlay] { document.project.timeline.textOverlays }
+
+    func addTextOverlay() {
+        let start = playheadSeconds
+        let avail = max(0, totalDuration - start)
+        let ov = TextOverlay(text: "Title",
+                             timelineRange: TimeRange(startSeconds: start,
+                                                      durationSeconds: avail > 1 ? min(3, avail) : 3))
+        document.project.timeline.textOverlays.append(ov)
+        selectedOverlayID = ov.id
+        selectedClipID = nil
+        scheduleRebuild()
+    }
+
+    func updateOverlay(_ ov: TextOverlay) {
+        guard let i = document.project.timeline.textOverlays.firstIndex(where: { $0.id == ov.id }) else { return }
+        document.project.timeline.textOverlays[i] = ov
+        scheduleRebuild()
+    }
+
+    func deleteOverlay(_ id: UUID) {
+        document.project.timeline.textOverlays.removeAll { $0.id == id }
+        if selectedOverlayID == id { selectedOverlayID = nil }
+        scheduleRebuild()
+    }
+
     /// Magnetic main track: clips lie end-to-end in their current order, no gaps (Rule 7c).
     private func relayout() {
         let ordered = document.project.timeline.clips.sorted { $0.timelineStart.seconds < $1.timelineStart.seconds }

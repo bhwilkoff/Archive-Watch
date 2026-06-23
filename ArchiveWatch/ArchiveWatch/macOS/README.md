@@ -97,7 +97,7 @@ API, export with an **optional** burned attribution credit (per-project toggle).
 (the Configuration API is macOS-26-only; all Apple platforms now target 26+). Unit 3 — the **AppKit `NSView`+`CALayer` timeline** (`ClipTimelineView`: magnetic
 track, filmstrip thumbnails, drag-trim, zoom, playhead) + a live rebuild-and-swap preview
 (`EditorModel`/`PreviewComposer`). Unit 4 — browse → mark in/out → proxy-clip Library (draggable) → drop on timeline (`ClipBrowser_macOS`). **Phase 1 complete. Not yet:**
-then Phases 2–5 (layers, stock index, supercut, publishing).
+then the rest of Phase 2 (audio mix, multi-format/ProRes export) + Phases 3–5 (stock index, supercut, publishing). **Phase 2 #3 (timed text overlays) shipped** — `TextOverlay` + inspector editor + burned image-layer render.
 
 ## Known refinements (cheap follow-ups)
 

@@ -69,8 +69,8 @@ struct ProjectEditorView: View {
             .overlay(alignment: .bottom) { exportStatusBar }
         }
         .inspector(isPresented: $inspectorShown) {
-            ProjectInspector(project: project)
-                .inspectorColumnWidth(min: 220, ideal: 260, max: 340)
+            ProjectInspector(project: project, model: model)
+                .inspectorColumnWidth(min: 220, ideal: 280, max: 360)
         }
         .toolbar {
             ToolbarItem(placement: .principal) {
@@ -84,6 +84,9 @@ struct ProjectEditorView: View {
                 }
                 Button { model.splitAtPlayhead() } label: {
                     Label("Split", systemImage: "scissors")
+                }.disabled(document.project.timeline.clips.isEmpty)
+                Button { model.addTextOverlay() } label: {
+                    Label("Add Text", systemImage: "textformat")
                 }.disabled(document.project.timeline.clips.isEmpty)
                 Button { export() } label: {
                     Label("Export", systemImage: "square.and.arrow.up")
@@ -237,9 +240,19 @@ private struct LibraryRow: View {
 
 private struct ProjectInspector: View {
     @Binding var project: ClipProject
+    let model: EditorModel
 
     var body: some View {
         Form {
+            // When a text overlay is selected, the inspector edits it (#3).
+            if let id = model.selectedOverlayID,
+               let ov = model.textOverlays.first(where: { $0.id == id }) {
+                TextOverlayEditor(
+                    overlay: Binding(
+                        get: { model.textOverlays.first(where: { $0.id == id }) ?? ov },
+                        set: { model.updateOverlay($0) }),
+                    onDelete: { model.deleteOverlay(id) })
+            }
             Section("Project") {
                 LabeledContent("Clips", value: "\(project.timeline.clips.count)")
                 LabeledContent("Duration", value: String(format: "%.1f s", project.timeline.durationSeconds))
@@ -263,6 +276,59 @@ private struct ProjectInspector: View {
             }
         }
         .formStyle(.grouped)
+    }
+}
+
+// MARK: - Text overlay editor (#3)
+
+private struct TextOverlayEditor: View {
+    @Binding var overlay: TextOverlay
+    let onDelete: () -> Void
+
+    var body: some View {
+        Section {
+            TextField("Text", text: $overlay.text, axis: .vertical).lineLimit(1...3)
+            Picker("Position", selection: positionPreset) {
+                Text("Top").tag("top"); Text("Center").tag("center"); Text("Lower Third").tag("lower")
+            }
+            Picker("Color", selection: $overlay.colorHex) {
+                ForEach([("White", "#FFFFFF"), ("Black", "#000000"), ("Yellow", "#FFD60A"),
+                         ("Red", "#FF453A"), ("Blue", "#0A84FF")], id: \.1) { name, hex in
+                    Text(name).tag(hex)
+                }
+            }
+            HStack { Text("Size"); Slider(value: $overlay.fontScale, in: 0.025...0.12) }
+            Toggle("Legibility shadow", isOn: $overlay.hasBackground)
+            LabeledContent("Start") {
+                HStack { Text(String(format: "%.1fs", startBinding.wrappedValue)); Stepper("", value: startBinding, in: 0...3600, step: 0.5).labelsHidden() }
+            }
+            LabeledContent("Length") {
+                HStack { Text(String(format: "%.1fs", lengthBinding.wrappedValue)); Stepper("", value: lengthBinding, in: 0.2...3600, step: 0.5).labelsHidden() }
+            }
+            Button("Remove Text", role: .destructive) { onDelete() }
+        } header: {
+            Text("Text Overlay")
+        }
+    }
+
+    private var positionPreset: Binding<String> {
+        Binding(get: {
+            switch overlay.positionY {
+            case ..<0.3: "top"; case 0.3..<0.7: "center"; default: "lower"
+            }
+        }, set: {
+            overlay.positionY = $0 == "top" ? 0.14 : ($0 == "center" ? 0.5 : 0.85)
+        })
+    }
+    private var startBinding: Binding<Double> {
+        Binding(get: { overlay.timelineRange.start.seconds },
+                set: { overlay.timelineRange = TimeRange(startSeconds: max(0, $0),
+                                                         durationSeconds: overlay.timelineRange.duration.seconds) })
+    }
+    private var lengthBinding: Binding<Double> {
+        Binding(get: { overlay.timelineRange.duration.seconds },
+                set: { overlay.timelineRange = TimeRange(startSeconds: overlay.timelineRange.start.seconds,
+                                                         durationSeconds: max(0.2, $0)) })
     }
 }
 #endif
