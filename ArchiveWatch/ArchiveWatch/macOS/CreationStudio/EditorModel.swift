@@ -88,6 +88,13 @@ final class EditorModel {
         relayout(); scheduleRebuild()
     }
 
+    /// Re-attempt caching a clip whose window failed to load (transient archive.org failure).
+    func retryClip(_ id: UUID) {
+        clipPrep[id] = nil
+        thumbnails[id] = nil
+        scheduleRebuild()
+    }
+
     /// Set a clip's in/out (frame-exact handle drag). `newIn`/`newOut` are SOURCE seconds.
     func trim(_ id: UUID, newInSeconds: Double? = nil, newOutSeconds: Double? = nil) {
         guard let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }

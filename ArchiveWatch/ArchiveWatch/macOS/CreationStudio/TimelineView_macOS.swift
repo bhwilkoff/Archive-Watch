@@ -31,7 +31,7 @@ struct ClipTimelineView: NSViewRepresentable {
         let state = TimelineContentView.State(
             clips: model.clips, pps: model.pointsPerSecond, selectedID: model.selectedClipID,
             playhead: model.playheadSeconds, thumbnails: model.thumbnails,
-            totalDuration: model.totalDuration)
+            totalDuration: model.totalDuration, prep: model.clipPrep)
         context.coordinator.content?.render(state)
     }
 
@@ -47,10 +47,13 @@ final class TimelineContentView: NSView {
         let playhead: Double
         let thumbnails: [UUID: [CGImage]]
         let totalDuration: Double
+        let prep: [UUID: EditorModel.ClipPrep]
     }
 
     private let model: EditorModel
-    private var state = State(clips: [], pps: 60, selectedID: nil, playhead: 0, thumbnails: [:], totalDuration: 0)
+    private var state = State(clips: [], pps: 60, selectedID: nil, playhead: 0, thumbnails: [:], totalDuration: 0, prep: [:])
+    private var playheadLayer: CALayer?
+    private var lastStructuralSig = 0
 
     private let rulerH: CGFloat = 26
     private let trackTop: CGFloat = 30
@@ -77,9 +80,35 @@ final class TimelineContentView: NSView {
     func render(_ s: State) {
         state = s
         let w = max(minWidth, CGFloat(s.totalDuration * s.pps) + 40)
-        setFrameSize(NSSize(width: w, height: 150))
-        needsLayout = true
-        rebuildLayers()
+        if abs(frame.width - w) > 0.5 { setFrameSize(NSSize(width: w, height: 150)) }
+        // Only rebuild the (expensive) ruler + clip layers when something STRUCTURAL changes —
+        // NOT on every playhead tick (was tearing down every layer 30×/s during playback).
+        let sig = structuralSignature(s)
+        if sig != lastStructuralSig {
+            lastStructuralSig = sig
+            rebuildLayers()
+        }
+        positionPlayhead()
+    }
+
+    /// Order-independent hash of everything that affects the clip/ruler layers (NOT playhead).
+    private func structuralSignature(_ s: State) -> Int {
+        var h = Hasher()
+        h.combine(s.pps); h.combine(s.selectedID); h.combine(s.totalDuration)
+        for c in s.clips {                                  // array order is meaningful
+            h.combine(c.id); h.combine(c.timelineStart.value); h.combine(c.sourceRange.duration.value)
+        }
+        var thumbX = 0, prepX = 0
+        for (k, v) in s.thumbnails { thumbX ^= k.hashValue &* 31 &+ v.count }       // XOR = order-free
+        for (k, v) in s.prep { prepX ^= k.hashValue &* 17 &+ (v == .ready ? 2 : v == .caching ? 1 : 3) }
+        h.combine(thumbX); h.combine(prepX)
+        return h.finalize()
+    }
+
+    private func positionPlayhead() {
+        CATransaction.begin(); CATransaction.setDisableActions(true)
+        playheadLayer?.frame = CGRect(x: x(state.playhead), y: 0, width: 2, height: bounds.height)
+        CATransaction.commit()
     }
 
     private func x(_ seconds: Double) -> CGFloat { CGFloat(seconds * state.pps) }
@@ -150,6 +179,19 @@ final class TimelineContentView: NSView {
             container.addSublayer(labelBG)
             container.addSublayer(label)
 
+            // Caching / failed indicator (the clip's local window isn't ready).
+            switch state.prep[clip.id] {
+            case .caching where (state.thumbnails[clip.id]?.isEmpty ?? true):
+                container.addSublayer(centeredText("Caching…", width: cw, color: NSColor(white: 0.85, alpha: 1)))
+            case .failed:
+                let tint = CALayer()
+                tint.frame = CGRect(x: 0, y: 0, width: cw, height: trackH)
+                tint.backgroundColor = NSColor.systemRed.withAlphaComponent(0.22).cgColor
+                container.addSublayer(tint)
+                container.addSublayer(centeredText("⚠ Couldn’t load — click to retry", width: cw, color: .white))
+            default: break
+            }
+
             // Trim handles (brighter on the selected clip).
             for (isLeft, hx) in [(true, CGFloat(0)), (false, cw - handleW)] {
                 let h = CALayer()
@@ -162,11 +204,19 @@ final class TimelineContentView: NSView {
             layer.addSublayer(container)
         }
 
-        // Playhead.
+        // Playhead — a persistent layer; positionPlayhead() moves it each frame without a rebuild.
         let ph = CALayer()
         ph.backgroundColor = NSColor.systemRed.cgColor
-        ph.frame = CGRect(x: x(state.playhead), y: 0, width: 2, height: bounds.height)
         layer.addSublayer(ph)
+        playheadLayer = ph
+    }
+
+    private func centeredText(_ s: String, width: CGFloat, color: NSColor) -> CATextLayer {
+        let t = CATextLayer()
+        t.string = s; t.fontSize = 11; t.foregroundColor = color.cgColor
+        t.alignmentMode = .center; t.truncationMode = .end; t.contentsScale = 2
+        t.frame = CGRect(x: 4, y: trackH / 2 - 8, width: max(0, width - 8), height: 16)
+        return t
     }
 
     private func rulerStep(for pps: Double) -> Double {
@@ -201,6 +251,7 @@ final class TimelineContentView: NSView {
         let p = convert(event.locationInWindow, from: nil)
         if let hit = clipHit(at: p) {
             model.selectedClipID = hit.clip.id
+            if state.prep[hit.clip.id] == .failed { model.retryClip(hit.clip.id); drag = .none; return }
             switch hit.region {
             case .trimLeft, .trimRight: drag = hit.region
             default:
