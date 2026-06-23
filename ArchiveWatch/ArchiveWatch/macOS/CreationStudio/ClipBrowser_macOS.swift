@@ -11,7 +11,8 @@ import CoreTransferable
 // proxy-clip Library for reuse). Phase 3's stock-shot index slots into this same browser.
 
 // A ProxyClip is draggable (references only — Rule 4a) from the Library onto the timeline.
-extension ProxyClip: @retroactive Transferable {
+// (No @retroactive: ProxyClip is declared in THIS module, so the conformance isn't retroactive.)
+extension ProxyClip: Transferable {
     public static var transferRepresentation: some TransferRepresentation {
         CodableRepresentation(contentType: .json)
     }
