@@ -30,6 +30,10 @@ struct ArchiveWatchMacApp: App {
                 .environment(account)
                 .frame(minWidth: 960, minHeight: 600)
                 .task { await store.load() }
+                .task {
+                    // Creation Studio engine self-test (spike #3) — no-op unless AW_CS_SELFTEST=1.
+                    if CreationStudioSelfTest.isEnabled { await CreationStudioSelfTest.run(store: store) }
+                }
                 .task(id: account.isSignedIn) {
                     guard account.isSignedIn else { return }
                     await CloudKitSyncService.shared.sync(modelContainer.mainContext)

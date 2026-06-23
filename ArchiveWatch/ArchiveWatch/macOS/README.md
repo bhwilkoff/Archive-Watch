@@ -87,12 +87,16 @@ of professional poster art).
 The sidebar + single split-view is intentionally Mac-native, not the iOS tab bar.
 
 **Creation Studio (Phase 1, in progress — `macOS/CreationStudio/`, see
-`docs/macOS-DESIGN.md` §10):** the `.archiveproj` `DocumentGroup` editor scaffold +
-the OTIO-shaped Codable timeline model + the SwiftData proxy-clip Library are in
-(Unit 1 — the document/package seam is validated end-to-end). **Not yet:** the
-composition + cache-then-export engine (Unit 2), the AppKit `NSView`+`CALayer`
-timeline (Unit 3), browser→library→timeline wire-up (Unit 4), then Phases 2–5
-(layers, stock index, supercut, publishing).
+`docs/macOS-DESIGN.md` §10):** Units 1–2 shipped. Unit 1 — the `.archiveproj`
+`DocumentGroup` editor + OTIO-shaped Codable timeline model + SwiftData proxy-clip
+Library (document/package seam validated). Unit 2 — the **composition + cache-then-export
+engine**: cache each clip window to a local faststart MP4 (AVFoundation passthrough over
+`ResilientStreamLoader`, codec-fallback), compile via the Configuration-based AVFoundation
+API, export with an **optional** burned attribution credit (per-project toggle). Spike #3
+(cache-then-export) validated end-to-end on real archive.org titles. **Requires macOS 26+**
+(the Configuration API is macOS-26-only; all Apple platforms now target 26+). **Not yet:**
+the AppKit `NSView`+`CALayer` timeline (Unit 3), browser→library→timeline wire-up (Unit 4),
+then Phases 2–5 (layers, stock index, supercut, publishing).
 
 ## Known refinements (cheap follow-ups)
 

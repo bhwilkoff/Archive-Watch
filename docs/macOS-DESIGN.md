@@ -89,6 +89,16 @@ From `creation-studio-proxy-remote-editing.md`:
   unreliable on remote URLs. Pre-fetch only each clip's moov-snapped in/out byte range via
   `ResilientStreamLoader` → local faststart MP4 (`ffmpeg -c copy`) → compose/export from
   local files. (Single biggest reliability risk; this is its resolution.)
+  - **Amendment 2026-06-23 (Unit 2 — the cache mechanism is AVFoundation, not ffmpeg):**
+    the app is **sandboxed** (App Store), so ffmpeg can't run as a subprocess inside the
+    sandbox, and ffmpeg's GPL is App-Store-incompatible anyway. So we cache each window by
+    running an **`AVAssetExportSession` PASSTHROUGH over a `ResilientStreamLoader`-backed
+    asset** (`session.timeRange` = the clip window) — Apple-native, sandbox-safe, and the
+    same resilient path playback + iOS Clip Studio use. The cache-then-export INTENT of
+    Rule 4b is unchanged (each window → a local faststart MP4 → compose/export from local
+    files); only the remux tool changed from ffmpeg to AVFoundation. archive.org content is
+    codec-varied, so passthrough **falls back to a re-encode preset** (H.264) when the
+    source isn't MP4-passthrough-compatible. Validated end-to-end (spike #3 PASS).
 - **Rule 4c — probe the moov before any byte math.** archive.org `.ia.mp4` is not
   guaranteed faststart; locate moov first.
 - **Rule 4d — cache is disposable, references are truth.** Cache only ranges in use, LRU
@@ -106,9 +116,17 @@ finished export. Automate the mechanical (search, forced-align, assemble, tag, a
 transcode); preserve the meaningful (which takes, order, cuts, narrative). Unmatched
 supercut words become explicit editable gaps, never silent drops.
 
-**Rule 5b — provenance is mandatory.** Every export burns the `archivewatch.org · Public
-Domain` provenance credit and embeds each source `archive.org/details/{id}` in metadata
-(carried from Decision 033). Never strip it.
+**Rule 5b — provenance is provided, default-on, but OPTIONAL.** Every export *offers* the
+`archivewatch.org · Public Domain` credit, burned in by default. **Amendment 2026-06-23
+(owner decision):** attribution is NOT mandatory — the user can turn it off for a clean
+export (a per-project `ClipProject.burnAttribution` toggle, default true). When off, no
+credit is burned and no source metadata is embedded (a truly clean export). The original
+"never strip it" stance is superseded: attribution is encouraged and is the social wedge,
+but the user owns their export. *(The no-auto-edit gate, Rule 5a, is the real learning
+principle and is UNCHANGED — mandatory attribution was a secondary wedge, not the gate.)*
+NOTE: embedding the source in file metadata is a known follow-up — common-identifier
+`AVMetadataItem`s don't land in the `.mp4` atoms (read-back returns nil); the burned
+credit is the verified provenance.
 
 **Rule 5c — clipping is rights-gated.** Only `isClippable` items (playable + PD/CC/absent
 rightsStatus) enter the library or a timeline. Defense in depth over the catalog's
@@ -211,8 +229,32 @@ From `creation-studio-nle-ux-teardown.md`:
   cache) needs the `NSDocument` + `NSHostingController` backbone. Migrate the document
   backbone when the engine first needs the document URL — not before.
 
-**Next:** Unit 2 — the composition engine + cache-then-export (spike #3), Configuration-
-based AVFoundation per Rule 3e (confirm macOS 26 SDK symbols with `swift-api-digester` first).
+**Unit 2 — the composition engine + cache-then-export + spike #3: SHIPPED 2026-06-23.**
+- **Rule 3e check FIRST (as mandated):** a `swiftc` probe confirmed the Configuration-based
+  AVFoundation API (`AVVideoComposition.Configuration` et al.) is **macOS 26.0+ only**.
+  Resolution: **all Apple platforms now target 26+** (owner directive) — macOS moved 15→26;
+  iOS/tvOS were already 26. No `@available` gating needed; the API is unconditional.
+- `ClipCache.swift` — cache each clip window to a local faststart MP4 via AVFoundation
+  passthrough over a `ResilientStreamLoader` asset, with a re-encode fallback for
+  codec-varied content (Rule 4b amendment above).
+- `CompositionBuilder.swift` — Timeline → `(AVMutableComposition, AVVideoComposition)` via
+  the Configuration API (Rule 3a/3e): sequential single-track insert (Phase 1, no
+  transitions), per-clip aspect-fit instructions, optional burned credit via a CATextLayer
+  in the Core Animation tool (single pass — the two-pass grade split, Rule 3d, lands with
+  CI grades in Phase 2).
+- `ExportService.swift` — @Observable orchestrator: cache (40%) → compose → export the
+  LOCAL composition (`AVAssetExportSession` HighestQuality + async progress).
+- Editor: an "Add Clip" scaffold (real catalog item → timeline) + "Export…" (save panel +
+  progress + reveal) + the inspector **"Burn in attribution credit"** toggle (Rule 5b).
+- **Spike #3 result: PASS.** An env-gated self-test (`AW_CS_SELFTEST=1`, like AW_PLAYBACK_DIAG)
+  ran the full pipeline on real archive.org titles, repeatedly: 2-clip cross-title cut →
+  16.0s · 1920×1080 · h264+aac, **no -11800/-16974, inside the sandbox, no ffmpeg**.
+  Validated BOTH the credit export (burned "archivewatch.org · Public Domain", confirmed by
+  frame + objective bottom-band diff) and the clean export (no credit) — the codec fallback
+  made it robust across varied content. Known follow-up: source metadata embedding (above).
+
+**Next:** Unit 3 — the AppKit `NSView`+`CALayer` timeline (spike #2): magnification, hit-test,
+filmstrip thumbnails, drag-trim. Then Unit 4 — browser → library → timeline wire-up.
 
 ---
 
