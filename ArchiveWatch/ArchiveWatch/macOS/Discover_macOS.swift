@@ -100,6 +100,8 @@ struct SurpriseView: View {
         .init(id: "commercial", title: "Random Commercial",      icon: "tv.badge.wifi",       hex: "#E8A317"),
         .init(id: "decade",     title: "Random Decade",          icon: "calendar",            hex: "#C9A66B"),
         .init(id: "cartoon",    title: "Cartoon Mode",           icon: "pawprint.fill",       hex: "#3FA796"),
+        .init(id: "party",      title: "Party Play",             icon: "sparkles.tv.fill",    hex: "#FF4D8D"),
+        .init(id: "screensaver",title: "Screensaver",            icon: "photo.on.rectangle.angled", hex: "#2D5BFF"),
         .init(id: "pubdomain",  title: "Public Domain Day",      icon: "party.popper.fill",   hex: "#E8A317"),
     ]
     private let cols = [GridItem(.adaptive(minimum: 180, maximum: 240), spacing: 16)]
@@ -134,8 +136,9 @@ struct SurpriseView: View {
             if let d = store.decadeCounts().keys.randomElement() {
                 router.path.append(BrowseFilterRoute(title: "\(String(d))s", decade: d))
             }
-        case "cartoon":
-            router.path.append(BrowseFilterRoute(title: "Cartoons", contentType: "animation"))
+        case "cartoon":     router.path.append(CartoonRoute())
+        case "party":       router.path.append(PartyRoute())
+        case "screensaver": router.path.append(ScreensaverRoute())
         case "pubdomain":
             router.path.append(PublicDomainRoute())
         default: break

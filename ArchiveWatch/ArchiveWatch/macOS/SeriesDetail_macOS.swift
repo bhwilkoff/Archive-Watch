@@ -31,6 +31,19 @@ struct SeriesDetailView: View {
                             .fixedSize(horizontal: false, vertical: true)
                     }
 
+                    HStack(spacing: 10) {
+                        ShareLink(item: seriesShareURL) {
+                            Label("Share", systemImage: "square.and.arrow.up")
+                        }
+                        if Callsheet.supports(card) {
+                            Button { Callsheet.open(Callsheet.url(for: card)) } label: {
+                                Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
+                            }
+                            .help("Cast & crew in Callsheet")
+                        }
+                    }
+                    .padding(.top, 2)
+
                     if loading {
                         ProgressView().frame(maxWidth: .infinity).padding(.vertical, 30)
                     } else if shownEpisodes.isEmpty {
@@ -75,6 +88,14 @@ struct SeriesDetailView: View {
         if selectedSeason == nil { selectedSeason = series?.seasons.first?.seasonNumber }
     }
 
+    private var seriesSlug: String {
+        card.seriesID ?? card.archiveID.replacingOccurrences(of: "series:", with: "")
+    }
+    private var seriesShareURL: URL {
+        let slug = seriesSlug.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? seriesSlug
+        return URL(string: "https://archivewatch.org/series/\(slug)") ?? URL(string: "https://archivewatch.org")!
+    }
+
     private var seasons: [Season] { series?.seasons ?? [] }
 
     private var shownEpisodes: [Episode] {
@@ -106,6 +127,15 @@ struct SeriesDetailView: View {
             ForEach(shownEpisodes) { ep in
                 Button { router.playEpisode(ep, in: series) } label: { EpisodeRow(episode: ep) }
                     .buttonStyle(.plain)
+                    .contextMenu {
+                        if Callsheet.supports(card) {
+                            Button {
+                                Callsheet.open(Callsheet.episodeURL(
+                                    seriesTitle: series?.title ?? card.title,
+                                    season: ep.seasonNumber, episode: ep.episodeNumber))
+                            } label: { Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon) }
+                        }
+                    }
             }
         }
     }

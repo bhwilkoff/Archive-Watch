@@ -1449,6 +1449,17 @@ endpoints — only the published open/search scheme. Person deep-links
 `CastMember` carries a TMDB person id (today it stores only name + profilePath) —
 a pipeline enhancement, not done here.
 
+**Amendment 2026-06-23 (owner: "all apple platforms"):** the title "(iOS only)" is
+superseded — Callsheet ships a Mac app, so the integration now ALSO lives in the
+**macOS** target (`macOS/CallsheetLink_macOS.swift`, wired on Detail + SeriesDetail +
+per-episode context menu). The macOS twin uses **`NSWorkspace`** instead of
+`UIApplication`: `NSWorkspace.urlForApplication(toOpen: callsheet://)` is the
+install probe (the AppKit analog of `canOpenURL`) and needs NO `LSApplicationQueriesSchemes`
+entry on macOS (that array is an iOS privacy restriction); `NSWorkspace.open` routes the
+deep link, falling back to the App Store page. The URL-building / supported-types /
+search-vs-open logic is identical to iOS. Still excluded: tvOS (no Callsheet app) and web
+(can't probe install or fall back cleanly).
+
 ---
 
 ## 039 — Subtitles: layered sources, side-loaded as tracks; archive.org ASR first

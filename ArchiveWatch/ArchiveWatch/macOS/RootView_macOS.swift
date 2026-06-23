@@ -30,6 +30,9 @@ struct RootView: View {
                     .navigationDestination(for: SeriesRef.self) { SeriesDetailView(card: $0.card) }
                     .navigationDestination(for: BrowseFilterRoute.self) { FilteredGridView(route: $0) }
                     .navigationDestination(for: PublicDomainRoute.self) { _ in PublicDomainView() }
+                    .navigationDestination(for: CartoonRoute.self) { _ in CartoonView() }
+                    .navigationDestination(for: PartyRoute.self) { _ in PartyPlayView() }
+                    .navigationDestination(for: ScreensaverRoute.self) { _ in ScreensaverView() }
             }
         }
         .sheet(item: $router.nowPlaying) { item in

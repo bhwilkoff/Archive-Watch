@@ -102,6 +102,13 @@ struct DetailView: View {
                     .controlSize(.large)
                     ShareLink(item: shareURL) { Label("Share", systemImage: "square.and.arrow.up") }
                         .controlSize(.large)
+                    if Callsheet.supports(item) {
+                        Button { Callsheet.open(Callsheet.url(for: item)) } label: {
+                            Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
+                        }
+                        .controlSize(.large)
+                        .help("Cast & crew in Callsheet")
+                    }
                     Link(destination: URL(string: item.sourceDetailsURL)!) {
                         Label("archive.org", systemImage: "link")
                     }

@@ -72,13 +72,18 @@ itself. Everything else is already in the project.
 ## Phase 0 scope / non-goals
 
 In: browse, home shelves (hide-watched honored), detail (favorite toggle,
-add-to-playlist, share, More-Like-This, tappable cast), native player (resilient
-stream + resume), search, library, settings, CloudKit sync, deep-link routing
-(`archivewatch://item|surprise|random` + `archivewatch.org` Universal Links →
-Detail), TV series season/episode drill-in (`SeriesStore`), Collections,
-Surprise, Public Domain Day, and Channels (a proportional EPG guide — fixed rail
-+ pinned ruler + runtime-sized blocks, window paged by Earlier/Later/Now, tune-in
-lineup player with woven commercials, create/right-click-delete user channels).
+add-to-playlist, share, Open-in-Callsheet, More-Like-This, tappable cast), native
+player (resilient stream + resume, speed menu, autoplay-next via ContinuousPlayback),
+search, library, settings (per-category show/hide toggles + autoplay), CloudKit
+sync, deep-link routing (`archivewatch://item|surprise|random` + `archivewatch.org`
+Universal Links → Detail), TV series season/episode drill-in (`SeriesStore`, +
+Callsheet on series/episodes, binge auto-advance), Collections, Surprise, Public
+Domain Day, Channels (a proportional EPG guide — fixed rail + pinned ruler +
+runtime-sized blocks, window paged by Earlier/Later/Now, tune-in lineup player with
+woven commercials, create/right-click-delete user channels), and the discovery
+modes via Surprise: Cartoon Mode (character + theme shelves + marathon, shared
+`KidsContent`), Party Play (muted color eye-candy lineup), and Screensaver (a wall
+of professional poster art).
 **Not yet** (later phases per `docs/macOS-DESIGN.md`): the Creation Studio
 `DocumentGroup` editor, the proxy-clip library, the stock/subtitle indices. The
 sidebar + single split-view is intentionally Mac-native, not the iOS tab bar.

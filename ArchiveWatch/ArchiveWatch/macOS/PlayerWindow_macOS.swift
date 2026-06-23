@@ -14,17 +14,55 @@ import SwiftData
 struct PlayerWindow: View {
     let item: Catalog.Item
     @Environment(\.dismiss) private var dismiss
+    @Environment(AppStore.self) private var store
+    @Environment(AppRouter.self) private var router
+    @State private var speed = 1.0
 
     var body: some View {
         PlayerSurface(archiveID: item.archiveID,
                       videoURL: item.videoURLParsed,
-                      subtitleHLS: item.subtitleHLSURL)
+                      subtitleHLS: item.subtitleHLSURL,
+                      speed: speed,
+                      onEnded: autoplayNext)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) { Button("Done") { dismiss() } }
                 ToolbarItem(placement: .navigation) {
                     Text(item.title).font(.headline).lineLimit(1)
                 }
+                ToolbarItem { SpeedMenu(speed: $speed) }
             }
+    }
+
+    /// When a film ends and Autoplay is on, swap the player to the next title
+    /// (router.nowPlaying drives the sheet, so changing it re-presents the player).
+    private func autoplayNext() {
+        guard store.autoplayMode != .off,
+              let next = ContinuousPlayback.next(after: item, mode: store.autoplayMode, store: store)
+        else { return }
+        router.play(next)
+    }
+}
+
+// Shared speed control for the macOS players (AVPlayerView has no built-in speed
+// menu; the tvOS/iOS AVPlayerViewController does). Drives the player's rate.
+struct SpeedMenu: View {
+    @Binding var speed: Double
+    private let speeds: [Double] = [0.5, 1.0, 1.25, 1.5, 2.0]
+    var body: some View {
+        Menu {
+            ForEach(speeds, id: \.self) { s in
+                Button {
+                    speed = s
+                } label: {
+                    if speed == s { Label(label(s), systemImage: "checkmark") }
+                    else { Text(label(s)) }
+                }
+            }
+        } label: { Label("Speed", systemImage: "speedometer") }
+        .help("Playback speed")
+    }
+    private func label(_ s: Double) -> String {
+        s == 1.0 ? "Normal" : (s == floor(s) ? "\(Int(s))×" : "\(s)×")
     }
 }
 
@@ -35,6 +73,7 @@ struct EpisodePlayer: View {
     let context: EpisodeContext
     @Environment(\.dismiss) private var dismiss
     @State private var episode: Episode
+    @State private var speed = 1.0
 
     init(context: EpisodeContext) {
         self.context = context
@@ -48,7 +87,9 @@ struct EpisodePlayer: View {
     var body: some View {
         PlayerSurface(archiveID: episode.archiveID,
                       videoURL: episode.videoURLParsed,
-                      subtitleHLS: nil)
+                      subtitleHLS: nil,
+                      speed: speed,
+                      onEnded: { if let n = next { episode = n } })   // binge auto-advance
             .id(episode.archiveID)
             .overlay(alignment: .topTrailing) {
                 if prev != nil || next != nil {
@@ -74,6 +115,7 @@ struct EpisodePlayer: View {
                 ToolbarItem(placement: .navigation) {
                     Text(episode.title).font(.headline).lineLimit(1)
                 }
+                ToolbarItem { SpeedMenu(speed: $speed) }
             }
     }
 }
@@ -85,10 +127,13 @@ private struct PlayerSurface: View {
     let archiveID: String
     let videoURL: URL?
     let subtitleHLS: URL?
+    var speed: Double = 1.0
+    var onEnded: (() -> Void)? = nil
 
     @Environment(\.modelContext) private var ctx
     @State private var player: AVPlayer?
     @State private var loader: ResilientStreamLoader?     // retained for the asset's lifetime
+    @State private var endObserver: NSObjectProtocol?
 
     var body: some View {
         ZStack {
@@ -100,7 +145,8 @@ private struct PlayerSurface: View {
             }
         }
         .onAppear(perform: setup)
-        .onDisappear(perform: persist)
+        .onDisappear(perform: teardown)
+        .onChange(of: speed) { applySpeed() }
     }
 
     private func setup() {
@@ -119,11 +165,28 @@ private struct PlayerSurface: View {
         // rides in the player window toolbar instead.
 
         let p = AVPlayer(playerItem: playerItem)
+        p.defaultRate = Float(speed)   // the AVPlayerView play button resumes at this rate
         if let resume = savedProgress(), resume > 5 {
             p.seek(to: CMTime(seconds: resume, preferredTimescale: 600))
         }
         p.play()
+        if speed != 1 { p.rate = Float(speed) }
         player = p
+        endObserver = NotificationCenter.default.addObserver(
+            forName: .AVPlayerItemDidPlayToEndTime, object: playerItem, queue: .main) { _ in
+            MainActor.assumeIsolated { onEnded?() }
+        }
+    }
+
+    private func applySpeed() {
+        guard let player else { return }
+        player.defaultRate = Float(speed)
+        if player.rate != 0 { player.rate = Float(speed) }   // change live only while playing
+    }
+
+    private func teardown() {
+        if let e = endObserver { NotificationCenter.default.removeObserver(e); endObserver = nil }
+        persist()
     }
 
     private func savedProgress() -> Double? {
@@ -159,6 +222,7 @@ private struct PlayerSurface: View {
 struct ChannelPlayer: View {
     let lineup: [Catalog.Item]
     let startOffset: TimeInterval
+    var muted: Bool = false           // Party Play starts muted (background eye-candy)
     @Environment(\.dismiss) private var dismiss
     @State private var engine = ChannelEngine()
 
@@ -173,7 +237,7 @@ struct ChannelPlayer: View {
                 ProgressView().controlSize(.large).tint(.white)
             }
         }
-        .onAppear { engine.start(lineup: lineup, startOffset: startOffset) }
+        .onAppear { engine.start(lineup: lineup, startOffset: startOffset, muted: muted) }
         .onDisappear { engine.stop() }
         .toolbar {
             ToolbarItem(placement: .cancellationAction) { Button("Done") { dismiss() } }
@@ -196,12 +260,13 @@ final class ChannelEngine {
     private var loader: ResilientStreamLoader?   // retained for the asset's lifetime
     private var endObserver: NSObjectProtocol?
 
-    func start(lineup: [Catalog.Item], startOffset: TimeInterval) {
+    func start(lineup: [Catalog.Item], startOffset: TimeInterval, muted: Bool = false) {
         guard player == nil else { return }   // onAppear can fire more than once
         items = lineup
         idx = lineup.firstIndex { $0.videoURLParsed != nil } ?? 0
         guard idx < items.count, let url = items[idx].videoURLParsed else { failed = true; return }
         let p = AVPlayer(playerItem: makeItem(for: url))
+        p.isMuted = muted
         nowTitle = items[idx].title
         if startOffset > 5 { p.seek(to: CMTime(seconds: startOffset, preferredTimescale: 600)) }
         p.play()
