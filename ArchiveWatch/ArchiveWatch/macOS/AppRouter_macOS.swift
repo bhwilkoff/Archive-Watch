@@ -12,17 +12,19 @@ struct CollectionRoute: Hashable { let id: String; let title: String }
 @Observable
 final class AppRouter {
     enum Section: String, CaseIterable, Identifiable, Hashable {
-        case home, movies, tv, search, library
+        case home, movies, tv, collections, surprise, search, library
         var id: String { rawValue }
         var title: String {
             switch self {
             case .home: "Home"; case .movies: "Movies"; case .tv: "TV"
+            case .collections: "Collections"; case .surprise: "Surprise"
             case .search: "Search"; case .library: "Library"
             }
         }
         var systemImage: String {
             switch self {
             case .home: "house"; case .movies: "film"; case .tv: "tv"
+            case .collections: "square.stack"; case .surprise: "sparkles"
             case .search: "magnifyingglass"; case .library: "books.vertical"
             }
         }

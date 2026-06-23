@@ -28,6 +28,8 @@ struct RootView: View {
                         GridView(title: $0.title, items: store.byCollection($0.id))
                     }
                     .navigationDestination(for: SeriesRef.self) { SeriesDetailView(card: $0.card) }
+                    .navigationDestination(for: BrowseFilterRoute.self) { FilteredGridView(route: $0) }
+                    .navigationDestination(for: PublicDomainRoute.self) { _ in PublicDomainView() }
             }
         }
         .sheet(item: $router.nowPlaying) { item in
@@ -47,11 +49,13 @@ struct RootView: View {
 
     @ViewBuilder private var sectionContent: some View {
         switch router.section {
-        case .home:    HomeView()
-        case .movies:  BrowseView(contentType: nil, title: "Movies")
-        case .tv:      GridView(title: "TV", items: store.seriesCards())
-        case .search:  SearchView()
-        case .library: LibraryView()
+        case .home:        HomeView()
+        case .movies:      BrowseView(contentType: nil, title: "Movies")
+        case .tv:          GridView(title: "TV", items: store.seriesCards())
+        case .collections: CollectionsList()
+        case .surprise:    SurpriseView()
+        case .search:      SearchView()
+        case .library:     LibraryView()
         }
     }
 }
