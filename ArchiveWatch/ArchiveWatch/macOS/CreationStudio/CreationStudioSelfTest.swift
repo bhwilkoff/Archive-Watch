@@ -71,6 +71,14 @@ enum CreationStudioSelfTest {
             log("TRIM-REUSE rebuild=\(trimMs)ms (reused cache if « coldCacheMs) status=\(editor.player.currentItem?.status.rawValue ?? -1)")
         }
 
+        // REORDER + TEXT model checks (drag-reorder, context split, Add Text).
+        let order0 = editor.clips.map { String($0.label.prefix(5)) }.joined(separator: "|")
+        if editor.clips.count >= 2 { editor.moveClip(editor.clips[0].id, toIndex: 1) }
+        let order1 = editor.clips.map { String($0.label.prefix(5)) }.joined(separator: "|")
+        editor.playheadSeconds = 1
+        editor.addTextOverlay()
+        log("REORDER [\(order0)] -> [\(order1)] · textOverlays=\(editor.textOverlays.count) selectedOverlay=\(editor.selectedOverlayID != nil)")
+
         // A 2-clip cross-title timeline: an 8s window from each title, back to back.
         var timeline = Timeline()
         timeline.clips = [

@@ -50,6 +50,11 @@ struct ProjectEditorView: View {
                             .foregroundStyle(.white.opacity(0.5))
                     } else {
                         VideoPlayerNS(player: model.player, controlsStyle: .none)   // transport bar is the only transport
+                        // Live text overlays — the Core Animation tool is EXPORT-only, so render
+                        // them here (timed to the playhead, placed in the 16:9 video frame) so the
+                        // preview is WYSIWYG and "Add Text" is visible.
+                        TextOverlayPreview(overlays: model.textOverlays, playhead: model.playheadSeconds,
+                                           renderSize: model.project.timeline.renderSize)
                     }
                     if model.isBuildingPreview {
                         VStack(spacing: 6) {
@@ -223,6 +228,43 @@ private struct WindowFitter: NSViewRepresentable {
             f.origin.y = max(vis.minY + 20, min(f.origin.y, vis.maxY - f.height - 20))
             window.setFrame(f, display: true, animate: false)
         }
+    }
+}
+
+// Renders the active text overlays over the program monitor (the export bakes them via the
+// Core Animation tool, which can't run in live playback). Placed inside the 16:9 video frame so
+// position matches the export; shown only while the playhead is inside each overlay's range.
+private struct TextOverlayPreview: View {
+    let overlays: [TextOverlay]
+    let playhead: Double
+    let renderSize: RenderSize
+
+    var body: some View {
+        GeometryReader { geo in
+            let rect = fitRect(aspect: renderSize.width / max(1, renderSize.height), in: geo.size)
+            ForEach(active) { ov in
+                Text(ov.text)
+                    .font(.system(size: max(8, rect.width * ov.fontScale), weight: .bold))
+                    .foregroundStyle(Color(CompositionBuilder.cgColor(hex: ov.colorHex)))
+                    .shadow(color: ov.hasBackground ? .black.opacity(0.85) : .clear,
+                            radius: max(1, rect.width * ov.fontScale * 0.06), x: 0, y: 1)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: rect.width * 0.9)
+                    .position(x: rect.minX + ov.positionX * rect.width,
+                              y: rect.minY + ov.positionY * rect.height)
+            }
+        }
+        .allowsHitTesting(false)
+    }
+
+    private var active: [TextOverlay] {
+        overlays.filter { playhead >= $0.timelineRange.start.seconds && playhead <= $0.timelineRange.endSeconds }
+    }
+    private func fitRect(aspect: Double, in size: CGSize) -> CGRect {
+        let a = max(0.1, aspect)
+        var w = size.width, h = w / a
+        if h > size.height { h = size.height; w = h * a }
+        return CGRect(x: (size.width - w) / 2, y: (size.height - h) / 2, width: w, height: h)
     }
 }
 

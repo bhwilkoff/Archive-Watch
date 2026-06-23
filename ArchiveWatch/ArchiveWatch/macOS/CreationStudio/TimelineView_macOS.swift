@@ -62,8 +62,13 @@ final class TimelineContentView: NSView {
     private let minWidth: CGFloat = 400
 
     // Drag state
-    private enum Drag { case none, scrub, trimLeft(UUID), trimRight(UUID) }
+    private enum Drag { case none, scrub, trimLeft(UUID), trimRight(UUID), move(UUID) }
     private var drag: Drag = .none
+    private var dragStartX: CGFloat = 0
+    private var dragMoved = false
+    // Right-click context target.
+    private var contextClipID: UUID?
+    private var contextSeconds: Double = 0
 
     init(model: EditorModel) {
         self.model = model
@@ -249,14 +254,13 @@ final class TimelineContentView: NSView {
     override func mouseDown(with event: NSEvent) {
         window?.makeFirstResponder(self)
         let p = convert(event.locationInWindow, from: nil)
+        dragStartX = p.x; dragMoved = false
         if let hit = clipHit(at: p) {
             model.selectedClipID = hit.clip.id
             if state.prep[hit.clip.id] == .failed { model.retryClip(hit.clip.id); drag = .none; return }
             switch hit.region {
             case .trimLeft, .trimRight: drag = hit.region
-            default:
-                drag = .scrub
-                model.seek(toSeconds: seconds(p.x))
+            default:                    drag = .move(hit.clip.id)   // body → drag-to-move (or click = scrub)
             }
         } else {
             drag = .scrub
@@ -278,11 +282,54 @@ final class TimelineContentView: NSView {
             guard let clip = state.clips.first(where: { $0.id == id }) else { return }
             let newDurOnTimeline = seconds(p.x) - clip.timelineStart.seconds
             model.trim(id, newOutSeconds: clip.sourceRange.start.seconds + newDurOnTimeline)
+        case .move(let id):
+            if !dragMoved && abs(p.x - dragStartX) < 4 { return }   // small movement = still a click
+            dragMoved = true
+            // Magnetic reorder: target slot = how many OTHER clips' centers are left of the cursor.
+            var target = 0
+            for c in state.clips where c.id != id {
+                let center = x(c.timelineStart.seconds) + x(c.sourceRange.duration.seconds) / 2
+                if p.x > center { target += 1 } else { break }
+            }
+            model.moveClip(id, toIndex: target)
         case .none: break
         }
     }
 
-    override func mouseUp(with event: NSEvent) { drag = .none }
+    override func mouseUp(with event: NSEvent) {
+        // A click on a clip body (no drag) positions the playhead there.
+        if case .move = drag, !dragMoved { model.seek(toSeconds: seconds(dragStartX)) }
+        drag = .none
+    }
+
+    // MARK: right-click context menu
+
+    override func menu(for event: NSEvent) -> NSMenu? {
+        let p = convert(event.locationInWindow, from: nil)
+        guard let hit = clipHit(at: p) else { return nil }
+        model.selectedClipID = hit.clip.id
+        contextClipID = hit.clip.id
+        contextSeconds = seconds(p.x)
+        let menu = NSMenu()
+        func add(_ title: String, _ sel: Selector) {
+            let item = NSMenuItem(title: title, action: sel, keyEquivalent: ""); item.target = self; menu.addItem(item)
+        }
+        add("Split Here", #selector(ctxSplit))
+        add(hit.clip.audioVolume == 0 ? "Unmute Audio" : "Mute Audio", #selector(ctxMute))
+        add("Duplicate", #selector(ctxDuplicate))
+        menu.addItem(.separator())
+        add("Delete Clip", #selector(ctxDelete))
+        return menu
+    }
+
+    @objc private func ctxSplit() { if let id = contextClipID { model.splitClip(id, atTimelineSeconds: contextSeconds) } }
+    @objc private func ctxDuplicate() { if let id = contextClipID { model.duplicateClip(id) } }
+    @objc private func ctxDelete() { if let id = contextClipID { model.deleteClip(id) } }
+    @objc private func ctxMute() {
+        if let id = contextClipID, let c = state.clips.first(where: { $0.id == id }) {
+            model.setClipVolume(id, c.audioVolume == 0 ? 1 : 0)
+        }
+    }
 
     override func scrollWheel(with event: NSEvent) {
         if event.modifierFlags.contains(.command) || event.modifierFlags.contains(.option) {

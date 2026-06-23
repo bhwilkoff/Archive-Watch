@@ -126,12 +126,19 @@ final class EditorModel {
         guard let clip = clips.first(where: { c in
             let s = c.timelineStart.seconds
             return t > s + 0.05 && t < s + c.sourceRange.duration.seconds - 0.05
-        }), let i = document.project.timeline.clips.firstIndex(where: { $0.id == clip.id }) else { return }
-        let offsetInClip = t - clip.timelineStart.seconds          // seconds into the clip
+        }) else { return }
+        splitClip(clip.id, atTimelineSeconds: t)
+    }
+
+    /// Split a specific clip into two at a timeline position (context-menu "Split Here").
+    func splitClip(_ id: UUID, atTimelineSeconds t: Double) {
+        guard let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
+        let clip = document.project.timeline.clips[i]
+        let offsetInClip = t - clip.timelineStart.seconds                   // seconds into the clip
+        guard offsetInClip > 0.05, offsetInClip < clip.sourceRange.duration.seconds - 0.05 else { return }
         let cutSource = clip.sourceRange.start.seconds + offsetInClip
         var left = clip
-        left.sourceRange = TimeRange(startSeconds: clip.sourceRange.start.seconds,
-                                     durationSeconds: offsetInClip)
+        left.sourceRange = TimeRange(startSeconds: clip.sourceRange.start.seconds, durationSeconds: offsetInClip)
         let right = TimelineClip(
             proxyClipID: clip.proxyClipID, catalogItemID: clip.catalogItemID, sourceURL: clip.sourceURL,
             sourceRange: TimeRange(startSeconds: cutSource, durationSeconds: clip.sourceRange.endSeconds - cutSource),
@@ -142,6 +149,32 @@ final class EditorModel {
         // re-caches; just refresh each half's filmstrip for its new sub-range.
         if let w = clipCache[clip.id] { clipCache[right.id] = w }
         thumbnails[clip.id] = nil; thumbnails[right.id] = nil
+        selectedClipID = right.id
+        relayout(); scheduleRebuild()
+    }
+
+    /// Reorder a clip on the magnetic track by dragging (toIndex = desired slot).
+    func moveClip(_ id: UUID, toIndex target: Int) {
+        let original = document.project.timeline.clips
+        guard let from = original.firstIndex(where: { $0.id == id }) else { return }
+        var arr = original
+        let clip = arr.remove(at: from)
+        arr.insert(clip, at: min(max(0, target), arr.count))
+        guard arr.map(\.id) != original.map(\.id) else { return }          // no order change
+        document.project.timeline.clips = arr
+        relayout(); scheduleRebuild()
+    }
+
+    /// Duplicate a clip immediately after itself (context menu).
+    func duplicateClip(_ id: UUID) {
+        guard let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
+        let src = document.project.timeline.clips[i]
+        let copy = TimelineClip(
+            proxyClipID: src.proxyClipID, catalogItemID: src.catalogItemID, sourceURL: src.sourceURL,
+            sourceRange: src.sourceRange, timelineStart: .zero, track: 0, label: src.label, audioVolume: src.audioVolume)
+        document.project.timeline.clips.insert(copy, at: i + 1)
+        if let w = clipCache[id] { clipCache[copy.id] = w }                 // same source window
+        selectedClipID = copy.id
         relayout(); scheduleRebuild()
     }
 
@@ -174,12 +207,14 @@ final class EditorModel {
         scheduleRebuild()
     }
 
-    /// Magnetic main track: clips lie end-to-end in their current order, no gaps (Rule 7c).
+    /// Magnetic main track: clips lie end-to-end in ARRAY order, no gaps (Rule 7c). Array order
+    /// IS the timeline order — reorder/insert in the array, then relayout assigns each clip's
+    /// start. (Was sorting by timelineStart, which made a just-added clip at t=0 jump ahead and
+    /// blocked drag-reordering.)
     private func relayout() {
-        let ordered = document.project.timeline.clips.sorted { $0.timelineStart.seconds < $1.timelineStart.seconds }
         var cursor = 0.0
         var rebuilt: [TimelineClip] = []
-        for var c in ordered {
+        for var c in document.project.timeline.clips {
             c.timelineStart = TimeStamp(seconds: cursor)
             rebuilt.append(c)
             cursor += c.sourceRange.duration.seconds
