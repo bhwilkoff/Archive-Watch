@@ -24,50 +24,109 @@ struct ClipBrowserSheet: View {
     @Environment(AppStore.self) private var store
     @Environment(\.dismiss) private var dismiss
     @State private var query = ""
+    @State private var mode: Mode = .titles
     @State private var results: [Catalog.Item] = []
+    @State private var stock: [StockShot] = []
     @State private var marking: Catalog.Item?
 
+    enum Mode: String, CaseIterable, Identifiable { case titles = "Titles", stock = "Stock Shots"; var id: String { rawValue } }
     private let cols = [GridItem(.adaptive(minimum: 150, maximum: 200), spacing: 14)]
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                if results.isEmpty {
-                    ContentUnavailableView(query.isEmpty ? "Browse for a clip" : "No clippable results",
-                                           systemImage: "magnifyingglass",
-                                           description: Text("Search the public-domain catalog, then mark an in/out point."))
-                        .padding(.top, 60)
-                } else {
-                    LazyVGrid(columns: cols, spacing: 16) {
-                        ForEach(results) { item in
-                            Button { marking = item } label: { BrowserCard(item: item) }
-                                .buttonStyle(.plain)
-                        }
-                    }
-                    .padding()
+            VStack(spacing: 0) {
+                Picker("", selection: $mode) {
+                    ForEach(Mode.allCases) { Text($0.rawValue).tag($0) }
+                }
+                .pickerStyle(.segmented).labelsHidden()
+                .frame(width: 260).padding(.vertical, 8)
+                Divider()
+                ScrollView {
+                    if mode == .titles { titlesGrid } else { stockGrid }
                 }
             }
             .navigationTitle("Add a Clip")
-            .searchable(text: $query, prompt: "Films, shows, people…")
+            .searchable(text: $query, prompt: mode == .titles ? "Films, shows, people…" : "Search shots by tag…")
             .onChange(of: query) { reload() }
-            .task { reload() }
+            .onChange(of: mode) { reload() }
+            .task { StockIndexBuilder.buildSampleIfNeeded(store: store); reload() }
             .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Done") { dismiss() } } }
-            .frame(minWidth: 640, minHeight: 460)
+            .frame(minWidth: 680, minHeight: 500)
         }
         .sheet(item: $marking) { item in
-            MarkClipView(item: item) { proxy in
-                onAdd(proxy)
-                marking = nil
-                dismiss()
+            MarkClipView(item: item) { proxy in onAdd(proxy); marking = nil; dismiss() }
+        }
+    }
+
+    @ViewBuilder private var titlesGrid: some View {
+        if results.isEmpty {
+            ContentUnavailableView(query.isEmpty ? "Browse for a clip" : "No clippable results",
+                                   systemImage: "magnifyingglass",
+                                   description: Text("Search the public-domain catalog, then mark an in/out point."))
+                .padding(.top, 60)
+        } else {
+            LazyVGrid(columns: cols, spacing: 16) {
+                ForEach(results) { item in
+                    Button { marking = item } label: { BrowserCard(item: item) }.buttonStyle(.plain)
+                }
             }
+            .padding()
+        }
+    }
+
+    @ViewBuilder private var stockGrid: some View {
+        if stock.isEmpty {
+            ContentUnavailableView("No stock shots", systemImage: "square.grid.3x3",
+                description: Text("Pre-cut shots from the archive — tap to add directly. (Sample index; the shot-mining pipeline lands in a later phase.)"))
+                .padding(.top, 60)
+        } else {
+            LazyVGrid(columns: cols, spacing: 16) {
+                ForEach(stock) { shot in
+                    Button { onAdd(shot.proxyClip); dismiss() } label: {
+                        StockCard(shot: shot, poster: store.item(shot.archiveID)?.posterURLParsed)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .padding()
         }
     }
 
     private func reload() {
-        let raw = query.trimmingCharacters(in: .whitespaces).isEmpty
-            ? store.browse(sort: .popular, limit: 60)
-            : store.search(query)
-        results = raw.filter { $0.isClippable }
+        switch mode {
+        case .titles:
+            let raw = query.trimmingCharacters(in: .whitespaces).isEmpty
+                ? store.browse(sort: .popular, limit: 60) : store.search(query)
+            results = raw.filter { $0.isClippable }
+        case .stock:
+            stock = StockIndex(path: StockIndex.sampleURL)?.query(query) ?? []
+        }
+    }
+}
+
+private struct StockCard: View {
+    let shot: StockShot
+    let poster: URL?
+    var body: some View {
+        VStack(alignment: .leading, spacing: 5) {
+            RoundedRectangle(cornerRadius: 6).fill(.quaternary)
+                .aspectRatio(16.0/9.0, contentMode: .fit)
+                .overlay {
+                    if let poster { AsyncImage(url: poster) { $0.resizable().scaledToFill() } placeholder: { Color.clear } }
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 6))
+                .overlay(alignment: .bottomTrailing) {
+                    Text(String(format: "%.0fs", shot.durationSeconds))
+                        .font(.caption2).padding(3).background(.black.opacity(0.6), in: Capsule())
+                        .foregroundStyle(.white).padding(4)
+                }
+            Text(shot.title).font(.caption).lineLimit(1)
+            if let tag = shot.tags.first {
+                Text(tag).font(.caption2).foregroundStyle(.secondary)
+                    .padding(.horizontal, 5).padding(.vertical, 1)
+                    .background(.quaternary, in: Capsule())
+            }
+        }
     }
 }
 

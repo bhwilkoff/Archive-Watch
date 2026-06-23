@@ -337,6 +337,22 @@ MobileCLIP embeddings → `clips.sqlite`) + the Storyblocks-style shot browser, 
 into the existing `ClipBrowserSheet`. (The two-pass grade→overlay split, Rule 3d, still
 waits on color grades, a later feature.)
 
+## 12. Phase 3 progress log — Stock archive (#6)
+
+**Stock-shot browser shell + clips.sqlite query layer: SHIPPED 2026-06-23 (app-side first; the
+ML CI pipeline is a later session, owner decision).**
+- `StockIndex.swift` — the real read query layer over `clips.sqlite` (SQLite C API, mirroring
+  `CatalogDB`): a `shots` table (id, archiveID, sourceURL, start/endSeconds, tags, title) with
+  a LIKE query over tags+title. The SCHEMA matches what the future PySceneDetect→Vision→
+  MobileCLIP pipeline will emit, so swapping in the published index is just changing the file.
+- `StockIndexBuilder` — synthesizes a SAMPLE clips.sqlite from the catalog (real archive.org
+  URLs + tags from each title's genres/subjects; placeholder shot windows) until the CI
+  pipeline lands. Validated: 360 shots built; `animation` tag → 39 hits.
+- `ClipBrowserSheet` gains a "Titles | Stock Shots" mode; Stock shots are pre-cut, so a tap
+  adds one straight to the timeline (no marking step). `StockCard` shows poster + duration + tag.
+- DEFERRED to its own session: the heavy CI shot-mining pipeline (PySceneDetect → Vision
+  classify → MobileCLIP embeddings → sqlite-vec semantic search) that produces the real index.
+
 ---
 
 *Amend, don't contradict. New views/features quote the rule they satisfy or the amendment
