@@ -73,11 +73,15 @@ final class ExportService {
             var resolved: [CompositionBuilder.ResolvedClip] = []
             for clip in ordered {
                 guard let url = cached[clip.id] else { continue }
-                let asset = AVURLAsset(url: url)
+                // Bake the clip's color grade into a source file first (Looks compose with
+                // transitions because they're a separate graded source — Rule 3d note).
+                let gradedURL = (try? await LookGrader.gradedURL(for: url, look: clip.look)) ?? url
+                let asset = AVURLAsset(url: gradedURL)
                 let dur = try await asset.load(.duration)               // the cached file IS the window
                 resolved.append(.init(asset: asset, insertRange: CMTimeRange(start: .zero, duration: dur),
                                       audioVolume: clip.audioVolume,
-                                      fadeIn: clip.fadeInSeconds, fadeOut: clip.fadeOutSeconds))
+                                      fadeIn: clip.fadeInSeconds, fadeOut: clip.fadeOutSeconds,
+                                      transitionIn: clip.transitionInSeconds))
             }
             let built = try await CompositionBuilder.build(
                 resolved: resolved, timeline: project.timeline, creditLine: creditLine)

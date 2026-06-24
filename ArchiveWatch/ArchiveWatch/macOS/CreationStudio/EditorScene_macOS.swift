@@ -445,6 +445,24 @@ private struct ProjectInspector: View {
                                 .foregroundStyle(.secondary).frame(width: 42, alignment: .trailing)
                         }
                     }
+                    // Color grade (Look) — baked into a cached graded source on rebuild.
+                    Picker("Look", selection: Binding(get: { clip.look },
+                                                      set: { model.setClipLook(clip.id, $0) })) {
+                        ForEach(ClipLook.allCases) { Text($0.label).tag($0) }
+                    }
+                    // Cross-dissolve from the PREVIOUS clip (only meaningful past the first clip).
+                    if model.clips.first?.id != clip.id {
+                        LabeledContent("Dissolve") {
+                            HStack {
+                                Image(systemName: "square.on.square.dashed").foregroundStyle(.secondary)
+                                Slider(value: Binding(get: { clip.transitionInSeconds },
+                                                      set: { model.setClipTransition(clip.id, $0) }),
+                                       in: 0...maxFade)
+                                Text(String(format: "%.1fs", clip.transitionInSeconds)).font(.caption.monospacedDigit())
+                                    .foregroundStyle(.secondary).frame(width: 42, alignment: .trailing)
+                            }
+                        }
+                    }
                 }
             }
             Section("Project") {

@@ -31,6 +31,24 @@ enum CreationStudioSelfTest {
         return (Double(px[0]) + Double(px[1]) + Double(px[2])) / 3.0 / 255.0
     }
 
+    /// Average (R,G,B) (each 0…1) of the exported frame at `seconds` — used to prove a color Look
+    /// landed (e.g. sepia → R clearly above B).
+    static func avgRGB(_ url: URL, at seconds: Double) async -> (Double, Double, Double)? {
+        let gen = AVAssetImageGenerator(asset: AVURLAsset(url: url))
+        gen.appliesPreferredTrackTransform = true
+        gen.requestedTimeToleranceBefore = .zero; gen.requestedTimeToleranceAfter = .zero
+        guard let cg = try? await gen.image(at: CMTime(seconds: seconds, preferredTimescale: 600)).image
+        else { return nil }
+        let ci = CIImage(cgImage: cg)
+        let avg = ci.applyingFilter("CIAreaAverage",
+                                    parameters: [kCIInputExtentKey: CIVector(cgRect: ci.extent)])
+        var px = [UInt8](repeating: 0, count: 4)
+        CIContext().render(avg, toBitmap: &px, rowBytes: 4,
+                           bounds: CGRect(x: 0, y: 0, width: 1, height: 1),
+                           format: .RGBA8, colorSpace: nil)
+        return (Double(px[0]) / 255.0, Double(px[1]) / 255.0, Double(px[2]) / 255.0)
+    }
+
     static func run(store: AppStore) async {
         guard !started else { return }
         started = true
@@ -110,17 +128,17 @@ enum CreationStudioSelfTest {
         // A 2-clip cross-title timeline: an 8s window from each title, back to back.
         var timeline = Timeline()
         timeline.clips = [
-            // Fade up from black over the first 1.5s (video + audio).
+            // Fade up from black over the first 1.5s; SILENT (sepia) color grade.
             TimelineClip(catalogItemID: a.archiveID, sourceURL: aURL,
                          sourceRange: TimeRange(startSeconds: 3, durationSeconds: 8),
                          timelineStart: .zero, track: 0, label: a.title, audioVolume: 1.0,
-                         fadeInSeconds: 1.5),
-            // #4: clip B is MUTED — the [8,16s] half of the export should be silent.
-            // Fade down to black over the last 1.5s.
+                         fadeInSeconds: 1.5, lookRaw: "silent"),
+            // #4: clip B is MUTED. 2s cross-DISSOLVE from clip A; fade to black over the last 1.5s.
+            // Total timeline = 8 + 8 - 2 = 14s.
             TimelineClip(catalogItemID: b.archiveID, sourceURL: bURL,
                          sourceRange: TimeRange(startSeconds: 3, durationSeconds: 8),
                          timelineStart: TimeStamp(seconds: 8), track: 0, label: b.title, audioVolume: 0.0,
-                         fadeOutSeconds: 1.5),
+                         fadeOutSeconds: 1.5, transitionInSeconds: 2.0),
         ]
         // Phase 2 #3: a timed text overlay (yellow, centered, t=2–9s).
         timeline.textOverlays = [
@@ -162,11 +180,23 @@ enum CreationStudioSelfTest {
         // fade extremes, bright in the middle.
         let cleanOut = ProjectMediaCache.directory.appendingPathComponent("selftest-clean.mp4")
         if FileManager.default.fileExists(atPath: cleanOut.path) {
+            // CROSS-DISSOLVE: total timeline should be 14s (8+8 minus the 2s overlap), not 16.
+            let dur = (try? await AVURLAsset(url: cleanOut).load(.duration).seconds) ?? -1
+            log(String(format: "DISSOLVE duration=%.1fs (expected ~14.0 = 16 − 2s overlap)", dur))
+            // FADES: black at the fade-in head and the fade-out tail, bright in the middle.
             let b0 = await Self.avgBrightness(cleanOut, at: 0.05)     // fade-in start ≈ black
-            let bMid = await Self.avgBrightness(cleanOut, at: 4.0)    // clip A full ≈ bright
-            let bEnd = await Self.avgBrightness(cleanOut, at: 15.9)   // fade-out end ≈ black
-            log(String(format: "FADES brightness t=0:%.3f t=4:%.3f t=16:%.3f (fade ok if ends « mid)",
+            let bMid = await Self.avgBrightness(cleanOut, at: 3.0)    // clip A full ≈ bright
+            let bEnd = await Self.avgBrightness(cleanOut, at: 13.95)  // fade-out end ≈ black
+            log(String(format: "FADES brightness t=0:%.3f t=3:%.3f t=14:%.3f (fade ok if ends « mid)",
                        b0 ?? -1, bMid ?? -1, bEnd ?? -1))
+            // DISSOLVE blend: mid-overlap (t≈7) both clips contribute → non-black.
+            let bBlend = await Self.avgBrightness(cleanOut, at: 7.0)
+            log(String(format: "DISSOLVE blend t=7:%.3f (should be > 0, both clips visible)", bBlend ?? -1))
+            // LOOK (silent/sepia on clip A): at t=3 the red channel should clearly exceed blue.
+            if let rgb = await Self.avgRGB(cleanOut, at: 3.0) {
+                log(String(format: "LOOK silent/sepia t=3 R=%.3f G=%.3f B=%.3f (sepia if R > B)",
+                           rgb.0, rgb.1, rgb.2))
+            }
         }
 
         // #5: a ProRes .mov export (reuses the warm cache) to confirm the format path.

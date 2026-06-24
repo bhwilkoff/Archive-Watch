@@ -99,6 +99,26 @@ final class EditorModel {
         scheduleRebuild()
     }
 
+    /// Set a clip's color grade (Look). The grade is baked into a cached source file on the next
+    /// rebuild, so the preview updates after a brief render.
+    func setClipLook(_ id: UUID, _ look: ClipLook) {
+        guard let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
+        document.project.timeline.clips[i].lookRaw = look.rawValue
+        scheduleRebuild()
+    }
+
+    /// Set the cross-dissolve duration FROM the previous clip INTO this one (seconds). Clamped to
+    /// the shorter of this clip and the previous clip. 0 = a hard cut. Re-lays-out the timeline
+    /// (the clip slides earlier by the overlap) and rebuilds.
+    func setClipTransition(_ id: UUID, _ seconds: Double) {
+        let clips = self.clips
+        guard let pos = clips.firstIndex(where: { $0.id == id }), pos > 0,
+              let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
+        let cap = min(clips[pos].sourceRange.duration.seconds, clips[pos - 1].sourceRange.duration.seconds) - 0.1
+        document.project.timeline.clips[i].transitionInSeconds = max(0, min(seconds, max(0, cap)))
+        scheduleRebuild()
+    }
+
     /// Add a clip from a saved proxy (dragged from the Library, or just-marked).
     func addClip(from proxy: ProxyClip) {
         let clip = TimelineClip.from(proxy, at: .zero)
@@ -312,7 +332,7 @@ final class EditorModel {
            FileManager.default.fileExists(atPath: w.url.path) {
             clipPrep[clip.id] = .ready
             ensureThumbnails(clip, window: w)
-            return makeResolved(clip, window: w)
+            return makeResolved(clip, window: w, assetURL: await gradedAssetURL(clip, window: w))
         }
 
         if clipPrep[clip.id] != .ready { clipPrep[clip.id] = .caching }
@@ -327,21 +347,30 @@ final class EditorModel {
         clipCache[clip.id] = window
         clipPrep[clip.id] = .ready
         ensureThumbnails(clip, window: window)   // fallback generator — no-op if loadFilmstrip set archive.org thumbnails
-        return makeResolved(clip, window: window)
+        return makeResolved(clip, window: window, assetURL: await gradedAssetURL(clip, window: window))
     }
 
     /// The clip's in/out expressed as an insert range INTO the cached window file (file t=0 is
     /// the window's source start), clamped to what the file actually holds.
-    private func makeResolved(_ clip: TimelineClip, window: CachedWindow) -> CompositionBuilder.ResolvedClip {
+    /// `assetURL` is the window file, OR a color-graded copy of it (same timing) when the clip
+    /// carries a Look — the grade is baked into the source file so it composes with transitions.
+    private func makeResolved(_ clip: TimelineClip, window: CachedWindow, assetURL: URL) -> CompositionBuilder.ResolvedClip {
         let inS = clip.sourceRange.start.seconds
         let startInFile = max(0, inS - window.sourceStart)
         let avail = max(0.05, window.sourceEnd - inS)
         let dur = min(clip.sourceRange.duration.seconds, avail)
-        return .init(asset: AVURLAsset(url: window.url),
+        return .init(asset: AVURLAsset(url: assetURL),
                      insertRange: CMTimeRange(start: CMTime(seconds: startInFile, preferredTimescale: 600),
                                               duration: CMTime(seconds: max(0.05, dur), preferredTimescale: 600)),
                      audioVolume: clip.audioVolume,
-                     fadeIn: clip.fadeInSeconds, fadeOut: clip.fadeOutSeconds)
+                     fadeIn: clip.fadeInSeconds, fadeOut: clip.fadeOutSeconds,
+                     transitionIn: clip.transitionInSeconds)
+    }
+
+    /// Grade the window for the clip's Look (cached after the first render), or pass it through.
+    private func gradedAssetURL(_ clip: TimelineClip, window: CachedWindow) async -> URL {
+        guard clip.look != .none else { return window.url }
+        return (try? await LookGrader.gradedURL(for: window.url, look: clip.look)) ?? window.url
     }
 
     private func ensureThumbnails(_ clip: TimelineClip, window: CachedWindow) {

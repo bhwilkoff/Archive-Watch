@@ -369,10 +369,29 @@ between two clips) WITHOUT the A/B 2-track rework.
 - UI: the inspector "Clip" section gains Fade in / Fade out sliders (0…half the clip), live.
 - Verified end-to-end via the self-test brightness probe: a faded export reads luma 0.000 at
   t=0, 0.095 mid-clip, 0.000 at the tail.
-- **NEXT (deferred):** cross-DISSOLVE (A blends into B with no black dip) needs the A/B 2-track
-  scheme + overlapping clips (Rule 3c) — a larger engine change; the dip-to-black transition
-  covers the common case now. Also deferred: timeline fade handles/markers, snapping,
-  ripple-delete (Rule 7c later phase).
+- Also deferred: timeline fade handles/markers, snapping, ripple-delete (Rule 7c later phase).
+
+**Cross-dissolve (A/B 2-track) + color Looks: SHIPPED 2026-06-24.** The two hardest engine
+features, built together because they hit the same constraint (Rule 3d): a CI grade handler
+gets ONE composited frame, so it can't do per-track crossfade — and layer instructions can't
+do color. Resolution:
+- **Color Looks** (`Looks_macOS.swift`, parity with iOS Clip Studio): `ClipLook` (none/silent/
+  noir/faded/technicolor/B&W) as native CIFilter chains. A graded clip is produced as a
+  SEPARATE source file (`LookGrader.gradedURL` — a one-time CI-filter export cached by
+  window+look), and the compositor treats it like any other clip, so grades compose with
+  transitions and preview == export for free. `TimelineClip.lookRaw`; resolve/export bake it.
+- **Cross-dissolve** (`CompositionBuilder` rewrite): clips alternate on two video + two audio
+  tracks so adjacent clips OVERLAP by `transitionInSeconds`; the timeline is segmented at every
+  clip start/end into instructions, the later-starting clip placed FRONT with an opacity ramp
+  0→1 so it dissolves in over the previous (audio cross-fades via per-track volume ramps). All
+  ramp-based → standard compositor, so the live preview shows it (preview == export). Fades
+  (the prior unit) fold into the same opacity/volume envelopes (lead-in = max(fadeIn, transition)).
+- UI: inspector "Clip" section gains a **Look** picker and a **Dissolve** slider (shown past the
+  first clip). Verified via the self-test: dissolve shrinks a 16s timeline to 14.0s, the overlap
+  midpoint blends (luma 0.094, both visible), fades still black at the head/tail, and the silent
+  Look reads sepia (R 0.196 > B 0.075).
+- **NEXT (deferred):** timeline transition/fade HANDLES (direct-manipulation on the clip edges),
+  markers, snapping, ripple-delete; non-dissolve transitions (wipe/push) via a Metal compositor.
 
 **Test/screenshot hooks (`AW_CS_TEST`) + sidebar clip thumbnails: SHIPPED 2026-06-24.** The
 DocumentGroup editor is driven into a populated state (`editor`) or the Add-Clip scrubber
