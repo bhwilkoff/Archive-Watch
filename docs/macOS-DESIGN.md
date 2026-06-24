@@ -549,6 +549,12 @@ feel crafted, not auto-generated (the learning gate). Verified: "I love you" →
 alternates; "this is the end of the world" → ×6 and ×4 alternates per run. Each composed word-cut
 also gets a tiny 0.03 s fade so the assembled sentence doesn't CLICK at the joins (each word starts/
 ends mid-waveform) — the hard visual jump between films stays, only the audio onset is smoothed.
+Gap RECOVERY: a word the corpus can't speak shows an inline "try another word…" field — type a
+replacement (synonym / re-spelling) and it re-resolves on the spot, so more lines become composable
+rather than stuck. The supercut is now a full system: find-phrase (v1) + compose-sentence (v2,
+longest-match) + forced-aligned frame-accurate word index (Phase B) + alternate takes / shuffle /
+anti-click joins / gap recovery (Phase C). Remaining optional polish: per-word loudness
+normalization, a "read it back" in-sheet preview (the editor already previews after Add).
 
 **Still deferred (one item):** the NSDocument/security-scoped-bookmark durable-media unit
 (music/voiceover persist in the disposable cache now, not the `.archiveproj` package) — a document-

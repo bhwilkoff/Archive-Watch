@@ -67,6 +67,11 @@ enum SentenceComposer {
         plan.map { var s = $0; if !s.candidates.isEmpty { s.selected = Int.random(in: 0..<s.candidates.count) }; return s }
     }
 
+    /// Resolve an arbitrary replacement phrase (for filling a gap) to ranked candidates.
+    static func resolve(_ phrase: String, index: SubtitleIndex) -> [Candidate] {
+        candidates(tokens(phrase), index: index)
+    }
+
     /// Ranked candidate sources for a run: cues that contain it as a contiguous whole-word phrase,
     /// SHORTEST first (the word most isolated), each with its word window. Top few.
     private static func candidates(_ run: [String], index: SubtitleIndex, limit: Int = 6) -> [Candidate] {

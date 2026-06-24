@@ -27,6 +27,7 @@ struct SupercutSheet: View {
     @State private var tightenToWord = false
     @State private var assembling = false
     @State private var assembleProgress = 0.0
+    @State private var gapEdits: [UUID: String] = [:]
 
     private var included: [SubtitleCue] { results.filter { !excluded.contains($0.id) } }
     private var planFound: Int { plan.filter(\.found).count }                 // clips (found runs)
@@ -126,7 +127,14 @@ struct SupercutSheet: View {
                                 Button { seg.selected = (seg.selected + 1) % seg.candidates.count } label: { Image(systemName: "chevron.right") }
                                     .buttonStyle(.borderless)
                             }
-                        } else { Text("no clip — gap").font(.caption).foregroundStyle(.orange) }
+                        } else {
+                            // Gap recovery: type a replacement word that IS in the corpus.
+                            TextField("try another word…", text: gapBinding(seg.id))
+                                .textFieldStyle(.roundedBorder).frame(width: 150)
+                                .onSubmit { replaceGap(seg.id) }
+                            Button("Use") { replaceGap(seg.id) }.controlSize(.small)
+                                .disabled((gapEdits[seg.id] ?? "").isEmpty)
+                        }
                     }
                 }.frame(minHeight: 200)
             }
@@ -160,6 +168,21 @@ struct SupercutSheet: View {
     private func runCompose() {
         guard let index, !phrase.isEmpty else { return }
         plan = SentenceComposer.plan(phrase, index: index)
+        gapEdits.removeAll()
+    }
+
+    private func gapBinding(_ id: UUID) -> Binding<String> {
+        Binding(get: { gapEdits[id] ?? "" }, set: { gapEdits[id] = $0 })
+    }
+
+    /// Fill a gap with a user-typed replacement word/phrase that IS in the corpus.
+    private func replaceGap(_ id: UUID) {
+        guard let index, let i = plan.firstIndex(where: { $0.id == id }) else { return }
+        let word = (gapEdits[id] ?? "").trimmingCharacters(in: .whitespaces)
+        let cands = SentenceComposer.resolve(word, index: index)
+        guard !cands.isEmpty else { return }
+        plan[i] = SentenceComposer.Segment(phrase: word, candidates: cands)
+        gapEdits[id] = nil
     }
 
     /// Add the selected found cues (v1), optionally speech-tightened to the phrase.
