@@ -1,21 +1,19 @@
-name: Stock shot index (#6)
+name: Stock shot index (#6/#7)
 
-# Creation Studio #6 (Decision 042): detect REAL shot boundaries in clippable films via ffmpeg
+# Creation Studio #6/#7 (Decision 042): detect REAL shot boundaries in clippable films via ffmpeg
 # scene detection (tools/build_stock_index.py) and publish clips.sqlite for the macOS stock-shot
-# browser. Popularity-first, bounded per film, resumable (appends to the existing index). Daily
-# cron drains the catalog over time, like the cover/whisper batches.
-#
-# Next (app side, follow-on): the app's StockIndexBuilder downloads this clips.sqlite from the
-# release instead of synthesizing a sample — the query layer + browser already read this schema.
+# browser. SHARDED across N runners (#7 — the single-runner 60/day was far too thin), each over a
+# disjoint popularity-interleaved slice, every 6h. A merge job unions the shard outputs into the
+# published index. Resumable: shards skip films already in the existing index.
 
 on:
   schedule:
-    - cron: '0 5 * * *'
+    - cron: '0 */6 * * *'          # every 6h — 4 shards × per_shard films each run
   workflow_dispatch:
     inputs:
-      limit:
-        description: 'Films to add this run'
-        default: '60'
+      per_shard:
+        description: 'Films per shard this run'
+        default: '50'
       max_seconds:
         description: 'Seconds to scan per film'
         default: '300'
@@ -25,11 +23,15 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  shard:
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
     runs-on: ubuntu-latest
     timeout-minutes: 330
     permissions:
-      contents: write
+      contents: read
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -37,25 +39,61 @@ jobs:
           python-version: '3.11'
       - name: Install ffmpeg
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
-
       - name: Fetch catalog
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py fetch
-
-      - name: Restore existing index (resumable)
+      - name: Restore existing index (for skip)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release download stock-index -p clips.sqlite -O clips.sqlite || echo "first run — no existing index"
-
-      - name: Detect shots
+        run: gh release download stock-index -p clips.sqlite -O existing.sqlite || echo "first run — no existing index"
+      - name: Detect shots (shard ${{ matrix.shard }} of 4)
         run: |
           python tools/build_stock_index.py \
-            --limit ${{ github.event.inputs.limit || '60' }} \
-            --max-seconds ${{ github.event.inputs.max_seconds || '300' }} | tee stock.log
-          echo "## Stock shot index" >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 stock.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+            --shard-index ${{ matrix.shard }} --shard-count 4 \
+            --limit ${{ github.event.inputs.per_shard || '50' }} \
+            --max-seconds ${{ github.event.inputs.max_seconds || '300' }} \
+            --seen-from existing.sqlite \
+            --out clips-shard-${{ matrix.shard }}.sqlite
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stock-shard-${{ matrix.shard }}
+          path: clips-shard-${{ matrix.shard }}.sqlite
+          if-no-files-found: ignore
 
+  merge:
+    needs: shard
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - name: Restore existing index
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release download stock-index -p clips.sqlite -O clips.sqlite || echo "first run — fresh index"
+      - uses: actions/download-artifact@v4
+        with:
+          path: shards
+          pattern: stock-shard-*
+      - name: Merge shard indices
+        run: |
+          python3 - <<'PY'
+          import sqlite3, glob
+          db = sqlite3.connect("clips.sqlite")
+          db.execute("""CREATE TABLE IF NOT EXISTS shots(
+              id TEXT PRIMARY KEY, archiveID TEXT, sourceURL TEXT,
+              startSeconds REAL, endSeconds REAL, tags TEXT, title TEXT)""")
+          n0 = db.execute("SELECT count(*) FROM shots").fetchone()[0]
+          for f in sorted(glob.glob("shards/**/clips-shard-*.sqlite", recursive=True)):
+              db.execute("ATTACH ? AS s", (f,))
+              db.execute("INSERT OR IGNORE INTO shots SELECT * FROM s.shots")
+              db.commit(); db.execute("DETACH s")
+          n1 = db.execute("SELECT count(*) FROM shots").fetchone()[0]
+          films = db.execute("SELECT count(DISTINCT archiveID) FROM shots").fetchone()[0]
+          print(f"merged: {n0} -> {n1} shots across {films} films")
+          db.close()
+          PY
       - name: Publish index
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -64,5 +102,5 @@ jobs:
           # CatalogRefreshService.inflate (Decision 019) — NOT gzip.
           python3 -c "import zlib; d=open('clips.sqlite','rb').read(); c=zlib.compressobj(9,zlib.DEFLATED,-15); open('clips.sqlite.zz','wb').write(c.compress(d)+c.flush())"
           gh release view stock-index >/dev/null 2>&1 || \
-            gh release create stock-index --title "Stock shot index" --notes "clips.sqlite for Creation Studio (#6)"
+            gh release create stock-index --title "Stock shot index" --notes "clips.sqlite for Creation Studio (#6/#7)"
           gh release upload stock-index clips.sqlite clips.sqlite.zz --clobber

@@ -59,6 +59,11 @@ def main() -> int:
     ap.add_argument("--max-seconds", type=int, default=300, help="process up to N seconds per film")
     ap.add_argument("--fps", type=float, default=4.0, help="decode fps for scene detection (lower = faster)")
     ap.add_argument("--out", default=str(REPO / "clips.sqlite"))
+    # Sharding (#7): run N runners in parallel, each over a disjoint popularity-interleaved
+    # slice (stride), skipping films already in the merged index from --seen-from.
+    ap.add_argument("--shard-index", type=int, default=0)
+    ap.add_argument("--shard-count", type=int, default=1)
+    ap.add_argument("--seen-from", default="", help="existing index to skip already-done films")
     args = ap.parse_args()
 
     cat = json.loads(CATALOG.read_text())
@@ -67,12 +72,21 @@ def main() -> int:
              and it.get("contentType") not in ("tv-series",)
              and (it.get("rightsStatus") or "public_domain") in ("public_domain", "cc", "creative_commons", "")]
     items.sort(key=lambda it: it.get("popularityScore") or it.get("downloads") or 0, reverse=True)
+    if args.shard_count > 1:
+        items = items[args.shard_index::args.shard_count]   # disjoint stride slice
 
     db = sqlite3.connect(args.out)
     db.execute("""CREATE TABLE IF NOT EXISTS shots(
         id TEXT PRIMARY KEY, archiveID TEXT, sourceURL TEXT,
         startSeconds REAL, endSeconds REAL, tags TEXT, title TEXT)""")
     seen = {r[0] for r in db.execute("SELECT DISTINCT archiveID FROM shots")}
+    if args.seen_from and Path(args.seen_from).exists():
+        sdb = sqlite3.connect(args.seen_from)
+        try:
+            seen |= {r[0] for r in sdb.execute("SELECT DISTINCT archiveID FROM shots")}
+        except sqlite3.OperationalError:
+            pass
+        sdb.close()
 
     done = 0
     for it in items:
@@ -90,8 +104,11 @@ def main() -> int:
         shots = shots_from_cuts(cuts, total)
         if not shots:
             continue
-        tags = " ".join((it.get("genres") or []) + (it.get("subjects") or [])[:3]) \
-            .lower().replace(" ", "-")
+        # Discrete, clean, pipe-joined tags (drop sentence-long / punctuation-y subjects) so the
+        # app shows readable chips and search works — NOT one hyphen-mangled token.
+        tags = "|".join(
+            t.strip().lower() for t in ((it.get("genres") or []) + (it.get("subjects") or [])[:2])
+            if t and len(t.strip()) <= 22 and ":" not in t and ";" not in t)[:200]
         for i, (s, e) in enumerate(shots):
             db.execute("INSERT OR REPLACE INTO shots VALUES(?,?,?,?,?,?,?)",
                        (f"{aid}#{i}", aid, url, s, e, tags, it.get("title", "")))
