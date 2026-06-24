@@ -1,15 +1,26 @@
 #if os(tvOS)
 import SwiftUI
 import SwiftData
+import TVServices
 
-// Top Shelf snapshot (Decision 015 / M4).
+// Top Shelf snapshot (Decision 015 / M4; carousel redesign 2026-06-24).
 //
-// The Top Shelf extension can't reach the app's SwiftData store or the
-// in-memory catalog, so the app writes a small JSON into the shared App
-// Group container and the extension reads it. Everything here no-ops
-// gracefully until the App Group `group.app.archivewatch.tvos` is
-// configured on the target (see docs/top-shelf-setup.md), so it's safe to
-// ship ahead of the extension target.
+// The Top Shelf extension is a separate process — it can't reach the app's
+// SwiftData store or in-memory catalog — so the app writes a small JSON into the
+// shared App Group container and the extension reads it. The extension renders a
+// best-in-class editorial CAROUSEL (TVTopShelfCarouselContent .details), so the
+// snapshot carries everything a hero card shows: backdrop art, a "why it's here"
+// context label, synopsis, genre, runtime, year, director + cast, captions flag,
+// and a resume flag for Continue Watching.
+//
+// Learning-orientation guardrails (CLAUDE.md): every hero's SELECT opens Detail
+// (a look, a choice) — not autoplay; only Continue Watching carries a resume
+// play action where the intent is explicit. Editorial heroes lead with their
+// reason ("Editor's Pick", "Public Domain Day"), the repertory-programmer voice,
+// never an opaque "for you".
+//
+// No-ops gracefully until the App Group `group.app.archivewatch.tvos` is
+// configured, so it's safe to ship ahead of the extension.
 
 enum TopShelfSnapshot {
     static let appGroup = "group.app.archivewatch.tvos"
@@ -20,14 +31,19 @@ enum TopShelfSnapshot {
             let archiveID: String
             let title: String
             let posterURL: String?
-            let backdropURL: String?   // #11: wide art for the Top Shelf carousel hero
+            let backdropURL: String?     // wide 16:9 art — preferred for the carousel hero
             let year: Int?
+            let synopsis: String?
+            let runtimeSeconds: Int?
+            let genre: String?
+            let director: String?
+            let cast: [String]
+            let hasCaptions: Bool
+            let context: String          // "why shown": Continue Watching / Editor's Pick / …
+            let progress: Double?        // 0…1, Continue Watching only (ordering)
+            let resume: Bool             // Continue Watching → play action resumes
         }
-        struct Section: Codable {
-            let title: String
-            let items: [Item]
-        }
-        let sections: [Section]
+        let items: [Item]
         let generatedAt: Double
     }
 
@@ -40,63 +56,67 @@ enum TopShelfSnapshot {
         let url = dir.appendingPathComponent(fileName)
         if let data = try? JSONEncoder().encode(payload) {
             try? data.write(to: url, options: .atomic)
+            // Poke tvOS to re-query the provider — without this a fresh snapshot
+            // isn't picked up until the system happens to refresh on its own.
+            TVTopShelfContentProvider.topShelfContentDidChange()
         }
     }
 
-    static func read() -> Payload? {
-        guard let dir = containerURL else { return nil }
-        let url = dir.appendingPathComponent(fileName)
-        guard let data = try? Data(contentsOf: url) else { return nil }
-        return try? JSONDecoder().decode(Payload.self, from: data)
-    }
-
-    /// Build + write a snapshot from the live catalog + watch progress.
-    /// Sections: Continue Watching, Editor's Picks, What's New. Capped at
-    /// ~10 each (Top Shelf has tight memory limits). `now` is passed in so
-    /// callers control the timestamp.
+    /// Build + write the carousel snapshot from the live catalog + watch progress.
+    /// Order: Continue Watching (resume) → Editor's Picks → Popular Now. Capped at
+    /// 10 heroes (Top Shelf memory budget is tight + WWDC says 5–10). `now` is
+    /// passed in so callers control the timestamp.
     @MainActor
     static func rebuild(store: AppStore, progress: [WatchProgress], now: Double) {
         guard store.db != nil else { return }
 
-        func map(_ list: [Catalog.Item]) -> [Payload.Item] {
-            list.prefix(10).map {
-                Payload.Item(archiveID: $0.archiveID, title: $0.title,
-                             posterURL: $0.hasDesignedArtwork ? $0.posterURL : nil,
-                             backdropURL: $0.hasDesignedArtwork ? $0.backdropURL : nil,
-                             year: $0.year)
+        var out: [Payload.Item] = []
+        var seen = Set<String>()
+
+        func entry(_ it: Catalog.Item, context: String, resume: Bool, progress: Double?) -> Payload.Item {
+            Payload.Item(
+                archiveID: it.archiveID, title: it.title,
+                posterURL: it.hasDesignedArtwork ? it.posterURL : nil,
+                backdropURL: it.backdropURL,
+                year: it.year, synopsis: it.synopsis, runtimeSeconds: it.runtimeSeconds,
+                genre: it.genres.first, director: it.director,
+                cast: it.cast.sorted { $0.order < $1.order }.prefix(3).map(\.name),
+                hasCaptions: !(it.captions?.isEmpty ?? true),
+                context: context, progress: progress, resume: resume)
+        }
+
+        // 1) Continue Watching — highest-value, most personal; lead with it. Personal
+        //    enough to include even without wide art (the provider falls back to poster).
+        let resuming = progress
+            .filter { !$0.isComplete && $0.positionSeconds > 30 }
+            .sorted { $0.lastWatchedAt > $1.lastWatchedAt }
+        for p in resuming {
+            guard let it = store.db?.item(p.archiveID), seen.insert(it.archiveID).inserted else { continue }
+            let frac = p.durationSeconds > 0
+                ? min(0.98, max(0.02, p.positionSeconds / p.durationSeconds)) : nil
+            out.append(entry(it, context: "Continue Watching", resume: true, progress: frac))
+            if out.count >= 4 { break }   // cap so editorial heroes get room
+        }
+
+        // 2) Editorial heroes — REQUIRE a wide backdrop (a 2:3 poster reads wrong in
+        //    the 16:9 hero) and designed art. Reason-labeled, select → Detail.
+        func addEditorial(_ items: [Catalog.Item], context: String) {
+            for it in items where it.backdropURL != nil && it.hasDesignedArtwork {
+                guard out.count < 10, seen.insert(it.archiveID).inserted else { continue }
+                out.append(entry(it, context: context, resume: false, progress: nil))
             }
         }
+        addEditorial(store.items(forShelf: "editor-picks"), context: "Editor's Pick")
+        addEditorial(store.items(forShelf: "popular-features"), context: "Popular Now")
 
-        var sections: [Payload.Section] = []
-
-        let continueIDs = progress
-            .filter { !$0.isComplete && $0.positionSeconds > 10 }
-            .sorted { $0.lastWatchedAt > $1.lastWatchedAt }
-            .map(\.archiveID)
-        let continueItems = store.dbItemsByIDs(continueIDs)
-        if !continueItems.isEmpty {
-            sections.append(.init(title: "Continue Watching", items: map(continueItems)))
-        }
-
-        let picks = store.items(forShelf: "editor-picks").filter { $0.hasDesignedArtwork }
-        if !picks.isEmpty {
-            sections.append(.init(title: "Editor's Picks", items: map(picks)))
-        }
-
-        let popular = store.items(forShelf: "popular-features").filter { $0.hasDesignedArtwork }
-        if !popular.isEmpty {
-            sections.append(.init(title: "Popular Now", items: map(popular)))
-        }
-
-        guard !sections.isEmpty else { return }
-        write(Payload(sections: sections, generatedAt: now))
+        guard !out.isEmpty else { return }
+        write(Payload(items: Array(out.prefix(10)), generatedAt: now))
     }
 }
 
-// Invisible helper that keeps the snapshot current. Embed once in the
-// view tree (RootView); it owns the WatchProgress @Query so the snapshot
-// refreshes whenever progress changes, and rebuilds when the catalog
-// finishes loading.
+// Invisible helper that keeps the snapshot current. Embed once in the view tree
+// (RootView); it owns the WatchProgress @Query so the snapshot refreshes whenever
+// progress changes, and rebuilds when the catalog finishes loading.
 struct TopShelfUpdater: View {
     @Environment(AppStore.self) private var store
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var progress: [WatchProgress]
