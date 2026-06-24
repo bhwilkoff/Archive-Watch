@@ -526,9 +526,20 @@ order into the editable timeline. Word ranges are PROPORTIONAL by default (insta
 exact boundaries with the on-device `WordTiming` toggle. Verified on the real cue index: **"I love
 you" → 1 clip** (the whole phrase in one film, Spellbound); "this is the end of the world" → 2
 clips ("this is the" + "end of the world"); "kill the lights" → 2 clips — minimal cuts, exactly as
-designed. **NEXT (Phase B, deferred):** a CI forced-aligned WORD index (wav2vec2 aligns the KNOWN
-caption to audio — no hallucination, unlike transcription) so composition is instant + whole-catalog
-without a per-clip speech pass.
+designed.
+
+**Supercut Phase B — forced-aligned WORD index: SHIPPED 2026-06-24.** Composition is now
+frame-accurate AND instant (no per-clip on-device speech pass). `tools/build_word_index.py`
+force-aligns each captioned film's KNOWN caption to its audio with the torchaudio MMS aligner
+(wav2vec2) — on a plain Linux runner, NO Apple — writing a `words(archiveID, word, start, end)`
+table into `subtitle.sqlite`. Forced ALIGNMENT ≠ transcription: it places words we already hold in
+time, so it can't hallucinate (Decision-039b stays satisfied — that retired *transcription*).
+`word-index.yml` (daily, same concurrency group as subtitle-index, resumable, retry-hardened
+against archive.org node 503s) publishes the updated index. The app's `SubtitleIndex.wordRange`
+reads the table and `SentenceComposer` prefers it over the proportional estimate — so the sentence
+cuts are exact with zero compose-time speech. Verified locally: 6 films aligned → 9,662 precise
+word timings (`your 0.75-1.00s`, `life 1.00-1.12s`, …). The on-device `WordTiming` toggle remains
+as the fallback when a film hasn't been aligned yet.
 
 **Still deferred (one item):** the NSDocument/security-scoped-bookmark durable-media unit
 (music/voiceover persist in the disposable cache now, not the `.archiveproj` package) — a document-

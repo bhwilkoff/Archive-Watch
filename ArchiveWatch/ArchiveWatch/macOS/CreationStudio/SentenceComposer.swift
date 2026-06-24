@@ -31,7 +31,11 @@ enum SentenceComposer {
             while j > i {                                   // try the LONGEST run first
                 let run = Array(words[i..<j])
                 if let cue = bestCue(run, index: index) {
-                    hit = (j, cue, proportionalRange(cue, run)); break
+                    // Prefer the forced-aligned WORD index (frame-accurate, instant; Phase B);
+                    // fall back to a proportional estimate when no word index is present.
+                    let range = index.wordRange(archiveID: cue.archiveID, run: run, nearSeconds: cue.startSeconds)
+                        ?? proportionalRange(cue, run)
+                    hit = (j, cue, range); break
                 }
                 j -= 1
             }

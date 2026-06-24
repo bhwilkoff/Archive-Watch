@@ -85,6 +85,38 @@ final class SubtitleIndex {
         return out
     }
 
+    /// Frame-accurate range of `run` (a word sequence) from the forced-aligned `words` table
+    /// (build_word_index.py, Phase B), searched near `nearSeconds`. nil if no word index / no match
+    /// — the composer then falls back to its proportional estimate. The table may be absent.
+    func wordRange(archiveID: String, run: [String], nearSeconds: Double) -> TimeRange? {
+        guard !run.isEmpty,
+              sqlite3_exec(handle, "SELECT 1 FROM words LIMIT 1", nil, nil, nil) == SQLITE_OK else { return nil }
+        // pull the film's words around the cue, then find the contiguous run.
+        let sql = """
+            SELECT word, startSeconds, endSeconds FROM words
+            WHERE archiveID=?1 AND startSeconds BETWEEN ?2 AND ?3 ORDER BY startSeconds
+            """
+        var stmt: OpaquePointer?
+        guard sqlite3_prepare_v2(handle, sql, -1, &stmt, nil) == SQLITE_OK else { return nil }
+        defer { sqlite3_finalize(stmt) }
+        sqlite3_bind_text(stmt, 1, archiveID, -1, SQLITE_TRANSIENT_SUB)
+        sqlite3_bind_double(stmt, 2, nearSeconds - 3)
+        sqlite3_bind_double(stmt, 3, nearSeconds + 12)
+        var words: [(String, Double, Double)] = []
+        while sqlite3_step(stmt) == SQLITE_ROW {
+            let w = sqlite3_column_text(stmt, 0).map { String(cString: $0) } ?? ""
+            words.append((w, sqlite3_column_double(stmt, 1), sqlite3_column_double(stmt, 2)))
+        }
+        let target = run.map { $0.lowercased() }
+        guard words.count >= target.count else { return nil }
+        for s in 0...(words.count - target.count) where (0..<target.count).allSatisfy({ words[s + $0].0 == target[$0] }) {
+            let start = max(0, words[s].1 - 0.1)
+            let end = words[s + target.count - 1].2 + 0.12
+            return TimeRange(startSeconds: start, durationSeconds: max(0.2, end - start))
+        }
+        return nil
+    }
+
     var cueCount: Int {
         var stmt: OpaquePointer?
         guard sqlite3_prepare_v2(handle, "SELECT count(*) FROM cues", -1, &stmt, nil) == SQLITE_OK else { return 0 }

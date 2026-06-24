@@ -1,0 +1,114 @@
+#!/usr/bin/env python3
+"""build_word_index.py — forced-aligned WORD index for the Sentence Supercut (#9 Phase B).
+
+Aligns each captioned film's KNOWN caption text to its audio (torchaudio MMS forced aligner,
+wav2vec2 — runs on plain Linux, no Apple) to get exact per-word timestamps, and writes a `words`
+table into subtitle.sqlite. The macOS composer then gets INSTANT, frame-accurate word boundaries
+without a per-clip on-device speech pass.
+
+Forced ALIGNMENT is NOT transcription: it places the words we ALREADY hold in time, so it cannot
+hallucinate (Decision-039b stays satisfied — that retired *transcription* of unknown audio).
+
+Per film: download the audio ONCE (ffmpeg → 16 kHz mono), then slice + align each cue. Resumable
+(a `wordsAligned` marker per film), popularity-first.
+
+  pip install torchaudio soundfile
+  python3 tools/build_word_index.py --limit 800
+"""
+from __future__ import annotations
+import argparse
+import io
+import re
+import sqlite3
+import subprocess
+import tempfile
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parent.parent
+
+
+def norm_words(text: str) -> list[str]:
+    return [w for w in re.sub(r"[^a-z' ]", " ", text.lower()).split() if w]
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--limit", type=int, default=800, help="films to align this run")
+    ap.add_argument("--db", default=str(REPO / "subtitle.sqlite"))
+    args = ap.parse_args()
+
+    import torch
+    import torchaudio
+
+    db = sqlite3.connect(args.db)
+    db.execute("""CREATE TABLE IF NOT EXISTS words(
+        archiveID TEXT, sourceURL TEXT, word TEXT, startSeconds REAL, endSeconds REAL)""")
+    db.execute("CREATE INDEX IF NOT EXISTS words_aid ON words(archiveID, startSeconds)")
+    db.execute("CREATE TABLE IF NOT EXISTS aligned(archiveID TEXT PRIMARY KEY)")
+
+    bundle = torchaudio.pipelines.MMS_FA
+    model = bundle.get_model()
+    tokenizer = bundle.get_tokenizer()
+    aligner = bundle.get_aligner()
+
+    films = db.execute("""
+        SELECT archiveID, sourceURL FROM cues
+        WHERE archiveID NOT IN (SELECT archiveID FROM aligned)
+        GROUP BY archiveID ORDER BY count(*) DESC LIMIT ?""", (args.limit,)).fetchall()
+
+    done = 0
+    for aid, url in films:
+        cues = db.execute(
+            "SELECT startSeconds, endSeconds, text FROM cues WHERE archiveID=? ORDER BY startSeconds",
+            (aid,)).fetchall()
+        # Download the whole audio once (16 kHz mono), retrying transient archive.org 5xx/node
+        # weather (a fresh request load-balances to another node). A download that never succeeds
+        # is NOT marked aligned, so it retries on a later run (not silently skipped forever).
+        wav = None
+        for attempt in range(3):
+            try:
+                with tempfile.NamedTemporaryFile(suffix=".wav") as tf:
+                    subprocess.run(["ffmpeg", "-nostdin", "-y", "-i", url, "-ac", "1", "-ar", "16000",
+                                    "-vn", tf.name], capture_output=True, timeout=900, check=True)
+                    wav, _ = torchaudio.load(tf.name)
+                break
+            except Exception:
+                wav = None
+        if wav is None:
+            continue   # transient — leave unaligned so a later run retries
+
+        rows = []
+        for s, e, text in cues:
+            words = norm_words(text)
+            if not words:
+                continue
+            a = max(0, int((s - 0.2) * 16000))
+            b = min(wav.size(1), int((e + 0.3) * 16000))
+            if b - a < 1600:
+                continue
+            seg = wav[:, a:b]
+            try:
+                with torch.inference_mode():
+                    emission, _ = model(seg)
+                spans = aligner(emission[0], tokenizer(words))
+                ratio = seg.size(1) / emission.size(1) / bundle.sample_rate
+                off = a / 16000.0
+                for w, sp in zip(words, spans):
+                    rows.append((aid, url, w, off + sp[0].start * ratio, off + sp[-1].end * ratio))
+            except Exception:
+                continue
+        if rows:
+            db.executemany("INSERT INTO words VALUES(?,?,?,?,?)", rows)
+        db.execute("INSERT OR IGNORE INTO aligned VALUES(?)", (aid,))
+        db.commit()
+        done += 1
+        if done % 10 == 0:
+            print(f"[words] {done} films aligned…", flush=True)
+
+    n = db.execute("SELECT count(*) FROM words").fetchone()[0]
+    print(f"[words] +{done} films this run; {n} word timings total in {args.db}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

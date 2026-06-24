@@ -1,0 +1,60 @@
+name: Word alignment index (#9 Phase B)
+
+# Sentence Supercut Phase B: forced-align each captioned film's KNOWN caption to its audio
+# (torchaudio MMS aligner, wav2vec2 — plain Linux, no Apple, no hallucination) and write a `words`
+# table into subtitle.sqlite, so the macOS composer gets INSTANT frame-accurate word boundaries
+# without a per-clip speech pass. Runs after subtitle-index (same concurrency group); resumable.
+
+on:
+  schedule:
+    - cron: '0 11 * * *'   # after subtitle-index (07:00)
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Films to align this run'
+        default: '400'
+
+concurrency:
+  group: subtitle-index           # share with subtitle-index.yml — both mutate subtitle.sqlite
+  cancel-in-progress: false
+
+jobs:
+  align:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Cache the aligner model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/torch
+          key: mms-fa-aligner
+
+      - name: Install torchaudio
+        run: pip install torch torchaudio soundfile
+
+      - name: Get the subtitle index
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release download subtitle-index -p subtitle.sqlite -O subtitle.sqlite
+
+      - name: Align words
+        run: |
+          python tools/build_word_index.py --limit ${{ github.event.inputs.limit || '400' }} | tee words.log
+          echo "## Word alignment" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -2 words.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Publish updated index
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 -c "import zlib; d=open('subtitle.sqlite','rb').read(); c=zlib.compressobj(9,zlib.DEFLATED,-15); open('subtitle.sqlite.zz','wb').write(c.compress(d)+c.flush())"
+          gh release upload subtitle-index subtitle.sqlite subtitle.sqlite.zz --clobber
