@@ -183,6 +183,9 @@ struct SupercutSheet: View {
             // otherwise the (word-index or proportional) word window.
             let base = tightenToWord ? cue.proxyClip : proxy
             model.addClip(from: tightenToWord ? await resolved(base, phrase: seg.phrase, cue: cue) : proxy)
+            // A tiny fade on each tight word-cut so the assembled sentence doesn't CLICK at the
+            // joins (each word starts/ends mid-waveform). The hard visual jump between films stays.
+            if let id = model.selectedClipID { model.setClipFade(id, fadeIn: 0.03, fadeOut: 0.03) }
         }
         assembling = false; dismiss()
     }

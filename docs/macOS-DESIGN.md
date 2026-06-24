@@ -546,7 +546,9 @@ compose plan now carries the ranked ALTERNATE source films that say those words 
 = the word most isolated); ‹ › swap which film speaks each run, and "Shuffle takes" randomizes them
 all for a different cross-film vibe — the editorial control + variety that makes a word collage
 feel crafted, not auto-generated (the learning gate). Verified: "I love you" → Spellbound ×6
-alternates; "this is the end of the world" → ×6 and ×4 alternates per run.
+alternates; "this is the end of the world" → ×6 and ×4 alternates per run. Each composed word-cut
+also gets a tiny 0.03 s fade so the assembled sentence doesn't CLICK at the joins (each word starts/
+ends mid-waveform) — the hard visual jump between films stays, only the audio onset is smoothed.
 
 **Still deferred (one item):** the NSDocument/security-scoped-bookmark durable-media unit
 (music/voiceover persist in the disposable cache now, not the `.archiveproj` package) — a document-
