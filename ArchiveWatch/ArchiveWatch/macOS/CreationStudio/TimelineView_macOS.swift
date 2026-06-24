@@ -424,6 +424,7 @@ final class TimelineContentView: NSView {
         case .trimLeft(let id), .trimRight(let id), .move(let id),
              .fadeIn(let id), .fadeOut(let id), .transition(let id):
             model.selectedClipID = id
+            model.selectedOverlayID = nil
             if case .failed = state.prep[id] { model.retryClip(id); drag = .none; return }
         default: break
         }
@@ -433,7 +434,16 @@ final class TimelineContentView: NSView {
         case .transition(let id): dragStartValue = clip(id)?.transitionInSeconds ?? 0
         case .moveOverlay(let id):
             model.selectedOverlayID = id
-            dragStartValue = seconds(p.x) - (state.overlays.first { $0.id == id }?.timelineRange.start.seconds ?? 0)
+            model.selectedClipID = nil
+            if let ov = state.overlays.first(where: { $0.id == id }) {
+                let t = model.playheadSeconds
+                // Seek into the overlay's range so the program monitor actually SHOWS it (you can
+                // only drag the text on screen while it's rendered) — fixes "only works while playing".
+                if t < ov.timelineRange.start.seconds || t > ov.timelineRange.endSeconds {
+                    model.seek(toSeconds: ov.timelineRange.start.seconds + 0.1)
+                }
+                dragStartValue = seconds(p.x) - ov.timelineRange.start.seconds
+            }
         case .moveMusic:          dragStartValue = seconds(p.x) - (state.music?.startSeconds ?? 0)
         case .moveVoiceover:      dragStartValue = seconds(p.x) - (state.voiceover?.startSeconds ?? 0)
         case .none:               drag = .scrub; model.seek(toSeconds: snapSeconds(p.x)); return
@@ -530,11 +540,35 @@ final class TimelineContentView: NSView {
 
     override func scrollWheel(with event: NSEvent) {
         if event.modifierFlags.contains(.command) || event.modifierFlags.contains(.option) {
-            model.zoom(by: 1 + Double(event.scrollingDeltaY) * 0.01)
+            model.zoom(by: 1 + Double(event.scrollingDeltaY) * 0.01, focusSeconds: seconds(convert(event.locationInWindow, from: nil).x))
         } else {
             super.scrollWheel(with: event)
         }
     }
+
+    // Trackpad PINCH zoom (the magnify gesture) — drives points-per-second around the pinch point.
+    override func magnify(with event: NSEvent) {
+        let p = convert(event.locationInWindow, from: nil)
+        model.zoom(by: 1 + Double(event.magnification), focusSeconds: seconds(p.x))
+    }
+
+    // Cursor feedback so it's clear WHAT you're about to grab (trim edge / fade / transition / move).
+    override func updateTrackingAreas() {
+        super.updateTrackingAreas()
+        trackingAreas.forEach { removeTrackingArea($0) }
+        addTrackingArea(NSTrackingArea(rect: bounds,
+            options: [.activeInKeyWindow, .mouseMoved, .inVisibleRect], owner: self))
+    }
+    override func mouseMoved(with event: NSEvent) {
+        guard case .none = drag else { return }   // keep the grab cursor during a drag
+        switch hit(at: convert(event.locationInWindow, from: nil)) {
+        case .trimLeft, .trimRight:                       NSCursor.resizeLeftRight.set()
+        case .fadeIn, .fadeOut, .transition:              NSCursor.pointingHand.set()
+        case .move, .moveOverlay, .moveMusic, .moveVoiceover: NSCursor.openHand.set()
+        default:                                          NSCursor.arrow.set()
+        }
+    }
+    override func mouseExited(with event: NSEvent) { NSCursor.arrow.set() }
 
     override func keyDown(with event: NSEvent) {
         switch event.charactersIgnoringModifiers {

@@ -65,6 +65,7 @@ struct ProjectEditorView: View {
                             .foregroundStyle(.white.opacity(0.5))
                     } else {
                         VideoPlayerNS(player: model.player, controlsStyle: .none)   // transport bar is the only transport
+                            .allowsHitTesting(false)   // the AVPlayerView must NOT swallow the overlay's drag
                         // Live text overlays — the Core Animation tool is EXPORT-only, so render
                         // them here (timed to the playhead, placed in the 16:9 video frame) so the
                         // preview is WYSIWYG and "Add Text" is visible.
@@ -314,6 +315,7 @@ private struct TextOverlayPreview: View {
                         }
                     }
                     .frame(maxWidth: rect.width * 0.92)
+                    .contentShape(Rectangle())   // the whole padded box is grabbable, not just the glyphs
                     .position(x: rect.minX + ov.positionX * rect.width,
                               y: rect.minY + ov.positionY * rect.height)
                     .gesture(
