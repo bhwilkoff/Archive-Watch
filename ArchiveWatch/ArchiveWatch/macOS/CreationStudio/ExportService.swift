@@ -106,7 +106,8 @@ final class ExportService {
             // export leaves no trace (owner decision: attribution is optional).
             if creditLine != nil {
                 session.metadata = CompositionBuilder.provenanceMetadata(
-                    title: project.title, catalogItemIDs: clips.map(\.catalogItemID))
+                    title: url.deletingPathExtension().lastPathComponent,
+                    catalogItemIDs: clips.map(\.catalogItemID))
             }
 
             try? FileManager.default.removeItem(at: url)

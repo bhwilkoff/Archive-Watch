@@ -17,6 +17,11 @@ struct ProjectEditorView: View {
     @ObservedObject var document: ClipProjectDocument
     @Environment(AppStore.self) private var store
     @Environment(\.modelContext) private var ctx
+    // The document's name on macOS IS its filename — SwiftUI's DocumentGroup shows it in the
+    // window title bar and renames it via the title-bar proxy popover / File ▸ Rename / first ⌘S.
+    // We READ it here (macOS 14+ `documentConfiguration.fileURL`) to seed export/publish names,
+    // rather than keeping a second editable "title" field that competes with the filename.
+    @Environment(\.documentConfiguration) private var documentConfiguration
     @State private var model: EditorModel
     @State private var inspectorShown = true
     @State private var exporter = ExportService()
@@ -34,6 +39,12 @@ struct ProjectEditorView: View {
 
     private var project: Binding<ClipProject> {
         Binding(get: { document.project }, set: { document.project = $0 })
+    }
+
+    /// The document's display name (filename minus extension) for seeding export/publish names.
+    /// Empty for an as-yet-unsaved "Untitled" document — callers supply their own fallback.
+    private var documentName: String {
+        documentConfiguration?.fileURL?.deletingPathExtension().lastPathComponent ?? ""
     }
 
     var body: some View {
@@ -92,11 +103,6 @@ struct ProjectEditorView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .toolbar {
-            ToolbarItem(placement: .principal) {
-                TextField("Project title", text: project.title)
-                    .textFieldStyle(.roundedBorder)
-                    .frame(minWidth: 200)
-            }
             ToolbarItemGroup {
                 Button { showBrowser = true } label: {
                     Label("Add Clip", systemImage: "plus.rectangle.on.folder")
@@ -153,7 +159,8 @@ struct ProjectEditorView: View {
             ExportSettingsSheet { format in runExport(format) }
         }
         .sheet(isPresented: $showPublishSheet) {
-            PublishSheet(project: document.project, publisher: publisher, exporter: exporter)
+            PublishSheet(project: document.project, defaultTitle: documentName,
+                         publisher: publisher, exporter: exporter)
         }
         .sheet(isPresented: $showSupercut) {
             SupercutSheet(model: model).environment(store)
@@ -227,7 +234,9 @@ struct ProjectEditorView: View {
     private func runExport(_ format: ExportFormat) {
         let panel = NSSavePanel()
         panel.allowedContentTypes = [format == .h264 ? .mpeg4Movie : .quickTimeMovie]
-        let base = document.project.title.isEmpty ? "Archive Watch" : document.project.title
+        // Seed the Save panel from the document's own name (its filename); "Archive Watch" only
+        // when the project hasn't been saved yet (no filename to borrow).
+        let base = documentName.isEmpty ? "Archive Watch" : documentName
         panel.nameFieldStringValue = "\(base).\(format.fileExtension)"
         guard panel.runModal() == .OK, let url = panel.url else { return }
         let project = document.project

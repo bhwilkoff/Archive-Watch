@@ -165,7 +165,7 @@ enum CreationStudioSelfTest {
         // (owner decision — attribution is optional). The clean run reuses the cached
         // clip files, so only the first export pays the streaming cost.
         for (variant, burn) in [("credit", true), ("clean", false)] {
-            let project = ClipProject(title: "SelfTest", timeline: timeline, burnAttribution: burn)
+            let project = ClipProject(timeline: timeline, burnAttribution: burn)
             let out = ProjectMediaCache.directory.appendingPathComponent("selftest-\(variant).mp4")
             let exporter = ExportService()
             let t0 = Date()
@@ -283,7 +283,7 @@ enum CreationStudioSelfTest {
         // #5: a ProRes .mov export (reuses the warm cache) to confirm the format path.
         let proURL = ProjectMediaCache.directory.appendingPathComponent("selftest-prores.mov")
         let proExporter = ExportService()
-        await proExporter.export(ClipProject(title: "SelfTest", timeline: timeline, burnAttribution: false),
+        await proExporter.export(ClipProject(timeline: timeline, burnAttribution: false),
                                  to: proURL, format: .proRes422)
         if case .done = proExporter.phase { log("DONE[prores] — \(proURL.lastPathComponent)") }
         else if case .failed(let m) = proExporter.phase { log("FAIL[prores] — \(m)") }

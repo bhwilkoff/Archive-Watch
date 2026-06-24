@@ -6,6 +6,9 @@ import SwiftUI
 // the clips' source URLs as provenance. The whole create→edit→SHARE loop, on-brand (the Archive).
 struct PublishSheet: View {
     let project: ClipProject
+    /// The document's filename (from the title bar), used to seed the upload title — the macOS
+    /// document name is the single source of truth, not a separate in-project title field.
+    var defaultTitle: String = ""
     @Bindable var publisher: PublishService
     @Bindable var exporter: ExportService
     @Environment(\.dismiss) private var dismiss
@@ -86,7 +89,7 @@ struct PublishSheet: View {
         }
         .padding(20)
         .frame(width: 460)
-        .onAppear { if title.isEmpty { title = project.title.isEmpty ? "My Archive Watch Edit" : project.title } }
+        .onAppear { if title.isEmpty { title = defaultTitle.isEmpty ? "My Archive Watch Edit" : defaultTitle } }
     }
 
     private func progress(_ label: String, value: Double) -> some View {

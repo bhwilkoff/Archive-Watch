@@ -579,6 +579,20 @@ transitions, color Looks, and real Stock shots (#6). The only remaining optional
 non-dissolve transitions via a Metal compositor (the native opacity/transform/crop ramps cover
 dissolve/wipe/push today).
 
+**Document naming = the filename, single source of truth: FIXED 2026-06-24.** The editor used to
+show TWO names — the native window-title-bar name ("Untitled") AND a separate editable
+`TextField("Project title")` in the toolbar bound to a `ClipProject.title` field — which is
+non-standard and confusing (macOS document apps name a document by its FILE). Removed the toolbar
+title field and the `ClipProject.title` model field entirely; the document's name is now ONLY its
+filename, shown in the title bar and renamed the native way (title-bar proxy-icon popover / File ▸
+Rename / first ⌘S Save panel). Export + Publish seed their default names from the document's own
+filename via `@Environment(\.documentConfiguration).fileURL` (macOS 14+), falling back to "Archive
+Watch" / "My Archive Watch Edit" for a not-yet-saved project; the export's embedded-metadata title
+is the chosen export filename. Legacy `.archiveproj` files with a `title` key still decode (the
+synthesized CodingKeys simply no longer include it — additive/tolerant). This is the
+`native-platform-first` rule: don't invent an app-specific title surface when the OS already owns
+document naming.
+
 **Test/screenshot hooks (`AW_CS_TEST`) + sidebar clip thumbnails: SHIPPED 2026-06-24.** The
 DocumentGroup editor is driven into a populated state (`editor`) or the Add-Clip scrubber
 (`markclip`) for CLI visual verification (SwiftUI's a11y tree isn't AppleScript-traversable).

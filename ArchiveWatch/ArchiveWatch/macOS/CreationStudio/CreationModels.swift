@@ -231,7 +231,8 @@ struct Timeline: Codable, Hashable, Sendable {
 /// schema additively (the catalog-contract discipline applied to projects).
 struct ClipProject: Codable, Hashable, Sendable {
     var formatVersion: Int
-    var title: String
+    // No in-project "title" field: on macOS the document's name IS its filename (shown in the
+    // window title bar, renamed natively). A separate editable title would compete with it.
     var timeline: Timeline
     /// Burn the "archivewatch.org · Public Domain" credit into the export. Default ON
     /// (attribution is encouraged + is the social wedge), but the user can turn it OFF
@@ -243,20 +244,20 @@ struct ClipProject: Codable, Hashable, Sendable {
 
     static let currentFormatVersion = 1
 
-    init(title: String = "Untitled", timeline: Timeline = Timeline(),
+    init(timeline: Timeline = Timeline(),
          burnAttribution: Bool = true, createdAt: Date = Date(), modifiedAt: Date = Date()) {
         self.formatVersion = Self.currentFormatVersion
-        self.title = title; self.timeline = timeline
+        self.timeline = timeline
         self.burnAttribution = burnAttribution
         self.createdAt = createdAt; self.modifiedAt = modifiedAt
     }
 
     // Tolerant decode: a project written before `burnAttribution` existed defaults to ON
-    // (additive-schema discipline — old files keep working). Encode stays synthesized.
+    // (additive-schema discipline — old files keep working). A legacy `title` key is simply
+    // ignored (synthesized CodingKeys no longer include it). Encode stays synthesized.
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
         formatVersion = try c.decode(Int.self, forKey: .formatVersion)
-        title = try c.decode(String.self, forKey: .title)
         timeline = try c.decode(Timeline.self, forKey: .timeline)
         burnAttribution = try c.decodeIfPresent(Bool.self, forKey: .burnAttribution) ?? true
         createdAt = try c.decode(Date.self, forKey: .createdAt)
