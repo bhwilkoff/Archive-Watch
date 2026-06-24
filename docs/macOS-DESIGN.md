@@ -541,6 +541,13 @@ cuts are exact with zero compose-time speech. Verified locally: 6 films aligned 
 word timings (`your 0.75-1.00s`, `life 1.00-1.12s`, …). The on-device `WordTiming` toggle remains
 as the fallback when a film hasn't been aligned yet.
 
+**Supercut Phase C — per-word alternate takes + shuffle: SHIPPED 2026-06-24.** Each run in the
+compose plan now carries the ranked ALTERNATE source films that say those words (shortest cue first
+= the word most isolated); ‹ › swap which film speaks each run, and "Shuffle takes" randomizes them
+all for a different cross-film vibe — the editorial control + variety that makes a word collage
+feel crafted, not auto-generated (the learning gate). Verified: "I love you" → Spellbound ×6
+alternates; "this is the end of the world" → ×6 and ×4 alternates per run.
+
 **Still deferred (one item):** the NSDocument/security-scoped-bookmark durable-media unit
 (music/voiceover persist in the disposable cache now, not the `.archiveproj` package) — a document-
 architecture migration the design flags as "the weakest seam."

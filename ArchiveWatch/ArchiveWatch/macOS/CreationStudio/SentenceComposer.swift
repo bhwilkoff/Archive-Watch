@@ -12,52 +12,73 @@ import CoreMedia
 // a CI forced-aligned word index for instant whole-catalog composition.
 @MainActor
 enum SentenceComposer {
+    /// One source for a run of words: a cue + the word window within it.
+    struct Candidate: Identifiable, Sendable {
+        let id = UUID()
+        let cue: SubtitleCue
+        let range: TimeRange
+    }
     struct Segment: Identifiable, Sendable {
         let id = UUID()
         let phrase: String              // the matched run of words, or a single unmatched word
-        let cue: SubtitleCue?           // nil = no clip found (a gap)
-        let sourceRange: TimeRange?     // proportional estimate in the source's own seconds
-        var found: Bool { cue != nil }
+        var candidates: [Candidate]     // ranked alternates ([] = a gap)
+        var selected: Int = 0           // which alternate the user picked
+        var found: Bool { !candidates.isEmpty }
+        var chosen: Candidate? { candidates.indices.contains(selected) ? candidates[selected] : nil }
     }
 
-    /// Greedy longest-match plan: cover `sentence` with the fewest cues. Index-only (instant).
+    /// Greedy longest-match plan: cover `sentence` with the fewest runs, each carrying ranked
+    /// ALTERNATE source clips the user can swap between. Index-only (instant).
     static func plan(_ sentence: String, index: SubtitleIndex) -> [Segment] {
         let words = tokens(sentence)
         var segs: [Segment] = []
         var i = 0
         while i < words.count {
-            var hit: (j: Int, cue: SubtitleCue, range: TimeRange?)?
+            var hit: (j: Int, cands: [Candidate])?
             var j = words.count
             while j > i {                                   // try the LONGEST run first
                 let run = Array(words[i..<j])
-                if let cue = bestCue(run, index: index) {
-                    // Prefer the forced-aligned WORD index (frame-accurate, instant; Phase B);
-                    // fall back to a proportional estimate when no word index is present.
-                    let range = index.wordRange(archiveID: cue.archiveID, run: run, nearSeconds: cue.startSeconds)
-                        ?? proportionalRange(cue, run)
-                    hit = (j, cue, range); break
-                }
+                let cands = candidates(run, index: index)
+                if !cands.isEmpty { hit = (j, cands); break }
                 j -= 1
             }
             if let h = hit {
-                segs.append(Segment(phrase: words[i..<h.j].joined(separator: " "),
-                                    cue: h.cue, sourceRange: h.range))
+                segs.append(Segment(phrase: words[i..<h.j].joined(separator: " "), candidates: h.cands))
                 i = h.j
             } else {
-                segs.append(Segment(phrase: words[i], cue: nil, sourceRange: nil))   // a gap
+                segs.append(Segment(phrase: words[i], candidates: []))   // a gap
                 i += 1
             }
         }
         return segs
     }
 
-    /// The shortest cue that contains `run` as a contiguous whole-word phrase (the word is most
-    /// isolated there), among the index's matches.
-    private static func bestCue(_ run: [String], index: SubtitleIndex) -> SubtitleCue? {
-        let cues = index.search(run.joined(separator: " "), limit: 60)
-        return cues
+    /// Pick a different alternate for the segment at `index` (cycles); returns the updated plan.
+    static func cycle(_ plan: [Segment], at index: Int, by delta: Int) -> [Segment] {
+        var p = plan
+        guard p.indices.contains(index), !p[index].candidates.isEmpty else { return p }
+        let n = p[index].candidates.count
+        p[index].selected = ((p[index].selected + delta) % n + n) % n
+        return p
+    }
+
+    /// Randomize every segment's chosen take (variety — the charm of a cross-film word collage).
+    static func shuffle(_ plan: [Segment]) -> [Segment] {
+        plan.map { var s = $0; if !s.candidates.isEmpty { s.selected = Int.random(in: 0..<s.candidates.count) }; return s }
+    }
+
+    /// Ranked candidate sources for a run: cues that contain it as a contiguous whole-word phrase,
+    /// SHORTEST first (the word most isolated), each with its word window. Top few.
+    private static func candidates(_ run: [String], index: SubtitleIndex, limit: Int = 6) -> [Candidate] {
+        let cues = index.search(run.joined(separator: " "), limit: 80)
             .filter { contiguousIndex(tokens($0.text), run) != nil }
-            .min { ($0.endSeconds - $0.startSeconds) < ($1.endSeconds - $1.startSeconds) }
+            .sorted { ($0.endSeconds - $0.startSeconds) < ($1.endSeconds - $1.startSeconds) }
+            .prefix(limit)
+        return cues.compactMap { cue in
+            let range = index.wordRange(archiveID: cue.archiveID, run: run, nearSeconds: cue.startSeconds)
+                ?? proportionalRange(cue, run)
+            return range.map { Candidate(cue: cue, range: $0) }
+        }
     }
 
     /// Estimate the run's time window in the cue by word position (instant; speech tightens later).
@@ -71,11 +92,11 @@ enum SentenceComposer {
         return TimeRange(startSeconds: max(0, s - 0.12), durationSeconds: (e - s) + 0.24)
     }
 
-    /// The proxy clip for a found segment (its word window of the source).
+    /// The proxy clip for a found segment, using the user's chosen alternate (its word window).
     static func proxyClip(_ seg: Segment) -> ProxyClip? {
-        guard let cue = seg.cue, let r = seg.sourceRange else { return nil }
-        return ProxyClip(catalogItemID: cue.archiveID, sourceURL: cue.sourceURL, sourceRange: r,
-                         label: seg.phrase, posterFrameSeconds: r.start.seconds, title: cue.title)
+        guard let c = seg.chosen else { return nil }
+        return ProxyClip(catalogItemID: c.cue.archiveID, sourceURL: c.cue.sourceURL, sourceRange: c.range,
+                         label: seg.phrase, posterFrameSeconds: c.range.start.seconds, title: c.cue.title)
     }
 
     // MARK: tokens

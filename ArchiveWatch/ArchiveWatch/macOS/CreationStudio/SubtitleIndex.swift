@@ -250,7 +250,7 @@ enum SubtitleIndexBuilder {
         for sentence in ["I love you", "this is the end of the world", "kill the lights"] {
             let plan = SentenceComposer.plan(sentence, index: index)
             let cov = "\(plan.filter { $0.found }.count)/\(plan.count) words, \(plan.filter { $0.found }.count) clips"
-            let detail = plan.map { $0.found ? "[\($0.phrase)→\($0.cue!.title.prefix(10))]" : "[\($0.phrase)=GAP]" }
+            let detail = plan.map { $0.found ? "[\($0.phrase)→\($0.chosen!.cue.title.prefix(10))×\($0.candidates.count)]" : "[\($0.phrase)=GAP]" }
                 .joined(separator: " ")
             log("COMPOSE \"\(sentence)\" -> \(cov): \(detail)")
         }

@@ -102,16 +102,31 @@ struct SupercutSheet: View {
                 Button("Compose", action: runCompose).disabled(phrase.isEmpty)
             }
             if !plan.isEmpty {
-                Text("\(coveredWords) of \(totalWords) words found · \(planFound) clip\(planFound == 1 ? "" : "s")")
-                    .font(.caption).foregroundStyle(.secondary)
-                List(plan) { seg in
-                    HStack(spacing: 10) {
+                HStack {
+                    Text("\(coveredWords) of \(totalWords) words found · \(planFound) clip\(planFound == 1 ? "" : "s")")
+                        .font(.caption).foregroundStyle(.secondary)
+                    Spacer()
+                    Button { plan = SentenceComposer.shuffle(plan) } label: { Label("Shuffle takes", systemImage: "shuffle") }
+                        .controlSize(.small)
+                }
+                // Each run shows its chosen source film; ‹ › swap among the alternate films that
+                // say the same words (the editorial control — pick the take you want).
+                List($plan) { $seg in
+                    HStack(spacing: 8) {
                         Image(systemName: seg.found ? "checkmark.circle.fill" : "exclamationmark.circle")
                             .foregroundStyle(seg.found ? Color.accentColor : .orange)
                         Text("“\(seg.phrase)”").bold()
                         Spacer()
-                        if let cue = seg.cue { Text(cue.title).font(.caption).foregroundStyle(.secondary).lineLimit(1) }
-                        else { Text("no clip — gap").font(.caption).foregroundStyle(.orange) }
+                        if let c = seg.chosen {
+                            Text(c.cue.title).font(.caption).foregroundStyle(.secondary).lineLimit(1)
+                            if seg.candidates.count > 1 {
+                                Button { seg.selected = (seg.selected + seg.candidates.count - 1) % seg.candidates.count } label: { Image(systemName: "chevron.left") }
+                                    .buttonStyle(.borderless)
+                                Text("\(seg.selected + 1)/\(seg.candidates.count)").font(.caption2.monospacedDigit()).foregroundStyle(.secondary)
+                                Button { seg.selected = (seg.selected + 1) % seg.candidates.count } label: { Image(systemName: "chevron.right") }
+                                    .buttonStyle(.borderless)
+                            }
+                        } else { Text("no clip — gap").font(.caption).foregroundStyle(.orange) }
                     }
                 }.frame(minHeight: 200)
             }
@@ -163,9 +178,9 @@ struct SupercutSheet: View {
         let segs = plan.filter(\.found)
         for (i, seg) in segs.enumerated() {
             assembleProgress = Double(i) / Double(max(1, segs.count))
-            guard let proxy = SentenceComposer.proxyClip(seg), let cue = seg.cue else { continue }
+            guard let proxy = SentenceComposer.proxyClip(seg), let cue = seg.chosen?.cue else { continue }
             // For tightening, run speech on the FULL cue window (context) and use the phrase's range;
-            // otherwise the proportional word window.
+            // otherwise the (word-index or proportional) word window.
             let base = tightenToWord ? cue.proxyClip : proxy
             model.addClip(from: tightenToWord ? await resolved(base, phrase: seg.phrase, cue: cue) : proxy)
         }
