@@ -31,7 +31,9 @@ struct ClipTimelineView: NSViewRepresentable {
         let state = TimelineContentView.State(
             clips: model.clips, pps: model.pointsPerSecond, selectedID: model.selectedClipID,
             playhead: model.playheadSeconds, thumbnails: model.thumbnails,
-            totalDuration: model.totalDuration, prep: model.clipPrep, markers: model.markers)
+            totalDuration: model.totalDuration, prep: model.clipPrep, markers: model.markers,
+            overlays: model.textOverlays, music: model.musicBed, voiceover: model.voiceover,
+            selectedOverlayID: model.selectedOverlayID)
         context.coordinator.content?.render(state)
     }
 
@@ -49,6 +51,10 @@ final class TimelineContentView: NSView {
         let totalDuration: Double
         let prep: [UUID: EditorModel.ClipPrep]
         let markers: [Double]
+        var overlays: [TextOverlay] = []
+        var music: MusicBed? = nil
+        var voiceover: MusicBed? = nil
+        var selectedOverlayID: UUID? = nil
     }
 
     private let model: EditorModel
@@ -58,16 +64,24 @@ final class TimelineContentView: NSView {
 
     private let rulerH: CGFloat = 26
     private let trackTop: CGFloat = 30
-    private let trackH: CGFloat = 110
+    private let trackH: CGFloat = 76           // video lane (shrunk to make room for the lanes below)
     private let handleW: CGFloat = 8
     private let fadeBandH: CGFloat = 16        // top band where fade handles live
     private let minWidth: CGFloat = 400
+    // Lanes below the video track: a TITLES lane + MUSIC + VOICEOVER audio lanes (multi-track).
+    private let laneGap: CGFloat = 3
+    private let laneH: CGFloat = 22
+    private var titleTop: CGFloat { trackTop + trackH + laneGap }
+    private var musicTop: CGFloat { titleTop + laneH + laneGap }
+    private var voiceTop: CGFloat { musicTop + laneH + laneGap }
+    private var contentHeight: CGFloat { voiceTop + laneH + 6 }
 
     // Drag state
     private enum Drag {
         case none, scrub
         case trimLeft(UUID), trimRight(UUID), move(UUID)
         case fadeIn(UUID), fadeOut(UUID), transition(UUID)
+        case moveOverlay(UUID), moveMusic, moveVoiceover   // lane blocks (titles / audio)
     }
     private var drag: Drag = .none
     private var dragStartX: CGFloat = 0
@@ -91,7 +105,9 @@ final class TimelineContentView: NSView {
     func render(_ s: State) {
         state = s
         let w = max(minWidth, CGFloat(s.totalDuration * s.pps) + 40)
-        if abs(frame.width - w) > 0.5 { setFrameSize(NSSize(width: w, height: 150)) }
+        if abs(frame.width - w) > 0.5 || abs(frame.height - contentHeight) > 0.5 {
+            setFrameSize(NSSize(width: w, height: contentHeight))
+        }
         let sig = structuralSignature(s)
         if sig != lastStructuralSig {
             lastStructuralSig = sig
@@ -108,6 +124,11 @@ final class TimelineContentView: NSView {
             h.combine(c.fadeInSeconds); h.combine(c.fadeOutSeconds); h.combine(c.transitionInSeconds)
         }
         for m in s.markers { h.combine(m) }
+        h.combine(s.selectedOverlayID)
+        for o in s.overlays { h.combine(o.id); h.combine(o.timelineRange.start.value)
+            h.combine(o.timelineRange.duration.value); h.combine(o.text) }
+        if let m = s.music { h.combine(m.fileName); h.combine(m.startSeconds) }
+        if let v = s.voiceover { h.combine(v.fileName); h.combine(v.startSeconds) }
         var thumbX = 0, prepX = 0
         for (k, v) in s.thumbnails { thumbX ^= k.hashValue &* 31 &+ v.count }
         for (k, v) in s.prep { prepX ^= k.hashValue &* 17 &+ (v == .ready ? 2 : v == .caching ? 1 : 3) }
@@ -225,6 +246,28 @@ final class TimelineContentView: NSView {
             layer.addSublayer(diamond)
         }
 
+        // Lanes below the video track: Titles + Music + Voiceover (the multi-track timeline).
+        // Each block sits at its start time and is draggable to retime independently of the video.
+        addLane(y: titleTop, label: "TITLES", on: layer)
+        for ov in state.overlays {
+            layer.addSublayer(laneBlock(x: x(ov.timelineRange.start.seconds), y: titleTop,
+                w: max(6, x(ov.timelineRange.duration.seconds)),
+                fill: NSColor.systemIndigo, selected: ov.id == state.selectedOverlayID,
+                text: ov.text.isEmpty ? "Text" : ov.text))
+        }
+        addLane(y: musicTop, label: "MUSIC", on: layer)
+        if let m = state.music {
+            layer.addSublayer(laneBlock(x: x(m.startSeconds), y: musicTop,
+                w: max(6, x(max(1, state.totalDuration - m.startSeconds))),
+                fill: NSColor.systemGreen, selected: false, text: m.displayName))
+        }
+        addLane(y: voiceTop, label: "VOICEOVER", on: layer)
+        if let v = state.voiceover {
+            layer.addSublayer(laneBlock(x: x(v.startSeconds), y: voiceTop,
+                w: max(6, x(max(1, state.totalDuration - v.startSeconds))),
+                fill: NSColor.systemOrange, selected: false, text: v.displayName))
+        }
+
         // Markers — vertical line + ruler flag.
         for m in state.markers {
             let mx = x(m)
@@ -283,6 +326,36 @@ final class TimelineContentView: NSView {
         return t
     }
 
+    /// A faint lane background strip + a left-edge label.
+    private func addLane(y: CGFloat, label: String, on layer: CALayer) {
+        let bg = CALayer()
+        bg.frame = CGRect(x: 0, y: y, width: max(bounds.width, frame.width), height: laneH)
+        bg.backgroundColor = NSColor(white: 0.13, alpha: 1).cgColor
+        layer.addSublayer(bg)
+        let lbl = CATextLayer()
+        lbl.string = label; lbl.fontSize = 8; lbl.foregroundColor = NSColor(white: 0.45, alpha: 1).cgColor
+        lbl.contentsScale = 2
+        lbl.frame = CGRect(x: 4, y: y + 6, width: 80, height: 11)
+        layer.addSublayer(lbl)
+    }
+
+    /// A draggable block on a lane (a title / music / voiceover block).
+    private func laneBlock(x: CGFloat, y: CGFloat, w: CGFloat, fill: NSColor, selected: Bool, text: String) -> CALayer {
+        let block = CALayer()
+        block.frame = CGRect(x: x, y: y + 2, width: w, height: laneH - 4)
+        block.backgroundColor = fill.withAlphaComponent(0.85).cgColor
+        block.cornerRadius = 4
+        block.borderWidth = selected ? 2 : 0
+        block.borderColor = NSColor.controlAccentColor.cgColor
+        block.masksToBounds = true
+        let lbl = CATextLayer()
+        lbl.string = "  " + text; lbl.fontSize = 10; lbl.foregroundColor = NSColor.white.cgColor
+        lbl.contentsScale = 2; lbl.truncationMode = .end
+        lbl.frame = CGRect(x: 0, y: 1, width: max(0, w), height: 13)
+        block.addSublayer(lbl)
+        return block
+    }
+
     private func rulerStep(for pps: Double) -> Double {
         let target = 80.0 / pps
         for s in [0.5, 1, 2, 5, 10, 15, 30, 60, 120, 300] where Double(s) >= target { return Double(s) }
@@ -298,6 +371,22 @@ final class TimelineContentView: NSView {
     /// Hit-test a point to a drag region. Fade dots (top band) and junction diamonds take
     /// priority over trim/body.
     private func hit(at p: NSPoint) -> Drag {
+        // Lane blocks (titles / audio) — below the video track, each in its own y band.
+        if p.y >= titleTop, p.y <= titleTop + laneH {
+            for ov in state.overlays {
+                let bx = x(ov.timelineRange.start.seconds), bw = max(6, x(ov.timelineRange.duration.seconds))
+                if p.x >= bx, p.x <= bx + bw { return .moveOverlay(ov.id) }
+            }
+            return .none
+        }
+        if p.y >= musicTop, p.y <= musicTop + laneH {
+            if let m = state.music, p.x >= x(m.startSeconds) { return .moveMusic }
+            return .none
+        }
+        if p.y >= voiceTop, p.y <= voiceTop + laneH {
+            if let v = state.voiceover, p.x >= x(v.startSeconds) { return .moveVoiceover }
+            return .none
+        }
         // Junction dissolve diamonds (in the mid-track band).
         if p.y >= trackTop + trackH / 2 - 10, p.y <= trackTop + trackH / 2 + 10 {
             for (i, clip) in state.clips.enumerated() where i > 0 {
@@ -342,6 +431,11 @@ final class TimelineContentView: NSView {
         case .fadeIn(let id):     dragStartValue = clip(id)?.fadeInSeconds ?? 0
         case .fadeOut(let id):    dragStartValue = clip(id)?.fadeOutSeconds ?? 0
         case .transition(let id): dragStartValue = clip(id)?.transitionInSeconds ?? 0
+        case .moveOverlay(let id):
+            model.selectedOverlayID = id
+            dragStartValue = seconds(p.x) - (state.overlays.first { $0.id == id }?.timelineRange.start.seconds ?? 0)
+        case .moveMusic:          dragStartValue = seconds(p.x) - (state.music?.startSeconds ?? 0)
+        case .moveVoiceover:      dragStartValue = seconds(p.x) - (state.voiceover?.startSeconds ?? 0)
         case .none:               drag = .scrub; model.seek(toSeconds: snapSeconds(p.x)); return
         default: break
         }
@@ -380,6 +474,12 @@ final class TimelineContentView: NSView {
                 if p.x > center { target += 1 } else { break }
             }
             model.moveClip(id, toIndex: target)
+        case .moveOverlay(let id):
+            model.setOverlayStart(id, seconds: max(0, model.snap(seconds(p.x) - dragStartValue)))
+        case .moveMusic:
+            model.setMusicStart(max(0, model.snap(seconds(p.x) - dragStartValue)))
+        case .moveVoiceover:
+            model.setVoiceoverStart(max(0, model.snap(seconds(p.x) - dragStartValue)))
         case .none: break
         }
     }

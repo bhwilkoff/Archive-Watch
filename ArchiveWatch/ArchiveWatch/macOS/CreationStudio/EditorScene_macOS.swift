@@ -95,7 +95,7 @@ struct ProjectEditorView: View {
                     transportBar
                     Divider()
                     ClipTimelineView(model: model)
-                        .frame(minHeight: 170)
+                        .frame(minHeight: 200)   // video lane + Titles/Music/Voiceover lanes
                         // Drag a clip from the Library onto the timeline. Magnetic single
                         // track, so the drop appends at the end regardless of drop x.
                         .dropDestination(for: ProxyClip.self) { proxies, _ in

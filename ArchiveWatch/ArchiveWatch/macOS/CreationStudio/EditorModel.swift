@@ -570,6 +570,28 @@ final class EditorModel {
         scheduleRebuild()
     }
 
+    // MARK: - Retime lane blocks (drag on the titles / audio lanes — multi-track timeline)
+
+    /// Move a text overlay along the titles lane (keeps its duration).
+    func setOverlayStart(_ id: UUID, seconds: Double) {
+        guard var o = textOverlays.first(where: { $0.id == id }) else { return }
+        o.timelineRange = TimeRange(startSeconds: max(0, seconds),
+                                    durationSeconds: o.timelineRange.duration.seconds)
+        updateOverlay(o)
+    }
+    /// Move the music bed along its lane.
+    func setMusicStart(_ seconds: Double) {
+        guard document.project.timeline.musicBed != nil else { return }
+        document.project.timeline.musicBed?.startSeconds = max(0, seconds)
+        scheduleRebuild()
+    }
+    /// Move the voiceover along its lane.
+    func setVoiceoverStart(_ seconds: Double) {
+        guard document.project.timeline.voiceover != nil else { return }
+        document.project.timeline.voiceover?.startSeconds = max(0, seconds)
+        scheduleRebuild()
+    }
+
     // MARK: - Markers (navigation + snap targets)
 
     var markers: [Double] { document.project.timeline.markers }
