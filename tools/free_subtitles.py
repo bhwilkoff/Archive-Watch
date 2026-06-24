@@ -350,6 +350,9 @@ def main() -> int:
     if args.limit:
         targets = targets[:args.limit]
     print(f"[subs] {prov.name}: {len(targets):,} targets", flush=True)
+    # Machine-readable, unambiguous count for the workflow's self-chain (the human line
+    # above uses a thousands comma + the provider's DISPLAY name, which broke the grep).
+    print(f"AWSUBS_TARGETS={len(targets)}", flush=True)
 
     deltas = {}
 

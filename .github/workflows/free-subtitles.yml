@@ -10,6 +10,11 @@ name: Free subtitles (SubSource)
 # freeSubsChecked so they aren't retried every run.
 
 on:
+  # Daily drain at ~the SubSource daily quota (~2,400 films/day = ~7,200 req/day / ~3
+  # calls per film). A daily cron is the sustainable pace ceiling — bursting faster just
+  # hits 429s. ~31,800 eligible films -> roughly two weeks to full coverage.
+  schedule:
+    - cron: '0 6 * * *'
   workflow_dispatch:
     inputs:
       provider:
@@ -104,17 +109,17 @@ jobs:
       # limit). If N >= limit, the batch was full and more remain — queue the next run
       # (the catalog-writers concurrency group serializes it). When N < limit the
       # backlog is drained (attempted films are freeSubsChecked) and the chain stops.
-      - name: Continue draining (self-chain)
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Report remaining backlog. We deliberately do NOT immediately re-queue: one run
+      # ~= the SubSource daily quota, so a same-day re-queue just 429-storms. The daily
+      # cron (above) is the sustainable driver — it picks up the next batch tomorrow.
+      # (Manual override: dispatch again by hand to burn a fresh day's quota.)
+      - name: Report backlog
         run: |
-          PROV="${{ github.event.inputs.provider || 'subsource' }}"
           LIMIT="${{ github.event.inputs.limit || '2000' }}"
-          N=$(grep -oE "\[subs\] $PROV: [0-9]+ targets" subs.log | grep -oE '[0-9]+' | head -1)
+          N=$(grep -oE 'AWSUBS_TARGETS=[0-9]+' subs.log | grep -oE '[0-9]+' | head -1)
           echo "targets=$N limit=$LIMIT"
-          if [ "$LIMIT" -gt 0 ] && [ -n "$N" ] && [ "$N" -ge "$LIMIT" ]; then
-            echo "Full batch — backlog remains; queuing next run."
-            gh workflow run free-subtitles.yml -f provider="$PROV" -f limit="$LIMIT"
+          if [ -n "$N" ] && [ "$N" -ge "$LIMIT" ]; then
+            echo "Backlog remains (>= one batch) — the daily cron continues the drain."
           else
-            echo "Backlog drained — chain complete."
+            echo "Backlog drained — fewer than one batch of eligible films remain."
           fi
