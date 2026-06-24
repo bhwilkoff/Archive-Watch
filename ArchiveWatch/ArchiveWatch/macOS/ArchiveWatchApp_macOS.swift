@@ -32,7 +32,11 @@ struct ArchiveWatchMacApp: App {
                 .task { await store.load() }
                 .task {
                     // Creation Studio engine self-test (spike #3) — no-op unless AW_CS_SELFTEST=1.
-                    if CreationStudioSelfTest.isEnabled { await CreationStudioSelfTest.run(store: store) }
+                    if ProcessInfo.processInfo.environment["AW_CS_PERFTEST"] == "1" {
+                        await CreationStudioPerfTest.run(store: store)
+                    } else if CreationStudioSelfTest.isEnabled {
+                        await CreationStudioSelfTest.run(store: store)
+                    }
                 }
                 .task(id: account.isSignedIn) {
                     guard account.isSignedIn else { return }

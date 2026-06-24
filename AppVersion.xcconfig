@@ -13,8 +13,8 @@
 //   CURRENT_PROJECT_VERSION — CFBundleVersion build number, integer. Bump +1 every commit
 //                             so every archive/TestFlight upload is unique + monotonic.
 // All targets (app + widgets + top shelf) inherit both via the project base configuration.
-MARKETING_VERSION = 1.3.79
-CURRENT_PROJECT_VERSION = 601
+MARKETING_VERSION = 1.3.80
+CURRENT_PROJECT_VERSION = 602
 
 // Optional per-developer secrets (gitignored). The `?` makes it optional so
 // the project still builds on machines where Secrets.xcconfig is absent.
