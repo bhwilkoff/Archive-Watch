@@ -1,22 +1,28 @@
 # Mac App Store submission — Archive Watch for macOS
 
-Paste-ready. The macOS app is a SEPARATE App Store Connect record from
-tvOS/iOS because its bundle id differs (`app.archivewatch.macos` vs
-`app.archivewatch.tvos`). It is the parity browse/play/library face PLUS the
-Mac-exclusive **Creation Studio** multi-clip editor (Decision 042).
+Paste-ready. The macOS app ships **inside the existing "Archive Watch" App Store
+Connect record** as the macOS platform — it shares the bundle id
+`app.archivewatch.tvos` with the already-approved tvOS + iOS apps (the same way
+iOS was added as a second platform to the tvOS record). One record, three
+platforms. It is the parity browse/play/library face PLUS the Mac-exclusive
+**Creation Studio** multi-clip editor (Decision 042).
 
 ---
 
-## Build state — VERIFIED review-ready (2026-06-24, 1.3.103 / 625)
+## Build state — VERIFIED review-ready (2026-06-24, 1.3.104 / 626)
 
 Confirmed by archiving the `ArchiveWatchMac` scheme (Release) and inspecting the
 signed app — nothing below is a guess:
 
-- **Archive succeeds**, automatic signing resolved *"Mac Team Provisioning
-  Profile: app.archivewatch.macos"* — the App ID is registered with all its
-  capabilities.
-- **Bundle id** `app.archivewatch.macos` · **Team** `L2G756LY8N` · **Min macOS** 26.0.
-- **Version** `1.3.103` · **Build** `625` (from `AppVersion.xcconfig`).
+- **Archive succeeds**, automatic signing generated *"Mac Team Provisioning
+  Profile: app.archivewatch.tvos"* — the SHARED App ID supports the macOS platform
+  and carries all the capabilities (iCloud/CloudKit, App Groups, Sign in with
+  Apple, Associated Domains).
+- **Bundle id** `app.archivewatch.tvos` (shared with tvOS + iOS → same ASC record)
+  · **Team** `L2G756LY8N` · **Min macOS** 26.0.
+- **Version** `1.3.104` · **Build** `626` (from `AppVersion.xcconfig`). Build
+  numbers are per-platform in a multiplatform record, so macOS 626 is the first
+  macOS build regardless of the tvOS/iOS history.
 - **App Sandbox ON** (required for the Mac App Store) with exactly the scopes the
   app uses: `network.client` (archive.org / TMDb / CloudKit), `files.user-selected.read-write`
   (import a music bed, export MP4 / save `.archiveproj`), CloudKit + iCloud
@@ -42,28 +48,36 @@ Everything else is identical.
 
 ## Owner steps, in order
 
-1. **App Store Connect → new app.** Apps → ➕ → New App → Platform **macOS** →
-   Name `Archive Watch` → Primary language English (U.S.) → Bundle ID
-   `app.archivewatch.macos` → SKU `archivewatch-macos`. (This is a distinct record
-   from the tvOS/iOS app — different bundle id.)
+1. **No new app record.** The macOS build uploads into the EXISTING "Archive
+   Watch" record because it shares the bundle id `app.archivewatch.tvos`. App Store
+   Connect makes the **macOS platform** available on the record once the first
+   macOS build is uploaded (step 3) — the same flow used to add iOS to the tvOS
+   record. (Capabilities are inherited from the shared App ID — iCloud/CloudKit,
+   App Groups, Sign in with Apple, Associated Domains, Push — nothing to register.
+   CloudKit schema is already in **Production**, verified cross-device 2026-06-11;
+   the Mac shares the same container.)
 
-2. **Confirm capabilities** on the App ID (already resolved by the archive, so this
-   is a verification, not new work): iCloud + **CloudKit** (container
-   `iCloud.app.archivewatch.tvos`), **App Groups** (`group.app.archivewatch.tvos`),
-   **Sign in with Apple**, **Associated Domains**, **Push** (CloudKit uses it).
-   CloudKit schema is already in **Production** (verified cross-device on tvOS/iOS,
-   2026-06-11) — the Mac shares the same container, so no new deploy.
+2. **First-time Mac signing.** No Mac provisioning profile existed for the shared
+   App ID until this work generated one. In Xcode, keep **Automatically manage
+   signing** ON for the `ArchiveWatchMac` target (Team `L2G756LY8N`); the first
+   archive creates the Mac App Store distribution profile automatically. (On the
+   command line this is `-allowProvisioningUpdates`, already exercised here.)
 
 3. **Archive with release Xcode 26.** Open `ArchiveWatch/ArchiveWatch.xcodeproj`,
    scheme **ArchiveWatchMac**, Destination *Any Mac*, Product ▸ Archive. In the
    Organizer: **Distribute App → App Store Connect → Upload** (automatic signing
    re-signs with Apple Distribution + an App Store profile). Let it run validation;
-   it should pass clean.
+   it should pass clean. After upload, the macOS platform appears in the "Archive
+   Watch" record.
 
-4. **Fill the listing** (copy below), **upload Mac screenshots** (specs below),
-   select the build you just uploaded (HEAD is `1.3.104 (626)`), answer **App Privacy** = *Data Not Collected*
-   (mirror tvOS — favorites/progress live in the user's own iCloud; nothing reaches
-   us), encryption is already declared exempt.
+4. **Fill the macOS listing.** In the "Archive Watch" record, create a new **macOS**
+   version matching the build you uploaded (`1.3.105`), paste the copy below,
+   **upload Mac screenshots** (specs below),
+   select the build you just uploaded (HEAD is `1.3.105 (627)`). App Privacy is
+   shared across platforms (already *Data Not Collected* — favorites/progress live
+   in the user's own iCloud; nothing reaches us); encryption is already declared
+   exempt. (Name, category, and URLs are app-level/shared; description, screenshots,
+   keywords, promo, and What's New are per-platform — use the macOS copy below.)
 
 5. **Submit for review.** Add the review notes below so the reviewer can exercise
    Creation Studio and understands the public-domain content + attribution.
@@ -187,10 +201,13 @@ by TMDB; attribution is shown in Settings.
 
 ## Notes / open
 
-- **Separate ASC record by design.** If the owner later wants one unified app
-  record, the Mac would need to adopt the `app.archivewatch.tvos` bundle id (a
-  bigger change). The current `app.archivewatch.macos` ships as its own Mac app —
-  the simplest path, and what the archive already signs.
+- **One shared record (owner decision 2026-06-24).** The Mac adopted the
+  `app.archivewatch.tvos` bundle id so all three platforms live in one App Store
+  Connect record — simpler to manage. Verified: the shared App ID supports macOS
+  (Xcode generated a Mac App Store profile for it) and every entitlement resolves.
+  The `app.archivewatch.tvos` id literally contains "tvos" but that's just an
+  opaque identifier — invisible to users, and it's the id the approved app already
+  owns (a store bundle id can't be changed once shipped).
 - **Min macOS 26.0 is deliberate** (Liquid Glass + the macOS-26 SpeechAnalyzer the
   supercut uses). High floor, but consistent with the tvOS/iOS 26 stance.
 - **TMDB_BEARER_TOKEN** is injected from `Secrets.xcconfig` at build time (gitignored)

@@ -31,7 +31,7 @@ clean for macOS** (`-destination 'generic/platform=macOS'`), with the shipping
 tvOS/iOS targets re-verified unbroken. It was wired by a direct, additive edit of
 `project.pbxproj` (objectVersion 77) rather than the Xcode GUI:
 
-- New `PBXNativeTarget` **ArchiveWatchMac** (`app.archivewatch.macos`, `SDKROOT =
+- New `PBXNativeTarget` **ArchiveWatchMac** (`app.archivewatch.tvos`, shared with tvOS+iOS for one ASC record, `SDKROOT =
   macosx`, `MACOSX_DEPLOYMENT_TARGET = 26.0`), Debug+Release configs, and a
   shared scheme (Xcode auto-generates it from the target).
 - **Core is reused, not copied.** The target points its
@@ -58,7 +58,7 @@ untouched.
 ### The one remaining OWNER step — signing & capabilities (only to RUN/ship)
 
 The target builds with signing **off**. To run on *My Mac* or archive, the bundle
-id `app.archivewatch.macos` needs its capabilities registered in your Apple
+id `app.archivewatch.tvos` (shared) already carries its capabilities in your Apple
 Developer account (these can't be done from here — they touch your portal/iCloud):
 
 - **iCloud / CloudKit** — container `iCloud.app.archivewatch.tvos` (the SAME
