@@ -15,6 +15,13 @@ import UniformTypeIdentifiers
 // needs the document's URL + bookmarks, migrate the backbone to NSDocument +
 // NSHostingController (the macos-native-app-shell skill's budgeted step). Until then this
 // proves the package read/write round-trip.
+//
+// Durable media: project-local media (imported music + recorded voiceover) is EMBEDDED into
+// a `media/` subdirectory of the package on save and extracted back to the working cache on
+// open — so the edit travels to another Mac and survives a Caches purge, WITHOUT needing the
+// document URL or security-scoped bookmarks (the bytes live inside the package). The engine
+// keeps resolving media by filename from ProjectMediaCache (the disposable working copy);
+// the package is the durable source of truth. archive.org video stays a remote reference.
 
 extension UTType {
     /// Exported package type for Archive Watch projects. Must match the
@@ -41,6 +48,7 @@ final class ClipProjectDocument: @preconcurrency ReferenceFileDocument {
     @Published var project: ClipProject
 
     nonisolated private static let timelineFileName = "timeline.json"
+    nonisolated private static let mediaDirName = "media"
 
     init() { project = .empty }
 
@@ -58,6 +66,16 @@ final class ClipProjectDocument: @preconcurrency ReferenceFileDocument {
             throw CocoaError(.fileReadCorruptFile)
         }
         project = try Self.decoder.decode(ClipProject.self, from: data)
+        // Extract embedded media (music / voiceover) back to the working cache, so the engine
+        // finds them by filename even on a different Mac / after the cache was purged. The package
+        // is the durable, portable store; ProjectMediaCache is the disposable working copy.
+        if root.isDirectory, let media = root.fileWrappers?[Self.mediaDirName]?.fileWrappers {
+            for (name, fw) in media {
+                guard let bytes = fw.regularFileContents else { continue }
+                let dst = ProjectMediaCache.directory.appendingPathComponent(name)
+                if !FileManager.default.fileExists(atPath: dst.path) { try? bytes.write(to: dst) }
+            }
+        }
     }
 
     /// Capture a value snapshot on the main actor; SwiftUI serialises it off-thread.
@@ -80,9 +98,34 @@ final class ClipProjectDocument: @preconcurrency ReferenceFileDocument {
         if root.isDirectory {
             if let old = root.fileWrappers?[Self.timelineFileName] { root.removeFileWrapper(old) }
             root.addFileWrapper(timeline)
+            Self.embedMedia(snapshot, into: root)
             return root
         }
-        return FileWrapper(directoryWithFileWrappers: [Self.timelineFileName: timeline])
+        let dir = FileWrapper(directoryWithFileWrappers: [Self.timelineFileName: timeline])
+        Self.embedMedia(snapshot, into: dir)
+        return dir
+    }
+
+    /// Embed the project's referenced media (music / voiceover) into a `media/` subdirectory of the
+    /// package — copied FROM the working cache — so the edit travels with the project and survives a
+    /// cache purge. No security-scoped bookmarks needed: the bytes live inside the package.
+    nonisolated private static func embedMedia(_ project: ClipProject, into root: FileWrapper) {
+        if let old = root.fileWrappers?[mediaDirName] { root.removeFileWrapper(old) }
+        let names = [project.timeline.musicBed?.fileName, project.timeline.voiceover?.fileName].compactMap { $0 }
+        guard !names.isEmpty else { return }
+        var children: [String: FileWrapper] = [:]
+        for name in names {
+            let url = ProjectMediaCache.directory.appendingPathComponent(name)
+            if let bytes = try? Data(contentsOf: url) {
+                let fw = FileWrapper(regularFileWithContents: bytes)
+                fw.preferredFilename = name
+                children[name] = fw
+            }
+        }
+        guard !children.isEmpty else { return }
+        let media = FileWrapper(directoryWithFileWrappers: children)
+        media.preferredFilename = mediaDirName
+        root.addFileWrapper(media)
     }
 
     nonisolated static var encoder: JSONEncoder {
