@@ -317,7 +317,10 @@ private struct TextOverlayPreview: View {
                     .position(x: rect.minX + ov.positionX * rect.width,
                               y: rect.minY + ov.positionY * rect.height)
                     .gesture(
-                        DragGesture(coordinateSpace: .local)
+                        // Drag in the CANVAS coordinate space (the GeometryReader), not the text's
+                        // own space — otherwise value.location is relative to the small text frame
+                        // and the overlay barely moves (#3).
+                        DragGesture(coordinateSpace: .named("ovlCanvas"))
                             .onChanged { value in
                                 guard rect.width > 1, rect.height > 1,
                                       var o = model.textOverlays.first(where: { $0.id == ov.id }) else { return }
@@ -329,11 +332,17 @@ private struct TextOverlayPreview: View {
                     )
             }
         }
+        .coordinateSpace(.named("ovlCanvas"))
     }
 
+    // While editing, the SELECTED overlay is always shown (so you can drag it even when the
+    // playhead is outside its time range); others show only within their range.
     private var active: [TextOverlay] {
         let t = model.playheadSeconds
-        return model.textOverlays.filter { t >= $0.timelineRange.start.seconds && t <= $0.timelineRange.endSeconds }
+        return model.textOverlays.filter {
+            $0.id == model.selectedOverlayID ||
+            (t >= $0.timelineRange.start.seconds && t <= $0.timelineRange.endSeconds)
+        }
     }
     private func fitRect(aspect: Double, in size: CGSize) -> CGRect {
         let a = max(0.1, aspect)
@@ -596,6 +605,17 @@ private struct TextOverlayEditor: View {
             TextField("Text", text: $overlay.text, axis: .vertical).lineLimit(1...3)
             Picker("Position", selection: positionPreset) {
                 Text("Top").tag("top"); Text("Center").tag("center"); Text("Lower Third").tag("lower")
+            }
+            // Continuous X/Y (0…1) — the precise complement to dragging the overlay on screen (#3).
+            LabeledContent("X") {
+                HStack { Slider(value: $overlay.positionX, in: 0...1)
+                    Text("\(Int(overlay.positionX * 100))%").font(.caption.monospacedDigit())
+                        .foregroundStyle(.secondary).frame(width: 38, alignment: .trailing) }
+            }
+            LabeledContent("Y") {
+                HStack { Slider(value: $overlay.positionY, in: 0...1)
+                    Text("\(Int(overlay.positionY * 100))%").font(.caption.monospacedDigit())
+                        .foregroundStyle(.secondary).frame(width: 38, alignment: .trailing) }
             }
             Picker("Color", selection: $overlay.colorHex) {
                 ForEach([("White", "#FFFFFF"), ("Black", "#000000"), ("Yellow", "#FFD60A"),
