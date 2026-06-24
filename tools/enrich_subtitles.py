@@ -125,7 +125,12 @@ def classify_caption(filename):
         return None
     fmt = ext.lstrip(".")
     stem = low[: -len(ext)]
-    is_asr = ".asr" in stem or stem.endswith("asr")
+    # SKIP archive.org auto-ASR captions entirely (Decision 039b): on the catalog's
+    # old-film audio they hallucinate into word-salad ("all the world all right",
+    # "why why why" x19) that matches nothing on screen — a wrong subtitle is worse
+    # than none. Only human/uploader caption files are ingested.
+    if ".asr" in stem or stem.endswith("asr"):
+        return None
     # Language from a dotted/underscored token anywhere in the stem.
     lang = None
     for tok in re.split(r"[._-]", stem):
@@ -133,11 +138,9 @@ def classify_caption(filename):
             lang = _LANG[tok]
             break
     if lang is None:
-        lang = "en"                         # ASR + untagged default to English
+        lang = "en"                         # untagged uploader sub defaults to English
     name = _LANG_NAMES.get(lang, lang.upper())
-    label = f"{name} (auto)" if is_asr else name
-    source = "archive-asr" if is_asr else "archive"
-    return lang, label, fmt, source
+    return lang, name, fmt, "archive"
 
 
 def captions_for(iaid, files):

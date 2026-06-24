@@ -1788,3 +1788,51 @@ cache-export) → 2 text/audio layers + multi-format export → 3 stock archive 
 search + supercut (#8,#9) → 5 publish (#7, archive.org IAS3 first, YouTube
 Private/Unlisted until Google verification). YouTube uploads from an unverified OAuth app
 are forced Private + 100-user-capped, so public sharing leads with archive.org.
+
+---
+
+## 043 — Drop archive.org auto-ASR captions; broaden title artifact cleaning
+*Date: 2026-06-24*
+
+Two data-quality fixes in `remediate_catalog.py` (the per-build self-healing pass,
+so they reach every platform via the shared catalog DB / web index / detail shards).
+(a) **Subtitles:** archive.org auto-ASR captions (`source == "archive-asr"`, label
+"English (auto)") are DROPPED from every item's `captions`, and `enrich_subtitles.py`
+no longer ingests `.asr.*` files. Only human/uploader captions (uploader `.srt`,
+SubDL, SubSource) remain. (b) **Titles:** `sanitize_title` gains strips for the
+trailing parenthesised year `(1962)`, the leading `YYYY - ` scene-rip prefix, foreign
+sub/dub tails (`- VOSE` / `- Legendado`), a trailing ` - Director` that matches the
+item's own director field, bracketed/full `H:MM:SS` runtime stamps, file-size/fps
+parens, rip/scan words (`DVD Rip`, `DVD ISO`), more scene groups (RARBG/YIFY/…), and
+`_The` / `_<uploader note>` underscore suffixes. Measured on the live 40k catalog:
+7,976 titles cleaned, 2,859 ASR captions dropped, 0 empty/junk results.
+
+**Why**: (a) reverses Decision 039b's "subtitles come from archive.org ASR +
+OpenSubtitles" — the owner found *Child Bride*'s subtitles were nonsense that synced to
+nothing. Investigation: archive.org's own ASR hallucinates into word-salad on the
+catalog's poor old-film audio exactly like the whisper output 039b retired — *Child
+Bride* mid-film reads "all the world war one will run all the world all. Black" and
+"ALRIGHT ALRIGHT ALRIGHT"; sampled auto captions were ~uniformly garbage (compression
+ratio ~2.5, the 3-gram "why why why" ×19), while human ("English") captions were
+coherent. A wrong subtitle is worse than none (039b's own principle), and the reliable
+signal is the SOURCE (auto vs human), not a content score (which over-flagged real
+dialogue). (b) the owner found "MANY titles" carrying years and file artifacts; an
+audit showed 6,439 trailing `(year)`, 886 leading-`YYYY -`, plus DVD-rip/runtime/
+site-tag/underscore cruft slipping past the older, narrower rules. The year belongs in
+the title's OWN field (shown on Detail + lists), so it's redundant noise in the title.
+
+**How to apply**: never re-ingest auto speech-to-text for subtitles (039b + this) —
+new coverage is human only (uploader files, SubDL/SubSource). When broadening title
+strips, keep the precision discipline: every strip must keep letters in the result
+(never empty a title), only fire when it changed something, and be dry-run-checked for
+false positives against the live catalog (the runtime-stamp strip was tightened to
+brackets-or-`H:MM:SS` after it wrongly hit "At 3:25"; one/two-letter real titles like
+"It"/"M"/"Go" and year-titles like "1917"/"Blade Runner 2049" must survive). Both are
+self-healing (re-run every build) and reversible (re-running enrich refills human subs;
+titles re-derive from the source each build).
+
+**Consequences**: ~2,859 items lose their (garbage) caption and show no subtitle until a
+human source covers them — correct, per 039b. The published subtitle-assets `.vtt` files
+for dropped ASR captions become orphaned (harmless). Title cleaning is visible on every
+surface at once (shared data plane). The Phase-3 free-subtitle harvest (SubSource/SubDL)
+remains the path to real coverage.

@@ -478,8 +478,9 @@ def _strip_quality_tail(t):
 _JUNK_BRACE = re.compile(
     r"\s*\{[^}]*(brego|www\.|https?://|\.com|\.net|desibbrg|xclusives)[^}]*\}", re.I)
 _SITE_TAG = re.compile(
-    r"\s*(?:@\s*\S+|\bwww\.\S+|\b\S+\.(?:com|net|org)\b|\bda\s?xclusives\b|"
-    r"\bhevcbay\b|\bamaderforum\b|\bdesibbrg\b|\bbrego\b)", re.I)
+    r"\s*(?:@\s*\S+|\bwww\.\S+|\b\S+\.(?:com|net|org|tv|pe|me)\b|\bda\s?xclusives\b|"
+    r"\bhevcbay\b|\bamaderforum\b|\bdesibbrg\b|\bbrego\b|"
+    r"\b(?:rarbg|yify|yts|ettv|eztv|galaxyrg|ntg)\b)", re.I)
 _TITLE_EXT = re.compile(r"\.(avi|wmv|flv|mpg|mpeg|mov|m4v|mp4|mkv|ogv)\s*$", re.I)
 
 
@@ -565,6 +566,101 @@ def _strip_source_specs(t):
     return nt if len(nt) >= 2 else t
 
 
+# --- Broader artifact strips (year / runtime / size / language / uploader note) ---
+# The audit found MANY titles still carrying the YEAR and other file metadata that a
+# viewer reads as part of the title. The app shows the year as its OWN field on Detail
+# and in lists, so a parenthesised/leading year in the title is redundant noise — strip
+# it. Every strip keeps letters in the result (never empties a title) and only fires when
+# it actually changed something (titles without the artifact are untouched).
+
+# Leading "1937 - " upload prefix (common on foreign scene rips:
+# "1937 - You Only Live Once - ... - Fritz Lang - VOSE").
+_LEAD_YEAR = re.compile(r"^\s*(?:19|20)\d{2}\s*[-–—.]\s+")
+# Trailing parenthesised/bracketed year: "Carnival of Souls (1962)" -> "Carnival of Souls".
+_TRAIL_YEAR = re.compile(r"\s*[\(\[]\s*(?:19|20)\d{2}\s*[\)\]]\s*$")
+# Trailing foreign subtitle/dub markers from scene rips ("- VOSE", "- Legendado", "ESub").
+_LANG_TAIL = re.compile(
+    r"(?:\s*[-–—|]\s*(?:vose|vosi|vos|vo|legendado|subtitulado|castellano|espa[nñ]ol|"
+    r"latino|dublado|dubbed|sub\s*esp|esub|hq\s*line\s*audio)\b)+\s*$", re.I)
+# Trailing runtime stamp: a BRACKETED time ("[1:01:37", "{HD 1:42:23}") or a bare
+# full H:MM:SS ("Steamboat Willie 1:05:50"). A bare 2-part M:SS is NOT stripped — it
+# can be part of a real title ("At 3:25").
+_RUNTIME_STAMP = re.compile(
+    r"\s*(?:[\(\[{]\s*(?:hd\s*)?\d{1,2}:\d{2}(?::\d{2})?\s*[\)\]}]?"
+    r"|(?:hd\s+)?\d{1,2}:\d{2}:\d{2})\s*$", re.I)
+# Trailing file size / fps paren: "(1.4GB)", "(18 FPS)", "(750 MB)".
+_SIZE_FPS = re.compile(r"\s*[\(\[]\s*[\d.]+\s*(?:gb|mb|fps)\s*[\)\]]\s*$", re.I)
+# Rip/scan/source words the container-tail rule omits (separators may be space/dot/dash).
+_RIP_TAIL = re.compile(
+    r"(?:\s*[-–—|,.]?\s*\b(?:dvd[\s.-]?rip|dvd[\s.-]?scr|bd[\s.-]?rip|br[\s.-]?rip|web[\s.-]?dl|"
+    r"hd[\s.-]?rip|cam[\s.-]?rip|dvd[\s.-]?iso|dvd[\s.-]?mkv|iso|scan|remux)\b\s*)+$", re.I)
+# Trailing underscore sort-article ("Colonel Blimp_The" -> "The ... Colonel Blimp")
+# and uploader notes ("Spooks Run Wild_Weirdness bad Movie", "_no subtitle").
+_USCORE_ARTICLE = re.compile(r"^(.+?)_(the|a|an)$", re.I)
+_USCORE_NOTE = re.compile(
+    r"_\s*(?:weirdness\b.*|[^_]*\bbad movie\b.*|no\s*subtitle.*|persian\b.*|"
+    r"updated\b.*|[^_]*\bupgrade\b.*)$", re.I)
+
+
+def _keep_if_lettered(nt, t):
+    """Adopt nt only if it still has letters (never empty a title to junk)."""
+    return nt if (nt and re.search(r"[A-Za-z]", nt)) else t
+
+
+def _strip_leading_year(t):
+    return _keep_if_lettered(_LEAD_YEAR.sub("", t).strip(), t)
+
+
+def _strip_trailing_year(t):
+    return _keep_if_lettered(_TRAIL_YEAR.sub("", t).rstrip(), t)
+
+
+def _strip_lang_tail(t):
+    return _keep_if_lettered(_LANG_TAIL.sub("", t).rstrip(" -–—|"), t)
+
+
+def _strip_runtime_size(t):
+    nt = _SIZE_FPS.sub("", t)
+    nt = _RUNTIME_STAMP.sub("", nt)
+    nt = _RIP_TAIL.sub("", nt)
+    if nt == t:
+        return t
+    nt = re.sub(r"\s+", " ", nt).rstrip(" -–—|,")
+    return _keep_if_lettered(nt, t)
+
+
+def _strip_uscore_suffix(t):
+    if "_" not in t:
+        return t
+    m = _USCORE_NOTE.search(t)
+    if m:
+        t = _keep_if_lettered(t[:m.start()].strip(), t)
+    m = _USCORE_ARTICLE.match(t)
+    if m and m.group(1).strip():
+        t = m.group(2).capitalize() + " " + m.group(1).strip().replace("_", " ")
+    return t
+
+
+def drop_asr_captions(items):
+    """archive.org auto-ASR captions (label 'English (auto)', source 'archive-asr')
+    are hallucinated word-salad on the catalog's old-film audio — the SAME failure
+    that retired whisper (Decision 039b: auto speech-to-text is not shippable, a wrong
+    subtitle is worse than none). Drop them; keep human/uploader captions (SubDL,
+    SubSource, uploader .srt). Reversible: re-running enrich refills only human subs."""
+    dropped = 0
+    for it in items:
+        caps = it.get("captions")
+        if not caps:
+            continue
+        kept = [c for c in caps
+                if (c.get("source") != "archive-asr"
+                    and "(auto)" not in (c.get("label") or ""))]
+        if len(kept) != len(caps):
+            dropped += len(caps) - len(kept)
+            it["captions"] = kept or None
+    return dropped
+
+
 def _synopsis_text(it):
     v = it.get("synopsis")
     return (" ".join(v) if isinstance(v, list) else (v or "")).strip()
@@ -608,8 +704,17 @@ def sanitize_title(it):
     t = _fix_mojibake(_html.unescape(raw))
     t = _strip_format_dump(t)
     t = _strip_source_specs(t)
+    t = _strip_runtime_size(t)        # file size / fps / runtime stamp / rip words
     t = _strip_quality_tail(t)
     t = _strip_uploader_cruft(t)
+    t = _strip_lang_tail(t)           # trailing foreign sub/dub marker (VOSE / Legendado …)
+    # Trailing " - Director Name" on scene-rip dash dumps, but ONLY when it matches the
+    # item's OWN director field — precise, never a guess. ("… - Earl McEvoy" -> "…").
+    director = (it.get("director") or "").strip()
+    if director and len(director) > 3 and "-" in t:
+        nt = re.sub(r"\s*[-–—|]\s*" + re.escape(director) + r"\s*$", "", t, flags=re.I).rstrip(" -–—|")
+        t = _keep_if_lettered(nt, t)
+    t = _strip_uscore_suffix(t)       # "Title_The" / "Title_Weirdness bad Movie"
     t = _underscore_filename(t)
     t = _invert_sort_article(t)
     # A title that is ENTIRELY bracketed ("[Amateur film: New Orleans Carnival]")
@@ -625,6 +730,10 @@ def sanitize_title(it):
     disc_stripped = _DISC_MARK.sub(" ", t)
     if re.search(r"[A-Za-z]", disc_stripped):
         t = disc_stripped
+    # The year is its own field everywhere in the app — strip it from the title last,
+    # after quality/rip/bracket strips have peeled off whatever followed it.
+    t = _strip_leading_year(t)
+    t = _strip_trailing_year(t)
     t = re.sub(r"\s+", " ", t).strip(" -_|")
     if t and t.isupper() and len(t.split()) > 1:
         t = t.title()
@@ -861,6 +970,9 @@ def main():
         cat["stats"]["totalItems"] = len(cat["items"])
     stats = remediate(cat["items"])
     fix_tmdb_collisions(cat["items"], stats)   # #20 year-independent wrong-poster pass
+    asr = drop_asr_captions(cat["items"])      # hallucinated archive.org ASR captions (039b)
+    if asr:
+        stats["asr_captions_dropped"] = asr
     stats["junk_removed"] = junk_removed
     print("[remediate] " + (", ".join(f"{k}={v}" for k, v in sorted(stats.items())) or "no changes"))
     if not args.dry_run:
