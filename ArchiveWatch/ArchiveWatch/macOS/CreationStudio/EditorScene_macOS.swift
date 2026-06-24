@@ -72,7 +72,7 @@ struct ProjectEditorView: View {
                         // preview is WYSIWYG and "Add Text" is visible.
                         TextOverlayPreview(model: model, renderSize: model.project.timeline.renderSize)
                     }
-                    if model.isBuildingPreview || !model.prepStatus.failures.isEmpty {
+                    if model.isBuildingPreview || model.isRefining || !model.prepStatus.failures.isEmpty {
                         let s = model.prepStatus
                         VStack(spacing: 6) {
                             if model.isBuildingPreview {
@@ -86,6 +86,10 @@ struct ProjectEditorView: View {
                                                             : "\(s.failures.count) clips couldn’t load: \(fail)",
                                       systemImage: "exclamationmark.triangle.fill")
                                     .font(.caption2).foregroundStyle(.orange)
+                            }
+                            if model.isRefining {
+                                Label("Tightening supercut clips in the background…", systemImage: "wand.and.stars")
+                                    .font(.caption2).foregroundStyle(.white.opacity(0.7))
                             }
                         }
                         .padding(10).background(.black.opacity(0.55), in: RoundedRectangle(cornerRadius: 8))

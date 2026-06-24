@@ -123,10 +123,11 @@ enum ClipCacheService {
     }
 
     private static func transcode(_ sourceURL: URL, range: CMTimeRange, preset: String, to out: URL) async throws {
-        let (asset, loader) = ResilientStreamLoader.makeAsset(for: sourceURL)
-        // AVURLAsset holds its resource-loader delegate weakly — keep the loader alive for
-        // the whole export (the iOS engine's `withExtendedLifetime` pattern).
-        defer { withExtendedLifetime(loader) {} }
+        // Use a PLAIN AVURLAsset, NOT the ResilientStreamLoader custom-scheme asset: the resilient
+        // loader is built for AVPlayer playback and does NOT answer AVAssetExportSession's property
+        // reads, which fails with "AssetProperty Failed to load (-1011)" → -11800. AVFoundation's
+        // own HTTP loads properties fine for a bounded-range export.
+        let asset = AVURLAsset(url: sourceURL, options: [AVURLAssetPreferPreciseDurationAndTimingKey: true])
 
         guard let session = AVAssetExportSession(asset: asset, presetName: preset) else {
             throw CreationStudioError.cannotCreateExportSession

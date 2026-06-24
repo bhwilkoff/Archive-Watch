@@ -16,12 +16,14 @@ struct SupercutSheet: View {
     @Environment(\.modelContext) private var ctx
     @Environment(\.dismiss) private var dismiss
 
-    /// Add an assembled clip to BOTH the timeline AND the SwiftData Library (so it shows in
-    /// the left sidebar, #12) — the same thing the manual Add-Clip path does.
-    private func add(_ proxy: ProxyClip) {
-        ctx.insert(LibraryClip(from: proxy))
+    /// Add a batch of assembled takes to the timeline INSTANTLY (and the SwiftData Library, #12),
+    /// then tighten/level them in the background (EditorModel.addSupercutClips). No per-clip
+    /// blocking — 80 clips appear at once instead of crawling one-by-one.
+    private func commit(_ takes: [EditorModel.SupercutTake]) {
+        for t in takes { ctx.insert(LibraryClip(from: t.proxy)) }
         try? ctx.save()
-        model.addClip(from: proxy)
+        model.addSupercutClips(takes, tighten: tightenToWord, evenVolume: evenVolume)
+        dismiss()
     }
 
     enum Mode: String, CaseIterable, Identifiable { case find = "Find clips", compose = "Compose a sentence"; var id: String { rawValue } }
@@ -36,8 +38,6 @@ struct SupercutSheet: View {
     @State private var searched = false
     @State private var tightenToWord = false
     @State private var evenVolume = false
-    @State private var assembling = false
-    @State private var assembleProgress = 0.0
     @State private var gapEdits: [UUID: String] = [:]
     @State private var excludedSegments: Set<UUID> = []     // compose-mode per-segment opt-out
 
@@ -71,7 +71,6 @@ struct SupercutSheet: View {
             if mode == .compose && !plan.isEmpty {
                 Toggle("Even out the volume across clips", isOn: $evenVolume).font(.caption)
             }
-            if assembling { ProgressView(value: assembleProgress) { Text("Assembling…").font(.caption) } }
             footer
         }
         .padding(20)
@@ -184,13 +183,13 @@ struct SupercutSheet: View {
         HStack {
             Text(statusText).font(.caption).foregroundStyle(.secondary)
             Spacer()
-            Button("Cancel") { dismiss() }.disabled(assembling)
+            Button("Cancel") { dismiss() }
             if mode == .find {
-                Button("Add \(included.count) Clips") { Task { await assembleFind() } }
-                    .keyboardShortcut("b", modifiers: .command).disabled(included.isEmpty || assembling)
+                Button("Add \(included.count) Clips") { assembleFind() }
+                    .keyboardShortcut("b", modifiers: .command).disabled(included.isEmpty)
             } else {
-                Button("Add \(planFound) Clips") { Task { await assembleCompose() } }
-                    .keyboardShortcut("b", modifiers: .command).disabled(planFound == 0 || assembling)
+                Button("Add \(planFound) Clips") { assembleCompose() }
+                    .keyboardShortcut("b", modifiers: .command).disabled(planFound == 0)
             }
         }
     }
@@ -225,52 +224,18 @@ struct SupercutSheet: View {
         gapEdits[id] = nil
     }
 
-    /// Add the selected found cues (v1), optionally speech-tightened to the phrase.
-    private func assembleFind() async {
-        assembling = true
-        for (i, cue) in included.enumerated() {
-            assembleProgress = Double(i) / Double(max(1, included.count))
-            add(await resolved(cue.proxyClip, phrase: phrase, cue: cue))
-        }
-        assembling = false; dismiss()
+    /// Add the selected found cues INSTANTLY (tighten happens in the background).
+    private func assembleFind() {
+        commit(included.map { EditorModel.SupercutTake(proxy: $0.proxyClip, phrase: phrase, captionText: $0.text) })
     }
 
-    /// Assemble the sentence in order (v2): each found segment's word window, optionally tightened.
-    private func assembleCompose() async {
-        assembling = true
-        let segs = includedSegments
-        for (i, seg) in segs.enumerated() {
-            assembleProgress = Double(i) / Double(max(1, segs.count))
-            guard let proxy = SentenceComposer.proxyClip(seg), let cue = seg.chosen?.cue else { continue }
-            // For tightening, run speech on the FULL cue window (context) and use the phrase's range;
-            // otherwise the (word-index or proportional) word window.
-            let base = tightenToWord ? cue.proxyClip : proxy
-            let finalProxy = tightenToWord ? await resolved(base, phrase: seg.phrase, cue: cue) : proxy
-            add(finalProxy)
-            guard let id = model.selectedClipID else { continue }
-            // A tiny fade on each tight word-cut so the assembled sentence doesn't CLICK at the
-            // joins (each word starts/ends mid-waveform). The hard visual jump between films stays.
-            model.setClipFade(id, fadeIn: 0.03, fadeOut: 0.03)
-            // Level the clips: measure the word window's RMS and set its mix gain toward a shared
-            // target so one film's word doesn't boom over the next.
-            if evenVolume,
-               let url = try? await ClipCacheService.cachedURL(for: TimelineClip.from(finalProxy, at: .zero)),
-               let rms = await Loudness.rms(url: url) {
-                model.setClipVolume(id, Loudness.gain(forRMS: rms))
-            }
+    /// Add the composed sentence's selected segments INSTANTLY (tighten/level in the background).
+    private func assembleCompose() {
+        let takes = includedSegments.compactMap { seg -> EditorModel.SupercutTake? in
+            guard let proxy = SentenceComposer.proxyClip(seg), let cue = seg.chosen?.cue else { return nil }
+            return EditorModel.SupercutTake(proxy: proxy, phrase: seg.phrase, captionText: cue.text)
         }
-        assembling = false; dismiss()
-    }
-
-    /// Optionally narrow `proxy` to just `phrase` via on-device speech (validated vs the caption).
-    private func resolved(_ proxy: ProxyClip, phrase: String, cue: SubtitleCue) async -> ProxyClip {
-        guard tightenToWord,
-              let url = try? await ClipCacheService.cachedURL(for: TimelineClip.from(proxy, at: .zero)),
-              let r = await WordTiming.tighten(mediaURL: url, phrase: phrase, caption: cue.text) else { return proxy }
-        let newIn = proxy.sourceRange.start.seconds + r.start.seconds
-        return ProxyClip(catalogItemID: proxy.catalogItemID, sourceURL: proxy.sourceURL,
-                         sourceRange: TimeRange(startSeconds: max(0, newIn), durationSeconds: r.duration.seconds),
-                         label: phrase, posterFrameSeconds: newIn, title: cue.title)
+        commit(takes)
     }
 }
 #endif

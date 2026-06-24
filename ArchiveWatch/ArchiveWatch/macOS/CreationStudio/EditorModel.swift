@@ -165,6 +165,75 @@ final class EditorModel {
         scheduleRebuild()
     }
 
+    // MARK: - Supercut batch add (instant) + background refine
+
+    struct SupercutTake: Sendable { let proxy: ProxyClip; let phrase: String; let captionText: String }
+    @ObservationIgnored private var refineTask: Task<Void, Never>?
+    /// True while a background supercut tighten/level pass is running (shown in the status panel).
+    var isRefining = false
+
+    /// Add MANY supercut takes AT ONCE — instant, just in/out references + the remote-streaming
+    /// preview (no per-clip caching/speech blocking the add). If `tighten`/`evenVolume` are on, each
+    /// clip is refined in the BACKGROUND (best-effort, non-blocking): the clip is usable immediately
+    /// and its in/out + volume update as the refine completes. (The user added 80 clips and it
+    /// processed one-by-one — this is the fix.)
+    func addSupercutClips(_ takes: [SupercutTake], tighten: Bool, evenVolume: Bool) {
+        guard !takes.isEmpty else { return }
+        checkpoint()
+        var added: [(id: UUID, take: SupercutTake)] = []
+        for take in takes {
+            let clip = TimelineClip.from(take.proxy, at: .zero)
+            document.project.timeline.clips.append(clip)
+            added.append((clip.id, take))
+            loadFilmstrip(for: clip)
+        }
+        selectedClipID = added.last?.id
+        relayout(); scheduleRebuild()
+
+        guard tighten || evenVolume else { return }
+        isRefining = true
+        refineTask?.cancel()
+        refineTask = Task { [weak self] in
+            await self?.refineSupercut(added, tighten: tighten, evenVolume: evenVolume)
+            self?.isRefining = false
+        }
+    }
+
+    private func refineSupercut(_ added: [(id: UUID, take: SupercutTake)], tighten: Bool, evenVolume: Bool) async {
+        await withTaskGroup(of: Void.self) { group in
+            var it = added.makeIterator()
+            func addNext() {
+                guard let entry = it.next() else { return }
+                group.addTask { [weak self] in
+                    await self?.refineOne(id: entry.id, take: entry.take, tighten: tighten, evenVolume: evenVolume)
+                }
+            }
+            for _ in 0..<2 { addNext() }            // bounded — the cache + speech are heavy
+            while await group.next() != nil {
+                if Task.isCancelled { group.cancelAll(); break }
+                addNext()
+            }
+        }
+        scheduleRebuild()
+    }
+
+    private func refineOne(id: UUID, take: SupercutTake, tighten: Bool, evenVolume: Bool) async {
+        // Tighten/level need a LOCAL window (speech + RMS). Best-effort: if caching fails, the clip
+        // stays as the subtitle-cue window (still a valid clip containing the phrase).
+        guard let url = try? await ClipCacheService.cachedURL(for: TimelineClip.from(take.proxy, at: .zero)),
+              !Task.isCancelled else { return }
+        if tighten, let r = await WordTiming.tighten(mediaURL: url, phrase: take.phrase, caption: take.captionText),
+           let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) {
+            let newIn = take.proxy.sourceRange.start.seconds + r.start.seconds
+            document.project.timeline.clips[i].sourceRange =
+                TimeRange(startSeconds: max(0, newIn), durationSeconds: max(0.05, r.duration.seconds))
+        }
+        if evenVolume, let rms = await Loudness.rms(url: url),
+           let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) {
+            document.project.timeline.clips[i].audioVolume = Loudness.gain(forRMS: rms)
+        }
+    }
+
     func deleteClip(_ id: UUID) {
         checkpoint()
         document.project.timeline.clips.removeAll { $0.id == id }
