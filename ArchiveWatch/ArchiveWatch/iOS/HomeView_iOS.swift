@@ -11,6 +11,7 @@ struct HomeView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var progress: [WatchProgress]
+    @Query(sort: \Favorite.addedAt, order: .reverse) private var favorites: [Favorite]
 
     // Seeded once per Home lifetime so the hero pool + per-shelf shuffles are
     // stable across body recomputes (don't reshuffle on every scroll tick).
@@ -138,9 +139,34 @@ struct HomeView: View {
             (name: d.name, items: store.filteringWatched(store.byDirector(d.name)))
         }.filter { $0.items.count >= minPerShelf }
         payloads = dedupedPayloads()
-        // Feed the home-screen widgets (App Group snapshot).
+        writeWidgetSnapshot()
+    }
+
+    /// Feed the home-screen + Lock Screen + Control widgets (App Group snapshot).
+    private func writeWidgetSnapshot() {
+        // Continue Watching progress fractions, keyed by id (timecode "min left").
+        let progressByID = Dictionary(
+            progress.compactMap { p -> (String, Double)? in
+                guard p.durationSeconds > 0 else { return nil }
+                return (p.archiveID, min(0.98, max(0.02, p.positionSeconds / p.durationSeconds)))
+            }, uniquingKeysWith: { a, _ in a })
+
+        // Pick of the Day: a deterministic daily rotation through designed-art picks
+        // (an editorial invitation the user can predict — not an opaque "for you").
+        let pickPool = (store.items(forShelf: "editors-picks") + store.topRated())
+            .filter { $0.hasDesignedArtwork && ($0.backdropURL != nil || $0.posterURL != nil) }
+        let day = Int(Date().timeIntervalSince1970 / 86_400)
+        let pick = WidgetSnapshotWriter.pickOfDay(from: pickPool, dayNumber: day)
+
+        let favItems = store.itemsByIDs(favorites.prefix(8).map(\.archiveID))
+            .filter(\.hasDesignedArtwork)
+        let surprise = store.topRated().filter(\.hasProfessionalArtwork)
+
         WidgetSnapshotWriter.write(continueWatching: continueItems,
-                                   editorsPicks: store.items(forShelf: "editors-picks"))
+                                   progressByID: progressByID,
+                                   pickOfDay: pick,
+                                   favorites: favItems,
+                                   surprisePool: surprise)
     }
 
     /// Hero pool: popular, home-eligible, designed (non-generated) art, preferring
