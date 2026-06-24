@@ -1,5 +1,6 @@
 import WidgetKit
 import SwiftUI
+import AppIntents
 
 // Archive Watch widgets (art-forward redesign 2026-06-24). Home Screen + Lock
 // Screen surfaces that read a small JSON snapshot the main app writes into the
@@ -349,6 +350,33 @@ struct SurpriseView: View {
     }
 }
 
+// MARK: - Surprise Me control (iOS 18 — Control Center / Lock Screen / Action button)
+
+#if os(iOS)
+// Opens the app to a random title's Detail (a choice, not autoplay — the learning
+// guardrail). archivewatch://surprise is already routed by the app's onOpenURL.
+struct SurpriseControlIntent: AppIntent {
+    static let title: LocalizedStringResource = "Surprise Me"
+    static let description = IntentDescription("Open a random public-domain film in Archive Watch.")
+    func perform() async throws -> some IntentResult & OpensIntent {
+        .result(opensIntent: OpenURLIntent(deepLink("surprise")))
+    }
+}
+
+@available(iOS 18.0, *)
+struct SurpriseControl: ControlWidget {
+    var body: some ControlWidgetConfiguration {
+        StaticControlConfiguration(kind: "ArchiveWatchSurpriseControl") {
+            ControlWidgetButton(action: SurpriseControlIntent()) {
+                Label("Surprise Me", systemImage: "dice.fill")
+            }
+        }
+        .displayName("Surprise Me")
+        .description("Wander to a random public-domain film.")
+    }
+}
+#endif
+
 // MARK: - Bundle
 
 @main
@@ -358,5 +386,8 @@ struct ArchiveWatchWidgets: WidgetBundle {
         PickOfDayWidget()
         FavoritesWidget()
         SurpriseWidget()
+        #if os(iOS)
+        if #available(iOS 18.0, *) { SurpriseControl() }
+        #endif
     }
 }
