@@ -2,8 +2,28 @@
 
 Research-first brief for making Top Shelf (Apple TV) and Widgets (iOS / iPadOS /
 macOS) **best-in-class**. Two web-research passes (cited below) + a code audit of
-the existing, inert-ish extensions. Build plan at the end; nothing here is built
-yet.
+the existing, inert-ish extensions. Build plan at the end.
+
+## STATUS — Phases 1–2 SHIPPED 2026-06-24 (owner chose: carousel Top Shelf, Phases 1–2)
+
+- **Top Shelf (tvOS):** rebuilt as a best-in-class `.details` editorial carousel.
+  Fixed the inert extension (it set a nonexistent `item.title` → didn't compile);
+  rich heroes (contextTitle reason, title+year-led summary, genre, duration, year,
+  Director/Cast attributes, HD/CC badges, light+dark art), backdrop-preferred,
+  Continue-Watching-first, `topShelfContentDidChange()` now poked on every write.
+- **Widgets (iOS/iPadOS):** replaced the text-only stub with an art-forward suite —
+  Continue Watching (S/M/L + Lock Screen, posters + resume bar), Pick of the Day,
+  Favorites, Surprise Me (rotating + Lock Screen) — backed by a pre-cached App
+  Group art cache (`WidgetArtCache`) + enriched `WidgetSnapshotWriter`. Added the
+  iOS 18 **Surprise Me Control widget** (Control Center / Lock Screen / Action btn).
+- **Widgets (macOS):** widget target made multiplatform + embedded in the Mac app
+  (sandboxed), fed by `HomeView_macOS`. Desktop / Notification Center get the suite.
+- **Not yet (Phase 3, optional):** On Now (Channels) + Public Domain Day Top Shelf
+  rows; AppIntent-configurable widgets (pick category/channel); a Channels "On Now"
+  Live Activity / Dynamic Island; StandBy-tuned Pick of the Day.
+- **Verify on device** (can't be screenshotted): Top Shelf needs the app icon in
+  the Home top row; widgets need adding from the gallery. Build-verified on all
+  four targets against the 26 SDKs.
 
 ---
 
