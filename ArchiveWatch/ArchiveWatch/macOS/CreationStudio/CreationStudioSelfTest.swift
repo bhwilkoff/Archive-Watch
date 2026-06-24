@@ -261,6 +261,16 @@ enum CreationStudioSelfTest {
             }
         }
 
+        // WORD-TIMING (#9 refinement): run SpeechTranscriber on a cached clip's first 12s and report
+        // the recognized words. Empty = the on-device speech model isn't installed (graceful).
+        if let c0 = timeline.clips.first, let u = try? await ClipCacheService.cachedURL(for: c0) {
+            let words = await WordTiming.recognize(mediaURL: u, clamp: CMTimeRange(
+                start: .zero, duration: CMTime(seconds: 12, preferredTimescale: 600)))
+            log("WORD-TIMING recognized \(words.count) words" +
+                (words.isEmpty ? " (speech model not installed — supercut stays line-level)"
+                               : ": " + words.prefix(8).map { "\($0.text)@\(String(format: "%.1f", $0.range.start.seconds))" }.joined(separator: " ")))
+        }
+
         // #5: a ProRes .mov export (reuses the warm cache) to confirm the format path.
         let proURL = ProjectMediaCache.directory.appendingPathComponent("selftest-prores.mov")
         let proExporter = ExportService()

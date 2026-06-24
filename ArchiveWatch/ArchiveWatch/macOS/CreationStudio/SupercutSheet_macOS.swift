@@ -1,5 +1,6 @@
 #if os(macOS)
 import SwiftUI
+import CoreMedia
 
 // Text → Supercut (#9, the flagship). Type a phrase, find every moment across the public-domain
 // catalog where it is spoken, pick the takes you want, and assemble them into the timeline as an
@@ -17,6 +18,9 @@ struct SupercutSheet: View {
     @State private var index: SubtitleIndex?
     @State private var building = true
     @State private var searched = false
+    @State private var tightenToWord = false
+    @State private var assembling = false
+    @State private var assembleProgress = 0.0
 
     private var included: [SubtitleCue] { results.filter { !excluded.contains($0.id) } }
 
@@ -61,14 +65,21 @@ struct SupercutSheet: View {
                 }
             }
 
+            if !results.isEmpty {
+                Toggle("Tighten each clip to the spoken word (on-device speech)", isOn: $tightenToWord)
+                    .font(.caption)
+            }
+            if assembling {
+                ProgressView(value: assembleProgress) { Text("Assembling…").font(.caption) }
+            }
             HStack {
                 Text(results.isEmpty ? "" : "\(included.count) of \(results.count) selected")
                     .font(.caption).foregroundStyle(.secondary)
                 Spacer()
-                Button("Cancel") { dismiss() }
-                Button("Add \(included.count) Clips") { build() }
+                Button("Cancel") { dismiss() }.disabled(assembling)
+                Button("Add \(included.count) Clips") { Task { await build() } }
                     .keyboardShortcut("b", modifiers: .command)
-                    .disabled(included.isEmpty)
+                    .disabled(included.isEmpty || assembling)
             }
         }
         .padding(20)
@@ -88,8 +99,29 @@ struct SupercutSheet: View {
     }
 
     /// Assemble the selected cues into the timeline as editable candidates (in screen order).
-    private func build() {
-        for cue in included { model.addClip(from: cue.proxyClip) }
+    /// When "tighten" is on, each clip is narrowed to just the spoken phrase via SpeechTranscriber
+    /// (word timing validated against the caption, Rule 6b) — a slower, per-clip speech pass.
+    private func build() async {
+        guard tightenToWord else {
+            for cue in included { model.addClip(from: cue.proxyClip) }
+            dismiss(); return
+        }
+        assembling = true
+        let cues = included
+        for (i, cue) in cues.enumerated() {
+            assembleProgress = Double(i) / Double(max(1, cues.count))
+            var proxy = cue.proxyClip
+            // Cache the line window locally, then find the phrase's tight range within it.
+            if let url = try? await ClipCacheService.cachedURL(for: TimelineClip.from(proxy, at: .zero)),
+               let r = await WordTiming.tighten(mediaURL: url, phrase: phrase, caption: cue.text) {
+                let newIn = proxy.sourceRange.start.seconds + r.start.seconds
+                proxy = ProxyClip(catalogItemID: proxy.catalogItemID, sourceURL: proxy.sourceURL,
+                                  sourceRange: TimeRange(startSeconds: max(0, newIn), durationSeconds: r.duration.seconds),
+                                  label: proxy.label, posterFrameSeconds: newIn, title: cue.title)
+            }
+            model.addClip(from: proxy)
+        }
+        assembling = false
         dismiss()
     }
 }

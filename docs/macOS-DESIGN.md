@@ -493,10 +493,24 @@ downloads + inflates it (`SubtitleIndexBuilder.ensureIndex`, StockIndex pattern)
 the on-device popular-films sample until published. Verified locally: 2,114 cues from 15 films.
 So the supercut searches the WHOLE captioned catalog, not just the sample.
 
-**Still deferred (the hardest, model/persistence items):** SpeechTranscriber WORD-timing (the
-supercut's line→word upgrade — isolate a single spoken word, Rule 6b; needs the on-device speech
-model); Stock semantic Vision/MobileCLIP tags (genre/subject tags + real shots ship now); the
-NSDocument/security-scoped-bookmark durable-media unit (music/voiceover persist in the cache now).
+**Supercut WORD-timing (Rule 6b): SHIPPED 2026-06-24.** A "Tighten each clip to the spoken word"
+toggle narrows each supercut candidate from its whole caption LINE to just the spoken phrase.
+`WordTiming` runs macOS-26 `SpeechTranscriber`/`SpeechAnalyzer` on the cached line-window (extract
+audio → m4a → per-word `audioTimeRange`), VALIDATED against the caption text (token diff: keep
+recognizer words the caption contains, drop hallucinations — the Decision-039b fix applied to
+*when*). `AssetInventory.assetInstallationRequest` installs the model on first use; if it's
+unavailable the toggle gracefully no-ops (clips stay line-level). Verified via the self-test:
+`recognized 16 words: witness@0.1 What@3.0 was@3.3 he@3.5 doing?@3.6 …` — real per-word timings.
+
+**Still deferred (refinements, not core):** Stock semantic Vision/MobileCLIP tags (real shots +
+genre/subject tags already ship; this adds "find shots of a sunset"); the NSDocument/
+security-scoped-bookmark durable-media unit (music/voiceover persist in the disposable cache now,
+not the `.archiveproj` package).
+
+**Session note (2026-06-24):** the entire Creation Studio editor + flagship backlog is now shipped
+— timeline direct-manipulation, Publish (#7), Supercut (#9) line + word level + full-corpus index,
+music bed + voiceover (#4), cross-dissolve + wipe/push transitions, color Looks, and real
+Stock shots (#6). Only the two refinements above remain.
 
 **Test/screenshot hooks (`AW_CS_TEST`) + sidebar clip thumbnails: SHIPPED 2026-06-24.** The
 DocumentGroup editor is driven into a populated state (`editor`) or the Add-Clip scrubber
