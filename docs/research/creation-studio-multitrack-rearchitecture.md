@@ -7,6 +7,27 @@ roots-causes all 13 reported issues, synthesizes WWDC/macOS-26-27 API research
 multi-track NLE. The save crash (#1) is already fixed; everything else is planned
 here.
 
+## STATUS — all 13 issues SHIPPED 2026-06-24 (autonomous A→B→C→D run)
+
+- **Phase A:** #1 save crash (fresh wrapper, never mutate existingFile), #12
+  supercut→Library, #6 stock dedup + clean tag chips, #5 Add-Clip facets/sort/
+  B&W-color, #8 supercut opt-in checkboxes.
+- **Phase B:** #2 concurrent bounded caching, #13 asset validation + build-from-
+  ready (one bad clip can't poison the player), #9 aggregate status panel +
+  per-clip failure reasons.
+- **Phase C:** #10 voiceover works (mic entitlement + requestAccess + surfaced
+  errors), #3 overlay drag (canvas coordinate space) + X/Y controls, #4/#11
+  multi-track timeline — Titles + Music + Voiceover lanes, each a draggable block
+  retimed independently of the video.
+- **Phase D:** AppKit CALayer timeline (already the substrate; now multi-lane),
+  #7 stock pipeline sharded 4× every 6h (~16× throughput) + CI tag fix.
+- **Remaining (optional polish, NOT one of the 13):** menu-bar `.commands` +
+  keyboard-shortcut discoverability, a render-queue `Window` scene, and a fully
+  generic `Track` model (arbitrary/overlapping video tracks for PiP) — the
+  current multi-lane timeline already delivers the user-visible multi-track
+  editor and export is unchanged. NSDocument migration was deliberately skipped
+  (owner choice — the crash is fixed on the hardened ReferenceFileDocument).
+
 ---
 
 ## The keystone finding
