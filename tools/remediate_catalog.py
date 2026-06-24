@@ -603,16 +603,29 @@ _USCORE_NOTE = re.compile(
 
 
 def _keep_if_lettered(nt, t):
-    """Adopt nt only if it still has letters (never empty a title to junk)."""
-    return nt if (nt and re.search(r"[A-Za-z]", nt)) else t
+    """Adopt nt only if it still has a LETTER in any script (never empty a title to
+    junk). `[^\\W\\d_]` matches any Unicode letter — Latin, Greek, Cyrillic, CJK — so a
+    non-Latin title (e.g. 'Η ζαβολιάρα') isn't wrongly reverted by an ASCII-only check."""
+    return nt if (nt and re.search(r"[^\W\d_]", nt)) else t
 
 
 def _strip_leading_year(t):
-    return _keep_if_lettered(_LEAD_YEAR.sub("", t).strip(), t)
+    # Strip repeatedly so a leading year RANGE ("1940 - 1945 - Eva Braun …") is fully
+    # removed, not just its first year.
+    nt = t.strip()
+    while True:
+        s = _LEAD_YEAR.sub("", nt).strip()
+        if s == nt:
+            break
+        nt = s
+    return _keep_if_lettered(nt, t)
 
 
 def _strip_trailing_year(t):
-    return _keep_if_lettered(_TRAIL_YEAR.sub("", t).rstrip(), t)
+    # Allow a bare alphanumeric remainder (incl. a number) — a title that IS a year,
+    # e.g. "1984 (1984)" -> "1984", is real, not junk.
+    nt = _TRAIL_YEAR.sub("", t).rstrip()
+    return nt if (nt and re.search(r"[^\W_]", nt)) else t
 
 
 def _strip_lang_tail(t):
@@ -919,6 +932,14 @@ def remediate(items):
         if not it.get("isAdult") and is_adult_signal(it):
             it["isAdult"] = True
             stats["adult_flagged"] += 1
+
+    # Universal TITLE pass: the main loop only sanitizes MOVIE_TYPES, but every OTHER
+    # display type shows its title too — tv-series / tv-special / trailer / commercial
+    # ("Checkmate: The Human Touch (1961)", "One Flew Over the Cuckoo's Nest (1975)"
+    # trailer). sanitize_title is conservative + idempotent, so this only cleans artifacts.
+    for it in items:
+        if it.get("contentType") not in MOVIE_TYPES and sanitize_title(it):
+            stats["other_title_cleaned"] += 1
 
     return stats
 
