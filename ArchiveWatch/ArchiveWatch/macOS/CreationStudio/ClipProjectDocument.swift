@@ -39,7 +39,7 @@ extension UTType {
 // `@Published var project` is mutated by the @MainActor editor on the main thread and read by
 // the save off-main; `ClipProject` is a value type (copy-on-read), so `@unchecked Sendable`
 // over it is safe in practice — and infinitely safer than a guaranteed crash on every save.
-final class ClipProjectDocument: @preconcurrency ReferenceFileDocument, @unchecked Sendable {
+final class ClipProjectDocument: ReferenceFileDocument, @unchecked Sendable {
     typealias Snapshot = ClipProject
 
     static var readableContentTypes: [UTType] { [.archiveProject] }

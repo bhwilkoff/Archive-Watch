@@ -160,8 +160,8 @@ final class PublishService {
 
 /// Streams upload progress (archive.org items can be large).
 private final class UploadProgress: NSObject, URLSessionTaskDelegate {
-    let onProgress: (Double) -> Void
-    init(_ onProgress: @escaping (Double) -> Void) { self.onProgress = onProgress }
+    let onProgress: @Sendable (Double) -> Void
+    init(_ onProgress: @escaping @Sendable (Double) -> Void) { self.onProgress = onProgress }
     func urlSession(_ s: URLSession, task: URLSessionTask, didSendBodyData sent: Int64,
                     totalBytesSent total: Int64, totalBytesExpectedToSend expected: Int64) {
         guard expected > 0 else { return }
