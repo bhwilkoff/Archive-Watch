@@ -371,12 +371,12 @@ private struct LibraryRow: View {
     let poster: URL?
     var body: some View {
         HStack(spacing: 10) {
-            RoundedRectangle(cornerRadius: 4).fill(.quaternary)
+            // The clip's actual in-point frame (archive.org thumbnail), poster as fallback.
+            ClipThumbnailView(catalogItemID: clip.catalogItemID,
+                              sourceURL: URL(string: clip.sourceURLString),
+                              atSeconds: clip.inSeconds,
+                              fallbackPoster: poster)
                 .frame(width: 44, height: 30)
-                .overlay {
-                    if let poster { AsyncImage(url: poster) { $0.resizable().scaledToFill() } placeholder: { Color.clear } }
-                }
-                .clipShape(RoundedRectangle(cornerRadius: 4))
             VStack(alignment: .leading, spacing: 1) {
                 Text(clip.label).font(.subheadline).lineLimit(1)
                 Text(String(format: "%.1fs", max(0, clip.outSeconds - clip.inSeconds)))
