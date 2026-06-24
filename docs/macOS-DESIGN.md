@@ -474,10 +474,21 @@ capture itself is device-verified (no mic/permission headlessly). Durable copy i
 `.archiveproj` package (NSDocument/bookmark) remains the deferred persistence upgrade — the cache
 copy is v1.
 
-**Still deferred (the genuinely multi-session, CI/ML-heavy items):** the Stock-archive shot-mining
-pipeline (#6 — PySceneDetect → Vision → MobileCLIP → `clips.sqlite`; the app browser + sample
-already ship); the Supercut full-corpus CI index + SpeechTranscriber word-timing; the
-NSDocument/security-scoped-bookmark durable-media unit.
+**Stock-archive shot mining (#6) — real shots: SHIPPED 2026-06-24.** The synthesized placeholder
+windows are replaced by REAL detected shots: `tools/build_stock_index.py` runs ffmpeg scene
+detection (`scdet`) over each clippable film's stream, turns the cut points into shot windows
+(1.2–20s, long takes chunked), and emits `clips.sqlite` (the same `shots` schema `StockIndex`
+already queries) tagged with the catalog's genres/subjects. `stock-index.yml` (daily cron,
+popularity-first, resumable) publishes `clips.sqlite.zz` (raw DEFLATE, catalog convention) to a
+`stock-index` release; the app's `StockIndexBuilder.ensureIndex` downloads + inflates it (reusing
+`CatalogRefreshService.inflate`), falling back to the on-device sample until the release exists.
+Verified locally: 24 real shots from 3 films (cuts at 19.3s / 24.7s / 32.0s…). **DEFERRED
+refinement:** Apple-Vision per-shot classification + MobileCLIP/`sqlite-vec` semantic search
+(genre/subject tags work now; semantic "find shots of X" is the upgrade).
+
+**Still deferred:** the Supercut full-corpus CI index + SpeechTranscriber word-timing (the
+flagship's word-level upgrade; sample + line-level ship now); Stock semantic Vision/MobileCLIP
+tags; the NSDocument/security-scoped-bookmark durable-media unit.
 
 **Test/screenshot hooks (`AW_CS_TEST`) + sidebar clip thumbnails: SHIPPED 2026-06-24.** The
 DocumentGroup editor is driven into a populated state (`editor`) or the Add-Clip scrubber

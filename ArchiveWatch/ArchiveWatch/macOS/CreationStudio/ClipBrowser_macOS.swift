@@ -51,7 +51,7 @@ struct ClipBrowserSheet: View {
             .searchable(text: $query, prompt: mode == .titles ? "Films, shows, people…" : "Search shots by tag…")
             .onChange(of: query) { reload() }
             .onChange(of: mode) { reload() }
-            .task { StockIndexBuilder.buildSampleIfNeeded(store: store); reload() }
+            .task { await StockIndexBuilder.ensureIndex(store: store); reload() }
             .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Done") { dismiss() } } }
             .frame(minWidth: 680, minHeight: 500)
         }
@@ -104,7 +104,7 @@ struct ClipBrowserSheet: View {
                 ? store.browse(sort: .popular, limit: 60) : store.search(query)
             results = raw.filter { $0.isClippable }
         case .stock:
-            stock = StockIndex(path: StockIndex.sampleURL)?.query(query) ?? []
+            stock = StockIndex(path: StockIndex.bestURL)?.query(query) ?? []
         }
     }
 }

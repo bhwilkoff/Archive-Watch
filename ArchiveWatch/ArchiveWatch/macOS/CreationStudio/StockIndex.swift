@@ -37,11 +37,18 @@ final class StockIndex {
 
     /// Caches/clips-sample.sqlite — the disposable sample index (swapped for the published
     /// clips.sqlite once the CI pipeline exists). Lives in Caches; never synced.
-    static var sampleURL: URL {
+    nonisolated private static var dir: URL {
         let base = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
             .appendingPathComponent("CreationStudio", isDirectory: true)
         try? FileManager.default.createDirectory(at: base, withIntermediateDirectories: true)
-        return base.appendingPathComponent("clips-sample.sqlite")
+        return base
+    }
+    nonisolated static var sampleURL: URL { dir.appendingPathComponent("clips-sample.sqlite") }
+    /// The real CI-built index (tools/build_stock_index.py), downloaded from the stock-index release.
+    nonisolated static var indexURL: URL { dir.appendingPathComponent("clips.sqlite") }
+    /// Prefer the published real index; fall back to the on-device sample.
+    nonisolated static var bestURL: URL {
+        FileManager.default.fileExists(atPath: indexURL.path) ? indexURL : sampleURL
     }
 
     init?(path: URL) {
@@ -82,6 +89,35 @@ final class StockIndex {
 // MARK: - Sample index builder (placeholder until the CI shot-mining pipeline)
 
 enum StockIndexBuilder {
+    private static let publishedURL = URL(string:
+        "https://github.com/bhwilkoff/Archive-Watch/releases/download/stock-index/clips.sqlite.zz")!
+
+    /// Ensure a stock index exists: download the REAL CI-built index (tools/build_stock_index.py
+    /// → stock-index release) if present, else synthesize the on-device sample. The real index has
+    /// detected shot boundaries; the sample has placeholder windows. Both use the same schema.
+    @MainActor
+    static func ensureIndex(store: AppStore) async {
+        if await downloadPublishedIndex() { return }       // real shots
+        buildSampleIfNeeded(store: store)                  // fallback
+    }
+
+    /// Download + inflate the published clips.sqlite.zz (raw DEFLATE, Decision 019) into indexURL.
+    /// Returns true on success. Skips the network if a fresh copy already exists (<7 days).
+    private static func downloadPublishedIndex() async -> Bool {
+        let dst = StockIndex.indexURL
+        if let attrs = try? FileManager.default.attributesOfItem(atPath: dst.path),
+           let mod = attrs[.modificationDate] as? Date, Date().timeIntervalSince(mod) < 7 * 86400 {
+            return true
+        }
+        guard let (tmp, resp) = try? await URLSession.shared.download(from: publishedURL),
+              (resp as? HTTPURLResponse).map({ (200...299).contains($0.statusCode) }) == true else { return false }
+        let zz = StockIndex.indexURL.appendingPathExtension("zz")
+        try? FileManager.default.removeItem(at: zz)
+        guard (try? FileManager.default.moveItem(at: tmp, to: zz)) != nil else { return false }
+        defer { try? FileManager.default.removeItem(at: zz) }
+        do { try CatalogRefreshService.inflate(src: zz, dst: dst); return true } catch { return false }
+    }
+
     /// Build the sample clips.sqlite from the catalog if it doesn't exist yet. Each clippable
     /// title contributes a few placeholder shots tagged with its real genres/subjects.
     @MainActor

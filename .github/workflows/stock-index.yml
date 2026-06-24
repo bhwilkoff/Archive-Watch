@@ -1,0 +1,68 @@
+name: Stock shot index (#6)
+
+# Creation Studio #6 (Decision 042): detect REAL shot boundaries in clippable films via ffmpeg
+# scene detection (tools/build_stock_index.py) and publish clips.sqlite for the macOS stock-shot
+# browser. Popularity-first, bounded per film, resumable (appends to the existing index). Daily
+# cron drains the catalog over time, like the cover/whisper batches.
+#
+# Next (app side, follow-on): the app's StockIndexBuilder downloads this clips.sqlite from the
+# release instead of synthesizing a sample — the query layer + browser already read this schema.
+
+on:
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Films to add this run'
+        default: '60'
+      max_seconds:
+        description: 'Seconds to scan per film'
+        default: '300'
+
+concurrency:
+  group: stock-index
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Restore existing index (resumable)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release download stock-index -p clips.sqlite -O clips.sqlite || echo "first run — no existing index"
+
+      - name: Detect shots
+        run: |
+          python tools/build_stock_index.py \
+            --limit ${{ github.event.inputs.limit || '60' }} \
+            --max-seconds ${{ github.event.inputs.max_seconds || '300' }} | tee stock.log
+          echo "## Stock shot index" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 stock.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Publish index
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Raw DEFLATE (wbits=-15), matching the catalog convention so the app reuses
+          # CatalogRefreshService.inflate (Decision 019) — NOT gzip.
+          python3 -c "import zlib; d=open('clips.sqlite','rb').read(); c=zlib.compressobj(9,zlib.DEFLATED,-15); open('clips.sqlite.zz','wb').write(c.compress(d)+c.flush())"
+          gh release view stock-index >/dev/null 2>&1 || \
+            gh release create stock-index --title "Stock shot index" --notes "clips.sqlite for Creation Studio (#6)"
+          gh release upload stock-index clips.sqlite clips.sqlite.zz --clobber

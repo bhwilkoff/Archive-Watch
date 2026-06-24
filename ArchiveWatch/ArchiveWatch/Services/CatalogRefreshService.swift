@@ -87,7 +87,7 @@ actor CatalogRefreshService {
     /// refill once a chunk is fully consumed. (Re-binding the source every
     /// iteration silently corrupts well-compressing data — verified against the
     /// real 96 MB DB: byte-identical + PRAGMA integrity_check ok.)
-    private static func inflate(src: URL, dst: URL) throws {
+    static func inflate(src: URL, dst: URL) throws {
         let input = try FileHandle(forReadingFrom: src)
         FileManager.default.createFile(atPath: dst.path, contents: nil)
         let output = try FileHandle(forWritingTo: dst)
