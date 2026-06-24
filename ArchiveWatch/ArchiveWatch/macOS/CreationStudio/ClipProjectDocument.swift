@@ -85,34 +85,31 @@ final class ClipProjectDocument: @preconcurrency ReferenceFileDocument {
         return snap
     }
 
-    /// Write the package: a directory wrapper containing timeline.json. Reuse the
-    /// existing caches/imports children on overwrite so a save never drops them.
+    /// Write the package: a directory wrapper (timeline.json + an optional media/ subdir).
+    ///
+    /// CRASH-SAFETY (2026-06-24): build a FRESH directory wrapper every save — NEVER mutate
+    /// `configuration.existingFile`. That wrapper is owned by AppKit/SwiftUI and may be the
+    /// same instance handed back across autosaves; calling `addFileWrapper`/`removeFileWrapper`
+    /// on it during a write crashes/corrupts (the bug behind "saving crashes the app"). The
+    /// package is small (timeline JSON + music/voiceover only — archive.org video stays a
+    /// remote reference, Rule 2b), so rebuilding it wholesale each save is cheap and safe.
     nonisolated func fileWrapper(snapshot: ClipProject,
                                  configuration: WriteConfiguration) throws -> FileWrapper {
         let data = try Self.encoder.encode(snapshot)
         let timeline = FileWrapper(regularFileWithContents: data)
         timeline.preferredFilename = Self.timelineFileName
 
-        let root = configuration.existingFile ?? FileWrapper(directoryWithFileWrappers: [:])
-        // Replace only timeline.json; keep any sibling wrappers (caches/, imports/).
-        if root.isDirectory {
-            if let old = root.fileWrappers?[Self.timelineFileName] { root.removeFileWrapper(old) }
-            root.addFileWrapper(timeline)
-            Self.embedMedia(snapshot, into: root)
-            return root
-        }
-        let dir = FileWrapper(directoryWithFileWrappers: [Self.timelineFileName: timeline])
-        Self.embedMedia(snapshot, into: dir)
-        return dir
+        var children: [String: FileWrapper] = [Self.timelineFileName: timeline]
+        if let media = Self.mediaWrapper(for: snapshot) { children[Self.mediaDirName] = media }
+        return FileWrapper(directoryWithFileWrappers: children)
     }
 
-    /// Embed the project's referenced media (music / voiceover) into a `media/` subdirectory of the
-    /// package — copied FROM the working cache — so the edit travels with the project and survives a
-    /// cache purge. No security-scoped bookmarks needed: the bytes live inside the package.
-    nonisolated private static func embedMedia(_ project: ClipProject, into root: FileWrapper) {
-        if let old = root.fileWrappers?[mediaDirName] { root.removeFileWrapper(old) }
-        let names = [project.timeline.musicBed?.fileName, project.timeline.voiceover?.fileName].compactMap { $0 }
-        guard !names.isEmpty else { return }
+    /// A fresh `media/` directory wrapper holding the project's referenced media (music /
+    /// voiceover), copied by value from the working cache so the edit travels with the project.
+    /// `Set` dedups names so a music==voiceover filename can't collide on `preferredFilename`.
+    nonisolated private static func mediaWrapper(for project: ClipProject) -> FileWrapper? {
+        let names = Set([project.timeline.musicBed?.fileName, project.timeline.voiceover?.fileName].compactMap { $0 })
+        guard !names.isEmpty else { return nil }
         var children: [String: FileWrapper] = [:]
         for name in names {
             let url = ProjectMediaCache.directory.appendingPathComponent(name)
@@ -122,10 +119,7 @@ final class ClipProjectDocument: @preconcurrency ReferenceFileDocument {
                 children[name] = fw
             }
         }
-        guard !children.isEmpty else { return }
-        let media = FileWrapper(directoryWithFileWrappers: children)
-        media.preferredFilename = mediaDirName
-        root.addFileWrapper(media)
+        return children.isEmpty ? nil : FileWrapper(directoryWithFileWrappers: children)
     }
 
     nonisolated static var encoder: JSONEncoder {
