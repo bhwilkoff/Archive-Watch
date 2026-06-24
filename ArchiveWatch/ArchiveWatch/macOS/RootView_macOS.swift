@@ -80,31 +80,53 @@ private struct CreationStudioLanding: View {
                 .font(.title3).foregroundStyle(.secondary)
                 .multilineTextAlignment(.center).frame(maxWidth: 480)
 
-            Button { NSDocumentController.shared.newDocument(nil) } label: {
-                Label("New Project", systemImage: "plus").padding(.horizontal, 6)
+            HStack(spacing: 12) {
+                Button { NSDocumentController.shared.newDocument(nil) } label: {
+                    Label("New Project", systemImage: "plus").padding(.horizontal, 6)
+                }
+                .controlSize(.large).buttonStyle(.borderedProminent).keyboardShortcut("n")
+                Button { openProject() } label: {
+                    Label("Open Project…", systemImage: "folder").padding(.horizontal, 6)
+                }
+                .controlSize(.large).keyboardShortcut("o")
             }
-            .controlSize(.large).buttonStyle(.borderedProminent).keyboardShortcut("n")
 
-            if !recents.isEmpty {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Recent Projects").font(.headline).padding(.bottom, 2)
-                    ForEach(recents.prefix(8), id: \.self) { url in
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Recent Projects").font(.headline).padding(.bottom, 2)
+                if recents.isEmpty {
+                    Text("Projects you save will appear here. Use New Project to start one, or Open Project… to load an existing .archiveproj.")
+                        .font(.callout).foregroundStyle(.secondary)
+                } else {
+                    ForEach(recents.prefix(10), id: \.self) { url in
                         Button {
                             NSDocumentController.shared.openDocument(withContentsOf: url, display: true) { _, _, _ in }
                         } label: {
-                            Label(url.deletingPathExtension().lastPathComponent, systemImage: "doc.fill")
+                            Label(url.deletingPathExtension().lastPathComponent, systemImage: "movieclapper")
                         }
                         .buttonStyle(.link)
                     }
                 }
-                .frame(maxWidth: 480, alignment: .leading)
-                .padding(.top, 8)
             }
+            .frame(maxWidth: 480, alignment: .leading)
+            .padding(.top, 8)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(40)
         .navigationTitle("Creation Studio")
         .onAppear { recents = NSDocumentController.shared.recentDocumentURLs }
+        // Refresh after a save in a document window (recents update when the app re-activates).
+        .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
+            recents = NSDocumentController.shared.recentDocumentURLs
+        }
+    }
+
+    private func openProject() {
+        let panel = NSOpenPanel()
+        panel.allowedContentTypes = [.archiveProject]
+        panel.allowsMultipleSelection = false
+        if panel.runModal() == .OK, let url = panel.url {
+            NSDocumentController.shared.openDocument(withContentsOf: url, display: true) { _, _, _ in }
+        }
     }
 }
 #endif

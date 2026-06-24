@@ -17,6 +17,7 @@ struct ProjectEditorView: View {
     @ObservedObject var document: ClipProjectDocument
     @Environment(AppStore.self) private var store
     @Environment(\.modelContext) private var ctx
+    @Environment(\.undoManager) private var undoManager
     // The document's name on macOS IS its filename — SwiftUI's DocumentGroup shows it in the
     // window title bar and renames it via the title-bar proxy popover / File ▸ Rename / first ⌘S.
     // We READ it here (macOS 14+ `documentConfiguration.fileURL`) to seed export/publish names,
@@ -142,6 +143,7 @@ struct ProjectEditorView: View {
                 }
             }
         }
+        .onAppear { model.undoManager = undoManager }   // ⌘Z + Edit menu drive our snapshot history
         .task {
             // Screenshot/test hooks (AW_CS_TEST) — the DocumentGroup reliably opens this editor
             // window on launch, so we populate it here for CLI visual verification.

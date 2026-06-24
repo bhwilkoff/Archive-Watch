@@ -41,7 +41,7 @@ struct ClipTimelineView: NSViewRepresentable {
     final class Coordinator { weak var content: TimelineContentView? }
 }
 
-final class TimelineContentView: NSView {
+final class TimelineContentView: NSView, NSMenuItemValidation {
     struct State {
         let clips: [TimelineClip]
         let pps: Double
@@ -87,6 +87,7 @@ final class TimelineContentView: NSView {
     private var dragStartX: CGFloat = 0
     private var dragStartValue: Double = 0      // fade/transition seconds at mouseDown (delta drags)
     private var dragMoved = false
+    private var pendingCheckpoint = false       // record ONE undo step on the first drag move
     private var contextClipID: UUID?
     private var contextSeconds: Double = 0
 
@@ -449,11 +450,13 @@ final class TimelineContentView: NSView {
         case .none:               drag = .scrub; model.seek(toSeconds: snapSeconds(p.x)); return
         default: break
         }
+        pendingCheckpoint = true     // an editing drag — record undo on the first actual move
         drag = h
     }
 
     override func mouseDragged(with event: NSEvent) {
         let p = convert(event.locationInWindow, from: nil)
+        if pendingCheckpoint { model.checkpoint(); pendingCheckpoint = false }   // one undo step per drag
         switch drag {
         case .scrub:
             model.seek(toSeconds: snapSeconds(p.x))
@@ -532,10 +535,21 @@ final class TimelineContentView: NSView {
     @objc private func ctxSplit() { if let id = contextClipID { model.splitClip(id, atTimelineSeconds: contextSeconds) } }
     @objc private func ctxDuplicate() { if let id = contextClipID { model.duplicateClip(id) } }
     @objc private func ctxDelete() { if let id = contextClipID { model.deleteClip(id) } }
-    @objc private func ctxClearFades() { if let id = contextClipID { model.setClipFade(id, fadeIn: 0, fadeOut: 0) } }
-    @objc private func ctxClearTransition() { if let id = contextClipID { model.setClipTransition(id, 0) } }
+    @objc private func ctxClearFades() { if let id = contextClipID { model.checkpoint(); model.setClipFade(id, fadeIn: 0, fadeOut: 0) } }
+    @objc private func ctxClearTransition() { if let id = contextClipID { model.checkpoint(); model.setClipTransition(id, 0) } }
     @objc private func ctxMute() {
-        if let id = contextClipID, let c = clip(id) { model.setClipVolume(id, c.audioVolume == 0 ? 1 : 0) }
+        if let id = contextClipID, let c = clip(id) { model.checkpoint(); model.setClipVolume(id, c.audioVolume == 0 ? 1 : 0) }
+    }
+
+    // The standard Edit-menu Copy/Paste (⌘C/⌘V) route here while the timeline is first responder.
+    @objc func copy(_ sender: Any?) { model.copySelected() }
+    @objc func paste(_ sender: Any?) { model.paste() }
+    func validateMenuItem(_ item: NSMenuItem) -> Bool {
+        switch item.action {
+        case #selector(copy(_:)): return model.selectedClipID != nil
+        case #selector(paste(_:)): return model.hasClipboard
+        default: return true
+        }
     }
 
     override func scrollWheel(with event: NSEvent) {

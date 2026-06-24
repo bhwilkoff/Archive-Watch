@@ -152,6 +152,7 @@ final class EditorModel {
 
     /// Add a clip from a saved proxy (dragged from the Library, or just-marked).
     func addClip(from proxy: ProxyClip) {
+        checkpoint()
         let clip = TimelineClip.from(proxy, at: .zero)
         document.project.timeline.clips.append(clip)
         relayout()
@@ -161,6 +162,7 @@ final class EditorModel {
     }
 
     func deleteClip(_ id: UUID) {
+        checkpoint()
         document.project.timeline.clips.removeAll { $0.id == id }
         thumbnails[id] = nil; clipCache[id] = nil
         if selectedClipID == id { selectedClipID = nil }
@@ -207,6 +209,7 @@ final class EditorModel {
         let clip = document.project.timeline.clips[i]
         let offsetInClip = t - clip.timelineStart.seconds                   // seconds into the clip
         guard offsetInClip > 0.05, offsetInClip < clip.sourceRange.duration.seconds - 0.05 else { return }
+        checkpoint()
         let cutSource = clip.sourceRange.start.seconds + offsetInClip
         var left = clip
         left.sourceRange = TimeRange(startSeconds: clip.sourceRange.start.seconds, durationSeconds: offsetInClip)
@@ -239,6 +242,7 @@ final class EditorModel {
     /// Duplicate a clip immediately after itself (context menu).
     func duplicateClip(_ id: UUID) {
         guard let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
+        checkpoint()
         let src = document.project.timeline.clips[i]
         let copy = TimelineClip(
             proxyClipID: src.proxyClipID, catalogItemID: src.catalogItemID, sourceURL: src.sourceURL,
@@ -256,6 +260,7 @@ final class EditorModel {
     var textOverlays: [TextOverlay] { document.project.timeline.textOverlays }
 
     func addTextOverlay() {
+        checkpoint()
         let start = playheadSeconds
         let avail = max(0, totalDuration - start)
         let ov = TextOverlay(text: "Title",
@@ -275,8 +280,62 @@ final class EditorModel {
     }
 
     func deleteOverlay(_ id: UUID) {
+        checkpoint()
         document.project.timeline.textOverlays.removeAll { $0.id == id }
         if selectedOverlayID == id { selectedOverlayID = nil }
+    }
+
+    // MARK: - Undo / redo (project snapshots via the window UndoManager) + clipboard + mute
+
+    /// Set from ProjectEditorView (@Environment(\.undoManager)) so ⌘Z + the Edit menu drive our
+    /// snapshot-based history natively.
+    @ObservationIgnored weak var undoManager: UndoManager?
+    @ObservationIgnored private var clipboard: TimelineClip?
+    var hasClipboard: Bool { clipboard != nil }
+
+    /// Capture the project so the next edit is undoable. Call BEFORE a discrete edit, or once at
+    /// the start of a drag (the timeline calls this on mouseDown).
+    func checkpoint() {
+        let before = document.project
+        undoManager?.registerUndo(withTarget: self) { editor in editor.applyHistory(before) }
+    }
+    private func applyHistory(_ snapshot: ClipProject) {
+        let inverse = document.project                       // re-registers as redo
+        undoManager?.registerUndo(withTarget: self) { editor in editor.applyHistory(inverse) }
+        document.project = snapshot
+        selectedClipID = nil; selectedOverlayID = nil
+        relayout(); scheduleRebuild()
+    }
+
+    /// Copy the selected clip; paste inserts a duplicate after the selection (sharing its cached
+    /// source window so it doesn't re-download).
+    func copySelected() {
+        guard let id = selectedClipID, let c = clips.first(where: { $0.id == id }) else { return }
+        clipboard = c
+    }
+    func paste() {
+        guard let c = clipboard else { return }
+        checkpoint()
+        let copy = TimelineClip(proxyClipID: c.proxyClipID, catalogItemID: c.catalogItemID,
+                                sourceURL: c.sourceURL, sourceRange: c.sourceRange,
+                                timelineStart: .zero, track: 0, label: c.label, audioVolume: c.audioVolume,
+                                fadeInSeconds: c.fadeInSeconds, fadeOutSeconds: c.fadeOutSeconds)
+        if let id = selectedClipID, let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) {
+            document.project.timeline.clips.insert(copy, at: i + 1)
+        } else {
+            document.project.timeline.clips.append(copy)
+        }
+        if let w = clipCache[c.id] { clipCache[copy.id] = w }
+        selectedClipID = copy.id
+        loadFilmstrip(for: copy)
+        relayout(); scheduleRebuild()
+    }
+
+    /// Mute / unmute the selected clip's audio.
+    func toggleMuteSelected() {
+        guard let id = selectedClipID, let c = clips.first(where: { $0.id == id }) else { return }
+        checkpoint()
+        setClipVolume(id, c.audioVolume == 0 ? 1 : 0)
     }
 
     /// Magnetic main track: clips lie end-to-end in ARRAY order, no gaps (Rule 7c). Array order
