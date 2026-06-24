@@ -136,8 +136,16 @@ struct ContinueWatchingWidget: Widget {
         }
         .configurationDisplayName("Continue Watching")
         .description("Pick up where you left off.")
-        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .accessoryRectangular])
+        .supportedFamilies(continueFamilies)
     }
+}
+
+private var continueFamilies: [WidgetFamily] {
+    #if os(macOS)
+    [.systemSmall, .systemMedium, .systemLarge]
+    #else
+    [.systemSmall, .systemMedium, .systemLarge, .accessoryRectangular]   // + Lock Screen
+    #endif
 }
 
 struct ContinueWatchingView: View {
@@ -149,7 +157,9 @@ struct ContinueWatchingView: View {
 
     var body: some View {
         switch family {
+        #if !os(macOS)
         case .accessoryRectangular: accessory
+        #endif
         case .systemSmall: small
         default: grid
         }
@@ -314,8 +324,16 @@ struct SurpriseWidget: Widget {
         }
         .configurationDisplayName("Surprise Me")
         .description("Tap to wander to a film you wouldn't have chosen.")
-        .supportedFamilies([.systemSmall, .accessoryCircular])
+        .supportedFamilies(surpriseFamilies)
     }
+}
+
+private var surpriseFamilies: [WidgetFamily] {
+    #if os(macOS)
+    [.systemSmall]
+    #else
+    [.systemSmall, .accessoryCircular]   // + Lock Screen
+    #endif
 }
 
 struct SurpriseView: View {
@@ -323,12 +341,14 @@ struct SurpriseView: View {
     let item: WidgetItem?
     var body: some View {
         switch family {
+        #if !os(macOS)
         case .accessoryCircular:
             ZStack {
                 AccessoryWidgetBackground()
                 Image(systemName: "dice.fill").font(.title3)
             }
             .widgetURL(deepLink("surprise"))
+        #endif
         default:
             ZStack(alignment: .bottom) {
                 if let img = awArt(item?.artFile) {

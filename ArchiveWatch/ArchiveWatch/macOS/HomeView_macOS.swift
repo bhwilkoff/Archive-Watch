@@ -8,6 +8,7 @@ import SwiftData
 struct HomeView: View {
     @Environment(AppStore.self) private var store
     @Query private var progress: [WatchProgress]
+    @Query(sort: \Favorite.addedAt, order: .reverse) private var savedFavorites: [Favorite]
     @State private var topRated: [Catalog.Item] = []
     @State private var gems: [Catalog.Item] = []
     @State private var watching: [Catalog.Item] = []
@@ -41,6 +42,32 @@ struct HomeView: View {
         watching  = store.filteringWatched(store.watchingNow())
         discussed = store.filteringWatched(store.mostDiscussed())
         favorites = store.filteringWatched(store.communityFavorites())
+        writeWidgetSnapshot()
+    }
+
+    /// Feed the macOS desktop / Notification Center widgets (App Group snapshot) —
+    /// the same shared writer the iPhone uses.
+    private func writeWidgetSnapshot() {
+        let continueItems = store.itemsByIDs(
+            progress.filter { !$0.isComplete && $0.positionSeconds > 10 }.prefix(12).map(\.archiveID))
+        let progressByID = Dictionary(
+            progress.compactMap { p -> (String, Double)? in
+                guard p.durationSeconds > 0 else { return nil }
+                return (p.archiveID, min(0.98, max(0.02, p.positionSeconds / p.durationSeconds)))
+            }, uniquingKeysWith: { a, _ in a })
+
+        let pickPool = (store.items(forShelf: "editors-picks") + store.topRated())
+            .filter { $0.hasDesignedArtwork && ($0.backdropURL != nil || $0.posterURL != nil) }
+        let day = Int(Date().timeIntervalSince1970 / 86_400)
+        let pick = WidgetSnapshotWriter.pickOfDay(from: pickPool, dayNumber: day)
+
+        let favItems = store.itemsByIDs(savedFavorites.prefix(8).map(\.archiveID)).filter(\.hasDesignedArtwork)
+
+        WidgetSnapshotWriter.write(continueWatching: continueItems,
+                                   progressByID: progressByID,
+                                   pickOfDay: pick,
+                                   favorites: favItems,
+                                   surprisePool: store.topRated().filter(\.hasProfessionalArtwork))
     }
 }
 
