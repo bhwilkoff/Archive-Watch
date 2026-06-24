@@ -21,6 +21,7 @@ struct ProjectEditorView: View {
     @State private var inspectorShown = true
     @State private var exporter = ExportService()
     @State private var showBrowser = false
+    @State private var showSupercut = false
     @State private var showPublishSheet = false
     @State private var publisher = PublishService()
     @State private var testMark: Catalog.Item?     // AW_CS_TEST=markclip presents this in a sheet
@@ -106,6 +107,9 @@ struct ProjectEditorView: View {
                 Button { model.addTextOverlay() } label: {
                     Label("Add Text", systemImage: "textformat")
                 }.disabled(document.project.timeline.clips.isEmpty)
+                Button { showSupercut = true } label: {
+                    Label("Supercut", systemImage: "text.magnifyingglass")
+                }
                 Button { showExportSheet = true } label: {
                     Label("Export", systemImage: "square.and.arrow.up")
                 }
@@ -125,6 +129,7 @@ struct ProjectEditorView: View {
             // The self-test/perf harness normally rides RootView's .task, but in a doc-app
             // launch RootView may not open — kick it here too (one-shot guarded).
             if ProcessInfo.processInfo.environment["AW_CS_PUBTEST"] == "1" { PublishService.selfTest() }
+            if ProcessInfo.processInfo.environment["AW_CS_SUPERTEST"] == "1" { await store.load(); await SubtitleIndexBuilder.selfTest(store: store) }
             if CreationStudioSelfTest.isEnabled { await store.load(); await CreationStudioSelfTest.run(store: store) }
             if let mode = CreationStudioTest.mode {
                 await store.load()                                   // RootView may not open in a doc-app launch
@@ -149,6 +154,9 @@ struct ProjectEditorView: View {
         }
         .sheet(isPresented: $showPublishSheet) {
             PublishSheet(project: document.project, publisher: publisher, exporter: exporter)
+        }
+        .sheet(isPresented: $showSupercut) {
+            SupercutSheet(model: model).environment(store)
         }
         .background(WindowFitter())     // keep the window within the screen (DocumentGroup ignores .defaultSize)
     }

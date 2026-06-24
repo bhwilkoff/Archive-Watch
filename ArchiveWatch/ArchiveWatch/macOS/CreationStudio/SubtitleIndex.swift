@@ -1,0 +1,187 @@
+#if os(macOS)
+import Foundation
+import SQLite3
+
+// The subtitle CUE index for the text→supercut (#9, docs/macOS-DESIGN.md §5/§6). Search a phrase
+// and find every moment across the public-domain catalog where it is SPOKEN, then assemble those
+// moments into an EDITABLE timeline of candidates (Rule 5a — never a one-tap finished cut).
+//
+// This is the QUERY LAYER + a SAMPLE index (real human caption VTTs parsed into cues); the full
+// `subtitle.sqlite` is built in CI by tools/build_subtitle_index.py over the whole /subs corpus,
+// with the SAME `cues` schema, so swapping in the published index is just changing the file.
+// Word-level isolation (Rule 6b — SpeechTranscriber timing validated against the caption text)
+// is the refinement; v1 is line-level: the clip is the spoken CUE that contains the phrase.
+
+let SQLITE_TRANSIENT_SUB = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
+
+struct SubtitleCue: Identifiable, Hashable, Sendable {
+    let id: String
+    let archiveID: String
+    let sourceURL: URL
+    let startSeconds: Double
+    let endSeconds: Double
+    let text: String
+    let title: String
+
+    var durationSeconds: Double { max(0.4, endSeconds - startSeconds) }
+    var timecode: String { String(format: "%d:%02d", Int(startSeconds) / 60, Int(startSeconds) % 60) }
+
+    /// A clip of the spoken line, padded slightly so the line isn't clipped at the edges.
+    var proxyClip: ProxyClip {
+        let pad = 0.25
+        let inS = max(0, startSeconds - pad)
+        return ProxyClip(catalogItemID: archiveID, sourceURL: sourceURL,
+                         sourceRange: TimeRange(startSeconds: inS, durationSeconds: durationSeconds + pad * 2),
+                         label: "\(title): \(text.prefix(28))", posterFrameSeconds: startSeconds, title: title)
+    }
+}
+
+@MainActor
+final class SubtitleIndex {
+    private var handle: OpaquePointer?
+
+    static var sampleURL: URL {
+        let base = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+            .appendingPathComponent("CreationStudio", isDirectory: true)
+        try? FileManager.default.createDirectory(at: base, withIntermediateDirectories: true)
+        return base.appendingPathComponent("subtitle-sample.sqlite")
+    }
+
+    init?(path: URL) {
+        guard sqlite3_open_v2(path.path, &handle, SQLITE_OPEN_READONLY, nil) == SQLITE_OK else {
+            sqlite3_close(handle); return nil
+        }
+    }
+    isolated deinit { sqlite3_close(handle) }
+
+    /// Cues whose text contains the phrase (LIKE for the sample; the CI index adds FTS5). Ordered
+    /// so a SHORTER cue (a tighter quote of the phrase) ranks first.
+    func search(_ phrase: String, limit: Int = 200) -> [SubtitleCue] {
+        let q = phrase.trimmingCharacters(in: .whitespaces)
+        guard !q.isEmpty else { return [] }
+        let sql = """
+            SELECT id,archiveID,sourceURL,startSeconds,endSeconds,text,title FROM cues
+            WHERE text LIKE ?1 ORDER BY (endSeconds-startSeconds) ASC LIMIT \(limit)
+            """
+        var stmt: OpaquePointer?
+        guard sqlite3_prepare_v2(handle, sql, -1, &stmt, nil) == SQLITE_OK else { return [] }
+        defer { sqlite3_finalize(stmt) }
+        sqlite3_bind_text(stmt, 1, "%\(q)%", -1, SQLITE_TRANSIENT_SUB)
+        var out: [SubtitleCue] = []
+        while sqlite3_step(stmt) == SQLITE_ROW {
+            func str(_ i: Int32) -> String { sqlite3_column_text(stmt, i).map { String(cString: $0) } ?? "" }
+            guard let url = URL(string: str(2)) else { continue }
+            out.append(SubtitleCue(id: str(0), archiveID: str(1), sourceURL: url,
+                                   startSeconds: sqlite3_column_double(stmt, 3),
+                                   endSeconds: sqlite3_column_double(stmt, 4),
+                                   text: str(5), title: str(6)))
+        }
+        return out
+    }
+
+    var cueCount: Int {
+        var stmt: OpaquePointer?
+        guard sqlite3_prepare_v2(handle, "SELECT count(*) FROM cues", -1, &stmt, nil) == SQLITE_OK else { return 0 }
+        defer { sqlite3_finalize(stmt) }
+        return sqlite3_step(stmt) == SQLITE_ROW ? Int(sqlite3_column_int(stmt, 0)) : 0
+    }
+}
+
+// MARK: - WebVTT parsing
+
+enum VTTParser {
+    /// (startSeconds, endSeconds, text) cues from WebVTT/SRT text.
+    static func cues(_ vtt: String) -> [(Double, Double, String)] {
+        var out: [(Double, Double, String)] = []
+        let blocks = vtt.replacingOccurrences(of: "\r\n", with: "\n").components(separatedBy: "\n\n")
+        for block in blocks {
+            let lines = block.split(separator: "\n", omittingEmptySubsequences: true).map(String.init)
+            guard let tIdx = lines.firstIndex(where: { $0.contains("-->") }) else { continue }
+            let parts = lines[tIdx].components(separatedBy: "-->")
+            guard parts.count == 2, let a = seconds(parts[0]), let b = seconds(parts[1]) else { continue }
+            let text = lines[(tIdx + 1)...].joined(separator: " ")
+                .replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
+                .trimmingCharacters(in: .whitespaces)
+            if !text.isEmpty, b > a { out.append((a, b, text)) }
+        }
+        return out
+    }
+    private static func seconds(_ s: String) -> Double? {
+        let t = s.trimmingCharacters(in: .whitespaces).split(separator: " ").first.map(String.init) ?? s
+        let comps = t.replacingOccurrences(of: ",", with: ".").split(separator: ":").map { Double($0) ?? 0 }
+        switch comps.count {
+        case 3: return comps[0] * 3600 + comps[1] * 60 + comps[2]
+        case 2: return comps[0] * 60 + comps[1]
+        default: return nil
+        }
+    }
+}
+
+// MARK: - Sample index builder (real cues; the CI tool builds the full corpus)
+
+enum SubtitleIndexBuilder {
+    /// Build the sample subtitle.sqlite from a batch of captioned titles' real VTTs, if absent.
+    @MainActor
+    static func buildSampleIfNeeded(store: AppStore, maxFilms: Int = 60) async {
+        let url = SubtitleIndex.sampleURL
+        if FileManager.default.fileExists(atPath: url.path) { return }
+        let captioned = store.browse(sort: .popular, limit: 1200).filter {
+            $0.isClippable && ($0.captions?.contains { $0.vttURL != nil } ?? false)
+        }.prefix(maxFilms)
+        guard !captioned.isEmpty else { return }
+
+        var db: OpaquePointer?
+        guard sqlite3_open_v2(url.path, &db, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE, nil) == SQLITE_OK else {
+            sqlite3_close(db); return
+        }
+        defer { sqlite3_close(db) }
+        sqlite3_exec(db, """
+            CREATE TABLE IF NOT EXISTS cues(
+              id TEXT PRIMARY KEY, archiveID TEXT, sourceURL TEXT,
+              startSeconds REAL, endSeconds REAL, text TEXT, title TEXT);
+            """, nil, nil, nil)
+        let insert = "INSERT OR REPLACE INTO cues VALUES(?,?,?,?,?,?,?)"
+        var stmt: OpaquePointer?
+        guard sqlite3_prepare_v2(db, insert, -1, &stmt, nil) == SQLITE_OK else { return }
+        defer { sqlite3_finalize(stmt) }
+
+        for item in captioned {
+            guard let url = item.videoURLParsed,
+                  let vttStr = item.captions?.first(where: { $0.vttURL != nil })?.vttURL,
+                  let vttURL = URL(string: vttStr),
+                  let (data, _) = try? await URLSession.shared.data(from: vttURL),
+                  let vtt = String(data: data, encoding: .utf8) else { continue }
+            sqlite3_exec(db, "BEGIN", nil, nil, nil)
+            for (i, cue) in VTTParser.cues(vtt).enumerated() {
+                sqlite3_reset(stmt)
+                sqlite3_bind_text(stmt, 1, "\(item.archiveID)#\(i)", -1, SQLITE_TRANSIENT_SUB)
+                sqlite3_bind_text(stmt, 2, item.archiveID, -1, SQLITE_TRANSIENT_SUB)
+                sqlite3_bind_text(stmt, 3, url.absoluteString, -1, SQLITE_TRANSIENT_SUB)
+                sqlite3_bind_double(stmt, 4, cue.0)
+                sqlite3_bind_double(stmt, 5, cue.1)
+                sqlite3_bind_text(stmt, 6, cue.2, -1, SQLITE_TRANSIENT_SUB)
+                sqlite3_bind_text(stmt, 7, item.title, -1, SQLITE_TRANSIENT_SUB)
+                sqlite3_step(stmt)
+            }
+            sqlite3_exec(db, "COMMIT", nil, nil, nil)
+        }
+    }
+
+    /// Headless end-to-end check (AW_CS_SUPERTEST=1): build the sample index from real VTTs and
+    /// run a couple of phrase searches, so the VTT parse + index + search are verified offline.
+    @MainActor
+    static func selfTest(store: AppStore) async {
+        func log(_ s: String) { FileHandle.standardError.write(Data("AWCS SUPERTEST: \(s)\n".utf8)) }
+        try? FileManager.default.removeItem(at: SubtitleIndex.sampleURL)   // fresh each run
+        var t = 0; while store.randomPlayable() == nil && t < 60 { try? await Task.sleep(for: .seconds(1)); t += 1 }
+        await buildSampleIfNeeded(store: store, maxFilms: 25)
+        guard let index = SubtitleIndex(path: SubtitleIndex.sampleURL) else { log("no index built"); return }
+        log("indexed cues = \(index.cueCount)")
+        for phrase in ["love", "you", "the end", "kill"] {
+            let r = index.search(phrase, limit: 5)
+            log("search \"\(phrase)\" -> \(r.count) hits")
+            for c in r.prefix(2) { log("   \(c.title) @\(c.timecode): \(c.text.prefix(50))") }
+        }
+    }
+}
+#endif

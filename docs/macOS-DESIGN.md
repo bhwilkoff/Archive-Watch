@@ -426,6 +426,23 @@ OAuth app is forced Private/100-user-capped).
   upload needs the owner's keys + creates a public item, so it's owner-verified (can't run in CI).
 - DEFERRED: YouTube upload (blocked on Google OAuth verification, Decision 042).
 
+**Text → Supercut (#9, the flagship) v1: SHIPPED 2026-06-24.** Type a phrase, find every moment
+across the public-domain catalog where it's SPOKEN, pick the takes, and assemble them into the
+timeline as EDITABLE candidate clips (Rule 5a — the editorial cut stays human; this only
+automates the search + gather, never a one-tap finished cut).
+- `SubtitleIndex` (mirrors `StockIndex`): a `cues` table (archiveID, sourceURL, start/end, text,
+  title) queried by phrase (LIKE for the sample; the CI index adds FTS5). `VTTParser` parses
+  WebVTT/SRT. `SubtitleIndexBuilder.buildSampleIfNeeded` fetches the popular captioned titles'
+  real VTTs on-device and parses them (same sample-now / CI-pipeline-later shape as StockIndex).
+- `SupercutSheet` — a search field → candidate cues (text + film + timecode, each toggle-able) →
+  "Add N Clips" assembles each cue's padded window into the timeline. Toolbar "Supercut" button.
+- Verified headlessly (AW_CS_SUPERTEST=1): 29,408 cues indexed from 25 real captioned films;
+  "kill" → "I killed him." (Spellbound @94:29), "love" → "Except that I love you." (Spellbound).
+- **DEFERRED refinements:** (a) the full-corpus `subtitle.sqlite` built in CI over all /subs with
+  FTS5 + a word-timing table, downloaded like `catalog.sqlite` (the sample covers popular
+  captioned films now); (b) WORD-level isolation — macOS-26 SpeechTranscriber per-word timing
+  validated against the caption text (Rule 6b), to cut a single word rather than its whole line.
+
 **Test/screenshot hooks (`AW_CS_TEST`) + sidebar clip thumbnails: SHIPPED 2026-06-24.** The
 DocumentGroup editor is driven into a populated state (`editor`) or the Add-Clip scrubber
 (`markclip`) for CLI visual verification (SwiftUI's a11y tree isn't AppleScript-traversable).
