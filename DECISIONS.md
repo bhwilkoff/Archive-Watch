@@ -1836,3 +1836,79 @@ human source covers them — correct, per 039b. The published subtitle-assets `.
 for dropped ASR captions become orphaned (harmless). Title cleaning is visible on every
 surface at once (shared data plane). The Phase-3 free-subtitle harvest (SubSource/SubDL)
 remains the path to real coverage.
+
+
+---
+
+## 044 — Enforce the QC gates EVERY build: auto-apply rights, footprint-gate bogus CC, validate poster liveness, clear orphan auto-subtitle HLS
+*Date: 2026-06-24*
+
+The three catalog quality gates (copyright, posters, subtitles) are now ENFORCED on
+every published build instead of being report-only or one-shot, after the owner found
+all three leaking on the Apple TV homepage (copyrighted "Throw Momma From The Train"
+visible, a few missing posters, auto-generated subtitles still playing). Four changes:
+
+1. **Rights apply runs every `publish-db`** (`audit_rights.py --apply` after dedupe).
+   `rights-audit.yml` deliberately only ran `--confirm` (annotate) and left the
+   `excluded=true` apply "for later review" — so confirmed-copyright items drifted back
+   onto every surface (373 un-excluded confirmed-copyright items found live, incl.
+   famous studio films). The apply is pure-data + idempotent + reconciling, so it is
+   safe every build; its reconcile now SKIPS foreign exclusions
+   (`livenessReason`/`livenessDead`/`episodeDuplicate`/`duplicateOf`/`duplicateMergedInto`)
+   so it can never un-hide a dead/duplicate item another tool owns. `rights-audit.yml`
+   (network confirm) is now also nightly-scheduled so new ingests get confirmed before
+   the apply.
+
+2. **Bogus-CC footprint gate** (`license_rescues`). The licenseurl is uploader-controlled,
+   and uploaders routinely re-upload copyrighted STUDIO films with a bogus CC0/CC tag
+   (Throw Momma 1987 CC-BY-NC-ND; Nayakan 1987 CC0 27k votes; Virus 1980 CC0 3173 votes;
+   Black Cobra 1987 CC-BY 686 votes; Kagemusha 1980 CC-BY-NC-ND). For MODERN works (>=1978)
+   a license now rescues ONLY if it is a FREE-CULTURE variant (CC0, CC-BY, CC-BY-SA — never
+   the NonCommercial/NoDerivatives variants, which are both non-free AND the studio-piracy
+   tell) AND the item has NO commercial footprint (`imdbVotes < COMMERCIAL_VOTES=100`). A real
+   theatrical release with thousands of IMDb votes is never a creator CC dedication. The
+   bogus `rightsStatus=="creative_commons"` LABEL is likewise trusted only pre-1978. Genuine
+   modern free-culture works with no footprint (Sita Sings the Blues, CC0, 0 votes) are KEPT.
+
+3. **Poster liveness gate** (`validate_posters.py` + `validate-posters.yml`, new). The
+   pipeline had NO poster liveness check (`scrub_poster_urls.py`/`enrich_artwork.py` are
+   orphaned tools on the retired SQLite plane). Measured ~62% of `omdb` posters
+   (m.media-amazon.com — IMDb rotates the image hash) now 404, surfacing as missing posters
+   on Home. The nightly workflow ranged-GETs decay-prone posters (omdb/commons/wikidata/
+   external/fanart/aapb/tvdb/tvmaze) and demotes a DEAD (404/410) one to the always-available
+   `archive.org/services/img/{id}` thumbnail with `hasRealArtwork=False` + `posterDead=True`
+   — so a broken image never LEADS Home (build_sqlite's designed-art gate drops it) yet every
+   surface still shows a real frame. A TRANSIENT 403/429/5xx (e.g. Commons throttle) is left
+   unmarked and retried — never demoted (the "never wrongly hide" discipline).
+
+4. **Orphan auto-subtitle HLS cleared** (`remediate_catalog.drop_asr_captions`). Decision 043
+   dropped the hallucinated archive-ASR `captions[]` but left the `subtitleHLS` rendition
+   (the Apple HLS subtitle track) behind on 2,465 items, which the Apple apps still played.
+   `drop_asr_captions` now also drops `subtitleHLS` when no HUMAN caption survives. Runs every
+   build (it is part of remediate), so it self-heals.
+
+**Why**: report-only / one-shot gates DRIFT — new ingests and license/host decay re-introduce
+copyrighted titles, dead posters, and stale auto-subtitles between manual passes, and the owner
+hit all three at once. The cost asymmetry favors enforcing every build: a wrongly-hidden item is
+reversible (the `excluded` flag) and a demoted poster still renders a frame, whereas a
+copyrighted studio film on the homepage is a legal/trust failure and a broken poster is a visible
+quality failure. Enforcing in `publish-db` (the single chokepoint that builds the app DB + web
+index) means every platform — tvOS, iOS, macOS, Android, web — gets the clean gate from one place.
+
+**How to apply**: keep the apply in `publish-db` (do NOT revert to confirm-only "for review" —
+that is the drift that caused this). The `--confirm`/`--apply` split stays: confirm is the network
+phase (annotate `archiveLicense`/`rightsConfirmed`), apply is the pure-data hide of CONFIRMED
+buckets only (an unconfirmed modern item is never hidden). Never raise `COMMERCIAL_VOTES` to
+"rescue" a popular title — a high vote count is the signal the CC tag is bogus. For posters, only
+404/410 demotes; never demote on a throttle. The residual class (unmatched foreign studio films
+with 0 votes carrying a bogus CC0 — Lady Vengeance, Haider) has no footprint to gate on and is
+left to the curated `is_renewed_classic` denylist; they have 0 votes so they never reach a
+vote-floored shelf. Complements Decision 027 (rights buckets), 026 (match correctness), 043
+(subtitle source), 023 (generated covers).
+
+**Consequences**: nightly order is rights-audit confirm (01:10) → validate-posters (02:15) →
+publish-db apply+build (04:30). `posterDead`/`posterDeadURL`/`posterChecked` are additive JSON keys
+the clients ignore; `posterDead=True` is a durable wants-marker for a future fresh-poster /
+cover-generation pass (the demoted items currently show the Archive thumbnail). `catalog.json` on
+the source release carries the annotations but not the build-time apply/remediate mutations (those
+are re-derived every build, idempotently) — consistent with Decisions 027/043.

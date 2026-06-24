@@ -654,24 +654,35 @@ def _strip_uscore_suffix(t):
     return t
 
 
+def _is_human_caption(c):
+    return c.get("source") != "archive-asr" and "(auto)" not in (c.get("label") or "")
+
+
 def drop_asr_captions(items):
     """archive.org auto-ASR captions (label 'English (auto)', source 'archive-asr')
     are hallucinated word-salad on the catalog's old-film audio — the SAME failure
     that retired whisper (Decision 039b: auto speech-to-text is not shippable, a wrong
     subtitle is worse than none). Drop them; keep human/uploader captions (SubDL,
-    SubSource, uploader .srt). Reversible: re-running enrich refills only human subs."""
+    SubSource, uploader .srt). Reversible: re-running enrich refills only human subs.
+
+    ALSO clears an orphaned `subtitleHLS` (the Apple HLS subtitle track): when an item's
+    auto caption was already burned into an HLS rendition, dropping the caption left the
+    HLS still serving the hallucinated subtitle, which the Apple apps play. If no human
+    caption remains, the HLS is stale — drop it too. Returns (captions_dropped, hls_cleared)."""
     dropped = 0
+    hls_cleared = 0
     for it in items:
-        caps = it.get("captions")
-        if not caps:
-            continue
-        kept = [c for c in caps
-                if (c.get("source") != "archive-asr"
-                    and "(auto)" not in (c.get("label") or ""))]
-        if len(kept) != len(caps):
-            dropped += len(caps) - len(kept)
-            it["captions"] = kept or None
-    return dropped
+        caps = it.get("captions") or []
+        if caps:
+            kept = [c for c in caps if _is_human_caption(c)]
+            if len(kept) != len(caps):
+                dropped += len(caps) - len(kept)
+                it["captions"] = kept or None
+        # An HLS subtitle track with no surviving HUMAN caption is the orphaned auto track.
+        if it.get("subtitleHLS") and not any(_is_human_caption(c) for c in (it.get("captions") or [])):
+            it.pop("subtitleHLS", None)
+            hls_cleared += 1
+    return dropped, hls_cleared
 
 
 def _synopsis_text(it):
@@ -991,9 +1002,11 @@ def main():
         cat["stats"]["totalItems"] = len(cat["items"])
     stats = remediate(cat["items"])
     fix_tmdb_collisions(cat["items"], stats)   # #20 year-independent wrong-poster pass
-    asr = drop_asr_captions(cat["items"])      # hallucinated archive.org ASR captions (039b)
+    asr, hls = drop_asr_captions(cat["items"])   # hallucinated archive.org ASR captions (039b)
     if asr:
         stats["asr_captions_dropped"] = asr
+    if hls:
+        stats["orphan_subtitleHLS_cleared"] = hls
     stats["junk_removed"] = junk_removed
     print("[remediate] " + (", ".join(f"{k}={v}" for k, v in sorted(stats.items())) or "no changes"))
     if not args.dry_run:

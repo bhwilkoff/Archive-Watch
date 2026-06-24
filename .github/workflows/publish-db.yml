@@ -54,6 +54,20 @@ jobs:
       - name: Dedupe orphan episodes
         run: python tools/dedupe_orphan_episodes.py --apply | tee dedupe.log
 
+      # ENFORCE the copyright gate on every DB build (Decision 027). This is the
+      # PURE-DATA apply only — it hides items already CONFIRMED-copyright by the
+      # network confirm phase (rights-audit.yml, scheduled) and reconciles stale
+      # rights exclusions; it never hides an unconfirmed item, and its reconcile
+      # skips foreign (liveness/dedup) exclusions. WHY here: the confirm workflow
+      # deliberately never applied, so confirmed-copyright items (e.g. "Throw Momma
+      # From The Train") drifted back onto the homepage. Applying every build closes
+      # that drift so a copyrighted title can never reach an app surface.
+      - name: Enforce rights gate (apply confirmed hides)
+        run: |
+          python tools/audit_rights.py --apply | tee rights-apply.log
+          echo "## Rights gate" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 rights-apply.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
       - name: Metadata quality audit (report)
         run: |
           python tools/audit_metadata.py --top 2000 | tee audit.log

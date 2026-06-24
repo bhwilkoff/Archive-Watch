@@ -75,6 +75,10 @@ PD_BY_AGE = 1929
 RENEWAL_ZONE_START = 1964
 MODERN = 1978
 COMMERCIAL_MODERN = 1995  # vintage-commercial cutoff; modern brand ads are copyrighted
+COMMERCIAL_VOTES = 100    # an IMDb vote count >= this = a real theatrical/video release;
+                          # no genuine rights-holder dedicates such a film to CC/CC0, so an
+                          # uploader CC/CC0 tag on it is bogus (Virus 1980 CC0 3173 votes,
+                          # Throw Momma 1987 43k votes, Black Cobra 1987 BY 686 votes).
 
 GOV = R._GOV_PD_COLLECTIONS
 EXTERNAL = {"tmdb", "omdb"}
@@ -190,22 +194,48 @@ def is_commercial_slop(it):
     return bool(SLOP_TITLE_RE.search(it.get("title") or "")) or modern_id(it)
 
 
-def license_rescues(lic: str | None, year: int | None) -> bool:
-    """True if the Archive licenseurl is a genuine free dedication for this year.
+def license_rescues(lic: str | None, year: int | None, votes: int | None = None) -> bool:
+    """True if the Archive licenseurl is a genuine free dedication WE TRUST for this item.
 
-    Order matters: the OLD-style URL `creativecommons.org/licenses/publicdomain/`
-    contains the substring `creativecommons.org/licenses/`, so the PD checks MUST
-    run before the generic CC-license check or a modern film carrying that old PD
-    URL would be wrongly kept."""
+    The licenseurl is uploader-controlled, so a MODERN work (>=1978) carrying a CC/CC0
+    tag is NOT automatically trusted — uploaders routinely re-upload copyrighted studio
+    films with a bogus CC0/CC license (measured: Virus 1980 CC0 3173 votes; Nayakan 1987
+    CC0 27k votes; Black Cobra 1987 CC-BY 686 votes; Kagemusha 1980 CC-BY-NC-ND). The
+    distinction the catalog CAN make for modern works:
+      • a real commercial footprint (imdbVotes >= COMMERCIAL_VOTES) overrides ANY uploader
+        license claim — a film with thousands of IMDb votes is a real release, never a
+        creator CC dedication; these are exactly the high-popularity titles that reach the
+        homepage's vote-floored shelves (the user-visible failure), so this gate is what
+        keeps copyrighted studio films off Home.
+      • only the FREE-CULTURE variants (CC0, CC-BY, CC-BY-SA) can rescue a modern work at
+        all; the NonCommercial / NoDerivatives variants are both non-free AND the classic
+        studio-piracy tell, so a modern NC/ND tag never rescues.
+    PRE-1978 stays generously trusted per Decision 027 (any CC/CC0, and a bare PD claim).
+
+    A residual class slips through: an UNMATCHED foreign studio film (imdbVotes 0/None)
+    carrying a bogus CC0 (Lady Vengeance, Haider). Those have no commercial footprint to
+    gate on, so they're kept here — but having 0 votes they never reach a vote-floored
+    shelf, so they don't surface on Home; a curated denylist (is_renewed_classic) mops
+    them up.
+
+    Order matters: the OLD-style URL `creativecommons.org/licenses/publicdomain/` contains
+    the substring `creativecommons.org/licenses/`, so the PD checks MUST run before the
+    generic CC-license check or a modern film carrying that old PD URL would be wrongly kept."""
     if not lic:
         return False
     l = lic.lower()
-    if "publicdomain/zero" in l:        # CC0 — genuine waiver, any year
-        return True
+    modern = isinstance(year, int) and year >= MODERN
+    commercial = isinstance(votes, int) and votes >= COMMERCIAL_VOTES
+    if "publicdomain/zero" in l:        # CC0 — genuine waiver
+        return not (modern and commercial)
     if "publicdomain" in l:             # PD Mark / old-style bare PD claim —
-        return isinstance(year, int) and year < MODERN   # credible only pre-1978
+        return not modern               # credible only pre-1978
     if "creativecommons.org/licenses/" in l:   # real CC license (by/sa/nc/nd)
-        return True
+        if not modern:
+            return True                 # pre-1978: trusted
+        m = re.search(r"creativecommons\.org/licenses/([a-z-]+)", l)
+        variant = m.group(1) if m else ""
+        return variant in ("by", "by-sa") and not commercial   # modern: free-culture + no footprint
     return False
 
 
@@ -228,9 +258,13 @@ def bucket(it):
     # overrides even a bogus CC/PD claim (a studio classic has neither for real).
     if is_renewed_classic(it):
         return "renewed_copyright_classic", "hide"
-    if rs == "creative_commons":
+    # A bogus uploader "creative_commons" rightsStatus is common on modern STUDIO films
+    # (e.g. Throw Momma From The Train, 1987). Only trust the CC label for a KNOWN pre-modern
+    # year; a modern work must carry a REAL CC0/CC licenseurl (license_rescues) to be kept —
+    # otherwise it falls through to the modern-copyright confirm/hide path below.
+    if rs == "creative_commons" and isinstance(yi, int) and yi < MODERN:
         return "safe_cc", "keep"
-    if license_rescues(it.get("archiveLicense"), yi):
+    if license_rescues(it.get("archiveLicense"), yi, it.get("imdbVotes")):
         return "safe_archive_license", "keep"
     if yi is not None and yi < PD_BY_AGE:
         return "safe_pd_age", "keep"
@@ -433,7 +467,7 @@ def confirm_pass(cat, workers, limit):
                     it["decade"] = R.decade_of(ayr)
                 it["rightsAudit"] = "redated_from_archive"
                 redated[0] += 1
-            elif license_rescues(lic, sy):
+            elif license_rescues(lic, sy, it.get("imdbVotes")):
                 rescued[0] += 1
             done[0] += 1
             if done[0] % 250 == 0:
@@ -540,6 +574,13 @@ def main():
     HIDE = set(HIDE_BUCKETS)
     if args.renewal_hide:
         HIDE |= {"renewal_zone", "renewal_zone_bw"}
+    # `excluded` is SHARED state — other tools own their own exclusions
+    # (check_liveness.py -> livenessReason/livenessDead; dedupe_orphan_episodes.py +
+    # merge_film_duplicates -> episodeDuplicate/duplicateOf/duplicateMergedInto). The
+    # rights reconcile must touch ONLY exclusions the rights audit itself created, or
+    # running --apply every build would UN-HIDE dead/duplicate items those tools hid.
+    FOREIGN = ("livenessReason", "livenessDead", "episodeDuplicate", "duplicateOf",
+               "duplicateMergedInto")
     hidden = 0
     unhid = 0
     for it in items:
@@ -548,8 +589,8 @@ def main():
             it["excluded"] = True
             it["rightsAudit"] = b
             hidden += 1
-        elif it.get("excluded"):
-            it.pop("excluded", None)          # no longer a hide -> restore
+        elif it.get("excluded") and not any(it.get(k) is not None for k in FOREIGN):
+            it.pop("excluded", None)          # no longer a rights hide -> restore
             it["rightsAudit"] = "unhidden_" + b
             unhid += 1
     cat["items"] = items

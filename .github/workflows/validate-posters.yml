@@ -1,0 +1,68 @@
+name: Validate posters (liveness)
+
+# Poster liveness gate (companion to rights-audit.yml). Hosts that serve our baked
+# posterURLs ROT — measured ~62% of `omdb` (IMDb/Amazon image CDN) posters now 404
+# because IMDb rotated the image hash — surfacing as MISSING POSTERS on the homepage.
+# This workflow re-checks decay-prone posters and demotes dead ones to the always-
+# available archive.org item thumbnail (hasRealArtwork=False, posterDead=True), so a
+# broken image never LEADS Home and every surface still shows a real frame.
+#
+# Network-heavy (one ranged GET per poster), so it runs in CI (like the rights confirm
+# / color-classify / verify-matches passes). Resumable via `posterChecked`; transient
+# 403/429/5xx are left unmarked and retried. Publishes the annotated catalog back to
+# the catalog-source release; the scheduled publish-db then rebuilds the app DB + web
+# index from it, so the demotion reaches every platform.
+
+on:
+  schedule:
+    - cron: '15 2 * * *'   # nightly, before publish-db (04:30) picks up the result
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max posters to verify this run (0 = all due)'
+        required: false
+        default: '0'
+      workers:
+        description: 'Concurrent poster fetches'
+        required: false
+        default: '16'
+      refresh:
+        description: 'Re-check posters already verified (true/false)'
+        required: false
+        default: 'false'
+
+concurrency:
+  group: catalog-writers
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    permissions:
+      contents: write   # catalog_release.py publish uploads a release asset
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Verify poster liveness + demote dead
+        run: |
+          python tools/validate_posters.py \
+            --workers ${{ github.event.inputs.workers || '16' }} \
+            ${{ github.event.inputs.refresh == 'true' && '--refresh' || '' }} \
+            ${{ github.event.inputs.limit != '0' && format('--limit {0}', github.event.inputs.limit) || '' }} \
+            | tee posters.log
+          echo "## Poster liveness" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -4 posters.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Publish annotated catalog to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py publish

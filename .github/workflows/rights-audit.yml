@@ -15,6 +15,12 @@ name: Rights audit (confirm)
 # Resumable via `rightsConfirmed`; failed fetches stay unconfirmed and retry.
 
 on:
+  # Run proactively: new ingests add modern PD-labelled titles that must be
+  # confirmed against their OWN archive.org licenseurl before publish-db's apply
+  # step can hide the copyrighted ones. Resumable via rightsConfirmed, so a nightly
+  # run only confirms what's new. (The apply itself runs every publish-db build.)
+  schedule:
+    - cron: '10 1 * * *'   # nightly, before validate-posters (02:15) + publish-db (04:30)
   workflow_dispatch:
     inputs:
       limit:
