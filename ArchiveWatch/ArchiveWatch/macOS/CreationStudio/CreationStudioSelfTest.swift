@@ -271,6 +271,15 @@ enum CreationStudioSelfTest {
                                : ": " + words.prefix(8).map { "\($0.text)@\(String(format: "%.1f", $0.range.start.seconds))" }.joined(separator: " ")))
         }
 
+        // LOUDNESS: measure each clip's RMS + the supercut normalization gain (the clips differ in
+        // level, so an even-volume pass meaningfully changes their mix gains).
+        for clip in timeline.clips {
+            if let u = try? await ClipCacheService.cachedURL(for: clip), let rms = await Loudness.rms(url: u) {
+                log(String(format: "LOUDNESS %@ rms=%.4f -> gain=%.2f",
+                           String(clip.label.prefix(14)), rms, Loudness.gain(forRMS: rms)))
+            }
+        }
+
         // #5: a ProRes .mov export (reuses the warm cache) to confirm the format path.
         let proURL = ProjectMediaCache.directory.appendingPathComponent("selftest-prores.mov")
         let proExporter = ExportService()

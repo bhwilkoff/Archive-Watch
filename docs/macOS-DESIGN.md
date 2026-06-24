@@ -553,8 +553,12 @@ Gap RECOVERY: a word the corpus can't speak shows an inline "try another word…
 replacement (synonym / re-spelling) and it re-resolves on the spot, so more lines become composable
 rather than stuck. The supercut is now a full system: find-phrase (v1) + compose-sentence (v2,
 longest-match) + forced-aligned frame-accurate word index (Phase B) + alternate takes / shuffle /
-anti-click joins / gap recovery (Phase C). Remaining optional polish: per-word loudness
-normalization, a "read it back" in-sheet preview (the editor already previews after Add).
+anti-click joins / gap recovery / loudness normalization (Phase C). **Loudness:** an "Even out the
+volume across clips" toggle measures each word window's RMS (`Loudness`, native AVAssetReader) and
+sets its mix gain toward a shared target, so one film's word doesn't boom over the next. Verified:
+two real clips measured rms 0.0102 vs 0.1471 (a ~14× spread) → normalized to gains 3.00 vs 0.82.
+The only remaining optional polish is a "read it back" in-sheet preview (the editor already previews
+the assembly after Add).
 
 **Still deferred (one item):** the NSDocument/security-scoped-bookmark durable-media unit
 (music/voiceover persist in the disposable cache now, not the `.archiveproj` package) — a document-

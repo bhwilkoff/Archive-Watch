@@ -25,6 +25,7 @@ struct SupercutSheet: View {
     @State private var building = true
     @State private var searched = false
     @State private var tightenToWord = false
+    @State private var evenVolume = false
     @State private var assembling = false
     @State private var assembleProgress = 0.0
     @State private var gapEdits: [UUID: String] = [:]
@@ -52,6 +53,9 @@ struct SupercutSheet: View {
 
             if (mode == .find && !results.isEmpty) || (mode == .compose && !plan.isEmpty) {
                 Toggle("Tighten each clip to the spoken word (on-device speech)", isOn: $tightenToWord).font(.caption)
+            }
+            if mode == .compose && !plan.isEmpty {
+                Toggle("Even out the volume across clips", isOn: $evenVolume).font(.caption)
             }
             if assembling { ProgressView(value: assembleProgress) { Text("Assembling…").font(.caption) } }
             footer
@@ -205,10 +209,19 @@ struct SupercutSheet: View {
             // For tightening, run speech on the FULL cue window (context) and use the phrase's range;
             // otherwise the (word-index or proportional) word window.
             let base = tightenToWord ? cue.proxyClip : proxy
-            model.addClip(from: tightenToWord ? await resolved(base, phrase: seg.phrase, cue: cue) : proxy)
+            let finalProxy = tightenToWord ? await resolved(base, phrase: seg.phrase, cue: cue) : proxy
+            model.addClip(from: finalProxy)
+            guard let id = model.selectedClipID else { continue }
             // A tiny fade on each tight word-cut so the assembled sentence doesn't CLICK at the
             // joins (each word starts/ends mid-waveform). The hard visual jump between films stays.
-            if let id = model.selectedClipID { model.setClipFade(id, fadeIn: 0.03, fadeOut: 0.03) }
+            model.setClipFade(id, fadeIn: 0.03, fadeOut: 0.03)
+            // Level the clips: measure the word window's RMS and set its mix gain toward a shared
+            // target so one film's word doesn't boom over the next.
+            if evenVolume,
+               let url = try? await ClipCacheService.cachedURL(for: TimelineClip.from(finalProxy, at: .zero)),
+               let rms = await Loudness.rms(url: url) {
+                model.setClipVolume(id, Loudness.gain(forRMS: rms))
+            }
         }
         assembling = false; dismiss()
     }
