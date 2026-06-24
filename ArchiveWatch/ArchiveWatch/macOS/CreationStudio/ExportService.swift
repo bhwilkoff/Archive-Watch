@@ -81,7 +81,7 @@ final class ExportService {
                 resolved.append(.init(asset: asset, insertRange: CMTimeRange(start: .zero, duration: dur),
                                       audioVolume: clip.audioVolume,
                                       fadeIn: clip.fadeInSeconds, fadeOut: clip.fadeOutSeconds,
-                                      transitionIn: clip.transitionInSeconds))
+                                      transitionIn: clip.transitionInSeconds, transitionKind: clip.transitionKind))
             }
             // Resolve the music bed from the project cache (if any) so the export includes it.
             var music: CompositionBuilder.ResolvedMusic?

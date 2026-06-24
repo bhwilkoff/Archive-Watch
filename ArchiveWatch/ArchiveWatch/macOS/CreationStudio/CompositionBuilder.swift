@@ -35,7 +35,8 @@ enum CompositionBuilder {
         var audioVolume: Double = 1.0
         var fadeIn: Double = 0           // seconds: fade up from black + audio in over the head
         var fadeOut: Double = 0          // seconds: fade to black + audio out over the tail
-        var transitionIn: Double = 0     // seconds: cross-dissolve from the previous clip into this one
+        var transitionIn: Double = 0     // seconds: transition from the previous clip into this one
+        var transitionKind: TransitionKind = .dissolve
     }
 
     /// An imported music bed: a local audio file mixed under the whole timeline (#4).
@@ -68,15 +69,20 @@ enum CompositionBuilder {
         let vTracks = [vA, vB], aTracks = [aA, aB]
         let renderSize = timeline.renderSize.cgSize
 
-        // A placed clip in TIMELINE coordinates (after overlap), with its opacity/audio envelope.
+        // A placed clip in TIMELINE coordinates (after overlap), with its transition/audio envelope.
         struct Placed {
             var trackIndex: Int
             var trackID: CMPersistentTrackID
             var start: CMTime
             var dur: CMTime
             var transform: CGAffineTransform
-            var leadIn: Double          // opacity/audio ramp-up = max(fadeIn, transitionIn)
-            var fadeOut: Double          // opacity ramp-down at the tail (explicit fade-to-black)
+            var fadeIn: Double           // fade up from black (opacity), when there's no incoming transition
+            var fadeOut: Double          // fade to black (opacity) at the tail
+            var transIn: Double          // incoming transition from the previous clip (overlap)
+            var transKind: TransitionKind
+            var nextOverlap: Double      // the NEXT clip's transition that overlaps this clip's tail
+            var nextKind: TransitionKind
+            var leadIn: Double           // audio ramp-up = max(fadeIn, transIn)
             var vol: Float
             var audioTailOut: Double     // audio ramp-down = max(fadeOut, next clip's transition)
             var hasAudio: Bool
@@ -109,19 +115,25 @@ enum CompositionBuilder {
             let orientedAbs = CGSize(width: abs(oriented.width), height: abs(oriented.height))
             let transform = preferred.concatenating(aspectFit(orientedAbs, into: renderSize))
 
+            let fadeIn = trans > 0 ? 0 : max(0, min(r.fadeIn, durS))     // fade XOR transition on the head
             let leadIn = min(max(r.fadeIn, trans), durS)
             placed.append(Placed(trackIndex: ti, trackID: vTrack.trackID, start: start, dur: insertRange.duration,
-                                 transform: transform, leadIn: leadIn,
+                                 transform: transform, fadeIn: fadeIn,
                                  fadeOut: max(0, min(r.fadeOut, durS - leadIn)),
-                                 vol: Float(max(0, r.audioVolume)), audioTailOut: 0, hasAudio: hasAudio))
+                                 transIn: trans, transKind: r.transitionKind,
+                                 nextOverlap: 0, nextKind: .dissolve,
+                                 leadIn: leadIn, vol: Float(max(0, r.audioVolume)),
+                                 audioTailOut: 0, hasAudio: hasAudio))
             cursor = start + insertRange.duration
         }
         guard !placed.isEmpty else { throw CreationStudioError.noClips }
 
-        // A clip fades its AUDIO out over the NEXT clip's transition (crossfade) or its own
-        // fadeOut, whichever is longer — patched now that the following clip is known.
+        // Patch each clip's OUTGOING side from the following clip's transition (audio crossfade +
+        // the push-out / cover during the next clip's transition).
         for i in placed.indices {
             let nextTrans = (i + 1 < resolved.count) ? max(0, resolved[i + 1].transitionIn) : 0
+            placed[i].nextOverlap = max(0, min(nextTrans, placed[i].dur.seconds))
+            placed[i].nextKind = (i + 1 < resolved.count) ? resolved[i + 1].transitionKind : .dissolve
             placed[i].audioTailOut = max(0, min(max(placed[i].fadeOut, nextTrans), placed[i].dur.seconds - placed[i].leadIn))
         }
 
@@ -144,16 +156,38 @@ enum CompositionBuilder {
             for p in active.reversed() {                                  // later start first → frontmost
                 var cfg = AVVideoCompositionLayerInstruction.Configuration(trackID: p.trackID)
                 cfg.setTransform(p.transform, at: CMTime(seconds: t0, preferredTimescale: ts))
-                if p.leadIn > 0 {
-                    cfg.addOpacityRamp(.init(timeRange: CMTimeRange(
-                        start: p.start, duration: CMTime(seconds: p.leadIn, preferredTimescale: ts)),
-                        start: 0, end: 1))
+                let W = renderSize.width
+                func range(_ s: Double, _ d: Double) -> CMTimeRange {
+                    CMTimeRange(start: CMTime(seconds: s, preferredTimescale: ts),
+                                duration: CMTime(seconds: d, preferredTimescale: ts))
                 }
+                // INCOMING transition (this clip arrives over [start, start+transIn]).
+                if p.transIn > 0 {
+                    let r0 = p.start.seconds
+                    switch p.transKind {
+                    case .dissolve:
+                        cfg.addOpacityRamp(.init(timeRange: range(r0, p.transIn), start: 0, end: 1))
+                    case .push:   // slide in from the right
+                        cfg.addTransformRamp(.init(timeRange: range(r0, p.transIn),
+                            start: p.transform.concatenating(.init(translationX: W, y: 0)), end: p.transform))
+                    case .wipe:   // reveal left→right via a growing crop
+                        cfg.addCropRectangleRamp(.init(timeRange: range(r0, p.transIn),
+                            start: CGRect(x: 0, y: 0, width: 0, height: renderSize.height),
+                            end: CGRect(origin: .zero, size: renderSize)))
+                    }
+                } else if p.fadeIn > 0 {
+                    cfg.addOpacityRamp(.init(timeRange: range(p.start.seconds, p.fadeIn), start: 0, end: 1))
+                }
+                // OUTGOING side — only a PUSH moves the outgoing clip (dissolve/wipe leave it behind).
+                if p.nextOverlap > 0, p.nextKind == .push {
+                    let os = (p.start + p.dur).seconds - p.nextOverlap
+                    cfg.addTransformRamp(.init(timeRange: range(os, p.nextOverlap),
+                        start: p.transform, end: p.transform.concatenating(.init(translationX: -W, y: 0))))
+                }
+                // Fade to black at the tail (opacity).
                 if p.fadeOut > 0 {
-                    let os = (p.start + p.dur) - CMTime(seconds: p.fadeOut, preferredTimescale: ts)
-                    cfg.addOpacityRamp(.init(timeRange: CMTimeRange(
-                        start: os, duration: CMTime(seconds: p.fadeOut, preferredTimescale: ts)),
-                        start: 1, end: 0))
+                    cfg.addOpacityRamp(.init(timeRange: range((p.start + p.dur).seconds - p.fadeOut, p.fadeOut),
+                                             start: 1, end: 0))
                 }
                 layerInstrs.append(AVVideoCompositionLayerInstruction(configuration: cfg))
             }

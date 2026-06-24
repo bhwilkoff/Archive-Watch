@@ -453,10 +453,21 @@ and 3 mix inputs. Completes the audio-layers story (per-clip volume + fades + di
 + music). DEFERRED: voiceover RECORDING (AVAudioRecorder) and durable copy into the `.archiveproj`
 package (the NSDocument/bookmark unit) — the cache copy is the v1.
 
+**Non-dissolve transitions (wipe / push): SHIPPED 2026-06-24 — and WITHOUT a Metal compositor.**
+The design first assumed wipe/push needed a custom Metal `AVVideoCompositing`, but they're just
+ramps on the existing 2-track overlap, same as the dissolve's opacity ramp: **push** = a transform
+ramp (incoming slides in from +renderWidth → 0; outgoing slides 0 → −renderWidth); **wipe** = a
+crop-rectangle ramp (incoming revealed left→right via a growing crop). `TransitionKind`
+(dissolve/wipe/push) on `TimelineClip`; the engine picks the ramp by kind in the segment builder
+(`addTransformRamp`/`addCropRectangleRamp`, Configuration API). Inspector gains a "Style" picker
+when a transition is set. Verified via the self-test (frame sampled off the composition at the
+mid-overlap): push 0.208, wipe 0.170 brightness — both clips visible, so the ramp rendered. So the
+Metal compositor is now only needed for true GPU blend effects, not these.
+
 **Still deferred (the genuinely multi-session, CI/ML-heavy items):** the Stock-archive shot-mining
 pipeline (#6 — PySceneDetect → Vision → MobileCLIP → `clips.sqlite`; the app browser + sample
-already ship); the Supercut full-corpus CI index + SpeechTranscriber word-timing; non-dissolve
-transitions (wipe/push) via a Metal `AVVideoCompositing`.
+already ship); the Supercut full-corpus CI index + SpeechTranscriber word-timing; voiceover
+RECORDING + the NSDocument/bookmark durable-media unit.
 
 **Test/screenshot hooks (`AW_CS_TEST`) + sidebar clip thumbnails: SHIPPED 2026-06-24.** The
 DocumentGroup editor is driven into a populated state (`editor`) or the Add-Clip scrubber

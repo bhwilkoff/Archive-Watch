@@ -29,7 +29,7 @@ enum PreviewComposer {
             resolved.append(.init(asset: asset, insertRange: clip.sourceRange.cmRange,
                                   audioVolume: clip.audioVolume,
                                   fadeIn: clip.fadeInSeconds, fadeOut: clip.fadeOutSeconds,
-                                  transitionIn: clip.transitionInSeconds))
+                                  transitionIn: clip.transitionInSeconds, transitionKind: clip.transitionKind))
         }
         // bakeOverlays: false — the Core Animation overlay tool is offline-render-only and
         // crashes AVPlayerItem.setVideoComposition. The clip/reframe/audio recipe is identical

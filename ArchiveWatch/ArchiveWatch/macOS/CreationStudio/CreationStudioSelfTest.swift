@@ -231,6 +231,36 @@ enum CreationStudioSelfTest {
             }
         }
 
+        // TRANSITIONS (wipe / push): build the 2-clip timeline with each non-dissolve style and
+        // sample the mid-overlap frame (t≈7s) directly off the composition — both clips visible →
+        // a non-black frame proves the transform/crop ramp rendered.
+        var tcached: [CompositionBuilder.ResolvedClip] = []
+        for clip in timeline.clips {
+            if let u = try? await ClipCacheService.cachedURL(for: clip) {
+                let a = AVURLAsset(url: u)
+                let d = (try? await a.load(.duration)) ?? CMTime(seconds: 8, preferredTimescale: 600)
+                tcached.append(.init(asset: a, insertRange: CMTimeRange(start: .zero, duration: d),
+                                     transitionIn: clip.id == timeline.clips.last?.id ? 2.0 : 0))
+            }
+        }
+        for kind in [TransitionKind.push, .wipe] where tcached.count == 2 {
+            var res = tcached; res[1].transitionKind = kind
+            guard let built = try? await CompositionBuilder.build(resolved: res, timeline: timeline,
+                                                                  creditLine: nil, bakeOverlays: false) else { continue }
+            let gen = AVAssetImageGenerator(asset: built.composition)
+            gen.videoComposition = built.videoComposition
+            gen.requestedTimeToleranceBefore = .zero; gen.requestedTimeToleranceAfter = .zero
+            if let cg = try? await gen.image(at: CMTime(seconds: 7, preferredTimescale: 600)).image {
+                let ci = CIImage(cgImage: cg).applyingFilter("CIAreaAverage",
+                    parameters: [kCIInputExtentKey: CIVector(cgRect: CIImage(cgImage: cg).extent)])
+                var px = [UInt8](repeating: 0, count: 4)
+                CIContext().render(ci, toBitmap: &px, rowBytes: 4, bounds: CGRect(x: 0, y: 0, width: 1, height: 1),
+                                   format: .RGBA8, colorSpace: nil)
+                let b = (Double(px[0]) + Double(px[1]) + Double(px[2])) / 3 / 255
+                log(String(format: "TRANSITION %@ mid-overlap brightness = %.3f (>0 = both clips visible)", kind.rawValue, b))
+            }
+        }
+
         // #5: a ProRes .mov export (reuses the warm cache) to confirm the format path.
         let proURL = ProjectMediaCache.directory.appendingPathComponent("selftest-prores.mov")
         let proExporter = ExportService()

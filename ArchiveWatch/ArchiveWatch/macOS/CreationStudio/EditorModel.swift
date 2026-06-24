@@ -120,6 +120,13 @@ final class EditorModel {
         scheduleRebuild()
     }
 
+    /// Set the transition STYLE (dissolve / wipe / push) for this clip's incoming transition.
+    func setClipTransitionKind(_ id: UUID, _ kind: TransitionKind) {
+        guard let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
+        document.project.timeline.clips[i].transitionKindRaw = kind.rawValue
+        scheduleRebuild()
+    }
+
     /// Add a clip from a saved proxy (dragged from the Library, or just-marked).
     func addClip(from proxy: ProxyClip) {
         let clip = TimelineClip.from(proxy, at: .zero)
@@ -371,7 +378,7 @@ final class EditorModel {
                                               duration: CMTime(seconds: max(0.05, dur), preferredTimescale: 600)),
                      audioVolume: clip.audioVolume,
                      fadeIn: clip.fadeInSeconds, fadeOut: clip.fadeOutSeconds,
-                     transitionIn: clip.transitionInSeconds)
+                     transitionIn: clip.transitionInSeconds, transitionKind: clip.transitionKind)
     }
 
     /// Grade the window for the clip's Look (cached after the first render), or pass it through.

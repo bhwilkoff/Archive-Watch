@@ -468,9 +468,9 @@ private struct ProjectInspector: View {
                                                       set: { model.setClipLook(clip.id, $0) })) {
                         ForEach(ClipLook.allCases) { Text($0.label).tag($0) }
                     }
-                    // Cross-dissolve from the PREVIOUS clip (only meaningful past the first clip).
+                    // Transition from the PREVIOUS clip (only meaningful past the first clip).
                     if model.clips.first?.id != clip.id {
-                        LabeledContent("Dissolve") {
+                        LabeledContent("Transition") {
                             HStack {
                                 Image(systemName: "square.on.square.dashed").foregroundStyle(.secondary)
                                 Slider(value: Binding(get: { clip.transitionInSeconds },
@@ -478,6 +478,12 @@ private struct ProjectInspector: View {
                                        in: 0...maxFade)
                                 Text(String(format: "%.1fs", clip.transitionInSeconds)).font(.caption.monospacedDigit())
                                     .foregroundStyle(.secondary).frame(width: 42, alignment: .trailing)
+                            }
+                        }
+                        if clip.transitionInSeconds > 0 {
+                            Picker("Style", selection: Binding(get: { clip.transitionKind },
+                                                               set: { model.setClipTransitionKind(clip.id, $0) })) {
+                                ForEach(TransitionKind.allCases) { Text($0.label).tag($0) }
                             }
                         }
                     }
