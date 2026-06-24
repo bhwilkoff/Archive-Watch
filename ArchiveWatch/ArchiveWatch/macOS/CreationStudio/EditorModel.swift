@@ -316,7 +316,7 @@ final class EditorModel {
         do {
             let built = try await CompositionBuilder.build(
                 resolved: resolved, timeline: document.project.timeline,
-                creditLine: credit, bakeOverlays: false)
+                creditLine: credit, bakeOverlays: false, music: resolvedMusic())
             guard !Task.isCancelled else { return }
             let item = AVPlayerItem(asset: built.composition)
             item.videoComposition = built.videoComposition
@@ -402,6 +402,44 @@ final class EditorModel {
 
     func zoom(by factor: Double, focusSeconds: Double? = nil) {
         pointsPerSecond = min(Self.maxPPS, max(Self.minPPS, pointsPerSecond * factor))
+    }
+
+    // MARK: - Music bed (#4 audio layers)
+
+    var musicBed: MusicBed? { document.project.timeline.musicBed }
+
+    /// Copy an imported audio file into the project media cache and set it as the music bed.
+    func importMusic(from src: URL) {
+        let name = "music-\(UUID().uuidString.prefix(6))-\(src.lastPathComponent)"
+        let dst = ProjectMediaCache.directory.appendingPathComponent(name)
+        try? FileManager.default.removeItem(at: dst)
+        guard (try? FileManager.default.copyItem(at: src, to: dst)) != nil else { return }
+        document.project.timeline.musicBed = MusicBed(
+            fileName: name, displayName: src.deletingPathExtension().lastPathComponent,
+            volume: 0.5, startSeconds: 0)
+        scheduleRebuild()
+    }
+
+    func setMusicVolume(_ v: Double) {
+        guard document.project.timeline.musicBed != nil else { return }
+        document.project.timeline.musicBed?.volume = max(0, min(1.5, v))
+        scheduleRebuild()
+    }
+
+    func removeMusic() {
+        if let m = document.project.timeline.musicBed {
+            try? FileManager.default.removeItem(at: ProjectMediaCache.directory.appendingPathComponent(m.fileName))
+        }
+        document.project.timeline.musicBed = nil
+        scheduleRebuild()
+    }
+
+    /// Resolve the music bed to a local asset for the composition (nil if the cache file is gone).
+    func resolvedMusic() -> CompositionBuilder.ResolvedMusic? {
+        guard let m = document.project.timeline.musicBed else { return nil }
+        let url = ProjectMediaCache.directory.appendingPathComponent(m.fileName)
+        guard FileManager.default.fileExists(atPath: url.path) else { return nil }
+        return .init(asset: AVURLAsset(url: url), volume: m.volume, startSeconds: m.startSeconds)
     }
 
     // MARK: - Markers (navigation + snap targets)

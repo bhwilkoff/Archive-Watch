@@ -488,6 +488,23 @@ private struct ProjectInspector: View {
                 LabeledContent("Duration", value: String(format: "%.1f s", project.timeline.durationSeconds))
                 LabeledContent("Format", value: "v\(project.formatVersion)")
             }
+            Section("Music") {
+                if let bed = model.musicBed {
+                    LabeledContent("Track") { Text(bed.displayName).lineLimit(1) }
+                    LabeledContent("Volume") {
+                        HStack {
+                            Image(systemName: bed.volume == 0 ? "speaker.slash" : "music.note")
+                                .foregroundStyle(.secondary)
+                            Slider(value: Binding(get: { bed.volume }, set: { model.setMusicVolume($0) }), in: 0...1.5)
+                            Text("\(Int(bed.volume * 100))%").font(.caption.monospacedDigit())
+                                .foregroundStyle(.secondary).frame(width: 42, alignment: .trailing)
+                        }
+                    }
+                    Button("Remove Music", role: .destructive) { model.removeMusic() }
+                } else {
+                    Button("Add Music…") { pickMusic() }
+                }
+            }
             Section {
                 Toggle("Burn in attribution credit", isOn: $project.burnAttribution)
             } header: {
@@ -506,6 +523,14 @@ private struct ProjectInspector: View {
             }
         }
         .formStyle(.grouped)
+    }
+
+    private func pickMusic() {
+        let panel = NSOpenPanel()
+        panel.allowedContentTypes = [.audio, .mp3, .mpeg4Audio, .wav, .aiff]
+        panel.allowsMultipleSelection = false
+        panel.prompt = "Add Music"
+        if panel.runModal() == .OK, let url = panel.url { model.importMusic(from: url) }
     }
 }
 

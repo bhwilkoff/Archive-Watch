@@ -13,6 +13,19 @@ enum CreationStudioSelfTest {
     static var isEnabled: Bool { ProcessInfo.processInfo.environment["AW_CS_SELFTEST"] == "1" }
     private static var started = false   // one-shot: RootView and the editor both try to kick it
 
+    /// A short silent .m4a in the project cache, for verifying the music-bed mix path.
+    static func makeSilentAudio() -> URL? {
+        let url = ProjectMediaCache.directory.appendingPathComponent("test-music.m4a")
+        try? FileManager.default.removeItem(at: url)
+        let settings: [String: Any] = [AVFormatIDKey: kAudioFormatMPEG4AAC,
+                                        AVSampleRateKey: 44100.0, AVNumberOfChannelsKey: 1]
+        guard let file = try? AVAudioFile(forWriting: url, settings: settings),
+              let buf = AVAudioPCMBuffer(pcmFormat: file.processingFormat, frameCapacity: 44100 * 3) else { return nil }
+        buf.frameLength = 44100 * 3                    // 3s of silence
+        try? file.write(from: buf)
+        return url
+    }
+
     /// Average luma (0…1) of the exported video frame at `seconds` — used to prove the opacity
     /// fade ramps actually render (black at the fade extremes, bright in the middle).
     static func avgBrightness(_ url: URL, at seconds: Double) async -> Double? {
@@ -196,6 +209,25 @@ enum CreationStudioSelfTest {
             if let rgb = await Self.avgRGB(cleanOut, at: 3.0) {
                 log(String(format: "LOOK silent/sepia t=3 R=%.3f G=%.3f B=%.3f (sepia if R > B)",
                            rgb.0, rgb.1, rgb.2))
+            }
+        }
+
+        // MUSIC BED (#4): build the composition with an imported music track and confirm it adds
+        // a third audio track (2 clips on A/B + 1 music) and a mix input for it.
+        if let musicURL = Self.makeSilentAudio() {
+            var resolved: [CompositionBuilder.ResolvedClip] = []
+            for clip in timeline.clips {
+                guard let url = try? await ClipCacheService.cachedURL(for: clip) else { continue }   // warm from the export
+                let asset = AVURLAsset(url: url)
+                let dur = (try? await asset.load(.duration)) ?? CMTime(seconds: 5, preferredTimescale: 600)
+                resolved.append(.init(asset: asset, insertRange: CMTimeRange(start: .zero, duration: dur)))
+            }
+            let music = CompositionBuilder.ResolvedMusic(asset: AVURLAsset(url: musicURL), volume: 0.5, startSeconds: 0)
+            if let built = try? await CompositionBuilder.build(resolved: resolved, timeline: timeline,
+                                                               creditLine: nil, bakeOverlays: false, music: music) {
+                let aTracks = built.composition.tracks(withMediaType: .audio).count
+                let mixParams = (built.audioMix as? AVMutableAudioMix)?.inputParameters.count ?? 0
+                log("MUSIC audio tracks=\(aTracks) (expect 3: clipsA/B + music)  mixParams=\(mixParams)")
             }
         }
 

@@ -443,6 +443,21 @@ automates the search + gather, never a one-tap finished cut).
   captioned films now); (b) WORD-level isolation — macOS-26 SpeechTranscriber per-word timing
   validated against the caption text (Rule 6b), to cut a single word rather than its whole line.
 
+**Music bed (#4 audio layers): SHIPPED 2026-06-24.** "Add Music…" imports an external audio file
+(NSOpenPanel) — copied into the project media cache (no security-scoped bookmark needed) and
+mixed under the whole timeline as a separate audio track with its own volume + a short end fade
+(`CompositionBuilder.ResolvedMusic`; `Timeline.musicBed`, tolerant decode). Inspector "Music"
+section: track name, volume slider, Remove. Resolved into both the live preview and the export.
+Verified via the self-test: a composition with a music bed has 3 audio tracks (clips A/B + music)
+and 3 mix inputs. Completes the audio-layers story (per-clip volume + fades + dissolve cross-fade
++ music). DEFERRED: voiceover RECORDING (AVAudioRecorder) and durable copy into the `.archiveproj`
+package (the NSDocument/bookmark unit) — the cache copy is the v1.
+
+**Still deferred (the genuinely multi-session, CI/ML-heavy items):** the Stock-archive shot-mining
+pipeline (#6 — PySceneDetect → Vision → MobileCLIP → `clips.sqlite`; the app browser + sample
+already ship); the Supercut full-corpus CI index + SpeechTranscriber word-timing; non-dissolve
+transitions (wipe/push) via a Metal `AVVideoCompositing`.
+
 **Test/screenshot hooks (`AW_CS_TEST`) + sidebar clip thumbnails: SHIPPED 2026-06-24.** The
 DocumentGroup editor is driven into a populated state (`editor`) or the Add-Clip scrubber
 (`markclip`) for CLI visual verification (SwiftUI's a11y tree isn't AppleScript-traversable).

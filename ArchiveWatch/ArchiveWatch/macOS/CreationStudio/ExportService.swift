@@ -83,8 +83,16 @@ final class ExportService {
                                       fadeIn: clip.fadeInSeconds, fadeOut: clip.fadeOutSeconds,
                                       transitionIn: clip.transitionInSeconds))
             }
+            // Resolve the music bed from the project cache (if any) so the export includes it.
+            var music: CompositionBuilder.ResolvedMusic?
+            if let m = project.timeline.musicBed {
+                let url = ProjectMediaCache.directory.appendingPathComponent(m.fileName)
+                if FileManager.default.fileExists(atPath: url.path) {
+                    music = .init(asset: AVURLAsset(url: url), volume: m.volume, startSeconds: m.startSeconds)
+                }
+            }
             let built = try await CompositionBuilder.build(
-                resolved: resolved, timeline: project.timeline, creditLine: creditLine)
+                resolved: resolved, timeline: project.timeline, creditLine: creditLine, music: music)
 
             // 3) Export the local composition (reliable — nothing remote reaches the exporter).
             phase = .exporting

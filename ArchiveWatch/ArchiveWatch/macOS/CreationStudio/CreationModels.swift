@@ -171,21 +171,33 @@ struct TextOverlay: Codable, Identifiable, Hashable, Sendable {
 /// The ordered set of clips + render settings. Compiles (Unit 2) to the single
 /// (AVMutableComposition, AVVideoComposition.Configuration, AVMutableAudioMix) triple
 /// that feeds BOTH preview and export (Rule 3a).
+/// An imported music bed mixed under the whole timeline (#4 audio layers). The file is copied
+/// into the project's media cache, so only its cache filename + mix settings are stored.
+struct MusicBed: Codable, Hashable, Sendable {
+    var fileName: String                // file inside ProjectMediaCache (copied on import)
+    var displayName: String
+    var volume: Double                  // 0…1.5
+    var startSeconds: Double            // where it begins on the timeline
+}
+
 struct Timeline: Codable, Hashable, Sendable {
     var clips: [TimelineClip]
     var textOverlays: [TextOverlay]
     var frameRate: Double
     var renderSize: RenderSize
     var markers: [Double]               // timeline seconds — navigation + snap targets
+    var musicBed: MusicBed?
 
     init(clips: [TimelineClip] = [], textOverlays: [TextOverlay] = [],
-         frameRate: Double = 30, renderSize: RenderSize = .hd1080, markers: [Double] = []) {
+         frameRate: Double = 30, renderSize: RenderSize = .hd1080, markers: [Double] = [],
+         musicBed: MusicBed? = nil) {
         self.clips = clips; self.textOverlays = textOverlays
         self.frameRate = frameRate; self.renderSize = renderSize; self.markers = markers
+        self.musicBed = musicBed
     }
 
-    // Tolerant decode: projects written before `textOverlays`/`markers` existed default to []
-    // (the additive-schema discipline — old .archiveproj files keep opening). Encode synthesized.
+    // Tolerant decode: projects written before `textOverlays`/`markers`/`musicBed` existed default
+    // to nil/[] (additive-schema discipline — old .archiveproj files keep opening).
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
         clips = try c.decode([TimelineClip].self, forKey: .clips)
@@ -193,6 +205,7 @@ struct Timeline: Codable, Hashable, Sendable {
         frameRate = try c.decode(Double.self, forKey: .frameRate)
         renderSize = try c.decode(RenderSize.self, forKey: .renderSize)
         markers = try c.decodeIfPresent([Double].self, forKey: .markers) ?? []
+        musicBed = try c.decodeIfPresent(MusicBed.self, forKey: .musicBed)
     }
 
     /// Timeline end = the furthest clip end across all tracks.
