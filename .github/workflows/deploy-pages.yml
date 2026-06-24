@@ -13,6 +13,22 @@ name: Deploy Pages
 on:
   push:
     branches: [main]
+    # Only redeploy the website when WEB content changes. App/tooling/docs-only commits (the
+    # native apps, pipeline scripts, design docs) don't touch the served site, so they must not
+    # trigger a Pages deploy — a burst of such commits was racing the Pages deployment API
+    # ("in progress deployment … cancel … first"). paths-IGNORE = deploy unless ALL changed
+    # files are under these.
+    paths-ignore:
+      - 'ArchiveWatch/**'
+      - 'ios/**'
+      - 'android/**'
+      - 'tools/**'
+      - 'docs/**'
+      - '**.xcconfig'
+      - 'DECISIONS.md'
+      - 'SCRATCHPAD.md'
+      - 'CLAUDE.md'
+      - 'PARITY.md'
   workflow_dispatch:
   workflow_run:
     workflows: ["Enrich subtitles"]
@@ -25,7 +41,9 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  # Latest deploy wins (a static site only needs the newest); cancelling a superseded, still-
+  # queued deploy also avoids the Pages-API "deployment in progress" collision when two overlap.
+  cancel-in-progress: true
 
 jobs:
   deploy:
