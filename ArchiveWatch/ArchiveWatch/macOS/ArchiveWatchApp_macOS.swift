@@ -77,7 +77,7 @@ struct ArchiveWatchMacApp: App {
         // newDocument is an @Sendable (nonisolated) closure, but SwiftUI creates documents on
         // the main thread (NSDocumentController) — assumeIsolated is the native bridge to the
         // main-actor ClipProjectDocument initializer.
-        DocumentGroup(newDocument: { MainActor.assumeIsolated { ClipProjectDocument() } }) { configuration in
+        DocumentGroup(newDocument: { ClipProjectDocument() }) { configuration in
             ProjectEditorView(document: configuration.document)
                 .environment(store)
                 .frame(minWidth: 740, minHeight: 500)   // fixed sidebars (240+280) + a shrinkable center

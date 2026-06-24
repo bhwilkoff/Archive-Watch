@@ -29,16 +29,17 @@ extension UTType {
     static let archiveProject = UTType(exportedAs: "org.archivewatch.project")
 }
 
-// @MainActor: the live, observable `project` is mutable state edited from the main-thread
-// editor views, so the document is main-actor-isolated — which is what makes that mutable
-// `@Published` stored state Sendable-safe under the Swift 6 language mode. ReferenceFileDocument
-// is a `@preconcurrency` Sendable protocol with nonisolated requirements, so the conformance is
-// annotated `@preconcurrency` (Apple's native mechanism for adopting strict concurrency against
-// a pre-concurrency protocol). `fileWrapper(snapshot:)` stays `nonisolated`: SwiftUI serialises
-// the passed Sendable snapshot off the main thread, and it only touches that snapshot +
-// nonisolated statics — never `project`.
-@MainActor
-final class ClipProjectDocument: @preconcurrency ReferenceFileDocument {
+// NOT @MainActor — this is the fix for "saving crashes the app" (EXC_BREAKPOINT on a
+// background queue). On macOS 26 / Swift 6, SwiftUI's `@preconcurrency ReferenceFileDocument`
+// save machinery calls `snapshot(contentType:)` OFF the main thread; if that method is
+// main-actor-isolated (which it is when the class is `@MainActor`), the Swift-6 runtime's
+// actor-executor assertion TRAPS when it's invoked off-main. So the document stays
+// non-isolated: `snapshot()`/`fileWrapper()` run on whatever queue SwiftUI uses, touching only
+// the value-type `project` (a `ClipProject`, fully `Sendable`) + nonisolated statics. The
+// `@Published var project` is mutated by the @MainActor editor on the main thread and read by
+// the save off-main; `ClipProject` is a value type (copy-on-read), so `@unchecked Sendable`
+// over it is safe in practice — and infinitely safer than a guaranteed crash on every save.
+final class ClipProjectDocument: @preconcurrency ReferenceFileDocument, @unchecked Sendable {
     typealias Snapshot = ClipProject
 
     static var readableContentTypes: [UTType] { [.archiveProject] }
