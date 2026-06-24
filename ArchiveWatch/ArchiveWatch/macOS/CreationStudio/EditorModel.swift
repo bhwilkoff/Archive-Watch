@@ -369,7 +369,18 @@ final class EditorModel {
             item.videoComposition = built.videoComposition
             item.audioMix = built.audioMix
             player.replaceCurrentItem(with: item)
-            seek(toSeconds: min(playheadSeconds, totalDuration))
+            // Seek ONCE the item is ready, so the first frame actually decodes + displays. A seek
+            // issued before `.readyToPlay` (the old code) is dropped — leaving the program monitor
+            // BLACK until the user manually scrubs (which seeks the by-then-ready item). Poll
+            // readiness briefly, then seek the still-current item.
+            let target = CMTime(seconds: min(playheadSeconds, totalDuration), preferredTimescale: 600)
+            for _ in 0..<160 {
+                if item.status != .unknown { break }       // ready OR failed — stop waiting
+                if Task.isCancelled { return }
+                try? await Task.sleep(for: .milliseconds(25))
+            }
+            guard !Task.isCancelled, player.currentItem === item, item.status == .readyToPlay else { return }
+            await player.seek(to: target, toleranceBefore: .zero, toleranceAfter: .zero)
         } catch {
             // Leave the previous preview in place on a transient build failure.
         }
