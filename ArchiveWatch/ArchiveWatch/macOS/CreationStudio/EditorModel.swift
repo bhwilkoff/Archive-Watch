@@ -116,6 +116,7 @@ final class EditorModel {
               let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
         let cap = min(clips[pos].sourceRange.duration.seconds, clips[pos - 1].sourceRange.duration.seconds) - 0.1
         document.project.timeline.clips[i].transitionInSeconds = max(0, min(seconds, max(0, cap)))
+        relayout()             // the overlap shifts this clip + all following earlier
         scheduleRebuild()
     }
 
@@ -255,10 +256,16 @@ final class EditorModel {
     private func relayout() {
         var cursor = 0.0
         var rebuilt: [TimelineClip] = []
-        for var c in document.project.timeline.clips {
-            c.timelineStart = TimeStamp(seconds: cursor)
+        for (idx, var c) in document.project.timeline.clips.enumerated() {
+            // Overlap with the previous clip by transitionIn so the timeline view's positions
+            // and total match the composition (CompositionBuilder uses the SAME placement), and
+            // the playhead stays aligned with the preview when a cross-dissolve is set.
+            let dur = c.sourceRange.duration.seconds
+            let trans = idx == 0 ? 0 : max(0, min(c.transitionInSeconds, dur))
+            let start = max(0, cursor - trans)
+            c.timelineStart = TimeStamp(seconds: start)
             rebuilt.append(c)
-            cursor += c.sourceRange.duration.seconds
+            cursor = start + dur
         }
         document.project.timeline.clips = rebuilt
     }
@@ -395,6 +402,49 @@ final class EditorModel {
 
     func zoom(by factor: Double, focusSeconds: Double? = nil) {
         pointsPerSecond = min(Self.maxPPS, max(Self.minPPS, pointsPerSecond * factor))
+    }
+
+    // MARK: - Markers (navigation + snap targets)
+
+    var markers: [Double] { document.project.timeline.markers }
+
+    /// Toggle a marker at the playhead (remove if one is within 0.3s, else add). M key.
+    func toggleMarkerAtPlayhead() {
+        let t = playheadSeconds
+        if let i = document.project.timeline.markers.firstIndex(where: { abs($0 - t) < 0.3 }) {
+            document.project.timeline.markers.remove(at: i)
+        } else {
+            document.project.timeline.markers.append(t)
+            document.project.timeline.markers.sort()
+        }
+    }
+
+    /// Jump the playhead to the next/prev marker (or clip boundary if no marker is closer).
+    func goToMarker(forward: Bool) {
+        let t = playheadSeconds
+        let stops = (markers + clips.map { $0.timelineStart.seconds }
+                     + clips.map { $0.timelineRange.endSeconds }).sorted()
+        let next = forward ? stops.first(where: { $0 > t + 0.05 })
+                           : stops.last(where: { $0 < t - 0.05 })
+        if let next { seek(toSeconds: next) }
+    }
+
+    // MARK: - Snapping
+
+    /// Snap a dragged timeline second to a nearby edit point (clip edges, markers, playhead, 0)
+    /// when within `tolerancePoints` on screen. Returns the snapped seconds (or the input).
+    func snap(_ seconds: Double, excluding excludeID: UUID? = nil, tolerancePoints: Double = 8) -> Double {
+        let tol = tolerancePoints / max(1, pointsPerSecond)
+        var best = seconds, bestD = tol
+        var stops: [Double] = markers + [0, playheadSeconds]
+        for c in clips where c.id != excludeID {
+            stops.append(c.timelineStart.seconds)
+            stops.append(c.timelineRange.endSeconds)
+        }
+        for s in stops where abs(s - seconds) < bestD {
+            best = s; bestD = abs(s - seconds)
+        }
+        return best
     }
 
     // MARK: - Thumbnails (filmstrip)

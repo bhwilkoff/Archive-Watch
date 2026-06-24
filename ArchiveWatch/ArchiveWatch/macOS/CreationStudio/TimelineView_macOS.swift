@@ -8,8 +8,8 @@ import QuartzCore
 // loses native scroll/hit-testing, so the timeline drops to AppKit. Zoom drives
 // points-per-second (NOT NSScrollView magnification, which would blur thumbnails) so clips
 // re-tile crisply. CapCut-approachable (Rule 7c): a magnetic main track, click-to-scrub,
-// click-to-select, drag-trim handles, ⌘-scroll zoom, Space/⌫/B keys. Ripple/markers/
-// snapping are fast-follows on this same view.
+// click-to-select, drag-trim handles, ⌘-scroll zoom, Space/⌫/B keys, plus the direct-
+// manipulation layer: corner FADE handles, junction DISSOLVE handles, MARKERS, and snapping.
 
 struct ClipTimelineView: NSViewRepresentable {
     let model: EditorModel
@@ -31,7 +31,7 @@ struct ClipTimelineView: NSViewRepresentable {
         let state = TimelineContentView.State(
             clips: model.clips, pps: model.pointsPerSecond, selectedID: model.selectedClipID,
             playhead: model.playheadSeconds, thumbnails: model.thumbnails,
-            totalDuration: model.totalDuration, prep: model.clipPrep)
+            totalDuration: model.totalDuration, prep: model.clipPrep, markers: model.markers)
         context.coordinator.content?.render(state)
     }
 
@@ -48,10 +48,11 @@ final class TimelineContentView: NSView {
         let thumbnails: [UUID: [CGImage]]
         let totalDuration: Double
         let prep: [UUID: EditorModel.ClipPrep]
+        let markers: [Double]
     }
 
     private let model: EditorModel
-    private var state = State(clips: [], pps: 60, selectedID: nil, playhead: 0, thumbnails: [:], totalDuration: 0, prep: [:])
+    private var state = State(clips: [], pps: 60, selectedID: nil, playhead: 0, thumbnails: [:], totalDuration: 0, prep: [:], markers: [])
     private var playheadLayer: CALayer?
     private var lastStructuralSig = 0
 
@@ -59,14 +60,19 @@ final class TimelineContentView: NSView {
     private let trackTop: CGFloat = 30
     private let trackH: CGFloat = 110
     private let handleW: CGFloat = 8
+    private let fadeBandH: CGFloat = 16        // top band where fade handles live
     private let minWidth: CGFloat = 400
 
     // Drag state
-    private enum Drag { case none, scrub, trimLeft(UUID), trimRight(UUID), move(UUID) }
+    private enum Drag {
+        case none, scrub
+        case trimLeft(UUID), trimRight(UUID), move(UUID)
+        case fadeIn(UUID), fadeOut(UUID), transition(UUID)
+    }
     private var drag: Drag = .none
     private var dragStartX: CGFloat = 0
+    private var dragStartValue: Double = 0      // fade/transition seconds at mouseDown (delta drags)
     private var dragMoved = false
-    // Right-click context target.
     private var contextClipID: UUID?
     private var contextSeconds: Double = 0
 
@@ -78,7 +84,7 @@ final class TimelineContentView: NSView {
     }
     required init?(coder: NSCoder) { fatalError() }
 
-    override var isFlipped: Bool { true }                 // top-left origin (matches time→x)
+    override var isFlipped: Bool { true }
     override var acceptsFirstResponder: Bool { true }
     override func becomeFirstResponder() -> Bool { true }
 
@@ -86,8 +92,6 @@ final class TimelineContentView: NSView {
         state = s
         let w = max(minWidth, CGFloat(s.totalDuration * s.pps) + 40)
         if abs(frame.width - w) > 0.5 { setFrameSize(NSSize(width: w, height: 150)) }
-        // Only rebuild the (expensive) ruler + clip layers when something STRUCTURAL changes —
-        // NOT on every playhead tick (was tearing down every layer 30×/s during playback).
         let sig = structuralSignature(s)
         if sig != lastStructuralSig {
             lastStructuralSig = sig
@@ -96,15 +100,16 @@ final class TimelineContentView: NSView {
         positionPlayhead()
     }
 
-    /// Order-independent hash of everything that affects the clip/ruler layers (NOT playhead).
     private func structuralSignature(_ s: State) -> Int {
         var h = Hasher()
         h.combine(s.pps); h.combine(s.selectedID); h.combine(s.totalDuration)
-        for c in s.clips {                                  // array order is meaningful
+        for c in s.clips {
             h.combine(c.id); h.combine(c.timelineStart.value); h.combine(c.sourceRange.duration.value)
+            h.combine(c.fadeInSeconds); h.combine(c.fadeOutSeconds); h.combine(c.transitionInSeconds)
         }
+        for m in s.markers { h.combine(m) }
         var thumbX = 0, prepX = 0
-        for (k, v) in s.thumbnails { thumbX ^= k.hashValue &* 31 &+ v.count }       // XOR = order-free
+        for (k, v) in s.thumbnails { thumbX ^= k.hashValue &* 31 &+ v.count }
         for (k, v) in s.prep { prepX ^= k.hashValue &* 17 &+ (v == .ready ? 2 : v == .caching ? 1 : 3) }
         h.combine(thumbX); h.combine(prepX)
         return h.finalize()
@@ -135,8 +140,7 @@ final class TimelineContentView: NSView {
             tick.frame = CGRect(x: tx, y: 0, width: 1, height: rulerH)
             layer.addSublayer(tick)
             let label = CATextLayer()
-            label.string = timecode(t)
-            label.fontSize = 10
+            label.string = timecode(t); label.fontSize = 10
             label.foregroundColor = NSColor(white: 0.55, alpha: 1).cgColor
             label.contentsScale = 2
             label.frame = CGRect(x: tx + 3, y: 3, width: 60, height: 14)
@@ -157,34 +161,27 @@ final class TimelineContentView: NSView {
             container.borderColor = (clip.id == state.selectedID
                 ? NSColor.controlAccentColor : NSColor(white: 0.3, alpha: 1)).cgColor
 
-            // Filmstrip thumbnails tiled across the clip width.
             if let thumbs = state.thumbnails[clip.id], !thumbs.isEmpty {
                 let tw = cw / CGFloat(thumbs.count)
                 for (i, img) in thumbs.enumerated() {
                     let frame = CALayer()
-                    frame.contents = img
-                    frame.contentsGravity = .resizeAspectFill
+                    frame.contents = img; frame.contentsGravity = .resizeAspectFill
                     frame.masksToBounds = true
                     frame.frame = CGRect(x: CGFloat(i) * tw, y: 0, width: tw + 1, height: trackH)
                     container.addSublayer(frame)
                 }
             }
 
-            // Label.
             let label = CATextLayer()
-            label.string = "  " + clip.label
-            label.fontSize = 11
-            label.foregroundColor = NSColor.white.cgColor
-            label.contentsScale = 2
+            label.string = "  " + clip.label; label.fontSize = 11
+            label.foregroundColor = NSColor.white.cgColor; label.contentsScale = 2
             label.truncationMode = .end
             label.frame = CGRect(x: 0, y: 2, width: cw, height: 16)
             let labelBG = CALayer()
             labelBG.frame = CGRect(x: 0, y: 0, width: cw, height: 20)
             labelBG.backgroundColor = NSColor(white: 0, alpha: 0.45).cgColor
-            container.addSublayer(labelBG)
-            container.addSublayer(label)
+            container.addSublayer(labelBG); container.addSublayer(label)
 
-            // Caching / failed indicator (the clip's local window isn't ready).
             switch state.prep[clip.id] {
             case .caching where (state.thumbnails[clip.id]?.isEmpty ?? true):
                 container.addSublayer(centeredText("Caching…", width: cw, color: NSColor(white: 0.85, alpha: 1)))
@@ -197,23 +194,85 @@ final class TimelineContentView: NSView {
             default: break
             }
 
-            // Trim handles (brighter on the selected clip).
-            for (isLeft, hx) in [(true, CGFloat(0)), (false, cw - handleW)] {
+            // Fade ramps drawn as translucent wedges from the top corners, + a draggable dot
+            // at the end of each ramp (classic NLE fade handle).
+            addFade(to: container, clipW: cw, seconds: clip.fadeInSeconds, isIn: true)
+            addFade(to: container, clipW: cw, seconds: clip.fadeOutSeconds, isIn: false)
+
+            // Trim handles (full height, below the fade band).
+            for hx in [CGFloat(0), cw - handleW] {
                 let h = CALayer()
-                h.frame = CGRect(x: hx, y: 0, width: handleW, height: trackH)
+                h.frame = CGRect(x: hx, y: fadeBandH, width: handleW, height: trackH - fadeBandH)
                 let on = clip.id == state.selectedID
                 h.backgroundColor = (on ? NSColor.controlAccentColor : NSColor(white: 0.5, alpha: 0.6)).cgColor
-                _ = isLeft
                 container.addSublayer(h)
             }
             layer.addSublayer(container)
         }
 
-        // Playhead — a persistent layer; positionPlayhead() moves it each frame without a rebuild.
+        // Cross-dissolve handles at each junction (the incoming clip overlaps the previous).
+        for (i, clip) in state.clips.enumerated() where i > 0 {
+            let jx = x(clip.timelineStart.seconds)               // overlap region starts here
+            let diamond = CALayer()
+            let sz: CGFloat = 14
+            diamond.frame = CGRect(x: jx - sz / 2, y: trackTop + trackH / 2 - sz / 2, width: sz, height: sz)
+            diamond.backgroundColor = (clip.transitionInSeconds > 0
+                ? NSColor.systemPurple : NSColor(white: 0.6, alpha: 0.8)).cgColor
+            diamond.cornerRadius = 3
+            diamond.transform = CATransform3DMakeRotation(.pi / 4, 0, 0, 1)
+            diamond.borderColor = NSColor.white.withAlphaComponent(0.5).cgColor
+            diamond.borderWidth = 1
+            layer.addSublayer(diamond)
+        }
+
+        // Markers — vertical line + ruler flag.
+        for m in state.markers {
+            let mx = x(m)
+            let line = CALayer()
+            line.backgroundColor = NSColor.systemTeal.withAlphaComponent(0.8).cgColor
+            line.frame = CGRect(x: mx, y: rulerH, width: 1, height: bounds.height - rulerH)
+            layer.addSublayer(line)
+            let flag = CALayer()
+            flag.backgroundColor = NSColor.systemTeal.cgColor
+            flag.frame = CGRect(x: mx, y: rulerH - 8, width: 8, height: 8)
+            layer.addSublayer(flag)
+        }
+
         let ph = CALayer()
         ph.backgroundColor = NSColor.systemRed.cgColor
         layer.addSublayer(ph)
         playheadLayer = ph
+    }
+
+    /// A fade wedge + handle dot inside a clip container (local coords).
+    private func addFade(to container: CALayer, clipW: CGFloat, seconds: Double, isIn: Bool) {
+        let fw = min(clipW, x(seconds))
+        let dotX = isIn ? fw : clipW - fw
+        if fw > 1 {
+            let wedge = CAShapeLayer()
+            let fill = CGMutablePath(), line = CGMutablePath()
+            if isIn {
+                fill.move(to: .init(x: 0, y: trackH)); fill.addLine(to: .init(x: fw, y: 0)); fill.addLine(to: .init(x: 0, y: 0)); fill.closeSubpath()
+                line.move(to: .init(x: 0, y: trackH)); line.addLine(to: .init(x: fw, y: 0))   // ramp up
+            } else {
+                fill.move(to: .init(x: clipW, y: trackH)); fill.addLine(to: .init(x: clipW - fw, y: 0)); fill.addLine(to: .init(x: clipW, y: 0)); fill.closeSubpath()
+                line.move(to: .init(x: clipW - fw, y: 0)); line.addLine(to: .init(x: clipW, y: trackH))  // ramp down
+            }
+            wedge.path = fill
+            wedge.fillColor = NSColor.black.withAlphaComponent(0.5).cgColor
+            container.addSublayer(wedge)
+            // A visible yellow ramp line (the wedge fill alone disappears on a dark clip).
+            let stroke = CAShapeLayer()
+            stroke.path = line
+            stroke.strokeColor = NSColor.systemYellow.withAlphaComponent(0.9).cgColor
+            stroke.lineWidth = 1.5; stroke.fillColor = nil
+            container.addSublayer(stroke)
+        }
+        let dot = CALayer()
+        dot.frame = CGRect(x: dotX - 4, y: 0, width: 8, height: 8)
+        dot.cornerRadius = 4
+        dot.backgroundColor = NSColor.systemYellow.cgColor
+        container.addSublayer(dot)
     }
 
     private func centeredText(_ s: String, width: CGFloat, color: NSColor) -> CATextLayer {
@@ -225,7 +284,6 @@ final class TimelineContentView: NSView {
     }
 
     private func rulerStep(for pps: Double) -> Double {
-        // Aim for a tick label every ~80pt.
         let target = 80.0 / pps
         for s in [0.5, 1, 2, 5, 10, 15, 30, 60, 120, 300] where Double(s) >= target { return Double(s) }
         return 600
@@ -237,55 +295,85 @@ final class TimelineContentView: NSView {
 
     // MARK: interaction
 
-    private func clipHit(at p: NSPoint) -> (clip: TimelineClip, region: Drag)? {
-        guard p.y >= trackTop, p.y <= trackTop + trackH else { return nil }
+    /// Hit-test a point to a drag region. Fade dots (top band) and junction diamonds take
+    /// priority over trim/body.
+    private func hit(at p: NSPoint) -> Drag {
+        // Junction dissolve diamonds (in the mid-track band).
+        if p.y >= trackTop + trackH / 2 - 10, p.y <= trackTop + trackH / 2 + 10 {
+            for (i, clip) in state.clips.enumerated() where i > 0 {
+                if abs(p.x - x(clip.timelineStart.seconds)) <= 9 { return .transition(clip.id) }
+            }
+        }
+        guard p.y >= trackTop, p.y <= trackTop + trackH else { return .none }
         for clip in state.clips {
             let cx = x(clip.timelineStart.seconds)
             let cw = x(clip.sourceRange.duration.seconds)
-            if p.x >= cx && p.x <= cx + cw {
-                if p.x <= cx + handleW { return (clip, .trimLeft(clip.id)) }
-                if p.x >= cx + cw - handleW { return (clip, .trimRight(clip.id)) }
-                return (clip, .none)
+            guard p.x >= cx, p.x <= cx + cw else { continue }
+            // Fade handle dots live in the top band at the ramp end.
+            if p.y <= trackTop + fadeBandH {
+                let inX = cx + min(cw, x(clip.fadeInSeconds))
+                let outX = cx + cw - min(cw, x(clip.fadeOutSeconds))
+                if abs(p.x - inX) <= 7 { return .fadeIn(clip.id) }
+                if abs(p.x - outX) <= 7 { return .fadeOut(clip.id) }
             }
+            if p.x <= cx + handleW { return .trimLeft(clip.id) }
+            if p.x >= cx + cw - handleW { return .trimRight(clip.id) }
+            return .move(clip.id)
         }
-        return nil
+        return .none
     }
+
+    private func clip(_ id: UUID) -> TimelineClip? { state.clips.first { $0.id == id } }
 
     override func mouseDown(with event: NSEvent) {
         window?.makeFirstResponder(self)
         let p = convert(event.locationInWindow, from: nil)
         dragStartX = p.x; dragMoved = false
-        if let hit = clipHit(at: p) {
-            model.selectedClipID = hit.clip.id
-            if state.prep[hit.clip.id] == .failed { model.retryClip(hit.clip.id); drag = .none; return }
-            switch hit.region {
-            case .trimLeft, .trimRight: drag = hit.region
-            default:                    drag = .move(hit.clip.id)   // body → drag-to-move (or click = scrub)
-            }
-        } else {
-            drag = .scrub
-            model.seek(toSeconds: seconds(p.x))
+        let h = hit(at: p)
+        // Select the involved clip.
+        switch h {
+        case .trimLeft(let id), .trimRight(let id), .move(let id),
+             .fadeIn(let id), .fadeOut(let id), .transition(let id):
+            model.selectedClipID = id
+            if state.prep[id] == .failed { model.retryClip(id); drag = .none; return }
+        default: break
         }
+        switch h {
+        case .fadeIn(let id):     dragStartValue = clip(id)?.fadeInSeconds ?? 0
+        case .fadeOut(let id):    dragStartValue = clip(id)?.fadeOutSeconds ?? 0
+        case .transition(let id): dragStartValue = clip(id)?.transitionInSeconds ?? 0
+        case .none:               drag = .scrub; model.seek(toSeconds: snapSeconds(p.x)); return
+        default: break
+        }
+        drag = h
     }
 
     override func mouseDragged(with event: NSEvent) {
         let p = convert(event.locationInWindow, from: nil)
         switch drag {
         case .scrub:
-            model.seek(toSeconds: seconds(p.x))
+            model.seek(toSeconds: snapSeconds(p.x))
         case .trimLeft(let id):
-            guard let clip = state.clips.first(where: { $0.id == id }) else { return }
-            // New IN = the source second corresponding to the dragged left edge.
-            let deltaSec = seconds(p.x) - clip.timelineStart.seconds
-            model.trim(id, newInSeconds: clip.sourceRange.start.seconds + deltaSec)
+            guard let c = clip(id) else { return }
+            let deltaSec = snapSeconds(p.x) - c.timelineStart.seconds
+            model.trim(id, newInSeconds: c.sourceRange.start.seconds + deltaSec)
         case .trimRight(let id):
-            guard let clip = state.clips.first(where: { $0.id == id }) else { return }
-            let newDurOnTimeline = seconds(p.x) - clip.timelineStart.seconds
-            model.trim(id, newOutSeconds: clip.sourceRange.start.seconds + newDurOnTimeline)
+            guard let c = clip(id) else { return }
+            let newDur = snapSeconds(p.x) - c.timelineStart.seconds
+            model.trim(id, newOutSeconds: c.sourceRange.start.seconds + newDur)
+        case .fadeIn(let id):
+            guard let c = clip(id) else { return }
+            model.setClipFade(id, fadeIn: max(0, seconds(p.x) - c.timelineStart.seconds))
+        case .fadeOut(let id):
+            guard let c = clip(id) else { return }
+            model.setClipFade(id, fadeOut: max(0, c.timelineRange.endSeconds - seconds(p.x)))
+        case .transition(let id):
+            // Drag LEFT = more overlap. Delta from the mousedown position.
+            let deltaSec = seconds(dragStartX) - seconds(p.x)
+            model.setClipTransition(id, dragStartValue + deltaSec)
         case .move(let id):
-            if !dragMoved && abs(p.x - dragStartX) < 4 { return }   // small movement = still a click
+            if !dragMoved && abs(p.x - dragStartX) < 4 { return }
             dragMoved = true
-            // Magnetic reorder: target slot = how many OTHER clips' centers are left of the cursor.
             var target = 0
             for c in state.clips where c.id != id {
                 let center = x(c.timelineStart.seconds) + x(c.sourceRange.duration.seconds) / 2
@@ -296,9 +384,11 @@ final class TimelineContentView: NSView {
         }
     }
 
+    /// Scrub seconds with snapping to edit points (clip edges / markers / 0).
+    private func snapSeconds(_ px: CGFloat) -> Double { model.snap(seconds(px)) }
+
     override func mouseUp(with event: NSEvent) {
-        // A click on a clip body (no drag) positions the playhead there.
-        if case .move = drag, !dragMoved { model.seek(toSeconds: seconds(dragStartX)) }
+        if case .move = drag, !dragMoved { model.seek(toSeconds: snapSeconds(dragStartX)) }
         drag = .none
     }
 
@@ -306,17 +396,24 @@ final class TimelineContentView: NSView {
 
     override func menu(for event: NSEvent) -> NSMenu? {
         let p = convert(event.locationInWindow, from: nil)
-        guard let hit = clipHit(at: p) else { return nil }
-        model.selectedClipID = hit.clip.id
-        contextClipID = hit.clip.id
-        contextSeconds = seconds(p.x)
+        let h = hit(at: p)
+        var id: UUID?
+        switch h {
+        case .trimLeft(let i), .trimRight(let i), .move(let i), .fadeIn(let i), .fadeOut(let i), .transition(let i): id = i
+        default: id = nil
+        }
+        guard let id, let c = clip(id) else { return nil }
+        model.selectedClipID = id
+        contextClipID = id; contextSeconds = seconds(p.x)
         let menu = NSMenu()
         func add(_ title: String, _ sel: Selector) {
             let item = NSMenuItem(title: title, action: sel, keyEquivalent: ""); item.target = self; menu.addItem(item)
         }
         add("Split Here", #selector(ctxSplit))
-        add(hit.clip.audioVolume == 0 ? "Unmute Audio" : "Mute Audio", #selector(ctxMute))
+        add(c.audioVolume == 0 ? "Unmute Audio" : "Mute Audio", #selector(ctxMute))
         add("Duplicate", #selector(ctxDuplicate))
+        if c.fadeInSeconds > 0 || c.fadeOutSeconds > 0 { add("Clear Fades", #selector(ctxClearFades)) }
+        if c.transitionInSeconds > 0 { add("Clear Dissolve", #selector(ctxClearTransition)) }
         menu.addItem(.separator())
         add("Delete Clip", #selector(ctxDelete))
         return menu
@@ -325,16 +422,15 @@ final class TimelineContentView: NSView {
     @objc private func ctxSplit() { if let id = contextClipID { model.splitClip(id, atTimelineSeconds: contextSeconds) } }
     @objc private func ctxDuplicate() { if let id = contextClipID { model.duplicateClip(id) } }
     @objc private func ctxDelete() { if let id = contextClipID { model.deleteClip(id) } }
+    @objc private func ctxClearFades() { if let id = contextClipID { model.setClipFade(id, fadeIn: 0, fadeOut: 0) } }
+    @objc private func ctxClearTransition() { if let id = contextClipID { model.setClipTransition(id, 0) } }
     @objc private func ctxMute() {
-        if let id = contextClipID, let c = state.clips.first(where: { $0.id == id }) {
-            model.setClipVolume(id, c.audioVolume == 0 ? 1 : 0)
-        }
+        if let id = contextClipID, let c = clip(id) { model.setClipVolume(id, c.audioVolume == 0 ? 1 : 0) }
     }
 
     override func scrollWheel(with event: NSEvent) {
         if event.modifierFlags.contains(.command) || event.modifierFlags.contains(.option) {
-            let factor = 1 + Double(event.scrollingDeltaY) * 0.01
-            model.zoom(by: factor)
+            model.zoom(by: 1 + Double(event.scrollingDeltaY) * 0.01)
         } else {
             super.scrollWheel(with: event)
         }
@@ -344,11 +440,13 @@ final class TimelineContentView: NSView {
         switch event.charactersIgnoringModifiers {
         case " ": model.togglePlay()
         case "b", "B": model.splitAtPlayhead()
+        case "m", "M": model.toggleMarkerAtPlayhead()
+        case ",": model.goToMarker(forward: false)
+        case ".": model.goToMarker(forward: true)
         case String(UnicodeScalar(NSDeleteCharacter)!), String(UnicodeScalar(NSBackspaceCharacter)!):
             if let id = model.selectedClipID { model.deleteClip(id) }
         default:
-            if let id = model.selectedClipID,
-               event.keyCode == 51 /* delete */ { model.deleteClip(id) }
+            if let id = model.selectedClipID, event.keyCode == 51 { model.deleteClip(id) }
             else { super.keyDown(with: event) }
         }
     }

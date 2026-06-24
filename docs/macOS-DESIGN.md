@@ -390,8 +390,25 @@ do color. Resolution:
   first clip). Verified via the self-test: dissolve shrinks a 16s timeline to 14.0s, the overlap
   midpoint blends (luma 0.094, both visible), fades still black at the head/tail, and the silent
   Look reads sepia (R 0.196 > B 0.075).
-- **NEXT (deferred):** timeline transition/fade HANDLES (direct-manipulation on the clip edges),
-  markers, snapping, ripple-delete; non-dissolve transitions (wipe/push) via a Metal compositor.
+- non-dissolve transitions (wipe/push) via a Metal compositor remain deferred.
+
+**Timeline direct-manipulation: SHIPPED 2026-06-24.** The deferred Rule-7c interaction layer,
+all on the AppKit `TimelineContentView`:
+- **Fade handles** — a yellow ramp line + draggable dot at each clip's top corners; drag sets
+  fadeIn/fadeOut visually (the inspector sliders still work). 
+- **Cross-dissolve handles** — a purple diamond at each clip junction; drag left = more overlap
+  (delta-based to avoid the circular geometry of an overlapping magnetic layout). `relayout()`
+  now places clips WITH the transition overlap (mirroring CompositionBuilder), so the timeline
+  total + playhead finally match the (shorter) composition when a dissolve is set — a latent
+  bug from the cross-dissolve unit, fixed here.
+- **Markers** — `M` toggles a marker at the playhead (teal flag on the ruler + full-height
+  line); `,` / `.` jump to the prev/next marker or clip boundary; `Timeline.markers` (tolerant
+  decode).
+- **Snapping** — scrub/trim/move snap to clip edges, markers, the playhead, and 0 within 8px
+  (`EditorModel.snap`).
+- Context menu gained Clear Fades / Clear Dissolve. Ripple-delete is already the magnetic
+  default (delete closes the gap via relayout). Verified by screenshot: fade dots, the purple
+  dissolve diamond, the teal marker, and the dissolve-shrunk 0:14 total all render.
 
 **Test/screenshot hooks (`AW_CS_TEST`) + sidebar clip thumbnails: SHIPPED 2026-06-24.** The
 DocumentGroup editor is driven into a populated state (`editor`) or the Add-Clip scrubber

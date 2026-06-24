@@ -23,7 +23,8 @@ enum CreationStudioTest {
         return nil
     }
 
-    /// Add two real clips to the editor (exercising the live addClip → filmstrip → cache path).
+    /// Add two real clips to the editor (exercising the live addClip → filmstrip → cache path),
+    /// then set a fade / dissolve / marker so the timeline's direct-manipulation handles show.
     static func populate(_ model: EditorModel, _ store: AppStore) {
         var added = 0, tries = 0
         while added < 2 && tries < 800 {
@@ -33,6 +34,15 @@ enum CreationStudioTest {
                           inSeconds: 30, durationSeconds: 8)
             added += 1
         }
+        let clips = model.clips
+        if let first = clips.first {
+            model.setClipFade(first.id, fadeIn: 1.5, fadeOut: 1.0)
+        }
+        if clips.count >= 2 {
+            model.setClipTransition(clips[1].id, 1.5)
+        }
+        model.playheadSeconds = 4
+        model.toggleMarkerAtPlayhead()
     }
 }
 #endif

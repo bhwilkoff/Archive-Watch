@@ -176,21 +176,23 @@ struct Timeline: Codable, Hashable, Sendable {
     var textOverlays: [TextOverlay]
     var frameRate: Double
     var renderSize: RenderSize
+    var markers: [Double]               // timeline seconds — navigation + snap targets
 
     init(clips: [TimelineClip] = [], textOverlays: [TextOverlay] = [],
-         frameRate: Double = 30, renderSize: RenderSize = .hd1080) {
+         frameRate: Double = 30, renderSize: RenderSize = .hd1080, markers: [Double] = []) {
         self.clips = clips; self.textOverlays = textOverlays
-        self.frameRate = frameRate; self.renderSize = renderSize
+        self.frameRate = frameRate; self.renderSize = renderSize; self.markers = markers
     }
 
-    // Tolerant decode: projects written before `textOverlays` existed default to [] (the
-    // additive-schema discipline — old .archiveproj files keep opening). Encode synthesized.
+    // Tolerant decode: projects written before `textOverlays`/`markers` existed default to []
+    // (the additive-schema discipline — old .archiveproj files keep opening). Encode synthesized.
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
         clips = try c.decode([TimelineClip].self, forKey: .clips)
         textOverlays = try c.decodeIfPresent([TextOverlay].self, forKey: .textOverlays) ?? []
         frameRate = try c.decode(Double.self, forKey: .frameRate)
         renderSize = try c.decode(RenderSize.self, forKey: .renderSize)
+        markers = try c.decodeIfPresent([Double].self, forKey: .markers) ?? []
     }
 
     /// Timeline end = the furthest clip end across all tracks.
