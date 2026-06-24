@@ -507,19 +507,39 @@ final class EditorModel {
 
     var voiceover: MusicBed? { document.project.timeline.voiceover }
     var isRecordingVoiceover: Bool { voiceRecorder?.isRecording ?? false }
+    /// Surfaced to the inspector so a failed recording isn't silent (#10).
+    var voiceoverError: String?
     @ObservationIgnored private var voiceRecorder: AVAudioRecorder?
 
     /// Start recording mic narration to the project cache (begins at the current playhead).
-    func startVoiceover() {
+    /// Requests mic access first — on macOS, recording without authorization (or without the
+    /// mic entitlement) silently captures nothing, so we gate + surface the failure.
+    func startVoiceover() { Task { await beginVoiceover() } }
+
+    private func beginVoiceover() async {
+        voiceoverError = nil
+        switch AVCaptureDevice.authorizationStatus(for: .audio) {
+        case .authorized: break
+        case .notDetermined:
+            if await AVCaptureDevice.requestAccess(for: .audio) == false {
+                voiceoverError = "Microphone access denied. Enable it in System Settings ▸ Privacy & Security ▸ Microphone."
+                return
+            }
+        default:
+            voiceoverError = "Microphone access is off. Enable it in System Settings ▸ Privacy & Security ▸ Microphone."
+            return
+        }
         let name = "voiceover-\(UUID().uuidString.prefix(6)).m4a"
         let url = ProjectMediaCache.directory.appendingPathComponent(name)
         let settings: [String: Any] = [AVFormatIDKey: kAudioFormatMPEG4AAC, AVSampleRateKey: 44100,
                                         AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
-        guard let rec = try? AVAudioRecorder(url: url, settings: settings) else { return }
+        guard let rec = try? AVAudioRecorder(url: url, settings: settings), rec.record() else {
+            voiceoverError = "Couldn't start recording."
+            return
+        }
         voiceStartSeconds = playheadSeconds
         voicePendingName = name
         voiceRecorder = rec
-        rec.record()
     }
 
     @ObservationIgnored private var voiceStartSeconds = 0.0

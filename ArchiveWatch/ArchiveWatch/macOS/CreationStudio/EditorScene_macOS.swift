@@ -552,6 +552,9 @@ private struct ProjectInspector: View {
                         Label("Record Voiceover", systemImage: "mic.circle")
                     }
                 }
+                if let err = model.voiceoverError {
+                    Text(err).font(.caption).foregroundStyle(.orange)
+                }
             }
             Section {
                 Toggle("Burn in attribution credit", isOn: $project.burnAttribution)

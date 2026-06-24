@@ -10,6 +10,12 @@
 	<!-- Creation Studio will export/import files; user-selected scope is the sandboxed path -->
 	<key>com.apple.security.files.user-selected.read-write</key>
 	<true/>
+	<!-- Voiceover recording (Creation Studio). A sandboxed macOS app needs the microphone
+	     entitlement or TCC silently denies the request — the "record does nothing" bug. -->
+	<key>com.apple.security.device.microphone</key>
+	<true/>
+	<key>com.apple.security.device.audio-input</key>
+	<true/>
 	<!-- Same CloudKit container as tvOS/iOS → favorites/playlists/progress sync for free -->
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array>
