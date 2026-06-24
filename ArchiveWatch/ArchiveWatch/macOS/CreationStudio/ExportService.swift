@@ -76,7 +76,8 @@ final class ExportService {
                 let asset = AVURLAsset(url: url)
                 let dur = try await asset.load(.duration)               // the cached file IS the window
                 resolved.append(.init(asset: asset, insertRange: CMTimeRange(start: .zero, duration: dur),
-                                      audioVolume: clip.audioVolume))
+                                      audioVolume: clip.audioVolume,
+                                      fadeIn: clip.fadeInSeconds, fadeOut: clip.fadeOutSeconds))
             }
             let built = try await CompositionBuilder.build(
                 resolved: resolved, timeline: project.timeline, creditLine: creditLine)

@@ -116,6 +116,9 @@ struct ProjectEditorView: View {
         .task {
             // Screenshot/test hooks (AW_CS_TEST) — the DocumentGroup reliably opens this editor
             // window on launch, so we populate it here for CLI visual verification.
+            // The self-test/perf harness normally rides RootView's .task, but in a doc-app
+            // launch RootView may not open — kick it here too (one-shot guarded).
+            if CreationStudioSelfTest.isEnabled { await store.load(); await CreationStudioSelfTest.run(store: store) }
             if let mode = CreationStudioTest.mode {
                 await store.load()                                   // RootView may not open in a doc-app launch
                 var t = 0; while store.randomPlayable() == nil && t < 90 { try? await Task.sleep(for: .seconds(1)); t += 1 }
@@ -417,6 +420,28 @@ private struct ProjectInspector: View {
                                                   set: { model.setClipVolume(clip.id, $0) }),
                                    in: 0...1.5)
                             Text("\(Int(clip.audioVolume * 100))%").font(.caption.monospacedDigit())
+                                .foregroundStyle(.secondary).frame(width: 42, alignment: .trailing)
+                        }
+                    }
+                    // Fade up from / down to black (+ audio), over the clip's head/tail.
+                    let maxFade = max(0.1, clip.sourceRange.duration.seconds / 2)
+                    LabeledContent("Fade in") {
+                        HStack {
+                            Image(systemName: "circle.lefthalf.filled").foregroundStyle(.secondary)
+                            Slider(value: Binding(get: { clip.fadeInSeconds },
+                                                  set: { model.setClipFade(clip.id, fadeIn: $0) }),
+                                   in: 0...maxFade)
+                            Text(String(format: "%.1fs", clip.fadeInSeconds)).font(.caption.monospacedDigit())
+                                .foregroundStyle(.secondary).frame(width: 42, alignment: .trailing)
+                        }
+                    }
+                    LabeledContent("Fade out") {
+                        HStack {
+                            Image(systemName: "circle.righthalf.filled").foregroundStyle(.secondary)
+                            Slider(value: Binding(get: { clip.fadeOutSeconds },
+                                                  set: { model.setClipFade(clip.id, fadeOut: $0) }),
+                                   in: 0...maxFade)
+                            Text(String(format: "%.1fs", clip.fadeOutSeconds)).font(.caption.monospacedDigit())
                                 .foregroundStyle(.secondary).frame(width: 42, alignment: .trailing)
                         }
                     }

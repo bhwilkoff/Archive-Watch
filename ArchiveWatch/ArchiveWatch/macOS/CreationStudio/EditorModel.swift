@@ -89,6 +89,16 @@ final class EditorModel {
         scheduleRebuild()
     }
 
+    /// Set a clip's fade-in / fade-out (seconds). Each is clamped to the clip's duration; the
+    /// two are kept from overlapping at build time. Rebuilds preview (fades show live).
+    func setClipFade(_ id: UUID, fadeIn: Double? = nil, fadeOut: Double? = nil) {
+        guard let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
+        let dur = document.project.timeline.clips[i].sourceRange.duration.seconds
+        if let fadeIn { document.project.timeline.clips[i].fadeInSeconds = max(0, min(fadeIn, dur)) }
+        if let fadeOut { document.project.timeline.clips[i].fadeOutSeconds = max(0, min(fadeOut, dur)) }
+        scheduleRebuild()
+    }
+
     /// Add a clip from a saved proxy (dragged from the Library, or just-marked).
     func addClip(from proxy: ProxyClip) {
         let clip = TimelineClip.from(proxy, at: .zero)
@@ -330,7 +340,8 @@ final class EditorModel {
         return .init(asset: AVURLAsset(url: window.url),
                      insertRange: CMTimeRange(start: CMTime(seconds: startInFile, preferredTimescale: 600),
                                               duration: CMTime(seconds: max(0.05, dur), preferredTimescale: 600)),
-                     audioVolume: clip.audioVolume)
+                     audioVolume: clip.audioVolume,
+                     fadeIn: clip.fadeInSeconds, fadeOut: clip.fadeOutSeconds)
     }
 
     private func ensureThumbnails(_ clip: TimelineClip, window: CachedWindow) {

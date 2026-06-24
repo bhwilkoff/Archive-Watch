@@ -354,6 +354,33 @@ ML CI pipeline is a later session, owner decision).**
 - DEFERRED to its own session: the heavy CI shot-mining pipeline (PySceneDetect → Vision
   classify → MobileCLIP embeddings → sqlite-vec semantic search) that produces the real index.
 
+## 13. Editor polish progress log
+
+**Per-clip fades (video + audio): SHIPPED 2026-06-24.** Satisfies Rule 7c's "fade handles"
+and gives the first transition idiom (fade up from black, fade to black, and dip-to-black
+between two clips) WITHOUT the A/B 2-track rework.
+- Model: `TimelineClip.fadeInSeconds` / `fadeOutSeconds` (tolerant decode → 0 for old projects).
+- Engine (`CompositionBuilder`): video opacity ramps via the Configuration API
+  `layerCfg.addOpacityRamp(.init(timeRange:start:end:))` against the black letterbox matte (0→1
+  head, 1→0 tail, clamped so they never overlap); audio via per-segment
+  `AVMutableAudioMixInputParameters.setVolumeRamp` (0→vol head, vol→0 tail). Ramps live on the
+  layer instruction / audio mix, so the LIVE PREVIEW shows them too — no Core Animation tool,
+  preview == export holds (Rule 3a).
+- UI: the inspector "Clip" section gains Fade in / Fade out sliders (0…half the clip), live.
+- Verified end-to-end via the self-test brightness probe: a faded export reads luma 0.000 at
+  t=0, 0.095 mid-clip, 0.000 at the tail.
+- **NEXT (deferred):** cross-DISSOLVE (A blends into B with no black dip) needs the A/B 2-track
+  scheme + overlapping clips (Rule 3c) — a larger engine change; the dip-to-black transition
+  covers the common case now. Also deferred: timeline fade handles/markers, snapping,
+  ripple-delete (Rule 7c later phase).
+
+**Test/screenshot hooks (`AW_CS_TEST`) + sidebar clip thumbnails: SHIPPED 2026-06-24.** The
+DocumentGroup editor is driven into a populated state (`editor`) or the Add-Clip scrubber
+(`markclip`) for CLI visual verification (SwiftUI's a11y tree isn't AppleScript-traversable).
+The Library sidebar now shows each clip's real in-point frame from the archive.org thumbnail
+strip (`ClipThumbnailView` + `ClipThumbnailCache`), poster→icon fallback — robust regardless
+of store/poster state, honoring "clip previews use thumbnails, not freshly-generated frames."
+
 ---
 
 *Amend, don't contradict. New views/features quote the rule they satisfy or the amendment

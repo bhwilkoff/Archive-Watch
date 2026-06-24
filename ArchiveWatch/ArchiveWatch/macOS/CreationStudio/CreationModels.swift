@@ -89,6 +89,8 @@ struct TimelineClip: Codable, Identifiable, Hashable, Sendable {
     var track: Int                     // video: 0 = main A, 1 = overlay B (A/B scheme, Rule 3c)
     var label: String
     var audioVolume: Double            // this clip's audio level in the mix, 0…1.5 (#4)
+    var fadeInSeconds: Double          // fade up from black + audio in, over the clip's head
+    var fadeOutSeconds: Double         // fade to black + audio out, over the clip's tail
 
     /// Duration on the timeline equals the source window's duration (no speed change in
     /// Phase 1 — speed ramps are a later layer on the same spine).
@@ -96,14 +98,16 @@ struct TimelineClip: Codable, Identifiable, Hashable, Sendable {
 
     init(id: UUID = UUID(), proxyClipID: UUID? = nil, catalogItemID: String, sourceURL: URL,
          sourceRange: TimeRange, timelineStart: TimeStamp, track: Int = 0, label: String,
-         audioVolume: Double = 1.0) {
+         audioVolume: Double = 1.0, fadeInSeconds: Double = 0, fadeOutSeconds: Double = 0) {
         self.id = id; self.proxyClipID = proxyClipID; self.catalogItemID = catalogItemID
         self.sourceURL = sourceURL; self.sourceRange = sourceRange
         self.timelineStart = timelineStart; self.track = track; self.label = label
         self.audioVolume = audioVolume
+        self.fadeInSeconds = fadeInSeconds; self.fadeOutSeconds = fadeOutSeconds
     }
 
-    // Tolerant decode: pre-#4 clips default to full volume (additive-schema discipline).
+    // Tolerant decode: pre-#4 clips default to full volume, pre-fades clips to 0 fade
+    // (additive-schema discipline).
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
         id = try c.decode(UUID.self, forKey: .id)
@@ -115,6 +119,8 @@ struct TimelineClip: Codable, Identifiable, Hashable, Sendable {
         track = try c.decode(Int.self, forKey: .track)
         label = try c.decode(String.self, forKey: .label)
         audioVolume = try c.decodeIfPresent(Double.self, forKey: .audioVolume) ?? 1.0
+        fadeInSeconds = try c.decodeIfPresent(Double.self, forKey: .fadeInSeconds) ?? 0
+        fadeOutSeconds = try c.decodeIfPresent(Double.self, forKey: .fadeOutSeconds) ?? 0
     }
 
     static func from(_ proxy: ProxyClip, at start: TimeStamp, track: Int = 0) -> TimelineClip {

@@ -33,6 +33,8 @@ enum CompositionBuilder {
         let asset: AVURLAsset
         let insertRange: CMTimeRange
         var audioVolume: Double = 1.0
+        var fadeIn: Double = 0           // seconds: fade up from black + audio in over the head
+        var fadeOut: Double = 0          // seconds: fade to black + audio out over the tail
     }
 
     /// Compile resolved clips (in timeline order) into the (composition, videoComposition)
@@ -57,7 +59,8 @@ enum CompositionBuilder {
         let renderSize = timeline.renderSize.cgSize
 
         var instructions: [AVVideoCompositionInstruction] = []
-        var volumePoints: [(CMTime, Float)] = []      // per-clip audio level (#4)
+        // Per-clip audio segments → one ramped mix (#4 + fades). Each: (start, dur, vol, fadeIn, fadeOut).
+        var audioSegments: [(start: CMTime, dur: CMTime, vol: Float, fadeIn: Double, fadeOut: Double)] = []
         var cursor = CMTime.zero
 
         for r in resolved {
@@ -69,7 +72,8 @@ enum CompositionBuilder {
             try vTrack.insertTimeRange(insertRange, of: srcV, at: cursor)
             if let aTrack, let srcA = try await asset.loadTracks(withMediaType: .audio).first {
                 try? aTrack.insertTimeRange(insertRange, of: srcA, at: cursor)
-                volumePoints.append((cursor, Float(max(0, r.audioVolume))))   // volume from this clip's start
+                audioSegments.append((cursor, insertRange.duration, Float(max(0, r.audioVolume)),
+                                      r.fadeIn, r.fadeOut))
             }
 
             // Per-clip aspect-fit transform (orient → fit into the render canvas, letterboxed).
@@ -81,6 +85,25 @@ enum CompositionBuilder {
             var layerCfg = AVVideoCompositionLayerInstruction.Configuration(trackID: vTrack.trackID)
             layerCfg.setTransform(preferred.concatenating(aspectFit(orientedAbs, into: renderSize)),
                                   at: cursor)
+            // Fade up from / down to black — opacity ramps over the clip's head/tail (against
+            // the black letterbox matte). Ramps live on the layer instruction, so the PREVIEW
+            // shows them too (no Core Animation tool needed). Clamp so the two never overlap.
+            let dur = insertRange.duration.seconds
+            let fIn = max(0, min(r.fadeIn, dur))
+            let fOut = max(0, min(r.fadeOut, dur - fIn))
+            if fIn > 0 {
+                layerCfg.addOpacityRamp(.init(
+                    timeRange: CMTimeRange(start: cursor,
+                                           duration: CMTime(seconds: fIn, preferredTimescale: 600)),
+                    start: 0, end: 1))
+            }
+            if fOut > 0 {
+                let outStart = cursor + CMTime(seconds: dur - fOut, preferredTimescale: 600)
+                layerCfg.addOpacityRamp(.init(
+                    timeRange: CMTimeRange(start: outStart,
+                                           duration: CMTime(seconds: fOut, preferredTimescale: 600)),
+                    start: 1, end: 0))
+            }
             let layerInstr = AVVideoCompositionLayerInstruction(configuration: layerCfg)
 
             var instrCfg = AVVideoCompositionInstruction.Configuration()
@@ -117,14 +140,30 @@ enum CompositionBuilder {
             cfg.animationTool = AVVideoCompositionCoreAnimationTool(configuration: toolCfg)
         }
 
-        // Audio mix — each clip's segment plays at its own volume (#4). Step the volume at
-        // every clip boundary on the shared audio track (Rule 3c: N-track mixing with
-        // AVMutableAudioMixInputParameters; per-clip volume needs only one track + steps).
+        // Audio mix — each clip's segment plays at its own volume (#4), with optional fade
+        // in/out ramps. Step the base volume at the segment start, then ramp over the head/tail
+        // (Rule 3c: per-clip mixing on the shared audio track via AVMutableAudioMixInputParameters).
         var audioMix: AVAudioMix?
-        if let aTrack = comp.tracks(withMediaType: .audio).first,
-           volumePoints.contains(where: { $0.1 != 1 }) {
+        let needsMix = audioSegments.contains { $0.vol != 1 || $0.fadeIn > 0 || $0.fadeOut > 0 }
+        if let aTrack = comp.tracks(withMediaType: .audio).first, needsMix {
             let params = AVMutableAudioMixInputParameters(track: aTrack)
-            for (t, v) in volumePoints { params.setVolume(v, at: t) }
+            for seg in audioSegments {
+                let dur = seg.dur.seconds
+                let fIn = max(0, min(seg.fadeIn, dur))
+                let fOut = max(0, min(seg.fadeOut, dur - fIn))
+                params.setVolume(seg.vol, at: seg.start)
+                if fIn > 0 {
+                    params.setVolumeRamp(fromStartVolume: 0, toEndVolume: seg.vol,
+                                         timeRange: CMTimeRange(start: seg.start,
+                                                              duration: CMTime(seconds: fIn, preferredTimescale: 600)))
+                }
+                if fOut > 0 {
+                    let outStart = seg.start + CMTime(seconds: dur - fOut, preferredTimescale: 600)
+                    params.setVolumeRamp(fromStartVolume: seg.vol, toEndVolume: 0,
+                                         timeRange: CMTimeRange(start: outStart,
+                                                              duration: CMTime(seconds: fOut, preferredTimescale: 600)))
+                }
+            }
             let mix = AVMutableAudioMix()
             mix.inputParameters = [params]
             audioMix = mix

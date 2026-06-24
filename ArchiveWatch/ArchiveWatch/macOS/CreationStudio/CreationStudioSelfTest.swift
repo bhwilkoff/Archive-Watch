@@ -1,6 +1,7 @@
 #if os(macOS)
 import Foundation
 import AVFoundation
+import CoreImage
 
 // Env-gated end-to-end validation of the Creation Studio engine (de-risk spike #3,
 // docs/macOS-DESIGN.md §9.3 / Rule 4b) — the macOS analogue of the project's
@@ -10,8 +11,29 @@ import AVFoundation
 @MainActor
 enum CreationStudioSelfTest {
     static var isEnabled: Bool { ProcessInfo.processInfo.environment["AW_CS_SELFTEST"] == "1" }
+    private static var started = false   // one-shot: RootView and the editor both try to kick it
+
+    /// Average luma (0…1) of the exported video frame at `seconds` — used to prove the opacity
+    /// fade ramps actually render (black at the fade extremes, bright in the middle).
+    static func avgBrightness(_ url: URL, at seconds: Double) async -> Double? {
+        let gen = AVAssetImageGenerator(asset: AVURLAsset(url: url))
+        gen.appliesPreferredTrackTransform = true
+        gen.requestedTimeToleranceBefore = .zero; gen.requestedTimeToleranceAfter = .zero
+        guard let cg = try? await gen.image(at: CMTime(seconds: seconds, preferredTimescale: 600)).image
+        else { return nil }
+        let ci = CIImage(cgImage: cg)
+        let avg = ci.applyingFilter("CIAreaAverage",
+                                    parameters: [kCIInputExtentKey: CIVector(cgRect: ci.extent)])
+        var px = [UInt8](repeating: 0, count: 4)
+        CIContext().render(avg, toBitmap: &px, rowBytes: 4,
+                           bounds: CGRect(x: 0, y: 0, width: 1, height: 1),
+                           format: .RGBA8, colorSpace: nil)
+        return (Double(px[0]) + Double(px[1]) + Double(px[2])) / 3.0 / 255.0
+    }
 
     static func run(store: AppStore) async {
+        guard !started else { return }
+        started = true
         // stderr is unbuffered (stdout block-buffers when redirected), and a result file
         // survives buffering entirely — read it directly.
         let resultFile = ProjectMediaCache.directory.appendingPathComponent("selftest-result.txt")
@@ -88,13 +110,17 @@ enum CreationStudioSelfTest {
         // A 2-clip cross-title timeline: an 8s window from each title, back to back.
         var timeline = Timeline()
         timeline.clips = [
+            // Fade up from black over the first 1.5s (video + audio).
             TimelineClip(catalogItemID: a.archiveID, sourceURL: aURL,
                          sourceRange: TimeRange(startSeconds: 3, durationSeconds: 8),
-                         timelineStart: .zero, track: 0, label: a.title, audioVolume: 1.0),
+                         timelineStart: .zero, track: 0, label: a.title, audioVolume: 1.0,
+                         fadeInSeconds: 1.5),
             // #4: clip B is MUTED — the [8,16s] half of the export should be silent.
+            // Fade down to black over the last 1.5s.
             TimelineClip(catalogItemID: b.archiveID, sourceURL: bURL,
                          sourceRange: TimeRange(startSeconds: 3, durationSeconds: 8),
-                         timelineStart: TimeStamp(seconds: 8), track: 0, label: b.title, audioVolume: 0.0),
+                         timelineStart: TimeStamp(seconds: 8), track: 0, label: b.title, audioVolume: 0.0,
+                         fadeOutSeconds: 1.5),
         ]
         // Phase 2 #3: a timed text overlay (yellow, centered, t=2–9s).
         timeline.textOverlays = [
@@ -129,6 +155,18 @@ enum CreationStudioSelfTest {
             default:
                 log("ENDED[\(variant)] in unexpected phase")
             }
+        }
+
+        // FADES (video opacity ramps): verify the CLEAN export (no credit confound) fades up
+        // from black at the start and down to black at the end — brightness near-zero at the
+        // fade extremes, bright in the middle.
+        let cleanOut = ProjectMediaCache.directory.appendingPathComponent("selftest-clean.mp4")
+        if FileManager.default.fileExists(atPath: cleanOut.path) {
+            let b0 = await Self.avgBrightness(cleanOut, at: 0.05)     // fade-in start ≈ black
+            let bMid = await Self.avgBrightness(cleanOut, at: 4.0)    // clip A full ≈ bright
+            let bEnd = await Self.avgBrightness(cleanOut, at: 15.9)   // fade-out end ≈ black
+            log(String(format: "FADES brightness t=0:%.3f t=4:%.3f t=16:%.3f (fade ok if ends « mid)",
+                       b0 ?? -1, bMid ?? -1, bEnd ?? -1))
         }
 
         // #5: a ProRes .mov export (reuses the warm cache) to confirm the format path.
