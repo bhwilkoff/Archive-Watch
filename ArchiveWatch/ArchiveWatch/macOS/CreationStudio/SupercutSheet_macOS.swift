@@ -39,9 +39,13 @@ struct SupercutSheet: View {
     @State private var assembling = false
     @State private var assembleProgress = 0.0
     @State private var gapEdits: [UUID: String] = [:]
+    @State private var excludedSegments: Set<UUID> = []     // compose-mode per-segment opt-out
 
     private var included: [SubtitleCue] { results.filter { !excluded.contains($0.id) } }
-    private var planFound: Int { plan.filter(\.found).count }                 // clips (found runs)
+    private var includedSegments: [SentenceComposer.Segment] {
+        plan.filter { $0.found && !excludedSegments.contains($0.id) }
+    }
+    private var planFound: Int { includedSegments.count }                     // clips actually selected
     private func words(_ s: SentenceComposer.Segment) -> Int { s.phrase.split(separator: " ").count }
     private var totalWords: Int { plan.reduce(0) { $0 + words($1) } }
     private var coveredWords: Int { plan.filter(\.found).reduce(0) { $0 + words($1) } }
@@ -91,11 +95,23 @@ struct SupercutSheet: View {
             if searched && results.isEmpty {
                 ContentUnavailableView("No spoken lines matched", systemImage: "text.magnifyingglass").frame(minHeight: 150)
             } else if !results.isEmpty {
+                HStack {
+                    Text("Check the takes you want — \(included.count) of \(results.count) selected")
+                        .font(.caption).foregroundStyle(.secondary)
+                    Spacer()
+                    Button("All") { excluded.removeAll() }.controlSize(.small).disabled(excluded.isEmpty)
+                    Button("None") { excluded = Set(results.map(\.id)) }
+                        .controlSize(.small).disabled(excluded.count == results.count)
+                }
                 List(results) { cue in
                     HStack(alignment: .top, spacing: 10) {
-                        Image(systemName: excluded.contains(cue.id) ? "circle" : "checkmark.circle.fill")
-                            .foregroundStyle(excluded.contains(cue.id) ? .secondary : Color.accentColor)
-                            .onTapGesture { if excluded.contains(cue.id) { excluded.remove(cue.id) } else { excluded.insert(cue.id) } }
+                        Button {
+                            if excluded.contains(cue.id) { excluded.remove(cue.id) } else { excluded.insert(cue.id) }
+                        } label: {
+                            Image(systemName: excluded.contains(cue.id) ? "circle" : "checkmark.circle.fill")
+                                .foregroundStyle(excluded.contains(cue.id) ? .secondary : Color.accentColor)
+                                .font(.title3)
+                        }.buttonStyle(.borderless)
                         VStack(alignment: .leading, spacing: 2) {
                             Text(cue.text).lineLimit(2)
                             Text("\(cue.title) · \(cue.timecode)").font(.caption).foregroundStyle(.secondary)
@@ -128,8 +144,17 @@ struct SupercutSheet: View {
                 // say the same words (the editorial control — pick the take you want).
                 List($plan) { $seg in
                     HStack(spacing: 8) {
-                        Image(systemName: seg.found ? "checkmark.circle.fill" : "exclamationmark.circle")
-                            .foregroundStyle(seg.found ? Color.accentColor : .orange)
+                        if seg.found {
+                            let on = !excludedSegments.contains(seg.id)
+                            Button {
+                                if on { excludedSegments.insert(seg.id) } else { excludedSegments.remove(seg.id) }
+                            } label: {
+                                Image(systemName: on ? "checkmark.circle.fill" : "circle")
+                                    .foregroundStyle(on ? Color.accentColor : .secondary)
+                            }.buttonStyle(.borderless)
+                        } else {
+                            Image(systemName: "exclamationmark.circle").foregroundStyle(.orange)
+                        }
                         Text("“\(seg.phrase)”").bold()
                         Spacer()
                         if let c = seg.chosen {
@@ -183,6 +208,7 @@ struct SupercutSheet: View {
         guard let index, !phrase.isEmpty else { return }
         plan = SentenceComposer.plan(phrase, index: index)
         gapEdits.removeAll()
+        excludedSegments.removeAll()
     }
 
     private func gapBinding(_ id: UUID) -> Binding<String> {
@@ -212,7 +238,7 @@ struct SupercutSheet: View {
     /// Assemble the sentence in order (v2): each found segment's word window, optionally tightened.
     private func assembleCompose() async {
         assembling = true
-        let segs = plan.filter(\.found)
+        let segs = includedSegments
         for (i, seg) in segs.enumerated() {
             assembleProgress = Double(i) / Double(max(1, segs.count))
             guard let proxy = SentenceComposer.proxyClip(seg), let cue = seg.chosen?.cue else { continue }
