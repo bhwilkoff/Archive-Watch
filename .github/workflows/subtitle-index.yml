@@ -1,0 +1,58 @@
+name: Subtitle cue index (#9)
+
+# Creation Studio #9 (Decision 042): parse every captioned film's WebVTT into subtitle.sqlite
+# (tools/build_subtitle_index.py) so the macOS Text->Supercut searches spoken lines across the
+# WHOLE catalog, not just the on-device popular-films sample. Published like clips.sqlite; the app
+# downloads + inflates it (StockIndex pattern), falling back to the sample. Popularity-first,
+# resumable; runs after subtitles land.
+
+on:
+  schedule:
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Captioned films to add this run'
+        default: '4000'
+
+concurrency:
+  group: subtitle-index
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Restore existing index (resumable)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release download subtitle-index -p subtitle.sqlite -O subtitle.sqlite || echo "first run — no existing index"
+
+      - name: Build cue index
+        run: |
+          python tools/build_subtitle_index.py --limit ${{ github.event.inputs.limit || '4000' }} | tee sub.log
+          echo "## Subtitle cue index" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -2 sub.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Publish index
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Raw DEFLATE (wbits=-15), matching the catalog convention so the app reuses inflate.
+          python3 -c "import zlib; d=open('subtitle.sqlite','rb').read(); c=zlib.compressobj(9,zlib.DEFLATED,-15); open('subtitle.sqlite.zz','wb').write(c.compress(d)+c.flush())"
+          gh release view subtitle-index >/dev/null 2>&1 || \
+            gh release create subtitle-index --title "Subtitle cue index" --notes "subtitle.sqlite for Creation Studio Supercut (#9)"
+          gh release upload subtitle-index subtitle.sqlite subtitle.sqlite.zz --clobber

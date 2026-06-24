@@ -40,11 +40,17 @@ struct SubtitleCue: Identifiable, Hashable, Sendable {
 final class SubtitleIndex {
     private var handle: OpaquePointer?
 
-    static var sampleURL: URL {
+    nonisolated private static var dir: URL {
         let base = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
             .appendingPathComponent("CreationStudio", isDirectory: true)
         try? FileManager.default.createDirectory(at: base, withIntermediateDirectories: true)
-        return base.appendingPathComponent("subtitle-sample.sqlite")
+        return base
+    }
+    nonisolated static var sampleURL: URL { dir.appendingPathComponent("subtitle-sample.sqlite") }
+    /// The full-corpus CI index (tools/build_subtitle_index.py), downloaded from subtitle-index.
+    nonisolated static var indexURL: URL { dir.appendingPathComponent("subtitle.sqlite") }
+    nonisolated static var bestURL: URL {
+        FileManager.default.fileExists(atPath: indexURL.path) ? indexURL : sampleURL
     }
 
     init?(path: URL) {
@@ -120,6 +126,32 @@ enum VTTParser {
 // MARK: - Sample index builder (real cues; the CI tool builds the full corpus)
 
 enum SubtitleIndexBuilder {
+    private static let publishedURL = URL(string:
+        "https://github.com/bhwilkoff/Archive-Watch/releases/download/subtitle-index/subtitle.sqlite.zz")!
+
+    /// Ensure a cue index exists: download the full-corpus CI index if published, else synthesize
+    /// the on-device sample. Same `cues` schema either way (StockIndex pattern).
+    @MainActor
+    static func ensureIndex(store: AppStore) async {
+        if await downloadPublishedIndex() { return }
+        await buildSampleIfNeeded(store: store)
+    }
+
+    private static func downloadPublishedIndex() async -> Bool {
+        let dst = SubtitleIndex.indexURL
+        if let attrs = try? FileManager.default.attributesOfItem(atPath: dst.path),
+           let mod = attrs[.modificationDate] as? Date, Date().timeIntervalSince(mod) < 7 * 86400 {
+            return true
+        }
+        guard let (tmp, resp) = try? await URLSession.shared.download(from: publishedURL),
+              (resp as? HTTPURLResponse).map({ (200...299).contains($0.statusCode) }) == true else { return false }
+        let zz = dst.appendingPathExtension("zz")
+        try? FileManager.default.removeItem(at: zz)
+        guard (try? FileManager.default.moveItem(at: tmp, to: zz)) != nil else { return false }
+        defer { try? FileManager.default.removeItem(at: zz) }
+        do { try CatalogRefreshService.inflate(src: zz, dst: dst); return true } catch { return false }
+    }
+
     /// Build the sample subtitle.sqlite from a batch of captioned titles' real VTTs, if absent.
     @MainActor
     static func buildSampleIfNeeded(store: AppStore, maxFilms: Int = 60) async {

@@ -486,9 +486,17 @@ Verified locally: 24 real shots from 3 films (cuts at 19.3s / 24.7s / 32.0s…).
 refinement:** Apple-Vision per-shot classification + MobileCLIP/`sqlite-vec` semantic search
 (genre/subject tags work now; semantic "find shots of X" is the upgrade).
 
-**Still deferred:** the Supercut full-corpus CI index + SpeechTranscriber word-timing (the
-flagship's word-level upgrade; sample + line-level ship now); Stock semantic Vision/MobileCLIP
-tags; the NSDocument/security-scoped-bookmark durable-media unit.
+**Supercut full-corpus index: SHIPPED 2026-06-24.** `tools/build_subtitle_index.py` parses every
+captioned film's WebVTT into `subtitle.sqlite` (the `cues` schema `SubtitleIndex` queries);
+`subtitle-index.yml` (daily) publishes `subtitle.sqlite.zz` to a `subtitle-index` release; the app
+downloads + inflates it (`SubtitleIndexBuilder.ensureIndex`, StockIndex pattern), falling back to
+the on-device popular-films sample until published. Verified locally: 2,114 cues from 15 films.
+So the supercut searches the WHOLE captioned catalog, not just the sample.
+
+**Still deferred (the hardest, model/persistence items):** SpeechTranscriber WORD-timing (the
+supercut's line→word upgrade — isolate a single spoken word, Rule 6b; needs the on-device speech
+model); Stock semantic Vision/MobileCLIP tags (genre/subject tags + real shots ship now); the
+NSDocument/security-scoped-bookmark durable-media unit (music/voiceover persist in the cache now).
 
 **Test/screenshot hooks (`AW_CS_TEST`) + sidebar clip thumbnails: SHIPPED 2026-06-24.** The
 DocumentGroup editor is driven into a populated state (`editor`) or the Add-Clip scrubber

@@ -74,8 +74,8 @@ struct SupercutSheet: View {
         .padding(20)
         .frame(width: 560, height: 460)
         .task {
-            await SubtitleIndexBuilder.buildSampleIfNeeded(store: store)
-            index = SubtitleIndex(path: SubtitleIndex.sampleURL)
+            await SubtitleIndexBuilder.ensureIndex(store: store)
+            index = SubtitleIndex(path: SubtitleIndex.bestURL)
             building = false
         }
     }
