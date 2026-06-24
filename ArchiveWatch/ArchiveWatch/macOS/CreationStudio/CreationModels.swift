@@ -199,13 +199,14 @@ struct Timeline: Codable, Hashable, Sendable {
     var renderSize: RenderSize
     var markers: [Double]               // timeline seconds — navigation + snap targets
     var musicBed: MusicBed?
+    var voiceover: MusicBed?            // recorded narration (same audio-overlay shape as music)
 
     init(clips: [TimelineClip] = [], textOverlays: [TextOverlay] = [],
          frameRate: Double = 30, renderSize: RenderSize = .hd1080, markers: [Double] = [],
-         musicBed: MusicBed? = nil) {
+         musicBed: MusicBed? = nil, voiceover: MusicBed? = nil) {
         self.clips = clips; self.textOverlays = textOverlays
         self.frameRate = frameRate; self.renderSize = renderSize; self.markers = markers
-        self.musicBed = musicBed
+        self.musicBed = musicBed; self.voiceover = voiceover
     }
 
     // Tolerant decode: projects written before `textOverlays`/`markers`/`musicBed` existed default
@@ -218,6 +219,7 @@ struct Timeline: Codable, Hashable, Sendable {
         renderSize = try c.decode(RenderSize.self, forKey: .renderSize)
         markers = try c.decodeIfPresent([Double].self, forKey: .markers) ?? []
         musicBed = try c.decodeIfPresent(MusicBed.self, forKey: .musicBed)
+        voiceover = try c.decodeIfPresent(MusicBed.self, forKey: .voiceover)
     }
 
     /// Timeline end = the furthest clip end across all tracks.

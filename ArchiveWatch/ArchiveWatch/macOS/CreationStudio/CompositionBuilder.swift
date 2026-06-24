@@ -54,7 +54,7 @@ enum CompositionBuilder {
     /// matches the export; the editor draws overlays live over the program monitor instead.
     static func build(resolved: [ResolvedClip], timeline: Timeline,
                       creditLine: String?, bakeOverlays: Bool = true,
-                      music: ResolvedMusic? = nil) async throws -> BuiltComposition {
+                      beds: [ResolvedMusic] = []) async throws -> BuiltComposition {
         let comp = AVMutableComposition()
         // Two video + two audio tracks (A/B) so adjacent clips can OVERLAP for a cross-dissolve
         // (Rule 3c). Clips alternate tracks; a plain cut just abuts on alternating tracks. Fades
@@ -257,22 +257,21 @@ enum CompositionBuilder {
             paramsList.append(params)
         }
 
-        // Music bed (#4 audio layers) — a separate audio track under the whole timeline, from
-        // its start to the end of the program (looping isn't needed; it's trimmed to fit).
-        if let music, cursor.seconds > music.startSeconds + 0.05,
-           let mTrack = comp.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid),
-           let srcA = try? await music.asset.loadTracks(withMediaType: .audio).first {
-            let want = cursor.seconds - music.startSeconds
-            let avail = (try? await music.asset.load(.duration).seconds) ?? want
+        // Audio beds (#4 audio layers) — music + voiceover, each a separate audio track under the
+        // timeline from its start to the program end (trimmed to fit, with a short end fade).
+        for bed in beds where cursor.seconds > bed.startSeconds + 0.05 {
+            guard let mTrack = comp.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid),
+                  let srcA = try? await bed.asset.loadTracks(withMediaType: .audio).first else { continue }
+            let want = cursor.seconds - bed.startSeconds
+            let avail = (try? await bed.asset.load(.duration).seconds) ?? want
             let dur = CMTime(seconds: max(0.1, min(want, avail)), preferredTimescale: ts)
-            let at = CMTime(seconds: max(0, music.startSeconds), preferredTimescale: ts)
+            let at = CMTime(seconds: max(0, bed.startSeconds), preferredTimescale: ts)
             try? mTrack.insertTimeRange(CMTimeRange(start: .zero, duration: dur), of: srcA, at: at)
             let mp = AVMutableAudioMixInputParameters(track: mTrack)
-            mp.setVolume(Float(max(0, music.volume)), at: at)
-            // Short fade out at the very end so the bed doesn't cut abruptly.
-            let fade = min(1.5, dur.seconds / 2)
+            mp.setVolume(Float(max(0, bed.volume)), at: at)
+            let fade = min(1.5, dur.seconds / 2)            // gentle tail so the bed doesn't cut abruptly
             if fade > 0 {
-                mp.setVolumeRamp(fromStartVolume: Float(max(0, music.volume)), toEndVolume: 0,
+                mp.setVolumeRamp(fromStartVolume: Float(max(0, bed.volume)), toEndVolume: 0,
                                  timeRange: CMTimeRange(start: at + dur - CMTime(seconds: fade, preferredTimescale: ts),
                                                         duration: CMTime(seconds: fade, preferredTimescale: ts)))
             }

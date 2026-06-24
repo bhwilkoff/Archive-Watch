@@ -323,7 +323,7 @@ final class EditorModel {
         do {
             let built = try await CompositionBuilder.build(
                 resolved: resolved, timeline: document.project.timeline,
-                creditLine: credit, bakeOverlays: false, music: resolvedMusic())
+                creditLine: credit, bakeOverlays: false, beds: resolvedBeds())
             guard !Task.isCancelled else { return }
             let item = AVPlayerItem(asset: built.composition)
             item.videoComposition = built.videoComposition
@@ -441,12 +441,65 @@ final class EditorModel {
         scheduleRebuild()
     }
 
-    /// Resolve the music bed to a local asset for the composition (nil if the cache file is gone).
-    func resolvedMusic() -> CompositionBuilder.ResolvedMusic? {
-        guard let m = document.project.timeline.musicBed else { return nil }
-        let url = ProjectMediaCache.directory.appendingPathComponent(m.fileName)
+    /// Resolve a stored audio overlay (music / voiceover) to a local asset, or nil if its cache
+    /// file is gone.
+    private func resolveBed(_ bed: MusicBed?) -> CompositionBuilder.ResolvedMusic? {
+        guard let bed else { return nil }
+        let url = ProjectMediaCache.directory.appendingPathComponent(bed.fileName)
         guard FileManager.default.fileExists(atPath: url.path) else { return nil }
-        return .init(asset: AVURLAsset(url: url), volume: m.volume, startSeconds: m.startSeconds)
+        return .init(asset: AVURLAsset(url: url), volume: bed.volume, startSeconds: bed.startSeconds)
+    }
+
+    /// The music + voiceover beds resolved for the composition.
+    func resolvedBeds() -> [CompositionBuilder.ResolvedMusic] {
+        [resolveBed(document.project.timeline.musicBed), resolveBed(document.project.timeline.voiceover)].compactMap { $0 }
+    }
+
+    // MARK: - Voiceover recording (narration over the timeline)
+
+    var voiceover: MusicBed? { document.project.timeline.voiceover }
+    var isRecordingVoiceover: Bool { voiceRecorder?.isRecording ?? false }
+    @ObservationIgnored private var voiceRecorder: AVAudioRecorder?
+
+    /// Start recording mic narration to the project cache (begins at the current playhead).
+    func startVoiceover() {
+        let name = "voiceover-\(UUID().uuidString.prefix(6)).m4a"
+        let url = ProjectMediaCache.directory.appendingPathComponent(name)
+        let settings: [String: Any] = [AVFormatIDKey: kAudioFormatMPEG4AAC, AVSampleRateKey: 44100,
+                                        AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
+        guard let rec = try? AVAudioRecorder(url: url, settings: settings) else { return }
+        voiceStartSeconds = playheadSeconds
+        voicePendingName = name
+        voiceRecorder = rec
+        rec.record()
+    }
+
+    @ObservationIgnored private var voiceStartSeconds = 0.0
+    @ObservationIgnored private var voicePendingName = ""
+
+    /// Stop recording and add the take as the project's voiceover bed.
+    func stopVoiceover() {
+        guard let rec = voiceRecorder else { return }
+        rec.stop()
+        voiceRecorder = nil
+        document.project.timeline.voiceover = MusicBed(
+            fileName: voicePendingName, displayName: "Voiceover",
+            volume: 1.0, startSeconds: voiceStartSeconds)
+        scheduleRebuild()
+    }
+
+    func setVoiceoverVolume(_ v: Double) {
+        guard document.project.timeline.voiceover != nil else { return }
+        document.project.timeline.voiceover?.volume = max(0, min(1.5, v))
+        scheduleRebuild()
+    }
+
+    func removeVoiceover() {
+        if let v = document.project.timeline.voiceover {
+            try? FileManager.default.removeItem(at: ProjectMediaCache.directory.appendingPathComponent(v.fileName))
+        }
+        document.project.timeline.voiceover = nil
+        scheduleRebuild()
     }
 
     // MARK: - Markers (navigation + snap targets)

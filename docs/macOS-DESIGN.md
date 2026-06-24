@@ -464,10 +464,20 @@ when a transition is set. Verified via the self-test (frame sampled off the comp
 mid-overlap): push 0.208, wipe 0.170 brightness — both clips visible, so the ramp rendered. So the
 Metal compositor is now only needed for true GPU blend effects, not these.
 
+**Voiceover recording: SHIPPED 2026-06-24.** "Record Voiceover" captures mic narration
+(AVAudioRecorder → m4a in the project cache, starting at the playhead) and adds it as a second
+audio bed alongside the music. The engine's music param generalized from a single `music` to
+`beds: [ResolvedMusic]`, so music + voiceover are both audio tracks under the timeline (each with
+volume + end fade). Inspector gains a "Voiceover" section (Record/Stop, volume, Remove);
+`NSMicrophoneUsageDescription` added. The engine path is the verified music-bed one; the mic
+capture itself is device-verified (no mic/permission headlessly). Durable copy into the
+`.archiveproj` package (NSDocument/bookmark) remains the deferred persistence upgrade — the cache
+copy is v1.
+
 **Still deferred (the genuinely multi-session, CI/ML-heavy items):** the Stock-archive shot-mining
 pipeline (#6 — PySceneDetect → Vision → MobileCLIP → `clips.sqlite`; the app browser + sample
-already ship); the Supercut full-corpus CI index + SpeechTranscriber word-timing; voiceover
-RECORDING + the NSDocument/bookmark durable-media unit.
+already ship); the Supercut full-corpus CI index + SpeechTranscriber word-timing; the
+NSDocument/security-scoped-bookmark durable-media unit.
 
 **Test/screenshot hooks (`AW_CS_TEST`) + sidebar clip thumbnails: SHIPPED 2026-06-24.** The
 DocumentGroup editor is driven into a populated state (`editor`) or the Add-Clip scrubber

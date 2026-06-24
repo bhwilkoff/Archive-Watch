@@ -511,6 +511,27 @@ private struct ProjectInspector: View {
                     Button("Add Music…") { pickMusic() }
                 }
             }
+            Section("Voiceover") {
+                if let vo = model.voiceover {
+                    LabeledContent("Volume") {
+                        HStack {
+                            Image(systemName: "mic").foregroundStyle(.secondary)
+                            Slider(value: Binding(get: { vo.volume }, set: { model.setVoiceoverVolume($0) }), in: 0...1.5)
+                            Text("\(Int(vo.volume * 100))%").font(.caption.monospacedDigit())
+                                .foregroundStyle(.secondary).frame(width: 42, alignment: .trailing)
+                        }
+                    }
+                    Button("Remove Voiceover", role: .destructive) { model.removeVoiceover() }
+                } else if model.isRecordingVoiceover {
+                    Button { model.stopVoiceover() } label: {
+                        Label("Stop Recording", systemImage: "stop.circle.fill").foregroundStyle(.red)
+                    }
+                } else {
+                    Button { model.startVoiceover() } label: {
+                        Label("Record Voiceover", systemImage: "mic.circle")
+                    }
+                }
+            }
             Section {
                 Toggle("Burn in attribution credit", isOn: $project.burnAttribution)
             } header: {

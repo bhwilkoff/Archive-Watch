@@ -224,7 +224,7 @@ enum CreationStudioSelfTest {
             }
             let music = CompositionBuilder.ResolvedMusic(asset: AVURLAsset(url: musicURL), volume: 0.5, startSeconds: 0)
             if let built = try? await CompositionBuilder.build(resolved: resolved, timeline: timeline,
-                                                               creditLine: nil, bakeOverlays: false, music: music) {
+                                                               creditLine: nil, bakeOverlays: false, beds: [music]) {
                 let aTracks = built.composition.tracks(withMediaType: .audio).count
                 let mixParams = (built.audioMix as? AVMutableAudioMix)?.inputParameters.count ?? 0
                 log("MUSIC audio tracks=\(aTracks) (expect 3: clipsA/B + music)  mixParams=\(mixParams)")
