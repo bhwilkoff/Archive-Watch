@@ -515,6 +515,21 @@ the corpus. Verified locally: a 1953 educational film's shots tagged `black-and-
 embeddings + a same-model text query) remains a possible future upgrade, but the curated-vocabulary
 tags deliver the feature now, cross-platform.
 
+**Supercut v2 — the Sentence Composer: SHIPPED 2026-06-24.** The inverse of v1 (find a phrase) and
+the genuinely hard half: type a LINE and the catalog SPEAKS it word-by-word, using only clips that
+contain those words. Research: `docs/research/creation-studio-sentence-supercut.md`. The quality
+lever is **longest-match coverage** (`SentenceComposer`) — cover the line with the FEWEST clips by
+preferring the longest contiguous run of words spoken in a single cue, so the result is smooth not
+jumpy. The supercut sheet gains a "Find clips | Compose a sentence" mode switch; the compose plan
+shows each matched run + its source film (or a flagged GAP for a missing word), and assembles in
+order into the editable timeline. Word ranges are PROPORTIONAL by default (instant) and tighten to
+exact boundaries with the on-device `WordTiming` toggle. Verified on the real cue index: **"I love
+you" → 1 clip** (the whole phrase in one film, Spellbound); "this is the end of the world" → 2
+clips ("this is the" + "end of the world"); "kill the lights" → 2 clips — minimal cuts, exactly as
+designed. **NEXT (Phase B, deferred):** a CI forced-aligned WORD index (wav2vec2 aligns the KNOWN
+caption to audio — no hallucination, unlike transcription) so composition is instant + whole-catalog
+without a per-clip speech pass.
+
 **Still deferred (one item):** the NSDocument/security-scoped-bookmark durable-media unit
 (music/voiceover persist in the disposable cache now, not the `.archiveproj` package) — a document-
 architecture migration the design flags as "the weakest seam."

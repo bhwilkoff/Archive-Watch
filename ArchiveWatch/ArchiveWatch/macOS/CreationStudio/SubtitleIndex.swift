@@ -214,6 +214,14 @@ enum SubtitleIndexBuilder {
             log("search \"\(phrase)\" -> \(r.count) hits")
             for c in r.prefix(2) { log("   \(c.title) @\(c.timecode): \(c.text.prefix(50))") }
         }
+        // Sentence composer (v2): greedy longest-match coverage of a line, missing words flagged.
+        for sentence in ["I love you", "this is the end of the world", "kill the lights"] {
+            let plan = SentenceComposer.plan(sentence, index: index)
+            let cov = "\(plan.filter { $0.found }.count)/\(plan.count) words, \(plan.filter { $0.found }.count) clips"
+            let detail = plan.map { $0.found ? "[\($0.phrase)→\($0.cue!.title.prefix(10))]" : "[\($0.phrase)=GAP]" }
+                .joined(separator: " ")
+            log("COMPOSE \"\(sentence)\" -> \(cov): \(detail)")
+        }
     }
 }
 #endif
