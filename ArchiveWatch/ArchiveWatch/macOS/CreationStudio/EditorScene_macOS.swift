@@ -21,6 +21,8 @@ struct ProjectEditorView: View {
     @State private var inspectorShown = true
     @State private var exporter = ExportService()
     @State private var showBrowser = false
+    @State private var showPublishSheet = false
+    @State private var publisher = PublishService()
     @State private var testMark: Catalog.Item?     // AW_CS_TEST=markclip presents this in a sheet
     @State private var showExportSheet = false
 
@@ -108,6 +110,10 @@ struct ProjectEditorView: View {
                     Label("Export", systemImage: "square.and.arrow.up")
                 }
                 .disabled(document.project.timeline.clips.isEmpty || exporter.isBusy)
+                Button { showPublishSheet = true } label: {
+                    Label("Publish", systemImage: "icloud.and.arrow.up")
+                }
+                .disabled(document.project.timeline.clips.isEmpty || exporter.isBusy)
                 Button { inspectorShown.toggle() } label: {
                     Label("Inspector", systemImage: "sidebar.trailing")
                 }
@@ -118,6 +124,7 @@ struct ProjectEditorView: View {
             // window on launch, so we populate it here for CLI visual verification.
             // The self-test/perf harness normally rides RootView's .task, but in a doc-app
             // launch RootView may not open — kick it here too (one-shot guarded).
+            if ProcessInfo.processInfo.environment["AW_CS_PUBTEST"] == "1" { PublishService.selfTest() }
             if CreationStudioSelfTest.isEnabled { await store.load(); await CreationStudioSelfTest.run(store: store) }
             if let mode = CreationStudioTest.mode {
                 await store.load()                                   // RootView may not open in a doc-app launch
@@ -139,6 +146,9 @@ struct ProjectEditorView: View {
         .sheet(item: $testMark) { MarkClipView(item: $0) { _ in }.environment(store) }
         .sheet(isPresented: $showExportSheet) {
             ExportSettingsSheet { format in runExport(format) }
+        }
+        .sheet(isPresented: $showPublishSheet) {
+            PublishSheet(project: document.project, publisher: publisher, exporter: exporter)
         }
         .background(WindowFitter())     // keep the window within the screen (DocumentGroup ignores .defaultSize)
     }

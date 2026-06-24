@@ -69,9 +69,14 @@ struct SettingsView: View {
             }
             .formStyle(.grouped)
             .tabItem { Label("About", systemImage: "info.circle") }
+
+            PublishingSettings()
+                .tabItem { Label("Publishing", systemImage: "square.and.arrow.up") }
         }
         .frame(width: 480, height: 420)
     }
+
+    @ViewBuilder private func PublishingSettings() -> some View { PublishingSettingsView() }
 
     private func categoryBinding(_ id: String) -> Binding<Bool> {
         Binding(get: { !store.hiddenCategories.contains(id) },
@@ -79,6 +84,53 @@ struct SettingsView: View {
                     if on { store.hiddenCategories.remove(id) }
                     else { store.hiddenCategories.insert(id) }
                 })
+    }
+}
+
+// archive.org IAS3 ("S3-like") keys for publishing finished edits (Creation Studio #7).
+// Stored in the login Keychain via IAS3Keychain — never UserDefaults/iCloud.
+private struct PublishingSettingsView: View {
+    @State private var access = ""
+    @State private var secret = ""
+    @State private var saved = false
+
+    var body: some View {
+        Form {
+            Section {
+                Text("Publish finished edits to your Internet Archive account. These are your personal S3-like keys — they stay in this Mac's Keychain.")
+                    .font(.callout).foregroundStyle(.secondary)
+                Link("Get your keys (archive.org/account/s3.php)",
+                     destination: URL(string: "https://archive.org/account/s3.php")!)
+            }
+            Section {
+                TextField("Access key", text: $access).autocorrectionDisabled()
+                SecureField("Secret key", text: $secret)
+                HStack {
+                    Button("Save") {
+                        IAS3Keychain.save(access: access.trimmingCharacters(in: .whitespaces),
+                                          secret: secret.trimmingCharacters(in: .whitespaces))
+                        saved = true
+                    }
+                    .disabled(access.isEmpty || secret.isEmpty)
+                    if !access.isEmpty || !secret.isEmpty {
+                        Button("Remove", role: .destructive) {
+                            IAS3Keychain.clear(); access = ""; secret = ""; saved = false
+                        }
+                    }
+                    Spacer()
+                    if saved { Label("Saved", systemImage: "checkmark.circle.fill").foregroundStyle(.green) }
+                }
+            } header: {
+                Text("Internet Archive S3 keys")
+            } footer: {
+                Text("Uploaded edits are dedicated to the public domain (CC0) and stamped with their archive.org sources.")
+                    .font(.caption).foregroundStyle(.secondary)
+            }
+        }
+        .formStyle(.grouped)
+        .onAppear {
+            if let c = IAS3Keychain.load() { access = c.access; secret = c.secret; saved = true }
+        }
     }
 }
 #endif

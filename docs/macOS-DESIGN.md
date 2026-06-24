@@ -410,6 +410,22 @@ all on the AppKit `TimelineContentView`:
   default (delete closes the gap via relayout). Verified by screenshot: fade dots, the purple
   dissolve diamond, the teal marker, and the dissolve-shrunk 0:14 total all render.
 
+**Publish to the Internet Archive (#7, Phase 5): SHIPPED 2026-06-24.** Completes the
+create→edit→SHARE loop — a finished edit uploads to a NEW archive.org community item via the
+user's own IAS3 ("S3-like") keys. archive.org-first (Decision 042: YouTube from an unverified
+OAuth app is forced Private/100-user-capped). 
+- `PublishService` — pure request builders (identifier slug with diacritic-fold + charset
+  guard; `LOW access:secret` auth; `x-archive-meta-*` headers: movies / opensource_movies /
+  CC0 license / title / creator / description-with-source-URLs) + the two-step upload (create
+  item, then stream the file with progress). Keys live in the login Keychain (`IAS3Keychain`),
+  never UserDefaults/iCloud.
+- UI: a "Publish" toolbar button → `PublishSheet` (title/description, source count, progress,
+  result URL with Open/Copy); Settings gained a "Publishing" tab for the S3 keys.
+- The clips' `archive.org/details/{id}` sources are stamped as provenance + the export is CC0.
+- Verified offline (AW_CS_PUBTEST=1): identifier/URLs/auth/headers all correct. The actual
+  upload needs the owner's keys + creates a public item, so it's owner-verified (can't run in CI).
+- DEFERRED: YouTube upload (blocked on Google OAuth verification, Decision 042).
+
 **Test/screenshot hooks (`AW_CS_TEST`) + sidebar clip thumbnails: SHIPPED 2026-06-24.** The
 DocumentGroup editor is driven into a populated state (`editor`) or the Add-Clip scrubber
 (`markclip`) for CLI visual verification (SwiftUI's a11y tree isn't AppleScript-traversable).
