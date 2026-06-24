@@ -88,6 +88,8 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
     private var dragStartValue: Double = 0      // fade/transition seconds at mouseDown (delta drags)
     private var dragMoved = false
     private var pendingCheckpoint = false       // record ONE undo step on the first drag move
+    private var lastDragP: NSPoint = .zero       // latest drag position (committed on mouseUp)
+    private var lastEditDragTime: CFTimeInterval = 0   // throttle clock for edit drags
     private var contextClipID: UUID?
     private var contextSeconds: Double = 0
 
@@ -456,7 +458,19 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
 
     override func mouseDragged(with event: NSEvent) {
         let p = convert(event.locationInWindow, from: nil)
+        lastDragP = p
+        // Scrubbing stays fully smooth (a seek is cheap + doesn't rebuild the timeline). EDIT drags
+        // (trim / fade / move / lanes) each mutate the model → a full timeline rebuild, so coalesce
+        // them to ~30fps — a trackpad fires 120+ events/sec and the pile-up is the "laggy" feel.
+        if case .scrub = drag { applyDrag(p); return }
+        let now = CACurrentMediaTime()
+        guard now - lastEditDragTime >= 0.033 else { return }
+        lastEditDragTime = now
         if pendingCheckpoint { model.checkpoint(); pendingCheckpoint = false }   // one undo step per drag
+        applyDrag(p)
+    }
+
+    private func applyDrag(_ p: NSPoint) {
         switch drag {
         case .scrub:
             model.seek(toSeconds: snapSeconds(p.x))
@@ -501,6 +515,12 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
     private func snapSeconds(_ px: CGFloat) -> Double { model.snap(seconds(px)) }
 
     override func mouseUp(with event: NSEvent) {
+        // Land exactly where released — coalescing may have skipped the final move.
+        switch drag {
+        case .none, .scrub: break
+        case .move where !dragMoved: break        // a click-select, not a move
+        default: applyDrag(lastDragP)
+        }
         if case .move = drag, !dragMoved { model.seek(toSeconds: snapSeconds(dragStartX)) }
         drag = .none
     }
