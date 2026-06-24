@@ -373,6 +373,11 @@ final class EditorModel {
     /// are a few KB, already served) and reused across clips/trims (strip + images cached), so a
     /// clip shows frames without waiting on the window cache. Leaves the filmstrip empty when the
     /// item has no thumbnails, so the cached-window generator (ensureThumbnails) fills in.
+    /// Load archive.org-thumbnail filmstrips for EVERY current clip — called when the editor
+    /// opens, so a SAVED project's clips get their instant filmstrips too (addClip only covers
+    /// newly-added clips). No-op per clip once its thumbnails are set.
+    func loadFilmstrips() { for c in clips where thumbnails[c.id] == nil { loadFilmstrip(for: c) } }
+
     private func loadFilmstrip(for clip: TimelineClip) {
         let id = clip.id, catID = clip.catalogItemID, url = clip.sourceURL
         let inS = clip.sourceRange.start.seconds, outS = clip.sourceRange.endSeconds

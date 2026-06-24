@@ -21,6 +21,7 @@ struct ProjectEditorView: View {
     @State private var inspectorShown = true
     @State private var exporter = ExportService()
     @State private var showBrowser = false
+    @State private var testMark: Catalog.Item?     // AW_CS_TEST=markclip presents this in a sheet
     @State private var showExportSheet = false
 
     init(document: ClipProjectDocument) {
@@ -112,12 +113,27 @@ struct ProjectEditorView: View {
                 }
             }
         }
-        .task { if !document.project.timeline.clips.isEmpty { await model.rebuildPreview() } }
+        .task {
+            // Screenshot/test hooks (AW_CS_TEST) — the DocumentGroup reliably opens this editor
+            // window on launch, so we populate it here for CLI visual verification.
+            if let mode = CreationStudioTest.mode {
+                await store.load()                                   // RootView may not open in a doc-app launch
+                var t = 0; while store.randomPlayable() == nil && t < 90 { try? await Task.sleep(for: .seconds(1)); t += 1 }
+                if mode == "editor", document.project.timeline.clips.isEmpty {
+                    CreationStudioTest.populate(model, store)
+                } else if mode == "markclip" {
+                    testMark = CreationStudioTest.clippable(store)   // presents the Add-Clip scrubber
+                }
+            }
+            model.loadFilmstrips()   // instant filmstrips for already-present (saved-project) clips
+            if !document.project.timeline.clips.isEmpty { await model.rebuildPreview() }
+        }
         .onChange(of: document.project.burnAttribution) { Task { await model.rebuildPreview() } }
         .sheet(isPresented: $showBrowser) {
             ClipBrowserSheet { proxy in addToLibraryAndTimeline(proxy) }
                 .environment(store)
         }
+        .sheet(item: $testMark) { MarkClipView(item: $0) { _ in }.environment(store) }
         .sheet(isPresented: $showExportSheet) {
             ExportSettingsSheet { format in runExport(format) }
         }
