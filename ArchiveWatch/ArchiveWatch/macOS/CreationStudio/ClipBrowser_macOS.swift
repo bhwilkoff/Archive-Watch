@@ -151,6 +151,10 @@ private struct BrowserCard: View {
 
 // MARK: - Mark in/out on a chosen title
 
+// Thumbnail-first clip marking. archive.org ships a per-~60s thumbnail strip for EVERY video
+// (ArchiveThumbnails) — tiny + universal even when the full film is 400 MB on a slow node. So
+// you navigate the whole movie + mark in/out INSTANTLY via thumbnails; the full video loads in
+// the background only to verify the exact frame. You never wait on the film just to find a clip.
 struct MarkClipView: View {
     let item: Catalog.Item
     let onAdd: (ProxyClip) -> Void
@@ -158,81 +162,87 @@ struct MarkClipView: View {
 
     @State private var player = AVPlayer()
     @State private var loader: ResilientStreamLoader?
-    @State private var phase: LoadPhase = .loading
-    @State private var isPlaying = false
-    @State private var currentTime = 0.0
-    @State private var duration = 0.0
-    @State private var scrubTime = 0.0
+    @State private var thumbs: [ArchiveThumb] = []
+    @State private var navSeconds = 0.0          // the scrubber position — the source of truth
     @State private var scrubbing = false
+    @State private var videoReady = false
+    @State private var videoFailed = false
+    @State private var isPlaying = false
+    @State private var duration = 0.0
     @State private var inSeconds = 0.0
     @State private var outSeconds = 8.0
     @State private var label = ""
 
-    private enum LoadPhase { case loading, ready, failed }
     private let tick = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
+
+    private var totalDuration: Double {
+        if duration > 1 { return duration }
+        if let rt = item.runtimeSeconds, rt > 0 { return Double(rt) }
+        if let last = thumbs.last { return last.seconds + 60 }
+        return 1
+    }
+    private var nearestThumb: ArchiveThumb? {
+        thumbs.min { abs($0.seconds - navSeconds) < abs($1.seconds - navSeconds) }
+    }
 
     var body: some View {
         VStack(spacing: 0) {
+            // Preview: the verified video frame once it's ready, else the nearest thumbnail (instant).
             ZStack {
                 Color.black
-                // controlsStyle .none: AVKit's heavy inline overlay (giant play + skip + the raw
-                // release-filename title) is wrong for a marking sheet — we draw our own transport.
-                VideoPlayerNS(player: player, controlsStyle: .none).opacity(phase == .ready ? 1 : 0)
-                switch phase {
-                case .loading:
-                    ProgressView("Loading video…").controlSize(.large).tint(.white)
-                        .foregroundStyle(.white)
-                case .failed:
-                    VStack(spacing: 10) {
-                        Image(systemName: "exclamationmark.triangle").font(.largeTitle)
-                            .foregroundStyle(.secondary)
-                        Text("Couldn't load this video.").foregroundStyle(.white)
-                        Text("archive.org may be busy — try again, or add the clip and preview it on the timeline.")
-                            .font(.caption).foregroundStyle(.secondary)
-                            .multilineTextAlignment(.center).frame(maxWidth: 320)
-                        Button("Retry") { Task { await load() } }
+                if videoReady {
+                    VideoPlayerNS(player: player, controlsStyle: .none)
+                } else if let t = nearestThumb {
+                    AsyncImage(url: t.url) { $0.resizable().scaledToFit() } placeholder: { Color.black }
+                    if !videoFailed {
+                        VStack { Spacer(); HStack {
+                            Label("Loading full video to verify…", systemImage: "arrow.down.circle")
+                                .font(.caption).foregroundStyle(.white.opacity(0.8))
+                                .padding(.horizontal, 8).padding(.vertical, 4)
+                                .background(.black.opacity(0.45), in: Capsule())
+                            Spacer()
+                        } }.padding(10)
                     }
-                case .ready:
-                    EmptyView()
+                } else {
+                    ProgressView("Loading thumbnails…").controlSize(.large).tint(.white).foregroundStyle(.white)
                 }
             }
-            .frame(width: 720, height: 405)   // fixed 16:9 preview (films letterbox cleanly)
+            .frame(width: 720, height: 405)
 
-            // Compact custom transport: play/pause + scrubber + timecodes.
+            // Instant thumbnail scrubber — drag to navigate the whole movie.
+            ThumbnailScrubber(thumbs: thumbs, total: totalDuration, position: $navSeconds, scrubbing: $scrubbing)
+                .padding(.horizontal, 14).padding(.top, 8)
+                .onChange(of: navSeconds) { _, s in if videoReady, scrubbing { seek(to: s, exact: false) } }
+                .onChange(of: scrubbing) { _, on in
+                    if on, videoReady { player.pause(); isPlaying = false }
+                    if !on, videoReady { seek(to: navSeconds, exact: true) }   // lock the exact frame
+                }
+
             HStack(spacing: 12) {
                 Button { togglePlay() } label: {
-                    Image(systemName: isPlaying ? "pause.fill" : "play.fill")
-                        .font(.title3).frame(width: 20)
+                    Image(systemName: isPlaying ? "pause.fill" : "play.fill").font(.title3).frame(width: 20)
                 }
-                .buttonStyle(.borderless)
-                Text(timecode(currentTime)).font(.caption.monospacedDigit())
-                    .foregroundStyle(.secondary).frame(width: 56, alignment: .leading)
-                Slider(value: $scrubTime, in: 0...max(duration, 0.1)) { editing in
-                    scrubbing = editing
-                    if !editing { seek(to: scrubTime, exact: true) }   // lock the frame on release
-                }
-                Text(timecode(duration)).font(.caption.monospacedDigit())
-                    .foregroundStyle(.secondary).frame(width: 56, alignment: .trailing)
+                .buttonStyle(.borderless).disabled(!videoReady)
+                Text(timecode(navSeconds)).font(.caption.monospacedDigit())
+                    .foregroundStyle(.secondary).frame(width: 64, alignment: .leading)
+                Spacer()
+                Text(timecode(totalDuration)).font(.caption.monospacedDigit()).foregroundStyle(.secondary)
             }
-            .padding(.horizontal, 16).padding(.vertical, 10)
-            .disabled(phase != .ready)
-            .onChange(of: scrubTime) { _, new in
-                if scrubbing { currentTime = new; seek(to: new, exact: false) }   // smooth live scrub
-            }
+            .padding(.horizontal, 16).padding(.vertical, 8)
             .onReceive(tick) { _ in
-                guard phase == .ready else { return }
+                guard videoReady else { return }
                 isPlaying = player.timeControlStatus == .playing
                 let t = player.currentTime().seconds
-                if t.isFinite, !scrubbing { currentTime = t; scrubTime = t }
+                if t.isFinite, !scrubbing, isPlaying { navSeconds = t }
             }
 
             Form {
                 HStack {
-                    Button("Set In at Playhead") { inSeconds = currentSeconds() }
+                    Button("Set In") { inSeconds = min(navSeconds, max(0, totalDuration - 0.2)) }
                     Text(timecode(inSeconds)).font(.callout.monospacedDigit()).foregroundStyle(.secondary)
                     Spacer()
                     Text(timecode(outSeconds)).font(.callout.monospacedDigit()).foregroundStyle(.secondary)
-                    Button("Set Out at Playhead") { outSeconds = max(currentSeconds(), inSeconds + 0.2) }
+                    Button("Set Out") { outSeconds = max(navSeconds, inSeconds + 0.2) }
                 }
                 LabeledContent("Length", value: String(format: "%.1f s", max(0, outSeconds - inSeconds)))
                 TextField("Clip name", text: $label, prompt: Text(item.title))
@@ -249,58 +259,52 @@ struct MarkClipView: View {
             }
             .padding(12)
         }
-        .task { await load() }
+        .task { await loadThumbnails() }
+        .task { await loadVideo() }
         .onDisappear { player.pause() }
-        .frame(width: 720, height: 660)
+        .frame(width: 720, height: 700)
     }
 
     private func togglePlay() {
         if player.timeControlStatus == .playing { player.pause() } else { player.play() }
     }
-
     private func seek(to seconds: Double, exact: Bool) {
         let t = CMTime(seconds: max(0, seconds), preferredTimescale: 600)
-        if exact {
-            player.seek(to: t, toleranceBefore: .zero, toleranceAfter: .zero)
-        } else {
-            player.seek(to: t)   // tolerant = smooth while dragging
-        }
+        if exact { player.seek(to: t, toleranceBefore: .zero, toleranceAfter: .zero) }
+        else { player.seek(to: t) }
     }
 
-    // Load the source through the shared resilient loader (Decision 021/031/034) and surface
-    // a real loading/ready/failed state — archive.org cold-starts can take many seconds, and a
-    // silent black frame reads as "broken." Auto-play on ready so the user sees it working and
-    // can scrub to a mark. The clip is addable even if playback fails (the default 0–8s window).
-    private func load() async {
-        phase = .loading
-        guard let url = item.videoURLParsed else { phase = .failed; return }
+    private func loadThumbnails() async {
+        guard let url = item.videoURLParsed else { return }
+        let t = await ArchiveThumbnails.strip(for: url)
+        if !Task.isCancelled { thumbs = t }
+    }
+
+    // The full video loads in the BACKGROUND (it's just for verifying the exact frame). It never
+    // blocks navigation — thumbnails already let you scrub + mark. On ready, it jumps to wherever
+    // you navigated. Failure is non-fatal: you can still mark + add using thumbnail positions.
+    private func loadVideo() async {
+        guard let url = item.videoURLParsed else { videoFailed = true; return }
         let (asset, l) = ResilientStreamLoader.makeAsset(for: url)
         loader = l
         let pi = AVPlayerItem(asset: asset)
         pi.preferredForwardBufferDuration = 30
         player.replaceCurrentItem(with: pi)
-        if let d = try? await asset.load(.duration), d.seconds.isFinite { duration = d.seconds }
-        // Hold the clean "Loading…" overlay until playback actually STARTS (not merely
-        // .readyToPlay) so AVKit's own oversized buffering spinner/controls never show through.
-        for _ in 0..<300 {            // poll up to ~60s (cancels on disappear via .task)
+        if let d = try? await asset.load(.duration), d.seconds.isFinite, d.seconds > 1 { duration = d.seconds }
+        for _ in 0..<300 {            // poll up to ~60s; navigation works the whole time
             if Task.isCancelled { return }
             switch pi.status {
             case .readyToPlay:
-                player.play()
-                if player.timeControlStatus == .playing { phase = .ready; return }
+                seek(to: navSeconds, exact: true)
+                videoReady = true
+                return
             case .failed:
-                phase = .failed; return
-            default:
-                break
+                videoFailed = true; return
+            default: break
             }
             try? await Task.sleep(for: .milliseconds(200))
         }
-        if phase != .ready { phase = .failed }
-    }
-
-    private func currentSeconds() -> Double {
-        let t = player.currentTime().seconds
-        return t.isFinite ? max(0, t) : 0
+        if !videoReady { videoFailed = true }
     }
 
     private func add() {
@@ -318,9 +322,52 @@ struct MarkClipView: View {
     private func timecode(_ s: Double) -> String {
         let total = max(0, Int(s))
         let h = total / 3600, m = (total % 3600) / 60, sec = total % 60
-        // H:MM:SS for feature-length sources; M:SS.t for short marks.
         if h > 0 { return String(format: "%d:%02d:%02d", h, m, sec) }
         return String(format: "%d:%02d.%d", m, sec, Int((s.truncatingRemainder(dividingBy: 1)) * 10))
+    }
+}
+
+// A draggable thumbnail strip spanning the whole movie — instant navigation (the images are a
+// few KB each). Samples evenly-spaced thumbnails to fill the width + a red playhead.
+private struct ThumbnailScrubber: View {
+    let thumbs: [ArchiveThumb]
+    let total: Double
+    @Binding var position: Double
+    @Binding var scrubbing: Bool
+
+    var body: some View {
+        GeometryReader { geo in
+            let w = geo.size.width
+            ZStack(alignment: .topLeading) {
+                if thumbs.isEmpty {
+                    RoundedRectangle(cornerRadius: 4).fill(.quaternary)
+                        .overlay { ProgressView().controlSize(.small) }
+                } else {
+                    HStack(spacing: 1) {
+                        ForEach(sampled(width: w), id: \.id) { t in
+                            AsyncImage(url: t.url) { $0.resizable().scaledToFill() } placeholder: { Color.gray.opacity(0.15) }
+                                .frame(width: cell(w), height: 54).clipped()
+                        }
+                    }
+                }
+                Rectangle().fill(.red).frame(width: 2, height: 54)
+                    .offset(x: total > 0 ? min(max(0, w - 2), w * position / total) : 0)
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 4))
+            .contentShape(Rectangle())
+            .gesture(DragGesture(minimumDistance: 0)
+                .onChanged { v in scrubbing = true; position = max(0, min(total, total * Double(v.location.x / max(1, w)))) }
+                .onEnded { _ in scrubbing = false })
+        }
+        .frame(height: 54)
+    }
+
+    private func count(_ w: CGFloat) -> Int { max(1, min(thumbs.count, Int(w / 72))) }
+    private func cell(_ w: CGFloat) -> CGFloat { w / CGFloat(count(w)) }
+    private func sampled(width w: CGFloat) -> [ArchiveThumb] {
+        let n = count(w)
+        guard thumbs.count > n else { return thumbs }
+        return (0..<n).map { thumbs[$0 * (thumbs.count - 1) / max(1, n - 1)] }
     }
 }
 #endif
