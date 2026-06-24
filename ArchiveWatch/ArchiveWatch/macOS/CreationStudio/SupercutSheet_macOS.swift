@@ -1,5 +1,6 @@
 #if os(macOS)
 import SwiftUI
+import SwiftData
 import CoreMedia
 
 // Text → Supercut (#9, the flagship). Two modes:
@@ -12,7 +13,16 @@ import CoreMedia
 struct SupercutSheet: View {
     let model: EditorModel
     @Environment(AppStore.self) private var store
+    @Environment(\.modelContext) private var ctx
     @Environment(\.dismiss) private var dismiss
+
+    /// Add an assembled clip to BOTH the timeline AND the SwiftData Library (so it shows in
+    /// the left sidebar, #12) — the same thing the manual Add-Clip path does.
+    private func add(_ proxy: ProxyClip) {
+        ctx.insert(LibraryClip(from: proxy))
+        try? ctx.save()
+        model.addClip(from: proxy)
+    }
 
     enum Mode: String, CaseIterable, Identifiable { case find = "Find clips", compose = "Compose a sentence"; var id: String { rawValue } }
     @State private var mode: Mode = .find
@@ -194,7 +204,7 @@ struct SupercutSheet: View {
         assembling = true
         for (i, cue) in included.enumerated() {
             assembleProgress = Double(i) / Double(max(1, included.count))
-            model.addClip(from: await resolved(cue.proxyClip, phrase: phrase, cue: cue))
+            add(await resolved(cue.proxyClip, phrase: phrase, cue: cue))
         }
         assembling = false; dismiss()
     }
@@ -210,7 +220,7 @@ struct SupercutSheet: View {
             // otherwise the (word-index or proportional) word window.
             let base = tightenToWord ? cue.proxyClip : proxy
             let finalProxy = tightenToWord ? await resolved(base, phrase: seg.phrase, cue: cue) : proxy
-            model.addClip(from: finalProxy)
+            add(finalProxy)
             guard let id = model.selectedClipID else { continue }
             // A tiny fade on each tight word-cut so the assembled sentence doesn't CLICK at the
             // joins (each word starts/ends mid-waveform). The hard visual jump between films stays.

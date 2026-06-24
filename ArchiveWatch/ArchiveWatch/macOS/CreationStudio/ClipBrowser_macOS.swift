@@ -30,8 +30,29 @@ struct ClipBrowserSheet: View {
     @State private var results: [Catalog.Item] = []
     @State private var stock: [StockShot] = []
     @State private var marking: Catalog.Item?
+    // Add-Clip filters (#5): mirror the app's Browse facets + length sort + B&W/color.
+    @State private var typeFilter: String? = nil
+    @State private var decade: Int? = nil
+    @State private var sort: ClipSort = .popular
+    @State private var colorFilter: ColorFilter = .any
 
     enum Mode: String, CaseIterable, Identifiable { case titles = "Titles", stock = "Stock Shots"; var id: String { rawValue } }
+    enum ClipSort: String, CaseIterable, Identifiable {
+        case popular = "Popular", rating = "Top Rated", newest = "Newest", az = "A–Z",
+             longest = "Longest", shortest = "Shortest"
+        var id: String { rawValue }
+        var dbSort: CatalogDB.Sort {
+            switch self {
+            case .popular: .popular; case .rating: .rating; case .newest: .newest
+            case .az: .alphabetical; case .longest, .shortest: .popular   // length sorted client-side
+            }
+        }
+    }
+    enum ColorFilter: String, CaseIterable, Identifiable { case any = "Any", color = "Color", bw = "B&W"; var id: String { rawValue } }
+    private static let types: [(String, String?)] = [
+        ("All Types", nil), ("Films", "feature-film"), ("Shorts", "short-film"),
+        ("Documentary", "documentary"), ("Animation", "animation"), ("Newsreel", "newsreel"),
+    ]
     private let cols = [GridItem(.adaptive(minimum: 150, maximum: 200), spacing: 14)]
 
     var body: some View {
@@ -42,6 +63,7 @@ struct ClipBrowserSheet: View {
                 }
                 .pickerStyle(.segmented).labelsHidden()
                 .frame(width: 260).padding(.vertical, 8)
+                if mode == .titles { facetBar }
                 Divider()
                 ScrollView {
                     if mode == .titles { titlesGrid } else { stockGrid }
@@ -58,6 +80,28 @@ struct ClipBrowserSheet: View {
         .sheet(item: $marking) { item in
             MarkClipView(item: item) { proxy in onAdd(proxy); marking = nil; dismiss() }
         }
+    }
+
+    private var facetBar: some View {
+        HStack(spacing: 10) {
+            Picker("Type", selection: $typeFilter) {
+                ForEach(Self.types, id: \.0) { Text($0.0).tag($0.1) }
+            }
+            Picker("Decade", selection: $decade) {
+                Text("All Decades").tag(Int?.none)
+                ForEach(store.decadeCounts().keys.sorted(by: >).filter { $0 >= 1890 && $0 <= 2030 }, id: \.self) {
+                    Text(verbatim: "\($0)s").tag(Int?($0))
+                }
+            }
+            Picker("Sort", selection: $sort) { ForEach(ClipSort.allCases) { Text($0.rawValue).tag($0) } }
+            Picker("Color", selection: $colorFilter) { ForEach(ColorFilter.allCases) { Text($0.rawValue).tag($0) } }
+        }
+        .pickerStyle(.menu).controlSize(.small)
+        .padding(.horizontal, 14).padding(.bottom, 8)
+        .onChange(of: typeFilter) { reload() }
+        .onChange(of: decade) { reload() }
+        .onChange(of: sort) { reload() }
+        .onChange(of: colorFilter) { reload() }
     }
 
     @ViewBuilder private var titlesGrid: some View {
@@ -100,9 +144,28 @@ struct ClipBrowserSheet: View {
     private func reload() {
         switch mode {
         case .titles:
-            let raw = query.trimmingCharacters(in: .whitespaces).isEmpty
-                ? store.browse(sort: .popular, limit: 60) : store.search(query)
-            results = raw.filter { $0.isClippable }
+            let q = query.trimmingCharacters(in: .whitespaces)
+            var raw: [Catalog.Item]
+            if q.isEmpty {
+                raw = store.browse(contentType: typeFilter, decade: decade, sort: sort.dbSort, limit: 200)
+            } else {
+                raw = store.search(query)
+                if let t = typeFilter { raw = raw.filter { $0.contentType == t } }
+                if let d = decade { raw = raw.filter { $0.decade == d } }
+            }
+            raw = raw.filter(\.isClippable)
+            switch colorFilter {
+            case .color: raw = raw.filter { $0.isColor == true }
+            case .bw:    raw = raw.filter { $0.isBlackAndWhite == true }
+            case .any:   break
+            }
+            // Length sort is client-side (no DB Sort.length): runtime asc/desc, unknowns last.
+            switch sort {
+            case .longest:  raw.sort { ($0.runtimeSeconds ?? -1) > ($1.runtimeSeconds ?? -1) }
+            case .shortest: raw.sort { ($0.runtimeSeconds ?? .max) < ($1.runtimeSeconds ?? .max) }
+            default: break
+            }
+            results = raw
         case .stock:
             stock = StockIndex(path: StockIndex.bestURL)?.query(query) ?? []
         }
@@ -126,12 +189,35 @@ private struct StockCard: View {
                         .foregroundStyle(.white).padding(4)
                 }
             Text(shot.title).font(.caption).lineLimit(1)
-            if let tag = shot.tags.first {
-                Text(tag).font(.caption2).foregroundStyle(.secondary)
-                    .padding(.horizontal, 5).padding(.vertical, 1)
-                    .background(.quaternary, in: Capsule())
+            let tags = Self.cleanTags(shot.tags)
+            if !tags.isEmpty {
+                HStack(spacing: 4) {
+                    ForEach(tags, id: \.self) { tag in
+                        Text(tag).font(.caption2).foregroundStyle(.secondary)
+                            .padding(.horizontal, 5).padding(.vertical, 1)
+                            .background(.quaternary, in: Capsule()).lineLimit(1)
+                    }
+                }
             }
         }
+    }
+
+    /// Turn raw tag tokens (possibly hyphen/punctuation-mangled like
+    /// "documentary-agriculture:-bananas") into a few clean, human chips.
+    static func cleanTags(_ raw: [String]) -> [String] {
+        var seen = Set<String>(), out: [String] = []
+        for token in raw {
+            let words = token
+                .replacingOccurrences(of: "-", with: " ")
+                .components(separatedBy: CharacterSet(charactersIn: ":;,_/").union(.whitespaces))
+                .filter { !$0.isEmpty }
+                .prefix(2)
+                .map { $0.prefix(1).uppercased() + $0.dropFirst() }
+            let label = words.joined(separator: " ")
+            if !label.isEmpty, seen.insert(label.lowercased()).inserted { out.append(label) }
+            if out.count == 2 { break }
+        }
+        return out
     }
 }
 

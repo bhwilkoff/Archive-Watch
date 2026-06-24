@@ -43,7 +43,9 @@ final class StockIndex {
         try? FileManager.default.createDirectory(at: base, withIntermediateDirectories: true)
         return base
     }
-    nonisolated static var sampleURL: URL { dir.appendingPathComponent("clips-sample.sqlite") }
+    // v2: one clean shot per film + clean pipe-joined tags (the v1 sample repeated films + had
+    // mangled tag tokens). Bumping the name invalidates any stale on-device v1 sample.
+    nonisolated static var sampleURL: URL { dir.appendingPathComponent("clips-sample-v2.sqlite") }
     /// The real CI-built index (tools/build_stock_index.py), downloaded from the stock-index release.
     nonisolated static var indexURL: URL { dir.appendingPathComponent("clips.sqlite") }
     /// Prefer the published real index; fall back to the on-device sample.
@@ -80,7 +82,7 @@ final class StockIndex {
             out.append(StockShot(
                 id: str(0), archiveID: str(1), sourceURL: url,
                 startSeconds: sqlite3_column_double(stmt, 3), endSeconds: sqlite3_column_double(stmt, 4),
-                tags: str(5).split(separator: " ").map(String.init), title: str(6)))
+                tags: str(5).split(whereSeparator: { $0 == "|" || $0 == " " }).map(String.init), title: str(6)))
         }
         return out
     }
@@ -143,27 +145,29 @@ enum StockIndexBuilder {
         guard sqlite3_prepare_v2(db, insert, -1, &stmt, nil) == SQLITE_OK else { return }
         defer { sqlite3_finalize(stmt) }
 
-        // Placeholder shot windows; the real pipeline replaces these with PySceneDetect cuts.
-        let windows: [(Double, Double)] = [(5, 13), (22, 30), (45, 53)]
+        // ONE representative window per film (the sample's placeholder cut). The same film no
+        // longer repeats as N near-identical cards (#6); the real pipeline replaces these with
+        // PySceneDetect shots that genuinely differ. Tags are discrete + clean (drop sentence-
+        // long subjects + punctuation), pipe-joined so multi-word tags survive the split.
         sqlite3_exec(db, "BEGIN", nil, nil, nil)
         for item in items {
             guard let url = item.videoURLParsed else { continue }
-            let tags = (item.genres + item.subjects.prefix(3)).map {
-                $0.lowercased().replacingOccurrences(of: " ", with: "-")
-            }.joined(separator: " ")
-            let maxWindows = (item.runtimeSeconds.map { $0 > 60 ? 3 : ($0 > 30 ? 2 : 1) }) ?? 2
-            for (i, w) in windows.prefix(maxWindows).enumerated() {
-                sqlite3_reset(stmt)
-                let id = "\(item.archiveID)#\(i)"
-                sqlite3_bind_text(stmt, 1, id, -1, SQLITE_TRANSIENT_STOCK)
-                sqlite3_bind_text(stmt, 2, item.archiveID, -1, SQLITE_TRANSIENT_STOCK)
-                sqlite3_bind_text(stmt, 3, url.absoluteString, -1, SQLITE_TRANSIENT_STOCK)
-                sqlite3_bind_double(stmt, 4, w.0)
-                sqlite3_bind_double(stmt, 5, w.1)
-                sqlite3_bind_text(stmt, 6, tags, -1, SQLITE_TRANSIENT_STOCK)
-                sqlite3_bind_text(stmt, 7, item.title, -1, SQLITE_TRANSIENT_STOCK)
-                sqlite3_step(stmt)
-            }
+            let tags = (item.genres + Array(item.subjects.prefix(2)))
+                .map { $0.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) }
+                .filter { !$0.isEmpty && $0.count <= 22 && !$0.contains(":") && !$0.contains(";") }
+                .prefix(4)
+                .joined(separator: "|")
+            let dur = (item.runtimeSeconds.map(Double.init) ?? 120)
+            let inS = min(5, max(0, dur - 8))
+            sqlite3_reset(stmt)
+            sqlite3_bind_text(stmt, 1, item.archiveID, -1, SQLITE_TRANSIENT_STOCK)
+            sqlite3_bind_text(stmt, 2, item.archiveID, -1, SQLITE_TRANSIENT_STOCK)
+            sqlite3_bind_text(stmt, 3, url.absoluteString, -1, SQLITE_TRANSIENT_STOCK)
+            sqlite3_bind_double(stmt, 4, inS)
+            sqlite3_bind_double(stmt, 5, inS + 8)
+            sqlite3_bind_text(stmt, 6, tags, -1, SQLITE_TRANSIENT_STOCK)
+            sqlite3_bind_text(stmt, 7, item.title, -1, SQLITE_TRANSIENT_STOCK)
+            sqlite3_step(stmt)
         }
         sqlite3_exec(db, "COMMIT", nil, nil, nil)
     }
