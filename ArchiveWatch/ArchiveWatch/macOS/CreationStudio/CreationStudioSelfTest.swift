@@ -61,6 +61,12 @@ enum CreationStudioSelfTest {
         let prep = editor.clipPrep.values.map { "\($0)" }.sorted().joined(separator: ",")
         log("PREVIEW itemStatus=\(pst) duration=\(String(format: "%.1f", pdur))s clips=\(editor.clips.count) coldCacheMs=\(coldMs) prep=[\(prep)]")
 
+        // FILMSTRIP CHECK: a clip's timeline filmstrip should come from archive.org thumbnails
+        // (instant) — counts > 0 well before / independent of the slow window cache.
+        try? await Task.sleep(for: .seconds(4))
+        let fcounts = editor.clips.map { editor.thumbnails[$0.id]?.count ?? 0 }
+        log("FILMSTRIP archive-thumbnail frames per clip = \(fcounts)")
+
         // REUSE-ON-TRIM CHECK: nudge clip 0's in-point +1.5s (inside the ±12s handle) and rebuild.
         // It must REUSE the cached generous window (rebuild in well under a second), NOT re-cache.
         if let c0 = editor.clips.first {

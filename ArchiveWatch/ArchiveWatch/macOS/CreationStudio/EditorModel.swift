@@ -3,6 +3,7 @@ import Foundation
 import AVFoundation
 import Observation
 import CoreImage
+import ImageIO
 
 // The editor's live state + edit operations (docs/macOS-DESIGN.md §3, §7). Owns the
 // rebuild-and-swap preview (Rule 3b), the playhead, selection, zoom, filmstrip thumbnails,
@@ -39,6 +40,13 @@ final class EditorModel {
     /// Extra source footage cached on each side of a clip so small trims are free.
     static let cacheHandle = 12.0
 
+    // archive.org's per-~60s thumbnail strip (ArchiveThumbnails) is the timeline filmstrip
+    // source: it's tiny + already-served, so a clip shows frames INSTANTLY without waiting for
+    // the (slow) window cache + AVAssetImageGenerator. Cached per item + per image so trimming
+    // re-derives the strip with no new network.
+    @ObservationIgnored private var archiveStrips: [String: [ArchiveThumb]] = [:]
+    @ObservationIgnored private var thumbImageCache: [URL: CGImage] = [:]
+
     static let minPPS = 6.0, maxPPS = 600.0
 
     init(document: ClipProjectDocument) {
@@ -68,7 +76,8 @@ final class EditorModel {
         document.project.timeline.clips.append(clip)
         relayout()
         selectedClipID = clip.id
-        scheduleRebuild()          // caching + thumbnails happen in the rebuild (from the local window)
+        loadFilmstrip(for: clip)   // instant archive.org-thumbnail filmstrip (no wait on the cache)
+        scheduleRebuild()          // window caching for preview/export happens in the rebuild
     }
 
     var selectedClip: TimelineClip? { clips.first { $0.id == selectedClipID } }
@@ -86,6 +95,7 @@ final class EditorModel {
         document.project.timeline.clips.append(clip)
         relayout()
         selectedClipID = clip.id
+        loadFilmstrip(for: clip)
         scheduleRebuild()
     }
 
@@ -114,9 +124,9 @@ final class EditorModel {
         if let newOutSeconds { outS = max(newOutSeconds, inS + 0.1) }
         clip.sourceRange = TimeRange(startSeconds: inS, durationSeconds: outS - inS)
         document.project.timeline.clips[i] = clip
-        // Only the filmstrip needs refreshing for the new sub-range — the cached generous window
-        // is reused (no re-cache) as long as the trim stays inside it, so trimming is instant.
-        thumbnails[id] = nil
+        // Refresh the filmstrip for the new sub-range from cached thumbnails (instant, no flash);
+        // the cached generous window is reused (no re-cache) while the trim stays inside it.
+        loadFilmstrip(for: clip)
         relayout(); scheduleRebuild()
     }
 
@@ -148,7 +158,7 @@ final class EditorModel {
         // Both halves come from the same source — share the cached generous window so neither
         // re-caches; just refresh each half's filmstrip for its new sub-range.
         if let w = clipCache[clip.id] { clipCache[right.id] = w }
-        thumbnails[clip.id] = nil; thumbnails[right.id] = nil
+        loadFilmstrip(for: left); loadFilmstrip(for: right)
         selectedClipID = right.id
         relayout(); scheduleRebuild()
     }
@@ -174,6 +184,7 @@ final class EditorModel {
             sourceRange: src.sourceRange, timelineStart: .zero, track: 0, label: src.label, audioVolume: src.audioVolume)
         document.project.timeline.clips.insert(copy, at: i + 1)
         if let w = clipCache[id] { clipCache[copy.id] = w }                 // same source window
+        loadFilmstrip(for: copy)
         selectedClipID = copy.id
         relayout(); scheduleRebuild()
     }
@@ -305,8 +316,7 @@ final class EditorModel {
         let window = CachedWindow(url: url, sourceStart: cacheStart, sourceEnd: cacheStart + actualDur)
         clipCache[clip.id] = window
         clipPrep[clip.id] = .ready
-        thumbnails[clip.id] = nil
-        ensureThumbnails(clip, window: window)
+        ensureThumbnails(clip, window: window)   // fallback generator — no-op if loadFilmstrip set archive.org thumbnails
         return makeResolved(clip, window: window)
     }
 
@@ -357,6 +367,40 @@ final class EditorModel {
                 url: url, startSeconds: startSeconds, durationSeconds: durationSeconds, count: 10) ?? []
             await MainActor.run { self?.thumbnails[clipID] = imgs }
         }
+    }
+
+    /// Set a clip's timeline filmstrip from archive.org's thumbnail strip — INSTANT (the images
+    /// are a few KB, already served) and reused across clips/trims (strip + images cached), so a
+    /// clip shows frames without waiting on the window cache. Leaves the filmstrip empty when the
+    /// item has no thumbnails, so the cached-window generator (ensureThumbnails) fills in.
+    private func loadFilmstrip(for clip: TimelineClip) {
+        let id = clip.id, catID = clip.catalogItemID, url = clip.sourceURL
+        let inS = clip.sourceRange.start.seconds, outS = clip.sourceRange.endSeconds
+        Task { [weak self] in
+            guard let self else { return }
+            let strip: [ArchiveThumb]
+            if let cached = self.archiveStrips[catID] { strip = cached }
+            else { let s = await ArchiveThumbnails.strip(for: url); self.archiveStrips[catID] = s; strip = s }
+            guard !strip.isEmpty else { return }
+            var picks = strip.filter { $0.seconds >= inS - 1 && $0.seconds <= outS + 1 }
+            if picks.isEmpty, let n = strip.min(by: { abs($0.seconds - inS) < abs($1.seconds - inS) }) { picks = [n] }
+            if picks.count > 12 {                                  // cap a long clip's strip
+                let step = Double(picks.count - 1) / 11
+                picks = (0..<12).map { picks[min(picks.count - 1, Int((Double($0) * step).rounded()))] }
+            }
+            var imgs: [CGImage] = []
+            for t in picks {
+                if let c = self.thumbImageCache[t.url] { imgs.append(c) }
+                else if let img = await Self.downloadThumb(t.url) { self.thumbImageCache[t.url] = img; imgs.append(img) }
+            }
+            if !imgs.isEmpty, !Task.isCancelled { self.thumbnails[id] = imgs }
+        }
+    }
+
+    private nonisolated static func downloadThumb(_ url: URL) async -> CGImage? {
+        guard let (data, _) = try? await URLSession.shared.data(from: url),
+              let src = CGImageSourceCreateWithData(data as CFData, nil) else { return nil }
+        return CGImageSourceCreateImageAtIndex(src, 0, nil)
     }
 
     // isolated deinit (SE-0371) so cleanup can touch the MainActor-isolated player/observer

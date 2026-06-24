@@ -69,7 +69,10 @@ struct ClipBrowserSheet: View {
         } else {
             LazyVGrid(columns: cols, spacing: 16) {
                 ForEach(results) { item in
-                    Button { marking = item } label: { BrowserCard(item: item) }.buttonStyle(.plain)
+                    Button { marking = item } label: { BrowserCard(item: item) }
+                        .buttonStyle(.plain)
+                        .accessibilityIdentifier("clipCard")
+                        .accessibilityLabel("Clip \(item.title)")
                 }
             }
             .padding()
