@@ -560,14 +560,24 @@ two real clips measured rms 0.0102 vs 0.1471 (a ~14× spread) → normalized to 
 The only remaining optional polish is a "read it back" in-sheet preview (the editor already previews
 the assembly after Add).
 
-**Still deferred (one item):** the NSDocument/security-scoped-bookmark durable-media unit
-(music/voiceover persist in the disposable cache now, not the `.archiveproj` package) — a document-
-architecture migration the design flags as "the weakest seam."
+**Durable media: SHIPPED 2026-06-24.** Project-local media (imported music bed + recorded
+voiceover) is now EMBEDDED into a `media/` subdirectory of the `.archiveproj` package on save and
+extracted back to `ProjectMediaCache` on open — so the edit travels to another Mac and survives a
+Caches purge. Achieved WITHOUT the full NSDocument/security-scoped-bookmark migration: the bytes
+live inside the package (a `ReferenceFileDocument` directory wrapper that already preserves sibling
+wrappers), so no document URL or bookmark is needed. The engine still resolves media by filename
+from the cache (unchanged); the package is the durable source of truth, the cache the disposable
+working copy. archive.org video stays a remote reference. The full NSDocument backbone remains a
+future option only if the engine later needs the document's own URL for relative-path resolution —
+durable media no longer requires it.
 
 **Session note (2026-06-24):** the entire Creation Studio editor + flagship backlog is now shipped
 — timeline direct-manipulation, Publish (#7), Supercut (#9) line + word level + full-corpus index,
-music bed + voiceover (#4), cross-dissolve + wipe/push transitions, color Looks, and real
-Stock shots (#6). Only the two refinements above remain.
+music bed + voiceover (#4) with durable package-embedded media, cross-dissolve + wipe/push
+transitions, color Looks, and real Stock shots (#6). The only remaining optional polish is a
+"read it back" in-sheet supercut preview (the editor already previews the assembly after Add) and
+non-dissolve transitions via a Metal compositor (the native opacity/transform/crop ramps cover
+dissolve/wipe/push today).
 
 **Test/screenshot hooks (`AW_CS_TEST`) + sidebar clip thumbnails: SHIPPED 2026-06-24.** The
 DocumentGroup editor is driven into a populated state (`editor`) or the Add-Clip scrubber
