@@ -24,9 +24,32 @@ final class EditorModel {
     var pointsPerSecond: Double = 60
     var thumbnails: [UUID: [CGImage]] = [:]
     var isBuildingPreview = false
-    /// Per-clip media-prep state for the timeline UI: caching the local window / ready / failed.
+    /// Per-clip media-prep state for the timeline UI: caching the local window / ready / failed
+    /// (with a human reason).
     var clipPrep: [UUID: ClipPrep] = [:]
-    enum ClipPrep: Equatable { case caching, ready, failed }
+    enum ClipPrep: Equatable { case caching, ready, failed(String) }
+
+    /// Aggregate prep state for the status panel (#9): how many clips are ready / still caching /
+    /// failed (with reasons), so the UI can say "3 of 7 ready · 1 failed" instead of a bare spinner.
+    struct PrepStatus: Equatable { var ready = 0; var caching = 0; var total = 0; var failures: [String] = [] }
+    var prepStatus: PrepStatus {
+        var s = PrepStatus(); s.total = clips.count
+        for c in clips {
+            switch clipPrep[c.id] {
+            case .ready: s.ready += 1
+            case .caching: s.caching += 1
+            case .failed(let r): s.failures.append(r)
+            case nil: break
+            }
+        }
+        return s
+    }
+    private func markFailed(_ id: UUID, _ reason: String) { clipPrep[id] = .failed(reason) }
+    nonisolated static func reason(for error: Error) -> String {
+        let ns = error as NSError
+        if ns.domain == NSURLErrorDomain { return "network error — couldn't download" }
+        return ns.localizedDescription
+    }
 
     @ObservationIgnored private var rebuildTask: Task<Void, Never>?
     @ObservationIgnored private var timeObserver: Any?
@@ -305,17 +328,34 @@ final class EditorModel {
         }
         defer { overlay.cancel(); isBuildingPreview = false }
 
-        var resolved: [CompositionBuilder.ResolvedClip] = []
-        for clip in timelineClips {
-            do {
-                let r = try await resolveLocal(clip)
-                if Task.isCancelled { return }
-                resolved.append(r)
-            } catch {
-                clipPrep[clip.id] = .failed                                 // skip a clip that won't cache
+        // Cache clips CONCURRENTLY, bounded (#2) — one slow/failed clip no longer blocks the rest.
+        // resolveLocal is @MainActor but suspends at the network/export await, so up to N caches run
+        // in flight. A clip that won't cache is marked .failed(reason) and EXCLUDED from the build,
+        // so it can't stall playback of the good clips (#13).
+        let maxConcurrent = 3
+        var resolvedByID: [UUID: CompositionBuilder.ResolvedClip] = [:]
+        await withTaskGroup(of: (UUID, CompositionBuilder.ResolvedClip?).self) { group in
+            var it = timelineClips.makeIterator()
+            func addNext() {
+                guard let clip = it.next() else { return }
+                group.addTask { [weak self] in
+                    guard let self else { return (clip.id, nil) }
+                    do { return (clip.id, try await self.resolveLocal(clip)) }
+                    catch is CancellationError { return (clip.id, nil) }
+                    catch { await self.markFailed(clip.id, Self.reason(for: error)); return (clip.id, nil) }
+                }
+            }
+            for _ in 0..<maxConcurrent { addNext() }
+            while let (id, r) = await group.next() {
+                if let r { resolvedByID[id] = r }
+                if Task.isCancelled { group.cancelAll(); break }
+                addNext()
             }
         }
-        guard !resolved.isEmpty, !Task.isCancelled else { return }
+        if Task.isCancelled { return }
+        // Build from the READY clips in timeline order (failed clips are excluded, not blockers).
+        let resolved = timelineClips.compactMap { resolvedByID[$0.id] }
+        guard !resolved.isEmpty else { return }
 
         // bakeOverlays:false — the Core Animation overlay tool is offline-only (crashes
         // AVPlayerItem). Same clip/reframe/audio recipe as export, so the preview frame matches.
@@ -356,8 +396,16 @@ final class EditorModel {
             catalogItemID: clip.catalogItemID, sourceURL: clip.sourceURL,
             startSeconds: cacheStart, endSeconds: cacheEnd)
         if Task.isCancelled { throw CancellationError() }
-        let actualDur = (try? await AVURLAsset(url: url).load(.duration).seconds) ?? (cacheEnd - cacheStart)
-        let window = CachedWindow(url: url, sourceStart: cacheStart, sourceEnd: cacheStart + actualDur)
+        // Validate the cached window — a degenerate file (0-length / no readable video track)
+        // would otherwise poison the whole shared AVPlayerItem and stop the GOOD clips playing (#13).
+        let asset = AVURLAsset(url: url)
+        let dur = (try? await asset.load(.duration).seconds) ?? 0
+        let hasVideo = ((try? await asset.loadTracks(withMediaType: .video))?.isEmpty == false)
+        guard dur > 0.05, hasVideo else {
+            throw NSError(domain: "CreationStudio", code: 2,
+                          userInfo: [NSLocalizedDescriptionKey: "couldn't read the cached clip"])
+        }
+        let window = CachedWindow(url: url, sourceStart: cacheStart, sourceEnd: cacheStart + dur)
         clipCache[clip.id] = window
         clipPrep[clip.id] = .ready
         ensureThumbnails(clip, window: window)   // fallback generator — no-op if loadFilmstrip set archive.org thumbnails

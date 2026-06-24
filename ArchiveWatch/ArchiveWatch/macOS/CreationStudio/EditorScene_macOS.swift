@@ -70,11 +70,23 @@ struct ProjectEditorView: View {
                         // preview is WYSIWYG and "Add Text" is visible.
                         TextOverlayPreview(model: model, renderSize: model.project.timeline.renderSize)
                     }
-                    if model.isBuildingPreview {
+                    if model.isBuildingPreview || !model.prepStatus.failures.isEmpty {
+                        let s = model.prepStatus
                         VStack(spacing: 6) {
-                            ProgressView().controlSize(.small).tint(.white)
-                            Text("Preparing clips…").font(.caption).foregroundStyle(.white.opacity(0.7))
+                            if model.isBuildingPreview {
+                                ProgressView().controlSize(.small).tint(.white)
+                                Text("Preparing clips — \(s.ready) of \(s.total) ready" +
+                                     (s.caching > 0 ? " · \(s.caching) downloading" : ""))
+                                    .font(.caption).foregroundStyle(.white.opacity(0.85))
+                            }
+                            if let fail = s.failures.first {
+                                Label(s.failures.count == 1 ? "1 clip couldn’t load: \(fail)"
+                                                            : "\(s.failures.count) clips couldn’t load: \(fail)",
+                                      systemImage: "exclamationmark.triangle.fill")
+                                    .font(.caption2).foregroundStyle(.orange)
+                            }
                         }
+                        .padding(10).background(.black.opacity(0.55), in: RoundedRectangle(cornerRadius: 8))
                     }
                 }
                 .frame(minHeight: 220)

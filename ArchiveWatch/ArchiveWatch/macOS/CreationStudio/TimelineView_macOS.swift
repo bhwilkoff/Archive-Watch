@@ -185,12 +185,12 @@ final class TimelineContentView: NSView {
             switch state.prep[clip.id] {
             case .caching where (state.thumbnails[clip.id]?.isEmpty ?? true):
                 container.addSublayer(centeredText("Caching…", width: cw, color: NSColor(white: 0.85, alpha: 1)))
-            case .failed:
+            case .failed(let reason):
                 let tint = CALayer()
                 tint.frame = CGRect(x: 0, y: 0, width: cw, height: trackH)
                 tint.backgroundColor = NSColor.systemRed.withAlphaComponent(0.22).cgColor
                 container.addSublayer(tint)
-                container.addSublayer(centeredText("⚠ Couldn’t load — click to retry", width: cw, color: .white))
+                container.addSublayer(centeredText("⚠ \(reason) — click to retry", width: cw, color: .white))
             default: break
             }
 
@@ -335,7 +335,7 @@ final class TimelineContentView: NSView {
         case .trimLeft(let id), .trimRight(let id), .move(let id),
              .fadeIn(let id), .fadeOut(let id), .transition(let id):
             model.selectedClipID = id
-            if state.prep[id] == .failed { model.retryClip(id); drag = .none; return }
+            if case .failed = state.prep[id] { model.retryClip(id); drag = .none; return }
         default: break
         }
         switch h {
