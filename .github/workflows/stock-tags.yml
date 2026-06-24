@@ -1,0 +1,61 @@
+name: Stock semantic tags (#6)
+
+# Creation Studio #6: semantic SHOT tags via OPEN-SOURCE CLIP zero-shot (tools/tag_stock_shots.py)
+# on a plain Linux runner — NO Apple Vision, no macOS, no in-app model. Reuses the frames the stock
+# pipeline already detects: grabs each shot's mid-frame (ffmpeg) and tags it against a curated
+# stock-footage vocabulary, appending to the `tags` column StockIndex already searches with LIKE.
+# Runs after stock-index (same concurrency group, so they never clobber clips.sqlite); resumable.
+
+on:
+  schedule:
+    - cron: '0 9 * * *'   # after stock-index (05:00) has added shots
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Shots to tag this run'
+        default: '4000'
+
+concurrency:
+  group: stock-index            # share with stock-index.yml — both mutate clips.sqlite
+  cancel-in-progress: false
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Cache the CLIP model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: openclip-vit-b-32
+
+      - name: Install CLIP
+        run: pip install open-clip-torch
+
+      - name: Get the shot index
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release download stock-index -p clips.sqlite -O clips.sqlite
+
+      - name: Tag shots
+        run: |
+          python tools/tag_stock_shots.py --limit ${{ github.event.inputs.limit || '4000' }} | tee tag.log
+          echo "## Stock semantic tags" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -2 tag.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Publish updated index
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 -c "import zlib; d=open('clips.sqlite','rb').read(); c=zlib.compressobj(9,zlib.DEFLATED,-15); open('clips.sqlite.zz','wb').write(c.compress(d)+c.flush())"
+          gh release upload stock-index clips.sqlite clips.sqlite.zz --clobber

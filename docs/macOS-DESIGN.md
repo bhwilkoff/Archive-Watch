@@ -502,10 +502,22 @@ recognizer words the caption contains, drop hallucinations — the Decision-039b
 unavailable the toggle gracefully no-ops (clips stay line-level). Verified via the self-test:
 `recognized 16 words: witness@0.1 What@3.0 was@3.3 he@3.5 doing?@3.6 …` — real per-word timings.
 
-**Still deferred (refinements, not core):** Stock semantic Vision/MobileCLIP tags (real shots +
-genre/subject tags already ship; this adds "find shots of a sunset"); the NSDocument/
-security-scoped-bookmark durable-media unit (music/voiceover persist in the disposable cache now,
-not the `.archiveproj` package).
+**Stock semantic tags — NO Apple Vision required: SHIPPED 2026-06-24.** The design assumed "find
+shots of a sunset" needed an Apple-Vision macOS CLI + a macOS runner. It doesn't: open-source
+**CLIP zero-shot** (`tools/tag_stock_shots.py`, `open_clip` ViT-B-32) runs on a plain Linux GitHub
+runner, reusing the frames the stock pipeline already detects — it grabs each shot's mid-frame
+(ffmpeg) and classifies it against a curated ~200-term stock-footage vocabulary (scenes / weather /
+people / actions / objects), appending the confident tags to the `tags` column `StockIndex` already
+searches with LIKE. So the APP needs no change, no in-app model, no `sqlite-vec`. `stock-tags.yml`
+(daily, same concurrency group as `stock-index.yml` so they never clobber `clips.sqlite`) drains
+the corpus. Verified locally: a 1953 educational film's shots tagged `black-and-white-footage`
+(correctly) merged with the genre tags. Open-vocabulary semantic search (store CLIP image
+embeddings + a same-model text query) remains a possible future upgrade, but the curated-vocabulary
+tags deliver the feature now, cross-platform.
+
+**Still deferred (one item):** the NSDocument/security-scoped-bookmark durable-media unit
+(music/voiceover persist in the disposable cache now, not the `.archiveproj` package) — a document-
+architecture migration the design flags as "the weakest seam."
 
 **Session note (2026-06-24):** the entire Creation Studio editor + flagship backlog is now shipped
 — timeline direct-manipulation, Publish (#7), Supercut (#9) line + word level + full-corpus index,
