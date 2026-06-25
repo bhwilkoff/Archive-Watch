@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """
-build_episode_index.py — a small client-searchable index of TV EPISODES for the web viewer.
+build_episode_index.py — episodes as first-class items for the web viewer (Decision 045).
 
 The web data plane (Decision 029) is catalog-index.json + the archive.org metadata API — it has
-NO FTS and NO episodes (episodes live in series/*.json, fetched per-series at runtime). So the web
-Search never found individual episodes. This emits `episodes-index.json` (served from Pages, like
-catalog-index.json) — a compact array the viewer lazy-loads on first search and filters client-side,
-then routes a hit to #/series/{slug}.
+NO FTS and NO episodes (episodes live in series/*.json, fetched per-series at runtime). This emits
+`episodes-index.json` (served from Pages, like catalog-index.json) so the viewer can treat each
+playable episode as an item: it carries the episode's own `archiveID` (so favorites / playlists /
+share / Detail all key off it like any film, resolving via the id-map) plus the series linkage for
+the byline + a "Part of <series>" link. Each row:
+  [archiveID, slug, series, season, episode, title, still, year]
 
 Run: python tools/build_episode_index.py   (after the series/ spines are present)
 """
@@ -29,16 +31,19 @@ def main() -> int:
             continue
         slug = d.get("seriesID") or f.stem
         series_title = d.get("title") or slug
+        seen = set()
         for season in d.get("seasons", []):
             for ep in season.get("episodes", []):
-                if not ep.get("downloadURL"):   # only playable episodes are worth surfacing
-                    continue
+                aid = ep.get("archiveID")
+                if not (ep.get("downloadURL") and aid) or aid in seen:
+                    continue   # only playable episodes with a real id, once each
+                seen.add(aid)
                 eps.append([
-                    slug, series_title, ep.get("seasonNumber"), ep.get("episodeNumber"),
+                    aid, slug, series_title, ep.get("seasonNumber"), ep.get("episodeNumber"),
                     ep.get("title"), ep.get("stillURL"), ep.get("year"),
                 ])
     out = {
-        "fields": ["slug", "series", "season", "episode", "title", "still", "year"],
+        "fields": ["archiveID", "slug", "series", "season", "episode", "title", "still", "year"],
         "count": len(eps),
         "episodes": eps,
     }
