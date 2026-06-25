@@ -1,6 +1,7 @@
 #if os(macOS)
 import SwiftUI
 import SwiftData
+import Combine
 
 // Home = curated shelves over the shared CatalogDB queries (same shelves the other
 // platforms show). Re-queries when the full DB swaps in (store.dbVersion).
@@ -11,8 +12,10 @@ struct HomeView: View {
     @Environment(AppStore.self) private var store
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var progress: [WatchProgress]
     @Query(sort: \Favorite.addedAt, order: .reverse) private var savedFavorites: [Favorite]
-    @State private var hero: Catalog.Item?
+    @State private var heroItems: [Catalog.Item] = []
     @State private var shelves: [HomeShelf] = []
+    // Stable per-Home-lifetime seed so the hero pool doesn't reshuffle on every reload tick.
+    @State private var heroSeed = UInt64.random(in: 0..<UInt64.max)
 
     private let pdYear = Calendar.current.component(.year, from: Date()) - 95
     // A shelf needs this many professional-art items (after cross-shelf dedup) to earn a row.
@@ -28,7 +31,7 @@ struct HomeView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 26) {
-                if let hero { HeroBanner(item: hero) }
+                if !heroItems.isEmpty { HeroCarousel(items: heroItems) }
                 if !continueItems.isEmpty { ShelfRow(title: "Continue Watching", items: continueItems) }
                 CategoryTilesRow()
                 ForEach(shelves) { ShelfRow(title: $0.title, items: $0.items, accent: $0.accent) }
@@ -50,9 +53,17 @@ struct HomeView: View {
         store.completedArchiveIDs = Set(progress.filter(\.isComplete).map(\.archiveID))
 
         var used = Set<String>()
-        // Hero = the single most popular professional-art title; never repeats below.
-        hero = store.filteringWatched(store.topRated().filter(\.hasProfessionalArtwork)).first
-        if let h = hero { used.insert(h.archiveID) }
+        // Hero POOL (parity: the hero ROTATES on every other platform — was a single static banner
+        // on macOS). Popular, home-eligible, designed (non-generated) art, preferring wide backdrops
+        // so the banner isn't a blown-up poster. None of these repeat in the shelves below.
+        let base = store.filteringWatched(store.dbBrowse(sort: .popular, limit: 3000, homeOnly: true))
+            .filter { $0.hasDesignedArtwork && $0.artworkSource != "generated" }
+        let withBackdrop = base.filter { $0.backdropURLParsed != nil }
+        let pool = withBackdrop.count >= 7 ? withBackdrop
+            : base.filter { $0.backdropURLParsed != nil || $0.posterURLParsed != nil }
+        var rng = SplitMix(seed: heroSeed)
+        heroItems = Array(pool.shuffled(using: &rng).prefix(7))
+        heroItems.forEach { used.insert($0.archiveID) }
         continueItems.forEach { used.insert($0.archiveID) }   // don't resurface Continue Watching
 
         var built: [HomeShelf] = []
@@ -103,6 +114,41 @@ struct HomeView: View {
                                    pickOfDay: pick,
                                    favorites: favItems,
                                    surprisePool: store.topRated().filter(\.hasProfessionalArtwork))
+    }
+}
+
+// A ROTATING hero (parity: the hero auto-advances on every other platform; macOS was static).
+// Cross-fades through the pool every 7s; the dots jump to a slot; hovering pauses the rotation
+// (pointer idiom) so it doesn't shift out from under the cursor.
+struct HeroCarousel: View {
+    let items: [Catalog.Item]
+    @State private var index = 0
+    @State private var hovering = false
+    private let tick = Timer.publish(every: 7, on: .main, in: .common).autoconnect()
+
+    var body: some View {
+        ZStack(alignment: .bottomTrailing) {
+            ForEach(Array(items.enumerated()), id: \.element.id) { i, item in
+                if i == index { HeroBanner(item: item).transition(.opacity) }
+            }
+            if items.count > 1 {
+                HStack(spacing: 7) {
+                    ForEach(items.indices, id: \.self) { i in
+                        Capsule()
+                            .fill(i == index ? Color.white : Color.white.opacity(0.35))
+                            .frame(width: i == index ? 18 : 7, height: 7)
+                            .onTapGesture { withAnimation(.easeInOut) { index = i } }
+                    }
+                }
+                .padding(14)
+            }
+        }
+        .onHover { hovering = $0 }
+        .onReceive(tick) { _ in
+            guard items.count > 1, !hovering else { return }
+            withAnimation(.easeInOut(duration: 0.6)) { index = (index + 1) % items.count }
+        }
+        .onChange(of: items.map(\.archiveID)) { _, _ in index = 0 }   // reset if the pool swaps (DB reload)
     }
 }
 
