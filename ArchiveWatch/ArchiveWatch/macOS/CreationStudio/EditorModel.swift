@@ -305,6 +305,7 @@ final class EditorModel {
                 addNext()
             }
         }
+        relayout()          // final repack so the tightened clips form one gap-free run
         scheduleRebuild()
     }
 
@@ -313,16 +314,22 @@ final class EditorModel {
         // stays as the subtitle-cue window (still a valid clip containing the phrase).
         guard let url = try? await ClipCacheService.cachedURL(for: TimelineClip.from(take.proxy, at: .zero)),
               !Task.isCancelled else { return }
+        var changed = false
         if tighten, let r = await WordTiming.tighten(mediaURL: url, phrase: take.phrase, caption: take.captionText),
            let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) {
             let newIn = take.proxy.sourceRange.start.seconds + r.start.seconds
             document.project.timeline.clips[i].sourceRange =
                 TimeRange(startSeconds: max(0, newIn), durationSeconds: max(0.05, r.duration.seconds))
+            changed = true
         }
         if evenVolume, let rms = await Loudness.rms(url: url),
            let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) {
             document.project.timeline.clips[i].audioVolume = Loudness.gain(forRMS: rms)
         }
+        // A tightened clip is SHORTER → repack the magnetic track so the clips stay glued together
+        // (no gaps), and nudge the timeline to redraw now so they visibly close up one-by-one as the
+        // background refine progresses (the preview composition refreshes once at the end of the batch).
+        if changed { relayout(); bumpTimeline() }
     }
 
     func deleteClip(_ id: UUID) {
@@ -428,6 +435,13 @@ final class EditorModel {
     /// changed, i.e. while playing). Bump on EVERY overlay write.
     private(set) var overlayRevision = 0
     func bumpOverlayRevision() { overlayRevision &+= 1 }
+
+    /// Forces the timeline NSView to re-read `clips` after a layout change that has no OTHER
+    /// observed side effect — `clips` live on the non-@Observable document, so reading them in
+    /// updateNSView isn't enough on its own. Used after a background `relayout()` (e.g. a supercut
+    /// tighten) so the repacked, gap-free positions show without waiting for a full preview rebuild.
+    private(set) var timelineRevision = 0
+    func bumpTimeline() { timelineRevision &+= 1 }
 
     func addTextOverlay() {
         checkpoint()
