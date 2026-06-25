@@ -1912,3 +1912,54 @@ the clients ignore; `posterDead=True` is a durable wants-marker for a future fre
 cover-generation pass (the demoted items currently show the Archive thumbnail). `catalog.json` on
 the source release carries the annotations but not the build-time apply/remediate mutations (those
 are re-derived every build, idempotently) — consistent with Decisions 027/043.
+
+---
+
+## 045 — Playable TV episodes are first-class catalog items (materialized in the DB)
+*Date: 2026-06-25*
+
+Every playable episode in a series spine is materialized as a first-class catalog
+item with `contentType: "tv-episode"` — so episodes get the SAME machinery as
+films for favoriting, playlists, sharing (`/item/{id}`), Clip Studio, Detail, and
+search, with NO episode-specific interactions to learn. The items are DERIVED at
+DB-build time in `build_sqlite.populate_series` from `series/*.json` (catalog.json +
+the spines stay the canonical sources per Decisions 016/018 — the DB is the
+materialized view); they carry `seriesID` + `seasonNumber`/`episodeNumber` +
+`seriesTitle` for the byline and the "Part of <series>" Detail link. They are
+materialized ONLY in the full DB, never the lean bundled seed (favorites resolve
+once the full DB loads, seconds after first paint). The standalone-duplicate of an
+episode (a tv-special/feature-film upload of the same archive item) is DROPPED so
+the canonical episode is the single card (`populate_items` skips an archiveID that
+the spines own — Decision 036's "organize into season/episode, never haphazardly").
+The redundant `episodes_fts` index (and the `EpisodeHit`/`searchEpisodes` machinery
+that fronted it) is removed — episodes are in `items_fts` now.
+
+**Why**: favorites/playlists/watch-progress are already keyed by `archiveID`, and an
+episode already HAS an `archiveID`, so the ONLY thing blocking "favorite/share/clip
+an episode" was RESOLUTION — turning a saved id back into a card needs it in the
+`items` table. Owner ask 2026-06-25: "share individual episodes and favorite them
+and add them to playlists … use all the same mechanics … instead of creating new
+interactions users have to learn." Making episodes items closes every gap at once
+through the existing item machinery; the alternative (an "episode resolver" special-
+casing each consumer) is exactly the per-feature divergence the owner rejected.
+Passes the learning-orientation gate — more navigable/actionable, no new interaction
+to learn.
+
+**How to apply**: episodes are excluded from FILM surfaces — Home shelves, Browse/
+Movies, Random Film, director/quality rows — via the `notStandaloneTV` clause (now
+`NOT IN ('tv-special','tv-episode')`) and the browse/count/random `NOT IN` lists;
+but they ARE in SEARCH (a separate `searchExclude` drops only tv-special). Tapping an
+episode opens its OWN Detail (play/favorite/share/clip), which carries a "Part of
+<series>" link back to the spine. Episode items are PD (the visible catalog is PD/CC
+only) so `isClippable` is true — Clip Studio works on them with no extra wiring. Keep
+the seed episode-free (`materialize_episodes=False`). New ingests are covered by the
+nightly publish-db (the materialization re-derives from the spines every build —
+self-maintaining, no persisted Release mutation). Web is the divergent plane
+(catalog-index.json, no FTS): it loads a small `episodes-index.json` into its id map
+so episodes resolve there too.
+
+**Consequences**: the full DB gains ~4,600 tv-episode items (+ drops ~900 standalone
+duplicates). `seasonNumber`/`episodeNumber`/`seriesTitle` are additive JSON keys the
+older clients ignore. The published DB schema drops `episodes_fts` (no client queries
+it after this). Complements Decision 016 (canonical spine), 033/042 (Clip/Creation
+Studio), 035/036 (duplicate exclusion + TV taxonomy).

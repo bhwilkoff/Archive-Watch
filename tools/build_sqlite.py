@@ -535,15 +535,6 @@ def create_schema(db):
     -- `items_fts MATCH ?` searches every column automatically, so broadening
     -- here needs no app change.
     CREATE VIRTUAL TABLE items_fts USING fts5(archiveID UNINDEXED, title, names, extra);
-
-    -- Episode search: individual TV episodes aren't catalog items (they live in the
-    -- `episodes` table), so they never appeared in `items_fts`. This self-contained FTS
-    -- indexes the episode title + its series title (searchable), and carries everything the
-    -- apps need to display + route the hit (UNINDEXED payload) — no join required.
-    CREATE VIRTUAL TABLE episodes_fts USING fts5(
-      seriesID UNINDEXED, seriesTitle, season UNINDEXED, episode UNINDEXED,
-      archiveID UNINDEXED, downloadURL UNINDEXED, stillURL UNINDEXED,
-      year UNINDEXED, runtimeSeconds UNINDEXED, title);
     """)
 
 
@@ -571,7 +562,24 @@ def _rotated_shelf_positions(items, rotate_seed):
     return positions
 
 
-def populate_items(db, items, rotate_seed="0"):
+def _playable_episode_aids():
+    """archiveIDs of every playable episode across the series spines — the set the
+    episode-item materialization (Decision 045) will own, so populate_items can skip
+    their standalone duplicates and let the canonical EPISODE win (Decision 036)."""
+    aids = set()
+    for f in SERIES_DIR.glob("*.json"):
+        try:
+            d = json.loads(f.read_text(encoding="utf-8"))
+        except Exception:  # noqa: BLE001
+            continue
+        for season in d.get("seasons", []):
+            for ep in season.get("episodes", []):
+                if ep.get("downloadURL") and ep.get("archiveID"):
+                    aids.add(ep["archiveID"])
+    return aids
+
+
+def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
     item_rows, json_rows, genre_rows, coll_rows, shelf_rows, fts_rows = [], [], [], [], [], []
     shelf_pos = _rotated_shelf_positions(items, rotate_seed)
     for it in items:
@@ -581,6 +589,11 @@ def populate_items(db, items, rotate_seed="0"):
         if it.get("excluded") or _is_courseware(it) or _is_compilation(it):
             continue
         aid = it["archiveID"]
+        # This archive item is a canonical episode — drop the standalone duplicate so
+        # the episode-item (materialized in populate_series) is the single card for it
+        # (Decision 045/036). A tv-series CARD is never an episode, so never skip it.
+        if aid in skip_aids and it.get("contentType") != "tv-series":
+            continue
         item_rows.append((
             aid, _t(it.get("title")), it.get("year"), it.get("decade"),
             it.get("runtimeSeconds"), _t(it.get("contentType")), _t(it.get("posterURL")),
@@ -629,15 +642,55 @@ def populate_items(db, items, rotate_seed="0"):
     return len(item_rows)
 
 
-def populate_series(db):
-    s_rows, e_rows, ef_rows = [], [], []
+def _episode_item(ep, sid, series_title, series_poster, series_backdrop):
+    """A playable episode as a first-class catalog item (contentType 'tv-episode',
+    Decision 045). Episodes become real items so favorite / playlist / share / Clip
+    Studio / Detail / search all work through the SAME machinery as films — no
+    episode-specific interactions. seriesID + season/episode + seriesTitle carry the
+    linkage; the item is excluded from film browse surfaces but fully actionable."""
+    aid = ep.get("archiveID")
+    title = ep.get("title") or aid
+    year = ep.get("year")
+    still = ep.get("stillURL")
+    poster = still or series_poster
+    return {
+        "archiveID": aid,
+        "title": title,
+        "year": year,
+        "decade": (year // 10 * 10) if year else None,
+        "runtimeSeconds": ep.get("runtimeSeconds"),
+        "contentType": "tv-episode",
+        "posterURL": poster,
+        "backdropURL": series_backdrop,
+        "hasRealArtwork": bool(poster),
+        "artworkSource": "external" if still else ("series" if series_poster else None),
+        "downloadURL": ep.get("downloadURL"),
+        "synopsis": ep.get("overview"),
+        "rightsStatus": "public_domain",   # the visible catalog is PD/CC-only (Decision 027)
+        "seriesID": sid,
+        "seriesTitle": series_title,
+        "seasonNumber": ep.get("seasonNumber"),
+        "episodeNumber": ep.get("episodeNumber"),
+        "stillURL": still,
+    }
+
+
+def populate_series(db, materialize_episode_items=True):
+    """Build the series + episodes tables. When materialize_episode_items (the full
+    DB, not the lean seed), ALSO insert each playable episode as a 'tv-episode'
+    catalog item so episodes are first-class everywhere (Decision 045)."""
+    s_rows, e_rows = [], []
+    ep_item_rows, ep_json_rows, ep_fts_rows = [], [], []
+    seen_ep_aids = set()
     for f in sorted(SERIES_DIR.glob("*.json")):
         d = json.loads(f.read_text(encoding="utf-8"))
         sid = d.get("seriesID") or f.stem
         series_title = d.get("title")
+        series_poster = d.get("posterURL")
+        series_backdrop = d.get("backdropURL")
         s_rows.append((
             sid, series_title, d.get("yearStart"), d.get("yearEnd"),
-            d.get("overview"), d.get("posterURL"), d.get("backdropURL"),
+            d.get("overview"), series_poster, series_backdrop,
             jdump(d.get("networks")), jdump(d.get("genres")), d.get("creator"),
             d.get("tvmazeID"), d.get("episodesCount"), d.get("canonicalEpisodesCount"),
         ))
@@ -650,17 +703,37 @@ def populate_series(db):
                     ep.get("airDate"), ep.get("year"), ep.get("runtimeSeconds"),
                     ep.get("downloadURL"), jdump(ep.get("videoFile")), pos,
                 ))
-                # Index only PLAYABLE episodes for search (no point surfacing an unplayable hit).
-                if ep.get("downloadURL"):
-                    ef_rows.append((
-                        sid, series_title, ep.get("seasonNumber"), ep.get("episodeNumber"),
-                        ep.get("archiveID"), ep.get("downloadURL"), ep.get("stillURL"),
-                        ep.get("year"), ep.get("runtimeSeconds"), ep.get("title"),
-                    ))
                 pos += 1
+                aid = ep.get("archiveID")
+                # Materialize ONLY playable episodes with a real id, once per id.
+                if not (materialize_episode_items and ep.get("downloadURL") and aid
+                        and aid not in seen_ep_aids):
+                    continue
+                seen_ep_aids.add(aid)
+                it = _episode_item(ep, sid, series_title, series_poster, series_backdrop)
+                ep_item_rows.append((
+                    aid, _t(it["title"]), it["year"], it["decade"],
+                    it["runtimeSeconds"], "tv-episode", _t(it["posterURL"]),
+                    1 if it["hasRealArtwork"] else 0, _t(it["artworkSource"]), None, None,
+                    None, 0, None,
+                    0, "public_domain", None, None,
+                    None, None, sid,
+                    None, None, None,
+                    0,
+                    None, None, None, None,
+                ))
+                ep_json_rows.append((aid, json.dumps(it, ensure_ascii=False, separators=(",", ":"))))
+                # extra = series name + a synopsis snippet, so the series name finds the episode.
+                extra = " ".join([series_title or "", (it["synopsis"] or "")[:200]]).strip()
+                ep_fts_rows.append((aid, it["title"] or "", "", extra))
     db.executemany("INSERT OR IGNORE INTO series VALUES (%s)" % ",".join("?" * 13), s_rows)
     db.executemany("INSERT INTO episodes VALUES (%s)" % ",".join("?" * 12), e_rows)
-    db.executemany("INSERT INTO episodes_fts VALUES (%s)" % ",".join("?" * 10), ef_rows)
+    # OR IGNORE: a standalone item with the same id (rare post-Decision-035) keeps its row.
+    db.executemany("INSERT OR IGNORE INTO items VALUES (%s)" % ",".join("?" * 29), ep_item_rows)
+    db.executemany("INSERT OR IGNORE INTO item_json VALUES (?,?)", ep_json_rows)
+    db.executemany("INSERT INTO items_fts VALUES (?,?,?,?)", ep_fts_rows)
+    if ep_item_rows:
+        print(f"[sqlite]   materialized {len(ep_item_rows):,} tv-episode items", flush=True)
     return len(s_rows), len(e_rows)
 
 
@@ -714,17 +787,19 @@ def select_seed_items(items):
     return list(chosen.values())
 
 
-def build_db_obj(cat, out_db, rotate_seed="0"):
+def build_db_obj(cat, out_db, rotate_seed="0", materialize_episodes=True):
     """Compile an in-memory catalog dict into a SQLite DB at out_db. Returns
-    (cat, n_items, n_series, n_eps)."""
+    (cat, n_items, n_series, n_eps). materialize_episodes=False for the lean
+    bundled seed (episodes-as-items live only in the full DB — Decision 045)."""
     deduped = dedupe_by_imdb(cat["items"])
     deduped = merge_film_duplicates(deduped)
     if out_db.exists():
         out_db.unlink()
     db = sqlite3.connect(out_db)
     create_schema(db)
-    n_items = populate_items(db, deduped, rotate_seed=rotate_seed)
-    n_series, n_eps = populate_series(db)
+    episode_aids = _playable_episode_aids() if materialize_episodes else frozenset()
+    n_items = populate_items(db, deduped, rotate_seed=rotate_seed, skip_aids=episode_aids)
+    n_series, n_eps = populate_series(db, materialize_episode_items=materialize_episodes)
     create_indexes(db)
     db.execute("INSERT OR REPLACE INTO meta VALUES ('schemaVersion', ?)", (str(SCHEMA_VERSION),))
     db.execute("INSERT OR REPLACE INTO meta VALUES ('generatedAt', ?)", (cat.get("generatedAt", ""),))
@@ -751,7 +826,7 @@ def build_seed_db(full_catalog_path, out_db, rotate_seed="0"):
     cat = json.loads(full_catalog_path.read_text(encoding="utf-8"))
     seed = dict(cat)
     seed["items"] = select_seed_items(cat["items"])
-    return build_db_obj(seed, out_db, rotate_seed=rotate_seed)
+    return build_db_obj(seed, out_db, rotate_seed=rotate_seed, materialize_episodes=False)
 
 
 def main():

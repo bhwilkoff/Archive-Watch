@@ -12,9 +12,13 @@ struct SearchView: View {
     @State private var results: [Catalog.Item] = []
     @State private var contentType: String? = nil
     @State private var decade: Int? = nil
-    @State private var episodeHits: [EpisodeHit] = []
-    // Episodes shown unless the user has filtered to a non-TV type.
-    private var showEpisodes: Bool { (contentType == nil || contentType == "tv-series") && !episodeHits.isEmpty }
+
+    // Episode items (Decision 045) come back in `results` like any item; we just
+    // group them into their own section. Shown unless filtered to a non-TV type.
+    private var episodeResults: [Catalog.Item] { results.filter(\.isEpisode) }
+    private var showEpisodes: Bool {
+        (contentType == nil || contentType == "tv-series") && !episodeResults.isEmpty
+    }
 
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
     private let types: [(String, String?)] = [
@@ -24,6 +28,7 @@ struct SearchView: View {
 
     private var filtered: [Catalog.Item] {
         results.filter { item in
+            !item.isEpisode &&   // episodes have their own section
             (contentType == nil || item.contentType == contentType) &&
             (decade == nil || item.year.map { ($0 / 10) * 10 == decade! } == true)
         }
@@ -50,8 +55,8 @@ struct SearchView: View {
                     if showEpisodes {
                         VStack(alignment: .leading, spacing: 6) {
                             Text("Episodes").font(.title3.bold()).padding(.horizontal)
-                            ForEach(episodeHits) { hit in
-                                Button { openEpisode(hit) } label: { EpisodeHitRow(hit: hit) }
+                            ForEach(episodeResults) { item in
+                                Button { router.openDetail(item) } label: { EpisodeItemRow(item: item) }
                                     .buttonStyle(.plain)
                             }
                         }.padding(.top, 8)
@@ -96,43 +101,36 @@ struct SearchView: View {
             }
         }
         .task(id: query) {
-            guard query.count >= 2 else { results = []; episodeHits = []; return }
+            guard query.count >= 2 else { results = []; return }
             try? await Task.sleep(for: .milliseconds(180))   // debounce
             if !Task.isCancelled {
                 results = store.search(query)
-                episodeHits = store.searchEpisodes(query)
             }
         }
     }
 
     private var decades: [Int] { store.decadeCounts().keys.sorted(by: >) }
 
-    /// Route an episode hit to its series (the user lands on the series with the full episode list).
-    private func openEpisode(_ hit: EpisodeHit) {
-        if let card = store.seriesCard(seriesID: hit.seriesID) {
-            router.searchPath.append(SeriesRef(card: card))
-        }
-    }
-
     private func open(_ item: Catalog.Item) {
         if item.contentType == "tv-series" {
             router.searchPath.append(SeriesRef(card: item))
         } else {
-            router.openDetail(item)
+            router.openDetail(item)   // episode items included — their Detail has all the actions
         }
     }
 }
 
-// One episode search hit: still thumbnail + episode title + "Series · S1·E2".
-private struct EpisodeHitRow: View {
-    let hit: EpisodeHit
+// One episode search result: still thumbnail + episode title + "Series · S1·E2".
+// Tapping opens the episode's own Detail (play/favorite/share/clip), Decision 045.
+private struct EpisodeItemRow: View {
+    let item: Catalog.Item
     var body: some View {
         HStack(spacing: 12) {
-            PosterImage(url: hit.stillURLParsed, contentMode: .fill)
+            PosterImage(url: item.posterURLParsed, contentMode: .fill)
                 .frame(width: 84, height: 47).clipShape(.rect(cornerRadius: 6))
             VStack(alignment: .leading, spacing: 2) {
-                Text(hit.title).font(.subheadline.weight(.medium)).lineLimit(1)
-                Text([hit.seriesTitle, hit.numberLabel].compactMap { $0 }.joined(separator: " · "))
+                Text(item.title).font(.subheadline.weight(.medium)).lineLimit(1)
+                Text([item.seriesTitle, item.episodeNumberLabel].compactMap { $0 }.joined(separator: " · "))
                     .font(.caption).foregroundStyle(.secondary).lineLimit(1)
             }
             Spacer(minLength: 0)

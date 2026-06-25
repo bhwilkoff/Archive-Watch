@@ -227,7 +227,6 @@ final class AppStore {
                    sort: sort, limit: limit, offset: offset, homeOnly: homeOnly) ?? []
     }
     func dbSearch(_ q: String) -> [Catalog.Item] { db?.search(q) ?? [] }
-    func dbSearchEpisodes(_ q: String) -> [EpisodeHit] { db?.searchEpisodes(q) ?? [] }
     func dbSeriesCards() -> [Catalog.Item] { db?.seriesCards() ?? [] }
     func dbTVSpecialsCount() -> Int { db?.tvSpecialsCount() ?? 0 }
     func dbItem(_ id: String) -> Catalog.Item? { db?.item(id) }

@@ -140,14 +140,19 @@ final class CatalogDB {
     /// the three intentional surfaces omit it.
     private let notCommercial = "AND i.contentType != 'commercial'"
 
-    /// Standalone TV (tv-special: specials + episodes not folded into a series
-    /// spine) must NEVER appear on film surfaces — Home discovery shelves,
-    /// Random Film, director/quality rows (owner directive 2026-06-18: "TV shows
-    /// should never appear in Movies"). tv-series cards are handled per-query
-    /// (they DO lead TV shelves); this clause only drops tv-special. tv-specials
-    /// surface solely via the TV tab's TV Specials grid (browse contentType:
-    /// "tv-special").
-    private let notStandaloneTV = "AND i.contentType != 'tv-special'"
+    /// Standalone/atomic TV — tv-special (specials + un-folded episodes) and
+    /// tv-episode (first-class episode items, Decision 045) — must NEVER appear
+    /// on film surfaces: Home discovery shelves, Random Film, director/quality
+    /// rows (owner directive 2026-06-18: "TV shows should never appear in
+    /// Movies"). tv-series cards are handled per-query (they DO lead TV shelves).
+    /// tv-specials surface via the TV tab's TV Specials grid; tv-episodes via the
+    /// series Detail + favorites/playlists/SEARCH (episodes ARE searchable — see
+    /// `searchExclude`, which keeps them in the index while this drops them here).
+    private let notStandaloneTV = "AND i.contentType NOT IN ('tv-special','tv-episode')"
+
+    /// Search MAY return episode items (the whole point of making them items —
+    /// Decision 045), so it drops only tv-special, not tv-episode.
+    private let searchExclude = "AND i.contentType != 'tv-special'"
 
     // MARK: - Queries the views use
 
@@ -206,7 +211,7 @@ final class CatalogDB {
             // TV never appears in Movies/general browse — neither series cards
             // NOR tv-specials (owner directive 2026-06-18: "TV shows should
             // never appear in Movies"). Each has its own TV-tab surface.
-            where_.append("i.contentType NOT IN ('tv-series','tv-special')")
+            where_.append("i.contentType NOT IN ('tv-series','tv-special','tv-episode')")
             if let contentType { where_.append("i.contentType = ?"); binds.append(contentType) }
         }
         if hideAdult { where_.append("i.isAdult = 0") }
@@ -316,7 +321,7 @@ final class CatalogDB {
         } else if contentType == "tv-special" {
             where_.append("i.contentType = 'tv-special'")
         } else {
-            where_.append("i.contentType NOT IN ('tv-series','tv-special')")
+            where_.append("i.contentType NOT IN ('tv-series','tv-special','tv-episode')")
             if let contentType { where_.append("i.contentType = ?"); binds.append(contentType) }
         }
         if hideAdult { where_.append("i.isAdult = 0") }
@@ -342,39 +347,10 @@ final class CatalogDB {
             SELECT j.json FROM items_fts f
             JOIN item_json j ON j.archiveID = f.archiveID
             JOIN items i ON i.archiveID = f.archiveID
-            WHERE items_fts MATCH ? \(adultAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd)
+            WHERE items_fts MATCH ? \(adultAnd) \(notCommercial) \(searchExclude) \(typeAnd)
             ORDER BY rank
             LIMIT \(limit)
         """, [q])
-    }
-
-    /// Individual TV EPISODE search via the `episodes_fts` index (episode title + series title).
-    /// Episodes aren't catalog items, so the normal `search` never returns them; this surfaces a
-    /// dedicated "Episodes" section. Self-contained FTS (no join) — returns everything to display +
-    /// route the hit.
-    func searchEpisodes(_ query: String, limit: Int = 60) -> [EpisodeHit] {
-        let q = ftsQuery(query)
-        guard !q.isEmpty else { return [] }
-        var stmt: OpaquePointer?
-        let sql = """
-            SELECT seriesID, seriesTitle, season, episode, archiveID, downloadURL,
-                   stillURL, year, runtimeSeconds, title
-            FROM episodes_fts WHERE episodes_fts MATCH ? ORDER BY rank LIMIT \(limit)
-        """
-        guard sqlite3_prepare_v2(handle, sql, -1, &stmt, nil) == SQLITE_OK else { return [] }
-        defer { sqlite3_finalize(stmt) }
-        sqlite3_bind_text(stmt, 1, q, -1, SQLITE_TRANSIENT)
-        func text(_ i: Int32) -> String? { sqlite3_column_text(stmt, i).map { String(cString: $0) } }
-        func int(_ i: Int32) -> Int? { sqlite3_column_type(stmt, i) == SQLITE_NULL ? nil : Int(sqlite3_column_int64(stmt, i)) }
-        var out: [EpisodeHit] = []
-        while sqlite3_step(stmt) == SQLITE_ROW {
-            out.append(EpisodeHit(
-                seriesID: text(0) ?? "", seriesTitle: text(1) ?? "",
-                season: int(2), episode: int(3), archiveID: text(4) ?? "",
-                downloadURL: text(5), stillURL: text(6), year: int(7),
-                runtimeSeconds: int(8), title: text(9) ?? ""))
-        }
-        return out
     }
 
     /// All TV series cards (small set — ~hundreds).
@@ -540,7 +516,7 @@ final class CatalogDB {
 
     /// A random playable (non-series) item, optionally of a content type.
     func randomPlayable(contentType: String? = nil) -> Catalog.Item? {
-        var where_ = ["i.contentType NOT IN ('tv-series','tv-special')"]
+        var where_ = ["i.contentType NOT IN ('tv-series','tv-special','tv-episode')"]
         if hideAdult { where_.append("i.isAdult = 0") }
         // Random Film must never land on a commercial; Random Commercial passes
         // contentType: "commercial" explicitly to opt back in.

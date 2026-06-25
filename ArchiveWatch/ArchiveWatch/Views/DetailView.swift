@@ -270,6 +270,15 @@ struct DetailView: View {
                     .frame(maxWidth: 1100, alignment: .leading)
             }
 
+            // Episode item (Decision 045): a focusable jump to the full series.
+            if item.isEpisode, let sid = item.seriesID {
+                Button {
+                    if let card = store.db?.seriesCard(slug: sid) { router.push(card) }
+                } label: {
+                    Label("Part of \(item.seriesTitle ?? "the series")", systemImage: "tv")
+                }
+            }
+
             // #4 (tvOS-DESIGN §2.3): tappable cast + crew — each opens a browse of
             // that person's other titles (films AND TV) via the FTS names index.
             if !item.cast.isEmpty || (item.director?.isEmpty == false) {

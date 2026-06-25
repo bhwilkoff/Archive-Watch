@@ -77,6 +77,15 @@ struct DetailView: View {
                     if let s = item.synopsis, !s.isEmpty {
                         Text(s).font(.body).foregroundStyle(.primary.opacity(0.9))
                     }
+                    // Episode item (Decision 045): a way back to the full series.
+                    if item.isEpisode, let sid = item.seriesID {
+                        Button {
+                            if let card = store.seriesCard(seriesID: sid) { router.push(SeriesRef(card: card)) }
+                        } label: {
+                            Label("Part of \(item.seriesTitle ?? "the series")", systemImage: "tv")
+                        }
+                        .buttonStyle(.bordered)
+                    }
                     if !item.cast.isEmpty || item.director?.isEmpty == false {
                         CastRow(cast: item.cast, director: item.director)
                     }

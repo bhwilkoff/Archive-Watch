@@ -81,6 +81,14 @@ struct Catalog: Decodable, Sendable {
         let networks: [String]?
         let creator: String?
 
+        // Episode-item linkage (contentType == "tv-episode", Decision 045): a
+        // playable episode materialized as a first-class catalog item, so it
+        // gets the same favorite/playlist/share/Clip/Detail/search machinery as
+        // a film. seriesID points at its spine; these carry the display byline.
+        let seasonNumber: Int?
+        let episodeNumber: Int?
+        let seriesTitle: String?
+
         // OMDb rich fields (tools/omdb_backfill.py). Optional so old
         // catalogs decode unchanged. imdbRating/Votes feed shelf ranking
         // and a "Top Rated" surface; contentRating complements the
@@ -207,6 +215,17 @@ struct Catalog: Decodable, Sendable {
             if let director { return "Directed by \(director)" }
             if contentType == "tv-series", let network { return "Aired on \(network)" }
             if let producer { return "Produced by \(producer)" }
+            return nil
+        }
+
+        /// A first-class episode item (Decision 045). Its `seriesID` points at
+        /// the spine so Detail can offer "Part of <series>".
+        var isEpisode: Bool { contentType == "tv-episode" }
+
+        /// "S1 · E17" / "Ep. 17" byline for an episode item, else nil.
+        var episodeNumberLabel: String? {
+            if let s = seasonNumber, let e = episodeNumber { return "S\(s) · E\(e)" }
+            if let e = episodeNumber { return "Ep. \(e)" }
             return nil
         }
 
@@ -436,31 +455,6 @@ struct Episode: Decodable, Sendable, Hashable, Identifiable {
     static func == (lhs: Episode, rhs: Episode) -> Bool { lhs.archiveID == rhs.archiveID }
     func hash(into hasher: inout Hasher) { hasher.combine(archiveID) }
 }
-
-/// A search result for an individual TV EPISODE (from `episodes_fts`). Episodes aren't catalog
-/// items, so they never appeared in search; this carries enough to display the hit + route to its
-/// series. (Distinct from Episode: it also knows its parent series id/title for routing.)
-struct EpisodeHit: Identifiable, Hashable, Sendable {
-    let seriesID: String
-    let seriesTitle: String
-    let season: Int?
-    let episode: Int?
-    let archiveID: String
-    let downloadURL: String?
-    let stillURL: String?
-    let year: Int?
-    let runtimeSeconds: Int?
-    let title: String
-
-    var id: String { archiveID + "|" + seriesID }
-    var stillURLParsed: URL? { stillURL.flatMap(URL.init(string:)) }
-    var numberLabel: String? {
-        if let s = season, let e = episode { return "S\(s) · E\(e)" }
-        if let e = episode { return "Ep. \(e)" }
-        return nil
-    }
-}
-
 
 // ---------------------------------------------------------------------------
 // Carriers for navigating to an Episode

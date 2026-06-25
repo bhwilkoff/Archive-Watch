@@ -24,6 +24,15 @@ struct DetailView: View {
                 if let s = item.displaySynopsis {
                     Text(s).font(.body).textSelection(.enabled)
                 }
+                // Episode item (Decision 045): jump to the full series.
+                if item.isEpisode, let sid = item.seriesID {
+                    Button {
+                        if let card = store.db?.seriesCard(slug: sid) { router.openDetail(card) }
+                    } label: {
+                        Label("Part of \(item.seriesTitle ?? "the series")", systemImage: "tv")
+                    }
+                    .buttonStyle(.bordered)
+                }
                 if !item.cast.isEmpty { castRow }
                 let related = store.related(to: item)
                 if !related.isEmpty {
