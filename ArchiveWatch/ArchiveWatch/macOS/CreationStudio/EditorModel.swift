@@ -905,6 +905,27 @@ final class EditorModel {
         if let next { seek(toSeconds: next) }
     }
 
+    // MARK: - Keyboard transport (FCP-style — ←/→ frame step, ↑/↓ edit nav, Home/End)
+
+    /// One frame at the project frame rate.
+    var frameStep: Double { 1.0 / max(1, document.project.timeline.frameRate) }
+
+    /// Move the playhead by a signed delta (←/→ = ±1 frame; ⇧←/⇧→ = ±1 s).
+    func nudgePlayhead(seconds delta: Double) { seek(toSeconds: playheadSeconds + delta) }
+
+    /// Jump the playhead to the next/previous EDIT point (clip boundary or 0/end) — FCP ↑/↓.
+    func goToEdit(forward: Bool) {
+        let t = playheadSeconds
+        let stops = ([0, totalDuration] + clips.map { $0.timelineStart.seconds }
+                     + clips.map { $0.timelineRange.endSeconds }).sorted()
+        let next = forward ? stops.first(where: { $0 > t + 0.01 })
+                           : stops.last(where: { $0 < t - 0.01 })
+        if let next { seek(toSeconds: next) }
+    }
+
+    func goToStart() { seek(toSeconds: 0) }
+    func goToEnd() { seek(toSeconds: totalDuration) }
+
     // MARK: - Snapping
 
     /// Snap a dragged timeline second to a nearby edit point (clip edges, markers, playhead, 0)

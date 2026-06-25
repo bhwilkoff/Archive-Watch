@@ -498,6 +498,11 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
             case .fadeIn(let i):     dragStartValue = clip(i)?.fadeInSeconds ?? 0
             case .fadeOut(let i):    dragStartValue = clip(i)?.fadeOutSeconds ?? 0
             case .transition(let i): dragStartValue = clip(i)?.transitionInSeconds ?? 0
+            // Anchor the clip's IN-point at grab so a trim is computed from a FIXED reference, not
+            // the already-trimmed live value — without this, trimLeft re-added (cursor − clipStart)
+            // to an in-point that had ALREADY moved each frame, so it accelerated/stuck even when
+            // the cursor was still (the asymmetry vs trimRight, whose `in` never moves). (#10)
+            case .trimLeft(let i), .trimRight(let i): dragStartValue = clip(i)?.sourceRange.start.seconds ?? 0
             default: break
             }
             drag = h; pendingCheckpoint = true
@@ -604,12 +609,15 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
             model.seek(toSeconds: snapSeconds(p.x))
         case .trimLeft(let id):
             guard let c = clip(id) else { return }
-            let deltaSec = snapSeconds(p.x) - c.timelineStart.seconds
-            model.trim(id, newInSeconds: c.sourceRange.start.seconds + deltaSec)
+            // Source time at the cursor = anchored-in + (cursor − clip start). dragStartValue is the
+            // in-point captured at grab (FIXED), so holding the cursor still holds the trim still (#10).
+            // Snapping excludes THIS clip's own edges so the handle doesn't stick to where it sits.
+            let cursorSrc = dragStartValue + (snapTrim(p.x, id) - c.timelineStart.seconds)
+            model.trim(id, newInSeconds: cursorSrc)
         case .trimRight(let id):
             guard let c = clip(id) else { return }
-            let newDur = snapSeconds(p.x) - c.timelineStart.seconds
-            model.trim(id, newOutSeconds: c.sourceRange.start.seconds + newDur)
+            let cursorSrc = dragStartValue + (snapTrim(p.x, id) - c.timelineStart.seconds)
+            model.trim(id, newOutSeconds: cursorSrc)
         case .fadeIn(let id):
             guard let c = clip(id) else { return }
             model.setClipFade(id, fadeIn: max(0, seconds(p.x) - c.timelineStart.seconds))
@@ -645,6 +653,9 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
 
     /// Scrub seconds with snapping to edit points (clip edges / markers / 0).
     private func snapSeconds(_ px: CGFloat) -> Double { model.snap(seconds(px)) }
+    /// Trim snapping — snaps to OTHER clips' edges but never this clip's own (which sit right under
+    /// the trim handle and would otherwise make the edge feel sticky).
+    private func snapTrim(_ px: CGFloat, _ id: UUID) -> Double { model.snap(seconds(px), excluding: id) }
 
     override func mouseUp(with event: NSEvent) {
         // Marquee: commit the selection (rubber band → intersecting elements), or — if it never
@@ -775,23 +786,40 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
     }
     override func mouseExited(with event: NSEvent) { NSCursor.arrow.set() }
 
+    // Keyboard transport + editing, mapped to Final Cut Pro muscle memory where we have the command
+    // (#11). Space play/pause; ←/→ step one frame (⇧ = 1 s, ⌘ = start/end); ↑/↓ jump edit points;
+    // B blade at playhead; M marker; J/K/L play controls; +/− zoom; ⌫ delete; ⌘A select-all.
     override func keyDown(with event: NSEvent) {
-        // ⌘A select all (every clip + title + audio).
-        if event.modifierFlags.contains(.command), event.charactersIgnoringModifiers == "a" {
-            model.selectAll(); return
-        }
+        let cmd = event.modifierFlags.contains(.command)
+        let shift = event.modifierFlags.contains(.shift)
+        if cmd, event.charactersIgnoringModifiers == "a" { model.selectAll(); return }
         switch event.charactersIgnoringModifiers {
         case " ": model.togglePlay()
-        case "b", "B": model.splitAtPlayhead()
-        case "m", "M": model.toggleMarkerAtPlayhead()
+        case "\u{F702}":   // ← left arrow
+            if cmd { model.goToStart() } else { model.nudgePlayhead(seconds: shift ? -1 : -model.frameStep) }
+        case "\u{F703}":   // → right arrow
+            if cmd { model.goToEnd() } else { model.nudgePlayhead(seconds: shift ? 1 : model.frameStep) }
+        case "\u{F700}": model.goToEdit(forward: false)    // ↑ previous edit point (FCP)
+        case "\u{F701}": model.goToEdit(forward: true)     // ↓ next edit point (FCP)
+        case "b", "B": model.splitAtPlayhead()             // blade at playhead (FCP B)
+        case "m", "M": model.toggleMarkerAtPlayhead()      // marker (FCP M)
+        case "l", "L": model.play()                        // FCP L = play forward
+        case "k", "K": model.pause()                       // FCP K = pause
+        case "j", "J": model.pause()                       // FCP J = reverse (no reverse playback → pause)
+        case "+", "=": model.zoom(by: 1.25)                // zoom in
+        case "-", "_": model.zoom(by: 0.8)                 // zoom out
         case ",": model.goToMarker(forward: false)
         case ".": model.goToMarker(forward: true)
         case "\u{1B}": model.clearSelection()              // Esc deselects
         case String(UnicodeScalar(NSDeleteCharacter)!), String(UnicodeScalar(NSBackspaceCharacter)!):
             model.deleteSelection()                        // deletes the WHOLE multi-selection
         default:
-            if event.keyCode == 51 { model.deleteSelection() }
-            else { super.keyDown(with: event) }
+            switch event.keyCode {
+            case 51:  model.deleteSelection()              // forward-delete
+            case 115: model.goToStart()                    // Home
+            case 119: model.goToEnd()                      // End
+            default:  super.keyDown(with: event)
+            }
         }
     }
 }
