@@ -155,6 +155,14 @@ final class EditorModel {
     /// Extra source footage cached on each side of a clip so small trims are free.
     static let cacheHandle = 12.0
 
+    /// PREVIEW source assets, keyed by URL: the REMOTE resilient-stream asset + its loader, reused
+    /// across rebuilds (the loader must be retained for the asset's lifetime). Preview STREAMS the
+    /// clip's [in,out] from here — the robust remote path the main app plays through (byte-range,
+    /// node failover, resume-on-reset; Decision 021/031/034). Exporting a window to a local file
+    /// for preview was WORSE: AVAssetExportSession uses AVFoundation's own HTTP, which fails
+    /// "Operation Stopped" seeking into a window deep inside a long remote film — i.e. every clip.
+    @ObservationIgnored private var sourceAssets: [URL: (asset: AVURLAsset, loader: ResilientStreamLoader?)] = [:]
+
     // archive.org's per-~60s thumbnail strip (ArchiveThumbnails) is the timeline filmstrip
     // source: it's tiny + already-served, so a clip shows frames INSTANTLY without waiting for
     // the (slow) window cache + AVAssetImageGenerator. Cached per item + per image so trimming
@@ -614,6 +622,11 @@ final class EditorModel {
             let item = AVPlayerItem(asset: built.composition)
             item.videoComposition = built.videoComposition
             item.audioMix = built.audioMix
+            // Buffer ahead so a streamed clip's frames are ready when the playhead reaches it, and
+            // let the player WAIT to minimize stalling rather than render a clip blank while its
+            // remote bytes are still in flight (item 3 — "plays through but the video is blank").
+            item.preferredForwardBufferDuration = 8
+            player.automaticallyWaitsToMinimizeStalling = true
             player.replaceCurrentItem(with: item)
             // Seek ONCE the item is ready, so the first frame actually decodes + displays. A seek
             // issued before `.readyToPlay` (the old code) is dropped — leaving the program monitor
@@ -632,30 +645,54 @@ final class EditorModel {
         }
     }
 
-    /// Resolve a clip for PREVIEW from a LOCALLY-CACHED window (Rule 4b — the reliability win this
-    /// editor is built on). Each clip's in/out window (± a small handle so trims inside it need no
-    /// re-cache) is cached ONCE to a local faststart MP4 via ClipCacheService, which resolves a
-    /// HEALTHY archive.org node and retries on failure (Decision 034). The composition then reads
-    /// LOCAL files only — never N concurrent remote streams, which is what made the preview render
-    /// blank, hang, and (because the window file persists on disk) fail "couldn't read the source"
-    /// on a reopened project. A window that genuinely can't be cached after retries throws, so the
-    /// clip is marked .failed and EXCLUDED from the build (it can't stall the good clips), and the
-    /// transient-retry loop re-attempts it. The cache is shared with EXPORT, so preview == export.
+    /// Resolve a clip for PREVIEW by STREAMING its [in,out] from the resilient remote loader — the
+    /// same robust path the main app plays through (byte-range with archive.org node failover +
+    /// resume-on-reset, Decision 021/031/034). This is the ONLY reliable way to read a window deep
+    /// inside a long remote film; export-to-local-cache for preview was tried and reverted because
+    /// AVAssetExportSession (its own HTTP, no resilient loader) fails "Operation Stopped" on exactly
+    /// these clips. We validate a readable video track with RETRY: each attempt drops the cached
+    /// asset and rebuilds a fresh loader, which re-resolves a healthy node — so a transient miss
+    /// (the old ~1-in-10 failure) now recovers instead of failing the clip. The asset+loader are
+    /// reused per source URL across rebuilds, so a successful clip is near-instant next time.
     private func resolveLocal(_ clip: TimelineClip) async throws -> CompositionBuilder.ResolvedClip {
         if clipPrep[clip.id] != .ready { clipPrep[clip.id] = .caching }
-        // A GENEROUS window (clip ± handle) so trimming within it reuses the same cached file.
-        let handle = 1.5
-        let s = max(0, clip.sourceRange.start.seconds - handle)
-        let e = clip.sourceRange.endSeconds + handle
-        let url = try await CacheCoordinator.window(catalogItemID: clip.catalogItemID,
-                                                    sourceURL: clip.sourceURL,
-                                                    startSeconds: s, endSeconds: e)
-        if Task.isCancelled { throw CancellationError() }
-        let window = CachedWindow(url: url, sourceStart: s, sourceEnd: e)
-        clipPrep[clip.id] = .ready
-        ensureThumbnails(clip, window: window)
-        let assetURL = await gradedAssetURL(clip, window: window)
-        return makeResolved(clip, window: window, assetURL: assetURL)
+        var lastError: Error = NSError(domain: "CreationStudio", code: 3,
+            userInfo: [NSLocalizedDescriptionKey: "couldn't read the source video"])
+        for attempt in 0..<3 {
+            if Task.isCancelled { throw CancellationError() }
+            let entry: (asset: AVURLAsset, loader: ResilientStreamLoader?)
+            if let cached = sourceAssets[clip.sourceURL] {
+                entry = cached
+            } else {
+                entry = ResilientStreamLoader.makeAsset(for: clip.sourceURL)
+                sourceAssets[clip.sourceURL] = entry
+            }
+            do {
+                let tracks = try await entry.asset.loadTracks(withMediaType: .video)
+                guard !tracks.isEmpty else {
+                    throw NSError(domain: "CreationStudio", code: 3,
+                                  userInfo: [NSLocalizedDescriptionKey: "couldn't read the source video"])
+                }
+                if Task.isCancelled { throw CancellationError() }
+                clipPrep[clip.id] = .ready
+                loadFilmstrip(for: clip)
+                let inS = clip.sourceRange.start.seconds
+                let durS = max(0.05, clip.sourceRange.duration.seconds)
+                return .init(asset: entry.asset,
+                             insertRange: CMTimeRange(start: CMTime(seconds: inS, preferredTimescale: 600),
+                                                      duration: CMTime(seconds: durS, preferredTimescale: 600)),
+                             audioVolume: clip.audioVolume,
+                             fadeIn: clip.fadeInSeconds, fadeOut: clip.fadeOutSeconds,
+                             transitionIn: clip.transitionInSeconds, transitionKind: clip.transitionKind)
+            } catch is CancellationError {
+                throw CancellationError()
+            } catch {
+                lastError = error
+                sourceAssets[clip.sourceURL] = nil   // drop it so the retry builds a fresh loader (new node)
+                if attempt < 2 { try? await Task.sleep(for: .milliseconds(400)) }
+            }
+        }
+        throw lastError
     }
 
     /// The clip's in/out expressed as an insert range INTO the cached window file (file t=0 is
