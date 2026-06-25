@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-06-24T07:17:13Z",
+  "updated_at": "2026-06-25T07:18:28Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 17262,
-    "wanted": 17046,
+    "total": 17263,
+    "wanted": 17047,
     "fulfilled": 216,
     "series_with_gaps": 343
   },
@@ -162987,6 +162987,16 @@
       "episodeImdbID": "tt0416906",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "the-wednesday-play-1969",
+      "seriesTitle": "The Wednesday Play",
+      "season": 9,
+      "episode": 8,
+      "title": "There Is Also Tomorrow",
+      "episodeImdbID": "tt0496173",
+      "status": "wanted",
+      "added_at": "2026-06-25T07:18:28Z"
     },
     {
       "seriesID": "the-wednesday-play-1969",
