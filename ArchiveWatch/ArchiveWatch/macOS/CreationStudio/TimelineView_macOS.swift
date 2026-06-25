@@ -32,8 +32,8 @@ struct ClipTimelineView: NSViewRepresentable {
             clips: model.clips, pps: model.pointsPerSecond, selectedID: model.selectedClipID,
             playhead: model.playheadSeconds, thumbnails: model.thumbnails,
             totalDuration: model.totalDuration, prep: model.clipPrep, markers: model.markers,
-            overlays: model.textOverlays, music: model.musicBed, voiceover: model.voiceover,
-            selectedOverlayID: model.selectedOverlayID)
+            overlays: model.textOverlays, audioClips: model.audioClips,
+            selectedOverlayID: model.selectedOverlayID, selectedAudioID: model.selectedAudioID)
         context.coordinator.content?.render(state)
     }
 
@@ -52,9 +52,9 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
         let prep: [UUID: EditorModel.ClipPrep]
         let markers: [Double]
         var overlays: [TextOverlay] = []
-        var music: MusicBed? = nil
-        var voiceover: MusicBed? = nil
+        var audioClips: [AudioClip] = []
         var selectedOverlayID: UUID? = nil
+        var selectedAudioID: UUID? = nil
     }
 
     private let model: EditorModel
@@ -68,20 +68,42 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
     private let handleW: CGFloat = 8
     private let fadeBandH: CGFloat = 16        // top band where fade handles live
     private let minWidth: CGFloat = 400
-    // Lanes below the video track: a TITLES lane + MUSIC + VOICEOVER audio lanes (multi-track).
+    // Lanes below the video track: a TITLES lane + a DYNAMIC stack of audio lanes (multi-track —
+    // as many music/voiceover clips as you want, greedy-packed into non-overlapping rows).
     private let laneGap: CGFloat = 3
     private let laneH: CGFloat = 22
     private var titleTop: CGFloat { trackTop + trackH + laneGap }
-    private var musicTop: CGFloat { titleTop + laneH + laneGap }
-    private var voiceTop: CGFloat { musicTop + laneH + laneGap }
-    private var contentHeight: CGFloat { voiceTop + laneH + 6 }
+    private var audioTop: CGFloat { titleTop + laneH + laneGap }
+    private func audioLaneY(_ index: Int) -> CGFloat { audioTop + CGFloat(index) * (laneH + laneGap) }
+    private var audioLaneCount: Int { max(1, packedAudioLanes().count) }
+    private var contentHeight: CGFloat { audioTop + CGFloat(audioLaneCount) * (laneH + laneGap) + 6 }
+
+    /// A clip's on-timeline length (its source length; a small default until the duration loads).
+    private func audioBlockDuration(_ c: AudioClip) -> Double { c.sourceDuration > 0 ? c.sourceDuration : 4 }
+
+    /// Greedy-pack audio clips (sorted by start) into non-overlapping lanes so multiple music +
+    /// voiceover clips stack into as many rows as needed.
+    private func packedAudioLanes() -> [[AudioClip]] {
+        let sorted = state.audioClips.sorted { $0.startSeconds < $1.startSeconds }
+        var lanes: [[AudioClip]] = []
+        var laneEnds: [Double] = []
+        for c in sorted {
+            let start = c.startSeconds, end = start + audioBlockDuration(c)
+            if let li = laneEnds.firstIndex(where: { $0 <= start + 0.001 }) {
+                lanes[li].append(c); laneEnds[li] = end
+            } else {
+                lanes.append([c]); laneEnds.append(end)
+            }
+        }
+        return lanes
+    }
 
     // Drag state
     private enum Drag {
         case none, scrub
         case trimLeft(UUID), trimRight(UUID), move(UUID)
         case fadeIn(UUID), fadeOut(UUID), transition(UUID)
-        case moveOverlay(UUID), moveMusic, moveVoiceover   // lane blocks (titles / audio)
+        case moveOverlay(UUID), moveAudio(UUID)            // lane blocks (titles / audio)
     }
     private var drag: Drag = .none
     private var dragStartX: CGFloat = 0
@@ -91,6 +113,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
     private var lastDragP: NSPoint = .zero       // latest drag position (committed on mouseUp)
     private var lastEditDragTime: CFTimeInterval = 0   // throttle clock for edit drags
     private var contextClipID: UUID?
+    private var contextAudioID: UUID?
     private var contextSeconds: Double = 0
 
     init(model: EditorModel) {
@@ -127,11 +150,11 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
             h.combine(c.fadeInSeconds); h.combine(c.fadeOutSeconds); h.combine(c.transitionInSeconds)
         }
         for m in s.markers { h.combine(m) }
-        h.combine(s.selectedOverlayID)
+        h.combine(s.selectedOverlayID); h.combine(s.selectedAudioID)
         for o in s.overlays { h.combine(o.id); h.combine(o.timelineRange.start.value)
             h.combine(o.timelineRange.duration.value); h.combine(o.text) }
-        if let m = s.music { h.combine(m.fileName); h.combine(m.startSeconds) }
-        if let v = s.voiceover { h.combine(v.fileName); h.combine(v.startSeconds) }
+        for a in s.audioClips { h.combine(a.id); h.combine(a.startSeconds)
+            h.combine(a.sourceDuration); h.combine(a.displayName); h.combine(a.kind) }
         var thumbX = 0, prepX = 0
         for (k, v) in s.thumbnails { thumbX ^= k.hashValue &* 31 &+ v.count }
         for (k, v) in s.prep { prepX ^= k.hashValue &* 17 &+ (v == .ready ? 2 : v == .caching ? 1 : 3) }
@@ -249,7 +272,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
             layer.addSublayer(diamond)
         }
 
-        // Lanes below the video track: Titles + Music + Voiceover (the multi-track timeline).
+        // Lanes below the video track: a TITLES lane + a packed stack of audio lanes (multi-track).
         // Each block sits at its start time and is draggable to retime independently of the video.
         addLane(y: titleTop, label: "TITLES", on: layer)
         for ov in state.overlays {
@@ -258,17 +281,20 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
                 fill: NSColor.systemIndigo, selected: ov.id == state.selectedOverlayID,
                 text: ov.text.isEmpty ? "Text" : ov.text))
         }
-        addLane(y: musicTop, label: "MUSIC", on: layer)
-        if let m = state.music {
-            layer.addSublayer(laneBlock(x: x(m.startSeconds), y: musicTop,
-                w: max(6, x(max(1, state.totalDuration - m.startSeconds))),
-                fill: NSColor.systemGreen, selected: false, text: m.displayName))
-        }
-        addLane(y: voiceTop, label: "VOICEOVER", on: layer)
-        if let v = state.voiceover {
-            layer.addSublayer(laneBlock(x: x(v.startSeconds), y: voiceTop,
-                w: max(6, x(max(1, state.totalDuration - v.startSeconds))),
-                fill: NSColor.systemOrange, selected: false, text: v.displayName))
+        let lanes = packedAudioLanes()
+        if lanes.isEmpty {
+            addLane(y: audioTop, label: "AUDIO", on: layer)
+        } else {
+            for (li, laneClips) in lanes.enumerated() {
+                let y = audioLaneY(li)
+                addLane(y: y, label: li == 0 ? "AUDIO" : "", on: layer)
+                for c in laneClips {
+                    layer.addSublayer(laneBlock(x: x(c.startSeconds), y: y,
+                        w: max(6, x(audioBlockDuration(c))),
+                        fill: c.kind == .music ? NSColor.systemGreen : NSColor.systemOrange,
+                        selected: c.id == state.selectedAudioID, text: c.displayName))
+                }
+            }
         }
 
         // Markers — vertical line + ruler flag.
@@ -382,12 +408,15 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
             }
             return .none
         }
-        if p.y >= musicTop, p.y <= musicTop + laneH {
-            if let m = state.music, p.x >= x(m.startSeconds) { return .moveMusic }
-            return .none
-        }
-        if p.y >= voiceTop, p.y <= voiceTop + laneH {
-            if let v = state.voiceover, p.x >= x(v.startSeconds) { return .moveVoiceover }
+        if p.y >= audioTop {
+            let lanes = packedAudioLanes()
+            let li = Int((p.y - audioTop) / (laneH + laneGap))
+            if li >= 0, li < lanes.count {
+                for c in lanes[li] {
+                    let bx = x(c.startSeconds), bw = max(6, x(audioBlockDuration(c)))
+                    if p.x >= bx, p.x <= bx + bw { return .moveAudio(c.id) }
+                }
+            }
             return .none
         }
         // Junction dissolve diamonds (in the mid-track band).
@@ -426,8 +455,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
         switch h {
         case .trimLeft(let id), .trimRight(let id), .move(let id),
              .fadeIn(let id), .fadeOut(let id), .transition(let id):
-            model.selectedClipID = id
-            model.selectedOverlayID = nil
+            model.selection = .clip(id)
             if case .failed = state.prep[id] { model.retryClip(id); drag = .none; return }
         default: break
         }
@@ -436,8 +464,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
         case .fadeOut(let id):    dragStartValue = clip(id)?.fadeOutSeconds ?? 0
         case .transition(let id): dragStartValue = clip(id)?.transitionInSeconds ?? 0
         case .moveOverlay(let id):
-            model.selectedOverlayID = id
-            model.selectedClipID = nil
+            model.selection = .overlay(id)
             if let ov = state.overlays.first(where: { $0.id == id }) {
                 let t = model.playheadSeconds
                 // Seek into the overlay's range so the program monitor actually SHOWS it (you can
@@ -447,8 +474,9 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
                 }
                 dragStartValue = seconds(p.x) - ov.timelineRange.start.seconds
             }
-        case .moveMusic:          dragStartValue = seconds(p.x) - (state.music?.startSeconds ?? 0)
-        case .moveVoiceover:      dragStartValue = seconds(p.x) - (state.voiceover?.startSeconds ?? 0)
+        case .moveAudio(let id):
+            model.selection = .audio(id)
+            dragStartValue = seconds(p.x) - (state.audioClips.first { $0.id == id }?.startSeconds ?? 0)
         case .none:               drag = .scrub; model.seek(toSeconds: snapSeconds(p.x)); return
         default: break
         }
@@ -503,10 +531,8 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
             model.moveClip(id, toIndex: target)
         case .moveOverlay(let id):
             model.setOverlayStart(id, seconds: max(0, model.snap(seconds(p.x) - dragStartValue)))
-        case .moveMusic:
-            model.setMusicStart(max(0, model.snap(seconds(p.x) - dragStartValue)))
-        case .moveVoiceover:
-            model.setVoiceoverStart(max(0, model.snap(seconds(p.x) - dragStartValue)))
+        case .moveAudio(let id):
+            model.setAudioStart(id, max(0, model.snap(seconds(p.x) - dragStartValue)))
         case .none: break
         }
     }
@@ -530,13 +556,22 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
     override func menu(for event: NSEvent) -> NSMenu? {
         let p = convert(event.locationInWindow, from: nil)
         let h = hit(at: p)
+        // Audio clip right-click: select it + a Delete item (its full edit set lives in the inspector).
+        if case .moveAudio(let aid) = h, let a = state.audioClips.first(where: { $0.id == aid }) {
+            model.selection = .audio(aid)
+            contextAudioID = aid
+            let m = NSMenu()
+            let del = NSMenuItem(title: "Delete \(a.kind.label)", action: #selector(ctxDeleteAudio), keyEquivalent: "")
+            del.target = self; m.addItem(del)
+            return m
+        }
         var id: UUID?
         switch h {
         case .trimLeft(let i), .trimRight(let i), .move(let i), .fadeIn(let i), .fadeOut(let i), .transition(let i): id = i
         default: id = nil
         }
         guard let id, let c = clip(id) else { return nil }
-        model.selectedClipID = id
+        model.selection = .clip(id)
         contextClipID = id; contextSeconds = seconds(p.x)
         let menu = NSMenu()
         func add(_ title: String, _ sel: Selector) {
@@ -555,6 +590,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
     @objc private func ctxSplit() { if let id = contextClipID { model.splitClip(id, atTimelineSeconds: contextSeconds) } }
     @objc private func ctxDuplicate() { if let id = contextClipID { model.duplicateClip(id) } }
     @objc private func ctxDelete() { if let id = contextClipID { model.deleteClip(id) } }
+    @objc private func ctxDeleteAudio() { if let id = contextAudioID { model.removeAudio(id) } }
     @objc private func ctxClearFades() { if let id = contextClipID { model.checkpoint(); model.setClipFade(id, fadeIn: 0, fadeOut: 0) } }
     @objc private func ctxClearTransition() { if let id = contextClipID { model.checkpoint(); model.setClipTransition(id, 0) } }
     @objc private func ctxMute() {
@@ -598,7 +634,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
         switch hit(at: convert(event.locationInWindow, from: nil)) {
         case .trimLeft, .trimRight:                       NSCursor.resizeLeftRight.set()
         case .fadeIn, .fadeOut, .transition:              NSCursor.pointingHand.set()
-        case .move, .moveOverlay, .moveMusic, .moveVoiceover: NSCursor.openHand.set()
+        case .move, .moveOverlay, .moveAudio: NSCursor.openHand.set()
         default:                                          NSCursor.arrow.set()
         }
     }
@@ -612,10 +648,20 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
         case ",": model.goToMarker(forward: false)
         case ".": model.goToMarker(forward: true)
         case String(UnicodeScalar(NSDeleteCharacter)!), String(UnicodeScalar(NSBackspaceCharacter)!):
-            if let id = model.selectedClipID { model.deleteClip(id) }
+            deleteSelection()
         default:
-            if let id = model.selectedClipID, event.keyCode == 51 { model.deleteClip(id) }
+            if event.keyCode == 51 { deleteSelection() }
             else { super.keyDown(with: event) }
+        }
+    }
+
+    /// Delete whatever is selected — the video clip, the text overlay, or the audio clip.
+    private func deleteSelection() {
+        switch model.selection {
+        case .clip(let id):    model.deleteClip(id)
+        case .overlay(let id): model.deleteOverlay(id)
+        case .audio(let id):   model.removeAudio(id)
+        case .none:            break
         }
     }
 }

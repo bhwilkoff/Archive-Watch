@@ -83,13 +83,14 @@ final class ExportService {
                                       fadeIn: clip.fadeInSeconds, fadeOut: clip.fadeOutSeconds,
                                       transitionIn: clip.transitionInSeconds, transitionKind: clip.transitionKind))
             }
-            // Resolve the audio beds (music + voiceover) from the project cache so the export
-            // includes them.
-            let beds: [CompositionBuilder.ResolvedMusic] = [project.timeline.musicBed, project.timeline.voiceover].compactMap { bed in
-                guard let bed else { return nil }
-                let url = ProjectMediaCache.directory.appendingPathComponent(bed.fileName)
+            // Resolve every audio clip (N music + voiceover tracks) from the project cache so the
+            // export includes them, each with its own duration cap + fades.
+            let beds: [CompositionBuilder.ResolvedMusic] = project.timeline.audioClips.compactMap { clip in
+                let url = ProjectMediaCache.directory.appendingPathComponent(clip.fileName)
                 guard FileManager.default.fileExists(atPath: url.path) else { return nil }
-                return .init(asset: AVURLAsset(url: url), volume: bed.volume, startSeconds: bed.startSeconds)
+                return .init(asset: AVURLAsset(url: url), volume: clip.volume, startSeconds: clip.startSeconds,
+                             maxDuration: clip.sourceDuration > 0 ? clip.sourceDuration : nil,
+                             fadeIn: clip.fadeInSeconds, fadeOut: clip.fadeOutSeconds)
             }
             let built = try await CompositionBuilder.build(
                 resolved: resolved, timeline: project.timeline, creditLine: creditLine, beds: beds)

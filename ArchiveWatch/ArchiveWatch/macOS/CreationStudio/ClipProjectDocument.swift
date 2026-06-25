@@ -109,7 +109,7 @@ final class ClipProjectDocument: ReferenceFileDocument, @unchecked Sendable {
     /// voiceover), copied by value from the working cache so the edit travels with the project.
     /// `Set` dedups names so a music==voiceover filename can't collide on `preferredFilename`.
     nonisolated private static func mediaWrapper(for project: ClipProject) -> FileWrapper? {
-        let names = Set([project.timeline.musicBed?.fileName, project.timeline.voiceover?.fileName].compactMap { $0 })
+        let names = Set(project.timeline.audioClips.map(\.fileName))
         guard !names.isEmpty else { return nil }
         var children: [String: FileWrapper] = [:]
         for name in names {

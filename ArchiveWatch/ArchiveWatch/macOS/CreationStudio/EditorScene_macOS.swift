@@ -131,6 +131,18 @@ struct ProjectEditorView: View {
                 Button { model.addTextOverlay() } label: {
                     Label("Add Text", systemImage: "textformat")
                 }.disabled(document.project.timeline.clips.isEmpty)
+                Button { pickMusic() } label: {
+                    Label("Add Music", systemImage: "music.note")
+                }
+                if model.isRecordingVoiceover {
+                    Button { model.stopVoiceover() } label: {
+                        Label("Stop", systemImage: "stop.circle.fill")
+                    }.tint(.red)
+                } else {
+                    Button { model.startVoiceover() } label: {
+                        Label("Voiceover", systemImage: "mic")
+                    }
+                }
                 Button { showSupercut = true } label: {
                     Label("Supercut", systemImage: "text.magnifyingglass")
                 }
@@ -192,6 +204,15 @@ struct ProjectEditorView: View {
         ctx.insert(LibraryClip(from: proxy))
         try? ctx.save()
         model.addClip(from: proxy)
+    }
+
+    /// Import an audio file as a NEW music clip (multiple allowed). A toolbar ACTION, not inspector state.
+    private func pickMusic() {
+        let panel = NSOpenPanel()
+        panel.allowedContentTypes = [.audio, .mp3, .mpeg4Audio, .wav, .aiff]
+        panel.allowsMultipleSelection = false
+        panel.prompt = "Add Music"
+        if panel.runModal() == .OK, let url = panel.url { model.addMusic(from: url) }
     }
 
     private var transportBar: some View {
@@ -332,7 +353,7 @@ private struct TextOverlayPreview: View {
                             .onChanged { value in
                                 guard rect.width > 1, rect.height > 1,
                                       var o = model.textOverlays.first(where: { $0.id == ov.id }) else { return }
-                                model.selectedOverlayID = ov.id
+                                model.selection = .overlay(ov.id)
                                 o.positionX = min(1, max(0, (value.location.x - rect.minX) / rect.width))
                                 o.positionY = min(1, max(0, (value.location.y - rect.minY) / rect.height))
                                 model.updateOverlay(o)
@@ -512,155 +533,141 @@ private struct LibraryRow: View {
 
 // MARK: - Inspector
 
+// The inspector edits ONLY the current selection — a video clip, a text overlay, an audio clip,
+// or (nothing selected) the project itself. Every control is live-editable; no read-only stats /
+// dates kitchen sink. Adding music/voiceover/clips/text are TOOLBAR actions, not inspector state.
 private struct ProjectInspector: View {
     @Binding var project: ClipProject
     let model: EditorModel
 
     var body: some View {
         Form {
-            // When a text overlay is selected, the inspector edits it (#3).
-            if let id = model.selectedOverlayID,
-               let ov = model.textOverlays.first(where: { $0.id == id }) {
-                TextOverlayEditor(
-                    overlay: Binding(
-                        get: { model.textOverlays.first(where: { $0.id == id }) ?? ov },
-                        set: { model.updateOverlay($0) }),
-                    onDelete: { model.deleteOverlay(id) })
-            } else if let clip = model.selectedClip {
-                // When a clip is selected, edit its audio level (#4).
-                Section("Clip") {
-                    Text(clip.label).font(.subheadline).lineLimit(2)
-                    LabeledContent("Audio") {
-                        HStack {
-                            Image(systemName: clip.audioVolume == 0 ? "speaker.slash" : "speaker.wave.2")
-                                .foregroundStyle(.secondary)
-                            Slider(value: Binding(get: { clip.audioVolume },
-                                                  set: { model.setClipVolume(clip.id, $0) }),
-                                   in: 0...1.5)
-                            Text("\(Int(clip.audioVolume * 100))%").font(.caption.monospacedDigit())
-                                .foregroundStyle(.secondary).frame(width: 42, alignment: .trailing)
-                        }
-                    }
-                    // Fade up from / down to black (+ audio), over the clip's head/tail.
-                    let maxFade = max(0.1, clip.sourceRange.duration.seconds / 2)
-                    LabeledContent("Fade in") {
-                        HStack {
-                            Image(systemName: "circle.lefthalf.filled").foregroundStyle(.secondary)
-                            Slider(value: Binding(get: { clip.fadeInSeconds },
-                                                  set: { model.setClipFade(clip.id, fadeIn: $0) }),
-                                   in: 0...maxFade)
-                            Text(String(format: "%.1fs", clip.fadeInSeconds)).font(.caption.monospacedDigit())
-                                .foregroundStyle(.secondary).frame(width: 42, alignment: .trailing)
-                        }
-                    }
-                    LabeledContent("Fade out") {
-                        HStack {
-                            Image(systemName: "circle.righthalf.filled").foregroundStyle(.secondary)
-                            Slider(value: Binding(get: { clip.fadeOutSeconds },
-                                                  set: { model.setClipFade(clip.id, fadeOut: $0) }),
-                                   in: 0...maxFade)
-                            Text(String(format: "%.1fs", clip.fadeOutSeconds)).font(.caption.monospacedDigit())
-                                .foregroundStyle(.secondary).frame(width: 42, alignment: .trailing)
-                        }
-                    }
-                    // Color grade (Look) — baked into a cached graded source on rebuild.
-                    Picker("Look", selection: Binding(get: { clip.look },
-                                                      set: { model.setClipLook(clip.id, $0) })) {
-                        ForEach(ClipLook.allCases) { Text($0.label).tag($0) }
-                    }
-                    // Transition from the PREVIOUS clip (only meaningful past the first clip).
-                    if model.clips.first?.id != clip.id {
-                        LabeledContent("Transition") {
-                            HStack {
-                                Image(systemName: "square.on.square.dashed").foregroundStyle(.secondary)
-                                Slider(value: Binding(get: { clip.transitionInSeconds },
-                                                      set: { model.setClipTransition(clip.id, $0) }),
-                                       in: 0...maxFade)
-                                Text(String(format: "%.1fs", clip.transitionInSeconds)).font(.caption.monospacedDigit())
-                                    .foregroundStyle(.secondary).frame(width: 42, alignment: .trailing)
-                            }
-                        }
-                        if clip.transitionInSeconds > 0 {
-                            Picker("Style", selection: Binding(get: { clip.transitionKind },
-                                                               set: { model.setClipTransitionKind(clip.id, $0) })) {
-                                ForEach(TransitionKind.allCases) { Text($0.label).tag($0) }
-                            }
-                        }
-                    }
-                }
-            }
-            Section("Project") {
-                LabeledContent("Clips", value: "\(project.timeline.clips.count)")
-                LabeledContent("Duration", value: String(format: "%.1f s", project.timeline.durationSeconds))
-                LabeledContent("Format", value: "v\(project.formatVersion)")
-            }
-            Section("Music") {
-                if let bed = model.musicBed {
-                    LabeledContent("Track") { Text(bed.displayName).lineLimit(1) }
-                    LabeledContent("Volume") {
-                        HStack {
-                            Image(systemName: bed.volume == 0 ? "speaker.slash" : "music.note")
-                                .foregroundStyle(.secondary)
-                            Slider(value: Binding(get: { bed.volume }, set: { model.setMusicVolume($0) }), in: 0...1.5)
-                            Text("\(Int(bed.volume * 100))%").font(.caption.monospacedDigit())
-                                .foregroundStyle(.secondary).frame(width: 42, alignment: .trailing)
-                        }
-                    }
-                    Button("Remove Music", role: .destructive) { model.removeMusic() }
-                } else {
-                    Button("Add Music…") { pickMusic() }
-                }
-            }
-            Section("Voiceover") {
-                if let vo = model.voiceover {
-                    LabeledContent("Volume") {
-                        HStack {
-                            Image(systemName: "mic").foregroundStyle(.secondary)
-                            Slider(value: Binding(get: { vo.volume }, set: { model.setVoiceoverVolume($0) }), in: 0...1.5)
-                            Text("\(Int(vo.volume * 100))%").font(.caption.monospacedDigit())
-                                .foregroundStyle(.secondary).frame(width: 42, alignment: .trailing)
-                        }
-                    }
-                    Button("Remove Voiceover", role: .destructive) { model.removeVoiceover() }
-                } else if model.isRecordingVoiceover {
-                    Button { model.stopVoiceover() } label: {
-                        Label("Stop Recording", systemImage: "stop.circle.fill").foregroundStyle(.red)
-                    }
-                } else {
-                    Button { model.startVoiceover() } label: {
-                        Label("Record Voiceover", systemImage: "mic.circle")
-                    }
-                }
-                if let err = model.voiceoverError {
-                    Text(err).font(.caption).foregroundStyle(.orange)
-                }
-            }
-            Section {
-                Toggle("Burn in attribution credit", isOn: $project.burnAttribution)
-            } header: {
-                Text("Export")
-            } footer: {
-                Text("Adds a small “archivewatch.org · Public Domain” credit to the video. Turn off for a clean export.")
-                    .font(.caption).foregroundStyle(.secondary)
-            }
-            Section("Canvas") {
-                LabeledContent("Frame rate", value: String(format: "%.0f fps", project.timeline.frameRate))
-                LabeledContent("Render size", value: "\(Int(project.timeline.renderSize.width))×\(Int(project.timeline.renderSize.height))")
-            }
-            Section("Dates") {
-                LabeledContent("Created", value: project.createdAt.formatted(date: .abbreviated, time: .shortened))
-                LabeledContent("Modified", value: project.modifiedAt.formatted(date: .abbreviated, time: .shortened))
+            switch model.selection {
+            case .overlay(let id):
+                if let ov = model.textOverlays.first(where: { $0.id == id }) {
+                    TextOverlayEditor(
+                        overlay: Binding(get: { model.textOverlays.first(where: { $0.id == id }) ?? ov },
+                                         set: { model.updateOverlay($0) }),
+                        onDelete: { model.deleteOverlay(id) })
+                } else { projectSettings }
+            case .clip:
+                if let clip = model.selectedClip { clipInspector(clip) } else { projectSettings }
+            case .audio:
+                if let a = model.selectedAudio { audioInspector(a) } else { projectSettings }
+            case .none:
+                projectSettings
             }
         }
         .formStyle(.grouped)
     }
 
-    private func pickMusic() {
-        let panel = NSOpenPanel()
-        panel.allowedContentTypes = [.audio, .mp3, .mpeg4Audio, .wav, .aiff]
-        panel.allowsMultipleSelection = false
-        panel.prompt = "Add Music"
-        if panel.runModal() == .OK, let url = panel.url { model.importMusic(from: url) }
+    // MARK: Clip selection
+
+    @ViewBuilder private func clipInspector(_ clip: TimelineClip) -> some View {
+        Section {
+            sliderRow("Audio", icon: clip.audioVolume == 0 ? "speaker.slash" : "speaker.wave.2",
+                      value: Binding(get: { clip.audioVolume }, set: { model.setClipVolume(clip.id, $0) }),
+                      range: 0...1.5, format: { "\(Int($0 * 100))%" })
+            let maxFade = max(0.1, clip.sourceRange.duration.seconds / 2)
+            sliderRow("Fade in", icon: "circle.lefthalf.filled",
+                      value: Binding(get: { clip.fadeInSeconds }, set: { model.setClipFade(clip.id, fadeIn: $0) }),
+                      range: 0...maxFade, format: { String(format: "%.1fs", $0) })
+            sliderRow("Fade out", icon: "circle.righthalf.filled",
+                      value: Binding(get: { clip.fadeOutSeconds }, set: { model.setClipFade(clip.id, fadeOut: $0) }),
+                      range: 0...maxFade, format: { String(format: "%.1fs", $0) })
+            Picker("Look", selection: Binding(get: { clip.look }, set: { model.setClipLook(clip.id, $0) })) {
+                ForEach(ClipLook.allCases) { Text($0.label).tag($0) }
+            }
+            if model.clips.first?.id != clip.id {
+                sliderRow("Transition", icon: "square.on.square.dashed",
+                          value: Binding(get: { clip.transitionInSeconds }, set: { model.setClipTransition(clip.id, $0) }),
+                          range: 0...maxFade, format: { String(format: "%.1fs", $0) })
+                if clip.transitionInSeconds > 0 {
+                    Picker("Style", selection: Binding(get: { clip.transitionKind },
+                                                       set: { model.setClipTransitionKind(clip.id, $0) })) {
+                        ForEach(TransitionKind.allCases) { Text($0.label).tag($0) }
+                    }
+                }
+            }
+        } header: {
+            Label(clip.label, systemImage: "film").lineLimit(1)
+        }
+        Section {
+            Button("Delete Clip", systemImage: "trash", role: .destructive) { model.deleteClip(clip.id) }
+        }
+    }
+
+    // MARK: Audio selection (music / voiceover) — fully editable
+
+    @ViewBuilder private func audioInspector(_ a: AudioClip) -> some View {
+        Section {
+            TextField("Name", text: Binding(get: { a.displayName }, set: { model.renameAudio(a.id, $0) }))
+            sliderRow("Volume", icon: a.volume == 0 ? "speaker.slash" : a.kind.symbol,
+                      value: Binding(get: { a.volume }, set: { model.setAudioVolume(a.id, $0) }),
+                      range: 0...1.5, format: { "\(Int($0 * 100))%" })
+            LabeledContent("Start") {
+                Stepper(value: Binding(get: { a.startSeconds }, set: { model.setAudioStart(a.id, $0) }),
+                        in: 0...max(1, model.totalDuration), step: 0.5) {
+                    Text(String(format: "%.1fs", a.startSeconds)).font(.callout.monospacedDigit())
+                }
+            }
+            let maxFade = max(0.5, (a.sourceDuration > 0 ? a.sourceDuration : 8) / 2)
+            sliderRow("Fade in", icon: "circle.lefthalf.filled",
+                      value: Binding(get: { a.fadeInSeconds }, set: { model.setAudioFade(a.id, fadeIn: $0) }),
+                      range: 0...maxFade, format: { String(format: "%.1fs", $0) })
+            sliderRow("Fade out", icon: "circle.righthalf.filled",
+                      value: Binding(get: { a.fadeOutSeconds }, set: { model.setAudioFade(a.id, fadeOut: $0) }),
+                      range: 0...maxFade, format: { String(format: "%.1fs", $0) })
+        } header: {
+            Label(a.kind.label, systemImage: a.kind.symbol)
+        }
+        Section {
+            Button("Delete \(a.kind.label)", systemImage: "trash", role: .destructive) { model.removeAudio(a.id) }
+        }
+    }
+
+    // MARK: No selection — the PROJECT itself (canvas / frame rate / attribution), all editable
+
+    @ViewBuilder private var projectSettings: some View {
+        Section("Canvas") {
+            Picker("Aspect", selection: Binding(get: { model.matchedCanvasPreset },
+                                                set: { model.setRenderSize($0.size) })) {
+                ForEach(EditorModel.canvasPresets) { Text($0.name).tag($0) }
+                if model.matchedCanvasPreset.isCustom {
+                    Text("Custom (\(Int(project.timeline.renderSize.width))×\(Int(project.timeline.renderSize.height)))")
+                        .tag(model.matchedCanvasPreset)
+                }
+            }
+            Picker("Frame rate", selection: Binding(get: { Int(project.timeline.frameRate.rounded()) },
+                                                    set: { model.setFrameRate(Double($0)) })) {
+                Text("24 fps").tag(24); Text("30 fps").tag(30); Text("60 fps").tag(60)
+            }
+        }
+        Section {
+            Toggle("Burn in attribution credit", isOn: $project.burnAttribution)
+        } header: {
+            Text("Export")
+        } footer: {
+            Text("Adds a small “archivewatch.org · Public Domain” credit to the video. Turn off for a clean export.")
+                .font(.caption).foregroundStyle(.secondary)
+        }
+        Section {
+            Text("Select a clip, title, or audio track to edit it here.")
+                .font(.caption).foregroundStyle(.secondary)
+        }
+    }
+
+    /// A labeled icon + slider + value readout row (the inspector's workhorse control).
+    private func sliderRow(_ title: String, icon: String, value: Binding<Double>,
+                           range: ClosedRange<Double>, format: @escaping (Double) -> String) -> some View {
+        LabeledContent(title) {
+            HStack {
+                Image(systemName: icon).foregroundStyle(.secondary)
+                Slider(value: value, in: range)
+                Text(format(value.wrappedValue)).font(.caption.monospacedDigit())
+                    .foregroundStyle(.secondary).frame(width: 46, alignment: .trailing)
+            }
+        }
     }
 }
 

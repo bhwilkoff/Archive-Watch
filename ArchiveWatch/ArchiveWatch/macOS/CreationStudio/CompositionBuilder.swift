@@ -39,8 +39,16 @@ enum CompositionBuilder {
         var transitionKind: TransitionKind = .dissolve
     }
 
-    /// An imported music bed: a local audio file mixed under the whole timeline (#4).
-    struct ResolvedMusic { let asset: AVURLAsset; let volume: Double; let startSeconds: Double }
+    /// An imported/recorded audio clip: a local audio file on its own track (#4, N tracks).
+    /// `maxDuration` caps how long it plays (nil = to program end); fadeIn/fadeOut ramp its ends.
+    struct ResolvedMusic {
+        let asset: AVURLAsset
+        let volume: Double
+        let startSeconds: Double
+        var maxDuration: Double? = nil
+        var fadeIn: Double = 0
+        var fadeOut: Double = 0
+    }
 
     /// Compile resolved clips (in timeline order) into the (composition, videoComposition)
     /// pair. `creditLine == nil` means a clean export — no burned attribution (owner
@@ -257,23 +265,33 @@ enum CompositionBuilder {
             paramsList.append(params)
         }
 
-        // Audio beds (#4 audio layers) — music + voiceover, each a separate audio track under the
-        // timeline from its start to the program end (trimmed to fit, with a short end fade).
+        // Audio clips (#4 audio layers) — N music + voiceover, each its OWN track. Each plays from
+        // its start for its own length (capped at the program end), honoring its fade in/out; if it
+        // has no explicit fade-out, a gentle tail keeps it from cutting abruptly.
         for bed in beds where cursor.seconds > bed.startSeconds + 0.05 {
             guard let mTrack = comp.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid),
                   let srcA = try? await bed.asset.loadTracks(withMediaType: .audio).first else { continue }
-            let want = cursor.seconds - bed.startSeconds
-            let avail = (try? await bed.asset.load(.duration).seconds) ?? want
-            let dur = CMTime(seconds: max(0.1, min(want, avail)), preferredTimescale: ts)
+            let toProgramEnd = cursor.seconds - bed.startSeconds
+            let avail = (try? await bed.asset.load(.duration).seconds) ?? toProgramEnd
+            let cap = bed.maxDuration ?? toProgramEnd
+            let dur = CMTime(seconds: max(0.1, min(toProgramEnd, avail, cap)), preferredTimescale: ts)
             let at = CMTime(seconds: max(0, bed.startSeconds), preferredTimescale: ts)
             try? mTrack.insertTimeRange(CMTimeRange(start: .zero, duration: dur), of: srcA, at: at)
             let mp = AVMutableAudioMixInputParameters(track: mTrack)
-            mp.setVolume(Float(max(0, bed.volume)), at: at)
-            let fade = min(1.5, dur.seconds / 2)            // gentle tail so the bed doesn't cut abruptly
-            if fade > 0 {
-                mp.setVolumeRamp(fromStartVolume: Float(max(0, bed.volume)), toEndVolume: 0,
-                                 timeRange: CMTimeRange(start: at + dur - CMTime(seconds: fade, preferredTimescale: ts),
-                                                        duration: CMTime(seconds: fade, preferredTimescale: ts)))
+            let vol = Float(max(0, bed.volume))
+            mp.setVolume(vol, at: at)
+            // Fade IN from silence over the head, if requested.
+            if bed.fadeIn > 0.01 {
+                let f = min(bed.fadeIn, dur.seconds)
+                mp.setVolumeRamp(fromStartVolume: 0, toEndVolume: vol,
+                                 timeRange: CMTimeRange(start: at, duration: CMTime(seconds: f, preferredTimescale: ts)))
+            }
+            // Fade OUT over the tail — explicit if set, else a gentle default so the clip doesn't snap off.
+            let fadeOut = bed.fadeOut > 0.01 ? min(bed.fadeOut, dur.seconds) : min(1.5, dur.seconds / 2)
+            if fadeOut > 0 {
+                mp.setVolumeRamp(fromStartVolume: vol, toEndVolume: 0,
+                                 timeRange: CMTimeRange(start: at + dur - CMTime(seconds: fadeOut, preferredTimescale: ts),
+                                                        duration: CMTime(seconds: fadeOut, preferredTimescale: ts)))
             }
             paramsList.append(mp); anyRamp = true
         }

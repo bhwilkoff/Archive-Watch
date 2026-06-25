@@ -600,6 +600,31 @@ The Library sidebar now shows each clip's real in-point frame from the archive.o
 strip (`ClipThumbnailView` + `ClipThumbnailCache`), poster→icon fallback — robust regardless
 of store/poster state, honoring "clip previews use thumbnails, not freshly-generated frames."
 
+**Selection-driven inspector + multi-track audio: SHIPPED 2026-06-25.** Two coupled changes that
+move the editor toward a fully-featured multi-track NLE:
+- **Inspector is now purely selection-driven** (Rule 7a — the FCP/`.inspector()` model): it edits
+  ONLY the current selection and nothing else — a video clip → volume/fades/look/transition; a text
+  overlay → the text editor; an audio clip → name/volume/start/fades; NOTHING selected → the
+  PROJECT (canvas-aspect preset + frame rate + attribution). The old kitchen-sink panel (global
+  Music/Voiceover/Project-stats/Canvas/Dates all shown at once) is gone. **No read-only data in the
+  inspector** — every control mutates; canvas size + frame rate became editable pickers (were
+  read-only labels), and the clips-count/duration/format/dates stat blocks were removed. Adding
+  music/voiceover/clips/text are TOOLBAR actions (Add Music, Voiceover), not inspector state.
+- **One `EditorModel.Selection` enum** (`.none/.clip/.overlay/.audio`) replaces the separate
+  `selectedClipID`/`selectedOverlayID` optionals (kept as computed getters). `.none` selects the
+  project itself; ⌫ deletes whatever is selected.
+- **Multi-track audio (Rule 3c "audio on N tracks"):** `Timeline.musicBed`/`voiceover` (single
+  optionals) → `audioClips: [AudioClip]` — UNLIMITED music + voiceover, each with its own
+  volume/start/fade-in/fade-out and its own composition track. `AudioClip` carries `kind`
+  (music/voiceover) + a cached `sourceDuration`. Old `.archiveproj` files migrate their single beds
+  into the array on decode (tolerant/additive). `CompositionBuilder` already took `beds:
+  [ResolvedMusic]`; it now honors a per-clip duration cap + fade in/out. Text overlays + video clips
+  were already arrays — so ALL THREE element kinds (video / audio / annotation) support adding as
+  many as you want, anywhere, overlapping is fine.
+- **Timeline**: audio clips render in a DYNAMIC stack of lanes (greedy non-overlap packing —
+  multiple clips stack into as many rows as needed), each block selectable + draggable to retime +
+  right-click Delete; color by kind (green = music, orange = voiceover).
+
 ---
 
 *Amend, don't contradict. New views/features quote the rule they satisfy or the amendment

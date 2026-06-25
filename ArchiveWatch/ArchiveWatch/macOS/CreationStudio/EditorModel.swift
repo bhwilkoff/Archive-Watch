@@ -19,7 +19,18 @@ final class EditorModel {
     let player = AVPlayer()
     var playheadSeconds: Double = 0
     var isPlaying = false
-    var selectedClipID: UUID?
+
+    /// What the inspector edits. ONE selection across all timeline element kinds (video clip,
+    /// text overlay, audio clip) — the inspector is purely selection-driven (no kitchen-sink
+    /// global panel). `.none` selects the project itself (canvas / frame rate / attribution).
+    enum Selection: Equatable, Hashable {
+        case none, clip(UUID), overlay(UUID), audio(UUID)
+    }
+    var selection: Selection = .none
+    func select(_ s: Selection) { selection = s }
+    var selectedClipID: UUID? { if case .clip(let id) = selection { return id }; return nil }
+    var selectedOverlayID: UUID? { if case .overlay(let id) = selection { return id }; return nil }
+    var selectedAudioID: UUID? { if case .audio(let id) = selection { return id }; return nil }
     /// Timeline zoom — points per second. Clamped; ⌘-scroll / pinch drive it.
     var pointsPerSecond: Double = 60
     var thumbnails: [UUID: [CGImage]] = [:]
@@ -106,7 +117,7 @@ final class EditorModel {
             timelineStart: .zero, track: 0, label: title)
         document.project.timeline.clips.append(clip)
         relayout()
-        selectedClipID = clip.id
+        selection = .clip(clip.id)
         loadFilmstrip(for: clip)   // instant archive.org-thumbnail filmstrip (no wait on the cache)
         scheduleRebuild()          // window caching for preview/export happens in the rebuild
     }
@@ -164,7 +175,7 @@ final class EditorModel {
         let clip = TimelineClip.from(proxy, at: .zero)
         document.project.timeline.clips.append(clip)
         relayout()
-        selectedClipID = clip.id
+        selection = .clip(clip.id)
         loadFilmstrip(for: clip)
         scheduleRebuild()
     }
@@ -191,7 +202,7 @@ final class EditorModel {
             added.append((clip.id, take))
             loadFilmstrip(for: clip)
         }
-        selectedClipID = added.last?.id
+        if let last = added.last { selection = .clip(last.id) }
         relayout(); scheduleRebuild()
 
         guard tighten || evenVolume else { return }
@@ -242,7 +253,7 @@ final class EditorModel {
         checkpoint()
         document.project.timeline.clips.removeAll { $0.id == id }
         thumbnails[id] = nil; clipCache[id] = nil
-        if selectedClipID == id { selectedClipID = nil }
+        if selectedClipID == id { selection = .none }
         relayout(); scheduleRebuild()
     }
 
@@ -300,7 +311,7 @@ final class EditorModel {
         // re-caches; just refresh each half's filmstrip for its new sub-range.
         if let w = clipCache[clip.id] { clipCache[right.id] = w }
         loadFilmstrip(for: left); loadFilmstrip(for: right)
-        selectedClipID = right.id
+        selection = .clip(right.id)
         relayout(); scheduleRebuild()
     }
 
@@ -327,13 +338,12 @@ final class EditorModel {
         document.project.timeline.clips.insert(copy, at: i + 1)
         if let w = clipCache[id] { clipCache[copy.id] = w }                 // same source window
         loadFilmstrip(for: copy)
-        selectedClipID = copy.id
+        selection = .clip(copy.id)
         relayout(); scheduleRebuild()
     }
 
     // MARK: - Text overlays (#3)
 
-    var selectedOverlayID: UUID?
     var textOverlays: [TextOverlay] { document.project.timeline.textOverlays }
 
     func addTextOverlay() {
@@ -344,8 +354,7 @@ final class EditorModel {
                              timelineRange: TimeRange(startSeconds: start,
                                                       durationSeconds: avail > 1 ? min(3, avail) : 3))
         document.project.timeline.textOverlays.append(ov)
-        selectedOverlayID = ov.id
-        selectedClipID = nil
+        selection = .overlay(ov.id)
         // No preview rebuild: overlays aren't baked into the preview composition (the Core
         // Animation tool is export-only) — the live SwiftUI overlay shows them; export reads
         // them at export time. Skipping the rebuild keeps text editing/dragging instant.
@@ -359,7 +368,7 @@ final class EditorModel {
     func deleteOverlay(_ id: UUID) {
         checkpoint()
         document.project.timeline.textOverlays.removeAll { $0.id == id }
-        if selectedOverlayID == id { selectedOverlayID = nil }
+        if selectedOverlayID == id { selection = .none }
     }
 
     // MARK: - Undo / redo (project snapshots via the window UndoManager) + clipboard + mute
@@ -380,7 +389,7 @@ final class EditorModel {
         let inverse = document.project                       // re-registers as redo
         undoManager?.registerUndo(withTarget: self) { editor in editor.applyHistory(inverse) }
         document.project = snapshot
-        selectedClipID = nil; selectedOverlayID = nil
+        selection = .none
         relayout(); scheduleRebuild()
     }
 
@@ -403,7 +412,7 @@ final class EditorModel {
             document.project.timeline.clips.append(copy)
         }
         if let w = clipCache[c.id] { clipCache[copy.id] = w }
-        selectedClipID = copy.id
+        selection = .clip(copy.id)
         loadFilmstrip(for: copy)
         relayout(); scheduleRebuild()
     }
@@ -621,57 +630,92 @@ final class EditorModel {
         pointsPerSecond = min(Self.maxPPS, max(Self.minPPS, pointsPerSecond * factor))
     }
 
-    // MARK: - Music bed (#4 audio layers)
+    // MARK: - Audio clips (#4 audio layers — N music + voiceover tracks, Rule 3c)
 
-    var musicBed: MusicBed? { document.project.timeline.musicBed }
+    var audioClips: [AudioClip] { document.project.timeline.audioClips }
+    var selectedAudio: AudioClip? { selectedAudioID.flatMap { id in audioClips.first { $0.id == id } } }
+    private func audioIndex(_ id: UUID) -> Int? {
+        document.project.timeline.audioClips.firstIndex { $0.id == id }
+    }
 
-    /// Copy an imported audio file into the project media cache and set it as the music bed.
-    func importMusic(from src: URL) {
+    /// Import an audio file as a NEW music clip at the current playhead (multiple are allowed).
+    func addMusic(from src: URL) {
         let name = "music-\(UUID().uuidString.prefix(6))-\(src.lastPathComponent)"
         let dst = ProjectMediaCache.directory.appendingPathComponent(name)
         try? FileManager.default.removeItem(at: dst)
         guard (try? FileManager.default.copyItem(at: src, to: dst)) != nil else { return }
-        document.project.timeline.musicBed = MusicBed(
-            fileName: name, displayName: src.deletingPathExtension().lastPathComponent,
-            volume: 0.5, startSeconds: 0)
+        checkpoint()
+        let clip = AudioClip(kind: .music, fileName: name,
+                             displayName: src.deletingPathExtension().lastPathComponent,
+                             volume: 0.5, startSeconds: max(0, playheadSeconds))
+        document.project.timeline.audioClips.append(clip)
+        selection = .audio(clip.id)
+        loadAudioDuration(clip.id)
         scheduleRebuild()
     }
 
-    func setMusicVolume(_ v: Double) {
-        guard document.project.timeline.musicBed != nil else { return }
-        document.project.timeline.musicBed?.volume = max(0, min(1.5, v))
+    func setAudioVolume(_ id: UUID, _ v: Double) {
+        guard let i = audioIndex(id) else { return }
+        document.project.timeline.audioClips[i].volume = max(0, min(1.5, v))
+        scheduleRebuild()
+    }
+    func setAudioStart(_ id: UUID, _ seconds: Double) {
+        guard let i = audioIndex(id) else { return }
+        document.project.timeline.audioClips[i].startSeconds = max(0, seconds)
+        scheduleRebuild()
+    }
+    func setAudioFade(_ id: UUID, fadeIn: Double? = nil, fadeOut: Double? = nil) {
+        guard let i = audioIndex(id) else { return }
+        let dur = max(0.1, document.project.timeline.audioClips[i].sourceDuration)
+        if let fadeIn  { document.project.timeline.audioClips[i].fadeInSeconds  = max(0, min(fadeIn,  dur)) }
+        if let fadeOut { document.project.timeline.audioClips[i].fadeOutSeconds = max(0, min(fadeOut, dur)) }
+        scheduleRebuild()
+    }
+    func renameAudio(_ id: UUID, _ name: String) {
+        guard let i = audioIndex(id) else { return }
+        document.project.timeline.audioClips[i].displayName = name
+    }
+    func removeAudio(_ id: UUID) {
+        guard let i = audioIndex(id) else { return }
+        let clip = document.project.timeline.audioClips[i]
+        try? FileManager.default.removeItem(at: ProjectMediaCache.directory.appendingPathComponent(clip.fileName))
+        checkpoint()
+        document.project.timeline.audioClips.remove(at: i)
+        if selectedAudioID == id { selection = .none }
         scheduleRebuild()
     }
 
-    func removeMusic() {
-        if let m = document.project.timeline.musicBed {
-            try? FileManager.default.removeItem(at: ProjectMediaCache.directory.appendingPathComponent(m.fileName))
+    /// Fill an audio clip's cached `sourceDuration` from the file (async — for the timeline block
+    /// width + the fade clamps).
+    private func loadAudioDuration(_ id: UUID) {
+        guard let i = audioIndex(id) else { return }
+        let url = ProjectMediaCache.directory.appendingPathComponent(document.project.timeline.audioClips[i].fileName)
+        Task { [weak self] in
+            let dur = (try? await AVURLAsset(url: url).load(.duration).seconds) ?? 0
+            guard let self, let j = self.audioIndex(id) else { return }
+            self.document.project.timeline.audioClips[j].sourceDuration = dur
         }
-        document.project.timeline.musicBed = nil
-        scheduleRebuild()
     }
 
-    /// Resolve a stored audio overlay (music / voiceover) to a local asset, or nil if its cache
-    /// file is gone.
-    private func resolveBed(_ bed: MusicBed?) -> CompositionBuilder.ResolvedMusic? {
-        guard let bed else { return nil }
-        let url = ProjectMediaCache.directory.appendingPathComponent(bed.fileName)
-        guard FileManager.default.fileExists(atPath: url.path) else { return nil }
-        return .init(asset: AVURLAsset(url: url), volume: bed.volume, startSeconds: bed.startSeconds)
-    }
-
-    /// The music + voiceover beds resolved for the composition.
+    /// Every audio clip resolved for the composition (music + voiceover, each its own track).
     func resolvedBeds() -> [CompositionBuilder.ResolvedMusic] {
-        [resolveBed(document.project.timeline.musicBed), resolveBed(document.project.timeline.voiceover)].compactMap { $0 }
+        document.project.timeline.audioClips.compactMap { clip in
+            let url = ProjectMediaCache.directory.appendingPathComponent(clip.fileName)
+            guard FileManager.default.fileExists(atPath: url.path) else { return nil }
+            return .init(asset: AVURLAsset(url: url), volume: clip.volume, startSeconds: clip.startSeconds,
+                         maxDuration: clip.sourceDuration > 0 ? clip.sourceDuration : nil,
+                         fadeIn: clip.fadeInSeconds, fadeOut: clip.fadeOutSeconds)
+        }
     }
 
-    // MARK: - Voiceover recording (narration over the timeline)
+    // MARK: - Voiceover recording (adds a NEW voiceover audio clip)
 
-    var voiceover: MusicBed? { document.project.timeline.voiceover }
     var isRecordingVoiceover: Bool { voiceRecorder?.isRecording ?? false }
-    /// Surfaced to the inspector so a failed recording isn't silent (#10).
+    /// Surfaced so a failed recording isn't silent (#10).
     var voiceoverError: String?
     @ObservationIgnored private var voiceRecorder: AVAudioRecorder?
+    @ObservationIgnored private var voiceStartSeconds = 0.0
+    @ObservationIgnored private var voicePendingName = ""
 
     /// Start recording mic narration to the project cache (begins at the current playhead).
     /// Requests mic access first — on macOS, recording without authorization (or without the
@@ -704,31 +748,17 @@ final class EditorModel {
         voiceRecorder = rec
     }
 
-    @ObservationIgnored private var voiceStartSeconds = 0.0
-    @ObservationIgnored private var voicePendingName = ""
-
-    /// Stop recording and add the take as the project's voiceover bed.
+    /// Stop recording and add the take as a NEW voiceover clip (multiple are allowed).
     func stopVoiceover() {
         guard let rec = voiceRecorder else { return }
         rec.stop()
         voiceRecorder = nil
-        document.project.timeline.voiceover = MusicBed(
-            fileName: voicePendingName, displayName: "Voiceover",
-            volume: 1.0, startSeconds: voiceStartSeconds)
-        scheduleRebuild()
-    }
-
-    func setVoiceoverVolume(_ v: Double) {
-        guard document.project.timeline.voiceover != nil else { return }
-        document.project.timeline.voiceover?.volume = max(0, min(1.5, v))
-        scheduleRebuild()
-    }
-
-    func removeVoiceover() {
-        if let v = document.project.timeline.voiceover {
-            try? FileManager.default.removeItem(at: ProjectMediaCache.directory.appendingPathComponent(v.fileName))
-        }
-        document.project.timeline.voiceover = nil
+        checkpoint()
+        let clip = AudioClip(kind: .voiceover, fileName: voicePendingName, displayName: "Voiceover",
+                             volume: 1.0, startSeconds: voiceStartSeconds)
+        document.project.timeline.audioClips.append(clip)
+        selection = .audio(clip.id)
+        loadAudioDuration(clip.id)
         scheduleRebuild()
     }
 
@@ -741,16 +771,37 @@ final class EditorModel {
                                     durationSeconds: o.timelineRange.duration.seconds)
         updateOverlay(o)
     }
-    /// Move the music bed along its lane.
-    func setMusicStart(_ seconds: Double) {
-        guard document.project.timeline.musicBed != nil else { return }
-        document.project.timeline.musicBed?.startSeconds = max(0, seconds)
+
+    // MARK: - Project canvas / frame rate (editable in the project inspector)
+
+    struct CanvasPreset: Identifiable, Hashable {
+        let name: String, width: Double, height: Double
+        var isCustom = false
+        var id: String { name }
+        var size: RenderSize { RenderSize(width: width, height: height) }
+    }
+    static let canvasPresets: [CanvasPreset] = [
+        .init(name: "Landscape · 16:9 (1920×1080)", width: 1920, height: 1080),
+        .init(name: "Portrait · 9:16 (1080×1920)", width: 1080, height: 1920),
+        .init(name: "Square · 1:1 (1080×1080)", width: 1080, height: 1080),
+        .init(name: "Portrait · 4:5 (1080×1350)", width: 1080, height: 1350),
+        .init(name: "Landscape · 4:3 (1440×1080)", width: 1440, height: 1080),
+    ]
+    /// The preset matching the current render size, or a synthetic "Custom" entry.
+    var matchedCanvasPreset: CanvasPreset {
+        let r = document.project.timeline.renderSize
+        return Self.canvasPresets.first { $0.width == r.width && $0.height == r.height }
+            ?? CanvasPreset(name: "Custom", width: r.width, height: r.height, isCustom: true)
+    }
+    func setRenderSize(_ s: RenderSize) {
+        guard document.project.timeline.renderSize != s else { return }
+        checkpoint()
+        document.project.timeline.renderSize = s
         scheduleRebuild()
     }
-    /// Move the voiceover along its lane.
-    func setVoiceoverStart(_ seconds: Double) {
-        guard document.project.timeline.voiceover != nil else { return }
-        document.project.timeline.voiceover?.startSeconds = max(0, seconds)
+    func setFrameRate(_ fps: Double) {
+        guard document.project.timeline.frameRate != fps else { return }
+        document.project.timeline.frameRate = max(1, fps)
         scheduleRebuild()
     }
 

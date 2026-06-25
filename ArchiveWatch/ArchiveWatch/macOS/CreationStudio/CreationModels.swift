@@ -183,13 +183,45 @@ struct TextOverlay: Codable, Identifiable, Hashable, Sendable {
 /// The ordered set of clips + render settings. Compiles (Unit 2) to the single
 /// (AVMutableComposition, AVVideoComposition.Configuration, AVMutableAudioMix) triple
 /// that feeds BOTH preview and export (Rule 3a).
-/// An imported music bed mixed under the whole timeline (#4 audio layers). The file is copied
-/// into the project's media cache, so only its cache filename + mix settings are stored.
-struct MusicBed: Codable, Hashable, Sendable {
-    var fileName: String                // file inside ProjectMediaCache (copied on import)
+/// A single audio source on its own track (Rule 3c — audio on N tracks). The timeline holds an
+/// ARRAY of these (multiple music + multiple voiceover), replacing the old single musicBed/voiceover.
+enum AudioKind: String, Codable, Hashable, Sendable, CaseIterable, Identifiable {
+    case music, voiceover
+    var id: String { rawValue }
+    var label: String { self == .music ? "Music" : "Voiceover" }
+    var symbol: String { self == .music ? "music.note" : "mic" }
+}
+
+/// An imported/recorded audio clip mixed under the timeline (#4 audio layers). The file is copied
+/// into the project's media cache (Rule 2b), so only its cache filename + mix settings are stored.
+struct AudioClip: Codable, Identifiable, Hashable, Sendable {
+    var id: UUID
+    var kind: AudioKind
+    var fileName: String                // file inside ProjectMediaCache (copied on import/record)
     var displayName: String
     var volume: Double                  // 0…1.5
     var startSeconds: Double            // where it begins on the timeline
+    var fadeInSeconds: Double           // ramp up over the head
+    var fadeOutSeconds: Double          // ramp down over the tail
+    var sourceDuration: Double          // cached file length (block width + trim cap; 0 = unknown)
+
+    init(id: UUID = UUID(), kind: AudioKind, fileName: String, displayName: String,
+         volume: Double = 1.0, startSeconds: Double = 0,
+         fadeInSeconds: Double = 0, fadeOutSeconds: Double = 0, sourceDuration: Double = 0) {
+        self.id = id; self.kind = kind; self.fileName = fileName; self.displayName = displayName
+        self.volume = volume; self.startSeconds = startSeconds
+        self.fadeInSeconds = fadeInSeconds; self.fadeOutSeconds = fadeOutSeconds
+        self.sourceDuration = sourceDuration
+    }
+}
+
+/// LEGACY single-bed shape — kept only so projects written before multi-track audio still decode
+/// (migrated into `audioClips` in Timeline.init(from:)). Do NOT use for new code.
+struct MusicBed: Codable, Hashable, Sendable {
+    var fileName: String
+    var displayName: String
+    var volume: Double
+    var startSeconds: Double
 }
 
 struct Timeline: Codable, Hashable, Sendable {
@@ -198,19 +230,24 @@ struct Timeline: Codable, Hashable, Sendable {
     var frameRate: Double
     var renderSize: RenderSize
     var markers: [Double]               // timeline seconds — navigation + snap targets
-    var musicBed: MusicBed?
-    var voiceover: MusicBed?            // recorded narration (same audio-overlay shape as music)
+    var audioClips: [AudioClip]         // N music + voiceover tracks (replaces musicBed/voiceover)
 
     init(clips: [TimelineClip] = [], textOverlays: [TextOverlay] = [],
          frameRate: Double = 30, renderSize: RenderSize = .hd1080, markers: [Double] = [],
-         musicBed: MusicBed? = nil, voiceover: MusicBed? = nil) {
+         audioClips: [AudioClip] = []) {
         self.clips = clips; self.textOverlays = textOverlays
         self.frameRate = frameRate; self.renderSize = renderSize; self.markers = markers
-        self.musicBed = musicBed; self.voiceover = voiceover
+        self.audioClips = audioClips
     }
 
-    // Tolerant decode: projects written before `textOverlays`/`markers`/`musicBed` existed default
-    // to nil/[] (additive-schema discipline — old .archiveproj files keep opening).
+    enum CodingKeys: String, CodingKey {
+        case clips, textOverlays, frameRate, renderSize, markers, audioClips
+        case musicBed, voiceover        // legacy keys — decode-only (migration)
+    }
+
+    // Tolerant decode: a project written before multi-track audio carried a single `musicBed`
+    // and/or `voiceover`; migrate them into `audioClips` so old .archiveproj files keep opening
+    // (additive-schema discipline).
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
         clips = try c.decode([TimelineClip].self, forKey: .clips)
@@ -218,8 +255,30 @@ struct Timeline: Codable, Hashable, Sendable {
         frameRate = try c.decode(Double.self, forKey: .frameRate)
         renderSize = try c.decode(RenderSize.self, forKey: .renderSize)
         markers = try c.decodeIfPresent([Double].self, forKey: .markers) ?? []
-        musicBed = try c.decodeIfPresent(MusicBed.self, forKey: .musicBed)
-        voiceover = try c.decodeIfPresent(MusicBed.self, forKey: .voiceover)
+        if let arr = try c.decodeIfPresent([AudioClip].self, forKey: .audioClips) {
+            audioClips = arr
+        } else {
+            var migrated: [AudioClip] = []
+            func migrate(_ bed: MusicBed?, _ kind: AudioKind) {
+                guard let b = bed else { return }
+                migrated.append(AudioClip(kind: kind, fileName: b.fileName, displayName: b.displayName,
+                                          volume: b.volume, startSeconds: b.startSeconds))
+            }
+            migrate(try c.decodeIfPresent(MusicBed.self, forKey: .musicBed), .music)
+            migrate(try c.decodeIfPresent(MusicBed.self, forKey: .voiceover), .voiceover)
+            audioClips = migrated
+        }
+    }
+
+    // Custom encode (the explicit CodingKeys include legacy keys we must NOT write).
+    func encode(to encoder: Encoder) throws {
+        var c = encoder.container(keyedBy: CodingKeys.self)
+        try c.encode(clips, forKey: .clips)
+        try c.encode(textOverlays, forKey: .textOverlays)
+        try c.encode(frameRate, forKey: .frameRate)
+        try c.encode(renderSize, forKey: .renderSize)
+        try c.encode(markers, forKey: .markers)
+        try c.encode(audioClips, forKey: .audioClips)
     }
 
     /// Timeline end = the furthest clip end across all tracks.
