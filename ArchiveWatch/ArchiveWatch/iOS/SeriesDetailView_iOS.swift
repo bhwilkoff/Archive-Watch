@@ -16,6 +16,7 @@ struct SeriesDetailView: View {
     @State private var loading = true
     @State private var selectedSeason: Int? = nil
     @State private var playingEpisode: Episode?
+    @State private var clippingEpisode: Episode?   // Clip Studio on an individual episode (Decision 033)
 
     var body: some View {
         ScrollView {
@@ -65,6 +66,9 @@ struct SeriesDetailView: View {
         }
         .fullScreenCover(item: $playingEpisode) { ep in
             EpisodePlayerContainer(start: ep, in: series).ignoresSafeArea()
+        }
+        .sheet(item: $clippingEpisode) { ep in
+            ClipStudioView(source: ep.clipSource)
         }
         .task { await load() }
     }
@@ -119,6 +123,12 @@ struct SeriesDetailView: View {
                 Button { playingEpisode = ep } label: { EpisodeRow(episode: ep) }
                     .buttonStyle(.plain)
                     .contextMenu {
+                        // Create a clip/GIF from THIS episode (rights-gated: episode has video).
+                        if ep.isClippable {
+                            Button { clippingEpisode = ep } label: {
+                                Label("Create a Clip", systemImage: "scissors")
+                            }
+                        }
                         Button {
                             Callsheet.open(Callsheet.episodeURL(
                                 seriesTitle: series?.title ?? card.title,

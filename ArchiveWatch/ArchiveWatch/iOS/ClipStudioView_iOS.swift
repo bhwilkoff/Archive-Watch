@@ -12,11 +12,39 @@ import UIKit
 // filmstrip, reframe + caption, export an MP4 or GIF, save/share. The human
 // makes every editorial choice; the engine handles the mechanical work.
 
+// The minimal source Clip Studio needs — so it can clip EITHER a catalog item OR an individual TV
+// EPISODE (an Episode isn't a Catalog.Item; it lives on a series spine). Decision 033.
+struct ClipSource {
+    let sourceURL: URL?
+    let archiveID: String
+    let title: String
+    let sourceDetailsURL: String
+    let creditLine: String
+}
+
+extension Catalog.Item {
+    var clipSource: ClipSource {
+        ClipSource(sourceURL: videoURLParsed, archiveID: archiveID, title: title,
+                   sourceDetailsURL: sourceDetailsURL, creditLine: clipCreditLine)
+    }
+}
+
+extension Episode {
+    /// An episode is clippable when it has a playable video (its series is already rights-gated
+    /// into the PD catalog upstream — Decision 027 — so visible episodes are public domain).
+    var isClippable: Bool { videoURLParsed != nil }
+    var clipSource: ClipSource {
+        ClipSource(sourceURL: videoURLParsed, archiveID: archiveID, title: title,
+                   sourceDetailsURL: "https://archive.org/details/\(archiveID)",
+                   creditLine: "archivewatch.org · Public Domain")
+    }
+}
+
 @MainActor @Observable
 final class ClipStudioModel {
     enum Phase { case preparing, editing, exporting, result }
 
-    let item: Catalog.Item
+    let source: ClipSource
     var phase: Phase = .preparing
     var exportProgress: Double = 0
     var errorMessage: String?
@@ -72,10 +100,10 @@ final class ClipStudioModel {
     var outputDuration: Double { speed > 0 ? clipDuration / speed : clipDuration }
     var canExport: Bool { clipDuration >= 0.5 && sourceURL != nil }
 
-    init(item: Catalog.Item) { self.item = item }
+    init(source: ClipSource) { self.source = source }
 
     func prepare() async {
-        guard let remote = item.videoURLParsed else {
+        guard let remote = source.sourceURL else {
             errorMessage = "This title has no video to clip."
             return
         }
@@ -224,12 +252,12 @@ final class ClipStudioModel {
     }
 
     func export(into ctx: ModelContext) async {
-        guard let source = sourceURL else { return }
+        guard let url = sourceURL else { return }
         phase = .exporting
         exportProgress = 0
         let spec = ClipSpec(
-            sourceURL: source, archiveID: item.archiveID, title: item.title,
-            sourceDetailsURL: item.sourceDetailsURL, creditLine: item.clipCreditLine,
+            sourceURL: url, archiveID: source.archiveID, title: source.title,
+            sourceDetailsURL: source.sourceDetailsURL, creditLine: source.creditLine,
             inSeconds: inSeconds, durationSeconds: clipDuration, aspect: aspect,
             caption: caption.trimmingCharacters(in: .whitespacesAndNewlines), format: format,
             look: look, speed: speed, blurredFill: blurredFill, captionCues: captionCues,
@@ -254,7 +282,7 @@ final class ClipStudioModel {
 
     private func persist(url: URL, into ctx: ModelContext) {
         let clip = VideoClip(
-            sourceArchiveID: item.archiveID, sourceTitle: item.title,
+            sourceArchiveID: source.archiveID, sourceTitle: source.title,
             inSeconds: inSeconds, durationSeconds: clipDuration,
             aspect: aspect.rawValue, format: format.rawValue,
             caption: caption, renderFilename: url.lastPathComponent)
@@ -316,7 +344,7 @@ struct ClipStudioView: View {
     @State private var model: ClipStudioModel
     @State private var saved = false
 
-    init(item: Catalog.Item) { _model = State(initialValue: ClipStudioModel(item: item)) }
+    init(source: ClipSource) { _model = State(initialValue: ClipStudioModel(source: source)) }
 
     var body: some View {
         NavigationStack {
@@ -353,7 +381,7 @@ struct ClipStudioView: View {
         VStack(spacing: 16) {
             ProgressView().tint(Brand.primary)
             Text("Loading clip…").font(.subheadline).foregroundStyle(.secondary)
-            Text(model.item.title).font(.caption).foregroundStyle(.tertiary)
+            Text(model.source.title).font(.caption).foregroundStyle(.tertiary)
                 .lineLimit(1).padding(.horizontal)
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
@@ -481,7 +509,7 @@ struct ClipStudioView: View {
                 PlayerLayerView(player: model.player)
                 VStack {
                     Spacer()
-                    Text(model.item.clipCreditLine).font(.caption2)
+                    Text(model.source.creditLine).font(.caption2)
                         .foregroundStyle(.white.opacity(0.85)).shadow(radius: 3).padding(.bottom, 6)
                 }
                 if let text = model.activeCaption {
@@ -570,7 +598,7 @@ struct ClipStudioView: View {
     }
 
     private var attribution: some View {
-        Text("Clips carry an archivewatch.org · public-domain credit and the source link in their file metadata. Source: \(model.item.title).")
+        Text("Clips carry an archivewatch.org · public-domain credit and the source link in their file metadata. Source: \(model.source.title).")
             .font(.caption2).foregroundStyle(.tertiary).multilineTextAlignment(.center)
     }
 

@@ -94,7 +94,7 @@ struct DetailView: View {
             AddToPlaylistSheet(archiveID: item.archiveID)
         }
         .sheet(isPresented: $clipping) {
-            ClipStudioView(item: item)
+            ClipStudioView(source: item.clipSource)
         }
         // Dev affordance (with AW_START_ITEM): start playback immediately so
         // playback diagnostics can run unattended on the simulator.
