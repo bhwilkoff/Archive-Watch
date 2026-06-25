@@ -625,6 +625,25 @@ move the editor toward a fully-featured multi-track NLE:
   multiple clips stack into as many rows as needed), each block selectable + draggable to retime +
   right-click Delete; color by kind (green = music, orange = voiceover).
 
+**Timeline multi-selection + full mouse model: SHIPPED 2026-06-25.** Audited the timeline against
+the HIG / NLE mouse conventions and filled every gap so all element kinds (clips, titles, audio)
+are selectable + manipulable by mouse:
+- **Multi-selection** is a `Set<UUID>` (`EditorModel.selectedIDs`) spanning all element kinds; the
+  `Selection` enum stays the PRIMARY (the inspector's focus). **⌘-click** toggles an element in/out,
+  **⇧-click** extends, **⌘A** selects all, **Esc / click-empty** clears.
+- **Rubber-band marquee**: click-drag in empty timeline space draws an accent rectangle and selects
+  every clip/title/audio block it intersects (⌘/⇧ adds to the existing selection). The band draws
+  live (no model churn) and commits on mouse-up. A plain click in empty space clears + seeks; the
+  RULER band still scrubs the playhead on drag.
+- **Multi-drag**: dragging any selected FREE element (title or audio) moves the WHOLE selection of
+  free elements together by the same Δt (origins captured at mouse-down, one rebuild per move).
+  Magnetic video clips reorder individually (Rule 7c magnetic track — they have no free time
+  position). A plain click on a selected member collapses to just it (the standard click-vs-drag
+  disambiguation).
+- **Delete** (⌫ or right-click) removes the entire multi-selection in one undo step; right-click on
+  a selected group offers "Delete N Items"; titles + audio gained their own right-click Delete (was
+  clips-only). The inspector shows an "N items selected · Delete N" banner above the focused editor.
+
 ---
 
 *Amend, don't contradict. New views/features quote the rule they satisfy or the amendment

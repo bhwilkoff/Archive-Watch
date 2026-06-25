@@ -29,11 +29,11 @@ struct ClipTimelineView: NSViewRepresentable {
     func updateNSView(_ scroll: NSScrollView, context: Context) {
         // Reading these makes SwiftUI re-call updateNSView when they change (observation).
         let state = TimelineContentView.State(
-            clips: model.clips, pps: model.pointsPerSecond, selectedID: model.selectedClipID,
+            clips: model.clips, pps: model.pointsPerSecond, selectedIDs: model.selectedIDs,
+            primaryID: model.selection.id,
             playhead: model.playheadSeconds, thumbnails: model.thumbnails,
             totalDuration: model.totalDuration, prep: model.clipPrep, markers: model.markers,
-            overlays: model.textOverlays, audioClips: model.audioClips,
-            selectedOverlayID: model.selectedOverlayID, selectedAudioID: model.selectedAudioID)
+            overlays: model.textOverlays, audioClips: model.audioClips)
         context.coordinator.content?.render(state)
     }
 
@@ -45,7 +45,8 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
     struct State {
         let clips: [TimelineClip]
         let pps: Double
-        let selectedID: UUID?
+        var selectedIDs: Set<UUID> = []      // the full multi-selection (clips + overlays + audio)
+        var primaryID: UUID? = nil           // the focused element (brighter ring + trim handles)
         let playhead: Double
         let thumbnails: [UUID: [CGImage]]
         let totalDuration: Double
@@ -53,12 +54,10 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
         let markers: [Double]
         var overlays: [TextOverlay] = []
         var audioClips: [AudioClip] = []
-        var selectedOverlayID: UUID? = nil
-        var selectedAudioID: UUID? = nil
     }
 
     private let model: EditorModel
-    private var state = State(clips: [], pps: 60, selectedID: nil, playhead: 0, thumbnails: [:], totalDuration: 0, prep: [:], markers: [])
+    private var state = State(clips: [], pps: 60, playhead: 0, thumbnails: [:], totalDuration: 0, prep: [:], markers: [])
     private var playheadLayer: CALayer?
     private var lastStructuralSig = 0
 
@@ -100,21 +99,30 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
 
     // Drag state
     private enum Drag {
-        case none, scrub
+        case none, scrub, marquee
         case trimLeft(UUID), trimRight(UUID), move(UUID)
         case fadeIn(UUID), fadeOut(UUID), transition(UUID)
-        case moveOverlay(UUID), moveAudio(UUID)            // lane blocks (titles / audio)
+        case moveOverlay(UUID), moveAudio(UUID)            // single lane block (titles / audio)
+        case moveSelection(UUID)                           // multi-move all selected FREE elements
     }
     private var drag: Drag = .none
     private var dragStartX: CGFloat = 0
-    private var dragStartValue: Double = 0      // fade/transition seconds at mouseDown (delta drags)
+    private var dragStartValue: Double = 0      // fade/transition seconds (or grab offset) at mouseDown
     private var dragMoved = false
     private var pendingCheckpoint = false       // record ONE undo step on the first drag move
     private var lastDragP: NSPoint = .zero       // latest drag position (committed on mouseUp)
     private var lastEditDragTime: CFTimeInterval = 0   // throttle clock for edit drags
     private var contextClipID: UUID?
     private var contextAudioID: UUID?
+    private var contextOverlayID: UUID?
     private var contextSeconds: Double = 0
+    // Multi-selection drag + marquee
+    private var marqueeStart: NSPoint = .zero
+    private var marqueeAdditive = false
+    private var marqueeLayer: CALayer?
+    private var dragOrigins: [UUID: Double] = [:]   // selected free elements' original starts
+    private var dragAnchorOrigin: Double = 0        // the grabbed element's original start
+    private var clickToCollapse: UUID?              // click (no drag) on a multi-selected member → select only it
 
     init(model: EditorModel) {
         self.model = model
@@ -144,14 +152,13 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
 
     private func structuralSignature(_ s: State) -> Int {
         var h = Hasher()
-        h.combine(s.pps); h.combine(s.selectedID); h.combine(s.totalDuration)
+        for id in s.selectedIDs { h.combine(id) }; h.combine(s.primaryID); h.combine(s.pps); h.combine(s.totalDuration)
         for c in s.clips {
             h.combine(c.id); h.combine(c.timelineStart.value); h.combine(c.sourceRange.duration.value)
             h.combine(c.fadeInSeconds); h.combine(c.fadeOutSeconds); h.combine(c.transitionInSeconds)
         }
         for m in s.markers { h.combine(m) }
-        h.combine(s.selectedOverlayID); h.combine(s.selectedAudioID)
-        for o in s.overlays { h.combine(o.id); h.combine(o.timelineRange.start.value)
+                for o in s.overlays { h.combine(o.id); h.combine(o.timelineRange.start.value)
             h.combine(o.timelineRange.duration.value); h.combine(o.text) }
         for a in s.audioClips { h.combine(a.id); h.combine(a.startSeconds)
             h.combine(a.sourceDuration); h.combine(a.displayName); h.combine(a.kind) }
@@ -204,8 +211,8 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
             container.backgroundColor = NSColor(white: 0.16, alpha: 1).cgColor
             container.cornerRadius = 6
             container.masksToBounds = true
-            container.borderWidth = clip.id == state.selectedID ? 2 : 1
-            container.borderColor = (clip.id == state.selectedID
+            container.borderWidth = state.selectedIDs.contains(clip.id) ? 2 : 1
+            container.borderColor = (state.selectedIDs.contains(clip.id)
                 ? NSColor.controlAccentColor : NSColor(white: 0.3, alpha: 1)).cgColor
 
             if let thumbs = state.thumbnails[clip.id], !thumbs.isEmpty {
@@ -250,7 +257,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
             for hx in [CGFloat(0), cw - handleW] {
                 let h = CALayer()
                 h.frame = CGRect(x: hx, y: fadeBandH, width: handleW, height: trackH - fadeBandH)
-                let on = clip.id == state.selectedID
+                let on = state.selectedIDs.contains(clip.id)
                 h.backgroundColor = (on ? NSColor.controlAccentColor : NSColor(white: 0.5, alpha: 0.6)).cgColor
                 container.addSublayer(h)
             }
@@ -278,7 +285,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
         for ov in state.overlays {
             layer.addSublayer(laneBlock(x: x(ov.timelineRange.start.seconds), y: titleTop,
                 w: max(6, x(ov.timelineRange.duration.seconds)),
-                fill: NSColor.systemIndigo, selected: ov.id == state.selectedOverlayID,
+                fill: NSColor.systemIndigo, selected: state.selectedIDs.contains(ov.id),
                 text: ov.text.isEmpty ? "Text" : ov.text))
         }
         let lanes = packedAudioLanes()
@@ -292,7 +299,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
                     layer.addSublayer(laneBlock(x: x(c.startSeconds), y: y,
                         w: max(6, x(audioBlockDuration(c))),
                         fill: c.kind == .music ? NSColor.systemGreen : NSColor.systemOrange,
-                        selected: c.id == state.selectedAudioID, text: c.displayName))
+                        selected: state.selectedIDs.contains(c.id), text: c.displayName))
                 }
             }
         }
@@ -446,42 +453,85 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
 
     private func clip(_ id: UUID) -> TimelineClip? { state.clips.first { $0.id == id } }
 
+    /// The element id a drag region refers to (nil for scrub/marquee/empty).
+    private func elementID(of d: Drag) -> UUID? {
+        switch d {
+        case .trimLeft(let i), .trimRight(let i), .move(let i), .fadeIn(let i), .fadeOut(let i),
+             .transition(let i), .moveOverlay(let i), .moveAudio(let i), .moveSelection(let i): return i
+        case .none, .scrub, .marquee: return nil
+        }
+    }
+    /// A FREE element's start time on the timeline (overlay / audio); nil for a magnetic clip.
+    private func freeStart(of id: UUID) -> Double? {
+        if let o = state.overlays.first(where: { $0.id == id }) { return o.timelineRange.start.seconds }
+        if let a = state.audioClips.first(where: { $0.id == id }) { return a.startSeconds }
+        return nil
+    }
+
     override func mouseDown(with event: NSEvent) {
         window?.makeFirstResponder(self)
         let p = convert(event.locationInWindow, from: nil)
-        dragStartX = p.x; dragMoved = false
+        dragStartX = p.x; dragMoved = false; clickToCollapse = nil
+        let cmd = event.modifierFlags.contains(.command)
+        let shift = event.modifierFlags.contains(.shift)
+
+        // The ruler band drives the playhead (drag to scrub), independent of selection.
+        if p.y < rulerH { drag = .scrub; model.seek(toSeconds: snapSeconds(p.x)); return }
+
         let h = hit(at: p)
-        // Select the involved clip.
+        let hitID = elementID(of: h)
+
+        // ⌘-click toggles, ⇧-click extends — no drag, no scrub.
+        if let id = hitID {
+            if cmd { model.toggleSelected(id); drag = .none; return }
+            if shift { model.addSelected(id); drag = .none; return }
+        }
+
         switch h {
-        case .trimLeft(let id), .trimRight(let id), .move(let id),
-             .fadeIn(let id), .fadeOut(let id), .transition(let id):
-            model.selection = .clip(id)
+        case .none:
+            // Empty area → rubber-band marquee on drag, clear-selection + seek on a plain click.
+            marqueeStart = p; marqueeAdditive = cmd || shift; drag = .marquee
+        case .trimLeft(let id), .trimRight(let id), .fadeIn(let id), .fadeOut(let id), .transition(let id):
+            model.selectOnly(id)
             if case .failed = state.prep[id] { model.retryClip(id); drag = .none; return }
-        default: break
-        }
-        switch h {
-        case .fadeIn(let id):     dragStartValue = clip(id)?.fadeInSeconds ?? 0
-        case .fadeOut(let id):    dragStartValue = clip(id)?.fadeOutSeconds ?? 0
-        case .transition(let id): dragStartValue = clip(id)?.transitionInSeconds ?? 0
-        case .moveOverlay(let id):
-            model.selection = .overlay(id)
-            if let ov = state.overlays.first(where: { $0.id == id }) {
-                let t = model.playheadSeconds
-                // Seek into the overlay's range so the program monitor actually SHOWS it (you can
-                // only drag the text on screen while it's rendered) — fixes "only works while playing".
-                if t < ov.timelineRange.start.seconds || t > ov.timelineRange.endSeconds {
-                    model.seek(toSeconds: ov.timelineRange.start.seconds + 0.1)
-                }
-                dragStartValue = seconds(p.x) - ov.timelineRange.start.seconds
+            switch h {
+            case .fadeIn(let i):     dragStartValue = clip(i)?.fadeInSeconds ?? 0
+            case .fadeOut(let i):    dragStartValue = clip(i)?.fadeOutSeconds ?? 0
+            case .transition(let i): dragStartValue = clip(i)?.transitionInSeconds ?? 0
+            default: break
             }
-        case .moveAudio(let id):
-            model.selection = .audio(id)
-            dragStartValue = seconds(p.x) - (state.audioClips.first { $0.id == id }?.startSeconds ?? 0)
-        case .none:               drag = .scrub; model.seek(toSeconds: snapSeconds(p.x)); return
+            drag = h; pendingCheckpoint = true
+        case .move(let id):
+            // Magnetic clip — single reorder. If it's part of a multi-selection, keep the set
+            // (drag reorders this clip); a plain click with no drag collapses to just it.
+            if model.selectedIDs.contains(id) { clickToCollapse = id } else { model.selectOnly(id) }
+            drag = h; pendingCheckpoint = true
+        case .moveOverlay(let id), .moveAudio(let id):
+            if model.selectedIDs.contains(id) && model.selectedIDs.count > 1 {
+                // Drag the WHOLE selection (all free elements) together.
+                dragOrigins = Dictionary(uniqueKeysWithValues: model.selectedIDs.compactMap { i in
+                    freeStart(of: i).map { (i, $0) } })
+                dragAnchorOrigin = freeStart(of: id) ?? seconds(p.x)
+                dragStartValue = seconds(p.x) - dragAnchorOrigin   // grab offset
+                clickToCollapse = id
+                drag = .moveSelection(id); pendingCheckpoint = true
+            } else {
+                model.selectOnly(id)
+                if case .moveOverlay = h, let ov = state.overlays.first(where: { $0.id == id }) {
+                    let t = model.playheadSeconds
+                    // Seek into the overlay's range so the program monitor SHOWS it (you can only
+                    // drag the text on screen while it's rendered).
+                    if t < ov.timelineRange.start.seconds || t > ov.timelineRange.endSeconds {
+                        model.seek(toSeconds: ov.timelineRange.start.seconds + 0.1)
+                    }
+                    dragStartValue = seconds(p.x) - ov.timelineRange.start.seconds
+                } else {
+                    dragStartValue = seconds(p.x) - (state.audioClips.first { $0.id == id }?.startSeconds ?? 0)
+                }
+                drag = h; pendingCheckpoint = true
+            }
         default: break
         }
-        pendingCheckpoint = true     // an editing drag — record undo on the first actual move
-        drag = h
     }
 
     override func mouseDragged(with event: NSEvent) {
@@ -491,11 +541,61 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
         // (trim / fade / move / lanes) each mutate the model → a full timeline rebuild, so coalesce
         // them to ~30fps — a trackpad fires 120+ events/sec and the pile-up is the "laggy" feel.
         if case .scrub = drag { applyDrag(p); return }
+        // Marquee: draw the rubber band live (no model change → no rebuild → the band persists);
+        // the selection itself is committed on mouseUp.
+        if case .marquee = drag {
+            if abs(p.x - marqueeStart.x) > 3 || abs(p.y - marqueeStart.y) > 3 { dragMoved = true }
+            drawMarquee(to: p); return
+        }
         let now = CACurrentMediaTime()
         guard now - lastEditDragTime >= 0.033 else { return }
         lastEditDragTime = now
         if pendingCheckpoint { model.checkpoint(); pendingCheckpoint = false }   // one undo step per drag
         applyDrag(p)
+    }
+
+    // MARK: marquee (rubber-band selection)
+
+    private func marqueeRect(to p: NSPoint) -> CGRect {
+        CGRect(x: min(marqueeStart.x, p.x), y: min(marqueeStart.y, p.y),
+               width: abs(p.x - marqueeStart.x), height: abs(p.y - marqueeStart.y))
+    }
+    private func drawMarquee(to p: NSPoint) {
+        if marqueeLayer == nil {
+            let l = CALayer()
+            l.borderColor = NSColor.controlAccentColor.cgColor
+            l.borderWidth = 1
+            l.backgroundColor = NSColor.controlAccentColor.withAlphaComponent(0.12).cgColor
+            layer?.addSublayer(l); marqueeLayer = l
+        }
+        CATransaction.begin(); CATransaction.setDisableActions(true)
+        marqueeLayer?.frame = marqueeRect(to: p)
+        CATransaction.commit()
+    }
+    /// Every element (clip / overlay / audio) whose on-screen rect intersects the marquee.
+    private func marqueeHits(_ r: CGRect) -> Set<UUID> {
+        var ids = Set<UUID>()
+        for c in state.clips {
+            let cr = CGRect(x: x(c.timelineStart.seconds), y: trackTop,
+                            width: max(2, x(c.sourceRange.duration.seconds)), height: trackH)
+            if cr.intersects(r) { ids.insert(c.id) }
+        }
+        for o in state.overlays {
+            let orr = CGRect(x: x(o.timelineRange.start.seconds), y: titleTop,
+                             width: max(2, x(o.timelineRange.duration.seconds)), height: laneH)
+            if orr.intersects(r) { ids.insert(o.id) }
+        }
+        for (li, laneClips) in packedAudioLanes().enumerated() {
+            let y = audioLaneY(li)
+            for c in laneClips {
+                let ar = CGRect(x: x(c.startSeconds), y: y, width: max(2, x(audioBlockDuration(c))), height: laneH)
+                if ar.intersects(r) { ids.insert(c.id) }
+            }
+        }
+        return ids
+    }
+    private func endMarquee() {
+        marqueeLayer?.removeFromSuperlayer(); marqueeLayer = nil
     }
 
     private func applyDrag(_ p: NSPoint) {
@@ -533,7 +633,13 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
             model.setOverlayStart(id, seconds: max(0, model.snap(seconds(p.x) - dragStartValue)))
         case .moveAudio(let id):
             model.setAudioStart(id, max(0, model.snap(seconds(p.x) - dragStartValue)))
-        case .none: break
+        case .moveSelection:
+            if !dragMoved && abs(p.x - dragStartX) < 4 { return }
+            dragMoved = true
+            // Move every selected FREE element by the same Δt (anchored on the grabbed one).
+            let desiredAnchor = max(0, model.snap(seconds(p.x) - dragStartValue))
+            model.moveSelectedFreeElements(byDelta: desiredAnchor - dragAnchorOrigin, origins: dragOrigins)
+        case .marquee, .none: break
         }
     }
 
@@ -541,14 +647,24 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
     private func snapSeconds(_ px: CGFloat) -> Double { model.snap(seconds(px)) }
 
     override func mouseUp(with event: NSEvent) {
+        // Marquee: commit the selection (rubber band → intersecting elements), or — if it never
+        // moved — treat as a plain click in empty space: clear the selection + seek there.
+        if case .marquee = drag {
+            if dragMoved { model.setSelectedIDs(marqueeHits(marqueeRect(to: lastDragP)), additive: marqueeAdditive) }
+            else { model.clearSelection(); model.seek(toSeconds: snapSeconds(dragStartX)) }
+            endMarquee(); drag = .none; return
+        }
         // Land exactly where released — coalescing may have skipped the final move.
         switch drag {
         case .none, .scrub: break
-        case .move where !dragMoved: break        // a click-select, not a move
+        case .move where !dragMoved: break              // a click-select, not a move
+        case .moveSelection where !dragMoved: break     // a click on a selected member, not a move
         default: applyDrag(lastDragP)
         }
+        // A plain click (no drag) on a member of a multi-selection collapses to just that element.
+        if !dragMoved, let id = clickToCollapse { model.selectOnly(id) }
         if case .move = drag, !dragMoved { model.seek(toSeconds: snapSeconds(dragStartX)) }
-        drag = .none
+        drag = .none; clickToCollapse = nil
     }
 
     // MARK: right-click context menu
@@ -556,12 +672,29 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
     override func menu(for event: NSEvent) -> NSMenu? {
         let p = convert(event.locationInWindow, from: nil)
         let h = hit(at: p)
+        // If the right-click lands on a member of a MULTI-selection, offer a bulk "Delete N items".
+        if let hid = elementID(of: h), model.selectedIDs.contains(hid), model.selectedIDs.count > 1 {
+            let m = NSMenu()
+            let del = NSMenuItem(title: "Delete \(model.selectedIDs.count) Items",
+                                 action: #selector(ctxDeleteSelection), keyEquivalent: "")
+            del.target = self; m.addItem(del)
+            return m
+        }
         // Audio clip right-click: select it + a Delete item (its full edit set lives in the inspector).
         if case .moveAudio(let aid) = h, let a = state.audioClips.first(where: { $0.id == aid }) {
-            model.selection = .audio(aid)
+            model.selectOnly(aid)
             contextAudioID = aid
             let m = NSMenu()
             let del = NSMenuItem(title: "Delete \(a.kind.label)", action: #selector(ctxDeleteAudio), keyEquivalent: "")
+            del.target = self; m.addItem(del)
+            return m
+        }
+        // Text overlay right-click: select it + Delete (its full edit set lives in the inspector).
+        if case .moveOverlay(let oid) = h {
+            model.selectOnly(oid)
+            contextOverlayID = oid
+            let m = NSMenu()
+            let del = NSMenuItem(title: "Delete Title", action: #selector(ctxDeleteOverlay), keyEquivalent: "")
             del.target = self; m.addItem(del)
             return m
         }
@@ -571,7 +704,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
         default: id = nil
         }
         guard let id, let c = clip(id) else { return nil }
-        model.selection = .clip(id)
+        model.selectOnly(id)
         contextClipID = id; contextSeconds = seconds(p.x)
         let menu = NSMenu()
         func add(_ title: String, _ sel: Selector) {
@@ -591,6 +724,8 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
     @objc private func ctxDuplicate() { if let id = contextClipID { model.duplicateClip(id) } }
     @objc private func ctxDelete() { if let id = contextClipID { model.deleteClip(id) } }
     @objc private func ctxDeleteAudio() { if let id = contextAudioID { model.removeAudio(id) } }
+    @objc private func ctxDeleteOverlay() { if let id = contextOverlayID { model.deleteOverlay(id) } }
+    @objc private func ctxDeleteSelection() { model.deleteSelection() }
     @objc private func ctxClearFades() { if let id = contextClipID { model.checkpoint(); model.setClipFade(id, fadeIn: 0, fadeOut: 0) } }
     @objc private func ctxClearTransition() { if let id = contextClipID { model.checkpoint(); model.setClipTransition(id, 0) } }
     @objc private func ctxMute() {
@@ -634,34 +769,29 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
         switch hit(at: convert(event.locationInWindow, from: nil)) {
         case .trimLeft, .trimRight:                       NSCursor.resizeLeftRight.set()
         case .fadeIn, .fadeOut, .transition:              NSCursor.pointingHand.set()
-        case .move, .moveOverlay, .moveAudio: NSCursor.openHand.set()
+        case .move, .moveOverlay, .moveAudio, .moveSelection: NSCursor.openHand.set()
         default:                                          NSCursor.arrow.set()
         }
     }
     override func mouseExited(with event: NSEvent) { NSCursor.arrow.set() }
 
     override func keyDown(with event: NSEvent) {
+        // ⌘A select all (every clip + title + audio).
+        if event.modifierFlags.contains(.command), event.charactersIgnoringModifiers == "a" {
+            model.selectAll(); return
+        }
         switch event.charactersIgnoringModifiers {
         case " ": model.togglePlay()
         case "b", "B": model.splitAtPlayhead()
         case "m", "M": model.toggleMarkerAtPlayhead()
         case ",": model.goToMarker(forward: false)
         case ".": model.goToMarker(forward: true)
+        case "\u{1B}": model.clearSelection()              // Esc deselects
         case String(UnicodeScalar(NSDeleteCharacter)!), String(UnicodeScalar(NSBackspaceCharacter)!):
-            deleteSelection()
+            model.deleteSelection()                        // deletes the WHOLE multi-selection
         default:
-            if event.keyCode == 51 { deleteSelection() }
+            if event.keyCode == 51 { model.deleteSelection() }
             else { super.keyDown(with: event) }
-        }
-    }
-
-    /// Delete whatever is selected — the video clip, the text overlay, or the audio clip.
-    private func deleteSelection() {
-        switch model.selection {
-        case .clip(let id):    model.deleteClip(id)
-        case .overlay(let id): model.deleteOverlay(id)
-        case .audio(let id):   model.removeAudio(id)
-        case .none:            break
         }
     }
 }

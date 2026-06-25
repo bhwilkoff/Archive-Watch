@@ -20,14 +20,89 @@ final class EditorModel {
     var playheadSeconds: Double = 0
     var isPlaying = false
 
-    /// What the inspector edits. ONE selection across all timeline element kinds (video clip,
-    /// text overlay, audio clip) — the inspector is purely selection-driven (no kitchen-sink
-    /// global panel). `.none` selects the project itself (canvas / frame rate / attribution).
+    /// What the inspector edits — the PRIMARY (focused) element. `.none` = the project itself.
+    /// Multi-selection (⌘/⇧-click, marquee) lives in `selectedIDs`; `selection` is the primary the
+    /// inspector shows (the most-recently-touched member).
     enum Selection: Equatable, Hashable {
         case none, clip(UUID), overlay(UUID), audio(UUID)
+        var id: UUID? { switch self { case .clip(let i), .overlay(let i), .audio(let i): return i; case .none: return nil } }
     }
     var selection: Selection = .none
-    func select(_ s: Selection) { selection = s }
+    /// The FULL multi-selection set (UUIDs across clips/overlays/audio — all globally unique). The
+    /// primary `selection` is always one of these (or `.none` when empty).
+    var selectedIDs: Set<UUID> = []
+
+    /// Resolve an id to its element kind (which array holds it).
+    func kindOf(_ id: UUID) -> Selection {
+        if clips.contains(where: { $0.id == id }) { return .clip(id) }
+        if textOverlays.contains(where: { $0.id == id }) { return .overlay(id) }
+        if audioClips.contains(where: { $0.id == id }) { return .audio(id) }
+        return .none
+    }
+    /// Single-select (replaces the whole selection) — also the path `addClip`/etc. use.
+    func select(_ s: Selection) { selection = s; selectedIDs = s.id.map { [$0] } ?? [] }
+    func selectOnly(_ id: UUID) { selectedIDs = [id]; selection = kindOf(id) }
+    /// ⌘-click: toggle one element in/out of the selection.
+    func toggleSelected(_ id: UUID) {
+        if selectedIDs.contains(id) {
+            selectedIDs.remove(id)
+            if selection.id == id { selection = selectedIDs.first.map { kindOf($0) } ?? .none }
+        } else { selectedIDs.insert(id); selection = kindOf(id) }
+    }
+    /// ⇧-click: add to the selection without removing.
+    func addSelected(_ id: UUID) { selectedIDs.insert(id); selection = kindOf(id) }
+    /// Marquee result — replace (or add when additive).
+    func setSelectedIDs(_ ids: Set<UUID>, additive: Bool) {
+        selectedIDs = additive ? selectedIDs.union(ids) : ids
+        if let p = selection.id, selectedIDs.contains(p) { /* keep primary */ }
+        else { selection = selectedIDs.first.map { kindOf($0) } ?? .none }
+    }
+    func clearSelection() { selectedIDs = []; selection = .none }
+    func selectAll() {
+        selectedIDs = Set(clips.map(\.id) + textOverlays.map(\.id) + audioClips.map(\.id))
+        selection = selectedIDs.first.map { kindOf($0) } ?? .none
+    }
+    /// Delete every selected element (clips, overlays, audio), as one undo step.
+    func deleteSelection() {
+        guard !selectedIDs.isEmpty else { return }
+        checkpoint()
+        let ids = selectedIDs
+        for id in ids {
+            switch kindOf(id) {
+            case .overlay: document.project.timeline.textOverlays.removeAll { $0.id == id }
+            case .audio:
+                if let i = audioIndex(id) {
+                    try? FileManager.default.removeItem(at: ProjectMediaCache.directory
+                        .appendingPathComponent(document.project.timeline.audioClips[i].fileName))
+                    document.project.timeline.audioClips.remove(at: i)
+                }
+            case .clip: document.project.timeline.clips.removeAll { $0.id == id }
+            case .none: break
+            }
+        }
+        clearSelection()
+        relayout(); scheduleRebuild()
+    }
+    /// Multi-drag: set each selected FREE element (text overlay / audio clip) to its captured
+    /// origin start + `delta`, in ONE rebuild. Magnetic video clips have no free time position, so
+    /// they're not part of a time-delta drag (they reorder individually).
+    func moveSelectedFreeElements(byDelta delta: Double, origins: [UUID: Double]) {
+        for (id, origin) in origins {
+            let target = max(0, origin + delta)
+            switch kindOf(id) {
+            case .overlay:
+                if let i = document.project.timeline.textOverlays.firstIndex(where: { $0.id == id }) {
+                    let dur = document.project.timeline.textOverlays[i].timelineRange.duration.seconds
+                    document.project.timeline.textOverlays[i].timelineRange =
+                        TimeRange(startSeconds: target, durationSeconds: dur)
+                }
+            case .audio:
+                if let i = audioIndex(id) { document.project.timeline.audioClips[i].startSeconds = target }
+            default: break
+            }
+        }
+        scheduleRebuild()
+    }
     var selectedClipID: UUID? { if case .clip(let id) = selection { return id }; return nil }
     var selectedOverlayID: UUID? { if case .overlay(let id) = selection { return id }; return nil }
     var selectedAudioID: UUID? { if case .audio(let id) = selection { return id }; return nil }

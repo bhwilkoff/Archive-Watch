@@ -542,6 +542,17 @@ private struct ProjectInspector: View {
 
     var body: some View {
         Form {
+            // Multi-selection banner — bulk delete; the focused element's editor stays below so you
+            // can still tweak it (HIG: a multi-selection shows a count + the common action).
+            if model.selectedIDs.count > 1 {
+                Section {
+                    Button("Delete \(model.selectedIDs.count) Items", systemImage: "trash", role: .destructive) {
+                        model.deleteSelection()
+                    }
+                } header: {
+                    Label("\(model.selectedIDs.count) items selected", systemImage: "checklist")
+                }
+            }
             switch model.selection {
             case .overlay(let id):
                 if let ov = model.textOverlays.first(where: { $0.id == id }) {
