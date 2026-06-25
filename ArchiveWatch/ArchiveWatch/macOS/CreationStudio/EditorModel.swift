@@ -955,7 +955,14 @@ final class EditorModel {
 
     /// Snap a dragged timeline second to a nearby edit point (clip edges, markers, playhead, 0)
     /// when within `tolerancePoints` on screen. Returns the snapped seconds (or the input).
-    func snap(_ seconds: Double, excluding excludeID: UUID? = nil, tolerancePoints: Double = 8) -> Double {
+    ///
+    /// `excludingNear` drops any target sitting on a given position (within tolerance). A trim
+    /// handle STARTS ON a clip edge — the left handle's rest position IS the previous clip's end —
+    /// so without this it snaps right back to that edge on every small move, making the beginning
+    /// of a clip impossible to fine-tune (the "sticky left-trim"). Excluding the rest position keeps
+    /// snapping to edges you drag TOWARD while freeing the handle from the one it sits on.
+    func snap(_ seconds: Double, excluding excludeID: UUID? = nil, tolerancePoints: Double = 8,
+              excludingNear rest: Double? = nil) -> Double {
         let tol = tolerancePoints / max(1, pointsPerSecond)
         var best = seconds, bestD = tol
         var stops: [Double] = markers + [0, playheadSeconds]
@@ -964,6 +971,7 @@ final class EditorModel {
             stops.append(c.timelineRange.endSeconds)
         }
         for s in stops where abs(s - seconds) < bestD {
+            if let rest, abs(s - rest) < tol { continue }   // skip the edge the handle rests on
             best = s; bestD = abs(s - seconds)
         }
         return best

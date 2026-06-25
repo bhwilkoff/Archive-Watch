@@ -108,6 +108,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
     private var drag: Drag = .none
     private var dragStartX: CGFloat = 0
     private var dragStartValue: Double = 0      // fade/transition seconds (or grab offset) at mouseDown
+    private var trimRestSeconds: Double = 0     // the timeline edge a trim handle started ON (snap-exclude it)
     private var dragMoved = false
     private var pendingCheckpoint = false       // record ONE undo step on the first drag move
     private var lastDragP: NSPoint = .zero       // latest drag position (committed on mouseUp)
@@ -502,7 +503,15 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
             // the already-trimmed live value — without this, trimLeft re-added (cursor − clipStart)
             // to an in-point that had ALREADY moved each frame, so it accelerated/stuck even when
             // the cursor was still (the asymmetry vs trimRight, whose `in` never moves). (#10)
-            case .trimLeft(let i), .trimRight(let i): dragStartValue = clip(i)?.sourceRange.start.seconds ?? 0
+            // Also capture the timeline edge the handle STARTS ON so snapping won't yank it back to
+            // that edge — the left handle rests on the previous clip's end, which was the real
+            // "sticky" cause that made the beginning of a clip impossible to fine-tune.
+            case .trimLeft(let i):
+                dragStartValue = clip(i)?.sourceRange.start.seconds ?? 0
+                trimRestSeconds = clip(i)?.timelineStart.seconds ?? 0
+            case .trimRight(let i):
+                dragStartValue = clip(i)?.sourceRange.start.seconds ?? 0
+                trimRestSeconds = clip(i)?.timelineRange.endSeconds ?? 0
             default: break
             }
             drag = h; pendingCheckpoint = true
@@ -653,9 +662,12 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
 
     /// Scrub seconds with snapping to edit points (clip edges / markers / 0).
     private func snapSeconds(_ px: CGFloat) -> Double { model.snap(seconds(px)) }
-    /// Trim snapping — snaps to OTHER clips' edges but never this clip's own (which sit right under
-    /// the trim handle and would otherwise make the edge feel sticky).
-    private func snapTrim(_ px: CGFloat, _ id: UUID) -> Double { model.snap(seconds(px), excluding: id) }
+    /// Trim snapping — snaps to OTHER clips' edges / markers / playhead you drag TOWARD, but never
+    /// this clip's own edges (excluding: id) nor the edge the handle STARTED on (excludingNear:),
+    /// which sits right under the handle and otherwise snaps back on every small move (sticky).
+    private func snapTrim(_ px: CGFloat, _ id: UUID) -> Double {
+        model.snap(seconds(px), excluding: id, excludingNear: trimRestSeconds)
+    }
 
     override func mouseUp(with event: NSEvent) {
         // Marquee: commit the selection (rubber band → intersecting elements), or — if it never
