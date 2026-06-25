@@ -52,6 +52,7 @@ struct ClipBrowserSheet: View {
     private static let types: [(String, String?)] = [
         ("All Types", nil), ("Films", "feature-film"), ("Shorts", "short-film"),
         ("Documentary", "documentary"), ("Animation", "animation"), ("Newsreel", "newsreel"),
+        ("TV Episodes", "tv-episode"),   // first-class episode items (Decision 045) are clippable
     ]
     private let cols = [GridItem(.adaptive(minimum: 150, maximum: 200), spacing: 14)]
 

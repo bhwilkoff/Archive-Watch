@@ -557,6 +557,7 @@ private struct ProjectInspector: View {
                     Label("\(model.selectedIDs.count) items selected", systemImage: "checklist")
                 }
             }
+            // The SELECTION editor (if anything is selected).
             switch model.selection {
             case .overlay(let id):
                 if let ov = model.textOverlays.first(where: { $0.id == id }) {
@@ -564,14 +565,18 @@ private struct ProjectInspector: View {
                         overlay: Binding(get: { model.textOverlays.first(where: { $0.id == id }) ?? ov },
                                          set: { model.updateOverlay($0) }),
                         onDelete: { model.deleteOverlay(id) })
-                } else { projectSettings }
+                }
             case .clip:
-                if let clip = model.selectedClip { clipInspector(clip) } else { projectSettings }
+                if let clip = model.selectedClip { clipInspector(clip) }
             case .audio:
-                if let a = model.selectedAudio { audioInspector(a) } else { projectSettings }
+                if let a = model.selectedAudio { audioInspector(a) }
             case .none:
-                projectSettings
+                EmptyView()
             }
+            // The PROJECT settings are ALWAYS available (owner ask: global project info —
+            // canvas, frame rate, burned-in attribution — was only reachable with nothing
+            // selected). A collapsible group so it never crowds the selection editor.
+            projectSettings
         }
         .formStyle(.grouped)
     }
@@ -644,7 +649,7 @@ private struct ProjectInspector: View {
     // MARK: No selection — the PROJECT itself (canvas / frame rate / attribution), all editable
 
     @ViewBuilder private var projectSettings: some View {
-        Section("Canvas") {
+        Section {
             Picker("Aspect", selection: Binding(get: { model.matchedCanvasPreset },
                                                 set: { model.setRenderSize($0.size) })) {
                 ForEach(EditorModel.canvasPresets) { Text($0.name).tag($0) }
@@ -657,18 +662,22 @@ private struct ProjectInspector: View {
                                                     set: { model.setFrameRate(Double($0)) })) {
                 Text("24 fps").tag(24); Text("30 fps").tag(30); Text("60 fps").tag(60)
             }
+        } header: {
+            Label("Project · Canvas", systemImage: "rectangle.3.group")
         }
         Section {
             Toggle("Burn in attribution credit", isOn: $project.burnAttribution)
         } header: {
-            Text("Export")
+            Label("Project · Export", systemImage: "square.and.arrow.up")
         } footer: {
             Text("Adds a small “archivewatch.org · Public Domain” credit to the video. Turn off for a clean export.")
                 .font(.caption).foregroundStyle(.secondary)
         }
-        Section {
-            Text("Select a clip, title, or audio track to edit it here.")
-                .font(.caption).foregroundStyle(.secondary)
+        if case .none = model.selection {
+            Section {
+                Text("Select a clip, title, or audio track to edit it here — these project settings stay available no matter what’s selected.")
+                    .font(.caption).foregroundStyle(.secondary)
+            }
         }
     }
 

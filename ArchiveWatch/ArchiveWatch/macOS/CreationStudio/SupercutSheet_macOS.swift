@@ -26,7 +26,7 @@ struct SupercutSheet: View {
         dismiss()
     }
 
-    enum Mode: String, CaseIterable, Identifiable { case find = "Find clips", compose = "Compose a sentence"; var id: String { rawValue } }
+    enum Mode: String, CaseIterable, Identifiable { case find = "Phrase Finder", compose = "Supercut Search"; var id: String { rawValue } }
     @State private var mode: Mode = .find
 
     @State private var phrase = ""
@@ -192,7 +192,7 @@ struct SupercutSheet: View {
     @ViewBuilder private var composeResults: some View {
         if plan.isEmpty {
             ContentUnavailableView {
-                Label("Compose a sentence", systemImage: "quote.bubble")
+                Label("Supercut Search", systemImage: "quote.bubble")
             } description: {
                 Text("Type a line and the catalog will speak it back, word by word, using the fewest clips. Missing words become editable gaps you can fill.")
             }
@@ -255,9 +255,9 @@ struct SupercutSheet: View {
             Divider()
             VStack(alignment: .leading, spacing: 6) {
                 Toggle("Tighten each clip to the spoken word (on-device speech)", isOn: $tightenToWord)
-                if mode == .compose {
-                    Toggle("Even out the volume across clips", isOn: $evenVolume)
-                }
+                // Both options apply to both tabs (owner ask) — leveling matters as much
+                // when assembling found phrases as when composing a sentence.
+                Toggle("Even out the volume across clips", isOn: $evenVolume)
             }
             .toggleStyle(.checkbox).font(.callout)
             .padding(.horizontal, 20).padding(.vertical, 10)

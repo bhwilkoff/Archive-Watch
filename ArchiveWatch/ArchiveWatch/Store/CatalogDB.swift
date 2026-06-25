@@ -207,6 +207,10 @@ final class CatalogDB {
             // The TV Specials grid (TV tab): standalone specials/episodes that
             // aren't (yet) folded into a series spine. Surfaced ONLY here.
             where_.append("i.contentType = 'tv-special'")
+        } else if contentType == "tv-episode" {
+            // Episode items are first-class (Decision 045); requestable explicitly
+            // (the Clip Studio source browser) though never in general film browse.
+            where_.append("i.contentType = 'tv-episode'")
         } else {
             // TV never appears in Movies/general browse — neither series cards
             // NOR tv-specials (owner directive 2026-06-18: "TV shows should
@@ -320,6 +324,8 @@ final class CatalogDB {
             where_.append("i.hasRealArtwork = 1")   // match browseSQL's poster gate
         } else if contentType == "tv-special" {
             where_.append("i.contentType = 'tv-special'")
+        } else if contentType == "tv-episode" {
+            where_.append("i.contentType = 'tv-episode'")
         } else {
             where_.append("i.contentType NOT IN ('tv-series','tv-special','tv-episode')")
             if let contentType { where_.append("i.contentType = ?"); binds.append(contentType) }
