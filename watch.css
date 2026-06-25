@@ -589,3 +589,21 @@ dialog#player::backdrop { background: rgba(0, 0, 0, 0.85); }
 @media (min-width: 1100px) {
   .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
 }
+
+/* Episode search results (an "Episodes" section above the film grid). */
+#search-episodes { margin-bottom: 20px; }
+#search-episodes h2 { font-size: 1.1rem; margin: 8px 0; }
+.episode-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 6px 8px; border-radius: 8px;
+  color: inherit; text-decoration: none;
+}
+.episode-row:hover { background: rgba(255, 255, 255, 0.06); }
+.episode-still {
+  flex: 0 0 auto; width: 96px; height: 54px; border-radius: 6px;
+  overflow: hidden; background: #222; display: block;
+}
+.episode-still img { width: 100%; height: 100%; object-fit: cover; }
+.episode-meta { display: flex; flex-direction: column; min-width: 0; }
+.episode-meta strong { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.episode-meta span { font-size: 0.85rem; opacity: 0.65; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

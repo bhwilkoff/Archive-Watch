@@ -15,8 +15,21 @@
 
   const PAGES_ROOT = new URL('.', location.href);   // the site root (archivewatch.org/)
   const INDEX_URL = new URL('catalog-index.json', PAGES_ROOT);
+  const EPISODES_URL = new URL('episodes-index.json', PAGES_ROOT);
   const FEATURED_URL = new URL('featured.json', PAGES_ROOT);
   const PAGE_SIZE = 60;
+
+  // Individual TV episodes for Search (lazy — only fetched on the first search). Episodes aren't
+  // in catalog-index.json (they live in series/*.json), so this small index makes them searchable.
+  let _episodes = null;
+  async function loadEpisodes() {
+    if (_episodes !== null) return _episodes;
+    try {
+      const r = await fetch(EPISODES_URL);
+      _episodes = r.ok ? ((await r.json()).episodes || []) : [];
+    } catch { _episodes = []; }
+    return _episodes;
+  }
 
   /* ---------------------------------------------------------------- *
    * Tiny IndexedDB store: favorites + watch progress (offline-first)  *
@@ -718,9 +731,9 @@
       input.value = initial;
       this.run(initial);
     },
-    run(qs) {
+    async run(qs) {
       const grid = $('search-grid');
-      if (!qs) { grid.replaceChildren(); $('search-hint').hidden = false; return; }
+      if (!qs) { grid.replaceChildren(); this.renderEpisodes([], qs); $('search-hint').hidden = false; return; }
       $('search-hint').hidden = true;
       const terms = qs.toLowerCase().split(/\s+/).filter(Boolean);
       const hits = [];
@@ -731,12 +744,44 @@
           if (hits.length >= 200) break;
         }
       }
+      // Episodes (lazy index): match the episode title OR its series title.
+      const eps = await loadEpisodes();
+      const ehits = [];
+      for (const e of eps) {
+        const hay = ((e[4] || '') + ' ' + (e[1] || '')).toLowerCase();
+        if (terms.every(t => hay.includes(t))) { ehits.push(e); if (ehits.length >= 60) break; }
+      }
+      this.renderEpisodes(ehits, qs);
+
       fillGrid(grid, hits);
-      if (!hits.length) {
+      if (!hits.length && !ehits.length) {
         const p = document.createElement('p');
         p.className = 'muted';
         p.textContent = `Nothing matches “${qs}”.`;
         grid.append(p);
+      }
+    },
+
+    // The "Episodes" section above the film grid. Each row routes to its series page.
+    renderEpisodes(hits, qs) {
+      let sec = document.getElementById('search-episodes');
+      if (!sec) { sec = document.createElement('div'); sec.id = 'search-episodes'; $('search-grid').before(sec); }
+      sec.replaceChildren();
+      if (!hits.length) return;
+      const h = document.createElement('h2'); h.textContent = 'Episodes'; sec.append(h);
+      for (const [slug, series, season, episode, title, still] of hits) {
+        const a = document.createElement('a');
+        a.className = 'episode-row';
+        a.href = `#/series/${encodeURIComponent(slug)}`;
+        const thumb = document.createElement('span'); thumb.className = 'episode-still';
+        if (still) { const img = document.createElement('img'); img.loading = 'lazy'; img.alt = ''; img.src = still; thumb.append(img); }
+        const meta = document.createElement('div'); meta.className = 'episode-meta';
+        const t = document.createElement('strong'); t.textContent = title || 'Episode';
+        const num = (season != null && episode != null) ? `S${season} · E${episode}`
+          : (episode != null ? `Ep. ${episode}` : '');
+        const s = document.createElement('span'); s.textContent = [series, num].filter(Boolean).join(' · ');
+        meta.append(t, s); a.append(thumb, meta);
+        sec.append(a);
       }
     },
   };

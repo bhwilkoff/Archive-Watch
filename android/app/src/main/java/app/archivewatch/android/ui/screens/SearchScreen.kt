@@ -1,15 +1,23 @@
 package app.archivewatch.android.ui.screens
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.material.icons.Icons
@@ -31,13 +39,21 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
+import app.archivewatch.android.data.EpisodeHit
 import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.PosterTile
+import app.archivewatch.android.ui.Route
+import app.archivewatch.android.ui.theme.BrandSurface
+import coil3.compose.AsyncImage
 import kotlinx.coroutines.delay
 
 // Search filter vocabulary — the Browse facet types (iOS parity: the Search
@@ -55,6 +71,7 @@ fun SearchScreen(container: AppContainer, nav: Nav) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
     var query by remember { mutableStateOf("") }
     var results by remember { mutableStateOf<List<CatalogItem>>(emptyList()) }
+    var episodeHits by remember { mutableStateOf<List<EpisodeHit>>(emptyList()) }
     var searched by remember { mutableStateOf(false) }
     var typeFilter by remember { mutableStateOf<Pair<String, String>?>(null) }
     var decadeFilter by remember { mutableStateOf<Int?>(null) }
@@ -63,12 +80,14 @@ fun SearchScreen(container: AppContainer, nav: Nav) {
     LaunchedEffect(query, dbVersion) {
         if (query.isBlank()) {
             results = emptyList()
+            episodeHits = emptyList()
             searched = false
             return@LaunchedEffect
         }
         delay(180)
         val db = container.catalog.db ?: return@LaunchedEffect
         results = db.search(query)
+        episodeHits = db.searchEpisodes(query)
         searched = true
     }
 
@@ -76,6 +95,8 @@ fun SearchScreen(container: AppContainer, nav: Nav) {
         (typeFilter == null || item.contentType == typeFilter!!.second) &&
             (decadeFilter == null || item.decade == decadeFilter)
     }
+    // Episodes shown unless filtered to a non-TV type.
+    val showEpisodes = (typeFilter == null || typeFilter!!.second == "tv-series") && episodeHits.isNotEmpty()
 
     Surface(color = MaterialTheme.colorScheme.background, modifier = Modifier.fillMaxSize()) {
         Column(Modifier.fillMaxSize()) {
@@ -101,14 +122,28 @@ fun SearchScreen(container: AppContainer, nav: Nav) {
             }
             when {
                 query.isBlank() -> EmptyState("Search the whole archive — titles, directors, cast, genres.")
-                searched && results.isEmpty() -> EmptyState("No matches for “$query”.")
-                searched && filtered.isEmpty() -> EmptyState("No matches with these filters — clear one to widen the net.")
+                searched && results.isEmpty() && episodeHits.isEmpty() -> EmptyState("No matches for “$query”.")
+                searched && filtered.isEmpty() && !showEpisodes -> EmptyState("No matches with these filters — clear one to widen the net.")
                 else -> LazyVerticalGrid(
                     columns = GridCells.Adaptive(minSize = 110.dp),
                     contentPadding = PaddingValues(16.dp),
                     horizontalArrangement = Arrangement.spacedBy(10.dp),
                     verticalArrangement = Arrangement.spacedBy(14.dp),
                 ) {
+                    if (showEpisodes) {
+                        item(span = { GridItemSpan(maxLineSpan) }) {
+                            Text("Episodes", style = MaterialTheme.typography.titleLarge)
+                        }
+                        items(episodeHits, span = { GridItemSpan(maxLineSpan) },
+                              key = { "ep-" + it.archiveID + it.seriesID }) { hit ->
+                            EpisodeHitRow(hit) { nav.push(Route.Series(hit.seriesID)) }
+                        }
+                        if (filtered.isNotEmpty()) {
+                            item(span = { GridItemSpan(maxLineSpan) }) {
+                                Text("Films & Shows", style = MaterialTheme.typography.titleLarge)
+                            }
+                        }
+                    }
                     items(filtered, key = { it.archiveID }) { item ->
                         PosterTile(item, onClick = {
                             nav.openItem(item.archiveID, item.seriesID, item.contentType)
@@ -190,6 +225,44 @@ private fun FilterRow(
                     }
                 }
             }
+        }
+    }
+}
+
+/** One episode search hit: 16:9 still + episode title + "Series · S1·E2". Routes to its series. */
+@Composable
+private fun EpisodeHitRow(hit: EpisodeHit, onClick: () -> Unit) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick)
+            .padding(vertical = 6.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        AsyncImage(
+            model = hit.stillURL,
+            contentDescription = hit.title,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .size(width = 96.dp, height = 54.dp)
+                .clip(RoundedCornerShape(6.dp))
+                .background(BrandSurface),
+        )
+        Spacer(Modifier.width(12.dp))
+        Column(Modifier.weight(1f)) {
+            Text(
+                hit.title,
+                style = MaterialTheme.typography.bodyLarge,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+            Text(
+                listOfNotNull(hit.seriesTitle, hit.numberLabel).joinToString(" · "),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
         }
     }
 }

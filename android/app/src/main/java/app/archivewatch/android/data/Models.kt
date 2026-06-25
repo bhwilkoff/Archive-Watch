@@ -280,3 +280,25 @@ data class CollectionMeta(
     val accent: String? = null,
     val category: String? = null,
 )
+
+/** A search result for an individual TV episode (from `episodes_fts`). Episodes aren't catalog
+ *  items, so they never appeared in search; this carries enough to display + route the hit. */
+data class EpisodeHit(
+    val seriesID: String,
+    val seriesTitle: String,
+    val season: Int?,
+    val episode: Int?,
+    val archiveID: String,
+    val downloadURL: String?,
+    val stillURL: String?,
+    val year: Int?,
+    val runtimeSeconds: Int?,
+    val title: String,
+) {
+    val numberLabel: String?
+        get() = when {
+            season != null && episode != null -> "S$season · E$episode"
+            episode != null -> "Ep. $episode"
+            else -> null
+        }
+}

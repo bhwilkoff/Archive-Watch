@@ -194,6 +194,29 @@ class CatalogDatabase private constructor(
         )
     }
 
+    /** Individual TV EPISODE search via `episodes_fts` (episode title + series title). Episodes
+     *  aren't catalog items, so `search` never returns them — this powers the "Episodes" section. */
+    suspend fun searchEpisodes(query: String, limit: Int = 60): List<EpisodeHit> {
+        val match = ftsQuery(query) ?: return emptyList()
+        return dbCall {
+            queryRaw(
+                """SELECT seriesID, seriesTitle, season, episode, archiveID, downloadURL,
+                          stillURL, year, runtimeSeconds, title
+                   FROM episodes_fts WHERE episodes_fts MATCH ? ORDER BY rank LIMIT ?""",
+                listOf(match, limit),
+            ) { s ->
+                fun intOrNull(i: Int) = if (s.isNull(i)) null else s.getLong(i).toInt()
+                fun textOrNull(i: Int) = if (s.isNull(i)) null else s.getText(i)
+                EpisodeHit(
+                    seriesID = s.getText(0), seriesTitle = s.getText(1),
+                    season = intOrNull(2), episode = intOrNull(3), archiveID = s.getText(4),
+                    downloadURL = textOrNull(5), stillURL = textOrNull(6),
+                    year = intOrNull(7), runtimeSeconds = intOrNull(8), title = s.getText(9),
+                )
+            }
+        }
+    }
+
     /** Query hygiene per contract §5: quote each token + `*` suffix. */
     private fun ftsQuery(raw: String): String? {
         val tokens = raw.lowercase()
