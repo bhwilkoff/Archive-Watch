@@ -19,13 +19,17 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import app.archivewatch.android.data.CatalogItem
@@ -33,19 +37,56 @@ import app.archivewatch.android.ui.theme.BrandSurface
 import coil3.compose.AsyncImage
 
 /**
- * Poster with the contract §8 fallback chain: posterURL → Archive thumb
- * (`services/img/{id}`).
+ * Poster with the contract §8 fallback chain, guaranteeing the slot is NEVER blank (owner: a
+ * blank poster makes the app look broken): posterURL → Archive thumb (`services/img/{id}`) →
+ * a typographic title card.
  */
 @Composable
 fun PosterImage(item: CatalogItem, modifier: Modifier = Modifier) {
-    var useFallback by remember(item.archiveID) { mutableStateOf(false) }
-    AsyncImage(
-        model = if (useFallback) item.archiveThumb else item.resolvedPosterURL,
-        contentDescription = item.title,
-        contentScale = ContentScale.Crop,
-        onError = { if (!useFallback) useFallback = true },
-        modifier = modifier,
-    )
+    // 0 = designed poster, 1 = archive.org frame, 2 = title card.
+    var stage by remember(item.archiveID) { mutableIntStateOf(0) }
+    when (stage) {
+        0, 1 -> AsyncImage(
+            model = if (stage == 0) item.resolvedPosterURL else item.archiveThumb,
+            contentDescription = item.title,
+            contentScale = ContentScale.Crop,
+            onError = { stage++ },   // poster fails → thumb; thumb fails → title card
+            modifier = modifier,
+        )
+        else -> PosterTitleCard(item, modifier)
+    }
+}
+
+/** The brand placeholder card (Decision 013 typographic poster) — accent gradient + centered
+ *  title. The guaranteed non-blank fallback. */
+@Composable
+fun PosterTitleCard(item: CatalogItem, modifier: Modifier = Modifier) {
+    val accent = when (item.contentType) {
+        "tv-series", "tv-special" -> Color(0xFF2D5BFF)
+        "silent-film" -> Color(0xFFC9A66B)
+        "animation" -> Color(0xFFFF4D8D)
+        "newsreel" -> Color(0xFF8A8F98)
+        "documentary" -> Color(0xFF3FA796)
+        "ephemeral" -> Color(0xFF7C5BBA)
+        "short-film" -> Color(0xFFE8A317)
+        else -> Color(0xFFFF5C35)
+    }
+    Box(
+        modifier = modifier.background(
+            Brush.linearGradient(listOf(accent.copy(alpha = 0.85f), Color(0xFF101010)))
+        ),
+        contentAlignment = Alignment.Center,
+    ) {
+        Text(
+            item.title,
+            color = Color.White,
+            style = MaterialTheme.typography.bodySmall,
+            textAlign = TextAlign.Center,
+            maxLines = 5,
+            overflow = TextOverflow.Ellipsis,
+            modifier = Modifier.padding(8.dp),
+        )
+    }
 }
 
 /** 2:3 poster + two text lines — the one content tile (density rule). */

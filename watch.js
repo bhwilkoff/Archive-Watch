@@ -555,7 +555,8 @@
         // Ambient mirrors whatever art actually loaded (it shares the HTTP
         // cache entry), so a throttled poster can't strand a blank backdrop.
         wireArt(poster, [Data.poster(row), API.thumbnailURL(id)],
-          src => { ambient.style.backgroundImage = `url("${src}")`; });
+          src => { ambient.style.backgroundImage = `url("${src}")`; },
+          () => { const ph = placeholderArt(row); ph.classList.add('hero-poster'); poster.replaceWith(ph); });
 
         const copy = document.createElement('div');
         copy.className = 'hero-copy';
