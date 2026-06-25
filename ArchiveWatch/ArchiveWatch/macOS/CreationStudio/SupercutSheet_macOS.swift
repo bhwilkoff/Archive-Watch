@@ -34,6 +34,10 @@ struct SupercutSheet: View {
     @State private var excluded: Set<String> = []
     @State private var plan: [SentenceComposer.Segment] = []
     @State private var index: SubtitleIndex?
+    @State private var indexedLines: Int?        // computed ONCE when the index loads (see .task) —
+                                                 // NOT per render: cueCount runs SELECT count(*) over
+                                                 // ~1.7M rows, and reading it in body on every keystroke
+                                                 // was the typing lag.
     @State private var building = true
     @State private var searched = false
     @State private var tightenToWord = false
@@ -51,57 +55,115 @@ struct SupercutSheet: View {
     private var coveredWords: Int { plan.filter(\.found).reduce(0) { $0 + words($1) } }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text("Text → Supercut").font(.title3).bold()
-
-            if building {
-                VStack(spacing: 8) {
-                    ProgressView(); Text("Indexing subtitles…").foregroundStyle(.secondary)
-                }.frame(maxWidth: .infinity, minHeight: 120)
-            } else {
-                Picker("", selection: $mode) { ForEach(Mode.allCases) { Text($0.rawValue).tag($0) } }
-                    .pickerStyle(.segmented).labelsHidden()
-                if mode == .find { findUI } else { composeUI }
-                if let index { Text("\(index.cueCount.formatted()) lines indexed").font(.caption).foregroundStyle(.secondary) }
-            }
-
-            if (mode == .find && !results.isEmpty) || (mode == .compose && !plan.isEmpty) {
-                Toggle("Tighten each clip to the spoken word (on-device speech)", isOn: $tightenToWord).font(.caption)
-            }
-            if mode == .compose && !plan.isEmpty {
-                Toggle("Even out the volume across clips", isOn: $evenVolume).font(.caption)
-            }
+        // Native macOS task-sheet shape: a top-anchored header, a content area that FILLS the
+        // sheet (so it never looks squished into the vertical center), and a pinned footer with
+        // the default action bottom-right. Resizable within sensible bounds.
+        VStack(spacing: 0) {
+            header
+            Divider()
+            content
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            optionsBar
+            Divider()
             footer
         }
-        .padding(20)
-        .frame(width: 580, height: 500)
+        .frame(minWidth: 560, idealWidth: 640, maxWidth: 860,
+               minHeight: 460, idealHeight: 600, maxHeight: 900)
         .task {
             await SubtitleIndexBuilder.ensureIndex(store: store)
             index = SubtitleIndex(path: SubtitleIndex.bestURL)
+            indexedLines = index?.cueCount      // ONCE — never in body (the typing-lag fix)
             building = false
         }
     }
 
-    // MARK: Find clips (v1)
+    // MARK: Header (title + mode + search field + index status)
 
-    private var findUI: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            HStack {
-                TextField("A phrase that’s spoken on screen — e.g. “I love you”", text: $phrase)
-                    .textFieldStyle(.roundedBorder).onSubmit(runFind)
-                Button("Find", action: runFind).disabled(phrase.isEmpty)
+    private var header: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(spacing: 8) {
+                Image(systemName: "wand.and.stars").foregroundStyle(.tint)
+                Text("Text → Supercut").font(.headline)
+                Spacer()
             }
-            if searched && results.isEmpty {
-                ContentUnavailableView("No spoken lines matched", systemImage: "text.magnifyingglass").frame(minHeight: 150)
-            } else if !results.isEmpty {
+            Picker("Mode", selection: $mode) { ForEach(Mode.allCases) { Text($0.rawValue).tag($0) } }
+                .pickerStyle(.segmented).labelsHidden().disabled(building)
+
+            // Search field — a native macOS search-field shape (capsule + magnifier), full-width,
+            // with the action button trailing. Submitting runs the search; typing does NOT (so it
+            // stays responsive).
+            HStack(spacing: 8) {
+                HStack(spacing: 6) {
+                    Image(systemName: "magnifyingglass").foregroundStyle(.secondary)
+                    TextField(mode == .find ? "A phrase that’s spoken on screen — e.g. “I love you”"
+                                            : "Type a line — the catalog will speak it back",
+                              text: $phrase)
+                        .textFieldStyle(.plain)
+                        .onSubmit { mode == .find ? runFind() : runCompose() }
+                    if !phrase.isEmpty {
+                        Button { phrase = "" } label: { Image(systemName: "xmark.circle.fill") }
+                            .buttonStyle(.borderless).foregroundStyle(.secondary)
+                    }
+                }
+                .padding(.horizontal, 8).padding(.vertical, 6)
+                .background(RoundedRectangle(cornerRadius: 7).fill(.quaternary.opacity(0.4)))
+                .overlay(RoundedRectangle(cornerRadius: 7).strokeBorder(.separator))
+
+                Button(mode == .find ? "Find" : "Compose") { mode == .find ? runFind() : runCompose() }
+                    .disabled(phrase.isEmpty || building)
+            }
+
+            HStack(spacing: 6) {
+                if building {
+                    ProgressView().controlSize(.small)
+                    Text("Building the subtitle index…")
+                } else if let n = indexedLines {
+                    Text("\(n.formatted()) lines indexed")
+                }
+                Spacer()
+            }
+            .font(.caption).foregroundStyle(.secondary)
+        }
+        .padding(20)
+    }
+
+    // MARK: Content (fills) — results, or guidance
+
+    @ViewBuilder private var content: some View {
+        if building {
+            VStack(spacing: 10) {
+                ProgressView()
+                Text("Building the subtitle index…").foregroundStyle(.secondary)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        } else if mode == .find {
+            findResults
+        } else {
+            composeResults
+        }
+    }
+
+    @ViewBuilder private var findResults: some View {
+        if results.isEmpty {
+            ContentUnavailableView {
+                Label(searched ? "No spoken lines matched" : "Find a spoken phrase",
+                      systemImage: searched ? "text.magnifyingglass" : "quote.bubble")
+            } description: {
+                Text(searched ? "Try a shorter or more common phrase."
+                              : "Type a phrase people say on screen, then press Find. Every matching moment across the public-domain catalog becomes an editable clip.")
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        } else {
+            VStack(spacing: 0) {
                 HStack {
                     Text("Check the takes you want — \(included.count) of \(results.count) selected")
                         .font(.caption).foregroundStyle(.secondary)
                     Spacer()
-                    Button("All") { excluded.removeAll() }.controlSize(.small).disabled(excluded.isEmpty)
-                    Button("None") { excluded = Set(results.map(\.id)) }
-                        .controlSize(.small).disabled(excluded.count == results.count)
+                    Button("All") { excluded.removeAll() }.disabled(excluded.isEmpty)
+                    Button("None") { excluded = Set(results.map(\.id)) }.disabled(excluded.count == results.count)
                 }
+                .controlSize(.small).padding(.horizontal, 20).padding(.vertical, 8)
+                Divider()
                 List(results) { cue in
                     HStack(alignment: .top, spacing: 10) {
                         Button {
@@ -116,29 +178,35 @@ struct SupercutSheet: View {
                             Text("\(cue.title) · \(cue.timecode)").font(.caption).foregroundStyle(.secondary)
                         }
                         Spacer()
-                    }.contentShape(Rectangle())
-                }.frame(minHeight: 200)
+                    }
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        if excluded.contains(cue.id) { excluded.remove(cue.id) } else { excluded.insert(cue.id) }
+                    }
+                }
+                .listStyle(.inset)
             }
         }
     }
 
-    // MARK: Compose a sentence (v2)
-
-    private var composeUI: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            HStack {
-                TextField("Type a line — the catalog will speak it back", text: $phrase)
-                    .textFieldStyle(.roundedBorder).onSubmit(runCompose)
-                Button("Compose", action: runCompose).disabled(phrase.isEmpty)
+    @ViewBuilder private var composeResults: some View {
+        if plan.isEmpty {
+            ContentUnavailableView {
+                Label("Compose a sentence", systemImage: "quote.bubble")
+            } description: {
+                Text("Type a line and the catalog will speak it back, word by word, using the fewest clips. Missing words become editable gaps you can fill.")
             }
-            if !plan.isEmpty {
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        } else {
+            VStack(spacing: 0) {
                 HStack {
                     Text("\(coveredWords) of \(totalWords) words found · \(planFound) clip\(planFound == 1 ? "" : "s")")
                         .font(.caption).foregroundStyle(.secondary)
                     Spacer()
                     Button { plan = SentenceComposer.shuffle(plan) } label: { Label("Shuffle takes", systemImage: "shuffle") }
-                        .controlSize(.small)
                 }
+                .controlSize(.small).padding(.horizontal, 20).padding(.vertical, 8)
+                Divider()
                 // Each run shows its chosen source film; ‹ › swap among the alternate films that
                 // say the same words (the editorial control — pick the take you want).
                 List($plan) { $seg in
@@ -174,24 +242,44 @@ struct SupercutSheet: View {
                                 .disabled((gapEdits[seg.id] ?? "").isEmpty)
                         }
                     }
-                }.frame(minHeight: 200)
+                }
+                .listStyle(.inset)
             }
         }
     }
+
+    // MARK: Options (tighten / level) — only when there are takes to refine
+
+    @ViewBuilder private var optionsBar: some View {
+        if (mode == .find && !results.isEmpty) || (mode == .compose && !plan.isEmpty) {
+            Divider()
+            VStack(alignment: .leading, spacing: 6) {
+                Toggle("Tighten each clip to the spoken word (on-device speech)", isOn: $tightenToWord)
+                if mode == .compose {
+                    Toggle("Even out the volume across clips", isOn: $evenVolume)
+                }
+            }
+            .toggleStyle(.checkbox).font(.callout)
+            .padding(.horizontal, 20).padding(.vertical, 10)
+        }
+    }
+
+    // MARK: Footer (pinned) — Cancel + default action
 
     private var footer: some View {
         HStack {
             Text(statusText).font(.caption).foregroundStyle(.secondary)
             Spacer()
-            Button("Cancel") { dismiss() }
+            Button("Cancel") { dismiss() }.keyboardShortcut(.cancelAction)
             if mode == .find {
                 Button("Add \(included.count) Clips") { assembleFind() }
-                    .keyboardShortcut("b", modifiers: .command).disabled(included.isEmpty)
+                    .keyboardShortcut(.defaultAction).disabled(included.isEmpty)
             } else {
                 Button("Add \(planFound) Clips") { assembleCompose() }
-                    .keyboardShortcut("b", modifiers: .command).disabled(planFound == 0)
+                    .keyboardShortcut(.defaultAction).disabled(planFound == 0)
             }
         }
+        .padding(.horizontal, 20).padding(.vertical, 14)
     }
 
     private var statusText: String {
