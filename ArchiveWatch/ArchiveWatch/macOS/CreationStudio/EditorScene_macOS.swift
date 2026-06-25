@@ -53,7 +53,7 @@ struct ProjectEditorView: View {
         // user-draggable and let the window inflate). Fixed-width side panels + a flexible
         // center, so the window resizes like a normal Mac window with the panels pinned.
         HStack(spacing: 0) {
-            LibrarySidebar()
+            LibrarySidebar(model: model)
                 .frame(width: 240)
             Divider()
 
@@ -394,9 +394,42 @@ private struct ExportSettingsSheet: View {
 // MARK: - Library sidebar (proxy-clip library — Unit 4 wires the real grid + drag-drop)
 
 private struct LibrarySidebar: View {
+    let model: EditorModel
     @Environment(AppStore.self) private var store
     @Environment(\.modelContext) private var ctx
     @Query(sort: \LibraryClip.addedAt, order: .reverse) private var clips: [LibraryClip]
+    // Multi-select: ⌘/⇧-click selects several clips; the bottom action bar + drag operate on the
+    // whole selection so you can batch-add to the timeline or mass-delete.
+    @State private var selection: Set<PersistentIdentifier> = []
+
+    private func proxy(for clip: LibraryClip) -> ProxyClip {
+        clip.proxyClip ?? ProxyClip(
+            catalogItemID: clip.catalogItemID,
+            sourceURL: URL(string: clip.sourceURLString) ?? URL(fileURLWithPath: "/"),
+            sourceRange: TimeRange(startSeconds: clip.inSeconds,
+                                   durationSeconds: max(0.1, clip.outSeconds - clip.inSeconds)),
+            label: clip.label, title: clip.title)
+    }
+
+    /// The clips a context action applies to: the full selection if the acted-on clip is part of
+    /// it, otherwise just that clip (the standard Finder/Photos right-click behavior).
+    private func targets(for clip: LibraryClip) -> [LibraryClip] {
+        selection.contains(clip.persistentModelID) && selection.count > 1
+            ? clips.filter { selection.contains($0.persistentModelID) }
+            : [clip]
+    }
+
+    private func addToTimeline(_ items: [LibraryClip]) {
+        items.forEach { model.addClip(from: proxy(for: $0)) }
+    }
+
+    private func delete(_ items: [LibraryClip]) {
+        items.forEach { ctx.delete($0) }
+        selection.subtract(items.map(\.persistentModelID))
+        try? ctx.save()
+    }
+
+    private var selectedClips: [LibraryClip] { clips.filter { selection.contains($0.persistentModelID) } }
 
     var body: some View {
         Group {
@@ -407,18 +440,47 @@ private struct LibrarySidebar: View {
                     Text("Use “Add Clip” to mark an in/out point on a public-domain title. Saved clips appear here — drag them onto the timeline.")
                 }
             } else {
-                List(clips) { clip in
-                    LibraryRow(clip: clip, poster: store.item(clip.catalogItemID)?.posterURLParsed)
-                        .draggable(clip.proxyClip ?? ProxyClip(
-                            catalogItemID: clip.catalogItemID,
-                            sourceURL: URL(string: clip.sourceURLString) ?? URL(fileURLWithPath: "/"),
-                            sourceRange: TimeRange(startSeconds: clip.inSeconds,
-                                                   durationSeconds: max(0.1, clip.outSeconds - clip.inSeconds)),
-                            label: clip.label, title: clip.title))
-                        .contextMenu {
-                            Button("Delete", role: .destructive) { ctx.delete(clip); try? ctx.save() }
+                VStack(spacing: 0) {
+                    List(selection: $selection) {
+                        ForEach(clips) { clip in
+                            LibraryRow(clip: clip, poster: store.item(clip.catalogItemID)?.posterURLParsed)
+                                // Dragging a SELECTED row carries the whole selection (List multi-drag);
+                                // dragging an unselected row carries just it. The timeline's
+                                // dropDestination already adds every dropped proxy.
+                                .draggable(proxy(for: clip))
+                                .tag(clip.persistentModelID)
+                                .contextMenu {
+                                    let t = targets(for: clip)
+                                    Button { addToTimeline(t) } label: {
+                                        Label("Add \(t.count) to Timeline", systemImage: "plus")
+                                    }
+                                    Divider()
+                                    Button(role: .destructive) { delete(t) } label: {
+                                        Label("Delete\(t.count > 1 ? " \(t.count)" : "")", systemImage: "trash")
+                                    }
+                                }
                         }
+                    }
+                    // Batch action bar — operates on the multi-selection.
+                    if !selection.isEmpty {
+                        Divider()
+                        HStack(spacing: 8) {
+                            Text("\(selection.count) selected").font(.caption).foregroundStyle(.secondary)
+                            Spacer()
+                            Button { addToTimeline(selectedClips) } label: {
+                                Label("Add", systemImage: "plus").labelStyle(.iconOnly)
+                            }.help("Add selected clips to the timeline")
+                            Button(role: .destructive) { delete(selectedClips) } label: {
+                                Label("Delete", systemImage: "trash").labelStyle(.iconOnly)
+                            }.help("Delete selected clips from the Library")
+                        }
+                        .buttonStyle(.borderless)
+                        .padding(.horizontal, 10).padding(.vertical, 6)
+                        .background(.bar)
+                    }
                 }
+                // ⌫ deletes the selection (standard macOS list behavior).
+                .onDeleteCommand { delete(selectedClips) }
             }
         }
         .navigationTitle("Library")
