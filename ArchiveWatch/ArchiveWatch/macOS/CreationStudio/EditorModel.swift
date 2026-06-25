@@ -52,6 +52,10 @@ final class EditorModel {
     }
 
     @ObservationIgnored private var rebuildTask: Task<Void, Never>?
+    // Auto-retry transient source failures (archive.org /download 503s) a few times with
+    // backoff so a clip that missed its window in one rebuild self-heals instead of staying red.
+    @ObservationIgnored private var transientRetryTask: Task<Void, Never>?
+    @ObservationIgnored private var transientRetries = 0
     @ObservationIgnored private var timeObserver: Any?
     @ObservationIgnored private let thumbGen = ThumbnailGenerator()
 
@@ -485,6 +489,23 @@ final class EditorModel {
             }
         }
         if Task.isCancelled { return }
+        // Auto-retry transient source failures: the loader now fails a 503'ing /download over
+        // to the item's own node, but a clip can still miss its window in a single rebuild (cold
+        // node, alternates not yet resolved). resolveLocal cleared the failed source from the
+        // cache, so re-probing re-resolves it. Back off (2s/4s/6s) and stop once nothing fails.
+        let failedIDs = timelineClips.filter { if case .failed = clipPrep[$0.id] { return true }; return false }
+        if failedIDs.isEmpty {
+            transientRetries = 0
+        } else if transientRetries < 3 {
+            transientRetries += 1
+            let n = transientRetries
+            transientRetryTask?.cancel()
+            transientRetryTask = Task { [weak self] in
+                try? await Task.sleep(for: .seconds(Double(n) * 2))
+                guard !Task.isCancelled else { return }
+                await self?.rebuildPreview()
+            }
+        }
         // Build from the READY clips in timeline order (failed clips are excluded, not blockers).
         let resolved = timelineClips.compactMap { resolvedByID[$0.id] }
         guard !resolved.isEmpty else { return }

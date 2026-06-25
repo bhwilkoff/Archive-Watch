@@ -127,7 +127,12 @@ enum ClipCacheService {
         // loader is built for AVPlayer playback and does NOT answer AVAssetExportSession's property
         // reads, which fails with "AssetProperty Failed to load (-1011)" → -11800. AVFoundation's
         // own HTTP loads properties fine for a bounded-range export.
-        let asset = AVURLAsset(url: sourceURL, options: [AVURLAssetPreferPreciseDurationAndTimingKey: true])
+        //
+        // BUT a plain AVURLAsset has no failover, and archive.org's /download load-balancer
+        // transiently 503s items whose own node serves 206 — so resolve to a healthy node-DIRECT
+        // URL first (no-op for non-archive URLs / when metadata is down), bypassing /download.
+        let nodeURL = await ResilientStreamLoader.resolvedNodeURL(for: sourceURL)
+        let asset = AVURLAsset(url: nodeURL, options: [AVURLAssetPreferPreciseDurationAndTimingKey: true])
 
         guard let session = AVAssetExportSession(asset: asset, presetName: preset) else {
             throw CreationStudioError.cannotCreateExportSession

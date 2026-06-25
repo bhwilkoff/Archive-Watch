@@ -103,6 +103,61 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
 
     private init(url: URL) { self.realURL = url }
 
+    /// Resolve an archive.org `/download/{id}/{file}` URL to a healthy node-DIRECT URL,
+    /// bypassing the `/download` load-balancer (which transiently 503s an item while the
+    /// item's OWN storage node serves 206). Returns the ORIGINAL url unchanged for a
+    /// non-archive / non-/download URL, or when metadata is unavailable / no node verifies
+    /// — so callers can use it unconditionally and degrade to current behavior.
+    ///
+    /// WHY: the EXPORT cache path (`ClipCache.transcode`) feeds a PLAIN `AVURLAsset` to
+    /// `AVAssetExportSession`, which has NO resourceLoader and so cannot fail over the way
+    /// playback does — a `/download` 503 would fail an export of an otherwise-good clip.
+    /// Resolving to the node URL first gives export the same routing-around-503 the player
+    /// gets via `currentTarget()`.
+    static func resolvedNodeURL(for url: URL) async -> URL {
+        let s = url.absoluteString
+        guard url.host?.hasSuffix("archive.org") == true,
+              let r = s.range(of: "/download/") else { return url }
+        let after = s[r.upperBound...]
+        guard let slash = after.firstIndex(of: "/") else { return url }
+        let id = String(after[..<slash])
+        let encFile = String(after[after.index(after: slash)...])
+        let metaID = id.removingPercentEncoding ?? id
+        guard let metaURL = URL(string: "https://archive.org/metadata/\(metaID)") else { return url }
+
+        let cfg = URLSessionConfiguration.ephemeral
+        cfg.timeoutIntervalForRequest = 30
+        let session = URLSession(configuration: cfg)
+
+        guard let (data, resp) = try? await session.data(from: metaURL),
+              let http = resp as? HTTPURLResponse, http.statusCode == 200,
+              let obj = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any] else { return url }
+
+        // Build the candidate node URLs (server + dir + encoded file), preferred first.
+        var candidates: [URL] = []
+        func add(_ server: String?, _ dir: String?) {
+            guard let server, let dir, !server.isEmpty,
+                  let u = URL(string: "https://\(server)\(dir)/\(encFile)") else { return }
+            candidates.append(u)
+        }
+        add(obj["server"] as? String, obj["dir"] as? String)
+        if let alt = obj["alternate_locations"] as? [String: Any],
+           let workable = alt["workable"] as? [[String: Any]] {
+            for w in workable { add(w["server"] as? String, w["dir"] as? String) }
+        }
+        // Return the first node that actually serves a byte range (200/206).
+        for cand in candidates {
+            var req = URLRequest(url: cand)
+            req.setValue("bytes=0-1", forHTTPHeaderField: "Range")
+            req.timeoutInterval = 30
+            if let (_, r2) = try? await session.data(for: req),
+               let h2 = r2 as? HTTPURLResponse, (200...299).contains(h2.statusCode) {
+                return cand
+            }
+        }
+        return url   // every node failed right now — let the caller's own retry handle it
+    }
+
     /// Build an AVURLAsset whose loads route through this delegate. Returns a
     /// plain asset (no interception) for non-HTTP URLs so callers can use it
     /// unconditionally. The returned loader is `nil` when not intercepting.
@@ -235,13 +290,32 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
         // warm — so just do that retry automatically here).
         var attempt = 0
         while !request.isCancelled && !Task.isCancelled {
-            var req = URLRequest(url: realURL)
+            // Use currentTarget(), NOT realURL — the same node-failover fulfillData does.
+            // This was the bug behind "couldn't read the source video" (and main-app
+            // titles that "don't play at all"): archive.org's /download load-balancer
+            // 503s an item while the item's OWN storage node serves 206, and the probe
+            // here used to hammer the 503'ing origin maxRetries times and give up
+            // WITHOUT ever trying the healthy alternate node — so the content-info load
+            // (loadTracks) failed before any byte-range request could fail over.
+            let target = queue.sync { currentTarget() }
+            var req = URLRequest(url: target)
             req.setValue("bytes=0-1", forHTTPHeaderField: "Range")
             req.timeoutInterval = firstByteTimeout
             do {
                 let (_, response) = try await session.data(for: req)
-                guard let http = response as? HTTPURLResponse,
-                      (200...299).contains(http.statusCode) else {
+                guard let http = response as? HTTPURLResponse else {
+                    throw URLError(.badServerResponse)
+                }
+                // A HARD server error (5xx/403/404) is a node-health signal: blacklist
+                // this node + rotate to a healthy alternate on the next attempt (the
+                // backoff also gives loadAlternates time to populate the node list).
+                let st = http.statusCode
+                if (500...599).contains(st) || st == 403 || st == 404 {
+                    queue.sync { markNodeFailed(target) }
+                    if Self.diag { NSLog("AWSTREAM probe node %@ failed (status %d) -> rotating", target.host ?? "?", st) }
+                    throw URLError(.badServerResponse)
+                }
+                guard (200...299).contains(st) else {
                     throw URLError(.badServerResponse)
                 }
                 // Pin the post-redirect storage node so every data chunk skips
