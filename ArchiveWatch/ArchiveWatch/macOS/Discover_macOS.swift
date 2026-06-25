@@ -37,13 +37,12 @@ struct CollectionsList: View {
 
     var body: some View {
         ScrollView {
-            LazyVStack(spacing: 2) {
+            LazyVStack(spacing: 6) {
                 ForEach(CollectionMetadata.all) { entry in
                     Button { router.openCollection(entry.id, entry.title) } label: {
                         CollectionRow(entry: entry)
                     }
                     .buttonStyle(.plain)
-                    Divider().padding(.leading, 22)
                 }
             }
             .padding()
@@ -54,25 +53,46 @@ struct CollectionsList: View {
 
 private struct CollectionRow: View {
     let entry: CollectionMetadata.Entry
+    @Environment(AppStore.self) private var store
     @State private var hovering = false
+    @State private var posters: [Catalog.Item] = []
 
     var body: some View {
         HStack(spacing: 12) {
             RoundedRectangle(cornerRadius: 3)
                 .fill(Color(hex: entry.accent) ?? .accentColor)
-                .frame(width: 5, height: 42)
-            VStack(alignment: .leading, spacing: 2) {
+                .frame(width: 5, height: 64)
+            VStack(alignment: .leading, spacing: 3) {
                 Text(entry.title).font(.headline)
                 Text(entry.blurb).font(.caption).foregroundStyle(.secondary).lineLimit(2)
+            }
+            .frame(width: 260, alignment: .leading)
+            // Poster preview strip — a few real posters from the collection (lazy: only visible
+            // rows query, via the enclosing LazyVStack).
+            HStack(spacing: 6) {
+                ForEach(posters.prefix(5)) { item in
+                    RoundedRectangle(cornerRadius: 4).fill(.quaternary)
+                        .aspectRatio(2.0/3.0, contentMode: .fit)
+                        .frame(height: 64)
+                        .overlay {
+                            if let u = item.posterURLParsed {
+                                AsyncImage(url: u) { $0.resizable().scaledToFill() } placeholder: { Color.clear }
+                            }
+                        }
+                        .clipShape(RoundedRectangle(cornerRadius: 4))
+                }
             }
             Spacer(minLength: 0)
             Image(systemName: "chevron.right").font(.caption).foregroundStyle(.tertiary)
         }
-        .padding(.vertical, 10).padding(.horizontal, 8)
+        .padding(.vertical, 8).padding(.horizontal, 8)
         .background(hovering ? Color.primary.opacity(0.06) : .clear,
                     in: RoundedRectangle(cornerRadius: 8))
         .contentShape(Rectangle())
         .onHover { hovering = $0 }
+        .task(id: store.dbVersion) {
+            if posters.isEmpty { posters = Array(store.byCollection(entry.id).prefix(5)) }
+        }
     }
 }
 
@@ -138,7 +158,7 @@ struct SurpriseView: View {
             }
         case "cartoon":     router.path.append(CartoonRoute())
         case "party":       router.path.append(PartyRoute())
-        case "screensaver": router.path.append(ScreensaverRoute())
+        case "screensaver": router.screensaverActive = true   // full-screen overlay (RootView)
         case "pubdomain":
             router.path.append(PublicDomainRoute())
         default: break

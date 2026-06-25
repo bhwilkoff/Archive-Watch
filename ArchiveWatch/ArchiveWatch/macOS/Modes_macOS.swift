@@ -116,8 +116,8 @@ struct PartyPlayView: View {
 // MARK: - Screensaver (a wall of professional poster art)
 
 struct ScreensaverView: View {
+    var onExit: () -> Void = {}
     @Environment(AppStore.self) private var store
-    @Environment(\.dismiss) private var dismiss
     @State private var pool: [Catalog.Item] = []
     @State private var slots: [Catalog.Item] = []
     private let spacing: CGFloat = 12
@@ -144,10 +144,14 @@ struct ScreensaverView: View {
             .onChange(of: n) { _, newN in fill(newN) }
         }
         .background(Color.black.ignoresSafeArea())
+        .ignoresSafeArea()
         .onReceive(tick) { _ in advance() }
-        .onTapGesture { dismiss() }            // any click exits (screensaver convention)
-        .navigationTitle("Screensaver")
-        .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Done") { dismiss() } } }
+        .onTapGesture { onExit() }             // any click exits (screensaver convention)
+        .overlay(alignment: .topTrailing) {    // a subtle exit affordance (Esc also works, RootView)
+            Button { onExit() } label: { Image(systemName: "xmark.circle.fill").font(.title) }
+                .buttonStyle(.plain).foregroundStyle(.white.opacity(0.5)).padding(20)
+                .help("Exit screensaver (Esc)")
+        }
     }
 
     private func fill(_ n: Int) {
@@ -212,21 +216,22 @@ enum Modes {
         return Array(scored.sorted { $0.1 > $1.1 }.prefix(220).map { $0.0 }).shuffled()
     }
 
-    /// Screensaver: only professional, 2:3 movie posters (tmdb/omdb/fanart) — never
-    /// frame-captured covers or archive thumbnails.
+    /// Screensaver: a dense wall of DESIGNED 2:3 poster art (hasDesignedArtwork — professional
+    /// posters + generated frame covers), NOT the generic archive thumbnail. Broadened from the
+    /// 3-source "pro only" filter so the wall stays full even after dead omdb posters are demoted
+    /// to archive thumbnails (the poster-liveness gate) — otherwise the grid showed empty tiles.
     static func screensaverPool(_ store: AppStore) -> [Catalog.Item] {
-        let pro: Set<String> = ["tmdb", "omdb", "fanart"]
         let mixes: [[Catalog.Item]] = [
-            store.browse(contentType: "feature-film", sort: .popular, limit: 400),
-            store.browse(contentType: "animation", sort: .popular, limit: 150),
-            store.browse(contentType: "silent-film", sort: .popular, limit: 120),
-            store.browse(contentType: "documentary", sort: .popular, limit: 100),
+            store.browse(contentType: "feature-film", sort: .popular, limit: 500),
+            store.browse(contentType: "animation", sort: .popular, limit: 200),
+            store.browse(contentType: "silent-film", sort: .popular, limit: 150),
+            store.browse(contentType: "documentary", sort: .popular, limit: 120),
             store.seriesCards(),
         ]
         var seen = Set<String>()
         var out: [Catalog.Item] = []
         for mix in mixes {
-            for it in mix where it.posterURLParsed != nil && pro.contains(it.artworkSource) {
+            for it in mix where it.posterURLParsed != nil && it.hasDesignedArtwork {
                 if seen.insert(it.archiveID).inserted { out.append(it) }
             }
         }

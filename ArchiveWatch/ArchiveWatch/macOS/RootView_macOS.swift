@@ -1,5 +1,6 @@
 #if os(macOS)
 import SwiftUI
+import AppKit
 
 // NavigationSplitView shell (docs/macOS-DESIGN.md §7): sidebar sections + a detail column
 // that drills into Detail / Person / Collection. The player presents as a sheet over the
@@ -32,7 +33,6 @@ struct RootView: View {
                     .navigationDestination(for: PublicDomainRoute.self) { _ in PublicDomainView() }
                     .navigationDestination(for: CartoonRoute.self) { _ in CartoonView() }
                     .navigationDestination(for: PartyRoute.self) { _ in PartyPlayView() }
-                    .navigationDestination(for: ScreensaverRoute.self) { _ in ScreensaverView() }
             }
         }
         .sheet(item: $router.nowPlaying) { item in
@@ -48,6 +48,25 @@ struct RootView: View {
                 ProgressView("Loading catalog…").controlSize(.large)
             }
         }
+        // Screensaver: a real full-window, full-screen poster wall (not a nav push that keeps the
+        // sidebar). Covers everything; click / Esc / the ✕ exits + leaves macOS full-screen.
+        .overlay {
+            if router.screensaverActive {
+                ScreensaverView(onExit: { exitScreensaver() })
+                    .transition(.opacity)
+                    .onAppear { setFullScreen(true) }
+                    .onExitCommand { exitScreensaver() }   // Esc
+            }
+        }
+    }
+
+    private func exitScreensaver() {
+        setFullScreen(false)
+        router.screensaverActive = false
+    }
+    private func setFullScreen(_ on: Bool) {
+        guard let w = NSApp.keyWindow ?? NSApp.mainWindow ?? NSApp.windows.first else { return }
+        if w.styleMask.contains(.fullScreen) != on { w.toggleFullScreen(nil) }
     }
 
     @ViewBuilder private var sectionContent: some View {

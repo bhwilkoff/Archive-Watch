@@ -38,6 +38,7 @@ final class AppRouter {
     var path = NavigationPath()
     var nowPlaying: Catalog.Item?          // drives the item player sheet
     var nowPlayingEpisode: EpisodeContext? // drives the episode player sheet
+    var screensaverActive = false          // a full-window, full-screen poster-wall overlay
 
     // A tv-series card drills into the season/episode list, not the movie Detail.
     func openDetail(_ item: Catalog.Item) {

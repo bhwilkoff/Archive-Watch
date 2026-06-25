@@ -100,18 +100,24 @@ struct DetailView: View {
                         Label("Add to Playlist", systemImage: "text.badge.plus")
                     }
                     .controlSize(.large)
-                    ShareLink(item: shareURL) { Label("Share", systemImage: "square.and.arrow.up") }
-                        .controlSize(.large)
-                    if Callsheet.supports(item) {
-                        Button { Callsheet.open(Callsheet.url(for: item)) } label: {
-                            Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
+                    // One consolidated Share menu (parity with iOS) — Callsheet + share link +
+                    // archive.org, instead of three separate toolbar-ish buttons.
+                    Menu {
+                        if Callsheet.supports(item) {
+                            Button { Callsheet.open(Callsheet.url(for: item)) } label: {
+                                Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
+                            }
                         }
-                        .controlSize(.large)
-                        .help("Cast & crew in Callsheet")
+                        ShareLink(item: shareURL) { Label("Share Link…", systemImage: "square.and.arrow.up") }
+                        Link(destination: URL(string: item.sourceDetailsURL)!) {
+                            Label("View on archive.org", systemImage: "globe")
+                        }
+                    } label: {
+                        Label("Share", systemImage: "square.and.arrow.up")
                     }
-                    Link(destination: URL(string: item.sourceDetailsURL)!) {
-                        Label("archive.org", systemImage: "link")
-                    }
+                    .menuStyle(.borderlessButton)
+                    .controlSize(.large)
+                    .fixedSize()
                 }
                 .padding(.top, 4)
                 Spacer()
@@ -120,32 +126,52 @@ struct DetailView: View {
         }
     }
 
+    /// TMDb profile paths are stored as "/abc.jpg" tokens; expand to a full image URL. (The bug:
+    /// the raw token was passed to URL(string:) so cast photos never loaded.) Full URLs pass through.
+    private func profileURL(_ path: String?) -> URL? {
+        guard let p = path, !p.isEmpty else { return nil }
+        if p.hasPrefix("http") { return URL(string: p) }
+        return URL(string: "https://image.tmdb.org/t/p/w185\(p)")
+    }
+
     private var castRow: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Cast").font(.title3).fontWeight(.semibold)
+            Text("Cast & Crew").font(.title3).fontWeight(.semibold)
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
-                    ForEach(item.cast.prefix(20), id: \.name) { member in
-                        VStack(spacing: 4) {
-                            Circle().fill(.quaternary).frame(width: 56, height: 56)
-                                .overlay {
-                                    if let p = member.profilePath, let u = URL(string: p) {
-                                        AsyncImage(url: u) { $0.resizable().scaledToFill() }
-                                            placeholder: { Image(systemName: "person.fill") }
-                                            .clipShape(Circle())
-                                    } else { Image(systemName: "person.fill") }
-                                }
-                            Text(member.name).font(.caption).lineLimit(1).frame(width: 76)
-                            if let c = member.character {
-                                Text(c).font(.caption2).foregroundStyle(.secondary)
-                                    .lineLimit(1).frame(width: 76)
-                            }
-                        }
-                        .onTapGesture { router.openPerson(member.name) }
+                    if let d = item.director, !d.isEmpty {
+                        castBubble(name: d, role: "Director", profilePath: nil)
+                    }
+                    ForEach(item.cast.prefix(16), id: \.name) { member in
+                        castBubble(name: member.name, role: member.character, profilePath: member.profilePath)
                     }
                 }
             }
         }
+    }
+
+    private func castBubble(name: String, role: String?, profilePath: String?) -> some View {
+        Button { router.openPerson(name) } label: {
+            VStack(spacing: 4) {
+                Circle().fill(.quaternary).frame(width: 64, height: 64)
+                    .overlay {
+                        if let u = profileURL(profilePath) {
+                            AsyncImage(url: u) { $0.resizable().scaledToFill() }
+                                placeholder: { Image(systemName: "person.fill").foregroundStyle(.secondary) }
+                                .clipShape(Circle())
+                        } else {
+                            Image(systemName: "person.fill").foregroundStyle(.secondary)
+                        }
+                    }
+                    .overlay(Circle().strokeBorder(.white.opacity(0.1)))
+                Text(name).font(.caption2).lineLimit(2).multilineTextAlignment(.center).frame(width: 76)
+                if let role, !role.isEmpty {
+                    Text(role).font(.system(size: 9)).foregroundStyle(.secondary).lineLimit(1).frame(width: 76)
+                }
+            }
+        }
+        .buttonStyle(.plain)
+        .help("See more from \(name)")
     }
 
     private var reviews: some View {
