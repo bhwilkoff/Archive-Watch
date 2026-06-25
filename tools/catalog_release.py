@@ -28,6 +28,7 @@ import gzip
 import shutil
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -43,14 +44,46 @@ def _gh(*args, check=True, capture=False):
                           capture_output=capture, text=True)
 
 
+def _transient(err: str) -> bool:
+    """A retryable GitHub-API blip (vs a definite 404/auth error). These are common on the
+    api.github.com path and cause spurious job failures — e.g. cast-images 2026-06-25:
+    'error connecting to api.github.com'."""
+    e = err.lower()
+    return any(s in e for s in (
+        "error connecting", "could not resolve", "connection reset", "connection refused",
+        "timeout", "timed out", "i/o timeout", "eof", "tls handshake", "temporary failure",
+        "http 500", "http 502", "http 503", "http 504", "server error", "try again"))
+
+
+def _gh_net(*args):
+    """A network gh call (view/upload/create/download) with retry on a transient API blip.
+    Raises CalledProcessError after the last attempt (so a REAL failure still fails the job)."""
+    last = None
+    for attempt in range(5):
+        r = _gh(*args, check=False, capture=True)
+        if r.returncode == 0:
+            return r
+        last = r
+        err = f"{r.stderr or ''} {r.stdout or ''}"
+        # A definite not-found is not transient — return so the caller handles bootstrap.
+        if "release not found" in err.lower() or "HTTP 404" in err:
+            return r
+        if attempt < 4 and _transient(err):
+            time.sleep(3 * (attempt + 1))   # 3,6,9,12s
+            continue
+        break
+    return last
+
+
 def _release_state():
     """'present', 'absent', or an error string. ONLY a definite not-found is
     'absent' — an auth/network/5xx failure must never be mistaken for the
     bootstrap case. During the 2026-06-10 GitHub API auth outage the old
     any-failure-means-absent check made fetch silently skip the download, and
     every downstream step crashed on the missing catalog.json (and a publish
-    in that state could have re-seeded the release from a partial catalog)."""
-    r = _gh("release", "view", TAG, check=False, capture=True)
+    in that state could have re-seeded the release from a partial catalog).
+    Retries transient API blips (_gh_net) before reporting an error."""
+    r = _gh_net("release", "view", TAG)
     if r.returncode == 0:
         return "present"
     err = f"{r.stderr or ''} {r.stdout or ''}".strip()
@@ -68,8 +101,8 @@ def fetch():
         print(f"[catalog] cannot reach release '{TAG}' — failing rather than "
               f"pretending bootstrap ({state})", file=sys.stderr)
         return 1
-    r = _gh("release", "download", TAG, "--pattern", ASSET, "--clobber",
-            "--dir", str(REPO), check=False, capture=True)
+    r = _gh_net("release", "download", TAG, "--pattern", ASSET, "--clobber",
+                "--dir", str(REPO))
     if r.returncode != 0 or not GZ.exists():
         # The release exists, so a missing asset is only a bootstrap case if
         # the asset list (fetched successfully) really lacks it.
@@ -97,13 +130,21 @@ def publish():
     print(f"[catalog] {CATALOG.stat().st_size/1e6:.1f} MB -> {GZ.stat().st_size/1e6:.1f} MB gzipped")
     state = _release_state()
     if state == "absent":
-        _gh("release", "create", TAG, "--title", TITLE, "--notes",
-            "Rolling full catalog.json source (Decision 018). Not committed to git.")
+        c = _gh_net("release", "create", TAG, "--title", TITLE, "--notes",
+                    "Rolling full catalog.json source (Decision 018). Not committed to git.")
+        if c.returncode != 0:
+            print(f"[catalog] could not create release '{TAG}': {(c.stderr or '').strip()[:300]}",
+                  file=sys.stderr)
+            return 1
     elif state != "present":
         print(f"[catalog] cannot reach release '{TAG}' — refusing to publish "
               f"({state})", file=sys.stderr)
         return 1
-    _gh("release", "upload", TAG, str(GZ), "--clobber")
+    up = _gh_net("release", "upload", TAG, str(GZ), "--clobber")
+    if up.returncode != 0:
+        print(f"[catalog] upload of {ASSET} failed after retries: {(up.stderr or '').strip()[:300]}",
+              file=sys.stderr)
+        return 1
     GZ.unlink()
     print(f"[catalog] published {ASSET} to release '{TAG}'")
     return 0

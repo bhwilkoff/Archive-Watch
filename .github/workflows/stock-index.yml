@@ -85,9 +85,14 @@ jobs:
               id TEXT PRIMARY KEY, archiveID TEXT, sourceURL TEXT,
               startSeconds REAL, endSeconds REAL, tags TEXT, title TEXT)""")
           n0 = db.execute("SELECT count(*) FROM shots").fetchone()[0]
+          # Be EXPLICIT about the 7 shard columns — the published clips.sqlite gains an 8th
+          # `tagged` column from tag_stock_shots.py (ALTER TABLE ADD COLUMN), so a bare
+          # `SELECT *` (7 values) into the now-8-column target fails ("8 columns but 7 values
+          # supplied"). Naming the columns lets `tagged` default for the new shots.
+          COLS = "id, archiveID, sourceURL, startSeconds, endSeconds, tags, title"
           for f in sorted(glob.glob("shards/**/clips-shard-*.sqlite", recursive=True)):
               db.execute("ATTACH ? AS s", (f,))
-              db.execute("INSERT OR IGNORE INTO shots SELECT * FROM s.shots")
+              db.execute(f"INSERT OR IGNORE INTO shots({COLS}) SELECT {COLS} FROM s.shots")
               db.commit(); db.execute("DETACH s")
           n1 = db.execute("SELECT count(*) FROM shots").fetchone()[0]
           films = db.execute("SELECT count(DISTINCT archiveID) FROM shots").fetchone()[0]
