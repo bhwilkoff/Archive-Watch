@@ -5,49 +5,33 @@ import SwiftData
 // Home = curated shelves over the shared CatalogDB queries (same shelves the other
 // platforms show). Re-queries when the full DB swaps in (store.dbVersion).
 
+struct HomeShelf: Identifiable { let id: String; let title: String; let items: [Catalog.Item]; var accent: Color = .primary }
+
 struct HomeView: View {
     @Environment(AppStore.self) private var store
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var progress: [WatchProgress]
     @Query(sort: \Favorite.addedAt, order: .reverse) private var savedFavorites: [Favorite]
-    @State private var topRated: [Catalog.Item] = []
-    @State private var gems: [Catalog.Item] = []
-    @State private var watching: [Catalog.Item] = []
-    @State private var discussed: [Catalog.Item] = []
-    @State private var favorites: [Catalog.Item] = []
-    @State private var pdItems: [Catalog.Item] = []
-    @State private var payloads: [ShelfPayload] = []
-    @State private var directorShelves: [(name: String, items: [Catalog.Item])] = []
+    @State private var hero: Catalog.Item?
+    @State private var shelves: [HomeShelf] = []
 
     private let pdYear = Calendar.current.component(.year, from: Date()) - 95
-    private let minPerShelf = 6
+    // A shelf needs this many professional-art items (after cross-shelf dedup) to earn a row.
+    // Matches the tvOS `minPerShelf` so a thin/redundant shelf HIDES (parity: on Apple TV the
+    // overlapping community shelves end up empty after dedup, so they don't appear).
+    private let minPerShelf = 9
 
-    private var shelves: [Featured.Shelf] { store.featured?.shelves ?? [] }
     private var continueItems: [Catalog.Item] {
         store.itemsByIDs(progress.filter { !$0.isComplete && $0.positionSeconds > 10 }
-            .prefix(12).map(\.archiveID))
-    }
-
-    struct ShelfPayload: Identifiable {
-        let shelf: Featured.Shelf
-        let items: [Catalog.Item]
-        var id: String { shelf.id }
+            .prefix(12).map(\.archiveID)).filter(\.hasProfessionalArtwork)
     }
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 26) {
-                if let hero = topRated.first { HeroBanner(item: hero) }
+                if let hero { HeroBanner(item: hero) }
                 if !continueItems.isEmpty { ShelfRow(title: "Continue Watching", items: continueItems) }
                 CategoryTilesRow()
-                ForEach(payloads.prefix(2)) { ShelfRow(title: $0.shelf.title, items: $0.items) }
-                ShelfRow(title: "Top Rated", items: topRated, accent: .orange)
-                ShelfRow(title: "Watching Now", items: watching)
-                ShelfRow(title: "Community Favorites", items: favorites)
-                ShelfRow(title: "Most Discussed", items: discussed)
-                ShelfRow(title: "Hidden Gems", items: gems)
-                if !pdItems.isEmpty { ShelfRow(title: "Public Domain Day", items: pdItems) }
-                ForEach(directorShelves, id: \.name) { ShelfRow(title: "Directed by \($0.name)", items: $0.items) }
-                ForEach(payloads.dropFirst(2)) { ShelfRow(title: $0.shelf.title, items: $0.items) }
+                ForEach(shelves) { ShelfRow(title: $0.title, items: $0.items, accent: $0.accent) }
                 DecadeTilesRow()   // last row (tvOS/iOS parity — browse-by-era at the bottom)
             }
             .padding(24)
@@ -57,39 +41,43 @@ struct HomeView: View {
         .onChange(of: store.hideWatchedOnHome) { reload() }
     }
 
+    /// Build Home in the SAME order as Apple TV (tvOS HomeView), with ONE cross-shelf dedup so no
+    /// item appears twice — Watching Now / Community Favorites / Most Discussed are vote-floored
+    /// community queries that heavily overlap, so deduping (Watching Now first) shrinks the later
+    /// ones below `minPerShelf` and they HIDE → "only one community shelf shows" (owner). Every
+    /// shelf is professional-art only (no missing posters / generated covers, like tvOS).
     private func reload() {
-        // Feed the store's completed set so hideWatchedOnHome actually filters the shelves.
         store.completedArchiveIDs = Set(progress.filter(\.isComplete).map(\.archiveID))
-        topRated  = store.filteringWatched(store.topRated().filter(\.hasProfessionalArtwork))
-        gems      = store.filteringWatched(store.hiddenGems())
-        watching  = store.filteringWatched(store.watchingNow().filter(\.hasProfessionalArtwork))
-        discussed = store.filteringWatched(store.mostDiscussed().filter(\.hasProfessionalArtwork))
-        favorites = store.filteringWatched(store.communityFavorites().filter(\.hasProfessionalArtwork))
-        pdItems   = store.filteringWatched(
-            store.browse(year: pdYear, sort: .popular, limit: 24).filter(\.hasDesignedArtwork))
-        directorShelves = store.topDirectors().map { d in
-            (name: d.name, items: store.filteringWatched(store.byDirector(d.name)))
-        }.filter { $0.items.count >= minPerShelf }
-        payloads = dedupedPayloads()
-        writeWidgetSnapshot()
-    }
 
-    /// Resolve each curated featured.json shelf, keep professional art, drop items already shown,
-    /// and per-shelf shuffle so Home isn't five aliases of the same popular list (iOS parity).
-    private func dedupedPayloads() -> [ShelfPayload] {
-        var used = Set(topRated.map(\.archiveID)).union(continueItems.map(\.archiveID))
-            .union(gems.map(\.archiveID)).union(pdItems.map(\.archiveID))
-            .union(directorShelves.flatMap { $0.items.map(\.archiveID) })
-        var out: [ShelfPayload] = []
-        for shelf in shelves {
-            let fresh = store.filteringWatched(store.items(forShelf: shelf.id))
+        var used = Set<String>()
+        // Hero = the single most popular professional-art title; never repeats below.
+        hero = store.filteringWatched(store.topRated().filter(\.hasProfessionalArtwork)).first
+        if let h = hero { used.insert(h.archiveID) }
+        continueItems.forEach { used.insert($0.archiveID) }   // don't resurface Continue Watching
+
+        var built: [HomeShelf] = []
+        func add(_ id: String, _ title: String, _ pool: [Catalog.Item], accent: Color = .primary) {
+            let fresh = store.filteringWatched(pool)
                 .filter { $0.hasProfessionalArtwork && !used.contains($0.archiveID) }
-            let taken = Array(fresh.prefix(20))
-            guard taken.count >= minPerShelf else { continue }
+            let taken = Array(fresh.prefix(24))
+            guard taken.count >= minPerShelf else { return }
             taken.forEach { used.insert($0.archiveID) }
-            out.append(ShelfPayload(shelf: shelf, items: taken))
+            built.append(HomeShelf(id: id, title: title, items: taken, accent: accent))
         }
-        return out
+
+        // Curated featured.json shelves (all, in order) — same as tvOS dedupedShelfPayloads.
+        for shelf in (store.featured?.shelves ?? []) { add(shelf.id, shelf.title, store.items(forShelf: shelf.id)) }
+        // Then the dynamic shelves, in tvOS order.
+        add("public-domain-day", "Public Domain Day", store.browse(year: pdYear, sort: .popular, limit: 120))
+        add("top-rated", "Top Rated", store.topRated(), accent: .orange)
+        add("watching-now", "Watching Now", store.watchingNow())
+        add("community-favorites", "Community Favorites", store.communityFavorites())
+        add("most-discussed", "Most Discussed", store.mostDiscussed())
+        add("hidden-gems", "Hidden Gems", store.hiddenGems())
+        for d in store.topDirectors() { add("dir-\(d.name)", "Directed by \(d.name)", store.byDirector(d.name)) }
+
+        shelves = built
+        writeWidgetSnapshot()
     }
 
     /// Feed the macOS desktop / Notification Center widgets (App Group snapshot) —
