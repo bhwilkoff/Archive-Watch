@@ -20,18 +20,7 @@ struct PosterCard: View {
             RoundedRectangle(cornerRadius: 8)
                 .fill(.quaternary)
                 .aspectRatio(2.0 / 3.0, contentMode: .fit)
-                .overlay {
-                    if let url = item.posterURLParsed {
-                        AsyncImage(url: url) { img in
-                            img.resizable().scaledToFill()
-                        } placeholder: { Color.clear }
-                    } else {
-                        Text(item.title)
-                            .font(.caption).fontWeight(.semibold)
-                            .multilineTextAlignment(.center)
-                            .padding(6).foregroundStyle(.secondary)
-                    }
-                }
+                .overlay { RemotePoster(item: item) }
                 .clipShape(RoundedRectangle(cornerRadius: 8))
                 .overlay(alignment: .bottomLeading) {
                     if let r = item.imdbRatingDisplay {
@@ -60,6 +49,48 @@ struct PosterCard: View {
             }
         }
         .help(item.title)
+    }
+}
+
+/// A poster that NEVER shows an empty gray box: the designed poster → (on load failure, e.g. a
+/// dead/throttled Wikimedia/omdb URL) the archive.org item frame → (if that fails) a typographic
+/// title card. Fixes "missing posters" on Home where an item has hasProfessionalArtwork=true but
+/// its poster URL no longer loads (the issue is the same on tvOS — it's the DATA, not the layout).
+struct RemotePoster: View {
+    let item: Catalog.Item
+
+    private var archiveThumb: URL? {
+        let id = item.archiveID.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? item.archiveID
+        return URL(string: "https://archive.org/services/img/\(id)")
+    }
+
+    var body: some View {
+        if let url = item.posterURLParsed {
+            AsyncImage(url: url) { phase in
+                switch phase {
+                case .success(let img): img.resizable().scaledToFill()
+                case .failure:          archiveFallback
+                case .empty:            Color.clear           // brief loading shimmer (the quaternary fill)
+                @unknown default:       titleCard
+                }
+            }
+        } else {
+            titleCard
+        }
+    }
+
+    private var archiveFallback: some View {
+        AsyncImage(url: archiveThumb) { phase in
+            if case .success(let img) = phase { img.resizable().scaledToFill() } else { titleCard }
+        }
+    }
+
+    private var titleCard: some View {
+        Text(item.title)
+            .font(.caption).fontWeight(.semibold)
+            .multilineTextAlignment(.center).lineLimit(4)
+            .padding(6).foregroundStyle(.secondary)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

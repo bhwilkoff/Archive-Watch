@@ -173,11 +173,7 @@ private struct SaverTile: View {
     var body: some View {
         Color.black
             .frame(width: width, height: height)
-            .overlay {
-                AsyncImage(url: item.posterURLParsed) { img in
-                    img.resizable().scaledToFill()
-                } placeholder: { Color.white.opacity(0.04) }
-            }
+            .overlay { RemotePoster(item: item) }   // poster → archive frame → title card (no empty tiles)
             .clipShape(.rect(cornerRadius: 8))
             .transition(.opacity)
             .id(item.archiveID)
