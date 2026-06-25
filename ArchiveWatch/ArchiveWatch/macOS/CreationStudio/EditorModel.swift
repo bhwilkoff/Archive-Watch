@@ -81,6 +81,7 @@ final class EditorModel {
             }
         }
         clearSelection()
+        bumpOverlayRevision()
         relayout(); scheduleRebuild()
     }
     /// Multi-drag: set each selected FREE element (text overlay / audio clip) to its captured
@@ -101,6 +102,7 @@ final class EditorModel {
             default: break
             }
         }
+        bumpOverlayRevision()   // selected overlays may have moved → refresh the live preview
         scheduleRebuild()
     }
     var selectedClipID: UUID? { if case .clip(let id) = selection { return id }; return nil }
@@ -420,6 +422,13 @@ final class EditorModel {
     // MARK: - Text overlays (#3)
 
     var textOverlays: [TextOverlay] { document.project.timeline.textOverlays }
+    /// A TRACKED @Observable token bumped on every overlay mutation. The live SwiftUI overlay
+    /// preview (TextOverlayPreview) reads it so its body re-evaluates when an overlay changes —
+    /// `textOverlays` is backed by the non-@Observable `document`, so without this token a paused
+    /// preview never sees position/text/color edits (it only re-rendered when `playheadSeconds`
+    /// changed, i.e. while playing). Bump on EVERY overlay write.
+    private(set) var overlayRevision = 0
+    func bumpOverlayRevision() { overlayRevision &+= 1 }
 
     func addTextOverlay() {
         checkpoint()
@@ -430,6 +439,7 @@ final class EditorModel {
                                                       durationSeconds: avail > 1 ? min(3, avail) : 3))
         document.project.timeline.textOverlays.append(ov)
         selection = .overlay(ov.id)
+        bumpOverlayRevision()
         // No preview rebuild: overlays aren't baked into the preview composition (the Core
         // Animation tool is export-only) — the live SwiftUI overlay shows them; export reads
         // them at export time. Skipping the rebuild keeps text editing/dragging instant.
@@ -438,12 +448,14 @@ final class EditorModel {
     func updateOverlay(_ ov: TextOverlay) {
         guard let i = document.project.timeline.textOverlays.firstIndex(where: { $0.id == ov.id }) else { return }
         document.project.timeline.textOverlays[i] = ov
+        bumpOverlayRevision()
     }
 
     func deleteOverlay(_ id: UUID) {
         checkpoint()
         document.project.timeline.textOverlays.removeAll { $0.id == id }
         if selectedOverlayID == id { selection = .none }
+        bumpOverlayRevision()
     }
 
     // MARK: - Undo / redo (project snapshots via the window UndoManager) + clipboard + mute
@@ -465,6 +477,7 @@ final class EditorModel {
         undoManager?.registerUndo(withTarget: self) { editor in editor.applyHistory(inverse) }
         document.project = snapshot
         selection = .none
+        bumpOverlayRevision()    // overlays may have changed → refresh the live preview
         relayout(); scheduleRebuild()
     }
 

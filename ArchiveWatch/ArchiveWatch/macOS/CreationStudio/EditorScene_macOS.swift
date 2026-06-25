@@ -324,7 +324,11 @@ private struct TextOverlayPreview: View {
     let renderSize: RenderSize
 
     var body: some View {
-        GeometryReader { geo in
+        // Establish a dependency on the TRACKED overlay-revision token so this body re-evaluates
+        // when an overlay's position/text/etc. changes even while the preview is PAUSED. Without it
+        // the only tracked read is `playheadSeconds`, so edits showed only while playing.
+        let _ = model.overlayRevision
+        return GeometryReader { geo in
             let rect = fitRect(aspect: renderSize.width / max(1, renderSize.height), in: geo.size)
             ForEach(active) { ov in
                 let selected = model.selectedOverlayID == ov.id
