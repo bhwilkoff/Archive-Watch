@@ -100,10 +100,14 @@ enum ClipCacheService {
             do {
                 var path = "passthrough"
                 do {
-                    try await transcode(sourceURL, range: range, preset: AVAssetExportPresetPassthrough, to: out)
+                    try await withTimeout(75) {
+                        try await transcode(sourceURL, range: range, preset: AVAssetExportPresetPassthrough, to: out)
+                    }
                 } catch {
                     path = "reencode"
-                    try await transcode(sourceURL, range: range, preset: AVAssetExportPresetHighestQuality, to: out)
+                    try await withTimeout(90) {
+                        try await transcode(sourceURL, range: range, preset: AVAssetExportPresetHighestQuality, to: out)
+                    }
                 }
                 if ProcessInfo.processInfo.environment["AW_CS_DIAG"] != nil {
                     FileHandle.standardError.write(Data(
@@ -147,6 +151,21 @@ enum ClipCacheService {
         // Atomic-ish move into place so a partially-written file is never treated as cached.
         try? FileManager.default.removeItem(at: out)
         try FileManager.default.moveItem(at: staging, to: out)
+    }
+
+    /// Race an async op against a deadline. A degraded archive.org node can STALL a cache export
+    /// mid-flight (a 503 after the first bytes) with no error — the session just hangs. Capping the
+    /// attempt turns a hang into a thrown timeout, so `cachedWindow`'s retry loop re-resolves a
+    /// healthy node instead of freezing forever (owner: "videos hang for a long time"). On timeout
+    /// the export task is cancelled (the async export observes it and stops fetching).
+    private static func withTimeout(_ seconds: Double,
+                                    _ op: @escaping @Sendable () async throws -> Void) async throws {
+        try await withThrowingTaskGroup(of: Void.self) { group in
+            group.addTask { try await op() }
+            group.addTask { try await Task.sleep(for: .seconds(seconds)); throw CancellationError() }
+            defer { group.cancelAll() }
+            try await group.next()      // first to finish (op done, op error, or timeout)
+        }
     }
 }
 #endif
