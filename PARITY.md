@@ -66,14 +66,14 @@ macOS) since they share the Swift Core.
 |---|---|---|---|---|---|---|
 | Hero / featured banner | ✅ focus carousel | ✅ paged carousel (7s auto-advance) | ✅ `HeroBanner` (backdrop) | ✅ Marquee scroll-snap carousel | ✅ 7s auto-advance hero | Same pool/logic; sizing per idiom |
 | Curated + dynamic shelves | ✅ | ✅ horizontal rows, deduped | ✅ shelves (Top Rated / Watching Now / Hidden Gems / Community Favorites / Most Discussed) | ✅ scroll-snap rails | ✅ `LazyRow`s | `featured.json` shared |
-| Category tiles | ✅ | ✅ tile row → filtered grid | ⏳ (discovery polish pending) | ✅ accent tiles | ✅ tile row → filtered grid | accent colors shared; count-gated ≥30 |
-| Decade tiles | ✅ | ✅ era tiles + counts | ⏳ | ✅ era tiles | ✅ era tiles | |
+| Category tiles | ✅ | ✅ tile row → filtered grid | ✅ tile row → filtered grid | ✅ accent tiles | ✅ tile row → filtered grid | accent colors shared; count-gated ≥30 |
+| Decade tiles | ✅ | ✅ era tiles + counts | ✅ era tiles + counts | ✅ era tiles | ✅ era tiles | |
 | Hidden Gems shelf | ✅ | ✅ | ✅ | ✅ | ✅ | shared query |
 | Top Rated shelf (IMDb) + rating sort in Browse | ✅ | ✅ | ✅ shelf + Browse sort (`CatalogDB.Sort`) | ⏳ (index lacks rating column) | ✅ | votes floor ≥1,000 |
 | Community shelves (Watching Now / Favorites / Most Discussed) | ✅ | ✅ | ✅ | ✅ | ✅ | archive.org signals; vote-floored ≥1,000 |
 | Detail community (stats + genuine reviews) | ✅ | ✅ | ✅ | ✅ | ✅ | reviews filtered in the pipeline (`comment_fit.py`), baked into the catalog |
-| Director shelves | ✅ | ✅ | ⏳ | ⏳ (index lacks director data) | ✅ | shared query |
-| Continue Watching | ✅ | ✅ | ✅ progress + widget (Home shelf ⏳) | ✅ | ✅ | progress store (§6) |
+| Director shelves | ✅ | ✅ | ✅ | ⏳ (index lacks director data) | ✅ | shared query |
+| Continue Watching | ✅ | ✅ | ✅ progress + widget + Home shelf | ✅ | ✅ | progress store (§6) |
 | Modes row | ✅ | ➖ removed (Channels tab; modes via Surprise grid) | ➖ (Cartoon via Modes; Channels/Surprise are sidebar) | ⏳ | ⏳ | links to §5 |
 | Public Domain Day section | ✅ | ✅ Home shelf + year-chip explorer | ⏳ | ✅ Home shelf | ✅ Home row | seasonal, shared |
 
@@ -85,12 +85,12 @@ macOS) since they share the Swift Core.
 | Infinite scroll / paging | ✅ | ✅ | ✅ offset paging | ✅ IntersectionObserver | ✅ | |
 | TV series → season → episode | ✅ | ✅ | ✅ `seriesCards()` → `SeriesDetail` → episode play | ✅ `#/series/{slug}` | ✅ | `series/*.json` shared |
 | TV never appears in Movies | ✅ | ✅ | ✅ | ✅ | ✅ | Decision 036 (shared `CatalogDB`) |
-| TV Specials surface | ✅ | ✅ | ⏳ | ✅ | ✅ | Decision 036; macOS surface pending |
+| TV Specials surface | ✅ | ✅ | ✅ TVBrowseView | ✅ | ✅ | Decision 036 |
 | Orphan episodes fold into spines | ✅ pipeline | — | — | — | — | Decision 036; pipeline-side, benefits all via `series/*.json` |
 | Prev/next episode in player | ✅ | ✅ | 🚧 | ✅ | ✅ | EpisodeQueue / PlaybackQueue (macOS wiring pending) |
 | Collections landing + blurbs | ✅ | ✅ | ✅ `CollectionsList` | ✅ `#/collections` | ✅ | `collection_metadata.json` shared |
 | Full-text search (FTS5) | ✅ | ✅ | ✅ `SearchView` over FTS5 | 🚧 client title search (FTS5 upgrade pending) | ✅ debounced FTS5 | same FTS5 index |
-| Search result filters | ⏳ | ✅ type/decade menu | ⏳ | ⏳ | ✅ chips | |
+| Search result filters | ⏳ | ✅ type/decade menu | ✅ type/decade menu | ⏳ | ✅ chips | |
 
 ## 4. Detail + Playback
 
@@ -98,7 +98,7 @@ macOS) since they share the Swift Core.
 |---|---|---|---|---|---|---|
 | Detail (backdrop, metadata, cast) | ✅ | ✅ | ✅ poster + metadata + cast row | ✅ | ✅ | shared item record |
 | More Like This | ✅ | ✅ | ✅ `store.related` | ✅ | ✅ | shared `related` query |
-| Cast → person filmography | ✅ | ✅ | ✅ tappable cast → byPerson | ⏳ | ✅ | |
+| Cast → person filmography | ✅ | ✅ | ✅ tappable cast (TMDb photos) → byPerson | ⏳ | ✅ | |
 | Share titles / series | ✅ ShareSheet + QR | ✅ ShareLink | ✅ `ShareLink` (item + series) | ✅ share menu | ✅ ACTION_SEND | archivewatch.org URLs (Decision 030) |
 | Open in Callsheet (cast/crew app) | n/a | ✅ (App Store fallback) | ✅ `NSWorkspace` open/probe + App Store fallback | n/a | n/a | Decision 038 (+macOS amendment 2026-06-23) |
 | Now Playing / media controls | ✅ externalMetadata | ✅ AVKit (lock screen + Control Center) | ✅ AVPlayerView (system media keys) | ✅ MediaSession | ✅ Media3 MediaSession | |

@@ -73,7 +73,7 @@ struct RootView: View {
         switch router.section {
         case .home:        HomeView()
         case .movies:      BrowseView(contentType: nil, title: "Movies")
-        case .tv:          GridView(title: "TV", items: store.seriesCards())
+        case .tv:          TVBrowseView()
         case .channels:    ChannelsView()
         case .collections: CollectionsList()
         case .surprise:    SurpriseView()
