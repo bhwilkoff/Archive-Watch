@@ -62,12 +62,18 @@ final class SubtitleIndex {
 
     /// Cues whose text contains the phrase (LIKE for the sample; the CI index adds FTS5). Ordered
     /// so a SHORTER cue (a tighter quote of the phrase) ranks first.
+    ///
+    /// A CONFIDENCE GATE (stricter than playback) is applied: the player shows whatever caption
+    /// exists, but the supercut puts the caption ON SCREEN AS TRUTH ("the catalog speaks your
+    /// words"), so a wrong/hallucinated line is far more damaging here. We drop the tells of bad
+    /// ASR (Decision 043): repeated-token runs ("why why why"), a low distinct-word ratio, and an
+    /// impossible character-per-second rate. We over-fetch then filter so `limit` survivors remain.
     func search(_ phrase: String, limit: Int = 200) -> [SubtitleCue] {
         let q = phrase.trimmingCharacters(in: .whitespaces)
         guard !q.isEmpty else { return [] }
         let sql = """
             SELECT id,archiveID,sourceURL,startSeconds,endSeconds,text,title FROM cues
-            WHERE text LIKE ?1 ORDER BY (endSeconds-startSeconds) ASC LIMIT \(limit)
+            WHERE text LIKE ?1 ORDER BY (endSeconds-startSeconds) ASC LIMIT \(limit * 4)
             """
         var stmt: OpaquePointer?
         guard sqlite3_prepare_v2(handle, sql, -1, &stmt, nil) == SQLITE_OK else { return [] }
@@ -77,12 +83,36 @@ final class SubtitleIndex {
         while sqlite3_step(stmt) == SQLITE_ROW {
             func str(_ i: Int32) -> String { sqlite3_column_text(stmt, i).map { String(cString: $0) } ?? "" }
             guard let url = URL(string: str(2)) else { continue }
+            let start = sqlite3_column_double(stmt, 3), end = sqlite3_column_double(stmt, 4)
+            let text = str(5)
+            guard Self.isConfident(text: text, start: start, end: end) else { continue }
             out.append(SubtitleCue(id: str(0), archiveID: str(1), sourceURL: url,
-                                   startSeconds: sqlite3_column_double(stmt, 3),
-                                   endSeconds: sqlite3_column_double(stmt, 4),
-                                   text: str(5), title: str(6)))
+                                   startSeconds: start, endSeconds: end, text: text, title: str(6)))
+            if out.count >= limit { break }
         }
         return out
+    }
+
+    /// The supercut confidence gate. Returns false for captions that read as garbage/hallucinated
+    /// ASR, so they never reach the supercut UI (where the caption is presented as ground truth).
+    static func isConfident(text: String, start: Double, end: Double) -> Bool {
+        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard trimmed.count >= 2 else { return false }
+        let words = trimmed.lowercased().split { !$0.isLetter && !$0.isNumber }.map(String.init)
+        guard !words.isEmpty else { return false }
+        // 1) Repeated-token run — the classic hallucination signature ("why why why why").
+        var run = 1
+        for i in 1..<max(1, words.count) {
+            if words[i] == words[i - 1] { run += 1; if run >= 3 { return false } } else { run = 1 }
+        }
+        // 2) Low distinct-word ratio over a longer line (e.g. "alright alright alright …").
+        if words.count >= 4, Double(Set(words).count) / Double(words.count) < 0.5 { return false }
+        // 3) Impossible speech rate. Real speech is well under ~25 chars/sec; garbage cues pack
+        //    many characters into a fraction of a second. Stricter than the player would ever need.
+        let dur = end - start
+        guard dur >= 0.3 else { return false }
+        if Double(trimmed.count) / dur > 30 { return false }
+        return true
     }
 
     /// Frame-accurate range of `run` (a word sequence) from the forced-aligned `words` table
@@ -161,6 +191,13 @@ enum SubtitleIndexBuilder {
     private static let publishedURL = URL(string:
         "https://github.com/bhwilkoff/Archive-Watch/releases/download/subtitle-index/subtitle.sqlite.zz")!
 
+    /// Auto-ASR captions hallucinate wrong words (Decision 039b/043) — never index them for the
+    /// supercut, where the caption is presented as truth. Human/uploader sources only.
+    static func isAutoSource(_ source: String?) -> Bool {
+        let s = (source ?? "").lowercased()
+        return s.contains("asr") || s.contains("auto") || s.contains("whisper")
+    }
+
     /// Ensure a cue index exists: download the full-corpus CI index if published, else synthesize
     /// the on-device sample. Same `cues` schema either way (StockIndex pattern).
     @MainActor
@@ -190,7 +227,7 @@ enum SubtitleIndexBuilder {
         let url = SubtitleIndex.sampleURL
         if FileManager.default.fileExists(atPath: url.path) { return }
         let captioned = store.browse(sort: .popular, limit: 1200).filter {
-            $0.isClippable && ($0.captions?.contains { $0.vttURL != nil } ?? false)
+            $0.isClippable && ($0.captions?.contains { $0.vttURL != nil && !isAutoSource($0.source) } ?? false)
         }.prefix(maxFilms)
         guard !captioned.isEmpty else { return }
 
@@ -211,12 +248,13 @@ enum SubtitleIndexBuilder {
 
         for item in captioned {
             guard let url = item.videoURLParsed,
-                  let vttStr = item.captions?.first(where: { $0.vttURL != nil })?.vttURL,
+                  let vttStr = item.captions?.first(where: { $0.vttURL != nil && !Self.isAutoSource($0.source) })?.vttURL,
                   let vttURL = URL(string: vttStr),
                   let (data, _) = try? await URLSession.shared.data(from: vttURL),
                   let vtt = String(data: data, encoding: .utf8) else { continue }
             sqlite3_exec(db, "BEGIN", nil, nil, nil)
             for (i, cue) in VTTParser.cues(vtt).enumerated() {
+                guard SubtitleIndex.isConfident(text: cue.2, start: cue.0, end: cue.1) else { continue }
                 sqlite3_reset(stmt)
                 sqlite3_bind_text(stmt, 1, "\(item.archiveID)#\(i)", -1, SQLITE_TRANSIENT_SUB)
                 sqlite3_bind_text(stmt, 2, item.archiveID, -1, SQLITE_TRANSIENT_SUB)

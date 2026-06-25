@@ -63,16 +63,55 @@ def fetch(url: str) -> str | None:
         return None
 
 
+def _is_auto_source(source) -> bool:
+    """Auto-ASR captions hallucinate wrong words (Decision 039b/043) and must NEVER reach the
+    supercut, where the caption is presented as ground truth. Human/uploader sources only."""
+    s = (source or "").lower()
+    return "asr" in s or "auto" in s or "whisper" in s
+
+
+def _confident(text: str, start: float, end: float) -> bool:
+    """Build-time confidence gate — the Python twin of SubtitleIndex.isConfident. Keeps garbage/
+    hallucinated cues OUT of the published index (repeated-token runs, low distinct-word ratio,
+    impossible character-per-second rate). Stricter than anything playback would need."""
+    t = (text or "").strip()
+    if len(t) < 2:
+        return False
+    words = [w for w in re.split(r"[^0-9A-Za-z]+", t.lower()) if w]
+    if not words:
+        return False
+    run = 1
+    for i in range(1, len(words)):
+        if words[i] == words[i - 1]:
+            run += 1
+            if run >= 3:
+                return False
+        else:
+            run = 1
+    if len(words) >= 4 and len(set(words)) / len(words) < 0.5:
+        return False
+    dur = end - start
+    if dur < 0.3:
+        return False
+    return (len(t) / dur) <= 30
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=4000, help="captioned films to add this run")
     ap.add_argument("--out", default=str(REPO / "subtitle.sqlite"))
     args = ap.parse_args()
 
+    def human_vtt(it):
+        """The first HUMAN-source caption with a VTT — skips auto-ASR (Decision 043)."""
+        for c in (it.get("captions") or []):
+            if c.get("vttURL") and not _is_auto_source(c.get("source")):
+                return c["vttURL"]
+        return None
+
     cat = json.loads(CATALOG.read_text())
     items = [it for it in cat["items"]
-             if it.get("downloadURL") and not it.get("excluded")
-             and any((c.get("vttURL") for c in (it.get("captions") or [])))]
+             if it.get("downloadURL") and not it.get("excluded") and human_vtt(it)]
     items.sort(key=lambda it: it.get("popularityScore") or it.get("downloads") or 0, reverse=True)
 
     db = sqlite3.connect(args.out)
@@ -88,16 +127,16 @@ def main() -> int:
         aid = it["archiveID"]
         if aid in seen:
             continue
-        vtt_url = next((c["vttURL"] for c in it["captions"] if c.get("vttURL")), None)
+        vtt_url = human_vtt(it)
         vtt = fetch(vtt_url) if vtt_url else None
         if not vtt:
             continue
-        cues = parse_vtt(vtt)
+        cues = [(i, s, e, t) for i, (s, e, t) in enumerate(parse_vtt(vtt)) if _confident(t, s, e)]
         if not cues:
             continue
         url, title = it["downloadURL"], it.get("title", "")
         db.executemany("INSERT OR REPLACE INTO cues VALUES(?,?,?,?,?,?,?)",
-                       [(f"{aid}#{i}", aid, url, s, e, t, title) for i, (s, e, t) in enumerate(cues)])
+                       [(f"{aid}#{i}", aid, url, s, e, t, title) for i, s, e, t in cues])
         db.commit()
         done += 1
         if done % 50 == 0:
