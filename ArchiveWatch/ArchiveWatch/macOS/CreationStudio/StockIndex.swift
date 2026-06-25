@@ -43,9 +43,9 @@ final class StockIndex {
         try? FileManager.default.createDirectory(at: base, withIntermediateDirectories: true)
         return base
     }
-    // v2: one clean shot per film + clean pipe-joined tags (the v1 sample repeated films + had
-    // mangled tag tokens). Bumping the name invalidates any stale on-device v1 sample.
-    nonisolated static var sampleURL: URL { dir.appendingPathComponent("clips-sample-v2.sqlite") }
+    // v3: SEVERAL spread shots per film (#6) — each a distinct frame. Bumping the name
+    // invalidates any stale on-device v1/v2 sample so the richer one regenerates.
+    nonisolated static var sampleURL: URL { dir.appendingPathComponent("clips-sample-v3.sqlite") }
     /// The real CI-built index (tools/build_stock_index.py), downloaded from the stock-index release.
     nonisolated static var indexURL: URL { dir.appendingPathComponent("clips.sqlite") }
     /// Prefer the published real index; fall back to the on-device sample.
@@ -126,7 +126,7 @@ enum StockIndexBuilder {
     static func buildSampleIfNeeded(store: AppStore) {
         let url = StockIndex.sampleURL
         if FileManager.default.fileExists(atPath: url.path) { return }
-        let items = store.browse(sort: .popular, limit: 120).filter { $0.isClippable }
+        let items = store.browse(sort: .popular, limit: 280).filter { $0.isClippable }
         guard !items.isEmpty else { return }
 
         var db: OpaquePointer?
@@ -145,10 +145,12 @@ enum StockIndexBuilder {
         guard sqlite3_prepare_v2(db, insert, -1, &stmt, nil) == SQLITE_OK else { return }
         defer { sqlite3_finalize(stmt) }
 
-        // ONE representative window per film (the sample's placeholder cut). The same film no
-        // longer repeats as N near-identical cards (#6); the real pipeline replaces these with
-        // PySceneDetect shots that genuinely differ. Tags are discrete + clean (drop sentence-
-        // long subjects + punctuation), pipe-joined so multi-word tags survive the split.
+        // SEVERAL spread windows per film (#6 — "very few items"). The shots are taken at
+        // different points across the runtime (skipping titles/credits), so with the per-shot
+        // frame thumbnail each card shows a genuinely DIFFERENT image — not the same poster N
+        // times. The real PySceneDetect pipeline replaces these with true scene cuts. Tags are
+        // discrete + clean, pipe-joined so multi-word tags survive the split.
+        let fractions = [0.15, 0.38, 0.6, 0.82]
         sqlite3_exec(db, "BEGIN", nil, nil, nil)
         for item in items {
             guard let url = item.videoURLParsed else { continue }
@@ -157,17 +159,21 @@ enum StockIndexBuilder {
                 .filter { !$0.isEmpty && $0.count <= 22 && !$0.contains(":") && !$0.contains(";") }
                 .prefix(4)
                 .joined(separator: "|")
-            let dur = (item.runtimeSeconds.map(Double.init) ?? 120)
-            let inS = min(5, max(0, dur - 8))
-            sqlite3_reset(stmt)
-            sqlite3_bind_text(stmt, 1, item.archiveID, -1, SQLITE_TRANSIENT_STOCK)
-            sqlite3_bind_text(stmt, 2, item.archiveID, -1, SQLITE_TRANSIENT_STOCK)
-            sqlite3_bind_text(stmt, 3, url.absoluteString, -1, SQLITE_TRANSIENT_STOCK)
-            sqlite3_bind_double(stmt, 4, inS)
-            sqlite3_bind_double(stmt, 5, inS + 8)
-            sqlite3_bind_text(stmt, 6, tags, -1, SQLITE_TRANSIENT_STOCK)
-            sqlite3_bind_text(stmt, 7, item.title, -1, SQLITE_TRANSIENT_STOCK)
-            sqlite3_step(stmt)
+            let dur = (item.runtimeSeconds.map(Double.init) ?? 180)
+            // Short films get one shot; longer films get up to four spread across the runtime.
+            let picks = dur > 60 ? fractions : [0.2]
+            for (k, fr) in picks.enumerated() {
+                let inS = max(0, min(dur - 9, dur * fr))
+                sqlite3_reset(stmt)
+                sqlite3_bind_text(stmt, 1, "\(item.archiveID)#\(k)", -1, SQLITE_TRANSIENT_STOCK)
+                sqlite3_bind_text(stmt, 2, item.archiveID, -1, SQLITE_TRANSIENT_STOCK)
+                sqlite3_bind_text(stmt, 3, url.absoluteString, -1, SQLITE_TRANSIENT_STOCK)
+                sqlite3_bind_double(stmt, 4, inS)
+                sqlite3_bind_double(stmt, 5, inS + 8)
+                sqlite3_bind_text(stmt, 6, tags, -1, SQLITE_TRANSIENT_STOCK)
+                sqlite3_bind_text(stmt, 7, item.title, -1, SQLITE_TRANSIENT_STOCK)
+                sqlite3_step(stmt)
+            }
         }
         sqlite3_exec(db, "COMMIT", nil, nil, nil)
     }

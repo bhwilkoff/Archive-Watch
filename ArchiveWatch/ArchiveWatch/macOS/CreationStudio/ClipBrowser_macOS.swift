@@ -133,7 +133,7 @@ struct ClipBrowserSheet: View {
             LazyVGrid(columns: cols, spacing: 16) {
                 ForEach(stock) { shot in
                     Button { onAdd(shot.proxyClip); dismiss() } label: {
-                        StockCard(shot: shot, poster: store.item(shot.archiveID)?.posterURLParsed)
+                        StockCard(shot: shot)
                     }
                     .buttonStyle(.plain)
                 }
@@ -175,13 +175,15 @@ struct ClipBrowserSheet: View {
 
 private struct StockCard: View {
     let shot: StockShot
-    let poster: URL?
+    // Each shot shows ITS OWN frame (the archive thumbnail nearest the shot's start), not the
+    // source film's poster — otherwise every shot from one film looked identical (#6).
+    @State private var frameURL: URL?
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             RoundedRectangle(cornerRadius: 6).fill(.quaternary)
                 .aspectRatio(16.0/9.0, contentMode: .fit)
                 .overlay {
-                    if let poster { AsyncImage(url: poster) { $0.resizable().scaledToFill() } placeholder: { Color.clear } }
+                    if let frameURL { AsyncImage(url: frameURL) { $0.resizable().scaledToFill() } placeholder: { Color.clear } }
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 6))
                 .overlay(alignment: .bottomTrailing) {
@@ -200,6 +202,9 @@ private struct StockCard: View {
                     }
                 }
             }
+        }
+        .task(id: shot.id) {
+            frameURL = await ArchiveThumbnails.nearestThumb(for: shot.sourceURL, seconds: shot.startSeconds)
         }
     }
 

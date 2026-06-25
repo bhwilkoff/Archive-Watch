@@ -13,6 +13,15 @@ struct ArchiveThumb: Identifiable, Sendable, Hashable {
     let url: URL
 }
 
+/// One-fetch-per-item cache for thumbnail strips — a stock grid often shows many shots from the
+/// SAME film, and without this each card would re-fetch that item's /metadata.
+private actor ThumbStripCache {
+    static let shared = ThumbStripCache()
+    private var store: [String: [ArchiveThumb]] = [:]
+    func get(_ key: String) -> [ArchiveThumb]? { store[key] }
+    func set(_ key: String, _ value: [ArchiveThumb]) { store[key] = value }
+}
+
 enum ArchiveThumbnails {
     /// The timestamped thumbnail strip for a video URL, via /metadata. Empty if unavailable.
     static func strip(for videoURL: URL) async -> [ArchiveThumb] {
@@ -21,6 +30,7 @@ enum ArchiveThumbnails {
         let after = s[r.upperBound...]
         guard let slash = after.firstIndex(of: "/") else { return [] }
         let metaID = String(after[..<slash]).removingPercentEncoding ?? String(after[..<slash])
+        if let cached = await ThumbStripCache.shared.get(metaID) { return cached }
         guard let metaURL = URL(string: "https://archive.org/metadata/\(metaID)"),
               let (data, _) = try? await URLSession.shared.data(from: metaURL),
               let obj = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any],
@@ -39,7 +49,15 @@ enum ArchiveThumbnails {
             guard let url = URL(string: "https://archive.org/download/\(metaID)/\(enc)") else { continue }
             thumbs.append(ArchiveThumb(id: secs, url: url))
         }
-        return thumbs.sorted { $0.id < $1.id }
+        let sorted = thumbs.sorted { $0.id < $1.id }
+        await ThumbStripCache.shared.set(metaID, sorted)
+        return sorted
+    }
+
+    /// The thumbnail nearest a timestamp (a shot's start) — its representative still.
+    static func nearestThumb(for videoURL: URL, seconds: Double) async -> URL? {
+        let strip = await strip(for: videoURL)
+        return strip.min { abs($0.seconds - seconds) < abs($1.seconds - seconds) }?.url
     }
 }
 #endif
