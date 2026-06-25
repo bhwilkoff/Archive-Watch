@@ -535,6 +535,15 @@ def create_schema(db):
     -- `items_fts MATCH ?` searches every column automatically, so broadening
     -- here needs no app change.
     CREATE VIRTUAL TABLE items_fts USING fts5(archiveID UNINDEXED, title, names, extra);
+
+    -- Episode search: individual TV episodes aren't catalog items (they live in the
+    -- `episodes` table), so they never appeared in `items_fts`. This self-contained FTS
+    -- indexes the episode title + its series title (searchable), and carries everything the
+    -- apps need to display + route the hit (UNINDEXED payload) — no join required.
+    CREATE VIRTUAL TABLE episodes_fts USING fts5(
+      seriesID UNINDEXED, seriesTitle, season UNINDEXED, episode UNINDEXED,
+      archiveID UNINDEXED, downloadURL UNINDEXED, stillURL UNINDEXED,
+      year UNINDEXED, runtimeSeconds UNINDEXED, title);
     """)
 
 
@@ -621,12 +630,13 @@ def populate_items(db, items, rotate_seed="0"):
 
 
 def populate_series(db):
-    s_rows, e_rows = [], []
+    s_rows, e_rows, ef_rows = [], [], []
     for f in sorted(SERIES_DIR.glob("*.json")):
         d = json.loads(f.read_text(encoding="utf-8"))
         sid = d.get("seriesID") or f.stem
+        series_title = d.get("title")
         s_rows.append((
-            sid, d.get("title"), d.get("yearStart"), d.get("yearEnd"),
+            sid, series_title, d.get("yearStart"), d.get("yearEnd"),
             d.get("overview"), d.get("posterURL"), d.get("backdropURL"),
             jdump(d.get("networks")), jdump(d.get("genres")), d.get("creator"),
             d.get("tvmazeID"), d.get("episodesCount"), d.get("canonicalEpisodesCount"),
@@ -640,9 +650,17 @@ def populate_series(db):
                     ep.get("airDate"), ep.get("year"), ep.get("runtimeSeconds"),
                     ep.get("downloadURL"), jdump(ep.get("videoFile")), pos,
                 ))
+                # Index only PLAYABLE episodes for search (no point surfacing an unplayable hit).
+                if ep.get("downloadURL"):
+                    ef_rows.append((
+                        sid, series_title, ep.get("seasonNumber"), ep.get("episodeNumber"),
+                        ep.get("archiveID"), ep.get("downloadURL"), ep.get("stillURL"),
+                        ep.get("year"), ep.get("runtimeSeconds"), ep.get("title"),
+                    ))
                 pos += 1
     db.executemany("INSERT OR IGNORE INTO series VALUES (%s)" % ",".join("?" * 13), s_rows)
     db.executemany("INSERT INTO episodes VALUES (%s)" % ",".join("?" * 12), e_rows)
+    db.executemany("INSERT INTO episodes_fts VALUES (%s)" % ",".join("?" * 10), ef_rows)
     return len(s_rows), len(e_rows)
 
 

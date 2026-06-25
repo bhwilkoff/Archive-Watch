@@ -437,6 +437,30 @@ struct Episode: Decodable, Sendable, Hashable, Identifiable {
     func hash(into hasher: inout Hasher) { hasher.combine(archiveID) }
 }
 
+/// A search result for an individual TV EPISODE (from `episodes_fts`). Episodes aren't catalog
+/// items, so they never appeared in search; this carries enough to display the hit + route to its
+/// series. (Distinct from Episode: it also knows its parent series id/title for routing.)
+struct EpisodeHit: Identifiable, Hashable, Sendable {
+    let seriesID: String
+    let seriesTitle: String
+    let season: Int?
+    let episode: Int?
+    let archiveID: String
+    let downloadURL: String?
+    let stillURL: String?
+    let year: Int?
+    let runtimeSeconds: Int?
+    let title: String
+
+    var id: String { archiveID + "|" + seriesID }
+    var stillURLParsed: URL? { stillURL.flatMap(URL.init(string:)) }
+    var numberLabel: String? {
+        if let s = season, let e = episode { return "S\(s) · E\(e)" }
+        if let e = episode { return "Ep. \(e)" }
+        return nil
+    }
+}
+
 
 // ---------------------------------------------------------------------------
 // Carriers for navigating to an Episode

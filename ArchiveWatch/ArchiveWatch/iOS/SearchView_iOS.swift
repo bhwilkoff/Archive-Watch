@@ -12,6 +12,9 @@ struct SearchView: View {
     @State private var results: [Catalog.Item] = []
     @State private var contentType: String? = nil
     @State private var decade: Int? = nil
+    @State private var episodeHits: [EpisodeHit] = []
+    // Episodes shown unless the user has filtered to a non-TV type.
+    private var showEpisodes: Bool { (contentType == nil || contentType == "tv-series") && !episodeHits.isEmpty }
 
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
     private let types: [(String, String?)] = [
@@ -33,7 +36,7 @@ struct SearchView: View {
                 ContentUnavailableView("Search the archive",
                     systemImage: "magnifyingglass",
                     description: Text("Title, director, cast, genre, country, or synopsis."))
-            } else if filtered.isEmpty {
+            } else if filtered.isEmpty && !showEpisodes {
                 if filterActive && !results.isEmpty {
                     ContentUnavailableView("No matches with these filters",
                         systemImage: "line.3.horizontal.decrease.circle",
@@ -44,12 +47,28 @@ struct SearchView: View {
                 }
             } else {
                 ScrollView {
-                    LazyVGrid(columns: cols, spacing: 18) {
-                        ForEach(filtered) { item in
-                            Button { open(item) } label: { PosterTile(item: item) }
-                                .buttonStyle(.plain)
+                    if showEpisodes {
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text("Episodes").font(.title3.bold()).padding(.horizontal)
+                            ForEach(episodeHits) { hit in
+                                Button { openEpisode(hit) } label: { EpisodeHitRow(hit: hit) }
+                                    .buttonStyle(.plain)
+                            }
+                        }.padding(.top, 8)
+                    }
+                    if !filtered.isEmpty {
+                        if showEpisodes {
+                            Text("Films & Shows").font(.title3.bold())
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding([.horizontal, .top])
                         }
-                    }.padding()
+                        LazyVGrid(columns: cols, spacing: 18) {
+                            ForEach(filtered) { item in
+                                Button { open(item) } label: { PosterTile(item: item) }
+                                    .buttonStyle(.plain)
+                            }
+                        }.padding()
+                    }
                 }
             }
         }
@@ -77,13 +96,23 @@ struct SearchView: View {
             }
         }
         .task(id: query) {
-            guard query.count >= 2 else { results = []; return }
+            guard query.count >= 2 else { results = []; episodeHits = []; return }
             try? await Task.sleep(for: .milliseconds(180))   // debounce
-            if !Task.isCancelled { results = store.search(query) }
+            if !Task.isCancelled {
+                results = store.search(query)
+                episodeHits = store.searchEpisodes(query)
+            }
         }
     }
 
     private var decades: [Int] { store.decadeCounts().keys.sorted(by: >) }
+
+    /// Route an episode hit to its series (the user lands on the series with the full episode list).
+    private func openEpisode(_ hit: EpisodeHit) {
+        if let card = store.seriesCard(seriesID: hit.seriesID) {
+            router.searchPath.append(SeriesRef(card: card))
+        }
+    }
 
     private func open(_ item: Catalog.Item) {
         if item.contentType == "tv-series" {
@@ -91,6 +120,26 @@ struct SearchView: View {
         } else {
             router.openDetail(item)
         }
+    }
+}
+
+// One episode search hit: still thumbnail + episode title + "Series · S1·E2".
+private struct EpisodeHitRow: View {
+    let hit: EpisodeHit
+    var body: some View {
+        HStack(spacing: 12) {
+            PosterImage(url: hit.stillURLParsed, contentMode: .fill)
+                .frame(width: 84, height: 47).clipShape(.rect(cornerRadius: 6))
+            VStack(alignment: .leading, spacing: 2) {
+                Text(hit.title).font(.subheadline.weight(.medium)).lineLimit(1)
+                Text([hit.seriesTitle, hit.numberLabel].compactMap { $0 }.joined(separator: " · "))
+                    .font(.caption).foregroundStyle(.secondary).lineLimit(1)
+            }
+            Spacer(minLength: 0)
+            Image(systemName: "chevron.right").font(.footnote).foregroundStyle(.tertiary)
+        }
+        .padding(.horizontal).padding(.vertical, 6)
+        .contentShape(.rect)
     }
 }
 

@@ -348,6 +348,35 @@ final class CatalogDB {
         """, [q])
     }
 
+    /// Individual TV EPISODE search via the `episodes_fts` index (episode title + series title).
+    /// Episodes aren't catalog items, so the normal `search` never returns them; this surfaces a
+    /// dedicated "Episodes" section. Self-contained FTS (no join) — returns everything to display +
+    /// route the hit.
+    func searchEpisodes(_ query: String, limit: Int = 60) -> [EpisodeHit] {
+        let q = ftsQuery(query)
+        guard !q.isEmpty else { return [] }
+        var stmt: OpaquePointer?
+        let sql = """
+            SELECT seriesID, seriesTitle, season, episode, archiveID, downloadURL,
+                   stillURL, year, runtimeSeconds, title
+            FROM episodes_fts WHERE episodes_fts MATCH ? ORDER BY rank LIMIT \(limit)
+        """
+        guard sqlite3_prepare_v2(handle, sql, -1, &stmt, nil) == SQLITE_OK else { return [] }
+        defer { sqlite3_finalize(stmt) }
+        sqlite3_bind_text(stmt, 1, q, -1, SQLITE_TRANSIENT)
+        func text(_ i: Int32) -> String? { sqlite3_column_text(stmt, i).map { String(cString: $0) } }
+        func int(_ i: Int32) -> Int? { sqlite3_column_type(stmt, i) == SQLITE_NULL ? nil : Int(sqlite3_column_int64(stmt, i)) }
+        var out: [EpisodeHit] = []
+        while sqlite3_step(stmt) == SQLITE_ROW {
+            out.append(EpisodeHit(
+                seriesID: text(0) ?? "", seriesTitle: text(1) ?? "",
+                season: int(2), episode: int(3), archiveID: text(4) ?? "",
+                downloadURL: text(5), stillURL: text(6), year: int(7),
+                runtimeSeconds: int(8), title: text(9) ?? ""))
+        }
+        return out
+    }
+
     /// All TV series cards (small set — ~hundreds).
     func seriesCards() -> [Catalog.Item] {
         items("""

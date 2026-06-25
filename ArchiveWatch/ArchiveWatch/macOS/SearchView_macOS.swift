@@ -7,10 +7,13 @@ import SwiftUI
 
 struct SearchView: View {
     @Environment(AppStore.self) private var store
+    @Environment(AppRouter.self) private var router
     @State private var query = ""
     @State private var results: [Catalog.Item] = []
+    @State private var episodeHits: [EpisodeHit] = []
     @State private var contentType: String? = nil
     @State private var decade: Int? = nil
+    private var showEpisodes: Bool { (contentType == nil || contentType == "tv-series") && !episodeHits.isEmpty }
 
     private let types: [(String, String?)] = [
         ("All", nil), ("Films", "feature-film"), ("TV", "tv-series"),
@@ -33,7 +36,7 @@ struct SearchView: View {
                                        systemImage: "magnifyingglass",
                                        description: Text("Title, director, cast, genre, country, or synopsis."))
                     .padding(.top, 80)
-            } else if filtered.isEmpty {
+            } else if filtered.isEmpty && !showEpisodes {
                 if filterActive && !results.isEmpty {
                     ContentUnavailableView("No matches with these filters",
                         systemImage: "line.3.horizontal.decrease.circle",
@@ -43,11 +46,25 @@ struct SearchView: View {
                     ContentUnavailableView.search(text: query).padding(.top, 80)
                 }
             } else {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 150, maximum: 200), spacing: 16)],
-                          spacing: 18) {
-                    ForEach(filtered) { PosterCard(item: $0) }
+                VStack(alignment: .leading, spacing: 8) {
+                    if showEpisodes {
+                        Text("Episodes").font(.title2.bold()).padding(.horizontal)
+                        VStack(spacing: 2) {
+                            ForEach(episodeHits) { hit in
+                                Button { openEpisode(hit) } label: { EpisodeHitRow(hit: hit) }
+                                    .buttonStyle(.plain)
+                            }
+                        }
+                    }
+                    if !filtered.isEmpty {
+                        if showEpisodes { Text("Films & Shows").font(.title2.bold()).padding([.horizontal, .top]) }
+                        LazyVGrid(columns: [GridItem(.adaptive(minimum: 150, maximum: 200), spacing: 16)],
+                                  spacing: 18) {
+                            ForEach(filtered) { PosterCard(item: $0) }
+                        }
+                        .padding()
+                    }
                 }
-                .padding()
             }
         }
         .navigationTitle("Search")
@@ -75,10 +92,47 @@ struct SearchView: View {
         }
         .task(id: query) {
             let q = query.trimmingCharacters(in: .whitespaces)
-            guard q.count >= 2 else { results = []; return }
+            guard q.count >= 2 else { results = []; episodeHits = []; return }
             try? await Task.sleep(for: .milliseconds(180))   // debounce
-            if !Task.isCancelled { results = store.search(q) }
+            if !Task.isCancelled {
+                results = store.search(q)
+                episodeHits = store.searchEpisodes(q)
+            }
         }
+    }
+
+    /// Route an episode hit to its series (openDetail sends a tv-series card to SeriesDetailView).
+    private func openEpisode(_ hit: EpisodeHit) {
+        if let card = store.seriesCard(seriesID: hit.seriesID) { router.openDetail(card) }
+    }
+}
+
+// One episode search hit: still thumbnail + episode title + "Series · S1·E2".
+private struct EpisodeHitRow: View {
+    let hit: EpisodeHit
+    @State private var hovering = false
+    var body: some View {
+        HStack(spacing: 12) {
+            RoundedRectangle(cornerRadius: 6).fill(.quaternary)
+                .frame(width: 96, height: 54)
+                .overlay {
+                    if let u = hit.stillURLParsed {
+                        AsyncImage(url: u) { $0.resizable().scaledToFill() } placeholder: { Color.clear }
+                    }
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 6))
+            VStack(alignment: .leading, spacing: 2) {
+                Text(hit.title).font(.headline).lineLimit(1)
+                Text([hit.seriesTitle, hit.numberLabel].compactMap { $0 }.joined(separator: " · "))
+                    .font(.caption).foregroundStyle(.secondary).lineLimit(1)
+            }
+            Spacer(minLength: 0)
+            Image(systemName: "chevron.right").font(.caption).foregroundStyle(.tertiary)
+        }
+        .padding(.vertical, 6).padding(.horizontal, 10)
+        .background(hovering ? Color.primary.opacity(0.06) : .clear, in: RoundedRectangle(cornerRadius: 8))
+        .contentShape(Rectangle())
+        .onHover { hovering = $0 }
     }
 }
 #endif

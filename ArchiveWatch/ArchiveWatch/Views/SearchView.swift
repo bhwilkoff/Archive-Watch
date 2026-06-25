@@ -6,13 +6,19 @@ struct SearchView: View {
     @Environment(Router.self) private var router
     @State private var query: String = ""
     @State private var results: [Catalog.Item] = []
+    @State private var episodeHits: [EpisodeHit] = []
 
     /// FTS5 search over the on-disk catalog (Decision 017) — title, cast, crew,
-    /// genre, series, country, and synopsis (the broadened FTS `extra` column).
+    /// genre, series, country, and synopsis (the broadened FTS `extra` column),
+    /// plus individual TV EPISODES via the episodes_fts index.
     private func runSearch() {
         let q = query.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard q.count >= 2, let db = store.db else { results = []; return }
+        guard q.count >= 2, let db = store.db else { results = []; episodeHits = []; return }
         results = db.search(q)
+        episodeHits = db.searchEpisodes(q)
+    }
+    private func openEpisode(_ hit: EpisodeHit) {
+        if let card = store.db?.seriesCard(slug: hit.seriesID) { router.push(card) }
     }
 
     private let cols = Array(repeating: GridItem(.fixed(210), spacing: 24), count: 6)
@@ -22,12 +28,27 @@ struct SearchView: View {
             VStack(alignment: .leading, spacing: 24) {
                 if query.trimmingCharacters(in: .whitespaces).count < 2 {
                     placeholder
-                } else if results.isEmpty {
+                } else if results.isEmpty && episodeHits.isEmpty {
                     EmptyState()
                         .frame(maxWidth: .infinity)
                         .padding(.top, 60)
                 } else {
-                    resultGrid
+                    if !episodeHits.isEmpty {
+                        Text("Episodes").font(.title2.bold()).foregroundStyle(.white)
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            LazyHStack(spacing: 30) {
+                                ForEach(episodeHits) { hit in
+                                    EpisodeHitCard(hit: hit) { openEpisode(hit) }
+                                }
+                            }.padding(.vertical, 8)
+                        }
+                    }
+                    if !results.isEmpty {
+                        if !episodeHits.isEmpty {
+                            Text("Films & Shows").font(.title2.bold()).foregroundStyle(.white).padding(.top, 12)
+                        }
+                        resultGrid
+                    }
                 }
             }
             .padding(.horizontal, 80)
@@ -70,6 +91,31 @@ struct SearchView: View {
                     router.push(item)
                 }
             }
+        }
+    }
+}
+
+// A focusable episode search result: 16:9 still + episode title + "Series · S1·E2".
+private struct EpisodeHitCard: View {
+    let hit: EpisodeHit
+    let action: () -> Void
+    private let w: CGFloat = 360
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Button(action: action) {
+                RemoteImage(url: hit.stillURLParsed,
+                            targetSize: CGSize(width: w, height: w * 9 / 16), contentMode: .fill)
+                    .frame(width: w, height: w * 9 / 16)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+            }
+            .buttonStyle(.card)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(hit.title).font(.headline).foregroundStyle(.white).lineLimit(1)
+                Text([hit.seriesTitle, hit.numberLabel].compactMap { $0 }.joined(separator: " · "))
+                    .font(.callout).foregroundStyle(.white.opacity(0.6)).lineLimit(1)
+            }
+            .frame(width: w, alignment: .leading)
         }
     }
 }
