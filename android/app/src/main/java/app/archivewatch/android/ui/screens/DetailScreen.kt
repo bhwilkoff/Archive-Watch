@@ -34,6 +34,7 @@ import androidx.compose.material3.TextButton
 import app.archivewatch.android.data.UserPlaylist
 import androidx.compose.material.icons.filled.ContentCut
 import androidx.compose.material.icons.filled.Share
+import androidx.compose.material.icons.filled.Tv
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -235,6 +236,15 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.9f),
                 )
+            }
+
+            // Episode item (Decision 045): jump to the full series.
+            if (current.isEpisode && current.seriesID != null) {
+                TextButton(onClick = { nav.push(Route.Series(current.seriesID!!)) }) {
+                    Icon(Icons.Default.Tv, contentDescription = null)
+                    Spacer(Modifier.width(8.dp))
+                    Text("Part of ${current.seriesTitle ?: "the series"}")
+                }
             }
         }
 

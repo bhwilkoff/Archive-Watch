@@ -74,7 +74,9 @@ class CatalogDatabase private constructor(
     // Standalone TV (tv-special) never appears on film surfaces — Home shelves,
     // discovery rows, Random Film (owner directive 2026-06-18: "TV shows should
     // never appear in Movies"). Surfaced only via the TV scope's TV Specials grid.
-    private val notStandaloneTV = " AND i.contentType != 'tv-special'"
+    // tv-special AND tv-episode (first-class episode items, Decision 045) stay off
+    // every film surface; episodes remain in `search` (which applies no TV exclusion).
+    private val notStandaloneTV = " AND i.contentType NOT IN ('tv-special','tv-episode')"
 
     private val itemSelect =
         "SELECT j.json FROM items i JOIN item_json j ON j.archiveID = i.archiveID"
@@ -170,7 +172,7 @@ class CatalogDatabase private constructor(
             StringBuilder("i.contentType = 'tv-special'")
         } else {
             // TV never appears in Movies — neither series cards NOR tv-specials.
-            val b = StringBuilder("i.contentType NOT IN ('tv-series','tv-special')")
+            val b = StringBuilder("i.contentType NOT IN ('tv-series','tv-special','tv-episode')")
             if (contentType != null) { b.append(" AND i.contentType = ?"); binds.add(contentType) }
             b
         }
@@ -192,29 +194,6 @@ class CatalogDatabase private constructor(
                ORDER BY rank LIMIT ?""",
             listOf(match, limit),
         )
-    }
-
-    /** Individual TV EPISODE search via `episodes_fts` (episode title + series title). Episodes
-     *  aren't catalog items, so `search` never returns them — this powers the "Episodes" section. */
-    suspend fun searchEpisodes(query: String, limit: Int = 60): List<EpisodeHit> {
-        val match = ftsQuery(query) ?: return emptyList()
-        return dbCall {
-            queryRaw(
-                """SELECT seriesID, seriesTitle, season, episode, archiveID, downloadURL,
-                          stillURL, year, runtimeSeconds, title
-                   FROM episodes_fts WHERE episodes_fts MATCH ? ORDER BY rank LIMIT ?""",
-                listOf(match, limit),
-            ) { s ->
-                fun intOrNull(i: Int) = if (s.isNull(i)) null else s.getLong(i).toInt()
-                fun textOrNull(i: Int) = if (s.isNull(i)) null else s.getText(i)
-                EpisodeHit(
-                    seriesID = s.getText(0), seriesTitle = s.getText(1),
-                    season = intOrNull(2), episode = intOrNull(3), archiveID = s.getText(4),
-                    downloadURL = textOrNull(5), stillURL = textOrNull(6),
-                    year = intOrNull(7), runtimeSeconds = intOrNull(8), title = s.getText(9),
-                )
-            }
-        }
     }
 
     /** Query hygiene per contract §5: quote each token + `*` suffix. */
@@ -329,7 +308,7 @@ class CatalogDatabase private constructor(
 
     suspend fun randomPlayable(contentType: String? = null): CatalogItem? {
         val binds = mutableListOf<Any?>()
-        var where = "i.contentType NOT IN ('tv-series','tv-special')"
+        var where = "i.contentType NOT IN ('tv-series','tv-special','tv-episode')"
         if (contentType != null) { where += " AND i.contentType = ?"; binds.add(contentType) }
         where += adultAnd + typeAnd
         if (contentType != "commercial") where += notCommercial

@@ -47,7 +47,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
-import app.archivewatch.android.data.EpisodeHit
 import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.PosterTile
@@ -71,7 +70,6 @@ fun SearchScreen(container: AppContainer, nav: Nav) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
     var query by remember { mutableStateOf("") }
     var results by remember { mutableStateOf<List<CatalogItem>>(emptyList()) }
-    var episodeHits by remember { mutableStateOf<List<EpisodeHit>>(emptyList()) }
     var searched by remember { mutableStateOf(false) }
     var typeFilter by remember { mutableStateOf<Pair<String, String>?>(null) }
     var decadeFilter by remember { mutableStateOf<Int?>(null) }
@@ -80,23 +78,25 @@ fun SearchScreen(container: AppContainer, nav: Nav) {
     LaunchedEffect(query, dbVersion) {
         if (query.isBlank()) {
             results = emptyList()
-            episodeHits = emptyList()
             searched = false
             return@LaunchedEffect
         }
         delay(180)
         val db = container.catalog.db ?: return@LaunchedEffect
         results = db.search(query)
-        episodeHits = db.searchEpisodes(query)
         searched = true
     }
 
+    // Episode items (Decision 045) come back in `results` like any item; group them
+    // into their own section. Films/shows get the type/decade filters.
+    val episodeItems = results.filter { it.isEpisode }
     val filtered = results.filter { item ->
-        (typeFilter == null || item.contentType == typeFilter!!.second) &&
+        !item.isEpisode &&
+            (typeFilter == null || item.contentType == typeFilter!!.second) &&
             (decadeFilter == null || item.decade == decadeFilter)
     }
     // Episodes shown unless filtered to a non-TV type.
-    val showEpisodes = (typeFilter == null || typeFilter!!.second == "tv-series") && episodeHits.isNotEmpty()
+    val showEpisodes = (typeFilter == null || typeFilter!!.second == "tv-series") && episodeItems.isNotEmpty()
 
     Surface(color = MaterialTheme.colorScheme.background, modifier = Modifier.fillMaxSize()) {
         Column(Modifier.fillMaxSize()) {
@@ -122,7 +122,7 @@ fun SearchScreen(container: AppContainer, nav: Nav) {
             }
             when {
                 query.isBlank() -> EmptyState("Search the whole archive — titles, directors, cast, genres.")
-                searched && results.isEmpty() && episodeHits.isEmpty() -> EmptyState("No matches for “$query”.")
+                searched && results.isEmpty() -> EmptyState("No matches for “$query”.")
                 searched && filtered.isEmpty() && !showEpisodes -> EmptyState("No matches with these filters — clear one to widen the net.")
                 else -> LazyVerticalGrid(
                     columns = GridCells.Adaptive(minSize = 110.dp),
@@ -134,9 +134,10 @@ fun SearchScreen(container: AppContainer, nav: Nav) {
                         item(span = { GridItemSpan(maxLineSpan) }) {
                             Text("Episodes", style = MaterialTheme.typography.titleLarge)
                         }
-                        items(episodeHits, span = { GridItemSpan(maxLineSpan) },
-                              key = { "ep-" + it.archiveID + it.seriesID }) { hit ->
-                            EpisodeHitRow(hit) { nav.push(Route.Series(hit.seriesID)) }
+                        items(episodeItems, span = { GridItemSpan(maxLineSpan) },
+                              key = { "ep-" + it.archiveID }) { ep ->
+                            // Tapping opens the episode's OWN Detail (play/favorite/share/clip).
+                            EpisodeItemRow(ep) { nav.openItem(ep.archiveID, ep.seriesID, ep.contentType) }
                         }
                         if (filtered.isNotEmpty()) {
                             item(span = { GridItemSpan(maxLineSpan) }) {
@@ -229,9 +230,10 @@ private fun FilterRow(
     }
 }
 
-/** One episode search hit: 16:9 still + episode title + "Series · S1·E2". Routes to its series. */
+/** One episode search result: 16:9 still + episode title + "Series · S1·E2".
+ *  Tapping opens the episode's own Detail (play/favorite/share/clip), Decision 045. */
 @Composable
-private fun EpisodeHitRow(hit: EpisodeHit, onClick: () -> Unit) {
+private fun EpisodeItemRow(item: CatalogItem, onClick: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -240,8 +242,8 @@ private fun EpisodeHitRow(hit: EpisodeHit, onClick: () -> Unit) {
         verticalAlignment = Alignment.CenterVertically,
     ) {
         AsyncImage(
-            model = hit.stillURL,
-            contentDescription = hit.title,
+            model = item.resolvedPosterURL,
+            contentDescription = item.title,
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .size(width = 96.dp, height = 54.dp)
@@ -251,13 +253,13 @@ private fun EpisodeHitRow(hit: EpisodeHit, onClick: () -> Unit) {
         Spacer(Modifier.width(12.dp))
         Column(Modifier.weight(1f)) {
             Text(
-                hit.title,
+                item.title,
                 style = MaterialTheme.typography.bodyLarge,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
             Text(
-                listOfNotNull(hit.seriesTitle, hit.numberLabel).joinToString(" · "),
+                listOfNotNull(item.seriesTitle, item.episodeNumberLabel).joinToString(" · "),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 maxLines = 1,

@@ -34,6 +34,12 @@ data class CatalogItem(
     val rightsStatus: String? = null,
     val seriesID: String? = null,
     val episodesCount: Int? = null,
+    // Episode-item linkage (contentType == "tv-episode", Decision 045): a playable
+    // episode materialized as a first-class catalog item so it shares the same
+    // favorite/playlist/share/Detail/search machinery as a film.
+    val seasonNumber: Int? = null,
+    val episodeNumber: Int? = null,
+    val seriesTitle: String? = null,
     // Subtitle/caption tracks (tools/enrich_subtitles.py) — side-loaded onto the
     // Media3 player via SubtitleConfiguration. Additive + optional.
     val captions: List<Caption>? = null,
@@ -72,6 +78,17 @@ data class CatalogItem(
         get() = hasDesignedArtwork && artworkSource != "generated"
     val isSilent: Boolean
         get() = isSilentFilm ?: (contentType == "silent-film")
+
+    /** A first-class episode item (Decision 045); its seriesID points at the spine. */
+    val isEpisode: Boolean get() = contentType == "tv-episode"
+
+    /** "S1 · E17" / "Ep. 17" byline for an episode item, else null. */
+    val episodeNumberLabel: String?
+        get() = when {
+            seasonNumber != null && episodeNumber != null -> "S$seasonNumber · E$episodeNumber"
+            episodeNumber != null -> "Ep. $episodeNumber"
+            else -> null
+        }
 
     /** Poster fallback chain (contract §8): posterURL → Archive thumb. */
     val resolvedPosterURL: String
@@ -281,24 +298,3 @@ data class CollectionMeta(
     val category: String? = null,
 )
 
-/** A search result for an individual TV episode (from `episodes_fts`). Episodes aren't catalog
- *  items, so they never appeared in search; this carries enough to display + route the hit. */
-data class EpisodeHit(
-    val seriesID: String,
-    val seriesTitle: String,
-    val season: Int?,
-    val episode: Int?,
-    val archiveID: String,
-    val downloadURL: String?,
-    val stillURL: String?,
-    val year: Int?,
-    val runtimeSeconds: Int?,
-    val title: String,
-) {
-    val numberLabel: String?
-        get() = when {
-            season != null && episode != null -> "S$season · E$episode"
-            episode != null -> "Ep. $episode"
-            else -> null
-        }
-}
