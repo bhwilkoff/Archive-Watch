@@ -9,7 +9,7 @@ struct PosterTile: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            PosterImage(url: item.posterURLParsed)
+            ResilientPosterArt(item: item)
                 .frame(width: width, height: width * 1.5)
                 .clipShape(.rect(cornerRadius: 10))
                 .overlay(RoundedRectangle(cornerRadius: 10).strokeBorder(.white.opacity(0.08)))
@@ -26,6 +26,70 @@ struct PosterTile: View {
                 .lineLimit(1)
         }
         .frame(width: width, alignment: .leading)
+    }
+}
+
+// A poster that is NEVER blank (owner: a blank poster makes the app look broken). A brand title
+// card sits ALWAYS behind, so the slot is filled during load + on failure; the designed poster
+// covers it on success, and a failed designed poster falls through to the archive.org item frame
+// before revealing the title card.
+struct ResilientPosterArt: View {
+    let item: Catalog.Item
+    @State private var stage = 0   // 0 designed poster, 1 archive frame, 2 title card
+
+    var body: some View {
+        ZStack {
+            PosterFallbackCard(item: item)   // base — never blank
+            poster
+        }
+        .clipped()
+        .task(id: item.archiveID) { stage = 0 }
+    }
+
+    @ViewBuilder private var poster: some View {
+        if let url = item.posterURLParsed, stage == 0 {
+            phased(url) { stage = 1 }
+        } else if stage == 1, let frame = item.archiveThumbURL {
+            phased(frame) { stage = 2 }
+        }
+    }
+
+    private func phased(_ url: URL, onFail: @escaping () -> Void) -> some View {
+        AsyncImage(url: url, transaction: .init(animation: .easeOut(duration: 0.2))) { phase in
+            switch phase {
+            case .success(let img): img.resizable().aspectRatio(contentMode: .fill)
+            case .failure:          Color.clear.onAppear(perform: onFail)   // → next stage
+            default:                Color.clear                            // loading → base shows
+            }
+        }
+    }
+}
+
+// The brand placeholder card (Decision 013 typographic poster, touch idiom): accent gradient +
+// centered title. Always non-blank.
+struct PosterFallbackCard: View {
+    let item: Catalog.Item
+    private var accent: Color {
+        switch item.contentType {
+        case "tv-series", "tv-special": Color(hex: "#2D5BFF") ?? .blue
+        case "silent-film": Color(hex: "#C9A66B") ?? .brown
+        case "animation":   Color(hex: "#FF4D8D") ?? .pink
+        case "newsreel":    Color(hex: "#8A8F98") ?? .gray
+        case "documentary": Color(hex: "#3FA796") ?? .teal
+        case "ephemeral":   Color(hex: "#7C5BBA") ?? .purple
+        case "short-film":  Color(hex: "#E8A317") ?? .yellow
+        default:            Color(hex: "#FF5C35") ?? .orange
+        }
+    }
+    var body: some View {
+        ZStack {
+            LinearGradient(colors: [accent.opacity(0.85), accent.mix(with: .black, by: 0.55)],
+                           startPoint: .topLeading, endPoint: .bottomTrailing)
+            Text(item.title)
+                .font(.caption.weight(.bold)).foregroundStyle(.white)
+                .multilineTextAlignment(.center).lineLimit(5).minimumScaleFactor(0.7)
+                .padding(8)
+        }
     }
 }
 

@@ -232,6 +232,14 @@ struct Catalog: Decodable, Sendable {
         /// Canonical archive.org source page for provenance/attribution.
         var sourceDetailsURL: String { "https://archive.org/details/\(archiveID)" }
 
+        /// The always-available archive.org item thumbnail (a real video frame for most playable
+        /// items). The UNIVERSAL poster fallback so a tile is NEVER blank when the designed poster
+        /// URL is dead/throttled — every platform's poster view layers this behind the real poster.
+        var archiveThumbURL: URL? {
+            let id = archiveID.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? archiveID
+            return URL(string: "https://archive.org/services/img/\(id)")
+        }
+
         /// Burned-in provenance credit line for exported clips — the
         /// attribution wedge (CREATE-STUDIO-PLAN §1). Public domain by default;
         /// names a CC dedication when that's the right.

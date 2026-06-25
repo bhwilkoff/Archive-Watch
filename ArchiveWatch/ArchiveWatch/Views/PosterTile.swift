@@ -69,22 +69,20 @@ struct PosterArt: View {
     let height: CGFloat
 
     @Environment(AppStore.self) private var store
+    // 0 = designed poster, 1 = archive.org frame fallback, 2 = procedural only.
+    @State private var stage = 0
 
     var body: some View {
         ZStack(alignment: .topLeading) {
-            if item.hasDesignedArtwork, let url = item.posterURLParsed {
-                RemoteImage(
-                    url: url,
-                    targetSize: CGSize(width: width, height: height),
-                    contentMode: .fill
-                )
-            } else {
-                ProceduralPoster(
-                    item: item,
-                    accent: store.accentColor(forCategory: categoryID),
-                    aspectRatio: width / height
-                )
-            }
+            // BASE — the brand procedural card is ALWAYS behind the poster, so a slot is NEVER blank
+            // (during load OR when the designed/archive art fails). The real poster covers it on
+            // success (owner: never show a blank poster on any platform).
+            ProceduralPoster(
+                item: item,
+                accent: store.accentColor(forCategory: categoryID),
+                aspectRatio: width / height
+            )
+            posterOverlay
             if let chip = categoryChipLabel {
                 Text(chip.uppercased())
                     .font(.system(size: 15, weight: .bold))
@@ -103,6 +101,21 @@ struct PosterArt: View {
             RoundedRectangle(cornerRadius: 8)
                 .strokeBorder(Color.white.opacity(0.08), lineWidth: 1)
         )
+        .task(id: item.archiveID) { stage = 0 }
+    }
+
+    // The real poster on TOP of the procedural base, with a CLEAR placeholder so the base shows
+    // through during load + on failure. Designed poster → (fail) archive.org frame → (fail) nothing,
+    // letting the procedural base remain.
+    @ViewBuilder private var posterOverlay: some View {
+        let size = CGSize(width: width, height: height)
+        if item.hasDesignedArtwork, let url = item.posterURLParsed, stage == 0 {
+            RemoteImage(url: url, targetSize: size, contentMode: .fill,
+                        placeholder: .clear, onLoadFailed: { stage = 1 })
+        } else if stage <= 1, item.hasDesignedArtwork, let frame = item.archiveThumbURL {
+            RemoteImage(url: frame, targetSize: size, contentMode: .fill,
+                        placeholder: .clear, onLoadFailed: { stage = 2 })
+        }
     }
 
     private var categoryChipLabel: String? {

@@ -23,6 +23,9 @@ struct RemoteImage: View {
     // the foreground fits whole, the blurred copy fills the rest. Callers
     // must clip the surrounding frame (the fill overflows by design).
     var blurredBackdrop: Bool = false
+    /// Called when the load fails — lets a caller advance to a fallback (archive frame → procedural)
+    /// so a poster slot is NEVER left blank (owner: a blank poster makes the app look broken).
+    var onLoadFailed: (() -> Void)? = nil
 
     @State private var image: UIImage?
 
@@ -55,10 +58,10 @@ struct RemoteImage: View {
                 )
                 try Task.checkCancellation()
                 image = loaded
+            } catch is CancellationError {
+                // cell left the lazy window — not a real failure
             } catch {
-                // Silent failure; placeholder stays visible. Procedural
-                // fallback is the caller's concern (see hasDesignedArtwork
-                // checks upstream).
+                onLoadFailed?()   // let the caller fall through to its non-blank fallback
             }
         }
     }

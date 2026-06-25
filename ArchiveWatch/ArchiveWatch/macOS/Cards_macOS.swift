@@ -58,11 +58,7 @@ struct PosterCard: View {
 /// its poster URL no longer loads (the issue is the same on tvOS — it's the DATA, not the layout).
 struct RemotePoster: View {
     let item: Catalog.Item
-
-    private var archiveThumb: URL? {
-        let id = item.archiveID.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? item.archiveID
-        return URL(string: "https://archive.org/services/img/\(id)")
-    }
+    private var archiveThumb: URL? { item.archiveThumbURL }
 
     var body: some View {
         if let url = item.posterURLParsed {
