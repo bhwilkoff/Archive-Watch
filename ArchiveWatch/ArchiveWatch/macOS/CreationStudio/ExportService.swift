@@ -63,9 +63,11 @@ final class ExportService {
             let clips = project.timeline.clips
             var cached: [UUID: URL] = [:]
             for (i, clip) in clips.enumerated() {
+                Self.diag("cache clip \(i + 1)/\(clips.count) [\(clip.catalogItemID)] \(Int(clip.sourceRange.start.seconds))s+\(Int(clip.sourceRange.duration.seconds))s")
                 cached[clip.id] = try await ClipCacheService.cachedURL(for: clip)
                 progress = Double(i + 1) / Double(clips.count) * 0.4
             }
+            Self.diag("composing \(clips.count) clip(s)")
 
             // 2) Compile the (composition, videoComposition) from the LOCAL cached files.
             phase = .composing
@@ -111,6 +113,7 @@ final class ExportService {
                     catalogItemIDs: clips.map(\.catalogItemID))
             }
 
+            Self.diag("exporting → \(url.lastPathComponent) (\(format.rawValue))")
             try? FileManager.default.removeItem(at: url)
             let progressTask = Task { [weak self] in
                 for await state in session.states(updateInterval: 0.2) {
@@ -126,12 +129,37 @@ final class ExportService {
             outputURL = url
             phase = .done
         } catch {
-            // Surface the full error (domain/code/underlying) — AVFoundation's
-            // localizedDescription is often just "The operation could not be completed."
+            // Surface the full error (domain/code + the WHOLE underlying chain) — AVFoundation's
+            // localizedDescription is often just "The operation could not be completed.", and the
+            // useful code is usually nested (e.g. -11841 AVErrorInvalidVideoComposition).
             let ns = error as NSError
-            let underlying = (ns.userInfo[NSUnderlyingErrorKey] as? NSError).map { " · \($0.domain) \($0.code)" } ?? ""
-            phase = .failed("\(ns.localizedDescription) [\(ns.domain) \(ns.code)\(underlying)]")
+            let stageLabel: String = {
+                switch phase { case .caching: "caching"; case .composing: "composing"
+                               case .exporting: "exporting"; default: "" }
+            }()
+            let msg = "\(ns.localizedDescription) [\(Self.errorChain(ns))]"
+            Self.diag("FAILED during \(stageLabel): \(msg)")
+            phase = .failed(msg)
         }
+    }
+
+    /// Full "domain code · domain code · …" chain by walking NSUnderlyingErrorKey — so a nested
+    /// AVError (the actionable code) is never hidden behind a generic top-level one.
+    nonisolated static func errorChain(_ error: NSError) -> String {
+        var parts: [String] = []
+        var cur: NSError? = error
+        var guardN = 0
+        while let e = cur, guardN < 6 {
+            parts.append("\(e.domain) \(e.code)")
+            cur = e.userInfo[NSUnderlyingErrorKey] as? NSError
+            guardN += 1
+        }
+        return parts.joined(separator: " · ")
+    }
+
+    nonisolated static func diag(_ message: @autoclosure () -> String) {
+        guard ProcessInfo.processInfo.environment["AW_CS_DIAG"] != nil else { return }
+        FileHandle.standardError.write(Data("AWCS EXPORT \(message())\n".utf8))
     }
 }
 #endif

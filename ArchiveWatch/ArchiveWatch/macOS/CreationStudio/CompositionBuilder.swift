@@ -149,21 +149,36 @@ enum CompositionBuilder {
         // ONE instruction; the later-starting clip goes in FRONT (index 0) so a dissolve reveals
         // it over the previous. Opacity ramps are set in full and clamped by AVFoundation to the
         // instruction's range.
-        var bounds = Set<Double>()
-        for p in placed { bounds.insert(p.start.seconds); bounds.insert((p.start + p.dur).seconds) }
-        let cuts = bounds.sorted()
+        //
+        // The instructions MUST form a strictly contiguous, gap-free, in-order cover of
+        // [0, total] using EXACT shared CMTime boundaries (never seconds round-trips). The preview
+        // (AVPlayerItem, no animation tool) tolerates gaps by rendering black, but
+        // AVAssetExportSession WITH the Core Animation overlay tool validates the composition
+        // strictly and rejects ANY gap/overlap/zero-width sliver with AVErrorInvalidVideoComposition
+        // (-11841) — which is why export failed while preview played. So: build deduped boundary
+        // CMTimes (incl. 0 and the true end `cursor`), and emit an instruction for EVERY consecutive
+        // pair — including a background-only one for any sliver with no active clip.
+        var boundary: [CMTime] = [.zero, cursor]
+        for p in placed { boundary.append(p.start); boundary.append(p.start + p.dur) }
+        boundary.sort { $0.seconds < $1.seconds }
+        var cuts: [CMTime] = []
+        for b in boundary {
+            if b.seconds < -0.0005 || b.seconds > cursor.seconds + 0.0005 { continue }
+            if let last = cuts.last, abs(b.seconds - last.seconds) < 0.0005 { continue }   // dedupe
+            cuts.append(b)
+        }
         var instructions: [AVVideoCompositionInstruction] = []
         for k in 0..<max(0, cuts.count - 1) {
-            let t0 = cuts[k], t1 = cuts[k + 1]
-            guard t1 - t0 > 0.001 else { continue }
+            let b0 = cuts[k], b1 = cuts[k + 1]                           // exact, shared boundaries
+            let t0 = b0.seconds, t1 = b1.seconds
+            guard t1 - t0 > 0.0005 else { continue }                    // (won't fire after dedupe)
             let mid = (t0 + t1) / 2
             let active = placed.filter { $0.start.seconds <= mid && ($0.start + $0.dur).seconds >= mid }
                                .sorted { $0.start.seconds < $1.start.seconds }
-            guard !active.isEmpty else { continue }
             var layerInstrs: [AVVideoCompositionLayerInstruction] = []
             for p in active.reversed() {                                  // later start first → frontmost
                 var cfg = AVVideoCompositionLayerInstruction.Configuration(trackID: p.trackID)
-                cfg.setTransform(p.transform, at: CMTime(seconds: t0, preferredTimescale: ts))
+                cfg.setTransform(p.transform, at: b0)
                 let W = renderSize.width
                 func range(_ s: Double, _ d: Double) -> CMTimeRange {
                     CMTimeRange(start: CMTime(seconds: s, preferredTimescale: ts),
@@ -200,10 +215,9 @@ enum CompositionBuilder {
                 layerInstrs.append(AVVideoCompositionLayerInstruction(configuration: cfg))
             }
             var ic = AVVideoCompositionInstruction.Configuration()
-            ic.timeRange = CMTimeRange(start: CMTime(seconds: t0, preferredTimescale: ts),
-                                       end: CMTime(seconds: t1, preferredTimescale: ts))
+            ic.timeRange = CMTimeRange(start: b0, end: b1)               // exact → contiguous cover
             ic.backgroundColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)   // letterbox matte
-            ic.layerInstructions = layerInstrs
+            ic.layerInstructions = layerInstrs                          // may be empty (background sliver)
             instructions.append(AVVideoCompositionInstruction(configuration: ic))
         }
         guard !instructions.isEmpty else { throw CreationStudioError.noClips }

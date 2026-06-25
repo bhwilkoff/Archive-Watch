@@ -152,8 +152,11 @@ final class EditorModel {
     /// changes, so no re-cache and no "Preparing clips" per trim.
     struct CachedWindow { let url: URL; let sourceStart: Double; let sourceEnd: Double }
     @ObservationIgnored private var clipCache: [UUID: CachedWindow] = [:]
-    /// Extra source footage cached on each side of a clip so small trims are free.
-    static let cacheHandle = 12.0
+    /// Extra source footage cached on each side of a clip so small trims are free. Kept small: the
+    /// window is downloaded + re-encoded through the resilient loader, so every extra second is
+    /// network + encode time — a big handle made short supercut clips take minutes to load. 3s
+    /// covers ordinary fine-trims; a larger trim simply re-caches (a brief wait), not a failure.
+    static let cacheHandle = 3.0
 
     // archive.org's per-~60s thumbnail strip (ArchiveThumbnails) is the timeline filmstrip
     // source: it's tiny + already-served, so a clip shows frames INSTANTLY without waiting for
