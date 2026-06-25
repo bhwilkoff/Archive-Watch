@@ -8,15 +8,18 @@ name: Stock shot index (#6/#7)
 
 on:
   schedule:
-    - cron: '0 */6 * * *'          # every 6h — 4 shards × per_shard films each run
+    - cron: '0 */6 * * *'          # every 6h — 8 shards × per_shard films each run
   workflow_dispatch:
     inputs:
       per_shard:
         description: 'Films per shard this run'
-        default: '50'
+        default: '150'
       max_seconds:
         description: 'Seconds to scan per film'
         default: '300'
+      concurrency:
+        description: 'Films scanned in parallel per shard (×shards = total archive.org streams)'
+        default: '2'
 
 concurrency:
   group: stock-index
@@ -27,7 +30,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [0, 1, 2, 3]
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
     runs-on: ubuntu-latest
     timeout-minutes: 330
     permissions:
@@ -47,12 +50,13 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh release download stock-index -p clips.sqlite -O existing.sqlite || echo "first run — no existing index"
-      - name: Detect shots (shard ${{ matrix.shard }} of 4)
+      - name: Detect shots (shard ${{ matrix.shard }} of 8)
         run: |
           python tools/build_stock_index.py \
-            --shard-index ${{ matrix.shard }} --shard-count 4 \
-            --limit ${{ github.event.inputs.per_shard || '50' }} \
+            --shard-index ${{ matrix.shard }} --shard-count 8 \
+            --limit ${{ github.event.inputs.per_shard || '150' }} \
             --max-seconds ${{ github.event.inputs.max_seconds || '300' }} \
+            --concurrency ${{ github.event.inputs.concurrency || '2' }} \
             --seen-from existing.sqlite \
             --out clips-shard-${{ matrix.shard }}.sqlite
       - uses: actions/upload-artifact@v4

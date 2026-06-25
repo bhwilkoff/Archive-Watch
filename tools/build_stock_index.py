@@ -18,6 +18,7 @@ import json
 import re
 import sqlite3
 import subprocess
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -58,6 +59,10 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=50, help="films to add this run")
     ap.add_argument("--max-seconds", type=int, default=300, help="process up to N seconds per film")
     ap.add_argument("--fps", type=float, default=4.0, help="decode fps for scene detection (lower = faster)")
+    ap.add_argument("--concurrency", type=int, default=1,
+                    help="films to scan in PARALLEL (ffmpeg is network-bound, so the runner's CPU "
+                         "idles on one film at a time). Total concurrent archive.org streams = "
+                         "shards * concurrency — keep modest so the load-balancer doesn't 503.")
     ap.add_argument("--out", default=str(REPO / "clips.sqlite"))
     # Sharding (#7): run N runners in parallel, each over a disjoint popularity-interleaved
     # slice (stride), skipping films already in the merged index from --seen-from.
@@ -88,22 +93,19 @@ def main() -> int:
             pass
         sdb.close()
 
-    done = 0
-    for it in items:
-        if done >= args.limit:
-            break
-        aid = it["archiveID"]
-        if aid in seen:
-            continue
-        url = it["downloadURL"]
-        cuts = scene_cuts(url, args.max_seconds, args.fps)
+    def scan(it):
+        """Detect a film's shots (the network-bound work; runs on a worker thread). Returns
+        (it, shots) or None — NO SQLite here (writes stay single-threaded in the main loop)."""
+        cuts = scene_cuts(it["downloadURL"], args.max_seconds, args.fps)
         if not cuts:
-            continue
+            return None
         rt = it.get("runtimeSeconds") or 0
         total = min(rt, args.max_seconds) if rt else args.max_seconds
         shots = shots_from_cuts(cuts, total)
-        if not shots:
-            continue
+        return (it, shots) if shots else None
+
+    def write(it, shots):
+        aid, url = it["archiveID"], it["downloadURL"]
         # Discrete, clean, pipe-joined tags (drop sentence-long / punctuation-y subjects) so the
         # app shows readable chips and search works — NOT one hyphen-mangled token.
         tags = "|".join(
@@ -113,8 +115,27 @@ def main() -> int:
             db.execute("INSERT OR REPLACE INTO shots VALUES(?,?,?,?,?,?,?)",
                        (f"{aid}#{i}", aid, url, s, e, tags, it.get("title", "")))
         db.commit()
-        done += 1
-        print(f"[stock] {aid}: {len(shots)} shots", flush=True)
+
+    candidates = [it for it in items if it["archiveID"] not in seen]
+    done = 0
+    workers = max(1, args.concurrency)
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        inflight, idx = set(), 0
+        while idx < len(candidates) and len(inflight) < workers:    # prime the pool
+            inflight.add(ex.submit(scan, candidates[idx])); idx += 1
+        while inflight and done < args.limit:
+            fut = next(as_completed(inflight))
+            inflight.discard(fut)
+            res = fut.result()
+            if res:
+                it, shots = res
+                write(it, shots)
+                done += 1
+                print(f"[stock] {it['archiveID']}: {len(shots)} shots ({done}/{args.limit})", flush=True)
+            if idx < len(candidates) and done < args.limit:         # keep the pool full
+                inflight.add(ex.submit(scan, candidates[idx])); idx += 1
+        # Stop scanning the in-flight remainder once the quota is met (don't waste decode time).
+        ex.shutdown(wait=False, cancel_futures=True)
 
     n = db.execute("SELECT count(*) FROM shots").fetchone()[0]
     print(f"[stock] +{done} films this run; {n} shots total in {args.out}")
