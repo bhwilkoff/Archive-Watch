@@ -486,6 +486,24 @@ private struct LibrarySidebar: View {
         }
     }
 
+    @ViewBuilder private func clipRow(_ clip: LibraryClip) -> some View {
+        LibraryRow(clip: clip,
+                   poster: store.item(clip.catalogItemID)?.posterURLParsed,
+                   selected: selection.contains(clip.id),
+                   onAdd: { model.addClipAtPlayhead(from: proxy(for: clip)) })
+            .contentShape(Rectangle())
+            .onTapGesture { selectOnTap(clip) }            // single-tap selects (＋ adds)
+            .draggable(containerItemID: proxy(for: clip).id)   // ProxyClip.ID (UUID); part of the drag container
+            .contextMenu {
+                let t = targets(for: clip)
+                Button { addToTimeline(t) } label: { Label("Add \(t.count) to Timeline", systemImage: "plus") }
+                Divider()
+                Button(role: .destructive) { delete(t) } label: {
+                    Label("Delete\(t.count > 1 ? " \(t.count)" : "")", systemImage: "trash")
+                }
+            }
+    }
+
     var body: some View {
         Group {
             if clips.isEmpty {
@@ -501,25 +519,15 @@ private struct LibrarySidebar: View {
                     // selection is handled in selectOnTap — both work because we're out of List.
                     ScrollView {
                         LazyVStack(spacing: 2) {
-                            ForEach(clips) { clip in
-                                LibraryRow(clip: clip,
-                                           poster: store.item(clip.catalogItemID)?.posterURLParsed,
-                                           selected: selection.contains(clip.id),
-                                           onAdd: { model.addClipAtPlayhead(from: proxy(for: clip)) })
-                                    .contentShape(Rectangle())
-                                    .onTapGesture { selectOnTap(clip) }   // single-tap selects (＋ adds; drag goes to timeline)
-                                    .draggable(proxy(for: clip))   // drag the row to the timeline (works outside List)
-                                    .contextMenu {
-                                        let t = targets(for: clip)
-                                        Button { addToTimeline(t) } label: {
-                                            Label("Add \(t.count) to Timeline", systemImage: "plus")
-                                        }
-                                        Divider()
-                                        Button(role: .destructive) { delete(t) } label: {
-                                            Label("Delete\(t.count > 1 ? " \(t.count)" : "")", systemImage: "trash")
-                                        }
-                                    }
-                            }
+                            // Drag-CONTAINER multi-drag (macOS 26+): dragging a SELECTED row carries
+                            // the WHOLE selection as a native stack; a non-selected row drags just
+                            // itself. The container maps the dragged ids back to proxies; the
+                            // timeline's dropDestination adds them all.
+                            ForEach(clips) { clip in clipRow(clip) }
+                                .dragContainer(for: ProxyClip.self) { ids in
+                                    clips.map { proxy(for: $0) }.filter { ids.contains($0.id) }
+                                }
+                                .dragContainerSelection(selectedClips.map { proxy(for: $0).id })
                         }
                         .padding(8)
                     }
