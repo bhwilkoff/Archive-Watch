@@ -143,7 +143,8 @@ struct ProjectEditorView: View {
                         Label("Stop", systemImage: "stop.circle.fill")
                     }.tint(.red)
                 } else {
-                    Button { model.startVoiceover() } label: {
+                    // Opens the voiceover SETUP in the inspector (pick a mic) — doesn't record yet (#9).
+                    Button { inspectorShown = true; model.armVoiceover() } label: {
                         Label("Voiceover", systemImage: "mic")
                     }
                 }
@@ -577,12 +578,54 @@ private struct LibraryRow: View {
 // The inspector edits ONLY the current selection — a video clip, a text overlay, an audio clip,
 // or (nothing selected) the project itself. Every control is live-editable; no read-only stats /
 // dates kitchen sink. Adding music/voiceover/clips/text are TOOLBAR actions, not inspector state.
+// Voiceover setup + record, in the inspector (owner #9). Choose the mic, then Record; Stop is always
+// visible while recording. Recording begins at the playhead.
+private struct VoiceoverPanel: View {
+    @Bindable var model: EditorModel
+    var body: some View {
+        Section {
+            Picker("Microphone", selection: $model.selectedAudioInputID) {
+                if model.audioInputs.isEmpty { Text("No microphones found").tag(String?.none) }
+                ForEach(model.audioInputs) { Text($0.name).tag(Optional($0.id)) }
+            }
+            .disabled(model.isRecordingVoiceover)
+            Text("Records onto a new voiceover track starting at the playhead.")
+                .font(.caption).foregroundStyle(.secondary)
+            if let err = model.voiceoverError {
+                Label(err, systemImage: "exclamationmark.triangle.fill")
+                    .font(.caption).foregroundStyle(.orange)
+            }
+            HStack {
+                if model.isRecordingVoiceover {
+                    Button { model.stopVoiceover() } label: {
+                        Label("Stop", systemImage: "stop.circle.fill")
+                    }.tint(.red).keyboardShortcut(.defaultAction)
+                    Label("Recording…", systemImage: "record.circle.fill")
+                        .font(.caption).foregroundStyle(.red).symbolEffect(.pulse)
+                } else {
+                    Button { model.startVoiceover() } label: {
+                        Label("Record", systemImage: "record.circle")
+                    }.tint(.red).disabled(model.selectedAudioInputID == nil)
+                    Button("Cancel") { model.cancelVoiceover() }
+                }
+            }
+        } header: {
+            Label("Voiceover", systemImage: "mic")
+        }
+    }
+}
+
 private struct ProjectInspector: View {
     @Binding var project: ClipProject
     let model: EditorModel
 
     var body: some View {
         Form {
+            // Voiceover setup/record lives HERE (owner #9) — pick the mic, then Record/Stop, so the
+            // controls are always visible and you configure the input BEFORE recording.
+            if model.voiceoverPhase != .idle {
+                VoiceoverPanel(model: model)
+            }
             // Multi-selection banner — bulk delete; the focused element's editor stays below so you
             // can still tweak it (HIG: a multi-selection shows a count + the common action).
             if model.selectedIDs.count > 1 {

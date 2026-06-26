@@ -879,21 +879,55 @@ final class EditorModel {
         }
     }
 
-    // MARK: - Voiceover recording (adds a NEW voiceover audio clip)
+    // MARK: - Voiceover recording (set up in the inspector, then record; adds a NEW voiceover clip)
 
-    var isRecordingVoiceover: Bool { voiceRecorder?.isRecording ?? false }
-    /// Surfaced so a failed recording isn't silent (#10).
+    /// idle → armed (inspector setup: pick a mic) → recording. The toolbar/inspector drive this so
+    /// the Stop control is always visible while recording, and you choose the input BEFORE you start
+    /// (owner #9). Recording uses AVCaptureSession + AVCaptureAudioFileOutput — the only macOS way to
+    /// record from a CHOSEN device (AVAudioRecorder only ever uses the system default input).
+    enum VoiceoverPhase: Equatable { case idle, armed, recording }
+    var voiceoverPhase: VoiceoverPhase = .idle
+    var isRecordingVoiceover: Bool { voiceoverPhase == .recording }
+    /// Surfaced so a failed recording isn't silent.
     var voiceoverError: String?
-    @ObservationIgnored private var voiceRecorder: AVAudioRecorder?
+    struct AudioInput: Identifiable, Hashable, Sendable { let id: String; let name: String }
+    var audioInputs: [AudioInput] = []
+    var selectedAudioInputID: String?
+
+    @ObservationIgnored private var captureSession: AVCaptureSession?
+    @ObservationIgnored private var audioFileOutput: AVCaptureAudioFileOutput?
+    @ObservationIgnored private var voiceDelegate: VoiceoverDelegate?
     @ObservationIgnored private var voiceStartSeconds = 0.0
     @ObservationIgnored private var voicePendingName = ""
 
-    /// Start recording mic narration to the project cache (begins at the current playhead).
-    /// Requests mic access first — on macOS, recording without authorization (or without the
-    /// mic entitlement) silently captures nothing, so we gate + surface the failure.
-    func startVoiceover() { Task { await beginVoiceover() } }
+    /// Open the voiceover setup in the inspector (does NOT start recording — owner #9).
+    func armVoiceover() {
+        voiceoverError = nil
+        refreshAudioInputs()
+        selection = .none           // show the project inspector, where the panel lives
+        voiceoverPhase = .armed
+    }
 
-    private func beginVoiceover() async {
+    /// Close the panel without recording.
+    func cancelVoiceover() {
+        teardownCapture()
+        voiceoverPhase = .idle
+    }
+
+    /// Enumerate the available microphones / audio inputs for the picker.
+    func refreshAudioInputs() {
+        let discovery = AVCaptureDevice.DiscoverySession(
+            deviceTypes: [.microphone, .external], mediaType: .audio, position: .unspecified)
+        audioInputs = discovery.devices.map { AudioInput(id: $0.uniqueID, name: $0.localizedName) }
+        if selectedAudioInputID == nil || !audioInputs.contains(where: { $0.id == selectedAudioInputID }) {
+            selectedAudioInputID = AVCaptureDevice.default(for: .audio)?.uniqueID ?? audioInputs.first?.id
+        }
+    }
+
+    /// Begin recording from the SELECTED input at the playhead.
+    func startVoiceover() { Task { await beginCapture() } }
+
+    private func beginCapture() async {
         voiceoverError = nil
         switch AVCaptureDevice.authorizationStatus(for: .audio) {
         case .authorized: break
@@ -906,31 +940,54 @@ final class EditorModel {
             voiceoverError = "Microphone access is off. Enable it in System Settings ▸ Privacy & Security ▸ Microphone."
             return
         }
+        let device = selectedAudioInputID.flatMap { AVCaptureDevice(uniqueID: $0) } ?? AVCaptureDevice.default(for: .audio)
+        guard let device else { voiceoverError = "No microphone available."; return }
+        let session = AVCaptureSession()
+        guard let input = try? AVCaptureDeviceInput(device: device), session.canAddInput(input) else {
+            voiceoverError = "Couldn't open \(device.localizedName)."; return
+        }
+        session.addInput(input)
+        let output = AVCaptureAudioFileOutput()
+        guard session.canAddOutput(output) else { voiceoverError = "Couldn't start recording."; return }
+        session.addOutput(output)
+        session.startRunning()
+
         let name = "voiceover-\(UUID().uuidString.prefix(6)).m4a"
         let url = ProjectMediaCache.directory.appendingPathComponent(name)
-        let settings: [String: Any] = [AVFormatIDKey: kAudioFormatMPEG4AAC, AVSampleRateKey: 44100,
-                                        AVNumberOfChannelsKey: 1, AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue]
-        guard let rec = try? AVAudioRecorder(url: url, settings: settings), rec.record() else {
-            voiceoverError = "Couldn't start recording."
-            return
-        }
-        voiceStartSeconds = playheadSeconds
-        voicePendingName = name
-        voiceRecorder = rec
+        try? FileManager.default.removeItem(at: url)
+        let delegate = VoiceoverDelegate()
+        output.startRecording(to: url, outputFileType: .m4a, recordingDelegate: delegate)
+        captureSession = session; audioFileOutput = output; voiceDelegate = delegate
+        voiceStartSeconds = playheadSeconds; voicePendingName = name
+        voiceoverPhase = .recording
     }
 
-    /// Stop recording and add the take as a NEW voiceover clip (multiple are allowed).
+    /// Stop — the clip is added only once the file is finalized (the capture delegate), so its
+    /// duration loads correctly.
     func stopVoiceover() {
-        guard let rec = voiceRecorder else { return }
-        rec.stop()
-        voiceRecorder = nil
+        guard voiceoverPhase == .recording, let output = audioFileOutput else { return }
+        voiceoverPhase = .idle
+        voiceDelegate?.onFinish = { [weak self] url, error in
+            Task { @MainActor in self?.finishVoiceover(url: url, error: error) }
+        }
+        output.stopRecording()
+    }
+
+    @MainActor private func finishVoiceover(url: URL, error: Error?) {
+        teardownCapture()
+        if let error { voiceoverError = "Recording failed: \(error.localizedDescription)"; return }
         checkpoint()
-        let clip = AudioClip(kind: .voiceover, fileName: voicePendingName, displayName: "Voiceover",
+        let clip = AudioClip(kind: .voiceover, fileName: url.lastPathComponent, displayName: "Voiceover",
                              volume: 1.0, startSeconds: voiceStartSeconds)
         document.project.timeline.audioClips.append(clip)
         selection = .audio(clip.id)
         loadAudioDuration(clip.id)
         scheduleRebuild()
+    }
+
+    private func teardownCapture() {
+        captureSession?.stopRunning()
+        captureSession = nil; audioFileOutput = nil; voiceDelegate = nil
     }
 
     // MARK: - Retime lane blocks (drag on the titles / audio lanes — multi-track timeline)
@@ -1104,6 +1161,17 @@ final class EditorModel {
     isolated deinit {
         if let t = timeObserver { player.removeTimeObserver(t) }
         rebuildTask?.cancel()
+    }
+}
+
+// Bridges AVCaptureAudioFileOutput's recording-finished callback back to the model so the clip is
+// added only once the file is fully written. @unchecked Sendable: the only escape is the onFinish
+// closure, which hops to the MainActor.
+final class VoiceoverDelegate: NSObject, AVCaptureFileOutputRecordingDelegate, @unchecked Sendable {
+    var onFinish: ((URL, Error?) -> Void)?
+    func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL,
+                    from connections: [AVCaptureConnection], error: Error?) {
+        onFinish?(outputFileURL, error)
     }
 }
 
