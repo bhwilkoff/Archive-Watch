@@ -578,6 +578,23 @@ def _strip_source_specs(t):
 _LEAD_YEAR = re.compile(r"^\s*(?:19|20)\d{2}\s*[-–—.]\s+")
 # Trailing parenthesised/bracketed year: "Carnival of Souls (1962)" -> "Carnival of Souls".
 _TRAIL_YEAR = re.compile(r"\s*[\(\[]\s*(?:19|20)\d{2}\s*[\)\]]\s*$")
+# A parenthetical that LEADS with a 4-digit year — a release-year stamp, often carrying uploader
+# genre/credit junk ("(1940 Film Noir, Thriller, Hitchcock)") — stripped wherever it sits, not just
+# as a bare trailing "(year)". Safe: a real title doesn't open a paren with its own release year.
+# ("Westfront 1918 (1930)" -> "Westfront 1918"; the bare in-title 1918 is left alone.)
+_PAREN_LEADING_YEAR = re.compile(r"\s*[\(\[]\s*(?:18[7-9]\d|19\d\d|20[0-2]\d)\b[^)\]]*[\)\]]")
+# Same, but UNCLOSED to end-of-string — uploaders routinely drop the close paren ("Owd Bob (1995 UK",
+# "… (1945, Dir: Fritz Lang, noir"). Trailing-only + year-led so a bare in-title year is never hit.
+_TRAIL_OPEN_YEAR = re.compile(r"\s*[\(\[]\s*(?:18[7-9]\d|19\d\d|20[0-2]\d)\b[^)\]]*$")
+# A parenthetical that is purely a language / subtitle / dub tag: "(ENG sub)", "(VOSE)".
+_LANG_PAREN = re.compile(
+    r"\s*[\(\[]\s*(?:eng(?:lish)?|fre(?:nch)?|spa(?:nish)?|ita(?:lian)?|ger(?:man)?|por|rus)?\s*"
+    r"(?:sub(?:title)?s?|dub(?:bed)?|vose|legendado|subtitulad[oa])\b[^)\]]*[\)\]]", re.I)
+# A trailing uploader CREDIT clause: "… directed by X" / "… a film by Y" / "… Dir: Z" / "… starring W".
+# Anchored to the END with required following text, so a bare word ("The Director") is never hit;
+# _keep_if_lettered protects a title that IS a credit ("Directed by John Ford").
+_CREDIT_TAIL = re.compile(
+    r"\s*[-–—,]?\s*(?:directed by|a film by|dir\.?\s*(?:by|:)|starring)\s+\S.*$", re.I)
 # Trailing foreign subtitle/dub markers from scene rips ("- VOSE", "- Legendado", "ESub").
 _LANG_TAIL = re.compile(
     r"(?:\s*[-–—|]\s*(?:vose|vosi|vos|vo|legendado|subtitulado|castellano|espa[nñ]ol|"
@@ -738,6 +755,9 @@ def sanitize_title(it):
     if director and len(director) > 3 and "-" in t:
         nt = re.sub(r"\s*[-–—|]\s*" + re.escape(director) + r"\s*$", "", t, flags=re.I).rstrip(" -–—|")
         t = _keep_if_lettered(nt, t)
+    # Uploader credit clause ("… directed by X" / "… starring Y") — generic, not tied to the item's
+    # own director field, so it catches the "(1913) director Victor Sjöström" collection style.
+    t = _keep_if_lettered(_CREDIT_TAIL.sub("", t).rstrip(" -–—,|"), t)
     t = _strip_uscore_suffix(t)       # "Title_The" / "Title_Weirdness bad Movie"
     t = _underscore_filename(t)
     t = _invert_sort_article(t)
@@ -755,7 +775,12 @@ def sanitize_title(it):
     if re.search(r"[A-Za-z]", disc_stripped):
         t = disc_stripped
     # The year is its own field everywhere in the app — strip it from the title last,
-    # after quality/rip/bracket strips have peeled off whatever followed it.
+    # after quality/rip/bracket strips have peeled off whatever followed it. A paren that LEADS
+    # with a year (incl. genre junk, or a year-paren followed by another paren) goes first, then
+    # the bare leading/trailing year forms.
+    t = _keep_if_lettered(_PAREN_LEADING_YEAR.sub(" ", t), t)
+    t = _keep_if_lettered(_TRAIL_OPEN_YEAR.sub("", t), t)
+    t = _keep_if_lettered(_LANG_PAREN.sub(" ", t), t)
     t = _strip_leading_year(t)
     t = _strip_trailing_year(t)
     t = re.sub(r"\s+", " ", t).strip(" -_|")
