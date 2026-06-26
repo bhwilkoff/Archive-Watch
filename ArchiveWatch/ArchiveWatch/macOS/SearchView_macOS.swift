@@ -118,7 +118,7 @@ private struct EpisodeItemRow: View {
                 .frame(width: 96, height: 54)
                 .overlay {
                     if let u = item.posterURLParsed {
-                        AsyncImage(url: u) { $0.resizable().scaledToFill() } placeholder: { Color.clear }
+                        RemoteImage(url: u, contentMode: .fill)
                     }
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 6))

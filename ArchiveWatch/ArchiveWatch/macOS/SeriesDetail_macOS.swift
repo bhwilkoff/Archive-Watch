@@ -70,10 +70,8 @@ struct SeriesDetailView: View {
         Color.clear
             .frame(maxWidth: .infinity).frame(height: 280)
             .overlay {
-                AsyncImage(url: series?.backdropURLParsed ?? card.backdropURLParsed
-                           ?? series?.posterURLParsed ?? card.posterURLParsed) { img in
-                    img.resizable().scaledToFill()
-                } placeholder: { Color.black.opacity(0.15) }
+                RemoteImage(url: series?.backdropURLParsed ?? card.backdropURLParsed
+                            ?? series?.posterURLParsed ?? card.posterURLParsed, contentMode: .fill)
             }
             .clipped()
     }
@@ -160,11 +158,8 @@ private struct EpisodeRow: View {
         HStack(spacing: 12) {
             Color.clear
                 .frame(width: 124, height: 70)
-                .overlay {
-                    AsyncImage(url: episode.stillURLParsed) { img in
-                        img.resizable().scaledToFill()
-                    } placeholder: { Rectangle().fill(.quaternary) }
-                }
+                .overlay { Rectangle().fill(.quaternary) }
+                .overlay { RemoteImage(url: episode.stillURLParsed, contentMode: .fill) }
                 .clipShape(.rect(cornerRadius: 8))
                 .overlay {
                     Image(systemName: "play.circle.fill")

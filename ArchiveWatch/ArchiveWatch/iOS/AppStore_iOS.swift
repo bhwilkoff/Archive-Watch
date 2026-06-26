@@ -17,7 +17,16 @@ final class AppStore {
     /// Bumped on every DB swap (seed → full) so views re-query.
     private(set) var dbVersion = 0
     private(set) var isReady = false
+    /// True once the FULL catalog DB (not just the bundled seed) is loaded. The seed has no
+    /// tv-episode items and only a slice of the catalog, so Creation Studio's "Add a Clip" (TV
+    /// Episodes filter, live stock-shot generation) is empty/tiny until this flips.
+    private(set) var hasFullCatalog = false
+    private var loadTask: Task<Void, Never>?
     var loadError: String?
+
+    /// A title queued to open in Creation Studio's mark-in/out editor — set by Detail's
+    /// "Open in Creation Studio" share action, consumed once by a freshly-opened editor window.
+    var pendingClipItem: Catalog.Item?
 
     // Filters (settings-controlled). Default-deny mature content (Decision 012).
     var hideAdultContent: Bool = {
@@ -82,11 +91,24 @@ final class AppStore {
 
     // MARK: load
 
+    /// Idempotent + coalescing: once the full catalog is loaded this returns immediately; concurrent
+    /// callers (the main window AND the Creation Studio editor both kick this) share one in-flight
+    /// load; and if the full DB hasn't landed yet (e.g. a slow/failed download) the task is cleared
+    /// so the next caller retries instead of being stuck on the seed forever.
     func load() async {
+        if hasFullCatalog { return }
+        if let t = loadTask { await t.value; return }
+        let t = Task { await self.performLoad() }
+        loadTask = t
+        await t.value
+        if !hasFullCatalog { loadTask = nil }   // allow a retry until the full DB is in
+    }
+
+    private func performLoad() async {
         do { featured = try CatalogLoader.loadFeatured() }
         catch { /* featured is optional chrome; keep going */ }
 
-        if let seed = Bundle.main.path(forResource: "seed", ofType: "sqlite"),
+        if db == nil, let seed = Bundle.main.path(forResource: "seed", ofType: "sqlite"),
            let seedDB = CatalogDB(path: seed) {
             swap(seedDB)
             isReady = true
@@ -96,11 +118,13 @@ final class AppStore {
            let full = CatalogDB(path: cached) {
             swap(full)
             isReady = true
+            hasFullCatalog = true
         }
         if let path = await CatalogRefreshService.shared.downloadDatabase(),
            let full = CatalogDB(path: path) {
             swap(full)
             isReady = true
+            hasFullCatalog = true
         }
         if db == nil { loadError = "Could not open the catalog." }
     }

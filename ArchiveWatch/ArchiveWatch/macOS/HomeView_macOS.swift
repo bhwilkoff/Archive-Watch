@@ -182,9 +182,7 @@ struct HeroBanner: View {
         // (same fill-image trap as the poster cards).
         .background {
             if let url = item.backdropURLParsed ?? item.posterURLParsed {
-                AsyncImage(url: url) { img in
-                    img.resizable().scaledToFill()
-                } placeholder: { Color.black.opacity(0.2) }
+                RemoteImage(url: url, contentMode: .fill)
             }
         }
         .clipShape(RoundedRectangle(cornerRadius: 14))

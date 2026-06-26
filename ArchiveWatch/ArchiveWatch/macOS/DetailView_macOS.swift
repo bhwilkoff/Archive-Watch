@@ -1,6 +1,7 @@
 #if os(macOS)
 import SwiftUI
 import SwiftData
+import AppKit
 
 // Detail: poster + metadata + play, favorite, share, add-to-playlist, synopsis, cast
 // (tappable → person), More Like This, community reviews. The "Open in Creation Studio"
@@ -72,8 +73,7 @@ struct DetailView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 10).fill(.quaternary)
                 if let url = item.posterURLParsed {
-                    AsyncImage(url: url) { $0.resizable().aspectRatio(contentMode: .fit) }
-                        placeholder: { Color.clear }
+                    RemoteImage(url: url, contentMode: .fit)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 }
             }
@@ -112,6 +112,12 @@ struct DetailView: View {
                     // One consolidated Share menu (parity with iOS) — Callsheet + share link +
                     // archive.org, instead of three separate toolbar-ish buttons.
                     Menu {
+                        if item.isClippable {
+                            Button { openInCreationStudio() } label: {
+                                Label("Open in Creation Studio", systemImage: "scissors")
+                            }
+                            Divider()
+                        }
                         if Callsheet.supports(item) {
                             Button { Callsheet.open(Callsheet.url(for: item)) } label: {
                                 Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
@@ -133,6 +139,14 @@ struct DetailView: View {
             }
             Spacer()
         }
+    }
+
+    /// Open this title in Creation Studio's mark-in/out editor — the same scrubber the Add-a-Clip
+    /// browser pushes to, but reachable from any title's Detail. Queue the item, then open a fresh
+    /// project window; the editor's .task consumes `pendingClipItem` and presents MarkClipView.
+    private func openInCreationStudio() {
+        store.pendingClipItem = item
+        NSDocumentController.shared.newDocument(nil)
     }
 
     /// TMDb profile paths are stored as "/abc.jpg" tokens; expand to a full image URL. (The bug:
@@ -165,9 +179,7 @@ struct DetailView: View {
                 Circle().fill(.quaternary).frame(width: 64, height: 64)
                     .overlay {
                         if let u = profileURL(profilePath) {
-                            AsyncImage(url: u) { $0.resizable().scaledToFill() }
-                                placeholder: { Image(systemName: "person.fill").foregroundStyle(.secondary) }
-                                .clipShape(Circle())
+                            RemoteImage(url: u, contentMode: .fill).clipShape(Circle())
                         } else {
                             Image(systemName: "person.fill").foregroundStyle(.secondary)
                         }

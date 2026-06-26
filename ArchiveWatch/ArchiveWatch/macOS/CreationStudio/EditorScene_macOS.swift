@@ -31,6 +31,7 @@ struct ProjectEditorView: View {
     @State private var showPublishSheet = false
     @State private var publisher = PublishService()
     @State private var testMark: Catalog.Item?     // AW_CS_TEST=markclip presents this in a sheet
+    @State private var markItem: Catalog.Item?     // "Open in Creation Studio" mark-in/out target
     @State private var showExportSheet = false
 
     init(document: ClipProjectDocument) {
@@ -180,6 +181,17 @@ struct ProjectEditorView: View {
         }
         .onAppear { model.undoManager = undoManager }   // ⌘Z + Edit menu drive our snapshot history
         .task {
+            // The Add-a-Clip browser (TV Episodes filter + live stock shots) needs the FULL
+            // catalog, not the bundled seed. The editor can open as the first window (File ▸ New),
+            // so RootView's load() may not have run — kick the (coalescing, idempotent) load here
+            // too. Without this, opening Creation Studio first leaves Add-a-Clip on the seed:
+            // no tv-episode items and a tiny live stock-shot pool.
+            await store.load()
+            // A title queued by Detail's "Open in Creation Studio" — present its mark-in/out editor.
+            if let pending = store.pendingClipItem {
+                store.pendingClipItem = nil
+                markItem = pending
+            }
             // Screenshot/test hooks (AW_CS_TEST) — the DocumentGroup reliably opens this editor
             // window on launch, so we populate it here for CLI visual verification.
             // The self-test/perf harness normally rides RootView's .task, but in a doc-app
@@ -205,6 +217,9 @@ struct ProjectEditorView: View {
                 .environment(store)
         }
         .sheet(item: $testMark) { MarkClipView(item: $0) { _ in }.environment(store) }
+        .sheet(item: $markItem) { item in
+            MarkClipView(item: item) { proxy in addToLibraryAndTimeline(proxy) }.environment(store)
+        }
         .sheet(isPresented: $showExportSheet) {
             ExportSettingsSheet { format in runExport(format) }
         }

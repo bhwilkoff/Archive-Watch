@@ -58,26 +58,31 @@ struct PosterCard: View {
 /// its poster URL no longer loads (the issue is the same on tvOS — it's the DATA, not the layout).
 struct RemotePoster: View {
     let item: Catalog.Item
-    private var archiveThumb: URL? { item.archiveThumbURL }
+    // Cached + connection-capped via ImagePipeline (bare AsyncImage re-downloaded/re-decoded on
+    // every view reveal and stormed archive.org — the "posters load slowly" report). The fallback
+    // chain (designed poster → archive.org item frame → typographic card) runs once per item.
+    @State private var image: NSImage?
+    @State private var exhausted = false
 
     var body: some View {
-        if let url = item.posterURLParsed {
-            AsyncImage(url: url) { phase in
-                switch phase {
-                case .success(let img): img.resizable().scaledToFill()
-                case .failure:          archiveFallback
-                case .empty:            Color.clear           // brief loading shimmer (the quaternary fill)
-                @unknown default:       titleCard
-                }
+        Group {
+            if let image {
+                Image(nsImage: image).resizable().scaledToFill()
+            } else if exhausted {
+                titleCard
+            } else {
+                Color.clear                                   // quaternary fill shows through while loading
             }
-        } else {
-            titleCard
         }
-    }
-
-    private var archiveFallback: some View {
-        AsyncImage(url: archiveThumb) { phase in
-            if case .success(let img) = phase { img.resizable().scaledToFill() } else { titleCard }
+        .task(id: item.archiveID) {
+            image = nil; exhausted = false
+            if let u = item.posterURLParsed, let img = await ImagePipeline.shared.image(u) {
+                image = img; return
+            }
+            if let u = item.archiveThumbURL, let img = await ImagePipeline.shared.image(u) {
+                image = img; return
+            }
+            exhausted = true
         }
     }
 

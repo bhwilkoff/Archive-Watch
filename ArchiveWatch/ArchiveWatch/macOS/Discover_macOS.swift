@@ -76,7 +76,7 @@ private struct CollectionRow: View {
                         .frame(height: 64)
                         .overlay {
                             if let u = item.posterURLParsed {
-                                AsyncImage(url: u) { $0.resizable().scaledToFill() } placeholder: { Color.clear }
+                                RemoteImage(url: u, contentMode: .fill)
                             }
                         }
                         .clipShape(RoundedRectangle(cornerRadius: 4))

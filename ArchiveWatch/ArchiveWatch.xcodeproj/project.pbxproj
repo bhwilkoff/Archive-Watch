@@ -10,10 +10,10 @@
 		B7AC53E22F93BA0500F50803 /* featured.json in Resources */ = {isa = PBXBuildFile; fileRef = B7AC53E12F93BA0500F50803 /* featured.json */; };
 		B7AC53E62F93BA0500F50803 /* collections.json in Resources */ = {isa = PBXBuildFile; fileRef = B7AC53E52F93BA0500F50803 /* collections.json */; };
 		DD00000000000000000000B2 /* ArchiveWatchTopShelf.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DD00000000000000000000A1 /* ArchiveWatchTopShelf.appex */; platformFilters = (tvos, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		EF00000000000000000000B2 /* ArchiveWatchWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DE00000000000000000000A1 /* ArchiveWatchWidgets.appex */; platformFilter = macos; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DE00000000000000000000B2 /* ArchiveWatchWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DE00000000000000000000A1 /* ArchiveWatchWidgets.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EE00000000000000000000B2 /* featured.json in Resources */ = {isa = PBXBuildFile; fileRef = B7AC53E12F93BA0500F50803 /* featured.json */; };
 		EE00000000000000000000B6 /* collections.json in Resources */ = {isa = PBXBuildFile; fileRef = B7AC53E52F93BA0500F50803 /* collections.json */; };
+		EF00000000000000000000B2 /* ArchiveWatchWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DE00000000000000000000A1 /* ArchiveWatchWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,14 +24,14 @@
 			remoteGlobalIDString = DD00000000000000000000A3;
 			remoteInfo = ArchiveWatchTopShelf;
 		};
-		EF00000000000000000000B3 /* PBXContainerItemProxy */ = {
+		DE00000000000000000000B3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B7AC53C52F93BA0300F50803 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DE00000000000000000000A3;
 			remoteInfo = ArchiveWatchWidgets;
 		};
-		DE00000000000000000000B3 /* PBXContainerItemProxy */ = {
+		EF00000000000000000000B3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B7AC53C52F93BA0300F50803 /* Project object */;
 			proxyType = 1;
@@ -41,17 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		EF00000000000000000000B1 /* Embed Foundation Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				EF00000000000000000000B2 /* ArchiveWatchWidgets.appex in Embed Foundation Extensions */,
-			);
-			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DD00000000000000000000B1 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -60,6 +49,17 @@
 			files = (
 				DD00000000000000000000B2 /* ArchiveWatchTopShelf.appex in Embed Foundation Extensions */,
 				DE00000000000000000000B2 /* ArchiveWatchWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF00000000000000000000B1 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				EF00000000000000000000B2 /* ArchiveWatchWidgets.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,16 +374,16 @@
 			target = DD00000000000000000000A3 /* ArchiveWatchTopShelf */;
 			targetProxy = DD00000000000000000000B3 /* PBXContainerItemProxy */;
 		};
-		EF00000000000000000000B4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DE00000000000000000000A3 /* ArchiveWatchWidgets */;
-			targetProxy = EF00000000000000000000B3 /* PBXContainerItemProxy */;
-		};
 		DE00000000000000000000B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			platformFilter = ios;
 			target = DE00000000000000000000A3 /* ArchiveWatchWidgets */;
 			targetProxy = DE00000000000000000000B3 /* PBXContainerItemProxy */;
+		};
+		EF00000000000000000000B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DE00000000000000000000A3 /* ArchiveWatchWidgets */;
+			targetProxy = EF00000000000000000000B3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -658,6 +658,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = "$(MARKETING_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = app.archivewatch.tvos.widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -665,7 +666,6 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -688,6 +688,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = "$(MARKETING_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = app.archivewatch.tvos.widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -695,7 +696,6 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
-				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
