@@ -32,7 +32,7 @@ enum ArchiveThumbnails {
         let metaID = String(after[..<slash]).removingPercentEncoding ?? String(after[..<slash])
         if let cached = await ThumbStripCache.shared.get(metaID) { return cached }
         guard let metaURL = URL(string: "https://archive.org/metadata/\(metaID)"),
-              let (data, _) = try? await URLSession.shared.data(from: metaURL),
+              let data = await StudioNet.data(from: metaURL),   // capped session — don't storm the main host
               let obj = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any],
               let files = obj["files"] as? [[String: Any]] else { return [] }
 

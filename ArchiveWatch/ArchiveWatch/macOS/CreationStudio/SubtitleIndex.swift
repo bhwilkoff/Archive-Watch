@@ -79,7 +79,16 @@ final class SubtitleIndex: @unchecked Sendable {
         // wait out the brief RW lock when ensureLookupIndex is creating the index.
         sqlite3_exec(handle, "PRAGMA mmap_size=0; PRAGMA busy_timeout=3000;", nil, nil, nil)
         // Detect the optional imdbID column (newer indexes) so search can de-dup by film identity.
-        hasIMDB = sqlite3_exec(handle, "SELECT imdbID FROM cues LIMIT 0", nil, nil, nil) == SQLITE_OK
+        // Use table_info (no error logged) rather than a failing SELECT (which spams "no such column").
+        var found = false
+        var stmt: OpaquePointer?
+        if sqlite3_prepare_v2(handle, "PRAGMA table_info(cues)", -1, &stmt, nil) == SQLITE_OK {
+            while sqlite3_step(stmt) == SQLITE_ROW {
+                if let c = sqlite3_column_text(stmt, 1), String(cString: c) == "imdbID" { found = true; break }
+            }
+        }
+        sqlite3_finalize(stmt)
+        hasIMDB = found
     }
     deinit { sqlite3_close(handle) }   // no concurrent access at dealloc (ARC holds self through queries)
 

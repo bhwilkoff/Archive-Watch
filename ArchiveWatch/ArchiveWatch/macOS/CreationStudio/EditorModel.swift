@@ -1386,7 +1386,7 @@ final class EditorModel {
     }
 
     private nonisolated static func downloadThumb(_ url: URL) async -> CGImage? {
-        guard let (data, _) = try? await URLSession.shared.data(from: url),
+        guard let data = await StudioNet.data(from: url),   // capped session — share the studio's bounded pool
               let src = CGImageSourceCreateWithData(data as CFData, nil) else { return nil }
         return CGImageSourceCreateImageAtIndex(src, 0, nil)
     }

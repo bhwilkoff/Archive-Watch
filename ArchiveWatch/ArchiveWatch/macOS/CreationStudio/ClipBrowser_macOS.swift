@@ -194,7 +194,7 @@ private struct StockCard: View {
             RoundedRectangle(cornerRadius: 6).fill(.quaternary)
                 .aspectRatio(16.0/9.0, contentMode: .fit)
                 .overlay {
-                    if let frameURL { AsyncImage(url: frameURL) { $0.resizable().scaledToFill() } placeholder: { Color.clear } }
+                    if let frameURL { StudioAsyncImage(url: frameURL) }
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 6))
                 .overlay(alignment: .bottomTrailing) {
@@ -246,7 +246,7 @@ private struct BrowserCard: View {
                 .aspectRatio(2.0/3.0, contentMode: .fit)
                 .overlay {
                     if let u = item.posterURLParsed {
-                        AsyncImage(url: u) { $0.resizable().scaledToFill() } placeholder: { Color.clear }
+                        StudioAsyncImage(url: u)
                     }
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 6))
@@ -299,7 +299,7 @@ struct MarkClipView: View {
                 if videoReady {
                     VideoPlayerNS(player: player, controlsStyle: .none)
                 } else if let t = nearestThumb {
-                    AsyncImage(url: t.url) { $0.resizable().scaledToFit() } placeholder: { Color.black }
+                    StudioAsyncImage(url: t.url, fill: false)
                     if !videoFailed {
                         VStack { Spacer(); HStack {
                             Label("Loading full video to verify…", systemImage: "arrow.down.circle")
@@ -451,7 +451,7 @@ private struct ThumbnailScrubber: View {
                 } else {
                     HStack(spacing: 1) {
                         ForEach(sampled(width: w), id: \.id) { t in
-                            AsyncImage(url: t.url) { $0.resizable().scaledToFill() } placeholder: { Color.gray.opacity(0.15) }
+                            StudioAsyncImage(url: t.url)
                                 .frame(width: cell(w), height: 54).clipped()
                         }
                     }
