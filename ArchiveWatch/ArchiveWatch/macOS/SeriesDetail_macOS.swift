@@ -20,61 +20,65 @@ struct SeriesDetailView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 18) {
-                backdrop
-                VStack(alignment: .leading, spacing: 12) {
-                    Text(series?.title ?? card.title).font(.largeTitle.bold())
-                    if let meta = metaLine {
-                        Text(meta).font(.title3).foregroundStyle(.secondary)
-                    }
-                    if let o = series?.overview ?? card.synopsis, !o.isEmpty {
-                        Text(o).font(.body).foregroundStyle(.primary.opacity(0.9))
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-
-                    HStack(spacing: 10) {
-                        ShareLink(item: seriesShareURL) {
-                            Label("Share", systemImage: "square.and.arrow.up")
-                        }
-                        if Callsheet.supports(card) {
-                            Button { Callsheet.open(Callsheet.url(for: card)) } label: {
-                                Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
-                            }
-                            .help("Cast & crew in Callsheet")
-                        }
-                    }
-                    .padding(.top, 2)
-
-                    if loading {
-                        ProgressView().frame(maxWidth: .infinity).padding(.vertical, 30)
-                    } else if shownEpisodes.isEmpty {
-                        ContentUnavailableView(
-                            "No episodes yet", systemImage: "tv",
-                            description: Text("This series is in the catalog, but no playable episodes have been matched yet."))
-                            .frame(maxWidth: .infinity).padding(.vertical, 16)
-                    } else {
-                        if seasons.count > 1 { seasonPicker }
-                        episodeList
-                    }
+            VStack(alignment: .leading, spacing: 22) {
+                header
+                if loading {
+                    ProgressView().frame(maxWidth: .infinity).padding(.vertical, 30)
+                } else if shownEpisodes.isEmpty {
+                    ContentUnavailableView(
+                        "No episodes yet", systemImage: "tv",
+                        description: Text("This series is in the catalog, but no playable episodes have been matched yet."))
+                        .frame(maxWidth: .infinity).padding(.vertical, 16)
+                } else {
+                    if seasons.count > 1 { seasonPicker }
+                    episodeList
                 }
-                .padding(.horizontal, 24)
             }
-            .padding(.bottom, 24)
+            .padding(28)
         }
         .navigationTitle(series?.title ?? card.title)
         .task { await load() }
     }
 
-    // Sized container owns the layout; the fill image rides in .overlay + .clipped
-    // so it can't drive layout (the fill-image trap fixed on the poster cards).
-    private var backdrop: some View {
-        Color.clear
-            .frame(maxWidth: .infinity).frame(height: 280)
-            .overlay {
-                RemoteImage(url: series?.backdropURLParsed ?? card.backdropURLParsed
-                            ?? series?.posterURLParsed ?? card.posterURLParsed, contentMode: .fill)
+    // Poster + metadata header, IDENTICAL to DetailView (movie/episode pages) so the poster shows
+    // the same way everywhere: an aspect-FIT 2:3 poster in a fixed well — never a haphazard
+    // wide-banner crop of a portrait poster (the old `backdrop` filled a 16:9 banner with the
+    // 2:3 poster and clipped a random horizontal slice).
+    private var header: some View {
+        HStack(alignment: .top, spacing: 22) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 10).fill(.quaternary)
+                if let url = series?.posterURLParsed ?? card.posterURLParsed {
+                    RemoteImage(url: url, contentMode: .fit)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
             }
-            .clipped()
+            .frame(width: 240, height: 360)
+
+            VStack(alignment: .leading, spacing: 12) {
+                Text(series?.title ?? card.title).font(.largeTitle.bold())
+                if let meta = metaLine {
+                    Text(meta).font(.title3).foregroundStyle(.secondary)
+                }
+                if let o = series?.overview ?? card.synopsis, !o.isEmpty {
+                    Text(o).font(.body).foregroundStyle(.primary.opacity(0.9))
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                HStack(spacing: 10) {
+                    ShareLink(item: seriesShareURL) {
+                        Label("Share", systemImage: "square.and.arrow.up")
+                    }
+                    if Callsheet.supports(card) {
+                        Button { Callsheet.open(Callsheet.url(for: card)) } label: {
+                            Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
+                        }
+                        .help("Cast & crew in Callsheet")
+                    }
+                }
+                .padding(.top, 2)
+            }
+            Spacer(minLength: 0)
+        }
     }
 
     private func load() async {
