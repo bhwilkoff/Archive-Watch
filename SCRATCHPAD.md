@@ -233,6 +233,44 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-26 — macOS player (native) + Creation Studio accuracy + title audit (1.3.195/b717)
+Long session, all on `main`, builds green. Detail lives in user memory:
+`session_handoff_2026_06_26`, `macos_player_native`,
+`creation_studio_connection_discipline`, `creation_studio_pipeline_accuracy`.
+- **macOS app player** rebuilt fully native (AVPlayerView `.floating` HUD, native
+  `speeds`, window title "Title (Year)", X close). Player REPLACES the browse
+  NavigationSplitView as the window root while playing (was an overlay → the split
+  view's sidebar toggle + previous title bled through). CRITICAL: macOS AVPlayerItem
+  has NO `externalMetadata` (verified macOS 27 SDK); the AVMutableComposition
+  metadata-override BLANKS video over the resilient custom-scheme asset — tried+reverted
+  TWICE, do not retry. Title rides the window title bar only.
+- **Creation Studio -1004 storm fixed**: archive.org rate-limits the IP when its MAIN
+  host is stormed (services/img + metadata + covers); movies kept working (storage
+  nodes). Capped everything: ReencodeLimiter(2), preview/verify concurrency 2,
+  `resolvedNodeURL` shared session, new `StudioNet` capped session (3/host) +
+  `StudioAsyncImage` replacing all ungated `AsyncImage(url:)` in the browser/stock grids.
+- **Editor accuracy**: `isPermanent`=no-video-track only (decode errors transient) +
+  `Task.isCancelled` guard in the rebuild catch → killed the false/stuck "cannot decode"
+  banner; reconcile resolved clips to `.ready`; timeline durations clamped to actual
+  footage (was drifting vs preview); `beginInteraction/endInteraction` bracket drags so
+  the playhead stops fighting; `ProjectMediaCache.sweep()` 1.5 GB LRU + `mmap_size=0`
+  everywhere (disk-pressure corruption → recoverable, not EXC_BAD_ACCESS).
+- **Supercut**: off-main Compose with progress; verify-pass count; "Add subtitles to
+  supercut clips"; "Clip only full sentences" (sentenceRange, matched-cue anchor + span
+  union + `idx_cues_aid` index + 12s cap); film-identity dedup (`filmKey`: imdbID else
+  normalized title; `imdbID` column added to the subtitle index).
+- **Title audit gap fixed** (`remediate_catalog.sanitize_title`): added
+  `_PAREN_LEADING_YEAR`, `_TRAIL_OPEN_YEAR`, `_LANG_PAREN`, `_CREDIT_TAIL` (all behind
+  `_keep_if_lettered`). Live-catalog dry-run: paren-year titles 2615→35 (98.7%), 0
+  emptied. publish-db runs remediate before build_sqlite (apps) AND
+  build_catalog_index/build_web_details (web) → one pass, all platforms.
+- **Crons verified healthy 2026-06-26** (discover/tmdb/omdb/tvdb/wikidata/wikipedia/
+  verify-matches/rights-audit/validate-posters/color/subtitle-index/free-subtitles/
+  stock-index/publish-db all green today).
+- **Disk-full incident**: owner's Mac hit "No space left on device" (Xcode) — freed
+  ~4.7 GB of regenerable caches; disk is near-capacity (see handoff memory for the
+  clearable list).
+
 ### 2026-06-16 (latest+2) — Clip Studio iOS caption preview fix + Set Start UX + re-transcribe (b47/b48)
 - **b47**: auto-caption cues weren't previewing — cues are clip-relative (0-based)
   but `activeCaption` matched them against the absolute `playheadSeconds`; fixed to
