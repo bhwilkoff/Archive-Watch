@@ -210,9 +210,16 @@ enum CompositionBuilder {
                 }
                 // OUTGOING side — only a PUSH moves the outgoing clip (dissolve/wipe leave it behind).
                 if p.nextOverlap > 0, p.nextKind == .push {
-                    let os = (p.start + p.dur).seconds - p.nextOverlap
-                    cfg.addTransformRamp(.init(timeRange: range(os, p.nextOverlap),
-                        start: p.transform, end: p.transform.concatenating(.init(translationX: -W, y: 0))))
+                    // Clamp so this transform ramp can't overlap the INCOMING push transform ramp on a
+                    // short clip (both push, transIn + nextOverlap > dur) — overlapping transform ramps
+                    // crash AVMutableVideoCompositionLayerInstruction ("…must not overlap…").
+                    let end = (p.start + p.dur).seconds
+                    let inPushEnd = (p.transIn > 0 && p.transKind == .push) ? p.start.seconds + p.transIn : p.start.seconds
+                    let os = max(end - p.nextOverlap, inPushEnd)
+                    if end - os > 0.001 {
+                        cfg.addTransformRamp(.init(timeRange: range(os, end - os),
+                            start: p.transform, end: p.transform.concatenating(.init(translationX: -W, y: 0))))
+                    }
                 }
                 // Fade to black at the tail (opacity).
                 if p.fadeOut > 0 {
