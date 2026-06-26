@@ -39,7 +39,7 @@ struct ProjectEditorView: View {
     }
 
     private var project: Binding<ClipProject> {
-        Binding(get: { document.project }, set: { document.project = $0 })
+        Binding(get: { model.project }, set: { model.project = $0 })
     }
 
     /// The document's display name (filename minus extension) for seeding export/publish names.
@@ -61,7 +61,7 @@ struct ProjectEditorView: View {
                 // Program monitor — the live preview (rebuild-and-swap composition, Rule 3b).
                 ZStack {
                     Color.black
-                    if document.project.timeline.clips.isEmpty {
+                    if model.project.timeline.clips.isEmpty {
                         ContentUnavailableView("Empty Timeline", systemImage: "timeline.selection")
                             .foregroundStyle(.white.opacity(0.5))
                     } else {
@@ -131,10 +131,10 @@ struct ProjectEditorView: View {
                 }
                 Button { model.splitAtPlayhead() } label: {
                     Label("Split", systemImage: "scissors")
-                }.disabled(document.project.timeline.clips.isEmpty)
+                }.disabled(model.project.timeline.clips.isEmpty)
                 Button { model.addTextOverlay() } label: {
                     Label("Add Text", systemImage: "textformat")
-                }.disabled(document.project.timeline.clips.isEmpty)
+                }.disabled(model.project.timeline.clips.isEmpty)
                 Button { pickMusic() } label: {
                     Label("Add Music", systemImage: "music.note")
                 }
@@ -154,11 +154,11 @@ struct ProjectEditorView: View {
                 Button { showExportSheet = true } label: {
                     Label("Export", systemImage: "square.and.arrow.up")
                 }
-                .disabled(document.project.timeline.clips.isEmpty || exporter.isBusy)
+                .disabled(model.project.timeline.clips.isEmpty || exporter.isBusy)
                 Button { showPublishSheet = true } label: {
                     Label("Publish", systemImage: "icloud.and.arrow.up")
                 }
-                .disabled(document.project.timeline.clips.isEmpty || exporter.isBusy)
+                .disabled(model.project.timeline.clips.isEmpty || exporter.isBusy)
                 Button { inspectorShown.toggle() } label: {
                     Label("Inspector", systemImage: "sidebar.trailing")
                 }
@@ -176,16 +176,16 @@ struct ProjectEditorView: View {
             if let mode = CreationStudioTest.mode {
                 await store.load()                                   // RootView may not open in a doc-app launch
                 var t = 0; while store.randomPlayable() == nil && t < 90 { try? await Task.sleep(for: .seconds(1)); t += 1 }
-                if mode == "editor", document.project.timeline.clips.isEmpty {
+                if mode == "editor", model.project.timeline.clips.isEmpty {
                     CreationStudioTest.populate(model, store)
                 } else if mode == "markclip" {
                     testMark = CreationStudioTest.clippable(store)   // presents the Add-Clip scrubber
                 }
             }
             model.loadFilmstrips()   // instant filmstrips for already-present (saved-project) clips
-            if !document.project.timeline.clips.isEmpty { await model.rebuildPreview() }
+            if !model.project.timeline.clips.isEmpty { await model.rebuildPreview() }
         }
-        .onChange(of: document.project.burnAttribution) { Task { await model.rebuildPreview() } }
+        .onChange(of: model.project.burnAttribution) { Task { await model.rebuildPreview() } }
         .sheet(isPresented: $showBrowser) {
             ClipBrowserSheet { proxy in addToLibraryAndTimeline(proxy) }
                 .environment(store)
@@ -195,7 +195,7 @@ struct ProjectEditorView: View {
             ExportSettingsSheet { format in runExport(format) }
         }
         .sheet(isPresented: $showPublishSheet) {
-            PublishSheet(project: document.project, defaultTitle: documentName,
+            PublishSheet(project: model.project, defaultTitle: documentName,
                          publisher: publisher, exporter: exporter)
         }
         .sheet(isPresented: $showSupercut) {
@@ -284,7 +284,7 @@ struct ProjectEditorView: View {
         let base = documentName.isEmpty ? "Archive Watch" : documentName
         panel.nameFieldStringValue = "\(base).\(format.fileExtension)"
         guard panel.runModal() == .OK, let url = panel.url else { return }
-        let project = document.project
+        let project = model.project
         Task { await exporter.export(project, to: url, format: format) }
     }
 }

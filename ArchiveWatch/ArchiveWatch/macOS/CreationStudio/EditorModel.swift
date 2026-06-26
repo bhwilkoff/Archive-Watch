@@ -9,7 +9,7 @@ import ImageIO
 // rebuild-and-swap preview (Rule 3b), the playhead, selection, zoom, filmstrip thumbnails,
 // and the magnetic single-track edit model (Phase 1 — Rule 7c CapCut-approachable). The
 // AppKit timeline (TimelineView_macOS) reads/writes through this; the SwiftUI editor binds
-// to its @Observable properties. Mutations write through to `document.project` so SwiftUI
+// to its @Observable properties. Mutations write through to `project` so SwiftUI
 // autosaves the .archiveproj.
 @MainActor
 @Observable
@@ -69,14 +69,14 @@ final class EditorModel {
         let ids = selectedIDs
         for id in ids {
             switch kindOf(id) {
-            case .overlay: document.project.timeline.textOverlays.removeAll { $0.id == id }
+            case .overlay: project.timeline.textOverlays.removeAll { $0.id == id }
             case .audio:
                 if let i = audioIndex(id) {
                     try? FileManager.default.removeItem(at: ProjectMediaCache.directory
-                        .appendingPathComponent(document.project.timeline.audioClips[i].fileName))
-                    document.project.timeline.audioClips.remove(at: i)
+                        .appendingPathComponent(project.timeline.audioClips[i].fileName))
+                    project.timeline.audioClips.remove(at: i)
                 }
-            case .clip: document.project.timeline.clips.removeAll { $0.id == id }
+            case .clip: project.timeline.clips.removeAll { $0.id == id }
             case .none: break
             }
         }
@@ -92,18 +92,17 @@ final class EditorModel {
             let target = max(0, origin + delta)
             switch kindOf(id) {
             case .overlay:
-                if let i = document.project.timeline.textOverlays.firstIndex(where: { $0.id == id }) {
-                    let dur = document.project.timeline.textOverlays[i].timelineRange.duration.seconds
-                    document.project.timeline.textOverlays[i].timelineRange =
+                if let i = project.timeline.textOverlays.firstIndex(where: { $0.id == id }) {
+                    let dur = project.timeline.textOverlays[i].timelineRange.duration.seconds
+                    project.timeline.textOverlays[i].timelineRange =
                         TimeRange(startSeconds: target, durationSeconds: dur)
                 }
             case .audio:
-                if let i = audioIndex(id) { document.project.timeline.audioClips[i].startSeconds = target }
+                if let i = audioIndex(id) { project.timeline.audioClips[i].startSeconds = target }
             default: break
             }
         }
         bumpOverlayRevision()   // selected overlays may have moved → refresh the live preview
-        bumpTimeline()          // redraw the lane blocks at their new spots LIVE during the drag
         scheduleRebuild()
     }
     var selectedClipID: UUID? { if case .clip(let id) = selection { return id }; return nil }
@@ -170,6 +169,7 @@ final class EditorModel {
 
     init(document: ClipProjectDocument) {
         self.document = document
+        self._project = document.project        // seed the observed source of truth from the document
         timeObserver = player.addPeriodicTimeObserver(
             forInterval: CMTime(value: 1, timescale: 30), queue: .main) { [weak self] t in
             MainActor.assumeIsolated {
@@ -180,9 +180,18 @@ final class EditorModel {
         }
     }
 
-    var project: ClipProject { document.project }
-    var clips: [TimelineClip] { document.project.timeline.clips.sorted { $0.timelineStart.seconds < $1.timelineStart.seconds } }
-    var totalDuration: Double { document.project.timeline.durationSeconds }
+    /// The live project — the SINGLE @Observable source of truth for the editor. Backed by the
+    /// tracked stored `_project`, so ANY read (e.g. `clips` in the timeline's updateNSView) registers
+    /// an observation dependency and the AppKit timeline + SwiftUI re-render automatically on every
+    /// edit — no manual `bumpTimeline()` nudges. Writes ALSO mirror to the document (its @Published
+    /// `project`, exactly as before), so SwiftUI's autosave is unchanged.
+    private var _project: ClipProject
+    var project: ClipProject {
+        get { _project }
+        set { _project = newValue; document.project = newValue }
+    }
+    var clips: [TimelineClip] { project.timeline.clips.sorted { $0.timelineStart.seconds < $1.timelineStart.seconds } }
+    var totalDuration: Double { project.timeline.durationSeconds }
 
     // MARK: - Edits (magnetic single track → relayout after every change)
 
@@ -192,7 +201,7 @@ final class EditorModel {
             catalogItemID: catalogItemID, sourceURL: sourceURL,
             sourceRange: TimeRange(startSeconds: inSeconds, durationSeconds: durationSeconds),
             timelineStart: .zero, track: 0, label: title)
-        document.project.timeline.clips.append(clip)
+        project.timeline.clips.append(clip)
         relayout()
         selection = .clip(clip.id)
         loadFilmstrip(for: clip)   // instant archive.org-thumbnail filmstrip (no wait on the cache)
@@ -203,27 +212,26 @@ final class EditorModel {
 
     /// Set a clip's audio volume in the mix (#4).
     func setClipVolume(_ id: UUID, _ vol: Double) {
-        guard let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
-        document.project.timeline.clips[i].audioVolume = max(0, min(1.5, vol))
+        guard let i = project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
+        project.timeline.clips[i].audioVolume = max(0, min(1.5, vol))
         scheduleRebuild()
     }
 
     /// Set a clip's fade-in / fade-out (seconds). Each is clamped to the clip's duration; the
     /// two are kept from overlapping at build time. Rebuilds preview (fades show live).
     func setClipFade(_ id: UUID, fadeIn: Double? = nil, fadeOut: Double? = nil) {
-        guard let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
-        let dur = document.project.timeline.clips[i].sourceRange.duration.seconds
-        if let fadeIn { document.project.timeline.clips[i].fadeInSeconds = max(0, min(fadeIn, dur)) }
-        if let fadeOut { document.project.timeline.clips[i].fadeOutSeconds = max(0, min(fadeOut, dur)) }
-        bumpTimeline()         // redraw the fade wedge LIVE during the drag
+        guard let i = project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
+        let dur = project.timeline.clips[i].sourceRange.duration.seconds
+        if let fadeIn { project.timeline.clips[i].fadeInSeconds = max(0, min(fadeIn, dur)) }
+        if let fadeOut { project.timeline.clips[i].fadeOutSeconds = max(0, min(fadeOut, dur)) }
         scheduleRebuild()
     }
 
     /// Set a clip's color grade (Look). The grade is baked into a cached source file on the next
     /// rebuild, so the preview updates after a brief render.
     func setClipLook(_ id: UUID, _ look: ClipLook) {
-        guard let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
-        document.project.timeline.clips[i].lookRaw = look.rawValue
+        guard let i = project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
+        project.timeline.clips[i].lookRaw = look.rawValue
         scheduleRebuild()
     }
 
@@ -233,18 +241,17 @@ final class EditorModel {
     func setClipTransition(_ id: UUID, _ seconds: Double) {
         let clips = self.clips
         guard let pos = clips.firstIndex(where: { $0.id == id }), pos > 0,
-              let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
+              let i = project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
         let cap = min(clips[pos].sourceRange.duration.seconds, clips[pos - 1].sourceRange.duration.seconds) - 0.1
-        document.project.timeline.clips[i].transitionInSeconds = max(0, min(seconds, max(0, cap)))
+        project.timeline.clips[i].transitionInSeconds = max(0, min(seconds, max(0, cap)))
         relayout()             // the overlap shifts this clip + all following earlier
-        bumpTimeline()         // redraw the overlap LIVE during the drag (not only after the debounced rebuild)
         scheduleRebuild()
     }
 
     /// Set the transition STYLE (dissolve / wipe / push) for this clip's incoming transition.
     func setClipTransitionKind(_ id: UUID, _ kind: TransitionKind) {
-        guard let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
-        document.project.timeline.clips[i].transitionKindRaw = kind.rawValue
+        guard let i = project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
+        project.timeline.clips[i].transitionKindRaw = kind.rawValue
         scheduleRebuild()
     }
 
@@ -252,7 +259,7 @@ final class EditorModel {
     func addClip(from proxy: ProxyClip) {
         checkpoint()
         let clip = TimelineClip.from(proxy, at: .zero)
-        document.project.timeline.clips.append(clip)
+        project.timeline.clips.append(clip)
         relayout()
         selection = .clip(clip.id)
         loadFilmstrip(for: clip)
@@ -268,9 +275,9 @@ final class EditorModel {
         let t = playheadSeconds
         // `clips` is the timeline-ordered view and the document array is kept in that same order by
         // relayout, so an index found here maps straight onto the array.
-        var insertIdx = document.project.timeline.clips.count
+        var insertIdx = project.timeline.clips.count
         for (i, c) in clips.enumerated() where c.timelineStart.seconds >= t - 0.01 { insertIdx = i; break }
-        document.project.timeline.clips.insert(clip, at: min(insertIdx, document.project.timeline.clips.count))
+        project.timeline.clips.insert(clip, at: min(insertIdx, project.timeline.clips.count))
         relayout()
         selection = .clip(clip.id)
         loadFilmstrip(for: clip)
@@ -298,7 +305,7 @@ final class EditorModel {
         var added: [(id: UUID, take: SupercutTake)] = []
         for take in takes {
             let clip = TimelineClip.from(take.proxy, at: .zero)
-            document.project.timeline.clips.append(clip)
+            project.timeline.clips.append(clip)
             added.append((clip.id, take))
             loadFilmstrip(for: clip)
         }
@@ -359,9 +366,9 @@ final class EditorModel {
         //    clip; unverifiable audio (music / rough old prints) is kept.
         let verdict = await WordTiming.verify(mediaURL: url, phrase: take.phrase)
         if case .contradicted = verdict {
-            if let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) {
-                document.project.timeline.clips.remove(at: i)
-                relayout(); bumpTimeline()
+            if let i = project.timeline.clips.firstIndex(where: { $0.id == id }) {
+                project.timeline.clips.remove(at: i)
+                relayout()
             }
             return true
         }
@@ -374,25 +381,25 @@ final class EditorModel {
             var range: CMTimeRange?
             if case .confirmed(let r) = verdict { range = r }
             if range == nil { range = await WordTiming.tighten(mediaURL: url, phrase: take.phrase, caption: take.captionText) }
-            if let r = range, let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) {
+            if let r = range, let i = project.timeline.clips.firstIndex(where: { $0.id == id }) {
                 let newIn = take.proxy.sourceRange.start.seconds + r.start.seconds
-                document.project.timeline.clips[i].sourceRange =
+                project.timeline.clips[i].sourceRange =
                     TimeRange(startSeconds: max(0, newIn), durationSeconds: max(0.05, r.duration.seconds))
                 changed = true
             }
         }
         if evenVolume, let rms = await Loudness.rms(url: url),
-           let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) {
-            document.project.timeline.clips[i].audioVolume = Loudness.gain(forRMS: rms)
+           let i = project.timeline.clips.firstIndex(where: { $0.id == id }) {
+            project.timeline.clips[i].audioVolume = Loudness.gain(forRMS: rms)
         }
         // A tightened clip is SHORTER → repack the magnetic track so clips stay glued together.
-        if changed { relayout(); bumpTimeline() }
+        if changed { relayout() }
         return false
     }
 
     func deleteClip(_ id: UUID) {
         checkpoint()
-        document.project.timeline.clips.removeAll { $0.id == id }
+        project.timeline.clips.removeAll { $0.id == id }
         thumbnails[id] = nil; clipCache[id] = nil
         if selectedClipID == id { selection = .none }
         relayout(); scheduleRebuild()
@@ -408,14 +415,14 @@ final class EditorModel {
 
     /// Set a clip's in/out (frame-exact handle drag). `newIn`/`newOut` are SOURCE seconds.
     func trim(_ id: UUID, newInSeconds: Double? = nil, newOutSeconds: Double? = nil) {
-        guard let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
-        var clip = document.project.timeline.clips[i]
+        guard let i = project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
+        var clip = project.timeline.clips[i]
         var inS = clip.sourceRange.start.seconds
         var outS = clip.sourceRange.endSeconds
         if let newInSeconds { inS = min(max(0, newInSeconds), outS - 0.1) }
         if let newOutSeconds { outS = max(newOutSeconds, inS + 0.1) }
         clip.sourceRange = TimeRange(startSeconds: inS, durationSeconds: outS - inS)
-        document.project.timeline.clips[i] = clip
+        project.timeline.clips[i] = clip
         // Refresh the filmstrip for the new sub-range from cached thumbnails (instant, no flash);
         // the cached generous window is reused (no re-cache) while the trim stays inside it.
         loadFilmstrip(for: clip)
@@ -434,8 +441,8 @@ final class EditorModel {
 
     /// Split a specific clip into two at a timeline position (context-menu "Split Here").
     func splitClip(_ id: UUID, atTimelineSeconds t: Double) {
-        guard let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
-        let clip = document.project.timeline.clips[i]
+        guard let i = project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
+        let clip = project.timeline.clips[i]
         let offsetInClip = t - clip.timelineStart.seconds                   // seconds into the clip
         guard offsetInClip > 0.05, offsetInClip < clip.sourceRange.duration.seconds - 0.05 else { return }
         checkpoint()
@@ -446,8 +453,8 @@ final class EditorModel {
             proxyClipID: clip.proxyClipID, catalogItemID: clip.catalogItemID, sourceURL: clip.sourceURL,
             sourceRange: TimeRange(startSeconds: cutSource, durationSeconds: clip.sourceRange.endSeconds - cutSource),
             timelineStart: .zero, track: 0, label: clip.label)
-        document.project.timeline.clips[i] = left
-        document.project.timeline.clips.insert(right, at: i + 1)
+        project.timeline.clips[i] = left
+        project.timeline.clips.insert(right, at: i + 1)
         // Both halves come from the same source — share the cached generous window so neither
         // re-caches; just refresh each half's filmstrip for its new sub-range.
         if let w = clipCache[clip.id] { clipCache[right.id] = w }
@@ -458,25 +465,25 @@ final class EditorModel {
 
     /// Reorder a clip on the magnetic track by dragging (toIndex = desired slot).
     func moveClip(_ id: UUID, toIndex target: Int) {
-        let original = document.project.timeline.clips
+        let original = project.timeline.clips
         guard let from = original.firstIndex(where: { $0.id == id }) else { return }
         var arr = original
         let clip = arr.remove(at: from)
         arr.insert(clip, at: min(max(0, target), arr.count))
         guard arr.map(\.id) != original.map(\.id) else { return }          // no order change
-        document.project.timeline.clips = arr
-        relayout(); bumpTimeline(); scheduleRebuild()   // reflect the new order LIVE during the drag
+        project.timeline.clips = arr
+        relayout(); scheduleRebuild()
     }
 
     /// Duplicate a clip immediately after itself (context menu).
     func duplicateClip(_ id: UUID) {
-        guard let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
+        guard let i = project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
         checkpoint()
-        let src = document.project.timeline.clips[i]
+        let src = project.timeline.clips[i]
         let copy = TimelineClip(
             proxyClipID: src.proxyClipID, catalogItemID: src.catalogItemID, sourceURL: src.sourceURL,
             sourceRange: src.sourceRange, timelineStart: .zero, track: 0, label: src.label, audioVolume: src.audioVolume)
-        document.project.timeline.clips.insert(copy, at: i + 1)
+        project.timeline.clips.insert(copy, at: i + 1)
         if let w = clipCache[id] { clipCache[copy.id] = w }                 // same source window
         loadFilmstrip(for: copy)
         selection = .clip(copy.id)
@@ -485,7 +492,7 @@ final class EditorModel {
 
     // MARK: - Text overlays (#3)
 
-    var textOverlays: [TextOverlay] { document.project.timeline.textOverlays }
+    var textOverlays: [TextOverlay] { project.timeline.textOverlays }
     /// A TRACKED @Observable token bumped on every overlay mutation. The live SwiftUI overlay
     /// preview (TextOverlayPreview) reads it so its body re-evaluates when an overlay changes —
     /// `textOverlays` is backed by the non-@Observable `document`, so without this token a paused
@@ -494,13 +501,6 @@ final class EditorModel {
     private(set) var overlayRevision = 0
     func bumpOverlayRevision() { overlayRevision &+= 1 }
 
-    /// Forces the timeline NSView to re-read `clips` after a layout change that has no OTHER
-    /// observed side effect — `clips` live on the non-@Observable document, so reading them in
-    /// updateNSView isn't enough on its own. Used after a background `relayout()` (e.g. a supercut
-    /// tighten) so the repacked, gap-free positions show without waiting for a full preview rebuild.
-    private(set) var timelineRevision = 0
-    func bumpTimeline() { timelineRevision &+= 1 }
-
     func addTextOverlay() {
         checkpoint()
         let start = playheadSeconds
@@ -508,7 +508,7 @@ final class EditorModel {
         let ov = TextOverlay(text: "Title",
                              timelineRange: TimeRange(startSeconds: start,
                                                       durationSeconds: avail > 1 ? min(3, avail) : 3))
-        document.project.timeline.textOverlays.append(ov)
+        project.timeline.textOverlays.append(ov)
         selection = .overlay(ov.id)
         bumpOverlayRevision()
         // No preview rebuild: overlays aren't baked into the preview composition (the Core
@@ -517,14 +517,14 @@ final class EditorModel {
     }
 
     func updateOverlay(_ ov: TextOverlay) {
-        guard let i = document.project.timeline.textOverlays.firstIndex(where: { $0.id == ov.id }) else { return }
-        document.project.timeline.textOverlays[i] = ov
+        guard let i = project.timeline.textOverlays.firstIndex(where: { $0.id == ov.id }) else { return }
+        project.timeline.textOverlays[i] = ov
         bumpOverlayRevision()
     }
 
     func deleteOverlay(_ id: UUID) {
         checkpoint()
-        document.project.timeline.textOverlays.removeAll { $0.id == id }
+        project.timeline.textOverlays.removeAll { $0.id == id }
         if selectedOverlayID == id { selection = .none }
         bumpOverlayRevision()
     }
@@ -540,13 +540,13 @@ final class EditorModel {
     /// Capture the project so the next edit is undoable. Call BEFORE a discrete edit, or once at
     /// the start of a drag (the timeline calls this on mouseDown).
     func checkpoint() {
-        let before = document.project
+        let before = project
         undoManager?.registerUndo(withTarget: self) { editor in editor.applyHistory(before) }
     }
     private func applyHistory(_ snapshot: ClipProject) {
-        let inverse = document.project                       // re-registers as redo
+        let inverse = project                       // re-registers as redo
         undoManager?.registerUndo(withTarget: self) { editor in editor.applyHistory(inverse) }
-        document.project = snapshot
+        project = snapshot
         selection = .none
         bumpOverlayRevision()    // overlays may have changed → refresh the live preview
         relayout(); scheduleRebuild()
@@ -565,10 +565,10 @@ final class EditorModel {
                                 sourceURL: c.sourceURL, sourceRange: c.sourceRange,
                                 timelineStart: .zero, track: 0, label: c.label, audioVolume: c.audioVolume,
                                 fadeInSeconds: c.fadeInSeconds, fadeOutSeconds: c.fadeOutSeconds)
-        if let id = selectedClipID, let i = document.project.timeline.clips.firstIndex(where: { $0.id == id }) {
-            document.project.timeline.clips.insert(copy, at: i + 1)
+        if let id = selectedClipID, let i = project.timeline.clips.firstIndex(where: { $0.id == id }) {
+            project.timeline.clips.insert(copy, at: i + 1)
         } else {
-            document.project.timeline.clips.append(copy)
+            project.timeline.clips.append(copy)
         }
         if let w = clipCache[c.id] { clipCache[copy.id] = w }
         selection = .clip(copy.id)
@@ -590,7 +590,7 @@ final class EditorModel {
     private func relayout() {
         var cursor = 0.0
         var rebuilt: [TimelineClip] = []
-        for (idx, var c) in document.project.timeline.clips.enumerated() {
+        for (idx, var c) in project.timeline.clips.enumerated() {
             // Overlap with the previous clip by transitionIn so the timeline view's positions
             // and total match the composition (CompositionBuilder uses the SAME placement), and
             // the playhead stays aligned with the preview when a cross-dissolve is set.
@@ -601,7 +601,7 @@ final class EditorModel {
             rebuilt.append(c)
             cursor = start + dur
         }
-        document.project.timeline.clips = rebuilt
+        project.timeline.clips = rebuilt
     }
 
     // MARK: - Preview (rebuild-and-swap, debounced)
@@ -680,10 +680,10 @@ final class EditorModel {
 
         // bakeOverlays:false — the Core Animation overlay tool is offline-only (crashes
         // AVPlayerItem). Same clip/reframe/audio recipe as export, so the preview frame matches.
-        let credit = document.project.burnAttribution ? ExportService.defaultCredit : nil
+        let credit = project.burnAttribution ? ExportService.defaultCredit : nil
         do {
             let built = try await CompositionBuilder.build(
-                resolved: resolved, timeline: document.project.timeline,
+                resolved: resolved, timeline: project.timeline,
                 creditLine: credit, bakeOverlays: false, beds: resolvedBeds())
             guard !Task.isCancelled else { return }
             let item = AVPlayerItem(asset: built.composition)
@@ -804,10 +804,10 @@ final class EditorModel {
 
     // MARK: - Audio clips (#4 audio layers — N music + voiceover tracks, Rule 3c)
 
-    var audioClips: [AudioClip] { document.project.timeline.audioClips }
+    var audioClips: [AudioClip] { project.timeline.audioClips }
     var selectedAudio: AudioClip? { selectedAudioID.flatMap { id in audioClips.first { $0.id == id } } }
     private func audioIndex(_ id: UUID) -> Int? {
-        document.project.timeline.audioClips.firstIndex { $0.id == id }
+        project.timeline.audioClips.firstIndex { $0.id == id }
     }
 
     /// Import an audio file as a NEW music clip at the current playhead (multiple are allowed).
@@ -820,7 +820,7 @@ final class EditorModel {
         let clip = AudioClip(kind: .music, fileName: name,
                              displayName: src.deletingPathExtension().lastPathComponent,
                              volume: 0.5, startSeconds: max(0, playheadSeconds))
-        document.project.timeline.audioClips.append(clip)
+        project.timeline.audioClips.append(clip)
         selection = .audio(clip.id)
         loadAudioDuration(clip.id)
         scheduleRebuild()
@@ -828,32 +828,31 @@ final class EditorModel {
 
     func setAudioVolume(_ id: UUID, _ v: Double) {
         guard let i = audioIndex(id) else { return }
-        document.project.timeline.audioClips[i].volume = max(0, min(1.5, v))
+        project.timeline.audioClips[i].volume = max(0, min(1.5, v))
         scheduleRebuild()
     }
     func setAudioStart(_ id: UUID, _ seconds: Double) {
         guard let i = audioIndex(id) else { return }
-        document.project.timeline.audioClips[i].startSeconds = max(0, seconds)
-        bumpTimeline()          // move the audio block LIVE during the drag
+        project.timeline.audioClips[i].startSeconds = max(0, seconds)
         scheduleRebuild()
     }
     func setAudioFade(_ id: UUID, fadeIn: Double? = nil, fadeOut: Double? = nil) {
         guard let i = audioIndex(id) else { return }
-        let dur = max(0.1, document.project.timeline.audioClips[i].sourceDuration)
-        if let fadeIn  { document.project.timeline.audioClips[i].fadeInSeconds  = max(0, min(fadeIn,  dur)) }
-        if let fadeOut { document.project.timeline.audioClips[i].fadeOutSeconds = max(0, min(fadeOut, dur)) }
+        let dur = max(0.1, project.timeline.audioClips[i].sourceDuration)
+        if let fadeIn  { project.timeline.audioClips[i].fadeInSeconds  = max(0, min(fadeIn,  dur)) }
+        if let fadeOut { project.timeline.audioClips[i].fadeOutSeconds = max(0, min(fadeOut, dur)) }
         scheduleRebuild()
     }
     func renameAudio(_ id: UUID, _ name: String) {
         guard let i = audioIndex(id) else { return }
-        document.project.timeline.audioClips[i].displayName = name
+        project.timeline.audioClips[i].displayName = name
     }
     func removeAudio(_ id: UUID) {
         guard let i = audioIndex(id) else { return }
-        let clip = document.project.timeline.audioClips[i]
+        let clip = project.timeline.audioClips[i]
         try? FileManager.default.removeItem(at: ProjectMediaCache.directory.appendingPathComponent(clip.fileName))
         checkpoint()
-        document.project.timeline.audioClips.remove(at: i)
+        project.timeline.audioClips.remove(at: i)
         if selectedAudioID == id { selection = .none }
         scheduleRebuild()
     }
@@ -862,17 +861,17 @@ final class EditorModel {
     /// width + the fade clamps).
     private func loadAudioDuration(_ id: UUID) {
         guard let i = audioIndex(id) else { return }
-        let url = ProjectMediaCache.directory.appendingPathComponent(document.project.timeline.audioClips[i].fileName)
+        let url = ProjectMediaCache.directory.appendingPathComponent(project.timeline.audioClips[i].fileName)
         Task { [weak self] in
             let dur = (try? await AVURLAsset(url: url).load(.duration).seconds) ?? 0
             guard let self, let j = self.audioIndex(id) else { return }
-            self.document.project.timeline.audioClips[j].sourceDuration = dur
+            self.project.timeline.audioClips[j].sourceDuration = dur
         }
     }
 
     /// Every audio clip resolved for the composition (music + voiceover, each its own track).
     func resolvedBeds() -> [CompositionBuilder.ResolvedMusic] {
-        document.project.timeline.audioClips.compactMap { clip in
+        project.timeline.audioClips.compactMap { clip in
             let url = ProjectMediaCache.directory.appendingPathComponent(clip.fileName)
             guard FileManager.default.fileExists(atPath: url.path) else { return nil }
             return .init(asset: AVURLAsset(url: url), volume: clip.volume, startSeconds: clip.startSeconds,
@@ -981,7 +980,7 @@ final class EditorModel {
         checkpoint()
         let clip = AudioClip(kind: .voiceover, fileName: url.lastPathComponent, displayName: "Voiceover",
                              volume: 1.0, startSeconds: voiceStartSeconds)
-        document.project.timeline.audioClips.append(clip)
+        project.timeline.audioClips.append(clip)
         selection = .audio(clip.id)
         loadAudioDuration(clip.id)
         scheduleRebuild()
@@ -1000,7 +999,6 @@ final class EditorModel {
         o.timelineRange = TimeRange(startSeconds: max(0, seconds),
                                     durationSeconds: o.timelineRange.duration.seconds)
         updateOverlay(o)
-        bumpTimeline()          // move the title block LIVE during the drag
     }
 
     // MARK: - Project canvas / frame rate (editable in the project inspector)
@@ -1020,34 +1018,34 @@ final class EditorModel {
     ]
     /// The preset matching the current render size, or a synthetic "Custom" entry.
     var matchedCanvasPreset: CanvasPreset {
-        let r = document.project.timeline.renderSize
+        let r = project.timeline.renderSize
         return Self.canvasPresets.first { $0.width == r.width && $0.height == r.height }
             ?? CanvasPreset(name: "Custom", width: r.width, height: r.height, isCustom: true)
     }
     func setRenderSize(_ s: RenderSize) {
-        guard document.project.timeline.renderSize != s else { return }
+        guard project.timeline.renderSize != s else { return }
         checkpoint()
-        document.project.timeline.renderSize = s
+        project.timeline.renderSize = s
         scheduleRebuild()
     }
     func setFrameRate(_ fps: Double) {
-        guard document.project.timeline.frameRate != fps else { return }
-        document.project.timeline.frameRate = max(1, fps)
+        guard project.timeline.frameRate != fps else { return }
+        project.timeline.frameRate = max(1, fps)
         scheduleRebuild()
     }
 
     // MARK: - Markers (navigation + snap targets)
 
-    var markers: [Double] { document.project.timeline.markers }
+    var markers: [Double] { project.timeline.markers }
 
     /// Toggle a marker at the playhead (remove if one is within 0.3s, else add). M key.
     func toggleMarkerAtPlayhead() {
         let t = playheadSeconds
-        if let i = document.project.timeline.markers.firstIndex(where: { abs($0 - t) < 0.3 }) {
-            document.project.timeline.markers.remove(at: i)
+        if let i = project.timeline.markers.firstIndex(where: { abs($0 - t) < 0.3 }) {
+            project.timeline.markers.remove(at: i)
         } else {
-            document.project.timeline.markers.append(t)
-            document.project.timeline.markers.sort()
+            project.timeline.markers.append(t)
+            project.timeline.markers.sort()
         }
     }
 
@@ -1064,7 +1062,7 @@ final class EditorModel {
     // MARK: - Keyboard transport (FCP-style — ←/→ frame step, ↑/↓ edit nav, Home/End)
 
     /// One frame at the project frame rate.
-    var frameStep: Double { 1.0 / max(1, document.project.timeline.frameRate) }
+    var frameStep: Double { 1.0 / max(1, project.timeline.frameRate) }
 
     /// Move the playhead by a signed delta (←/→ = ±1 frame; ⇧←/⇧→ = ±1 s).
     func nudgePlayhead(seconds delta: Double) { seek(toSeconds: playheadSeconds + delta) }

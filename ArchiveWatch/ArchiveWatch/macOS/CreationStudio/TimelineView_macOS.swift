@@ -27,10 +27,10 @@ struct ClipTimelineView: NSViewRepresentable {
     }
 
     func updateNSView(_ scroll: NSScrollView, context: Context) {
-        // Reading these makes SwiftUI re-call updateNSView when they change (observation). `clips`
-        // live on the non-@Observable document, so an off-band repack (supercut tighten) wouldn't
-        // redraw on its own — `timelineRevision` is the observed trigger that forces the re-read.
-        _ = model.timelineRevision
+        // Reading these @Observable properties registers them as dependencies, so SwiftUI re-calls
+        // updateNSView whenever any of them changes. `clips`/`overlays`/`audioClips` now read the
+        // model's tracked `_project`, so ANY edit re-renders the timeline automatically — no manual
+        // revision token needed.
         let state = TimelineContentView.State(
             clips: model.clips, pps: model.pointsPerSecond, selectedIDs: model.selectedIDs,
             primaryID: model.selection.id,
