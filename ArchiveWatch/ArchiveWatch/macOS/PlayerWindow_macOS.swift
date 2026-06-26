@@ -28,7 +28,8 @@ struct PlayerWindow: View {
                 .navigationTitle(item.year.map { "\(item.title) (\($0))" } ?? item.title)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
-                        Button("Done") { router.nowPlaying = nil }.keyboardShortcut(.cancelAction)
+                        Button { router.nowPlaying = nil } label: { Image(systemName: "xmark") }
+                            .keyboardShortcut(.cancelAction).help("Close")
                     }
                 }
         }
@@ -95,7 +96,8 @@ struct EpisodePlayer: View {
                 .navigationTitle(episode.title)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
-                        Button("Done") { router.nowPlayingEpisode = nil }.keyboardShortcut(.cancelAction)
+                        Button { router.nowPlayingEpisode = nil } label: { Image(systemName: "xmark") }
+                            .keyboardShortcut(.cancelAction).help("Close")
                     }
                     // Native prev/next episode controls in the toolbar (binge transport).
                     ToolbarItemGroup(placement: .navigation) {

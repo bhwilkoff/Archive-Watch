@@ -11,8 +11,40 @@ struct RootView: View {
     @Environment(AppRouter.self) private var router
 
     var body: some View {
+        // The player REPLACES the browse UI as the window root while playing (not an overlay on the
+        // split view) — otherwise the split view keeps owning the window toolbar, so its sidebar toggle
+        // + the previous view's title bled through over the player. As the root, the player's own
+        // NavigationStack title (the movie) + its X button are the only window chrome.
+        Group {
+            if let item = router.nowPlaying {
+                PlayerWindow(item: item)
+            } else if let ctx = router.nowPlayingEpisode {
+                EpisodePlayer(context: ctx)
+            } else {
+                browse
+            }
+        }
+        .overlay {
+            if !store.isReady {
+                ProgressView("Loading catalog…").controlSize(.large)
+            }
+        }
+        // Screensaver: a real full-window, full-screen poster wall (not a nav push that keeps the
+        // sidebar). Covers everything; click / Esc / the ✕ exits + leaves macOS full-screen.
+        .overlay {
+            if router.screensaverActive {
+                ScreensaverView(onExit: { exitScreensaver() })
+                    .transition(.opacity)
+                    .onAppear { setFullScreen(true) }
+                    .onExitCommand { exitScreensaver() }   // Esc
+            }
+        }
+    }
+
+    /// The browse UI (sidebar + detail). Shown as the window root EXCEPT while a title is playing.
+    private var browse: some View {
         @Bindable var router = router
-        NavigationSplitView {
+        return NavigationSplitView {
             List(AppRouter.Section.allCases, selection: $router.section) { section in
                 Label(section.title, systemImage: section.systemImage).tag(section)
             }
@@ -33,30 +65,6 @@ struct RootView: View {
                     .navigationDestination(for: PublicDomainRoute.self) { _ in PublicDomainView() }
                     .navigationDestination(for: CartoonRoute.self) { _ in CartoonView() }
                     .navigationDestination(for: PartyRoute.self) { _ in PartyPlayView() }
-            }
-        }
-        // The player takes over the ENTIRE app window (the macOS norm — QuickTime/TV), not a small
-        // centred sheet; its own full-screen button still goes to true macOS full-screen.
-        .overlay {
-            if let item = router.nowPlaying {
-                PlayerWindow(item: item).transition(.opacity).zIndex(2)
-            } else if let ctx = router.nowPlayingEpisode {
-                EpisodePlayer(context: ctx).transition(.opacity).zIndex(2)
-            }
-        }
-        .overlay {
-            if !store.isReady {
-                ProgressView("Loading catalog…").controlSize(.large)
-            }
-        }
-        // Screensaver: a real full-window, full-screen poster wall (not a nav push that keeps the
-        // sidebar). Covers everything; click / Esc / the ✕ exits + leaves macOS full-screen.
-        .overlay {
-            if router.screensaverActive {
-                ScreensaverView(onExit: { exitScreensaver() })
-                    .transition(.opacity)
-                    .onAppear { setFullScreen(true) }
-                    .onExitCommand { exitScreensaver() }   // Esc
             }
         }
     }
