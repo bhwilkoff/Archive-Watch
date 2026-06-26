@@ -432,5 +432,7 @@
       "order": 7,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/271413/photo/66abf9a73ac93.jpg"
     }
-  ]
+  ],
+  "seriesImdbID": null,
+  "canonicalEpisodeCount": 0
 }
