@@ -283,19 +283,21 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
         for (i, clip) in state.clips.enumerated() where i > 0 {
             let jx = x(clip.timelineStart.seconds)               // overlap region starts here
             let diamond = CALayer()
-            let sz: CGFloat = 14
+            let sz: CGFloat = 18
             diamond.frame = CGRect(x: jx - sz / 2, y: trackTop + trackH / 2 - sz / 2, width: sz, height: sz)
-            diamond.backgroundColor = (clip.transitionInSeconds > 0
-                ? NSColor.systemPurple : NSColor(white: 0.6, alpha: 0.8)).cgColor
+            let active = clip.transitionInSeconds > 0
+            diamond.backgroundColor = (active ? NSColor.systemPurple : NSColor(white: 0.75, alpha: 0.95)).cgColor
             diamond.cornerRadius = 3
             diamond.transform = CATransform3DMakeRotation(.pi / 4, 0, 0, 1)
-            diamond.borderColor = NSColor.white.withAlphaComponent(0.5).cgColor
-            diamond.borderWidth = 1
+            diamond.borderColor = NSColor.white.withAlphaComponent(0.85).cgColor
+            diamond.borderWidth = 1.5
+            diamond.shadowColor = NSColor.black.cgColor
+            diamond.shadowOpacity = 0.4; diamond.shadowRadius = 2; diamond.shadowOffset = .zero
             layer.addSublayer(diamond)
-            let tip = clip.transitionInSeconds > 0
+            let tip = active
                 ? "Cross-dissolve with the previous clip — drag right to shorten, left to lengthen"
                 : "Drag left to cross-dissolve this clip into the previous one"
-            addToolTip(NSRect(x: jx - 12, y: trackTop + trackH / 2 - 12, width: 24, height: 24),
+            addToolTip(NSRect(x: jx - 16, y: trackTop + trackH / 2 - 18, width: 32, height: 36),
                        owner: tip as NSString, userData: nil)
         }
 
@@ -446,10 +448,12 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
             }
             return .none
         }
-        // Junction dissolve diamonds (in the mid-track band).
-        if p.y >= trackTop + trackH / 2 - 10, p.y <= trackTop + trackH / 2 + 10 {
+        // Junction dissolve diamonds — checked BEFORE trim so the mid-track band at a junction grabs
+        // the diamond, not the co-located left-trim handle. Generous target (±18px) since it sits on
+        // the clip edge; trim stays reachable on the left edge above/below this band.
+        if p.y >= trackTop + trackH / 2 - 18, p.y <= trackTop + trackH / 2 + 18 {
             for (i, clip) in state.clips.enumerated() where i > 0 {
-                if abs(p.x - x(clip.timelineStart.seconds)) <= 9 { return .transition(clip.id) }
+                if abs(p.x - x(clip.timelineStart.seconds)) <= 16 { return .transition(clip.id) }
             }
         }
         guard p.y >= trackTop, p.y <= trackTop + trackH else { return .none }

@@ -214,6 +214,7 @@ final class EditorModel {
         let dur = document.project.timeline.clips[i].sourceRange.duration.seconds
         if let fadeIn { document.project.timeline.clips[i].fadeInSeconds = max(0, min(fadeIn, dur)) }
         if let fadeOut { document.project.timeline.clips[i].fadeOutSeconds = max(0, min(fadeOut, dur)) }
+        bumpTimeline()         // redraw the fade wedge LIVE during the drag
         scheduleRebuild()
     }
 
@@ -235,6 +236,7 @@ final class EditorModel {
         let cap = min(clips[pos].sourceRange.duration.seconds, clips[pos - 1].sourceRange.duration.seconds) - 0.1
         document.project.timeline.clips[i].transitionInSeconds = max(0, min(seconds, max(0, cap)))
         relayout()             // the overlap shifts this clip + all following earlier
+        bumpTimeline()         // redraw the overlap LIVE during the drag (not only after the debounced rebuild)
         scheduleRebuild()
     }
 
