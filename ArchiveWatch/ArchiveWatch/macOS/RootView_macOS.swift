@@ -35,13 +35,14 @@ struct RootView: View {
                     .navigationDestination(for: PartyRoute.self) { _ in PartyPlayView() }
             }
         }
-        .sheet(item: $router.nowPlaying) { item in
-            PlayerWindow(item: item)
-                .frame(minWidth: 720, minHeight: 460)
-        }
-        .sheet(item: $router.nowPlayingEpisode) { ctx in
-            EpisodePlayer(context: ctx)
-                .frame(minWidth: 720, minHeight: 460)
+        // The player takes over the ENTIRE app window (the macOS norm — QuickTime/TV), not a small
+        // centred sheet; its own full-screen button still goes to true macOS full-screen.
+        .overlay {
+            if let item = router.nowPlaying {
+                PlayerWindow(item: item).transition(.opacity).zIndex(2)
+            } else if let ctx = router.nowPlayingEpisode {
+                EpisodePlayer(context: ctx).transition(.opacity).zIndex(2)
+            }
         }
         .overlay {
             if !store.isReady {

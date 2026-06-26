@@ -13,28 +13,33 @@ import SwiftData
 
 struct PlayerWindow: View {
     let item: Catalog.Item
-    @Environment(\.dismiss) private var dismiss
     @Environment(AppStore.self) private var store
     @Environment(AppRouter.self) private var router
     @State private var speed = 1.0
 
     var body: some View {
-        PlayerSurface(archiveID: item.archiveID,
-                      videoURL: item.videoURLParsed,
-                      subtitleHLS: item.subtitleHLSURL,
-                      speed: speed,
-                      onEnded: autoplayNext)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) { Button("Done") { dismiss() } }
-                ToolbarItem(placement: .navigation) {
-                    Text(item.title).font(.headline).lineLimit(1)
+        // NavigationStack provides the NATIVE window toolbar host (NSToolbar) for Done + Speed; the
+        // AVPlayerView fills the rest with its OWN native controls (transport, scrubber, volume, PiP,
+        // full-screen button) and shows the title from externalMetadata. No hand-drawn controls.
+        NavigationStack {
+            PlayerSurface(archiveID: item.archiveID,
+                          videoURL: item.videoURLParsed,
+                          subtitleHLS: item.subtitleHLSURL,
+                          speed: speed,
+                          onEnded: autoplayNext)
+                .navigationTitle(item.title)
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Done") { router.nowPlaying = nil }.keyboardShortcut(.cancelAction)
+                    }
+                    ToolbarItem { SpeedMenu(speed: $speed) }
                 }
-                ToolbarItem { SpeedMenu(speed: $speed) }
-            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     /// When a film ends and Autoplay is on, swap the player to the next title
-    /// (router.nowPlaying drives the sheet, so changing it re-presents the player).
+    /// (router.nowPlaying drives the overlay, so changing it re-presents the player).
     private func autoplayNext() {
         guard store.autoplayMode != .off,
               let next = ContinuousPlayback.next(after: item, mode: store.autoplayMode, store: store)
@@ -71,7 +76,7 @@ struct SpeedMenu: View {
 // position; the chevrons live in a small overlay capsule.
 struct EpisodePlayer: View {
     let context: EpisodeContext
-    @Environment(\.dismiss) private var dismiss
+    @Environment(AppRouter.self) private var router
     @State private var episode: Episode
     @State private var speed = 1.0
 
@@ -85,38 +90,29 @@ struct EpisodePlayer: View {
     private var next: Episode? { series.episode(after: episode) }
 
     var body: some View {
-        PlayerSurface(archiveID: episode.archiveID,
-                      videoURL: episode.videoURLParsed,
-                      subtitleHLS: nil,
-                      speed: speed,
-                      onEnded: { if let n = next { episode = n } })   // binge auto-advance
-            .id(episode.archiveID)
-            .overlay(alignment: .topTrailing) {
-                if prev != nil || next != nil {
-                    HStack(spacing: 16) {
-                        Button { if let p = prev { episode = p } } label: {
-                            Image(systemName: "backward.end.fill")
-                        }.disabled(prev == nil)
-                        if let n = episode.numberLabel {
-                            Text(n).font(.caption.weight(.semibold)).foregroundStyle(.white)
-                        }
-                        Button { if let n = next { episode = n } } label: {
-                            Image(systemName: "forward.end.fill")
-                        }.disabled(next == nil)
+        NavigationStack {
+            PlayerSurface(archiveID: episode.archiveID,
+                          videoURL: episode.videoURLParsed,
+                          subtitleHLS: nil,
+                          speed: speed,
+                          onEnded: { if let n = next { episode = n } })   // binge auto-advance
+                .id(episode.archiveID)
+                .navigationTitle(episode.title)
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Done") { router.nowPlayingEpisode = nil }.keyboardShortcut(.cancelAction)
                     }
-                    .buttonStyle(.plain).tint(.white)
-                    .padding(.horizontal, 14).padding(.vertical, 8)
-                    .background(.black.opacity(0.45), in: .capsule)
-                    .padding(12)
+                    // Native prev/next episode controls in the toolbar (binge transport).
+                    ToolbarItemGroup(placement: .navigation) {
+                        Button { if let p = prev { episode = p } } label: { Image(systemName: "backward.end.fill") }
+                            .disabled(prev == nil).help("Previous episode")
+                        Button { if let n = next { episode = n } } label: { Image(systemName: "forward.end.fill") }
+                            .disabled(next == nil).help("Next episode")
+                    }
+                    ToolbarItem { SpeedMenu(speed: $speed) }
                 }
-            }
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) { Button("Done") { dismiss() } }
-                ToolbarItem(placement: .navigation) {
-                    Text(episode.title).font(.headline).lineLimit(1)
-                }
-                ToolbarItem { SpeedMenu(speed: $speed) }
-            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
@@ -161,8 +157,8 @@ private struct PlayerSurface: View {
             return
         }
         playerItem.preferredForwardBufferDuration = 300
-        // NOTE: AVPlayerItem.externalMetadata is iOS/tvOS-only; on macOS the title
-        // rides in the player window toolbar instead.
+        // macOS AVPlayerItem has NO externalMetadata (iOS/tvOS only); the title is shown natively via
+        // the window title bar (navigationTitle on the enclosing NavigationStack) instead.
 
         let p = AVPlayer(playerItem: playerItem)
         p.defaultRate = Float(speed)   // the AVPlayerView play button resumes at this rate
