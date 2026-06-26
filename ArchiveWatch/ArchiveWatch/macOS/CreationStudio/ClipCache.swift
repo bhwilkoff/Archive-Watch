@@ -114,23 +114,57 @@ enum CacheCoordinator {
     }
 }
 
+/// Caps concurrent re-encodes GLOBALLY (across the preview pass, the verify pass, and export) so the
+/// pipeline never oversubscribes the network + CPU. Too many parallel ResilientStreamLoader streams +
+/// H.264 encodes were starving each other and timing out ("The operation couldn't be completed" after
+/// a long wait), especially on a fanless Mac. FIFO so no caller is starved.
+actor ReencodeLimiter {
+    private let limit: Int
+    private var active = 0
+    private var waiters: [CheckedContinuation<Void, Never>] = []
+    init(_ limit: Int) { self.limit = max(1, limit) }
+    func acquire() async {
+        if active < limit { active += 1; return }
+        await withCheckedContinuation { waiters.append($0) }
+    }
+    func release() {
+        if waiters.isEmpty { active = max(0, active - 1) }
+        else { waiters.removeFirst().resume() }        // hand the slot straight to the next waiter
+    }
+}
+
 enum ClipCacheService {
-    /// A PERMANENT cache failure (won't change on retry): the encoder can't handle this source's
-    /// codec/format/structure ("Cannot Encode movie") or it has no usable video track. Distinguished
-    /// from TRANSIENT failures (network timeouts, archive.org node 503s, our own withTimeout
-    /// cancellation) which DO benefit from a retry. The caller uses this to stop re-attempting a clip
-    /// that can never encode, instead of re-encoding it on every preview rebuild.
+    /// Global cap on simultaneous window re-encodes. 3 keeps the machine busy without the
+    /// saturation-induced stalls/timeouts that a higher count (preview 4 + verify 4 diverging to ~8)
+    /// produced. Shared by every caller, so total in-flight encodes never exceed this.
+    static let reencodeLimiter = ReencodeLimiter(3)
+    /// Per-attempt re-encode deadline. A healthy node finishes a window in seconds; 90s still tolerates
+    /// a slow-but-progressing connection while failing a true stall far sooner than the old 150s.
+    static let attemptTimeout = 90.0
+
+    /// A definitively UNRECOVERABLE failure — the source genuinely can't be processed, so retrying is
+    /// pointless. Deliberately NARROW: the player streams these same sources fine through the resilient
+    /// loader, so most re-encode errors (the generic AVErrorUnknown -11800 "The operation couldn't be
+    /// completed", read interruptions, timeouts) are TRANSIENT — a less-tolerant AVAssetReader hiccuped
+    /// mid-read, and a retry succeeds. Only a missing video track or an unrecognized format / absent
+    /// codec is truly permanent. Everything else is treated as transient (the caller gives up only
+    /// after it fails REPEATEDLY — count-based — rather than trusting one error code).
     static func isPermanent(_ error: Error) -> Bool {
-        if error is CancellationError { return false }
-        let ns = error as NSError
-        if ns.domain == NSURLErrorDomain { return false }            // network → transient
-        if ns.domain == AVFoundationErrorDomain { return true }      // encode/decode/format → permanent
         if let e = error as? CreationStudioError, case .noVideoTrack = e { return true }
+        let ns = error as NSError
+        if ns.domain == AVFoundationErrorDomain {
+            switch ns.code {
+            case -11828, -11829, -11833, -11839:   // fileFormatNotRecognized / fileFailedToParse / decoderNotFound / encoderNotFound
+                return true
+            default:
+                return false                         // -11800 et al. → transient, retry
+            }
+        }
         return false
     }
 
     /// Cache a clip's EXACT in/out window (export path — precise bounds, cached once).
-    static func cachedURL(for clip: TimelineClip, attempts: Int = 3) async throws -> URL {
+    static func cachedURL(for clip: TimelineClip, attempts: Int = 2) async throws -> URL {
         try await cachedWindow(catalogItemID: clip.catalogItemID, sourceURL: clip.sourceURL,
                                startSeconds: clip.sourceRange.start.seconds,
                                endSeconds: clip.sourceRange.endSeconds, attempts: attempts)
@@ -145,7 +179,7 @@ enum ClipCacheService {
     /// containers). Retries on transient failures: a fresh attempt builds a NEW
     /// ResilientStreamLoader that re-resolves a healthy archive.org node (Decision 034).
     static func cachedWindow(catalogItemID: String, sourceURL: URL,
-                             startSeconds: Double, endSeconds: Double, attempts: Int = 3) async throws -> URL {
+                             startSeconds: Double, endSeconds: Double, attempts: Int = 2) async throws -> URL {
         let s = max(0, startSeconds), e = max(s + 0.1, endSeconds)
         let out = ProjectMediaCache.windowURL(catalogItemID: catalogItemID, startSeconds: s, endSeconds: e)
         if FileManager.default.fileExists(atPath: out.path) { return out }
@@ -155,21 +189,27 @@ enum ClipCacheService {
         var lastError: Error = CreationStudioError.cannotCreateExportSession
         for attempt in 0..<max(1, attempts) {
             let t0 = Date()
+            // Gate the heavy work on the GLOBAL limiter so total concurrent encodes stay bounded
+            // (oversubscription was the cause of the cascading timeouts). The slot is held only for
+            // the encode, freed between retries / on failure.
+            await reencodeLimiter.acquire()
             do {
                 // Read the window THROUGH the ResilientStreamLoader (byte-range + node failover +
                 // resume-on-reset) and re-encode it to a local file. This is the ONLY path that
                 // survives archive.org's idle connection resets on a deep window of a long film —
                 // AVAssetExportSession has no resourceLoader and fails "Operation Stopped" (-11838)
                 // exactly there, which is why both export AND the cache-backed preview were broken.
-                try await withTimeout(150) {
+                try await withTimeout(attemptTimeout) {
                     try await reencodeWindow(sourceURL: sourceURL, range: range, to: out)
                 }
+                await reencodeLimiter.release()
                 if ProcessInfo.processInfo.environment["AW_CS_DIAG"] != nil {
                     FileHandle.standardError.write(Data(
                         "AWCS CACHE \(catalogItemID) reencode \(Int(s))–\(Int(e))s in \(Int(Date().timeIntervalSince(t0) * 1000))ms\n".utf8))
                 }
                 return out
             } catch {
+                await reencodeLimiter.release()
                 lastError = error
                 if Task.isCancelled { throw error }
                 if isPermanent(error) { break }                 // a codec/format failure won't change on retry

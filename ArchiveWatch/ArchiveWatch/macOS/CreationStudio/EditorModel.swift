@@ -150,8 +150,23 @@ final class EditorModel {
     // explicit Retry. Keyed by source (not clip id) so a duplicate/split of the same bad source is
     // skipped too.
     @ObservationIgnored private var permanentlyFailed: [String: String] = [:]
-    private func markPermanent(_ source: String, _ reason: String) { permanentlyFailed[source] = reason }
+    // Consecutive cache failures per source. We DON'T trust a single error code (the player streams
+    // these same sources fine — most re-encode errors are transient read hiccups). A source becomes
+    // permanent only after it fails repeatedly, OR on a definitively-unrecoverable error.
+    @ObservationIgnored private var sourceFailCount: [String: Int] = [:]
+    static let maxSourceFailures = 3
     private func isKnownPermanent(_ source: String) -> Bool { permanentlyFailed[source] != nil }
+    /// Record a cache failure for a source; promote it to permanent only if it's definitively
+    /// unrecoverable now, or it has failed maxSourceFailures times in a row.
+    private func recordFailure(_ source: String, reason: String, definitelyPermanent: Bool) {
+        let n = (sourceFailCount[source] ?? 0) + 1
+        sourceFailCount[source] = n
+        if definitelyPermanent || n >= Self.maxSourceFailures { permanentlyFailed[source] = reason }
+    }
+    /// A source cached successfully — clear its failure streak so a later transient blip starts fresh.
+    private func noteSourceSucceeded(_ source: String) {
+        if sourceFailCount[source] != nil { sourceFailCount[source] = nil }
+    }
     @ObservationIgnored private var timeObserver: Any?
     @ObservationIgnored private let thumbGen = ThumbnailGenerator()
 
@@ -503,6 +518,7 @@ final class EditorModel {
         clipCache[id] = nil          // force a fresh cache attempt
         if let c = clips.first(where: { $0.id == id }) {
             permanentlyFailed[c.sourceURL.absoluteString] = nil   // explicit Retry gives it another full chance
+            sourceFailCount[c.sourceURL.absoluteString] = nil
         }
         scheduleRebuild()
     }
@@ -748,11 +764,11 @@ final class EditorModel {
                         // leave it (don't overwrite with this rebuild's generic error).
                         if await self.isKnownPermanent(clip.sourceURL.absoluteString) { return (clip.id, nil) }
                         let reason = Self.reason(for: error)
-                        // Permanent encode failures ("Cannot Encode movie") are remembered so the clip
-                        // isn't re-encoded on every rebuild; transient ones stay retriable.
-                        if ClipCacheService.isPermanent(error) {
-                            await self.markPermanent(clip.sourceURL.absoluteString, reason)
-                        }
+                        // Count failures per source: give up (stop re-encoding on every rebuild) only
+                        // after REPEATED failures, or a definitively-unrecoverable error. Most errors
+                        // are transient (the source plays fine) and a retry succeeds.
+                        await self.recordFailure(clip.sourceURL.absoluteString, reason: reason,
+                                                 definitelyPermanent: ClipCacheService.isPermanent(error))
                         await self.markFailed(clip.id, reason)
                         return (clip.id, nil)
                     }
@@ -872,6 +888,7 @@ final class EditorModel {
                           userInfo: [NSLocalizedDescriptionKey: "couldn't read the source video"])
         }
         clipPrep[clip.id] = .ready
+        noteSourceSucceeded(clip.sourceURL.absoluteString)    // clear any prior failure streak
         let graded = await gradedAssetURL(clip, window: w)   // bakes the Look (or passes through)
         ensureThumbnails(clip, window: w)
         return makeResolved(clip, window: w, assetURL: graded)
