@@ -72,9 +72,13 @@ struct ProjectEditorView: View {
                         // preview is WYSIWYG and "Add Text" is visible.
                         TextOverlayPreview(model: model, renderSize: model.project.timeline.renderSize)
                     }
-                    if model.isBuildingPreview || model.isRefining || !model.prepStatus.failures.isEmpty {
+                    if model.isBuildingPreview || model.isRefining || !model.prepStatus.failures.isEmpty || model.supercutVerifyNote != nil {
                         let s = model.prepStatus
                         VStack(spacing: 6) {
+                            if let note = model.supercutVerifyNote {
+                                Label(note, systemImage: "checkmark.seal")
+                                    .font(.caption2).foregroundStyle(.white.opacity(0.85))
+                            }
                             if model.isBuildingPreview {
                                 ProgressView().controlSize(.small).tint(.white)
                                 Text("Preparing clips — \(s.ready) of \(s.total) ready" +
@@ -88,7 +92,7 @@ struct ProjectEditorView: View {
                                     .font(.caption2).foregroundStyle(.orange)
                             }
                             if model.isRefining {
-                                Label("Tightening supercut clips in the background…", systemImage: "wand.and.stars")
+                                Label("Verifying each clip speaks the phrase…", systemImage: "waveform.badge.magnifyingglass")
                                     .font(.caption2).foregroundStyle(.white.opacity(0.7))
                             }
                         }

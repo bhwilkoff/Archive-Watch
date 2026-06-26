@@ -14,6 +14,52 @@ import Speech
 enum WordTiming {
     struct Word: Sendable { let text: String; let range: CMTimeRange }
 
+    /// The result of checking whether `phrase` is ACTUALLY SPOKEN in a window — independent of the
+    /// (often spotty/hallucinated) subtitle that put the clip on screen.
+    enum Verdict: Sendable {
+        case confirmed(CMTimeRange)   // the phrase's words are in the recognized speech (tight bounds)
+        case contradicted            // enough speech was recognized, but the phrase is absent — drop it
+        case unverifiable            // too little speech recognized to judge (music / rough old audio) — keep
+    }
+
+    /// Verify the phrase is spoken in the cached window by listening to the AUDIO (not trusting the
+    /// caption). This is the guard against subtitles that claim a phrase the clip doesn't contain
+    /// (owner #1/#2). Returns `.contradicted` only when speech WAS recognized yet the phrase is
+    /// missing, so a hard-to-recognize clip (music, old prints) is kept (`.unverifiable`), never
+    /// wrongly dropped.
+    static func verify(mediaURL: URL, phrase: String) async -> Verdict {
+        let target = tokens(phrase)
+        guard !target.isEmpty else { return .unverifiable }
+        let words = await recognize(mediaURL: mediaURL)
+        // Need a meaningful amount of recognized speech before we trust a "not found" verdict.
+        guard words.count >= max(4, target.count + 1) else { return .unverifiable }
+        let recog = words.map { token($0.text) }
+        // Single word: present anywhere in the recognized stream = confirmed.
+        if target.count == 1 {
+            if let i = recog.firstIndex(of: target[0]) {
+                return .confirmed(padded(words[i].range.start, words[i].range.end))
+            }
+            return .contradicted
+        }
+        // Multi-word: an in-order run of the phrase tokens, tolerating a few recognizer slips.
+        for start in recog.indices where recog[start] == target[0] {
+            var lo = words[start].range.start, hi = words[start].range.end
+            var ti = 1, wi = start + 1, gaps = 0
+            while ti < target.count && wi < recog.count {
+                if recog[wi] == target[ti] { hi = words[wi].range.end; ti += 1; gaps = 0 }
+                else { gaps += 1; if gaps > 3 { break } }
+                wi += 1
+            }
+            if ti >= target.count { return .confirmed(padded(lo, hi)) }   // whole phrase found in order
+        }
+        return .contradicted
+    }
+
+    private static func padded(_ lo: CMTime, _ hi: CMTime) -> CMTimeRange {
+        let pad = CMTime(seconds: 0.2, preferredTimescale: 600)
+        return CMTimeRange(start: CMTimeMaximum(.zero, lo - pad), end: hi + pad)
+    }
+
     /// Find the tight time range of `phrase` WITHIN a cached line-window file (the returned range is
     /// relative to that file), via speech recognition validated against `caption`. nil = keep the
     /// whole line.
