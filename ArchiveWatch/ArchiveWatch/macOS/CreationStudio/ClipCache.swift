@@ -115,6 +115,20 @@ enum CacheCoordinator {
 }
 
 enum ClipCacheService {
+    /// A PERMANENT cache failure (won't change on retry): the encoder can't handle this source's
+    /// codec/format/structure ("Cannot Encode movie") or it has no usable video track. Distinguished
+    /// from TRANSIENT failures (network timeouts, archive.org node 503s, our own withTimeout
+    /// cancellation) which DO benefit from a retry. The caller uses this to stop re-attempting a clip
+    /// that can never encode, instead of re-encoding it on every preview rebuild.
+    static func isPermanent(_ error: Error) -> Bool {
+        if error is CancellationError { return false }
+        let ns = error as NSError
+        if ns.domain == NSURLErrorDomain { return false }            // network → transient
+        if ns.domain == AVFoundationErrorDomain { return true }      // encode/decode/format → permanent
+        if let e = error as? CreationStudioError, case .noVideoTrack = e { return true }
+        return false
+    }
+
     /// Cache a clip's EXACT in/out window (export path — precise bounds, cached once).
     static func cachedURL(for clip: TimelineClip, attempts: Int = 3) async throws -> URL {
         try await cachedWindow(catalogItemID: clip.catalogItemID, sourceURL: clip.sourceURL,
@@ -158,6 +172,7 @@ enum ClipCacheService {
             } catch {
                 lastError = error
                 if Task.isCancelled { throw error }
+                if isPermanent(error) { break }                 // a codec/format failure won't change on retry
                 if attempt < attempts - 1 { try? await Task.sleep(for: .seconds(1)) }   // brief backoff
             }
         }

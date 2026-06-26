@@ -144,6 +144,14 @@ final class EditorModel {
     // backoff so a clip that missed its window in one rebuild self-heals instead of staying red.
     @ObservationIgnored private var transientRetryTask: Task<Void, Never>?
     @ObservationIgnored private var transientRetries = 0
+    // Sources whose window PERMANENTLY failed to encode ("Cannot Encode movie" — a codec/format the
+    // encoder can't handle). Keyed by source URL → the failure reason. A clip from such a source is
+    // marked failed once and NEVER re-encoded (it used to re-attempt on every rebuild). Cleared by an
+    // explicit Retry. Keyed by source (not clip id) so a duplicate/split of the same bad source is
+    // skipped too.
+    @ObservationIgnored private var permanentlyFailed: [String: String] = [:]
+    private func markPermanent(_ source: String, _ reason: String) { permanentlyFailed[source] = reason }
+    private func isKnownPermanent(_ source: String) -> Bool { permanentlyFailed[source] != nil }
     @ObservationIgnored private var timeObserver: Any?
     @ObservationIgnored private let thumbGen = ThumbnailGenerator()
 
@@ -493,6 +501,9 @@ final class EditorModel {
         clipPrep[id] = nil
         thumbnails[id] = nil
         clipCache[id] = nil          // force a fresh cache attempt
+        if let c = clips.first(where: { $0.id == id }) {
+            permanentlyFailed[c.sourceURL.absoluteString] = nil   // explicit Retry gives it another full chance
+        }
         scheduleRebuild()
     }
 
@@ -729,7 +740,19 @@ final class EditorModel {
                     guard let self else { return (clip.id, nil) }
                     do { return (clip.id, try await self.resolveLocal(clip)) }
                     catch is CancellationError { return (clip.id, nil) }
-                    catch { await self.markFailed(clip.id, Self.reason(for: error)); return (clip.id, nil) }
+                    catch {
+                        // Already known-permanent: resolveLocal fast-failed and set the real reason —
+                        // leave it (don't overwrite with this rebuild's generic error).
+                        if await self.isKnownPermanent(clip.sourceURL.absoluteString) { return (clip.id, nil) }
+                        let reason = Self.reason(for: error)
+                        // Permanent encode failures ("Cannot Encode movie") are remembered so the clip
+                        // isn't re-encoded on every rebuild; transient ones stay retriable.
+                        if ClipCacheService.isPermanent(error) {
+                            await self.markPermanent(clip.sourceURL.absoluteString, reason)
+                        }
+                        await self.markFailed(clip.id, reason)
+                        return (clip.id, nil)
+                    }
                 }
             }
             for _ in 0..<maxConcurrent { addNext() }
@@ -744,7 +767,11 @@ final class EditorModel {
         // to the item's own node, but a clip can still miss its window in a single rebuild (cold
         // node, alternates not yet resolved). resolveLocal cleared the failed source from the
         // cache, so re-probing re-resolves it. Back off (2s/4s/6s) and stop once nothing fails.
-        let failedIDs = timelineClips.filter { if case .failed = clipPrep[$0.id] { return true }; return false }
+        // Only TRANSIENT failures trigger the auto-retry; a permanent encode failure never re-attempts.
+        let failedIDs = timelineClips.filter {
+            if case .failed = clipPrep[$0.id] { return permanentlyFailed[$0.sourceURL.absoluteString] == nil }
+            return false
+        }
         if failedIDs.isEmpty {
             transientRetries = 0
         } else if transientRetries < 3 {
@@ -805,6 +832,12 @@ final class EditorModel {
     /// offsets at once. A GENEROUS window (clip ± cacheHandle) is cached once and reused while the
     /// user trims inside it, so trims don't re-cache; only the composition's insert range changes.
     private func resolveLocal(_ clip: TimelineClip) async throws -> CompositionBuilder.ResolvedClip {
+        // A source that already failed to ENCODE can't be fixed by retrying — fail fast without
+        // re-attempting the (expensive, doomed) re-encode on this and every future rebuild.
+        if let reason = permanentlyFailed[clip.sourceURL.absoluteString] {
+            clipPrep[clip.id] = .failed(reason)
+            throw CreationStudioError.cannotCreateExportSession
+        }
         if clipPrep[clip.id] != .ready { clipPrep[clip.id] = .caching }
         let inS = clip.sourceRange.start.seconds
         let outS = clip.sourceRange.endSeconds
