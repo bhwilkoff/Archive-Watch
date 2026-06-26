@@ -140,30 +140,35 @@ private struct PlayerSurface: View {
                 ProgressView().controlSize(.large).tint(.white)
             }
         }
-        .onAppear(perform: setup)
+        .onAppear { Task { await setup() } }
         .onDisappear(perform: teardown)
         .onChange(of: speed) { applySpeed() }
     }
 
-    private func setup() {
+    private func setup() async {
+        guard player == nil else { return }
         let playerItem: AVPlayerItem
         if let hls = subtitleHLS {
             playerItem = AVPlayerItem(url: hls)                 // native CC + seek
         } else if let url = videoURL {
             let (asset, l) = ResilientStreamLoader.makeAsset(for: url)
             loader = l
-            playerItem = AVPlayerItem(asset: asset)
+            // macOS AVPlayerItem has NO externalMetadata (iOS/tvOS only), so AVPlayerView shows the
+            // MP4's OWN embedded title — which archive.org bakes the source details URL into. Play the
+            // asset's tracks through a metadata-LESS AVMutableComposition (still streamed via the
+            // resilient loader, the same way the cache path reads it) so there's no embedded title to
+            // show; the real title rides the native window title bar. Falls back to the plain asset on
+            // any failure, so playback is never worse than before.
+            playerItem = await Self.metadataStrippedItem(from: asset) ?? AVPlayerItem(asset: asset)
         } else {
             return
         }
         playerItem.preferredForwardBufferDuration = 300
-        // macOS AVPlayerItem has NO externalMetadata (iOS/tvOS only); the title is shown natively via
-        // the window title bar (navigationTitle on the enclosing NavigationStack) instead.
 
         let p = AVPlayer(playerItem: playerItem)
         p.defaultRate = Float(speed)   // the AVPlayerView play button resumes at this rate
         if let resume = savedProgress(), resume > 5 {
-            p.seek(to: CMTime(seconds: resume, preferredTimescale: 600))
+            await p.seek(to: CMTime(seconds: resume, preferredTimescale: 600))
         }
         p.play()
         if speed != 1 { p.rate = Float(speed) }
@@ -172,6 +177,30 @@ private struct PlayerSurface: View {
             forName: .AVPlayerItemDidPlayToEndTime, object: playerItem, queue: .main) { _ in
             MainActor.assumeIsolated { onEnded?() }
         }
+    }
+
+    /// Wrap the resilient asset's tracks in a metadata-less composition so AVPlayerView has no embedded
+    /// title (the archive.org details URL) to overlay. The composition references the source asset's
+    /// tracks, so playback still streams through the ResilientStreamLoader (resume/failover preserved —
+    /// the same read path the cache uses). Returns nil on any failure so the caller uses the plain asset.
+    private static func metadataStrippedItem(from asset: AVURLAsset) async -> AVPlayerItem? {
+        do {
+            let comp = AVMutableComposition()
+            let vTracks = try await asset.loadTracks(withMediaType: .video)
+            guard let v = vTracks.first else { return nil }
+            let range = try await v.load(.timeRange)
+            guard range.duration.seconds > 0 else { return nil }
+            if let cv = comp.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid) {
+                try cv.insertTimeRange(range, of: v, at: .zero)
+                cv.preferredTransform = (try? await v.load(.preferredTransform)) ?? .identity  // keep orientation
+            }
+            if let a = try? await asset.loadTracks(withMediaType: .audio).first,
+               let ca = comp.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid) {
+                try? ca.insertTimeRange(range, of: a, at: .zero)
+            }
+            guard !comp.tracks.isEmpty else { return nil }
+            return AVPlayerItem(asset: comp)
+        } catch { return nil }
     }
 
     private func applySpeed() {
