@@ -142,6 +142,11 @@ def main() -> int:
         if done % 50 == 0:
             print(f"[subindex] {done} films…", flush=True)
 
+    # Per-film lookup index so the macOS supercut's sentenceRange/wordRange queries
+    # (WHERE archiveID=…) don't full-scan the corpus.
+    db.execute("CREATE INDEX IF NOT EXISTS idx_cues_aid ON cues(archiveID, startSeconds)")
+    db.commit()
+
     n = db.execute("SELECT count(*) FROM cues").fetchone()[0]
     print(f"[subindex] +{done} films this run; {n} cues total in {args.out}")
     return 0

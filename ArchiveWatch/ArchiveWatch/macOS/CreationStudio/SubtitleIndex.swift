@@ -160,7 +160,8 @@ final class SubtitleIndex: @unchecked Sendable {
     /// punctuation) or at a natural PAUSE (a silent gap between cues). The returned range begins at the
     /// start of the statement, holds the phrase in the middle, and ends at the statement's end. nil if
     /// neighbors can't be read (the caller falls back to the cue's own padded range).
-    func sentenceRange(archiveID: String, nearSeconds: Double, maxSpread: Double = 25) -> TimeRange? {
+    func sentenceRange(archiveID: String, nearSeconds: Double, maxSpread: Double = 25,
+                       maxDuration: Double = 12) -> TimeRange? {
         return dbQueue.sync {
             let sql = """
                 SELECT startSeconds,endSeconds,text FROM cues
@@ -191,12 +192,14 @@ final class SubtitleIndex: @unchecked Sendable {
                 let prev = cues[lo - 1]
                 if endsSentence(prev.t) { break }            // prev ended a sentence → ours starts here
                 if cues[lo].s - prev.e > pause { break }      // natural pause before this cue
+                if cues[anchor].e - prev.s > maxDuration { break } // cap: captions without periods can run on
                 lo -= 1
             }
             var hi = anchor
             while hi < cues.count - 1 {
                 if endsSentence(cues[hi].t) { break }         // this cue ends the sentence
                 if cues[hi + 1].s - cues[hi].e > pause { break }
+                if cues[hi + 1].e - cues[lo].s > maxDuration { break }   // cap the clip length
                 hi += 1
             }
             let start = max(0, cues[lo].s - 0.2)
@@ -259,11 +262,27 @@ enum SubtitleIndexBuilder {
     }
 
     /// Ensure a cue index exists: download the full-corpus CI index if published, else synthesize
-    /// the on-device sample. Same `cues` schema either way (StockIndex pattern).
+    /// the on-device sample. Same `cues` schema either way (StockIndex pattern). Then ensure the
+    /// archiveID index exists so per-film lookups (sentenceRange / wordRange) don't full-scan.
     @MainActor
     static func ensureIndex(store: AppStore) async {
-        if await downloadPublishedIndex() { return }
-        await buildSampleIfNeeded(store: store)
+        if !(await downloadPublishedIndex()) {
+            await buildSampleIfNeeded(store: store)
+        }
+        await Task.detached { ensureLookupIndex() }.value
+    }
+
+    /// Add the (archiveID, startSeconds) index to the active cue DB if missing — a one-time, persisted,
+    /// idempotent step. Without it, sentenceRange's per-cue `WHERE archiveID=…` scans the whole corpus
+    /// (the "Clip only full sentences" latency); the index makes each lookup instant. Runs off-main;
+    /// opens the cache file read-write just for the CREATE INDEX (the query handle stays read-only).
+    static func ensureLookupIndex() {
+        let url = SubtitleIndex.bestURL
+        guard FileManager.default.fileExists(atPath: url.path) else { return }
+        var db: OpaquePointer?
+        guard sqlite3_open_v2(url.path, &db, SQLITE_OPEN_READWRITE, nil) == SQLITE_OK else { sqlite3_close(db); return }
+        defer { sqlite3_close(db) }
+        sqlite3_exec(db, "CREATE INDEX IF NOT EXISTS idx_cues_aid ON cues(archiveID, startSeconds)", nil, nil, nil)
     }
 
     private static func downloadPublishedIndex() async -> Bool {
@@ -300,6 +319,7 @@ enum SubtitleIndexBuilder {
             CREATE TABLE IF NOT EXISTS cues(
               id TEXT PRIMARY KEY, archiveID TEXT, sourceURL TEXT,
               startSeconds REAL, endSeconds REAL, text TEXT, title TEXT);
+            CREATE INDEX IF NOT EXISTS idx_cues_aid ON cues(archiveID, startSeconds);
             """, nil, nil, nil)
         let insert = "INSERT OR REPLACE INTO cues VALUES(?,?,?,?,?,?,?)"
         var stmt: OpaquePointer?
