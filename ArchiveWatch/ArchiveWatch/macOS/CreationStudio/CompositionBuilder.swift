@@ -64,23 +64,25 @@ enum CompositionBuilder {
                       creditLine: String?, bakeOverlays: Bool = true,
                       beds: [ResolvedMusic] = []) async throws -> BuiltComposition {
         let comp = AVMutableComposition()
-        // Two video + two audio tracks (A/B) so adjacent clips can OVERLAP for a cross-dissolve
-        // (Rule 3c). Clips alternate tracks; a plain cut just abuts on alternating tracks. Fades
-        // and dissolves are both opacity/volume ramps, so they live in the standard compositor
-        // (no CI handler) — the preview shows them and preview == export holds.
+        // Two VIDEO tracks (A/B) so adjacent clips can OVERLAP for a cross-dissolve (Rule 3c); clips
+        // alternate, a plain cut just abuts. AUDIO gets ONE track PER CLIP (created in the loop): a
+        // clip's volume/fade ramps then live alone on their own AVMutableAudioMixInputParameters, so
+        // they can NEVER overlap another clip's ramps — which is what crashed AVMutableAudioMix
+        // ("the timeRange of a ramp must not overlap…") when a short clip's neighbors shared an A/B
+        // audio track and overlapped after a dissolve. Fades/dissolves are opacity/volume ramps in
+        // the standard compositor (no CI handler), so the preview shows them and preview == export.
         guard let vA = comp.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid),
               let vB = comp.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid) else {
             throw CreationStudioError.noVideoTrack
         }
-        let aA = comp.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
-        let aB = comp.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)
-        let vTracks = [vA, vB], aTracks = [aA, aB]
+        let vTracks = [vA, vB]
         let renderSize = timeline.renderSize.cgSize
 
         // A placed clip in TIMELINE coordinates (after overlap), with its transition/audio envelope.
         struct Placed {
             var trackIndex: Int
             var trackID: CMPersistentTrackID
+            var audioTrack: AVMutableCompositionTrack?   // this clip's OWN audio track (per-clip, no sharing)
             var start: CMTime
             var dur: CMTime
             var transform: CGAffineTransform
@@ -111,11 +113,15 @@ enum CompositionBuilder {
             let start = i == 0 ? .zero : CMTimeMaximum(.zero, cursor - CMTime(seconds: trans, preferredTimescale: ts))
             try vTrack.insertTimeRange(insertRange, of: srcV, at: start)
 
-            var hasAudio = false
-            if let aTrack = aTracks[ti], let srcA = try await r.asset.loadTracks(withMediaType: .audio).first {
+            // This clip's audio goes on ITS OWN dedicated track (not a shared A/B track), so its
+            // ramps can never collide with another clip's ramps in the audio mix.
+            var clipAudioTrack: AVMutableCompositionTrack?
+            if let srcA = try await r.asset.loadTracks(withMediaType: .audio).first,
+               let aTrack = comp.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid) {
                 try? aTrack.insertTimeRange(insertRange, of: srcA, at: start)
-                hasAudio = true
+                clipAudioTrack = aTrack
             }
+            let hasAudio = clipAudioTrack != nil
 
             let natural = try await srcV.load(.naturalSize)
             let preferred = try await srcV.load(.preferredTransform)
@@ -125,7 +131,8 @@ enum CompositionBuilder {
 
             let fadeIn = trans > 0 ? 0 : max(0, min(r.fadeIn, durS))     // fade XOR transition on the head
             let leadIn = min(max(r.fadeIn, trans), durS)
-            placed.append(Placed(trackIndex: ti, trackID: vTrack.trackID, start: start, dur: insertRange.duration,
+            placed.append(Placed(trackIndex: ti, trackID: vTrack.trackID, audioTrack: clipAudioTrack,
+                                 start: start, dur: insertRange.duration,
                                  transform: transform, fadeIn: fadeIn,
                                  fadeOut: max(0, min(r.fadeOut, durS - leadIn)),
                                  transIn: trans, transKind: r.transitionKind,
@@ -251,38 +258,28 @@ enum CompositionBuilder {
         var audioMix: AVAudioMix?
         var anyRamp = false
         var paramsList: [AVMutableAudioMixInputParameters] = []
-        for (ti, aTrack) in aTracks.enumerated() {
-            guard let aTrack else { continue }
-            let onTrack = placed.filter { $0.trackIndex == ti && $0.hasAudio }
-            guard !onTrack.isEmpty else { continue }
+        // One params per clip's OWN audio track — so a clip's ramps (vIn at the head, vOut at the
+        // tail, which by construction don't overlap each other) are the only ramps on that params.
+        // No cross-clip overlap is possible, so AVMutableAudioMix can't throw.
+        for p in placed {
+            guard p.hasAudio, let aTrack = p.audioTrack else { continue }
+            let durS = p.dur.seconds
+            let vIn = min(max(p.leadIn, 0), durS)
+            let vOut = min(max(p.audioTailOut, 0), durS - vIn)
             let params = AVMutableAudioMixInputParameters(track: aTrack)
-            // AVMutableAudioMix CRASHES ("the timeRange of a ramp must not overlap…") if two volume
-            // ramps on one track overlap. That happens when a cross-dissolve makes a short clip's two
-            // neighbors — which share this A/B track — overlap in time, so their fade ramps collide.
-            // Collect every ramp, sort by start, and clamp each to begin no earlier than the previous
-            // one ended (touching is fine; only overlap throws). Distorts a fade slightly in that rare
-            // overlap case — far better than a crash.
-            struct Ramp { var start: Double; var end: Double; let from: Float; let to: Float }
-            var ramps: [Ramp] = []
-            for p in onTrack {
-                let durS = p.dur.seconds
-                let vIn = min(max(p.leadIn, 0), durS)
-                let vOut = min(max(p.audioTailOut, 0), durS - vIn)
-                params.setVolume(p.vol, at: p.start)
-                if p.vol != 1 { anyRamp = true }
-                let s = p.start.seconds, e = (p.start + p.dur).seconds
-                if vIn > 0 { ramps.append(Ramp(start: s, end: s + vIn, from: 0, to: p.vol)) }
-                if vOut > 0 { ramps.append(Ramp(start: e - vOut, end: e, from: p.vol, to: 0)) }
+            params.setVolume(p.vol, at: p.start)
+            if p.vol != 1 { anyRamp = true }
+            if vIn > 0 {
+                params.setVolumeRamp(fromStartVolume: 0, toEndVolume: p.vol,
+                                     timeRange: CMTimeRange(start: p.start,
+                                                            duration: CMTime(seconds: vIn, preferredTimescale: ts)))
+                anyRamp = true
             }
-            ramps.sort { $0.start < $1.start }
-            var lastEnd = -Double.greatestFiniteMagnitude
-            for var r in ramps {
-                if r.start < lastEnd { r.start = lastEnd }          // clamp to the previous ramp's end
-                guard r.end - r.start > 0.001 else { continue }     // collapsed by the clamp → drop
-                params.setVolumeRamp(fromStartVolume: r.from, toEndVolume: r.to,
-                                     timeRange: CMTimeRange(start: CMTime(seconds: r.start, preferredTimescale: ts),
-                                                            duration: CMTime(seconds: r.end - r.start, preferredTimescale: ts)))
-                lastEnd = r.end
+            if vOut > 0 {
+                let os = (p.start + p.dur) - CMTime(seconds: vOut, preferredTimescale: ts)
+                params.setVolumeRamp(fromStartVolume: p.vol, toEndVolume: 0,
+                                     timeRange: CMTimeRange(start: os,
+                                                            duration: CMTime(seconds: vOut, preferredTimescale: ts)))
                 anyRamp = true
             }
             paramsList.append(params)
