@@ -66,11 +66,25 @@ final class StockIndex {
     /// index will add MobileCLIP/sqlite-vec semantic search).
     func query(_ text: String, limit: Int = 150) -> [StockShot] {
         let q = text.trimmingCharacters(in: .whitespaces)
+        // One film can contribute dozens of scene cuts (e.g. "About Bananas" has 83), so a flat
+        // LIMIT returns shots all from the first few films — the grid looked like a single title
+        // repeated. Cap shots-per-film with a window function so the results span MANY titles:
+        // 1 per film for the default browse (max variety), a few per film for a tag search.
+        let cols = "id,archiveID,sourceURL,startSeconds,endSeconds,tags,title"
         let sql: String
         if q.isEmpty {
-            sql = "SELECT id,archiveID,sourceURL,startSeconds,endSeconds,tags,title FROM shots LIMIT \(limit)"
+            sql = """
+                SELECT \(cols) FROM (
+                  SELECT *, ROW_NUMBER() OVER (PARTITION BY archiveID ORDER BY startSeconds) rn FROM shots
+                ) WHERE rn = 1 LIMIT \(limit)
+                """
         } else {
-            sql = "SELECT id,archiveID,sourceURL,startSeconds,endSeconds,tags,title FROM shots WHERE tags LIKE ?1 OR title LIKE ?1 LIMIT \(limit)"
+            sql = """
+                SELECT \(cols) FROM (
+                  SELECT *, ROW_NUMBER() OVER (PARTITION BY archiveID ORDER BY startSeconds) rn FROM shots
+                  WHERE tags LIKE ?1 OR title LIKE ?1
+                ) WHERE rn <= 3 LIMIT \(limit)
+                """
         }
         var stmt: OpaquePointer?
         guard sqlite3_prepare_v2(handle, sql, -1, &stmt, nil) == SQLITE_OK else { return [] }

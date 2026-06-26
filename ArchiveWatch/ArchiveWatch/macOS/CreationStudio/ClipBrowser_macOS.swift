@@ -74,7 +74,11 @@ struct ClipBrowserSheet: View {
             .searchable(text: $query, prompt: mode == .titles ? "Films, shows, people…" : "Search shots by tag…")
             .onChange(of: query) { reload() }
             .onChange(of: mode) { reload() }
-            .task { await StockIndexBuilder.ensureIndex(store: store); reload() }
+            // The full catalog (tv-episode items, the richer browse) swaps in a moment after first
+            // paint; if Add-a-Clip opened on the seed, re-query when it lands so TV Episodes (and
+            // everything else) populate without the user toggling a filter.
+            .onChange(of: store.dbVersion) { reload() }
+            .task { await store.load(); await StockIndexBuilder.ensureIndex(store: store); reload() }
             .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Done") { dismiss() } } }
             .frame(minWidth: 680, minHeight: 500)
         }
