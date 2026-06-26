@@ -348,7 +348,8 @@ final class EditorModel {
                     await self?.refineOne(id: entry.id, take: entry.take, tighten: tighten, evenVolume: evenVolume) ?? .kept
                 }
             }
-            for _ in 0..<2 { addNext() }            // bounded — the cache + speech are heavy
+            for _ in 0..<4 { addNext() }            // shares the preview's window cache now, so the
+                                                    // per-task cost is mostly local speech → parallelize wider
             while let outcome = await group.next() {
                 switch outcome { case .removed: removed += 1; case .replaced: replaced += 1; case .kept: break }
                 verifyDone += 1
@@ -398,10 +399,25 @@ final class EditorModel {
     /// clips the spotty subtitle put on screen but that don't actually contain the phrase. On such a
     /// clip it first tries to SWAP IN a ranked alternate that DOES speak the phrase (compose mode);
     /// only if none do is the clip removed.
+    /// The SAME generous window (clip ± cacheHandle) the preview caches, fetched through
+    /// CacheCoordinator so the verify pass and the preview SHARE one download+re-encode per clip
+    /// (the coordinator coalesces identical in-flight requests) instead of each fetching its own —
+    /// the dominant cost of "add supercut" was paying for every clip's bytes twice. Returns the
+    /// local file and the SOURCE time its t=0 maps to (windowStart), so verified ranges convert back.
+    private func refineWindow(for proxy: ProxyClip) async throws -> (url: URL, windowStart: Double) {
+        let inS = proxy.sourceRange.start.seconds, outS = proxy.sourceRange.endSeconds
+        let wStart = max(0, inS - Self.cacheHandle)
+        let url = try await CacheCoordinator.window(
+            catalogItemID: proxy.catalogItemID, sourceURL: proxy.sourceURL,
+            startSeconds: wStart, endSeconds: outS + Self.cacheHandle)
+        return (url, wStart)
+    }
+
     private func refineOne(id: UUID, take: SupercutTake, tighten: Bool, evenVolume: Bool) async -> RefineOutcome {
-        // Verification + tighten/level all need a LOCAL window. If caching fails, keep the clip
-        // (best-effort — never drop a clip just because its bytes were slow to fetch).
-        guard let url = try? await ClipCacheService.cachedURL(for: TimelineClip.from(take.proxy, at: .zero)),
+        // Verification + tighten/level all need a LOCAL window. Reuse the preview's generous window
+        // (shared cache — no second download). If caching fails, keep the clip (best-effort — never
+        // drop a clip just because its bytes were slow to fetch).
+        guard let (url, wStart) = try? await refineWindow(for: take.proxy),
               !Task.isCancelled else { return .kept }
 
         // 1) VERIFY the phrase is actually spoken (independent of the subtitle) — ONE speech pass,
@@ -413,16 +429,17 @@ final class EditorModel {
             // REPLACES this clip in place (same timeline slot), tightened to the spoken words.
             for alt in take.alternates {
                 if Task.isCancelled { return .kept }
-                guard let altURL = try? await ClipCacheService.cachedURL(for: TimelineClip.from(alt, at: .zero)) else { continue }
+                guard let (altURL, altStart) = try? await refineWindow(for: alt) else { continue }
                 guard case .confirmed(let r) = await WordTiming.verify(mediaURL: altURL, phrase: take.phrase),
                       let i = project.timeline.clips.firstIndex(where: { $0.id == id }) else { continue }
                 var c = project.timeline.clips[i]
-                let newIn = alt.sourceRange.start.seconds + r.start.seconds
+                let newIn = altStart + r.start.seconds       // file t=0 = altStart (the window start)
                 c.catalogItemID = alt.catalogItemID
                 c.sourceURL = alt.sourceURL
                 c.sourceRange = TimeRange(startSeconds: max(0, newIn), durationSeconds: max(0.05, r.duration.seconds))
                 c.label = alt.label
                 project.timeline.clips[i] = c
+                clipCache[id] = nil; thumbnails[id] = nil    // source changed → drop the stale window/strip
                 loadFilmstrip(for: c)
                 relayout()
                 return .replaced
@@ -438,13 +455,13 @@ final class EditorModel {
 
         var changed = false
         // 2) TIGHTEN (when requested) to the spoken-word bounds — prefer the verified range, else the
-        //    caption-validated tighten as a fallback.
+        //    caption-validated tighten as a fallback. Ranges are file-relative (t=0 = wStart).
         if tighten {
             var range: CMTimeRange?
             if case .confirmed(let r) = verdict { range = r }
             if range == nil { range = await WordTiming.tighten(mediaURL: url, phrase: take.phrase, caption: take.captionText) }
             if let r = range, let i = project.timeline.clips.firstIndex(where: { $0.id == id }) {
-                let newIn = take.proxy.sourceRange.start.seconds + r.start.seconds
+                let newIn = wStart + r.start.seconds
                 project.timeline.clips[i].sourceRange =
                     TimeRange(startSeconds: max(0, newIn), durationSeconds: max(0.05, r.duration.seconds))
                 changed = true
@@ -698,7 +715,7 @@ final class EditorModel {
         // resolveLocal is @MainActor but suspends at the network/export await, so up to N caches run
         // in flight. A clip that won't cache is marked .failed(reason) and EXCLUDED from the build,
         // so it can't stall playback of the good clips (#13).
-        let maxConcurrent = 3
+        let maxConcurrent = 4
         var resolvedByID: [UUID: CompositionBuilder.ResolvedClip] = [:]
         await withTaskGroup(of: (UUID, CompositionBuilder.ResolvedClip?).self) { group in
             var it = timelineClips.makeIterator()
