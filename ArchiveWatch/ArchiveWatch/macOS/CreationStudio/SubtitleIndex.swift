@@ -160,12 +160,13 @@ final class SubtitleIndex: @unchecked Sendable {
     }
 
     /// Expand a matched cue to its FULL SPOKEN STATEMENT — the OPPOSITE of word-tightening. Walks the
-    /// film's neighboring cues outward from `nearSeconds`, stopping where a sentence ENDS (terminal
-    /// punctuation) or at a natural PAUSE (a silent gap between cues). The returned range begins at the
-    /// start of the statement, holds the phrase in the middle, and ends at the statement's end. nil if
-    /// neighbors can't be read (the caller falls back to the cue's own padded range).
-    func sentenceRange(archiveID: String, nearSeconds: Double, maxSpread: Double = 25,
-                       maxDuration: Double = 12) -> TimeRange? {
+    /// film's neighboring cues outward from the MATCHED cue, stopping where a sentence ENDS (terminal
+    /// punctuation) or at a natural PAUSE (a silent gap between cues). The returned range ALWAYS covers
+    /// the matched cue's own span `[matchStart, matchEnd]`, so the searched phrase is guaranteed to be
+    /// inside the clip (owner: "the clip added to the timeline should always contain the phrase"). nil
+    /// if neighbors can't be read (the caller falls back to the cue's own padded range).
+    func sentenceRange(archiveID: String, matchStart: Double, matchEnd: Double,
+                       maxSpread: Double = 25, maxDuration: Double = 12) -> TimeRange? {
         return dbQueue.sync {
             let sql = """
                 SELECT startSeconds,endSeconds,text FROM cues
@@ -175,17 +176,19 @@ final class SubtitleIndex: @unchecked Sendable {
             guard sqlite3_prepare_v2(handle, sql, -1, &stmt, nil) == SQLITE_OK else { return nil }
             defer { sqlite3_finalize(stmt) }
             sqlite3_bind_text(stmt, 1, archiveID, -1, SQLITE_TRANSIENT_SUB)
-            sqlite3_bind_double(stmt, 2, nearSeconds - maxSpread)
-            sqlite3_bind_double(stmt, 3, nearSeconds + maxSpread)
+            sqlite3_bind_double(stmt, 2, matchStart - maxSpread)
+            sqlite3_bind_double(stmt, 3, matchStart + maxSpread)
             var cues: [(s: Double, e: Double, t: String)] = []
             while sqlite3_step(stmt) == SQLITE_ROW {
                 let t = sqlite3_column_text(stmt, 2).map { String(cString: $0) } ?? ""
                 cues.append((sqlite3_column_double(stmt, 0), sqlite3_column_double(stmt, 1), t))
             }
             guard !cues.isEmpty else { return nil }
-            // anchor = the cue holding nearSeconds, else the nearest by start time.
-            let anchor = cues.firstIndex { nearSeconds >= $0.s - 0.05 && nearSeconds <= $0.e + 0.05 }
-                ?? cues.indices.min(by: { abs(cues[$0].s - nearSeconds) < abs(cues[$1].s - nearSeconds) })!
+            // anchor = the MATCHED cue itself: the cue whose start is closest to matchStart. (Picking
+            // by "time window contains nearSeconds" mis-selected an overlapping/adjacent PREVIOUS cue,
+            // building the sentence around the wrong line so the phrase fell outside the clip.)
+            let anchor = cues.indices.min(by: {
+                abs(cues[$0].s - matchStart) < abs(cues[$1].s - matchStart) })!
             let pause = 1.2
             func endsSentence(_ s: String) -> Bool {
                 guard let last = s.trimmingCharacters(in: .whitespacesAndNewlines).last else { return false }
@@ -206,8 +209,10 @@ final class SubtitleIndex: @unchecked Sendable {
                 if cues[hi + 1].e - cues[lo].s > maxDuration { break }   // cap the clip length
                 hi += 1
             }
-            let start = max(0, cues[lo].s - 0.2)
-            let end = cues[hi].e + 0.25
+            // Union with the matched cue's own span so the phrase is ALWAYS inside the clip, even if a
+            // cap/boundary would otherwise trim past it.
+            let start = max(0, min(cues[lo].s, matchStart) - 0.2)
+            let end = max(cues[hi].e, matchEnd) + 0.25
             return TimeRange(startSeconds: start, durationSeconds: max(0.4, end - start))
         }
     }

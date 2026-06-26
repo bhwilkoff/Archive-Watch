@@ -401,7 +401,8 @@ struct SupercutSheet: View {
             let takes = await Task.detached { () -> [EditorModel.SupercutTake] in
                 cues.map { cue in
                     let proxy: ProxyClip
-                    if let r = index.sentenceRange(archiveID: cue.archiveID, nearSeconds: cue.startSeconds) {
+                    if let r = index.sentenceRange(archiveID: cue.archiveID,
+                                                   matchStart: cue.startSeconds, matchEnd: cue.endSeconds) {
                         proxy = ProxyClip(catalogItemID: cue.archiveID, sourceURL: cue.sourceURL, sourceRange: r,
                                           label: "\(cue.title): \(cue.text.prefix(28))",
                                           posterFrameSeconds: cue.startSeconds, title: cue.title)
