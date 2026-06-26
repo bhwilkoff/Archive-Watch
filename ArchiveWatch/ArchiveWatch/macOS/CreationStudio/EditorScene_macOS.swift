@@ -435,7 +435,8 @@ private struct LibrarySidebar: View {
     let model: EditorModel
     @Environment(AppStore.self) private var store
     @Environment(\.modelContext) private var ctx
-    @Query(sort: \LibraryClip.addedAt, order: .reverse) private var clips: [LibraryClip]
+    @Query(sort: [SortDescriptor(\LibraryClip.sortIndex, order: .reverse),
+                  SortDescriptor(\LibraryClip.addedAt, order: .reverse)]) private var clips: [LibraryClip]
     // Multi-select: ⌘/⇧-click selects several clips; the bottom action bar + drag operate on the
     // whole selection so you can batch-add to the timeline or mass-delete.
     @State private var selection: Set<PersistentIdentifier> = []
@@ -461,6 +462,15 @@ private struct LibrarySidebar: View {
         items.forEach { model.addClip(from: proxy(for: $0)) }
     }
 
+    /// Drag-reorder (owner #5): rewrite sortIndex over the reordered array so the new order sticks.
+    private func move(from source: IndexSet, to dest: Int) {
+        var arr = clips
+        arr.move(fromOffsets: source, toOffset: dest)
+        // Descending sortIndex = top-first; space them out so a future single insert fits between.
+        for (i, clip) in arr.enumerated() { clip.sortIndex = Double(arr.count - i); clip.touch() }
+        try? ctx.save()
+    }
+
     private func delete(_ items: [LibraryClip]) {
         items.forEach { ctx.delete($0) }
         selection.subtract(items.map(\.persistentModelID))
@@ -482,6 +492,8 @@ private struct LibrarySidebar: View {
                     List(selection: $selection) {
                         ForEach(clips) { clip in
                             LibraryRow(clip: clip, poster: store.item(clip.catalogItemID)?.posterURLParsed)
+                                // Double-click adds the clip to the timeline at the playhead (#5).
+                                .onTapGesture(count: 2) { model.addClipAtPlayhead(from: proxy(for: clip)) }
                                 // Dragging a SELECTED row carries the whole selection (List multi-drag);
                                 // dragging an unselected row carries just it. The timeline's
                                 // dropDestination already adds every dropped proxy.
@@ -498,6 +510,7 @@ private struct LibrarySidebar: View {
                                     }
                                 }
                         }
+                        .onMove(perform: move)   // drag the reorder handle to reorder (#5)
                     }
                     // Batch action bar — operates on the multi-selection.
                     if !selection.isEmpty {
@@ -536,14 +549,25 @@ private struct LibraryRow: View {
                               atSeconds: clip.inSeconds,
                               fallbackPoster: poster)
                 .frame(width: 44, height: 30)
-            VStack(alignment: .leading, spacing: 1) {
-                Text(clip.label).font(.subheadline).lineLimit(1)
+            VStack(alignment: .leading, spacing: 2) {
+                // Film title — word-wraps so longer titles read fully (owner #5).
+                Text(clip.title.isEmpty ? clip.label : clip.title)
+                    .font(.subheadline).lineLimit(3).fixedSize(horizontal: false, vertical: true)
+                // The clip's own label/note when it differs from the title (e.g. a supercut phrase).
+                if !clip.label.isEmpty, clip.label != clip.title {
+                    Text(clip.label)
+                        .font(.caption).foregroundStyle(.secondary)
+                        .lineLimit(2).fixedSize(horizontal: false, vertical: true)
+                }
                 Text(String(format: "%.1fs", max(0, clip.outSeconds - clip.inSeconds)))
-                    .font(.caption).foregroundStyle(.secondary)
+                    .font(.caption2).foregroundStyle(.tertiary)
             }
             Spacer(minLength: 0)
-            Image(systemName: "line.3.horizontal").font(.caption2).foregroundStyle(.tertiary)
+            // Reorder affordance — drag a row to reorder the list (#5).
+            Image(systemName: "line.3.horizontal").font(.caption).foregroundStyle(.tertiary)
+                .help("Drag to reorder")
         }
+        .padding(.vertical, 2)
         .contentShape(Rectangle())
     }
 }

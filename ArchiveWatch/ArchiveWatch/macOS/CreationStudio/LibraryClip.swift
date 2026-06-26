@@ -22,16 +22,21 @@ final class LibraryClip {
     var title: String
     var addedAt: Date
     var modifiedAt: Date
+    /// Manual ordering for the Library sidebar (owner #5 — drag to reorder). Higher = nearer the
+    /// top. Default 0 so existing rows fall back to addedAt order until first reordered; new rows
+    /// get a large value so they appear on top. (Lightweight SwiftData migration: defaulted field.)
+    var sortIndex: Double = 0
 
     init(id: String, catalogItemID: String, sourceURLString: String,
          inSeconds: Double, outSeconds: Double, label: String, tags: [String] = [],
          posterFrameSeconds: Double = 0, title: String,
-         addedAt: Date = Date(), modifiedAt: Date = Date()) {
+         addedAt: Date = Date(), modifiedAt: Date = Date(), sortIndex: Double = 0) {
         self.id = id; self.catalogItemID = catalogItemID; self.sourceURLString = sourceURLString
         self.inSeconds = inSeconds; self.outSeconds = outSeconds
         self.label = label; self.tags = tags
         self.posterFrameSeconds = posterFrameSeconds; self.title = title
         self.addedAt = addedAt; self.modifiedAt = modifiedAt
+        self.sortIndex = sortIndex
     }
 
     /// Stamp an edit so sync treats this device's copy as newest (#11b pattern).
@@ -56,7 +61,8 @@ extension LibraryClip {
                   inSeconds: proxy.sourceRange.start.seconds,
                   outSeconds: proxy.sourceRange.endSeconds,
                   label: proxy.label, tags: proxy.tags,
-                  posterFrameSeconds: proxy.posterFrameSeconds, title: proxy.title)
+                  posterFrameSeconds: proxy.posterFrameSeconds, title: proxy.title,
+                  sortIndex: Date().timeIntervalSinceReferenceDate)   // newest on top until reordered
     }
 }
 #endif

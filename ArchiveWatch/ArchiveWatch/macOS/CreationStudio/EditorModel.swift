@@ -258,6 +258,24 @@ final class EditorModel {
         scheduleRebuild()
     }
 
+    /// Add a clip at the PLAYHEAD on the magnetic track (owner #5 — double-click a Library clip).
+    /// Inserts before the first clip starting at/after the playhead, so it lands where you're parked
+    /// rather than always at the end.
+    func addClipAtPlayhead(from proxy: ProxyClip) {
+        checkpoint()
+        let clip = TimelineClip.from(proxy, at: .zero)
+        let t = playheadSeconds
+        // `clips` is the timeline-ordered view and the document array is kept in that same order by
+        // relayout, so an index found here maps straight onto the array.
+        var insertIdx = document.project.timeline.clips.count
+        for (i, c) in clips.enumerated() where c.timelineStart.seconds >= t - 0.01 { insertIdx = i; break }
+        document.project.timeline.clips.insert(clip, at: min(insertIdx, document.project.timeline.clips.count))
+        relayout()
+        selection = .clip(clip.id)
+        loadFilmstrip(for: clip)
+        scheduleRebuild()
+    }
+
     // MARK: - Supercut batch add (instant) + background refine
 
     struct SupercutTake: Sendable { let proxy: ProxyClip; let phrase: String; let captionText: String }
