@@ -67,6 +67,10 @@ jobs:
 
   merge:
     needs: shard
+    # Run even if some shards failed (e.g. a transient OOM on one runner). The merge is additive
+    # (INSERT OR IGNORE into the existing index) and missing shards' films retry next run via
+    # --seen-from, so one stray shard failure must not waste the shards that succeeded.
+    if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     permissions:
       contents: write

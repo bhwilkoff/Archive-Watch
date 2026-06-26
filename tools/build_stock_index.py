@@ -27,8 +27,12 @@ CATALOG = REPO / "catalog.json"
 
 def scene_cuts(url: str, max_seconds: int, fps: float) -> list[float]:
     """Scene-change timestamps (seconds) via ffmpeg `scdet`, bounded for speed."""
+    # Downscale to <=360p BEFORE scene detection. Shot boundaries don't need full resolution,
+    # and decoding HD/1080i frames at full res under --concurrency blew the CI runner's RAM (the
+    # kernel OOM-killer SIGTERM'd whole shards right after HD items — run 28262168655). The comma
+    # inside min() is single-quoted so the filtergraph parser doesn't read it as a filter break.
     cmd = ["ffmpeg", "-nostats", "-t", str(max_seconds), "-i", url,
-           "-vf", f"fps={fps},scdet=threshold=10", "-f", "null", "-"]
+           "-vf", f"fps={fps},scale=-2:'min(360,ih)',scdet=threshold=10", "-f", "null", "-"]
     try:
         out = subprocess.run(cmd, capture_output=True, text=True,
                              timeout=max_seconds * 4 + 90).stderr
