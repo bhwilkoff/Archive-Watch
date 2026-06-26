@@ -33,7 +33,7 @@ struct SupercutSheet: View {
             ctx.insert(LibraryClip(from: p))
         }
         try? ctx.save()
-        model.addSupercutClips(takes, tighten: tightenToWord, evenVolume: evenVolume)
+        model.addSupercutClips(takes, tighten: tightenToWord, evenVolume: evenVolume, addSubtitles: addSubtitles)
         dismiss()
     }
 
@@ -55,6 +55,7 @@ struct SupercutSheet: View {
     @State private var compose = ComposeStatus()          // Supercut Search progress (off-main)
     @State private var tightenToWord = false
     @State private var evenVolume = false
+    @State private var addSubtitles = false
     @State private var gapEdits: [UUID: String] = [:]
     @State private var excludedSegments: Set<UUID> = []     // compose-mode per-segment opt-out
 
@@ -289,6 +290,10 @@ struct SupercutSheet: View {
                 // Both options apply to both tabs (owner ask) — leveling matters as much
                 // when assembling found phrases as when composing a sentence.
                 Toggle("Even out the volume across clips", isOn: $evenVolume)
+                // One editable subtitle per clip, showing the spoken words across the whole supercut
+                // so it reads as one sentence (owner ask). Placed after verify/tighten so the text
+                // lines up with each clip's final length.
+                Toggle("Add subtitles to supercut clips", isOn: $addSubtitles)
             }
             .toggleStyle(.checkbox).font(.callout)
             .padding(.horizontal, 20).padding(.vertical, 10)

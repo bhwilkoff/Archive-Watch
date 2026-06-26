@@ -300,6 +300,10 @@ final class EditorModel {
     @ObservationIgnored private var refineTask: Task<Void, Never>?
     /// True while a background supercut verify/tighten/level pass is running (shown in the status panel).
     var isRefining = false
+    /// Verify-pass progress so the status panel can show "N of M" (and a bar) and the user knows when
+    /// ALL processing tasks are done — not just a bare spinner that looks frozen on a long supercut.
+    var verifyDone = 0
+    var verifyTotal = 0
     /// A brief note after a supercut verify pass — e.g. how many clips were removed because the
     /// phrase wasn't actually spoken (owner #1/#2). Auto-clears.
     var supercutVerifyNote: String?
@@ -309,7 +313,7 @@ final class EditorModel {
     /// clip is refined in the BACKGROUND (best-effort, non-blocking): the clip is usable immediately
     /// and its in/out + volume update as the refine completes. (The user added 80 clips and it
     /// processed one-by-one — this is the fix.)
-    func addSupercutClips(_ takes: [SupercutTake], tighten: Bool, evenVolume: Bool) {
+    func addSupercutClips(_ takes: [SupercutTake], tighten: Bool, evenVolume: Bool, addSubtitles: Bool = false) {
         guard !takes.isEmpty else { return }
         checkpoint()
         var added: [(id: UUID, take: SupercutTake)] = []
@@ -325,15 +329,16 @@ final class EditorModel {
         // ALWAYS run the background pass: it VERIFIES each clip actually speaks the phrase (owner
         // #1/#2 — subtitles are spotty) and removes the ones it doesn't, plus optional tighten/level.
         isRefining = true
+        verifyDone = 0; verifyTotal = added.count
         supercutVerifyNote = nil
         refineTask?.cancel()
         refineTask = Task { [weak self] in
-            await self?.refineSupercut(added, tighten: tighten, evenVolume: evenVolume)
+            await self?.refineSupercut(added, tighten: tighten, evenVolume: evenVolume, addSubtitles: addSubtitles)
             self?.isRefining = false
         }
     }
 
-    private func refineSupercut(_ added: [(id: UUID, take: SupercutTake)], tighten: Bool, evenVolume: Bool) async {
+    private func refineSupercut(_ added: [(id: UUID, take: SupercutTake)], tighten: Bool, evenVolume: Bool, addSubtitles: Bool) async {
         var removed = 0, replaced = 0
         await withTaskGroup(of: RefineOutcome.self) { group in
             var it = added.makeIterator()
@@ -346,11 +351,17 @@ final class EditorModel {
             for _ in 0..<2 { addNext() }            // bounded — the cache + speech are heavy
             while let outcome = await group.next() {
                 switch outcome { case .removed: removed += 1; case .replaced: replaced += 1; case .kept: break }
+                verifyDone += 1
                 if Task.isCancelled { group.cancelAll(); break }
                 addNext()
             }
         }
         relayout()          // final repack so the surviving clips form one gap-free run
+        // Subtitles last (owner ask): the verify pass removes/replaces/tightens clips, so the spoken
+        // text only lines up with each clip's FINAL position+length here. One editable title overlay
+        // per surviving clip, spanning exactly that clip, anchored to the lower third.
+        if addSubtitles { addSupercutSubtitles(phraseByID: Dictionary(added.map { ($0.id, $0.take.phrase) },
+                                                                      uniquingKeysWith: { a, _ in a })) }
         scheduleRebuild()
         var parts: [String] = []
         if replaced > 0 { parts.append("swapped \(replaced) to a clip that says it") }
@@ -363,6 +374,24 @@ final class EditorModel {
                 if self?.supercutVerifyNote == note { self?.supercutVerifyNote = nil }
             }
         }
+    }
+
+    /// Lay a subtitle (a normal, editable TextOverlay) under each surviving supercut clip so the
+    /// viewer can read what the cross-film collage is saying (owner ask). Each title spans exactly
+    /// its clip's final timeline range and shows that clip's spoken words; removed clips contribute
+    /// none. These are ordinary overlays — draggable, restyleable, deletable like any other text clip.
+    private func addSupercutSubtitles(phraseByID: [UUID: String]) {
+        var overlays: [TextOverlay] = []
+        for c in clips {
+            guard let phrase = phraseByID[c.id], !phrase.isEmpty else { continue }
+            let range = TimeRange(startSeconds: c.timelineStart.seconds,
+                                  durationSeconds: max(0.05, c.sourceRange.duration.seconds))
+            overlays.append(TextOverlay(text: phrase, timelineRange: range,
+                                        positionX: 0.5, positionY: 0.88, fontScale: 0.045))
+        }
+        guard !overlays.isEmpty else { return }
+        project.timeline.textOverlays.append(contentsOf: overlays)
+        bumpOverlayRevision()
     }
 
     /// Refine ONE supercut take. Verification listens to the AUDIO, not the caption, so it catches

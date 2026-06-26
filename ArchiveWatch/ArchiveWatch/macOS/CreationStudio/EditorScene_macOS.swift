@@ -92,7 +92,11 @@ struct ProjectEditorView: View {
                                     .font(.caption2).foregroundStyle(.orange)
                             }
                             if model.isRefining {
-                                Label("Verifying each clip speaks the phrase…", systemImage: "waveform.badge.magnifyingglass")
+                                ProgressView(value: Double(model.verifyDone),
+                                             total: Double(max(1, model.verifyTotal)))
+                                    .controlSize(.small).tint(.white).frame(width: 170)
+                                Label("Verifying each clip speaks the phrase — \(model.verifyDone) of \(model.verifyTotal)",
+                                      systemImage: "waveform.badge.magnifyingglass")
                                     .font(.caption2).foregroundStyle(.white.opacity(0.7))
                             }
                         }
