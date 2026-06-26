@@ -152,16 +152,12 @@ enum ClipCacheService {
     /// codec is truly permanent. Everything else is treated as transient (the caller gives up only
     /// after it fails REPEATEDLY — count-based — rather than trusting one error code).
     static func isPermanent(_ error: Error) -> Bool {
+        // ONLY a source with literally no usable video track is truly unprocessable. EVERYTHING else —
+        // "cannot decode", format errors, timeouts, network — is treated as TRANSIENT and retried: the
+        // AVAssetReader re-encode is stricter/flakier than playback (especially under concurrent load),
+        // so a decode error on a video that actually plays in the preview is transient, not permanent.
+        // (Marking decode errors permanent is what stuck a false "cannot decode" overlay on a good clip.)
         if let e = error as? CreationStudioError, case .noVideoTrack = e { return true }
-        let ns = error as NSError
-        if ns.domain == AVFoundationErrorDomain {
-            switch ns.code {
-            case -11828, -11829, -11833, -11839:   // fileFormatNotRecognized / fileFailedToParse / decoderNotFound / encoderNotFound
-                return true
-            default:
-                return false                         // -11800 et al. → transient, retry
-            }
-        }
         return false
     }
 

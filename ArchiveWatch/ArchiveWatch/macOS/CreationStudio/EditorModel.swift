@@ -159,6 +159,9 @@ final class EditorModel {
     // backoff so a clip that missed its window in one rebuild self-heals instead of staying red.
     @ObservationIgnored private var transientRetryTask: Task<Void, Never>?
     @ObservationIgnored private var transientRetries = 0
+    // The ACTUAL playable duration per clip (composition insert duration, clamped to cached footage).
+    // rebuildPreview reconciles the timeline to this so blocks/playhead match the preview exactly.
+    @ObservationIgnored private var clipActualDuration: [UUID: Double] = [:]
     // Sources whose window PERMANENTLY failed to encode ("Cannot Encode movie" — a codec/format the
     // encoder can't handle). Keyed by source URL → the failure reason. A clip from such a source is
     // marked failed once and NEVER re-encoded (it used to re-attempt on every rebuild). Cleared by an
@@ -867,17 +870,29 @@ final class EditorModel {
             return
         }
         previewBlockedReason = nil
-        // Clip-specific failures: promote a source that has failed repeatedly (NOT during an outage) to
-        // permanent so it stops re-encoding on every rebuild.
-        for c in failedClips {
+        // RECONCILE displayed state with what's ACTUALLY in the build, so the overlay + timeline never
+        // lie: a clip that resolved is READY (clears any stale/false "cannot decode"), its source is no
+        // longer considered failed, and its TIMELINE length is set to the real playable duration so the
+        // blocks + playhead stay locked to the preview (a clip clamped to the film's end was drawn too
+        // long, which is the "clip finished but the timeline still shows a second left" drift).
+        var durChanged = false
+        for c in timelineClips where resolvedByID[c.id] != nil {
             let src = c.sourceURL.absoluteString
-            if permanentlyFailed[src] == nil, (sourceFailCount[src] ?? 0) >= Self.maxSourceFailures {
-                permanentlyFailed[src] = sourceFailReason[src] ?? Self.reason(for: NSError(domain: "CreationStudio", code: 0))
+            permanentlyFailed[src] = nil; sourceFailCount[src] = nil
+            if clipPrep[c.id] != .ready { clipPrep[c.id] = .ready }
+            if let actual = clipActualDuration[c.id], actual > 0.05,
+               let i = project.timeline.clips.firstIndex(where: { $0.id == c.id }),
+               project.timeline.clips[i].sourceRange.duration.seconds - actual > 0.05 {
+                let inS = project.timeline.clips[i].sourceRange.start.seconds
+                project.timeline.clips[i].sourceRange = TimeRange(startSeconds: inS, durationSeconds: actual)
+                durChanged = true
             }
         }
-        // Auto-retry the remaining TRANSIENT failures (a cold node, alternates not yet resolved). Back
-        // off (2s/4s/6s) and stop once nothing fails; permanent failures never re-attempt.
-        let failedIDs = failedClips.filter { permanentlyFailed[$0.sourceURL.absoluteString] == nil }
+        if durChanged { relayout() }   // realign blocks to the real durations — the composition already matches
+
+        // Auto-retry the remaining TRANSIENT failures (a cold node, a re-encode hiccup). Back off
+        // (2s/4s/6s) and stop once nothing fails; clips that resolve clear themselves above.
+        let failedIDs = failedClips.filter { resolvedByID[$0.id] == nil && permanentlyFailed[$0.sourceURL.absoluteString] == nil }
         if failedIDs.isEmpty {
             transientRetries = 0
         } else if transientRetries < 3 {
@@ -978,7 +993,13 @@ final class EditorModel {
         noteSourceSucceeded(clip.sourceURL.absoluteString)    // clear any prior failure streak
         let graded = await gradedAssetURL(clip, window: w)   // bakes the Look (or passes through)
         ensureThumbnails(clip, window: w)
-        return makeResolved(clip, window: w, assetURL: graded)
+        let resolved = makeResolved(clip, window: w, assetURL: graded)
+        // Record the ACTUAL playable duration (clamped to the footage the cache holds). When a clip's
+        // out-point runs past the film's end the composition is SHORTER than the clip's requested
+        // length — rebuildPreview reconciles the timeline to this so the blocks + playhead match the
+        // preview instead of drifting a second or two per clamped clip.
+        clipActualDuration[clip.id] = resolved.insertRange.duration.seconds
+        return resolved
     }
 
     /// The clip's in/out expressed as an insert range INTO the cached window file (file t=0 is
