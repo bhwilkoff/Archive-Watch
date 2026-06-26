@@ -10,6 +10,13 @@ import CoreMedia
 //    fewest clips (longest-match), missing words surfaced as gaps (docs/research/
 //    creation-studio-sentence-supercut.md).
 // Either way the result is an EDITABLE timeline (Rule 5a — the editorial cut stays the human's).
+/// Live progress for an off-main Supercut Search compose pass (so the UI never beachballs).
+@MainActor @Observable final class ComposeStatus {
+    var running = false
+    var done = 0
+    var total = 0
+}
+
 struct SupercutSheet: View {
     let model: EditorModel
     @Environment(AppStore.self) private var store
@@ -44,6 +51,8 @@ struct SupercutSheet: View {
                                                  // was the typing lag.
     @State private var building = true
     @State private var searched = false
+    @State private var searching = false                 // Phrase Finder query in flight (off-main)
+    @State private var compose = ComposeStatus()          // Supercut Search progress (off-main)
     @State private var tightenToWord = false
     @State private var evenVolume = false
     @State private var gapEdits: [UUID: String] = [:]
@@ -75,8 +84,9 @@ struct SupercutSheet: View {
                minHeight: 460, idealHeight: 600, maxHeight: 900)
         .task {
             await SubtitleIndexBuilder.ensureIndex(store: store)
-            index = SubtitleIndex(path: SubtitleIndex.bestURL)
-            indexedLines = index?.cueCount      // ONCE — never in body (the typing-lag fix)
+            let idx = SubtitleIndex(path: SubtitleIndex.bestURL)
+            index = idx
+            indexedLines = await Task.detached { idx?.cueCount }.value   // count(*) off-main (the typing-lag fix)
             building = false
         }
     }
@@ -114,7 +124,7 @@ struct SupercutSheet: View {
                 .overlay(RoundedRectangle(cornerRadius: 7).strokeBorder(.separator))
 
                 Button(mode == .find ? "Find" : "Compose") { mode == .find ? runFind() : runCompose() }
-                    .disabled(phrase.isEmpty || building)
+                    .disabled(phrase.isEmpty || building || searching || compose.running)
             }
 
             HStack(spacing: 6) {
@@ -148,7 +158,13 @@ struct SupercutSheet: View {
     }
 
     @ViewBuilder private var findResults: some View {
-        if results.isEmpty {
+        if searching {
+            VStack(spacing: 12) {
+                ProgressView()
+                Text("Searching the public-domain catalog…").foregroundStyle(.secondary)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        } else if results.isEmpty {
             ContentUnavailableView {
                 Label(searched ? "No spoken lines matched" : "Find a spoken phrase",
                       systemImage: searched ? "text.magnifyingglass" : "quote.bubble")
@@ -194,7 +210,18 @@ struct SupercutSheet: View {
     }
 
     @ViewBuilder private var composeResults: some View {
-        if plan.isEmpty {
+        if compose.running {
+            // Live progress while the catalog is searched word-by-word (off-main, so the spinner
+            // actually animates — proof the UI isn't frozen — and the count advances as runs resolve).
+            VStack(spacing: 12) {
+                ProgressView().controlSize(.large)
+                Text("Finding clips for your line — \(compose.done) of \(compose.total) words")
+                    .font(.callout).foregroundStyle(.secondary)
+                Text("Searching every spoken line in the public-domain catalog.")
+                    .font(.caption).foregroundStyle(.tertiary)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        } else if plan.isEmpty {
             ContentUnavailableView {
                 Label("Supercut Search", systemImage: "quote.bubble")
             } description: {
@@ -293,20 +320,41 @@ struct SupercutSheet: View {
 
     private func runFind() {
         guard let index, !phrase.isEmpty else { return }
-        // De-dupe to ONE result per film so the list reflects how many distinct examples we actually
-        // have (the same title kept appearing many times in a row). Results are ordered shortest-cue
-        // first, so the kept cue per film is the most precise occurrence.
-        var seen = Set<String>(), deduped: [SubtitleCue] = []
-        for cue in index.search(phrase, limit: 400) where seen.insert(cue.archiveID).inserted {
-            deduped.append(cue)
+        let p = phrase
+        searching = true; searched = true; results = []; excluded.removeAll()
+        Task {
+            // Run the LIKE scan OFF the main thread so the UI stays responsive.
+            let found = await Task.detached {
+                // De-dupe to ONE result per film so the list reflects how many distinct examples we
+                // actually have (results are shortest-cue first → keep the most precise per film).
+                var seen = Set<String>(), deduped: [SubtitleCue] = []
+                for cue in index.search(p, limit: 400) where seen.insert(cue.archiveID).inserted {
+                    deduped.append(cue)
+                }
+                return Array(deduped.prefix(200))
+            }.value
+            results = found
+            searching = false
         }
-        results = Array(deduped.prefix(200)); excluded.removeAll(); searched = true
     }
+
     private func runCompose() {
         guard let index, !phrase.isEmpty else { return }
-        plan = SentenceComposer.plan(phrase, index: index)
-        gapEdits.removeAll()
-        excludedSegments.removeAll()
+        let p = phrase
+        let status = compose
+        status.running = true; status.done = 0; status.total = SentenceComposer.tokens(p).count
+        plan = []; gapEdits.removeAll(); excludedSegments.removeAll()
+        Task {
+            // The longest-match plan fires ~O(words²) LIKE scans — run it OFF the main thread and
+            // stream per-word progress so the window never beachballs and shows what's been sourced.
+            let result = await Task.detached {
+                SentenceComposer.plan(p, index: index) { done, total in
+                    Task { @MainActor in status.done = max(status.done, done); status.total = total }
+                }
+            }.value
+            plan = result
+            status.running = false
+        }
     }
 
     private func gapBinding(_ id: UUID) -> Binding<String> {
@@ -315,12 +363,15 @@ struct SupercutSheet: View {
 
     /// Fill a gap with a user-typed replacement word/phrase that IS in the corpus.
     private func replaceGap(_ id: UUID) {
-        guard let index, let i = plan.firstIndex(where: { $0.id == id }) else { return }
+        guard let index, plan.contains(where: { $0.id == id }) else { return }
         let word = (gapEdits[id] ?? "").trimmingCharacters(in: .whitespaces)
-        let cands = SentenceComposer.resolve(word, index: index)
-        guard !cands.isEmpty else { return }
-        plan[i] = SentenceComposer.Segment(phrase: word, candidates: cands)
-        gapEdits[id] = nil
+        guard !word.isEmpty else { return }
+        Task {
+            let cands = await Task.detached { SentenceComposer.resolve(word, index: index) }.value
+            guard !cands.isEmpty, let i = plan.firstIndex(where: { $0.id == id }) else { return }
+            plan[i] = SentenceComposer.Segment(phrase: word, candidates: cands)
+            gapEdits[id] = nil
+        }
     }
 
     /// Add the selected found cues INSTANTLY (tighten happens in the background).

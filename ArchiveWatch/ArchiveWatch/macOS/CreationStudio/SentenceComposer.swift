@@ -10,7 +10,8 @@ import CoreMedia
 // can be tightened to exact word boundaries with on-device speech (WordTiming, Rule 6b). Missing
 // words become explicit gaps the user resolves (Rule 5a). Phase B replaces the per-cue lookups with
 // a CI forced-aligned word index for instant whole-catalog composition.
-@MainActor
+// Not @MainActor: `plan` runs OFF the main thread (the LIKE-scan queries it fires are slow), so the
+// Supercut Search UI stays responsive and can show live progress. SubtitleIndex is thread-safe.
 enum SentenceComposer {
     /// One source for a run of words: a cue + the word window within it.
     struct Candidate: Identifiable, Sendable {
@@ -28,11 +29,14 @@ enum SentenceComposer {
     }
 
     /// Greedy longest-match plan: cover `sentence` with the fewest runs, each carrying ranked
-    /// ALTERNATE source clips the user can swap between. Index-only (instant).
-    static func plan(_ sentence: String, index: SubtitleIndex) -> [Segment] {
+    /// ALTERNATE source clips the user can swap between. Runs OFF the main thread (slow LIKE scans);
+    /// `onProgress(wordsDone, wordsTotal)` fires as each run resolves so the UI can show a live bar.
+    static func plan(_ sentence: String, index: SubtitleIndex,
+                     onProgress: (@Sendable (_ wordsDone: Int, _ wordsTotal: Int) -> Void)? = nil) -> [Segment] {
         let words = tokens(sentence)
         var segs: [Segment] = []
         var i = 0
+        onProgress?(0, words.count)
         while i < words.count {
             var hit: (j: Int, cands: [Candidate])?
             var j = words.count
@@ -49,6 +53,7 @@ enum SentenceComposer {
                 segs.append(Segment(phrase: words[i], candidates: []))   // a gap
                 i += 1
             }
+            onProgress?(i, words.count)
         }
         return segs
     }

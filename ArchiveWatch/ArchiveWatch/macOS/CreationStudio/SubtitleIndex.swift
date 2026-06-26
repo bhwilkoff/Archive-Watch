@@ -36,9 +36,13 @@ struct SubtitleCue: Identifiable, Hashable, Sendable {
     }
 }
 
-@MainActor
-final class SubtitleIndex {
+// Thread-safe + OFF the main actor: a `LIKE` scan over the full cue corpus is slow, and the
+// longest-match composer fires ~O(words²) of them — doing that on the main thread beachballs the UI.
+// All handle access is serialized on a private queue (@unchecked Sendable), so callers can query from
+// a background task and the main thread stays responsive (the compose view shows live progress).
+final class SubtitleIndex: @unchecked Sendable {
     private var handle: OpaquePointer?
+    private let dbQueue = DispatchQueue(label: "com.bhwilkoff.archivewatch.subtitle-index")
 
     nonisolated private static var dir: URL {
         let base = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
@@ -58,7 +62,7 @@ final class SubtitleIndex {
             sqlite3_close(handle); return nil
         }
     }
-    isolated deinit { sqlite3_close(handle) }
+    deinit { sqlite3_close(handle) }   // no concurrent access at dealloc (ARC holds self through queries)
 
     /// Cues whose text contains the phrase (LIKE for the sample; the CI index adds FTS5). Ordered
     /// so a SHORTER cue (a tighter quote of the phrase) ranks first.
@@ -71,26 +75,28 @@ final class SubtitleIndex {
     func search(_ phrase: String, limit: Int = 200) -> [SubtitleCue] {
         let q = phrase.trimmingCharacters(in: .whitespaces)
         guard !q.isEmpty else { return [] }
-        let sql = """
-            SELECT id,archiveID,sourceURL,startSeconds,endSeconds,text,title FROM cues
-            WHERE text LIKE ?1 ORDER BY (endSeconds-startSeconds) ASC LIMIT \(limit * 4)
-            """
-        var stmt: OpaquePointer?
-        guard sqlite3_prepare_v2(handle, sql, -1, &stmt, nil) == SQLITE_OK else { return [] }
-        defer { sqlite3_finalize(stmt) }
-        sqlite3_bind_text(stmt, 1, "%\(q)%", -1, SQLITE_TRANSIENT_SUB)
-        var out: [SubtitleCue] = []
-        while sqlite3_step(stmt) == SQLITE_ROW {
-            func str(_ i: Int32) -> String { sqlite3_column_text(stmt, i).map { String(cString: $0) } ?? "" }
-            guard let url = URL(string: str(2)) else { continue }
-            let start = sqlite3_column_double(stmt, 3), end = sqlite3_column_double(stmt, 4)
-            let text = str(5)
-            guard Self.isConfident(text: text, start: start, end: end) else { continue }
-            out.append(SubtitleCue(id: str(0), archiveID: str(1), sourceURL: url,
-                                   startSeconds: start, endSeconds: end, text: text, title: str(6)))
-            if out.count >= limit { break }
+        return dbQueue.sync {
+            let sql = """
+                SELECT id,archiveID,sourceURL,startSeconds,endSeconds,text,title FROM cues
+                WHERE text LIKE ?1 ORDER BY (endSeconds-startSeconds) ASC LIMIT \(limit * 4)
+                """
+            var stmt: OpaquePointer?
+            guard sqlite3_prepare_v2(handle, sql, -1, &stmt, nil) == SQLITE_OK else { return [] }
+            defer { sqlite3_finalize(stmt) }
+            sqlite3_bind_text(stmt, 1, "%\(q)%", -1, SQLITE_TRANSIENT_SUB)
+            var out: [SubtitleCue] = []
+            while sqlite3_step(stmt) == SQLITE_ROW {
+                func str(_ i: Int32) -> String { sqlite3_column_text(stmt, i).map { String(cString: $0) } ?? "" }
+                guard let url = URL(string: str(2)) else { continue }
+                let start = sqlite3_column_double(stmt, 3), end = sqlite3_column_double(stmt, 4)
+                let text = str(5)
+                guard Self.isConfident(text: text, start: start, end: end) else { continue }
+                out.append(SubtitleCue(id: str(0), archiveID: str(1), sourceURL: url,
+                                       startSeconds: start, endSeconds: end, text: text, title: str(6)))
+                if out.count >= limit { break }
+            }
+            return out
         }
-        return out
     }
 
     /// The supercut confidence gate. Returns false for captions that read as garbage/hallucinated
@@ -119,39 +125,43 @@ final class SubtitleIndex {
     /// (build_word_index.py, Phase B), searched near `nearSeconds`. nil if no word index / no match
     /// — the composer then falls back to its proportional estimate. The table may be absent.
     func wordRange(archiveID: String, run: [String], nearSeconds: Double) -> TimeRange? {
-        guard !run.isEmpty,
-              sqlite3_exec(handle, "SELECT 1 FROM words LIMIT 1", nil, nil, nil) == SQLITE_OK else { return nil }
-        // pull the film's words around the cue, then find the contiguous run.
-        let sql = """
-            SELECT word, startSeconds, endSeconds FROM words
-            WHERE archiveID=?1 AND startSeconds BETWEEN ?2 AND ?3 ORDER BY startSeconds
-            """
-        var stmt: OpaquePointer?
-        guard sqlite3_prepare_v2(handle, sql, -1, &stmt, nil) == SQLITE_OK else { return nil }
-        defer { sqlite3_finalize(stmt) }
-        sqlite3_bind_text(stmt, 1, archiveID, -1, SQLITE_TRANSIENT_SUB)
-        sqlite3_bind_double(stmt, 2, nearSeconds - 3)
-        sqlite3_bind_double(stmt, 3, nearSeconds + 12)
-        var words: [(String, Double, Double)] = []
-        while sqlite3_step(stmt) == SQLITE_ROW {
-            let w = sqlite3_column_text(stmt, 0).map { String(cString: $0) } ?? ""
-            words.append((w, sqlite3_column_double(stmt, 1), sqlite3_column_double(stmt, 2)))
+        guard !run.isEmpty else { return nil }
+        return dbQueue.sync {
+            guard sqlite3_exec(handle, "SELECT 1 FROM words LIMIT 1", nil, nil, nil) == SQLITE_OK else { return nil }
+            // pull the film's words around the cue, then find the contiguous run.
+            let sql = """
+                SELECT word, startSeconds, endSeconds FROM words
+                WHERE archiveID=?1 AND startSeconds BETWEEN ?2 AND ?3 ORDER BY startSeconds
+                """
+            var stmt: OpaquePointer?
+            guard sqlite3_prepare_v2(handle, sql, -1, &stmt, nil) == SQLITE_OK else { return nil }
+            defer { sqlite3_finalize(stmt) }
+            sqlite3_bind_text(stmt, 1, archiveID, -1, SQLITE_TRANSIENT_SUB)
+            sqlite3_bind_double(stmt, 2, nearSeconds - 3)
+            sqlite3_bind_double(stmt, 3, nearSeconds + 12)
+            var words: [(String, Double, Double)] = []
+            while sqlite3_step(stmt) == SQLITE_ROW {
+                let w = sqlite3_column_text(stmt, 0).map { String(cString: $0) } ?? ""
+                words.append((w, sqlite3_column_double(stmt, 1), sqlite3_column_double(stmt, 2)))
+            }
+            let target = run.map { $0.lowercased() }
+            guard words.count >= target.count else { return nil }
+            for s in 0...(words.count - target.count) where (0..<target.count).allSatisfy({ words[s + $0].0 == target[$0] }) {
+                let start = max(0, words[s].1 - 0.1)
+                let end = words[s + target.count - 1].2 + 0.12
+                return TimeRange(startSeconds: start, durationSeconds: max(0.2, end - start))
+            }
+            return nil
         }
-        let target = run.map { $0.lowercased() }
-        guard words.count >= target.count else { return nil }
-        for s in 0...(words.count - target.count) where (0..<target.count).allSatisfy({ words[s + $0].0 == target[$0] }) {
-            let start = max(0, words[s].1 - 0.1)
-            let end = words[s + target.count - 1].2 + 0.12
-            return TimeRange(startSeconds: start, durationSeconds: max(0.2, end - start))
-        }
-        return nil
     }
 
     var cueCount: Int {
-        var stmt: OpaquePointer?
-        guard sqlite3_prepare_v2(handle, "SELECT count(*) FROM cues", -1, &stmt, nil) == SQLITE_OK else { return 0 }
-        defer { sqlite3_finalize(stmt) }
-        return sqlite3_step(stmt) == SQLITE_ROW ? Int(sqlite3_column_int(stmt, 0)) : 0
+        dbQueue.sync {
+            var stmt: OpaquePointer?
+            guard sqlite3_prepare_v2(handle, "SELECT count(*) FROM cues", -1, &stmt, nil) == SQLITE_OK else { return 0 }
+            defer { sqlite3_finalize(stmt) }
+            return sqlite3_step(stmt) == SQLITE_ROW ? Int(sqlite3_column_int(stmt, 0)) : 0
+        }
     }
 }
 
