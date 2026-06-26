@@ -11,6 +11,8 @@ struct SeriesRef: Hashable {
 
 struct SeriesDetailView: View {
     let card: Catalog.Item
+    @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
 
     @State private var series: Series?
     @State private var loading = true
@@ -120,7 +122,13 @@ struct SeriesDetailView: View {
     @ViewBuilder private var episodeList: some View {
         LazyVStack(spacing: 12) {
             ForEach(shownEpisodes) { ep in
-                Button { playingEpisode = ep } label: { EpisodeRow(episode: ep) }
+                // Open the episode's OWN Detail (favorite / playlist / share / Clip Studio,
+                // Decision 045) — like any film. Falls back to inline play if the episode item
+                // isn't in the catalog DB yet.
+                Button {
+                    if let it = store.item(ep.archiveID) { router.push(it) }
+                    else { playingEpisode = ep }
+                } label: { EpisodeRow(episode: ep) }
                     .buttonStyle(.plain)
                     .contextMenu {
                         // Create a clip/GIF from THIS episode (rights-gated: episode has video).

@@ -368,7 +368,12 @@ struct SeriesDetailView: View {
                 EpisodeCard(
                     episode: ep,
                     isFavorited: favorites.contains { $0.archiveID == ep.archiveID },
-                    action: { playingEpisode = ep },
+                    // Open the episode's OWN Detail (Decision 045) — like any film. Falls back to
+                    // inline play if the episode item isn't in the catalog DB yet.
+                    action: {
+                        if let it = store.db?.item(ep.archiveID) { router.push(it) }
+                        else { playingEpisode = ep }
+                    },
                     onToggleFavorite: { toggleFavorite(ep.archiveID) },
                     onShare: { shareTarget = ShareTarget(id: ep.archiveID, title: ep.title) },
                     onAddToPlaylist: { playlistTarget = PlaylistTarget(id: ep.archiveID) }

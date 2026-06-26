@@ -1617,14 +1617,7 @@
     episodes(series, season) {
       const host = $('series-episodes');
       const playable = (season.episodes || []).filter(e => e.downloadURL);
-      // The binge queue (apps' episode auto-advance): when an episode ends,
-      // the next one in the season plays automatically.
-      const queue = playable.map(e => ({
-        id: e.archiveID,
-        title: [series.title, epLabel(e)].filter(Boolean).join(' · '),
-        url: e.downloadURL,
-      }));
-      const rows = playable.map((ep, qi) => {
+      const rows = playable.map((ep) => {
         const b = document.createElement('button');
         b.className = 'episode';
         b.dataset.ep = ep.archiveID;
@@ -1643,7 +1636,9 @@
           txt.append(o);
         }
         b.append(img, txt);
-        b.onclick = () => Player.start({ ...queue[qi], queue, queueIndex: qi });
+        // Open the episode's OWN Detail (favorite / playlist / share / play, Decision 045) —
+        // like any film. The Detail's play resolves the downloadURL (baked or via metadata).
+        b.onclick = () => { location.hash = `#/item/${encodeURIComponent(ep.archiveID)}`; };
         return b;
       });
       host.replaceChildren(...rows);

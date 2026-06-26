@@ -142,32 +142,25 @@ fun SeriesDetailScreen(container: AppContainer, nav: Nav, slug: String) {
         }
         items(season?.episodes.orEmpty(), key = { it.archiveID ?: "${it.seasonNumber}x${it.episodeNumber}-${it.title}" }) { episode ->
             EpisodeRow(episode) {
-                val url = episode.downloadURL ?: return@EpisodeRow
-                // Episode binge: the whole playable season rides along as a
-                // Media3 queue, so end-of-episode advances natively.
-                val playable = season?.episodes.orEmpty().filter { it.downloadURL != null }
-                val queue = playable.map { ep ->
-                    QueueEntry(
-                        id = ep.archiveID ?: ep.downloadURL!!,
-                        title = current.title,
-                        subtitle = episodeLabel(ep),
-                        url = ep.downloadURL!!,
+                // Open the episode's OWN Detail page (favorite / playlist / share / play,
+                // Decision 045) — like any film. Falls back to inline play only if the episode
+                // has no archiveID to resolve a Detail.
+                val aid = episode.archiveID
+                if (aid != null) {
+                    nav.openItem(aid, current.seriesID, "tv-episode")
+                } else if (episode.downloadURL != null) {
+                    nav.push(
+                        Route.Player(
+                            PlaySpec(
+                                id = episode.downloadURL!!,
+                                title = current.title,
+                                subtitle = episodeLabel(episode),
+                                url = episode.downloadURL!!,
+                                runtimeSeconds = episode.runtimeSeconds,
+                            ),
+                        ),
                     )
                 }
-                val qi = playable.indexOf(episode).coerceAtLeast(0)
-                nav.push(
-                    Route.Player(
-                        PlaySpec(
-                            id = episode.archiveID ?: url,
-                            title = current.title,
-                            subtitle = episodeLabel(episode),
-                            url = url,
-                            runtimeSeconds = episode.runtimeSeconds,
-                            queue = queue,
-                            queueIndex = qi,
-                        ),
-                    ),
-                )
             }
         }
     }

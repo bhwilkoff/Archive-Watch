@@ -12,6 +12,7 @@ struct SeriesRef: Hashable { let card: Catalog.Item }
 struct SeriesDetailView: View {
     let card: Catalog.Item
     @Environment(AppRouter.self) private var router
+    @Environment(AppStore.self) private var store
 
     @State private var series: Series?
     @State private var loading = true
@@ -123,7 +124,13 @@ struct SeriesDetailView: View {
     @ViewBuilder private var episodeList: some View {
         LazyVStack(spacing: 10) {
             ForEach(shownEpisodes) { ep in
-                Button { router.playEpisode(ep, in: series) } label: { EpisodeRow(episode: ep) }
+                // Open the episode's OWN Detail (favorite / playlist / share / Creation Studio,
+                // Decision 045) — like any film. Falls back to inline play if the episode item
+                // isn't in the catalog DB yet.
+                Button {
+                    if let it = store.item(ep.archiveID) { router.openDetail(it) }
+                    else { router.playEpisode(ep, in: series) }
+                } label: { EpisodeRow(episode: ep) }
                     .buttonStyle(.plain)
                     .contextMenu {
                         if Callsheet.supports(card) {
