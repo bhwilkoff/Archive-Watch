@@ -103,6 +103,7 @@ final class EditorModel {
             }
         }
         bumpOverlayRevision()   // selected overlays may have moved → refresh the live preview
+        bumpTimeline()          // redraw the lane blocks at their new spots LIVE during the drag
         scheduleRebuild()
     }
     var selectedClipID: UUID? { if case .clip(let id) = selection { return id }; return nil }
@@ -464,7 +465,7 @@ final class EditorModel {
         arr.insert(clip, at: min(max(0, target), arr.count))
         guard arr.map(\.id) != original.map(\.id) else { return }          // no order change
         document.project.timeline.clips = arr
-        relayout(); scheduleRebuild()
+        relayout(); bumpTimeline(); scheduleRebuild()   // reflect the new order LIVE during the drag
     }
 
     /// Duplicate a clip immediately after itself (context menu).
@@ -833,6 +834,7 @@ final class EditorModel {
     func setAudioStart(_ id: UUID, _ seconds: Double) {
         guard let i = audioIndex(id) else { return }
         document.project.timeline.audioClips[i].startSeconds = max(0, seconds)
+        bumpTimeline()          // move the audio block LIVE during the drag
         scheduleRebuild()
     }
     func setAudioFade(_ id: UUID, fadeIn: Double? = nil, fadeOut: Double? = nil) {
@@ -998,6 +1000,7 @@ final class EditorModel {
         o.timelineRange = TimeRange(startSeconds: max(0, seconds),
                                     durationSeconds: o.timelineRange.duration.seconds)
         updateOverlay(o)
+        bumpTimeline()          // move the title block LIVE during the drag
     }
 
     // MARK: - Project canvas / frame rate (editable in the project inspector)

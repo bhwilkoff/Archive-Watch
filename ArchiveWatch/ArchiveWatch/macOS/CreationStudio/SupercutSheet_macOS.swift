@@ -20,7 +20,11 @@ struct SupercutSheet: View {
     /// then tighten/level them in the background (EditorModel.addSupercutClips). No per-clip
     /// blocking — 80 clips appear at once instead of crawling one-by-one.
     private func commit(_ takes: [EditorModel.SupercutTake]) {
-        for t in takes { ctx.insert(LibraryClip(from: t.proxy)) }
+        for t in takes {
+            var p = t.proxy
+            p.caption = t.captionText        // carry the dialogue so the sidebar shows it (#5)
+            ctx.insert(LibraryClip(from: p))
+        }
         try? ctx.save()
         model.addSupercutClips(takes, tighten: tightenToWord, evenVolume: evenVolume)
         dismiss()

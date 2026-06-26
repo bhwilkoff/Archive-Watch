@@ -65,14 +65,17 @@ struct ProxyClip: Codable, Identifiable, Hashable, Sendable {
     var tags: [String]
     var posterFrameSeconds: Double     // where to grab the library thumbnail
     var title: String                  // denormalised so a project is self-describing offline
+    var caption: String = ""           // the spoken text/dialogue in the clip (from a supercut cue), if any
 
     init(id: UUID = UUID(), catalogItemID: String, sourceURL: URL,
          availableRange: TimeRange? = nil, sourceRange: TimeRange,
-         label: String, tags: [String] = [], posterFrameSeconds: Double = 0, title: String) {
+         label: String, tags: [String] = [], posterFrameSeconds: Double = 0, title: String,
+         caption: String = "") {
         self.id = id; self.catalogItemID = catalogItemID; self.sourceURL = sourceURL
         self.availableRange = availableRange; self.sourceRange = sourceRange
         self.label = label; self.tags = tags
         self.posterFrameSeconds = posterFrameSeconds; self.title = title
+        self.caption = caption
     }
 }
 

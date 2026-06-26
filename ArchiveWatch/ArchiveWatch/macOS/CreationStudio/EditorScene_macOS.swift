@@ -463,11 +463,16 @@ private struct LibrarySidebar: View {
         items.forEach { model.addClip(from: proxy(for: $0)) }
     }
 
-    /// Drag-reorder (owner #5): rewrite sortIndex over the reordered array so the new order sticks.
-    private func move(from source: IndexSet, to dest: Int) {
+    /// Drag-reorder (owner #5): drop one row ONTO another to move it there. Done with a per-row
+    /// dropDestination (not .onMove) because .onMove conflicts with .draggable — and .draggable is
+    /// what we need for dragging a clip OUT to the timeline. Rewrites sortIndex so the order sticks.
+    private func reorder(draggedID: String, onto target: LibraryClip) {
+        guard draggedID != target.id else { return }
         var arr = clips
-        arr.move(fromOffsets: source, toOffset: dest)
-        // Descending sortIndex = top-first; space them out so a future single insert fits between.
+        guard let from = arr.firstIndex(where: { $0.id == draggedID }) else { return }
+        let item = arr.remove(at: from)
+        let to = arr.firstIndex(where: { $0.id == target.id }) ?? arr.count
+        arr.insert(item, at: to)
         for (i, clip) in arr.enumerated() { clip.sortIndex = Double(arr.count - i); clip.touch() }
         try? ctx.save()
     }
@@ -493,12 +498,21 @@ private struct LibrarySidebar: View {
                     List(selection: $selection) {
                         ForEach(clips) { clip in
                             LibraryRow(clip: clip, poster: store.item(clip.catalogItemID)?.posterURLParsed)
-                                // Double-click adds the clip to the timeline at the playhead (#5).
-                                .onTapGesture(count: 2) { model.addClipAtPlayhead(from: proxy(for: clip)) }
-                                // Dragging a SELECTED row carries the whole selection (List multi-drag);
-                                // dragging an unselected row carries just it. The timeline's
-                                // dropDestination already adds every dropped proxy.
+                                // Double-click adds at the playhead — a SIMULTANEOUS gesture so it
+                                // runs ALONGSIDE the List's single-click selection and the drag
+                                // (a plain .onTapGesture intercepted both, which broke select+drag).
+                                .simultaneousGesture(TapGesture(count: 2).onEnded {
+                                    model.addClipAtPlayhead(from: proxy(for: clip))
+                                })
+                                // Drag a row onto the TIMELINE (its dropDestination adds the proxy);
+                                // drop a row onto ANOTHER row to reorder (works alongside .draggable,
+                                // unlike .onMove).
                                 .draggable(proxy(for: clip))
+                                .dropDestination(for: ProxyClip.self) { dropped, _ in
+                                    guard let p = dropped.first else { return false }
+                                    reorder(draggedID: p.id.uuidString, onto: clip)
+                                    return true
+                                }
                                 .tag(clip.persistentModelID)
                                 .contextMenu {
                                     let t = targets(for: clip)
@@ -511,7 +525,6 @@ private struct LibrarySidebar: View {
                                     }
                                 }
                         }
-                        .onMove(perform: move)   // drag the reorder handle to reorder (#5)
                     }
                     // Batch action bar — operates on the multi-selection.
                     if !selection.isEmpty {
@@ -553,12 +566,12 @@ private struct LibraryRow: View {
             VStack(alignment: .leading, spacing: 2) {
                 // Film title — word-wraps so longer titles read fully (owner #5).
                 Text(clip.title.isEmpty ? clip.label : clip.title)
-                    .font(.subheadline).lineLimit(3).fixedSize(horizontal: false, vertical: true)
-                // The clip's own label/note when it differs from the title (e.g. a supercut phrase).
-                if !clip.label.isEmpty, clip.label != clip.title {
-                    Text(clip.label)
+                    .font(.subheadline).lineLimit(2).fixedSize(horizontal: false, vertical: true)
+                // The spoken text/dialogue in the clip (supercut cue), when present — word-wrapped.
+                if !clip.caption.isEmpty {
+                    Text("“\(clip.caption)”")
                         .font(.caption).foregroundStyle(.secondary)
-                        .lineLimit(2).fixedSize(horizontal: false, vertical: true)
+                        .lineLimit(3).fixedSize(horizontal: false, vertical: true)
                 }
                 Text(String(format: "%.1fs", max(0, clip.outSeconds - clip.inSeconds)))
                     .font(.caption2).foregroundStyle(.tertiary)
