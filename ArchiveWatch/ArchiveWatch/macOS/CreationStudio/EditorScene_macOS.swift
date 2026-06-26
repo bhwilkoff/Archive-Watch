@@ -436,8 +436,7 @@ private struct LibrarySidebar: View {
     let model: EditorModel
     @Environment(AppStore.self) private var store
     @Environment(\.modelContext) private var ctx
-    @Query(sort: [SortDescriptor(\LibraryClip.sortIndex, order: .reverse),
-                  SortDescriptor(\LibraryClip.addedAt, order: .reverse)]) private var clips: [LibraryClip]
+    @Query(sort: \LibraryClip.addedAt, order: .reverse) private var clips: [LibraryClip]
     // Multi-select: ⌘/⇧-click selects several clips; the bottom action bar + drag operate on the
     // whole selection so you can batch-add to the timeline or mass-delete.
     @State private var selection: Set<PersistentIdentifier> = []
@@ -463,20 +462,6 @@ private struct LibrarySidebar: View {
         items.forEach { model.addClip(from: proxy(for: $0)) }
     }
 
-    /// Drag-reorder (owner #5): drop one row ONTO another to move it there. Done with a per-row
-    /// dropDestination (not .onMove) because .onMove conflicts with .draggable — and .draggable is
-    /// what we need for dragging a clip OUT to the timeline. Rewrites sortIndex so the order sticks.
-    private func reorder(draggedID: String, onto target: LibraryClip) {
-        guard draggedID != target.id else { return }
-        var arr = clips
-        guard let from = arr.firstIndex(where: { $0.id == draggedID }) else { return }
-        let item = arr.remove(at: from)
-        let to = arr.firstIndex(where: { $0.id == target.id }) ?? arr.count
-        arr.insert(item, at: to)
-        for (i, clip) in arr.enumerated() { clip.sortIndex = Double(arr.count - i); clip.touch() }
-        try? ctx.save()
-    }
-
     private func delete(_ items: [LibraryClip]) {
         items.forEach { ctx.delete($0) }
         selection.subtract(items.map(\.persistentModelID))
@@ -497,22 +482,16 @@ private struct LibrarySidebar: View {
                 VStack(spacing: 0) {
                     List(selection: $selection) {
                         ForEach(clips) { clip in
-                            LibraryRow(clip: clip, poster: store.item(clip.catalogItemID)?.posterURLParsed)
-                                // Double-click adds at the playhead — a SIMULTANEOUS gesture so it
-                                // runs ALONGSIDE the List's single-click selection and the drag
-                                // (a plain .onTapGesture intercepted both, which broke select+drag).
-                                .simultaneousGesture(TapGesture(count: 2).onEnded {
-                                    model.addClipAtPlayhead(from: proxy(for: clip))
-                                })
-                                // Drag a row onto the TIMELINE (its dropDestination adds the proxy);
-                                // drop a row onto ANOTHER row to reorder (works alongside .draggable,
-                                // unlike .onMove).
-                                .draggable(proxy(for: clip))
-                                .dropDestination(for: ProxyClip.self) { dropped, _ in
-                                    guard let p = dropped.first else { return false }
-                                    reorder(draggedID: p.id.uuidString, onto: clip)
-                                    return true
-                                }
+                            // NO gestures/.draggable on the row itself — on macOS a row-level drag
+                            // CANCELS List selection (a long-standing SwiftUI limitation). Selection
+                            // (single + ⌘/⇧ multi) is left entirely to List(selection:); the drag
+                            // source is scoped to the row's THUMBNAIL inside LibraryRow, and the "+"
+                            // button adds at the playhead — so select, multi-select, and drag-to-
+                            // timeline all work together.
+                            LibraryRow(clip: clip,
+                                       poster: store.item(clip.catalogItemID)?.posterURLParsed,
+                                       dragProxy: proxy(for: clip),
+                                       onAdd: { model.addClipAtPlayhead(from: proxy(for: clip)) })
                                 .tag(clip.persistentModelID)
                                 .contextMenu {
                                     let t = targets(for: clip)
@@ -555,14 +534,20 @@ private struct LibrarySidebar: View {
 private struct LibraryRow: View {
     let clip: LibraryClip
     let poster: URL?
+    let dragProxy: ProxyClip
+    let onAdd: () -> Void
     var body: some View {
         HStack(spacing: 10) {
-            // The clip's actual in-point frame (archive.org thumbnail), poster as fallback.
+            // The clip's actual in-point frame — and the DRAG SOURCE. The drag is scoped to the
+            // thumbnail (not the whole row) so it doesn't cancel List selection on macOS; drag it
+            // onto the timeline (the timeline's dropDestination adds the proxy).
             ClipThumbnailView(catalogItemID: clip.catalogItemID,
                               sourceURL: URL(string: clip.sourceURLString),
                               atSeconds: clip.inSeconds,
                               fallbackPoster: poster)
                 .frame(width: 44, height: 30)
+                .draggable(dragProxy)
+                .help("Drag to the timeline")
             VStack(alignment: .leading, spacing: 2) {
                 // Film title — word-wraps so longer titles read fully (owner #5).
                 Text(clip.title.isEmpty ? clip.label : clip.title)
@@ -577,9 +562,13 @@ private struct LibraryRow: View {
                     .font(.caption2).foregroundStyle(.tertiary)
             }
             Spacer(minLength: 0)
-            // Reorder affordance — drag a row to reorder the list (#5).
-            Image(systemName: "line.3.horizontal").font(.caption).foregroundStyle(.tertiary)
-                .help("Drag to reorder")
+            // Add this clip to the timeline at the playhead. A Button (not a tap gesture) so it
+            // never interferes with row selection.
+            Button(action: onAdd) {
+                Image(systemName: "plus.circle")
+            }
+            .buttonStyle(.borderless).foregroundStyle(.secondary)
+            .help("Add to the timeline at the playhead")
         }
         .padding(.vertical, 2)
         .contentShape(Rectangle())
