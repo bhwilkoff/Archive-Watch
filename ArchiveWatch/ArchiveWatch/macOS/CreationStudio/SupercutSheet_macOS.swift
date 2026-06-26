@@ -54,6 +54,7 @@ struct SupercutSheet: View {
     @State private var searching = false                 // Phrase Finder query in flight (off-main)
     @State private var compose = ComposeStatus()          // Supercut Search progress (off-main)
     @State private var tightenToWord = false
+    @State private var fullSentence = false        // Phrase Finder: clip the whole spoken statement
     @State private var evenVolume = false
     @State private var addSubtitles = false
     @State private var gapEdits: [UUID: String] = [:]
@@ -287,6 +288,14 @@ struct SupercutSheet: View {
             Divider()
             VStack(alignment: .leading, spacing: 6) {
                 Toggle("Tighten each clip to the spoken word (on-device speech)", isOn: $tightenToWord)
+                    .disabled(fullSentence)
+                // The OPPOSITE of tighten (Phrase Finder only): clip the whole spoken statement —
+                // start at the beginning of the sentence, the phrase in the middle, end at the
+                // sentence's end (natural pauses). Mutually exclusive with tighten.
+                if mode == .find {
+                    Toggle("Clip only full sentences", isOn: $fullSentence)
+                        .disabled(tightenToWord)
+                }
                 // Both options apply to both tabs (owner ask) — leveling matters as much
                 // when assembling found phrases as when composing a sentence.
                 Toggle("Even out the volume across clips", isOn: $evenVolume)
@@ -379,9 +388,31 @@ struct SupercutSheet: View {
         }
     }
 
-    /// Add the selected found cues INSTANTLY (tighten happens in the background).
+    /// Add the selected found cues INSTANTLY (tighten happens in the background). When "Clip only full
+    /// sentences" is on, expand each cue to its whole spoken statement (an off-main index query) so the
+    /// clip starts at the sentence's beginning, holds the phrase in the middle, and ends at its end.
     private func assembleFind() {
-        commit(included.map { EditorModel.SupercutTake(proxy: $0.proxyClip, phrase: phrase, captionText: $0.text) })
+        let cues = included, ph = phrase
+        guard fullSentence, let index else {
+            commit(cues.map { EditorModel.SupercutTake(proxy: $0.proxyClip, phrase: ph, captionText: $0.text) })
+            return
+        }
+        Task {
+            let takes = await Task.detached { () -> [EditorModel.SupercutTake] in
+                cues.map { cue in
+                    let proxy: ProxyClip
+                    if let r = index.sentenceRange(archiveID: cue.archiveID, nearSeconds: cue.startSeconds) {
+                        proxy = ProxyClip(catalogItemID: cue.archiveID, sourceURL: cue.sourceURL, sourceRange: r,
+                                          label: "\(cue.title): \(cue.text.prefix(28))",
+                                          posterFrameSeconds: cue.startSeconds, title: cue.title)
+                    } else {
+                        proxy = cue.proxyClip       // no neighbors found → the cue's own padded range
+                    }
+                    return EditorModel.SupercutTake(proxy: proxy, phrase: ph, captionText: cue.text)
+                }
+            }.value
+            commit(takes)
+        }
     }
 
     /// Add the composed sentence's selected segments INSTANTLY (tighten/level in the background).

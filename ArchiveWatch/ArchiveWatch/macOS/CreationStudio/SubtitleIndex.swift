@@ -155,6 +155,56 @@ final class SubtitleIndex: @unchecked Sendable {
         }
     }
 
+    /// Expand a matched cue to its FULL SPOKEN STATEMENT — the OPPOSITE of word-tightening. Walks the
+    /// film's neighboring cues outward from `nearSeconds`, stopping where a sentence ENDS (terminal
+    /// punctuation) or at a natural PAUSE (a silent gap between cues). The returned range begins at the
+    /// start of the statement, holds the phrase in the middle, and ends at the statement's end. nil if
+    /// neighbors can't be read (the caller falls back to the cue's own padded range).
+    func sentenceRange(archiveID: String, nearSeconds: Double, maxSpread: Double = 25) -> TimeRange? {
+        return dbQueue.sync {
+            let sql = """
+                SELECT startSeconds,endSeconds,text FROM cues
+                WHERE archiveID=?1 AND endSeconds>=?2 AND startSeconds<=?3 ORDER BY startSeconds
+                """
+            var stmt: OpaquePointer?
+            guard sqlite3_prepare_v2(handle, sql, -1, &stmt, nil) == SQLITE_OK else { return nil }
+            defer { sqlite3_finalize(stmt) }
+            sqlite3_bind_text(stmt, 1, archiveID, -1, SQLITE_TRANSIENT_SUB)
+            sqlite3_bind_double(stmt, 2, nearSeconds - maxSpread)
+            sqlite3_bind_double(stmt, 3, nearSeconds + maxSpread)
+            var cues: [(s: Double, e: Double, t: String)] = []
+            while sqlite3_step(stmt) == SQLITE_ROW {
+                let t = sqlite3_column_text(stmt, 2).map { String(cString: $0) } ?? ""
+                cues.append((sqlite3_column_double(stmt, 0), sqlite3_column_double(stmt, 1), t))
+            }
+            guard !cues.isEmpty else { return nil }
+            // anchor = the cue holding nearSeconds, else the nearest by start time.
+            let anchor = cues.firstIndex { nearSeconds >= $0.s - 0.05 && nearSeconds <= $0.e + 0.05 }
+                ?? cues.indices.min(by: { abs(cues[$0].s - nearSeconds) < abs(cues[$1].s - nearSeconds) })!
+            let pause = 1.2
+            func endsSentence(_ s: String) -> Bool {
+                guard let last = s.trimmingCharacters(in: .whitespacesAndNewlines).last else { return false }
+                return ".!?".contains(last)
+            }
+            var lo = anchor
+            while lo > 0 {
+                let prev = cues[lo - 1]
+                if endsSentence(prev.t) { break }            // prev ended a sentence → ours starts here
+                if cues[lo].s - prev.e > pause { break }      // natural pause before this cue
+                lo -= 1
+            }
+            var hi = anchor
+            while hi < cues.count - 1 {
+                if endsSentence(cues[hi].t) { break }         // this cue ends the sentence
+                if cues[hi + 1].s - cues[hi].e > pause { break }
+                hi += 1
+            }
+            let start = max(0, cues[lo].s - 0.2)
+            let end = cues[hi].e + 0.25
+            return TimeRange(startSeconds: start, durationSeconds: max(0.4, end - start))
+        }
+    }
+
     var cueCount: Int {
         dbQueue.sync {
             var stmt: OpaquePointer?
