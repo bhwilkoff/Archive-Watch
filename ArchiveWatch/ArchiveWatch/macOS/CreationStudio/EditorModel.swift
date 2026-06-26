@@ -821,6 +821,11 @@ final class EditorModel {
                     do { return (clip.id, try await self.resolveLocal(clip)) }
                     catch is CancellationError { return (clip.id, nil) }
                     catch {
+                        // A SUPERSEDED rebuild (a newer one started — transient retry, verify, edit) must
+                        // NOT record a stale failure: the current rebuild may have already resolved this
+                        // clip to .ready, and a late failure here would stick a false "cannot decode"
+                        // banner on a clip that's actually playing. Drop it.
+                        if Task.isCancelled { return (clip.id, nil) }
                         // Already known-permanent: resolveLocal fast-failed and set the real reason —
                         // leave it (don't overwrite with this rebuild's generic error).
                         if await self.isKnownPermanent(clip.sourceURL.absoluteString) { return (clip.id, nil) }

@@ -15,24 +15,21 @@ struct PlayerWindow: View {
     let item: Catalog.Item
     @Environment(AppStore.self) private var store
     @Environment(AppRouter.self) private var router
-    @State private var speed = 1.0
 
     var body: some View {
-        // NavigationStack provides the NATIVE window toolbar host (NSToolbar) for Done + Speed; the
-        // AVPlayerView fills the rest with its OWN native controls (transport, scrubber, volume, PiP,
-        // full-screen button) and shows the title from externalMetadata. No hand-drawn controls.
+        // NavigationStack hosts the native NSToolbar (Done) + window title; the AVPlayerView fills the
+        // rest with its OWN native controls (transport, scrubber, volume, PiP, full-screen, speed). No
+        // hand-drawn controls.
         NavigationStack {
             PlayerSurface(archiveID: item.archiveID,
                           videoURL: item.videoURLParsed,
                           subtitleHLS: item.subtitleHLSURL,
-                          speed: speed,
                           onEnded: autoplayNext)
-                .navigationTitle(item.title)
+                .navigationTitle(item.year.map { "\(item.title) (\($0))" } ?? item.title)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
                         Button("Done") { router.nowPlaying = nil }.keyboardShortcut(.cancelAction)
                     }
-                    ToolbarItem { SpeedMenu(speed: $speed) }
                 }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -78,7 +75,6 @@ struct EpisodePlayer: View {
     let context: EpisodeContext
     @Environment(AppRouter.self) private var router
     @State private var episode: Episode
-    @State private var speed = 1.0
 
     init(context: EpisodeContext) {
         self.context = context
@@ -94,7 +90,6 @@ struct EpisodePlayer: View {
             PlayerSurface(archiveID: episode.archiveID,
                           videoURL: episode.videoURLParsed,
                           subtitleHLS: nil,
-                          speed: speed,
                           onEnded: { if let n = next { episode = n } })   // binge auto-advance
                 .id(episode.archiveID)
                 .navigationTitle(episode.title)
@@ -109,7 +104,6 @@ struct EpisodePlayer: View {
                         Button { if let n = next { episode = n } } label: { Image(systemName: "forward.end.fill") }
                             .disabled(next == nil).help("Next episode")
                     }
-                    ToolbarItem { SpeedMenu(speed: $speed) }
                 }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -123,7 +117,6 @@ private struct PlayerSurface: View {
     let archiveID: String
     let videoURL: URL?
     let subtitleHLS: URL?
-    var speed: Double = 1.0
     var onEnded: (() -> Void)? = nil
 
     @Environment(\.modelContext) private var ctx
@@ -135,14 +128,15 @@ private struct PlayerSurface: View {
         ZStack {
             Color.black
             if let player {
-                VideoPlayerNS(player: player).ignoresSafeArea()
+                // `.floating` = the native macOS TV-app HUD (centre play/skip, scrubber + timecodes,
+                // volume, PiP + AirPlay, full-screen, speed) — the interface the owner asked to mimic.
+                VideoPlayerNS(player: player, controlsStyle: .floating).ignoresSafeArea()
             } else {
                 ProgressView().controlSize(.large).tint(.white)
             }
         }
         .onAppear(perform: setup)
         .onDisappear(perform: teardown)
-        .onChange(of: speed) { applySpeed() }
     }
 
     private func setup() {
@@ -158,29 +152,22 @@ private struct PlayerSurface: View {
             return
         }
         playerItem.preferredForwardBufferDuration = 300
-        // The title rides the native window title bar (navigationTitle). macOS AVPlayerItem has no
-        // externalMetadata, so we can't override the MP4's embedded title; wrapping the asset in a
-        // metadata-stripping AVMutableComposition was tried and REVERTED — over the custom-scheme
-        // resilient asset the composition rendered BLANK video (audio/timecode advanced, no picture).
+        // Title rides the native window title bar (navigationTitle "Title (Year)"). macOS AVPlayerItem
+        // has NO externalMetadata (iOS/tvOS only — verified in the SDK), and the only way to override
+        // the MP4's own embedded title is to wrap the asset, which over our custom-scheme resilient
+        // asset renders BLANK video — so we DON'T. Speed/PiP/AirPlay/full-screen are AVPlayerView's
+        // native HUD controls.
 
         let p = AVPlayer(playerItem: playerItem)
-        p.defaultRate = Float(speed)   // the AVPlayerView play button resumes at this rate
         if let resume = savedProgress(), resume > 5 {
             p.seek(to: CMTime(seconds: resume, preferredTimescale: 600))
         }
         p.play()
-        if speed != 1 { p.rate = Float(speed) }
         player = p
         endObserver = NotificationCenter.default.addObserver(
             forName: .AVPlayerItemDidPlayToEndTime, object: playerItem, queue: .main) { _ in
             MainActor.assumeIsolated { onEnded?() }
         }
-    }
-
-    private func applySpeed() {
-        guard let player else { return }
-        player.defaultRate = Float(speed)
-        if player.rate != 0 { player.rate = Float(speed) }   // change live only while playing
     }
 
     private func teardown() {
@@ -325,6 +312,12 @@ struct VideoPlayerNS: NSViewRepresentable {
         v.allowsPictureInPicturePlayback = chrome
         v.showsFullScreenToggleButton = chrome
         v.videoGravity = .resizeAspect
+        if chrome {
+            // Native playback-speed control in the HUD (the speedometer in the TV app) — the HIG-correct
+            // speed UI, so we don't bolt a custom Speed menu onto the toolbar.
+            v.speeds = AVPlaybackSpeed.systemDefaultSpeeds
+            v.allowsVideoFrameAnalysis = false   // Live Text/subject-lookup on film frames isn't wanted
+        }
         return v
     }
     func updateNSView(_ v: AVPlayerView, context: Context) {
