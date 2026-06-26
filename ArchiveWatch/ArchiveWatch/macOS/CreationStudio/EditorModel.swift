@@ -286,7 +286,17 @@ final class EditorModel {
 
     // MARK: - Supercut batch add (instant) + background refine
 
-    struct SupercutTake: Sendable { let proxy: ProxyClip; let phrase: String; let captionText: String }
+    struct SupercutTake: Sendable {
+        let proxy: ProxyClip
+        let phrase: String
+        let captionText: String
+        /// Ranked FALLBACK sources for the SAME phrase (Supercut Search / compose mode). If the
+        /// chosen clip turns out not to actually SPEAK the phrase, the verify pass swaps in the first
+        /// alternate that does — so the sentence stays complete instead of losing the word.
+        var alternates: [ProxyClip] = []
+    }
+    /// What the background verify pass did to a clip.
+    enum RefineOutcome: Sendable { case kept, replaced, removed }
     @ObservationIgnored private var refineTask: Task<Void, Never>?
     /// True while a background supercut verify/tighten/level pass is running (shown in the status panel).
     var isRefining = false
@@ -324,26 +334,29 @@ final class EditorModel {
     }
 
     private func refineSupercut(_ added: [(id: UUID, take: SupercutTake)], tighten: Bool, evenVolume: Bool) async {
-        var removed = 0
-        await withTaskGroup(of: Bool.self) { group in        // Bool = the clip was removed (phrase not spoken)
+        var removed = 0, replaced = 0
+        await withTaskGroup(of: RefineOutcome.self) { group in
             var it = added.makeIterator()
             func addNext() {
                 guard let entry = it.next() else { return }
                 group.addTask { [weak self] in
-                    await self?.refineOne(id: entry.id, take: entry.take, tighten: tighten, evenVolume: evenVolume) ?? false
+                    await self?.refineOne(id: entry.id, take: entry.take, tighten: tighten, evenVolume: evenVolume) ?? .kept
                 }
             }
             for _ in 0..<2 { addNext() }            // bounded — the cache + speech are heavy
-            while let wasRemoved = await group.next() {
-                if wasRemoved { removed += 1 }
+            while let outcome = await group.next() {
+                switch outcome { case .removed: removed += 1; case .replaced: replaced += 1; case .kept: break }
                 if Task.isCancelled { group.cancelAll(); break }
                 addNext()
             }
         }
         relayout()          // final repack so the surviving clips form one gap-free run
         scheduleRebuild()
-        if removed > 0 {
-            supercutVerifyNote = "Removed \(removed) clip\(removed == 1 ? "" : "s") where the phrase wasn’t spoken."
+        var parts: [String] = []
+        if replaced > 0 { parts.append("swapped \(replaced) to a clip that says it") }
+        if removed > 0  { parts.append("removed \(removed) with no match") }
+        if !parts.isEmpty {
+            supercutVerifyNote = "Verified phrases — " + parts.joined(separator: ", ") + "."
             let note = supercutVerifyNote
             Task { [weak self] in
                 try? await Task.sleep(for: .seconds(8))
@@ -352,27 +365,47 @@ final class EditorModel {
         }
     }
 
-    /// Refine ONE supercut take. Returns true if the clip was REMOVED (speech contradicts the
-    /// subtitle). Verification listens to the AUDIO, not the caption, so it catches clips the spotty
-    /// subtitle put on screen but that don't actually contain the phrase.
-    private func refineOne(id: UUID, take: SupercutTake, tighten: Bool, evenVolume: Bool) async -> Bool {
+    /// Refine ONE supercut take. Verification listens to the AUDIO, not the caption, so it catches
+    /// clips the spotty subtitle put on screen but that don't actually contain the phrase. On such a
+    /// clip it first tries to SWAP IN a ranked alternate that DOES speak the phrase (compose mode);
+    /// only if none do is the clip removed.
+    private func refineOne(id: UUID, take: SupercutTake, tighten: Bool, evenVolume: Bool) async -> RefineOutcome {
         // Verification + tighten/level all need a LOCAL window. If caching fails, keep the clip
         // (best-effort — never drop a clip just because its bytes were slow to fetch).
         guard let url = try? await ClipCacheService.cachedURL(for: TimelineClip.from(take.proxy, at: .zero)),
-              !Task.isCancelled else { return false }
+              !Task.isCancelled else { return .kept }
 
         // 1) VERIFY the phrase is actually spoken (independent of the subtitle) — ONE speech pass,
-        //    reused below. Only a CONTRADICTED verdict (speech recognized, phrase absent) removes the
-        //    clip; unverifiable audio (music / rough old prints) is kept.
+        //    reused below. Only a CONTRADICTED verdict (speech recognized, phrase absent) acts;
+        //    unverifiable audio (music / rough old prints) is kept.
         let verdict = await WordTiming.verify(mediaURL: url, phrase: take.phrase)
         if case .contradicted = verdict {
+            // Try each ranked ALTERNATE (Supercut Search) — the first that actually speaks the phrase
+            // REPLACES this clip in place (same timeline slot), tightened to the spoken words.
+            for alt in take.alternates {
+                if Task.isCancelled { return .kept }
+                guard let altURL = try? await ClipCacheService.cachedURL(for: TimelineClip.from(alt, at: .zero)) else { continue }
+                guard case .confirmed(let r) = await WordTiming.verify(mediaURL: altURL, phrase: take.phrase),
+                      let i = project.timeline.clips.firstIndex(where: { $0.id == id }) else { continue }
+                var c = project.timeline.clips[i]
+                let newIn = alt.sourceRange.start.seconds + r.start.seconds
+                c.catalogItemID = alt.catalogItemID
+                c.sourceURL = alt.sourceURL
+                c.sourceRange = TimeRange(startSeconds: max(0, newIn), durationSeconds: max(0.05, r.duration.seconds))
+                c.label = alt.label
+                project.timeline.clips[i] = c
+                loadFilmstrip(for: c)
+                relayout()
+                return .replaced
+            }
+            // No alternate spoke it → remove.
             if let i = project.timeline.clips.firstIndex(where: { $0.id == id }) {
                 project.timeline.clips.remove(at: i)
                 relayout()
             }
-            return true
+            return .removed
         }
-        if Task.isCancelled { return false }
+        if Task.isCancelled { return .kept }
 
         var changed = false
         // 2) TIGHTEN (when requested) to the spoken-word bounds — prefer the verified range, else the
@@ -394,7 +427,7 @@ final class EditorModel {
         }
         // A tightened clip is SHORTER → repack the magnetic track so clips stay glued together.
         if changed { relayout() }
-        return false
+        return .kept
     }
 
     func deleteClip(_ id: UUID) {

@@ -100,8 +100,20 @@ enum SentenceComposer {
     /// The proxy clip for a found segment, using the user's chosen alternate (its word window).
     static func proxyClip(_ seg: Segment) -> ProxyClip? {
         guard let c = seg.chosen else { return nil }
-        return ProxyClip(catalogItemID: c.cue.archiveID, sourceURL: c.cue.sourceURL, sourceRange: c.range,
-                         label: seg.phrase, posterFrameSeconds: c.range.start.seconds, title: c.cue.title)
+        return proxy(for: c, phrase: seg.phrase)
+    }
+
+    /// The segment's OTHER candidates (not the chosen one) as ranked fallback proxies — the supercut
+    /// verify pass swaps in the first that actually speaks the phrase if the chosen clip doesn't.
+    static func alternateProxies(_ seg: Segment) -> [ProxyClip] {
+        seg.candidates.enumerated()
+            .filter { $0.offset != seg.selected }
+            .map { proxy(for: $0.element, phrase: seg.phrase) }
+    }
+
+    private static func proxy(for c: Candidate, phrase: String) -> ProxyClip {
+        ProxyClip(catalogItemID: c.cue.archiveID, sourceURL: c.cue.sourceURL, sourceRange: c.range,
+                  label: phrase, posterFrameSeconds: c.range.start.seconds, title: c.cue.title)
     }
 
     // MARK: tokens

@@ -332,7 +332,10 @@ struct SupercutSheet: View {
     private func assembleCompose() {
         let takes = includedSegments.compactMap { seg -> EditorModel.SupercutTake? in
             guard let proxy = SentenceComposer.proxyClip(seg), let cue = seg.chosen?.cue else { return nil }
-            return EditorModel.SupercutTake(proxy: proxy, phrase: seg.phrase, captionText: cue.text)
+            // Carry the segment's other candidates as ranked alternates: if the chosen clip doesn't
+            // actually SPEAK the phrase, the verify pass swaps in the first alternate that does.
+            return EditorModel.SupercutTake(proxy: proxy, phrase: seg.phrase, captionText: cue.text,
+                                            alternates: SentenceComposer.alternateProxies(seg))
         }
         commit(takes)
     }
