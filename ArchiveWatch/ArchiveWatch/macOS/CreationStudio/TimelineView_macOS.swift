@@ -186,6 +186,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
 
     private func rebuildLayers() {
         layer?.sublayers?.forEach { $0.removeFromSuperlayer() }
+        removeAllToolTips()   // re-added per handle below so the direct-manipulation grips are discoverable
         guard let layer else { return }
 
         // Ruler ticks + labels.
@@ -258,17 +259,27 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
             addFade(to: container, clipW: cw, seconds: clip.fadeOutSeconds, isIn: false)
 
             // Trim handles (full height, below the fade band).
-            for hx in [CGFloat(0), cw - handleW] {
+            for (hi, hx) in [CGFloat(0), cw - handleW].enumerated() {
                 let h = CALayer()
                 h.frame = CGRect(x: hx, y: fadeBandH, width: handleW, height: trackH - fadeBandH)
                 let on = state.selectedIDs.contains(clip.id)
                 h.backgroundColor = (on ? NSColor.controlAccentColor : NSColor(white: 0.5, alpha: 0.6)).cgColor
                 container.addSublayer(h)
+                addToolTip(NSRect(x: cx + hx - 2, y: trackTop + fadeBandH, width: handleW + 4, height: trackH - fadeBandH),
+                           owner: (hi == 0 ? "Trim the start of this clip" : "Trim the end of this clip") as NSString,
+                           userData: nil)
             }
+            // Fade handles live in the top band at each corner (addFade draws the dot).
+            addToolTip(NSRect(x: cx, y: trackTop, width: min(cw / 2, 24), height: fadeBandH),
+                       owner: "Drag to fade in (from black)" as NSString, userData: nil)
+            addToolTip(NSRect(x: cx + cw - min(cw / 2, 24), y: trackTop, width: min(cw / 2, 24), height: fadeBandH),
+                       owner: "Drag to fade out (to black)" as NSString, userData: nil)
             layer.addSublayer(container)
         }
 
-        // Cross-dissolve handles at each junction (the incoming clip overlaps the previous).
+        // Cross-dissolve handles at each junction (the incoming clip overlaps the previous). The
+        // diamond is purple once a dissolve is set, gray when none — drag it left to dissolve into
+        // the previous clip, right to shorten/remove the dissolve. A tooltip explains it on hover.
         for (i, clip) in state.clips.enumerated() where i > 0 {
             let jx = x(clip.timelineStart.seconds)               // overlap region starts here
             let diamond = CALayer()
@@ -281,6 +292,11 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
             diamond.borderColor = NSColor.white.withAlphaComponent(0.5).cgColor
             diamond.borderWidth = 1
             layer.addSublayer(diamond)
+            let tip = clip.transitionInSeconds > 0
+                ? "Cross-dissolve with the previous clip — drag right to shorten, left to lengthen"
+                : "Drag left to cross-dissolve this clip into the previous one"
+            addToolTip(NSRect(x: jx - 12, y: trackTop + trackH / 2 - 12, width: 24, height: 24),
+                       owner: tip as NSString, userData: nil)
         }
 
         // Lanes below the video track: a TITLES lane + a packed stack of audio lanes (multi-track).

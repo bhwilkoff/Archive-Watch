@@ -256,25 +256,34 @@ enum CompositionBuilder {
             let onTrack = placed.filter { $0.trackIndex == ti && $0.hasAudio }
             guard !onTrack.isEmpty else { continue }
             let params = AVMutableAudioMixInputParameters(track: aTrack)
+            // AVMutableAudioMix CRASHES ("the timeRange of a ramp must not overlap…") if two volume
+            // ramps on one track overlap. That happens when a cross-dissolve makes a short clip's two
+            // neighbors — which share this A/B track — overlap in time, so their fade ramps collide.
+            // Collect every ramp, sort by start, and clamp each to begin no earlier than the previous
+            // one ended (touching is fine; only overlap throws). Distorts a fade slightly in that rare
+            // overlap case — far better than a crash.
+            struct Ramp { var start: Double; var end: Double; let from: Float; let to: Float }
+            var ramps: [Ramp] = []
             for p in onTrack {
                 let durS = p.dur.seconds
                 let vIn = min(max(p.leadIn, 0), durS)
                 let vOut = min(max(p.audioTailOut, 0), durS - vIn)
                 params.setVolume(p.vol, at: p.start)
                 if p.vol != 1 { anyRamp = true }
-                if vIn > 0 {
-                    params.setVolumeRamp(fromStartVolume: 0, toEndVolume: p.vol,
-                                         timeRange: CMTimeRange(start: p.start,
-                                                              duration: CMTime(seconds: vIn, preferredTimescale: ts)))
-                    anyRamp = true
-                }
-                if vOut > 0 {
-                    let os = (p.start + p.dur) - CMTime(seconds: vOut, preferredTimescale: ts)
-                    params.setVolumeRamp(fromStartVolume: p.vol, toEndVolume: 0,
-                                         timeRange: CMTimeRange(start: os,
-                                                              duration: CMTime(seconds: vOut, preferredTimescale: ts)))
-                    anyRamp = true
-                }
+                let s = p.start.seconds, e = (p.start + p.dur).seconds
+                if vIn > 0 { ramps.append(Ramp(start: s, end: s + vIn, from: 0, to: p.vol)) }
+                if vOut > 0 { ramps.append(Ramp(start: e - vOut, end: e, from: p.vol, to: 0)) }
+            }
+            ramps.sort { $0.start < $1.start }
+            var lastEnd = -Double.greatestFiniteMagnitude
+            for var r in ramps {
+                if r.start < lastEnd { r.start = lastEnd }          // clamp to the previous ramp's end
+                guard r.end - r.start > 0.001 else { continue }     // collapsed by the clamp → drop
+                params.setVolumeRamp(fromStartVolume: r.from, toEndVolume: r.to,
+                                     timeRange: CMTimeRange(start: CMTime(seconds: r.start, preferredTimescale: ts),
+                                                            duration: CMTime(seconds: r.end - r.start, preferredTimescale: ts)))
+                lastEnd = r.end
+                anyRamp = true
             }
             paramsList.append(params)
         }
@@ -295,13 +304,17 @@ enum CompositionBuilder {
             let vol = Float(max(0, bed.volume))
             mp.setVolume(vol, at: at)
             // Fade IN from silence over the head, if requested.
+            var fadeInEnd = 0.0
             if bed.fadeIn > 0.01 {
                 let f = min(bed.fadeIn, dur.seconds)
                 mp.setVolumeRamp(fromStartVolume: 0, toEndVolume: vol,
                                  timeRange: CMTimeRange(start: at, duration: CMTime(seconds: f, preferredTimescale: ts)))
+                fadeInEnd = f
             }
-            // Fade OUT over the tail — explicit if set, else a gentle default so the clip doesn't snap off.
-            let fadeOut = bed.fadeOut > 0.01 ? min(bed.fadeOut, dur.seconds) : min(1.5, dur.seconds / 2)
+            // Fade OUT over the tail — explicit if set, else a gentle default so the clip doesn't snap
+            // off. Clamp so it can't overlap the fade-in on a short bed (overlapping ramps crash).
+            let fadeOut = min(bed.fadeOut > 0.01 ? min(bed.fadeOut, dur.seconds) : min(1.5, dur.seconds / 2),
+                              max(0, dur.seconds - fadeInEnd))
             if fadeOut > 0 {
                 mp.setVolumeRamp(fromStartVolume: vol, toEndVolume: 0,
                                  timeRange: CMTimeRange(start: at + dur - CMTime(seconds: fadeOut, preferredTimescale: ts),
