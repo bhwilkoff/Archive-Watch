@@ -56,18 +56,31 @@ enum ProjectMediaCache {
     /// filesystem work — safe to call off the main thread. Deleting a `win-*` a player still has open
     /// is harmless on APFS (the fd stays valid); LRU keeps the active project's recent windows last.
     static let maxBytes: Int64 = 1_500_000_000
-    static func sweep() {
+    /// Files touched within this window are considered IN USE (an in-flight re-encode's staging file,
+    /// or a win-* an AVAsset/image-generator is actively reading) and are NEVER deleted — yanking a
+    /// file out from under AVFoundation is unsafe. The cache may sit slightly over cap during a busy
+    /// session; the next sweep, once activity settles, brings it down.
+    static let inUseGrace: TimeInterval = 180
+    static func sweep(now: Date = Date()) {
         let fm = FileManager.default
         guard let items = try? fm.contentsOfDirectory(
             at: directory,
             includingPropertiesForKeys: [.fileSizeKey, .contentAccessDateKey, .contentModificationDateKey],
             options: [.skipsHiddenFiles]) else { return }
+        func recent(_ v: URLResourceValues?) -> Bool {
+            let t = max(v?.contentAccessDate ?? .distantPast, v?.contentModificationDate ?? .distantPast)
+            return now.timeIntervalSince(t) < inUseGrace
+        }
         var windows: [(url: URL, size: Int64, atime: Date)] = []
         for url in items {
             let name = url.lastPathComponent
-            if name.hasPrefix("staging-") { try? fm.removeItem(at: url); continue }  // interrupted re-encode
-            guard name.hasPrefix("win-") else { continue }                            // managed cache only
             let v = try? url.resourceValues(forKeys: [.fileSizeKey, .contentAccessDateKey, .contentModificationDateKey])
+            if name.hasPrefix("staging-") {                  // interrupted re-encode — but not a LIVE one
+                if !recent(v) { try? fm.removeItem(at: url) }
+                continue
+            }
+            guard name.hasPrefix("win-") else { continue }   // managed cache only (never indices/user media)
+            if recent(v) { continue }                        // in active use — protect it
             windows.append((url, Int64(v?.fileSize ?? 0),
                             v?.contentAccessDate ?? v?.contentModificationDate ?? .distantPast))
         }
