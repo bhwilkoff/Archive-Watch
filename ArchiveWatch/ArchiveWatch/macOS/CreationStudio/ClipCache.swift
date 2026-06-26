@@ -134,10 +134,12 @@ actor ReencodeLimiter {
 }
 
 enum ClipCacheService {
-    /// Global cap on simultaneous window re-encodes. 3 keeps the machine busy without the
-    /// saturation-induced stalls/timeouts that a higher count (preview 4 + verify 4 diverging to ~8)
-    /// produced. Shared by every caller, so total in-flight encodes never exceed this.
-    static let reencodeLimiter = ReencodeLimiter(3)
+    /// Global cap on simultaneous window re-encodes. Kept LOW (2): each re-encode runs its own
+    /// ResilientStreamLoader (its own URLSession + connections to archive.org), and archive.org
+    /// RATE-LIMITS / refuses a client IP that opens too many simultaneous connections (error 61 /
+    /// -1004) — which then breaks the whole app, not just the studio. 2 concurrent downloads plus the
+    /// image loads stays under that ceiling. Shared by every caller, so total in-flight never exceeds this.
+    static let reencodeLimiter = ReencodeLimiter(2)
     /// Per-attempt re-encode deadline. A healthy node finishes a window in seconds; 90s still tolerates
     /// a slow-but-progressing connection while failing a true stall far sooner than the old 150s.
     static let attemptTimeout = 90.0

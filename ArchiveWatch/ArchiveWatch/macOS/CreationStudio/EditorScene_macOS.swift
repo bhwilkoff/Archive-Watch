@@ -72,20 +72,30 @@ struct ProjectEditorView: View {
                         // preview is WYSIWYG and "Add Text" is visible.
                         TextOverlayPreview(model: model, renderSize: model.project.timeline.renderSize)
                     }
-                    if model.isBuildingPreview || model.isRefining || !model.prepStatus.failures.isEmpty || model.supercutVerifyNote != nil {
+                    if model.isBuildingPreview || model.isRefining || !model.prepStatus.failures.isEmpty || model.supercutVerifyNote != nil || model.previewBlockedReason != nil {
                         let s = model.prepStatus
                         VStack(spacing: 6) {
                             if let note = model.supercutVerifyNote {
                                 Label(note, systemImage: "checkmark.seal")
                                     .font(.caption2).foregroundStyle(.white.opacity(0.85))
                             }
-                            if model.isBuildingPreview {
+                            if let blocked = model.previewBlockedReason {
+                                // Whole-pass failure: archive.org is refusing connections (rate-limited)
+                                // or you're offline. Clear, not a frozen progress number; auto-retries.
+                                Label("Can’t load clips — \(blocked). Retrying…", systemImage: "wifi.slash")
+                                    .font(.caption).foregroundStyle(.orange)
+                                    .multilineTextAlignment(.center)
+                                Text("archive.org limits how many videos load at once — give it a moment.")
+                                    .font(.caption2).foregroundStyle(.white.opacity(0.6))
+                                    .multilineTextAlignment(.center)
+                            } else if model.isBuildingPreview {
                                 ProgressView().controlSize(.small).tint(.white)
                                 Text("Preparing clips — \(s.ready) of \(s.total) ready" +
-                                     (s.caching > 0 ? " · \(s.caching) downloading" : ""))
+                                     (s.caching > 0 ? " · \(s.caching) downloading" : "") +
+                                     (s.failures.count > 0 ? " · \(s.failures.count) failed" : ""))
                                     .font(.caption).foregroundStyle(.white.opacity(0.85))
                             }
-                            if let fail = s.failures.first {
+                            if model.previewBlockedReason == nil, let fail = s.failures.first {
                                 Label(s.failures.count == 1 ? "1 clip couldn’t load: \(fail)"
                                                             : "\(s.failures.count) clips couldn’t load: \(fail)",
                                       systemImage: "exclamationmark.triangle.fill")

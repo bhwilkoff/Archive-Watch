@@ -134,10 +134,25 @@ final class EditorModel {
     }
     private func markFailed(_ id: UUID, _ reason: String) { clipPrep[id] = .failed(reason) }
     nonisolated static func reason(for error: Error) -> String {
-        let ns = error as NSError
-        if ns.domain == NSURLErrorDomain { return "network error — couldn't download" }
-        return ns.localizedDescription
+        if let code = urlErrorCode(in: error as NSError) {
+            switch code {
+            case NSURLErrorNotConnectedToInternet: return "you appear to be offline"
+            case NSURLErrorCannotConnectToHost, NSURLErrorCannotFindHost, NSURLErrorTimedOut,
+                 NSURLErrorNetworkConnectionLost, NSURLErrorDNSLookupFailed, NSURLErrorResourceUnavailable:
+                return "couldn’t reach archive.org"
+            default: return "network error — couldn’t download"
+            }
+        }
+        return (error as NSError).localizedDescription
     }
+    /// archive.org's connection failures surface either as a plain NSURLError or wrapped inside an
+    /// AVFoundation error (the AVAssetReader reads through our loader). Dig the chain for the URL code.
+    nonisolated static func urlErrorCode(in error: NSError) -> Int? {
+        if error.domain == NSURLErrorDomain { return error.code }
+        if let underlying = error.userInfo[NSUnderlyingErrorKey] as? NSError { return urlErrorCode(in: underlying) }
+        return nil
+    }
+    nonisolated static func isConnectivity(_ error: Error) -> Bool { urlErrorCode(in: error as NSError) != nil }
 
     @ObservationIgnored private var rebuildTask: Task<Void, Never>?
     // Auto-retry transient source failures (archive.org /download 503s) a few times with
@@ -156,16 +171,23 @@ final class EditorModel {
     @ObservationIgnored private var sourceFailCount: [String: Int] = [:]
     static let maxSourceFailures = 3
     private func isKnownPermanent(_ source: String) -> Bool { permanentlyFailed[source] != nil }
-    /// Record a cache failure for a source; promote it to permanent only if it's definitively
-    /// unrecoverable now, or it has failed maxSourceFailures times in a row.
+    /// Set when EVERY clip failed for an environmental reason (archive.org refusing connections / you're
+    /// offline) — shown in the preview overlay so it reads "can't reach the server", not a frozen
+    /// progress number, and so we DON'T mark clips permanently failed (they recover when access returns).
+    var previewBlockedReason: String?
+    /// Record a cache failure for a source. Promote to permanent only if definitively unrecoverable;
+    /// the count-based promotion is decided AFTER the pass (so an environmental outage, where the count
+    /// would spuriously climb, never permanently fails a clip).
     private func recordFailure(_ source: String, reason: String, definitelyPermanent: Bool) {
-        let n = (sourceFailCount[source] ?? 0) + 1
-        sourceFailCount[source] = n
-        if definitelyPermanent || n >= Self.maxSourceFailures { permanentlyFailed[source] = reason }
+        sourceFailCount[source, default: 0] += 1
+        sourceFailReason[source] = reason
+        if definitelyPermanent { permanentlyFailed[source] = reason }
     }
+    @ObservationIgnored private var sourceFailReason: [String: String] = [:]
     /// A source cached successfully — clear its failure streak so a later transient blip starts fresh.
     private func noteSourceSucceeded(_ source: String) {
         if sourceFailCount[source] != nil { sourceFailCount[source] = nil }
+        previewBlockedReason = nil          // something loaded → connectivity is back
     }
     @ObservationIgnored private var timeObserver: Any?
     @ObservationIgnored private let thumbGen = ThumbnailGenerator()
@@ -377,8 +399,9 @@ final class EditorModel {
                     await self?.refineOne(id: entry.id, take: entry.take, tighten: tighten, evenVolume: evenVolume) ?? .kept
                 }
             }
-            for _ in 0..<4 { addNext() }            // shares the preview's window cache now, so the
-                                                    // per-task cost is mostly local speech → parallelize wider
+            for _ in 0..<2 { addNext() }            // shares the preview's window cache + the global
+                                                    // ReencodeLimiter; kept low so we don't open too many
+                                                    // archive.org connections at once (it rate-limits the IP)
             while let outcome = await group.next() {
                 switch outcome { case .removed: removed += 1; case .replaced: replaced += 1; case .kept: break }
                 verifyDone += 1
@@ -783,7 +806,8 @@ final class EditorModel {
         // resolveLocal is @MainActor but suspends at the network/export await, so up to N caches run
         // in flight. A clip that won't cache is marked .failed(reason) and EXCLUDED from the build,
         // so it can't stall playback of the good clips (#13).
-        let maxConcurrent = 4
+        let maxConcurrent = 2          // low: each clip cache opens its own archive.org connections;
+                                       // too many at once trips archive.org's per-IP refusal (-1004)
         var resolvedByID: [UUID: CompositionBuilder.ResolvedClip] = [:]
         await withTaskGroup(of: (UUID, CompositionBuilder.ResolvedClip?).self) { group in
             var it = timelineClips.makeIterator()
@@ -816,15 +840,44 @@ final class EditorModel {
             }
         }
         if Task.isCancelled { return }
-        // Auto-retry transient source failures: the loader now fails a 503'ing /download over
-        // to the item's own node, but a clip can still miss its window in a single rebuild (cold
-        // node, alternates not yet resolved). resolveLocal cleared the failed source from the
-        // cache, so re-probing re-resolves it. Back off (2s/4s/6s) and stop once nothing fails.
-        // Only TRANSIENT failures trigger the auto-retry; a permanent encode failure never re-attempts.
-        let failedIDs = timelineClips.filter {
-            if case .failed = clipPrep[$0.id] { return permanentlyFailed[$0.sourceURL.absoluteString] == nil }
-            return false
+
+        let failedClips = timelineClips.filter {
+            if case .failed = clipPrep[$0.id] { return true }; return false
         }
+        // ENVIRONMENTAL outage: EVERY clip failed and nothing cached → it's archive.org refusing the
+        // connection (it rate-limits an IP with too many connections) or you're offline — NOT the clips.
+        // Don't let it permanently fail clips (clear the streaks so they recover automatically), show a
+        // clear "can't reach the server" message, and BACK OFF hard (hammering only prolongs the block).
+        let environmental = resolvedByID.isEmpty && !failedClips.isEmpty
+        if environmental {
+            for c in failedClips { sourceFailCount[c.sourceURL.absoluteString] = nil }
+            previewBlockedReason = failedClips.compactMap {
+                if case .failed(let r) = clipPrep[$0.id] { return r }; return nil
+            }.first ?? "couldn’t reach archive.org"
+            if transientRetries < 4 {
+                transientRetries += 1
+                let delay = Double(transientRetries) * 8        // 8s, 16s, 24s, 32s — give the IP time to un-throttle
+                transientRetryTask?.cancel()
+                transientRetryTask = Task { [weak self] in
+                    try? await Task.sleep(for: .seconds(delay))
+                    guard !Task.isCancelled else { return }
+                    await self?.rebuildPreview()
+                }
+            }
+            return
+        }
+        previewBlockedReason = nil
+        // Clip-specific failures: promote a source that has failed repeatedly (NOT during an outage) to
+        // permanent so it stops re-encoding on every rebuild.
+        for c in failedClips {
+            let src = c.sourceURL.absoluteString
+            if permanentlyFailed[src] == nil, (sourceFailCount[src] ?? 0) >= Self.maxSourceFailures {
+                permanentlyFailed[src] = sourceFailReason[src] ?? Self.reason(for: NSError(domain: "CreationStudio", code: 0))
+            }
+        }
+        // Auto-retry the remaining TRANSIENT failures (a cold node, alternates not yet resolved). Back
+        // off (2s/4s/6s) and stop once nothing fails; permanent failures never re-attempt.
+        let failedIDs = failedClips.filter { permanentlyFailed[$0.sourceURL.absoluteString] == nil }
         if failedIDs.isEmpty {
             transientRetries = 0
         } else if transientRetries < 3 {

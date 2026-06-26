@@ -114,6 +114,15 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
     /// playback does — a `/download` 503 would fail an export of an otherwise-good clip.
     /// Resolving to the node URL first gives export the same routing-around-503 the player
     /// gets via `currentTarget()`.
+    /// Shared session for node resolution + metadata probes (capped per host) so these auxiliary
+    /// fetches don't each spin up their own connection pool to archive.org.
+    private static let nodeResolveSession: URLSession = {
+        let cfg = URLSessionConfiguration.ephemeral
+        cfg.timeoutIntervalForRequest = 30
+        cfg.httpMaximumConnectionsPerHost = 3
+        return URLSession(configuration: cfg)
+    }()
+
     static func resolvedNodeURL(for url: URL) async -> URL {
         let s = url.absoluteString
         guard url.host?.hasSuffix("archive.org") == true,
@@ -125,9 +134,10 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
         let metaID = id.removingPercentEncoding ?? id
         guard let metaURL = URL(string: "https://archive.org/metadata/\(metaID)") else { return url }
 
-        let cfg = URLSessionConfiguration.ephemeral
-        cfg.timeoutIntervalForRequest = 30
-        let session = URLSession(configuration: cfg)
+        // Reuse ONE shared session for node resolution — creating a fresh URLSession per call opened a
+        // new connection pool to archive.org every time, and archive.org refuses an IP that opens too
+        // many connections (error 61 / -1004). A shared session pools + caps them.
+        let session = nodeResolveSession
 
         guard let (data, resp) = try? await session.data(from: metaURL),
               let http = resp as? HTTPURLResponse, http.statusCode == 200,
