@@ -126,8 +126,11 @@ struct ClipBrowserSheet: View {
 
     @ViewBuilder private var stockGrid: some View {
         if stock.isEmpty {
-            ContentUnavailableView("No stock shots", systemImage: "square.grid.3x3",
-                description: Text("Pre-cut shots from the archive — tap to add directly. (Sample index; the shot-mining pipeline lands in a later phase.)"))
+            ContentUnavailableView(query.isEmpty ? "Search for stock shots" : "No stock shots",
+                systemImage: "square.grid.3x3",
+                description: Text(query.isEmpty
+                    ? "Type a topic — e.g. “city”, “ocean”, “factory” — to pull candidate shots from across the public-domain archive. Tap one to add it."
+                    : "No clippable public-domain shots matched “\(query)”. Try a broader topic."))
                 .padding(.top, 60)
         } else {
             LazyVGrid(columns: cols, spacing: 16) {
@@ -168,7 +171,15 @@ struct ClipBrowserSheet: View {
             }
             results = raw
         case .stock:
-            stock = StockIndex(path: StockIndex.bestURL)?.query(query) ?? []
+            // Prefer the CI-built scene-detected index when it's present; otherwise generate shots
+            // LIVE from the FULL catalog by topic — far more, and topic-relevant, than the old
+            // 280-film sample (#7).
+            if FileManager.default.fileExists(atPath: StockIndex.indexURL.path),
+               let idx = StockIndex(path: StockIndex.indexURL) {
+                stock = idx.query(query)
+            } else {
+                stock = StockShots.live(topic: query, store: store)
+            }
         }
     }
 }

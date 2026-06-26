@@ -88,6 +88,41 @@ final class StockIndex {
     }
 }
 
+// MARK: - Live stock shots from the FULL catalog (owner #7)
+
+// Generates stock shots ON THE FLY from the whole catalog by topic — far more, and genuinely
+// topic-relevant, than the old 280-film LIKE sample. A topic runs the catalog's FTS search
+// (title/synopsis/subjects/people); each clippable match yields a few spread candidate windows.
+// This is what makes stock "extensive" for topic-based importing; the CI-built scene-detected
+// clips.sqlite (when present) is still preferred for true cut boundaries.
+enum StockShots {
+    private static let fractions = [0.15, 0.38, 0.6, 0.82]
+
+    @MainActor
+    static func live(topic: String, store: AppStore, maxItems: Int = 100) -> [StockShot] {
+        let q = topic.trimmingCharacters(in: .whitespaces)
+        let items = (q.isEmpty ? store.browse(sort: .popular, limit: maxItems * 2) : store.search(q))
+            .filter { $0.isClippable }
+            .prefix(maxItems)
+        var out: [StockShot] = []
+        for item in items {
+            guard let url = item.videoURLParsed else { continue }
+            let tags = (item.genres + Array(item.subjects.prefix(2)))
+                .map { $0.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) }
+                .filter { !$0.isEmpty && $0.count <= 22 && !$0.contains(":") && !$0.contains(";") }
+            let dur = item.runtimeSeconds.map(Double.init) ?? 180
+            let picks = dur > 60 ? fractions : [0.2]
+            for (k, fr) in picks.enumerated() {
+                let inS = max(0, min(dur - 9, dur * fr))
+                out.append(StockShot(id: "\(item.archiveID)#\(k)", archiveID: item.archiveID,
+                                     sourceURL: url, startSeconds: inS, endSeconds: inS + 8,
+                                     tags: Array(tags.prefix(4)), title: item.title))
+            }
+        }
+        return out
+    }
+}
+
 // MARK: - Sample index builder (placeholder until the CI shot-mining pipeline)
 
 enum StockIndexBuilder {
@@ -99,8 +134,8 @@ enum StockIndexBuilder {
     /// detected shot boundaries; the sample has placeholder windows. Both use the same schema.
     @MainActor
     static func ensureIndex(store: AppStore) async {
-        if await downloadPublishedIndex() { return }       // real shots
-        buildSampleIfNeeded(store: store)                  // fallback
+        _ = await downloadPublishedIndex()   // real scene-detected shots if available; else the
+                                             // browser generates shots LIVE from the catalog (#7).
     }
 
     /// Download + inflate the published clips.sqlite.zz (raw DEFLATE, Decision 019) into indexURL.
