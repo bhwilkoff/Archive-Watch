@@ -715,14 +715,17 @@ final class EditorModel {
     /// through every clip, and is frame-identical to the export.
     func rebuildPreview() async {
         let timelineClips = clips
+        let wasPlaying = isPlaying        // a recompose (e.g. deleting a clip) should keep playing
         guard !timelineClips.isEmpty else {
             player.replaceCurrentItem(with: nil); return
         }
-        // Show "Preparing clips…" only if the rebuild is actually slow (a cold cache). A rebuild
-        // that reuses already-cached windows is near-instant and must not flash the overlay.
+        // Show "Preparing clips…" ONLY while a clip is genuinely downloading/encoding. A recompose
+        // from already-cached windows (deleting a clip, reordering, trimming inside the cached window)
+        // leaves every remaining clip .ready, so the overlay never flashes and reviewing stays fluid.
         let overlay = Task { @MainActor [weak self] in
             try? await Task.sleep(for: .milliseconds(300))
-            if !Task.isCancelled { self?.isBuildingPreview = true }
+            guard let self, !Task.isCancelled else { return }
+            if self.clips.contains(where: { self.clipPrep[$0.id] == .caching }) { self.isBuildingPreview = true }
         }
         defer { overlay.cancel(); isBuildingPreview = false }
 
@@ -817,6 +820,9 @@ final class EditorModel {
             }
             guard !Task.isCancelled, player.currentItem === item, item.status == .readyToPlay else { return }
             await player.seek(to: target, toleranceBefore: .zero, toleranceAfter: .zero)
+            // Keep playing across the swap (deleting a clip mid-playback should flow into the next),
+            // unless the playhead is now past the (shortened) timeline.
+            if wasPlaying, target.seconds < totalDuration - 0.05 { player.play() }
         } catch {
             // Leave the previous preview in place on a transient build failure.
         }
