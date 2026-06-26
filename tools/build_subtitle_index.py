@@ -117,7 +117,12 @@ def main() -> int:
     db = sqlite3.connect(args.out)
     db.execute("""CREATE TABLE IF NOT EXISTS cues(
         id TEXT PRIMARY KEY, archiveID TEXT, sourceURL TEXT,
-        startSeconds REAL, endSeconds REAL, text TEXT, title TEXT)""")
+        startSeconds REAL, endSeconds REAL, text TEXT, title TEXT, imdbID TEXT)""")
+    # imdbID is the film-identity key the macOS supercut de-dups on (re-uploads of one film
+    # collapse to one result). Add it to a pre-existing index that predates the column.
+    cols = {r[1] for r in db.execute("PRAGMA table_info(cues)")}
+    if "imdbID" not in cols:
+        db.execute("ALTER TABLE cues ADD COLUMN imdbID TEXT")
     seen = {r[0] for r in db.execute("SELECT DISTINCT archiveID FROM cues")}
 
     done = 0
@@ -135,8 +140,9 @@ def main() -> int:
         if not cues:
             continue
         url, title = it["downloadURL"], it.get("title", "")
-        db.executemany("INSERT OR REPLACE INTO cues VALUES(?,?,?,?,?,?,?)",
-                       [(f"{aid}#{i}", aid, url, s, e, t, title) for i, s, e, t in cues])
+        imdb = it.get("imdbID") or ""
+        db.executemany("INSERT OR REPLACE INTO cues VALUES(?,?,?,?,?,?,?,?)",
+                       [(f"{aid}#{i}", aid, url, s, e, t, title, imdb) for i, s, e, t in cues])
         db.commit()
         done += 1
         if done % 50 == 0:

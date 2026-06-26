@@ -22,6 +22,18 @@ struct SubtitleCue: Identifiable, Hashable, Sendable {
     let endSeconds: Double
     let text: String
     let title: String
+    var imdbID: String = ""        // film identity for de-dup across re-uploads ("" if the index lacks it)
+
+    /// Canonical FILM key for de-duplication: the IMDb id when present, else a normalized title
+    /// (lowercased, year + punctuation stripped), else the archiveID. Re-uploads / derivatives of the
+    /// same film collapse to one; distinct films stay separate.
+    var filmKey: String {
+        if !imdbID.isEmpty { return "imdb:" + imdbID }
+        let t = title.lowercased()
+            .replacingOccurrences(of: "\\([0-9]{4}\\)", with: "", options: .regularExpression)
+            .components(separatedBy: CharacterSet.alphanumerics.inverted).joined()
+        return t.isEmpty ? archiveID : "t:" + t
+    }
 
     var durationSeconds: Double { max(0.4, endSeconds - startSeconds) }
     var timecode: String { String(format: "%d:%02d", Int(startSeconds) / 60, Int(startSeconds) % 60) }
@@ -43,6 +55,7 @@ struct SubtitleCue: Identifiable, Hashable, Sendable {
 final class SubtitleIndex: @unchecked Sendable {
     private var handle: OpaquePointer?
     private let dbQueue = DispatchQueue(label: "com.bhwilkoff.archivewatch.subtitle-index")
+    private let hasIMDB: Bool      // older published indexes predate the imdbID column
 
     nonisolated private static var dir: URL {
         let base = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
@@ -65,6 +78,8 @@ final class SubtitleIndex: @unchecked Sendable {
         // (the crash signature) instead of a recoverable SQLITE_CORRUPT. busy_timeout lets a query
         // wait out the brief RW lock when ensureLookupIndex is creating the index.
         sqlite3_exec(handle, "PRAGMA mmap_size=0; PRAGMA busy_timeout=3000;", nil, nil, nil)
+        // Detect the optional imdbID column (newer indexes) so search can de-dup by film identity.
+        hasIMDB = sqlite3_exec(handle, "SELECT imdbID FROM cues LIMIT 0", nil, nil, nil) == SQLITE_OK
     }
     deinit { sqlite3_close(handle) }   // no concurrent access at dealloc (ARC holds self through queries)
 
@@ -80,8 +95,9 @@ final class SubtitleIndex: @unchecked Sendable {
         let q = phrase.trimmingCharacters(in: .whitespaces)
         guard !q.isEmpty else { return [] }
         return dbQueue.sync {
+            let imdbCol = hasIMDB ? "imdbID" : "''"
             let sql = """
-                SELECT id,archiveID,sourceURL,startSeconds,endSeconds,text,title FROM cues
+                SELECT id,archiveID,sourceURL,startSeconds,endSeconds,text,title,\(imdbCol) FROM cues
                 WHERE text LIKE ?1 ORDER BY (endSeconds-startSeconds) ASC LIMIT \(limit * 4)
                 """
             var stmt: OpaquePointer?
@@ -96,7 +112,8 @@ final class SubtitleIndex: @unchecked Sendable {
                 let text = str(5)
                 guard Self.isConfident(text: text, start: start, end: end) else { continue }
                 out.append(SubtitleCue(id: str(0), archiveID: str(1), sourceURL: url,
-                                       startSeconds: start, endSeconds: end, text: text, title: str(6)))
+                                       startSeconds: start, endSeconds: end, text: text,
+                                       title: str(6), imdbID: str(7)))
                 if out.count >= limit { break }
             }
             return out
@@ -328,10 +345,10 @@ enum SubtitleIndexBuilder {
         sqlite3_exec(db, """
             CREATE TABLE IF NOT EXISTS cues(
               id TEXT PRIMARY KEY, archiveID TEXT, sourceURL TEXT,
-              startSeconds REAL, endSeconds REAL, text TEXT, title TEXT);
+              startSeconds REAL, endSeconds REAL, text TEXT, title TEXT, imdbID TEXT);
             CREATE INDEX IF NOT EXISTS idx_cues_aid ON cues(archiveID, startSeconds);
             """, nil, nil, nil)
-        let insert = "INSERT OR REPLACE INTO cues VALUES(?,?,?,?,?,?,?)"
+        let insert = "INSERT OR REPLACE INTO cues VALUES(?,?,?,?,?,?,?,?)"
         var stmt: OpaquePointer?
         guard sqlite3_prepare_v2(db, insert, -1, &stmt, nil) == SQLITE_OK else { return }
         defer { sqlite3_finalize(stmt) }
@@ -353,6 +370,7 @@ enum SubtitleIndexBuilder {
                 sqlite3_bind_double(stmt, 5, cue.1)
                 sqlite3_bind_text(stmt, 6, cue.2, -1, SQLITE_TRANSIENT_SUB)
                 sqlite3_bind_text(stmt, 7, item.title, -1, SQLITE_TRANSIENT_SUB)
+                sqlite3_bind_text(stmt, 8, item.imdbID ?? "", -1, SQLITE_TRANSIENT_SUB)
                 sqlite3_step(stmt)
             }
             sqlite3_exec(db, "COMMIT", nil, nil, nil)

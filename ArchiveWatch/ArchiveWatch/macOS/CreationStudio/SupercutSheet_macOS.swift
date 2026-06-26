@@ -339,10 +339,13 @@ struct SupercutSheet: View {
         Task {
             // Run the LIKE scan OFF the main thread so the UI stays responsive.
             let found = await Task.detached {
-                // De-dupe to ONE result per film so the list reflects how many distinct examples we
-                // actually have (results are shortest-cue first → keep the most precise per film).
+                // De-dupe to ONE result per FILM (by IMDb id, else normalized title) — NOT per upload.
+                // The same scene was showing up many times from re-uploads / derivatives of the same
+                // title; collapsing on film identity keeps one tight example per distinct film. Results
+                // are shortest-cue first, so the kept cue is the most precise quote. Over-fetch so
+                // enough distinct films survive the collapse.
                 var seen = Set<String>(), deduped: [SubtitleCue] = []
-                for cue in index.search(p, limit: 400) where seen.insert(cue.archiveID).inserted {
+                for cue in index.search(p, limit: 600) where seen.insert(cue.filmKey).inserted {
                     deduped.append(cue)
                 }
                 return Array(deduped.prefix(200))
