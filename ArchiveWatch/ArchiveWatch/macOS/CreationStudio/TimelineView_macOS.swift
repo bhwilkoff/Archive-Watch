@@ -36,7 +36,7 @@ struct ClipTimelineView: NSViewRepresentable {
             primaryID: model.selection.id,
             playhead: model.playheadSeconds, thumbnails: model.thumbnails,
             totalDuration: model.totalDuration, prep: model.clipPrep, markers: model.markers,
-            overlays: model.textOverlays, audioClips: model.audioClips)
+            overlays: model.textOverlays, audioClips: model.audioClips, isPlaying: model.isPlaying)
         context.coordinator.content?.render(state)
     }
 
@@ -57,6 +57,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
         let markers: [Double]
         var overlays: [TextOverlay] = []
         var audioClips: [AudioClip] = []
+        var isPlaying = false                // drives auto-scroll-to-follow-playhead
     }
 
     private let model: EditorModel
@@ -152,6 +153,24 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
             rebuildLayers()
         }
         positionPlayhead()
+        if s.isPlaying { followPlayhead() }
+    }
+
+    /// During playback, scroll the timeline so the playhead stays in view (centered) instead of
+    /// marching off the right edge and forcing the user to scroll by hand. Only while playing, so a
+    /// paused user can scrub/scroll freely; clamped to the content so it never overscrolls.
+    private func followPlayhead() {
+        guard let scroll = enclosingScrollView else { return }
+        let clip = scroll.contentView
+        let visibleW = clip.bounds.width
+        guard visibleW > 0, bounds.width > visibleW else { return }   // nothing to scroll if it all fits
+        let px = x(state.playhead)
+        let maxX = bounds.width - visibleW
+        let targetX = min(maxX, max(0, px - visibleW / 2))            // keep the playhead centered
+        if abs(clip.bounds.origin.x - targetX) > 0.5 {
+            clip.scroll(to: NSPoint(x: targetX, y: clip.bounds.origin.y))
+            scroll.reflectScrolledClipView(clip)
+        }
     }
 
     private func structuralSignature(_ s: State) -> Int {
