@@ -133,6 +133,10 @@ final class EditorModel {
         return s
     }
     private func markFailed(_ id: UUID, _ reason: String) { clipPrep[id] = .failed(reason) }
+    /// A clip whose source HAS video but didn't cache this pass stays "preparing" (it retries) — it is
+    /// NEVER shown as a hard failure. Only a source with literally no video track is `.failed`. This is
+    /// the "if it's in the DB, it can go in the supercut — no persistent error" guarantee.
+    private func markPreparing(_ id: UUID) { if clipPrep[id] != .ready { clipPrep[id] = .caching } }
     nonisolated static func reason(for error: Error) -> String {
         if let code = urlErrorCode(in: error as NSError) {
             switch code {
@@ -463,8 +467,10 @@ final class EditorModel {
     private func refineWindow(for proxy: ProxyClip) async throws -> (url: URL, windowStart: Double) {
         let inS = proxy.sourceRange.start.seconds, outS = proxy.sourceRange.endSeconds
         let wStart = max(0, inS - Self.cacheHandle)
+        // The verify pass uses the small proxy too — faster, and phrase-verification needs no full res.
+        let src = await ProxySource.proxyURL(archiveID: proxy.catalogItemID, fallback: proxy.sourceURL)
         let url = try await CacheCoordinator.window(
-            catalogItemID: proxy.catalogItemID, sourceURL: proxy.sourceURL,
+            catalogItemID: proxy.catalogItemID, sourceURL: src,
             startSeconds: wStart, endSeconds: outS + Self.cacheHandle)
         return (url, wStart)
     }
@@ -833,9 +839,13 @@ final class EditorModel {
                         // Count failures per source: give up (stop re-encoding on every rebuild) only
                         // after REPEATED failures, or a definitively-unrecoverable error. Most errors
                         // are transient (the source plays fine) and a retry succeeds.
+                        let permanent = ClipCacheService.isPermanent(error)
                         await self.recordFailure(clip.sourceURL.absoluteString, reason: reason,
-                                                 definitelyPermanent: ClipCacheService.isPermanent(error))
-                        await self.markFailed(clip.id, reason)
+                                                 definitelyPermanent: permanent)
+                        // Only a genuinely unclippable source (no video track) shows a hard failure;
+                        // everything else stays "preparing" and retries — never a stuck red error.
+                        if permanent { await self.markFailed(clip.id, reason) }
+                        else { await self.markPreparing(clip.id) }
                         return (clip.id, nil)
                     }
                 }
@@ -849,19 +859,20 @@ final class EditorModel {
         }
         if Task.isCancelled { return }
 
-        let failedClips = timelineClips.filter {
-            if case .failed = clipPrep[$0.id] { return true }; return false
+        // Clips that didn't resolve this pass and aren't genuinely unclippable (no video track) — they
+        // are still "preparing" and will retry. Drive environmental/retry off THIS (resolution), not a
+        // hard `.failed` state, so a transient miss never surfaces as a stuck error.
+        let retryable = timelineClips.filter {
+            resolvedByID[$0.id] == nil && permanentlyFailed[$0.sourceURL.absoluteString] == nil
         }
-        // ENVIRONMENTAL outage: EVERY clip failed and nothing cached → it's archive.org refusing the
-        // connection (it rate-limits an IP with too many connections) or you're offline — NOT the clips.
-        // Don't let it permanently fail clips (clear the streaks so they recover automatically), show a
+        // ENVIRONMENTAL outage: NOTHING cached and clips remain → archive.org refusing connections
+        // (per-IP rate limit) or you're offline — NOT the clips. Clear streaks so they recover, show a
         // clear "can't reach the server" message, and BACK OFF hard (hammering only prolongs the block).
-        let environmental = resolvedByID.isEmpty && !failedClips.isEmpty
+        let environmental = resolvedByID.isEmpty && !retryable.isEmpty
         if environmental {
-            for c in failedClips { sourceFailCount[c.sourceURL.absoluteString] = nil }
-            previewBlockedReason = failedClips.compactMap {
-                if case .failed(let r) = clipPrep[$0.id] { return r }; return nil
-            }.first ?? "couldn’t reach archive.org"
+            for c in retryable { sourceFailCount[c.sourceURL.absoluteString] = nil }
+            previewBlockedReason = retryable.compactMap { sourceFailReason[$0.sourceURL.absoluteString] }
+                .first ?? "couldn’t reach archive.org"
             if transientRetries < 4 {
                 transientRetries += 1
                 let delay = Double(transientRetries) * 8        // 8s, 16s, 24s, 32s — give the IP time to un-throttle
@@ -895,9 +906,9 @@ final class EditorModel {
         }
         if durChanged { relayout() }   // realign blocks to the real durations — the composition already matches
 
-        // Auto-retry the remaining TRANSIENT failures (a cold node, a re-encode hiccup). Back off
-        // (2s/4s/6s) and stop once nothing fails; clips that resolve clear themselves above.
-        let failedIDs = failedClips.filter { resolvedByID[$0.id] == nil && permanentlyFailed[$0.sourceURL.absoluteString] == nil }
+        // Auto-retry the remaining TRANSIENT misses (a cold node, a passthrough/re-encode hiccup). Back
+        // off (2s/4s/6s) and stop once nothing's left; clips that resolve clear themselves above.
+        let failedIDs = retryable
         if failedIDs.isEmpty {
             transientRetries = 0
         } else if transientRetries < 3 {
@@ -980,8 +991,10 @@ final class EditorModel {
         } else {
             let wStart = max(0, inS - Self.cacheHandle)
             let wEnd = outS + Self.cacheHandle
+            // PREVIEW uses a small proxy derivative (≈10× less to download); export keeps full quality.
+            let previewSrc = await ProxySource.proxyURL(archiveID: clip.catalogItemID, fallback: clip.sourceURL)
             let url = try await CacheCoordinator.window(
-                catalogItemID: clip.catalogItemID, sourceURL: clip.sourceURL,
+                catalogItemID: clip.catalogItemID, sourceURL: previewSrc,
                 startSeconds: wStart, endSeconds: wEnd)
             if Task.isCancelled { throw CancellationError() }
             // The cache clamps the window to the source's real duration, so trust the FILE's

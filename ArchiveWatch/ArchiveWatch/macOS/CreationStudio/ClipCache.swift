@@ -42,10 +42,22 @@ enum ProjectMediaCache {
     /// Stable local path for a SOURCE window, keyed by source id + the cached span's start/end
     /// ms — so a generous window (clip ± handles) is cached once and reused while the user
     /// trims inside it (no re-cache per trim).
-    static func windowURL(catalogItemID: String, startSeconds: Double, endSeconds: Double) -> URL {
+    static func windowURL(catalogItemID: String, sourceURL: URL,
+                          startSeconds: Double, endSeconds: Double) -> URL {
         let inMs = Int((startSeconds * 1000).rounded()), outMs = Int((endSeconds * 1000).rounded())
         let safeID = catalogItemID.replacingOccurrences(of: "/", with: "_")
-        return directory.appendingPathComponent("win-\(safeID)-\(inMs)-\(outMs).mp4")
+        // Key on the SOURCE too: the preview caches a small proxy derivative while export caches the
+        // full-quality source — same item + window, DIFFERENT files. Without this the low-res proxy
+        // window would be reused for export.
+        return directory.appendingPathComponent("win-\(safeID)-\(sourceTag(sourceURL))-\(inMs)-\(outMs).mp4")
+    }
+
+    /// Stable (cross-launch) short hash of a source URL — FNV-1a, so the cache survives relaunches
+    /// (Swift's Hashable is per-process salted and would needlessly re-cache every session).
+    private static func sourceTag(_ url: URL) -> String {
+        var h: UInt64 = 1469598103934665603
+        for b in url.absoluteString.utf8 { h = (h ^ UInt64(b)) &* 1099511628211 }
+        return String(h & 0xFFFFFFFF, radix: 16)
     }
 
     /// Cap the re-encoded-window cache at ~1.5 GB (LRU) and sweep orphaned staging files. The cache
@@ -93,6 +105,51 @@ enum ProjectMediaCache {
     }
 }
 
+// Resolves a SMALL proxy derivative for the PREVIEW path (export keeps the full-quality source).
+// archive.org auto-derives a tiny H.264 `<name>_512kb.mp4` (~240p) for most items; byte-ranging
+// THAT instead of the full uploader MP4 transfers ~10× less, which is the dominant cost of
+// preparing clips. The file list comes from the metadata API (one small cached request per item).
+@MainActor
+enum ProxySource {
+    private static var resolved: [String: URL] = [:]              // archiveID → proxy (or fallback)
+    private static var inFlight: [String: Task<URL, Never>] = [:]
+
+    /// The smallest playable H.264 derivative for `archiveID`, else `fallback` (the full source).
+    /// Cached + coalesced so 20 clips from a few films issue at most one metadata fetch each.
+    static func proxyURL(archiveID: String, fallback: URL) async -> URL {
+        if let u = resolved[archiveID] { return u }
+        if let t = inFlight[archiveID] { return await t.value }
+        let t = Task { () -> URL in (await resolve(archiveID)) ?? fallback }
+        inFlight[archiveID] = t
+        let url = await t.value
+        inFlight[archiveID] = nil
+        resolved[archiveID] = url
+        return url
+    }
+
+    private static func resolve(_ id: String) async -> URL? {
+        guard let enc = id.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
+              let metaURL = URL(string: "https://archive.org/metadata/\(enc)/files"),
+              let data = await StudioNet.data(from: metaURL),   // capped session — never storms the host
+              let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+              let files = json["result"] as? [[String: Any]] else { return nil }
+        var best: (name: String, size: Int)?
+        for f in files {
+            guard let name = f["name"] as? String else { continue }
+            let lower = name.lowercased()
+            guard lower.hasSuffix(".mp4") else { continue }
+            let fmt = (f["format"] as? String ?? "").lowercased()
+            // Only the SMALL auto-derivatives — never the (possibly huge) uploader/original mp4.
+            guard fmt.contains("512kb") || fmt == "h.264" || lower.hasSuffix(".ia.mp4") else { continue }
+            let size = Int(f["size"] as? String ?? "") ?? .max
+            if best == nil || size < best!.size { best = (name, size) }
+        }
+        guard let pick = best?.name,
+              let nameEnc = pick.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else { return nil }
+        return URL(string: "https://archive.org/download/\(enc)/\(nameEnc)")
+    }
+}
+
 // Coalesces concurrent requests for the SAME window into one cache task — so two overlapping
 // preview rebuilds (e.g. rapid edits) never download the same window twice.
 @MainActor
@@ -101,7 +158,7 @@ enum CacheCoordinator {
 
     static func window(catalogItemID: String, sourceURL: URL,
                        startSeconds: Double, endSeconds: Double) async throws -> URL {
-        let key = ProjectMediaCache.windowURL(catalogItemID: catalogItemID,
+        let key = ProjectMediaCache.windowURL(catalogItemID: catalogItemID, sourceURL: sourceURL,
                                               startSeconds: max(0, startSeconds),
                                               endSeconds: max(startSeconds + 0.1, endSeconds)).path
         if let existing = inFlight[key] { return try await existing.value }
@@ -139,7 +196,10 @@ enum ClipCacheService {
     /// RATE-LIMITS / refuses a client IP that opens too many simultaneous connections (error 61 /
     /// -1004) — which then breaks the whole app, not just the studio. 2 concurrent downloads plus the
     /// image loads stays under that ceiling. Shared by every caller, so total in-flight never exceeds this.
-    static let reencodeLimiter = ReencodeLimiter(2)
+    // Higher than the old 2: each clip is now a fast PASSTHROUGH COPY of a SMALL proxy derivative
+    // (far less CPU + far fewer bytes), so the pipeline can run more in parallel without storming
+    // archive.org. Still bounded so the per-IP main-host limit (the -1004 storm) isn't tripped.
+    static let reencodeLimiter = ReencodeLimiter(4)
     /// Per-attempt re-encode deadline. A healthy node finishes a window in seconds; 90s still tolerates
     /// a slow-but-progressing connection while failing a true stall far sooner than the old 150s.
     static let attemptTimeout = 90.0
@@ -179,7 +239,7 @@ enum ClipCacheService {
     static func cachedWindow(catalogItemID: String, sourceURL: URL,
                              startSeconds: Double, endSeconds: Double, attempts: Int = 2) async throws -> URL {
         let s = max(0, startSeconds), e = max(s + 0.1, endSeconds)
-        let out = ProjectMediaCache.windowURL(catalogItemID: catalogItemID, startSeconds: s, endSeconds: e)
+        let out = ProjectMediaCache.windowURL(catalogItemID: catalogItemID, sourceURL: sourceURL, startSeconds: s, endSeconds: e)
         if FileManager.default.fileExists(atPath: out.path) { return out }
 
         let range = CMTimeRange(start: CMTime(seconds: s, preferredTimescale: 600),
@@ -198,7 +258,7 @@ enum ClipCacheService {
                 // AVAssetExportSession has no resourceLoader and fails "Operation Stopped" (-11838)
                 // exactly there, which is why both export AND the cache-backed preview were broken.
                 try await withTimeout(attemptTimeout) {
-                    try await reencodeWindow(sourceURL: sourceURL, range: range, to: out)
+                    try await cacheOneWindow(sourceURL: sourceURL, range: range, to: out)
                 }
                 await reencodeLimiter.release()
                 if ProcessInfo.processInfo.environment["AW_CS_DIAG"] != nil {
@@ -218,6 +278,102 @@ enum ClipCacheService {
         FileHandle.standardError.write(Data(
             "AWCS CACHE FAIL \(catalogItemID) after \(attempts) tries: [\(er.domain) \(er.code) \(er.localizedDescription)]\n".utf8))
         throw lastError
+    }
+
+    /// Cache one window: try a fast PASSTHROUGH COPY (no decode/encode — just copy the compressed
+    /// H.264/AAC samples) first; fall back to a full re-encode only for sources passthrough can't
+    /// copy (MPEG-2 / H.265 / odd containers). Passthrough is ~10-50× cheaper on CPU AND can't
+    /// "fail to decode" (it never decodes), which is what removes both the slowness and the false
+    /// "cannot decode" failures on clips that actually play.
+    private static func cacheOneWindow(sourceURL: URL, range: CMTimeRange, to out: URL) async throws {
+        do {
+            try await copyWindow(sourceURL: sourceURL, range: range, to: out)
+            return
+        } catch {
+            if error is CancellationError { throw error }
+            if isPermanent(error) { throw error }          // no video track — re-encode won't help
+            // passthrough couldn't copy this codec/container — re-encode it (the slow but universal path).
+        }
+        try await reencodeWindow(sourceURL: sourceURL, range: range, to: out)
+    }
+
+    /// PASSTHROUGH copy of a SOURCE [start,end] window to a local faststart MP4 — copies compressed
+    /// samples (nil reader/writer settings) through the `ResilientStreamLoader` (Decision 021/031/034),
+    /// no decode/encode. The leading non-keyframe video samples are skipped so the file starts on a
+    /// sync frame (decodable); the generous cache handle means the exact in-point is always past that
+    /// first keyframe, so the visible clip is clean. Validated on real archive.org H.264 derivatives.
+    private static func copyWindow(sourceURL: URL, range: CMTimeRange, to out: URL) async throws {
+        let (srcAsset, loader) = ResilientStreamLoader.makeAsset(for: sourceURL)
+        guard let srcV = try await srcAsset.loadTracks(withMediaType: .video).first else {
+            throw CreationStudioError.noVideoTrack
+        }
+        let srcA = try? await srcAsset.loadTracks(withMediaType: .audio).first
+
+        let srcDur = (try? await srcV.load(.timeRange).duration) ?? range.end
+        let end = CMTimeMinimum(range.end, srcDur)
+        let clamped = CMTimeRange(start: range.start,
+                                  duration: CMTimeMaximum(CMTime(value: 1, timescale: 600), end - range.start))
+
+        // Zero-base the window so the reader yields [0, dur] (no retiming) — same trick as re-encode.
+        let comp = AVMutableComposition()
+        guard let cv = comp.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid) else {
+            throw CreationStudioError.noVideoTrack
+        }
+        try cv.insertTimeRange(clamped, of: srcV, at: .zero)
+        var ca: AVMutableCompositionTrack?
+        if let srcA, let track = comp.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid) {
+            try? track.insertTimeRange(clamped, of: srcA, at: .zero)
+            ca = track
+        }
+
+        let reader = try AVAssetReader(asset: comp)
+        let vOut = AVAssetReaderTrackOutput(track: cv, outputSettings: nil)   // nil = compressed passthrough
+        vOut.alwaysCopiesSampleData = false
+        guard reader.canAdd(vOut) else { throw CreationStudioError.cannotCreateExportSession }
+        reader.add(vOut)
+
+        let staging = out.deletingLastPathComponent()
+            .appendingPathComponent("staging-\(UUID().uuidString.prefix(8)).mp4")
+        try? FileManager.default.removeItem(at: staging)
+        let writer = try AVAssetWriter(outputURL: staging, fileType: .mp4)
+        writer.shouldOptimizeForNetworkUse = true
+
+        guard let vFmt = try await cv.load(.formatDescriptions).first else {
+            throw CreationStudioError.noVideoTrack
+        }
+        let vIn = AVAssetWriterInput(mediaType: .video, outputSettings: nil, sourceFormatHint: vFmt)
+        vIn.expectsMediaDataInRealTime = false
+        guard writer.canAdd(vIn) else { throw CreationStudioError.cannotCreateExportSession }
+        writer.add(vIn)
+
+        var pairs: [(AVAssetReaderTrackOutput, AVAssetWriterInput)] = [(vOut, vIn)]
+        if let ca, let aFmt = try? await ca.load(.formatDescriptions).first {
+            let aOut = AVAssetReaderTrackOutput(track: ca, outputSettings: nil)   // passthrough audio
+            aOut.alwaysCopiesSampleData = false
+            let aIn = AVAssetWriterInput(mediaType: .audio, outputSettings: nil, sourceFormatHint: aFmt)
+            aIn.expectsMediaDataInRealTime = false
+            if reader.canAdd(aOut), writer.canAdd(aIn) { reader.add(aOut); writer.add(aIn); pairs.append((aOut, aIn)) }
+        }
+
+        do {
+            // Track 0 (video) must start on a keyframe for passthrough to be decodable.
+            try await WindowReencoder(reader: reader, writer: writer, pairs: pairs,
+                                      loader: loader, dropLeadingNonSync: [0]).run()
+        } catch {
+            try? FileManager.default.removeItem(at: staging)
+            throw error
+        }
+        // Sanity-gate the copy: if keyframe-skipping left an empty/trackless file (no sync sample
+        // found, or a container the writer mishandled), DON'T cache it as good — throw so
+        // cacheOneWindow falls back to a real re-encode. Cheap to verify a local file.
+        let check = AVURLAsset(url: staging)
+        guard (try? await check.loadTracks(withMediaType: .video).first) != nil,
+              let d = try? await check.load(.duration), d.seconds > 0.1 else {
+            try? FileManager.default.removeItem(at: staging)
+            throw CreationStudioError.cannotCreateExportSession
+        }
+        try? FileManager.default.removeItem(at: out)
+        try FileManager.default.moveItem(at: staging, to: out)
     }
 
     /// Re-encode a SOURCE [start,end] window to a local faststart MP4, reading every byte through
@@ -354,11 +510,16 @@ private final class WindowReencoder: @unchecked Sendable {
     private let writer: AVAssetWriter
     private let pairs: [(AVAssetReaderTrackOutput, AVAssetWriterInput)]
     private let loader: ResilientStreamLoader?
+    /// Pair indices that must begin on a sync sample (passthrough video) — leading non-keyframe
+    /// samples are dropped so the copied stream is decodable from its first frame.
+    private let dropLeadingNonSync: Set<Int>
     private let q = DispatchQueue(label: "com.bhwilkoff.archivewatch.window-reencode")
 
     init(reader: AVAssetReader, writer: AVAssetWriter,
-         pairs: [(AVAssetReaderTrackOutput, AVAssetWriterInput)], loader: ResilientStreamLoader?) {
+         pairs: [(AVAssetReaderTrackOutput, AVAssetWriterInput)], loader: ResilientStreamLoader?,
+         dropLeadingNonSync: Set<Int> = []) {
         self.reader = reader; self.writer = writer; self.pairs = pairs; self.loader = loader
+        self.dropLeadingNonSync = dropLeadingNonSync
     }
 
     func run() async throws {
@@ -381,6 +542,8 @@ private final class WindowReencoder: @unchecked Sendable {
     private func pump(_ index: Int) async {
         let once = ResumeOnce()
         let input = pairs[index].1
+        let needsSyncStart = dropLeadingNonSync.contains(index)
+        let started = Flag()                 // serial q → no lock needed
         await withCheckedContinuation { (cont: CheckedContinuation<Void, Never>) in
             input.requestMediaDataWhenReady(on: q) {
                 let output = self.pairs[index].0
@@ -390,6 +553,12 @@ private final class WindowReencoder: @unchecked Sendable {
                         input.markAsFinished(); once.fire { cont.resume() }; return
                     }
                     if let sample = output.copyNextSampleBuffer() {
+                        if needsSyncStart && !started.value {
+                            let att = CMSampleBufferGetSampleAttachmentsArray(sample, createIfNecessary: false) as? [[CFString: Any]]
+                            let notSync = (att?.first?[kCMSampleAttachmentKey_NotSync] as? Bool) ?? false
+                            if notSync { continue }      // drop until the first keyframe
+                            started.value = true
+                        }
                         if !input.append(sample) {
                             input.markAsFinished(); once.fire { cont.resume() }; return
                         }
@@ -401,6 +570,9 @@ private final class WindowReencoder: @unchecked Sendable {
         }
     }
 }
+
+/// Mutable boolean for the serial-queue pump (no locking — accessed only on the writer's queue).
+private final class Flag: @unchecked Sendable { var value = false }
 
 /// One-shot resume guard for a continuation driven by repeated callbacks.
 private final class ResumeOnce: @unchecked Sendable {
