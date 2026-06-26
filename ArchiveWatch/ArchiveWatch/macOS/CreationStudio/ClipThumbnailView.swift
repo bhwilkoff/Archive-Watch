@@ -51,16 +51,28 @@ struct ClipThumbnailView: View {
 
     @State private var frame: NSImage?
 
+    /// The UNIVERSAL archive.org item thumbnail — exists for EVERY item (a representative frame),
+    /// so a clip is never blank even when it has no `.thumbs/` strip AND no (or a dead) designed
+    /// poster. This is the same `services/img` fallback the main app layers behind every poster.
+    private var universalThumb: URL? {
+        let id = catalogItemID.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? catalogItemID
+        return URL(string: "https://archive.org/services/img/\(id)")
+    }
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: corner).fill(.quaternary)
             if let frame {
+                // The clip's actual in-point frame (best).
                 Image(nsImage: frame).resizable().scaledToFill()
-            } else if let fallbackPoster {
-                AsyncImage(url: fallbackPoster) { $0.resizable().scaledToFill() }
-                    placeholder: { Image(systemName: "film").imageScale(.small).foregroundStyle(.tertiary) }
             } else {
-                Image(systemName: "film").imageScale(.small).foregroundStyle(.tertiary)
+                // Designed poster when present + alive; else the universal archive frame; else an icon.
+                // (AsyncImage shows its placeholder for a nil URL or a failed load, so a missing/dead
+                // designed poster cascades to the always-available services/img.)
+                AsyncImage(url: fallbackPoster) { $0.resizable().scaledToFill() } placeholder: {
+                    AsyncImage(url: universalThumb) { $0.resizable().scaledToFill() }
+                        placeholder: { Image(systemName: "film").imageScale(.small).foregroundStyle(.tertiary) }
+                }
             }
         }
         .clipShape(RoundedRectangle(cornerRadius: corner))
