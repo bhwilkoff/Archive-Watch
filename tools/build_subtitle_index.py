@@ -17,6 +17,7 @@ import json
 import re
 import sqlite3
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -100,6 +101,9 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=4000, help="captioned films to add this run")
     ap.add_argument("--out", default=str(REPO / "subtitle.sqlite"))
+    ap.add_argument("--concurrency", type=int, default=8,
+                    help="VTT downloads to fetch in PARALLEL (the build is network-bound — the "
+                         "per-film serial fetch was the bottleneck, not the row count).")
     args = ap.parse_args()
 
     def human_vtt(it):
@@ -115,6 +119,11 @@ def main() -> int:
     items.sort(key=lambda it: it.get("popularityScore") or it.get("downloads") or 0, reverse=True)
 
     db = sqlite3.connect(args.out)
+    # WAL + NORMAL is crash-safe AND fast; the slow part was a per-film fsync (commit-per-film) on
+    # top of serial downloads. We batch commits below and checkpoint at the end.
+    db.execute("PRAGMA journal_mode=WAL")
+    db.execute("PRAGMA synchronous=NORMAL")
+    db.execute("PRAGMA temp_store=MEMORY")
     db.execute("""CREATE TABLE IF NOT EXISTS cues(
         id TEXT PRIMARY KEY, archiveID TEXT, sourceURL TEXT,
         startSeconds REAL, endSeconds REAL, text TEXT, title TEXT, imdbID TEXT)""")
@@ -125,33 +134,50 @@ def main() -> int:
         db.execute("ALTER TABLE cues ADD COLUMN imdbID TEXT")
     seen = {r[0] for r in db.execute("SELECT DISTINCT archiveID FROM cues")}
 
-    done = 0
-    for it in items:
-        if done >= args.limit:
-            break
-        aid = it["archiveID"]
-        if aid in seen:
-            continue
+    # The network fetch + parse is the cost and is thread-safe (no DB) — run it in PARALLEL on a
+    # worker pool, sliding-window so we stop submitting once `limit` films have been indexed. DB
+    # writes stay single-threaded in this loop; commits are batched (not per-film).
+    def process(it):
         vtt_url = human_vtt(it)
         vtt = fetch(vtt_url) if vtt_url else None
         if not vtt:
-            continue
+            return None
         cues = [(i, s, e, t) for i, (s, e, t) in enumerate(parse_vtt(vtt)) if _confident(t, s, e)]
-        if not cues:
-            continue
-        url, title = it["downloadURL"], it.get("title", "")
-        imdb = it.get("imdbID") or ""
-        db.executemany("INSERT OR REPLACE INTO cues VALUES(?,?,?,?,?,?,?,?)",
-                       [(f"{aid}#{i}", aid, url, s, e, t, title, imdb) for i, s, e, t in cues])
-        db.commit()
-        done += 1
-        if done % 50 == 0:
-            print(f"[subindex] {done} films…", flush=True)
+        return (it, cues) if cues else None
+
+    candidates = [it for it in items if it["archiveID"] not in seen]
+    done = pending = 0
+    workers = max(1, args.concurrency)
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        inflight, idx = set(), 0
+        while idx < len(candidates) and len(inflight) < workers:       # prime the pool
+            inflight.add(ex.submit(process, candidates[idx])); idx += 1
+        while inflight and done < args.limit:
+            fut = next(as_completed(inflight))
+            inflight.discard(fut)
+            res = fut.result()
+            if res:
+                it, cues = res
+                aid, url = it["archiveID"], it["downloadURL"]
+                title, imdb = it.get("title", ""), it.get("imdbID") or ""
+                db.executemany("INSERT OR REPLACE INTO cues VALUES(?,?,?,?,?,?,?,?)",
+                               [(f"{aid}#{i}", aid, url, s, e, t, title, imdb) for i, s, e, t in cues])
+                done += 1; pending += 1
+                if pending >= 100:
+                    db.commit(); pending = 0
+                    print(f"[subindex] {done} films…", flush=True)
+            if idx < len(candidates) and done < args.limit:            # keep the pool full
+                inflight.add(ex.submit(process, candidates[idx])); idx += 1
+        ex.shutdown(wait=False, cancel_futures=True)
+    db.commit()
 
     # Per-film lookup index so the macOS supercut's sentenceRange/wordRange queries
     # (WHERE archiveID=…) don't full-scan the corpus.
     db.execute("CREATE INDEX IF NOT EXISTS idx_cues_aid ON cues(archiveID, startSeconds)")
     db.commit()
+    # Fold the WAL back into the main file and reset to a standard journal so the PUBLISHED file is
+    # a single, whole .sqlite (no -wal/-shm sidecars) for the read-only macOS consumer.
+    db.execute("PRAGMA journal_mode=DELETE")
 
     n = db.execute("SELECT count(*) FROM cues").fetchone()[0]
     print(f"[subindex] +{done} films this run; {n} cues total in {args.out}")

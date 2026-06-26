@@ -61,6 +61,15 @@ final class PublishService {
     var phase: Phase = .idle
     var hasCredentials: Bool { IAS3Keychain.load() != nil }
 
+    /// One public-domain source that went into the edit, kept so the uploaded item links back to
+    /// the originals (owner #10) — archivewatch.org (preferred) and the archive.org item page.
+    struct Source: Sendable, Hashable {
+        let id: String          // archive.org item id == our catalogItemID
+        let title: String
+        var archiveWatchURL: String { "https://archivewatch.org/item/\(id)" }
+        var archiveOrgURL: String { "https://archive.org/details/\(id)" }
+    }
+
     static let s3 = "https://s3.us.archive.org"
 
     /// A valid, unique archive.org identifier from a title: ascii-slug + an "archivewatch" tag
@@ -76,13 +85,26 @@ final class PublishService {
         return "archivewatch-\(slug)-\(salt)"
     }
 
+    private static func htmlEscape(_ s: String) -> String {
+        s.replacingOccurrences(of: "&", with: "&amp;")
+         .replacingOccurrences(of: "<", with: "&lt;")
+         .replacingOccurrences(of: ">", with: "&gt;")
+    }
+
     /// The metadata headers for the create-item PUT (pure — verified by the self-test).
-    static func metaHeaders(title: String, description: String, sources: [String]) -> [String: String] {
+    static func metaHeaders(title: String, description: String, sources: [Source]) -> [String: String] {
         var desc = description.isEmpty ? "A fan edit assembled in Archive Watch." : description
         if !sources.isEmpty {
-            desc += "\n\nSources (public domain, via the Internet Archive):\n" + sources.joined(separator: "\n")
+            // Clickable links back to every public-domain source — archivewatch.org (preferred)
+            // and the archive.org item. archive.org renders HTML in descriptions; <br> (not "\n")
+            // also keeps the value a valid single-line HTTP header.
+            let lines = sources.map { s -> String in
+                let name = htmlEscape(s.title.isEmpty ? s.id : s.title)
+                return "<a href=\"\(s.archiveWatchURL)\">\(name)</a> (<a href=\"\(s.archiveOrgURL)\">archive.org</a>)"
+            }
+            desc += "<br><br>Sources (public domain):<br>" + lines.joined(separator: "<br>")
         }
-        return [
+        var headers: [String: String] = [
             "x-amz-auto-make-bucket": "1",
             "x-archive-meta-mediatype": "movies",
             "x-archive-meta-collection": "opensource_movies",
@@ -91,14 +113,22 @@ final class PublishService {
             "x-archive-meta-subject": "Archive Watch; fan edit; public domain; remix",
             "x-archive-meta-licenseurl": "https://creativecommons.org/publicdomain/zero/1.0/",
             "x-archive-meta-description": desc,
-            "x-archive-meta-originalurl": "https://archivewatch.org",
+            // Point provenance at the first source's archivewatch.org page (preferred), else the app.
+            "x-archive-meta-originalurl": sources.first?.archiveWatchURL ?? "https://archivewatch.org",
         ]
+        // Each source ALSO as a structured, multi-valued `source` field (archive.org indexed
+        // metadata, x-archive-metaNN-<field>) so the item links back to the originals even outside
+        // the description text — exactly where archive.org surfaces a "Source" field.
+        for (i, s) in sources.enumerated() {
+            headers[String(format: "x-archive-meta%02d-source", i + 1)] = s.archiveWatchURL
+        }
+        return headers
     }
 
     static func auth(_ c: (access: String, secret: String)) -> String { "LOW \(c.access):\(c.secret)" }
 
     /// Upload `fileURL` to a new archive.org item. Returns its details URL.
-    func publish(fileURL: URL, title: String, description: String, sources: [String], salt: String) async throws -> URL {
+    func publish(fileURL: URL, title: String, description: String, sources: [Source], salt: String) async throws -> URL {
         guard let creds = IAS3Keychain.load() else { phase = .failed(PublishError.noCredentials.errorDescription!); throw PublishError.noCredentials }
         let id = Self.identifier(for: title, salt: salt)
         let authHeader = Self.auth(creds)
@@ -144,7 +174,8 @@ final class PublishService {
         log("upload URL = \(s3)/\(id)/My_Edit.mp4")
         log("auth = \(auth((access: "ACCESS", secret: "SECRET")))")
         for (k, v) in metaHeaders(title: "My Edit", description: "A test.",
-                                  sources: ["https://archive.org/details/foo", "https://archive.org/details/bar"]).sorted(by: { $0.key < $1.key }) {
+                                  sources: [.init(id: "foo", title: "Foo Film"),
+                                            .init(id: "bar", title: "Bar Reel")]).sorted(by: { $0.key < $1.key }) {
             log("  \(k): \(v.replacingOccurrences(of: "\n", with: " ⏎ "))")
         }
         log("hasCredentials (Keychain) = \(IAS3Keychain.load() != nil)")

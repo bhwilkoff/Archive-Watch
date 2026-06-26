@@ -20,14 +20,12 @@ struct PublishSheet: View {
 
     enum Stage: Equatable { case form, exporting, publishing, done, failed(String) }
 
-    // One attribution line per DISTINCT source title in the cut — the clip's title plus its
-    // archive.org page — so every public-domain source that makes up the edit is credited (owner #10).
-    private var sources: [String] {
-        var seen = Set<String>(), out: [String] = []
+    // One DISTINCT source per cut — its title + id — so the uploaded item links back to every
+    // public-domain original on archivewatch.org (preferred) and archive.org (owner #10).
+    private var sources: [PublishService.Source] {
+        var seen = Set<String>(), out: [PublishService.Source] = []
         for c in project.timeline.clips where seen.insert(c.catalogItemID).inserted {
-            let title = c.label.trimmingCharacters(in: .whitespaces)
-            let url = "https://archive.org/details/\(c.catalogItemID)"
-            out.append(title.isEmpty ? url : "\(title) — \(url)")
+            out.append(.init(id: c.catalogItemID, title: c.label.trimmingCharacters(in: .whitespaces)))
         }
         return out
     }
