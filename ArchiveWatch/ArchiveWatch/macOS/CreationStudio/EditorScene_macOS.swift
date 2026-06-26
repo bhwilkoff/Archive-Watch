@@ -322,16 +322,22 @@ private struct WindowFitter: NSViewRepresentable {
 private struct TextOverlayPreview: View {
     let model: EditorModel
     let renderSize: RenderSize
+    // Live drag position (canvas coords) for the overlay being dragged. Driving `.position` from
+    // LOCAL @State guarantees the text follows the cursor immediately while PAUSED — the model
+    // round-trip (updateOverlay → overlayRevision) alone didn't repaint mid-drag (#8).
+    @State private var dragID: UUID?
+    @State private var dragPoint: CGPoint = .zero
 
     var body: some View {
         // Establish a dependency on the TRACKED overlay-revision token so this body re-evaluates
-        // when an overlay's position/text/etc. changes even while the preview is PAUSED. Without it
-        // the only tracked read is `playheadSeconds`, so edits showed only while playing.
+        // when an overlay's position/text/etc. changes even while the preview is PAUSED.
         let _ = model.overlayRevision
         return GeometryReader { geo in
             let rect = fitRect(aspect: renderSize.width / max(1, renderSize.height), in: geo.size)
             ForEach(active) { ov in
                 let selected = model.selectedOverlayID == ov.id
+                let px = dragID == ov.id ? dragPoint.x : rect.minX + ov.positionX * rect.width
+                let py = dragID == ov.id ? dragPoint.y : rect.minY + ov.positionY * rect.height
                 Text(ov.text)
                     .font(.system(size: max(8, rect.width * ov.fontScale), weight: .bold))
                     .foregroundStyle(Color(CompositionBuilder.cgColor(hex: ov.colorHex)))
@@ -347,21 +353,24 @@ private struct TextOverlayPreview: View {
                     }
                     .frame(maxWidth: rect.width * 0.92)
                     .contentShape(Rectangle())   // the whole padded box is grabbable, not just the glyphs
-                    .position(x: rect.minX + ov.positionX * rect.width,
-                              y: rect.minY + ov.positionY * rect.height)
+                    .position(x: px, y: py)
                     .gesture(
                         // Drag in the CANVAS coordinate space (the GeometryReader), not the text's
-                        // own space — otherwise value.location is relative to the small text frame
-                        // and the overlay barely moves (#3).
+                        // own space — otherwise value.location is relative to the small text frame.
                         DragGesture(coordinateSpace: .named("ovlCanvas"))
                             .onChanged { value in
-                                guard rect.width > 1, rect.height > 1,
-                                      var o = model.textOverlays.first(where: { $0.id == ov.id }) else { return }
+                                guard rect.width > 1, rect.height > 1 else { return }
                                 model.selection = .overlay(ov.id)
-                                o.positionX = min(1, max(0, (value.location.x - rect.minX) / rect.width))
-                                o.positionY = min(1, max(0, (value.location.y - rect.minY) / rect.height))
-                                model.updateOverlay(o)
+                                let cx = min(rect.maxX, max(rect.minX, value.location.x))
+                                let cy = min(rect.maxY, max(rect.minY, value.location.y))
+                                dragID = ov.id; dragPoint = CGPoint(x: cx, y: cy)   // move LIVE
+                                if var o = model.textOverlays.first(where: { $0.id == ov.id }) {
+                                    o.positionX = (cx - rect.minX) / rect.width
+                                    o.positionY = (cy - rect.minY) / rect.height
+                                    model.updateOverlay(o)                          // persist
+                                }
                             }
+                            .onEnded { _ in dragID = nil }
                     )
             }
         }

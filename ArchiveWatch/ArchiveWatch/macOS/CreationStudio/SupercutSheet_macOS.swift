@@ -289,7 +289,14 @@ struct SupercutSheet: View {
 
     private func runFind() {
         guard let index, !phrase.isEmpty else { return }
-        results = index.search(phrase); excluded.removeAll(); searched = true
+        // De-dupe to ONE result per film so the list reflects how many distinct examples we actually
+        // have (the same title kept appearing many times in a row). Results are ordered shortest-cue
+        // first, so the kept cue per film is the most precise occurrence.
+        var seen = Set<String>(), deduped: [SubtitleCue] = []
+        for cue in index.search(phrase, limit: 400) where seen.insert(cue.archiveID).inserted {
+            deduped.append(cue)
+        }
+        results = Array(deduped.prefix(200)); excluded.removeAll(); searched = true
     }
     private func runCompose() {
         guard let index, !phrase.isEmpty else { return }

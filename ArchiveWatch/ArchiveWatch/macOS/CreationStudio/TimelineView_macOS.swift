@@ -220,14 +220,32 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
             container.borderColor = (state.selectedIDs.contains(clip.id)
                 ? NSColor.controlAccentColor : NSColor(white: 0.3, alpha: 1)).cgColor
 
-            if let thumbs = state.thumbnails[clip.id], !thumbs.isEmpty {
-                let tw = cw / CGFloat(thumbs.count)
-                for (i, img) in thumbs.enumerated() {
-                    let frame = CALayer()
-                    frame.contents = img; frame.contentsGravity = .resizeAspectFill
-                    frame.masksToBounds = true
-                    frame.frame = CGRect(x: CGFloat(i) * tw, y: 0, width: tw + 1, height: trackH)
-                    container.addSublayer(frame)
+            if let thumbs = state.thumbnails[clip.id], let first = thumbs.first {
+                // Show each frame WHOLE at its real aspect ratio, tiling across the clip ONLY when it's
+                // wide enough for more than one. A frame cell is the track height tall and
+                // height*aspect wide, so its aspect MATCHES the image → resizeAspect fills it exactly
+                // (no crop, no smeared "first 100px"). Short clip → one frame, aspect-fit (letterboxed)
+                // so the whole frame is still visible.
+                let aspect = max(0.3, CGFloat(first.width) / CGFloat(max(1, first.height)))
+                let frameW = max(10, trackH * aspect)
+                func addFrame(_ img: CGImage, x: CGFloat, w: CGFloat) {
+                    let fl = CALayer()
+                    fl.contents = img
+                    fl.contentsGravity = .resizeAspect
+                    fl.contentsScale = 2
+                    fl.masksToBounds = true
+                    fl.frame = CGRect(x: x, y: 0, width: w, height: trackH)
+                    container.addSublayer(fl)
+                }
+                if cw <= frameW {
+                    addFrame(thumbs[thumbs.count / 2], x: 0, w: cw)                  // one full frame, letterboxed
+                } else {
+                    let slots = max(2, min(200, Int((cw / frameW).rounded(.up))))   // distinct stills across time
+                    for i in 0..<slots {
+                        let f = Double(i) / Double(slots - 1)
+                        let img = thumbs[min(thumbs.count - 1, Int((f * Double(max(1, thumbs.count - 1))).rounded()))]
+                        addFrame(img, x: CGFloat(i) * frameW, w: frameW)            // cell aspect == frame aspect → exact fit
+                    }
                 }
             }
 
