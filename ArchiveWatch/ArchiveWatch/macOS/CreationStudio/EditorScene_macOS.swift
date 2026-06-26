@@ -437,9 +437,12 @@ private struct LibrarySidebar: View {
     @Environment(AppStore.self) private var store
     @Environment(\.modelContext) private var ctx
     @Query(sort: \LibraryClip.addedAt, order: .reverse) private var clips: [LibraryClip]
-    // Multi-select: ⌘/⇧-click selects several clips; the bottom action bar + drag operate on the
-    // whole selection so you can batch-add to the timeline or mass-delete.
-    @State private var selection: Set<PersistentIdentifier> = []
+    // Manual selection by clip.id — NOT List(selection:). On macOS, List captures in-bounds drags
+    // for range-selection, so a .draggable inside a List never starts a drag (it just multi-selects).
+    // A ScrollView+LazyVStack has no such capture, so .draggable works for drag-to-timeline and we
+    // handle selection ourselves: plain click = one, ⌘-click = toggle, ⇧-click = range.
+    @State private var selection: Set<String> = []
+    @State private var anchor: String?
 
     private func proxy(for clip: LibraryClip) -> ProxyClip {
         clip.proxyClip ?? ProxyClip(
@@ -447,15 +450,13 @@ private struct LibrarySidebar: View {
             sourceURL: URL(string: clip.sourceURLString) ?? URL(fileURLWithPath: "/"),
             sourceRange: TimeRange(startSeconds: clip.inSeconds,
                                    durationSeconds: max(0.1, clip.outSeconds - clip.inSeconds)),
-            label: clip.label, title: clip.title)
+            label: clip.label, title: clip.title, caption: clip.caption)
     }
 
     /// The clips a context action applies to: the full selection if the acted-on clip is part of
     /// it, otherwise just that clip (the standard Finder/Photos right-click behavior).
     private func targets(for clip: LibraryClip) -> [LibraryClip] {
-        selection.contains(clip.persistentModelID) && selection.count > 1
-            ? clips.filter { selection.contains($0.persistentModelID) }
-            : [clip]
+        selection.contains(clip.id) && selection.count > 1 ? selectedClips : [clip]
     }
 
     private func addToTimeline(_ items: [LibraryClip]) {
@@ -464,11 +465,26 @@ private struct LibrarySidebar: View {
 
     private func delete(_ items: [LibraryClip]) {
         items.forEach { ctx.delete($0) }
-        selection.subtract(items.map(\.persistentModelID))
+        selection.subtract(items.map(\.id))
         try? ctx.save()
     }
 
-    private var selectedClips: [LibraryClip] { clips.filter { selection.contains($0.persistentModelID) } }
+    private var selectedClips: [LibraryClip] { clips.filter { selection.contains($0.id) } }
+
+    /// Click selection with the standard macOS modifiers (read live from NSEvent).
+    private func selectOnTap(_ clip: LibraryClip) {
+        let flags = NSEvent.modifierFlags
+        if flags.contains(.command) {
+            if selection.contains(clip.id) { selection.remove(clip.id) } else { selection.insert(clip.id) }
+            anchor = clip.id
+        } else if flags.contains(.shift), let a = anchor,
+                  let i = clips.firstIndex(where: { $0.id == a }),
+                  let j = clips.firstIndex(where: { $0.id == clip.id }) {
+            selection.formUnion(clips[min(i, j)...max(i, j)].map(\.id))
+        } else {
+            selection = [clip.id]; anchor = clip.id
+        }
+    }
 
     var body: some View {
         Group {
@@ -476,35 +492,38 @@ private struct LibrarySidebar: View {
                 ContentUnavailableView {
                     Label("No Clips Yet", systemImage: "film.stack")
                 } description: {
-                    Text("Use “Add Clip” to mark an in/out point on a public-domain title. Saved clips appear here — drag them onto the timeline.")
+                    Text("Use “Add Clip” to mark an in/out point on a public-domain title. Saved clips appear here — drag a clip onto the timeline, or use ＋.")
                 }
             } else {
                 VStack(spacing: 0) {
-                    List(selection: $selection) {
-                        ForEach(clips) { clip in
-                            // NO gestures/.draggable on the row itself — on macOS a row-level drag
-                            // CANCELS List selection (a long-standing SwiftUI limitation). Selection
-                            // (single + ⌘/⇧ multi) is left entirely to List(selection:); the drag
-                            // source is scoped to the row's THUMBNAIL inside LibraryRow, and the "+"
-                            // button adds at the playhead — so select, multi-select, and drag-to-
-                            // timeline all work together.
-                            LibraryRow(clip: clip,
-                                       poster: store.item(clip.catalogItemID)?.posterURLParsed,
-                                       dragProxy: proxy(for: clip),
-                                       onAdd: { model.addClipAtPlayhead(from: proxy(for: clip)) })
-                                .tag(clip.persistentModelID)
-                                .contextMenu {
-                                    let t = targets(for: clip)
-                                    Button { addToTimeline(t) } label: {
-                                        Label("Add \(t.count) to Timeline", systemImage: "plus")
+                    // ScrollView + LazyVStack (NOT List) so .draggable actually starts a drag instead
+                    // of being eaten by List's range-selection. The whole row is the drag source and
+                    // selection is handled in selectOnTap — both work because we're out of List.
+                    ScrollView {
+                        LazyVStack(spacing: 2) {
+                            ForEach(clips) { clip in
+                                LibraryRow(clip: clip,
+                                           poster: store.item(clip.catalogItemID)?.posterURLParsed,
+                                           selected: selection.contains(clip.id),
+                                           onAdd: { model.addClipAtPlayhead(from: proxy(for: clip)) })
+                                    .contentShape(Rectangle())
+                                    .onTapGesture { selectOnTap(clip) }   // single-tap selects (＋ adds; drag goes to timeline)
+                                    .draggable(proxy(for: clip))   // drag the row to the timeline (works outside List)
+                                    .contextMenu {
+                                        let t = targets(for: clip)
+                                        Button { addToTimeline(t) } label: {
+                                            Label("Add \(t.count) to Timeline", systemImage: "plus")
+                                        }
+                                        Divider()
+                                        Button(role: .destructive) { delete(t) } label: {
+                                            Label("Delete\(t.count > 1 ? " \(t.count)" : "")", systemImage: "trash")
+                                        }
                                     }
-                                    Divider()
-                                    Button(role: .destructive) { delete(t) } label: {
-                                        Label("Delete\(t.count > 1 ? " \(t.count)" : "")", systemImage: "trash")
-                                    }
-                                }
+                            }
                         }
+                        .padding(8)
                     }
+                    .background(Color(nsColor: .textBackgroundColor))
                     // Batch action bar — operates on the multi-selection.
                     if !selection.isEmpty {
                         Divider()
@@ -534,20 +553,16 @@ private struct LibrarySidebar: View {
 private struct LibraryRow: View {
     let clip: LibraryClip
     let poster: URL?
-    let dragProxy: ProxyClip
+    let selected: Bool
     let onAdd: () -> Void
     var body: some View {
         HStack(spacing: 10) {
-            // The clip's actual in-point frame — and the DRAG SOURCE. The drag is scoped to the
-            // thumbnail (not the whole row) so it doesn't cancel List selection on macOS; drag it
-            // onto the timeline (the timeline's dropDestination adds the proxy).
+            // The clip's actual in-point frame (the row itself is the drag source — see the ForEach).
             ClipThumbnailView(catalogItemID: clip.catalogItemID,
                               sourceURL: URL(string: clip.sourceURLString),
                               atSeconds: clip.inSeconds,
                               fallbackPoster: poster)
                 .frame(width: 44, height: 30)
-                .draggable(dragProxy)
-                .help("Drag to the timeline")
             VStack(alignment: .leading, spacing: 2) {
                 // Film title — word-wraps so longer titles read fully (owner #5).
                 Text(clip.title.isEmpty ? clip.label : clip.title)
@@ -570,7 +585,10 @@ private struct LibraryRow: View {
             .buttonStyle(.borderless).foregroundStyle(.secondary)
             .help("Add to the timeline at the playhead")
         }
-        .padding(.vertical, 2)
+        .padding(.vertical, 5).padding(.horizontal, 6)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(selected ? Color.accentColor.opacity(0.20) : Color.clear,
+                    in: RoundedRectangle(cornerRadius: 6))
         .contentShape(Rectangle())
     }
 }
