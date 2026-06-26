@@ -538,7 +538,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
         let shift = event.modifierFlags.contains(.shift)
 
         // The ruler band drives the playhead (drag to scrub), independent of selection.
-        if p.y < rulerH { drag = .scrub; model.seek(toSeconds: snapSeconds(p.x)); return }
+        if p.y < rulerH { model.beginInteraction(); drag = .scrub; model.seek(toSeconds: snapSeconds(p.x)); return }
 
         let h = hit(at: p)
         let hitID = elementID(of: h)
@@ -607,6 +607,9 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
             }
         default: break
         }
+        // Any actual drag (scrub/trim/move/fade/transition/marquee) brackets an interaction so the
+        // player stops fighting the user; pure ⌘/⇧-clicks returned above with drag == .none.
+        if case .none = drag {} else { model.beginInteraction() }
     }
 
     override func mouseDragged(with event: NSEvent) {
@@ -736,7 +739,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
         if case .marquee = drag {
             if dragMoved { model.setSelectedIDs(marqueeHits(marqueeRect(to: lastDragP)), additive: marqueeAdditive) }
             else { model.clearSelection(); model.seek(toSeconds: snapSeconds(dragStartX)) }
-            endMarquee(); drag = .none; return
+            endMarquee(); model.endInteraction(); drag = .none; return
         }
         // Land exactly where released — coalescing may have skipped the final move.
         switch drag {
@@ -749,6 +752,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
         if !dragMoved, let id = clickToCollapse { model.selectOnly(id) }
         if case .move = drag, !dragMoved { model.seek(toSeconds: snapSeconds(dragStartX)) }
         drag = .none; clickToCollapse = nil
+        model.endInteraction()        // runs the single deferred rebuild (if an edit happened) + restores the observer
     }
 
     // MARK: right-click context menu

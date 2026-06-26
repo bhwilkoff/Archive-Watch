@@ -200,6 +200,9 @@ final class EditorModel {
             forInterval: CMTime(value: 1, timescale: 30), queue: .main) { [weak self] t in
             MainActor.assumeIsolated {
                 guard let self, t.isNumeric else { return }
+                // While the user is dragging (scrub/trim/move), the playhead they set is authoritative —
+                // don't let the player's clock (or a mid-swap reset to 0) overwrite it and fight them.
+                if self.isInteracting { return }
                 self.playheadSeconds = t.seconds
                 self.isPlaying = self.player.rate != 0
             }
@@ -716,7 +719,38 @@ final class EditorModel {
 
     // MARK: - Preview (rebuild-and-swap, debounced)
 
+    // MARK: - Interactive editing (timeline drags) — while the user scrubs / trims / moves, the
+    // PLAYER must not fight them: no preview rebuild churn (each swap reseeks + interrupts), and the
+    // periodic time observer must not overwrite the playhead the user is dragging. The timeline brackets
+    // every drag with beginInteraction()/endInteraction(); a single rebuild runs on release.
+    @ObservationIgnored private(set) var isInteracting = false
+    @ObservationIgnored private var pendingRebuildAfterInteraction = false
+
+    func beginInteraction() {
+        isInteracting = true
+        pendingRebuildAfterInteraction = false
+        rebuildTask?.cancel()              // stop any in-flight debounced rebuild from reseeking under us
+        transientRetryTask?.cancel()
+        if isPlaying { pause() }            // a scrub/trim drag pauses playback (no fighting the play rate)
+    }
+
+    func endInteraction() {
+        guard isInteracting else { return }
+        isInteracting = false
+        if pendingRebuildAfterInteraction {
+            pendingRebuildAfterInteraction = false
+            scheduleRebuild()              // ONE rebuild reflecting the final edit, after the drag ends
+        } else {
+            // Scrub-only: settle on the exact frame the drag used tolerant seeks to find.
+            player.seek(to: CMTime(seconds: min(max(0, playheadSeconds), max(0, totalDuration)),
+                                   preferredTimescale: 600), toleranceBefore: .zero, toleranceAfter: .zero)
+        }
+    }
+
     func scheduleRebuild() {
+        // During a drag, defer the rebuild to release — rebuilding mid-drag swaps the player item and
+        // reseeks repeatedly, which is the "playhead skips around / fights me" behavior.
+        if isInteracting { pendingRebuildAfterInteraction = true; return }
         rebuildTask?.cancel()
         rebuildTask = Task { [weak self] in
             try? await Task.sleep(for: .milliseconds(140))
@@ -933,8 +967,16 @@ final class EditorModel {
     func seek(toSeconds s: Double) {
         let clamped = min(max(0, s), max(0, totalDuration))
         playheadSeconds = clamped
-        player.seek(to: CMTime(seconds: clamped, preferredTimescale: 600),
-                    toleranceBefore: .zero, toleranceAfter: .zero)
+        let t = CMTime(seconds: clamped, preferredTimescale: 600)
+        if isInteracting {
+            // Scrubbing: tolerant seeks decode fast and keep up with the drag. Zero-tolerance seeks
+            // queue up exact-frame decodes that lag behind the cursor and make the playhead jump
+            // ("skips around"). endInteraction settles on the exact frame.
+            let tol = CMTime(seconds: 0.2, preferredTimescale: 600)
+            player.seek(to: t, toleranceBefore: tol, toleranceAfter: tol)
+        } else {
+            player.seek(to: t, toleranceBefore: .zero, toleranceAfter: .zero)
+        }
     }
 
     func zoom(by factor: Double, focusSeconds: Double? = nil) {
