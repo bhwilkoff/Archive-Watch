@@ -277,10 +277,11 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
             layer.addSublayer(container)
         }
 
-        // Cross-dissolve handles at each junction (the incoming clip overlaps the previous). The
-        // diamond is purple once a dissolve is set, gray when none — drag it left to dissolve into
-        // the previous clip, right to shorten/remove the dissolve. A tooltip explains it on hover.
-        for (i, clip) in state.clips.enumerated() where i > 0 {
+        // Cross-dissolve handle — shown ONLY on the SELECTED clip, at its left edge (the transition
+        // INTO it from the previous clip), so junctions aren't cluttered with diamonds everywhere.
+        // Purple once a dissolve is set, gray when none — drag left to dissolve into the previous
+        // clip, right to shorten/remove it. A tooltip explains it on hover.
+        for (i, clip) in state.clips.enumerated() where i > 0 && state.selectedIDs.contains(clip.id) {
             let jx = x(clip.timelineStart.seconds)               // overlap region starts here
             let diamond = CALayer()
             let sz: CGFloat = 18
@@ -448,11 +449,11 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
             }
             return .none
         }
-        // Junction dissolve diamonds — checked BEFORE trim so the mid-track band at a junction grabs
-        // the diamond, not the co-located left-trim handle. Generous target (±18px) since it sits on
-        // the clip edge; trim stays reachable on the left edge above/below this band.
+        // Junction dissolve diamond — shown ONLY on the SELECTED clip (its left edge = the transition
+        // INTO it from the previous clip), so it isn't clutter at every junction. Checked BEFORE trim
+        // so the mid-track band grabs the diamond; trim stays reachable above/below this band.
         if p.y >= trackTop + trackH / 2 - 18, p.y <= trackTop + trackH / 2 + 18 {
-            for (i, clip) in state.clips.enumerated() where i > 0 {
+            for (i, clip) in state.clips.enumerated() where i > 0 && state.selectedIDs.contains(clip.id) {
                 if abs(p.x - x(clip.timelineStart.seconds)) <= 16 { return .transition(clip.id) }
             }
         }
