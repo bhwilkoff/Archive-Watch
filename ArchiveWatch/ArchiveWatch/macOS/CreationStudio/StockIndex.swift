@@ -23,6 +23,13 @@ struct StockShot: Identifiable, Hashable, Sendable {
 
     var durationSeconds: Double { max(0, endSeconds - startSeconds) }
 
+    /// The archive.org item thumbnail — always present, one cached request per film, fast. Used as
+    /// the stock card image (the per-frame strip fetch was slow + frequently failed → gray cards).
+    var thumbURL: URL? {
+        let id = archiveID.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? archiveID
+        return URL(string: "https://archive.org/services/img/\(id)")
+    }
+
     var proxyClip: ProxyClip {
         ProxyClip(catalogItemID: archiveID, sourceURL: sourceURL,
                   sourceRange: TimeRange(startSeconds: startSeconds, durationSeconds: durationSeconds),
@@ -79,10 +86,13 @@ final class StockIndex {
                 ) WHERE rn = 1 LIMIT \(limit)
                 """
         } else {
+            // Stock search is by TOPIC TAG only — the whole point of stock shots is that each clip
+            // is tagged with a subject ("truck", "ocean"), NOT that you find a film by its title.
+            // (Matching title pulled in irrelevant films whose NAME contained the word.)
             sql = """
                 SELECT \(cols) FROM (
                   SELECT *, ROW_NUMBER() OVER (PARTITION BY archiveID ORDER BY startSeconds) rn FROM shots
-                  WHERE tags LIKE ?1 OR title LIKE ?1
+                  WHERE tags LIKE ?1
                 ) WHERE rn <= 3 LIMIT \(limit)
                 """
         }

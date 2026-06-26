@@ -190,16 +190,11 @@ struct ClipBrowserSheet: View {
 
 private struct StockCard: View {
     let shot: StockShot
-    // Each shot shows ITS OWN frame (the archive thumbnail nearest the shot's start), not the
-    // source film's poster — otherwise every shot from one film looked identical (#6).
-    @State private var frameURL: URL?
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             RoundedRectangle(cornerRadius: 6).fill(.quaternary)
                 .aspectRatio(16.0/9.0, contentMode: .fit)
-                .overlay {
-                    if let frameURL { StudioAsyncImage(url: frameURL) }
-                }
+                .overlay { RemoteImage(url: shot.thumbURL, contentMode: .fill) }
                 .clipShape(RoundedRectangle(cornerRadius: 6))
                 .overlay(alignment: .bottomTrailing) {
                     Text(String(format: "%.0fs", shot.durationSeconds))
@@ -217,9 +212,6 @@ private struct StockCard: View {
                     }
                 }
             }
-        }
-        .task(id: shot.id) {
-            frameURL = await ArchiveThumbnails.nearestThumb(for: shot.sourceURL, seconds: shot.startSeconds)
         }
     }
 

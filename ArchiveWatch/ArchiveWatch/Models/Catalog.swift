@@ -1,5 +1,28 @@
 import Foundation
 
+// Decodes an array field that may be ABSENT from the JSON to an empty array instead of throwing.
+// tv-episode items (Decision 045) are materialized with a minimal JSON that omits the film-only
+// arrays (collections/subjects/genres/countries/cast/shelves); without this every episode row
+// failed to decode and `browse()`/`search()` silently dropped ALL of them — episodes never
+// appeared as items anywhere (Add-a-Clip, search, Detail). The KeyedDecodingContainer overload is
+// what turns a MISSING key into the default (synthesized Decodable otherwise throws on absence).
+@propertyWrapper
+struct DefaultEmptyArray<Element: Decodable & Hashable & Sendable>: Decodable, Hashable, Sendable {
+    var wrappedValue: [Element]
+    init(wrappedValue: [Element] = []) { self.wrappedValue = wrappedValue }
+    init(from decoder: Decoder) throws {
+        let c = try decoder.singleValueContainer()
+        wrappedValue = (try? c.decode([Element].self)) ?? []
+    }
+}
+
+extension KeyedDecodingContainer {
+    func decode<Element>(_ type: DefaultEmptyArray<Element>.Type,
+                         forKey key: Key) throws -> DefaultEmptyArray<Element> {
+        try decodeIfPresent(type, forKey: key) ?? DefaultEmptyArray()
+    }
+}
+
 // The pre-built, bundled seed catalog — produced by tools/build-catalog.mjs
 // and shipped inside the app bundle. First launch renders from this with
 // zero network. SwiftData's ContentItem takes over once the app starts
@@ -28,8 +51,8 @@ struct Catalog: Decodable, Sendable {
         let decade: Int?
         let runtimeSeconds: Int?
         let synopsis: String?
-        let collections: [String]
-        let subjects: [String]
+        @DefaultEmptyArray var collections: [String]
+        @DefaultEmptyArray var subjects: [String]
         let mediatype: String?
         let language: String?
         let imdbID: String?
@@ -43,15 +66,15 @@ struct Catalog: Decodable, Sendable {
         let hasRealArtwork: Bool?
         let artworkSource: String
         let contentType: String
-        let genres: [String]
-        let countries: [String]
-        let cast: [CastMember]
+        @DefaultEmptyArray var genres: [String]
+        @DefaultEmptyArray var countries: [String]
+        @DefaultEmptyArray var cast: [CastMember]
         let director: String?
         let producer: String?
         let seriesName: String?
         let network: String?
         let enrichmentTier: String?
-        let shelves: [String]
+        @DefaultEmptyArray var shelves: [String]
 
         // Additive fields from the federated pipeline (tools/export_catalog.py).
         // All optional so old catalog.json files still decode without a migration.
