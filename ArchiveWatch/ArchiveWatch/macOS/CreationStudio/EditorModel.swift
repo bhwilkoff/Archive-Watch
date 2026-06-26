@@ -170,6 +170,9 @@ final class EditorModel {
     init(document: ClipProjectDocument) {
         self.document = document
         self._project = document.project        // seed the observed source of truth from the document
+        // Bound the re-encoded-window cache (it was unbounded and grew to GBs, filling the disk →
+        // corrupt SQLite caches + mmap faults). Off-main; sweeps orphaned staging files too.
+        Task.detached { ProjectMediaCache.sweep() }
         timeObserver = player.addPeriodicTimeObserver(
             forInterval: CMTime(value: 1, timescale: 30), queue: .main) { [weak self] t in
             MainActor.assumeIsolated {
@@ -358,6 +361,7 @@ final class EditorModel {
             }
         }
         relayout()          // final repack so the surviving clips form one gap-free run
+        Task.detached { ProjectMediaCache.sweep() }   // a batch can add many big windows — keep the cache bounded
         // Subtitles last (owner ask): the verify pass removes/replaces/tightens clips, so the spoken
         // text only lines up with each clip's FINAL position+length here. One editable title overlay
         // per surviving clip, spanning exactly that clip, anchored to the lower third.

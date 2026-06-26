@@ -47,6 +47,37 @@ enum ProjectMediaCache {
         let safeID = catalogItemID.replacingOccurrences(of: "/", with: "_")
         return directory.appendingPathComponent("win-\(safeID)-\(inMs)-\(outMs).mp4")
     }
+
+    /// Cap the re-encoded-window cache at ~1.5 GB (LRU) and sweep orphaned staging files. The cache
+    /// was UNBOUNDED (a documented Phase-1 gap) and had grown to multiple GB, filling the disk — which
+    /// corrupts the system URL cache (Cache.db) and can fault mmap'd SQLite reads as EXC_BAD_ACCESS.
+    /// Only manages `win-*` (re-encoded windows, re-derivable) and `staging-*` (interrupted writes);
+    /// NEVER touches the indices (clips/subtitle.sqlite) or user media (music-/voiceover-). Pure
+    /// filesystem work — safe to call off the main thread. Deleting a `win-*` a player still has open
+    /// is harmless on APFS (the fd stays valid); LRU keeps the active project's recent windows last.
+    static let maxBytes: Int64 = 1_500_000_000
+    static func sweep() {
+        let fm = FileManager.default
+        guard let items = try? fm.contentsOfDirectory(
+            at: directory,
+            includingPropertiesForKeys: [.fileSizeKey, .contentAccessDateKey, .contentModificationDateKey],
+            options: [.skipsHiddenFiles]) else { return }
+        var windows: [(url: URL, size: Int64, atime: Date)] = []
+        for url in items {
+            let name = url.lastPathComponent
+            if name.hasPrefix("staging-") { try? fm.removeItem(at: url); continue }  // interrupted re-encode
+            guard name.hasPrefix("win-") else { continue }                            // managed cache only
+            let v = try? url.resourceValues(forKeys: [.fileSizeKey, .contentAccessDateKey, .contentModificationDateKey])
+            windows.append((url, Int64(v?.fileSize ?? 0),
+                            v?.contentAccessDate ?? v?.contentModificationDate ?? .distantPast))
+        }
+        var total = windows.reduce(Int64(0)) { $0 + $1.size }
+        guard total > maxBytes else { return }
+        for w in windows.sorted(by: { $0.atime < $1.atime }) where total > maxBytes {   // oldest first
+            try? fm.removeItem(at: w.url)
+            total -= w.size
+        }
+    }
 }
 
 // Coalesces concurrent requests for the SAME window into one cache task — so two overlapping

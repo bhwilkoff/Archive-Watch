@@ -61,6 +61,10 @@ final class SubtitleIndex: @unchecked Sendable {
         guard sqlite3_open_v2(path.path, &handle, SQLITE_OPEN_READONLY, nil) == SQLITE_OK else {
             sqlite3_close(handle); return nil
         }
+        // mmap OFF: a file corrupted under disk pressure faults an mmap'd read as EXC_BAD_ACCESS
+        // (the crash signature) instead of a recoverable SQLITE_CORRUPT. busy_timeout lets a query
+        // wait out the brief RW lock when ensureLookupIndex is creating the index.
+        sqlite3_exec(handle, "PRAGMA mmap_size=0; PRAGMA busy_timeout=3000;", nil, nil, nil)
     }
     deinit { sqlite3_close(handle) }   // no concurrent access at dealloc (ARC holds self through queries)
 
@@ -282,6 +286,7 @@ enum SubtitleIndexBuilder {
         var db: OpaquePointer?
         guard sqlite3_open_v2(url.path, &db, SQLITE_OPEN_READWRITE, nil) == SQLITE_OK else { sqlite3_close(db); return }
         defer { sqlite3_close(db) }
+        sqlite3_exec(db, "PRAGMA mmap_size=0; PRAGMA busy_timeout=4000;", nil, nil, nil)
         sqlite3_exec(db, "CREATE INDEX IF NOT EXISTS idx_cues_aid ON cues(archiveID, startSeconds)", nil, nil, nil)
     }
 

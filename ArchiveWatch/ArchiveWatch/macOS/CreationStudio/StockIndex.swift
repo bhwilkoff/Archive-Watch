@@ -57,6 +57,8 @@ final class StockIndex {
         guard sqlite3_open_v2(path.path, &handle, SQLITE_OPEN_READONLY, nil) == SQLITE_OK else {
             sqlite3_close(handle); return nil
         }
+        // mmap OFF so a disk-pressure-corrupted file errors recoverably instead of faulting (EXC_BAD_ACCESS).
+        sqlite3_exec(handle, "PRAGMA mmap_size=0;", nil, nil, nil)
     }
     isolated deinit { sqlite3_close(handle) }   // SE-0371: touch the MainActor handle natively
 

@@ -28,6 +28,9 @@ final class CatalogDB {
             return nil
         }
         self.handle = h
+        // mmap OFF: if the DB file is corrupted under disk pressure, an mmap'd read faults the process
+        // (EXC_BAD_ACCESS) instead of returning a recoverable SQLITE_CORRUPT we can handle.
+        sqlite3_exec(h, "PRAGMA mmap_size=0;", nil, nil, nil)
         // Fail fast if it isn't actually our schema.
         guard metaInt("itemCount") != nil else {
             sqlite3_close(h); return nil
