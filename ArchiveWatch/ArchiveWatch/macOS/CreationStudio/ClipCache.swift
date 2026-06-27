@@ -206,7 +206,9 @@ enum ClipCacheService {
     // Higher than the old 2: each clip is now a fast PASSTHROUGH COPY of a SMALL proxy derivative
     // (far less CPU + far fewer bytes), so the pipeline can run more in parallel without storming
     // archive.org. Still bounded so the per-IP main-host limit (the -1004 storm) isn't tripped.
-    static let reencodeLimiter = ReencodeLimiter(Int(ProcessInfo.processInfo.environment["AW_CS_LIM"] ?? "") ?? 4)
+    // 8 ≥ the preview's 6-wide maxConcurrent so the global limiter never bottlenecks preview; each
+    // op is now a light passthrough copy from a small node-direct derivative, not a full transcode.
+    static let reencodeLimiter = ReencodeLimiter(Int(ProcessInfo.processInfo.environment["AW_CS_LIM"] ?? "") ?? 8)
     /// Per-attempt re-encode deadline. A healthy node finishes a window in seconds; 90s still tolerates
     /// a slow-but-progressing connection while failing a true stall far sooner than the old 150s.
     static let attemptTimeout = 90.0

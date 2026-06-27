@@ -35,6 +35,7 @@ struct ArchiveWatchMacApp: App {
                     // task with its own model — independent of DocumentGroup / state restoration, which
                     // otherwise suppressed the harness on relaunch.
                     if CreationStudioBench.isEnabled {
+                        CreationStudioBench.mark("TASK-FIRED")
                         await store.load()
                         let model = EditorModel(document: ClipProjectDocument())
                         await CreationStudioBench.run(model: model, store: store)

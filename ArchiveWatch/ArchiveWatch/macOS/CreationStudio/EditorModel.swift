@@ -208,7 +208,9 @@ final class EditorModel {
     /// window is downloaded + re-encoded through the resilient loader, so every extra second is
     /// network + encode time — a big handle made short supercut clips take minutes to load. 3s
     /// covers ordinary fine-trims; a larger trim simply re-caches (a brief wait), not a failure.
-    static var cacheHandle: Double { BenchConfig.handle ?? Double(ProcessInfo.processInfo.environment["AW_CS_HANDLE"] ?? "") ?? 3.0 }
+    // 1.5s handle (was 3): smaller window = fewer bytes per clip = faster prep; still covers ordinary
+    // fine-trims (a larger trim simply re-caches). Tunable for the benchmark (BenchConfig/env).
+    static var cacheHandle: Double { BenchConfig.handle ?? Double(ProcessInfo.processInfo.environment["AW_CS_HANDLE"] ?? "") ?? 1.5 }
 
     // archive.org's per-~60s thumbnail strip (ArchiveThumbnails) is the timeline filmstrip
     // source: it's tiny + already-served, so a clip shows frames INSTANTLY without waiting for
@@ -815,8 +817,11 @@ final class EditorModel {
         // resolveLocal is @MainActor but suspends at the network/export await, so up to N caches run
         // in flight. A clip that won't cache is marked .failed(reason) and EXCLUDED from the build,
         // so it can't stall playback of the good clips (#13).
-        // Tunable so the benchmark can sweep concurrency in one launch (BenchConfig) / via env.
-        let maxConcurrent = BenchConfig.concurrency ?? Int(ProcessInfo.processInfo.environment["AW_CS_CONC"] ?? "") ?? 2
+        // 6 is the measured sweet spot: node-direct URLs (ClipCache.ProxySource) bypass archive.org's
+        // rate-limited /download main host, so parallel byte-range reads hit storage NODES and 6-wide
+        // is ~5× faster than the old 2 (20 fresh clips: 86s → ~16s) without tripping the per-IP
+        // throttle that starts failing copies above ~10. Tunable for the benchmark (BenchConfig/env).
+        let maxConcurrent = BenchConfig.concurrency ?? Int(ProcessInfo.processInfo.environment["AW_CS_CONC"] ?? "") ?? 6
         var resolvedByID: [UUID: CompositionBuilder.ResolvedClip] = [:]
         await withTaskGroup(of: (UUID, CompositionBuilder.ResolvedClip?).self) { group in
             var it = timelineClips.makeIterator()
