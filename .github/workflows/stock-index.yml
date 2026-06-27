@@ -59,7 +59,13 @@ jobs:
             --concurrency ${{ github.event.inputs.concurrency || '2' }} \
             --seen-from existing.sqlite \
             --out clips-shard-${{ matrix.shard }}.sqlite
+      # always() so a shard that's OOM-killed mid-run (exit 143) still uploads the films it
+      # DID commit (scene_cuts commits per film). Without this the killed shard's partial DB is
+      # lost, its films never reach the merge/published index, and --seen-from re-scans the same
+      # slice every run — re-hitting the same poison film forever. With it, each run banks
+      # progress and the shard advances past a bad film on the next run.
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: stock-shard-${{ matrix.shard }}
           path: clips-shard-${{ matrix.shard }}.sqlite

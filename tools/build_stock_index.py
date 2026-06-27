@@ -18,27 +18,67 @@ import json
 import re
 import sqlite3
 import subprocess
+import sys
+import tempfile
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
+
+try:
+    import resource           # POSIX only (Linux CI + macOS) — used to cap ffmpeg memory
+except ImportError:           # pragma: no cover
+    resource = None
 
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
 
+# Per-ffmpeg virtual-memory ceiling. A single poison film (a corrupt/oversized stream that
+# makes the decoder attempt a huge allocation) used to OOM the whole runner — exit 143
+# "runner received a shutdown signal" mid-item, the SAME shard every 6h, downscale
+# notwithstanding (runs 28278175372 / 28284290545 / 28291365967). Capping ffmpeg's own
+# address space means a runaway film kills ONLY its ffmpeg (scene_cuts returns []), never the
+# runner. Generous (the runner has 16 GB; a 360p scdet pass uses well under 1 GB) so it never
+# false-kills a normal film, only a pathological one.
+FFMPEG_MEM_CAP = 6 * 1024 ** 3
+
+
+def _cap_memory():
+    """preexec hook: cap the child ffmpeg's address space so a runaway film can't OOM the runner."""
+    if resource is not None:
+        try:
+            resource.setrlimit(resource.RLIMIT_AS, (FFMPEG_MEM_CAP, FFMPEG_MEM_CAP))
+        except (ValueError, OSError):
+            pass
+
 
 def scene_cuts(url: str, max_seconds: int, fps: float) -> list[float]:
-    """Scene-change timestamps (seconds) via ffmpeg `scdet`, bounded for speed."""
+    """Scene-change timestamps (seconds) via ffmpeg `scdet`, bounded for speed AND memory."""
     # Downscale to <=360p BEFORE scene detection. Shot boundaries don't need full resolution,
     # and decoding HD/1080i frames at full res under --concurrency blew the CI runner's RAM (the
     # kernel OOM-killer SIGTERM'd whole shards right after HD items — run 28262168655). The comma
     # inside min() is single-quoted so the filtergraph parser doesn't read it as a filter break.
-    cmd = ["ffmpeg", "-nostats", "-t", str(max_seconds), "-i", url,
+    cmd = ["ffmpeg", "-nostats", "-threads", "2", "-t", str(max_seconds), "-i", url,
            "-vf", f"fps={fps},scale=-2:'min(360,ih)',scdet=threshold=10", "-f", "null", "-"]
+    # stderr → a TEMP FILE, not capture_output (which holds ALL of ffmpeg's stderr in RAM — a
+    # corrupt stream spamming per-frame decode errors could balloon it and OOM the runner). The
+    # file is read back line-by-line so the parse stays bounded too. preexec caps ffmpeg's own
+    # memory (see FFMPEG_MEM_CAP). Both guard the deterministic single-shard OOM the owner hit.
+    cuts: list[float] = []
     try:
-        out = subprocess.run(cmd, capture_output=True, text=True,
-                             timeout=max_seconds * 4 + 90).stderr
+        with tempfile.TemporaryFile(mode="w+", encoding="utf-8", errors="replace") as errf:
+            try:
+                subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=errf,
+                               timeout=max_seconds * 4 + 90,
+                               preexec_fn=(_cap_memory if sys.platform != "win32" else None))
+            except subprocess.TimeoutExpired:
+                pass                      # parse whatever cuts were found before the timeout
+            errf.seek(0)
+            for line in errf:             # bounded: one line at a time, never the whole buffer
+                m = re.search(r"lavfi\.scd\.time:\s*([\d.]+)", line)
+                if m:
+                    cuts.append(float(m.group(1)))
     except Exception:
-        return []
-    return sorted(float(m) for m in re.findall(r"lavfi\.scd\.time:\s*([\d.]+)", out))
+        return sorted(cuts)
+    return sorted(cuts)
 
 
 def shots_from_cuts(cuts: list[float], total: float,
@@ -100,6 +140,9 @@ def main() -> int:
     def scan(it):
         """Detect a film's shots (the network-bound work; runs on a worker thread). Returns
         (it, shots) or None — NO SQLite here (writes stay single-threaded in the main loop)."""
+        # Log BEFORE the scan so a runner that's OOM-killed mid-film still names the culprit in
+        # its log (a successful scan logs again, with the shot count, in the main loop below).
+        print(f"[stock] scanning {it['archiveID']} (rt={it.get('runtimeSeconds')})", flush=True)
         cuts = scene_cuts(it["downloadURL"], args.max_seconds, args.fps)
         if not cuts:
             return None
