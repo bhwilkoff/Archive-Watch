@@ -896,6 +896,18 @@ final class EditorModel {
             return
         }
         previewBlockedReason = nil
+        // GIVE UP on a clip that has failed to cache maxSourceFailures times while OTHERS succeeded
+        // (so it's that clip/source — a dead derivative or a server returning -1011 — not an outage).
+        // Mark it terminally failed so it LEAVES "preparing": otherwise a couple of bad-server clips
+        // hold the whole "add 50" in a spinner for minutes (owner: "sometimes it still takes a very
+        // long time"). It stays visible (red, retryable); the preview/export use the rest.
+        let givenUp = retryable.filter { (sourceFailCount[$0.sourceURL.absoluteString] ?? 0) >= Self.maxSourceFailures }
+        for c in givenUp {
+            let src = c.sourceURL.absoluteString
+            let reason = sourceFailReason[src] ?? "couldn’t load this source"
+            permanentlyFailed[src] = reason
+            clipPrep[c.id] = .failed(reason)
+        }
         // RECONCILE displayed state with what's ACTUALLY in the build, so the overlay + timeline never
         // lie: a clip that resolved is READY (clears any stale/false "cannot decode"), its source is no
         // longer considered failed, and its TIMELINE length is set to the real playable duration so the
@@ -917,11 +929,14 @@ final class EditorModel {
         if durChanged { relayout() }   // realign blocks to the real durations — the composition already matches
 
         // Auto-retry the remaining TRANSIENT misses (a cold node, a passthrough/re-encode hiccup). Back
-        // off (2s/4s/6s) and stop once nothing's left; clips that resolve clear themselves above.
-        let failedIDs = retryable
+        // off (2s/4s/6s) and stop once nothing's left; clips that resolve clear themselves above, and
+        // ones that exhausted maxSourceFailures were just marked terminally failed (excluded here).
+        // The bench retries too (it used to be disabled, which left stragglers stuck .caching forever
+        // — they now accumulate failures and give up, so the run terminates as the real app does).
+        let failedIDs = retryable.filter { permanentlyFailed[$0.sourceURL.absoluteString] == nil }
         if failedIDs.isEmpty {
             transientRetries = 0
-        } else if transientRetries < 3 && !CreationStudioBench.isEnabled {
+        } else if transientRetries < 3 {
             transientRetries += 1
             let n = transientRetries
             transientRetryTask?.cancel()
