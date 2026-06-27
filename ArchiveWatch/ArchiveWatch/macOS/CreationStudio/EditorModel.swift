@@ -1414,23 +1414,39 @@ final class EditorModel {
         let inS = clip.sourceRange.start.seconds, outS = clip.sourceRange.endSeconds
         Task { [weak self] in
             guard let self else { return }
-            let strip: [ArchiveThumb]
-            if let cached = self.archiveStrips[catID] { strip = cached }
-            else { let s = await ArchiveThumbnails.strip(for: url); self.archiveStrips[catID] = s; strip = s }
-            guard !strip.isEmpty else { return }
-            var picks = strip.filter { $0.seconds >= inS - 1 && $0.seconds <= outS + 1 }
-            if picks.isEmpty, let n = strip.min(by: { abs($0.seconds - inS) < abs($1.seconds - inS) }) { picks = [n] }
-            if picks.count > 12 {                                  // cap a long clip's strip
-                let step = Double(picks.count - 1) / 11
-                picks = (0..<12).map { picks[min(picks.count - 1, Int((Double($0) * step).rounded()))] }
-            }
-            var imgs: [CGImage] = []
-            for t in picks {
-                if let c = self.thumbImageCache[t.url] { imgs.append(c) }
-                else if let img = await Self.downloadThumb(t.url) { self.thumbImageCache[t.url] = img; imgs.append(img) }
-            }
-            if !imgs.isEmpty, !Task.isCancelled { self.thumbnails[id] = imgs }
+            // GATE the cosmetic filmstrip work (strip + thumbnail fetches all hit archive.org's
+            // MAIN host). A large add (e.g. 68 clips) otherwise fires hundreds of main-host requests
+            // at once, which STARVES the window pipeline's proxy-metadata resolution (same host) and
+            // trips the per-IP rate limit (-1001 timeouts → -1004). Bounding the producer keeps the
+            // queue shallow so clips actually cache. Filmstrips fill in progressively.
+            await Self.filmstripGate.acquire()
+            await self.buildFilmstrip(id: id, catID: catID, url: url, inS: inS, outS: outS)
+            await Self.filmstripGate.release()
         }
+    }
+
+    /// Bounds concurrent filmstrip strip+thumbnail fetches to the MAIN archive.org host (shared
+    /// across all clips) so a big batch can't flood it. Reuses the generic limiter (a counting
+    /// semaphore); separate INSTANCE from the window ReencodeLimiter so the two don't share slots.
+    static let filmstripGate = ReencodeLimiter(3)
+
+    private func buildFilmstrip(id: UUID, catID: String, url: URL, inS: Double, outS: Double) async {
+        let strip: [ArchiveThumb]
+        if let cached = archiveStrips[catID] { strip = cached }
+        else { let s = await ArchiveThumbnails.strip(for: url); archiveStrips[catID] = s; strip = s }
+        guard !strip.isEmpty else { return }
+        var picks = strip.filter { $0.seconds >= inS - 1 && $0.seconds <= outS + 1 }
+        if picks.isEmpty, let n = strip.min(by: { abs($0.seconds - inS) < abs($1.seconds - inS) }) { picks = [n] }
+        if picks.count > 12 {                                  // cap a long clip's strip
+            let step = Double(picks.count - 1) / 11
+            picks = (0..<12).map { picks[min(picks.count - 1, Int((Double($0) * step).rounded()))] }
+        }
+        var imgs: [CGImage] = []
+        for t in picks {
+            if let c = thumbImageCache[t.url] { imgs.append(c) }
+            else if let img = await Self.downloadThumb(t.url) { thumbImageCache[t.url] = img; imgs.append(img) }
+        }
+        if !imgs.isEmpty, !Task.isCancelled { thumbnails[id] = imgs }
     }
 
     private nonisolated static func downloadThumb(_ url: URL) async -> CGImage? {
