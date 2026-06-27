@@ -42,7 +42,14 @@ struct SupercutSheet: View {
 
     @State private var phrase = ""
     @State private var results: [SubtitleCue] = []
-    @State private var excluded: Set<String> = []
+    @State private var rows: [FindRow] = []                 // results enriched with catalog facets
+    @State private var selection: Set<String> = []          // native Table multi-select (cue ids to ADD)
+    // Phrase Finder facet filters + sort (a long, undifferentiated list needs sort/filter — owner).
+    @State private var colorFilter: ColorFilter = .any
+    @State private var typeFilter: String? = nil            // nil = Any; else a contentType
+    @State private var decadeFilter: Int? = nil             // nil = Any
+    @State private var sortOrder: [KeyPathComparator<FindRow>] = [KeyPathComparator(\FindRow.order)]
+    enum ColorFilter: String, CaseIterable, Identifiable { case any = "Any color", color = "Color", bw = "B&W"; var id: String { rawValue } }
     @State private var plan: [SentenceComposer.Segment] = []
     @State private var index: SubtitleIndex?
     @State private var indexedLines: Int?        // computed ONCE when the index loads (see .task) —
@@ -60,7 +67,19 @@ struct SupercutSheet: View {
     @State private var gapEdits: [UUID: String] = [:]
     @State private var excludedSegments: Set<UUID> = []     // compose-mode per-segment opt-out
 
-    private var included: [SubtitleCue] { results.filter { !excluded.contains($0.id) } }
+    private var included: [SubtitleCue] { results.filter { selection.contains($0.id) } }
+
+    // Results filtered by the facet pickers, then sorted by the active column. ≤200 rows → cheap.
+    private var filteredRows: [FindRow] {
+        rows.filter { r in
+            (colorFilter == .any || (colorFilter == .color && r.isBW == false) || (colorFilter == .bw && r.isBW == true))
+            && (typeFilter == nil || r.contentType == typeFilter)
+            && (decadeFilter == nil || r.decade == decadeFilter)
+        }.sorted(using: sortOrder)
+    }
+    /// Content types present in the current results (for the Type picker — only offer what's there).
+    private var presentTypes: [String] { Array(Set(rows.map(\.contentType))).filter { !$0.isEmpty }.sorted() }
+    private var presentDecades: [Int] { Array(Set(rows.compactMap(\.decade))).sorted(by: >) }
     private var includedSegments: [SentenceComposer.Segment] {
         plan.filter { $0.found && !excludedSegments.contains($0.id) }
     }
@@ -177,37 +196,70 @@ struct SupercutSheet: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else {
             VStack(spacing: 0) {
-                HStack {
-                    Text("Check the takes you want — \(included.count) of \(results.count) selected")
-                        .font(.caption).foregroundStyle(.secondary)
-                    Spacer()
-                    Button("All") { excluded.removeAll() }.disabled(excluded.isEmpty)
-                    Button("None") { excluded = Set(results.map(\.id)) }.disabled(excluded.count == results.count)
-                }
-                .controlSize(.small).padding(.horizontal, 20).padding(.vertical, 8)
+                findFilterBar
                 Divider()
-                List(results) { cue in
-                    HStack(alignment: .top, spacing: 10) {
-                        Button {
-                            if excluded.contains(cue.id) { excluded.remove(cue.id) } else { excluded.insert(cue.id) }
-                        } label: {
-                            Image(systemName: excluded.contains(cue.id) ? "circle" : "checkmark.circle.fill")
-                                .foregroundStyle(excluded.contains(cue.id) ? .secondary : Color.accentColor)
-                                .font(.title3)
-                        }.buttonStyle(.borderless)
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text(cue.text).lineLimit(2)
-                            Text("\(cue.title) · \(cue.timecode)").font(.caption).foregroundStyle(.secondary)
-                        }
-                        Spacer()
-                    }
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        if excluded.contains(cue.id) { excluded.remove(cue.id) } else { excluded.insert(cue.id) }
-                    }
+                // Native macOS Table: click headers to SORT, ⇧/⌘-click + drag to MULTI-SELECT,
+                // ⌘A select-all. Selection (cue ids) is what gets added. Replaces the one-at-a-time
+                // checkbox list that couldn't sort/filter/multi-select an undifferentiated list.
+                Table(filteredRows, selection: $selection, sortOrder: $sortOrder) {
+                    TableColumn("Line", value: \.cue.text) { Text($0.cue.text).lineLimit(1) }
+                    TableColumn("Film", value: \.cue.title) { Text($0.cue.title).lineLimit(1).foregroundStyle(.secondary) }.width(min: 90, ideal: 150)
+                    TableColumn("Time", value: \.cue.startSeconds) { Text($0.cue.timecode).font(.caption.monospacedDigit()).foregroundStyle(.secondary) }.width(46)
+                    TableColumn("Len", value: \.cue.durationSeconds) { Text(String(format: "%.1fs", $0.cue.durationSeconds)).font(.caption.monospacedDigit()).foregroundStyle(.secondary) }.width(46)
+                    TableColumn("Year", value: \.sortYear) { Text($0.year.map(String.init) ?? "—").font(.caption.monospacedDigit()).foregroundStyle(.secondary) }.width(46)
+                    TableColumn("Kind", value: \.sortKind) { Text($0.kindLabel).font(.caption).foregroundStyle(.secondary) }.width(64)
                 }
-                .listStyle(.inset)
+                .tableStyle(.inset)
             }
+        }
+    }
+
+    // Facet filters (Color / Type / Decade) + selection controls + "Add N random" (owner ask).
+    @ViewBuilder private var findFilterBar: some View {
+        HStack(spacing: 8) {
+            Picker("", selection: $colorFilter) { ForEach(ColorFilter.allCases) { Text($0.rawValue).tag($0) } }
+                .pickerStyle(.menu).fixedSize()
+            Picker("", selection: $typeFilter) {
+                Text("Any type").tag(String?.none)
+                ForEach(presentTypes, id: \.self) { Text(Self.kindLabel(for: $0)).tag(String?($0)) }
+            }.pickerStyle(.menu).fixedSize()
+            Picker("", selection: $decadeFilter) {
+                Text("Any era").tag(Int?.none)
+                ForEach(presentDecades, id: \.self) { Text(verbatim: "\($0)s").tag(Int?($0)) }
+            }.pickerStyle(.menu).fixedSize()
+            Spacer()
+            Text("\(selection.count) selected").font(.caption).foregroundStyle(.secondary)
+            Menu("Add random") {
+                ForEach([10, 25, 50, 100], id: \.self) { n in
+                    Button("\(n) random") { addRandom(n) }.disabled(filteredRows.isEmpty)
+                }
+                Button("All \(filteredRows.count) shown") { selection = Set(filteredRows.map(\.id)) }
+                    .disabled(filteredRows.isEmpty)
+            }.menuStyle(.borderlessButton).fixedSize()
+            Button("Clear") { selection.removeAll() }.disabled(selection.isEmpty)
+        }
+        .controlSize(.small).padding(.horizontal, 20).padding(.vertical, 8)
+    }
+
+    /// Select N random takes from the CURRENTLY FILTERED set (so randomness respects the facets),
+    /// adding to the existing selection for review before committing (owner choice).
+    private func addRandom(_ n: Int) {
+        let pool = filteredRows.map(\.id).filter { !selection.contains($0) }.shuffled()
+        selection.formUnion(pool.prefix(n))
+    }
+
+    /// Friendly content-type label for the Type filter + the table's Kind column.
+    static func kindLabel(for type: String) -> String {
+        switch type {
+        case "animation": return "Cartoon"
+        case "feature-film": return "Film"
+        case "short-film": return "Short"
+        case "silent-film": return "Silent"
+        case "documentary": return "Doc"
+        case "tv-episode", "tv-special": return "TV"
+        case "newsreel": return "Newsreel"
+        case "": return "—"
+        default: return type.capitalized
         }
     }
 
@@ -317,8 +369,8 @@ struct SupercutSheet: View {
             Spacer()
             Button("Cancel") { dismiss() }.keyboardShortcut(.cancelAction)
             if mode == .find {
-                Button("Add \(included.count) Clips") { assembleFind() }
-                    .keyboardShortcut(.defaultAction).disabled(included.isEmpty)
+                Button("Add \(selection.count) Clip\(selection.count == 1 ? "" : "s")") { assembleFind() }
+                    .keyboardShortcut(.defaultAction).disabled(selection.isEmpty)
             } else {
                 Button("Add \(planFound) Clips") { assembleCompose() }
                     .keyboardShortcut(.defaultAction).disabled(planFound == 0)
@@ -335,7 +387,8 @@ struct SupercutSheet: View {
     private func runFind() {
         guard let index, !phrase.isEmpty else { return }
         let p = phrase
-        searching = true; searched = true; results = []; excluded.removeAll()
+        searching = true; searched = true; results = []; rows = []; selection.removeAll()
+        sortOrder = [KeyPathComparator(\FindRow.order)]
         Task {
             // Run the LIKE scan OFF the main thread so the UI stays responsive.
             let found = await Task.detached {
@@ -351,6 +404,17 @@ struct SupercutSheet: View {
                 return Array(deduped.prefix(200))
             }.value
             results = found
+            // Enrich each take with catalog facets (color / type / year) so the Table can
+            // sort + filter an otherwise-undifferentiated list. One batched DB read on the main DB.
+            let byID = Dictionary(store.itemsByIDs(found.map(\.archiveID)).map { ($0.archiveID, $0) },
+                                  uniquingKeysWith: { a, _ in a })
+            rows = found.enumerated().map { i, cue in
+                let it = byID[cue.archiveID]
+                let cm = it?.colorMode
+                return FindRow(cue: cue, order: i,
+                               isBW: cm == "bw" ? true : (cm == "color" ? false : nil),
+                               contentType: it?.contentType ?? "", year: it?.year, decade: it?.decade)
+            }
             searching = false
         }
     }
@@ -430,5 +494,20 @@ struct SupercutSheet: View {
         }
         commit(takes)
     }
+}
+
+/// A Phrase Finder result enriched with catalog facets so the Table can sort + filter (color /
+/// type / year / decade) what is otherwise an undifferentiated list of spoken-line takes.
+struct FindRow: Identifiable, Sendable {
+    let cue: SubtitleCue
+    let order: Int               // original relevance order — the default ("Line"-less) sort
+    let isBW: Bool?              // nil = colorMode unknown
+    let contentType: String     // "" = unknown
+    let year: Int?
+    let decade: Int?
+    var id: String { cue.id }
+    var sortYear: Int { year ?? 0 }
+    var sortKind: String { contentType }
+    var kindLabel: String { SupercutSheet.kindLabel(for: contentType) }
 }
 #endif
