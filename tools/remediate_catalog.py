@@ -676,6 +676,25 @@ def _strip_trailing_year(t):
     return nt if (nt and re.search(r"[^\W_]", nt)) else t
 
 
+def _strip_trailing_year_field(t, year):
+    # A bare trailing 4-digit year (no parens, so _strip_trailing_year misses it) is
+    # stripped ONLY when it EQUALS the item's own year field — precise, never a guess,
+    # so "Blade Runner 2049" / "Space 1999" / "Class of 1984" survive unless the year
+    # field actually matches. ("Bombay Talkie 1970" with year 1970 -> "Bombay Talkie".)
+    if not year:
+        return t
+    m = re.match(r"^(.+?)[ .\-–—]+" + str(year) + r"\s*$", t)
+    if not (m and re.search(r"[A-Za-z]", m.group(1))):
+        return t
+    head = m.group(1).strip()
+    # Don't split a date RANGE ("… 1939-1941" with year 1941 -> a dangling "… 1939")
+    # or a title that genuinely ends in a 4-digit number — bail if the remainder
+    # itself ends in a year.
+    if re.search(r"(?:18|19|20)\d\d$", head):
+        return t
+    return _keep_if_lettered(head, t)
+
+
 def _strip_lang_tail(t):
     return _keep_if_lettered(_LANG_TAIL.sub("", t).rstrip(" -–—|"), t)
 
@@ -821,6 +840,7 @@ def sanitize_title(it):
     t = _strip_leading_year(t)
     t = _strip_leading_year_field(t, it.get("year"))
     t = _strip_trailing_year(t)
+    t = _strip_trailing_year_field(t, it.get("year"))
     t = re.sub(r"\s+", " ", t).strip(" -_|")
     if t and t.isupper() and len(t.split()) > 1:
         t = t.title()
