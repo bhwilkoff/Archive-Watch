@@ -594,7 +594,18 @@ _LANG_PAREN = re.compile(
 # Anchored to the END with required following text, so a bare word ("The Director") is never hit;
 # _keep_if_lettered protects a title that IS a credit ("Directed by John Ford").
 _CREDIT_TAIL = re.compile(
-    r"\s*[-–—,]?\s*(?:directed by|a film by|dir\.?\s*(?:by|:)|starring)\s+\S.*$", re.I)
+    r"\s*[-–—,]?\s*(?:directed by|a film by|dir\.?\s*(?:by|:)|director|starring|"
+    r"featuring|feat\.?|with cast|cast:)\s+\S.*$", re.I)
+# Uploader credits packed into the title with PIPE separators ("Title |Fritz Lang| Glenn Ford …"):
+# a "|" is essentially never in a real film title, so everything from the first "|" is credits.
+_PIPE_CREDITS = re.compile(r"\s*\|.*$", re.S)
+# Trailing genre/format descriptor an uploader tacked on after a dash/comma ("Human Desire -
+# Film Noir", "… , Comedy"). Only the FINAL segment and only KNOWN descriptors, so real subtitles
+# ("First Blood - Part II") survive; applied behind _keep_if_lettered.
+_GENRE_TAIL = re.compile(
+    r"\s*[-–—,]\s*(?:film[ -]?noir|drama|comedy|romance|western|horror|sci[- ]?fi|"
+    r"science fiction|thriller|mystery|documentary|adventure|musical|war film|crime|"
+    r"fantasy|silent film|b[- ]?movie|classic film|full movie)\s*$", re.I)
 # Trailing foreign subtitle/dub markers from scene rips ("- VOSE", "- Legendado", "ESub").
 _LANG_TAIL = re.compile(
     r"(?:\s*[-–—|]\s*(?:vose|vosi|vos|vo|legendado|subtitulado|castellano|espa[nñ]ol|"
@@ -749,6 +760,10 @@ def sanitize_title(it):
     t = _strip_quality_tail(t)
     t = _strip_uploader_cruft(t)
     t = _strip_lang_tail(t)           # trailing foreign sub/dub marker (VOSE / Legendado …)
+    # Pipe-delimited uploader credits ("Title |Director| Cast - Genre") → keep only the real title.
+    t = _keep_if_lettered(_PIPE_CREDITS.sub("", t).rstrip(" -–—,|"), t)
+    # Trailing genre descriptor ("… - Film Noir") an uploader appended (known descriptors only).
+    t = _keep_if_lettered(_GENRE_TAIL.sub("", t).rstrip(" -–—,|"), t)
     # Trailing " - Director Name" on scene-rip dash dumps, but ONLY when it matches the
     # item's OWN director field — precise, never a guess. ("… - Earl McEvoy" -> "…").
     director = (it.get("director") or "").strip()

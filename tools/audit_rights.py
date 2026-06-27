@@ -79,6 +79,19 @@ COMMERCIAL_VOTES = 100    # an IMDb vote count >= this = a real theatrical/video
                           # no genuine rights-holder dedicates such a film to CC/CC0, so an
                           # uploader CC/CC0 tag on it is bogus (Virus 1980 CC0 3173 votes,
                           # Throw Momma 1987 43k votes, Black Cobra 1987 BY 686 votes).
+# 1964-1977 renewal-zone gate: Decision 027 KEPT all 1964-77 (the PD-by-defect era), but that leaks
+# famous COPYRIGHTED studio films (The Graduate, 2001, Jaws, Chinatown, Sound of Music…) — exactly
+# the ones that surface on Home/Hero. A 1964-77 feature with a big commercial footprint is a renewed
+# studio film, NOT public domain; hide it unless it's a KNOWN PD-by-defect classic (allowlist below).
+RENEWAL_COMMERCIAL_VOTES = 20000
+# Genuinely public-domain 1964-77 films with a big footprint (failed renewal / no notice) that the
+# renewal-zone commercial gate must NOT hide. Normalized-title substring, year ±1.
+_PD_RENEWAL_ZONE = [
+    ("night of the living dead", 1968), ("manos the hands of fate", 1966),
+    ("the last man on earth", 1964), ("last man on earth", 1964),
+    ("carnival of souls", 1962), ("the little shop of horrors", 1960),
+    ("hercules", 1958),
+]
 
 GOV = R._GOV_PD_COLLECTIONS
 EXTERNAL = {"tmdb", "omdb"}
@@ -130,7 +143,7 @@ _CLASSIC_SKIP_RE = re.compile(
     r"trailer|featurette|premiere|teaser|making of|reissue|reaction|\breview\b"
     r"|parody|three stooges|betty boop|\bcartoon\b|express\b|\bvs\.?\b", re.I)
 _CLASSIC_OK_TYPES = {"feature-film", "animation", "tv-special"}
-_TITLE_YEAR_RE = re.compile(r"\b(19[0-6]\d)\b")
+_TITLE_YEAR_RE = re.compile(r"\b(19[0-7]\d)\b")   # 1900-1979 (covers the renewal zone)
 # Edition/format/language noise stripped from a title before matching, so
 # "King Kong 1933 Español" and "Holiday Inn 1942 *colorized" reduce to the canon.
 _QUALIFIERS = {
@@ -177,6 +190,23 @@ def is_renewed_classic(it):
         # dubbed / actor-appended variants). Short canons ("psycho", "vertigo")
         # must equal the core, so "anatomy of a psycho" / "psychorama" are NOT
         # caught — avoids hiding genuinely-PD B-movies.
+        if (len(cw) >= 3 and canon in core) or (len(cw) <= 2 and core == canon):
+            return True
+    return False
+
+
+def pd_renewal_allowed(it):
+    """A known PD-by-defect 1964-77 (or nearby) classic the renewal-zone commercial gate must keep."""
+    title = it.get("title") or ""
+    y = it.get("year")
+    if not isinstance(y, int):
+        m = _TITLE_YEAR_RE.search(title)
+        y = int(m.group(1)) if m else None
+    core = _core(title)
+    for canon, cy in _PD_RENEWAL_ZONE:
+        if isinstance(y, int) and abs(y - cy) > 1:
+            continue
+        cw = canon.split()
         if (len(cw) >= 3 and canon in core) or (len(cw) <= 2 and core == canon):
             return True
     return False
@@ -258,6 +288,15 @@ def bucket(it):
     # overrides even a bogus CC/PD claim (a studio classic has neither for real).
     if is_renewed_classic(it):
         return "renewed_copyright_classic", "hide"
+    # 1964-77 with a real commercial footprint = a renewed studio film (copyright), NOT public
+    # domain — the famous titles that leak onto Home/Hero (The Graduate, 2001, Jaws, Chinatown…).
+    # Hide unless a known PD-by-defect classic. BEFORE license_rescues so a bogus uploader PD/CC
+    # mark can't rescue a studio film (Decision 027 amendment, owner report 2026-06-27).
+    votes = it.get("imdbVotes")
+    if (RENEWAL_ZONE_START <= (yi or 0) < MODERN and ct in _CLASSIC_OK_TYPES
+            and isinstance(votes, int) and votes >= RENEWAL_COMMERCIAL_VOTES
+            and not pd_renewal_allowed(it)):
+        return "renewal_zone_commercial", "hide"
     # A bogus uploader "creative_commons" rightsStatus is common on modern STUDIO films
     # (e.g. Throw Momma From The Train, 1987). Only trust the CC label for a KNOWN pre-modern
     # year; a modern work must carry a REAL CC0/CC licenseurl (license_rescues) to be kept —
@@ -299,7 +338,7 @@ def bucket(it):
 
 HIDE_BUCKETS = {"modern_copyright_confirmed", "modern_noyear_risk",
                 "commercial_modern_risk", "commercial_slop",
-                "renewed_copyright_classic"}
+                "renewed_copyright_classic", "renewal_zone_commercial"}
 
 
 def evidence_for(it, b):
