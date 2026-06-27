@@ -1,6 +1,35 @@
 #if os(macOS)
 import SwiftUI
 import AppKit
+import CoreGraphics
+import ImageIO
+
+// Decode image bytes to an NSImage SwiftUI can render. NSImage(data:) preserves the source
+// colorspace, and SwiftUI's `Image(nsImage:)` Metal path renders a GRAYSCALE (DeviceGray /
+// monochrome) image as a SOLID WHITE box — CPU draw works, the GPU compositor doesn't (the
+// "Frozen Frolics" B&W cartoon poster, a genuine 1-component grayscale TMDb JPEG, rendered
+// white). Fix once, here: any image whose colorspace model isn't RGB is redrawn into 8-bit
+// sRGB RGBA before it reaches SwiftUI. Covers grayscale + CMYK + 16-bit + exotic profiles for
+// every RemoteImage call site (poster, cast circles, cards).
+private func decodedRGBImage(_ data: Data) -> NSImage? {
+    guard let src = CGImageSourceCreateWithData(data as CFData, nil),
+          let cg = CGImageSourceCreateImageAtIndex(src, 0, nil) else {
+        return NSImage(data: data)            // fallback: let AppKit try
+    }
+    if cg.colorSpace?.model == .rgb && cg.bitsPerComponent == 8 {
+        return NSImage(cgImage: cg, size: NSSize(width: cg.width, height: cg.height))
+    }
+    let w = cg.width, h = cg.height
+    guard w > 0, h > 0, let cs = CGColorSpace(name: CGColorSpace.sRGB),
+          let ctx = CGContext(data: nil, width: w, height: h, bitsPerComponent: 8,
+                              bytesPerRow: 0, space: cs,
+                              bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else {
+        return NSImage(data: data)
+    }
+    ctx.draw(cg, in: CGRect(x: 0, y: 0, width: w, height: h))
+    guard let out = ctx.makeImage() else { return NSImage(data: data) }
+    return NSImage(cgImage: out, size: NSSize(width: w, height: h))
+}
 
 // App-wide poster/still loader for the BROWSE/PLAY face (the Creation Studio grids have their
 // own StudioNet pool). Bare `AsyncImage(url:)` was the cause of the "posters load extremely
@@ -38,7 +67,7 @@ final class ImagePipeline {
         let task = Task<NSImage?, Never> { [session] in
             guard let (data, resp) = try? await session.data(from: url) else { return nil }
             if let http = resp as? HTTPURLResponse, !(200...299).contains(http.statusCode) { return nil }
-            return NSImage(data: data)
+            return decodedRGBImage(data)
         }
         inflight[url] = task
         let image = await task.value
