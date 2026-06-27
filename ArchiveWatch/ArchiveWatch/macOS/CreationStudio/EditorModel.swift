@@ -408,8 +408,14 @@ final class EditorModel {
                     await self?.refineOne(id: entry.id, take: entry.take, tighten: tighten, evenVolume: evenVolume) ?? .kept
                 }
             }
-            for _ in 0..<2 { addNext() }            // shares the preview's window cache + the global
-                                                    // ReencodeLimiter; kept low so we don't open too many
+            // Verify concurrency is env-tunable but DEFAULTS TO 2 — measured: raising it storms
+            // archive.org. For a FRESH phrase the verify pass RACES the preview pass, so its windows
+            // are NOT yet cached and each opens its own connection; at conc 4 this tripped the per-IP
+            // rate limit (24× -1011, 8 forced give-ups, retention 88%→70%, time 84s→424s). 2 is the
+            // proven-safe value; the give-up + the preview cache (shared) handle the rest.
+            let verifyConc = Int(ProcessInfo.processInfo.environment["AW_CS_VERIFY_CONC"] ?? "") ?? 2
+            for _ in 0..<max(1, verifyConc) { addNext() }   // shares the preview's window cache + the global
+                                                    // ReencodeLimiter; kept low so we don't storm archive.org
                                                     // archive.org connections at once (it rate-limits the IP)
             while let outcome = await group.next() {
                 switch outcome { case .removed: removed += 1; case .replaced: replaced += 1; case .kept: break }
