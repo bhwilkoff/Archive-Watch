@@ -31,6 +31,14 @@ struct ArchiveWatchMacApp: App {
                 .frame(minWidth: 960, minHeight: 600)
                 .task { await store.load() }
                 .task {
+                    // Proxy-render benchmark: run self-contained from the (always-firing) main-window
+                    // task with its own model — independent of DocumentGroup / state restoration, which
+                    // otherwise suppressed the harness on relaunch.
+                    if CreationStudioBench.isEnabled {
+                        await store.load()
+                        let model = EditorModel(document: ClipProjectDocument())
+                        await CreationStudioBench.run(model: model, store: store)
+                    }
                     // Creation Studio engine self-test (spike #3) — no-op unless AW_CS_SELFTEST=1.
                     if ProcessInfo.processInfo.environment["AW_CS_PERFTEST"] == "1" {
                         await CreationStudioPerfTest.run(store: store)

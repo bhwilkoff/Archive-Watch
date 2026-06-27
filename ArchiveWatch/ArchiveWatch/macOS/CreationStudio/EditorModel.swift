@@ -208,7 +208,7 @@ final class EditorModel {
     /// window is downloaded + re-encoded through the resilient loader, so every extra second is
     /// network + encode time — a big handle made short supercut clips take minutes to load. 3s
     /// covers ordinary fine-trims; a larger trim simply re-caches (a brief wait), not a failure.
-    static let cacheHandle = 3.0
+    static var cacheHandle: Double { BenchConfig.handle ?? Double(ProcessInfo.processInfo.environment["AW_CS_HANDLE"] ?? "") ?? 3.0 }
 
     // archive.org's per-~60s thumbnail strip (ArchiveThumbnails) is the timeline filmstrip
     // source: it's tiny + already-served, so a clip shows frames INSTANTLY without waiting for
@@ -815,8 +815,8 @@ final class EditorModel {
         // resolveLocal is @MainActor but suspends at the network/export await, so up to N caches run
         // in flight. A clip that won't cache is marked .failed(reason) and EXCLUDED from the build,
         // so it can't stall playback of the good clips (#13).
-        let maxConcurrent = 2          // low: each clip cache opens its own archive.org connections;
-                                       // too many at once trips archive.org's per-IP refusal (-1004)
+        // Tunable so the benchmark can sweep concurrency in one launch (BenchConfig) / via env.
+        let maxConcurrent = BenchConfig.concurrency ?? Int(ProcessInfo.processInfo.environment["AW_CS_CONC"] ?? "") ?? 2
         var resolvedByID: [UUID: CompositionBuilder.ResolvedClip] = [:]
         await withTaskGroup(of: (UUID, CompositionBuilder.ResolvedClip?).self) { group in
             var it = timelineClips.makeIterator()
@@ -873,7 +873,7 @@ final class EditorModel {
             for c in retryable { sourceFailCount[c.sourceURL.absoluteString] = nil }
             previewBlockedReason = retryable.compactMap { sourceFailReason[$0.sourceURL.absoluteString] }
                 .first ?? "couldn’t reach archive.org"
-            if transientRetries < 4 {
+            if transientRetries < 4 && !CreationStudioBench.isEnabled {
                 transientRetries += 1
                 let delay = Double(transientRetries) * 8        // 8s, 16s, 24s, 32s — give the IP time to un-throttle
                 transientRetryTask?.cancel()
@@ -911,7 +911,7 @@ final class EditorModel {
         let failedIDs = retryable
         if failedIDs.isEmpty {
             transientRetries = 0
-        } else if transientRetries < 3 {
+        } else if transientRetries < 3 && !CreationStudioBench.isEnabled {
             transientRetries += 1
             let n = transientRetries
             transientRetryTask?.cancel()
@@ -991,11 +991,15 @@ final class EditorModel {
         } else {
             let wStart = max(0, inS - Self.cacheHandle)
             let wEnd = outS + Self.cacheHandle
+            let bench = CreationStudioBench.isEnabled
+            if bench { CreationStudioBench.mark("clip \(clip.catalogItemID) proxy-resolve-start") }
             // PREVIEW uses a small proxy derivative (≈10× less to download); export keeps full quality.
             let previewSrc = await ProxySource.proxyURL(archiveID: clip.catalogItemID, fallback: clip.sourceURL)
+            if bench { CreationStudioBench.mark("clip \(clip.catalogItemID) proxy=\(previewSrc.lastPathComponent) cache-start") }
             let url = try await CacheCoordinator.window(
                 catalogItemID: clip.catalogItemID, sourceURL: previewSrc,
                 startSeconds: wStart, endSeconds: wEnd)
+            if bench { CreationStudioBench.mark("clip \(clip.catalogItemID) cached") }
             if Task.isCancelled { throw CancellationError() }
             // The cache clamps the window to the source's real duration, so trust the FILE's
             // duration for the window end (makeResolved's avail/dur clamp depends on it).

@@ -129,10 +129,10 @@ enum ProxySource {
 
     private static func resolve(_ id: String) async -> URL? {
         guard let enc = id.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
-              let metaURL = URL(string: "https://archive.org/metadata/\(enc)/files"),
-              let data = await StudioNet.data(from: metaURL),   // capped session — never storms the host
+              let metaURL = URL(string: "https://archive.org/metadata/\(enc)"),   // full meta: server+dir+files
+              let data = await StudioNet.data(from: metaURL),
               let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-              let files = json["result"] as? [[String: Any]] else { return nil }
+              let files = json["files"] as? [[String: Any]] else { return nil }
         var best: (name: String, size: Int)?
         for f in files {
             guard let name = f["name"] as? String else { continue }
@@ -146,6 +146,13 @@ enum ProxySource {
         }
         guard let pick = best?.name,
               let nameEnc = pick.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else { return nil }
+        // NODE-DIRECT URL (server + dir) — skips the /download 302 through archive.org's rate-limited
+        // MAIN host (the throttle that makes parallel clip prep -1004/-1011 + slow). Verified: the node
+        // serves 200 + byte-ranges directly. Falls back to /download if metadata lacks server/dir.
+        if let server = json["server"] as? String, let dir = json["dir"] as? String,
+           let u = URL(string: "https://\(server)\(dir)/\(nameEnc)") {
+            return u
+        }
         return URL(string: "https://archive.org/download/\(enc)/\(nameEnc)")
     }
 }
@@ -199,7 +206,7 @@ enum ClipCacheService {
     // Higher than the old 2: each clip is now a fast PASSTHROUGH COPY of a SMALL proxy derivative
     // (far less CPU + far fewer bytes), so the pipeline can run more in parallel without storming
     // archive.org. Still bounded so the per-IP main-host limit (the -1004 storm) isn't tripped.
-    static let reencodeLimiter = ReencodeLimiter(4)
+    static let reencodeLimiter = ReencodeLimiter(Int(ProcessInfo.processInfo.environment["AW_CS_LIM"] ?? "") ?? 4)
     /// Per-attempt re-encode deadline. A healthy node finishes a window in seconds; 90s still tolerates
     /// a slow-but-progressing connection while failing a true stall far sooner than the old 150s.
     static let attemptTimeout = 90.0
@@ -286,15 +293,19 @@ enum ClipCacheService {
     /// "fail to decode" (it never decodes), which is what removes both the slowness and the false
     /// "cannot decode" failures on clips that actually play.
     private static func cacheOneWindow(sourceURL: URL, range: CMTimeRange, to out: URL) async throws {
+        let t0 = Date()
         do {
             try await copyWindow(sourceURL: sourceURL, range: range, to: out)
+            if CreationStudioBench.isEnabled { CreationStudioBench.mark("copy-ok \(sourceURL.lastPathComponent) \(Int(Date().timeIntervalSince(t0)*1000))ms") }
             return
         } catch {
             if error is CancellationError { throw error }
             if isPermanent(error) { throw error }          // no video track — re-encode won't help
+            if CreationStudioBench.isEnabled { CreationStudioBench.mark("copy-FAIL→reencode \(sourceURL.lastPathComponent) [\((error as NSError).code)]") }
             // passthrough couldn't copy this codec/container — re-encode it (the slow but universal path).
         }
         try await reencodeWindow(sourceURL: sourceURL, range: range, to: out)
+        if CreationStudioBench.isEnabled { CreationStudioBench.mark("reencode-ok \(sourceURL.lastPathComponent) \(Int(Date().timeIntervalSince(t0)*1000))ms") }
     }
 
     /// PASSTHROUGH copy of a SOURCE [start,end] window to a local faststart MP4 — copies compressed
