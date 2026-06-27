@@ -691,14 +691,25 @@ def _strip_trailing_year_field(t, year):
     # field actually matches. ("Bombay Talkie 1970" with year 1970 -> "Bombay Talkie".)
     if not year:
         return t
-    m = re.match(r"^(.+?)[ .\-–—]+" + str(year) + r"\s*$", t)
-    if not (m and re.search(r"[A-Za-z]", m.group(1))):
+    # Capture ANY trailing 4-digit year, then keep it only if it's within ±2 of the item's own
+    # year field — a real release-year stamp (uploader years often disagree with TMDb's by a
+    # year, e.g. "Chhoti Si Baat 1975" with field 1976), while a number that's PART of the title
+    # ("Blade Runner 2049" field 2017, "Space 1999") is far off and survives.
+    m = re.match(r"^(.+?)[ .\-–—]+((?:18|19|20)\d\d)\s*$", t)
+    if not m or not re.search(r"[A-Za-z]", m.group(1)):
+        return t
+    if abs(int(m.group(2)) - year) > 2:
         return t
     head = m.group(1).strip()
     # Don't split a date RANGE ("… 1939-1941" with year 1941 -> a dangling "… 1939")
     # or a title that genuinely ends in a 4-digit number — bail if the remainder
     # itself ends in a year.
     if re.search(r"(?:18|19|20)\d\d$", head):
+        return t
+    # When the year completes a PHRASE ("Class of 1984", "Summer of 1942"), it IS the title —
+    # the preceding word is a preposition/article. Only strip a year that trails a COMPLETE
+    # title ("Chhoti Si Baat 1975").
+    if re.search(r"\b(of|the|a|an|in|to|for|from|at|on|and|or|no|year)$", head, re.I):
         return t
     return _keep_if_lettered(head, t)
 
@@ -963,6 +974,22 @@ def remediate(items):
             it["imdbRating"] = None
             it["imdbVotes"] = None
             stats["knockoff_match_cleared"] += 1
+
+        # 0g) TRAILER / CLIP / SHORT matched to a MAJOR THEATRICAL FEATURE: an Archive item
+        # classified trailer/clip/excerpt/short-film but matched to a film with blockbuster
+        # vote counts is a trailer or abridged excerpt of that feature, NOT the feature — it was
+        # title-matched and wrongly inherited the feature's poster/identity (the 25-min
+        # educational "Twelve Angry Men" carried the 981k-vote 1957 feature's art on Home). A
+        # genuine short has its OWN low-vote IMDb entry, so high votes on a short = wrong match.
+        # Clear the wrong identity → no designed poster → drops off Home. Keep it browsable.
+        if it.get("contentType") in ("trailer", "clip", "excerpt", "short-film") \
+                and (it.get("imdbVotes") or 0) >= 150000 \
+                and (it.get("imdbID") or it.get("tmdbID")):
+            _clear_wrong_artwork(it, None)
+            it["director"] = None
+            it["imdbRating"] = None
+            it["imdbVotes"] = None
+            stats["short_of_feature_cleared"] += 1
 
         y = it.get("year")
         ty = title_year(it)
