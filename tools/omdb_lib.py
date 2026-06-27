@@ -266,6 +266,12 @@ def apply_rich(item, rec):
     # case the TMDb upgrade explicitly.)
     cur = item.get("artworkSource")
     can_set = (cur not in DESIGNED_SOURCES) or (src == "tmdb" and cur == "omdb")
+    # Never re-apply a poster validate_posters already proved DEAD (404). Otherwise
+    # this restores the exact dead URL (its src isn't a DESIGNED source after the
+    # demotion to "archive"), and a 404'd image leads Home. A genuinely NEW live
+    # URL from a fresh OMDb fetch still passes (it won't equal posterDeadURL).
+    if poster and item.get("posterDead") and poster == item.get("posterDeadURL"):
+        poster = None
     if poster and can_set:
         item["posterURL"] = poster
         item["artworkSource"] = src

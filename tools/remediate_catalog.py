@@ -599,6 +599,13 @@ _CREDIT_TAIL = re.compile(
 # Uploader credits packed into the title with PIPE separators ("Title |Fritz Lang| Glenn Ford …"):
 # a "|" is essentially never in a real film title, so everything from the first "|" is credits.
 _PIPE_CREDITS = re.compile(r"\s*\|.*$", re.S)
+# Trailing parenthetical that is a CAST/credit/alt-title/version list — a paren or bracket
+# containing a comma, sitting at the very end ("Sie Und Die Drei( Hans Söhnker, Curt Vespermann)",
+# "Frankenstein 1931 (Colin Clive, Boris Karloff)", "(restored, uncut)"). The comma is the tell:
+# a primary film title is almost never "X (A, B)". Applied behind _keep_if_lettered, so a result
+# without letters is rejected. Cast/alt-title/version notes are not the primary title — they live
+# in dedicated fields (cast/year) everywhere in the app.
+_CAST_PAREN = re.compile(r"\s*[\(\[]\s*[^)\]]*,[^)\]]*[\)\]]\s*$")
 # Trailing genre/format descriptor an uploader tacked on after a dash/comma ("Human Desire -
 # Film Noir", "… , Comedy"). Only the FINAL segment and only KNOWN descriptors, so real subtitles
 # ("First Blood - Part II") survive; applied behind _keep_if_lettered.
@@ -647,6 +654,19 @@ def _strip_leading_year(t):
             break
         nt = s
     return _keep_if_lettered(nt, t)
+
+
+def _strip_leading_year_field(t, year):
+    # A bare leading 4-digit year (no dash separator, so _strip_leading_year misses it)
+    # is stripped ONLY when it EQUALS the item's own year field — precise, never a guess,
+    # so "2001 A Space Odyssey" / "1917" / "1941" are safe unless the year field actually
+    # matches. ("1935 Sie Und Die Drei" with year 1935 -> "Sie Und Die Drei".)
+    if not year:
+        return t
+    m = re.match(r"^\s*" + str(year) + r"\b[ .\-–—]+(.+)$", t)
+    if m and re.search(r"[A-Za-z]", m.group(1)):
+        return _keep_if_lettered(m.group(1).strip(), t)
+    return t
 
 
 def _strip_trailing_year(t):
@@ -764,6 +784,8 @@ def sanitize_title(it):
     t = _keep_if_lettered(_PIPE_CREDITS.sub("", t).rstrip(" -–—,|"), t)
     # Trailing genre descriptor ("… - Film Noir") an uploader appended (known descriptors only).
     t = _keep_if_lettered(_GENRE_TAIL.sub("", t).rstrip(" -–—,|"), t)
+    # Trailing cast/credit/alt-title parenthetical ("Title( Actor, Actor)") — the comma is the tell.
+    t = _keep_if_lettered(_CAST_PAREN.sub("", t).rstrip(" -–—,|"), t)
     # Trailing " - Director Name" on scene-rip dash dumps, but ONLY when it matches the
     # item's OWN director field — precise, never a guess. ("… - Earl McEvoy" -> "…").
     director = (it.get("director") or "").strip()
@@ -797,6 +819,7 @@ def sanitize_title(it):
     t = _keep_if_lettered(_TRAIL_OPEN_YEAR.sub("", t), t)
     t = _keep_if_lettered(_LANG_PAREN.sub(" ", t), t)
     t = _strip_leading_year(t)
+    t = _strip_leading_year_field(t, it.get("year"))
     t = _strip_trailing_year(t)
     t = re.sub(r"\s+", " ", t).strip(" -_|")
     if t and t.isupper() and len(t.split()) > 1:
@@ -880,6 +903,23 @@ def remediate(items):
             it["hasRealArtwork"] = False
             it["artworkSource"] = "archive"
             stats["unanchored_poster_cleared"] += 1
+
+        # 0e) DEAD POSTER RESTORED: validate_posters demotes a 404'd poster
+        # (posterDead=True, hasRealArtwork=False), but an enricher run afterward
+        # (omdb apply_rich keys off the cache and only refuses DESIGNED sources,
+        # not the "archive" fallback) RE-APPLIES the exact dead URL with
+        # hasRealArtwork=True — so 2,090 dead omdb posters were leading Home. Any
+        # build, re-demote an item whose current posterURL is the known-dead one:
+        # drop it so the #8 artwork floor falls back to the Archive thumbnail and
+        # the designed-art Home gate skips it. (omdb_lib.apply_rich now also
+        # refuses the dead URL at the source; this is the cross-tool backstop.)
+        if it.get("posterDead") and it.get("posterURL") \
+                and it.get("posterURL") == it.get("posterDeadURL"):
+            it["posterURL"] = None
+            it["backdropURL"] = None
+            it["hasRealArtwork"] = False
+            it["artworkSource"] = "archive"
+            stats["dead_poster_redemoted"] += 1
 
         y = it.get("year")
         ty = title_year(it)
