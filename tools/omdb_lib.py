@@ -123,6 +123,7 @@ def fetch_omdb(imdb_id, api_key, session, *, full_plot=True):
             runtime_min = int(m.group(1))
 
     return {
+        "title":          _clean(d.get("Title")),
         "poster_url":     _clean(d.get("Poster")),
         "imdb_rating":    _float_rating(d.get("imdbRating")),
         "imdb_votes":     _int_votes(d.get("imdbVotes")),
@@ -218,6 +219,23 @@ def fetch_omdb_full(api_key, session, *, imdb_id=None, title=None, year=None,
 # Apply to a catalog item
 # ---------------------------------------------------------------------------
 
+# Generic uploader PLACEHOLDER titles (an item titled with its collection/topic, not the
+# film) — adopt the OMDb canonical title over these. STRICT exact-match (lowercased) so real
+# short titles are never clobbered: "Film" (the 1965 Beckett/Keaton short), "Movie", "M",
+# "It", "Up" must survive — they are NOT in this set. ("Public Domain Movies" -> "The Movies"
+# for publicmovies212 / tt0016129; the uploader's generic title is not the film's title.)
+_PLACEHOLDER_TITLES = {
+    "public domain movies", "public domain movie", "public domain film",
+    "public domain films", "public domain", "public domain animation",
+    "feature films unsorted", "feature films", "feature film",
+    "untitled", "no title", "unknown", "various", "movies and films",
+}
+
+
+def is_placeholder_title(title) -> bool:
+    return (title or "").strip().lower() in _PLACEHOLDER_TITLES
+
+
 def apply_identity(item, rec):
     """Fill an item's IDENTITY fields (imdbID, cast, director, genres, year)
     from an OMDb record — only where currently empty, so we never clobber
@@ -226,6 +244,10 @@ def apply_identity(item, rec):
     if not rec:
         return False
     changed = False
+    # Title is adopted only over a GENERIC PLACEHOLDER (not the usual empty-only rule) — a real
+    # archive title always wins, but "Public Domain Movies" is not a title.
+    if rec.get("title") and is_placeholder_title(item.get("title")):
+        item["title"] = rec["title"]; changed = True
     if rec.get("imdb_id") and not item.get("imdbID"):
         item["imdbID"] = rec["imdb_id"]; changed = True
     if rec.get("director") and not item.get("director"):
