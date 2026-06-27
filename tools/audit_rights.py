@@ -143,6 +143,9 @@ _CLASSIC_SKIP_RE = re.compile(
     r"trailer|featurette|premiere|teaser|making of|reissue|reaction|\breview\b"
     r"|parody|three stooges|betty boop|\bcartoon\b|express\b|\bvs\.?\b", re.I)
 _CLASSIC_OK_TYPES = {"feature-film", "animation", "tv-special"}
+# Promotional fragments — never the work itself. Hidden when matched to a major film.
+_PROMO_TYPES = {"trailer", "clip", "teaser", "featurette", "excerpt"}
+PROMO_VOTES = 50000
 _TITLE_YEAR_RE = re.compile(r"\b(19[0-7]\d)\b")   # 1900-1979 (covers the renewal zone)
 # Edition/format/language noise stripped from a title before matching, so
 # "King Kong 1933 Español" and "Holiday Inn 1942 *colorized" reduce to the canon.
@@ -284,6 +287,15 @@ def bucket(it):
     # ---- always-safe ----
     if cl & GOV:
         return "safe_gov", "keep"
+    # Promotional fragments (trailer/clip/teaser/featurette/excerpt) matched to a MAJOR film
+    # (high votes) are a copyrighted studio's material, never the work — hide regardless of
+    # year. Without this bucket the --apply reconcile UN-HID them every build: the full "One
+    # Flew Over the Cuckoo's Nest" mislabeled 'trailer' (1.15M votes) kept reappearing on Home
+    # because its 'trailer' contentType escaped the renewal_zone_commercial gate
+    # (_CLASSIC_OK_TYPES) and no other hide bucket covered it. Owner report 2026-06-27.
+    _votes = it.get("imdbVotes")
+    if ct in _PROMO_TYPES and isinstance(_votes, int) and _votes >= PROMO_VOTES:
+        return "copyrighted_trailer", "hide"
     # Famous renewed-copyright classic that the year tiers would wrongly keep —
     # overrides even a bogus CC/PD claim (a studio classic has neither for real).
     if is_renewed_classic(it):
@@ -338,7 +350,8 @@ def bucket(it):
 
 HIDE_BUCKETS = {"modern_copyright_confirmed", "modern_noyear_risk",
                 "commercial_modern_risk", "commercial_slop",
-                "renewed_copyright_classic", "renewal_zone_commercial"}
+                "renewed_copyright_classic", "renewal_zone_commercial",
+                "copyrighted_trailer"}
 
 
 def evidence_for(it, b):

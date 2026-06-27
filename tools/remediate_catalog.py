@@ -975,14 +975,17 @@ def remediate(items):
             it["imdbVotes"] = None
             stats["knockoff_match_cleared"] += 1
 
-        # 0g) TRAILER / CLIP / SHORT matched to a MAJOR THEATRICAL FEATURE: an Archive item
-        # classified trailer/clip/excerpt/short-film but matched to a film with blockbuster
-        # vote counts is a trailer or abridged excerpt of that feature, NOT the feature — it was
-        # title-matched and wrongly inherited the feature's poster/identity (the 25-min
-        # educational "Twelve Angry Men" carried the 981k-vote 1957 feature's art on Home). A
-        # genuine short has its OWN low-vote IMDb entry, so high votes on a short = wrong match.
-        # Clear the wrong identity → no designed poster → drops off Home. Keep it browsable.
-        if it.get("contentType") in ("trailer", "clip", "excerpt", "short-film") \
+        # 0g) SHORT-FILM matched to a MAJOR THEATRICAL FEATURE: an Archive item classified
+        # short-film but matched to a film with blockbuster vote counts is an abridged excerpt
+        # of that feature, NOT the feature — it was title-matched and wrongly inherited the
+        # feature's poster/identity (the 25-min educational "Twelve Angry Men" carried the
+        # 981k-vote 1957 feature's art on Home). A genuine short has its OWN low-vote IMDb entry,
+        # so high votes on a short = a wrong match. Clear the wrong identity → no designed poster
+        # → drops off Home, but stays browsable (it may be a real PD educational short).
+        # (Promotional types — trailer/clip/teaser/featurette — are HIDDEN by audit_rights
+        # 'copyrighted_trailer' instead; don't clear their votes here or that vote-gated hide
+        # can't fire.)
+        if it.get("contentType") == "short-film" \
                 and (it.get("imdbVotes") or 0) >= 150000 \
                 and (it.get("imdbID") or it.get("tmdbID")):
             _clear_wrong_artwork(it, None)
