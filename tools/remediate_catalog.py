@@ -606,6 +606,14 @@ _PIPE_CREDITS = re.compile(r"\s*\|.*$", re.S)
 # without letters is rejected. Cast/alt-title/version notes are not the primary title — they live
 # in dedicated fields (cast/year) everywhere in the app.
 _CAST_PAREN = re.compile(r"\s*[\(\[]\s*[^)\]]*,[^)\]]*[\)\]]\s*$")
+# Public-domain-fairy-tale KNOCK-OFF studios. These labels (in the title) only ever made cheap
+# PD cartoon knock-offs, so a title-only matcher mapping them to the MAJOR studio film of the
+# same name is always wrong — "Beauty En Het Beest (VHS, Bevanfield, Dutch)" got Disney's
+# tt0101414/Gary Trousdale/502k-vote poster. Unambiguous studio names (never real film titles);
+# "Films" required on Burbank/Golden so a generic word can't trip it.
+_KNOCKOFF_LABEL = re.compile(
+    r"\b(bevanfield|foxbridge|burbank films|golden films|goodtimes|"
+    r"jetlag productions|dingo pictures)\b", re.I)
 # Trailing genre/format descriptor an uploader tacked on after a dash/comma ("Human Desire -
 # Film Noir", "… , Comedy"). Only the FINAL segment and only KNOWN descriptors, so real subtitles
 # ("First Blood - Part II") survive; applied behind _keep_if_lettered.
@@ -940,6 +948,21 @@ def remediate(items):
             it["hasRealArtwork"] = False
             it["artworkSource"] = "archive"
             stats["dead_poster_redemoted"] += 1
+
+        # 0f) KNOCK-OFF STUDIO matched to the MAJOR film of the same name: a title naming a
+        # PD-cartoon knock-off label (Bevanfield, Foxbridge, Burbank/Golden Films…) can only
+        # be that knock-off, never the Disney/major work a title search resolves to. Clear the
+        # whole wrong external identity (ids/poster/synopsis via _clear_wrong_artwork, plus the
+        # leftover director/rating/votes). Self-heals each build even if a title-matcher re-adds
+        # it. Keep the Archive year (don't trust the matched film's).
+        if _KNOCKOFF_LABEL.search(it.get("title") or "") \
+                and (it.get("imdbID") or it.get("tmdbID")
+                     or (it.get("artworkSource") or "").lower() in ("tmdb", "omdb")):
+            _clear_wrong_artwork(it, None)
+            it["director"] = None
+            it["imdbRating"] = None
+            it["imdbVotes"] = None
+            stats["knockoff_match_cleared"] += 1
 
         y = it.get("year")
         ty = title_year(it)
