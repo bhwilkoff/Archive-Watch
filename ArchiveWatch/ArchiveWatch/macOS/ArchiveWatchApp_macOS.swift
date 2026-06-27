@@ -31,14 +31,14 @@ struct ArchiveWatchMacApp: App {
                 .frame(minWidth: 960, minHeight: 600)
                 .task { await store.load() }
                 .task {
-                    // Proxy-render benchmark: run self-contained from the (always-firing) main-window
-                    // task with its own model — independent of DocumentGroup / state restoration, which
-                    // otherwise suppressed the harness on relaunch.
+                    // Supercut benchmark: the bench now runs INSIDE the editor scene (on the visible
+                    // editor's bound model, so the full UI load contends — owner 2026-06-27). Here we
+                    // only FORCE the editor document open so that scene + its .task reliably appear on
+                    // a headless/CLI launch (state restoration otherwise may not open it).
                     if CreationStudioBench.isEnabled {
-                        CreationStudioBench.mark("TASK-FIRED")
+                        CreationStudioBench.mark("TASK-FIRED open-editor")
                         await store.load()
-                        let model = EditorModel(document: ClipProjectDocument())
-                        await CreationStudioBench.run(model: model, store: store)
+                        NSDocumentController.shared.newDocument(nil)
                     }
                     // Creation Studio engine self-test (spike #3) — no-op unless AW_CS_SELFTEST=1.
                     if ProcessInfo.processInfo.environment["AW_CS_PERFTEST"] == "1" {

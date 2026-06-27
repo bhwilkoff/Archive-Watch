@@ -120,6 +120,10 @@ final class SubtitleIndex: @unchecked Sendable {
                 let start = sqlite3_column_double(stmt, 3), end = sqlite3_column_double(stmt, 4)
                 let text = str(5)
                 guard Self.isConfident(text: text, start: start, end: end) else { continue }
+                // Whole-WORD match: LIKE '%phrase%' is a substring test, so "love" matches "beloved"
+                // and "I love you" matches "I love yourself" — partial-word false positives the owner
+                // sees. Require the phrase to appear as a contiguous run of WHOLE words in the cue.
+                guard Self.phraseAppearsAsWords(q, in: text) else { continue }
                 out.append(SubtitleCue(id: str(0), archiveID: str(1), sourceURL: url,
                                        startSeconds: start, endSeconds: end, text: text,
                                        title: str(6), imdbID: str(7)))
@@ -149,6 +153,25 @@ final class SubtitleIndex: @unchecked Sendable {
         guard dur >= 0.3 else { return false }
         if Double(trimmed.count) / dur > 30 { return false }
         return true
+    }
+
+    /// True iff every word of `phrase` appears as a CONTIGUOUS run of whole words in `text` (case/
+    /// punctuation-insensitive). Turns the LIKE substring match into a whole-word match so partial-
+    /// word hits ("love"⊄"beloved", "you"⊄"yourself") are rejected. A single-word phrase must equal
+    /// some whole word in the cue.
+    static func phraseAppearsAsWords(_ phrase: String, in text: String) -> Bool {
+        func toks(_ s: String) -> [Substring] {
+            s.lowercased().split { !$0.isLetter && !$0.isNumber }
+        }
+        let needle = toks(phrase)
+        guard !needle.isEmpty else { return true }
+        let hay = toks(text)
+        guard hay.count >= needle.count else { return false }
+        for s in 0...(hay.count - needle.count)
+        where (0..<needle.count).allSatisfy({ hay[s + $0] == needle[$0] }) {
+            return true
+        }
+        return false
     }
 
     /// Frame-accurate range of `run` (a word sequence) from the forced-aligned `words` table

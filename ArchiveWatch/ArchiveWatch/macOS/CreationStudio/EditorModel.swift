@@ -488,6 +488,11 @@ final class EditorModel {
         //    reused below. Only a CONTRADICTED verdict (speech recognized, phrase absent) acts;
         //    unverifiable audio (music / rough old prints) is kept.
         let verdict = await WordTiming.verify(mediaURL: url, phrase: take.phrase)
+        if CreationStudioBench.isEnabled {
+            let kind: String
+            switch verdict { case .confirmed: kind = "confirmed"; case .contradicted: kind = "contradicted"; case .unverifiable: kind = "unverifiable" }
+            CreationStudioBench.noteVerdict(kind, phrase: take.phrase, detail: "caption=\"\(take.captionText.prefix(60))\"")
+        }
         if case .contradicted = verdict {
             // Try each ranked ALTERNATE (Supercut Search) — the first that actually speaks the phrase
             // REPLACES this clip in place (same timeline slot), tightened to the spoken words.
@@ -1017,6 +1022,7 @@ final class EditorModel {
                           userInfo: [NSLocalizedDescriptionKey: "couldn't read the source video"])
         }
         clipPrep[clip.id] = .ready
+        CreationStudioBench.noteReady()                        // bench: time-to-first-clip
         noteSourceSucceeded(clip.sourceURL.absoluteString)    // clear any prior failure streak
         let graded = await gradedAssetURL(clip, window: w)   // bakes the Look (or passes through)
         ensureThumbnails(clip, window: w)

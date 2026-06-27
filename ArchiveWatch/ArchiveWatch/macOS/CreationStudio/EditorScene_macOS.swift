@@ -210,6 +210,14 @@ struct ProjectEditorView: View {
             }
             model.loadFilmstrips()   // instant filmstrips for already-present (saved-project) clips
             if !model.project.timeline.clips.isEmpty { await model.rebuildPreview() }
+            // Supercut benchmark (AW_CS_BENCH=50) runs HERE — on the VISIBLE editor's bound model —
+            // so the REAL UI load (per-clip filmstrips, timeline render, sidebar) contends exactly as
+            // when a user adds clips by hand. Running it on a standalone model would measure the
+            // pipeline in isolation and miss that contention (owner 2026-06-27).
+            if CreationStudioBench.isEnabled {
+                await store.load()
+                await CreationStudioBench.run(model: model, store: store)
+            }
         }
         .onChange(of: model.project.burnAttribution) { Task { await model.rebuildPreview() } }
         .sheet(isPresented: $showBrowser) {
