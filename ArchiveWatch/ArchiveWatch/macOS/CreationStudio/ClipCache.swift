@@ -164,14 +164,15 @@ enum CacheCoordinator {
     private static var inFlight: [String: Task<URL, Error>] = [:]
 
     static func window(catalogItemID: String, sourceURL: URL,
-                       startSeconds: Double, endSeconds: Double) async throws -> URL {
+                       startSeconds: Double, endSeconds: Double,
+                       attempts: Int = 2, timeout: Double = ClipCacheService.attemptTimeout) async throws -> URL {
         let key = ProjectMediaCache.windowURL(catalogItemID: catalogItemID, sourceURL: sourceURL,
                                               startSeconds: max(0, startSeconds),
                                               endSeconds: max(startSeconds + 0.1, endSeconds)).path
         if let existing = inFlight[key] { return try await existing.value }
         let task = Task { try await ClipCacheService.cachedWindow(
             catalogItemID: catalogItemID, sourceURL: sourceURL,
-            startSeconds: startSeconds, endSeconds: endSeconds) }
+            startSeconds: startSeconds, endSeconds: endSeconds, attempts: attempts, timeout: timeout) }
         inFlight[key] = task
         defer { inFlight[key] = nil }
         return try await task.value
@@ -246,7 +247,8 @@ enum ClipCacheService {
     /// containers). Retries on transient failures: a fresh attempt builds a NEW
     /// ResilientStreamLoader that re-resolves a healthy archive.org node (Decision 034).
     static func cachedWindow(catalogItemID: String, sourceURL: URL,
-                             startSeconds: Double, endSeconds: Double, attempts: Int = 2) async throws -> URL {
+                             startSeconds: Double, endSeconds: Double,
+                             attempts: Int = 2, timeout: Double = attemptTimeout) async throws -> URL {
         let s = max(0, startSeconds), e = max(s + 0.1, endSeconds)
         let out = ProjectMediaCache.windowURL(catalogItemID: catalogItemID, sourceURL: sourceURL, startSeconds: s, endSeconds: e)
         if FileManager.default.fileExists(atPath: out.path) { return out }
@@ -266,7 +268,7 @@ enum ClipCacheService {
                 // survives archive.org's idle connection resets on a deep window of a long film —
                 // AVAssetExportSession has no resourceLoader and fails "Operation Stopped" (-11838)
                 // exactly there, which is why both export AND the cache-backed preview were broken.
-                try await withTimeout(attemptTimeout) {
+                try await withTimeout(timeout) {
                     try await cacheOneWindow(sourceURL: sourceURL, range: range, to: out)
                 }
                 await reencodeLimiter.release()

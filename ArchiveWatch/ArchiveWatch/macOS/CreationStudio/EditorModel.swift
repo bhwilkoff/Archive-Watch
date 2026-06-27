@@ -212,6 +212,13 @@ final class EditorModel {
     // fine-trims (a larger trim simply re-caches). Tunable for the benchmark (BenchConfig/env).
     static var cacheHandle: Double { BenchConfig.handle ?? Double(ProcessInfo.processInfo.environment["AW_CS_HANDLE"] ?? "") ?? 1.5 }
 
+    // Per-attempt deadline for a PROXY window (preview + verify). A tiny 512kb-derivative window
+    // lands in seconds on a healthy node; the 90s export budget was sized for full-quality and made
+    // a single stalling clip hold a shared encode permit for 90s x2 x3-retries (~9 min) — the
+    // "stuck downloading / Verifying X of Y" hang. 25s fails a true stall fast, frees the permit,
+    // and lets the give-up fire quickly, while still tolerating a slow-but-progressing connection.
+    static var proxyCacheTimeout: Double { Double(ProcessInfo.processInfo.environment["AW_CS_PROXY_TIMEOUT"] ?? "") ?? 25 }
+
     // archive.org's per-~60s thumbnail strip (ArchiveThumbnails) is the timeline filmstrip
     // source: it's tiny + already-served, so a clip shows frames INSTANTLY without waiting for
     // the (slow) window cache + AVAssetImageGenerator. Cached per item + per image so trimming
@@ -477,23 +484,57 @@ final class EditorModel {
         let wStart = max(0, inS - Self.cacheHandle)
         // The verify pass uses the small proxy too — faster, and phrase-verification needs no full res.
         let src = await ProxySource.proxyURL(archiveID: proxy.catalogItemID, fallback: proxy.sourceURL)
+        // Proxy windows are tiny (a few seconds of the 512kb derivative) — a healthy node returns one
+        // in seconds, so a SHORT timeout + single attempt fails a stall fast instead of paying the
+        // 90s x2 export budget (which starved the shared permits + hung "Verifying X of Y").
         let url = try await CacheCoordinator.window(
             catalogItemID: proxy.catalogItemID, sourceURL: src,
-            startSeconds: wStart, endSeconds: outS + Self.cacheHandle)
+            startSeconds: wStart, endSeconds: outS + Self.cacheHandle,
+            attempts: 1, timeout: Self.proxyCacheTimeout)
         return (url, wStart)
+    }
+
+    /// refineWindow bounded by a timeout: it WAITS for the preview's shared/in-flight cache (fast for
+    /// any reachable clip) but ABORTS a long fresh fetch on a stalling/-1011 source, so the verify
+    /// pass can't hang "Verifying X of Y" for minutes (owner 2026-06-27 — the preview pass owns the
+    /// real fetch + give-up; verification of an unfetchable clip is simply skipped, the clip kept).
+    private func refineWindowBounded(_ proxy: ProxyClip, timeout: Double = 20) async -> (url: URL, windowStart: Double)? {
+        await withTaskGroup(of: (url: URL, windowStart: Double)?.self) { group in
+            group.addTask { [weak self] in
+                guard let self else { return nil }
+                return try? await self.refineWindow(for: proxy)
+            }
+            group.addTask { try? await Task.sleep(for: .seconds(timeout)); return nil }
+            let first = await group.next() ?? nil
+            group.cancelAll()
+            return first
+        }
     }
 
     private func refineOne(id: UUID, take: SupercutTake, tighten: Bool, evenVolume: Bool) async -> RefineOutcome {
         // Verification + tighten/level all need a LOCAL window. Reuse the preview's generous window
-        // (shared cache — no second download). If caching fails, keep the clip (best-effort — never
-        // drop a clip just because its bytes were slow to fetch).
-        guard let (url, wStart) = try? await refineWindow(for: take.proxy),
-              !Task.isCancelled else { return .kept }
+        // (shared cache — no second download). Skip clips the preview already GAVE UP on (don't re-pay
+        // a doomed fetch), and BOUND the fetch so a stalling source never blocks the pass for minutes.
+        if isKnownPermanent(take.proxy.sourceURL.absoluteString) {
+            if CreationStudioBench.isEnabled { CreationStudioBench.mark("refine-skip-permfail \(take.proxy.catalogItemID)") }
+            return .kept
+        }
+        let _wt0 = Date()
+        guard let (url, wStart) = await refineWindowBounded(take.proxy),
+              !Task.isCancelled else {
+            if CreationStudioBench.isEnabled { CreationStudioBench.mark("refine-skip-nowindow winMs=\(Int(Date().timeIntervalSince(_wt0)*1000)) \(take.proxy.catalogItemID)") }
+            return .kept
+        }
+        let _winMs = Int(Date().timeIntervalSince(_wt0) * 1000)
 
         // 1) VERIFY the phrase is actually spoken (independent of the subtitle) — ONE speech pass,
         //    reused below. Only a CONTRADICTED verdict (speech recognized, phrase absent) acts;
         //    unverifiable audio (music / rough old prints) is kept.
+        let _vt0 = Date()
         let verdict = await WordTiming.verify(mediaURL: url, phrase: take.phrase)
+        if CreationStudioBench.isEnabled {
+            CreationStudioBench.mark("refine-timing winMs=\(_winMs) verifyMs=\(Int(Date().timeIntervalSince(_vt0)*1000)) \(take.proxy.catalogItemID)")
+        }
         if CreationStudioBench.isEnabled {
             let kind: String
             switch verdict { case .confirmed: kind = "confirmed"; case .contradicted: kind = "contradicted"; case .unverifiable: kind = "unverifiable" }
@@ -504,7 +545,8 @@ final class EditorModel {
             // REPLACES this clip in place (same timeline slot), tightened to the spoken words.
             for alt in take.alternates {
                 if Task.isCancelled { return .kept }
-                guard let (altURL, altStart) = try? await refineWindow(for: alt) else { continue }
+                if isKnownPermanent(alt.sourceURL.absoluteString) { continue }
+                guard let (altURL, altStart) = await refineWindowBounded(alt) else { continue }
                 guard case .confirmed(let r) = await WordTiming.verify(mediaURL: altURL, phrase: take.phrase),
                       let i = project.timeline.clips.firstIndex(where: { $0.id == id }) else { continue }
                 var c = project.timeline.clips[i]
@@ -1029,7 +1071,8 @@ final class EditorModel {
             if bench { CreationStudioBench.mark("clip \(clip.catalogItemID) proxy=\(previewSrc.lastPathComponent) cache-start") }
             let url = try await CacheCoordinator.window(
                 catalogItemID: clip.catalogItemID, sourceURL: previewSrc,
-                startSeconds: wStart, endSeconds: wEnd)
+                startSeconds: wStart, endSeconds: wEnd,
+                attempts: 1, timeout: Self.proxyCacheTimeout)   // small proxy → fail a stall fast (see refineWindow)
             if bench { CreationStudioBench.mark("clip \(clip.catalogItemID) cached") }
             if Task.isCancelled { throw CancellationError() }
             // The cache clamps the window to the source's real duration, so trust the FILE's
