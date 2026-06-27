@@ -30,6 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write      # to upload release assets
+      actions: write       # to dispatch the Deploy Pages workflow after the index refresh
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -109,6 +110,8 @@ jobs:
       # fail the job (the DB already shipped above).
       - name: Build + commit catalog search index
         continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python tools/build_catalog_index.py
           python tools/build_web_details.py
@@ -123,7 +126,14 @@ jobs:
           git commit -m "Refresh web catalog index + detail shards [skip ci]"
           for i in 1 2 3 4 5; do
             if git pull --rebase --autostash origin main && git push; then
-              echo "pushed index on attempt $i"; exit 0
+              echo "pushed index on attempt $i"
+              # The index commit carries [skip ci] (so it doesn't re-trigger heavy
+              # writer workflows), which ALSO suppresses the push-triggered Deploy
+              # Pages run — without this dispatch the live site never picks up the
+              # new index/details and archivewatch.org freezes (it was 8 days stale
+              # on 2026-06-27). Explicitly kick the deploy. Non-fatal.
+              gh workflow run deploy-pages.yml || echo "deploy-pages dispatch failed (non-fatal)"
+              exit 0
             fi
             echo "push race, retry $i"; sleep $((i * 3))
           done
