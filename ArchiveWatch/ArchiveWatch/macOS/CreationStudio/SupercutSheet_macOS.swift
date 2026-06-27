@@ -248,8 +248,9 @@ struct SupercutSheet: View {
         selection.formUnion(pool.prefix(n))
     }
 
-    /// Friendly content-type label for the Type filter + the table's Kind column.
-    static func kindLabel(for type: String) -> String {
+    /// Friendly content-type label for the Type filter + the table's Kind column. `nonisolated` —
+    /// it's pure (a switch on a String) and is called from `FindRow` (a nonisolated value type).
+    nonisolated static func kindLabel(for type: String) -> String {
         switch type {
         case "animation": return "Cartoon"
         case "feature-film": return "Film"
