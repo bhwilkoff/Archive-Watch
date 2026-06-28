@@ -1963,3 +1963,40 @@ duplicates). `seasonNumber`/`episodeNumber`/`seriesTitle` are additive JSON keys
 older clients ignore. The published DB schema drops `episodes_fts` (no client queries
 it after this). Complements Decision 016 (canonical spine), 033/042 (Clip/Creation
 Studio), 035/036 (duplicate exclusion + TV taxonomy).
+
+---
+
+## 046 — Backfill rich API metadata into the DB, tiered by use (blob / FTS / join table)
+*Date: 2026-06-27*
+
+Pull the metadata our APIs already expose — TMDb keywords, alternative/original titles, full crew
+(writer/composer/cinematographer), cast person IDs, production studios, franchise, awards (OMDb),
+tagline, full release date, and Wikidata extras — INTO `catalog.sqlite` so users can search, filter,
+and learn more WITHOUT a runtime API call. Each field is routed to the cheapest storage layer that
+serves its use: **detail-only fields → the `item_json` blob** (decoded only on Detail open, ~0 query
+cost), **searched text (keywords/AKA/writer) → the FTS5 index**, **filtered values (keyword/studio)
+→ small normalized join tables** like the existing genre/collection tables. NO new hot-path/sort
+columns on `items`. Full plan: `docs/METADATA-EXPANSION.md`.
+
+**Why**: today this data is one API call away, so search/filter/discovery can't use it (you can't
+FTS-search a TMDb keyword you don't store, or filter by a studio that lives in an API). The
+constraint is the shipped DB: it's downloaded (~24 MB `.zz`) and queried on-disk on a 3 GB Apple TV
+(Decision 017), so naively adding columns would bloat the download and slow the hot queries. The
+tiering avoids both — the blob compresses well and isn't read except on Detail, FTS is an inverted
+index built for search, and join tables are only hit by their filter. One TMDb
+`/movie/{id}?append_to_response=keywords,alternative_titles,credits` call feeds most of it, so the
+backfill is cheap (same call enrichment already makes).
+
+**How to apply**: a new metadata field goes in the LOWEST layer that supports its use — the blob
+unless it is actually searched or filtered; never an `items` column for a detail-only field. Batch
+fields through one `append_to_response` call, never a per-field API pass. The download budget is
+binding: keep `catalog.sqlite.zz` ≤ ~35 MB and MEASURE (Phase 0) before shipping — demote a
+budget-busting field to web-only or drop it. Additive per Decision 020 (new JSON keys / FTS terms /
+tables are backward-safe; older clients ignore them).
+
+**Consequences**: a `backfill_metadata.py` enrichment pass + `metadata-enrich.yml` (daily,
+catalog-writers concurrency) join the pipeline alongside `backfill_language.py` (Decision 045-era).
+`build_sqlite` gains keyword/studio join tables + FTS terms; `CATALOG-CONTRACT.md` and each
+platform's DESIGN doc are updated as the per-platform search/filter/Detail surfaces land
+(tvOS/iOS/macOS `CatalogDB`, Android Room, web index). Complements Decision 007 (TMDb primary) and
+the cast/person gap noted in Decision 038.
