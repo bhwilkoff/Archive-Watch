@@ -124,7 +124,18 @@ struct HeroCarousel: View {
     let items: [Catalog.Item]
     @State private var index = 0
     @State private var hovering = false
-    private let tick = Timer.publish(every: 7, on: .main, in: .common).autoconnect()
+    // Under the CLI test harness the auto-advance timer's delivery to this @MainActor closure trips an
+    // unrelated Swift-runtime executor fault (headless dual-scene launch), so swap in a publisher that
+    // never fires. The crash is in the timer DELIVERY machinery, before any in-closure guard runs, so
+    // it must be prevented at the source. No effect on normal use.
+    private let tick: AnyPublisher<Date, Never>
+
+    init(items: [Catalog.Item]) {
+        self.items = items
+        tick = CreationStudioHarness.active
+            ? Empty(completeImmediately: false).eraseToAnyPublisher()
+            : Timer.publish(every: 7, on: .main, in: .common).autoconnect().eraseToAnyPublisher()
+    }
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -145,6 +156,10 @@ struct HeroCarousel: View {
         }
         .onHover { hovering = $0 }
         .onReceive(tick) { _ in
+            // The CLI test harnesses (AW_CS_AUDIT / AW_CS_BENCH) open this WindowGroup alongside the
+            // editor; the auto-advance timer firing under that headless dual-scene launch trips an
+            // unrelated Swift-runtime executor fault, so suppress it there (no effect on normal use).
+            guard !CreationStudioHarness.active else { return }
             guard items.count > 1, !hovering else { return }
             withAnimation(.easeInOut(duration: 0.6)) { index = (index + 1) % items.count }
         }

@@ -13,6 +13,16 @@ import AVFoundation
 // exactly that: the timeline model updates (the block grows) but the preview never reflects it. So a
 // test that only inspects `clip.sourceRange` would pass while the feature is broken — every check
 // here verifies the COMPOSITION (model.player.currentItem) changed as expected.
+/// True when ANY Creation Studio CLI test harness is running (audit or bench). Used to quiet
+/// unrelated background timers (e.g. the Home HeroCarousel auto-advance) that would otherwise fire
+/// during the long headless dual-scene launch the harness uses.
+enum CreationStudioHarness {
+    static var active: Bool {
+        let e = ProcessInfo.processInfo.environment
+        return e["AW_CS_AUDIT"] != nil || e["AW_CS_BENCH"] != nil
+    }
+}
+
 @MainActor
 enum CreationStudioFeatureAudit {
     static var isEnabled: Bool { ProcessInfo.processInfo.environment["AW_CS_AUDIT"] != nil }
@@ -82,7 +92,11 @@ enum CreationStudioFeatureAudit {
         await auditSplit(model, item: item, url: url)
         await auditReorderAndDelete(model, item: item, url: url)
         await auditFadesTransitionsLooksSpeed(model, item: item, url: url)
+        await auditDuplicateCopyPasteMute(model, item: item, url: url)
+        await auditTextOverlays(model, item: item, url: url)
+        await auditMarkersAndSettings(model, item: item, url: url)
         await auditUndoRedo(model, item: item, url: url)
+        await auditExport(model, item: item, url: url)
 
         finish()
     }
@@ -279,6 +293,126 @@ enum CreationStudioFeatureAudit {
               "look=\(String(describing: model.clips.first { $0.id == a }?.look))")
     }
 
+    // MARK: - Duplicate / copy-paste / mute / volume
+
+    private static func auditDuplicateCopyPasteMute(_ model: EditorModel, item: Catalog.Item, url: URL) async {
+        model.project.timeline.clips.removeAll()
+        var g = model.debug_rebuildCount
+        model.addClip(catalogItemID: item.archiveID, sourceURL: url, title: item.title, inSeconds: 5, durationSeconds: 4)
+        guard let id = model.clips.first?.id, await settle(model, after: g) else {
+            check("dup.setup", false, "clip never ready"); return
+        }
+        let oneLen = previewSeconds(model)
+
+        // Duplicate — a 2nd clip from the same window; preview must roughly double.
+        g = model.debug_rebuildCount
+        model.duplicateClip(id)
+        _ = await settle(model, after: g)
+        check("dup.duplicate", model.clips.count == 2 && previewSeconds(model) > oneLen + 2,
+              "clips=\(model.clips.count) preview \(rnd(oneLen))->\(rnd(previewSeconds(model)))s")
+
+        // Mute the first clip → its audioVolume becomes 0.
+        model.selectOnly(model.clips[0].id)
+        model.toggleMuteSelected()
+        check("dup.mute", model.clips[0].audioVolume == 0, "audioVolume=\(rnd(model.clips[0].audioVolume)) (want 0)")
+        model.setClipVolume(model.clips[0].id, 0.5)
+        check("dup.volume", abs(model.clips[0].audioVolume - 0.5) < 0.01, "audioVolume=\(rnd(model.clips[0].audioVolume))")
+
+        // Copy + paste → a 3rd clip.
+        let twoLen = previewSeconds(model)
+        model.selectOnly(model.clips[1].id)
+        model.copySelected()
+        g = model.debug_rebuildCount
+        model.paste()
+        _ = await settle(model, after: g)
+        check("dup.paste", model.clips.count == 3 && previewSeconds(model) > twoLen + 2,
+              "clips=\(model.clips.count) preview \(rnd(twoLen))->\(rnd(previewSeconds(model)))s")
+    }
+
+    // MARK: - Text overlays (#3) — preview length unaffected (overlays render as a layer), model tracks them
+
+    private static func auditTextOverlays(_ model: EditorModel, item: Catalog.Item, url: URL) async {
+        model.project.timeline.clips.removeAll()
+        let g = model.debug_rebuildCount
+        model.addClip(catalogItemID: item.archiveID, sourceURL: url, title: item.title, inSeconds: 5, durationSeconds: 8)
+        guard await settle(model, after: g) else { check("text.setup", false, "clip never ready"); return }
+        model.playheadSeconds = 2
+
+        let n0 = model.textOverlays.count
+        model.addTextOverlay()
+        check("text.add", model.textOverlays.count == n0 + 1, "overlays \(n0)->\(model.textOverlays.count)")
+        guard var ov = model.textOverlays.last else { check("text.update", false, "no overlay"); return }
+        ov.text = "AUDIT TITLE"
+        model.updateOverlay(ov)
+        check("text.update", model.textOverlays.last?.text == "AUDIT TITLE",
+              "text=\"\(model.textOverlays.last?.text ?? "")\"")
+        model.deleteOverlay(ov.id)
+        check("text.delete", model.textOverlays.count == n0, "overlays back to \(model.textOverlays.count)")
+    }
+
+    // MARK: - Markers + project settings (render size / frame rate)
+
+    private static func auditMarkersAndSettings(_ model: EditorModel, item: Catalog.Item, url: URL) async {
+        model.project.timeline.clips.removeAll()
+        let g = model.debug_rebuildCount
+        model.addClip(catalogItemID: item.archiveID, sourceURL: url, title: item.title, inSeconds: 5, durationSeconds: 12)
+        guard await settle(model, after: g) else { check("marker.setup", false, "clip never ready"); return }
+
+        model.playheadSeconds = 4
+        let m0 = model.markers.count
+        model.toggleMarkerAtPlayhead()
+        check("marker.add", model.markers.count == m0 + 1, "markers \(m0)->\(model.markers.count)")
+        model.playheadSeconds = 0
+        model.goToMarker(forward: true)
+        check("marker.goTo", abs(model.playheadSeconds - 4) < 0.3, "playhead jumped to \(rnd(model.playheadSeconds)) (want ~4)")
+        model.goToEnd()
+        check("nav.end", model.playheadSeconds > model.totalDuration - 0.1, "playhead=\(rnd(model.playheadSeconds)) total=\(rnd(model.totalDuration))")
+
+        model.setRenderSize(.init(width: 1080, height: 1920))   // portrait
+        check("settings.renderSize", model.project.timeline.renderSize.width == 1080 && model.project.timeline.renderSize.height == 1920,
+              "renderSize=\(model.project.timeline.renderSize.width)x\(model.project.timeline.renderSize.height)")
+        model.setFrameRate(24)
+        check("settings.frameRate", abs(model.project.timeline.frameRate - 24) < 0.01, "fps=\(rnd(model.project.timeline.frameRate))")
+    }
+
+    // MARK: - Export (the whole point — a real composition written to a real file)
+
+    private static func auditExport(_ model: EditorModel, item: Catalog.Item, url: URL) async {
+        model.project.timeline.clips.removeAll()
+        let g = model.debug_rebuildCount
+        model.addClip(catalogItemID: item.archiveID, sourceURL: url, title: item.title, inSeconds: 8, durationSeconds: 3)
+        model.addClip(catalogItemID: item.archiveID, sourceURL: url, title: item.title, inSeconds: 30, durationSeconds: 3)
+        guard await settle(model, after: g) else { check("export.setup", false, "clips never ready"); return }
+        let timelineLen = model.totalDuration
+        log("export: timeline ready len=\(rnd(timelineLen)), exporting…")
+
+        let out = FileManager.default.temporaryDirectory
+            .appendingPathComponent("aw-audit-export-\(Int(timelineLen)).mp4")
+        try? FileManager.default.removeItem(at: out)
+        let svc = ExportService()
+        let project = model.project
+        let task = Task { await svc.export(project, to: out, format: .h264) }
+        // Hard cap so a stalled archive.org node can't hang the audit forever.
+        var timedOut = true
+        for _ in 0..<2400 {                                  // up to 240s
+            try? await Task.sleep(for: .milliseconds(100))
+            if svc.phase == .done { timedOut = false; break }
+            if case .failed = svc.phase { timedOut = false; break }
+        }
+        if timedOut { task.cancel() }
+        guard !timedOut, svc.phase == .done else {
+            check("export.h264", false, "export phase=\(String(describing: svc.phase)) (timedOut=\(timedOut))"); return
+        }
+        let exists = FileManager.default.fileExists(atPath: out.path)
+        let asset = AVURLAsset(url: out)
+        let vTrack = (try? await asset.loadTracks(withMediaType: .video))?.first != nil
+        let dur = (try? await asset.load(.duration))?.seconds ?? -1
+        let size = (try? FileManager.default.attributesOfItem(atPath: out.path)[.size] as? Int) ?? 0
+        check("export.h264", exists && vTrack && abs(dur - timelineLen) < 1.5 && size > 50_000,
+              "file=\(exists) videoTrack=\(vTrack) dur=\(rnd(dur))s (timeline=\(rnd(timelineLen))) bytes=\(size)")
+        try? FileManager.default.removeItem(at: out)
+    }
+
     // MARK: - Undo / redo
 
     private static func auditUndoRedo(_ model: EditorModel, item: Catalog.Item, url: URL) async {
@@ -289,15 +423,20 @@ enum CreationStudioFeatureAudit {
             check("undo.setup", false, "clip never ready"); return
         }
         let dur0 = model.clips.first?.sourceRange.duration.seconds ?? -1
-        let um = UndoManager(); um.groupsByEvent = false; model.undoManager = um
+        log("undo: setup ready dur0=\(rnd(dur0))")
+        let um = UndoManager(); model.undoManager = um          // default grouping (per run-loop event)
+        um.beginUndoGrouping()
         model.checkpoint()                                     // registers the inverse on `um`
-        g = dragEdit(model) { model.trim(id, newOutSeconds: 25) }   // big extend
-        _ = await settle(model, after: g)
+        let g1 = dragEdit(model) { model.trim(id, newOutSeconds: 25) }   // big extend
+        um.endUndoGrouping()
+        _ = await settle(model, after: g1)
         let dur1 = model.clips.first?.sourceRange.duration.seconds ?? -1
+        log("undo: after edit dur1=\(rnd(dur1)), undoing…")
         g = model.debug_rebuildCount
         um.undo()
         _ = await settle(model, after: g)
         let durU = model.clips.first?.sourceRange.duration.seconds ?? -1
+        log("undo: after undo durU=\(rnd(durU))")
         check("undo.trim", abs(durU - dur0) < 0.6 && dur1 > dur0 + 4,
               "dur \(rnd(dur0))->edit \(rnd(dur1))->undo \(rnd(durU)) (want undo≈orig)")
     }
