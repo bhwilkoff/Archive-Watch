@@ -35,7 +35,7 @@ enum PlaybackDiag {
     static func attach(item: AVPlayerItem, player: AVPlayer) {
         guard enabled else { return }
         NotificationCenter.default.addObserver(
-            forName: NSNotification.Name.AVPlayerItemPlaybackStalled,
+            forName: AVPlayerItem.playbackStalledNotification,
             object: item, queue: .main) { _ in
             NSLog("AWSTALL playback stalled")
         }

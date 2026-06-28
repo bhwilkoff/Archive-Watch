@@ -13,7 +13,7 @@
 		DE00000000000000000000B2 /* ArchiveWatchWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DE00000000000000000000A1 /* ArchiveWatchWidgets.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EE00000000000000000000B2 /* featured.json in Resources */ = {isa = PBXBuildFile; fileRef = B7AC53E12F93BA0500F50803 /* featured.json */; };
 		EE00000000000000000000B6 /* collections.json in Resources */ = {isa = PBXBuildFile; fileRef = B7AC53E52F93BA0500F50803 /* collections.json */; };
-		EF00000000000000000000B2 /* ArchiveWatchWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DE00000000000000000000A1 /* ArchiveWatchWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EF00000000000000000000B2 /* ArchiveWatchWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DE00000000000000000000A1 /* ArchiveWatchWidgets.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */

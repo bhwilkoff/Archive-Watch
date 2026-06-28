@@ -167,7 +167,7 @@ private struct PlayerSurface: View {
         p.play()
         player = p
         endObserver = NotificationCenter.default.addObserver(
-            forName: .AVPlayerItemDidPlayToEndTime, object: playerItem, queue: .main) { _ in
+            forName: AVPlayerItem.didPlayToEndTimeNotification, object: playerItem, queue: .main) { _ in
             MainActor.assumeIsolated { onEnded?() }
         }
     }
@@ -273,7 +273,7 @@ final class ChannelEngine {
     private func registerEnd(for item: AVPlayerItem) {
         if let e = endObserver { NotificationCenter.default.removeObserver(e) }
         endObserver = NotificationCenter.default.addObserver(
-            forName: .AVPlayerItemDidPlayToEndTime, object: item, queue: .main) { [weak self] _ in
+            forName: AVPlayerItem.didPlayToEndTimeNotification, object: item, queue: .main) { [weak self] _ in
             MainActor.assumeIsolated { self?.advance() }
         }
     }
