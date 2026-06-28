@@ -54,10 +54,24 @@ enum LookGrader {
         let asset = AVURLAsset(url: sourceURL)
         // CI filter pass: grade each frame. clamped/cropped keeps the extent stable for filters
         // (vignette/blur) that read outside the frame.
-        let vc = try await AVVideoComposition.videoComposition(with: asset) { request in
-            let graded = look.apply(to: request.sourceImage.clampedToExtent())
-                .cropped(to: request.sourceImage.extent)
-            request.finish(with: graded, context: nil)
+        // macOS 27 deprecates videoComposition(with:applyingCIFiltersWithHandler:) in favor of the
+        // Configuration-based AVVideoComposition(applyingFiltersTo:applier:) (the same migration the
+        // iOS CIFilter pipeline already made — CREATE-STUDIO-PLAN.md §5c / ClipExporter). Both produce
+        // an equivalent grade-only videoComposition (no size change; crop back to source extent), fed
+        // identically into the HighestQuality export below.
+        let vc: AVVideoComposition
+        if #available(macOS 27, *) {
+            vc = try await AVVideoComposition(applyingFiltersTo: asset, applier: { request in
+                let graded = look.apply(to: request.sourceImage.clampedToExtent())
+                    .cropped(to: request.sourceImage.extent)
+                return AVCIImageFilteringResult(resultImage: graded)
+            })
+        } else {
+            vc = try await AVVideoComposition.videoComposition(with: asset) { request in
+                let graded = look.apply(to: request.sourceImage.clampedToExtent())
+                    .cropped(to: request.sourceImage.extent)
+                request.finish(with: graded, context: nil)
+            }
         }
         guard let session = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality) else {
             throw CreationStudioError.cannotCreateExportSession

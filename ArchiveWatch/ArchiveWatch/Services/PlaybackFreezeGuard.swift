@@ -52,7 +52,14 @@ final class PlaybackFreezeGuard {
 
         // A fresh frame is available → pipeline healthy; consume it and reset.
         if output.hasNewPixelBuffer(forItemTime: itemTime) {
-            _ = output.copyPixelBuffer(forItemTime: itemTime, itemTimeForDisplay: nil)
+            // macOS/iOS/tvOS 27 deprecate copyPixelBuffer(forItemTime:itemTimeForDisplay:) in favor of
+            // pixelBufferAndDisplayTime(forItemTime:) (returns a tuple). We discard the buffer either
+            // way — this tap only proves frames are flowing — so the behavior is identical.
+            if #available(macOS 27, iOS 27, tvOS 27, *) {
+                _ = output.pixelBufferAndDisplayTime(forItemTime: itemTime)
+            } else {
+                _ = output.copyPixelBuffer(forItemTime: itemTime, itemTimeForDisplay: nil)
+            }
             lastFrameHostTime = host
             return
         }
