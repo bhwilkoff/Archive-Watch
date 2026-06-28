@@ -149,7 +149,7 @@
     }
   ],
   "episodesCount": 7,
-  "canonicalEpisodesCount": 7265,
+  "canonicalEpisodesCount": 7269,
   "tvdbID": "71753",
   "artworkSource": "tvdb",
   "cast": [
@@ -261,8 +261,5 @@
       "order": 17,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/400064.jpg"
     }
-  ],
-  "seriesImdbID": "tt0088512",
-  "canonicalEpisodeCount": 100,
-  "canonicalSeasons": 1
+  ]
 }

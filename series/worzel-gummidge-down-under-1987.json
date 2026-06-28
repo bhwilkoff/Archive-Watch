@@ -1,0 +1,77 @@
+{
+  "version": 2,
+  "seriesID": "worzel-gummidge-down-under-1987",
+  "tvmazeID": 92056,
+  "title": "Worzel Gummidge Down Under",
+  "yearStart": 1987,
+  "yearEnd": 1989,
+  "overview": "Worzel starts a new life in New Zealand in this series shot five years after the original shows made by Southern Television for the ITV Network. There are new children and a new Crowman as Worzel 's adventures continue as does his quest for true love with Aunt Sally. Many of the original crew that worked on the Southern Television series were used in these productions shown on Channel 4.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/74902-2.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Channel 4"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "worzel-gummidge-down-under-s-01-e-01_202311",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Worzel's Handicap",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/worzel-gummidge-down-under-s-01-e-01_202311",
+          "airDate": "1987-10-25",
+          "year": 1987,
+          "runtimeSeconds": 1508,
+          "videoFile": {
+            "name": "Worzel Gummidge Down Under-S01E04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158833523,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/worzel-gummidge-down-under-s-01-e-01_202311/Worzel%20Gummidge%20Down%20Under-S01E04.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 22,
+  "tvdbID": "74902",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Una Stubbs",
+      "character": "Aunt Sally",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/300989/photo/6377e69611655.jpg"
+    },
+    {
+      "name": "Jon Pertwee",
+      "character": "Worzel Gummidge",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Bruce Phillips",
+      "character": "The Crowman",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/345418/photo/622bd1b0c4364.jpg"
+    },
+    {
+      "name": "Jonathan Marks",
+      "character": "Mickey",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Olivia Ihimaera-Smiler",
+      "character": "Manu",
+      "order": 4,
+      "profilePath": null
+    }
+  ]
+}

@@ -77,7 +77,7 @@
     }
   ],
   "episodesCount": 3,
-  "canonicalEpisodesCount": 8788,
+  "canonicalEpisodesCount": 8807,
   "tvdbID": "77715",
   "artworkSource": "tvdb",
   "cast": [
@@ -100,97 +100,94 @@
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8047208/photo/68654afadb9a5.jpg"
     },
     {
+      "name": "Kai Assi",
+      "character": "Archie Breckle",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9155941/photo/6a3d7f56dd319.jpg"
+    },
+    {
       "name": "Alfie Clarke",
       "character": "Arthur Thomas",
-      "order": 3,
+      "order": 4,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8047210/photo/68654b3bdd6ec.jpg"
     },
     {
       "name": "Joshua Richards",
       "character": "Bear Wolf",
-      "order": 4,
+      "order": 5,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8642469/photo/68654ba1578df.jpg"
     },
     {
       "name": "Eden Taylor-Draper",
       "character": "Belle Dingle",
-      "order": 5,
+      "order": 6,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8013817/photo/68654bd9168df.jpg"
     },
     {
       "name": "Jay Kontzle",
       "character": "Billy Fletcher",
-      "order": 6,
+      "order": 7,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9113791/photo/68654bfd87b54.jpg"
     },
     {
       "name": "Tony Audenshaw",
       "character": "Bob Hope",
-      "order": 7,
+      "order": 8,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/303688/photo/68792cfdd9517.jpg"
     },
     {
       "name": "Jeff Hordley",
       "character": "Cain Dingle",
-      "order": 8,
+      "order": 9,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7940077/photo/692ec4bdd02a5.jpg"
     },
     {
       "name": "Caroline Harker",
       "character": "Caitlin Todd",
-      "order": 9,
+      "order": 10,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/325631/photo/69d7f62059aa9.jpg"
     },
     {
       "name": "William Ash",
       "character": "Caleb Miligan",
-      "order": 10,
+      "order": 11,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/304164/photo/6421561510f8a.jpg"
     },
     {
       "name": "Gabrielle Dowling",
       "character": "Cathy Hope",
-      "order": 11,
+      "order": 12,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9113785/photo/68654cc644e2a.jpg"
     },
     {
       "name": "Emma Atkins",
       "character": "Charity Dingle",
-      "order": 12,
+      "order": 13,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7986086/photo/692d3d24355ac.jpg"
     },
     {
       "name": "Kevin Mathurin",
       "character": "Charles Anderson",
-      "order": 13,
+      "order": 14,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8395340/photo/68654e14e64e2.jpg"
     },
     {
       "name": "Lucy Pargeter",
       "character": "Chas Dingle",
-      "order": 14,
+      "order": 15,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/284748/photo/68654e4d0810f.jpg"
     },
     {
       "name": "Flo Wilson",
       "character": "Claudette Anderson",
-      "order": 15,
+      "order": 16,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8044259/photo/68654ec746d14.jpg"
     },
     {
       "name": "Olivia Bromley",
       "character": "Dawn Taylor",
-      "order": 16,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9113789/photo/68654f2a02f36.jpg"
-    },
-    {
-      "name": "Fred Kettle",
-      "character": "Dylan Penders",
       "order": 17,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9145908/photo/68b4a0fe59016.jpg"
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9113789/photo/68654f2a02f36.jpg"
     }
-  ],
-  "seriesImdbID": "tt0068069",
-  "canonicalEpisodeCount": 100,
-  "canonicalSeasons": 1
+  ]
 }

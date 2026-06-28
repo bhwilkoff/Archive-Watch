@@ -77,11 +77,29 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/VeronicaSClosetVeronicaGetsHerClosetBackS3E1/Veronica_s-Closet-Veronica-Gets-Her-Closet-Back-_S3E1_.mp4"
+        },
+        {
+          "archiveID": "veronicascloset",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "Veronica's Sliding Doors",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/veronicascloset",
+          "airDate": "1999-11-29",
+          "year": 1999,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S03E08 - Veronica's Sliding Doors.mp4",
+            "format": "h.264",
+            "sizeBytes": 129870119,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/veronicascloset/S03E08%20-%20Veronica%27s%20Sliding%20Doors.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 3,
+  "episodesCount": 4,
   "canonicalEpisodesCount": 66,
   "tvdbID": "77013",
   "artworkSource": "tvdb",
@@ -140,8 +158,5 @@
       "order": 8,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/296566/photo/64ef0dc300f90.jpg"
     }
-  ],
-  "seriesImdbID": "tt0118506",
-  "canonicalEpisodeCount": 59,
-  "canonicalSeasons": 3
+  ]
 }

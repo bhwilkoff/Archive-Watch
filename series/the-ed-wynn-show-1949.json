@@ -160,11 +160,29 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/theEdWynnShow-Outtakes/EdWynnOuttakes.mp4"
+        },
+        {
+          "archiveID": "TheEdWynnShow1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Ed Wynn show, 1950",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The_Ed_Wynn_show_03_11_50.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 170984263,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheEdWynnShow1950/The_Ed_Wynn_show_03_11_50.ia.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 8,
+  "episodesCount": 9,
   "canonicalEpisodesCount": 38,
   "tvdbID": "76751",
   "artworkSource": "tvdb",
@@ -181,8 +199,5 @@
       "order": 1,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/270010/photo/64943d588ae21.jpg"
     }
-  ],
-  "seriesImdbID": "tt0041021",
-  "canonicalEpisodeCount": 36,
-  "canonicalSeasons": 1
+  ]
 }

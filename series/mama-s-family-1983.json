@@ -1,0 +1,437 @@
+{
+  "version": 2,
+  "seriesID": "mama-s-family-1983",
+  "tvmazeID": 6199,
+  "title": "Mama's Family",
+  "yearStart": 1983,
+  "yearEnd": 1990,
+  "overview": "Based on a series of sketches from The Carol Burnett Show, Mama's Family mined humor from a squabbling family in the Midwestern blue collar suburb of Raytown. The noisy clan was headed by Mama, a buxom, gray-haired widow with sharp opinions and a sharper tongue who shared her small house with her high-strung sister Fran. Mama's lazy, dimwitted son, Vinton, moved in at the start of the series with his troublesome teenage children, Buzz and Sonja, after his wife had run off to become a Las Vegas showgirl. Vint soon became romantically involved with Naomi, Mama's promiscuous next-door neighbor, and the two eventually were married. Further uproar was caused by the periodic visits from Mama's two married daughters, the foul mouthed Eunice and the snobbish Ellen.Though the series initially ran for only two seasons on NBC, producer Joe Hamilton revived the series for first-run syndication in 1986. The show's \"second life\" brought about several changes, including the absence of such characters as Aunt Fran (who had died by choking on a toothpick), Buzz and Sonja (who had gone off to college), and Eunice, who had moved with her husband Ed to Florida... without telling their son Bubba, just as he was being released from juvenile hall. As a result, Bubba moved into the household with Mama, Vint and Naomi as a new character. Also joining the cast was Iola, Mama's uptight spinster neighbor with an unrequited crush on Vint. This second run was considerably more successful than the first, ending in 1990.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77059-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "mamas-family-s-01e-01-vint-and-the-kids-move-in",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Vint and the Kids Move In",
+          "overview": "Newly-divorced Vinton has been evicted from his house along with Buzz and Sonja, and Mama decides to take them all in -- but Fran is none too thrilled when she finds her writing studio has been turned into Sonja's room behind her back. Meanwhile, Vinton gets reacquainted with Mama's next-door neighbor Naomi.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/517/1292724.jpg",
+          "airDate": "1983-01-22",
+          "year": 1983,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mama's Family - s01e01 - Vint and the Kids Move In.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 419472919,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mamas-family-s-01e-01-vint-and-the-kids-move-in/Mama%27s%20Family%20-%20s01e01%20-%20Vint%20and%20the%20Kids%20Move%20In.ia.mp4"
+        },
+        {
+          "archiveID": "mamas-family-s-01e-02-for-better-or-for-worse_202202",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "For Better or For Worse",
+          "overview": "Just as Naomi and Vint are getting closer, Naomi announces she's sold her house and is moving away. After she ends up spending the night with Vint (much to Mama's shock), he decides to marry her and move himself and the kids with her to Arizona.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/43/109978.jpg",
+          "airDate": "1983-01-29",
+          "year": 1983,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mama's Family - s01e02 - For Better or for Worse.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 420074622,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mamas-family-s-01e-02-for-better-or-for-worse_202202/Mama%27s%20Family%20-%20s01e02%20-%20For%20Better%20or%20for%20Worse.ia.mp4"
+        },
+        {
+          "archiveID": "mamas-family-s-01e-03-the-wedding-pt-1",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Wedding (Part 1)",
+          "overview": "The eve of Vint and Naomi's wedding is an eventful one -- Buzz accompanies Vint to a stag party, Ellen suspects her own husband is seeing another woman, and Eunice blows up after being told she can't sing at the ceremony.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/44/110261.jpg",
+          "airDate": "1983-02-05",
+          "year": 1983,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mama's Family - s01e03 - The Wedding Pt1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 420109037,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mamas-family-s-01e-03-the-wedding-pt-1/Mama%27s%20Family%20-%20s01e03%20-%20The%20Wedding%20Pt1.ia.mp4"
+        },
+        {
+          "archiveID": "mamas-family-s-01e-05-family-feud",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Family Feud",
+          "overview": "Mama, Vint, Naomi, Ellen, and Buzz play against the Van Courtland family for a chance to win $10,000 on the game show Family Feud.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/44/111520.jpg",
+          "airDate": "1983-02-19",
+          "year": 1983,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mama's Family - s01e05 - Family Feud.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 420100183,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mamas-family-s-01e-05-family-feud/Mama%27s%20Family%20-%20s01e05%20-%20Family%20Feud.ia.mp4"
+        },
+        {
+          "archiveID": "mamas-family-s-01e-06-cellmates",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Cellmates",
+          "overview": "Eunice's birthday party down at the Bigger Jigger goes as well as one would expect, with her and Mama carted off to jail after indirectly assaulting two police officers trying to break up their argument.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/44/111798.jpg",
+          "airDate": "1983-02-26",
+          "year": 1983,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mama's Family - s01e06 - Cellmates.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 418859072,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mamas-family-s-01e-06-cellmates/Mama%27s%20Family%20-%20s01e06%20-%20Cellmates.ia.mp4"
+        },
+        {
+          "archiveID": "mamas-family-s-01e-07-mama-gets-a-job",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Mama Gets a Job",
+          "overview": "Feeling as though she hasn't done anything with her life, Mama ends up landing a job as a receptionist at a travel agency. Her family is happy for her, but they soon discover they may be more dependent on her than they realize.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/46/117215.jpg",
+          "airDate": "1983-03-05",
+          "year": 1983,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mama's Family - s01e07 - Mama Gets a Job.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 420657319,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mamas-family-s-01e-07-mama-gets-a-job/Mama%27s%20Family%20-%20s01e07%20-%20Mama%20Gets%20a%20Job.ia.mp4"
+        },
+        {
+          "archiveID": "mamas-family-s-01e-08-double-standard",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Double Standard",
+          "overview": "On the night of the high school homecoming dance, Vint orders Buzz and Sonja to be back home by midnight -- but tempers flare when Sonja finds out Vint has allowed Buzz to stay out later solely because he's a boy.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/47/119019.jpg",
+          "airDate": "1983-03-12",
+          "year": 1983,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mama's Family - s01e08 - Double Standard.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 418537078,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mamas-family-s-01e-08-double-standard/Mama%27s%20Family%20-%20s01e08%20-%20Double%20Standard.ia.mp4"
+        },
+        {
+          "archiveID": "mama-s-family-s-01e-09-mama-s-boyfriend",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Mama's Boyfriend",
+          "overview": "Mama's dancing on air after reuniting with an old flame of hers from 40 years prior, but the family thinks she may have made a misstep when the two of them decide to spend the weekend at a cabin.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/49/123316.jpg",
+          "airDate": "1983-03-19",
+          "year": 1983,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mama s Family - s01e09 - Mama s Boyfriend.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 418833968,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mama-s-family-s-01e-09-mama-s-boyfriend/Mama%20s%20Family%20-%20s01e09%20-%20Mama%20s%20Boyfriend.ia.mp4"
+        },
+        {
+          "archiveID": "mamas-family-s-01e-10-fran-s-dress",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Fran's Dress",
+          "overview": "While ironing the dress Fran is planning to wear to a special occasion, Mama accidentally burns a hole through it, and she and Ellen buy a new one to replace it without Fran's knowledge.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/49/123368.jpg",
+          "airDate": "1983-03-26",
+          "year": 1983,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mama's Family - s01e10 - Fran s Dress.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 419738309,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mamas-family-s-01e-10-fran-s-dress/Mama%27s%20Family%20-%20s01e10%20-%20Fran%20s%20Dress.ia.mp4"
+        },
+        {
+          "archiveID": "mamas-family-s-01e-12-positive-thinkin",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Positive Thinking",
+          "overview": "Buzz credits the power of positive thinking for his recent successes, leading Eunice to join in the positivity herself. Her newfound way of thinking lands her a part in a production at the Pepper Pot Playhouse.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/49/123372.jpg",
+          "airDate": "1983-04-30",
+          "year": 1983,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mama's Family - s01e12 - Positive Thinkin.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 418215056,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mamas-family-s-01e-12-positive-thinkin/Mama%27s%20Family%20-%20s01e12%20-%20Positive%20Thinkin.ia.mp4"
+        },
+        {
+          "archiveID": "mamas-family-s-01e-13-mama-s-silver",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Mama's Silver",
+          "overview": "Taking place before Vint and Naomi were married, this episode sees Vint pawning Mama's silver to help bail Claude, a rather shady friend of his, out of jail.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/48/120220.jpg",
+          "airDate": "1983-05-07",
+          "year": 1983,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mama's Family - s01e13 - Mama s Silver.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 420469870,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mamas-family-s-01e-13-mama-s-silver/Mama%27s%20Family%20-%20s01e13%20-%20Mama%20s%20Silver.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "mamas-family-s-02e-01-flaming-forties",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Flaming Forties",
+          "overview": "Vint and Naomi prepare to haul Mama's World War II-era things to a rummage sale at the high school, but Buzz and Sonja, who are in charge of the school dance, soon get the idea to give it a 1940's theme. Mama is excited about the idea... until the rest of the dance committee shoots it down in favor of a \"punk rock\" style.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/49/123662.jpg",
+          "airDate": "1983-09-29",
+          "year": 1983,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mama's Family - s02e01 - Flaming Forties.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 417434832,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mamas-family-s-02e-01-flaming-forties/Mama%27s%20Family%20-%20s02e01%20-%20Flaming%20Forties.ia.mp4"
+        },
+        {
+          "archiveID": "mamas-family-s-02e-02-the-return-of-leonard-oates",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "The Return of Leonard Oates",
+          "overview": "Naomi's second husband Leonard Oates comes back to Raytown a newly wealthy man, and tries to charm her into leaving Vinton and the Harpers for him and a \"life of luxury\".",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/49/124413.jpg",
+          "airDate": "1983-10-13",
+          "year": 1983,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mama's Family - s02e02 - The Return of Leonard Oates.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 409969799,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mamas-family-s-02e-02-the-return-of-leonard-oates/Mama%27s%20Family%20-%20s02e02%20-%20The%20Return%20of%20Leonard%20Oates.ia.mp4"
+        },
+        {
+          "archiveID": "mamas-family-s-02e-05-rashomama",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Rashomama",
+          "overview": "Mama's in the hospital after being hit in the head with a pot, and in the waiting room, Eunice, Ellen and Naomi all tell Vinton their own version of who delivered the blow, shown via flashbacks.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/59/148293.jpg",
+          "airDate": "1983-11-03",
+          "year": 1983,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mama's Family - s02e05 - Rashomama.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 418771443,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mamas-family-s-02e-05-rashomama/Mama%27s%20Family%20-%20s02e05%20-%20Rashomama.ia.mp4"
+        },
+        {
+          "archiveID": "mamas-family-s-02e-09-amateur-night",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Amateur Night",
+          "overview": "During a talent show at the Bigger Jigger, Vint wows the crowd with his Fred Astaire impression. However, fame instantly rockets to his head, and the family decides to bring him back down to Earth before he makes a fool of himself.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/72/180777.jpg",
+          "airDate": "1983-12-08",
+          "year": 1983,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mama's Family - s02e09 - Amateur Night.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 418059349,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mamas-family-s-02e-09-amateur-night/Mama%27s%20Family%20-%20s02e09%20-%20Amateur%20Night.ia.mp4"
+        },
+        {
+          "archiveID": "mamas-family-s-02e-11-mama-learns-to-drive",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Mama Learns to Drive",
+          "overview": "With a bus strike cutting off Mama's primary means of transportation, she turns to her family to help her get where she needs to go. Tired of having to take her places, however, her family insists she learn to drive herself.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/79/199417.jpg",
+          "airDate": "1984-01-07",
+          "year": 1984,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mama's Family - s02e11 - Mama Learns to Drive.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 421322557,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mamas-family-s-02e-11-mama-learns-to-drive/Mama%27s%20Family%20-%20s02e11%20-%20Mama%20Learns%20to%20Drive.ia.mp4"
+        },
+        {
+          "archiveID": "mamas-family-s-02e-13-mama-buys-a-car",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Mama Buys a Car",
+          "overview": "Mamma buys a car from someone that her and Vinton knew as a kid and gets taken to the cleaners.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/517/1292743.jpg",
+          "airDate": "1984-01-21",
+          "year": 1984,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mama's Family - s02e13 - Mama Buys a Car.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 423226997,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mamas-family-s-02e-13-mama-buys-a-car/Mama%27s%20Family%20-%20s02e13%20-%20Mama%20Buys%20a%20Car.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "mamas-family-Lando18",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mama's Family",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mama's Family - S02E05 (Rashomama).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 214997364,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mamas-family-Lando18/Mama%27s%20Family%20-%20S02E05%20%28Rashomama%29.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 18,
+  "canonicalEpisodesCount": 130,
+  "tvdbID": "77059",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Vicki Lawrence",
+      "character": "Thelma Mae Crowley Harper",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/261895/5f4e7ee12fb52.jpg"
+    },
+    {
+      "name": "Ken Berry",
+      "character": "Vinton Harper",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/270104/photo/631a794b88b12.jpg"
+    },
+    {
+      "name": "Dorothy Lyman",
+      "character": "Naomi Oates Harper",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/255999/5edaaa4db8bed.jpg"
+    },
+    {
+      "name": "Beverly Archer",
+      "character": "Iola Lucille Boylen",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/266545/5edaa4e1bb852.jpg"
+    },
+    {
+      "name": "Allan Kayser",
+      "character": "Bubba Higgins",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/420231/5edaa04441181.jpg"
+    },
+    {
+      "name": "Rue McClanahan",
+      "character": "Frances Marie Crowley",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253859/photo/650e5e8116e80.jpg"
+    },
+    {
+      "name": "Eric Brown",
+      "character": "Vinton \"Buzz\" Harper, Jr.",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/112871.jpg"
+    },
+    {
+      "name": "Karin Argoud",
+      "character": "Sonja Harper",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/7937457/5edaa4178fee7.jpg"
+    },
+    {
+      "name": "Betty White",
+      "character": "Ellen Harper-Jackson",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253547/photo/66fd6968d0acf.jpg"
+    },
+    {
+      "name": "Carol Burnett",
+      "character": "Eunice Higgins",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253447/photo/6507e522a5dc2.jpg"
+    },
+    {
+      "name": "Harvey Korman",
+      "character": "Ed Higgins",
+      "order": 10,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/112911.jpg"
+    },
+    {
+      "name": "Dorothy Van",
+      "character": "Effie Harper",
+      "order": 11,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/112901.jpg"
+    }
+  ]
+}

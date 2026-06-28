@@ -349,12 +349,12 @@
           "archiveID": "cosmos.-a.-space-time.-odyssey.-s01e12",
           "seasonNumber": 1,
           "episodeNumber": 12,
-          "title": "Cosmos: A Space Time Odyssey S01 E12",
-          "overview": "<span style=\"color:rgb(77,81,86);font-family:arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">The Ship of the Imagination travels to Venus, and the impact of climate change on the Earth's atmosphere is investigated. Later, Tyson explores the use of solar power, and how it has changed over time.</span>",
-          "stillURL": "https://archive.org/services/img/cosmos.-a.-space-time.-odyssey.-s01e12",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 2523,
+          "title": "Encyclopedia Galactica",
+          "overview": "Are there alien intelligences? How could we communicate with them? What about UFOs? The answers to these questions take us to Egypt to decode ancient hieroglyphics, to the largest radio telescope on Earth, and, in the Spaceship of the Imagination, to visit other civilizations in space. Dr. Sagan answers questions such as: \"What is the life span of a planetary civilization?\" and \"Will we one day hook up with a network of civilizations in the Milky Way galaxy?",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/252/631990.jpg",
+          "airDate": "1980-12-14",
+          "year": 1980,
+          "runtimeSeconds": 3600,
           "videoFile": {
             "name": "Cosmos.A.SpaceTime.Odyssey.S01E12.mp4",
             "format": "MPEG4",
@@ -370,7 +370,7 @@
           "title": "Encyclopedia Galactica",
           "overview": "Are there alien intelligences? How could we communicate with them? What about UFOs? The answers to these questions take us to Egypt to decode ancient hieroglyphics, to the largest radio telescope on Earth, and, in the Spaceship of the Imagination, to visit other civilizations in space. Dr. Sagan answers questions such as: \"What is the life span of a planetary civilization?\" and \"Will we one day hook up with a network of civilizations in the Milky Way galaxy?",
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/252/631990.jpg",
-          "airDate": "1980-12-14",
+          "airDate": null,
           "year": 1980,
           "runtimeSeconds": 3600,
           "videoFile": {
@@ -568,8 +568,5 @@
       "order": 1,
       "profilePath": "https://artworks.thetvdb.com/banners/person/336747/5e96209606d39.jpg"
     }
-  ],
-  "seriesImdbID": "tt0081846",
-  "canonicalEpisodeCount": 13,
-  "canonicalSeasons": 1
+  ]
 }

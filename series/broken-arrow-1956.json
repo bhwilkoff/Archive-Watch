@@ -4,7 +4,7 @@
   "tvmazeID": 22145,
   "title": "Broken Arrow",
   "yearStart": 1956,
-  "yearEnd": 1982,
+  "yearEnd": 1958,
   "overview": "Broken Arrow is a fictionalized account of the historical relationship between Indian agent Tom Jeffords and the Chiricahua Apache chief Cochise.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/70767-1.jpg",
   "backdropURL": null,
@@ -24,12 +24,12 @@
           "archiveID": "minder-1982-se-3-ep-10-broken-arrow",
           "seasonNumber": 1,
           "episodeNumber": 10,
-          "title": "Minder (1982) SE3 - EP10 Broken Arrow",
-          "overview": "<p align=\"left\" style=\"margin-bottom:0cm;\">\n<b>Minder (1982) SE3 - EP10 Broken Arrow [17<sup>th</sup> March 1982]</b></p>\n<p align=\"left\" style=\"margin-bottom:0cm;\"><br />\n\n</p>\n<p align=\"left\" style=\"margin-bottom:0cm;\"><b>Terry meets Dafydd, a\nyoung Welshman, an expert ambidextrous darts player, and Arthur sees\nthe chance to make some money by managing him. After a competition in\na rough south London bozzer where the locals don’t take kindly to\nhis playing, Arthur organises his own tournament. However, fewer\nplayers than expected enter, and Arthur is left scrambling to raise\nthe prize money. (The episode title refers to the 1950 Western film –\nand subsequent television series of the same name – ‘Broken\nArrow’.)</b></p>\n<p align=\"left\" style=\"margin-bottom:0cm;\"><br />\n\n</p>\n<p align=\"left\" style=\"margin-bottom:0cm;\"><b>George Cole as Arthur\nDaley, Dennis Waterman as Terry McCann, Glynn Edwards as Dave Harris.</b></p>\n<p align=\"left\" style=\"margin-bottom:0cm;\"><br />\n\n</p>\n<p align=\"left\" style=\"margin-bottom:0cm;\"><b>Guest stars: Sean\nMathias as Dafydd Evans, Maggie Steed as Sherry, Edward Peel as Ted\nTurton, Michael Graham Cox as Wally Brabham, John Joyce as Eddie\nPitt, Jonathaqn Kydd as Len, Paddy Joyce as Pat, Alfred Maron as\nLittle Freddie, Roy Pattison as Man at Silver Rose, Honora Burker as\nWoman at Silver Rose, Gary Olsen as Derek, Jestyn Phillips as Mr.\nRice.</b></p>",
+          "title": "Cry Wolf",
+          "overview": null,
           "stillURL": "https://archive.org/services/img/minder-1982-se-3-ep-10-broken-arrow",
-          "airDate": null,
-          "year": 1982,
-          "runtimeSeconds": 2735,
+          "airDate": "1956-12-11",
+          "year": 1956,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "Minder (1982) SE3 - EP10 Broken Arrow.mp4",
             "format": "MPEG4",
@@ -88,8 +88,5 @@
       "order": 3,
       "profilePath": "https://artworks.thetvdb.com/banners/person/257917/5fd7ef7fed685.jpg"
     }
-  ],
-  "seriesImdbID": "tt0048848",
-  "canonicalEpisodeCount": 27,
-  "canonicalSeasons": 2
+  ]
 }

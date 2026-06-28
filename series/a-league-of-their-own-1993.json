@@ -1,0 +1,117 @@
+{
+  "version": 2,
+  "seriesID": "a-league-of-their-own-1993",
+  "tvmazeID": 19120,
+  "title": "A League of Their Own",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": "On and off the field with members of the 1940s women's baseball team called the Rockford Peaches, playing while the men are fighting in World War II. Based on the hit 1992 movie.",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/75535/posters/632dd135c6c2e.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Comedy",
+    "Sports"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "a-league-of-their-own-1993-tv-series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A League Of Their Own 1993 TV series",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "A League Of The-4.mp4",
+            "format": "h.264",
+            "sizeBytes": 164238461,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/a-league-of-their-own-1993-tv-series/A%20League%20Of%20The-4.mp4"
+        },
+        {
+          "archiveID": "league-of-their-own-1993-series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A League of Their Own",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E05 Drinking Problems.mp4",
+            "format": "h.264",
+            "sizeBytes": 155589550,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/league-of-their-own-1993-series/S01E05%20Drinking%20Problems.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 6,
+  "tvdbID": "75535",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Christine Elise",
+      "character": "Kit Keller",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/335948/photo/66d47b8131048.jpg"
+    },
+    {
+      "name": "Tracy Nelson",
+      "character": "Evelyn Gardner",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Megan Cavanaugh",
+      "character": "Marla Hooch",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Katie Rich",
+      "character": "Doris Murphy",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/270335/photo/632dd58f12cbf.jpg"
+    },
+    {
+      "name": "Wendy Makkena",
+      "character": "Mae Mordabito",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/326794/photo/66c27b0014f7e.jpg"
+    },
+    {
+      "name": "Carey Lowell",
+      "character": "Dottie Hinson",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Sam McMurray",
+      "character": "Coach Jimmy Dugan",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Tracy Reiner",
+      "character": "Betty Horn",
+      "order": 7,
+      "profilePath": null
+    }
+  ]
+}

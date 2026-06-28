@@ -3,8 +3,8 @@
   "seriesID": "hawaii-five-o-1968",
   "tvmazeID": 962,
   "title": "Hawaii Five-O",
-  "yearStart": 1969,
-  "yearEnd": 1970,
+  "yearStart": 1968,
+  "yearEnd": 1980,
   "overview": "Hawaii Five-0 was filmed entirely on location in Hawaii, the show followed Jack Lord as he played Steve McGarrett, head of an elite state police unit investigating \"organized crime, murder, assassination attempts, foreign agents, felonies of every type.\" James MacArthur played his second-in-command Danny (\"Danno\") Williams, with local actors Kam Fong, Zulu, Al Harrington, and Herman Wedemeyer, among others, playing members of the Five-O team.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/71223-1.jpg",
   "backdropURL": null,
@@ -38,11 +38,16 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/hawaii-five-o-S2E3-480p/hawaii-five-o-S2E3-480p.mp4"
-        },
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
         {
           "archiveID": "hawaii-5.0-2x16-bored-she-hung-herself",
-          "seasonNumber": 2,
-          "episodeNumber": 16,
+          "seasonNumber": null,
+          "episodeNumber": null,
           "title": "\"Bored, She Hung Herself\" Hawaii Five-O 2-16",
           "overview": "This episode was only ever aired once on January 7, 1970, and then never again aired or officially released. This is purportedly because someone died after attempting to copy the hanging technique seen in the show. Although never officially aired or released again, it still exists in the form of home recording.",
           "stillURL": "https://archive.org/services/img/hawaii-5.0-2x16-bored-she-hung-herself",
@@ -173,8 +178,5 @@
       "order": 17,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262845/photo/649fc93b63c9e.jpg"
     }
-  ],
-  "seriesImdbID": "tt0062568",
-  "canonicalEpisodeCount": 236,
-  "canonicalSeasons": 12
+  ]
 }

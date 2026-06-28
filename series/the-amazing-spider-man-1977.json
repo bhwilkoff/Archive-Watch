@@ -1,73 +1,70 @@
 {
-  "version": 2,
-  "seriesID": "the-amazing-spider-man-1977",
-  "tvmazeID": 7623,
-  "title": "The Amazing Spider-Man",
-  "yearStart": 1977,
-  "yearEnd": 1979,
-  "overview": "With the powers given by the bite of a radioactive spider, a young man fights crime as a wall-crawling superhero.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/28/70308.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Action",
-    "Adventure",
-    "Science-Fiction"
-  ],
-  "networks": [
-    "CBS"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-amazing-spider-man-1977",
+ "tvmazeID": 7623,
+ "title": "The Amazing Spider-Man",
+ "yearStart": 1977,
+ "yearEnd": 1979,
+ "overview": "With the powers given by the bite of a radioactive spider, a young man fights crime as a wall-crawling superhero.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/28/70308.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Action",
+  "Adventure",
+  "Science-Fiction"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "the-amazing-spider-man-complete-series-1977",
-          "seasonNumber": 2,
-          "episodeNumber": 7,
-          "title": "The Chinese Web: Part 1",
-          "overview": null,
-          "stillURL": "https://archive.org/download/archivewatch-covers/the-amazing-spider-man-complete-series-1977.6fc26323.jpg",
-          "airDate": "1979-07-06",
-          "year": 1979,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "The Amazing Spider-Man S02E07-E08 - The Chinese Web.mp4",
-            "format": "h.264",
-            "sizeBytes": 555405483,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/The Amazing Spider-Man S02E07-E08 - The Chinese Web.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "the-amazing-spider-man-1977-complete-series_202301",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Amazing Spider man 1977",
-          "overview": null,
-          "stillURL": "https://archive.org/download/archivewatch-covers/the-amazing-spider-man-1977-complete-series_202301.ed4b4884.jpg",
-          "airDate": null,
-          "year": 1977,
-          "runtimeSeconds": 5482,
-          "videoFile": {
-            "name": "01x02 01x03 The Deadly dust.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 587724020,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-amazing-spider-man-1977-complete-series_202301/01x02%2001x03%20The%20Deadly%20dust.ia.mp4"
-        }
-      ]
+     "archiveID": "the-amazing-spider-man-1977-complete-series_202301",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "The Amazing Spider-Man",
+     "overview": null,
+     "stillURL": "https://archive.org/download/archivewatch-covers/the-amazing-spider-man-1977-complete-series_202301.ed4b4884.jpg",
+     "airDate": "1977-09-14",
+     "year": 1977,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "01x02 01x03 The Deadly dust.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 587724020,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-amazing-spider-man-1977-complete-series_202301/01x02%2001x03%20The%20Deadly%20dust.ia.mp4"
     }
-  ],
-  "episodesCount": 2,
-  "canonicalEpisodesCount": 14,
-  "seriesImdbID": "tt0076975",
-  "canonicalEpisodeCount": 2,
-  "canonicalSeasons": 1
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
+    {
+     "archiveID": "the-amazing-spider-man-complete-series-1977",
+     "seasonNumber": 2,
+     "episodeNumber": 7,
+     "title": "The Chinese Web: Part 1",
+     "overview": null,
+     "stillURL": "https://archive.org/download/archivewatch-covers/the-amazing-spider-man-complete-series-1977.6fc26323.jpg",
+     "airDate": "1979-07-06",
+     "year": 1979,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Amazing Spider-Man S02E07-E08 - The Chinese Web.mp4",
+      "format": "h.264",
+      "sizeBytes": 555405483,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/The Amazing Spider-Man S02E07-E08 - The Chinese Web.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 2,
+ "canonicalEpisodesCount": 14
 }

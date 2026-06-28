@@ -19,18 +19,18 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": null,
+      "seasonNumber": 1,
       "episodes": [
         {
           "archiveID": "the-addams-family__season-1",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Addams Family",
-          "overview": null,
-          "stillURL": "https://archive.org/download/archivewatch-covers/the-addams-family__season-1.e1830822.jpg",
-          "airDate": null,
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Addams Family Tree",
+          "overview": "A snooty neighbour insults the family's background.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509607.jpg",
+          "airDate": "1964-10-16",
           "year": 1964,
-          "runtimeSeconds": null,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "The Addams Family -- 1x24 -- Crisis in the Addams Family.mp4",
             "format": "h.264",
@@ -39,6 +39,29 @@
           },
           "downloadURL": "https://archive.org/download/the-addams-family__season-1/The Addams Family -- 1x24 -- Crisis in the Addams Family.mp4"
         },
+        {
+          "archiveID": "the-addams-family_202510",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "My Son, the Chimp",
+          "overview": "Uncle Fester fears he has turned a monkey into a Pugsley duplicate.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509630.jpg",
+          "airDate": "1965-04-09",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E28 - My Son the Chimp.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 559481480,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-family_202510/The%20Addams%20Family%20S1%20E28%20-%20My%20Son%20the%20Chimp.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
         {
           "archiveID": "the-addams-family__season-2",
           "seasonNumber": null,
@@ -56,24 +79,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/the-addams-family__season-2/The Addams Family -- 2x23 -- Morticia, the Decorator.mp4"
-        },
-        {
-          "archiveID": "the-addams-family_202510",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Addams Family",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1964,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "The Addams Family S1 E28 - My Son the Chimp.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 559481480,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-addams-family_202510/The%20Addams%20Family%20S1%20E28%20-%20My%20Son%20the%20Chimp.ia.mp4"
         }
       ]
     }
@@ -137,8 +142,5 @@
       "order": 8,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/318247/photo/60cfdf25c1a77.jpg"
     }
-  ],
-  "seriesImdbID": "tt0057729",
-  "canonicalEpisodeCount": 60,
-  "canonicalSeasons": 2
+  ]
 }

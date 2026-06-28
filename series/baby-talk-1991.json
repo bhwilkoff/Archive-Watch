@@ -4,7 +4,7 @@
   "tvmazeID": 14184,
   "title": "Baby Talk",
   "yearStart": 1991,
-  "yearEnd": 1991,
+  "yearEnd": 1992,
   "overview": "Baby Talk is an American sitcom that was loosely based on the \"Look Who's Talking\" movies and follows the adventures of Baby Mickey, as he commented to the audience on the misgivings and new wonders of his world.",
   "posterURL": "https://artworks.thetvdb.com/banners/series/78409/posters/6009b222c120f.jpg",
   "backdropURL": null,
@@ -46,12 +46,12 @@
           "archiveID": "BabyTalkYourLossIsMyGainS2E2",
           "seasonNumber": 2,
           "episodeNumber": 2,
-          "title": "Baby Talk- Your Loss Is My Gain (S2E2)",
-          "overview": "<p class=\"MsoNormal\">Here is a classic episode of the early '90s TGIF sitcom Baby\nTalk where Maggie learns more about James just by filing his taxes.</p><p></p>",
+          "title": "Your Loss is My Gain",
+          "overview": null,
           "stillURL": "https://archive.org/services/img/BabyTalkYourLossIsMyGainS2E2",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1406,
+          "airDate": "1991-09-27",
+          "year": 1991,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "Baby-Talk-Your-Loss-Is-My-Gain-_S2E2_.mp4",
             "format": "MPEG4",
@@ -64,12 +64,12 @@
           "archiveID": "BabyTalkSecurityS2E3",
           "seasonNumber": 2,
           "episodeNumber": 3,
-          "title": "Baby Talk- Security (S2E3)",
-          "overview": "<p class=\"MsoNormal\"><span style=\"font-size:12pt;\">Here is an episode of the\nrather short-lived TGIF series \"Baby Talk\" from October 4, 1991\nstarring Mary Page Keller, Polly Bergen, Francesca P. Roberts, and Scott Baio.\nThis episode's basic point is about patience and being flexible in order to\nstay safe. Featuring a theme song that is an update of the Newbeats' rock/pop\nclassic \"Bread and Butter\".</span></p><p></p>",
+          "title": "Security",
+          "overview": null,
           "stillURL": "https://archive.org/services/img/BabyTalkSecurityS2E3",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1395,
+          "airDate": "1991-10-04",
+          "year": 1991,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "Baby Talk- Security (S2E3).mp4",
             "format": "MPEG4",
@@ -176,8 +176,5 @@
       "order": 14,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0101041",
-  "canonicalEpisodeCount": 11,
-  "canonicalSeasons": 2
+  ]
 }

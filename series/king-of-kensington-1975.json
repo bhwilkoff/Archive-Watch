@@ -20,6 +20,24 @@
       "seasonNumber": 1,
       "episodes": [
         {
+          "archiveID": "KingofKensingtonCBCGem",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Joy of Kensington",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1975-11-27",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "King.of.Kensington.10.Selected.Episodes.576p.CBC.WEBRip.AAC2.0.x264-DJSF/King.of.Kensington.S01E09.The.Joy.of.Kensington.576p.CBC.WEBRip.AAC2.0.x264-DJSF.mp4",
+            "format": "h.264",
+            "sizeBytes": 145487372,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/KingofKensingtonCBCGem/King.of.Kensington.10.Selected.Episodes.576p.CBC.WEBRip.AAC2.0.x264-DJSF/King.of.Kensington.S01E09.The.Joy.of.Kensington.576p.CBC.WEBRip.AAC2.0.x264-DJSF.mp4"
+        },
+        {
           "archiveID": "king.of.kensington.s01e07.half.way.home.480p",
           "seasonNumber": 1,
           "episodeNumber": null,
@@ -36,29 +54,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/king.of.kensington.s01e07.half.way.home.480p/King.Of.Kensington.S01E07.Half.Way.Home.480p.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "KingofKensingtonCBCGem",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "King of Kensington",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1975,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "King.of.Kensington.10.Selected.Episodes.576p.CBC.WEBRip.AAC2.0.x264-DJSF/King.of.Kensington.S01E09.The.Joy.of.Kensington.576p.CBC.WEBRip.AAC2.0.x264-DJSF.mp4",
-            "format": "h.264",
-            "sizeBytes": 145487372,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/KingofKensingtonCBCGem/King.of.Kensington.10.Selected.Episodes.576p.CBC.WEBRip.AAC2.0.x264-DJSF/King.of.Kensington.S01E09.The.Joy.of.Kensington.576p.CBC.WEBRip.AAC2.0.x264-DJSF.mp4"
         }
       ]
     }
@@ -139,8 +134,5 @@
       "order": 11,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0072529",
-  "canonicalEpisodeCount": 101,
-  "canonicalSeasons": 5
+  ]
 }

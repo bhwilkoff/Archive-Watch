@@ -1,72 +1,70 @@
 {
-  "version": 2,
-  "seriesID": "irwin-allen-s-lost-in-space-1965",
-  "tvmazeID": 1483,
-  "title": "Irwin Allen's Lost in Space",
-  "yearStart": 1965,
-  "yearEnd": 1968,
-  "overview": "The Robinson family was supposed to set off on a five-year mission to explore a distant planet, but an act of sabotage by the scheming Dr. Zachary Smith - who managed to get himself trapped aboard the spaceship - leaves them adrift in space for three years. The Robinsons, pilot Don West, Dr. Smith and their trusty robot move from planet to planet, always searching for a way to return to Earth.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/8/21161.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Drama",
-    "Adventure",
-    "Science-Fiction"
-  ],
-  "networks": [
-    "CBS"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "irwin-allen-s-lost-in-space-1965",
+ "tvmazeID": 1483,
+ "title": "Irwin Allen's Lost in Space",
+ "yearStart": 1965,
+ "yearEnd": 1968,
+ "overview": "The Robinson family was supposed to set off on a five-year mission to explore a distant planet, but an act of sabotage by the scheming Dr. Zachary Smith - who managed to get himself trapped aboard the spaceship - leaves them adrift in space for three years. The Robinsons, pilot Don West, Dr. Smith and their trusty robot move from planet to planet, always searching for a way to return to Earth.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/8/21161.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Adventure",
+  "Science-Fiction"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "lost-in-space-the-reluctant-stowaway",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "The Reluctant Stowaway",
-          "overview": "As the Jupiter 2 prepares to launch, Colonel Dr. Smith comes on board and ends up being trapped onboard during blastoff. Because of him being there, the Jupiter 2 careens off course and becomes lost in space.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116357.jpg",
-          "airDate": "1965-09-15",
-          "year": 1965,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Lost in Space - s01e01 1965-09-15 - The Reluctant Stowaway [512x384].mp4",
-            "format": "h.264",
-            "sizeBytes": 289178439,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/lost-in-space-the-reluctant-stowaway/Lost in Space - s01e01 1965-09-15 - The Reluctant Stowaway [512x384].mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "lost-in-space-no-place-to-hide",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Lost In Space : No Place To Hide : Unaired Pilot",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/f7xArCMZPBW7SoCsqsOXvc3X8Ry.jpg",
-          "airDate": null,
-          "year": 1965,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Lost in Space - No Place To Hide (1965) [Unaired Pilot] 512x384.mp4",
-            "format": "h.264",
-            "sizeBytes": 291539378,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/lost-in-space-no-place-to-hide/Lost in Space - No Place To Hide (1965) [Unaired Pilot] 512x384.mp4"
-        }
-      ]
+     "archiveID": "lost-in-space-the-reluctant-stowaway",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "The Reluctant Stowaway",
+     "overview": "As the Jupiter 2 prepares to launch, Colonel Dr. Smith comes on board and ends up being trapped onboard during blastoff. Because of him being there, the Jupiter 2 careens off course and becomes lost in space.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/446/1116357.jpg",
+     "airDate": "1965-09-15",
+     "year": 1965,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Lost in Space - s01e01 1965-09-15 - The Reluctant Stowaway [512x384].mp4",
+      "format": "h.264",
+      "sizeBytes": 289178439,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/lost-in-space-the-reluctant-stowaway/Lost in Space - s01e01 1965-09-15 - The Reluctant Stowaway [512x384].mp4"
     }
-  ],
-  "episodesCount": 2,
-  "canonicalEpisodesCount": 83,
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "lost-in-space-no-place-to-hide",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Lost In Space : No Place To Hide : Unaired Pilot",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/f7xArCMZPBW7SoCsqsOXvc3X8Ry.jpg",
+     "airDate": null,
+     "year": 1965,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Lost in Space - No Place To Hide (1965) [Unaired Pilot] 512x384.mp4",
+      "format": "h.264",
+      "sizeBytes": 291539378,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/lost-in-space-no-place-to-hide/Lost in Space - No Place To Hide (1965) [Unaired Pilot] 512x384.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 2,
+ "canonicalEpisodesCount": 83
 }

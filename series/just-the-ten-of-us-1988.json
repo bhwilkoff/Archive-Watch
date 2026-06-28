@@ -40,18 +40,18 @@
       ]
     },
     {
-      "seasonNumber": null,
+      "seasonNumber": 2,
       "episodes": [
         {
           "archiveID": "just-the-ten-of-us",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Just the Ten of Us",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Song of Constance",
           "overview": null,
           "stillURL": null,
-          "airDate": null,
-          "year": 1988,
-          "runtimeSeconds": null,
+          "airDate": "1989-01-12",
+          "year": 1989,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "Just the Ten Of Us S02E10.mp4",
             "format": "h.264",
@@ -122,8 +122,5 @@
       "order": 8,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/267693/photo/637d16ec983f5.jpg"
     }
-  ],
-  "seriesImdbID": "tt0094490",
-  "canonicalEpisodeCount": 17,
-  "canonicalSeasons": 3
+  ]
 }
