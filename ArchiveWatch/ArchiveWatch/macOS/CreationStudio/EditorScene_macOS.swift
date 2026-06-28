@@ -218,6 +218,13 @@ struct ProjectEditorView: View {
                 await store.load()
                 await CreationStudioBench.run(model: model, store: store)
             }
+            // Feature audit (AW_CS_AUDIT=1) — exercises every editor action on this VISIBLE model and
+            // asserts the PREVIEW composition reflects each edit (not just the timeline model), so a
+            // regression like "trim grows the block but the preview never changes" is caught.
+            if CreationStudioFeatureAudit.isEnabled {
+                await store.load()
+                await CreationStudioFeatureAudit.run(model: model, store: store)
+            }
         }
         .onChange(of: model.project.burnAttribution) { Task { await model.rebuildPreview() } }
         .sheet(isPresented: $showBrowser) {

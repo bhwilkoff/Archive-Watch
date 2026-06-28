@@ -166,6 +166,17 @@ final class EditorModel {
     // The ACTUAL playable duration per clip (composition insert duration, clamped to cached footage).
     // rebuildPreview reconciles the timeline to this so blocks/playhead match the preview exactly.
     @ObservationIgnored private var clipActualDuration: [UUID: Double] = [:]
+
+    // MARK: - Diagnostic accessors (CreationStudioFeatureAudit) — read-only views of private state.
+    // Harmless in release; used by the env-gated in-app feature audit to assert that an edit actually
+    // reached the cached window + the composition, not just the timeline model.
+    var debug_clipActualDuration: [UUID: Double] { clipActualDuration }
+    func debug_windowSpan(_ id: UUID) -> (url: URL, start: Double, end: Double)? {
+        clipCache[id].map { ($0.url, $0.sourceStart, $0.sourceEnd) }
+    }
+    /// Bumped once at the END of every rebuildPreview cycle (any exit path), so the audit can wait for a
+    /// real rebuild to COMPLETE rather than racing the 140ms debounce.
+    @ObservationIgnored var debug_rebuildCount = 0
     // Sources whose window PERMANENTLY failed to encode ("Cannot Encode movie" — a codec/format the
     // encoder can't handle). Keyed by source URL → the failure reason. A clip from such a source is
     // marked failed once and NEVER re-encoded (it used to re-attempt on every rebuild). Cleared by an
@@ -812,6 +823,13 @@ final class EditorModel {
     // every drag with beginInteraction()/endInteraction(); a single rebuild runs on release.
     @ObservationIgnored private(set) var isInteracting = false
     @ObservationIgnored private var pendingRebuildAfterInteraction = false
+    // TRUE whenever an edit has been made that the current preview composition does NOT yet reflect —
+    // cleared only when a rebuild runs to completion and swaps the item. beginInteraction CANCELS any
+    // in-flight rebuild (to stop mid-drag reseek churn), so without this flag a committed edit's
+    // rebuild is silently lost when the user immediately scrubs/plays to check it — the reported
+    // "trim grows the block but the preview never shows the new footage" bug. endInteraction
+    // re-schedules whenever the preview is still dirty, so a committed edit always reaches the preview.
+    @ObservationIgnored private var previewDirty = false
 
     func beginInteraction() {
         isInteracting = true
@@ -824,7 +842,10 @@ final class EditorModel {
     func endInteraction() {
         guard isInteracting else { return }
         isInteracting = false
-        if pendingRebuildAfterInteraction {
+        // Re-run the rebuild if this drag committed an edit OR an earlier committed edit's rebuild is
+        // still un-reflected (previewDirty) — e.g. a scrub that cancelled the trim's rebuild before it
+        // finished. Either way the preview must end up matching the timeline.
+        if pendingRebuildAfterInteraction || previewDirty {
             pendingRebuildAfterInteraction = false
             scheduleRebuild()              // ONE rebuild reflecting the final edit, after the drag ends
         } else {
@@ -835,6 +856,7 @@ final class EditorModel {
     }
 
     func scheduleRebuild() {
+        previewDirty = true               // an edit wants the preview updated; cleared on a completed rebuild
         // During a drag, defer the rebuild to release — rebuilding mid-drag swaps the player item and
         // reseeks repeatedly, which is the "playhead skips around / fights me" behavior.
         if isInteracting { pendingRebuildAfterInteraction = true; return }
@@ -851,10 +873,11 @@ final class EditorModel {
     /// once (reused across rebuilds AND shared with export), so the preview is fast, plays
     /// through every clip, and is frame-identical to the export.
     func rebuildPreview() async {
+        defer { debug_rebuildCount += 1 }   // signal completion to the feature audit (any exit path)
         let timelineClips = clips
         let wasPlaying = isPlaying        // a recompose (e.g. deleting a clip) should keep playing
         guard !timelineClips.isEmpty else {
-            player.replaceCurrentItem(with: nil); return
+            player.replaceCurrentItem(with: nil); previewDirty = false; return
         }
         // Show "Preparing clips…" ONLY while a clip is genuinely downloading/encoding. A recompose
         // from already-cached windows (deleting a clip, reordering, trimming inside the cached window)
@@ -1026,6 +1049,7 @@ final class EditorModel {
                 try? await Task.sleep(for: .milliseconds(25))
             }
             guard !Task.isCancelled, player.currentItem === item, item.status == .readyToPlay else { return }
+            previewDirty = false   // the preview now reflects the timeline (a newer edit re-sets this)
             await player.seek(to: target, toleranceBefore: .zero, toleranceAfter: .zero)
             // Keep playing across the swap (deleting a clip mid-playback should flow into the next),
             // unless the playhead is now past the (shortened) timeline.
