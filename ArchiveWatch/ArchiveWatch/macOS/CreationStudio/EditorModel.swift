@@ -138,6 +138,7 @@ final class EditorModel {
     /// the "if it's in the DB, it can go in the supercut — no persistent error" guarantee.
     private func markPreparing(_ id: UUID) { if clipPrep[id] != .ready { clipPrep[id] = .caching } }
     nonisolated static func reason(for error: Error) -> String {
+        if error is CancellationError { return "took too long to load" }   // a per-clip cache timeout
         if let code = urlErrorCode(in: error as NSError) {
             switch code {
             case NSURLErrorNotConnectedToInternet: return "you appear to be offline"
@@ -906,12 +907,16 @@ final class EditorModel {
                 group.addTask { [weak self] in
                     guard let self else { return (clip.id, nil) }
                     do { return (clip.id, try await self.resolveLocal(clip)) }
-                    catch is CancellationError { return (clip.id, nil) }
                     catch {
                         // A SUPERSEDED rebuild (a newer one started — transient retry, verify, edit) must
                         // NOT record a stale failure: the current rebuild may have already resolved this
                         // clip to .ready, and a late failure here would stick a false "cannot decode"
-                        // banner on a clip that's actually playing. Drop it.
+                        // banner on a clip that's actually playing. Drop it. Checked via Task.isCancelled
+                        // so it ONLY skips genuine cancellation — a per-clip TIMEOUT also surfaces as a
+                        // CancellationError (the cache withTimeout deadline) but with Task.isCancelled
+                        // FALSE, so it falls through and IS counted: a persistently-stalling clip then
+                        // gives up after maxSourceFailures instead of retrying forever (the "waiting
+                        // minutes at 50+ clips" hang — a dead -1011 derivative used to never give up).
                         if Task.isCancelled { return (clip.id, nil) }
                         // Already known-permanent: resolveLocal fast-failed and set the real reason —
                         // leave it (don't overwrite with this rebuild's generic error).
@@ -932,10 +937,22 @@ final class EditorModel {
                 }
             }
             for _ in 0..<maxConcurrent { addNext() }
+            var lastComposeAt = Date(timeIntervalSince1970: 0)
+            var composedReals = 0
             while let (id, r) = await group.next() {
                 if let r { resolvedByID[id] = r }
                 if Task.isCancelled { group.cancelAll(); break }
                 addNext()
+                // PROGRESSIVE preview: show what's ready NOW (gaps reserve the not-yet-ready slots, so
+                // positions stay 1:1 with the timeline) and fill in as clips arrive — the preview is
+                // NEVER gated on the slowest clip (the "waiting minutes at 50+ clips" hang). Debounced,
+                // and only when new clips actually resolved, so a big add doesn't rebuild every tick.
+                if resolvedByID.count > composedReals, Date().timeIntervalSince(lastComposeAt) > 1.2 {
+                    composedReals = resolvedByID.count
+                    lastComposeAt = Date()
+                    _ = await composeAndSwap(resolvedByID, timelineClips: timelineClips,
+                                             wasPlaying: wasPlaying, maxPollMs: 400, markClean: false)
+                }
             }
         }
         if Task.isCancelled { return }
@@ -1017,45 +1034,60 @@ final class EditorModel {
                 await self?.rebuildPreview()
             }
         }
-        // Build from the READY clips in timeline order (failed clips are excluded, not blockers).
-        let resolved = timelineClips.compactMap { resolvedByID[$0.id] }
-        guard !resolved.isEmpty else { return }
+        // FINAL build — every clip in timeline order, GAPS reserving the slots of any that failed/
+        // didn't resolve, so the composition is positionally 1:1 with the timeline (the playhead
+        // always lands on the clip the timeline shows; a missing clip is black at its slot, never a
+        // shifted neighbour). Uses the post-reconcile `clips` so clamped durations are reflected.
+        _ = await composeAndSwap(resolvedByID, timelineClips: clips,
+                                 wasPlaying: wasPlaying, maxPollMs: 4000, markClean: true)
+    }
 
-        // bakeOverlays:false — the Core Animation overlay tool is offline-only (crashes
-        // AVPlayerItem). Same clip/reframe/audio recipe as export, so the preview frame matches.
+    /// Build the composition from `resolvedByID` — reserving a black GAP for every clip not yet
+    /// resolved, so composition time == timeline time and the preview matches the timeline 1:1 — and
+    /// swap it into the player, preserving the playhead. `maxPollMs` is how long to wait for the new
+    /// item to become ready before seeking (a longer wait on the final build so the first frame
+    /// displays; a short wait on progressive builds so they don't stall resolution). `markClean`
+    /// clears `previewDirty` (only the final build, which fully reflects the current timeline).
+    @discardableResult
+    private func composeAndSwap(_ resolvedByID: [UUID: CompositionBuilder.ResolvedClip],
+                                timelineClips: [TimelineClip], wasPlaying: Bool,
+                                maxPollMs: Int, markClean: Bool) async -> Bool {
+        // Reserve EVERY clip's slot: its resolved footage, else a black gap of its timeline duration.
+        let resolved: [CompositionBuilder.ResolvedClip] = timelineClips.map {
+            resolvedByID[$0.id] ?? .gap(seconds: $0.sourceRange.duration.seconds)
+        }
+        guard resolved.contains(where: { !$0.isGap }) else { return false }   // nothing real yet → keep current
+        // bakeOverlays:false — the Core Animation overlay tool is offline-only (crashes AVPlayerItem).
+        // Same clip/reframe/audio recipe as export, so the preview frame matches.
         let credit = project.burnAttribution ? ExportService.defaultCredit : nil
         do {
             let built = try await CompositionBuilder.build(
                 resolved: resolved, timeline: project.timeline,
                 creditLine: credit, bakeOverlays: false, beds: resolvedBeds())
-            guard !Task.isCancelled else { return }
+            guard !Task.isCancelled else { return false }
             let item = AVPlayerItem(asset: built.composition)
             item.videoComposition = built.videoComposition
             item.audioMix = built.audioMix
-            // Buffer ahead so a streamed clip's frames are ready when the playhead reaches it, and
-            // let the player WAIT to minimize stalling rather than render a clip blank while its
-            // remote bytes are still in flight (item 3 — "plays through but the video is blank").
             item.preferredForwardBufferDuration = 8
             player.automaticallyWaitsToMinimizeStalling = true
             player.replaceCurrentItem(with: item)
-            // Seek ONCE the item is ready, so the first frame actually decodes + displays. A seek
-            // issued before `.readyToPlay` (the old code) is dropped — leaving the program monitor
-            // BLACK until the user manually scrubs (which seeks the by-then-ready item). Poll
-            // readiness briefly, then seek the still-current item.
+            // Seek ONCE the item is ready, so the first frame actually decodes + displays (a seek
+            // issued before .readyToPlay is dropped, leaving the monitor black until a manual scrub).
             let target = CMTime(seconds: min(playheadSeconds, totalDuration), preferredTimescale: 600)
-            for _ in 0..<160 {
+            let polls = max(1, maxPollMs / 25)
+            for _ in 0..<polls {
                 if item.status != .unknown { break }       // ready OR failed — stop waiting
-                if Task.isCancelled { return }
+                if Task.isCancelled { return false }
                 try? await Task.sleep(for: .milliseconds(25))
             }
-            guard !Task.isCancelled, player.currentItem === item, item.status == .readyToPlay else { return }
-            previewDirty = false   // the preview now reflects the timeline (a newer edit re-sets this)
+            guard !Task.isCancelled, player.currentItem === item, item.status == .readyToPlay else { return false }
+            if markClean { previewDirty = false }   // the preview now reflects the current timeline
             await player.seek(to: target, toleranceBefore: .zero, toleranceAfter: .zero)
-            // Keep playing across the swap (deleting a clip mid-playback should flow into the next),
-            // unless the playhead is now past the (shortened) timeline.
+            // Keep playing across the swap, unless the playhead is now past the (shortened) timeline.
             if wasPlaying, target.seconds < totalDuration - 0.05 { player.play() }
+            return true
         } catch {
-            // Leave the previous preview in place on a transient build failure.
+            return false   // leave the previous preview in place on a transient build failure
         }
     }
 

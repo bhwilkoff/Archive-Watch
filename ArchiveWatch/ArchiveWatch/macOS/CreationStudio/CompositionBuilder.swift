@@ -30,13 +30,23 @@ enum CompositionBuilder {
     /// resilient asset + the live in/out range — same recipe, different source backing, so
     /// "preview == export" holds (Rule 3a).
     struct ResolvedClip {
-        let asset: AVURLAsset
-        let insertRange: CMTimeRange
+        var asset: AVURLAsset?           // nil ⇒ a GAP placeholder (clip still loading / failed)
+        let insertRange: CMTimeRange     // for a gap, only `.duration` is used (the slot to reserve)
         var audioVolume: Double = 1.0
         var fadeIn: Double = 0           // seconds: fade up from black + audio in over the head
         var fadeOut: Double = 0          // seconds: fade to black + audio out over the tail
         var transitionIn: Double = 0     // seconds: transition from the previous clip into this one
         var transitionKind: TransitionKind = .dissolve
+        var isGap: Bool = false          // reserve this clip's timeline slot WITHOUT footage (renders black)
+
+        /// A black placeholder that reserves a clip's timeline slot so its neighbours keep their
+        /// positions while it (or a failed clip) is unresolved — the preview stays 1:1 with the timeline.
+        static func gap(seconds: Double) -> ResolvedClip {
+            ResolvedClip(asset: nil,
+                         insertRange: CMTimeRange(start: .zero,
+                                                  duration: CMTime(seconds: max(0.05, seconds), preferredTimescale: 600)),
+                         isGap: true)
+        }
     }
 
     /// An imported/recorded audio clip: a local audio file on its own track (#4, N tracks).
@@ -100,23 +110,40 @@ enum CompositionBuilder {
         var placed: [Placed] = []
         var cursor = CMTime.zero
         let ts: Int32 = 600
+        // A GAP (unresolved clip) reserves its timeline slot so following clips keep their positions —
+        // the preview stays 1:1 with the timeline (black where a clip is still loading/failed). A gap
+        // also breaks any transition across it (a cut into/out of black), so track adjacency + the
+        // outgoing-transition patch are tracked live rather than by `resolved` index.
+        var prevReal = false              // was the immediately-previous slot a placed (real) clip?
+        var lastPlacedIdx = -1            // index in `placed` of that previous real clip
 
-        for (i, r) in resolved.enumerated() {
-            guard let srcV = try await r.asset.loadTracks(withMediaType: .video).first else { continue }
+        for r in resolved {
+            // GAP: advance the cursor by its duration, emit no track/instruction (the segment renders
+            // as the black background), and break the transition chain.
+            if r.isGap || r.asset == nil {
+                let d = r.insertRange.duration
+                cursor = cursor + (d.isNumeric && d > .zero ? d : .zero)
+                prevReal = false
+                continue
+            }
+            guard let asset = r.asset,
+                  let srcV = try await asset.loadTracks(withMediaType: .video).first else {
+                cursor = cursor + r.insertRange.duration; prevReal = false; continue   // treat unloadable as a gap
+            }
             let insertRange = r.insertRange
-            guard insertRange.duration.isNumeric, insertRange.duration > .zero else { continue }
-            let ti = i % 2
+            guard insertRange.duration.isNumeric, insertRange.duration > .zero else { prevReal = false; continue }
+            let ti = placed.count % 2     // alternate A/B per REAL clip so adjacent reals can overlap
             let vTrack = vTracks[ti]
             let durS = insertRange.duration.seconds
-            // Overlap with the previous clip by transitionIn (0 for the first clip / a hard cut).
-            let trans = i == 0 ? 0 : max(0, min(r.transitionIn, durS))
-            let start = i == 0 ? .zero : CMTimeMaximum(.zero, cursor - CMTime(seconds: trans, preferredTimescale: ts))
+            // No dissolve across a gap or at the very start — only between two ADJACENT real clips.
+            let trans = prevReal ? max(0, min(r.transitionIn, durS)) : 0
+            let start = prevReal ? CMTimeMaximum(.zero, cursor - CMTime(seconds: trans, preferredTimescale: ts)) : cursor
             try vTrack.insertTimeRange(insertRange, of: srcV, at: start)
 
             // This clip's audio goes on ITS OWN dedicated track (not a shared A/B track), so its
             // ramps can never collide with another clip's ramps in the audio mix.
             var clipAudioTrack: AVMutableCompositionTrack?
-            if let srcA = try await r.asset.loadTracks(withMediaType: .audio).first,
+            if let srcA = try await asset.loadTracks(withMediaType: .audio).first,
                let aTrack = comp.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid) {
                 try? aTrack.insertTimeRange(insertRange, of: srcA, at: start)
                 clipAudioTrack = aTrack
@@ -138,19 +165,21 @@ enum CompositionBuilder {
                                  transIn: trans, transKind: r.transitionKind,
                                  nextOverlap: 0, nextKind: .dissolve,
                                  leadIn: leadIn, vol: Float(max(0, r.audioVolume)),
-                                 audioTailOut: 0, hasAudio: hasAudio))
+                                 audioTailOut: max(0, min(r.fadeOut, durS - leadIn)), hasAudio: hasAudio))
+            // Patch the PREVIOUS real clip's OUTGOING side from THIS clip's incoming transition — only
+            // when the two reals are adjacent (no gap between), so a gap is always a clean cut.
+            if prevReal, lastPlacedIdx >= 0 {
+                let prevDurS = placed[lastPlacedIdx].dur.seconds
+                placed[lastPlacedIdx].nextOverlap = max(0, min(trans, prevDurS))
+                placed[lastPlacedIdx].nextKind = r.transitionKind
+                placed[lastPlacedIdx].audioTailOut = max(0, min(max(placed[lastPlacedIdx].fadeOut, trans),
+                                                                 prevDurS - placed[lastPlacedIdx].leadIn))
+            }
+            lastPlacedIdx = placed.count - 1
+            prevReal = true
             cursor = start + insertRange.duration
         }
         guard !placed.isEmpty else { throw CreationStudioError.noClips }
-
-        // Patch each clip's OUTGOING side from the following clip's transition (audio crossfade +
-        // the push-out / cover during the next clip's transition).
-        for i in placed.indices {
-            let nextTrans = (i + 1 < resolved.count) ? max(0, resolved[i + 1].transitionIn) : 0
-            placed[i].nextOverlap = max(0, min(nextTrans, placed[i].dur.seconds))
-            placed[i].nextKind = (i + 1 < resolved.count) ? resolved[i + 1].transitionKind : .dissolve
-            placed[i].audioTailOut = max(0, min(max(placed[i].fadeOut, nextTrans), placed[i].dur.seconds - placed[i].leadIn))
-        }
 
         // Segment the timeline at every clip start/end. In each segment the active clips become
         // ONE instruction; the later-starting clip goes in FRONT (index 0) so a dissolve reveals

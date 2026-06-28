@@ -79,6 +79,7 @@ enum CreationStudioFeatureAudit {
         await auditTrim(model, item: item, url: url)
         await auditTrimThenScrub(model, item: item, url: url)
         await auditTrimMultiClip(model, item: item, url: url)
+        await auditAlignmentWithFailures(model, item: item, url: url)
         await auditSplit(model, item: item, url: url)
         await auditReorderAndDelete(model, item: item, url: url)
         await auditFadesTransitionsLooksSpeed(model, item: item, url: url)
@@ -169,6 +170,61 @@ enum CreationStudioFeatureAudit {
         let after = previewSeconds(model)
         check("trimScrub.extend", completed && after > base + 4,
               "preview \(rnd(base))->\(rnd(after))s (want >\(rnd(base+4))); rebuildCompleted=\(completed)")
+    }
+
+    // MARK: - Preview↔timeline ALIGNMENT when some clips fail (the "wrong clip plays" bug)
+
+    // The reported bug: the preview plays a different clip than the timeline shows. Root cause was that
+    // failed/unresolved clips were DROPPED from the composition while staying on the timeline, so every
+    // later clip shifted earlier. This test mixes real clips with clips whose source can't resolve and
+    // asserts the composition stays positionally 1:1 with the timeline (total preview == total timeline,
+    // clip count unchanged) — i.e. failed clips become black GAPS at their slot, not shifts.
+    private static func auditAlignmentWithFailures(_ model: EditorModel, item: Catalog.Item, url: URL) async {
+        model.project.timeline.clips.removeAll()
+        let g = model.debug_rebuildCount
+        for k in 0..<5 {
+            if k % 2 == 0 {
+                model.addClip(catalogItemID: item.archiveID, sourceURL: url, title: item.title,
+                              inSeconds: 10 + Double(k) * 5, durationSeconds: 3)
+            } else {
+                // A source that cannot resolve (no such item) — guaranteed to fail → becomes a gap.
+                let bogus = "aw-nonexistent-item-\(k)-zzqqx"
+                model.addClip(catalogItemID: bogus,
+                              sourceURL: URL(string: "https://archive.org/download/\(bogus)/none.mp4")!,
+                              title: "BOGUS \(k)", durationSeconds: 3)
+            }
+        }
+        _ = g
+        // Alignment holds as soon as the reals compose — a not-yet-resolved/failed clip is a GAP at its
+        // slot, so we DON'T need to wait the ~80s for the bogus clips to fully give up. Poll for the
+        // composition total to match the timeline total (and the preview must actually appear fast —
+        // that it does, while bogus clips still churn, is the anti-hang proof).
+        let aligned = await waitAligned(model, timeout: 75)
+        let tl = model.totalDuration, pv = previewSeconds(model)
+        check("align.failures", aligned && model.clips.count == 5,
+              "clips=\(model.clips.count) timeline=\(rnd(tl))s preview=\(rnd(pv))s aligned=\(aligned) "
+              + "(must match — failed/loading clips are GAPS at their slot, not shifts)")
+
+        // Trimming a REAL clip must keep the alignment.
+        if let realID = model.clips.first(where: { $0.label == item.title })?.id {
+            dragEdit(model) { model.trim(realID, newOutSeconds: 10 + 6) }   // extend the first real clip
+            let aligned2 = await waitAligned(model, timeout: 60)
+            check("align.afterTrim", aligned2,
+                  "after trim: timeline=\(rnd(model.totalDuration))s preview=\(rnd(previewSeconds(model)))s aligned=\(aligned2)")
+        }
+    }
+
+    /// Poll until the composition total matches the timeline total (preview is positionally 1:1 with
+    /// the timeline) and the item is playable. Does NOT require every clip to have resolved — gaps
+    /// reserve unresolved slots — so it converges in seconds even when some clips are still loading.
+    private static func waitAligned(_ model: EditorModel, timeout: Double) async -> Bool {
+        for _ in 0..<Int(timeout * 10) {
+            try? await Task.sleep(for: .milliseconds(100))
+            let pv = previewSeconds(model)
+            if pv > 0, abs(pv - model.totalDuration) < 1.2,
+               model.player.currentItem?.status == .readyToPlay { return true }
+        }
+        return false
     }
 
     // MARK: - Trim inside a MANY-clip timeline (the real supercut-editing scenario)
