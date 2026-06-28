@@ -404,12 +404,15 @@ struct SupercutSheet: View {
                 }
                 return Array(deduped.prefix(200))
             }.value
-            results = found
             // Enrich each take with catalog facets (color / type / year) so the Table can
             // sort + filter an otherwise-undifferentiated list. One batched DB read on the main DB.
             let byID = Dictionary(store.itemsByIDs(found.map(\.archiveID)).map { ($0.archiveID, $0) },
                                   uniquingKeysWith: { a, _ in a })
-            rows = found.enumerated().map { i, cue in
+            // Drop NON-ENGLISH films whose English subtitle is a TRANSLATION (foreign audio) — they
+            // can't be in an English supercut and the speech verifier can't catch them (owner).
+            let englishFound = found.filter { !SubtitleIndex.isNonEnglishAudio(language: byID[$0.archiveID]?.language) }
+            results = englishFound
+            rows = englishFound.enumerated().map { i, cue in
                 let it = byID[cue.archiveID]
                 let cm = it?.colorMode
                 return FindRow(cue: cue, order: i,

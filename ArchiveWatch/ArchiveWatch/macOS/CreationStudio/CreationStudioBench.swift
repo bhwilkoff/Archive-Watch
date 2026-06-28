@@ -86,7 +86,13 @@ enum CreationStudioBench {
             // Real Phrase Finder path: LIKE+whole-word+confidence search, dedup to one cue per film.
             var seen = Set<String>(), deduped: [SubtitleCue] = []
             for cue in index.search(phrase, limit: 600) where seen.insert(cue.filmKey).inserted { deduped.append(cue) }
-            let cues = Array(deduped.prefix(count))
+            // Drop non-English films (English subs = translation, foreign audio) — same as runFind.
+            let langByID = Dictionary(store.itemsByIDs(deduped.map(\.archiveID)).map { ($0.archiveID, $0.language) },
+                                      uniquingKeysWith: { a, _ in a })
+            let nonEng = deduped.filter { SubtitleIndex.isNonEnglishAudio(language: langByID[$0.archiveID] ?? nil) }.count
+            let english = deduped.filter { !SubtitleIndex.isNonEnglishAudio(language: langByID[$0.archiveID] ?? nil) }
+            let cues = Array(english.prefix(count))
+            mark("LANG-FILTER phrase=\"\(phrase)\" deduped=\(deduped.count) droppedNonEnglish=\(nonEng) kept=\(english.count)")
             guard cues.count >= 4 else { mark("SKIP phrase=\"\(phrase)\" only \(cues.count) candidates"); continue }
 
             // reset trial metrics

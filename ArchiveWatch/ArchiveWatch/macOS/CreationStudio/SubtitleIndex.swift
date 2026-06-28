@@ -174,6 +174,18 @@ final class SubtitleIndex: @unchecked Sendable {
         return false
     }
 
+    /// English-AUDIO test for the supercut: a NON-English film with ENGLISH TRANSLATION subtitles
+    /// matches the phrase by TEXT, but its audio is foreign — it can't belong in an English supercut,
+    /// and the (English) speech verifier can't catch it (it just sees little English → unverifiable →
+    /// kept). Filter by the film's catalog `language`: drop a KNOWN non-English tag; keep English AND
+    /// unknown (~55% have no tag — the verify pass stays the backstop there). Owner 2026-06-27.
+    static func isNonEnglishAudio(language: String?) -> Bool {
+        let toks = (language ?? "").lowercased().split { !$0.isLetter }.map(String.init)
+        if toks.isEmpty { return false }                                       // unknown → keep
+        if toks.contains(where: { $0 == "en" || $0.hasPrefix("eng") }) { return false }  // has English
+        return true                                                            // populated, non-English
+    }
+
     /// Frame-accurate range of `run` (a word sequence) from the forced-aligned `words` table
     /// (build_word_index.py, Phase B), searched near `nearSeconds`. nil if no word index / no match
     /// — the composer then falls back to its proportional estimate. The table may be absent.
