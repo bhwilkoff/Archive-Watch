@@ -1,6 +1,5 @@
 #if os(tvOS)
 import SwiftUI
-import Combine
 
 // Reusable on-screen + console diagnostics (Phase 0 F3, tvOS-DESIGN debugging
 // philosophy). We kept hand-rolling a green monospaced overlay for playback
@@ -28,9 +27,6 @@ struct DiagnosticsHUD: View {
     let lines: () -> [String]
 
     @State private var snapshot: [String] = []
-    private var tick: Publishers.Autoconnect<Timer.TimerPublisher> {
-        Timer.publish(every: interval, on: .main, in: .common).autoconnect()
-    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
@@ -44,8 +40,15 @@ struct DiagnosticsHUD: View {
         .padding(16)
         .background(.black.opacity(0.65), in: .rect(cornerRadius: 12))
         .allowsHitTesting(false)
-        .onReceive(tick) { _ in refresh() }
         .onAppear { refresh() }
+        // Native structured-concurrency refresh (replaces a Combine Timer.publish): cancelled on disappear.
+        .task {
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(interval))
+                if Task.isCancelled { break }
+                refresh()
+            }
+        }
     }
 
     private func refresh() {

@@ -2,7 +2,6 @@
 import SwiftUI
 import AVKit
 import AVFoundation
-import Combine
 import UniformTypeIdentifiers
 import CoreTransferable
 
@@ -275,8 +274,6 @@ struct MarkClipView: View {
     @State private var outSeconds = 8.0
     @State private var label = ""
 
-    private let tick = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
-
     private var totalDuration: Double {
         if duration > 1 { return duration }
         if let rt = item.runtimeSeconds, rt > 0 { return Double(rt) }
@@ -331,11 +328,17 @@ struct MarkClipView: View {
                 Text(timecode(totalDuration)).font(.caption.monospacedDigit()).foregroundStyle(.secondary)
             }
             .padding(.horizontal, 16).padding(.vertical, 8)
-            .onReceive(tick) { _ in
-                guard videoReady else { return }
-                isPlaying = player.timeControlStatus == .playing
-                let t = player.currentTime().seconds
-                if t.isFinite, !scrubbing, isPlaying { navSeconds = t }
+            // Native structured-concurrency playback tick (replaces a Combine Timer.publish):
+            // auto-cancelled on disappear, reads @State live each iteration.
+            .task {
+                while !Task.isCancelled {
+                    try? await Task.sleep(for: .milliseconds(200))
+                    if Task.isCancelled { break }
+                    guard videoReady else { continue }
+                    isPlaying = player.timeControlStatus == .playing
+                    let t = player.currentTime().seconds
+                    if t.isFinite, !scrubbing, isPlaying { navSeconds = t }
+                }
             }
 
             Form {

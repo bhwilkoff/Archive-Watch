@@ -1,7 +1,6 @@
 #if os(tvOS)
 import SwiftUI
 import SwiftData
-import Combine
 
 // Top-level shell. Uses tvOS 26's native TabView with
 // .sidebarAdaptable — Apple's own adaptive sidebar. This is the only
@@ -34,7 +33,6 @@ struct RootView: View {
     @State private var devChannelItems: [Catalog.Item] = []
     @State private var showDevChannel = false
     private let idleThreshold = 300   // 5 minutes
-    private let idleTick = Timer.publish(every: 30, on: .main, in: .common).autoconnect()
 
     var body: some View {
         // Tabs are split into builder groups; one 12-tab TabView closure trips the
@@ -105,11 +103,18 @@ struct RootView: View {
         }
         // #83 idle screensaver (opt-in, never over playback).
         .fullScreenCover(isPresented: $showSaver) { ScreensaverView() }
-        .onReceive(idleTick) { _ in
-            guard store.screensaverIdleEnabled, !store.isPlayingVideo,
-                  scenePhase == .active, !showSaver else { idleSeconds = 0; return }
-            idleSeconds += 30
-            if idleSeconds >= idleThreshold { idleSeconds = 0; showSaver = true }
+        // Native structured-concurrency idle tick (replaces a Combine Timer.publish): cancelled on
+        // disappear; reads observable/@State live each iteration. The reset onChanges below still zero
+        // the counter on any activity.
+        .task {
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(30))
+                if Task.isCancelled { break }
+                guard store.screensaverIdleEnabled, !store.isPlayingVideo,
+                      scenePhase == .active, !showSaver else { idleSeconds = 0; continue }
+                idleSeconds += 30
+                if idleSeconds >= idleThreshold { idleSeconds = 0; showSaver = true }
+            }
         }
         .onChange(of: router.tab) { _, _ in idleSeconds = 0 }
         .onChange(of: store.isPlayingVideo) { _, _ in idleSeconds = 0 }

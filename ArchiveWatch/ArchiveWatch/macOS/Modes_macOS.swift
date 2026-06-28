@@ -1,6 +1,5 @@
 #if os(macOS)
 import SwiftUI
-import Combine
 
 // Discovery modes (parity with tvOS/iOS — docs/macOS-DESIGN.md §1): Cartoon Mode
 // (character + theme shelves + marathon), Party Play (muted color eye-candy lineup),
@@ -122,7 +121,6 @@ struct ScreensaverView: View {
     @State private var slots: [Catalog.Item] = []
     private let spacing: CGFloat = 12
     private let target: CGFloat = 150
-    private let tick = Timer.publish(every: 2.2, on: .main, in: .common).autoconnect()
 
     var body: some View {
         GeometryReader { geo in
@@ -145,7 +143,15 @@ struct ScreensaverView: View {
         }
         .background(Color.black.ignoresSafeArea())
         .ignoresSafeArea()
-        .onReceive(tick) { _ in advance() }
+        // Native structured-concurrency tick (replaces a Combine Timer.publish): auto-cancelled on
+        // disappear, no stray fire into a torn-down view.
+        .task {
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(2.2))
+                if Task.isCancelled { break }
+                advance()
+            }
+        }
         .onTapGesture { onExit() }             // any click exits (screensaver convention)
         .overlay(alignment: .topTrailing) {    // a subtle exit affordance (Esc also works, RootView)
             Button { onExit() } label: { Image(systemName: "xmark.circle.fill").font(.title) }

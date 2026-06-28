@@ -1,6 +1,5 @@
 #if os(tvOS)
 import SwiftUI
-import Combine
 
 // #14 / #14b cover-art screensaver (tvOS-DESIGN §9.4). A full-bleed grid of the
 // catalog's poster art that periodically cross-dissolves random tiles to fresh
@@ -26,7 +25,6 @@ struct ScreensaverView: View {
 
     private let spacing: CGFloat = 16
     private let targetWidth: CGFloat = 220
-    private let tick = Timer.publish(every: 2.2, on: .main, in: .common).autoconnect()
 
     var body: some View {
         GeometryReader { geo in
@@ -65,7 +63,14 @@ struct ScreensaverView: View {
         }
         .onExitCommand { dismiss() }
         .onAppear { exitFocused = true }
-        .onReceive(tick) { _ in advance() }
+        // Native structured-concurrency tick (replaces a Combine Timer.publish): cancelled on disappear.
+        .task {
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(2.2))
+                if Task.isCancelled { break }
+                advance()
+            }
+        }
     }
 
     // ONLY professional, 2:3-formatted movie posters belong on the wall — never

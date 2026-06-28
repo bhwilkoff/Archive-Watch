@@ -1,6 +1,5 @@
 #if os(tvOS)
 import SwiftUI
-import Combine
 
 // Home screen. All components that are ONLY used by Home live in this
 // file so they're in-scope for the composition without SourceKit
@@ -177,7 +176,6 @@ struct HeroCarousel: View {
     @State private var index = 0
     @FocusState private var focus: Focus?
     @State private var claimedInitialFocus = false
-    private let autoAdvance = Timer.publish(every: 7, on: .main, in: .common).autoconnect()
 
     private enum Focus: Hashable { case banner, leftCatch }
     private let heroHeight: CGFloat = 940   // #10: near-full-screen hero
@@ -225,7 +223,15 @@ struct HeroCarousel: View {
                 advance(-1)
             }
         }
-        .onReceive(autoAdvance) { _ in advance(1) }
+        // Native structured-concurrency auto-advance (replaces a Combine Timer.publish whose @MainActor
+        // delivery could trip a Swift-runtime executor fault). Cancelled on disappear.
+        .task {
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(7))
+                if Task.isCancelled { break }
+                advance(1)
+            }
+        }
         .task {
             guard !claimedInitialFocus else { return }
             claimedInitialFocus = true

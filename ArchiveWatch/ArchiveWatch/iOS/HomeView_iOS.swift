@@ -1,7 +1,6 @@
 #if os(iOS)
 import SwiftUI
 import SwiftData
-import Combine
 
 // Home: a paging hero carousel + horizontally-scrolling shelves (resolved from
 // featured.json via the prebuilt item_shelves map) + Continue Watching. Touch
@@ -211,7 +210,6 @@ private struct HeroCarousel: View {
     @Environment(Router.self) private var router
     @Environment(\.horizontalSizeClass) private var hSize
     @State private var index = 0
-    private let autoAdvance = Timer.publish(every: 7, on: .main, in: .common).autoconnect()
 
     // iPhone portrait: a full-bleed banner ~16:9. iPad / regular width: a
     // width-capped, centered 16:9 card so a wide screen doesn't stretch a short
@@ -230,9 +228,17 @@ private struct HeroCarousel: View {
         }
         .tabViewStyle(.page(indexDisplayMode: .always))
         .frame(height: cardHeight + 32)   // + room for the page dots
-        .onReceive(autoAdvance) { _ in
+        // Native structured-concurrency auto-advance (replaces a Combine Timer.publish whose @MainActor
+        // delivery could trip a Swift-runtime executor fault). Restarts + resets on pool swap; cancelled
+        // on disappear.
+        .task(id: items.map(\.archiveID)) {
+            index = 0
             guard items.count > 1 else { return }
-            withAnimation(.easeInOut) { index = (index + 1) % items.count }
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(7))
+                if Task.isCancelled { break }
+                withAnimation(.easeInOut) { index = (index + 1) % items.count }
+            }
         }
     }
 
