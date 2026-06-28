@@ -1,0 +1,44 @@
+name: Match unmatched films
+
+# Decision 046 coverage: recover the canonical match for unmatched films by searching TMDb/OMDb with
+# the CLEANED title + archiveID slug, year-corroborated (Decision 026). Gives them an authoritative
+# title + poster + metadata. Resumable (matchAttempted). Weekly + manual.
+on:
+  schedule:
+    - cron: '53 3 * * 1'      # weekly Mon, clear of the daily cron wave
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Cap items this run (0 = all remaining)'
+        default: '0'
+concurrency:
+  group: catalog-writers
+  cancel-in-progress: false
+jobs:
+  match:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: { python-version: '3.11' }
+      - run: pip install requests
+      - name: Fetch catalog
+        env: { GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}" }
+        run: python tools/catalog_release.py fetch
+      - name: Match unmatched (TMDb + OMDb, year-corroborated)
+        id: m
+        env:
+          TMDB_BEARER_TOKEN: ${{ secrets.TMDB_BEARER_TOKEN }}
+          OMDB_KEY: ${{ secrets.OMDB_KEY }}
+        run: |
+          if [ -z "$TMDB_BEARER_TOKEN" ]; then echo "no token — skip"; echo "changed=false" >>"$GITHUB_OUTPUT"; exit 0; fi
+          python tools/match_unmatched.py ${{ github.event.inputs.limit != '0' && format('--limit {0}', github.event.inputs.limit) || '' }} | tee m.log
+          grep -qE 'DONE tmdb=0 omdb=0 ' m.log && echo "changed=false" >>"$GITHUB_OUTPUT" || echo "changed=true" >>"$GITHUB_OUTPUT"
+          echo "## Match unmatched"; echo '```' >>"$GITHUB_STEP_SUMMARY"; tail -3 m.log >>"$GITHUB_STEP_SUMMARY"; echo '```' >>"$GITHUB_STEP_SUMMARY"
+      - name: Publish + rebuild
+        if: steps.m.outputs.changed == 'true'
+        env: { GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}" }
+        run: python tools/catalog_release.py publish && gh workflow run publish-db.yml
