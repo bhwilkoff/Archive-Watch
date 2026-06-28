@@ -396,7 +396,7 @@ enum CreationStudioFeatureAudit {
     private static func auditPlayWhileLoading(_ model: EditorModel, item: Catalog.Item, url: URL) async {
         model.project.timeline.clips.removeAll()
         model.player.replaceCurrentItem(with: nil)
-        var g = model.debug_rebuildCount
+        let g = model.debug_rebuildCount
         for k in 0..<4 {
             model.addClip(catalogItemID: item.archiveID, sourceURL: url, title: item.title,
                           inSeconds: 8 + Double(k) * 5, durationSeconds: 5)
