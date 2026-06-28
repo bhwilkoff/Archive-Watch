@@ -113,6 +113,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
     private var dragStartX: CGFloat = 0
     private var dragStartValue: Double = 0      // fade/transition seconds (or grab offset) at mouseDown
     private var trimRestSeconds: Double = 0     // the timeline edge a trim handle started ON (snap-exclude it)
+    private var trimLeftRightAnchor: Double = 0 // a left-trim's FIXED right edge (timeline secs) so the block shrinks from the LEFT
     private var dragMoved = false
     private var pendingCheckpoint = false       // record ONE undo step on the first drag move
     private var lastDragP: NSPoint = .zero       // latest drag position (committed on mouseUp)
@@ -228,8 +229,16 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
 
         // Clip blocks.
         for clip in state.clips {
-            let cx = x(clip.timelineStart.seconds)
             let cw = max(2, x(clip.sourceRange.duration.seconds))
+            // While the LEFT handle is being dragged, render this clip's block with its RIGHT edge
+            // ANCHORED so the LEFT edge follows the cursor — i.e. the clip visibly shortens from the
+            // LEFT, matching the handle you grabbed (owner: "it looks like the END is being adjusted,
+            // not the beginning"). The model keeps its left-anchored timelineStart (so the trim math
+            // stays stable, see mouseDown), and the magnetic re-pack is deferred to release.
+            var cx = x(clip.timelineStart.seconds)
+            if case .trimLeft(let tid) = drag, tid == clip.id {
+                cx = x(trimLeftRightAnchor) - cw
+            }
             let container = CALayer()
             container.frame = CGRect(x: cx, y: trackTop, width: cw, height: trackH)
             container.backgroundColor = NSColor(white: 0.16, alpha: 1).cgColor
@@ -570,6 +579,7 @@ final class TimelineContentView: NSView, NSMenuItemValidation {
             case .trimLeft(let i):
                 dragStartValue = clip(i)?.sourceRange.start.seconds ?? 0
                 trimRestSeconds = clip(i)?.timelineStart.seconds ?? 0
+                trimLeftRightAnchor = clip(i)?.timelineRange.endSeconds ?? 0   // hold the RIGHT edge fixed while the left moves
             case .trimRight(let i):
                 dragStartValue = clip(i)?.sourceRange.start.seconds ?? 0
                 trimRestSeconds = clip(i)?.timelineRange.endSeconds ?? 0

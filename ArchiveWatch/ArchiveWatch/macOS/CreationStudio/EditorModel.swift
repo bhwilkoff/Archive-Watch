@@ -220,7 +220,7 @@ final class EditorModel {
     // clip can't churn for minutes (the preview AND verify passes both retry it through backoffs, which
     // stretched 3 failures to 137s). A source still failing after maxGiveUpSeconds is given up = a gap.
     @ObservationIgnored private var firstFailAt: [String: Date] = [:]
-    static let maxGiveUpSeconds: TimeInterval = 30
+    static let maxGiveUpSeconds: TimeInterval = 45
     /// A source cached successfully — clear its failure streak so a later transient blip starts fresh.
     private func noteSourceSucceeded(_ source: String) {
         if sourceFailCount[source] != nil { sourceFailCount[source] = nil }
@@ -248,7 +248,7 @@ final class EditorModel {
     // a single stalling clip hold a shared encode permit for 90s x2 x3-retries (~9 min) — the
     // "stuck downloading / Verifying X of Y" hang. 25s fails a true stall fast, frees the permit,
     // and lets the give-up fire quickly, while still tolerating a slow-but-progressing connection.
-    static var proxyCacheTimeout: Double { Double(ProcessInfo.processInfo.environment["AW_CS_PROXY_TIMEOUT"] ?? "") ?? 15 }
+    static var proxyCacheTimeout: Double { Double(ProcessInfo.processInfo.environment["AW_CS_PROXY_TIMEOUT"] ?? "") ?? 25 }
 
     // archive.org's per-~60s thumbnail strip (ArchiveThumbnails) is the timeline filmstrip
     // source: it's tiny + already-served, so a clip shows frames INSTANTLY without waiting for
@@ -679,7 +679,11 @@ final class EditorModel {
         // Refresh the filmstrip for the new sub-range from cached thumbnails (instant, no flash);
         // the cached generous window is reused (no re-cache) while the trim stays inside it.
         loadFilmstrip(for: clip)
-        relayout(); scheduleRebuild()
+        // While the LEFT handle is being dragged, DEFER the magnetic re-pack to release: the timeline
+        // renders this clip's right edge anchored (left follows the cursor), so re-packing now would
+        // ripple the following clips LEFT under the anchored edge (overlap). endInteraction re-packs.
+        let leftTrimDrag = newInSeconds != nil && newOutSeconds == nil && isInteracting
+        if leftTrimDrag { scheduleRebuild() } else { relayout(); scheduleRebuild() }
     }
 
     /// Split the clip under the playhead into two at the current position (⌘B).
@@ -888,6 +892,9 @@ final class EditorModel {
     func endInteraction() {
         guard isInteracting else { return }
         isInteracting = false
+        // Re-pack the magnetic track now the drag is done — a left-trim deferred its ripple to here so
+        // the clip could shrink from the left during the drag (idempotent for an already-packed track).
+        relayout()
         // Re-run the rebuild if this drag committed an edit OR an earlier committed edit's rebuild is
         // still un-reflected (previewDirty) — e.g. a scrub that cancelled the trim's rebuild before it
         // finished. Either way the preview must end up matching the timeline.
@@ -982,23 +989,23 @@ final class EditorModel {
                 }
             }
             for _ in 0..<maxConcurrent { addNext() }
-            // Fill the preview in CHUNKS as clips resolve, so the editor is USABLE within seconds and
-            // the slow last clips finish in the BACKGROUND (black gaps at their slots until they do) —
-            // the whole preview is NEVER gated on the slowest clip (owner: "unusable while loading …
-            // 5 minutes before I can touch the timeline"). The FIRST ready clip shows immediately; then
-            // we re-compose only once a BATCH of new clips is ready (not per-clip — that was the
-            // "flashes with every update" strobe) and at most every ~2s. The playhead-stable swap
-            // (isSwappingPreview) keeps each chunk swap gentle.
+            // Fill the preview as clips resolve, so the editor is USABLE within seconds and the slow
+            // last clips finish in the BACKGROUND (black gaps at their slots until they do) — the
+            // preview is NEVER gated on the slowest clip. Re-compose whenever ANY new clip is ready and
+            // it's been ≥1.5s since the last swap (owner: clips were "not available until ALL rendered"
+            // — a per-batch cadence held the tail back). The 1.5s throttle keeps it from per-clip
+            // strobing, and the playhead-stable swap (isSwappingPreview) makes each fill gentle.
             var lastComposeAt = Date(timeIntervalSince1970: 0)
             var composedReals = 0
-            let batch = max(4, timelineClips.count / 8)
             while let (id, r) = await group.next() {
                 if let r { resolvedByID[id] = r }
                 if Task.isCancelled { group.cancelAll(); break }
                 addNext()
-                let newReals = resolvedByID.count - composedReals
                 let firstShow = composedReals == 0 && !resolvedByID.isEmpty
-                if firstShow || (newReals >= batch && Date().timeIntervalSince(lastComposeAt) > 2.0) {
+                // Use "uncomposed reals exist" (not "this completion was a real") so the fill still
+                // fires on a straggler's completion that follows freshly-resolved fast clips.
+                let haveNew = resolvedByID.count > composedReals
+                if firstShow || (haveNew && Date().timeIntervalSince(lastComposeAt) > 2.0) {
                     composedReals = resolvedByID.count
                     lastComposeAt = Date()
                     _ = await composeAndSwap(resolvedByID, timelineClips: timelineClips,

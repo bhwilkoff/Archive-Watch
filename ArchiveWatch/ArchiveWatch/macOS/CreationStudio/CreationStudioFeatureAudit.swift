@@ -85,6 +85,7 @@ enum CreationStudioFeatureAudit {
         await auditPlayheadStability(model, item: item, url: url)
         await auditSwapCount(model, item: item, url: url)
         await auditPlayWhileLoading(model, item: item, url: url)
+        await auditLeftTrimRipple(model, item: item, url: url)
         await auditDuplicateCopyPasteMute(model, item: item, url: url)
         await auditTextOverlays(model, item: item, url: url)
         await auditMarkersAndSettings(model, item: item, url: url)
@@ -385,10 +386,10 @@ enum CreationStudioFeatureAudit {
         // Let any debounced/auto-retry rebuilds settle, then count swaps for the whole 12-clip load.
         try? await Task.sleep(for: .seconds(2))
         let swaps = model.debug_swapCount - swaps0
-        // The preview fills in CHUNKS (a few batched composes), NOT per-clip — per-clip would be ~12
-        // swaps for this load (the strobe the owner reported). A handful proves it's batched.
-        check("flash.swaps", swaps <= 7,
-              "12-clip load did \(swaps) preview swaps (want <=7, well under per-clip — batched, not strobing)")
+        // The preview fills on a ~2s cadence (responsive — clips appear as they load — but throttled,
+        // NOT per-clip; per-clip would be ~12 swaps for this load). A handful proves it's batched.
+        check("flash.swaps", swaps <= 8,
+              "12-clip load did \(swaps) preview swaps (want <=8, under per-clip — throttled ~2s, not strobing)")
     }
 
     // MARK: - Playback continues (no jump to 0) while more clips load in the background
@@ -426,6 +427,44 @@ enum CreationStudioFeatureAudit {
         let caughtUp = await waitAligned(model, timeout: 30)
         check("playLoad.catchUp", caughtUp && model.clips.count == 8,
               "after pause: clips=\(model.clips.count) preview=\(rnd(previewSeconds(model))) timeline=\(rnd(model.totalDuration)) caughtUp=\(caughtUp)")
+    }
+
+    // MARK: - Left-trim shrinks from the LEFT (ripple deferred to release so the block can anchor right)
+
+    // The owner sees a left-handle drag shrink the clip from the RIGHT edge. The visual fix anchors the
+    // block's right edge while the left follows the cursor — which requires the following clips to NOT
+    // ripple DURING the drag (else they'd slide under the anchored edge). This asserts that model
+    // behavior: during the drag the next clip stays put; on release it re-packs.
+    private static func auditLeftTrimRipple(_ model: EditorModel, item: Catalog.Item, url: URL) async {
+        model.project.timeline.clips.removeAll()
+        let g = model.debug_rebuildCount
+        for k in 0..<3 {
+            model.addClip(catalogItemID: item.archiveID, sourceURL: url, title: item.title,
+                          inSeconds: 10 + Double(k) * 5, durationSeconds: 6)
+        }
+        guard await settle(model, after: g), model.clips.count == 3 else {
+            check("lefttrim.setup", false, "3 clips never ready"); return
+        }
+        let c1 = model.clips[1].id, c2 = model.clips[2].id
+        let c1In0 = model.clips[1].sourceRange.start.seconds
+        let c2Start0 = model.clips[2].timelineStart.seconds
+
+        // Begin a LEFT-trim of the middle clip (in-point +2s → shrink from the left by 2s).
+        model.beginInteraction()
+        model.trim(c1, newInSeconds: c1In0 + 2)
+        let c1InNow = model.clips.first { $0.id == c1 }?.sourceRange.start.seconds ?? -1
+        let c2StartDuring = model.clips.first { $0.id == c2 }?.timelineStart.seconds ?? -1
+        check("lefttrim.inMoved", abs(c1InNow - (c1In0 + 2)) < 0.3,
+              "in-point \(rnd(c1In0))->\(rnd(c1InNow)) (functionality: must move +2)")
+        check("lefttrim.noRippleDuringDrag", abs(c2StartDuring - c2Start0) < 0.3,
+              "next clip start during drag \(rnd(c2Start0))->\(rnd(c2StartDuring)) (must NOT ripple — lets the block anchor its right edge)")
+
+        let gEnd = model.debug_rebuildCount
+        model.endInteraction()          // re-packs the magnetic track (relayout) + schedules a rebuild
+        _ = await settle(model, after: gEnd, timeout: 30)
+        let c2StartAfter = model.clips.first { $0.id == c2 }?.timelineStart.seconds ?? -1
+        check("lefttrim.repackOnRelease", c2StartAfter < c2Start0 - 1.0,
+              "next clip start after release \(rnd(c2Start0))->\(rnd(c2StartAfter)) (must re-pack left ~2s)")
     }
 
     // MARK: - Duplicate / copy-paste / mute / volume
