@@ -65,6 +65,57 @@ def _candidates(it: dict) -> list[str]:
     return cands
 
 
+_WD_API = "https://www.wikidata.org/w/api.php"
+_WD_UA = "ArchiveWatch/1.0 (https://archivewatch.org; catalog enrichment)"
+# film + the common film subclasses (P31). The YEAR gate is the real safety; this just blocks
+# matching a same-named book/album/person.
+_FILM_QIDS = {"Q11424", "Q24862", "Q202866", "Q93204", "Q506240", "Q24869",
+              "Q229390", "Q18011172", "Q130232", "Q500694"}
+
+
+def _wikidata_match(cand: str, year: int, sess) -> dict | None:
+    """Search Wikidata for a FILM whose label matches `cand` and whose publication year is within ±2,
+    returning its English label (canonical) + IMDb id (P345). Catches obscure/foreign films TMDb +
+    OMDb miss; the imdb id then lets the normal OMDb enrichment complete the record."""
+    try:
+        r = sess.get(_WD_API, headers={"User-Agent": _WD_UA}, timeout=20, params={
+            "action": "wbsearchentities", "search": cand, "language": "en",
+            "type": "item", "limit": 6, "format": "json"})
+        cands = [c["id"] for c in (r.json().get("search") or [])]
+    except Exception:
+        return None
+    for qid in cands[:5]:
+        try:
+            r = sess.get(f"https://www.wikidata.org/wiki/Special:EntityData/{qid}.json",
+                         headers={"User-Agent": _WD_UA}, timeout=20)
+            ent = r.json()["entities"][qid]
+        except Exception:
+            continue
+        claims = ent.get("claims", {})
+        p31 = [(c.get("mainsnak", {}).get("datavalue", {}) or {}).get("value", {}).get("id")
+               for c in claims.get("P31", [])]
+        if not any(q in _FILM_QIDS for q in p31):
+            continue
+        yrs = []
+        for c in claims.get("P577", []):
+            tm = (c.get("mainsnak", {}).get("datavalue", {}) or {}).get("value", {}).get("time", "")
+            m = re.search(r"(\d{4})", tm or "")
+            if m:
+                yrs.append(int(m.group(1)))
+        if not any(abs(yy - year) <= 2 for yy in yrs):
+            continue
+        label = ((ent.get("labels", {}) or {}).get("en", {}) or {}).get("value")
+        imdb = None
+        for c in claims.get("P345", []):
+            v = (c.get("mainsnak", {}).get("datavalue", {}) or {}).get("value")
+            if v:
+                imdb = v
+                break
+        if label or imdb:
+            return {"imdb_id": imdb, "title": label}
+    return None
+
+
 def _omdb_match(cand: str, year: int, key: str, sess) -> dict | None:
     try:
         r = sess.get("https://www.omdbapi.com/",
@@ -114,7 +165,7 @@ def main() -> int:
 
     cache = json.loads(CACHE.read_text()) if CACHE.exists() else {}
     sess = requests.Session()
-    tmdb_n = omdb_n = miss = 0
+    tmdb_n = omdb_n = wd_n = miss = 0
 
     for i, it in enumerate(targets):
         aid, year = it["archiveID"], it["year"]
@@ -137,6 +188,11 @@ def main() -> int:
                     m = _omdb_match(cand, year, key, sess); time.sleep(0.12)
                     if m:
                         rec, src = m, "omdb"; break
+            if not rec:                          # 3rd source: Wikidata (obscure/foreign long tail)
+                for cand in _candidates(it):
+                    m = _wikidata_match(cand, year, sess); time.sleep(0.2)
+                    if m:
+                        rec, src = m, "wikidata"; break
             cache[aid] = {"rec": rec, "src": src}
             if i % 100 == 0:
                 CACHE.write_text(json.dumps(cache))
@@ -155,16 +211,17 @@ def main() -> int:
 
         if rec and src == "tmdb": tmdb_n += 1
         elif rec and src == "omdb": omdb_n += 1
+        elif rec and src == "wikidata": wd_n += 1
         else: miss += 1
         if i and i % 300 == 0:
-            print(f"[match]  {i}/{len(targets)} tmdb={tmdb_n} omdb={omdb_n} miss={miss}", flush=True)
+            print(f"[match]  {i}/{len(targets)} tmdb={tmdb_n} omdb={omdb_n} wikidata={wd_n} miss={miss}", flush=True)
             if not args.dry_run:
                 CATALOG.write_text(json.dumps(cat, ensure_ascii=False))
 
     CACHE.write_text(json.dumps(cache))
     if not args.dry_run:
         CATALOG.write_text(json.dumps(cat, ensure_ascii=False))
-    print(f"[match] DONE tmdb={tmdb_n} omdb={omdb_n} miss={miss}"
+    print(f"[match] DONE tmdb={tmdb_n} omdb={omdb_n} wikidata={wd_n} miss={miss}"
           f"{' (dry-run)' if args.dry_run else ' -> wrote catalog.json'}", flush=True)
     return 0
 

@@ -36,7 +36,7 @@ jobs:
         run: |
           if [ -z "$TMDB_BEARER_TOKEN" ]; then echo "no token — skip"; echo "changed=false" >>"$GITHUB_OUTPUT"; exit 0; fi
           python tools/match_unmatched.py ${{ github.event.inputs.limit != '0' && format('--limit {0}', github.event.inputs.limit) || '' }} | tee m.log
-          grep -qE 'DONE tmdb=0 omdb=0 ' m.log && echo "changed=false" >>"$GITHUB_OUTPUT" || echo "changed=true" >>"$GITHUB_OUTPUT"
+          grep -qE 'DONE tmdb=0 omdb=0 wikidata=0 ' m.log && echo "changed=false" >>"$GITHUB_OUTPUT" || echo "changed=true" >>"$GITHUB_OUTPUT"
           echo "## Match unmatched"; echo '```' >>"$GITHUB_STEP_SUMMARY"; tail -3 m.log >>"$GITHUB_STEP_SUMMARY"; echo '```' >>"$GITHUB_STEP_SUMMARY"
       - name: Publish + rebuild
         if: steps.m.outputs.changed == 'true'
