@@ -231,6 +231,12 @@ struct ProjectEditorView: View {
                 await store.load()
                 await CreationStudioFeatureAudit.run(model: model, store: store)
             }
+            // Robustness stress harness (AW_CS_STRESS=50) — real multi-film supercut + verify, sampling
+            // the preview-available / timeline==preview / no-hang invariants.
+            if CreationStudioStress.isEnabled {
+                await store.load()
+                await CreationStudioStress.run(model: model, store: store)
+            }
         }
         .onChange(of: model.project.burnAttribution) { Task { await model.rebuildPreview() } }
         .sheet(isPresented: $showBrowser) {

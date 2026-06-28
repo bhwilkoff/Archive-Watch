@@ -204,11 +204,27 @@ final class EditorModel {
         sourceFailCount[source, default: 0] += 1
         sourceFailReason[source] = reason
         if definitelyPermanent { permanentlyFailed[source] = reason }
+        if firstFailAt[source] == nil {
+            firstFailAt[source] = Date()
+            // Guarantee a rebuild EVALUATES the wall-clock give-up at the deadline even if the auto-retry
+            // chain has stopped — otherwise a single dead clip churns for minutes (owner: "the last few
+            // hang almost every time"). The deadline rebuild fast-fails the source (resolveLocal) → gap.
+            Task { [weak self] in
+                try? await Task.sleep(for: .seconds(Self.maxGiveUpSeconds + 0.5))
+                await self?.scheduleRebuild()
+            }
+        }
     }
     @ObservationIgnored private var sourceFailReason: [String: String] = [:]
+    // When a source FIRST failed — a wall-clock give-up complements the count-based one so a single dead
+    // clip can't churn for minutes (the preview AND verify passes both retry it through backoffs, which
+    // stretched 3 failures to 137s). A source still failing after maxGiveUpSeconds is given up = a gap.
+    @ObservationIgnored private var firstFailAt: [String: Date] = [:]
+    static let maxGiveUpSeconds: TimeInterval = 30
     /// A source cached successfully — clear its failure streak so a later transient blip starts fresh.
     private func noteSourceSucceeded(_ source: String) {
         if sourceFailCount[source] != nil { sourceFailCount[source] = nil }
+        firstFailAt[source] = nil
         previewBlockedReason = nil          // something loaded → connectivity is back
     }
     @ObservationIgnored private var timeObserver: Any?
@@ -232,7 +248,7 @@ final class EditorModel {
     // a single stalling clip hold a shared encode permit for 90s x2 x3-retries (~9 min) — the
     // "stuck downloading / Verifying X of Y" hang. 25s fails a true stall fast, frees the permit,
     // and lets the give-up fire quickly, while still tolerating a slow-but-progressing connection.
-    static var proxyCacheTimeout: Double { Double(ProcessInfo.processInfo.environment["AW_CS_PROXY_TIMEOUT"] ?? "") ?? 25 }
+    static var proxyCacheTimeout: Double { Double(ProcessInfo.processInfo.environment["AW_CS_PROXY_TIMEOUT"] ?? "") ?? 15 }
 
     // archive.org's per-~60s thumbnail strip (ArchiveThumbnails) is the timeline filmstrip
     // source: it's tiny + already-served, so a clip shows frames INSTANTLY without waiting for
@@ -384,8 +400,16 @@ final class EditorModel {
         /// alternate that does — so the sentence stays complete instead of losing the word.
         var alternates: [ProxyClip] = []
     }
-    /// What the background verify pass did to a clip.
-    enum RefineOutcome: Sendable { case kept, replaced, removed }
+    /// The verify pass's DECISION for one clip, computed WITHOUT mutating the timeline. All plans are
+    /// applied atomically AFTER the pass, so the timeline never changes mid-pass — keeping it in sync
+    /// with the preview throughout (owner: "preview and timeline get out of sync as clips render").
+    struct RefinePlan: Sendable {
+        let id: UUID
+        var remove = false                                                  // contradicted, no alternate
+        var newSourceRange: TimeRange? = nil                                // tighten / replacement range
+        var newVolume: Double? = nil                                        // evenVolume
+        var replacement: (catalogItemID: String, sourceURL: URL, label: String)? = nil  // confirmed alternate
+    }
     @ObservationIgnored private var refineTask: Task<Void, Never>?
     /// True while a background supercut verify/tighten/level pass is running (shown in the status panel).
     var isRefining = false
@@ -428,13 +452,16 @@ final class EditorModel {
     }
 
     private func refineSupercut(_ added: [(id: UUID, take: SupercutTake)], tighten: Bool, evenVolume: Bool, addSubtitles: Bool) async {
-        var removed = 0, replaced = 0
-        await withTaskGroup(of: RefineOutcome.self) { group in
+        // Phase 1: COMPUTE every clip's plan WITHOUT touching the timeline (so the timeline stays
+        // exactly what the preview is showing during the whole pass — no mid-pass desync).
+        var plans: [RefinePlan] = []
+        await withTaskGroup(of: RefinePlan.self) { group in
             var it = added.makeIterator()
             func addNext() {
                 guard let entry = it.next() else { return }
                 group.addTask { [weak self] in
-                    await self?.refineOne(id: entry.id, take: entry.take, tighten: tighten, evenVolume: evenVolume) ?? .kept
+                    await self?.refineOne(id: entry.id, take: entry.take, tighten: tighten, evenVolume: evenVolume)
+                        ?? RefinePlan(id: entry.id)
                 }
             }
             // Verify concurrency is env-tunable but DEFAULTS TO 2 — measured: raising it storms
@@ -446,12 +473,32 @@ final class EditorModel {
             for _ in 0..<max(1, verifyConc) { addNext() }   // shares the preview's window cache + the global
                                                     // ReencodeLimiter; kept low so we don't storm archive.org
                                                     // archive.org connections at once (it rate-limits the IP)
-            while let outcome = await group.next() {
-                switch outcome { case .removed: removed += 1; case .replaced: replaced += 1; case .kept: break }
+            while let plan = await group.next() {
+                plans.append(plan)
                 verifyDone += 1
                 if Task.isCancelled { group.cancelAll(); break }
                 addNext()
             }
+        }
+        // Phase 2: APPLY all plans ATOMICALLY (one timeline mutation, one rebuild) so the timeline and
+        // preview switch from "the raw cut" to "the verified cut" together — never partially out of sync.
+        var removed = 0, replaced = 0
+        for plan in plans where !plan.remove {
+            guard let i = project.timeline.clips.firstIndex(where: { $0.id == plan.id }) else { continue }
+            if let rep = plan.replacement {
+                project.timeline.clips[i].catalogItemID = rep.catalogItemID
+                project.timeline.clips[i].sourceURL = rep.sourceURL
+                project.timeline.clips[i].label = rep.label
+                clipCache[plan.id] = nil; thumbnails[plan.id] = nil          // source changed → drop stale window/strip
+                replaced += 1
+            }
+            if let r = plan.newSourceRange { project.timeline.clips[i].sourceRange = r }
+            if let v = plan.newVolume { project.timeline.clips[i].audioVolume = v }
+        }
+        let removeIDs = Set(plans.filter { $0.remove }.map { $0.id })
+        if !removeIDs.isEmpty { project.timeline.clips.removeAll { removeIDs.contains($0.id) }; removed = removeIDs.count }
+        for plan in plans where plan.replacement != nil {
+            if let c = project.timeline.clips.first(where: { $0.id == plan.id }) { loadFilmstrip(for: c) }
         }
         relayout()          // final repack so the surviving clips form one gap-free run
         Task.detached { ProjectMediaCache.sweep() }   // a batch can add many big windows — keep the cache bounded
@@ -533,19 +580,21 @@ final class EditorModel {
         }
     }
 
-    private func refineOne(id: UUID, take: SupercutTake, tighten: Bool, evenVolume: Bool) async -> RefineOutcome {
-        // Verification + tighten/level all need a LOCAL window. Reuse the preview's generous window
-        // (shared cache — no second download). Skip clips the preview already GAVE UP on (don't re-pay
-        // a doomed fetch), and BOUND the fetch so a stalling source never blocks the pass for minutes.
+    private func refineOne(id: UUID, take: SupercutTake, tighten: Bool, evenVolume: Bool) async -> RefinePlan {
+        // COMPUTES a plan; does NOT mutate the timeline (refineSupercut applies all plans atomically at
+        // the end). Verification + tighten/level need a LOCAL window — reuse the preview's generous
+        // window (shared cache). Skip clips the preview already GAVE UP on, and BOUND the fetch so a
+        // stalling source never blocks the pass for minutes.
+        var plan = RefinePlan(id: id)
         if isKnownPermanent(take.proxy.sourceURL.absoluteString) {
             if CreationStudioBench.isEnabled { CreationStudioBench.mark("refine-skip-permfail \(take.proxy.catalogItemID)") }
-            return .kept
+            return plan
         }
         let _wt0 = Date()
         guard let (url, wStart) = await refineWindowBounded(take.proxy),
               !Task.isCancelled else {
             if CreationStudioBench.isEnabled { CreationStudioBench.mark("refine-skip-nowindow winMs=\(Int(Date().timeIntervalSince(_wt0)*1000)) \(take.proxy.catalogItemID)") }
-            return .kept
+            return plan
         }
         let _winMs = Int(Date().timeIntervalSince(_wt0) * 1000)
 
@@ -566,53 +615,35 @@ final class EditorModel {
             // Try each ranked ALTERNATE (Supercut Search) — the first that actually speaks the phrase
             // REPLACES this clip in place (same timeline slot), tightened to the spoken words.
             for alt in take.alternates {
-                if Task.isCancelled { return .kept }
+                if Task.isCancelled { return plan }
                 if isKnownPermanent(alt.sourceURL.absoluteString) { continue }
                 guard let (altURL, altStart) = await refineWindowBounded(alt) else { continue }
-                guard case .confirmed(let r) = await WordTiming.verify(mediaURL: altURL, phrase: take.phrase),
-                      let i = project.timeline.clips.firstIndex(where: { $0.id == id }) else { continue }
-                var c = project.timeline.clips[i]
+                guard case .confirmed(let r) = await WordTiming.verify(mediaURL: altURL, phrase: take.phrase) else { continue }
                 let newIn = altStart + r.start.seconds       // file t=0 = altStart (the window start)
-                c.catalogItemID = alt.catalogItemID
-                c.sourceURL = alt.sourceURL
-                c.sourceRange = TimeRange(startSeconds: max(0, newIn), durationSeconds: max(0.05, r.duration.seconds))
-                c.label = alt.label
-                project.timeline.clips[i] = c
-                clipCache[id] = nil; thumbnails[id] = nil    // source changed → drop the stale window/strip
-                loadFilmstrip(for: c)
-                relayout()
-                return .replaced
+                plan.replacement = (alt.catalogItemID, alt.sourceURL, alt.label)
+                plan.newSourceRange = TimeRange(startSeconds: max(0, newIn), durationSeconds: max(0.05, r.duration.seconds))
+                return plan
             }
-            // No alternate spoke it → remove.
-            if let i = project.timeline.clips.firstIndex(where: { $0.id == id }) {
-                project.timeline.clips.remove(at: i)
-                relayout()
-            }
-            return .removed
+            plan.remove = true                               // no alternate spoke it → remove
+            return plan
         }
-        if Task.isCancelled { return .kept }
+        if Task.isCancelled { return plan }
 
-        var changed = false
         // 2) TIGHTEN (when requested) to the spoken-word bounds — prefer the verified range, else the
         //    caption-validated tighten as a fallback. Ranges are file-relative (t=0 = wStart).
         if tighten {
             var range: CMTimeRange?
             if case .confirmed(let r) = verdict { range = r }
             if range == nil { range = await WordTiming.tighten(mediaURL: url, phrase: take.phrase, caption: take.captionText) }
-            if let r = range, let i = project.timeline.clips.firstIndex(where: { $0.id == id }) {
-                let newIn = wStart + r.start.seconds
-                project.timeline.clips[i].sourceRange =
-                    TimeRange(startSeconds: max(0, newIn), durationSeconds: max(0.05, r.duration.seconds))
-                changed = true
+            if let r = range {
+                plan.newSourceRange = TimeRange(startSeconds: max(0, wStart + r.start.seconds),
+                                                durationSeconds: max(0.05, r.duration.seconds))
             }
         }
-        if evenVolume, let rms = await Loudness.rms(url: url),
-           let i = project.timeline.clips.firstIndex(where: { $0.id == id }) {
-            project.timeline.clips[i].audioVolume = Loudness.gain(forRMS: rms)
+        if evenVolume, let rms = await Loudness.rms(url: url) {
+            plan.newVolume = Loudness.gain(forRMS: rms)
         }
-        // A tightened clip is SHORTER → repack the magnetic track so clips stay glued together.
-        if changed { relayout() }
-        return .kept
+        return plan
     }
 
     func deleteClip(_ id: UUID) {
@@ -1010,7 +1041,14 @@ final class EditorModel {
         // Mark it terminally failed so it LEAVES "preparing": otherwise a couple of bad-server clips
         // hold the whole "add 50" in a spinner for minutes (owner: "sometimes it still takes a very
         // long time"). It stays visible (red, retryable); the preview/export use the rest.
-        let givenUp = retryable.filter { (sourceFailCount[$0.sourceURL.absoluteString] ?? 0) >= Self.maxSourceFailures }
+        // Give up on count OR wall-clock: a dead clip that the preview + verify passes keep retrying
+        // through backoffs can take minutes to hit the count, so a 40s wall-clock cap bounds the tail.
+        let givenUp = retryable.filter {
+            let src = $0.sourceURL.absoluteString
+            if (sourceFailCount[src] ?? 0) >= Self.maxSourceFailures { return true }
+            if let t = firstFailAt[src], Date().timeIntervalSince(t) >= Self.maxGiveUpSeconds { return true }
+            return false
+        }
         for c in givenUp {
             let src = c.sourceURL.absoluteString
             let reason = sourceFailReason[src] ?? "couldn’t load this source"
@@ -1137,6 +1175,15 @@ final class EditorModel {
         // A source that already failed to ENCODE can't be fixed by retrying — fail fast without
         // re-attempting the (expensive, doomed) re-encode on this and every future rebuild.
         if let reason = permanentlyFailed[clip.sourceURL.absoluteString] {
+            clipPrep[clip.id] = .failed(reason)
+            throw CreationStudioError.cannotCreateExportSession
+        }
+        // A source that's been failing past the wall-clock deadline is given up HERE (no further 25s
+        // attempt) so the dead clip becomes a gap promptly instead of re-attempting every rebuild.
+        let srcKey = clip.sourceURL.absoluteString
+        if let t = firstFailAt[srcKey], Date().timeIntervalSince(t) >= Self.maxGiveUpSeconds {
+            let reason = sourceFailReason[srcKey] ?? "took too long to load"
+            permanentlyFailed[srcKey] = reason
             clipPrep[clip.id] = .failed(reason)
             throw CreationStudioError.cannotCreateExportSession
         }

@@ -117,11 +117,36 @@ enum CompositionBuilder {
         var prevReal = false              // was the immediately-previous slot a placed (real) clip?
         var lastPlacedIdx = -1            // index in `placed` of that previous real clip
 
+        // GAP FILLER: a timeline GAP (unresolved/failed clip) must occupy REAL duration in the
+        // composition, else AVFoundation (which trims trailing EMPTY ranges) reports a duration only up
+        // to the last resolved clip — making the preview SHORTER than the timeline and desyncing the
+        // playhead. We splice a slice of the FIRST RESOLVED clip's already-cached asset over each gap.
+        // It carries NO layer instruction, so the videoComposition renders the black background there —
+        // the footage is invisible and only provides duration. (A purpose-built black asset from
+        // AVAssetWriter fails insertTimeRange with -11800; a real cached clip inserts cleanly.)
+        let hasGap = resolved.contains { $0.isGap || $0.asset == nil }
+        var fillerV: AVAssetTrack?
+        var fillerDur: CMTime = .zero
+        if hasGap, let fa = resolved.first(where: { !$0.isGap && $0.asset != nil })?.asset {
+            fillerV = try? await fa.loadTracks(withMediaType: .video).first
+            fillerDur = (try? await fillerV?.load(.timeRange).duration) ?? .zero
+        }
+
         for r in resolved {
-            // GAP: advance the cursor by its duration, emit no track/instruction (the segment renders
-            // as the black background), and break the transition chain.
+            // GAP: splice invisible filler for its duration (so the composition spans it) and break the
+            // transition chain. No layer instruction → it renders as the black background.
             if r.isGap || r.asset == nil {
                 let d = r.insertRange.duration
+                if d.isNumeric, d > .zero, let fillerV, fillerDur > .zero {
+                    var filled = CMTime.zero
+                    while filled < d {
+                        let chunk = CMTimeMinimum(fillerDur, d - filled)
+                        if chunk <= .zero { break }
+                        try? vA.insertTimeRange(CMTimeRange(start: .zero, duration: chunk),
+                                                of: fillerV, at: cursor + filled)
+                        filled = filled + chunk
+                    }
+                }
                 cursor = cursor + (d.isNumeric && d > .zero ? d : .zero)
                 prevReal = false
                 continue
@@ -180,6 +205,13 @@ enum CompositionBuilder {
             cursor = start + insertRange.duration
         }
         guard !placed.isEmpty else { throw CreationStudioError.noClips }
+        if ProcessInfo.processInfo.environment["AW_CS_DIAG"] != nil {
+            let slots = resolved.count, real = placed.count
+            let cur = cursor.seconds, cd = comp.duration.seconds, fd = fillerDur.seconds
+            let hasFiller = fillerV != nil
+            let line = "AWCS BUILD slots=\(slots) real=\(real) gaps=\(slots - real) cursor=\(Int(cur)) compDur=\(Int(cd)) fillerDur=\(Int(fd)) filler=\(hasFiller)\n"
+            FileHandle.standardError.write(Data(line.utf8))
+        }
 
         // Segment the timeline at every clip start/end. In each segment the active clips become
         // ONE instruction; the later-starting clip goes in FRONT (index 0) so a dissolve reveals
