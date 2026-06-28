@@ -178,6 +178,9 @@ final class EditorModel {
     /// Bumped once at the END of every rebuildPreview cycle (any exit path), so the audit can wait for a
     /// real rebuild to COMPLETE rather than racing the 140ms debounce.
     @ObservationIgnored var debug_rebuildCount = 0
+    /// Bumped on every player-item swap (replaceCurrentItem). Each swap blanks the program monitor —
+    /// the audit asserts a load does only a FEW swaps so the preview doesn't "flash with every update".
+    @ObservationIgnored var debug_swapCount = 0
     // Sources whose window PERMANENTLY failed to encode ("Cannot Encode movie" — a codec/format the
     // encoder can't handle). Keyed by source URL → the failure reason. A clip from such a source is
     // marked failed once and NEVER re-encoded (it used to re-attempt on every rebuild). Cleared by an
@@ -251,8 +254,11 @@ final class EditorModel {
             MainActor.assumeIsolated {
                 guard let self, t.isNumeric else { return }
                 // While the user is dragging (scrub/trim/move), the playhead they set is authoritative —
-                // don't let the player's clock (or a mid-swap reset to 0) overwrite it and fight them.
-                if self.isInteracting { return }
+                // don't let the player's clock overwrite it and fight them. Likewise while a preview
+                // ITEM SWAP is in flight: a freshly-replaced AVPlayerItem reports currentTime 0 until the
+                // re-seek lands, and letting that 0 through made the playhead snap to the start of the
+                // timeline on every clip re-render (owner: "keeps going back to the beginning").
+                if self.isInteracting || self.isSwappingPreview { return }
                 self.playheadSeconds = t.seconds
                 self.isPlaying = self.player.rate != 0
             }
@@ -831,6 +837,10 @@ final class EditorModel {
     // "trim grows the block but the preview never shows the new footage" bug. endInteraction
     // re-schedules whenever the preview is still dirty, so a committed edit always reaches the preview.
     @ObservationIgnored private var previewDirty = false
+    // TRUE while composeAndSwap is replacing the player item + re-seeking to the playhead. The periodic
+    // time observer ignores the new item's transient currentTime 0 during this window, so the playhead
+    // never snaps to the timeline start on a re-render.
+    @ObservationIgnored private var isSwappingPreview = false
 
     func beginInteraction() {
         isInteracting = true
@@ -937,21 +947,22 @@ final class EditorModel {
                 }
             }
             for _ in 0..<maxConcurrent { addNext() }
-            var lastComposeAt = Date(timeIntervalSince1970: 0)
-            var composedReals = 0
+            var shownFirst = false
             while let (id, r) = await group.next() {
                 if let r { resolvedByID[id] = r }
                 if Task.isCancelled { group.cancelAll(); break }
                 addNext()
-                // PROGRESSIVE preview: show what's ready NOW (gaps reserve the not-yet-ready slots, so
-                // positions stay 1:1 with the timeline) and fill in as clips arrive — the preview is
-                // NEVER gated on the slowest clip (the "waiting minutes at 50+ clips" hang). Debounced,
-                // and only when new clips actually resolved, so a big add doesn't rebuild every tick.
-                if resolvedByID.count > composedReals, Date().timeIntervalSince(lastComposeAt) > 1.2 {
-                    composedReals = resolvedByID.count
-                    lastComposeAt = Date()
+                // ONE early compose the moment the FIRST clip is ready, but ONLY when the program
+                // monitor is currently BLANK (a fresh load). This makes the preview appear in ~1s
+                // instead of waiting for the slowest clip (the anti-hang win) WITHOUT flashing: we do
+                // NOT re-swap on every subsequent clip (that repeated replaceCurrentItem was the
+                // "preview flashes with every update" the owner reported). The remaining clips appear
+                // together in the single FINAL compose below. A rebuild that already has a preview
+                // (an edit, the verify pass) skips this and only swaps once, at the end.
+                if !shownFirst, !resolvedByID.isEmpty, player.currentItem == nil {
+                    shownFirst = true
                     _ = await composeAndSwap(resolvedByID, timelineClips: timelineClips,
-                                             wasPlaying: wasPlaying, maxPollMs: 400, markClean: false)
+                                             wasPlaying: wasPlaying, maxPollMs: 800, markClean: false)
                 }
             }
         }
@@ -1070,10 +1081,16 @@ final class EditorModel {
             item.audioMix = built.audioMix
             item.preferredForwardBufferDuration = 8
             player.automaticallyWaitsToMinimizeStalling = true
+            // Hold the playhead the user is at across the swap: capture it BEFORE replacing the item,
+            // and suppress the time observer (isSwappingPreview) so the new item's transient currentTime
+            // 0 can't overwrite it. We restore EXACTLY here, so the playhead never snaps to the start.
+            let target = CMTime(seconds: min(playheadSeconds, totalDuration), preferredTimescale: 600)
+            isSwappingPreview = true
+            defer { isSwappingPreview = false }
             player.replaceCurrentItem(with: item)
+            debug_swapCount += 1
             // Seek ONCE the item is ready, so the first frame actually decodes + displays (a seek
             // issued before .readyToPlay is dropped, leaving the monitor black until a manual scrub).
-            let target = CMTime(seconds: min(playheadSeconds, totalDuration), preferredTimescale: 600)
             let polls = max(1, maxPollMs / 25)
             for _ in 0..<polls {
                 if item.status != .unknown { break }       // ready OR failed — stop waiting

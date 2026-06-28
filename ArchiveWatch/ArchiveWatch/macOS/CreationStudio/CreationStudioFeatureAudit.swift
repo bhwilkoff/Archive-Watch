@@ -79,15 +79,19 @@ enum CreationStudioFeatureAudit {
         await auditTrim(model, item: item, url: url)
         await auditTrimThenScrub(model, item: item, url: url)
         await auditTrimMultiClip(model, item: item, url: url)
-        await auditAlignmentWithFailures(model, item: item, url: url)
         await auditSplit(model, item: item, url: url)
         await auditReorderAndDelete(model, item: item, url: url)
         await auditFadesTransitionsLooksSpeed(model, item: item, url: url)
+        await auditPlayheadStability(model, item: item, url: url)
+        await auditSwapCount(model, item: item, url: url)
         await auditDuplicateCopyPasteMute(model, item: item, url: url)
         await auditTextOverlays(model, item: item, url: url)
         await auditMarkersAndSettings(model, item: item, url: url)
         await auditUndoRedo(model, item: item, url: url)
         await auditExport(model, item: item, url: url)
+        // Runs LAST: its deliberately-failing clips churn background retries for ~80s, which would
+        // pollute the baselines of duration-sensitive tests if it ran earlier.
+        await auditAlignmentWithFailures(model, item: item, url: url)
 
         finish()
     }
@@ -337,6 +341,53 @@ enum CreationStudioFeatureAudit {
         _ = await settle(model, after: g)
         check("fx.look", model.clips.first { $0.id == a }?.look == .noir,
               "look=\(String(describing: model.clips.first { $0.id == a }?.look))")
+    }
+
+    // MARK: - Playhead stays put across an edit (must NOT snap to the timeline start)
+
+    private static func auditPlayheadStability(_ model: EditorModel, item: Catalog.Item, url: URL) async {
+        model.project.timeline.clips.removeAll()
+        var g = model.debug_rebuildCount
+        for k in 0..<4 {
+            model.addClip(catalogItemID: item.archiveID, sourceURL: url, title: item.title,
+                          inSeconds: 10 + Double(k) * 5, durationSeconds: 4)
+        }
+        guard await settle(model, after: g) else { check("playhead.setup", false, "clips never ready"); return }
+
+        // Park the playhead deep in the timeline (≈ 3rd clip), as if mid-edit there.
+        model.seek(toSeconds: 9)
+        let before = model.playheadSeconds
+        check("playhead.setup", abs(before - 9) < 0.6, "parked playhead at \(rnd(before)) (want ~9)")
+
+        // Trim a clip — the rebuild must keep the playhead where it was, not snap to 0.
+        let id = model.clips[1].id
+        g = dragEdit(model) { model.trim(id, newOutSeconds: 15 + 5) }   // extend 2nd clip
+        _ = await settle(model, after: g)
+        let after = model.playheadSeconds
+        check("playhead.stable", after > 1.0 && abs(after - before) < 1.5,
+              "playhead \(rnd(before))->\(rnd(after)) across the edit (must stay put, NOT snap to 0)")
+    }
+
+    // MARK: - Preview must not "flash with every update" — a load does only a FEW item swaps
+
+    private static func auditSwapCount(_ model: EditorModel, item: Catalog.Item, url: URL) async {
+        model.project.timeline.clips.removeAll()
+        // Force a fresh blank monitor so the load starts from nil (the early-compose path).
+        model.player.replaceCurrentItem(with: nil)
+        let swaps0 = model.debug_swapCount
+        let g = model.debug_rebuildCount
+        for k in 0..<12 {
+            model.addClip(catalogItemID: item.archiveID, sourceURL: url, title: item.title,
+                          inSeconds: 8 + Double(k) * 4, durationSeconds: 3)
+        }
+        guard await settle(model, after: g, timeout: 90) else { check("flash.swaps", false, "never settled"); return }
+        // Let any debounced/auto-retry rebuilds settle, then count swaps for the whole 12-clip load.
+        try? await Task.sleep(for: .seconds(2))
+        let swaps = model.debug_swapCount - swaps0
+        // Old progressive code swapped on every ~1.2s tick (≈8-10 for this load → flashing). The fix is
+        // one early compose + one final (+ maybe a retry): a small, bounded number.
+        check("flash.swaps", swaps <= 4,
+              "12-clip load did \(swaps) preview swaps (want <=4 — each swap blanks/flashes the monitor)")
     }
 
     // MARK: - Duplicate / copy-paste / mute / volume
