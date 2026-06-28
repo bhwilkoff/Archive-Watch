@@ -116,15 +116,21 @@ struct ClipThumbnailView: View {
     @State private var image: NSImage?
 
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: corner).fill(.quaternary)
-            if let image {
-                Image(nsImage: image).resizable().scaledToFill()
-            } else {
-                Image(systemName: "film").imageScale(.small).foregroundStyle(.tertiary)
+        // The RoundedRectangle (a Shape) takes EXACTLY the proposed frame, so it — not the image —
+        // drives this view's size. The image rides in an .overlay, which is sized to the base and can
+        // never enlarge the container; .scaledToFill overflow is then masked by .clipShape. (A ZStack
+        // here let the scaledToFill image grow the stack and leak past the 44x30 frame, so the thumb
+        // drew under the row's text — owner-reported.)
+        RoundedRectangle(cornerRadius: corner)
+            .fill(.quaternary)
+            .overlay {
+                if let image {
+                    Image(nsImage: image).resizable().scaledToFill()
+                } else {
+                    Image(systemName: "film").imageScale(.small).foregroundStyle(.tertiary)
+                }
             }
-        }
-        .clipShape(RoundedRectangle(cornerRadius: corner))
+            .clipShape(RoundedRectangle(cornerRadius: corner))
         // ONE gated, cached fetch per clip (frame → poster → universal) — no ungated AsyncImage bursts.
         .task(id: "\(catalogItemID)@\(Int(atSeconds.rounded()))") {
             image = await ClipThumbnailCache.shared.image(
