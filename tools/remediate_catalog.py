@@ -614,6 +614,10 @@ _CAST_PAREN = re.compile(r"\s*[\(\[]\s*[^)\]]*,[^)\]]*[\)\]]\s*$")
 _KNOCKOFF_LABEL = re.compile(
     r"\b(bevanfield|foxbridge|burbank films|golden films|goodtimes|"
     r"jetlag productions|dingo pictures)\b", re.I)
+# Uploader title cruft that no real title contains: star ratings (★★★ / ☆) and closed-caption
+# markers ("(CC)" / "[CC]" / "CC:"). Stripped anywhere, behind _keep_if_lettered.
+_STAR_RATING = re.compile(r"[★✦⭐☆⭑✩✫✬✭]+")
+_CC_MARK = re.compile(r"\s*(\(\s*cc\s*\)|\[\s*cc\s*\]|\bcc:)\s*", re.I)
 # Trailing genre/format descriptor an uploader tacked on after a dash/comma ("Human Desire -
 # Film Noir", "… , Comedy"). Only the FINAL segment and only KNOWN descriptors, so real subtitles
 # ("First Blood - Part II") survive; applied behind _keep_if_lettered.
@@ -682,6 +686,30 @@ def _strip_trailing_year(t):
     # e.g. "1984 (1984)" -> "1984", is real, not junk.
     nt = _TRAIL_YEAR.sub("", t).rstrip()
     return nt if (nt and re.search(r"[^\W_]", nt)) else t
+
+
+def _truncate_at_year_field(t, year):
+    # The item's own year as the TITLE/CRUFT BOUNDARY: 'Real Title YYYY <cruft>' -> 'Real Title'.
+    # The single most common uploader pattern for unmatched films (the mid-string year is followed by
+    # ratings/CC/genre/cast). Precise: only the item's OWN year, only when real title text precedes
+    # it; a date-range ('… 1945 to 1946 …') is skipped so it isn't truncated mid-range. (Matched
+    # films never reach here — they adopt the canonical title.)
+    if not year:
+        return t
+    m = re.search(r"^(.+?)\s+" + str(year) + r"\b(.+)$", t)
+    if not m:
+        return t
+    before = m.group(1).strip()
+    if not re.search(r"[A-Za-z]", before):
+        return t
+    if re.search(r"(?:18|19|20)\d\d\s*$", before):     # 'Berlin 1945 to 1946 …' → leave it
+        return t
+    # When the year COMPLETES a phrase ('Amazing China in 1917 in color', 'Wonderful Berlin in
+    # 1927') it's part of the descriptive title, not a boundary — the text before it ends in a
+    # preposition/article/conjunction. Don't truncate those (travelogue/amateur-film naming).
+    if re.search(r"(?i)\b(in|of|the|a|an|to|from|and|or|at|on|during|for|with|year|no|vol|part|chapter|by|circa|around)$", before):
+        return t
+    return _keep_if_lettered(before, t)
 
 
 def _strip_trailing_year_field(t, year):
@@ -807,15 +835,52 @@ def sanitize_synopsis(it):
     return "cleaned"
 
 
+def _norm_words(s):
+    return [w for w in re.split(r"[^0-9a-z]+", (s or "").lower()) if w]
+
+
+def _canonical_clean(it):
+    """The AUTHORITATIVE title (TMDb/OMDb `canonicalTitle`) to ADOPT over the uploader title — but
+    only when it's clearly a clean version of what the uploader typed: every significant word of the
+    canonical appears in the uploader title (the uploader title = the real title + appended cruft).
+    This guards against a wrong match injecting a wrong title, and is the principled fix (Decision
+    046) for long uploader titles like "The Web Ella Raines, Edmond O'Brien, …" → "The Web". Returns
+    the canonical string to use, or None to fall through to regex cleaning."""
+    c = (it.get("canonicalTitle") or "").strip()
+    if not c:
+        return None
+    cn = _norm_words(c)
+    un = set(_norm_words(it.get("title") or ""))
+    if not cn:
+        return None
+    if len(cn) >= 2 and set(cn).issubset(un):   # multi-word canonical fully present → adopt
+        return c
+    if len(cn) == 1 and _norm_words(it.get("title") or "") == cn:   # already that single word
+        return c
+    return None
+
+
 def sanitize_title(it):
     raw = (it.get("title") or "").strip()
     if not raw:
+        return False
+    # UNIFIED TITLE RESOLUTION (Decision 046): a matched film's title should BE its authoritative
+    # canonical title, not a regex-cleaned uploader string — adopt it when it's a clean version of
+    # the uploader title (guarded), else fall through to the cleaning chain below for unmatched films.
+    canon = _canonical_clean(it)
+    if canon:
+        if canon != raw:
+            it["title"] = canon
+            return True
         return False
     t = _fix_mojibake(_html.unescape(raw))
     t = _strip_format_dump(t)
     t = _strip_source_specs(t)
     t = _strip_runtime_size(t)        # file size / fps / runtime stamp / rip words
     t = _strip_quality_tail(t)
+    # Star ratings + closed-caption markers an uploader stuck in the title ("… ★★★ CC: …", "(CC)").
+    t = _keep_if_lettered(_STAR_RATING.sub(" ", t), t)
+    t = _keep_if_lettered(_CC_MARK.sub(" ", t), t)
     t = _strip_uploader_cruft(t)
     t = _strip_lang_tail(t)           # trailing foreign sub/dub marker (VOSE / Legendado …)
     # Pipe-delimited uploader credits ("Title |Director| Cast - Genre") → keep only the real title.
@@ -856,6 +921,7 @@ def sanitize_title(it):
     t = _keep_if_lettered(_PAREN_LEADING_YEAR.sub(" ", t), t)
     t = _keep_if_lettered(_TRAIL_OPEN_YEAR.sub("", t), t)
     t = _keep_if_lettered(_LANG_PAREN.sub(" ", t), t)
+    t = _truncate_at_year_field(t, it.get("year"))   # 'Real Title YYYY <cruft>' -> 'Real Title'
     t = _strip_leading_year(t)
     t = _strip_leading_year_field(t, it.get("year"))
     t = _strip_trailing_year(t)

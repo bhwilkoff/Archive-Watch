@@ -54,6 +54,10 @@ def tmdb_meta(tmdb_id, token, sess) -> dict | None:
         return None
 
     out: dict = {}
+    # The AUTHORITATIVE display title (Decision 046 title-resolution): for a matched film this is the
+    # exact title; remediate adopts it over the messy uploader title when it's a clean version of it.
+    if d.get("title"):
+        out["canonicalTitle"] = d["title"].strip()
     kws = [k.get("name") for k in (d.get("keywords") or {}).get("keywords", []) if k.get("name")]
     if kws:
         out["keywords"] = kws[:30]
@@ -97,17 +101,20 @@ def tmdb_meta(tmdb_id, token, sess) -> dict | None:
     return out
 
 
-def omdb_awards(imdb_id, key, sess) -> tuple[str | None, str | None]:
+def omdb_extra(imdb_id, key, sess) -> tuple[str | None, str | None, str | None]:
+    """(awards, writer, canonicalTitle) from OMDb — the title is the authoritative fallback for an
+    IMDb-matched film with no tmdbID."""
     try:
         r = sess.get("https://www.omdbapi.com/", params={"i": imdb_id, "apikey": key}, timeout=20)
         if not r.ok:
-            return None, None
+            return None, None, None
         d = r.json()
         aw = (d.get("Awards") or "").strip()
         wr = (d.get("Writer") or "").split(",")[0].strip()
-        return (aw if aw and aw != "N/A" else None), (wr if wr and wr != "N/A" else None)
+        ti = (d.get("Title") or "").strip()
+        return (aw if aw and aw != "N/A" else None), (wr if wr and wr != "N/A" else None), (ti or None)
     except Exception:
-        return None, None
+        return None, None, None
 
 
 def apply(it: dict, meta: dict) -> None:
@@ -161,9 +168,10 @@ def main() -> int:
             meta = tmdb_meta(it["tmdbID"], token, sess) or {}
             time.sleep(0.26)
             if key and it.get("imdbID"):
-                aw, wr = omdb_awards(it["imdbID"], key, sess)
+                aw, wr, ti = omdb_extra(it["imdbID"], key, sess)
                 if aw: meta["awards"] = aw
                 if wr and not meta.get("writer"): meta["writer"] = wr
+                if ti and not meta.get("canonicalTitle"): meta["canonicalTitle"] = ti
                 time.sleep(0.12)
             cache[aid] = meta
             if i % 200 == 0:

@@ -85,6 +85,27 @@ call — the same call enrichment already makes, so the backfill is cheap.
 - **Phase 4 — Validate & ship.** Re-measure size/speed vs budget; bump version; log results in the
   Decision; PARITY.md updated.
 
+## Title resolution (the unified, researched approach)
+
+The display title is resolved in ONE ordered policy in `remediate.sanitize_title` (not ad-hoc rules):
+
+1. **Matched film → adopt the authoritative `canonicalTitle`** (TMDb `title`, else OMDb `Title`,
+   backfilled by `backfill_metadata.py`). Guard: adopt only when every significant word of the
+   canonical appears in the uploader title (a wrong match can't inject a wrong title). This is the
+   exact title for the ~55% of films with a match — e.g. "The Web Ella Raines, Edmond O'Brien, …"
+   → "The Web". This is the PRIMARY fix; improving match coverage improves titles.
+2. **Unmatched film → researched cleaning chain.** The single highest-value cleaner is
+   `_truncate_at_year_field`: the item's OWN year is the title/cruft BOUNDARY — "Real Title YYYY
+   <cruft>" → "Real Title" (handles ratings/CC/genre/cast appended after the year, the dominant
+   uploader pattern; 2,400+ films). Guarded: only the item's own year, real text must precede it, a
+   date-range or a phrase ending in a preposition/article ("… China in 1917 in color") is NOT
+   truncated. Plus targeted strips: star ratings (★), CC markers ((CC)/[CC]/CC:), genre/quality/
+   format tails, AKA/cast parentheticals, pipe-credits, director/credit clauses, the bare year forms.
+
+Every strip runs behind `_keep_if_lettered` (never empties a title) and was dry-run-scanned on the
+full catalog for false positives. Measured: ~6,500 titles cleaned by the chain + canonical adoption
+on matched films.
+
 ## How to apply (for the next developer)
 - New metadata field → put it in the lowest layer that serves its use (blob unless it's searched or
   filtered). Never add an `items` column for a detail-only field.
