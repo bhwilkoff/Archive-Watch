@@ -260,7 +260,11 @@ final class EditorModel {
                 // timeline on every clip re-render (owner: "keeps going back to the beginning").
                 if self.isInteracting || self.isSwappingPreview { return }
                 self.playheadSeconds = t.seconds
-                self.isPlaying = self.player.rate != 0
+                let playing = self.player.rate != 0
+                // Playback just STOPPED (paused at the transport, or reached the end). If clip fills were
+                // deferred while playing, catch the preview up to the timeline now.
+                if self.isPlaying, !playing, self.previewDirty { self.scheduleRebuild() }
+                self.isPlaying = playing
             }
         }
     }
@@ -1074,6 +1078,12 @@ final class EditorModel {
             resolvedByID[$0.id] ?? .gap(seconds: $0.sourceRange.duration.seconds)
         }
         guard resolved.contains(where: { !$0.isGap }) else { return false }   // nothing real yet → keep current
+        // Do NOT swap the player item while it is actively PLAYING — replaceCurrentItem interrupts
+        // playback and restarts the new item from 0 (owner: "as each clip loads the playhead jumps back
+        // to the beginning"). Defer the fill: keep playing through the not-yet-rendered clips (black
+        // gaps) and mark the preview dirty; a catch-up rebuild runs when playback stops (pause/end). The
+        // very first compose (no current item yet) always proceeds.
+        if isPlaying, player.currentItem != nil { previewDirty = true; return false }
         // bakeOverlays:false — the Core Animation overlay tool is offline-only (crashes AVPlayerItem).
         // Same clip/reframe/audio recipe as export, so the preview frame matches.
         let credit = project.burnAttribution ? ExportService.defaultCredit : nil
@@ -1212,7 +1222,11 @@ final class EditorModel {
 
     func togglePlay() { isPlaying ? pause() : play() }
     func play() { player.play(); isPlaying = true }
-    func pause() { player.pause(); isPlaying = false }
+    func pause() {
+        player.pause(); isPlaying = false
+        // Catch the preview up to the timeline if clip fills were deferred while playing.
+        if previewDirty { scheduleRebuild() }
+    }
 
     func seek(toSeconds s: Double) {
         let clamped = min(max(0, s), max(0, totalDuration))

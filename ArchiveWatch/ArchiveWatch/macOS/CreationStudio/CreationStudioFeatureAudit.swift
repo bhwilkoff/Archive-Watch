@@ -84,6 +84,7 @@ enum CreationStudioFeatureAudit {
         await auditFadesTransitionsLooksSpeed(model, item: item, url: url)
         await auditPlayheadStability(model, item: item, url: url)
         await auditSwapCount(model, item: item, url: url)
+        await auditPlayWhileLoading(model, item: item, url: url)
         await auditDuplicateCopyPasteMute(model, item: item, url: url)
         await auditTextOverlays(model, item: item, url: url)
         await auditMarkersAndSettings(model, item: item, url: url)
@@ -388,6 +389,43 @@ enum CreationStudioFeatureAudit {
         // swaps for this load (the strobe the owner reported). A handful proves it's batched.
         check("flash.swaps", swaps <= 7,
               "12-clip load did \(swaps) preview swaps (want <=7, well under per-clip — batched, not strobing)")
+    }
+
+    // MARK: - Playback continues (no jump to 0) while more clips load in the background
+
+    private static func auditPlayWhileLoading(_ model: EditorModel, item: Catalog.Item, url: URL) async {
+        model.project.timeline.clips.removeAll()
+        model.player.replaceCurrentItem(with: nil)
+        var g = model.debug_rebuildCount
+        for k in 0..<4 {
+            model.addClip(catalogItemID: item.archiveID, sourceURL: url, title: item.title,
+                          inSeconds: 8 + Double(k) * 5, durationSeconds: 5)
+        }
+        guard await settle(model, after: g) else { check("playLoad.setup", false, "clips never ready"); return }
+
+        // Press play partway in, then add MORE clips WHILE PLAYING.
+        model.seek(toSeconds: 3)
+        model.play()
+        try? await Task.sleep(for: .seconds(1.2))
+        let swaps0 = model.debug_swapCount
+        for k in 0..<4 {
+            model.addClip(catalogItemID: item.archiveID, sourceURL: url, title: item.title,
+                          inSeconds: 40 + Double(k) * 5, durationSeconds: 5)
+        }
+        try? await Task.sleep(for: .seconds(3))   // let the (deferred) rebuild run while playing
+        let during = model.playheadSeconds
+        let swapsWhilePlaying = model.debug_swapCount - swaps0
+        // The playhead must NOT snap to 0, and the item must NOT be swapped while playing (deferred).
+        check("playLoad.noReset", during > 1.0,
+              "playhead while loading-during-playback=\(rnd(during)) (must NOT jump to 0)")
+        check("playLoad.deferred", swapsWhilePlaying == 0,
+              "preview swaps while playing=\(swapsWhilePlaying) (must defer to pause/end — 0)")
+
+        // Pausing must catch the preview up to the full timeline (the deferred fill applies).
+        model.pause()
+        let caughtUp = await waitAligned(model, timeout: 30)
+        check("playLoad.catchUp", caughtUp && model.clips.count == 8,
+              "after pause: clips=\(model.clips.count) preview=\(rnd(previewSeconds(model))) timeline=\(rnd(model.totalDuration)) caughtUp=\(caughtUp)")
     }
 
     // MARK: - Duplicate / copy-paste / mute / volume
