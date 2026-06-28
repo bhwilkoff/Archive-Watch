@@ -94,6 +94,37 @@ enum CreationStudioStress {
 
         model.addSupercutClips(takes, tighten: false, evenVolume: false)
 
+        // EXERCISE the player the way a user does WHILE clips load: seek/scrub the (gappy) composition
+        // and play briefly. This reproduces playback of a composition with black GAPS — the path that
+        // spams "No video track / TrackReader not found" and can crash (the harness otherwise never
+        // plays). AW_CS_STRESS_PLAY=1 to enable.
+        let exercise: Task<Void, Never>? = ProcessInfo.processInfo.environment["AW_CS_STRESS_PLAY"] == nil ? nil :
+            Task { @MainActor in
+                var step = 0
+                while !Task.isCancelled {
+                    try? await Task.sleep(for: .milliseconds(500))
+                    let total = max(1, model.totalDuration)
+                    let pos = Double((step * 7) % 100) / 100.0 * total   // deterministic scrub across the timeline
+                    model.beginInteraction(); model.seek(toSeconds: pos); model.endInteraction()
+                    // EDIT while loading + playing (the user's real workflow): trim a clip, select, play.
+                    let cs = model.clips
+                    if cs.count > 3 {
+                        let c = cs[(step * 3) % cs.count]
+                        model.selection = .clip(c.id)
+                        model.beginInteraction()
+                        if step % 2 == 0 { model.trim(c.id, newInSeconds: c.sourceRange.start.seconds + 0.5) }
+                        else { model.trim(c.id, newOutSeconds: c.sourceRange.endSeconds + 0.8) }
+                        model.endInteraction()
+                    }
+                    try? await Task.sleep(for: .milliseconds(150))
+                    model.play()
+                    try? await Task.sleep(for: .milliseconds(450))
+                    model.pause()
+                    step += 1
+                }
+            }
+        defer { exercise?.cancel() }
+
         // PREVIEW-settle = every clip is ready OR given up (no clip still .caching). This is what the
         // user feels — when the editor is fully populated. The VERIFY pass (isRefining) then runs in the
         // BACKGROUND with the editor fully usable, so it is NOT counted as a hang. Track both.

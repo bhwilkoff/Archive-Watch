@@ -447,17 +447,25 @@ enum CreationStudioFeatureAudit {
         }
         let c1 = model.clips[1].id, c2 = model.clips[2].id
         let c1In0 = model.clips[1].sourceRange.start.seconds
+        let c1Start0 = model.clips[1].timelineStart.seconds
+        let c1End0 = model.clips[1].timelineRange.endSeconds
         let c2Start0 = model.clips[2].timelineStart.seconds
 
         // Begin a LEFT-trim of the middle clip (in-point +2s → shrink from the left by 2s).
         model.beginInteraction()
         model.trim(c1, newInSeconds: c1In0 + 2)
         let c1InNow = model.clips.first { $0.id == c1 }?.sourceRange.start.seconds ?? -1
+        let c1StartDuring = model.clips.first { $0.id == c1 }?.timelineStart.seconds ?? -1
+        let c1EndDuring = model.clips.first { $0.id == c1 }?.timelineRange.endSeconds ?? -1
         let c2StartDuring = model.clips.first { $0.id == c2 }?.timelineStart.seconds ?? -1
         check("lefttrim.inMoved", abs(c1InNow - (c1In0 + 2)) < 0.3,
               "in-point \(rnd(c1In0))->\(rnd(c1InNow)) (functionality: must move +2)")
+        // THE FIX: the block shrinks from the LEFT — its left edge (timelineStart) moves right by ~2s
+        // while its right edge (timelineEnd) is held fixed.
+        check("lefttrim.leftEdgeMoves", abs(c1StartDuring - (c1Start0 + 2)) < 0.4 && abs(c1EndDuring - c1End0) < 0.4,
+              "left edge \(rnd(c1Start0))->\(rnd(c1StartDuring)) (want +2), right edge \(rnd(c1End0))->\(rnd(c1EndDuring)) (must hold)")
         check("lefttrim.noRippleDuringDrag", abs(c2StartDuring - c2Start0) < 0.3,
-              "next clip start during drag \(rnd(c2Start0))->\(rnd(c2StartDuring)) (must NOT ripple — lets the block anchor its right edge)")
+              "next clip start during drag \(rnd(c2Start0))->\(rnd(c2StartDuring)) (must NOT ripple under the anchored edge)")
 
         let gEnd = model.debug_rebuildCount
         model.endInteraction()          // re-packs the magnetic track (relayout) + schedules a rebuild

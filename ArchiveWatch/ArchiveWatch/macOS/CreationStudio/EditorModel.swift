@@ -204,23 +204,26 @@ final class EditorModel {
         sourceFailCount[source, default: 0] += 1
         sourceFailReason[source] = reason
         if definitelyPermanent { permanentlyFailed[source] = reason }
+        // Arm a HARD deadline measured from the FIRST FAILURE (not from attempt-start — a clip still
+        // DOWNLOADING hasn't failed and must NOT be killed for being slow). A clip that keeps FAILING
+        // past the deadline is given up DIRECTLY here — NOT via scheduleRebuild, which defers while the
+        // user is editing, which is why a dead clip used to churn for minutes during active use.
         if firstFailAt[source] == nil {
             firstFailAt[source] = Date()
-            // Guarantee a rebuild EVALUATES the wall-clock give-up at the deadline even if the auto-retry
-            // chain has stopped — otherwise a single dead clip churns for minutes (owner: "the last few
-            // hang almost every time"). The deadline rebuild fast-fails the source (resolveLocal) → gap.
             Task { [weak self] in
                 try? await Task.sleep(for: .seconds(Self.maxGiveUpSeconds + 0.5))
-                self?.scheduleRebuild()   // Task inherits @MainActor; scheduleRebuild is sync — no await
+                guard let self, self.firstFailAt[source] != nil,         // still failing = never succeeded
+                      self.permanentlyFailed[source] == nil else { return }
+                let r = self.sourceFailReason[source] ?? "took too long to load"
+                self.permanentlyFailed[source] = r
+                for c in self.clips where c.sourceURL.absoluteString == source { self.clipPrep[c.id] = .failed(r) }
+                self.scheduleRebuild()                                    // becomes a black gap; editor stays usable
             }
         }
     }
     @ObservationIgnored private var sourceFailReason: [String: String] = [:]
-    // When a source FIRST failed — a wall-clock give-up complements the count-based one so a single dead
-    // clip can't churn for minutes (the preview AND verify passes both retry it through backoffs, which
-    // stretched 3 failures to 137s). A source still failing after maxGiveUpSeconds is given up = a gap.
     @ObservationIgnored private var firstFailAt: [String: Date] = [:]
-    static let maxGiveUpSeconds: TimeInterval = 45
+    static let maxGiveUpSeconds: TimeInterval = 20
     /// A source cached successfully — clear its failure streak so a later transient blip starts fresh.
     private func noteSourceSucceeded(_ source: String) {
         if sourceFailCount[source] != nil { sourceFailCount[source] = nil }
@@ -670,19 +673,25 @@ final class EditorModel {
     func trim(_ id: UUID, newInSeconds: Double? = nil, newOutSeconds: Double? = nil) {
         guard let i = project.timeline.clips.firstIndex(where: { $0.id == id }) else { return }
         var clip = project.timeline.clips[i]
+        let leftTrimDrag = newInSeconds != nil && newOutSeconds == nil && isInteracting
+        // The clip's RIGHT edge on the timeline, captured BEFORE the change (it's invariant across the
+        // drag since we preserve it each call) — a left-trim holds this fixed and moves the LEFT edge.
+        let rightEdge = clip.timelineStart.seconds + clip.sourceRange.duration.seconds
         var inS = clip.sourceRange.start.seconds
         var outS = clip.sourceRange.endSeconds
         if let newInSeconds { inS = min(max(0, newInSeconds), outS - 0.1) }
         if let newOutSeconds { outS = max(newOutSeconds, inS + 0.1) }
-        clip.sourceRange = TimeRange(startSeconds: inS, durationSeconds: outS - inS)
+        let newDur = outS - inS
+        clip.sourceRange = TimeRange(startSeconds: inS, durationSeconds: newDur)
+        // LEFT-trim: hold the right edge, so the block visibly shrinks from the LEFT (the handle you
+        // grabbed) instead of the right. The magnetic re-pack is DEFERRED to release so the following
+        // clips don't ripple under the anchored edge; endInteraction re-packs. (The composition packs
+        // by cumulative duration, not timelineStart, so the preview is unaffected by this.)
+        if leftTrimDrag { clip.timelineStart = TimeStamp(seconds: max(0, rightEdge - newDur)) }
         project.timeline.clips[i] = clip
         // Refresh the filmstrip for the new sub-range from cached thumbnails (instant, no flash);
         // the cached generous window is reused (no re-cache) while the trim stays inside it.
         loadFilmstrip(for: clip)
-        // While the LEFT handle is being dragged, DEFER the magnetic re-pack to release: the timeline
-        // renders this clip's right edge anchored (left follows the cursor), so re-packing now would
-        // ripple the following clips LEFT under the anchored edge (overlap). endInteraction re-packs.
-        let leftTrimDrag = newInSeconds != nil && newOutSeconds == nil && isInteracting
         if leftTrimDrag { scheduleRebuild() } else { relayout(); scheduleRebuild() }
     }
 
@@ -1185,8 +1194,9 @@ final class EditorModel {
             clipPrep[clip.id] = .failed(reason)
             throw CreationStudioError.cannotCreateExportSession
         }
-        // A source that's been failing past the wall-clock deadline is given up HERE (no further 25s
-        // attempt) so the dead clip becomes a gap promptly instead of re-attempting every rebuild.
+        // A source that keeps FAILING past the wall-clock deadline is given up HERE (no further attempt)
+        // so a dead clip becomes a black gap promptly instead of re-attempting every rebuild for minutes.
+        // (A still-downloading clip has no firstFailAt, so a slow-but-good clip is never killed here.)
         let srcKey = clip.sourceURL.absoluteString
         if let t = firstFailAt[srcKey], Date().timeIntervalSince(t) >= Self.maxGiveUpSeconds {
             let reason = sourceFailReason[srcKey] ?? "took too long to load"
