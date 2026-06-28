@@ -1,7 +1,6 @@
 #if os(macOS)
 import SwiftUI
 import SwiftData
-import Combine
 
 // Home = curated shelves over the shared CatalogDB queries (same shelves the other
 // platforms show). Re-queries when the full DB swaps in (store.dbVersion).
@@ -124,18 +123,6 @@ struct HeroCarousel: View {
     let items: [Catalog.Item]
     @State private var index = 0
     @State private var hovering = false
-    // Under the CLI test harness the auto-advance timer's delivery to this @MainActor closure trips an
-    // unrelated Swift-runtime executor fault (headless dual-scene launch), so swap in a publisher that
-    // never fires. The crash is in the timer DELIVERY machinery, before any in-closure guard runs, so
-    // it must be prevented at the source. No effect on normal use.
-    private let tick: AnyPublisher<Date, Never>
-
-    init(items: [Catalog.Item]) {
-        self.items = items
-        tick = CreationStudioHarness.active
-            ? Empty(completeImmediately: false).eraseToAnyPublisher()
-            : Timer.publish(every: 7, on: .main, in: .common).autoconnect().eraseToAnyPublisher()
-    }
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -155,15 +142,20 @@ struct HeroCarousel: View {
             }
         }
         .onHover { hovering = $0 }
-        .onReceive(tick) { _ in
-            // The CLI test harnesses (AW_CS_AUDIT / AW_CS_BENCH) open this WindowGroup alongside the
-            // editor; the auto-advance timer firing under that headless dual-scene launch trips an
-            // unrelated Swift-runtime executor fault, so suppress it there (no effect on normal use).
-            guard !CreationStudioHarness.active else { return }
-            guard items.count > 1, !hovering else { return }
-            withAnimation(.easeInOut(duration: 0.6)) { index = (index + 1) % items.count }
+        // Native structured-concurrency auto-advance (replaces a Combine Timer.publish whose delivery
+        // to this @MainActor closure could trip a Swift-runtime executor fault). The task is bound to
+        // the item pool: SwiftUI cancels + restarts it when the pool swaps (resetting the index) and
+        // cancels it on disappear, so there is no stray timer firing into a torn-down view.
+        .task(id: items.map(\.archiveID)) {
+            index = 0
+            guard items.count > 1 else { return }
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(7))
+                if Task.isCancelled { break }
+                if hovering { continue }                       // @State read live — pause while hovered
+                withAnimation(.easeInOut(duration: 0.6)) { index = (index + 1) % items.count }
+            }
         }
-        .onChange(of: items.map(\.archiveID)) { _, _ in index = 0 }   // reset if the pool swaps (DB reload)
     }
 }
 

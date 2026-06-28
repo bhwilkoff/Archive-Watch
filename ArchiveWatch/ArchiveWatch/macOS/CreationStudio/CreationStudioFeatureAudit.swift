@@ -13,16 +13,6 @@ import AVFoundation
 // exactly that: the timeline model updates (the block grows) but the preview never reflects it. So a
 // test that only inspects `clip.sourceRange` would pass while the feature is broken — every check
 // here verifies the COMPOSITION (model.player.currentItem) changed as expected.
-/// True when ANY Creation Studio CLI test harness is running (audit or bench). Used to quiet
-/// unrelated background timers (e.g. the Home HeroCarousel auto-advance) that would otherwise fire
-/// during the long headless dual-scene launch the harness uses.
-enum CreationStudioHarness {
-    static var active: Bool {
-        let e = ProcessInfo.processInfo.environment
-        return e["AW_CS_AUDIT"] != nil || e["AW_CS_BENCH"] != nil
-    }
-}
-
 @MainActor
 enum CreationStudioFeatureAudit {
     static var isEnabled: Bool { ProcessInfo.processInfo.environment["AW_CS_AUDIT"] != nil }
