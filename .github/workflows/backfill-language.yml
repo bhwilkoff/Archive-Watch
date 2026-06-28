@@ -1,0 +1,76 @@
+name: Backfill film language
+
+# Sets each film's AUDIO language from TMDb `original_language` (no daily cap) with an OMDb
+# `Language` fallback for IMDb-only items, so the supercut's non-English filter
+# (SubtitleIndex.isNonEnglishAudio) can drop foreign films whose English subtitle is a
+# translation. Resumable (languageSource marker) — after the first full pass it only touches
+# newly-ingested items, so daily runs are quick. OMDb's daily cap drains the IMDb-only tail
+# over several runs.
+
+on:
+  schedule:
+    - cron: '37 3 * * *'      # odd minute, clear of the cron wave (omdb 02:17, tmdb 03:43)
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Cap items this run (0 = all remaining)'
+        default: '0'
+      refresh:
+        description: 're-stamp items already done (true/false)'
+        default: 'false'
+
+concurrency:
+  group: catalog-writers      # serialize with every catalog-mutating workflow (Decision 018/020)
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Backfill language (TMDb + OMDb)
+        id: fill
+        env:
+          TMDB_BEARER_TOKEN: ${{ secrets.TMDB_BEARER_TOKEN }}
+          OMDB_KEY: ${{ secrets.OMDB_KEY }}
+        run: |
+          python tools/backfill_language.py \
+            ${{ github.event.inputs.refresh == 'true' && '--refresh' || '' }} \
+            ${{ github.event.inputs.limit != '0' && format('--limit {0}', github.event.inputs.limit) || '' }} \
+            | tee lang.log
+          # Publish only when something was actually set (tmdb or omdb > 0).
+          if grep -qE 'DONE tmdb=0 omdb=0 ' lang.log; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+          echo "## Backfill language" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          tail -4 lang.log >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish catalog to release
+        if: steps.fill.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py publish
+
+      - name: Rebuild app DB
+        if: steps.fill.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run publish-db.yml
