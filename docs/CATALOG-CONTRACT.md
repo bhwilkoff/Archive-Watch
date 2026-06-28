@@ -105,6 +105,8 @@ CREATE TABLE items (
 CREATE TABLE item_json (archiveID TEXT PRIMARY KEY, json TEXT);
 CREATE TABLE item_genres (archiveID TEXT, genre TEXT);
 CREATE TABLE item_collections (archiveID TEXT, collection TEXT);
+CREATE TABLE item_keywords (archiveID TEXT, keyword TEXT);   -- Decision 046: TMDb keyword facets
+CREATE TABLE item_studios (archiveID TEXT, studio TEXT);     -- Decision 046: production-company facets
 CREATE TABLE item_shelves (shelfID TEXT, archiveID TEXT, position INTEGER);
 CREATE TABLE series (
   seriesID TEXT PRIMARY KEY, title TEXT, yearStart INTEGER, yearEnd INTEGER,
@@ -118,6 +120,11 @@ CREATE TABLE episodes (
   runtimeSeconds INTEGER, downloadURL TEXT, videoFile_json TEXT, position INTEGER
 );
 CREATE TABLE meta (key TEXT PRIMARY KEY, value TEXT);
+-- `names` = director/cast/producer + crew (writer/composer/cinematographer); `extra` = genres,
+-- series/network, countries, KEYWORDS, original + AKA titles, synopsis snippet (Decision 046).
+-- So `items_fts MATCH ?` already finds films by keyword / alternate title / crew — NO app change.
+-- New detail-only fields (tagline, awards, franchise, studios, releaseDate, cast tmdbPersonID) ride
+-- in the item_json blob; keyword/studio FILTERING uses the join tables above.
 CREATE VIRTUAL TABLE items_fts USING fts5(archiveID UNINDEXED, title, names, extra);
 
 CREATE INDEX idx_items_type     ON items(contentType);

@@ -515,6 +515,9 @@ def create_schema(db):
     CREATE TABLE item_json (archiveID TEXT PRIMARY KEY, json TEXT);
     CREATE TABLE item_genres (archiveID TEXT, genre TEXT);
     CREATE TABLE item_collections (archiveID TEXT, collection TEXT);
+    -- Metadata-expansion facets (Decision 046): indexed for filtering, like item_genres.
+    CREATE TABLE item_keywords (archiveID TEXT, keyword TEXT);
+    CREATE TABLE item_studios (archiveID TEXT, studio TEXT);
     CREATE TABLE item_shelves (shelfID TEXT, archiveID TEXT, position INTEGER);
     CREATE TABLE series (
       seriesID TEXT PRIMARY KEY, title TEXT, yearStart INTEGER, yearEnd INTEGER,
@@ -581,6 +584,7 @@ def _playable_episode_aids():
 
 def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
     item_rows, json_rows, genre_rows, coll_rows, shelf_rows, fts_rows = [], [], [], [], [], []
+    kw_rows, studio_rows = [], []   # metadata-expansion facets (Decision 046)
     shelf_pos = _rotated_shelf_positions(items, rotate_seed)
     for it in items:
         # Rights audit (Decision 027): items flagged excluded=true stay in
@@ -615,20 +619,33 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
         for c in (it.get("collections") or []):
             if c and str(c) in REGISTERED_COLLECTIONS:
                 coll_rows.append((aid, str(c)))
+        for kw in (it.get("keywords") or []):
+            if kw:
+                kw_rows.append((aid, str(kw)))
+        for st in (it.get("studios") or []):
+            if st:
+                studio_rows.append((aid, str(st)))
         for s in _shelf_ids_for(it):
             shelf_rows.append((s, aid, shelf_pos.get((s, aid), 0)))
+        # `names` = searchable people: director, cast, producer, + the metadata-expansion crew
+        # (writer/composer/cinematographer) so searching a writer/composer finds their films.
         names = " ".join([it.get("director") or ""]
                          + [c.get("name", "") for c in (it.get("cast") or [])]
-                         + [it.get("producer") or ""]).strip()
+                         + [it.get("producer") or "", it.get("writer") or "",
+                            it.get("composer") or "", it.get("cinematographer") or ""]).strip()
         # Topic/content words: genres, series/network, country, and a synopsis
         # snippet (truncated so the index doesn't balloon). Lets users find a
         # film by what it's ABOUT, not just its title or cast.
         syn = it.get("synopsis")
         syn = (" ".join(syn) if isinstance(syn, list) else (syn or ""))
+        # `extra` also carries metadata-expansion search text: keywords (thematic), the original +
+        # alternative titles (find foreign/re-titled films by their other names) — Decision 046.
         extra = " ".join([
             " ".join(it.get("genres") or []),
             it.get("seriesName") or "", it.get("network") or "",
             " ".join(it.get("countries") or []),
+            " ".join(it.get("keywords") or []),
+            it.get("originalTitle") or "", " ".join(it.get("akaTitles") or []),
             syn[:400],
         ]).strip()
         fts_rows.append((aid, it.get("title") or "", names, extra))
@@ -637,6 +654,8 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
     db.executemany("INSERT OR IGNORE INTO item_json VALUES (?,?)", json_rows)
     db.executemany("INSERT INTO item_genres VALUES (?,?)", genre_rows)
     db.executemany("INSERT INTO item_collections VALUES (?,?)", coll_rows)
+    db.executemany("INSERT INTO item_keywords VALUES (?,?)", kw_rows)
+    db.executemany("INSERT INTO item_studios VALUES (?,?)", studio_rows)
     db.executemany("INSERT INTO item_shelves VALUES (?,?,?)", shelf_rows)
     db.executemany("INSERT INTO items_fts VALUES (?,?,?,?)", fts_rows)
     return len(item_rows)
@@ -746,6 +765,10 @@ def create_indexes(db):
     CREATE INDEX idx_genres_genre   ON item_genres(genre);
     CREATE INDEX idx_genres_item    ON item_genres(archiveID);
     CREATE INDEX idx_coll_coll      ON item_collections(collection);
+    -- Only the value→items direction is indexed (that's the filter); item→keywords comes from the
+    -- item_json blob, so the archiveID-direction index is omitted to save ~2 MB (Decision 046 budget).
+    CREATE INDEX idx_kw_keyword     ON item_keywords(keyword);
+    CREATE INDEX idx_studio_studio  ON item_studios(studio);
     CREATE INDEX idx_items_director ON items(director);
     CREATE INDEX idx_items_quality  ON items(qualityScore);
     CREATE INDEX idx_items_reviews  ON items(numReviews DESC);
