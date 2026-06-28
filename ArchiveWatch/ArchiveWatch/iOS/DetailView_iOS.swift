@@ -74,9 +74,13 @@ struct DetailView: View {
                         .buttonStyle(.bordered)
                     }
 
+                    if let tagline = item.tagline, !tagline.isEmpty {
+                        Text(tagline).font(.callout).italic().foregroundStyle(.secondary)
+                    }
                     if let s = item.synopsis, !s.isEmpty {
                         Text(s).font(.body).foregroundStyle(.primary.opacity(0.9))
                     }
+                    DetailFacts(item: item)
                     // Episode item (Decision 045): a way back to the full series.
                     if item.isEpisode, let sid = item.seriesID {
                         Button {
@@ -225,18 +229,18 @@ private struct CastRow: View {
             ScrollView(.horizontal) {
                 LazyHStack(spacing: 16) {
                     if let d = director, !d.isEmpty {
-                        bubble(name: d, role: "Director", profilePath: nil)
+                        bubble(name: d, role: "Director", profilePath: nil, personID: nil)
                     }
                     ForEach(cast.prefix(12), id: \.name) { member in
                         bubble(name: member.name, role: member.character,
-                               profilePath: member.profilePath)
+                               profilePath: member.profilePath, personID: member.tmdbPersonID)
                     }
                 }
             }.scrollIndicators(.hidden)
         }
     }
 
-    private func bubble(name: String, role: String?, profilePath: String?) -> some View {
+    private func bubble(name: String, role: String?, profilePath: String?, personID: Int?) -> some View {
         Button {
             router.push(BrowseFilterRoute(title: name, person: name))
         } label: {
@@ -254,6 +258,50 @@ private struct CastRow: View {
             }
         }
         .buttonStyle(.plain)
+        // Long-press → open this person directly in Callsheet (Decision 046
+        // unblocks the person deep-link via tmdbPersonID; the primary tap still
+        // browses their other titles).
+        .contextMenu {
+            if let pid = personID, Callsheet.isInstalled,
+               let url = Callsheet.personURL(tmdbPersonID: pid) {
+                Button { Callsheet.open(url) } label: {
+                    Label("Open in Callsheet", systemImage: "person.text.rectangle")
+                }
+            }
+        }
+    }
+}
+
+// Tier 1+2 metadata-expansion facts (Decision 046): franchise, studios, full
+// crew, awards. Each row only renders when the field is present, so unmatched
+// films show nothing extra.
+private struct DetailFacts: View {
+    let item: Catalog.Item
+
+    var body: some View {
+        let rows = facts
+        if !rows.isEmpty {
+            VStack(alignment: .leading, spacing: 4) {
+                ForEach(rows, id: \.0) { row in
+                    HStack(alignment: .firstTextBaseline, spacing: 6) {
+                        Text(row.0).font(.caption).fontWeight(.semibold).foregroundStyle(.secondary)
+                        Text(row.1).font(.caption).foregroundStyle(.primary.opacity(0.85))
+                    }
+                }
+            }
+            .padding(.top, 2)
+        }
+    }
+
+    private var facts: [(String, String)] {
+        var out: [(String, String)] = []
+        if let f = item.franchise, !f.isEmpty { out.append(("Part of", f)) }
+        if !item.studios.isEmpty { out.append(("Studio", item.studios.joined(separator: ", "))) }
+        if let w = item.writer, !w.isEmpty { out.append(("Writer", w)) }
+        if let c = item.composer, !c.isEmpty { out.append(("Music", c)) }
+        if let dp = item.cinematographer, !dp.isEmpty { out.append(("Cinematography", dp)) }
+        if let a = item.awards, !a.isEmpty { out.append(("Awards", a)) }
+        return out
     }
 }
 

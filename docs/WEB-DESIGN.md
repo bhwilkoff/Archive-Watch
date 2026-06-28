@@ -21,9 +21,10 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
 ## §2 Data plane (verified 2026-06-09)
 
 - **§2.1 Browse/search read `catalog-index.json`** (GitHub Pages, CORS ✓,
-  ~2.7 MB, popularity-sorted tuples `[id, title, year, contentType, poster]` —
-  schema 2; handle 4-field schema-1 rows). Never fetch Release assets from the
-  browser (no CORS — verified 206-but-no-ACAO).
+  popularity-sorted tuples `[id, title, year, contentType, poster, pro, search]`
+  — schema 6 (Decision 046); columns are additive, so handle shorter schema-1…5
+  rows by treating absent trailing columns as null). Never fetch Release assets
+  from the browser (no CORS — verified 206-but-no-ACAO).
 - **§2.2 Detail + playback resolve at view time** via `archive.org/metadata`
   (CORS ✓) through `js/api.js` — never `fetch` archive.org endpoints directly
   from view code, and never fetch `archive.org/download/*` with `fetch()`
@@ -45,6 +46,20 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   always bounded by `AbortSignal.timeout` — measured 2026-06-10: that
   endpoint can hang 30s+ on items we play fine (the baked downloadURL is
   the truth; never make it a runtime dependency).
+- **§2.6 Rich metadata rides the existing two files (Decision 046, schema 6).**
+  The flat index has no FTS5/join tables, so the web's analog of the apps'
+  FTS + keyword/studio join tables is a 7th index column `search` — a
+  lowercased space-joined blob of keywords + AKA/original titles + writer +
+  studios, null on unmatched films — that the client-side Search box and the
+  Browse keyword/studio filters match as a substring (no per-row id map keeps
+  the committed index lean; long-tail values stay reachable via free-text
+  search). A top-level `facets` object (`{keywords[], studios[]}` — most-common
+  names) drives the Browse filter dropdowns. Detail-only fields (writer,
+  studios, franchise, tagline, awards, composer, cinematographer, releaseDate,
+  originalTitle, cast `tmdbPersonID`) ride the detail shard record at a new
+  index-9 `extras` object (present keys only, omitted when empty) + a 3rd cast
+  slot. Both are additive — older readers ignore column 6, `facets`, and
+  `extras`.
 - **§2.5 The upgrade path is chunked SQLite over Pages.** GitHub Pages serves
   `206 + Access-Control-Allow-Origin: *` on GET (verified 2026-06-09 — the
   2026-06-02 "no 206" measurement was a HEAD artifact). When FTS5-grade search
@@ -86,13 +101,20 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   picks carry designed art. **Home shows designed artwork ONLY** — the front
   door is curated visuals; archive-thumb items remain fully reachable in
   Browse/Search (owner direction, 2026-06-10).
-- **§4.2 Browse** = type chips + decade/sort selects + infinite-scroll grid
-  (IntersectionObserver sentinel, 60/page). The full count is always shown.
+- **§4.2 Browse** = type chips + decade/keyword/studio/sort selects +
+  infinite-scroll grid (IntersectionObserver sentinel, 60/page). The full count
+  is always shown. Keyword + studio filters (Decision 046) are `kw`/`studio`
+  hash params matched against the index `search` column (§2.6); their dropdowns
+  come from the index `facets`.
 - **§4.3 Search** is client-side over the index (all terms must match the
-  title), debounced 180ms, capped at 200 results, query mirrored to the URL.
+  title OR the `search` column — keywords/AKA/writer/studio per Decision 046,
+  §2.6), debounced 180ms, capped at 200 results, query mirrored to the URL.
 - **§4.4 Detail** renders instantly from the index row, then hydrates
   synopsis/cast/runtime/playability from its detail shard (§2.4; metadata
-  API fallback). Errors are visible inline
+  API fallback). When present it also surfaces the tagline (under the title)
+  and a facts list — writer / composer / cinematography / studio / series /
+  original title / awards (Decision 046, §2.6); studio + series link back into
+  Browse/Search so a fact is a door to more. Errors are visible inline
   (never console-only), and the archive.org source link is always present.
   On iOS/Android user agents an **Open in app** action appears: the
   `archivewatch://` scheme on Apple, an `intent://` URL with this page as

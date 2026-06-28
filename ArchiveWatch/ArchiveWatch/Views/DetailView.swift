@@ -262,6 +262,14 @@ struct DetailView: View {
 
     private var metadataBlock: some View {
         VStack(alignment: .leading, spacing: 20) {
+            if let tagline = item.tagline, !tagline.isEmpty {
+                Text(tagline)
+                    .font(.system(size: 26, weight: .regular, design: .serif))
+                    .italic()
+                    .foregroundStyle(.white.opacity(0.6))
+                    .frame(maxWidth: 1100, alignment: .leading)
+            }
+
             if let synopsis = item.displaySynopsis {
                 Text(synopsis)
                     .font(.system(size: 29, weight: .regular))
@@ -269,6 +277,10 @@ struct DetailView: View {
                     .lineLimit(6)
                     .frame(maxWidth: 1100, alignment: .leading)
             }
+
+            // Tier 1+2 metadata-expansion facts (Decision 046): franchise,
+            // studios, full crew, awards — each shown only when present.
+            detailFacts
 
             // Episode item (Decision 045): a focusable jump to the full series.
             if item.isEpisode, let sid = item.seriesID {
@@ -322,6 +334,37 @@ struct DetailView: View {
                 .foregroundStyle(.white.opacity(0.35))
                 .padding(.top, 6)
         }
+    }
+
+    @ViewBuilder
+    private var detailFacts: some View {
+        let rows = facts
+        if !rows.isEmpty {
+            VStack(alignment: .leading, spacing: 6) {
+                ForEach(rows, id: \.0) { row in
+                    HStack(alignment: .firstTextBaseline, spacing: 10) {
+                        Text(row.0)
+                            .font(.system(size: 22, weight: .semibold))
+                            .foregroundStyle(.white.opacity(0.5))
+                        Text(row.1)
+                            .font(.system(size: 22, weight: .regular))
+                            .foregroundStyle(.white.opacity(0.8))
+                    }
+                }
+            }
+            .frame(maxWidth: 1100, alignment: .leading)
+        }
+    }
+
+    private var facts: [(String, String)] {
+        var out: [(String, String)] = []
+        if let f = item.franchise, !f.isEmpty { out.append(("Part of", f)) }
+        if !item.studios.isEmpty { out.append(("Studio", item.studios.joined(separator: ", "))) }
+        if let w = item.writer, !w.isEmpty { out.append(("Writer", w)) }
+        if let c = item.composer, !c.isEmpty { out.append(("Music", c)) }
+        if let dp = item.cinematographer, !dp.isEmpty { out.append(("Cinematography", dp)) }
+        if let a = item.awards, !a.isEmpty { out.append(("Awards", a)) }
+        return out
     }
 
     // MARK: - Related

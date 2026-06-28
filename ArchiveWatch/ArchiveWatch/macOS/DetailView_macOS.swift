@@ -93,6 +93,10 @@ struct DetailView: View {
                     Text(item.genres.prefix(4).joined(separator: " · "))
                         .font(.callout).foregroundStyle(.secondary)
                 }
+                if let tagline = item.tagline, !tagline.isEmpty {
+                    Text(tagline).font(.callout).italic().foregroundStyle(.secondary)
+                }
+                detailFacts
                 HStack(spacing: 10) {
                     if item.videoURLParsed != nil {
                         Button { router.play(item) } label: {
@@ -157,23 +161,53 @@ struct DetailView: View {
         return URL(string: "https://image.tmdb.org/t/p/w185\(p)")
     }
 
+    // Tier 1+2 metadata-expansion facts (Decision 046): franchise, studios, full
+    // crew, awards. Each row renders only when present.
+    @ViewBuilder private var detailFacts: some View {
+        let rows = facts
+        if !rows.isEmpty {
+            VStack(alignment: .leading, spacing: 3) {
+                ForEach(rows, id: \.0) { row in
+                    HStack(alignment: .firstTextBaseline, spacing: 6) {
+                        Text(row.0).font(.caption).fontWeight(.semibold).foregroundStyle(.secondary)
+                        Text(row.1).font(.caption).foregroundStyle(.primary.opacity(0.85))
+                            .textSelection(.enabled)
+                    }
+                }
+            }
+            .padding(.top, 2)
+        }
+    }
+
+    private var facts: [(String, String)] {
+        var out: [(String, String)] = []
+        if let f = item.franchise, !f.isEmpty { out.append(("Part of", f)) }
+        if !item.studios.isEmpty { out.append(("Studio", item.studios.joined(separator: ", "))) }
+        if let w = item.writer, !w.isEmpty { out.append(("Writer", w)) }
+        if let c = item.composer, !c.isEmpty { out.append(("Music", c)) }
+        if let dp = item.cinematographer, !dp.isEmpty { out.append(("Cinematography", dp)) }
+        if let a = item.awards, !a.isEmpty { out.append(("Awards", a)) }
+        return out
+    }
+
     private var castRow: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Cast & Crew").font(.title3).fontWeight(.semibold)
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
                     if let d = item.director, !d.isEmpty {
-                        castBubble(name: d, role: "Director", profilePath: nil)
+                        castBubble(name: d, role: "Director", profilePath: nil, personID: nil)
                     }
                     ForEach(item.cast.prefix(16), id: \.name) { member in
-                        castBubble(name: member.name, role: member.character, profilePath: member.profilePath)
+                        castBubble(name: member.name, role: member.character,
+                                   profilePath: member.profilePath, personID: member.tmdbPersonID)
                     }
                 }
             }
         }
     }
 
-    private func castBubble(name: String, role: String?, profilePath: String?) -> some View {
+    private func castBubble(name: String, role: String?, profilePath: String?, personID: Int?) -> some View {
         Button { router.openPerson(name) } label: {
             VStack(spacing: 4) {
                 Circle().fill(.quaternary).frame(width: 64, height: 64)
@@ -193,6 +227,17 @@ struct DetailView: View {
         }
         .buttonStyle(.plain)
         .help("See more from \(name)")
+        // Right-click → open this person directly in Callsheet (Decision 046
+        // unblocks the person deep-link via tmdbPersonID; the primary click still
+        // browses their other titles).
+        .contextMenu {
+            if let pid = personID, Callsheet.isInstalled,
+               let url = Callsheet.personURL(tmdbPersonID: pid) {
+                Button { Callsheet.open(url) } label: {
+                    Label("Open in Callsheet", systemImage: "person.text.rectangle")
+                }
+            }
+        }
     }
 
     private var reviews: some View {

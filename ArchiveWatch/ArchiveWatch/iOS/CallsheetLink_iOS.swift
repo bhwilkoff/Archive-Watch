@@ -56,6 +56,12 @@ enum Callsheet {
         return URL(string: "callsheet://search/\(media)?q=\(q)")
     }
 
+    /// Person deep link (Decision 038, unblocked by Decision 046's cast
+    /// tmdbPersonID): open a cast/crew member directly in Callsheet.
+    static func personURL(tmdbPersonID: Int) -> URL? {
+        URL(string: "callsheet://open/person/\(tmdbPersonID)")
+    }
+
     /// Episode deep link — Callsheet's search takes season/episode, so a TV
     /// episode opens to the right entry by series title + S/E.
     static func episodeURL(seriesTitle: String, season: Int?, episode: Int?) -> URL? {

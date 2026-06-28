@@ -9,13 +9,24 @@ index to GitHub Pages (same-origin as the tool). To keep it small AND
 git-delta-friendly (it's committed + refreshed on every DB update), each item is
 a positional array, not an object:
 
-    [archiveID, title, year, contentType, poster]
+    [archiveID, title, year, contentType, poster, pro, search]
 
 `poster` is the designed-artwork URL (TMDb/Wikidata/commons/generated) or null;
 the browser falls back to archive.org/services/img/{id} when null — so the web
 viewer keeps the same visual dignity as the apps without shipping the 95 MB
 catalog. (Schema 2; schema-1 consumers ignore the extra column.) Adult-collection items (featured.json.adultCollections)
 are excluded — this index feeds a PUBLIC tool.
+
+`search` (column 6, schema 6, Decision 046) is the web's flat-index analog of
+the apps' FTS5 + keyword/studio join tables: a lowercased space-joined blob of
+the rich-metadata search terms — keywords, alternative/original titles, writer,
+and studios — so the client-side search box finds a film by a TMDb keyword,
+a foreign re-title, its writer, or its studio without shipping the full catalog.
+It is null on the ~65% of films with no TMDb/OMDb match (those cost nothing).
+A top-level `facets` object ({keywords:[…], studios:[…]} — the most common
+names) lets Browse offer keyword + studio filter chips; the filter itself runs
+client-side against the `search` column (no per-row id map → the committed index
+stays lean). Schema 6 is additive: older readers ignore column 6 + `facets`.
 
 Reads ./catalog.json (fetch it first via catalog_release.py). Writes
 ./catalog-index.json at the repo root (served by Pages).
@@ -63,6 +74,10 @@ def main():
     shelf_members: dict[str, list[tuple]] = {}
     collection_members: dict[str, list[tuple]] = {}
     community: dict[str, list[tuple]] = {"watching-now": [], "community-favorites": [], "most-discussed": []}
+    # Facet frequency (Decision 046) — most-common keyword/studio names for the
+    # Browse filter chips; the filter runs client-side against the search column.
+    keyword_freq: dict[str, int] = {}
+    studio_freq: dict[str, int] = {}
     for it in items:
         if it.get("excluded"):          # rights audit (Decision 027)
             continue
@@ -82,8 +97,24 @@ def main():
         # (Decision 023) and not an archive thumb. Home shows pro art only.
         pro = 1 if (poster and it.get("artworkSource")
                     not in (None, "archive", "generated")) else 0
+        # Searchable rich-metadata blob (Decision 046): keywords + AKA/original
+        # title + writer + studios, lowercased + space-joined. Null when empty.
+        keywords = [k for k in (it.get("keywords") or []) if k]
+        studios = [s for s in (it.get("studios") or []) if s]
+        search_parts = list(keywords)
+        search_parts += [a for a in (it.get("akaTitles") or []) if a]
+        if it.get("originalTitle"):
+            search_parts.append(it["originalTitle"])
+        if it.get("writer"):
+            search_parts.append(it["writer"])
+        search_parts += studios
+        search = " ".join(search_parts).lower() or None
         rows.append([aid, it.get("title") or aid, it.get("year"),
-                     it.get("contentType") or "", poster, pro])
+                     it.get("contentType") or "", poster, pro, search])
+        for k in keywords:
+            keyword_freq[k] = keyword_freq.get(k, 0) + 1
+        for s in studios:
+            studio_freq[s] = studio_freq.get(s, 0) + 1
         # Editorial shelf membership (the item_shelves analog) — so the web
         # viewer composes Home from the SAME curated assignments as the apps
         # instead of live scrape (which bypasses the rights/adult pipeline).
@@ -123,11 +154,21 @@ def main():
         for cid, members in sorted(collection_members.items())
     }
 
+    # Facet chip lists (Decision 046) — most-common names only (the long tail is
+    # still reachable via free-text search over the search column).
+    facets = {
+        "keywords": [k for k, _ in sorted(keyword_freq.items(),
+                                          key=lambda kv: kv[1], reverse=True)[:60]],
+        "studios": [s for s, _ in sorted(studio_freq.items(),
+                                         key=lambda kv: kv[1], reverse=True)[:40]],
+    }
+
     out = {
-        "schema": 5,
+        "schema": 6,
         "updatedAt": catalog.get("updatedAt") or "",
         "count": len(rows),
-        "fields": ["id", "title", "year", "contentType", "poster", "pro"],
+        "fields": ["id", "title", "year", "contentType", "poster", "pro", "search"],
+        "facets": facets,
         "shelves": shelves,
         "collections": collections,
         "items": rows,

@@ -29,6 +29,10 @@ struct BrowseView: View {
     @State private var series: [Catalog.Item] = []
     @State private var specialsCount = 0
 
+    // Metadata-expansion facets (Decision 046) for the filter menu.
+    @State private var keywordFacets: [String] = []
+    @State private var studioFacets: [String] = []
+
     private let types: [(String, String?)] = [
         ("All", nil), ("Films", "feature-film"), ("Silent", "silent-film"),
         ("Animation", "animation"), ("Shorts", "short-film"),
@@ -58,6 +62,8 @@ struct BrowseView: View {
             if items.isEmpty { reload() }
             if series.isEmpty { series = store.seriesCards() }
             specialsCount = store.tvSpecialsCount()
+            if keywordFacets.isEmpty { keywordFacets = store.topKeywords() }
+            if studioFacets.isEmpty { studioFacets = store.topStudios() }
         }
         .id(store.dbVersion)
     }
@@ -94,6 +100,26 @@ struct BrowseView: View {
                 Text("A–Z").tag(CatalogDB.Sort.alphabetical)
                 Text("Newest").tag(CatalogDB.Sort.newest)
                 Text("Oldest").tag(CatalogDB.Sort.oldest)
+            }
+            // Decision 046: keyword + studio facets open a dedicated filtered grid
+            // (they're join-table queries, not part of the paged films grid).
+            if !keywordFacets.isEmpty {
+                Menu("Keyword") {
+                    ForEach(keywordFacets, id: \.self) { k in
+                        Button(k.capitalized) {
+                            router.browsePath.append(BrowseFilterRoute(title: k.capitalized, keyword: k))
+                        }
+                    }
+                }
+            }
+            if !studioFacets.isEmpty {
+                Menu("Studio") {
+                    ForEach(studioFacets, id: \.self) { s in
+                        Button(s) {
+                            router.browsePath.append(BrowseFilterRoute(title: s, studio: s))
+                        }
+                    }
+                }
             }
         }
     }

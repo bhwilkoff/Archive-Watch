@@ -64,21 +64,33 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
 
     var scope by remember { mutableStateOf(Scope.All) }
     var decade by remember { mutableStateOf<Int?>(null) }
+    // Metadata-expansion facets (Decision 046): keyword (thematic) + studio filters.
+    var keyword by remember { mutableStateOf<String?>(null) }
+    var studio by remember { mutableStateOf<String?>(null) }
     var sort by remember { mutableStateOf(BrowseSort.POPULAR) }
     var total by remember { mutableIntStateOf(0) }
     var endReached by remember { mutableStateOf(false) }
     var loading by remember { mutableStateOf(true) }
     val items = remember { mutableStateListOf<CatalogItem>() }
     var decades by remember { mutableStateOf<List<Pair<Int, Int>>>(emptyList()) }
+    var keywordChoices by remember { mutableStateOf<List<String>>(emptyList()) }
+    var studioChoices by remember { mutableStateOf<List<String>>(emptyList()) }
     var specialsCount by remember { mutableIntStateOf(0) }
 
+    // Facet menus only need loading once per DB (independent of the active filters).
+    LaunchedEffect(dbVersion) {
+        val db = container.catalog.db ?: return@LaunchedEffect
+        decades = db.decadeCounts()
+        keywordChoices = db.topKeywords()
+        studioChoices = db.topStudios()
+    }
+
     // Reset + first page whenever a facet, sort, or the DB changes.
-    LaunchedEffect(dbVersion, scope, decade, sort) {
+    LaunchedEffect(dbVersion, scope, decade, keyword, studio, sort) {
         loading = true
         items.clear()
         endReached = false
         val db = container.catalog.db ?: return@LaunchedEffect
-        decades = db.decadeCounts()
         if (scope == Scope.TV) {
             val cards = db.seriesCards()
             items.addAll(cards)
@@ -86,9 +98,13 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
             endReached = true
             specialsCount = db.tvSpecialsCount()
         } else {
-            total = db.browseCount(contentType = scope.contentType, decade = decade)
+            total = db.browseCount(
+                contentType = scope.contentType, decade = decade,
+                keyword = keyword, studio = studio,
+            )
             val page = db.browse(
                 contentType = scope.contentType, decade = decade,
+                keyword = keyword, studio = studio,
                 sort = sort, limit = PAGE_SIZE, offset = 0,
             )
             items.addAll(page)
@@ -102,6 +118,7 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
         val db = container.catalog.db ?: return
         val page = db.browse(
             contentType = scope.contentType, decade = decade,
+            keyword = keyword, studio = studio,
             sort = sort, limit = PAGE_SIZE, offset = items.size,
         )
         items.addAll(page)
@@ -140,14 +157,27 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
                 }
             }
 
-            // Decade + sort + real total
+            // Decade + sort + keyword/studio facets + real total (scrollable —
+            // the metadata-expansion facets crowd the row on narrow phones).
             Row(
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState())
+                    .padding(horizontal = 16.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
             ) {
                 DecadeMenu(decade, decades) { decade = it }
                 SortMenu(sort) { sort = it }
+                // Keyword/studio facets don't apply to the TV scope (series cards).
+                if (scope != Scope.TV) {
+                    if (keywordChoices.isNotEmpty()) {
+                        FacetMenu("Keyword", keyword, keywordChoices) { keyword = it }
+                    }
+                    if (studioChoices.isNotEmpty()) {
+                        FacetMenu("Studio", studio, studioChoices) { studio = it }
+                    }
+                }
                 val count = NumberFormat.getIntegerInstance().format(total)
                 Text(
                     "$count titles",
@@ -205,6 +235,25 @@ private fun DecadeMenu(
                 text = { Text("${d}s ($count)") },
                 onClick = { onSelect(d); open = false },
             )
+        }
+    }
+}
+
+/** A string-valued facet dropdown (keyword / studio, Decision 046). When a value
+    is active the button shows it + a clear ("All") entry; mirrors DecadeMenu. */
+@Composable
+private fun FacetMenu(
+    label: String,
+    selected: String?,
+    choices: List<String>,
+    onSelect: (String?) -> Unit,
+) {
+    var open by remember { mutableStateOf(false) }
+    TextButton(onClick = { open = true }) { Text(selected ?: label) }
+    DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+        DropdownMenuItem(text = { Text("All ${label.lowercase()}s") }, onClick = { onSelect(null); open = false })
+        choices.forEach { value ->
+            DropdownMenuItem(text = { Text(value) }, onClick = { onSelect(value); open = false })
         }
     }
 }

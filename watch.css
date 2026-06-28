@@ -256,7 +256,7 @@ a { color: var(--color-accent); }
   background: var(--color-primary); border-color: var(--color-primary); color: #fff;
 }
 .browse-controls {
-  display: flex; gap: 10px; align-items: center; padding: 8px var(--pad);
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 8px var(--pad);
 }
 select, input[type="search"] {
   background: var(--bg-raise); color: var(--text);
@@ -290,6 +290,21 @@ input[type="search"] {
 }
 .btn-ghost[aria-pressed="true"] { border-color: var(--color-primary); color: var(--color-primary); }
 #item-desc { padding: 0; margin: 8px 0; color: #d9d9d9; }
+
+/* ---- rich-metadata facts (Decision 046): tagline + writer/studio/etc ---- */
+.item-tagline {
+  margin: 4px 0 10px; padding: 0;
+  font-style: italic; color: var(--text-dim);
+}
+.item-facts {
+  display: grid; grid-template-columns: auto 1fr;
+  gap: 4px 14px; margin: 10px 0 0; padding: 0;
+  font-size: 0.9rem;
+}
+.item-facts dt { color: var(--text-dim); }
+.item-facts dd { margin: 0; color: var(--text); }
+.item-facts a { color: var(--color-accent); text-decoration: none; }
+.item-facts a:hover { text-decoration: underline; }
 
 /* ---- series episodes ---- */
 .episodes { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }

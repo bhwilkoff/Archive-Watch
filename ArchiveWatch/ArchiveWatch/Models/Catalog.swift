@@ -153,6 +153,25 @@ struct Catalog: Decodable, Sendable {
         // — never file-quality talk or inappropriate comments. nil = none kept.
         let reviews: [Review]?
 
+        // Metadata expansion (Decision 046 / docs/METADATA-EXPANSION.md). All
+        // additive + optional — only ~41% of films carry them and older catalogs
+        // decode unchanged. Arrays MUST use @DefaultEmptyArray (a plain [String]
+        // throws on absence and silently drops the whole item from every list).
+        // The strings are detail-flavor; keywords/akaTitles are also in the FTS
+        // index for search, and keywords/studios have value-indexed join tables
+        // for filtering.
+        @DefaultEmptyArray var keywords: [String]
+        @DefaultEmptyArray var akaTitles: [String]
+        @DefaultEmptyArray var studios: [String]
+        let originalTitle: String?
+        let writer: String?
+        let composer: String?
+        let cinematographer: String?
+        let franchise: String?
+        let tagline: String?
+        let releaseDate: String?
+        let awards: String?
+
         var id: String { archiveID }
         var subtitleHLSURL: URL? { subtitleHLS.flatMap(URL.init(string:)) }
         var posterURLParsed: URL? { posterURL.flatMap(URL.init(string:)) }
@@ -307,6 +326,10 @@ struct Catalog: Decodable, Sendable {
         let character: String?
         let order: Int
         let profilePath: String?
+        // TMDb person id (Decision 046) — reliable "more by this actor" and the
+        // Callsheet person deep-link (Decision 038, previously blocked on this).
+        // Optional so older catalogs decode unchanged.
+        let tmdbPersonID: Int?
     }
 
     /// A subtitle/caption track that players side-load onto the video.

@@ -14,6 +14,8 @@ struct BrowseFilterRoute: Hashable {
     var genre: String? = nil
     var year: Int? = nil
     var person: String? = nil   // #4 parity: titles featuring this cast member / director
+    var keyword: String? = nil  // Decision 046: thematic keyword facet
+    var studio: String? = nil   // Decision 046: production-company facet
 }
 
 // MARK: - Filtered grid (paged)
@@ -60,6 +62,12 @@ struct FilteredGridView: View {
                     // fetch, not paginable (same shape as tvOS BrowseFilter).
                     items = store.byPerson(person)
                     total = items.count
+                } else if let keyword = route.keyword {   // Decision 046
+                    items = store.byKeyword(keyword)
+                    total = items.count
+                } else if let studio = route.studio {     // Decision 046
+                    items = store.byStudio(studio)
+                    total = items.count
                 } else {
                     items = fetch(offset: 0)
                     total = store.browseCount(contentType: route.contentType, decade: route.decade,
@@ -88,7 +96,8 @@ struct FilteredGridView: View {
                      genre: route.genre, year: route.year, limit: pageSize, offset: offset)
     }
     private func loadMore() {
-        guard route.person == nil else { return }   // person browse is one capped fetch
+        // person / keyword / studio browse are single capped fetches (Decision 046).
+        guard route.person == nil, route.keyword == nil, route.studio == nil else { return }
         page += 1
         items += fetch(offset: page * pageSize)
     }

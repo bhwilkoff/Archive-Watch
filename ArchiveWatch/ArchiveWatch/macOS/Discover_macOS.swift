@@ -13,6 +13,8 @@ struct BrowseFilterRoute: Hashable {
     var decade: Int? = nil
     var genre: String? = nil
     var year: Int? = nil
+    var keyword: String? = nil   // Decision 046: thematic keyword facet
+    var studio: String? = nil    // Decision 046: production-company facet
 }
 
 struct FilteredGridView: View {
@@ -23,9 +25,15 @@ struct FilteredGridView: View {
     var body: some View {
         GridView(title: route.title, items: items)
             .task(id: store.dbVersion) {
-                items = store.browse(contentType: route.contentType, decade: route.decade,
-                                     genre: route.genre, year: route.year,
-                                     sort: .popular, limit: 300, offset: 0)
+                if let keyword = route.keyword {        // Decision 046
+                    items = store.db?.byKeyword(keyword) ?? []
+                } else if let studio = route.studio {   // Decision 046
+                    items = store.db?.byStudio(studio) ?? []
+                } else {
+                    items = store.browse(contentType: route.contentType, decade: route.decade,
+                                         genre: route.genre, year: route.year,
+                                         sort: .popular, limit: 300, offset: 0)
+                }
             }
     }
 }

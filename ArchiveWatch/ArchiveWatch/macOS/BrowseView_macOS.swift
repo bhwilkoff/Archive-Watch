@@ -8,6 +8,7 @@ struct BrowseView: View {
     let contentType: String?
     let title: String
     @Environment(AppStore.self) private var store
+    @Environment(AppRouter.self) private var router
 
     @State private var items: [Catalog.Item] = []
     @State private var typeFilter: String? = nil      // narrows WITHIN the section (parity with iOS)
@@ -15,6 +16,9 @@ struct BrowseView: View {
     @State private var sort: CatalogDB.Sort = .popular
     @State private var total = 0
     @State private var offset = 0
+    // Metadata-expansion facets (Decision 046) for the Filter menu.
+    @State private var keywordFacets: [String] = []
+    @State private var studioFacets: [String] = []
     private let page = 120
 
     // The effective content type: the section's fixed type, or the user-chosen narrowing.
@@ -63,6 +67,26 @@ struct BrowseView: View {
                         Text("Newest").tag(CatalogDB.Sort.newest)
                         Text("Oldest").tag(CatalogDB.Sort.oldest)
                     }
+                    // Decision 046: keyword + studio facets open a dedicated filtered
+                    // grid (join-table queries, not part of this paged section).
+                    if !keywordFacets.isEmpty {
+                        Menu("Keyword") {
+                            ForEach(keywordFacets, id: \.self) { k in
+                                Button(k.capitalized) {
+                                    router.path.append(BrowseFilterRoute(title: k.capitalized, keyword: k))
+                                }
+                            }
+                        }
+                    }
+                    if !studioFacets.isEmpty {
+                        Menu("Studio") {
+                            ForEach(studioFacets, id: \.self) { s in
+                                Button(s) {
+                                    router.path.append(BrowseFilterRoute(title: s, studio: s))
+                                }
+                            }
+                        }
+                    }
                     if filterActive {
                         Button("Clear Filters", role: .destructive) {
                             typeFilter = nil; decade = nil; sort = .popular
@@ -76,7 +100,11 @@ struct BrowseView: View {
                 .help("Filter by type, decade, or sort order")
             }
         }
-        .task(id: store.dbVersion) { reset() }
+        .task(id: store.dbVersion) {
+            reset()
+            keywordFacets = store.db?.topKeywords() ?? []
+            studioFacets = store.db?.topStudios() ?? []
+        }
         .onChange(of: typeFilter) { _, _ in reset() }
         .onChange(of: decade) { _, _ in reset() }
         .onChange(of: sort) { _, _ in reset() }

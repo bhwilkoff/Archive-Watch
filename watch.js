@@ -102,9 +102,10 @@
    * Catalog data                                                      *
    * ---------------------------------------------------------------- */
   const Data = {
-    rows: [],            // [id, title, year, type, poster?] popularity-sorted
+    rows: [],            // [id, title, year, type, poster, pro, search?] popularity-sorted
     byID: new Map(),
     shelves: {},         // shelfID → [archiveIDs] (editorial item_shelves analog)
+    facets: { keywords: [], studios: [] },  // Decision 046 — Browse filter chips
     featured: null,
     episodes: [],        // episode-items (Decision 045) — see episodes-index.json
     episodeMeta: new Map(),  // archiveID → {slug, series, season, episode}
@@ -118,6 +119,8 @@
       this.rows = idx.items || [];
       this.shelves = idx.shelves || {};
       this.collections = idx.collections || {};
+      // Decision 046 — keyword/studio facet names (schema 6; absent on older idx).
+      this.facets = idx.facets || { keywords: [], studios: [] };
       this.rows.forEach(r => this.byID.set(r[0], r));
       if (featR.ok) this.featured = await featR.json();
       // Episodes are first-class items (Decision 045): resolve by archiveID like
@@ -216,17 +219,29 @@
       const data = await this.cache.get(shard);
       const rec = data[id];
       if (!rec) return null;
+      const x = rec[9] || null;     // rich-metadata extras (Decision 046)
       return {
         downloadURL: rec[0] || null,
         synopsis: rec[1] || null,
         director: rec[2] || null,
         cast: (rec[3] || []).map(c => Array.isArray(c)
-          ? { name: c[0], profilePath: c[1] } : { name: c, profilePath: null }),
+          ? { name: c[0], profilePath: c[1] || null, tmdbPersonID: c[2] || null }
+          : { name: c, profilePath: null, tmdbPersonID: null }),
         genres: rec[4] || null,
         runtimeSeconds: rec[5] || null,
         backdropURL: rec[6] || null,
         captions: rec[7] || null,   // [[lang, label, vttURL], …]
         community: rec[8] || null,  // {r:avgRating, v:views, f:favorites, rv:[[stars,title,body,reviewer,date],…]}
+        // Decision 046 extras — present keys only (object omitted when empty).
+        writer: x?.w || null,
+        studios: x?.st || null,
+        franchise: x?.fr || null,
+        tagline: x?.tg || null,
+        awards: x?.aw || null,
+        composer: x?.co || null,
+        cinematographer: x?.ci || null,
+        releaseDate: x?.rd || null,
+        originalTitle: x?.ot || null,
       };
     },
   };
@@ -663,11 +678,17 @@
       const type = q.get('type') || '';
       const decade = q.get('decade') || '';
       const sort = q.get('sort') || 'pop';
-      this.controls(type, decade, sort);
+      // Keyword/studio filters (Decision 046) run client-side against the index's
+      // search column (r[6]) — no per-row id map, so the committed index stays lean.
+      const kw = (q.get('kw') || '').toLowerCase();
+      const studio = (q.get('studio') || '').toLowerCase();
+      this.controls(type, decade, sort, kw, studio);
 
       this.filtered = Data.rows.filter(r =>
         (type ? r[3] === type : !TV_TYPES.has(r[3])) &&
-        (!decade || (r[2] && Math.floor(r[2] / 10) * 10 === Number(decade))));
+        (!decade || (r[2] && Math.floor(r[2] / 10) * 10 === Number(decade))) &&
+        (!kw || (r[6] && r[6].includes(kw))) &&
+        (!studio || (r[6] && r[6].includes(studio))));
       if (sort === 'az') this.filtered = [...this.filtered].sort((a, b) => a[1].localeCompare(b[1]));
       if (sort === 'new') this.filtered = [...this.filtered].sort((a, b) => (b[2] || 0) - (a[2] || 0));
       if (sort === 'old') this.filtered = [...this.filtered].sort((a, b) => (a[2] || 9999) - (b[2] || 9999));
@@ -695,7 +716,7 @@
       location.hash = `#/browse?${q.toString()}`;
     },
 
-    controls(type, decade, sort) {
+    controls(type, decade, sort, kw, studio) {
       const chips = $('browse-type-chips');
       chips.replaceChildren(...TYPES.map(([val, label]) => {
         const b = document.createElement('button');
@@ -712,6 +733,21 @@
         ...decades.map(d => new Option(`${d}s`, String(d))));
       sel.value = decade;
       sel.onchange = () => this.setParam('decade', sel.value);
+
+      // Keyword + studio facet dropdowns (Decision 046) — most-common names from
+      // the index; the long tail is still reachable via the free-text search box.
+      // <option> value is lowercased to match the lowercased search column.
+      const kwSel = $('browse-keyword');
+      kwSel.replaceChildren(new Option('All keywords', ''),
+        ...(Data.facets.keywords || []).map(k => new Option(k, k.toLowerCase())));
+      kwSel.value = kw;
+      kwSel.onchange = () => this.setParam('kw', kwSel.value);
+
+      const stSel = $('browse-studio');
+      stSel.replaceChildren(new Option('All studios', ''),
+        ...(Data.facets.studios || []).map(s => new Option(s, s.toLowerCase())));
+      stSel.value = studio;
+      stSel.onchange = () => this.setParam('studio', stSel.value);
 
       $('browse-sort').value = sort;
       $('browse-sort').onchange = () => this.setParam('sort', $('browse-sort').value);
@@ -749,7 +785,10 @@
       const terms = qs.toLowerCase().split(/\s+/).filter(Boolean);
       const hits = [];
       for (const r of Data.rows) {
-        const hay = r[1].toLowerCase();
+        // Title + the rich-metadata search blob (Decision 046, schema 6): a film
+        // is now findable by a TMDb keyword, an AKA/original title, its writer,
+        // or its studio. r[6] is null/absent on unmatched films + older indexes.
+        const hay = r[1].toLowerCase() + ' ' + (r[6] || '');
         if (terms.every(t => hay.includes(t))) {
           hits.push(r);
           if (hits.length >= 200) break;
@@ -1280,6 +1319,10 @@
         epLink.href = `#/series/${encodeURIComponent(epMeta.slug)}`;
       }
       $('item-desc').textContent = '';
+      $('item-tagline').textContent = '';
+      $('item-tagline').hidden = true;
+      $('item-facts').replaceChildren();
+      $('item-facts').hidden = true;
       $('item-cast').replaceChildren();
       $('item-cast').hidden = true;
       $('item-community').replaceChildren();
@@ -1318,7 +1361,12 @@
           det.director && `Dir. ${det.director}`,
         ].filter(Boolean).join(' · ');
         if (meta) $('item-meta').textContent = meta;
+        if (det.tagline) {
+          $('item-tagline').textContent = det.tagline;
+          $('item-tagline').hidden = false;
+        }
         if (det.synopsis) $('item-desc').textContent = det.synopsis;
+        this.factsRow(det);
         this.castRow(det);
         this.communityRow(det);
         if (det.downloadURL) {
@@ -1387,6 +1435,45 @@
       d.className = 'person-initial';
       d.textContent = (name || '?').trim()[0].toUpperCase();
       return d;
+    },
+
+    /** Rich-metadata facts (Decision 046): writer / studios / franchise / awards
+        and the lesser crew, surfaced only when present. Studios + franchise link
+        into Browse so a fact becomes a door to more of the same. */
+    factsRow(det) {
+      const dl = $('item-facts');
+      dl.replaceChildren();
+      const addText = (label, value) => {
+        if (!value) return;
+        const dt = document.createElement('dt'); dt.textContent = label;
+        const dd = document.createElement('dd'); dd.textContent = value;
+        dl.append(dt, dd);
+      };
+      const addLinks = (label, values, href) => {
+        const list = (values || []).filter(Boolean);
+        if (!list.length) return;
+        const dt = document.createElement('dt'); dt.textContent = label;
+        const dd = document.createElement('dd');
+        list.forEach((v, i) => {
+          if (i) dd.append(', ');
+          const a = document.createElement('a');
+          a.href = href(v); a.textContent = v;
+          dd.append(a);
+        });
+        dl.append(dt, dd);
+      };
+      addText('Writer', det.writer);
+      addText('Composer', det.composer);
+      addText('Cinematography', det.cinematographer);
+      addLinks('Studio', det.studios,
+        v => `#/browse?studio=${encodeURIComponent(v.toLowerCase())}`);
+      if (det.franchise) {
+        addLinks('Series', [det.franchise],
+          v => `#/search?q=${encodeURIComponent(v)}`);
+      }
+      addText('Original title', det.originalTitle);
+      addText('Awards', det.awards);
+      dl.hidden = !dl.children.length;
     },
 
     /** archive.org community stats + pipeline-filtered reviews (P2). The reviews

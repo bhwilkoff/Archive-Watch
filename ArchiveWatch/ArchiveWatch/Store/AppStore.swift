@@ -235,6 +235,10 @@ final class AppStore {
     /// Live count of searchable titles in the loaded DB (tracks seed→full + rebuilds).
     var dbSearchableCount: Int { db?.searchableCount ?? 0 }
     func dbTopGenres() -> [String] { db?.topGenres() ?? [] }
+    func dbTopKeywords() -> [String] { db?.topKeywords() ?? [] }     // Decision 046
+    func dbTopStudios() -> [String] { db?.topStudios() ?? [] }       // Decision 046
+    func dbByKeyword(_ keyword: String) -> [Catalog.Item] { db?.byKeyword(keyword) ?? [] }
+    func dbByStudio(_ studio: String) -> [Catalog.Item] { db?.byStudio(studio) ?? [] }
     func dbItemsByIDs(_ ids: [String]) -> [Catalog.Item] { db?.itemsByIDs(ids) ?? [] }
     func dbHiddenGems() -> [Catalog.Item] { db?.hiddenGems() ?? [] }
     func dbTopRated() -> [Catalog.Item] { db?.topRated() ?? [] }

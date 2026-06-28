@@ -54,6 +54,22 @@ data class CatalogItem(
     // Genuine reviews of the TITLE, pre-filtered in the pipeline
     // (tools/comment_fit.py) — never file-quality or inappropriate comments.
     val reviews: List<Review>? = null,
+    // Metadata expansion (Decision 046 / docs/METADATA-EXPANSION.md): rich TMDb/OMDb
+    // fields backfilled into the item_json blob (~41% of films). Additive + optional;
+    // arrays mirror genres/collections (default-empty so a missing key never crashes).
+    // keywords + studios are ALSO mirrored into the value-indexed item_keywords /
+    // item_studios join tables for filtering (see CatalogDatabase.byKeyword/byStudio).
+    val keywords: List<String> = emptyList(),
+    val akaTitles: List<String> = emptyList(),
+    val studios: List<String> = emptyList(),
+    val originalTitle: String? = null,
+    val writer: String? = null,
+    val composer: String? = null,
+    val cinematographer: String? = null,
+    val franchise: String? = null,
+    val tagline: String? = null,
+    val releaseDate: String? = null,
+    val awards: String? = null,
 ) {
     // Community display helpers (mirror the Swift Catalog.Item helpers).
     val viewsDisplay: String?
@@ -139,6 +155,9 @@ data class CastMember(
     val character: String? = null,
     val order: Int = 0,
     val profilePath: String? = null,
+    // TMDb person id (Decision 046) — decoded for future "more by this actor" /
+    // person deep-links; Android has no Callsheet integration so it's unused today.
+    val tmdbPersonID: Int? = null,
 ) {
     /** profilePath may be a bare TMDb path — prefix w185 (contract §7). */
     val profileURL: String?

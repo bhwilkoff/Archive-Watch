@@ -514,6 +514,31 @@ final class CatalogDB {
         """, [collection])
     }
 
+    /// Items carrying a thematic keyword (Decision 046) — the keyword join
+    /// table is value-indexed (idx_kw_keyword), mirroring item_genres. TV /
+    /// commercials excluded so the grid matches the film-browse surfaces.
+    func byKeyword(_ keyword: String, limit: Int = 2000) -> [Catalog.Item] {
+        items("""
+            SELECT j.json FROM item_keywords k
+            JOIN item_json j ON j.archiveID = k.archiveID
+            JOIN items i ON i.archiveID = k.archiveID
+            WHERE k.keyword = ? \(adultAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd)
+            ORDER BY i.popularityScore DESC LIMIT \(limit)
+        """, [keyword])
+    }
+
+    /// Items from a studio / production company (Decision 046) — value-indexed
+    /// (idx_studio_studio), mirroring byKeyword/item_genres.
+    func byStudio(_ studio: String, limit: Int = 2000) -> [Catalog.Item] {
+        items("""
+            SELECT j.json FROM item_studios s
+            JOIN item_json j ON j.archiveID = s.archiveID
+            JOIN items i ON i.archiveID = s.archiveID
+            WHERE s.studio = ? \(adultAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd)
+            ORDER BY i.popularityScore DESC LIMIT \(limit)
+        """, [studio])
+    }
+
     /// Count of items in a registered collection (CollectionsView card count).
     /// scalarRows returns (col0 text, col1 int) — put the count in col1.
     func collectionCount(_ collection: String) -> Int {
@@ -605,6 +630,27 @@ final class CatalogDB {
             JOIN items i USING(archiveID)
             WHERE 1=1 \(adultAnd)
             GROUP BY g.genre ORDER BY c DESC, g.genre LIMIT \(limit)
+        """).map(\.0)
+    }
+
+    /// Most-used thematic keywords for the filter menu (Decision 046), mirroring
+    /// topGenres. Ordered by how many films carry each.
+    func topKeywords(limit: Int = 40) -> [String] {
+        scalarRows("""
+            SELECT k.keyword, COUNT(*) c FROM item_keywords k
+            JOIN items i USING(archiveID)
+            WHERE 1=1 \(adultAnd)
+            GROUP BY k.keyword ORDER BY c DESC, k.keyword LIMIT \(limit)
+        """).map(\.0)
+    }
+
+    /// Most-represented studios for the filter menu (Decision 046).
+    func topStudios(limit: Int = 40) -> [String] {
+        scalarRows("""
+            SELECT s.studio, COUNT(*) c FROM item_studios s
+            JOIN items i USING(archiveID)
+            WHERE 1=1 \(adultAnd)
+            GROUP BY s.studio ORDER BY c DESC, s.studio LIMIT \(limit)
         """).map(\.0)
     }
 

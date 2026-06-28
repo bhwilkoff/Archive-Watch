@@ -167,6 +167,10 @@ final class AppStore {
     func topDirectors() -> [(name: String, count: Int)] { db?.topDirectors() ?? [] }
     func byDirector(_ name: String) -> [Catalog.Item] { db?.byDirector(name, homeOnly: true) ?? [] }
     func topGenres() -> [String] { db?.topGenres() ?? [] }
+    func topKeywords() -> [String] { db?.topKeywords() ?? [] }       // Decision 046
+    func topStudios() -> [String] { db?.topStudios() ?? [] }         // Decision 046
+    func byKeyword(_ keyword: String) -> [Catalog.Item] { db?.byKeyword(keyword) ?? [] }
+    func byStudio(_ studio: String) -> [Catalog.Item] { db?.byStudio(studio) ?? [] }
     func randomPlayable(contentType: String? = nil) -> Catalog.Item? {
         db?.randomPlayable(contentType: contentType)
     }

@@ -55,6 +55,8 @@
       <div class="chips" id="browse-type-chips" role="group" aria-label="Type"></div>
       <div class="browse-controls">
         <select id="browse-decade" aria-label="Decade"></select>
+        <select id="browse-keyword" aria-label="Keyword"></select>
+        <select id="browse-studio" aria-label="Studio"></select>
         <select id="browse-sort" aria-label="Sort">
           <option value="pop">Popular</option>
           <option value="az">A–Z</option>
@@ -145,6 +147,7 @@
         <div class="detail-body">
           <h1 id="item-title"></h1>
           <p id="item-meta" class="muted"></p>
+          <p id="item-tagline" class="item-tagline" hidden></p>
           <div class="detail-actions">
             <button id="item-play" class="btn-primary">▶ Play</button>
             <button id="item-fav" class="btn-ghost" aria-pressed="false">♡ Favorite</button>
@@ -152,6 +155,7 @@
             <button id="item-share" class="btn-ghost">Share</button>
           </div>
           <p id="item-desc"></p>
+          <dl id="item-facts" class="item-facts" hidden></dl>
           <div id="item-cast" class="cast-row" hidden></div>
           <div id="item-community" hidden></div>
           <p id="item-error" class="error" hidden></p>

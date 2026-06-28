@@ -157,6 +157,16 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     modifier = Modifier.padding(top = 4.dp),
                 )
             }
+            // Tagline (Decision 046) — flavor line under the meta, italic.
+            current.tagline?.takeIf { it.isNotBlank() }?.let {
+                Text(
+                    "“$it”",
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontStyle = androidx.compose.ui.text.font.FontStyle.Italic,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(top = 6.dp),
+                )
+            }
 
             if (showPlaylists) {
                 AddToPlaylistDialog(container, current.archiveID) { showPlaylists = false }
@@ -238,6 +248,9 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 )
             }
 
+            // Rich metadata (Decision 046) — each row shown only when present.
+            MetaDetailRows(current)
+
             // Episode item (Decision 045): jump to the full series.
             if (current.isEpisode && current.seriesID != null) {
                 TextButton(onClick = { nav.push(Route.Series(current.seriesID!!)) }) {
@@ -299,6 +312,45 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
             })
         }
         Spacer(Modifier.height(32.dp))
+    }
+}
+
+// Rich metadata surfaces (Decision 046 / docs/METADATA-EXPANSION.md): writer,
+// composer, cinematographer, studios, franchise, awards — each rendered as a
+// "Label  value" row only when the field is present. Detail-only blob fields, so
+// they cost nothing on browse/sort. Renders nothing when none are present.
+@Composable
+private fun MetaDetailRows(item: CatalogItem) {
+    val studios = item.studios.takeIf { it.isNotEmpty() }?.joinToString(", ")
+    val rows = listOfNotNull(
+        item.writer?.takeIf { it.isNotBlank() }?.let { "Writer" to it },
+        item.composer?.takeIf { it.isNotBlank() }?.let { "Music" to it },
+        item.cinematographer?.takeIf { it.isNotBlank() }?.let { "Cinematography" to it },
+        studios?.let { "Studio" to it },
+        item.franchise?.takeIf { it.isNotBlank() }?.let { "Series" to it },
+        item.awards?.takeIf { it.isNotBlank() }?.let { "Awards" to it },
+    )
+    if (rows.isEmpty()) return
+    Column(
+        modifier = Modifier.padding(top = 12.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        rows.forEach { (label, value) ->
+            Row {
+                Text(
+                    label,
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.width(112.dp),
+                )
+                Text(
+                    value,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    modifier = Modifier.weight(1f),
+                )
+            }
+        }
     }
 }
 

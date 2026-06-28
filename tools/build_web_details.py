@@ -13,7 +13,21 @@ view:
 
     details/{00..ff}.json  →  { archiveID: [downloadURL, synopsis, director,
                                             castNames, genres, runtimeSeconds,
-                                            backdropURL], ... }
+                                            backdropURL, captions, community,
+                                            extras], ... }
+
+Positional record indices (trailing nulls trimmed — APPEND new fields at the
+end so existing indices never shift; keep watch.js `Details.get` in sync):
+    0 downloadURL   3 cast      6 backdropURL   9 extras (Decision 046)
+    1 synopsis      4 genres    7 captions
+    2 director      5 runtime   8 community
+`extras` (index 9, Decision 046) is a compact object of the rich-metadata
+fields — present keys only, the whole object omitted when empty so sparse
+films cost nothing: {w:writer, st:studios[], fr:franchise, tg:tagline,
+aw:awards, co:composer, ci:cinematographer, rd:releaseDate, ot:originalTitle}.
+Each cast entry is [name] | [name, profilePath] | [name, profilePath,
+tmdbPersonID] (trailing nulls trimmed) — the personID (Decision 046) unblocks
+person links.
 
 Shard = FNV-1a 32-bit hash of the archiveID, low byte, hex — the JS side
 (watch.js `Details.shardOf`) implements the SAME function; keep them in sync.
@@ -82,7 +96,11 @@ def main():
             if not name:
                 continue
             path = c.get("profilePath")
-            cast.append([name, path] if path else name)
+            pid = c.get("tmdbPersonID")
+            entry = [name, path or None, pid or None]
+            while len(entry) > 1 and entry[-1] is None:  # [name] | [name,path] | [name,path,pid]
+                entry.pop()
+            cast.append(entry[0] if len(entry) == 1 else entry)
         # Subtitle tracks for the web <track> element — the Pages-hosted VTT
         # (CORS-OK; archive.org's SRT is not). [lang, label, vttURL] each.
         captions = [[c.get("lang"), c.get("label"), c.get("vttURL")]
@@ -100,6 +118,21 @@ def main():
                 "f": it.get("numFavorites"),
                 "rv": rv or None,
             }
+        # Rich-metadata extras (Decision 046) — present keys only, omitted whole
+        # when empty so the ~59% of films without a TMDb/OMDb match cost nothing.
+        extras = {}
+        for key, field in (("w", "writer"), ("fr", "franchise"), ("tg", "tagline"),
+                           ("aw", "awards"), ("co", "composer"),
+                           ("ci", "cinematographer"), ("rd", "releaseDate"),
+                           ("ot", "originalTitle")):
+            val = it.get(field)
+            if isinstance(val, str):
+                val = val.strip()
+            if val:
+                extras[key] = val
+        studios = [s for s in (it.get("studios") or []) if s][:6]
+        if studios:
+            extras["st"] = studios
         record = [
             it.get("downloadURL"),
             synopsis or None,
@@ -110,6 +143,7 @@ def main():
             it.get("backdropURL"),
             captions or None,
             community,
+            extras or None,
         ]
         # Trim trailing nulls so empty tails cost nothing on the wire.
         while record and record[-1] is None:

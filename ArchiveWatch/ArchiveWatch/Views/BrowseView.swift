@@ -11,9 +11,12 @@ struct BrowseFilter: Hashable, Sendable {
     var genre: String? = nil
     var collection: String? = nil
     var person: String? = nil   // #4: films featuring this cast member / director
+    var keyword: String? = nil  // Decision 046: thematic keyword facet
+    var studio: String? = nil   // Decision 046: production-company facet
 
     var isEmpty: Bool {
-        category == nil && decade == nil && genre == nil && collection == nil && person == nil
+        category == nil && decade == nil && genre == nil && collection == nil
+            && person == nil && keyword == nil && studio == nil
     }
 }
 
@@ -77,7 +80,8 @@ struct BrowseView: View {
     /// browse are post-filtered / FTS, and random can't paginate meaningfully,
     /// so those keep the single capped fetch.
     private var paginable: Bool {
-        filter.collection == nil && filter.person == nil && sort != .random
+        filter.collection == nil && filter.person == nil
+            && filter.keyword == nil && filter.studio == nil && sort != .random
     }
 
     /// Load the first page (or the whole capped set for non-paginable filters)
@@ -116,6 +120,20 @@ struct BrowseView: View {
     private func computeItems() -> [Catalog.Item] {
         if let p = filter.person {   // #4: person browse uses the FTS names index
             var page = store.dbByPerson(p)
+            if sort == .random {
+                var rng = SplitMix(seed: UInt64(shuffleSeed)); page.shuffle(using: &rng)
+            }
+            return page
+        }
+        if let k = filter.keyword {   // Decision 046: thematic keyword facet
+            var page = store.dbByKeyword(k)
+            if sort == .random {
+                var rng = SplitMix(seed: UInt64(shuffleSeed)); page.shuffle(using: &rng)
+            }
+            return page
+        }
+        if let s = filter.studio {    // Decision 046: production-company facet
+            var page = store.dbByStudio(s)
             if sort == .random {
                 var rng = SplitMix(seed: UInt64(shuffleSeed)); page.shuffle(using: &rng)
             }
@@ -224,6 +242,8 @@ struct BrowseView: View {
         if let g = filter.genre { return g.capitalized }
         if let k = filter.collection { return CollectionMetadata.title(for: k) }
         if let p = filter.person { return p }   // #4
+        if let kw = filter.keyword { return kw.capitalized }   // Decision 046
+        if let s = filter.studio { return s }                  // Decision 046
         return "Browse"
     }
 }
@@ -235,17 +255,23 @@ struct FilterChipBar: View {
     @Binding var filter: BrowseFilter
     @State private var decades: [Int] = []
     @State private var genres: [String] = []
+    @State private var keywords: [String] = []
+    @State private var studios: [String] = []
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             categoryRow
             decadeRow
             genreRow
+            keywordRow
+            studioRow
         }
         .focusSection()
         .task(id: store.dbGeneration) {
             decades = store.dbDecadeCounts().keys.sorted()
             genres = store.dbTopGenres()
+            keywords = store.dbTopKeywords()
+            studios = store.dbTopStudios()
         }
     }
 
@@ -292,6 +318,44 @@ struct FilterChipBar: View {
                     let on = filter.genre == g
                     Chip(label: g, isOn: on, accent: .accentColor) {
                         filter.genre = on ? nil : g
+                    }
+                }
+            }
+        }
+    }
+
+    // Decision 046: thematic keyword + studio facets, only shown when the build
+    // produced any (empty for a catalog without the expanded metadata).
+    @ViewBuilder private var keywordRow: some View {
+        if !keywords.isEmpty {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 12) {
+                    Chip(label: "All Keywords", isOn: filter.keyword == nil, accent: .accentColor) {
+                        filter.keyword = nil
+                    }
+                    ForEach(keywords, id: \.self) { k in
+                        let on = filter.keyword == k
+                        Chip(label: k.capitalized, isOn: on, accent: .accentColor) {
+                            filter.keyword = on ? nil : k
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @ViewBuilder private var studioRow: some View {
+        if !studios.isEmpty {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 12) {
+                    Chip(label: "All Studios", isOn: filter.studio == nil, accent: .accentColor) {
+                        filter.studio = nil
+                    }
+                    ForEach(studios, id: \.self) { s in
+                        let on = filter.studio == s
+                        Chip(label: s, isOn: on, accent: .accentColor) {
+                            filter.studio = on ? nil : s
+                        }
                     }
                 }
             }

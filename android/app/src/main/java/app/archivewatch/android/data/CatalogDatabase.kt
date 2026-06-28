@@ -110,6 +110,8 @@ class CatalogDatabase private constructor(
         contentType: String? = null,
         decade: Int? = null,
         genre: String? = null,
+        keyword: String? = null,
+        studio: String? = null,
         year: Int? = null,
         sort: BrowseSort = BrowseSort.POPULAR,
         limit: Int = 60,
@@ -117,8 +119,7 @@ class CatalogDatabase private constructor(
         homeOnly: Boolean = false,
     ): List<CatalogItem> {
         val (where, binds) = browseWhere(contentType, decade, genre, year, homeOnly)
-        val genreJoin = if (genre != null) " JOIN item_genres g ON g.archiveID = i.archiveID AND g.genre = ?" else ""
-        val genreBind = if (genre != null) listOf(genre) else emptyList()
+        val (joins, joinBinds) = facetJoins(genre, keyword, studio)
         // Popular = demoted ids last, designed (professional) artwork first,
         // then popularity; series cards have NULL popularityScore, so
         // episodesCount breaks their ties (iOS/tvOS parity).
@@ -129,9 +130,9 @@ class CatalogDatabase private constructor(
                 "COALESCE(i.episodesCount, 0) DESC, i.imdbVotes DESC"
         } else sort.sql
         return items(
-            "SELECT j.json FROM items i$genreJoin JOIN item_json j ON j.archiveID = i.archiveID" +
+            "SELECT j.json FROM items i$joins JOIN item_json j ON j.archiveID = i.archiveID" +
                 " WHERE $where ORDER BY $order LIMIT ? OFFSET ?",
-            genreBind + binds + listOf(limit, offset),
+            joinBinds + binds + listOf(limit, offset),
         )
     }
 
@@ -139,17 +140,39 @@ class CatalogDatabase private constructor(
         contentType: String? = null,
         decade: Int? = null,
         genre: String? = null,
+        keyword: String? = null,
+        studio: String? = null,
         year: Int? = null,
         homeOnly: Boolean = false,
     ): Int {
         val (where, binds) = browseWhere(contentType, decade, genre, year, homeOnly)
-        val genreJoin = if (genre != null) " JOIN item_genres g ON g.archiveID = i.archiveID AND g.genre = ?" else ""
-        val genreBind = if (genre != null) listOf(genre) else emptyList()
+        val (joins, joinBinds) = facetJoins(genre, keyword, studio)
         return dbCall {
-            queryRaw("SELECT COUNT(*) FROM items i$genreJoin WHERE $where", genreBind + binds) {
+            queryRaw("SELECT COUNT(*) FROM items i$joins WHERE $where", joinBinds + binds) {
                 it.getLong(0).toInt()
             }.firstOrNull() ?: 0
         }
+    }
+
+    /** Value-filter joins onto `items i` for the facet tables — genre, plus the
+        metadata-expansion keyword + studio tables (Decision 046). Each mirrors the
+        `item_genres` join exactly: `(archiveID, value)` indexed on value, so the
+        join is only paid when that filter is active. */
+    private fun facetJoins(
+        genre: String?, keyword: String?, studio: String?,
+    ): Pair<String, List<Any?>> {
+        val sb = StringBuilder()
+        val binds = mutableListOf<Any?>()
+        if (genre != null) {
+            sb.append(" JOIN item_genres g ON g.archiveID = i.archiveID AND g.genre = ?"); binds.add(genre)
+        }
+        if (keyword != null) {
+            sb.append(" JOIN item_keywords k ON k.archiveID = i.archiveID AND k.keyword = ?"); binds.add(keyword)
+        }
+        if (studio != null) {
+            sb.append(" JOIN item_studios st ON st.archiveID = i.archiveID AND st.studio = ?"); binds.add(studio)
+        }
+        return sb.toString() to binds
     }
 
     private fun browseWhere(
@@ -213,6 +236,50 @@ class CatalogDatabase private constructor(
            ORDER BY i.popularityScore DESC LIMIT ?""",
         listOf(collection, limit),
     )
+
+    /** Metadata-expansion facet filters (Decision 046) — parallel to the genre
+        filter, querying the value-indexed `item_keywords` / `item_studios` join
+        tables exactly like `byCollection` queries `item_collections`. */
+    suspend fun byKeyword(keyword: String, limit: Int = 240): List<CatalogItem> = items(
+        """SELECT j.json FROM item_keywords k
+           JOIN item_json j ON j.archiveID = k.archiveID
+           JOIN items i ON i.archiveID = k.archiveID
+           WHERE k.keyword = ?$adultAnd$notCommercial$typeAnd
+           ORDER BY COALESCE(i.popularityScore, 0) DESC LIMIT ?""",
+        listOf(keyword, limit),
+    )
+
+    suspend fun byStudio(studio: String, limit: Int = 240): List<CatalogItem> = items(
+        """SELECT j.json FROM item_studios s
+           JOIN item_json j ON j.archiveID = s.archiveID
+           JOIN items i ON i.archiveID = s.archiveID
+           WHERE s.studio = ?$adultAnd$notCommercial$typeAnd
+           ORDER BY COALESCE(i.popularityScore, 0) DESC LIMIT ?""",
+        listOf(studio, limit),
+    )
+
+    /** Top keyword / studio facets for the filter UI — the value→count listing
+        the Browse facet menus offer, gated by a film-count floor so the menu shows
+        meaningful buckets (mirrors `topDirectors` / `decadeCounts`). */
+    suspend fun topKeywords(minFilms: Int = 12, limit: Int = 80): List<String> = dbCall {
+        queryRaw(
+            """SELECT k.keyword, COUNT(*) AS c FROM item_keywords k
+               JOIN items i ON i.archiveID = k.archiveID
+               WHERE 1 = 1$adultAnd$notCommercial$typeAnd
+               GROUP BY k.keyword HAVING c >= ? ORDER BY c DESC, k.keyword LIMIT ?""",
+            listOf(minFilms, limit),
+        ) { it.getText(0) }
+    }
+
+    suspend fun topStudios(minFilms: Int = 6, limit: Int = 80): List<String> = dbCall {
+        queryRaw(
+            """SELECT s.studio, COUNT(*) AS c FROM item_studios s
+               JOIN items i ON i.archiveID = s.archiveID
+               WHERE 1 = 1$adultAnd$notCommercial$typeAnd
+               GROUP BY s.studio HAVING c >= ? ORDER BY c DESC, s.studio LIMIT ?""",
+            listOf(minFilms, limit),
+        ) { it.getText(0) }
+    }
 
     suspend fun seriesCards(limit: Int = 500): List<CatalogItem> = items(
         "$itemSelect WHERE i.contentType = 'tv-series'$adultAnd$typeAnd" +

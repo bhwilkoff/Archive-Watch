@@ -95,16 +95,23 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   Inserting a section means amending this rule. Hide-watched (Settings
   toggle) filters completed titles from shelves/gems/PD Day.
 - **§4.2 Browse** = scope FilterChips (All/Films/TV/Silent/Animation/Shorts/
-  Newsreels/Documentary/Ephemera) + decade and sort dropdowns + adaptive
-  `LazyVerticalGrid` with paging-on-scroll (60/page) and the REAL total from
-  `browseCount`. The TV scope shows `seriesCards` → SeriesDetail.
+  Newsreels/Documentary/Ephemera) + decade, sort, **keyword and studio**
+  dropdowns + adaptive `LazyVerticalGrid` with paging-on-scroll (60/page) and
+  the REAL total from `browseCount`. The TV scope shows `seriesCards` →
+  SeriesDetail. The keyword/studio facets (Decision 046, metadata expansion)
+  query the value-indexed `item_keywords`/`item_studios` join tables exactly
+  like the genre join — `browse`/`browseCount` gained parallel `keyword`/`studio`
+  params, and `topKeywords`/`topStudios` feed the facet menus (count-floored,
+  hidden when empty; not offered in the TV scope).
 - **§4.3 Search** = debounced (~180 ms) full-text search over the catalog's
   FTS5 index (`search` verb), grid results, explicit empty states.
-- **§4.4 Detail** = backdrop header → title/meta → Play + Favorite →
-  synopsis → cast row (TMDb `w185` profile URLs per contract §7) → More Like
-  This. SeriesDetail is the variant with a season dropdown (null season =
-  "More Episodes") and an episode list; "X of Y episodes" uses
-  `canonicalEpisodesCount`.
+- **§4.4 Detail** = backdrop header → title/meta → **tagline (italic)** → Play
+  + Favorite → synopsis → **rich-metadata rows** (writer / music / cinematography
+  / studio / series / awards — Decision 046, each shown only when present) → cast
+  row (TMDb `w185` profile URLs per contract §7; `tmdbPersonID` decodes for future
+  use — no Callsheet on Android) → More Like This. SeriesDetail is the variant
+  with a season dropdown (null season = "More Episodes") and an episode list;
+  "X of Y episodes" uses `canonicalEpisodesCount`.
 - **§4.5 Library** = Favorites / Continue Watching / Playlists / **Clips**
   tabs over `user.sqlite`. The Clips tab lists saved Clip Studio exports
   (§4.8) and re-shares them; long-press deletes. Empty states are explicit
