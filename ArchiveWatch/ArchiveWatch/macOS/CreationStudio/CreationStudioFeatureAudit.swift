@@ -384,10 +384,10 @@ enum CreationStudioFeatureAudit {
         // Let any debounced/auto-retry rebuilds settle, then count swaps for the whole 12-clip load.
         try? await Task.sleep(for: .seconds(2))
         let swaps = model.debug_swapCount - swaps0
-        // Old progressive code swapped on every ~1.2s tick (≈8-10 for this load → flashing). The fix is
-        // one early compose + one final (+ maybe a retry): a small, bounded number.
-        check("flash.swaps", swaps <= 4,
-              "12-clip load did \(swaps) preview swaps (want <=4 — each swap blanks/flashes the monitor)")
+        // The preview fills in CHUNKS (a few batched composes), NOT per-clip — per-clip would be ~12
+        // swaps for this load (the strobe the owner reported). A handful proves it's batched.
+        check("flash.swaps", swaps <= 7,
+              "12-clip load did \(swaps) preview swaps (want <=7, well under per-clip — batched, not strobing)")
     }
 
     // MARK: - Duplicate / copy-paste / mute / volume

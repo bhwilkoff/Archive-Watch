@@ -111,7 +111,13 @@ struct ProjectEditorView: View {
                                     .font(.caption2).foregroundStyle(.white.opacity(0.7))
                             }
                         }
-                        .padding(10).background(.black.opacity(0.55), in: RoundedRectangle(cornerRadius: 8))
+                        .padding(8).background(.black.opacity(0.55), in: RoundedRectangle(cornerRadius: 8))
+                        // Pin the status to a CORNER and make it non-interactive, so it never covers the
+                        // video or blocks the user from scrubbing/editing while the last clips finish in
+                        // the background (owner: "a persistent note … stops the user from doing anything").
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                        .padding(10)
+                        .allowsHitTesting(false)
                     }
                 }
                 .frame(minHeight: 220)

@@ -947,22 +947,28 @@ final class EditorModel {
                 }
             }
             for _ in 0..<maxConcurrent { addNext() }
-            var shownFirst = false
+            // Fill the preview in CHUNKS as clips resolve, so the editor is USABLE within seconds and
+            // the slow last clips finish in the BACKGROUND (black gaps at their slots until they do) —
+            // the whole preview is NEVER gated on the slowest clip (owner: "unusable while loading …
+            // 5 minutes before I can touch the timeline"). The FIRST ready clip shows immediately; then
+            // we re-compose only once a BATCH of new clips is ready (not per-clip — that was the
+            // "flashes with every update" strobe) and at most every ~2s. The playhead-stable swap
+            // (isSwappingPreview) keeps each chunk swap gentle.
+            var lastComposeAt = Date(timeIntervalSince1970: 0)
+            var composedReals = 0
+            let batch = max(4, timelineClips.count / 8)
             while let (id, r) = await group.next() {
                 if let r { resolvedByID[id] = r }
                 if Task.isCancelled { group.cancelAll(); break }
                 addNext()
-                // ONE early compose the moment the FIRST clip is ready, but ONLY when the program
-                // monitor is currently BLANK (a fresh load). This makes the preview appear in ~1s
-                // instead of waiting for the slowest clip (the anti-hang win) WITHOUT flashing: we do
-                // NOT re-swap on every subsequent clip (that repeated replaceCurrentItem was the
-                // "preview flashes with every update" the owner reported). The remaining clips appear
-                // together in the single FINAL compose below. A rebuild that already has a preview
-                // (an edit, the verify pass) skips this and only swaps once, at the end.
-                if !shownFirst, !resolvedByID.isEmpty, player.currentItem == nil {
-                    shownFirst = true
+                let newReals = resolvedByID.count - composedReals
+                let firstShow = composedReals == 0 && !resolvedByID.isEmpty
+                if firstShow || (newReals >= batch && Date().timeIntervalSince(lastComposeAt) > 2.0) {
+                    composedReals = resolvedByID.count
+                    lastComposeAt = Date()
                     _ = await composeAndSwap(resolvedByID, timelineClips: timelineClips,
-                                             wasPlaying: wasPlaying, maxPollMs: 800, markClean: false)
+                                             wasPlaying: wasPlaying, maxPollMs: firstShow ? 800 : 200,
+                                             markClean: false)
                 }
             }
         }
