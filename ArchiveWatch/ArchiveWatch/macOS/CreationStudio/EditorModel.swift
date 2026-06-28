@@ -211,7 +211,7 @@ final class EditorModel {
             // hang almost every time"). The deadline rebuild fast-fails the source (resolveLocal) → gap.
             Task { [weak self] in
                 try? await Task.sleep(for: .seconds(Self.maxGiveUpSeconds + 0.5))
-                await self?.scheduleRebuild()
+                self?.scheduleRebuild()   // Task inherits @MainActor; scheduleRebuild is sync — no await
             }
         }
     }
