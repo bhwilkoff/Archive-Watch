@@ -59,7 +59,15 @@ enum LookGrader {
         // iOS CIFilter pipeline already made — CREATE-STUDIO-PLAN.md §5c / ClipExporter). Both produce
         // an equivalent grade-only videoComposition (no size change; crop back to source extent), fed
         // identically into the HighestQuality export below.
+        // The macOS-27 Configuration API (AVVideoComposition(applyingFiltersTo:applier:) +
+        // AVCIImageFilteringResult) exists ONLY in the macOS 27 SDK, so it must be guarded at COMPILE
+        // time, not just runtime: a bare `if #available(macOS 27)` still fails to compile against the
+        // GA macOS 26 SDK (the symbol is absent). `#if compiler(>=6.4)` = "building with Xcode 27's
+        // Swift 6.4 toolchain (the 27 SDK)"; the GA Xcode 26 toolchain (Swift <6.4) compiles ONLY the
+        // deprecated-but-functional macOS 26 API, so the app archives + submits on a RELEASE Xcode
+        // (App Review rejects beta-toolchain builds — see docs/mac-app-store-submission.md).
         let vc: AVVideoComposition
+        #if compiler(>=6.4)
         if #available(macOS 27, *) {
             vc = try await AVVideoComposition(applyingFiltersTo: asset, applier: { request in
                 let graded = look.apply(to: request.sourceImage.clampedToExtent())
@@ -73,6 +81,13 @@ enum LookGrader {
                 request.finish(with: graded, context: nil)
             }
         }
+        #else
+        vc = try await AVVideoComposition.videoComposition(with: asset) { request in
+            let graded = look.apply(to: request.sourceImage.clampedToExtent())
+                .cropped(to: request.sourceImage.extent)
+            request.finish(with: graded, context: nil)
+        }
+        #endif
         guard let session = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality) else {
             throw CreationStudioError.cannotCreateExportSession
         }

@@ -38,11 +38,83 @@ signed app — nothing below is a guess:
   `NSMicrophoneUsageDescription` is present for the voiceover recorder (audio stays
   on device — never transmitted).
 
-### The ONE caveat before upload
-The verification archive was built with **Xcode-beta**. App Store Connect rejects
-builds made with a beta toolchain once the GM is out. **Archive + upload with the
-RELEASE Xcode 26** (the same toolchain that shipped the approved tvOS 1.2.24 build).
-Everything else is identical.
+---
+
+## Build pathway — getting an APPROVABLE build when you only have Xcode beta
+
+This is the load-bearing part. The dev machine currently has **only Xcode 27 beta**
+(Swift 6.4, macOS 27 SDK). That matters because:
+
+> **The rule (Apple, confirmed 2026):** you MAY upload a beta-Xcode / beta-SDK build to
+> **TestFlight** (internal + external testing), but you may **NOT submit it for App Store
+> review**. App Review requires a build made with a **released** Xcode (or the latest
+> **Release Candidate**) and its **released SDK**. A beta-toolchain build is rejected at
+> submission. Apple also requires the *current* released SDK within a few months of each OS
+> release, so always use the newest GA Xcode, not an old one.
+
+### Step 0 (DONE, 2026-06-28) — make the app COMPILE on the released SDK
+A bare `if #available(macOS 27, *)` is NOT enough: the macOS-27 symbols the app calls
+(`AVVideoComposition(applyingFiltersTo:applier:)` + `AVCIImageFilteringResult` in
+`Looks_macOS.swift`; `pixelBufferAndDisplayTime(forItemTime:)` in `PlaybackFreezeGuard.swift`)
+exist ONLY in the macOS 27 SDK, so a released Xcode 26 (macOS 26 SDK) would fail to *compile*
+them — not just gate them at runtime. Both sites are now wrapped in **`#if compiler(>=6.4)`**
+(= "the Xcode 27 / Swift 6.4 toolchain"), with the deprecated-but-functional macOS 26 API in
+the `#else`. Result:
+- **Xcode 27 beta** (Swift 6.4) → compiles the new API, warning-free (unchanged dev experience).
+- **Xcode 26 GA** (Swift < 6.4) → compiles the macOS 26 API → **archives + submits cleanly**.
+- This ALSO unblocks tvOS/iOS GA builds (`PlaybackFreezeGuard` is shared across all targets).
+
+No further code change is needed when Xcode 27 goes GA — `#if compiler` automatically picks
+the new API once the GA toolchain is Swift 6.4.
+
+### Step 1 — install the released Xcode 26 ALONGSIDE the beta
+Two Xcodes coexist fine. Get the **latest released Xcode 26.x** (NOT a beta):
+- Mac App Store ("Xcode"), OR
+- <https://developer.apple.com/download/all/> → search "Xcode 26" → the build WITHOUT
+  "beta" in the name (a Release Candidate is also accepted for submission).
+- Install to `/Applications/Xcode.app` (keep the beta at `/Applications/Xcode-beta.app`).
+- First launch: let it install additional components; accept the license.
+
+### Step 2 — point the toolchain at the RELEASED Xcode for the archive
+Per-command (recommended — leaves your beta default intact):
+```
+export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
+```
+…or globally `sudo xcode-select -s /Applications/Xcode.app` (revert later with
+`-s /Applications/Xcode-beta.app`). In the GUI it's simply whichever Xcode you opened.
+
+**Verify it is GA, not beta** before archiving — this is the whole point:
+```
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcodebuild -version            # → Xcode 26.x (NOT 27)
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer swift --version                # → Swift < 6.4
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcodebuild -showsdks | grep macOS   # → macOS 26.x
+```
+If `swift --version` says 6.4 or the SDK says macOS 27, you're still on the beta — fix
+`DEVELOPER_DIR` before continuing.
+
+### Step 3 — archive + upload with the released Xcode
+GUI: open `ArchiveWatch/ArchiveWatch.xcodeproj` in **/Applications/Xcode.app**, scheme
+**Archive Watch Mac**, Destination **Any Mac**, **Product ▸ Archive** → Organizer →
+**Distribute App ▸ App Store Connect ▸ Upload** (keep automatic signing ON). Or headless:
+```
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcodebuild -project ArchiveWatch/ArchiveWatch.xcodeproj \
+  -scheme "Archive Watch Mac" -configuration Release -destination 'generic/platform=macOS' \
+  -archivePath build/ArchiveWatchMac.xcarchive archive -allowProvisioningUpdates
+# then Organizer ▸ Distribute, or xcodebuild -exportArchive + xcrun notarytool/altool to upload.
+```
+Bump BOTH numbers in `AppVersion.xcconfig` first — every upload must be a new build number.
+
+### Interim: ship to TESTERS today without the GA Xcode
+You can get the app into real hands NOW with the beta build: archive with the beta and
+**Distribute ▸ TestFlight Internal Only** (no review). External TestFlight needs a one-time
+Beta App Review but still accepts beta-built builds. Fastest feedback loop while you install
+Xcode 26 for the actual store submission.
+
+### Alternative: Xcode Cloud (no second local Xcode at all)
+Xcode Cloud builds on Apple's runners with a Xcode you pick — choose the **latest released**
+Xcode 26 (not "Latest Beta"). With Step 0's `#if compiler` guard the project compiles there
+and the workflow can archive + deliver to TestFlight/App Store, sidestepping a local GA Xcode
+entirely. (Decision 002's repo-root `.xcodeproj` requirement is already satisfied.)
 
 ---
 
@@ -162,17 +234,29 @@ not owned — no URL, no "All Rights Reserved")
 
 Required size — pick ONE and use it for every shot (16:10):
 **1280×800**, 1440×900, 2560×1600, or **2880×1800** (Retina, recommended).
-1–10 per localization. Suggested set, in order:
-1. Home — hero + curated shelves (the cinematheque)
-2. A Detail page — poster, cast, synopsis (the "produced" look)
-3. Channels — the live TV guide
-4. **Creation Studio editor** — timeline with clips + program monitor (the hook)
-5. **Text → Supercut** sheet mid-compose (the differentiator)
+Exact rule (Apple, confirmed 2026): macOS screenshots must be **16:10** and EXACTLY one of
+those four pixel sizes; 1–10 per localization; `.png`/`.jpg`. Use **2880×1800** (Retina) for
+all of them. Suggested set, in order (lead with the differentiator that justifies the
+"Photo & Video" secondary category):
+1. **Creation Studio editor** — timeline with clips + program monitor (the hook; Mac-only)
+2. **Text → Supercut** sheet mid-compose (the differentiator)
+3. Home — hero + curated shelves (the cinematheque)
+4. A Detail page — poster, cast, synopsis (the "produced" look)
+5. Channels — the live TV guide
 6. Export / Publish to the Internet Archive
 
-Capture with the real release build, window at the chosen size, no debug overlays
-(don't set `AW_CS_*` env vars). `⌘⇧4` then Space to grab a window, or
-`screencapture -o -w shot.png`.
+**Capture with the script** `tools/mac-screenshots.sh` (frames the frontmost window onto a
+brand canvas at the EXACT required size — a raw window grab is never exactly 2880×1800):
+```
+# Run the RELEASE build, navigate to a screen, then (no AW_CS_*/AW_START_* env vars):
+tools/mac-screenshots.sh 01-studio        # → ~/Desktop/ArchiveWatch-Mac-Screenshots/01-studio.png
+# repeat: 02-supercut, 03-home, 04-detail, 05-channels, 06-export
+```
+One-time: grant **Screen Recording** permission to your terminal/Xcode (System Settings ▸
+Privacy & Security ▸ Screen Recording) or the grab is blank. Manual fallback: `⌘⇧4` then
+Space grabs a window, then run the file through the script's Pillow framing, or size the
+window to a 16:10 and crop to exact dims. Screenshots may come from ANY build (they don't
+have to be the submitted binary) — so you can capture from today's beta build now.
 
 ---
 

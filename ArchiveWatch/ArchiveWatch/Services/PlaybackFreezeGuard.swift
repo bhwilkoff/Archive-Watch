@@ -53,13 +53,20 @@ final class PlaybackFreezeGuard {
         // A fresh frame is available → pipeline healthy; consume it and reset.
         if output.hasNewPixelBuffer(forItemTime: itemTime) {
             // macOS/iOS/tvOS 27 deprecate copyPixelBuffer(forItemTime:itemTimeForDisplay:) in favor of
-            // pixelBufferAndDisplayTime(forItemTime:) (returns a tuple). We discard the buffer either
-            // way — this tap only proves frames are flowing — so the behavior is identical.
+            // pixelBufferAndDisplayTime(forItemTime:). That new symbol exists ONLY in the 27 SDK, so it
+            // must be COMPILE-time guarded (#if compiler), not just runtime (#available): otherwise the
+            // app (and the SHARED iOS/tvOS targets, which include this file) won't compile against the
+            // GA 26 SDK and can't be submitted with a release Xcode (docs/mac-app-store-submission.md).
+            // We discard the buffer either way (this tap only proves frames are flowing) — identical behavior.
+            #if compiler(>=6.4)
             if #available(macOS 27, iOS 27, tvOS 27, *) {
                 _ = output.pixelBufferAndDisplayTime(forItemTime: itemTime)
             } else {
                 _ = output.copyPixelBuffer(forItemTime: itemTime, itemTimeForDisplay: nil)
             }
+            #else
+            _ = output.copyPixelBuffer(forItemTime: itemTime, itemTimeForDisplay: nil)
+            #endif
             lastFrameHostTime = host
             return
         }
