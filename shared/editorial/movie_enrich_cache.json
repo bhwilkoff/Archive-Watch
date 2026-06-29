@@ -128913,5 +128913,10 @@
   "FaceOfDisaster": {
     "imdb_id": null,
     "fetched_at": "2026-06-28T06:37:56Z"
+  },
+  "vintage-vhs-cinderella-goodtimes": {
+    "imdb_id": "tt0000181",
+    "tmdb_id": 415468,
+    "fetched_at": "2026-06-29T07:07:39Z"
   }
 }
