@@ -333,7 +333,23 @@ final class EditorModel {
                 self.isPlaying = playing
             }
         }
+        // CONVERGENCE WATCHDOG. The preview must ALWAYS end up matching the timeline once activity
+        // settles (owner 2026-06-29: "it didn't play through once it was all loaded"). The periodic
+        // time observer only fires during playback, so a paused, settled-but-dirty preview (e.g. a
+        // rebuild that lost a swap race, or a give-up removal whose rebuild arrived during a slow pass)
+        // would otherwise sit stale. This re-kicks a rebuild whenever the preview is dirty but nothing
+        // is running/interacting — a cheap belt-and-suspenders on top of the coalescing scheduler.
+        watchdogTask = Task { [weak self] in
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(2))
+                guard let self else { return }
+                if self.previewDirty, !self.rebuildRunning, !self.isInteracting, !self.clips.isEmpty {
+                    self.scheduleRebuild()
+                }
+            }
+        }
     }
+    @ObservationIgnored private var watchdogTask: Task<Void, Never>?
 
     /// The live project — the SINGLE @Observable source of truth for the editor. Backed by the
     /// tracked stored `_project`, so ANY read (e.g. `clips` in the timeline's updateNSView) registers
