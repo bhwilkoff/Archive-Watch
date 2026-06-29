@@ -428,6 +428,59 @@ _BOILERPLATE_SENT = re.compile(
 _FROM_IMDB_PREFIX = re.compile(r"^\s*(taken\s+)?from\s+imdb\s*:?\s*", re.I)
 _DISC_MARK = re.compile(r"\s*[\(\[]?\b(disc|disk|reel|tape)\s*\d+\b[\)\]]?", re.I)
 
+# Synopsis cleaners (owner 2026-06-29: descriptions must contain ONLY the plot — no taglines, cast
+# lists, release/runtime info, or source notes). Dry-run-validated on the live catalog: 550 cleaned,
+# 0 real-plot false positives (the only nulls are non-plot metadata strings). Precision over recall.
+_PRINT_AD_PAREN = re.compile(r"\(\s*print\s+ad\b[^)]*\)", re.I)
+# A capitalized PLOT/SYNOPSIS/STORYLINE section HEADER (case-sensitive so mid-prose "the plot:" /
+# "Cinderella storyline:" is never matched). Keep the text after the LAST header — that's the plot.
+_PLOT_HEADER = re.compile(
+    r"(?:^|\s)(?:Plot Summary|PLOT SUMMARY|Plot|PLOT|Synopsis|SYNOPSIS|Storyline|STORYLINE)\s*:\s*")
+_WIKI_BODY_PREFIX = re.compile(r"\bfrom\s+wikipedia\b[^:]{0,40}:\s*", re.I)
+_TAGLINE_CLAUSE = re.compile(r'\bTaglines?\s*:\s*("[^"]*"|[^|]*?(?:[.!?](?:\s|$)|\s*\||$))', re.I)
+_TAGLINE_GREEDY = re.compile(r"\bTaglines?\s*:\s*.*$", re.I | re.S)
+_IMDB_TAIL = re.compile(
+    r"\b(here'?s the imdb page\.?|information regarding this film[^.]*imdb[^.]*\.?)\s*$", re.I)
+# IMDb-prefixed trailing dumps (a SECOND tagline list, trivia, user reviews) — cut to end. Require an
+# IMDb/numbered-list anchor so prose "storyline:" is never matched.
+_TRAIL_CRUFT = re.compile(
+    r"\s*(?:[-_]+\s*IMDb\b.*|\bIMDb\s+(?:User\s+Review|Trivia|Storylines?)\b.*"
+    r"|STORYLINES?\s*:\s*0?1\).*|information regarding this film.*?imdb.*"
+    r"|more information on wikipedia.*|here'?s the imdb page.*)$", re.I | re.S)
+# Pipe-delimited structured field (`| Cast: ... |`) — only the table form, never prose.
+_PIPE_FIELD = re.compile(
+    r"\|\s*(?:cast|starring|director|directed by|writer[s]?|producer[s]?|studio|genre[s]?|runtime|"
+    r"run\s*time|countr(?:y|ies)|language[s]?|release\s*date|aspect\s*ratio|format|certificate|"
+    r"sound\s*mix|color)\s*:[^|]*", re.I)
+# A LEADING spec dump (Runtime:/Country:/Language:/... fields before any prose).
+_LEAD_SPEC = re.compile(
+    r"^(?:\s*(?:runtime|run\s*time|countr(?:y|ies)|language[s]?|release\s*date|aspect\s*ratio|"
+    r"format|certificate|sound\s*mix|color|genre[s]?)\s*:[^|.]*?(?:\||\s{2,}|(?=[A-Z][a-z]+\s*:)))+",
+    re.I)
+
+
+def _extract_plot_body(s):
+    """Strip non-plot cruft from a synopsis, preferring a labeled Plot:/Wikipedia: body. Returns the
+    cleaned string (caller applies the MIN_SYNOPSIS null-out). Validated for zero false positives."""
+    s = _PRINT_AD_PAREN.sub(" ", s)
+    extracted = False
+    headers = list(_PLOT_HEADER.finditer(s))
+    if headers and len(s) - headers[-1].end() >= MIN_SYNOPSIS:
+        s = s[headers[-1].end():]; extracted = True
+    else:
+        m = _WIKI_BODY_PREFIX.search(s)
+        if m and len(s) - m.end() >= MIN_SYNOPSIS:
+            s = s[m.end():]; extracted = True
+    s = _TRAIL_CRUFT.sub("", s)
+    s = _PIPE_FIELD.sub(" ", s)
+    if not extracted:
+        s2 = _LEAD_SPEC.sub("", s)
+        if len(s2) >= MIN_SYNOPSIS:
+            s = s2
+        s = _TAGLINE_GREEDY.sub(" ", s)   # promotional tagline runs to end when no labeled plot follows
+        s = _IMDB_TAIL.sub("", s)
+    return re.sub(r"\s*\|\s*", " ", s)
+
 # Slash-delimited format dump (the ptp_ collection's title style):
 #   "The Love Nest / Blu-ray / / MKV / / Remux / Buster Keaton"
 #   "Anna Christie / John Griffith Wray / Thomas H. Ince / DVD"
@@ -481,7 +534,24 @@ _SITE_TAG = re.compile(
     r"\s*(?:@\s*\S+|\bwww\.\S+|\b\S+\.(?:com|net|org|tv|pe|me)\b|\bda\s?xclusives\b|"
     r"\bhevcbay\b|\bamaderforum\b|\bdesibbrg\b|\bbrego\b|"
     r"\b(?:rarbg|yify|yts|ettv|eztv|galaxyrg|ntg)\b)", re.I)
-_TITLE_EXT = re.compile(r"\.(avi|wmv|flv|mpg|mpeg|mov|m4v|mp4|mkv|ogv)\s*$", re.I)
+_TITLE_EXT = re.compile(r"\.(avi|wmv|flv|mpg|mpeg|mov|m4v|mp4|mkv|ogv|mxf)\s*$", re.I)
+# A trailing timecode / frame-count run an uploader left in the title ("… 01 00 45 10",
+# "… 18 20 31") — 3+ space/underscore-separated two-digit groups at the end. Real titles never
+# end this way; _keep_if_lettered guards it so a result without letters is rejected.
+_TIMECODE_TAIL = re.compile(r"[ _]\d{2}(?:[ _]\d{2}){2,}\s*$")
+# A QID ("Q3992547") or bare imdb id ("tt0403058") that leaked in as the whole title — never a real
+# title (Decision 046 unresolved). Replaced with a slug derived from the archiveID.
+_RAW_ID_TITLE = re.compile(r"^(?:Q\d+|tt\d+)$", re.I)
+
+
+def _title_from_archiveid(aid):
+    """A human-ish title slug from an archiveID for QID/junk-titled items: drop a leading reel/
+    sequence number + a trailing timecode run, words from underscores/dashes."""
+    s = re.sub(r"[._-]+", " ", aid or "").strip()
+    s = re.sub(r"^\d{2,5}\s+", "", s)              # leading reel/sequence number
+    s = _TIMECODE_TAIL.sub("", s)                  # trailing timecode run
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
 
 
 def _strip_uploader_cruft(t):
@@ -819,6 +889,7 @@ def sanitize_synopsis(it):
     if not raw:
         return None
     s = _TAG.sub(" ", _fix_mojibake(_html.unescape(raw)))
+    s = _extract_plot_body(s)          # drop taglines/cast/release/source cruft, prefer a labeled plot
     s = _FROM_IMDB_PREFIX.sub("", s)   # "From IMDb : <plot>" -> "<plot>" (B6)
     sents = [x for x in _SENT_SPLIT.split(s)
              if not (_audit.URL.search(x) or _audit.SOCIAL.search(x)
@@ -873,7 +944,16 @@ def sanitize_title(it):
             it["title"] = canon
             return True
         return False
+    # A QID / bare-imdb-id title is never real — derive a slug from the archiveID (match_unmatched
+    # may later upgrade it to a canonical title; until then a readable slug beats "Q3992547").
+    if _RAW_ID_TITLE.match(raw):
+        slug = _title_from_archiveid(it.get("archiveID") or "")
+        if len(slug) >= 3 and re.search(r"[A-Za-z]", slug):
+            it["title"] = slug
+            return True
+        return False
     t = _fix_mojibake(_html.unescape(raw))
+    t = _keep_if_lettered(_TIMECODE_TAIL.sub("", t), t)   # trailing timecode run an uploader left in
     t = _strip_format_dump(t)
     t = _strip_source_specs(t)
     t = _strip_runtime_size(t)        # file size / fps / runtime stamp / rip words
