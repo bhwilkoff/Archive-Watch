@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Command-line App Store submission (no Xcode GUI). Used by tools/upload-mac.sh and the
+	     `xcodebuild -exportArchive` step in docs/mac-app-store-submission.md. -->
+	<!-- method: Xcode 16+ value is "app-store-connect" (older Xcode: "app-store"). -->
+	<key>method</key>
+	<string>app-store-connect</string>
+	<!-- destination=upload makes -exportArchive upload straight to App Store Connect (no Transporter). -->
+	<key>destination</key>
+	<string>upload</string>
+	<key>teamID</key>
+	<string>L2G756LY8N</string>
+	<key>signingStyle</key>
+	<string>automatic</string>
+	<!-- We manage version + build number via AppVersion.xcconfig (Decision 003) — never let Xcode bump. -->
+	<key>manageAppVersionAndBuildNumber</key>
+	<false/>
+</dict>
+</plist>

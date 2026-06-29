@@ -93,3 +93,7 @@ tools/audit_series_episodes.csv
 subs/
 subs.tar.gz
 tools/whisper_manifest.jsonl
+*.p8
+private_keys/
+/build/
+AuthKey_*

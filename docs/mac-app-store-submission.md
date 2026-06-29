@@ -92,17 +92,48 @@ DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcodebuild -showsdks | 
 If `swift --version` says 6.4 or the SDK says macOS 27, you're still on the beta — fix
 `DEVELOPER_DIR` before continuing.
 
-### Step 3 — archive + upload with the released Xcode
-GUI: open `ArchiveWatch/ArchiveWatch.xcodeproj` in **/Applications/Xcode.app**, scheme
-**Archive Watch Mac**, Destination **Any Mac**, **Product ▸ Archive** → Organizer →
-**Distribute App ▸ App Store Connect ▸ Upload** (keep automatic signing ON). Or headless:
+### Step 3 — archive + upload WITHOUT the Xcode GUI (command line)
+You never have to open Xcode/Organizer. One-time, set up an **App Store Connect API key** so the
+CLI can authenticate non-interactively:
+- ASC ▸ **Users and Access ▸ Integrations ▸ App Store Connect API** ▸ generate a key (Role: **App
+  Manager** or Admin). Note the **Key ID** + **Issuer ID**; download `AuthKey_<KEYID>.p8` (one
+  download only).
+- Place it where the tools look (it must NEVER go in git — `.gitignore` already blocks `*.p8`):
+  ```
+  mkdir -p ~/.appstoreconnect/private_keys
+  mv ~/Downloads/AuthKey_<KEYID>.p8 ~/.appstoreconnect/private_keys/
+  export ASC_KEY_ID=<KEYID>  ASC_ISSUER_ID=<ISSUER-UUID>
+  ```
+
+Then **one command** archives → exports → uploads (bump `AppVersion.xcconfig` first):
 ```
-DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcodebuild -project ArchiveWatch/ArchiveWatch.xcodeproj \
-  -scheme "Archive Watch Mac" -configuration Release -destination 'generic/platform=macOS' \
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer tools/upload-mac.sh
+```
+`tools/upload-mac.sh` refuses a `*beta*` `DEVELOPER_DIR` (App Review rejects beta builds), archives
+the **Archive Watch Mac** scheme, then runs `xcodebuild -exportArchive` with
+`ExportOptions-appstore.plist` (`method=app-store-connect`, `destination=upload`) + the API-key
+flags — uploading straight to ASC, no Organizer, no Transporter. The raw commands it runs:
+```
+xcodebuild -project ArchiveWatch/ArchiveWatch.xcodeproj -scheme "Archive Watch Mac" \
+  -configuration Release -destination 'generic/platform=macOS' \
   -archivePath build/ArchiveWatchMac.xcarchive archive -allowProvisioningUpdates
-# then Organizer ▸ Distribute, or xcodebuild -exportArchive + xcrun notarytool/altool to upload.
+xcodebuild -exportArchive -archivePath build/ArchiveWatchMac.xcarchive -exportPath build/export \
+  -exportOptionsPlist ExportOptions-appstore.plist \
+  -authenticationKeyID "$ASC_KEY_ID" -authenticationKeyIssuerID "$ASC_ISSUER_ID" \
+  -authenticationKeyPath ~/.appstoreconnect/private_keys/AuthKey_$ASC_KEY_ID.p8 \
+  -allowProvisioningUpdates
 ```
-Bump BOTH numbers in `AppVersion.xcconfig` first — every upload must be a new build number.
+*Two-step variant* (export a local `.pkg`, then upload separately): drop `destination=upload` from
+the plist so `-exportArchive` writes `build/export/*.pkg`, then either drag it into the free
+**Transporter** app (Mac App Store) or run
+`xcrun altool --upload-app -f build/export/*.pkg -t macos --apiKey "$ASC_KEY_ID" --apiIssuer "$ASC_ISSUER_ID"`
+(altool finds the key in `~/.appstoreconnect/private_keys/`).
+
+### Step 4 — finish the submission (web, not Xcode)
+Upload ≠ submit. After the build processes in ASC (~5–30 min) it appears under the **Archive Watch**
+record's macOS platform. In the **App Store Connect website**: open the macOS version, **select the
+uploaded build**, confirm the listing/screenshots, and **Submit for Review**. (To automate even this
+last step, use **fastlane `deliver`** or the **ASC REST API** — both drive it without Xcode.)
 
 ### Interim: ship to TESTERS today without the GA Xcode
 You can get the app into real hands NOW with the beta build: archive with the beta and
