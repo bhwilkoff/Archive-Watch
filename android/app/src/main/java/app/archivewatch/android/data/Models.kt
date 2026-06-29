@@ -95,6 +95,17 @@ data class CatalogItem(
     val isSilent: Boolean
         get() = isSilentFilm ?: (contentType == "silent-film")
 
+    // Title-level identity for cross-shelf Home de-duplication: two uploads of the
+    // same film share a title+year but differ in archiveID, so an archiveID-only
+    // seen-set lets the same title repeat across shelves. Normalized title+year,
+    // falling back to archiveID so distinct yearless same-titled items don't merge.
+    // (Android has no imdbID column; title+year is the strongest available signal.)
+    val dedupKey: String
+        get() {
+            val t = title.lowercase().filter { it.isLetterOrDigit() }
+            return if (t.isNotEmpty() && year != null) "ty:$t|$year" else "id:$archiveID"
+        }
+
     /** A first-class episode item (Decision 045); its seriesID points at the spine. */
     val isEpisode: Boolean get() = contentType == "tv-episode"
 

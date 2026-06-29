@@ -17,7 +17,10 @@ struct HomeView: View {
     @State private var heroSeed = UInt64.random(in: 0..<UInt64.max)
     @State private var shelfSeed = UInt64.random(in: 0..<UInt64.max)
     @State private var heroItems: [Catalog.Item] = []
-    @State private var payloads: [ShelfPayload] = []
+    // Featured shelves split around the dynamic shelves (top two above, the rest
+    // below) — see rebuild()'s render-order dedup.
+    @State private var topPayloads: [ShelfPayload] = []
+    @State private var restPayloads: [ShelfPayload] = []
     @State private var gems: [Catalog.Item] = []
     @State private var topRated: [Catalog.Item] = []
     @State private var watchingNow: [Catalog.Item] = []
@@ -49,7 +52,7 @@ struct HomeView: View {
                     Shelf(title: "Continue Watching", subtitle: nil, items: continueItems)
                 }
                 CategoryTilesRow()
-                ForEach(payloads.prefix(2)) { payload in
+                ForEach(topPayloads) { payload in
                     Shelf(title: payload.shelf.title, subtitle: payload.shelf.subtitle, items: payload.items)
                 }
                 if !topRated.isEmpty {
@@ -79,7 +82,7 @@ struct HomeView: View {
                 ForEach(directorShelves, id: \.name) { shelf in
                     Shelf(title: "Directed by \(shelf.name)", subtitle: nil, items: shelf.items)
                 }
-                ForEach(payloads.dropFirst(2)) { payload in
+                ForEach(restPayloads) { payload in
                     Shelf(title: payload.shelf.title, subtitle: payload.shelf.subtitle, items: payload.items)
                 }
                 // Last row, matching tvOS Home (owner direction 2026-06-11:
@@ -126,18 +129,55 @@ struct HomeView: View {
         // owns the WatchProgress @Query) so hide-watched (#17) works on iOS.
         store.completedArchiveIDs = Set(progress.filter(\.isComplete).map(\.archiveID))
         heroItems = loadHero()
-        gems = store.filteringWatched(store.hiddenGems())
-        topRated = store.filteringWatched(
-            store.topRated().filter(\.hasProfessionalArtwork))
-        watchingNow = store.filteringWatched(store.watchingNow().filter(\.hasProfessionalArtwork))
-        communityFavorites = store.filteringWatched(store.communityFavorites().filter(\.hasProfessionalArtwork))
-        mostDiscussed = store.filteringWatched(store.mostDiscussed().filter(\.hasProfessionalArtwork))
-        pdItems = store.filteringWatched(
-            store.browse(year: pdYear, sort: .popular, limit: 24).filter(\.hasDesignedArtwork))
-        directorShelves = store.topDirectors().map { d in
-            (name: d.name, items: store.filteringWatched(store.byDirector(d.name)))
-        }.filter { $0.items.count >= minPerShelf }
-        payloads = dedupedPayloads()
+
+        // ONE ordered seen-set across EVERY home shelf so no title repeats anywhere
+        // (keyed on dedupKey, not archiveID — also collapses re-uploads of the same
+        // film). Claimed in the EXACT render order of `body`: hero + Continue
+        // Watching seed it; the featured shelves are split around the dynamic
+        // shelves (top two, then the dynamic block, then the rest).
+        var used = Set<String>()
+        heroItems.forEach { used.insert($0.dedupKey) }
+        continueItems.forEach { used.insert($0.dedupKey) }
+
+        // Claim up to `limit` fresh items from a pool (deduping within the pool too),
+        // and only keep the shelf if it clears `min` — mirrors macOS `add()`, so a
+        // shelf that overlaps an earlier one shrinks and HIDES instead of repeating.
+        func take(_ pool: [Catalog.Item], limit: Int = 20, min: Int = minPerShelf) -> [Catalog.Item] {
+            var taken: [Catalog.Item] = []
+            var seen = Set<String>()
+            for it in pool {
+                let k = it.dedupKey
+                if used.contains(k) || seen.contains(k) { continue }
+                seen.insert(k); taken.append(it)
+                if taken.count >= limit { break }
+            }
+            guard taken.count >= min else { return [] }
+            used.formUnion(seen)
+            return taken
+        }
+
+        func featuredPayload(_ shelf: Featured.Shelf) -> ShelfPayload? {
+            var raw = store.filteringWatched(store.items(forShelf: shelf.id))
+                .filter(\.hasProfessionalArtwork)
+            var rng = SplitMix(seed: shelfSeed &+ UInt64(bitPattern: Int64(shelf.id.hashValue)))
+            raw.shuffle(using: &rng)
+            let items = take(raw)
+            return items.isEmpty ? nil : ShelfPayload(shelf: shelf, items: items)
+        }
+
+        topPayloads = shelves.prefix(2).compactMap(featuredPayload)
+        topRated = take(store.filteringWatched(store.topRated().filter(\.hasProfessionalArtwork)))
+        watchingNow = take(store.filteringWatched(store.watchingNow().filter(\.hasProfessionalArtwork)))
+        communityFavorites = take(store.filteringWatched(store.communityFavorites().filter(\.hasProfessionalArtwork)))
+        mostDiscussed = take(store.filteringWatched(store.mostDiscussed().filter(\.hasProfessionalArtwork)))
+        gems = take(store.filteringWatched(store.hiddenGems().filter(\.hasProfessionalArtwork)))
+        pdItems = take(store.filteringWatched(
+            store.browse(year: pdYear, sort: .popular, limit: 120).filter(\.hasDesignedArtwork)))
+        directorShelves = store.topDirectors().compactMap { d in
+            let items = take(store.filteringWatched(store.byDirector(d.name).filter(\.hasProfessionalArtwork)))
+            return items.isEmpty ? nil : (name: d.name, items: items)
+        }
+        restPayloads = shelves.dropFirst(2).compactMap(featuredPayload)
         writeWidgetSnapshot()
     }
 
@@ -180,27 +220,6 @@ struct HomeView: View {
         return Array(pool.shuffled(using: &rng).prefix(7))
     }
 
-    /// Resolve each shelf by id, keep only professional artwork, drop items
-    /// already shown above (hero + an earlier shelf), and per-shelf shuffle —
-    /// so Home isn't five aliases of the same popular list.
-    private func dedupedPayloads() -> [ShelfPayload] {
-        var used = Set(heroItems.map(\.archiveID)).union(continueItems.map(\.archiveID))
-            .union(gems.map(\.archiveID)).union(pdItems.map(\.archiveID))
-            .union(topRated.map(\.archiveID))
-            .union(directorShelves.flatMap { $0.items.map(\.archiveID) })
-        var out: [ShelfPayload] = []
-        for shelf in shelves {
-            let raw = store.filteringWatched(store.items(forShelf: shelf.id))
-            var fresh = raw.filter { $0.hasProfessionalArtwork && !used.contains($0.archiveID) }
-            var rng = SplitMix(seed: shelfSeed &+ UInt64(bitPattern: Int64(shelf.id.hashValue)))
-            fresh.shuffle(using: &rng)
-            let taken = Array(fresh.prefix(20))
-            guard taken.count >= minPerShelf else { continue }
-            taken.forEach { used.insert($0.archiveID) }
-            out.append(ShelfPayload(shelf: shelf, items: taken))
-        }
-        return out
-    }
 }
 
 // MARK: - Hero carousel (paging, auto-advance)

@@ -82,7 +82,36 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
 
         // Featured shelves resolve by id through item_shelves (Decision 017);
         // curated shelves by explicit ids. Shelves under 6 tiles are stubs.
+        // ONE shared seen-set across EVERY Home shelf so no title repeats anywhere
+        // (keyed on dedupKey, not archiveID — also collapses re-uploads of the same
+        // film). Claimed in render order: Continue Watching first (it renders above
+        // the shelves), then the featured shelves, then the dynamic/community shelves,
+        // then directors and Public Domain Day. A shelf that overlaps an earlier one
+        // shrinks below its floor and HIDES instead of repeating (apps' parity).
         val seen = mutableSetOf<String>()
+
+        // Claim up to `limit` fresh items from a pool (skipping watched + already-seen,
+        // deduping within the pool too); keep the shelf only if it clears `min`.
+        fun claim(pool: List<CatalogItem>, limit: Int = 24, min: Int = 6): List<CatalogItem> {
+            val taken = ArrayList<CatalogItem>()
+            val local = HashSet<String>()
+            for (it in pool) {
+                if (it.archiveID in watched) continue
+                val k = it.dedupKey
+                if (k in seen || k in local) continue
+                local.add(k); taken.add(it)
+                if (taken.size >= limit) break
+            }
+            if (taken.size < min) return emptyList()
+            seen.addAll(local)
+            return taken
+        }
+
+        // Continue Watching claims first so its titles never resurface below.
+        val cw = container.userState.continueWatching()
+        val continueWatching = db.itemsByIDs(cw.map { it.archiveID })
+        continueWatching.forEach { seen.add(it.dedupKey) }
+
         val shelves = mutableListOf<Pair<String, List<CatalogItem>>>()
         for (shelf in featured?.shelves.orEmpty()) {
             val resolved = if (shelf.type == "curated" && shelf.items.isNotEmpty()) {
@@ -90,19 +119,17 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
             } else {
                 db.shelf(shelf.id, 32)
             }
-            val deduped = resolved.filter { it.archiveID !in watched && seen.add(it.archiveID) }
-            if (deduped.size >= 6) shelves.add(shelf.title.ifEmpty { shelf.id } to deduped.take(24))
+            val taken = claim(resolved, min = 6)
+            if (taken.isNotEmpty()) shelves.add(shelf.title.ifEmpty { shelf.id } to taken)
         }
 
-        // Hero pool: professional, wide-art-leaning titles from the shelves.
+        // Hero: spotlight of professional, wide-art-leaning titles drawn from the
+        // (already cross-shelf-deduped) featured shelves.
         val hero = shelves.flatMap { it.second }
             .filter { it.hasProfessionalArtwork }
             .distinctBy { it.archiveID }
             .sortedByDescending { it.backdropURL != null }
             .take(6)
-
-        val cw = container.userState.continueWatching()
-        val continueWatching = db.itemsByIDs(cw.map { it.archiveID })
 
         val pdYear = Calendar.getInstance().get(Calendar.YEAR) - 95
         // Category tiles count-gate >=30 (the apps' rule — a near-empty grid
@@ -113,18 +140,17 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
             hero = hero,
             continueWatching = continueWatching,
             shelves = shelves,
-            topRated = db.topRated().filter { it.archiveID !in watched },
-            watchingNow = db.watchingNow().filter { it.archiveID !in watched && it.hasProfessionalArtwork },
-            communityFavorites = db.communityFavorites().filter { it.archiveID !in watched && it.hasProfessionalArtwork },
-            mostDiscussed = db.mostDiscussed().filter { it.archiveID !in watched && it.hasProfessionalArtwork },
-            hiddenGems = db.hiddenGems(20).filter { it.archiveID !in watched },
+            topRated = claim(db.topRated().filter { it.hasProfessionalArtwork }),
+            watchingNow = claim(db.watchingNow().filter { it.hasProfessionalArtwork }),
+            communityFavorites = claim(db.communityFavorites().filter { it.hasProfessionalArtwork }),
+            mostDiscussed = claim(db.mostDiscussed().filter { it.hasProfessionalArtwork }),
+            hiddenGems = claim(db.hiddenGems(40).filter { it.hasProfessionalArtwork }),
             directorShelves = db.topDirectors().mapNotNull { d ->
-                val films = db.byDirector(d).filter { it.archiveID !in watched }
-                if (films.size >= 6) d to films else null
+                val films = claim(db.byDirector(d).filter { it.hasProfessionalArtwork }, min = 6)
+                if (films.isNotEmpty()) d to films else null
             },
             publicDomainYear = pdYear,
-            publicDomainDay = db.browse(year = pdYear, limit = 24)
-                .filter { it.archiveID !in watched },
+            publicDomainDay = claim(db.browse(year = pdYear, limit = 120).filter { it.hasDesignedArtwork }),
             categories = categories,
             decades = db.decadeCounts(),
             loaded = true,

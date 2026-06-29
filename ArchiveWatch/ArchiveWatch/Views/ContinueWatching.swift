@@ -18,11 +18,21 @@ struct WatchedHomeSync: View {
         Color.clear
             .frame(width: 0, height: 0)
             .onChange(of: completedIDs) { _, ids in store.completedArchiveIDs = ids }
-            .onAppear { store.completedArchiveIDs = completedIDs }
+            .onChange(of: continueIDs) { _, ids in store.continueArchiveIDs = ids }
+            .onAppear {
+                store.completedArchiveIDs = completedIDs
+                store.continueArchiveIDs = continueIDs
+            }
     }
 
     private var completedIDs: Set<String> {
         Set(progressRecords.filter { $0.isComplete }.map { $0.archiveID })
+    }
+
+    /// In-progress titles (the Continue Watching row), so Home can keep them from
+    /// repeating in the dynamic shelves below.
+    private var continueIDs: Set<String> {
+        Set(progressRecords.filter { !$0.isComplete && $0.positionSeconds > 10 }.map { $0.archiveID })
     }
 }
 

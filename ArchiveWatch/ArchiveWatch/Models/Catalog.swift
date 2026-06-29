@@ -191,6 +191,21 @@ struct Catalog: Decodable, Sendable {
             hasDesignedArtwork && artworkSource != "generated"
         }
 
+        /// Title-level identity for cross-shelf de-duplication on Home. Two
+        /// archive.org uploads of the SAME film share an imdbID (and usually a
+        /// title+year) but differ in archiveID, so an archiveID-only seen-set
+        /// lets the same title repeat across shelves. Prefer the imdbID; fall
+        /// back to a normalized title+year; finally the archiveID so two genuinely
+        /// distinct yearless same-titled items don't collapse into one.
+        var dedupKey: String {
+            if let im = imdbID?.lowercased(), !im.isEmpty { return "imdb:" + im }
+            let norm = title.lowercased()
+                .folding(options: .diacriticInsensitive, locale: nil)
+                .filter { $0.isLetter || $0.isNumber }
+            if !norm.isEmpty, let y = year { return "ty:\(norm)|\(y)" }
+            return "id:" + archiveID
+        }
+
         /// Known color status from frame analysis. nil when unclassified.
         var isColor: Bool? {
             switch colorMode { case "color": return true; case "bw": return false; default: return nil }

@@ -62,16 +62,16 @@ struct HomeView: View {
             : base.filter { $0.backdropURLParsed != nil || $0.posterURLParsed != nil }
         var rng = SplitMix(seed: heroSeed)
         heroItems = Array(pool.shuffled(using: &rng).prefix(7))
-        heroItems.forEach { used.insert($0.archiveID) }
-        continueItems.forEach { used.insert($0.archiveID) }   // don't resurface Continue Watching
+        heroItems.forEach { used.insert($0.dedupKey) }
+        continueItems.forEach { used.insert($0.dedupKey) }   // don't resurface Continue Watching
 
         var built: [HomeShelf] = []
         func add(_ id: String, _ title: String, _ pool: [Catalog.Item], accent: Color = .primary) {
             let fresh = store.filteringWatched(pool)
-                .filter { $0.hasProfessionalArtwork && !used.contains($0.archiveID) }
+                .filter { $0.hasProfessionalArtwork && !used.contains($0.dedupKey) }
             let taken = Array(fresh.prefix(24))
             guard taken.count >= minPerShelf else { return }
-            taken.forEach { used.insert($0.archiveID) }
+            taken.forEach { used.insert($0.dedupKey) }
             built.append(HomeShelf(id: id, title: title, items: taken, accent: accent))
         }
 

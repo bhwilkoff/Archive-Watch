@@ -34,6 +34,11 @@ struct HomeView: View {
     @State private var shelfSeed: UInt64 = UInt64.random(in: 0..<UInt64.max)
 
     @State private var heroItems: [Catalog.Item] = []
+    // All Home shelves, computed in one render-order pass with a single shared
+    // seen-set so no title repeats across any of them (see rebuild()).
+    @State private var featuredPayloads: [ShelfPayload] = []
+    @State private var dynamicPayloads: [ShelfPayload] = []
+    @State private var directorPayloads: [ShelfPayload] = []
 
     /// Hero pool from the DB (Decision 017): the most-popular items with art good
     /// enough to fill the screen. #10: the hero is full-bleed, so it demands
@@ -86,29 +91,35 @@ struct HomeView: View {
                 }
                 ContinueWatchingRow()
                 CategoryTilesRow()
-                // Dedupe across shelves: once a film appears in a shelf
-                // earlier in the page, the next shelf gets the NEXT 20
-                // items instead of resurfacing the same ones. Keeps Home
-                // from looking like five aliases of the same 20 items.
-                ForEach(dedupedShelfPayloads()) { payload in
+                // Every shelf below is computed in ONE render-order pass sharing a
+                // single seen-set (rebuild()), so a title never repeats across the
+                // featured shelves, the dynamic/community shelves, or the directors.
+                ForEach(featuredPayloads) { payload in
                     ShelfRow(shelf: payload.shelf, items: payload.items)
                 }
-                PublicDomainShelf()   // #15b: current Public Domain class
-                TopRatedShelf()
-                WatchingNowShelf()
-                CommunityFavoritesShelf()
-                MostDiscussedShelf()
-                HiddenGemsShelf()
-                DirectorShelvesSection()
+                ForEach(dynamicPayloads) { payload in
+                    ShelfRow(shelf: payload.shelf, items: payload.items)
+                }
+                if !directorPayloads.isEmpty {
+                    VStack(alignment: .leading, spacing: 48) {
+                        Text("Directors")
+                            .font(.title.bold())
+                            .foregroundStyle(.white)
+                            .padding(.horizontal, 80)
+                        ForEach(directorPayloads) { payload in
+                            ShelfRow(shelf: payload.shelf, items: payload.items)
+                        }
+                    }
+                }
                 DecadeTilesRow()
                     .padding(.bottom, 32)
             }
             .padding(.bottom, 80)
         }
         .background(Color.black.ignoresSafeArea())
-        .overlay { WatchedHomeSync() }   // #17: feeds completed IDs into the store
-        .task(id: "\(heroSeed)-\(store.dbGeneration)-\(store.hideWatchedOnHome)-\(store.completedArchiveIDs.count)") {
-            heroItems = loadHero()
+        .overlay { WatchedHomeSync() }   // #17: feeds completed + in-progress IDs into the store
+        .task(id: "\(heroSeed)-\(store.dbGeneration)-\(store.hideWatchedOnHome)-\(store.completedArchiveIDs.count)-\(store.continueArchiveIDs.count)") {
+            rebuild()
         }
     }
 
@@ -130,30 +141,96 @@ struct HomeView: View {
     /// wanted shelves (NASA, 1950s/60s TV) is growing those collections in
     /// the catalog pipeline — this just guarantees Home never looks ragged.
     private let minPerShelf = 9
+    private let pdYear = Calendar.current.component(.year, from: Date()) - 95
 
-    private func dedupedShelfPayloads() -> [ShelfPayload] {
-        var used: Set<String> = Set(heroItems.map { $0.archiveID })
-        var out: [ShelfPayload] = []
-        for shelf in homeShelves {
-            let raw = store.filteringWatched(store.items(forShelf: shelf.id))   // #17
-            var fresh = raw.filter {
-                // #2: Home shows ONLY professional posters — never frame-extracted
-                // ("generated") covers, even though those now fill most of the tail.
-                $0.hasProfessionalArtwork && !used.contains($0.archiveID)
-            }
-            // Seeded shuffle: per-shelf (include the id hash) so each
-            // shelf gets a different permutation, but stable across
-            // body recomputes within a single Home lifetime.
-            var rng = SplitMix(
-                seed: shelfSeed &+ UInt64(bitPattern: Int64(shelf.id.hashValue))
-            )
-            fresh.shuffle(using: &rng)
-            let taken = Array(fresh.prefix(24))
-            guard taken.count >= minPerShelf else { continue }
-            for item in taken { used.insert(item.archiveID) }
-            out.append(ShelfPayload(shelf: shelf, items: taken))
+    /// Build the whole Home page in render order through ONE shared seen-set so no
+    /// title appears in more than one shelf (keyed on dedupKey, not archiveID — also
+    /// collapses re-uploads of the same film). Order: hero + Continue Watching seed
+    /// the set; then the featured shelves, the dynamic/community shelves, and the
+    /// director shelves each claim only items not already shown. A shelf that overlaps
+    /// an earlier one shrinks below `minPerShelf` and HIDES — matching macOS, so the
+    /// overlapping community queries don't surface as five aliases of the same films.
+    private func rebuild() {
+        heroItems = loadHero()
+
+        var used = Set<String>()
+        heroItems.forEach { used.insert($0.dedupKey) }
+        // Continue Watching (the ids WatchedHomeSync pushed) — don't resurface them.
+        for id in store.continueArchiveIDs {
+            if let it = store.dbItem(id) { used.insert(it.dedupKey) }
         }
-        return out
+
+        // Claim up to `limit` fresh items from a pool (deduping within the pool too);
+        // keep the shelf only if it clears `min`, and claim its items only then.
+        func take(_ pool: [Catalog.Item], limit: Int = 24, min: Int = minPerShelf) -> [Catalog.Item] {
+            var taken: [Catalog.Item] = []
+            var seen = Set<String>()
+            for it in pool {
+                let k = it.dedupKey
+                if used.contains(k) || seen.contains(k) { continue }
+                seen.insert(k); taken.append(it)
+                if taken.count >= limit { break }
+            }
+            guard taken.count >= min else { return [] }
+            used.formUnion(seen)
+            return taken
+        }
+
+        func dynShelf(_ id: String, _ title: String, _ subtitle: String,
+                      _ pool: [Catalog.Item], category: String = "feature-film") -> ShelfPayload? {
+            let items = take(pool)
+            guard !items.isEmpty else { return nil }
+            return ShelfPayload(shelf: Featured.Shelf(
+                id: id, title: title, subtitle: subtitle, category: category,
+                type: "dynamic", items: nil, query: nil, sort: nil, limit: nil), items: items)
+        }
+
+        // Featured.json shelves, in priority order (per-shelf seeded shuffle).
+        featuredPayloads = homeShelves.compactMap { shelf in
+            var raw = store.filteringWatched(store.items(forShelf: shelf.id))
+                .filter { $0.hasProfessionalArtwork }   // #2: professional posters only
+            var rng = SplitMix(seed: shelfSeed &+ UInt64(bitPattern: Int64(shelf.id.hashValue)))
+            raw.shuffle(using: &rng)
+            let items = take(raw)
+            return items.isEmpty ? nil : ShelfPayload(shelf: shelf, items: items)
+        }
+
+        // Dynamic shelves, in the same order they used to render as standalone views.
+        dynamicPayloads = [
+            dynShelf("public-domain-day", "Public Domain Day",
+                     "Class of \(String(pdYear)) — newly free to share",
+                     store.filteringWatched(store.dbBrowse(year: pdYear, sort: .popular, limit: 120))
+                        .filter { $0.hasDesignedArtwork }),
+            dynShelf("top-rated", "Top Rated", "The crowd's verdict — IMDb favorites",
+                     store.filteringWatched(store.dbTopRated()).filter { $0.hasProfessionalArtwork }),
+            dynShelf("watching-now", "Watching Now", "Most-viewed on archive.org this month",
+                     store.filteringWatched(store.dbWatchingNow()).filter { $0.hasProfessionalArtwork }),
+            dynShelf("community-favorites", "Community Favorites", "Most-favorited by archive.org viewers",
+                     store.filteringWatched(store.dbCommunityFavorites()).filter { $0.hasProfessionalArtwork }),
+            dynShelf("most-discussed", "Most Discussed", "The films people are talking about",
+                     store.filteringWatched(store.dbMostDiscussed()).filter { $0.hasProfessionalArtwork }),
+            dynShelf("hidden-gems", "Hidden Gems", "High craft, low traffic",
+                     store.filteringWatched(store.dbHiddenGems()).filter { $0.hasProfessionalArtwork }),
+        ].compactMap { $0 }
+
+        // Director shelves (each prolific director's films, professional art only).
+        directorPayloads = store.dbTopDirectors().compactMap { d -> ShelfPayload? in
+            let films = store.filteringWatched(store.dbByDirector(d.name, homeOnly: true))
+                .filter { $0.hasProfessionalArtwork }
+            let items = take(films)
+            guard !items.isEmpty else { return nil }
+            return ShelfPayload(shelf: Featured.Shelf(
+                id: "director-\(d.name)", title: d.name,
+                subtitle: "\(items.count) films to discover",
+                category: dominantCategory(films), type: "dynamic",
+                items: nil, query: nil, sort: nil, limit: nil), items: items)
+        }
+    }
+
+    private func dominantCategory(_ items: [Catalog.Item]) -> String {
+        var counts: [String: Int] = [:]
+        for it in items { counts[it.contentType, default: 0] += 1 }
+        return counts.sorted { ($0.value, $1.key) > ($1.value, $0.key) }.first?.key ?? "feature-film"
     }
 
 }

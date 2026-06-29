@@ -70,6 +70,10 @@ final class AppStore {
     }
     /// archiveIDs the user has finished watching. Maintained by WatchedHomeSync.
     var completedArchiveIDs: Set<String> = []
+    /// archiveIDs currently in progress (the Continue Watching row). Maintained by
+    /// WatchedHomeSync so HomeView can exclude them from the dynamic shelves below
+    /// without importing the SwiftData @Query macro.
+    var continueArchiveIDs: Set<String> = []
 
     private static let hideWatchedKey = "hideWatchedOnHome"
     private static func loadHideWatchedDefault() -> Bool {

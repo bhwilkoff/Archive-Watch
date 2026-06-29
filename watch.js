@@ -443,7 +443,13 @@
       const host = $('home-shelves');
       // Cross-shelf dedup (the apps' Home rule): an item shows once, in the
       // first shelf that claims it, so Home isn't aliases of one popular list.
-      const used = new Set(heroIDs);
+      // Keyed on normalized TITLE+year (not archiveID) so two uploads of the same
+      // film — different ids, same title — can't repeat across shelves either.
+      const dedupKey = r => {
+        const t = String(r[1] || '').toLowerCase().normalize('NFKD').replace(/[^a-z0-9]/g, '');
+        return (t && r[2]) ? `ty:${t}|${r[2]}` : `id:${r[0]}`;
+      };
+      const used = new Set(heroIDs.map(id => Data.byID.get(id)).filter(Boolean).map(dedupKey));
       const shelfSection = (title, subtitle, rows) => {
         const sec = document.createElement('section');
         sec.className = 'shelf';
@@ -465,18 +471,18 @@
       host.append(this.categoryTiles());
       for (const shelf of Data.featured?.shelves || []) {
         const rows = Data.shelfRows(shelf, 32)
-          .filter(r => Data.isPro(r) && Data.isFilm(r) && !used.has(r[0])).slice(0, 16);
+          .filter(r => Data.isPro(r) && Data.isFilm(r) && !used.has(dedupKey(r))).slice(0, 16);
         if (rows.length < 4) continue;
-        rows.forEach(r => used.add(r[0]));
+        rows.forEach(r => used.add(dedupKey(r)));
         host.append(shelfSection(shelf.title, shelf.subtitle, rows));
       }
       // Community shelves (archive.org usage signals; index computes them vote-
       // floored). Render from the index shelves map, dedup-aware like the apps.
       const communityShelf = (id, title, subtitle) => {
         const rows = (Data.shelves[id] || []).map(x => Data.byID.get(x))
-          .filter(r => r && Data.isPro(r) && Data.isFilm(r) && !used.has(r[0])).slice(0, 16);
+          .filter(r => r && Data.isPro(r) && Data.isFilm(r) && !used.has(dedupKey(r))).slice(0, 16);
         if (rows.length >= 4) {
-          rows.forEach(r => used.add(r[0]));
+          rows.forEach(r => used.add(dedupKey(r)));
           host.append(shelfSection(title, subtitle, rows));
         }
       };
@@ -493,7 +499,7 @@
       // Public Domain Day: this year's newly-free class (currentYear - 95).
       const pdYear = new Date().getFullYear() - 95;
       const pd = shuffle(Data.rows.filter(r =>
-        r[2] === pdYear && Data.isPro(r) && Data.isFilm(r) && !used.has(r[0]))).slice(0, 16);
+        r[2] === pdYear && Data.isPro(r) && Data.isFilm(r) && !used.has(dedupKey(r)))).slice(0, 16);
       if (pd.length >= 6) {
         host.append(shelfSection('Public Domain Day',
           `Class of ${pdYear} — newly free to share`, pd));
