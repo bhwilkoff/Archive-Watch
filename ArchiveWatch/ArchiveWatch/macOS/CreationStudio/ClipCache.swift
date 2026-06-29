@@ -228,9 +228,22 @@ enum ClipCacheService {
     // 8 ≥ the preview's 6-wide maxConcurrent so the global limiter never bottlenecks preview; each
     // op is now a light passthrough copy from a small node-direct derivative, not a full transcode.
     static let reencodeLimiter = ReencodeLimiter(Int(ProcessInfo.processInfo.environment["AW_CS_LIM"] ?? "") ?? 8)
-    /// Per-attempt re-encode deadline. A healthy node finishes a window in seconds; 90s still tolerates
-    /// a slow-but-progressing connection while failing a true stall far sooner than the old 150s.
+    /// Per-attempt re-encode deadline FLOOR. A healthy node finishes a window in seconds; this still
+    /// tolerates a slow-but-progressing connection while failing a true stall. The EFFECTIVE deadline
+    /// scales with the window LENGTH (see windowTimeout) — a 3-minute clip legitimately needs far
+    /// longer than a 10-second one.
     static let attemptTimeout = 90.0
+
+    /// The per-attempt deadline for a window of `windowSeconds`, never below `floor`. A clip's cache
+    /// cost scales with its DURATION — passthrough transfers ~duration×bitrate bytes, a re-encode
+    /// decodes+encodes ~duration of footage — so a FIXED timeout that suits short clips wrongly fails
+    /// long ones ("long clips time out and never load, even though they should just take a little
+    /// longer" — owner 2026-06-29). ~1.5s of budget per window-second covers a near-realtime re-encode
+    /// over a slow node; a healthy clip finishes far sooner and returns early, so this only relaxes the
+    /// STALL ceiling for long clips, never slows a good one.
+    static func windowTimeout(floor: Double, windowSeconds: Double) -> Double {
+        max(floor, 30 + max(0, windowSeconds) * 1.5)
+    }
 
     /// A definitively UNRECOVERABLE failure — the source genuinely can't be processed, so retrying is
     /// pointless. Deliberately NARROW: the player streams these same sources fine through the resilient
@@ -268,6 +281,9 @@ enum ClipCacheService {
                              startSeconds: Double, endSeconds: Double,
                              attempts: Int = 2, timeout: Double = attemptTimeout) async throws -> URL {
         let s = max(0, startSeconds), e = max(s + 0.1, endSeconds)
+        // The passed `timeout` is a FLOOR; the effective deadline grows with the window length so a
+        // long clip isn't failed for simply needing more time to fetch/encode (owner 2026-06-29).
+        let effectiveTimeout = windowTimeout(floor: timeout, windowSeconds: e - s)
         let out = ProjectMediaCache.windowURL(catalogItemID: catalogItemID, sourceURL: sourceURL, startSeconds: s, endSeconds: e)
         if FileManager.default.fileExists(atPath: out.path) { return out }
 
@@ -282,7 +298,7 @@ enum ClipCacheService {
                 // throttle — used to wait on `acquire()` UNBOUNDED, so it never timed out, never
                 // failed, never gave up: a permanent `.caching` hang. Now the deadline covers the
                 // whole attempt, so a starved clip fails fast → records a failure → becomes a gap.
-                try await withTimeout(timeout) {
+                try await withTimeout(effectiveTimeout) {
                     // Gate the heavy work on the GLOBAL limiter so total concurrent encodes stay
                     // bounded (oversubscription is what storms archive.org / cascades timeouts). The
                     // slot is held only for the encode, freed on success OR failure.

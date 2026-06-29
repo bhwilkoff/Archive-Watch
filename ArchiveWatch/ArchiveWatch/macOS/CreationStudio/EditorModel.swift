@@ -245,11 +245,17 @@ final class EditorModel {
     /// `maxStuckSeconds` and gives the clip up (→ black gap) if it's STILL unresolved and not already
     /// permanently failed — so the load always settles even when failure-based give-up is starved by
     /// the cancel/retry churn.
-    private func armStuckCeiling(_ source: String) {
+    private func armStuckCeiling(_ source: String, windowSeconds: Double = 0) {
         guard firstAttemptAt[source] == nil else { return }
         firstAttemptAt[source] = Date()
+        // The ceiling must sit ABOVE the (duration-scaled) cache deadline, or a long clip is killed
+        // mid-download before its window can finish — the "long clips never load" bug (owner
+        // 2026-06-29). +60s margin covers the post-failure retry/give-up grace.
+        let ceiling = max(Self.maxStuckSeconds,
+                          ClipCacheService.windowTimeout(floor: Self.proxyCacheTimeout,
+                                                         windowSeconds: windowSeconds) + 60)
         Task { [weak self] in
-            try? await Task.sleep(for: .seconds(Self.maxStuckSeconds))
+            try? await Task.sleep(for: .seconds(ceiling))
             guard let self, self.firstAttemptAt[source] != nil,      // not cleared by a success
                   self.permanentlyFailed[source] == nil else { return }
             let stuck = self.clips.contains { $0.sourceURL.absoluteString == source && self.clipPrep[$0.id] != .ready }
@@ -1338,7 +1344,9 @@ final class EditorModel {
             throw CreationStudioError.cannotCreateExportSession
         }
         if clipPrep[clip.id] != .ready { clipPrep[clip.id] = .caching }
-        armStuckCeiling(srcKey)   // absolute upper bound so a churn-starved clip still settles
+        // Window length the cache will fetch (clip ± handles) — so the give-up ceiling scales with it
+        // and never kills a long-but-progressing download early.
+        armStuckCeiling(srcKey, windowSeconds: clip.sourceRange.duration.seconds + 2 * Self.cacheHandle)
         let inS = clip.sourceRange.start.seconds
         let outS = clip.sourceRange.endSeconds
 
@@ -1356,10 +1364,16 @@ final class EditorModel {
             // PREVIEW uses a small proxy derivative (≈10× less to download); export keeps full quality.
             let previewSrc = await ProxySource.proxyURL(archiveID: clip.catalogItemID, fallback: clip.sourceURL)
             if bench { CreationStudioBench.mark("clip \(clip.catalogItemID) proxy=\(previewSrc.lastPathComponent) cache-start") }
+            // attempts: 2 — a TRANSIENT archive.org error (a 503/-1011 from a momentarily throttled
+            // node, common under load) used to permanently kill the clip on the single try; a second
+            // attempt (1s backoff, fresh ResilientStreamLoader → re-resolved node, Decision 034)
+            // rescues it. The deadline is duration-scaled in cachedWindow, so a long clip "just takes
+            // a little longer" instead of failing (owner 2026-06-29). A truly dead/throttled source
+            // still gives up via firstFailAt/the stuck ceiling.
             let url = try await CacheCoordinator.window(
                 catalogItemID: clip.catalogItemID, sourceURL: previewSrc,
                 startSeconds: wStart, endSeconds: wEnd,
-                attempts: 1, timeout: Self.proxyCacheTimeout)   // small proxy → fail a stall fast (see refineWindow)
+                attempts: 2, timeout: Self.proxyCacheTimeout)
             if bench { CreationStudioBench.mark("clip \(clip.catalogItemID) cached") }
             if Task.isCancelled { throw CancellationError() }
             // The cache clamps the window to the source's real duration, so trust the FILE's
