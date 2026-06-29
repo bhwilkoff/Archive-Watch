@@ -123,12 +123,11 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
             if (taken.isNotEmpty()) shelves.add(shelf.title.ifEmpty { shelf.id } to taken)
         }
 
-        // Hero: spotlight of professional, wide-art-leaning titles drawn from the
-        // (already cross-shelf-deduped) featured shelves.
+        // Hero: well-composed WIDE backdrops only — REQUIRE a real backdrop, never a cropped 2:3
+        // poster or frame-grab cover. The hero hides if none qualify (owner 2026-06-29).
         val hero = shelves.flatMap { it.second }
-            .filter { it.hasProfessionalArtwork }
+            .filter { it.hasProfessionalArtwork && it.backdropURL != null }
             .distinctBy { it.archiveID }
-            .sortedByDescending { it.backdropURL != null }
             .take(6)
 
         val pdYear = Calendar.getInstance().get(Calendar.YEAR) - 95
@@ -298,7 +297,7 @@ private fun HeroCarousel(items: List<CatalogItem>, onItem: (CatalogItem) -> Unit
                 .clickable { onItem(item) },
         ) {
             AsyncImage(
-                model = item.backdropURL ?: item.resolvedPosterURL,
+                model = item.backdropURL,
                 contentDescription = item.title,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxSize(),

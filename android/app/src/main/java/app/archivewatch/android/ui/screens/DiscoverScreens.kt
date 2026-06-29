@@ -198,13 +198,16 @@ fun SurpriseScreen(container: AppContainer, nav: Nav) {
     var roll by remember { mutableIntStateOf(0) }
     val items by produceState<List<CatalogItem>?>(null, dbVersion, roll) {
         val db = container.catalog.db ?: return@produceState
+        // Filler tiles are FEATURE FILMS (not random anything) — the old `null` fillers pulled
+        // shorts/cartoons/newsreels. Feature slots use randomFeatureFilm (full-length floor).
         val types = listOf(
-            "feature-film", "silent-film", "animation", "short-film",
-            "newsreel", "ephemeral", null, null, null, null, null, null,
+            "feature-film", "silent-film", "animation", "short-film", "newsreel", "ephemeral",
+            "feature-film", "feature-film", "feature-film", "feature-film", "feature-film", "feature-film",
         )
         val picks = LinkedHashMap<String, CatalogItem>()
         for (t in types) {
-            db.randomPlayable(contentType = t)?.let { picks.putIfAbsent(it.archiveID, it) }
+            val pick = if (t == "feature-film") db.randomFeatureFilm() else db.randomPlayable(contentType = t)
+            pick?.let { picks.putIfAbsent(it.archiveID, it) }
         }
         value = picks.values.toList()
     }

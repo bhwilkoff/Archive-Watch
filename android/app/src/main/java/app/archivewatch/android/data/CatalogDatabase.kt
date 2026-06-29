@@ -303,11 +303,20 @@ class CatalogDatabase private constructor(
         ) { it.getLong(0).toInt() }.firstOrNull() ?: 0
     }
 
-    suspend fun related(to: CatalogItem, limit: Int = 20): List<CatalogItem> = items(
-        "$itemSelect WHERE i.contentType = ? AND i.archiveID != ?$adultAnd$typeAnd" +
-            " ORDER BY i.popularityScore DESC LIMIT ?",
-        listOf(to.contentType, to.archiveID, limit),
-    )
+    /** "More Like This": same category, then year proximity (±10y), then popularity; finally
+     *  prefer the SAME B&W-vs-color as the subject (colorMode is JSON-only, so ranked in Kotlin). */
+    suspend fun related(to: CatalogItem, limit: Int = 20): List<CatalogItem> {
+        val yearKey = to.year?.let {
+            "(CASE WHEN i.year IS NOT NULL AND ABS(i.year - $it) <= 10 THEN 1 ELSE 0 END) DESC, "
+        } ?: ""
+        val pool = items(
+            "$itemSelect WHERE i.contentType = ? AND i.archiveID != ?$adultAnd$typeAnd" +
+                " ORDER BY ${yearKey}COALESCE(i.popularityScore,0) DESC, i.imdbVotes DESC LIMIT ?",
+            listOf(to.contentType, to.archiveID, limit * 3),
+        )
+        val subjColor = to.colorMode ?: return pool.take(limit)
+        return (pool.filter { it.colorMode == subjColor } + pool.filter { it.colorMode != subjColor }).take(limit)
+    }
 
     /** "Top Rated" — IMDb favorites; the votes floor keeps tiny-sample
         curios from outranking the classics (iOS/tvOS parity). */
@@ -380,6 +389,16 @@ class CatalogDatabase private constructor(
         where += adultAnd + typeAnd
         if (contentType != "commercial") where += notCommercial
         return items("$itemSelect WHERE $where ORDER BY RANDOM() LIMIT 20", binds)
+            .firstOrNull { it.downloadURL != null }
+    }
+
+    /** A random FULL-LENGTH film (Random Film). Feature/silent FEATURES with a runtime floor, so it
+     *  never lands on a short / cartoon / newsreel (the old randomPlayable(null) admitted those). */
+    suspend fun randomFeatureFilm(): CatalogItem? {
+        var where = "i.contentType IN ('feature-film','silent-film') AND " +
+            "(i.runtimeSeconds IS NULL OR i.runtimeSeconds >= 2400)"
+        where += adultAnd + typeAnd
+        return items("$itemSelect WHERE $where ORDER BY RANDOM() LIMIT 20", emptyList())
             .firstOrNull { it.downloadURL != null }
     }
 

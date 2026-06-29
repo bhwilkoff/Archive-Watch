@@ -1562,14 +1562,22 @@
       b.textContent = on ? '♥ Favorited' : '♡ Favorite';
     },
 
-    /** More Like This (apps' related query, index approximation): same type,
-        same era ±15y, designed art, never self. */
+    /** More Like This (apps' related query): same category, then YEAR proximity (±10y),
+        then POPULARITY (index order). No shuffle — that made it random on every visit.
+        (colorMode isn't in the index, so the apps' color tiebreak is app-only.) */
     related(row) {
       const [id, , year, type] = row;
       const host = $('item-related');
-      const rows = shuffle(Data.rows.filter(r =>
-        r[0] !== id && r[3] === type && Data.isPro(r) &&
-        (!year || !r[2] || Math.abs(r[2] - year) <= 15))).slice(0, 12);
+      const rows = Data.rows
+        .filter(r => r[0] !== id && r[3] === type && Data.isPro(r))
+        .map((r, idx) => ({
+          r, idx,
+          near: (year && r[2] && Math.abs(r[2] - year) <= 10) ? 0 : 1,
+          dy: (year && r[2]) ? Math.abs(r[2] - year) : 9999,
+        }))
+        .sort((a, b) => a.near - b.near || a.dy - b.dy || a.idx - b.idx)
+        .slice(0, 12)
+        .map(s => s.r);
       $('item-related-row').replaceChildren(...rows.map(card));
       host.hidden = rows.length < 4;
     },
