@@ -97,3 +97,4 @@ tools/whisper_manifest.jsonl
 private_keys/
 /build/
 AuthKey_*
+tools/asc-credentials.env

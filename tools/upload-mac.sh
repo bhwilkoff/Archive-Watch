@@ -28,6 +28,12 @@ cd "$(dirname "$0")/.."
 DEV="${DEVELOPER_DIR:-/Applications/Xcode.app/Contents/Developer}"
 export DEVELOPER_DIR="$DEV"
 
+# Load local App Store Connect API credentials if present (gitignored: tools/asc-credentials.env) so
+# you don't have to export ASC_KEY_ID / ASC_ISSUER_ID every run. Env vars already set take precedence.
+if [ -f "tools/asc-credentials.env" ]; then
+  set -a; . "tools/asc-credentials.env"; set +a
+fi
+
 # GUARD: never archive with a BETA toolchain — App Review rejects beta-built apps (TestFlight allows
 # them). The beta lives at /Applications/Xcode-beta.app, so a "beta" in the path is the reliable tell.
 case "$DEV" in
