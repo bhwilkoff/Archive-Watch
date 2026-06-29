@@ -25,7 +25,23 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-DEV="${DEVELOPER_DIR:-/Applications/Xcode.app/Contents/Developer}"
+# Pick a RELEASED Xcode toolchain (App Review rejects beta builds). Priority: an explicit
+# DEVELOPER_DIR; else the xcode-select default if it's a non-beta Xcode; else the newest
+# /Applications/Xcode*.app that isn't a beta (so it "just works" wherever `xcodes install 26` put it).
+resolve_dev() {
+  if [ -n "${DEVELOPER_DIR:-}" ]; then printf '%s\n' "$DEVELOPER_DIR"; return; fi
+  local sel; sel="$(xcode-select -p 2>/dev/null)"
+  case "$sel" in
+    *[Bb]eta*) : ;;
+    */Contents/Developer) printf '%s\n' "$sel"; return ;;
+  esac
+  local app
+  for app in $(ls -d /Applications/Xcode*.app 2>/dev/null | grep -iv beta | sort -rV); do
+    printf '%s\n' "$app/Contents/Developer"; return
+  done
+  printf '%s\n' "/Applications/Xcode.app/Contents/Developer"   # fallback; the guard below catches absent/beta
+}
+DEV="$(resolve_dev)"
 export DEVELOPER_DIR="$DEV"
 
 # Load local App Store Connect API credentials if present (gitignored: tools/asc-credentials.env) so
@@ -41,6 +57,12 @@ case "$DEV" in
              echo "App Review rejects beta-toolchain builds. Install a released Xcode and set"
              echo "  export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer"; exit 1;;
 esac
+# A released Xcode must actually be installed (the standalone Command Line Tools can't archive apps).
+if [ ! -x "$DEV/usr/bin/xcodebuild" ]; then
+  echo "No released Xcode found at $DEV."
+  echo "Install one first (your Apple ID is needed for the download):  xcodes install 26"
+  echo "Then re-run:  tools/upload-mac.sh"; exit 1
+fi
 XVER="$(/usr/bin/xcodebuild -version | tr '\n' ' ')"
 SDKS="$(/usr/bin/xcodebuild -showsdks 2>/dev/null | grep -i 'macos' | head -1 | xargs)"
 echo "Toolchain: $XVER | $SDKS | $DEV"
