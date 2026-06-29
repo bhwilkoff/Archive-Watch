@@ -39,6 +39,27 @@ struct RootView: View {
                     .onExitCommand { exitScreensaver() }   // Esc
             }
         }
+        // Screenshot/test launch hooks (the macOS analogue of the iOS/tvOS AW_START_* hooks) — inert
+        // unless the env vars are set, so the shipping app is unaffected. Lets the screenshot driver
+        // land on any sidebar section (AW_START_TAB) or open a specific title's Detail (AW_START_ITEM)
+        // deterministically, since SwiftUI's AX tree isn't reliably scriptable from the shell.
+        .task { await applyLaunchOverrides() }
+    }
+
+    private func applyLaunchOverrides() async {
+        let env = ProcessInfo.processInfo.environment
+        guard env["AW_START_TAB"] != nil || env["AW_START_ITEM"] != nil else { return }
+        for _ in 0..<160 where !store.isReady { try? await Task.sleep(for: .milliseconds(250)) }
+        if let tab = env["AW_START_TAB"], let s = AppRouter.Section(rawValue: tab) {
+            router.section = s
+        }
+        if let id = env["AW_START_ITEM"] {
+            // Wait for the full DB to swap in (richer metadata + designed art than the seed).
+            for _ in 0..<80 where store.itemsByIDs([id]).first == nil {
+                try? await Task.sleep(for: .milliseconds(250))
+            }
+            if let it = store.itemsByIDs([id]).first { router.openDetail(it) }
+        }
     }
 
     /// The browse UI (sidebar + detail). Shown as the window root EXCEPT while a title is playing.
