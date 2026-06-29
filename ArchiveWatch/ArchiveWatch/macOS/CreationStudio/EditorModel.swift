@@ -1281,24 +1281,27 @@ final class EditorModel {
             defer { isSwappingPreview = false }
             player.replaceCurrentItem(with: item)
             debug_swapCount += 1
-            // Seek ONCE the item is ready, so the first frame actually decodes + displays (a seek
-            // issued before .readyToPlay is dropped, leaving the monitor black until a manual scrub).
-            let polls = max(1, maxPollMs / 25)
-            for _ in 0..<polls {
-                if item.status != .unknown { break }       // ready OR failed — stop waiting
-                if Task.isCancelled { return false }
-                try? await Task.sleep(for: .milliseconds(25))
-            }
-            guard !Task.isCancelled, player.currentItem === item, item.status == .readyToPlay else {
-                if ProcessInfo.processInfo.environment["AW_CS_DIAG"] != nil {
-                    FileHandle.standardError.write(Data("AWCS COMPOSE bail post-swap cancelled=\(Task.isCancelled) current=\(player.currentItem === item) status=\(item.status.rawValue) markClean=\(markClean)\n".utf8))
-                }
-                return false
-            }
+            // Clear dirty AS SOON AS THE SWAP HAPPENS — the swapped item IS this timeline's composition,
+            // so the preview now reflects the timeline regardless of when the item finishes becoming
+            // .readyToPlay. Gating markClean on readiness was the bug behind the endless full-screen
+            // spinner (owner 2026-06-29): a long/heavy composition takes longer than the readiness poll,
+            // so the swap bailed WITHOUT clearing dirty → the watchdog re-kicked every 0.8s → a new
+            // (again-not-ready) item every few seconds → the player never stabilized + never became
+            // playable. Now dirty clears on swap, the watchdog stays idle, and the item prepares once.
+            if markClean { previewDirty = false }
             if ProcessInfo.processInfo.environment["AW_CS_DIAG"] != nil {
                 FileHandle.standardError.write(Data("AWCS COMPOSE SWAP compDur=\(Int(built.duration.seconds)) markClean=\(markClean) force=\(force)\n".utf8))
             }
-            if markClean { previewDirty = false }   // the preview now reflects the current timeline
+            // BEST-EFFORT: once the item is ready, seek to the playhead so the first frame displays at
+            // the right spot (a seek before .readyToPlay is dropped). If it's not ready within the poll,
+            // leave it — the item finishes preparing on its own and plays; we do NOT re-swap.
+            let polls = max(1, maxPollMs / 25)
+            for _ in 0..<polls {
+                if item.status != .unknown { break }       // ready OR failed — stop waiting
+                if Task.isCancelled { return true }        // swapped + clean already
+                try? await Task.sleep(for: .milliseconds(25))
+            }
+            guard player.currentItem === item, item.status == .readyToPlay else { return true }
             await player.seek(to: target, toleranceBefore: .zero, toleranceAfter: .zero)
             // Keep playing across the swap, unless the playhead is now past the (shortened) timeline.
             if wasPlaying, target.seconds < totalDuration - 0.05 { player.play() }

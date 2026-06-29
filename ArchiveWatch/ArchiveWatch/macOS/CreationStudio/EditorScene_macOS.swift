@@ -176,7 +176,7 @@ struct ProjectEditorView: View {
                     Label("Export", systemImage: "square.and.arrow.up")
                 }
                 .disabled(model.project.timeline.clips.isEmpty || exporter.isBusy)
-                Button { showPublishSheet = true } label: {
+                Button { model.pause(); showPublishSheet = true } label: {
                     Label("Publish", systemImage: "icloud.and.arrow.up")
                 }
                 .disabled(model.project.timeline.clips.isEmpty || exporter.isBusy)
@@ -352,6 +352,7 @@ struct ProjectEditorView: View {
         let base = documentName.isEmpty ? "Archive Watch" : documentName
         panel.nameFieldStringValue = "\(base).\(format.fileExtension)"
         guard panel.runModal() == .OK, let url = panel.url else { return }
+        model.pause()                 // an export must not leave the preview playing (owner 2026-06-29)
         let project = model.project
         Task { await exporter.export(project, to: url, format: format) }
     }
