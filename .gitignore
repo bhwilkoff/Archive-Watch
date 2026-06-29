@@ -98,3 +98,8 @@ private_keys/
 /build/
 AuthKey_*
 tools/asc-credentials.env
+
+# Google Play CLI publishing (local only)
+tools/.play-venv/
+*.aab
+play-service-account*.json
