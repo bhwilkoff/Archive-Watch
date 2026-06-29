@@ -38,7 +38,7 @@ struct HomeView: View {
 
     private var shelves: [Featured.Shelf] { store.featured?.shelves ?? [] }
     private var continueItems: [Catalog.Item] {
-        store.itemsByIDs(progress.filter { !$0.isComplete && $0.positionSeconds > 10 }
+        store.itemsByIDs(progress.filter { !$0.isComplete && $0.positionSeconds > 2 }
             .prefix(12).map(\.archiveID))
     }
 

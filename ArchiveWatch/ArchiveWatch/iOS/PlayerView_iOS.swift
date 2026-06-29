@@ -178,7 +178,7 @@ struct PlayerView: UIViewControllerRepresentable {
             // The observer fires on the main queue, so assumeIsolated is safe and
             // keeps us out of Swift 6's nonisolated-capture warnings.
             timeObserver = player.addPeriodicTimeObserver(
-                forInterval: CMTime(seconds: 10, preferredTimescale: 1), queue: .main) { [weak self] _ in
+                forInterval: CMTime(seconds: 5, preferredTimescale: 1), queue: .main) { [weak self] _ in
                 MainActor.assumeIsolated { self?.persistCurrent() }
             }
             registerEnd(for: playerItem)
@@ -319,6 +319,7 @@ struct PlayerView: UIViewControllerRepresentable {
                                          durationSeconds: dur.isFinite ? dur : 0))
             }
             try? ctx.save()
+            SyncNudge.nudge(ctx)   // push progress promptly (debounced) for cross-device resume
         }
 
         // isolated deinit (SE-0371): touch the MainActor-isolated observers natively under

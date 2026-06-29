@@ -223,6 +223,12 @@ private struct CastRow: View {
         return URL(string: "https://image.tmdb.org/t/p/w185\(p)")
     }
 
+    /// Up-to-two-letter initials for a photoless avatar (e.g. the director).
+    static func initials(_ name: String) -> String {
+        let parts = name.split(separator: " ").prefix(2)
+        return parts.compactMap { $0.first }.map(String.init).joined().uppercased()
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Cast & Crew").font(.title3).fontWeight(.semibold)
@@ -245,9 +251,19 @@ private struct CastRow: View {
             router.push(BrowseFilterRoute(title: name, person: name))
         } label: {
             VStack(spacing: 4) {
-                PosterImage(url: Self.profileURL(profilePath))
-                    .frame(width: 64, height: 64).clipShape(.circle)
-                    .overlay(Circle().strokeBorder(.white.opacity(0.1)))
+                Group {
+                    // A photoless member (e.g. the director — stored name-only, no profile path)
+                    // degrades to an initials circle, not PosterImage's "film" glyph which reads
+                    // as a broken image (owner 2026-06-29).
+                    if let url = Self.profileURL(profilePath) {
+                        PosterImage(url: url)
+                    } else {
+                        Circle().fill(.quaternary)
+                            .overlay(Text(Self.initials(name)).font(.headline).foregroundStyle(.secondary))
+                    }
+                }
+                .frame(width: 64, height: 64).clipShape(.circle)
+                .overlay(Circle().strokeBorder(.white.opacity(0.1)))
                 Text(name).font(.caption2).lineLimit(2)
                     .frame(width: 72).multilineTextAlignment(.center)
                     .foregroundStyle(.primary)

@@ -167,7 +167,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
     LaunchedEffect(spec.id) {
         if (!spec.persistProgress) return@LaunchedEffect
         while (true) {
-            delay(10_000)
+            delay(5_000)
             val duration = player.duration
             val id = player.currentMediaItem?.mediaId ?: spec.id
             if (duration > 0) {

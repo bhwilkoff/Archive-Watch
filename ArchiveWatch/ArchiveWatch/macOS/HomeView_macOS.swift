@@ -23,7 +23,7 @@ struct HomeView: View {
     private let minPerShelf = 9
 
     private var continueItems: [Catalog.Item] {
-        store.itemsByIDs(progress.filter { !$0.isComplete && $0.positionSeconds > 10 }
+        store.itemsByIDs(progress.filter { !$0.isComplete && $0.positionSeconds > 2 }
             .prefix(12).map(\.archiveID)).filter(\.hasProfessionalArtwork)
     }
 
@@ -95,7 +95,7 @@ struct HomeView: View {
     /// the same shared writer the iPhone uses.
     private func writeWidgetSnapshot() {
         let continueItems = store.itemsByIDs(
-            progress.filter { !$0.isComplete && $0.positionSeconds > 10 }.prefix(12).map(\.archiveID))
+            progress.filter { !$0.isComplete && $0.positionSeconds > 2 }.prefix(12).map(\.archiveID))
         let progressByID = Dictionary(
             progress.compactMap { p -> (String, Double)? in
                 guard p.durationSeconds > 0 else { return nil }

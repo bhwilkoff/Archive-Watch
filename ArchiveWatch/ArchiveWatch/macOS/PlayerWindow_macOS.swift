@@ -125,6 +125,7 @@ private struct PlayerSurface: View {
     @State private var player: AVPlayer?
     @State private var loader: ResilientStreamLoader?     // retained for the asset's lifetime
     @State private var endObserver: NSObjectProtocol?
+    @State private var timeObserver: Any?                 // periodic progress save (Continue Watching)
 
     var body: some View {
         ZStack {
@@ -170,10 +171,17 @@ private struct PlayerSurface: View {
             forName: AVPlayerItem.didPlayToEndTimeNotification, object: playerItem, queue: .main) { _ in
             MainActor.assumeIsolated { onEnded?() }
         }
+        // Periodic save (every 5s) — macOS previously saved ONLY on window close, so a crash /
+        // force-quit lost the whole session and nothing synced mid-playback (owner 2026-06-29).
+        timeObserver = p.addPeriodicTimeObserver(
+            forInterval: CMTime(seconds: 5, preferredTimescale: 1), queue: .main) { _ in
+            MainActor.assumeIsolated { persist() }
+        }
     }
 
     private func teardown() {
         if let e = endObserver { NotificationCenter.default.removeObserver(e); endObserver = nil }
+        if let t = timeObserver { player?.removeTimeObserver(t); timeObserver = nil }
         persist()
     }
 
@@ -187,16 +195,20 @@ private struct PlayerSurface: View {
     private func persist() {
         guard let p = player, let cur = p.currentItem else { return }
         let pos = p.currentTime().seconds
-        let dur = cur.duration.seconds
-        guard pos.isFinite, pos > 3, dur.isFinite, dur > 0 else { return }
+        // Save even a brief view (>1s) and even before duration is known (backfill it later) — the
+        // old `pos>3 && dur>0` gate dropped early saves entirely (owner 2026-06-29).
+        guard pos.isFinite, pos > 1 else { return }
+        let d0 = cur.duration.seconds
+        let dur = (d0.isFinite && d0 > 0) ? d0 : 0
         let id = archiveID
         let d = FetchDescriptor<WatchProgress>(predicate: #Predicate { $0.archiveID == id })
         if let wp = try? ctx.fetch(d).first {
-            wp.positionSeconds = pos; wp.durationSeconds = dur; wp.lastWatchedAt = .now
+            wp.positionSeconds = pos; if dur > 0 { wp.durationSeconds = dur }; wp.lastWatchedAt = .now
         } else {
             ctx.insert(WatchProgress(archiveID: id, positionSeconds: pos, durationSeconds: dur))
         }
         try? ctx.save()
+        SyncNudge.nudge(ctx)   // push progress promptly (debounced) so other devices converge fast
     }
 }
 

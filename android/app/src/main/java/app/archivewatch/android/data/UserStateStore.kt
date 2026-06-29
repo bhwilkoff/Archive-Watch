@@ -19,7 +19,7 @@ data class WatchProgress(
 ) {
     /** Resumable window: 10s < position < 95% of duration. */
     val isResumable: Boolean
-        get() = positionMs > 10_000 && durationMs > 0 && positionMs < durationMs * 95 / 100
+        get() = positionMs > 2_000 && durationMs > 0 && positionMs < durationMs * 95 / 100
 }
 
 data class UserChannelRec(

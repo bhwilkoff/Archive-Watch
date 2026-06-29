@@ -32,7 +32,7 @@ struct WatchedHomeSync: View {
     /// In-progress titles (the Continue Watching row), so Home can keep them from
     /// repeating in the dynamic shelves below.
     private var continueIDs: Set<String> {
-        Set(progressRecords.filter { !$0.isComplete && $0.positionSeconds > 10 }.map { $0.archiveID })
+        Set(progressRecords.filter { !$0.isComplete && $0.positionSeconds > 2 }.map { $0.archiveID })
     }
 }
 
@@ -47,7 +47,7 @@ struct ContinueWatchingRow: View {
         // EpisodePlayerScreen wrote to WatchProgress.seriesID), films by id.
         Array(
             progressRecords
-                .filter { !$0.isComplete && $0.positionSeconds > 10 }
+                .filter { !$0.isComplete && $0.positionSeconds > 2 }
                 .prefix(24)
                 .compactMap { record -> (item: Catalog.Item, progress: WatchProgress)? in
                     let resolved: Catalog.Item? =

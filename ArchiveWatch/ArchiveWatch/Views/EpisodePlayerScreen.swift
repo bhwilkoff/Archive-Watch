@@ -195,7 +195,7 @@ struct EpisodePlayerScreen: View {
             p.seek(to: CMTime(seconds: existing.positionSeconds, preferredTimescale: 600))
         }
 
-        let interval = CMTime(seconds: 10, preferredTimescale: 600)
+        let interval = CMTime(seconds: 5, preferredTimescale: 600)
         let seriesID = series.seriesID
         let episodeTitle = episode.title
         timeObserver = p.addPeriodicTimeObserver(forInterval: interval, queue: .main) { time in
@@ -280,6 +280,7 @@ struct EpisodePlayerScreen: View {
                 modelContext.insert(record)
             }
             try? modelContext.save()
+            SyncNudge.nudge(modelContext)   // push progress promptly (debounced) for cross-device resume
         } catch {}
     }
 }

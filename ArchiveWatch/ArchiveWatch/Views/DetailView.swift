@@ -812,7 +812,7 @@ struct PlayerScreen: View {
         }
         joinOffset = 0
 
-        let interval = CMTime(seconds: 10, preferredTimescale: 600)
+        let interval = CMTime(seconds: 5, preferredTimescale: 600)
         timeObserver = p.addPeriodicTimeObserver(forInterval: interval, queue: .main) { time in
             Task { @MainActor in
                 persistProgress(at: time.seconds, duration: p.currentItem?.duration.seconds)
@@ -879,6 +879,7 @@ struct PlayerScreen: View {
                 modelContext.insert(record)
             }
             try modelContext.save()
+            SyncNudge.nudge(modelContext)   // push progress promptly (debounced) for cross-device resume
         } catch {
             // Best-effort save; never interrupt playback.
         }
