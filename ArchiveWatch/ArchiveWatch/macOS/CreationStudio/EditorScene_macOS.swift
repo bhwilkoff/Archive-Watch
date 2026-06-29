@@ -243,6 +243,12 @@ struct ProjectEditorView: View {
                 await store.load()
                 await CreationStudioProjectAudit.run(model: model, store: store)
             }
+            // Supercut-path audit (AW_CS_SUPERCUT=1) — builds a 50-clip supercut from the owner's phrases
+            // and proves processing completes + the overlay clears + dead clips are removed + it plays through.
+            if CreationStudioSupercutAudit.isEnabled {
+                await store.load()
+                await CreationStudioSupercutAudit.run(model: model, store: store)
+            }
         }
         .onChange(of: model.project.burnAttribution) { Task { await model.rebuildPreview() } }
         .sheet(isPresented: $showBrowser) {

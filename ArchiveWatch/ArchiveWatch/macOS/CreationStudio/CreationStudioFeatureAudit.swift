@@ -193,7 +193,7 @@ enum CreationStudioFeatureAudit {
                 model.addClip(catalogItemID: item.archiveID, sourceURL: url, title: item.title,
                               inSeconds: 10 + Double(k) * 5, durationSeconds: 3)
             } else {
-                // A source that cannot resolve (no such item) — guaranteed to fail → becomes a gap.
+                // A source that cannot resolve (no such item) — guaranteed to fail → must be REMOVED.
                 let bogus = "aw-nonexistent-item-\(k)-zzqqx"
                 model.addClip(catalogItemID: bogus,
                               sourceURL: URL(string: "https://archive.org/download/\(bogus)/none.mp4")!,
@@ -201,15 +201,21 @@ enum CreationStudioFeatureAudit {
             }
         }
         _ = g
-        // Alignment holds as soon as the reals compose — a not-yet-resolved/failed clip is a GAP at its
-        // slot, so we DON'T need to wait the ~80s for the bogus clips to fully give up. Poll for the
-        // composition total to match the timeline total (and the preview must actually appear fast —
-        // that it does, while bogus clips still churn, is the anti-hang proof).
-        let aligned = await waitAligned(model, timeout: 75)
+        // NEW CONTRACT (owner 2026-06-29): a clip whose source can't load is REMOVED from the timeline
+        // (not left as a black gap). So the 2 bogus clips disappear and only the 3 reals remain, with
+        // preview == timeline (no gaps, plays through). Wait for the removal to land + alignment.
+        var settled = false
+        for _ in 0..<750 {                                  // up to 75s
+            try? await Task.sleep(for: .milliseconds(100))
+            let pv = previewSeconds(model)
+            if model.clips.count == 3, model.clips.allSatisfy({ model.clipPrep[$0.id] == .ready }),
+               pv > 0, abs(pv - model.totalDuration) < 1.2, model.player.currentItem?.status == .readyToPlay {
+                settled = true; break
+            }
+        }
         let tl = model.totalDuration, pv = previewSeconds(model)
-        check("align.failures", aligned && model.clips.count == 5,
-              "clips=\(model.clips.count) timeline=\(rnd(tl))s preview=\(rnd(pv))s aligned=\(aligned) "
-              + "(must match — failed/loading clips are GAPS at their slot, not shifts)")
+        check("align.failures", settled && model.clips.count == 3,
+              "clips=\(model.clips.count) (want 3 — the 2 bogus are REMOVED, not gapped) timeline=\(rnd(tl))s preview=\(rnd(pv))s settled=\(settled)")
 
         // Trimming a REAL clip must keep the alignment.
         if let realID = model.clips.first(where: { $0.label == item.title })?.id {

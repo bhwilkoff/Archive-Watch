@@ -215,9 +215,8 @@ final class EditorModel {
                 guard let self, self.firstFailAt[source] != nil,         // still failing = never succeeded
                       self.permanentlyFailed[source] == nil else { return }
                 let r = self.sourceFailReason[source] ?? "took too long to load"
-                self.permanentlyFailed[source] = r
-                for c in self.clips where c.sourceURL.absoluteString == source { self.clipPrep[c.id] = .failed(r) }
-                self.scheduleRebuild()                                    // becomes a black gap; editor stays usable
+                self.removeFailedSource(source, reason: r)               // REMOVE the dead clip (owner 2026-06-29)
+                self.scheduleRebuild()                                    // editor stays usable; overlay clears
             }
         }
     }
@@ -256,10 +255,27 @@ final class EditorModel {
             let stuck = self.clips.contains { $0.sourceURL.absoluteString == source && self.clipPrep[$0.id] != .ready }
             guard stuck else { return }
             let r = self.sourceFailReason[source] ?? "took too long to load"
-            self.permanentlyFailed[source] = r
-            for c in self.clips where c.sourceURL.absoluteString == source { self.clipPrep[c.id] = .failed(r) }
-            self.scheduleRebuild()                                   // becomes a black gap; load settles
+            self.removeFailedSource(source, reason: r)              // REMOVE the dead clip (owner 2026-06-29)
+            self.scheduleRebuild()                                  // load settles; overlay clears
         }
+    }
+    /// A source that permanently failed (dead, or exhausted its retries / the stuck-ceiling) — REMOVE
+    /// its clip(s) from the timeline instead of leaving dead black slots. Owner 2026-06-29: "the clips
+    /// still show in the timeline (they should be removed if they aren't going to load)" + the preview's
+    /// "clips couldn't load" overlay must then clear (it keys on remaining .failed clips). Only a genuine
+    /// give-up reaches here — a transient miss stays .caching and keeps retrying. Re-packs the magnetic
+    /// track so the survivors form one gap-free run (no dead slot, no blank segment in playback).
+    @discardableResult
+    private func removeFailedSource(_ source: String, reason: String) -> Bool {
+        permanentlyFailed[source] = reason
+        let ids = Set(project.timeline.clips.filter { $0.sourceURL.absoluteString == source }.map(\.id))
+        guard !ids.isEmpty else { return false }
+        for id in ids { clipPrep[id] = nil; clipCache[id] = nil; thumbnails[id] = nil; clipActualDuration[id] = nil }
+        project.timeline.clips.removeAll { ids.contains($0.id) }
+        selectedIDs.subtract(ids)
+        if let sid = selection.id, ids.contains(sid) { selection = .none }
+        relayout()
+        return true
     }
     @ObservationIgnored private var timeObserver: Any?
     @ObservationIgnored private let thumbGen = ThumbnailGenerator()
@@ -463,6 +479,12 @@ final class EditorModel {
     func addSupercutClips(_ takes: [SupercutTake], tighten: Bool, evenVolume: Bool, addSubtitles: Bool = false) {
         guard !takes.isEmpty else { return }
         checkpoint()
+        // Start a fresh supercut at the BEGINNING (owner 2026-06-29: "It should start at the beginning of
+        // the clip and play through"). Without this the playhead keeps whatever value it had, and as the
+        // verify pass removes clips the timeline shifts under it — landing it in the middle of the first
+        // clip. Pinning it to 0 means every progressive rebuild re-seeks to 0 until the user plays/scrubs.
+        playheadSeconds = 0
+        player.seek(to: .zero, toleranceBefore: .zero, toleranceAfter: .zero)
         var added: [(id: UUID, take: SupercutTake)] = []
         for take in takes {
             let clip = TimelineClip.from(take.proxy, at: .zero)
@@ -948,17 +970,44 @@ final class EditorModel {
         }
     }
 
+    // COALESCING rebuild scheduler. Rebuilds must NEVER overlap: overlapping rebuilds were the bug
+    // behind the FINAL correct composition never reaching the player (owner 2026-06-29: "it didn't play
+    // through once it was all loaded"). When the supercut churns — progressive caching, the verify pass
+    // removing clips, cache-failure removals, retries — many rebuilds fire; with the old cancel-and-
+    // restart-debounce, a stale in-flight rebuild's swap could win out of order, or a fresh request
+    // could cancel the last rebuild's debounce timer and STRAND it, leaving the preview stuck on an
+    // obsolete composition (the pre-removal cut — longer than the timeline, full of dead slots, won't
+    // play). Coalescing runs ONE rebuild at a time and guarantees the LAST request runs to completion.
+    @ObservationIgnored private var rebuildRunning = false
+    @ObservationIgnored private var rebuildRequested = false
+
     func scheduleRebuild() {
         previewDirty = true               // an edit wants the preview updated; cleared on a completed rebuild
         // During a drag, defer the rebuild to release — rebuilding mid-drag swaps the player item and
         // reseeks repeatedly, which is the "playhead skips around / fights me" behavior.
         if isInteracting { pendingRebuildAfterInteraction = true; return }
+        rebuildRequested = true
+        if rebuildRunning { return }      // the running drain will pick this up — never two at once
         rebuildTask?.cancel()
         rebuildTask = Task { [weak self] in
-            try? await Task.sleep(for: .milliseconds(140))
+            try? await Task.sleep(for: .milliseconds(140))   // debounce a burst of edits / clip loads
             guard !Task.isCancelled else { return }
-            await self?.rebuildPreview()
+            await self?.drainRebuilds()
         }
+    }
+
+    /// Run rebuilds serially until none is pending — so the last edit/load always lands and no two
+    /// rebuilds ever overlap (the swap race). Stops if the user starts interacting (the drag's rebuild
+    /// runs on release). Re-kicks if a request arrives during a cancelled unwind so it's never stranded.
+    private func drainRebuilds() async {
+        guard !rebuildRunning else { return }
+        rebuildRunning = true
+        while rebuildRequested, !isInteracting {
+            rebuildRequested = false
+            await rebuildPreview()
+        }
+        rebuildRunning = false
+        if rebuildRequested, !isInteracting { scheduleRebuild() }
     }
 
     /// Rebuild the preview from LOCALLY-CACHED clip windows — never N concurrent remote streams
@@ -1087,7 +1136,7 @@ final class EditorModel {
                 transientRetryTask = Task { [weak self] in
                     try? await Task.sleep(for: .seconds(delay))
                     guard !Task.isCancelled else { return }
-                    await self?.rebuildPreview()
+                    self?.scheduleRebuild()          // through the coalescer — never overlap a live rebuild
                 }
             }
             return
@@ -1100,18 +1149,19 @@ final class EditorModel {
         // long time"). It stays visible (red, retryable); the preview/export use the rest.
         // Give up on count OR wall-clock: a dead clip that the preview + verify passes keep retrying
         // through backoffs can take minutes to hit the count, so a 40s wall-clock cap bounds the tail.
-        let givenUp = retryable.filter {
-            let src = $0.sourceURL.absoluteString
-            if (sourceFailCount[src] ?? 0) >= Self.maxSourceFailures { return true }
-            if let t = firstFailAt[src], Date().timeIntervalSince(t) >= Self.maxGiveUpSeconds { return true }
-            return false
-        }
-        for c in givenUp {
+        // GIVE UP → REMOVE (owner 2026-06-29): a clip that exhausted its retries / the stuck-ceiling,
+        // has no video track, or whose source is already known-dead is REMOVED from the timeline rather
+        // than left as a dead black slot. The "couldn't load" overlay keys on remaining .failed clips,
+        // so removing them is what finally clears it; the survivors re-pack gap-free (no blank segments).
+        let deadSources = Set(timelineClips.compactMap { c -> String? in
             let src = c.sourceURL.absoluteString
-            let reason = sourceFailReason[src] ?? "couldn’t load this source"
-            permanentlyFailed[src] = reason
-            clipPrep[c.id] = .failed(reason)
-        }
+            if resolvedByID[c.id] != nil { return nil }                                    // it loaded
+            if permanentlyFailed[src] != nil { return src }                                // dead (e.g. no video)
+            if (sourceFailCount[src] ?? 0) >= Self.maxSourceFailures { return src }
+            if let t = firstFailAt[src], Date().timeIntervalSince(t) >= Self.maxGiveUpSeconds { return src }
+            return nil
+        })
+        for src in deadSources { removeFailedSource(src, reason: sourceFailReason[src] ?? "couldn’t load this source") }
         // RECONCILE displayed state with what's ACTUALLY in the build, so the overlay + timeline never
         // lie: a clip that resolved is READY (clears any stale/false "cannot decode"), its source is no
         // longer considered failed, and its TIMELINE length is set to the real playable duration so the
@@ -1147,15 +1197,19 @@ final class EditorModel {
             transientRetryTask = Task { [weak self] in
                 try? await Task.sleep(for: .seconds(Double(n) * 2))
                 guard !Task.isCancelled else { return }
-                await self?.rebuildPreview()
+                self?.scheduleRebuild()              // through the coalescer — never overlap a live rebuild
             }
         }
-        // FINAL build — every clip in timeline order, GAPS reserving the slots of any that failed/
-        // didn't resolve, so the composition is positionally 1:1 with the timeline (the playhead
-        // always lands on the clip the timeline shows; a missing clip is black at its slot, never a
-        // shifted neighbour). Uses the post-reconcile `clips` so clamped durations are reflected.
-        _ = await composeAndSwap(resolvedByID, timelineClips: clips,
-                                 wasPlaying: wasPlaying, maxPollMs: 4000, markClean: true)
+        // FINAL build — every clip in timeline order; a still-LOADING clip is a black gap at its slot
+        // (dead ones were just removed above), so the composition is positionally 1:1 with the timeline.
+        // When EVERY remaining clip has resolved (processing complete), force the swap even mid-playback
+        // (force:) so the whole supercut appears + plays through "as soon as processing is complete"
+        // (owner 2026-06-29) — without it, clips that loaded after the user pressed Play stayed blank
+        // until a pause triggered the catch-up. A still-loading pass keeps deferring (no mid-load stutter).
+        let liveClips = clips
+        let fullyResolved = !liveClips.isEmpty && liveClips.allSatisfy { resolvedByID[$0.id] != nil }
+        _ = await composeAndSwap(resolvedByID, timelineClips: liveClips,
+                                 wasPlaying: wasPlaying, maxPollMs: 4000, markClean: true, force: fullyResolved)
     }
 
     /// Build the composition from `resolvedByID` — reserving a black GAP for every clip not yet
@@ -1167,7 +1221,7 @@ final class EditorModel {
     @discardableResult
     private func composeAndSwap(_ resolvedByID: [UUID: CompositionBuilder.ResolvedClip],
                                 timelineClips: [TimelineClip], wasPlaying: Bool,
-                                maxPollMs: Int, markClean: Bool) async -> Bool {
+                                maxPollMs: Int, markClean: Bool, force: Bool = false) async -> Bool {
         // Reserve EVERY clip's slot: its resolved footage, else a black gap of its timeline duration.
         let resolved: [CompositionBuilder.ResolvedClip] = timelineClips.map {
             resolvedByID[$0.id] ?? .gap(seconds: $0.sourceRange.duration.seconds)
@@ -1178,7 +1232,7 @@ final class EditorModel {
         // to the beginning"). Defer the fill: keep playing through the not-yet-rendered clips (black
         // gaps) and mark the preview dirty; a catch-up rebuild runs when playback stops (pause/end). The
         // very first compose (no current item yet) always proceeds.
-        if isPlaying, player.currentItem != nil { previewDirty = true; return false }
+        if !force, isPlaying, player.currentItem != nil { previewDirty = true; return false }
         // bakeOverlays:false — the Core Animation overlay tool is offline-only (crashes AVPlayerItem).
         // Same clip/reframe/audio recipe as export, so the preview frame matches.
         let credit = project.burnAttribution ? ExportService.defaultCredit : nil
@@ -1191,7 +1245,11 @@ final class EditorModel {
             item.videoComposition = built.videoComposition
             item.audioMix = built.audioMix
             item.preferredForwardBufferDuration = 8
-            player.automaticallyWaitsToMinimizeStalling = true
+            // The preview composition is entirely LOCAL cached MP4 windows — nothing to buffer from the
+            // network — so don't make the player wait-to-minimize-stalling before starting (that added
+            // ~3s of dead air at Play and made playback look sluggish/"didn't play through", owner
+            // 2026-06-29). Starting immediately plays the local files at full rate.
+            player.automaticallyWaitsToMinimizeStalling = false
             // Hold the playhead the user is at across the swap: capture it BEFORE replacing the item,
             // and suppress the time observer (isSwappingPreview) so the new item's transient currentTime
             // 0 can't overwrite it. We restore EXACTLY here, so the playhead never snaps to the start.
