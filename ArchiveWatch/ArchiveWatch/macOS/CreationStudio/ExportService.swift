@@ -59,22 +59,47 @@ final class ExportService {
         let creditLine: String? = project.burnAttribution ? Self.defaultCredit : nil
 
         do {
-            // 1) Cache each clip window to a local faststart MP4 (Rule 4b).
+            // 1) Cache each clip window to a local faststart MP4 (Rule 4b) — CONCURRENTLY, bounded.
+            // Was a SERIAL loop (one clip at a time): a 30-clip multi-film project meant ~30 sequential
+            // full-quality window downloads, which timed out the export entirely on a slow/throttled
+            // connection. A bounded task group (same shape as the preview rebuild) caches several at
+            // once — the global ReencodeLimiter still caps total in-flight encodes — and a clip that
+            // can't be cached becomes a black GAP (below) instead of failing the WHOLE export.
             let clips = project.timeline.clips
             var cached: [UUID: URL] = [:]
-            for (i, clip) in clips.enumerated() {
-                Self.diag("cache clip \(i + 1)/\(clips.count) [\(clip.catalogItemID)] \(Int(clip.sourceRange.start.seconds))s+\(Int(clip.sourceRange.duration.seconds))s")
-                cached[clip.id] = try await ClipCacheService.cachedURL(for: clip)
-                progress = Double(i + 1) / Double(clips.count) * 0.4
+            let exportConc = Int(ProcessInfo.processInfo.environment["AW_CS_EXPORT_CONC"] ?? "") ?? 4
+            var done = 0
+            await withTaskGroup(of: (UUID, URL?).self) { group in
+                var it = clips.makeIterator()
+                func addNext() {
+                    guard let clip = it.next() else { return }
+                    group.addTask {
+                        // A single un-cacheable clip must not abort the export — return nil → gap.
+                        (clip.id, try? await ClipCacheService.cachedURL(for: clip))
+                    }
+                }
+                for _ in 0..<max(1, exportConc) { addNext() }
+                while let (id, url) = await group.next() {
+                    if let url { cached[id] = url }
+                    done += 1
+                    progress = Double(done) / Double(clips.count) * 0.4
+                    Self.diag("cached \(done)/\(clips.count)\(url == nil ? " (FAILED → gap)" : "")")
+                    addNext()
+                }
             }
-            Self.diag("composing \(clips.count) clip(s)")
+            Self.diag("composing \(clips.count) clip(s), \(cached.count) cached")
 
             // 2) Compile the (composition, videoComposition) from the LOCAL cached files.
             phase = .composing
             let ordered = clips.sorted { $0.timelineStart.seconds < $1.timelineStart.seconds }
             var resolved: [CompositionBuilder.ResolvedClip] = []
             for clip in ordered {
-                guard let url = cached[clip.id] else { continue }
+                // A clip that couldn't be cached reserves a black GAP of its timeline length, so the
+                // export stays positionally 1:1 with the timeline (neighbours keep their positions)
+                // instead of being dropped — the same gap discipline the preview uses.
+                guard let url = cached[clip.id] else {
+                    resolved.append(.gap(seconds: clip.sourceRange.duration.seconds)); continue
+                }
                 // Bake the clip's color grade into a source file first (Looks compose with
                 // transitions because they're a separate graded source — Rule 3d note).
                 let gradedURL = (try? await LookGrader.gradedURL(for: url, look: clip.look)) ?? url

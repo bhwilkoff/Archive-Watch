@@ -35,7 +35,7 @@ struct ArchiveWatchMacApp: App {
                     // editor's bound model, so the full UI load contends — owner 2026-06-27). Here we
                     // only FORCE the editor document open so that scene + its .task reliably appear on
                     // a headless/CLI launch (state restoration otherwise may not open it).
-                    if CreationStudioBench.isEnabled || CreationStudioFeatureAudit.isEnabled || CreationStudioStress.isEnabled {
+                    if CreationStudioBench.isEnabled || CreationStudioFeatureAudit.isEnabled || CreationStudioStress.isEnabled || CreationStudioProjectAudit.isEnabled {
                         CreationStudioBench.mark("TASK-FIRED open-editor")
                         await store.load()
                         NSDocumentController.shared.newDocument(nil)

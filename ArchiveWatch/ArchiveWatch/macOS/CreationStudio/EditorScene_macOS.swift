@@ -237,6 +237,12 @@ struct ProjectEditorView: View {
                 await store.load()
                 await CreationStudioStress.run(model: model, store: store)
             }
+            // Real-project audit (AW_CS_PROJECTS=1) — loads each .archiveproj the owner provided (copied
+            // into the container Documents) and proves every feature against the REAL multi-source clips.
+            if CreationStudioProjectAudit.isEnabled {
+                await store.load()
+                await CreationStudioProjectAudit.run(model: model, store: store)
+            }
         }
         .onChange(of: model.project.burnAttribution) { Task { await model.rebuildPreview() } }
         .sheet(isPresented: $showBrowser) {

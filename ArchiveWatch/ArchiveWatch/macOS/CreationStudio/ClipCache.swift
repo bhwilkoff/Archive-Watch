@@ -186,15 +186,33 @@ enum CacheCoordinator {
 actor ReencodeLimiter {
     private let limit: Int
     private var active = 0
-    private var waiters: [CheckedContinuation<Void, Never>] = []
+    private struct Waiter { let id: UUID; let cont: CheckedContinuation<Void, Error> }
+    private var waiters: [Waiter] = []
     init(_ limit: Int) { self.limit = max(1, limit) }
-    func acquire() async {
+    /// Acquire a slot, honoring cancellation. A task cancelled WHILE WAITING for a permit is removed
+    /// from the queue and throws `CancellationError` — so a per-clip timeout that wraps the acquire
+    /// (cachedWindow) can actually unblock a permit-STARVED clip. Without this, a clip that never got
+    /// a permit (all held by other slow clips) sat in `.caching` forever: it never timed out, never
+    /// recorded a failure, never armed the give-up — the "stuck downloading clip" hang where the
+    /// "Preparing clips…" overlay never clears (owner 2026-06-28).
+    func acquire() async throws {
         if active < limit { active += 1; return }
-        await withCheckedContinuation { waiters.append($0) }
+        let id = UUID()
+        try await withTaskCancellationHandler {
+            try await withCheckedThrowingContinuation { (c: CheckedContinuation<Void, Error>) in
+                waiters.append(Waiter(id: id, cont: c))
+            }
+        } onCancel: {
+            Task { await self.dropWaiter(id) }
+        }
+    }
+    private func dropWaiter(_ id: UUID) {
+        guard let i = waiters.firstIndex(where: { $0.id == id }) else { return }   // already granted → no-op
+        waiters.remove(at: i).cont.resume(throwing: CancellationError())
     }
     func release() {
         if waiters.isEmpty { active = max(0, active - 1) }
-        else { waiters.removeFirst().resume() }        // hand the slot straight to the next waiter
+        else { waiters.removeFirst().cont.resume(returning: ()) }   // hand the slot straight to the next waiter
     }
 }
 
@@ -258,27 +276,35 @@ enum ClipCacheService {
         var lastError: Error = CreationStudioError.cannotCreateExportSession
         for attempt in 0..<max(1, attempts) {
             let t0 = Date()
-            // Gate the heavy work on the GLOBAL limiter so total concurrent encodes stay bounded
-            // (oversubscription was the cause of the cascading timeouts). The slot is held only for
-            // the encode, freed between retries / on failure.
-            await reencodeLimiter.acquire()
             do {
-                // Read the window THROUGH the ResilientStreamLoader (byte-range + node failover +
-                // resume-on-reset) and re-encode it to a local file. This is the ONLY path that
-                // survives archive.org's idle connection resets on a deep window of a long film —
-                // AVAssetExportSession has no resourceLoader and fails "Operation Stopped" (-11838)
-                // exactly there, which is why both export AND the cache-backed preview were broken.
+                // The timeout wraps BOTH the limiter wait AND the encode (was: only the encode). A
+                // clip that can't get a permit — all held by other slow clips under archive.org
+                // throttle — used to wait on `acquire()` UNBOUNDED, so it never timed out, never
+                // failed, never gave up: a permanent `.caching` hang. Now the deadline covers the
+                // whole attempt, so a starved clip fails fast → records a failure → becomes a gap.
                 try await withTimeout(timeout) {
-                    try await cacheOneWindow(sourceURL: sourceURL, range: range, to: out)
+                    // Gate the heavy work on the GLOBAL limiter so total concurrent encodes stay
+                    // bounded (oversubscription is what storms archive.org / cascades timeouts). The
+                    // slot is held only for the encode, freed on success OR failure.
+                    try await reencodeLimiter.acquire()
+                    do {
+                        // Read the window THROUGH the ResilientStreamLoader (byte-range + node
+                        // failover + resume-on-reset) and re-encode it to a local file — the only path
+                        // that survives archive.org's idle connection resets on a deep window of a long
+                        // film (AVAssetExportSession has no resourceLoader → "Operation Stopped" -11838).
+                        try await cacheOneWindow(sourceURL: sourceURL, range: range, to: out)
+                    } catch {
+                        await reencodeLimiter.release()
+                        throw error
+                    }
+                    await reencodeLimiter.release()
                 }
-                await reencodeLimiter.release()
                 if ProcessInfo.processInfo.environment["AW_CS_DIAG"] != nil {
                     FileHandle.standardError.write(Data(
                         "AWCS CACHE \(catalogItemID) reencode \(Int(s))–\(Int(e))s in \(Int(Date().timeIntervalSince(t0) * 1000))ms\n".utf8))
                 }
                 return out
             } catch {
-                await reencodeLimiter.release()
                 lastError = error
                 if Task.isCancelled { throw error }
                 if isPermanent(error) { break }                 // a codec/format failure won't change on retry

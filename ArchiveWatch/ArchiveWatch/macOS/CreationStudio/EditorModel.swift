@@ -959,7 +959,17 @@ final class EditorModel {
         // rate-limited /download main host, so parallel byte-range reads hit storage NODES and 6-wide
         // is ~5× faster than the old 2 (20 fresh clips: 86s → ~16s) without tripping the per-IP
         // throttle that starts failing copies above ~10. Tunable for the benchmark (BenchConfig/env).
-        let maxConcurrent = BenchConfig.concurrency ?? Int(ProcessInfo.processInfo.environment["AW_CS_CONC"] ?? "") ?? 6
+        // ADAPTIVE concurrency by DISTINCT-source count. A supercut built from a few films shares
+        // sources, so 6-wide is fast and safe (the proven perf win). But a SAVED project assembled from
+        // many DISTINCT films (each its own metadata fetch + storage node) storms archive.org's per-IP
+        // throttle at 6-wide — measured on real projects: a 24-distinct-film project resolved only ~29%
+        // cold (the rest timed out → black gaps, the "blank preview for many clips" bug), while a
+        // warm/few-source project resolved 100%. Fewer simultaneous distant streams = each completes
+        // within the timeout = far more clips resolve. So gate concurrency down as distinct sources rise.
+        // The AW_CS_CONC env / BenchConfig override still wins (used to MEASURE the right value).
+        let distinctSources = Set(timelineClips.map { $0.sourceURL.absoluteString }).count
+        let adaptiveConc = distinctSources >= 24 ? 3 : (distinctSources >= 10 ? 4 : 6)
+        let maxConcurrent = BenchConfig.concurrency ?? Int(ProcessInfo.processInfo.environment["AW_CS_CONC"] ?? "") ?? adaptiveConc
         var resolvedByID: [UUID: CompositionBuilder.ResolvedClip] = [:]
         await withTaskGroup(of: (UUID, CompositionBuilder.ResolvedClip?).self) { group in
             var it = timelineClips.makeIterator()
@@ -1646,7 +1656,7 @@ final class EditorModel {
             // at once, which STARVES the window pipeline's proxy-metadata resolution (same host) and
             // trips the per-IP rate limit (-1001 timeouts → -1004). Bounding the producer keeps the
             // queue shallow so clips actually cache. Filmstrips fill in progressively.
-            await Self.filmstripGate.acquire()
+            do { try await Self.filmstripGate.acquire() } catch { return }   // cancelled while waiting → skip (no permit held)
             await self.buildFilmstrip(id: id, catID: catID, url: url, inS: inS, outS: outS)
             await Self.filmstripGate.release()
         }
