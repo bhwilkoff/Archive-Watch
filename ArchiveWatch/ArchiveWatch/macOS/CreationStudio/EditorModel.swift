@@ -341,7 +341,7 @@ final class EditorModel {
         // is running/interacting — a cheap belt-and-suspenders on top of the coalescing scheduler.
         watchdogTask = Task { [weak self] in
             while !Task.isCancelled {
-                try? await Task.sleep(for: .seconds(2))
+                try? await Task.sleep(for: .milliseconds(800))
                 guard let self else { return }
                 if self.previewDirty, !self.rebuildRunning, !self.isInteracting, !self.clips.isEmpty {
                     self.scheduleRebuild()
@@ -1004,6 +1004,9 @@ final class EditorModel {
         if isInteracting { pendingRebuildAfterInteraction = true; return }
         rebuildRequested = true
         if rebuildRunning { return }      // the running drain will pick this up — never two at once
+        if ProcessInfo.processInfo.environment["AW_CS_DIAG"] != nil {
+            FileHandle.standardError.write(Data("AWCS SCHED cancel+kick (running=false)\n".utf8))
+        }
         rebuildTask?.cancel()
         rebuildTask = Task { [weak self] in
             try? await Task.sleep(for: .milliseconds(140))   // debounce a burst of edits / clip loads
@@ -1218,14 +1221,13 @@ final class EditorModel {
         }
         // FINAL build — every clip in timeline order; a still-LOADING clip is a black gap at its slot
         // (dead ones were just removed above), so the composition is positionally 1:1 with the timeline.
-        // When EVERY remaining clip has resolved (processing complete), force the swap even mid-playback
-        // (force:) so the whole supercut appears + plays through "as soon as processing is complete"
-        // (owner 2026-06-29) — without it, clips that loaded after the user pressed Play stayed blank
-        // until a pause triggered the catch-up. A still-loading pass keeps deferring (no mid-load stutter).
-        let liveClips = clips
-        let fullyResolved = !liveClips.isEmpty && liveClips.allSatisfy { resolvedByID[$0.id] != nil }
-        _ = await composeAndSwap(resolvedByID, timelineClips: liveClips,
-                                 wasPlaying: wasPlaying, maxPollMs: 4000, markClean: true, force: fullyResolved)
+        // NOT force-swapped while playing: swapping the player item mid-playback restarts the new item
+        // from 0 if it isn't instantly ready, which RESET the playhead to the start (regression). The
+        // owner's flow — wait for processing, THEN play — already gets the complete composition because
+        // the coalescing scheduler swaps it in while NOT playing; a swap requested while playing defers
+        // and the pause-catch-up + watchdog apply it. So this stays a normal (non-forced) compose.
+        _ = await composeAndSwap(resolvedByID, timelineClips: clips,
+                                 wasPlaying: wasPlaying, maxPollMs: 4000, markClean: true)
     }
 
     /// Build the composition from `resolvedByID` — reserving a black GAP for every clip not yet
@@ -1256,7 +1258,12 @@ final class EditorModel {
             let built = try await CompositionBuilder.build(
                 resolved: resolved, timeline: project.timeline,
                 creditLine: credit, bakeOverlays: false, beds: resolvedBeds())
-            guard !Task.isCancelled else { return false }
+            if Task.isCancelled {
+                if ProcessInfo.processInfo.environment["AW_CS_DIAG"] != nil {
+                    FileHandle.standardError.write(Data("AWCS COMPOSE bail cancelled-after-build markClean=\(markClean) compDur=\(Int(built.duration.seconds)) running=\(rebuildRunning)\n".utf8))
+                }
+                return false
+            }
             let item = AVPlayerItem(asset: built.composition)
             item.videoComposition = built.videoComposition
             item.audioMix = built.audioMix
@@ -1282,7 +1289,15 @@ final class EditorModel {
                 if Task.isCancelled { return false }
                 try? await Task.sleep(for: .milliseconds(25))
             }
-            guard !Task.isCancelled, player.currentItem === item, item.status == .readyToPlay else { return false }
+            guard !Task.isCancelled, player.currentItem === item, item.status == .readyToPlay else {
+                if ProcessInfo.processInfo.environment["AW_CS_DIAG"] != nil {
+                    FileHandle.standardError.write(Data("AWCS COMPOSE bail post-swap cancelled=\(Task.isCancelled) current=\(player.currentItem === item) status=\(item.status.rawValue) markClean=\(markClean)\n".utf8))
+                }
+                return false
+            }
+            if ProcessInfo.processInfo.environment["AW_CS_DIAG"] != nil {
+                FileHandle.standardError.write(Data("AWCS COMPOSE SWAP compDur=\(Int(built.duration.seconds)) markClean=\(markClean) force=\(force)\n".utf8))
+            }
             if markClean { previewDirty = false }   // the preview now reflects the current timeline
             await player.seek(to: target, toleranceBefore: .zero, toleranceAfter: .zero)
             // Keep playing across the swap, unless the playhead is now past the (shortened) timeline.
