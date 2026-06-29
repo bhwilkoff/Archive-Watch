@@ -224,11 +224,42 @@ final class EditorModel {
     @ObservationIgnored private var sourceFailReason: [String: String] = [:]
     @ObservationIgnored private var firstFailAt: [String: Date] = [:]
     static let maxGiveUpSeconds: TimeInterval = 20
+    /// ABSOLUTE ceiling from a source's FIRST attempt — an upper bound on how long a clip may stay
+    /// unresolved before it's given up, INDEPENDENT of whether a failure was ever recorded. The
+    /// failure-based give-up (firstFailAt) doesn't fire when a clip's attempts keep getting CANCELLED
+    /// before they time out: a give-up elsewhere calls scheduleRebuild(), which cancels the in-flight
+    /// rebuild, so a still-trying clip's attempt is superseded without recording a failure — and a 1-2
+    /// clip tail then churns forever ("stubborn downloading clip" that never clears). This ceiling
+    /// catches that. GENEROUS (90s): a healthy clip resolves in <10s and a slow-but-good one well
+    /// under this, so it only kills a clip that truly never converges (a tight 30s ceiling was tried
+    /// before and wrongly killed slow-good clips — don't lower it).
+    @ObservationIgnored private var firstAttemptAt: [String: Date] = [:]
+    static let maxStuckSeconds: TimeInterval = 90
     /// A source cached successfully — clear its failure streak so a later transient blip starts fresh.
     private func noteSourceSucceeded(_ source: String) {
         if sourceFailCount[source] != nil { sourceFailCount[source] = nil }
         firstFailAt[source] = nil
+        firstAttemptAt[source] = nil        // resolved → cancel its absolute-ceiling give-up
         previewBlockedReason = nil          // something loaded → connectivity is back
+    }
+    /// Arm the absolute give-up ceiling the first time a source is attempted. Fires once at
+    /// `maxStuckSeconds` and gives the clip up (→ black gap) if it's STILL unresolved and not already
+    /// permanently failed — so the load always settles even when failure-based give-up is starved by
+    /// the cancel/retry churn.
+    private func armStuckCeiling(_ source: String) {
+        guard firstAttemptAt[source] == nil else { return }
+        firstAttemptAt[source] = Date()
+        Task { [weak self] in
+            try? await Task.sleep(for: .seconds(Self.maxStuckSeconds))
+            guard let self, self.firstAttemptAt[source] != nil,      // not cleared by a success
+                  self.permanentlyFailed[source] == nil else { return }
+            let stuck = self.clips.contains { $0.sourceURL.absoluteString == source && self.clipPrep[$0.id] != .ready }
+            guard stuck else { return }
+            let r = self.sourceFailReason[source] ?? "took too long to load"
+            self.permanentlyFailed[source] = r
+            for c in self.clips where c.sourceURL.absoluteString == source { self.clipPrep[c.id] = .failed(r) }
+            self.scheduleRebuild()                                   // becomes a black gap; load settles
+        }
     }
     @ObservationIgnored private var timeObserver: Any?
     @ObservationIgnored private let thumbGen = ThumbnailGenerator()
@@ -1215,6 +1246,7 @@ final class EditorModel {
             throw CreationStudioError.cannotCreateExportSession
         }
         if clipPrep[clip.id] != .ready { clipPrep[clip.id] = .caching }
+        armStuckCeiling(srcKey)   // absolute upper bound so a churn-starved clip still settles
         let inS = clip.sourceRange.start.seconds
         let outS = clip.sourceRange.endSeconds
 
