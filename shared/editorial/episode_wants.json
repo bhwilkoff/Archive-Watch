@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-06-27T07:00:13Z",
+  "updated_at": "2026-06-29T09:01:24Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 17263,
-    "wanted": 17047,
+    "total": 17266,
+    "wanted": 17050,
     "fulfilled": 216,
-    "series_with_gaps": 343
+    "series_with_gaps": 344
   },
   "wants": [
     {
@@ -84556,6 +84556,36 @@
       "episodeImdbID": "tt0662507",
       "status": "wanted",
       "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "not-the-nine-o-clock-news-1979",
+      "seriesTitle": "Not the Nine O'Clock News",
+      "season": 3,
+      "episode": 3,
+      "title": "Miss World 1980",
+      "episodeImdbID": "tt0952131",
+      "status": "wanted",
+      "added_at": "2026-06-29T09:01:24Z"
+    },
+    {
+      "seriesID": "not-the-nine-o-clock-news-1979",
+      "seriesTitle": "Not the Nine O'Clock News",
+      "season": 4,
+      "episode": 1,
+      "title": "Episode #4.1",
+      "episodeImdbID": "tt0662518",
+      "status": "wanted",
+      "added_at": "2026-06-29T09:01:24Z"
+    },
+    {
+      "seriesID": "not-the-nine-o-clock-news-1979",
+      "seriesTitle": "Not the Nine O'Clock News",
+      "season": 4,
+      "episode": 6,
+      "title": "Episode #4.6",
+      "episodeImdbID": "tt0662519",
+      "status": "wanted",
+      "added_at": "2026-06-29T09:01:24Z"
     },
     {
       "seriesID": "oh-grow-up-1999",
