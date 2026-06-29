@@ -36,16 +36,22 @@ struct TVShowsView: View {
         case .popular:
             // Series carry no popularityScore, so fall back to how complete a
             // show is (available episodes) — the richest series lead the grid.
-            return pool.sorted {
-                ($0.popularityScore ?? 0, $0.episodesCount ?? 0)
-                    > ($1.popularityScore ?? 0, $1.episodesCount ?? 0)
+            return pool.sorted { a, b in
+                let pa = a.popularityScore ?? 0, pb = b.popularityScore ?? 0
+                if pa != pb { return pa > pb }
+                return (a.episodesCount ?? 0) > (b.episodesCount ?? 0)
             }
         case .rating:
             // Series cards rarely carry an IMDb rating; rated shows lead,
-            // the rest keep their episode-depth order behind them.
-            return pool.sorted {
-                ($0.imdbRating ?? -1, Double($0.imdbVotes ?? 0), Double($0.episodesCount ?? 0))
-                    > ($1.imdbRating ?? -1, Double($1.imdbVotes ?? 0), Double($1.episodesCount ?? 0))
+            // the rest keep their episode-depth order behind them. Compared
+            // field-by-field rather than as a tuple — the tuple form times out
+            // the type-checker on the released toolchain.
+            return pool.sorted { a, b in
+                let ra = a.imdbRating ?? -1, rb = b.imdbRating ?? -1
+                if ra != rb { return ra > rb }
+                let va = a.imdbVotes ?? 0, vb = b.imdbVotes ?? 0
+                if va != vb { return va > vb }
+                return (a.episodesCount ?? 0) > (b.episodesCount ?? 0)
             }
         case .alphabetical:
             return pool.sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }

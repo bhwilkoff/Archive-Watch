@@ -78,9 +78,15 @@ echo "Archiving Archive Watch Mac $VERSION ($BUILD)…"
 
 ARCH="build/ArchiveWatchMac.xcarchive"
 rm -rf "$ARCH" build/export
+# Pass the API key to the ARCHIVE step too — on a fresh Xcode with no signed-in Apple ID,
+# -allowProvisioningUpdates needs it to create/download the signing cert + profile (the export
+# step needs it as well, below).
 xcodebuild -project ArchiveWatch/ArchiveWatch.xcodeproj -scheme "Archive Watch Mac" \
   -configuration Release -destination 'generic/platform=macOS' \
-  -archivePath "$ARCH" archive -allowProvisioningUpdates
+  -archivePath "$ARCH" archive -allowProvisioningUpdates \
+  -authenticationKeyID "$ASC_KEY_ID" \
+  -authenticationKeyIssuerID "$ASC_ISSUER_ID" \
+  -authenticationKeyPath "$KEY"
 
 echo "Exporting + uploading to App Store Connect…"
 xcodebuild -exportArchive -archivePath "$ARCH" -exportPath build/export \
