@@ -724,7 +724,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.archivewatch.tvos;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Archive Watch";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -759,7 +759,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.archivewatch.tvos;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Archive Watch";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;

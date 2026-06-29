@@ -88,7 +88,7 @@ struct RootView: View {
         guard let request else { return }
         switch request {
         case .surprise, .randomFilm:
-            if let item = store.dbRandomPlayable() {
+            if let item = store.dbRandomFeatureFilm() {
                 router.tab = .home
                 router.openDetail(item)
             }

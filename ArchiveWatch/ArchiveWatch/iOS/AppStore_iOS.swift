@@ -174,6 +174,7 @@ final class AppStore {
     func randomPlayable(contentType: String? = nil) -> Catalog.Item? {
         db?.randomPlayable(contentType: contentType)
     }
+    func randomFeatureFilm() -> Catalog.Item? { db?.randomFeatureFilm() }
     func randomSeries() -> Catalog.Item? { db?.randomSeries() }
     func randomCommercials(limit: Int = 12) -> [Catalog.Item] {
         db?.randomCommercials(limit: limit) ?? []
@@ -197,6 +198,7 @@ final class AppStore {
 
     // MARK: shared ContinuousPlayback engine surface (db*-prefixed, matches tvOS)
     func dbRandomPlayable() -> Catalog.Item? { db?.randomPlayable() }
+    func dbRandomFeatureFilm() -> Catalog.Item? { db?.randomFeatureFilm() }
     func dbBrowse(contentType: String? = nil, decade: Int? = nil, genre: String? = nil,
                   sort: CatalogDB.Sort = .popular, limit: Int = 60,
                   homeOnly: Bool = false) -> [Catalog.Item] {

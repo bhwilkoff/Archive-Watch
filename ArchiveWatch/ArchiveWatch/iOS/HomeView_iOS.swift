@@ -213,9 +213,10 @@ struct HomeView: View {
     private func loadHero() -> [Catalog.Item] {
         let base = store.filteringWatched(store.dbBrowse(sort: .popular, limit: 3000, homeOnly: true))
             .filter { $0.hasDesignedArtwork && $0.artworkSource != "generated" }
-        let withBackdrop = base.filter { $0.backdropURLParsed != nil }
-        let pool = withBackdrop.count >= 7 ? withBackdrop
-            : base.filter { $0.backdropURLParsed != nil || $0.posterURLParsed != nil }
+        // Hero must be well-composed WIDE art — a real backdrop, never a cropped 2:3 poster or a
+        // frame-grab cover. Require a backdrop; if too few qualify the hero shows fewer (or hides)
+        // rather than cropping a poster into the full-bleed banner (owner 2026-06-29).
+        let pool = base.filter { $0.backdropURLParsed != nil }
         var rng = SplitMix(seed: heroSeed)
         return Array(pool.shuffled(using: &rng).prefix(7))
     }
@@ -269,7 +270,7 @@ private struct HeroCarousel: View {
             .frame(maxWidth: cardMaxWidth ?? .infinity)
             .frame(height: cardHeight)
             .background {
-                PosterImage(url: item.backdropURLParsed ?? item.posterURLParsed)
+                PosterImage(url: item.backdropURLParsed)
             }
             .clipShape(.rect(cornerRadius: 16))
             .overlay(alignment: .bottomLeading) {

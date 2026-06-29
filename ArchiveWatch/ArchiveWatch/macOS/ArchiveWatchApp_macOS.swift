@@ -109,7 +109,7 @@ struct ArchiveWatchMacApp: App {
         let host = url.host
         if host == "surprise" || host == "random"
             || parts.contains("surprise") || parts.contains("random") {
-            if let item = store.randomPlayable() { router.openDetail(item) }
+            if let item = store.randomFeatureFilm() { router.openDetail(item) }
             return
         }
         // archivewatch://item/{id}  or  https://archivewatch.org/item/{id}

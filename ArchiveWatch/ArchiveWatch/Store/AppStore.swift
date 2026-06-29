@@ -265,6 +265,7 @@ final class AppStore {
     func dbByCollection(_ id: String, limit: Int = 2000) -> [Catalog.Item] { db?.byCollection(id, limit: limit) ?? [] }
     func dbCollectionCount(_ id: String) -> Int { db?.collectionCount(id) ?? 0 }
     func dbRandomPlayable(contentType: String? = nil) -> Catalog.Item? { db?.randomPlayable(contentType: contentType) }
+    func dbRandomFeatureFilm() -> Catalog.Item? { db?.randomFeatureFilm() }
     func dbRandomCommercials(limit: Int = 12) -> [Catalog.Item] { db?.randomCommercials(limit: limit) ?? [] }
 
     // Immersive-mode lineups (#2 cartoon / #3 party), shared by Surprise + Home so

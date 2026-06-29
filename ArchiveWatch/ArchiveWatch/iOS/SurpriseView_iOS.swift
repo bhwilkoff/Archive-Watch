@@ -59,7 +59,7 @@ struct SurpriseView: View {
     private func perform(_ action: Action) {
         switch action.id {
         case "film":
-            if let item = store.randomPlayable() { router.openDetail(item) }
+            if let item = store.randomFeatureFilm() { router.openDetail(item) }
         case "tv":
             if let series = store.randomSeries() { router.push(SeriesRef(card: series)) }
         case "animation":

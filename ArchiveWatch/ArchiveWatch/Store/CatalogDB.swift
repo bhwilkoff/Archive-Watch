@@ -397,14 +397,26 @@ final class CatalogDB {
         items("SELECT json FROM item_json WHERE archiveID = ?", [archiveID]).first
     }
 
-    /// Items related to one item (same content type), for "More Like This".
+    /// Items related to one item, for "More Like This". Ranks by SAME category (contentType,
+    /// so cartoons→cartoons), then closeness in YEAR (±10y), then overall POPULARITY in SQL;
+    /// then prefers the SAME black-and-white-vs-color as the subject in Swift (colorMode lives
+    /// in the item_json blob, not the scalar `items` table, so it can't be an ORDER BY key).
+    /// Over-fetches so the color preference has room to reorder without starving the row.
     func related(to item: Catalog.Item, limit: Int = 20) -> [Catalog.Item] {
-        items("""
+        let yearKey = item.year.map {
+            "(CASE WHEN i.year IS NOT NULL AND ABS(i.year - \($0)) <= 10 THEN 1 ELSE 0 END) DESC,"
+        } ?? ""
+        let pool = items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
             WHERE i.contentType = ? AND i.archiveID != ? \(adultAnd) \(typeAnd)
-            ORDER BY i.popularityScore DESC
-            LIMIT \(limit)
+            ORDER BY \(yearKey) COALESCE(i.popularityScore,0) DESC, i.imdbVotes DESC
+            LIMIT \(limit * 3)
         """, [item.contentType, item.archiveID])
+        guard let subjectColor = item.isColor else { return Array(pool.prefix(limit)) }
+        // Stable partition: same-color first, the rest after (preserves the year+popularity order).
+        let same = pool.filter { $0.isColor == subjectColor }
+        let other = pool.filter { $0.isColor != subjectColor }
+        return Array((same + other).prefix(limit))
     }
 
     /// "Hidden Gems" — high craft, low traffic. Home surface → home-gated.
@@ -562,6 +574,21 @@ final class CatalogDB {
             WHERE \(where_.joined(separator: " AND ")) \(typeAnd)
             ORDER BY RANDOM() LIMIT 1
         """, binds).first
+    }
+
+    /// A random FULL-LENGTH film (Surprise → Random Film). Restricted to feature + silent
+    /// FEATURES with a runtime floor, so it never lands on a short / cartoon / newsreel / clip
+    /// (the old `randomPlayable(nil)` admitted every non-TV type). Unknown-runtime features are
+    /// kept (most carry a TMDb runtime; a null shouldn't exclude a real feature).
+    func randomFeatureFilm() -> Catalog.Item? {
+        var where_ = ["i.contentType IN ('feature-film','silent-film')",
+                      "(i.runtimeSeconds IS NULL OR i.runtimeSeconds >= 2400)"]
+        if hideAdult { where_.append("i.isAdult = 0") }
+        return items("""
+            SELECT j.json FROM items i JOIN item_json j USING(archiveID)
+            WHERE \(where_.joined(separator: " AND ")) \(typeAnd)
+            ORDER BY RANDOM() LIMIT 1
+        """).first
     }
 
     /// A shuffled batch of playable commercials, for inserting as breaks between

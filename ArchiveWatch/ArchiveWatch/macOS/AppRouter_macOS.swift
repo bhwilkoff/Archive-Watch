@@ -54,7 +54,7 @@ final class AppRouter {
     }
 
     func surprise(_ store: AppStore) {
-        if let item = store.db?.randomPlayable() { play(item) }
+        if let item = store.db?.randomFeatureFilm() { play(item) }
     }
 }
 #endif

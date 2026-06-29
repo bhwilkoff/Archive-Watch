@@ -130,7 +130,7 @@ struct RootView: View {
             router.surprisePath = NavigationPath()
             router.tab = .surprise
         case .randomFilm:
-            if let film = store.dbRandomPlayable() {
+            if let film = store.dbRandomFeatureFilm() {
                 router.homePath = NavigationPath()
                 router.tab = .home
                 router.homePath.append(film)

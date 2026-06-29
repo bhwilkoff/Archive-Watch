@@ -9,8 +9,10 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-APP="${1:?usage: mac-shotset.sh /path/to/ArchiveWatchMac.app}"
-BIN="$APP/Contents/MacOS/ArchiveWatchMac"
+APP="${1:?usage: mac-shotset.sh /path/to/<app>.app}"
+# Derive the executable name (PRODUCT_NAME is now "Archive Watch", not ArchiveWatchMac).
+EXE="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleExecutable' "$APP/Contents/Info.plist" 2>/dev/null)"
+BIN="$APP/Contents/MacOS/$EXE"
 [ -x "$BIN" ] || { echo "no binary at $BIN"; exit 1; }
 OUTDIR="$HOME/Desktop/ArchiveWatch-Mac-Screenshots"
 mkdir -p "$OUTDIR"
@@ -21,7 +23,7 @@ ART_WAIT="${ART_WAIT:-24}"                    # seconds to let posters/backdrops
 # Python with Pillow for the canvas framing (system python3 may lack PIL; the play venv has it).
 PYBIN="tools/.play-venv/bin/python"; [ -x "$PYBIN" ] || PYBIN="python3"
 
-quit() { pkill -f "ArchiveWatchMac" 2>/dev/null || true; sleep 1.5; }
+quit() { pkill -f "Archive Watch.app" 2>/dev/null; pkill -f "ArchiveWatchMac" 2>/dev/null; sleep 1.5; }
 
 size_window() {
   osascript >/dev/null 2>&1 <<OSA || true
