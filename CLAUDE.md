@@ -32,7 +32,7 @@ skill when its trigger matches.
 | Any tvOS UI / focus / animation work | consult `docs/tvos-playbook.md` first; then invoke the relevant `all-ios-skills:*` |
 | Any macOS app work (shell / player / hero / browse) | consult `docs/macOS-DESIGN.md` (Part B) first; then `macos-native-app-shell` |
 | macOS Creation Studio (editor / engine) work | consult `docs/macOS-DESIGN.md` (Part A) first; then `macos-creation-studio-engine` |
-| Building / signing / submitting any Apple App Store build | `apple-app-store-cli-submission` (+ `docs/mac-app-store-submission.md`) |
+| Submitting any Apple App Store build | DEFAULT = the cloud workflow `gh workflow run appstore-build.yml` (the dev Mac's beta OS can't ship locally); see `apple-app-store-cli-submission` + `docs/mac-app-store-submission.md` |
 | User pushback after 3+ iterations of "still broken" | `3d-feature-debug-loop` |
 
 iOS framework depth lives under `all-ios-skills:<name>` — most still

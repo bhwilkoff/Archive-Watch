@@ -9,6 +9,48 @@ platforms. It is the parity browse/play/library face PLUS the Mac-exclusive
 
 ---
 
+## ✅ DEFAULT — submit by building in the CLOUD (GitHub Actions)
+
+**This is the standard way to submit all three Apple apps. Do this; everything below it
+is fallback/history.** The owner's Mac runs a beta macOS, so local builds are rejected
+(ITMS-90301), and Apple keeps raising the Xcode floor (ITMS-90111). Building on a
+GitHub-hosted runner sidesteps both — for free, because the repo is public.
+
+1. **Bump the version + push.** Edit `AppVersion.xcconfig` (patch `MARKETING_VERSION` +1
+   and `CURRENT_PROJECT_VERSION` +1), commit, push. The runner builds the committed
+   version, and the build number must be ahead of the last upload.
+2. **Run the workflow:**
+   ```
+   gh workflow run appstore-build.yml -f platform=all        # or mac | ios | tvos
+   gh run watch $(gh run list --workflow=appstore-build.yml -L1 --json databaseId -q '.[0].databaseId')
+   ```
+   `.github/workflows/appstore-build.yml` runs on **`macos-26`** (released macOS 26.4 +
+   Xcode 26.6 → clears both rejections), imports the signing `.p12`s from repo secrets
+   into a temp keychain (manual signing — cloud signing fails for this team key), and runs
+   `tools/submit-appstore.sh all`, uploading every platform to App Store Connect.
+3. **Finish in App Store Connect (web).** Once each build processes (a few min), open the
+   **Archive Watch** record → each platform → **select the build** → **Submit for Review**.
+
+**Validated 2026-06-30:** all three uploaded at 1.3.249/771 this way.
+
+**Required repo secrets** (set once; re-seed with `tools/ci_make_signing_p12.py` →
+`gh secret set`): `APPLE_DIST_P12`, `APPLE_INSTALLER_P12`, `APPLE_P12_PASSWORD`,
+`APPLE_DIST_CERT_ID` (CI dist cert `87TU7L3TBQ`, installer `K8QX4BXZZL`), `ASC_KEY_P8`,
+`ASC_KEY_ID`, `ASC_ISSUER_ID`. The `.p12`s are kept (durable backup) at
+`~/.appstoreconnect/private_keys/`. NEVER commit them. See the `apple-app-store-cli-submission`
+skill + `docs/macOS-DESIGN.md` §C2c.
+
+**Why not the alternatives:** Xcode Cloud (Apple runners) works but its free compute ran
+out; the SIP/`SystemVersion.plist` spoof requires disabling System Integrity Protection and
+misrepresents the build env — rejected. TestFlight still accepts beta-OS builds, so testing
+is never blocked.
+
+> **Everything from here down is the LOCAL build pathway — a FALLBACK that only works on a
+> machine running a RELEASED macOS.** It will be rejected ITMS-90301 on a beta-macOS box.
+> Kept for history + for any future released-macOS machine.
+
+---
+
 ## Build state — VERIFIED review-ready (2026-06-24, 1.3.104 / 626)
 
 Confirmed by archiving the `ArchiveWatchMac` scheme (Release) and inspecting the
