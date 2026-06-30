@@ -1,0 +1,92 @@
+name: Cover generation
+
+# Generate REAL frame-extracted poster covers for art-less catalog items (Decision 023) so nothing
+# falls back to the archive.org services/img thumbnail (owner 2026-06-29). Runs on a macOS runner
+# (the Apple Vision CoverScorerCLI is macOS-only; this offloads the heavy ffmpeg batch off the
+# owner's fanless Air — same rationale as the whisper CI pivot, Decision 039a).
+#
+# Per run: fetch catalog -> generate covers for the next N art-less, video-bearing items
+# (popularity-first; batch_covers skips items that already have real/generated art, so the CATALOG
+# is the resume state — no manifest to persist) -> upload to the archivewatch-covers archive.org item
+# -> wire posterURL + artworkSource=generated into the catalog -> publish -> rebuild the app DB.
+# Drains the ~5k backlog over successive nightly runs (each run skips the already-covered items).
+#
+# REQUIRED SECRETS (one-time, owner): IAS3_ACCESS_KEY + IAS3_SECRET_KEY (archive.org S3-like keys,
+# https://archive.org/account/s3.php). Without them the upload step fails fast and nothing publishes.
+
+on:
+  schedule:
+    - cron: '0 5 * * *'   # nightly 05:00 UTC (after the other catalog crons)
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max items to cover this run (0 = all remaining; keep modest for the 6h job cap)'
+        required: false
+        default: '300'
+      workers:
+        description: 'Concurrent ffmpeg workers'
+        required: false
+        default: '3'
+
+concurrency:
+  group: catalog-writers
+  cancel-in-progress: false
+
+jobs:
+  covers:
+    runs-on: macos-15
+    timeout-minutes: 330
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+
+      - name: Install ffmpeg
+        run: brew install ffmpeg
+
+      - name: Build the Apple Vision cover scorer (CoverScorerCLI)
+        run: |
+          cd tools/CoverScorerCLI && swift build -c release
+          test -x .build/release/coverscorer && echo "coverscorer built"
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Generate covers (popularity-first; skips items that already have art)
+        run: |
+          python tools/batch_covers.py \
+            --limit ${{ github.event.inputs.limit || '300' }} \
+            --workers ${{ github.event.inputs.workers || '3' }} | tee covers.log
+          echo "## Cover generation" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -6 covers.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload covers to the archivewatch-covers item (IAS3)
+        env:
+          IAS3_ACCESS_KEY: ${{ secrets.IAS3_ACCESS_KEY }}
+          IAS3_SECRET_KEY: ${{ secrets.IAS3_SECRET_KEY }}
+        run: |
+          if [ -z "$IAS3_ACCESS_KEY" ] || [ -z "$IAS3_SECRET_KEY" ]; then
+            echo "::error::IAS3_ACCESS_KEY / IAS3_SECRET_KEY secrets are not set — add them in repo Settings → Secrets."
+            exit 1
+          fi
+          python tools/upload_covers.py --item archivewatch-covers
+
+      - name: Wire generated covers into the catalog
+        run: python tools/apply_covers.py
+
+      - name: Publish catalog to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py publish
+
+      - name: Rebuild app DB + web index
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run publish-db.yml
