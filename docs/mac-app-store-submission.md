@@ -129,6 +129,27 @@ the plist so `-exportArchive` writes `build/export/*.pkg`, then either drag it i
 `xcrun altool --upload-app -f build/export/*.pkg -t macos --apiKey "$ASC_KEY_ID" --apiIssuer "$ASC_ISSUER_ID"`
 (altool finds the key in `~/.appstoreconnect/private_keys/`).
 
+### Step 3b — the ACTUAL all-platform CLI path (mac + iOS + tvOS in one shot)
+
+`upload-mac.sh` above is mac-only and assumes *automatic* signing. Cloud/automatic
+signing FAILS for this team's ASC API key ("Cloud signing permission error"), so the
+working path uses **`tools/submit-appstore.sh`** with **manual** signing — the same key
+creates the certs + provisioning profiles itself via the ASC REST API
+(`tools/asc_certs.py` + `tools/asc_profiles.py`):
+```
+DEVELOPER_DIR=/Applications/Xcode-26.0.0.app/Contents/Developer tools/submit-appstore.sh all
+# or one platform: … submit-appstore.sh mac | ios | tvos
+```
+It archives → resolves the embedded bundle ids → ensures the Apple Distribution cert
+(+ Mac Installer cert for macOS) → creates an App Store profile per bundle id → writes a
+manual `ExportOptions.plist` → exports + uploads to ASC. Re-running is safe.
+
+**Dependency gotcha:** `asc_certs.py`/`asc_profiles.py` sign the ASC API JWT with **PyJWT**
+(`import jwt`) + **cryptography**. Homebrew's `python3` is externally-managed (PEP 668) and
+usually lacks them, which made the cert step die `ModuleNotFoundError: No module named 'jwt'`.
+The script now self-heals: if `python3` can't `import jwt`, it provisions `tools/.asc-venv`
+(PyJWT + cryptography, gitignored) and runs the cert/profile tools from it — no action needed.
+
 ### Step 4 — finish the submission (web, not Xcode)
 Upload ≠ submit. After the build processes in ASC (~5–30 min) it appears under the **Archive Watch**
 record's macOS platform. In the **App Store Connect website**: open the macOS version, **select the

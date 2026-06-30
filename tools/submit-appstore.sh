@@ -79,13 +79,29 @@ BIDS=$(find "$APP" -name Info.plist 2>/dev/null | while read -r p; do
   /usr/libexec/PlistBuddy -c "Print :CFBundleIdentifier" "$p" 2>/dev/null; done | grep archivewatch | sort -u)
 echo "[$PLATFORM] bundle ids: $(echo "$BIDS" | tr '\n' ' ')"
 
+# --- a Python that can import PyJWT (asc_certs/asc_profiles sign the ASC API JWT with it) --------
+# Homebrew's python3 is externally-managed (PEP 668) and routinely lacks PyJWT, which used to make
+# the cert step die "ModuleNotFoundError: No module named 'jwt'". Fall back to a dedicated venv,
+# creating it on first need. Only asc_certs/asc_profiles need jwt; the inline `python3 -c` (json) don't.
+PY=python3
+if ! python3 -c 'import jwt' 2>/dev/null; then
+  VENV="tools/.asc-venv"
+  if [ ! -x "$VENV/bin/python" ] || ! "$VENV/bin/python" -c 'import jwt' 2>/dev/null; then
+    echo "[$PLATFORM] PyJWT not in python3 — provisioning $VENV (PyJWT + cryptography)…"
+    python3 -m venv "$VENV"
+    "$VENV/bin/pip" install -q --upgrade pip
+    "$VENV/bin/pip" install -q PyJWT cryptography
+  fi
+  PY="$VENV/bin/python"
+fi
+
 # --- the Apple Distribution cert id (manual signing needs it; create if absent) -----------------
-DIST_CERT_ID="$(python3 tools/asc_certs.py distribution)"
+DIST_CERT_ID="$("$PY" tools/asc_certs.py distribution)"
 [ -n "$DIST_CERT_ID" ] || { echo "could not resolve/create Apple Distribution cert"; exit 1; }
-if [ "$PKG" = 1 ]; then python3 tools/asc_certs.py mac_installer >/dev/null; fi
+if [ "$PKG" = 1 ]; then "$PY" tools/asc_certs.py mac_installer >/dev/null; fi
 
 # --- App Store profiles for every bundle id, then a manual ExportOptions -------------------------
-PJSON="$(python3 tools/asc_profiles.py "$PLATFORM" "$DIST_CERT_ID" $BIDS)"
+PJSON="$("$PY" tools/asc_profiles.py "$PLATFORM" "$DIST_CERT_ID" $BIDS)"
 PLIST="$EXPORT-ExportOptions.plist"; mkdir -p "$(dirname "$PLIST")"
 INSTALLER=""
 [ "$PKG" = 1 ] && INSTALLER="  <key>installerSigningCertificate</key><string>3rd Party Mac Developer Installer: Learning is Change, Inc. ($TEAM)</string>"
