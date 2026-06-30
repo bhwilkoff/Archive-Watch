@@ -242,7 +242,7 @@ final class CatalogDB {
                 \(demoteOrder)\
                 (i.hasRealArtwork = 1 AND COALESCE(i.artworkSource,'') != 'generated') DESC, \
                 COALESCE(i.popularityScore, 0) DESC, \
-                COALESCE(i.episodesCount, 0) DESC, i.imdbVotes DESC
+                COALESCE(i.episodesCount, 0) DESC, COALESCE(i.imdbVotes, 0) DESC, i.archiveID
                 """
         case .rating:
             // The IMDb community's verdict. Votes-floored ordering isn't

@@ -327,24 +327,34 @@ def _is_compilation(it):
 
 
 def _pop_score(it):
-    """Catalog sort score stored in the popularityScore column. Blends current watch
-    momentum (30-day views), recent + all-time downloads, vote-floored rating, and
-    favourites (research §C); recency terms decay so a "hot now" lens falls out for
-    free. Falls back to the legacy popularityScore until signals are harvested."""
-    if it.get("downloads") is None and it.get("views30d") is None:
-        return it.get("popularityScore") or 0
+    """Catalog sort score stored in the popularityScore column. STABLE, single-scale, recognition-
+    weighted (owner 2026-06-29: "popularity sort doesn't work well"). The old score put 0.45 on
+    30-day views, so momentary-trending obscurities (recent Bollywood, lectures) topped Home over
+    classics; and items missing both downloads + views30d fell back to the raw legacy score (0-89),
+    interleaving into the MIDDLE of the signal-scored items (0-4000+) — two incompatible scales.
+
+    Now: all-time downloads dominate, IMDb recognition (votes) lifts known films over un-IMDb'd
+    curiosities, rating + favourites contribute, 30-day views are a small recency nudge (NOT the
+    driver — the "Watching Now" shelf is the hot-now lens, via its own views30d query). Scored items
+    get +100 so they ALWAYS sort above the legacy-only band; truly-unharvested items keep the legacy
+    score (0-89) as a low floor. Dry-run-validated: the top is now His Girl Friday / House on Haunted
+    Hill / The Stranger / Dr. Strangelove / Night of the Living Dead / Sunset Boulevard (was trending
+    obscurities). Query layers add a deterministic (imdbVotes, archiveID) tiebreak."""
     v30 = it.get("views30d") or 0
     mo = it.get("downloadsMonth") or 0
     dl = it.get("downloads") or 0
     nf = it.get("numFavorites") or 0
     nr = it.get("numReviews") or 0
     ar = it.get("avgRating")
+    votes = it.get("imdbVotes") or 0
+    if dl == 0 and mo == 0 and v30 == 0 and nf == 0 and nr == 0 and ar is None and votes == 0:
+        return it.get("popularityScore") or 0        # un-harvested → low band (0-89), below scored
     C, m = 3.7, 10                                    # catalog-mean rating, vote floor
     bayes = ((nr / (nr + m)) * ar + (m / (nr + m)) * C) if ar else C
-    s = (0.45 * math.log10(1 + v30) + 0.20 * math.log10(1 + mo)
-         + 0.20 * math.log10(1 + dl) + 0.10 * (bayes / 5.0)
-         + 0.05 * math.log10(1 + nf))
-    return int(round(s * 1000))
+    s = (0.42 * math.log10(1 + dl) + 0.12 * math.log10(1 + mo)
+         + 0.13 * (bayes / 5.0) + 0.08 * math.log10(1 + nf)
+         + 0.10 * math.log10(1 + v30) + 0.15 * math.log10(1 + votes))
+    return 100 + int(round(s * 1000))
 
 
 def _same_film(a, b):

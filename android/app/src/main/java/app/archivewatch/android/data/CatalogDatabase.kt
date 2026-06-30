@@ -127,7 +127,7 @@ class CatalogDatabase private constructor(
             demoteOrder +
                 "(i.hasRealArtwork = 1 AND COALESCE(i.artworkSource,'') != 'generated') DESC, " +
                 "COALESCE(i.popularityScore, 0) DESC, " +
-                "COALESCE(i.episodesCount, 0) DESC, i.imdbVotes DESC"
+                "COALESCE(i.episodesCount, 0) DESC, COALESCE(i.imdbVotes, 0) DESC, i.archiveID"
         } else sort.sql
         return items(
             "SELECT j.json FROM items i$joins JOIN item_json j ON j.archiveID = i.archiveID" +
@@ -454,7 +454,10 @@ class CatalogDatabase private constructor(
 }
 
 enum class BrowseSort(val label: String, val sql: String) {
-    POPULAR("Popular", "i.popularityScore DESC, i.imdbVotes DESC"),
+    // Same rich order the browse() path builds for POPULAR (designed-art-first + deterministic
+    // tiebreak), so every code path that sorts by Popular agrees (owner 2026-06-29).
+    POPULAR("Popular", "(i.hasRealArtwork = 1 AND COALESCE(i.artworkSource,'') != 'generated') DESC, " +
+        "COALESCE(i.popularityScore, 0) DESC, COALESCE(i.imdbVotes, 0) DESC, i.archiveID"),
     RATING("Top Rated", "i.imdbRating IS NULL, i.imdbRating DESC, COALESCE(i.imdbVotes, 0) DESC"),
     ALPHABETICAL("A–Z", "i.title COLLATE NOCASE ASC"),
     NEWEST("Newest", "i.year DESC"),

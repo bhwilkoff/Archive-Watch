@@ -588,9 +588,13 @@
         day-shuffled designed-art pool. Auto-advance pauses on hover/touch and
         hidden tabs, and is off entirely under prefers-reduced-motion. */
     hero() {
-      // A wide pre-screened pool (designed art, popularity-ranked) dealt
-      // randomly per visit — the hero is different every time.
-      const pool = shuffle(Data.rows.filter(r => Data.isPro(r) && Data.isFilm(r)).slice(0, 300)).slice(0, 6);
+      // Prefer WIDE backdrops (col 7) so the hero is well-composed art, never a cropped 2:3 poster
+      // (owner 2026-06-29). Fall back to the poster pool only if too few backdrops exist (e.g. before
+      // the index carries the backdrop column).
+      const filmPool = Data.rows.filter(r => Data.isPro(r) && Data.isFilm(r));
+      const wide = filmPool.filter(r => r[7]).slice(0, 300);
+      const useWide = wide.length >= 4;
+      const pool = shuffle(useWide ? wide : filmPool.slice(0, 300)).slice(0, 6);
       if (!pool.length) return [];
       const el = $('hero');
       const rail = $('hero-rail');
@@ -610,12 +614,12 @@
         ambient.className = 'hero-ambient';
 
         const poster = document.createElement('img');
-        poster.className = 'hero-poster';
+        poster.className = useWide ? 'hero-poster hero-wide' : 'hero-poster';
         poster.alt = '';
         poster.loading = i === 0 ? 'eager' : 'lazy';
         // Ambient mirrors whatever art actually loaded (it shares the HTTP
         // cache entry), so a throttled poster can't strand a blank backdrop.
-        wireArt(poster, [Data.poster(row), API.thumbnailURL(id)],
+        wireArt(poster, useWide ? [row[7]] : [Data.poster(row), API.thumbnailURL(id)],
           src => { ambient.style.backgroundImage = `url("${src}")`; },
           () => { const ph = placeholderArt(row); ph.classList.add('hero-poster'); poster.replaceWith(ph); });
 

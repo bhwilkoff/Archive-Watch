@@ -143,6 +143,8 @@ a { color: var(--color-accent); }
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 clamp(8px, 2cqi, 22px) clamp(20px, 5cqi, 52px) rgba(0, 0, 0, 0.55);
 }
+/* Wide hero art (a real backdrop) — a well-composed 16:9 still, not a cropped poster. */
+.hero-poster.hero-wide { width: clamp(200px, 56cqi, 560px); aspect-ratio: 16 / 9; }
 
 .hero-copy { position: relative; z-index: 1; min-width: 0; }
 .hero-eyebrow {

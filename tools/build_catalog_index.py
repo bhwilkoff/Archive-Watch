@@ -109,8 +109,12 @@ def main():
             search_parts.append(it["writer"])
         search_parts += studios
         search = " ".join(search_parts).lower() or None
+        # Wide backdrop (column 7, schema 7) — the web hero uses it so it shows well-composed wide
+        # art, never a cropped 2:3 poster (owner 2026-06-29). Only a real designed backdrop; null
+        # otherwise. Older consumers ignore the extra column (additive).
+        backdrop = it.get("backdropURL") if pro else None
         rows.append([aid, it.get("title") or aid, it.get("year"),
-                     it.get("contentType") or "", poster, pro, search])
+                     it.get("contentType") or "", poster, pro, search, backdrop])
         for k in keywords:
             keyword_freq[k] = keyword_freq.get(k, 0) + 1
         for s in studios:
@@ -164,10 +168,10 @@ def main():
     }
 
     out = {
-        "schema": 6,
+        "schema": 7,
         "updatedAt": catalog.get("updatedAt") or "",
         "count": len(rows),
-        "fields": ["id", "title", "year", "contentType", "poster", "pro", "search"],
+        "fields": ["id", "title", "year", "contentType", "poster", "pro", "search", "backdrop"],
         "facets": facets,
         "shelves": shelves,
         "collections": collections,
