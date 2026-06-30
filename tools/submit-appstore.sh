@@ -96,9 +96,18 @@ if ! python3 -c 'import jwt' 2>/dev/null; then
 fi
 
 # --- the Apple Distribution cert id (manual signing needs it; create if absent) -----------------
-DIST_CERT_ID="$("$PY" tools/asc_certs.py distribution)"
-[ -n "$DIST_CERT_ID" ] || { echo "could not resolve/create Apple Distribution cert"; exit 1; }
-if [ "$PKG" = 1 ]; then "$PY" tools/asc_certs.py mac_installer >/dev/null; fi
+# CI override: when ASC_DIST_CERT_ID is set, the cert+key were imported from a .p12 into the runner's
+# keychain (the dev box is on a beta macOS, so it can't ship locally — macOS-DESIGN §C2b / the
+# appstore-build.yml cloud workflow). Use that cert id directly and skip find/create; the installer
+# cert is likewise imported from a .p12, and the ExportOptions reference both by name.
+if [ -n "${ASC_DIST_CERT_ID:-}" ]; then
+  DIST_CERT_ID="$ASC_DIST_CERT_ID"
+  echo "[$PLATFORM] using CI signing cert $DIST_CERT_ID (imported .p12)"
+else
+  DIST_CERT_ID="$("$PY" tools/asc_certs.py distribution)"
+  [ -n "$DIST_CERT_ID" ] || { echo "could not resolve/create Apple Distribution cert"; exit 1; }
+  if [ "$PKG" = 1 ]; then "$PY" tools/asc_certs.py mac_installer >/dev/null; fi
+fi
 
 # --- App Store profiles for every bundle id, then a manual ExportOptions -------------------------
 PJSON="$("$PY" tools/asc_profiles.py "$PLATFORM" "$DIST_CERT_ID" $BIDS)"

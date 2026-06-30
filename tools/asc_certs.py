@@ -48,9 +48,10 @@ def create_and_import(ctype):
     subprocess.run(["openssl", "req", "-new", "-newkey", "rsa:2048", "-nodes",
                     "-keyout", key, "-out", csr, "-subj", "/CN=Archive Watch/O=Learning is Change, Inc./C=US"],
                    check=True, capture_output=True)
-    csr_b64 = base64.b64encode(open(csr, "rb").read()).decode()
+    # csrContent is the raw PEM CSR string (WITH the BEGIN/END headers), NOT base64-of-the-file —
+    # the latter is rejected 409 ENTITY_ERROR.ATTRIBUTE.INVALID "Invalid Certificate".
     body = {"data": {"type": "certificates",
-                     "attributes": {"certificateType": ctype, "csrContent": csr_b64}}}
+                     "attributes": {"certificateType": ctype, "csrContent": open(csr).read()}}}
     d = api("POST", "/v1/certificates", body)
     cid = d["data"]["id"]
     cer = os.path.join("build", f"{ctype.lower()}.cer")
