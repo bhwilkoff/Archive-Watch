@@ -44,7 +44,9 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
-      - run: pip install requests
+      # frame_cover.py uses OpenCV (cv2) for the ffmpeg frame grab + crop/resize.
+      # Headless wheel = no GUI/X deps; numpy comes transitively.
+      - run: pip install requests opencv-python-headless
 
       - name: Install ffmpeg
         run: brew install ffmpeg
@@ -61,6 +63,9 @@ jobs:
 
       - name: Generate covers (popularity-first; skips items that already have art)
         run: |
+          # pipefail so a batch_covers.py crash fails the step — `| tee` otherwise
+          # masks the exit code and the run falsely goes green (then upload finds no manifest).
+          set -o pipefail
           python tools/batch_covers.py \
             --limit ${{ github.event.inputs.limit || '300' }} \
             --workers ${{ github.event.inputs.workers || '3' }} | tee covers.log

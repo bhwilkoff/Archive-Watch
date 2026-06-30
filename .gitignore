@@ -103,3 +103,4 @@ tools/asc-credentials.env
 tools/.play-venv/
 *.aab
 play-service-account*.json
+tools/.asc-venv/
