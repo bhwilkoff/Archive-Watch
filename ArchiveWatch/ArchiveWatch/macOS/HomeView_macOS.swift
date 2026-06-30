@@ -76,8 +76,8 @@ struct HomeView: View {
             built.append(HomeShelf(id: id, title: title, items: taken, accent: accent))
         }
 
-        // Curated featured.json shelves (all, in order) — same as tvOS dedupedShelfPayloads.
-        for shelf in (store.featured?.shelves ?? []) { add(shelf.id, shelf.title, store.items(forShelf: shelf.id)) }
+        // Curated shelves in the CANONICAL Apple-TV order (Featured.homeShelfPriority), not file order.
+        for shelf in (store.featured?.orderedHomeShelves ?? []) { add(shelf.id, shelf.title, store.items(forShelf: shelf.id)) }
         // Then the dynamic shelves, in tvOS order.
         add("public-domain-day", "Public Domain Day", store.browse(year: pdYear, sort: .popular, limit: 120))
         add("top-rated", "Top Rated", store.topRated(), accent: .orange)

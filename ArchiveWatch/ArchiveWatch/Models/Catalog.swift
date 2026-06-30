@@ -384,6 +384,23 @@ struct Featured: Decodable, Sendable {
     let categories: [Category]
     let shelves: [Shelf]
     let adultCollections: [String]?
+
+    // The CANONICAL Home shelf order, replicated on every platform (owner 2026-06-29: "I prefer the
+    // order and titles of the Apple TV app… replicated across all platforms"). featured.json file
+    // order is NOT used for Home — this priority list is. Ids absent from the catalog are skipped.
+    static let homeShelfPriority: [String] = [
+        "popular-features", "wikidata-pd", "film-noir", "scifi-horror",
+        "silent-hall-of-fame", "melies", "video-cellar", "comedy",
+        "animation-all", "vintage-cartoons", "nasa", "classic-tv-1960s",
+        "classic-tv-1950s", "classic-tv-1970s", "ephemera", "newsreels",
+        "educational", "picfixer", "silent-era", "popular-classic-tv",
+        "all-time-features",
+    ]
+
+    /// The featured shelves in canonical Home order (used by tvOS/iOS/macOS Home).
+    var orderedHomeShelves: [Shelf] {
+        Self.homeShelfPriority.compactMap { id in shelves.first { $0.id == id } }
+    }
     // Editorial demotion: series whose episode RIGHTS are uncertain sort to
     // the END of TV lists instead of leading them (still searchable/playable;
     // owner direction 2026-06-11 re: Saturday Night Live).

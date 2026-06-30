@@ -63,18 +63,8 @@ struct HomeView: View {
         return Array(pool.shuffled(using: &rng).prefix(7))
     }
 
-    private var homeShelves: [Featured.Shelf] {
-        let priority: [String] = [
-            "popular-features", "wikidata-pd", "film-noir", "scifi-horror",
-            "silent-hall-of-fame", "melies", "video-cellar", "comedy",
-            "animation-all", "vintage-cartoons", "nasa", "classic-tv-1960s",
-            "classic-tv-1950s", "classic-tv-1970s", "ephemera", "newsreels",
-            "educational", "picfixer", "silent-era", "popular-classic-tv",
-            "all-time-features"
-        ]
-        let allShelves = store.featured?.shelves ?? []
-        return priority.compactMap { id in allShelves.first(where: { $0.id == id }) }
-    }
+    // The canonical Home shelf order, shared with iOS/macOS (Featured.homeShelfPriority).
+    private var homeShelves: [Featured.Shelf] { store.featured?.orderedHomeShelves ?? [] }
 
     var body: some View {
         // VStack (not LazyVStack): the hero is ~940pt tall, so the first row

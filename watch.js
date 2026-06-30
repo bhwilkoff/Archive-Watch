@@ -18,6 +18,15 @@
   const EPISODES_URL = new URL('episodes-index.json', PAGES_ROOT);
   const FEATURED_URL = new URL('featured.json', PAGES_ROOT);
   const PAGE_SIZE = 60;
+  // Canonical Home shelf order, matching Apple TV (Featured.homeShelfPriority) — owner 2026-06-29.
+  const HOME_SHELF_PRIORITY = [
+    'popular-features', 'wikidata-pd', 'film-noir', 'scifi-horror',
+    'silent-hall-of-fame', 'melies', 'video-cellar', 'comedy',
+    'animation-all', 'vintage-cartoons', 'nasa', 'classic-tv-1960s',
+    'classic-tv-1950s', 'classic-tv-1970s', 'ephemera', 'newsreels',
+    'educational', 'picfixer', 'silent-era', 'popular-classic-tv',
+    'all-time-features',
+  ];
 
   /* ---------------------------------------------------------------- *
    * Tiny IndexedDB store: favorites + watch progress (offline-first)  *
@@ -471,7 +480,12 @@
         return sec;
       };
       host.append(this.categoryTiles());
-      for (const shelf of Data.featured?.shelves || []) {
+      // Featured shelves in the CANONICAL Apple-TV order (not featured.json file order) — owner
+      // 2026-06-29 shelf parity. Ids absent from the catalog are skipped.
+      const shelfById = Object.fromEntries((Data.featured?.shelves || []).map(s => [s.id, s]));
+      for (const sid of HOME_SHELF_PRIORITY) {
+        const shelf = shelfById[sid];
+        if (!shelf) continue;
         const rows = Data.shelfRows(shelf, 32)
           .filter(r => Data.isPro(r) && Data.isFilm(r) && !used.has(dedupKey(r))).slice(0, 16);
         if (rows.length < 4) continue;

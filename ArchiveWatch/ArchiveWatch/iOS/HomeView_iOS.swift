@@ -17,10 +17,9 @@ struct HomeView: View {
     @State private var heroSeed = UInt64.random(in: 0..<UInt64.max)
     @State private var shelfSeed = UInt64.random(in: 0..<UInt64.max)
     @State private var heroItems: [Catalog.Item] = []
-    // Featured shelves split around the dynamic shelves (top two above, the rest
-    // below) — see rebuild()'s render-order dedup.
-    @State private var topPayloads: [ShelfPayload] = []
-    @State private var restPayloads: [ShelfPayload] = []
+    // Featured shelves in the canonical Apple-TV order, ALL rendered before the
+    // dynamic block (tvOS parity) — see rebuild()'s render-order dedup.
+    @State private var featuredPayloads: [ShelfPayload] = []
     @State private var gems: [Catalog.Item] = []
     @State private var topRated: [Catalog.Item] = []
     @State private var watchingNow: [Catalog.Item] = []
@@ -52,8 +51,15 @@ struct HomeView: View {
                     Shelf(title: "Continue Watching", subtitle: nil, items: continueItems)
                 }
                 CategoryTilesRow()
-                ForEach(topPayloads) { payload in
+                // Featured shelves (canonical order), then the dynamic block in the SAME order as
+                // Apple TV: Public Domain Day, Top Rated, Watching Now, Community Favorites, Most
+                // Discussed, Hidden Gems — then Directors (owner 2026-06-29 shelf parity).
+                ForEach(featuredPayloads) { payload in
                     Shelf(title: payload.shelf.title, subtitle: payload.shelf.subtitle, items: payload.items)
+                }
+                if !pdItems.isEmpty {
+                    Shelf(title: "Public Domain Day",
+                          subtitle: "Class of \(String(pdYear)) — newly free to share", items: pdItems)
                 }
                 if !topRated.isEmpty {
                     Shelf(title: "Top Rated",
@@ -73,17 +79,10 @@ struct HomeView: View {
                 }
                 if !gems.isEmpty {
                     Shelf(title: "Hidden Gems",
-                          subtitle: "Lovingly restored, rarely watched", items: gems)
-                }
-                if !pdItems.isEmpty {
-                    Shelf(title: "Public Domain Day",
-                          subtitle: "Class of \(String(pdYear)) — newly free to share", items: pdItems)
+                          subtitle: "High craft, low traffic", items: gems)
                 }
                 ForEach(directorShelves, id: \.name) { shelf in
                     Shelf(title: "Directed by \(shelf.name)", subtitle: nil, items: shelf.items)
-                }
-                ForEach(restPayloads) { payload in
-                    Shelf(title: payload.shelf.title, subtitle: payload.shelf.subtitle, items: payload.items)
                 }
                 // Last row, matching tvOS Home (owner direction 2026-06-11:
                 // "move the browse by era to the bottom of the shelves").
@@ -165,19 +164,21 @@ struct HomeView: View {
             return items.isEmpty ? nil : ShelfPayload(shelf: shelf, items: items)
         }
 
-        topPayloads = shelves.prefix(2).compactMap(featuredPayload)
+        // Claim in render order (tvOS parity): ALL featured shelves first (canonical order), then the
+        // dynamic block — Public Domain Day, Top Rated, Watching Now, Community Favorites, Most
+        // Discussed, Hidden Gems — then Directors.
+        featuredPayloads = (store.featured?.orderedHomeShelves ?? []).compactMap(featuredPayload)
+        pdItems = take(store.filteringWatched(
+            store.browse(year: pdYear, sort: .popular, limit: 120).filter(\.hasDesignedArtwork)))
         topRated = take(store.filteringWatched(store.topRated().filter(\.hasProfessionalArtwork)))
         watchingNow = take(store.filteringWatched(store.watchingNow().filter(\.hasProfessionalArtwork)))
         communityFavorites = take(store.filteringWatched(store.communityFavorites().filter(\.hasProfessionalArtwork)))
         mostDiscussed = take(store.filteringWatched(store.mostDiscussed().filter(\.hasProfessionalArtwork)))
         gems = take(store.filteringWatched(store.hiddenGems().filter(\.hasProfessionalArtwork)))
-        pdItems = take(store.filteringWatched(
-            store.browse(year: pdYear, sort: .popular, limit: 120).filter(\.hasDesignedArtwork)))
         directorShelves = store.topDirectors().compactMap { d in
             let items = take(store.filteringWatched(store.byDirector(d.name).filter(\.hasProfessionalArtwork)))
             return items.isEmpty ? nil : (name: d.name, items: items)
         }
-        restPayloads = shelves.dropFirst(2).compactMap(featuredPayload)
         writeWidgetSnapshot()
     }
 

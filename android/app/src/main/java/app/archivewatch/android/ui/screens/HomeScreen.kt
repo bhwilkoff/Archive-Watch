@@ -66,6 +66,17 @@ private data class HomePayload(
     val loaded: Boolean = false,
 )
 
+// The canonical Home shelf order, matching Apple TV (Featured.homeShelfPriority on Apple) — owner
+// 2026-06-29: replicated across all platforms.
+private val HOME_SHELF_PRIORITY = listOf(
+    "popular-features", "wikidata-pd", "film-noir", "scifi-horror",
+    "silent-hall-of-fame", "melies", "video-cellar", "comedy",
+    "animation-all", "vintage-cartoons", "nasa", "classic-tv-1960s",
+    "classic-tv-1950s", "classic-tv-1970s", "ephemera", "newsreels",
+    "educational", "picfixer", "silent-era", "popular-classic-tv",
+    "all-time-features",
+)
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(container: AppContainer, nav: Nav) {
@@ -112,8 +123,12 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
         val continueWatching = db.itemsByIDs(cw.map { it.archiveID })
         continueWatching.forEach { seen.add(it.dedupKey) }
 
+        // Featured shelves in the CANONICAL Apple-TV order (not featured.json file order) — owner
+        // 2026-06-29 shelf parity. Ids absent from the catalog are skipped.
+        val byId = featured?.shelves.orEmpty().associateBy { it.id }
         val shelves = mutableListOf<Pair<String, List<CatalogItem>>>()
-        for (shelf in featured?.shelves.orEmpty()) {
+        for (id in HOME_SHELF_PRIORITY) {
+            val shelf = byId[id] ?: continue
             val resolved = if (shelf.type == "curated" && shelf.items.isNotEmpty()) {
                 db.itemsByIDs(shelf.items.map { it.archiveID })
             } else {
