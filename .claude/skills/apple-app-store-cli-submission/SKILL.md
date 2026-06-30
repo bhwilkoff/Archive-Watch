@@ -10,15 +10,36 @@ Runbook: `docs/mac-app-store-submission.md`. Live state + cert ids:
 Connect record (bundle id `app.archivewatch.tvos`, Decision 042). Android is a
 separate path (`tools/submit-play.sh`, Play Developer API).
 
-## The one command
+## PRIMARY PATH — build in the cloud (the dev Mac is on a BETA macOS)
+
+Local builds are REJECTED (ITMS-90301, rule 2) because the dev Mac runs a beta macOS.
+**Build in the cloud instead:**
+```
+# bump AppVersion.xcconfig (patch + build) and PUSH first — the runner builds the committed version
+gh workflow run appstore-build.yml -f platform=all     # or mac | ios | tvos
+```
+`.github/workflows/appstore-build.yml` runs on a GitHub-hosted **`macos-26`** runner
+(RELEASED macOS + Xcode 26.6 → clears both ITMS-90301 and ITMS-90111), FREE for this
+public repo. It imports the signing `.p12`s from repo secrets into a temp keychain and
+runs `tools/submit-appstore.sh` with `ASC_DIST_CERT_ID`. Validated 2026-06-30 (all three
+at 1.3.249/771). Then the OWNER selects the build in ASC → Submit for Review.
+
+**Re-seeding the signing secrets** (one-time, or if a CI cert changes):
+`tools/ci_make_signing_p12.py <distribution|mac_installer> out.p12 <pw>` mints a dedicated
+cert via the ASC API and bundles it into a **`-legacy`-PBE** `.p12` (macOS `security import`
+can't read OpenSSL-3 default AES-256 PBE), then `gh secret set APPLE_DIST_P12` (base64,
+single-line) etc. CI certs: dist `87TU7L3TBQ`, installer `K8QX4BXZZL`. Apple Distribution
+is capped at 2 certs — reuse, don't keep minting.
+
+## The local command (only on a RELEASED-macOS machine)
 
 ```
 DEVELOPER_DIR=<released-Xcode>/Contents/Developer tools/submit-appstore.sh <mac|ios|tvos|all>
 ```
 It archives → resolves embedded bundle ids → ensures certs → creates an App Store
 profile per bundle id → writes a manual ExportOptions → exports + uploads via the
-ASC API key. Re-running is safe. Then the OWNER selects the build in ASC and hits
-Submit for Review (the script only uploads).
+ASC API key. Re-running is safe. **Rejected ITMS-90301 if the build machine is on a beta
+macOS** — use the cloud path above. The OWNER selects the build in ASC and hits Submit.
 
 ## Load-bearing rules (each cost real time to learn)
 

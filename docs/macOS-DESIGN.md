@@ -842,11 +842,19 @@ Both fire AFTER upload, on the build's metadata — check both before building l
   `BuildMachineOSBuild` in the archive's app Info.plist. **There is no local fix on a beta box — do not
   rebuild and retry.** Build on a RELEASED macOS. Hit 2026-06-30: the dev Mac is on **macOS 27 beta
   (`26A5353q`)**, so local CLI builds clear §C2a but fail §C2b.
-- **§C2c — Xcode Cloud is the fix for BOTH** (and the standing recommendation when the local box is on a
-  beta OS or chasing the Xcode floor): Apple's runners build on a RELEASED macOS + Xcode. The project is
-  already wired (`ci_scripts/ci_post_clone.sh`; earlier approvals came through it). The blocker is Xcode
-  Cloud COMPUTE (the free hours ran out → the local-CLI pivot that surfaced §C2b). **TestFlight still
-  accepts beta-OS / beta-built binaries** — only App Store *review* is gated, so testers aren't blocked.
+- **§C2c — BUILD IN THE CLOUD (the implemented fix for BOTH).** `.github/workflows/appstore-build.yml`
+  builds + signs + uploads all three on a GitHub-hosted **`macos-26` runner** — a RELEASED macOS (26.4,
+  `25E246`) with **Xcode 26.6 (17F113)** — which clears §C2a (current Xcode) AND §C2b (released build OS).
+  It's **FREE for this public repo** (no Xcode Cloud compute, no SIP spoof). Run it:
+  `gh workflow run appstore-build.yml -f platform=all` (or `mac`/`ios`/`tvos`). It imports the signing
+  `.p12`s from repo secrets into a temp keychain (cloud signing fails for this team key, §C1a, so manual
+  signing stays) and runs `tools/submit-appstore.sh` with `ASC_DIST_CERT_ID`. Bump AppVersion.xcconfig +
+  push BEFORE dispatching (the runner builds the committed version). **Validated 2026-06-30:** all three
+  uploaded at 1.3.249/771. Secrets seeded by `tools/ci_make_signing_p12.py` (mint a CI cert → `-legacy`
+  `.p12`) + `gh secret set`; the dedicated CI Distribution cert is `87TU7L3TBQ`, installer `K8QX4BXZZL`.
+  (Xcode Cloud — `ci_scripts/ci_post_clone.sh` — is the same idea on Apple's runners, but its free
+  compute ran out; GitHub Actions is the free equivalent.) **TestFlight still accepts beta-OS builds**,
+  so testing is never blocked.
 
 ## §C3 — PyJWT venv (self-healing)
 
