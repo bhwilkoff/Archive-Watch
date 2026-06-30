@@ -109,12 +109,12 @@ struct PosterArt: View {
     // letting the procedural base remain.
     @ViewBuilder private var posterOverlay: some View {
         let size = CGSize(width: width, height: height)
+        // Designed poster ONLY → (fail) the procedural base shows through. We never fall back to the
+        // archive.org services/img thumbnail (owner 2026-06-29: "no instance of the archive.org
+        // screenshot"); the cover pipeline supplies real generated posters for art-less items.
         if item.hasDesignedArtwork, let url = item.posterURLParsed, stage == 0 {
             RemoteImage(url: url, targetSize: size, contentMode: .fill,
                         placeholder: .clear, onLoadFailed: { stage = 1 })
-        } else if stage <= 1, item.hasDesignedArtwork, let frame = item.archiveThumbURL {
-            RemoteImage(url: frame, targetSize: size, contentMode: .fill,
-                        placeholder: .clear, onLoadFailed: { stage = 2 })
         }
     }
 

@@ -76,10 +76,9 @@ struct RemotePoster: View {
         }
         .task(id: item.archiveID) {
             image = nil; exhausted = false
-            if let u = item.posterURLParsed, let img = await ImagePipeline.shared.image(u) {
-                image = img; return
-            }
-            if let u = item.archiveThumbURL, let img = await ImagePipeline.shared.image(u) {
+            // Designed poster ONLY — never the archive.org services/img thumbnail (owner 2026-06-29);
+            // an art-less item falls through to the typographic titleCard, not a frame grab.
+            if item.hasDesignedArtwork, let u = item.posterURLParsed, let img = await ImagePipeline.shared.image(u) {
                 image = img; return
             }
             exhausted = true

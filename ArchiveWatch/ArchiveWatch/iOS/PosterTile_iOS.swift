@@ -47,10 +47,10 @@ struct ResilientPosterArt: View {
     }
 
     @ViewBuilder private var poster: some View {
-        if let url = item.posterURLParsed, stage == 0 {
+        // Designed poster ONLY — never the archive.org services/img thumbnail (owner 2026-06-29).
+        // An art-less item shows the PosterFallbackCard base (a procedural card), not a frame grab.
+        if item.hasDesignedArtwork, let url = item.posterURLParsed, stage == 0 {
             phased(url) { stage = 1 }
-        } else if stage == 1, let frame = item.archiveThumbURL {
-            phased(frame) { stage = 2 }
         }
     }
 

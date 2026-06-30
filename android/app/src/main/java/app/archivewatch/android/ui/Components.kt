@@ -43,17 +43,19 @@ import coil3.compose.AsyncImage
  */
 @Composable
 fun PosterImage(item: CatalogItem, modifier: Modifier = Modifier) {
-    // 0 = designed poster, 1 = archive.org frame, 2 = title card.
-    var stage by remember(item.archiveID) { mutableIntStateOf(0) }
-    when (stage) {
-        0, 1 -> AsyncImage(
-            model = if (stage == 0) item.resolvedPosterURL else item.archiveThumb,
+    // Designed poster ONLY → (fail) the typographic title card. Never the archive.org services/img
+    // thumbnail (owner 2026-06-29); the cover pipeline supplies real posters for art-less items.
+    var failed by remember(item.archiveID) { mutableIntStateOf(0) }
+    if (failed == 0 && item.hasDesignedArtwork && item.posterURL != null) {
+        AsyncImage(
+            model = item.posterURL,
             contentDescription = item.title,
             contentScale = ContentScale.Crop,
-            onError = { stage++ },   // poster fails → thumb; thumb fails → title card
+            onError = { failed = 1 },
             modifier = modifier,
         )
-        else -> PosterTitleCard(item, modifier)
+    } else {
+        PosterTitleCard(item, modifier)
     }
 }
 

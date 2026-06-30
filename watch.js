@@ -304,8 +304,10 @@
       img.loading = 'lazy';
       img.decoding = 'async';
       img.alt = '';
+      // Designed poster ONLY — never the archive.org services/img thumbnail (owner 2026-06-29).
+      // An art-less row falls through to the typographic placeholder card, not a frame grab.
       wireArt(img,
-        type === 'tv-series' ? [row[4]] : [Data.poster(row), API.thumbnailURL(id)],
+        Data.isPro(row) ? [row[4]] : [],
         null, () => img.replaceWith(placeholderArt(row)));
       art = img;
     }
