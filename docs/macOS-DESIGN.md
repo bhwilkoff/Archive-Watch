@@ -826,14 +826,27 @@ only uploads).
   permission error"), though the key CAN create certs/profiles via REST (`asc_certs.py` + `asc_profiles.py`).
   Don't revert to automatic.
 
-## §C2 — ITMS-90111: Apple raises the Xcode floor (RECURRING)
+## §C2 — Two post-upload rejections gate every LOCAL build
 
-A build made with an Xcode older than Apple's current floor is REJECTED after upload. Diagnose:
-`WebFetch https://developer.apple.com/news/releases` for the latest RELEASED/RC Xcode (a build number
-ending in a lowercase letter, e.g. `27A5194q`, is a BETA → still rejected), compare to `xcodebuild
--version`, owner installs it (`xcodes install <ver>`, Apple ID + 2FA — not headless), rebuild ALL THREE
-Apple platforms at a fresh build. First hit 2026-06-30 (26.0 → floor **26.6 / 17F113**). Recurs every few
-weeks; Xcode Cloud avoids chasing it locally.
+Both fire AFTER upload, on the build's metadata — check both before building locally.
+
+- **§C2a — ITMS-90111 (Xcode/SDK floor, RECURRING).** The Xcode/SDK is older than Apple's current
+  floor. Diagnose: `WebFetch https://developer.apple.com/news/releases` for the latest RELEASED/RC Xcode
+  (a build number ending in a lowercase letter, e.g. `27A5194q`, is a BETA → rejected), compare to
+  `xcodebuild -version`; owner installs it (`xcodes install <ver>`, Apple ID + 2FA — not headless),
+  rebuild ALL THREE at a fresh build. First hit 2026-06-30 (26.0 → floor **26.6 / 17F113**).
+- **§C2b — ITMS-90301 ("not accepting applications built with this version of the OS") = the build
+  MACHINE is on a BETA macOS.** This is about the build machine's OS, NOT Xcode — a GA Xcode does not
+  help. Apple rejects ANY App Store build made on a beta macOS. Check `sw_vers` (a `BuildVersion` ending
+  in a lowercase letter, e.g. `26A5353q`, or an unreleased `ProductVersion`, is a beta) or
+  `BuildMachineOSBuild` in the archive's app Info.plist. **There is no local fix on a beta box — do not
+  rebuild and retry.** Build on a RELEASED macOS. Hit 2026-06-30: the dev Mac is on **macOS 27 beta
+  (`26A5353q`)**, so local CLI builds clear §C2a but fail §C2b.
+- **§C2c — Xcode Cloud is the fix for BOTH** (and the standing recommendation when the local box is on a
+  beta OS or chasing the Xcode floor): Apple's runners build on a RELEASED macOS + Xcode. The project is
+  already wired (`ci_scripts/ci_post_clone.sh`; earlier approvals came through it). The blocker is Xcode
+  Cloud COMPUTE (the free hours ran out → the local-CLI pivot that surfaced §C2b). **TestFlight still
+  accepts beta-OS / beta-built binaries** — only App Store *review* is gated, so testers aren't blocked.
 
 ## §C3 — PyJWT venv (self-healing)
 

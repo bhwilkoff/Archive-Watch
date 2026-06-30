@@ -28,14 +28,25 @@ Submit for Review (the script only uploads).
    manually: `asc_certs.py` (Apple Distribution + Mac Installer certs) +
    `asc_profiles.py` (a profile per bundle id). Don't "simplify" it to automatic.
 
-2. **ITMS-90111 = Apple raised the Xcode/SDK FLOOR (recurring).** A build made with
-   an Xcode older than Apple's current floor is REJECTED *after upload*. Diagnose:
-   `WebFetch https://developer.apple.com/news/releases` for the latest **released or
-   RC** Xcode, compare to `xcodebuild -version`. A build number ending in a lowercase
-   letter (e.g. `27A5194q`) is a **beta — App Review rejects betas**; use the latest
-   GA/RC. Fix = owner installs it (`xcodes install <ver>`, Apple ID + 2FA, not
-   headless-automatable), then rebuild **all three** Apple platforms at a fresh,
-   monotonic build number. This WILL recur every few weeks; Xcode Cloud avoids it.
+2. **Two post-upload rejections gate every local build — CHECK BOTH BEFORE building:**
+   - **ITMS-90111 (Xcode/SDK floor, recurring).** The Xcode/SDK is older than Apple's
+     current floor. Diagnose: `WebFetch https://developer.apple.com/news/releases` for
+     the latest **released/RC** Xcode (a build number ending in a lowercase letter, e.g.
+     `27A5194q`, is a BETA — rejected), compare to `xcodebuild -version`; owner installs
+     it (`xcodes install <ver>`, Apple ID + 2FA, not headless), rebuild all three at a
+     fresh build. (First hit 2026-06-30: 26.0 → 26.6.)
+   - **ITMS-90301 ("not accepting applications built with this version of the OS") = the
+     build MACHINE is on a BETA macOS.** A GA Xcode does NOT help — Apple rejects ANY
+     App Store build made on a beta OS. Check `sw_vers` (a BuildVersion ending in a
+     lowercase letter, e.g. `26A5353q`, or `ProductVersion` of an unreleased macOS, is a
+     beta) or `BuildMachineOSBuild` in the archive's app Info.plist. **You cannot fix
+     this by rebuilding on a beta box — don't try.** Build on a RELEASED macOS instead.
+     (Hit 2026-06-30: the dev Mac is on macOS 27 beta `26A5353q`.)
+   - **Both vanish with Xcode Cloud** (Apple's runners = released macOS + released Xcode;
+     `ci_scripts/ci_post_clone.sh` already exists). It's the standing recommendation when
+     the local box is on a beta OS or chasing the Xcode floor. **TestFlight still accepts
+     beta-OS / beta-built binaries** — only App Store *review* is gated, so testing isn't
+     blocked.
 
 3. **PyJWT dependency self-heals.** `asc_certs.py`/`asc_profiles.py` sign the ASC JWT
    with `import jwt` (PyJWT) + cryptography. Homebrew python3 is PEP-668 and lacks
