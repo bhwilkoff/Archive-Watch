@@ -133,6 +133,8 @@ def main():
         studios = [s for s in (it.get("studios") or []) if s][:6]
         if studios:
             extras["st"] = studios
+        if it.get("directorProfilePath"):
+            extras["dp"] = it["directorProfilePath"]   # director photo for Detail's first chip
         record = [
             it.get("downloadURL"),
             synopsis or None,

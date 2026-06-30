@@ -233,6 +233,7 @@
         downloadURL: rec[0] || null,
         synopsis: rec[1] || null,
         director: rec[2] || null,
+        directorProfilePath: x?.dp || null,
         cast: (rec[3] || []).map(c => Array.isArray(c)
           ? { name: c[0], profilePath: c[1] || null, tmdbPersonID: c[2] || null }
           : { name: c, profilePath: null, tmdbPersonID: null }),
@@ -1427,7 +1428,7 @@
     castRow(det) {
       const host = $('item-cast');
       const people = [];
-      if (det.director) people.push({ name: det.director, role: 'Director', profilePath: null });
+      if (det.director) people.push({ name: det.director, role: 'Director', profilePath: det.directorProfilePath || null });
       for (const c of det.cast || []) people.push(c);
       host.replaceChildren(...people.slice(0, 10).map(p => {
         const fig = document.createElement('figure');

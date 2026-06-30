@@ -70,6 +70,7 @@ struct Catalog: Decodable, Sendable {
         @DefaultEmptyArray var countries: [String]
         @DefaultEmptyArray var cast: [CastMember]
         let director: String?
+        let directorProfilePath: String?   // TMDb photo path for the director (Detail's first chip)
         let producer: String?
         let seriesName: String?
         let network: String?

@@ -297,7 +297,7 @@ struct DetailView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(alignment: .top, spacing: 28) {
                         if let d = item.director, !d.isEmpty {
-                            PersonChip(name: d, role: "Director", profilePath: nil) {
+                            PersonChip(name: d, role: "Director", profilePath: item.directorProfilePath) {
                                 router.push(BrowseFilter(person: d))
                             }
                         }

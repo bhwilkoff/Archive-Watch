@@ -91,7 +91,8 @@ struct DetailView: View {
                         .buttonStyle(.bordered)
                     }
                     if !item.cast.isEmpty || item.director?.isEmpty == false {
-                        CastRow(cast: item.cast, director: item.director)
+                        CastRow(cast: item.cast, director: item.director,
+                                directorProfilePath: item.directorProfilePath)
                     }
                     CommunityDetailSection(item: item)
                     relatedSection
@@ -214,6 +215,7 @@ private struct DetailHero: View {
 private struct CastRow: View {
     let cast: [Catalog.CastMember]
     var director: String? = nil
+    var directorProfilePath: String? = nil
     @Environment(Router.self) private var router
 
     /// TMDb profile paths are stored as "/abc.jpg"; full URLs pass through.
@@ -235,7 +237,7 @@ private struct CastRow: View {
             ScrollView(.horizontal) {
                 LazyHStack(spacing: 16) {
                     if let d = director, !d.isEmpty {
-                        bubble(name: d, role: "Director", profilePath: nil, personID: nil)
+                        bubble(name: d, role: "Director", profilePath: directorProfilePath, personID: nil)
                     }
                     ForEach(cast.prefix(12), id: \.name) { member in
                         bubble(name: member.name, role: member.character,

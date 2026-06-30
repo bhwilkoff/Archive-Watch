@@ -99,6 +99,11 @@ def main() -> int:
             for m in (it.get("cast") or []):
                 if not m.get("profilePath"):
                     needed_names.add(m["name"])
+            # The DIRECTOR is stored name-only; look up a photo so the first Detail chip isn't a
+            # blank avatar (owner 2026-06-29). Same name->profile_path cache as cast.
+            d0 = (it.get("director") or "").strip()
+            if d0 and not it.get("directorProfilePath"):
+                needed_names.add(d0)
         _movie_cat = cat
     if args.tv:
         for f in sorted(glob.glob(str(SERIES / "*.json"))):
@@ -138,10 +143,17 @@ def main() -> int:
 
     if args.movies and movie_items:
         filled = sum(fill(it.get("cast")) for it in movie_items)
+        dfilled = 0
+        for it in movie_items:
+            d0 = (it.get("director") or "").strip()
+            if d0 and not it.get("directorProfilePath"):
+                p = cache.get(d0)
+                if p:
+                    it["directorProfilePath"] = p; dfilled += 1
         tmp = CATALOG.with_suffix(".json.tmp")
         json.dump(_movie_cat, open(tmp, "w"), ensure_ascii=False, separators=(",", ":"))
         tmp.replace(CATALOG)
-        print(f"[cast-img] movies: filled {filled} cast photos -> {CATALOG.name}")
+        print(f"[cast-img] movies: filled {filled} cast photos + {dfilled} director photos -> {CATALOG.name}")
     if args.tv:
         tv_filled = tv_files = 0
         for f, d in series_docs:

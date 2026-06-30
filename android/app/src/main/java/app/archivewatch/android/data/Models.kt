@@ -19,6 +19,7 @@ data class CatalogItem(
     val subjects: List<String> = emptyList(),
     val collections: List<String> = emptyList(),
     val director: String? = null,
+    val directorProfilePath: String? = null,   // TMDb director photo (Detail chip — parity follow-up)
     val cast: List<CastMember> = emptyList(),
     val synopsis: String? = null,
     val posterURL: String? = null,

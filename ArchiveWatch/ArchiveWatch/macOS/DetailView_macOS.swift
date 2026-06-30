@@ -196,7 +196,7 @@ struct DetailView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 16) {
                     if let d = item.director, !d.isEmpty {
-                        castBubble(name: d, role: "Director", profilePath: nil, personID: nil)
+                        castBubble(name: d, role: "Director", profilePath: item.directorProfilePath, personID: nil)
                     }
                     ForEach(item.cast.prefix(16), id: \.name) { member in
                         castBubble(name: member.name, role: member.character,
