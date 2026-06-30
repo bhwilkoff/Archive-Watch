@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-06-29T09:01:24Z",
+  "updated_at": "2026-06-30T07:56:23Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 17266,
-    "wanted": 17050,
+    "total": 17280,
+    "wanted": 17064,
     "fulfilled": 216,
-    "series_with_gaps": 344
+    "series_with_gaps": 346
   },
   "wants": [
     {
@@ -122739,6 +122739,126 @@
       "added_at": "2026-06-14T08:26:25Z"
     },
     {
+      "seriesID": "the-adventures-of-sherlock-holmes-1984",
+      "seriesTitle": "The Adventures of Sherlock Holmes",
+      "season": 1,
+      "episode": 1,
+      "title": "A Scandal in Bohemia",
+      "episodeImdbID": "tt0506445",
+      "status": "wanted",
+      "added_at": "2026-06-30T07:56:23Z"
+    },
+    {
+      "seriesID": "the-adventures-of-sherlock-holmes-1984",
+      "seriesTitle": "The Adventures of Sherlock Holmes",
+      "season": 1,
+      "episode": 2,
+      "title": "The Dancing Men",
+      "episodeImdbID": "tt0506449",
+      "status": "wanted",
+      "added_at": "2026-06-30T07:56:23Z"
+    },
+    {
+      "seriesID": "the-adventures-of-sherlock-holmes-1984",
+      "seriesTitle": "The Adventures of Sherlock Holmes",
+      "season": 1,
+      "episode": 3,
+      "title": "The Naval Treaty",
+      "episodeImdbID": "tt0506452",
+      "status": "wanted",
+      "added_at": "2026-06-30T07:56:23Z"
+    },
+    {
+      "seriesID": "the-adventures-of-sherlock-holmes-1984",
+      "seriesTitle": "The Adventures of Sherlock Holmes",
+      "season": 1,
+      "episode": 4,
+      "title": "The Solitary Cyclist",
+      "episodeImdbID": "tt0506456",
+      "status": "wanted",
+      "added_at": "2026-06-30T07:56:23Z"
+    },
+    {
+      "seriesID": "the-adventures-of-sherlock-holmes-1984",
+      "seriesTitle": "The Adventures of Sherlock Holmes",
+      "season": 1,
+      "episode": 5,
+      "title": "The Crooked Man",
+      "episodeImdbID": "tt0506448",
+      "status": "wanted",
+      "added_at": "2026-06-30T07:56:23Z"
+    },
+    {
+      "seriesID": "the-adventures-of-sherlock-holmes-1984",
+      "seriesTitle": "The Adventures of Sherlock Holmes",
+      "season": 1,
+      "episode": 7,
+      "title": "The Blue Carbuncle",
+      "episodeImdbID": "tt0506446",
+      "status": "wanted",
+      "added_at": "2026-06-30T07:56:23Z"
+    },
+    {
+      "seriesID": "the-adventures-of-sherlock-holmes-1984",
+      "seriesTitle": "The Adventures of Sherlock Holmes",
+      "season": 2,
+      "episode": 1,
+      "title": "The Copper Beeches",
+      "episodeImdbID": "tt0506447",
+      "status": "wanted",
+      "added_at": "2026-06-30T07:56:23Z"
+    },
+    {
+      "seriesID": "the-adventures-of-sherlock-holmes-1984",
+      "seriesTitle": "The Adventures of Sherlock Holmes",
+      "season": 2,
+      "episode": 2,
+      "title": "The Greek Interpreter",
+      "episodeImdbID": "tt0506451",
+      "status": "wanted",
+      "added_at": "2026-06-30T07:56:23Z"
+    },
+    {
+      "seriesID": "the-adventures-of-sherlock-holmes-1984",
+      "seriesTitle": "The Adventures of Sherlock Holmes",
+      "season": 2,
+      "episode": 3,
+      "title": "The Norwood Builder",
+      "episodeImdbID": "tt0506453",
+      "status": "wanted",
+      "added_at": "2026-06-30T07:56:23Z"
+    },
+    {
+      "seriesID": "the-adventures-of-sherlock-holmes-1984",
+      "seriesTitle": "The Adventures of Sherlock Holmes",
+      "season": 2,
+      "episode": 4,
+      "title": "The Resident Patient",
+      "episodeImdbID": "tt0506455",
+      "status": "wanted",
+      "added_at": "2026-06-30T07:56:23Z"
+    },
+    {
+      "seriesID": "the-adventures-of-sherlock-holmes-1984",
+      "seriesTitle": "The Adventures of Sherlock Holmes",
+      "season": 2,
+      "episode": 5,
+      "title": "The Red Headed League",
+      "episodeImdbID": "tt0506454",
+      "status": "wanted",
+      "added_at": "2026-06-30T07:56:23Z"
+    },
+    {
+      "seriesID": "the-adventures-of-sherlock-holmes-1984",
+      "seriesTitle": "The Adventures of Sherlock Holmes",
+      "season": 2,
+      "episode": 6,
+      "title": "The Final Problem",
+      "episodeImdbID": "tt0506450",
+      "status": "wanted",
+      "added_at": "2026-06-30T07:56:23Z"
+    },
+    {
       "seriesID": "the-adventures-of-sir-lancelot-1956",
       "seriesTitle": "The Adventures of Sir Lancelot",
       "season": 1,
@@ -170898,6 +171018,26 @@
       "episodeImdbID": "tt0742669",
       "status": "wanted",
       "added_at": "2026-06-13T07:56:51Z"
+    },
+    {
+      "seriesID": "worzel-gummidge-down-under-1987",
+      "seriesTitle": "Worzel Gummidge Down Under",
+      "season": 1,
+      "episode": 5,
+      "title": "King of the Scarecrows",
+      "episodeImdbID": "tt1012623",
+      "status": "wanted",
+      "added_at": "2026-06-30T07:56:23Z"
+    },
+    {
+      "seriesID": "worzel-gummidge-down-under-1987",
+      "seriesTitle": "Worzel Gummidge Down Under",
+      "season": 1,
+      "episode": 6,
+      "title": "Ten Heads Are Better Than One",
+      "episodeImdbID": "tt1026950",
+      "status": "wanted",
+      "added_at": "2026-06-30T07:56:23Z"
     },
     {
       "seriesID": "yes-minister-1980",
