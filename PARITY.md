@@ -64,7 +64,7 @@ macOS) since they share the Swift Core.
 
 | Feature | tvOS | iOS | macOS | Web | Android | Notes |
 |---|---|---|---|---|---|---|
-| Hero / featured banner | ✅ focus carousel | ✅ paged carousel (7s auto-advance) | ✅ `HeroBanner` (backdrop) | ✅ Marquee scroll-snap carousel | ✅ 7s auto-advance hero | Same pool/logic; sizing per idiom |
+| Hero / featured banner | ✅ focus carousel | ✅ paged carousel (7s auto-advance) | ✅ `HeroBanner` — full-width **16:9 aspect-locked, never cropped at any window size** (no height cap; macOS windows resize, see macOS-DESIGN §B4) | ✅ Marquee scroll-snap carousel | ✅ 7s auto-advance hero | Same pool/logic; sizing per idiom |
 | Curated + dynamic shelves | ✅ | ✅ horizontal rows, deduped | ✅ shelves (Top Rated / Watching Now / Hidden Gems / Community Favorites / Most Discussed) | ✅ scroll-snap rails | ✅ `LazyRow`s | `featured.json` shared |
 | Category tiles | ✅ | ✅ tile row → filtered grid | ✅ tile row → filtered grid | ✅ accent tiles | ✅ tile row → filtered grid | accent colors shared; count-gated ≥30 |
 | Decade tiles | ✅ | ✅ era tiles + counts | ✅ era tiles + counts | ✅ era tiles | ✅ era tiles | |
@@ -102,7 +102,7 @@ macOS) since they share the Swift Core.
 | Share titles / series | ✅ ShareSheet + QR | ✅ ShareLink | ✅ `ShareLink` (item + series) | ✅ share menu | ✅ ACTION_SEND | archivewatch.org URLs (Decision 030) |
 | Open in Callsheet (cast/crew app) | n/a | ✅ (App Store fallback) | ✅ `NSWorkspace` open/probe + App Store fallback | n/a | n/a | Decision 038 (+macOS amendment 2026-06-23) |
 | Now Playing / media controls | ✅ externalMetadata | ✅ AVKit (lock screen + Control Center) | ✅ AVPlayerView (system media keys) | ✅ MediaSession | ✅ Media3 MediaSession | |
-| Title+description in player | ✅ native Info tab | ✅ native externalMetadata | ⏳ | ✅ overlay mirrors controls | ✅ Media3 visibility listener | Decision 037 (mobile+web; macOS pending) |
+| Title+description in player | ✅ native Info tab | ✅ native externalMetadata | ✅ window title bar "Title (Year)" — macOS AVPlayerItem has NO `externalMetadata`; do NOT use the composition metadata-override (it blanks video, macOS-DESIGN §B5) | ✅ overlay mirrors controls | ✅ Media3 visibility listener | Decision 037 |
 | Video playback | ✅ AVPlayerVC | ✅ AVPlayerVC | ✅ AVPlayerView (AppKit) | ✅ `<video>` in `<dialog>` | ✅ Media3 | |
 | Resilient streaming | ✅ `ResilientStreamLoader` | ✅ reuse | ✅ reuse (resume-on-reset + node failover) | ✅ range + reconnect | ✅ OkHttp + patient policy | Decision 021/031/034 |
 | Resume across launches | ✅ | ✅ | ✅ `WatchProgress` | ✅ IndexedDB | ✅ user.sqlite | progress store (§6) |
@@ -184,7 +184,7 @@ macOS) since they share the Swift Core.
 | Home-screen surface | ✅ **Top Shelf** (best-in-class `.details` editorial carousel: contextual heroes, backdrop art, Continue-Watching-first; Decision-015 redesign 2026-06-24) | ✅ **WidgetKit suite**: Continue Watching (S/M/L + Lock Screen, art + resume bar), Pick of the Day, Favorites, Surprise Me (+ Lock Screen) + iOS-18 **Surprise Me Control** (Control Center / Action button) | ✅ **WidgetKit** (S/M/L): Continue Watching, Pick of the Day, Favorites, Surprise Me (sandboxed appex embedded in the Mac app) | 🚫 (PWA shortcuts only) | ⏳ home-screen widgets (Glance) | art pre-cached into the App Group (`WidgetArtCache`); deep-links into the app; `docs/research/topshelf-and-widgets.md` |
 | Voice / shortcuts | ✅ App Intents + Siri | ✅ App Intents + Siri | 🚧 (shared App Intents; Spotlight/Siri surface TBD) | n/a | ✅ App Shortcuts | "surprise me", "random film" |
 | Spotlight / system search | n/a | 🔮 Core Spotlight | 🔮 Core Spotlight | n/a | 🔮 App Search | |
-| Installable app | App Store | App Store | **App Store** (same `app.archivewatch.tvos` record — Decision 042/owner 2026-06-24; `docs/mac-app-store-submission.md`) | ✅ PWA | Play Store | |
+| Installable app | App Store | App Store | **App Store — SUBMITTED via CLI** (1.3.246/768, Xcode 26.6; same `app.archivewatch.tvos` record — Decision 042; manual REST signing, `tools/submit-appstore.sh`; `docs/mac-app-store-submission.md` + macOS-DESIGN §C) | ✅ PWA | Play Store | |
 | Handoff / continuity | 🔮 | 🔮 | 🔮 | n/a | n/a | NSUserActivity declared |
 
 ## 9. Shared backend / data plane (consumed by ALL clients — no per-platform copy)

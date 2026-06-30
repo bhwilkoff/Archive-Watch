@@ -67,8 +67,19 @@ the `#else`. Result:
 No further code change is needed when Xcode 27 goes GA — `#if compiler` automatically picks
 the new API once the GA toolchain is Swift 6.4.
 
-### Step 1 — install the released Xcode 26 ALONGSIDE the beta
-Two Xcodes coexist fine. Get the **latest released Xcode 26.x** (NOT a beta):
+> **ITMS-90111 — Apple raises the floor (recurring; first hit 2026-06-30).** App Review
+> rejects a build made with an Xcode/SDK *older than Apple's current floor* AFTER upload:
+> "Unsupported SDK or Xcode version — submissions must use the latest Xcode and SDK Release
+> Candidates (RC)." Builds 764/767 (Xcode 26.0 / 17A324) were rejected once the floor moved to
+> **Xcode 26.6 (17F113, 2026-06-25)**; rebuilt + reuploaded all three at 1.3.246/768 with 26.6.
+> Diagnose with `WebFetch https://developer.apple.com/news/releases` (latest **released/RC** — a
+> build number ending in a lowercase letter like `27A5194q` is a beta, still rejected), compare to
+> `xcodebuild -version`, install the current one, rebuild ALL THREE Apple platforms at a fresh build
+> number. This recurs every few weeks — Xcode Cloud (Step "Alternative" below) avoids chasing it.
+
+### Step 1 — install the latest released Xcode ALONGSIDE the beta
+Two Xcodes coexist fine. Get the **latest released Xcode** (NOT a beta — check the releases page
+above for the current floor; as of 2026-06-30 that's **26.6 / 17F113**):
 - Mac App Store ("Xcode"), OR
 - <https://developer.apple.com/download/all/> → search "Xcode 26" → the build WITHOUT
   "beta" in the name (a Release Candidate is also accepted for submission).

@@ -1,11 +1,20 @@
-# macOS Creation Studio — Binding Design Doc
+# macOS — Binding Design Doc (Archive Watch for Mac)
 
 **Status: binding.** Quote the relevant rule before proposing any new window, scene,
-view, sheet, engine path, index, or Creation-Studio feature. Append-only amendments;
-never silently contradict a rule — amend it with a dated note and a reason.
+view, sheet, engine path, index, or feature. Append-only amendments; never silently
+contradict a rule — amend it with a dated note and a reason.
 
-Research backing every claim here: `docs/research/creation-studio-README.md` (+ its seven
-briefs). This doc is the *decisions*; the briefs are the *evidence*.
+This doc covers the **whole macOS app**, in three parts:
+- **Part A — Creation Studio** (§1–§13): the Mac-exclusive multi-clip editor + engine.
+- **Part B — The parity face** (§B1–§B12): browse / play / library / search / channels —
+  the native shell, the player, the hero, image loading, and the macOS-specific gotchas.
+- **Part C — Shipping the Mac app** (§C1–§C7): the command-line App Store pathway + its traps.
+
+Research/evidence: Part A → `docs/research/creation-studio-README.md` (+ its seven briefs).
+Part B/C codify what was learned shipping the app — see the skills `macos-native-app-shell`,
+`macos-creation-studio-engine`, `apple-app-store-cli-submission`, and the memory notes
+`mac_app_store_build_pathway` / `macos_player_native` / `macos_hero_fullwidth`. This doc is
+the *decisions*; the briefs/skills are the *evidence*.
 
 ---
 
@@ -643,6 +652,222 @@ are selectable + manipulable by mouse:
 - **Delete** (⌫ or right-click) removes the entire multi-selection in one undo step; right-click on
   a selected group offers "Delete N Items"; titles + audio gained their own right-click Delete (was
   clips-only). The inspector shows an "N items selected · Delete N" banner above the focused editor.
+
+---
+
+# PART B — The parity face (browse / play / library)
+
+*Shipped 2026-06-23…29 (Decision 042). The browse/play/library/search/channels window on the
+shared Swift Core — native-Mac idioms, NOT the iOS app resized (§1). Files: the non-CreationStudio
+`macOS/*_macOS.swift`. Each rule below is enforced in code today; quote it before changing a surface.*
+
+## §B1 — Scene graph & navigation
+
+Three SwiftUI scenes, in order: `WindowGroup("Archive Watch")` (parity face, root = `RootView`,
+`minWidth 960 × minHeight 600`) → `DocumentGroup` (`.archiveproj`, Creation Studio) → `Settings`.
+
+- **Rule B1a — ⌘N opens a PROJECT, not a window.** WindowGroup-first + a DocumentGroup makes
+  SwiftUI bind ⌘N to a new Library window; re-point it with `CommandGroup(replacing: .newItem)` →
+  `NSDocumentController.shared.newDocument(nil)`. (Surprise Me = `CommandGroup(after: .newItem)`, ⌘⇧R.)
+- **Rule B1b — navigation = a sidebar `Section` + ONE `NavigationPath`**, NOT the iOS per-tab stack.
+  `AppRouter.section` (`Section` enum home/movies/tv/channels/collections/surprise/search/library/create
+  — its raw values are what `AW_START_TAB` matches) + `router.path` feed a single `NavigationSplitView`
+  detail column. `openDetail` drills a `tv-series` card into `SeriesRef` (season/episode), else the item.
+- **Rule B1c — `ModelConfiguration(cloudKitDatabase: .none)`.** Sync is MANUAL via
+  `CloudKitSyncService` (not SwiftData auto-mirroring); it fires on sign-in + `scenePhase == .active`.
+  Schema: WatchProgress/Favorite/Playlist/UserChannel/Tombstone/VideoClip/LibraryClip. App `init`
+  sets `URLCache.shared` to 64/400 MB (the ImagePipeline depends on it, §B6c).
+- Deep links (`.onOpenURL` + `NSUserActivityTypeBrowsingWeb`): `archivewatch://item/{id}` · `/surprise`
+  · `/random` · `https://archivewatch.org/item/{id}` → the detail column.
+
+## §B2 — The player is the window root while playing (load-bearing)
+
+- **Rule B2a — when a title plays, the player REPLACES the split view as the window root** (not an
+  overlay on it). `RootView` is a `Group`: `nowPlaying → PlayerWindow`, else `nowPlayingEpisode →
+  EpisodePlayer`, else `browse`. WHY: an overlay leaves the split view owning the window toolbar, so
+  its sidebar toggle + the previous view's title bleed through over the player. As root, the player's
+  own NavigationStack title + X button are the only chrome. Never reintroduce the player as an overlay/
+  cover on the split view. (The screensaver is likewise a full-window overlay, not a sidebar-keeping push.)
+
+## §B3 — Player engine (native AVKit, no hand-drawn controls)
+
+- **Rule B3a — `AVPlayerView`, `controlsStyle = .floating`** (the macOS TV-app HUD: transport,
+  scrubber, volume, PiP, AirPlay, full-screen). Speed is the **native HUD** (`v.speeds =
+  AVPlaybackSpeed.systemDefaultSpeeds`) — do NOT bolt on a custom Speed menu. `allowsVideoFrameAnalysis
+  = false` (no Live Text on film frames). `VideoPlayerNS` is the `NSViewRepresentable`.
+- **Rule B3b — resilient MP4 via `ResilientStreamLoader.makeAsset(for:)`** (retain the loader for the
+  asset's lifetime; `preferredForwardBufferDuration = 300`). HLS (`AVPlayerItem(url: subtitleHLS)`) only
+  when the title has subtitles (native CC + seek).
+- **Rule B3c — resume + periodic save.** `WatchProgress` keyed by `archiveID` (films AND episodes);
+  seek if saved > 5 s, skip if complete. SAVE every 5 s via a periodic time observer (owner 2026-06-29 —
+  macOS used to save only on close, losing a crashed session), relaxed gate `pos > 1` (duration
+  backfilled), then `SyncNudge.nudge(ctx)`.
+- **Rule B3d — live TV NEVER persists.** `ChannelPlayer`/`ChannelEngine` (lineup, join-in-progress at
+  offset, woven PD commercials, `advance()` on end) writes no WatchProgress — channels never pollute
+  Continue Watching. Episode binge: `.id(episode.archiveID)` recreates the surface per episode (own
+  resume) + auto-advance on end.
+
+## §B4 — The hero (full-width 16:9, never cropped)
+
+- **Rule B4a — the hero box is full-width AND aspect-locked to 16:9 with NO height cap:**
+  `.frame(maxWidth: .infinity).aspectRatio(16.0/9.0, contentMode: .fit)`. Height tracks width
+  (= width × 9/16), so a 16:9 backdrop fills it exactly and is never cropped at any window width. Two
+  traps, both caused repeated owner pushback: a FIXED height letterboxes/crops as the window widens; a
+  `maxHeight` cap makes the aspect-fit box go narrower than the window (inset/centered → "doesn't extend
+  across"). Full-width 16:9 needs neither. (Mac windows resize; iOS/tvOS use a fixed height because
+  device width is fixed. See `macos_hero_fullwidth`.)
+- **Rule B4b — backdrop as `.background`, not a child** (the fill-image trap, §B6a). Pool requires a
+  real WIDE backdrop (`backdropURLParsed != nil` + `hasDesignedArtwork` + `artworkSource != "generated"`)
+  — never crop a 2:3 poster or a frame-grab into the banner; if too few qualify, show fewer or hide.
+- **Rule B4c — rotation via structured concurrency, not a Combine timer** (§B10). `HeroCarousel`
+  cross-fades every 7 s via `.task(id: items.map(\.archiveID))`; hover pauses.
+
+## §B5 — The player title rule (no externalMetadata on macOS)
+
+- **Rule B5a — the on-screen title rides the WINDOW TITLE BAR** (`navigationTitle("Title (Year)")`),
+  NOT player metadata. macOS `AVPlayerItem` has **no `externalMetadata`** (iOS/tvOS only — verified in
+  the SDK). The only way to override the MP4's embedded title is to wrap the asset in an
+  `AVMutableComposition`, which over our custom-scheme resilient asset renders BLANK video — tried +
+  reverted TWICE. Do NOT retry the metadata-override. (See `macos_player_native`.)
+
+## §B6 — Posters & images (three rules, one pipeline)
+
+- **Rule B6a — the fill-image layout trap (3 places, one fix).** A fill-mode image reports oversized
+  "cover" dimensions; a `maxWidth:.infinity` frame ADOPTS them → cards overlap / hero overflows. Fix: a
+  SIZED shape owns layout, the image fills via `.overlay`/`.background`. Used in `PosterCard` (a 2:3
+  `RoundedRectangle` + `.overlay { RemotePoster }`), the Detail/Series poster wells (240×360, `.fit`),
+  and the hero (§B4b).
+- **Rule B6b — never show the archive.org thumbnail (owner 2026-06-29).** `RemotePoster` loads the
+  DESIGNED poster only (`hasDesignedArtwork ? posterURLParsed`); on miss it falls through to a
+  typographic title card, NEVER the `services/img` frame grab. Same rule governs `Modes.screensaverPool`.
+- **Rule B6c — all browse/play images go through `ImagePipeline`, never bare `AsyncImage`.** Bare
+  AsyncImage re-decodes/re-downloads on every reveal and bursts unlimited connections (archive.org
+  throttles → "posters load slowly"). The pipeline: an `NSCache` of DECODED `NSImage`s (countLimit 800)
+  + a single `URLSession` capped at `httpMaximumConnectionsPerHost = 6` (reusing the 64/400 MB URLCache)
+  + in-flight coalescing. `RemoteImage` is the drop-in. (Creation Studio has its OWN `StudioNet` pool —
+  `creation_studio_connection_discipline`.)
+- **Rule B6d — decode non-RGB images to sRGB before SwiftUI (the grayscale→white bug).**
+  `Image(nsImage:)`'s Metal path renders a 1-component grayscale (or CMYK/16-bit) image as a SOLID WHITE
+  box (a real grayscale TMDb JPEG, "Frozen Frolics", rendered white). `decodedRGBImage` redraws any
+  non-8-bit-RGB image into sRGB RGBA once, in the pipeline, for every call site.
+
+## §B7 — Detail / Series poster wells
+
+Detail + SeriesDetail use the SAME 240×360 aspect-FIT 2:3 poster well — never a wide-banner crop of a
+portrait poster (the old `backdrop`-in-a-16:9-banner clipped a random slice). Series slug: prefer
+`seriesID`, else strip the `series:` prefix from `archiveID`; spine loads from `/series/{slug}.json`.
+Cast bubbles: left-click → `openPerson` (browse their titles); right-click → Callsheet person link when
+installed. One consolidated Share menu (Open in Creation Studio when `isClippable` · Callsheet ·
+`ShareLink` to `archivewatch.org/item/{id}` · archive.org). "Open in Creation Studio" queues
+`store.pendingClipItem` then opens a fresh project window (the editor's `.task` consumes it).
+
+## §B8 — Channels EPG
+
+- **Rule B8a — a FIXED-window proportional EPG** (fixed channel rail + pinned time ruler + runtime-sized
+  program blocks), NOT a 2D frozen-column scroll. The window holds still (the proven tvOS/iOS layout);
+  pointer chrome (Earlier/Later/Now) shifts it — the Mac substitute for tvOS focus-paging / the iOS swipe
+  (§1 says don't port touch idioms). An offset-mirrored 2D approach rendered the rail unreliably; don't
+  reintroduce it. The window clamps to the broadcast day (`dayAnchor` → +20 h); landing within 5 min of
+  NOW snaps back to live. User-channel delete writes a `ch:<id>` Tombstone (§B9).
+
+## §B9 — Sync touch-points
+
+Removals propagate via `Tombstone` keys: `fav:<id>` (DetailView favorites), `ch:<id>` (user channels);
+playlists use `touch()` recency-merge (#11b). All rely on the foreground/sign-in `CloudKitSyncService.sync`;
+only `PlayerSurface` additionally calls `SyncNudge.nudge` (push progress promptly so devices converge).
+
+## §B10 — Native-platform-first + structured concurrency
+
+- Binding everywhere: AVPlayerView HUD (no hand-drawn controls), `.searchable` toolbar field, native
+  `Form` sheets, `NSWorkspace.urlForApplication(toOpen:)` for Callsheet install detection (NO Info.plist
+  queries-schemes on macOS — that's an iOS restriction), native HUD speeds. The document is named by its
+  FILE — never an in-app title field (the 2026-06-24 fix). See `native-platform-first`,
+  `feedback_native_apis_no_workarounds`.
+- **Replace Combine `Timer.publish` with `.task`-based loops** in any view (hero, screensaver, search
+  debounce): a Combine timer delivering into a `@MainActor` closure can trip a Swift-runtime executor
+  fault and fire into a torn-down view. `.task(id:)` is auto-cancelled/restarted by SwiftUI.
+
+## §B11 — Launch / test hooks
+
+`AW_START_TAB=<section rawValue>` lands on a sidebar section; `AW_START_ITEM=<archiveID>` opens that
+title's Detail (waits for the full DB to swap in); `AW_CS_TEST=editor|markclip` drives the Creation
+Studio editor. Inert unless set. Needed because SwiftUI's a11y tree isn't reliably AppleScript-traversable
+— screenshots capture by REGION from AX window bounds (§C6).
+
+## §B12 — Capabilities, identifiers, Info.plist
+
+- **Shared with tvOS/iOS** (one ASC record, Decision 042): bundle id `app.archivewatch.tvos`, CloudKit
+  `iCloud.app.archivewatch.tvos`, App Group `group.app.archivewatch.tvos`, Associated Domains
+  `archivewatch.org` (applinks + webcredentials). UTType `org.archivewatch.project` (`.archiveproj`, a
+  `com.apple.package`).
+- **Sandbox** (App Store requirement): app-sandbox + network.client + files.user-selected.read-write +
+  **device.microphone + device.audio-input** (a sandboxed app needs the mic entitlement or TCC silently
+  denies → the "record does nothing" bug). Sign in with Apple = Default.
+- `LSMinimumSystemVersion = 26.0` (the Configuration-based AVFoundation API is macOS-26+),
+  `LSApplicationCategoryType = entertainment`, `ITSAppUsesNonExemptEncryption = false`,
+  `NSMicrophoneUsageDescription` (voiceover). The target was wired by a direct `project.pbxproj` edit
+  (objectVersion 77); the Core is REUSED via `fileSystemSynchronizedGroups` pointing at the same
+  `ArchiveWatch` folder with `#if os()` guards — never copied.
+
+---
+
+# PART C — Shipping the Mac app
+
+*Full runbook: `docs/mac-app-store-submission.md`. Triggerable skill: `apple-app-store-cli-submission`.
+Live state + cert ids: `mac_app_store_build_pathway`. All three Apple apps share ONE ASC record.*
+
+## §C1 — The CLI submission pathway (manual REST signing)
+
+One command: `DEVELOPER_DIR=<released-Xcode>/Contents/Developer tools/submit-appstore.sh <mac|ios|tvos|all>`
+→ archive → ensure certs → an App Store profile per embedded bundle id → manual ExportOptions → export +
+upload via the ASC API key. The OWNER then selects the build in ASC and Submits for Review (the script
+only uploads).
+- **Rule C1a — signing is MANUAL; cloud/automatic signing FAILS for this team key** ("Cloud signing
+  permission error"), though the key CAN create certs/profiles via REST (`asc_certs.py` + `asc_profiles.py`).
+  Don't revert to automatic.
+
+## §C2 — ITMS-90111: Apple raises the Xcode floor (RECURRING)
+
+A build made with an Xcode older than Apple's current floor is REJECTED after upload. Diagnose:
+`WebFetch https://developer.apple.com/news/releases` for the latest RELEASED/RC Xcode (a build number
+ending in a lowercase letter, e.g. `27A5194q`, is a BETA → still rejected), compare to `xcodebuild
+-version`, owner installs it (`xcodes install <ver>`, Apple ID + 2FA — not headless), rebuild ALL THREE
+Apple platforms at a fresh build. First hit 2026-06-30 (26.0 → floor **26.6 / 17F113**). Recurs every few
+weeks; Xcode Cloud avoids chasing it locally.
+
+## §C3 — PyJWT venv (self-healing)
+
+`asc_certs.py`/`asc_profiles.py` sign the ASC JWT with PyJWT + cryptography; Homebrew python3 (PEP-668)
+lacks them. The script auto-provisions `tools/.asc-venv` and runs the cert tools from it. Bypassing the
+script means putting a jwt-capable python on PATH first.
+
+## §C4 — Per-platform SDK + Metal downloads
+
+A fresh Xcode needs `-downloadComponent MetalToolchain` (~700 MB; the app has a `.metal` shader —
+auto-installed by the script) and may need `-downloadPlatform iOS`/`tvOS` if "Any … Device" shows
+"not installed".
+
+## §C5 — Compile guards & the tuple-sort gotcha
+
+- **Rule C5a — guard 27-only symbols with `#if compiler(>=6.4)`, not just `#available`.** A runtime
+  `#available` check STILL needs the symbol in the BUILD SDK → it won't COMPILE on the GA toolchain; the
+  `#else` carries the macOS-26 API. Audit: `grep -rn 'available((macOS|iOS|tvOS) 27'`.
+- **Rule C5b — no tuple-sort closures.** `.sorted { (a,b,c) > (a,b,c) }` → "unable to type-check in
+  reasonable time" on the GA toolchain (tvOS-only files surface it). Compare field-by-field.
+
+## §C6 — Screenshots
+
+macOS: 16:10, EXACTLY 2880×1800 (or 1280×800 / 1440×900 / 2560×1600). Drive via the §B11 launch hooks;
+capture by REGION from the AX window bounds (SwiftUI has no AXWindowNumber) then PIL-frame to the exact
+size. `tools/mac-shotset.sh <app>` runs the full set; needs Screen Recording permission. Any build may
+produce them (need not be the submitted binary).
+
+## §C7 — Version bump & disk
+
+Bump BOTH `MARKETING_VERSION` + `CURRENT_PROJECT_VERSION` (AppVersion.xcconfig) every build — App Review
+burns a build number even on rejection; the next must be ahead + monotonic. The box runs ~97% full; a
+fresh Xcode needs ~25–30 GB — free it (delete the obsolete Xcode app, clear DerivedData + `build/`)
+before installing.
 
 ---
 
