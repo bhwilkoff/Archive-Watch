@@ -23,7 +23,9 @@ ART_WAIT="${ART_WAIT:-24}"                    # seconds to let posters/backdrops
 # Python with Pillow for the canvas framing (system python3 may lack PIL; the play venv has it).
 PYBIN="tools/.play-venv/bin/python"; [ -x "$PYBIN" ] || PYBIN="python3"
 
-quit() { pkill -f "Archive Watch.app" 2>/dev/null; pkill -f "ArchiveWatchMac" 2>/dev/null; sleep 1.5; }
+# `|| true`: pkill exits 1 when nothing matches, which under `set -e` would abort the
+# whole run at the first quit (when no app is running yet). No-match is not an error here.
+quit() { pkill -f "Archive Watch.app" 2>/dev/null || true; pkill -f "ArchiveWatchMac" 2>/dev/null || true; sleep 1.5; }
 
 size_window() {
   osascript >/dev/null 2>&1 <<OSA || true
@@ -106,16 +108,17 @@ if [ -z "$ITEM1" ] && [ -n "$DB" ] && command -v sqlite3 >/dev/null; then
 fi
 echo "Detail items: ITEM1=${ITEM1:-<none>}  ITEM2=${ITEM2:-<none>}  (DB=$DB)"
 
-shot 01-home        AW_START_TAB=home
-shot 02-movies      AW_START_TAB=movies
-shot 03-tvshows     AW_START_TAB=tv
-shot 04-collections AW_START_TAB=collections
-shot 05-channels    AW_START_TAB=channels
+shot 01-home           AW_START_TAB=home
+shot 02-movies         AW_START_TAB=movies
+shot 03-tvshows        AW_START_TAB=tv
+shot 04-collections    AW_START_TAB=collections
+shot 05-channels       AW_START_TAB=channels
 [ -n "$ITEM1" ] && shot 06-detail AW_START_ITEM="$ITEM1"
 [ -n "$ITEM2" ] && shot 07-detail-2 AW_START_ITEM="$ITEM2"
-shot 08-studio-editor AW_CS_TEST=editor
-shot 09-studio-clip   AW_CS_TEST=markclip
-shot 10-surprise      AW_START_TAB=surprise
+shot 08-studio-landing AW_START_TAB=create     # Creation Studio tab BEFORE opening/creating a project
+shot 09-studio-editor  AW_CS_TEST=editor
+shot 10-studio-clip    AW_CS_TEST=markclip
+shot 11-surprise       AW_START_TAB=surprise
 quit
 
 echo "== done. Set in $OUTDIR =="

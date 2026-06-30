@@ -126,22 +126,30 @@ struct HeroCarousel: View {
     @State private var hovering = false
 
     var body: some View {
-        ZStack(alignment: .bottomTrailing) {
+        ZStack {
             ForEach(Array(items.enumerated()), id: \.element.id) { i, item in
-                if i == index { HeroBanner(item: item).transition(.opacity) }
-            }
-            if items.count > 1 {
-                HStack(spacing: 7) {
-                    ForEach(items.indices, id: \.self) { i in
-                        Capsule()
-                            .fill(i == index ? Color.white : Color.white.opacity(0.35))
-                            .frame(width: i == index ? 18 : 7, height: 7)
-                            .onTapGesture { withAnimation(.easeInOut) { index = i } }
-                    }
+                if i == index {
+                    HeroBanner(item: item)
+                        // Dots overlay the BANNER, not the row, so they stay pinned to the hero's
+                        // corner even when the aspect-locked banner is narrower than a wide window.
+                        .overlay(alignment: .bottomTrailing) {
+                            if items.count > 1 {
+                                HStack(spacing: 7) {
+                                    ForEach(items.indices, id: \.self) { j in
+                                        Capsule()
+                                            .fill(j == index ? Color.white : Color.white.opacity(0.35))
+                                            .frame(width: j == index ? 18 : 7, height: 7)
+                                            .onTapGesture { withAnimation(.easeInOut) { index = j } }
+                                    }
+                                }
+                                .padding(14)
+                            }
+                        }
+                        .transition(.opacity)
                 }
-                .padding(14)
             }
         }
+        .frame(maxWidth: .infinity)   // center the aspect-locked banner across the row
         .onHover { hovering = $0 }
         // Native structured-concurrency auto-advance (replaces a Combine Timer.publish whose delivery
         // to this @MainActor closure could trip a Swift-runtime executor fault). The task is bound to
@@ -184,13 +192,20 @@ struct HeroBanner: View {
             }
             .padding(24).foregroundStyle(.white)
         }
-        .frame(maxWidth: .infinity)
-        .frame(height: 320)
-        // Backdrop as .background so the fill-mode image can't drive layout
-        // (same fill-image trap as the poster cards).
+        // The hero box stays at the backdrop's 16:9 aspect at EVERY window width, so a wide TMDb
+        // backdrop is never cropped. The regression was a fixed 320pt height + infinite width, which
+        // turned the box into an ever-wider letterbox as the window grew (fill cropped to a thin
+        // slice). Height is capped so a large display can't let the hero eat the viewport; below the
+        // cap the box grows with the window, and beyond it the still-16:9 box is centered by the
+        // carousel (HeroCarousel's maxWidth frame) rather than cropped.
+        .aspectRatio(16.0 / 9.0, contentMode: .fit)
+        .frame(maxHeight: 520)
+        // Backdrop as .background so the fill-mode image can't drive layout (the fill-image trap).
         .background {
             if let url = item.backdropURLParsed {
                 RemoteImage(url: url, contentMode: .fill)
+            } else {
+                Color.black
             }
         }
         .clipShape(RoundedRectangle(cornerRadius: 14))
