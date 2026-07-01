@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-06-30T06:33:48Z",
+  "updated_at": "2026-07-01T06:46:15Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-06-30T06:33:48Z"
+      "last_tried": "2026-07-01T06:46:15Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-06-30T06:33:48Z"
+      "last_tried": "2026-07-01T06:46:15Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -297019,6 +297019,75 @@
         "Romance"
       ],
       "fetched_at": "2026-06-30T06:33:48Z",
+      "schema": 3
+    },
+    "tt0000022": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTFmMzI2OTgtNDM2MC00ZWE5LTljZjctNzg4NzI2OTc3MGU2XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.1,
+      "imdb_votes": 1219,
+      "content_rating": null,
+      "plot": "Two blacksmiths are at work, facing the camera, a wall, window, and stacked boxes behind them. Both are mustachioed with dark hair. On our right, a smith in the dark clothes of a laborer continuously turns the handle of the bellows, keeping hot a small furnace in front of him. On our left, in white shirt and tie, the lead smith pounds a three-foot length of metal on an anvil and then plunges the shaft into a tub of water at his feet. He takes a metal rod and scrapes it across the shaft. Next, from our left, a man enters with refreshments. Work pauses.",
+      "runtime_min": 1,
+      "director": "Louis Lumière",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-01T06:46:15Z",
+      "schema": 3
+    },
+    "tt0224039": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZmU3MTc1NDQtYTI2Mi00ODIxLTk0MDMtNjAwNTc1MzUyZmY0XkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
+      "imdb_rating": 5.7,
+      "imdb_votes": 510,
+      "content_rating": "Not Rated",
+      "plot": "The entire story of Christmastide is here depicted. The scene opens in a large boudoir of an apparently wealthy man's home. His children, assisted by their governess, are about to retire. Before lying down they hang up their stockings on the edge of the bed. The picture changes and night appears. We see the housetops of the town and angels are flying about depositing packages in each of the chimneys. Santa Claus is also busy and furnishes our little friends with numerous presents. Again a change in the picture and we see the corridor of the old village church. The sexton, an old grey haired man, stands by, while a number of lusty boys pull the rope attached to the great bell in the belfry. The bell tolling in the steeple bursts into view, after which the interior of the church is seen with the full choir accompanied by the organist and choir boys singing the Christmas hymn. Another change and the boudoir is again before us and the children are looking over their presents while their parents are receiving the congratulations of their friends who have come to visit them. The picture changes into that of the great dining hall with the guests sitting around the table and the beggar is brought in and given a place at the table. The conclusion of this beautiful subject is a pretty tableau. We cannot speak too highly of the dissolving effects of this film. One picture dissolves into the other and thus the story is continuous from beginning to the end. Artistically beautiful.",
+      "runtime_min": 4,
+      "director": "Georges Méliès",
+      "actors": [
+        "Georges Méliès"
+      ],
+      "genres": [
+        "Short",
+        "Fantasy"
+      ],
+      "fetched_at": "2026-07-01T06:46:15Z",
+      "schema": 3
+    },
+    "tt0232721": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZTU4N2NlMTctZDUyMC00MTAwLWJlNGEtMDkwMDViYmE0MzdjXkEyXkFqcGdeQXVyMjA3NDg2Mzg@._V1_SX300.jpg",
+      "imdb_rating": 6.3,
+      "imdb_votes": 32,
+      "content_rating": null,
+      "plot": "During a strike, several workers are killed in a confrontation. The wife of one of them kills the factory owner. At her trial, the owner's son asks for mercy, knowing that his father was wrong. Because of that the wife is freed.",
+      "runtime_min": 5,
+      "director": "Ferdinand Zecca",
+      "actors": [],
+      "genres": [
+        "Short",
+        "Drama"
+      ],
+      "fetched_at": "2026-07-01T06:46:15Z",
+      "schema": 3
+    },
+    "tt0345303": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjc2YjEyNTUtZGMyNy00NmE0LThkNDAtYWZjM2YyYTlmNTM4XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": 12,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 10,
+      "director": "Arturo Ambrosio, Luigi Maggi",
+      "actors": [
+        "Lydia De Roberti",
+        "Mirra Principi"
+      ],
+      "genres": [
+        "Short",
+        "Drama"
+      ],
+      "fetched_at": "2026-07-01T06:46:15Z",
       "schema": 3
     }
   },
