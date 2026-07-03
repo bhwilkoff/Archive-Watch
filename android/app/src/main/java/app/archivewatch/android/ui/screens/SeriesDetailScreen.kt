@@ -10,12 +10,13 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -45,6 +46,7 @@ import app.archivewatch.android.data.PlaySpec
 import app.archivewatch.android.data.QueueEntry
 import app.archivewatch.android.data.SeriesDetail
 import app.archivewatch.android.data.SeriesEpisode
+import app.archivewatch.android.ui.BackdropImage
 import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.LoadingBox
 import app.archivewatch.android.ui.Nav
@@ -55,7 +57,8 @@ import coil3.compose.AsyncImage
 /** Series → season dropdown → episode list (series JSON, contract §6.3). */
 @Composable
 fun SeriesDetailScreen(container: AppContainer, nav: Nav, slug: String) {
-    val series by produceState<SeriesDetail?>(null, slug) {
+    var retry by remember { mutableIntStateOf(0) }
+    val series by produceState<SeriesDetail?>(null, slug, retry) {
         value = container.editorial.series(slug)
     }
     var loadFailed by remember { mutableStateOf(false) }
@@ -64,12 +67,16 @@ fun SeriesDetailScreen(container: AppContainer, nav: Nav, slug: String) {
     if (current == null) {
         // produceState resolves null on failure too; show loading briefly,
         // then a visible error if the fetch came back empty.
-        val failed by produceState(false, slug) {
+        val failed by produceState(false, slug, retry) {
             kotlinx.coroutines.delay(8_000)
             value = true
         }
-        if (failed || loadFailed) EmptyState("Couldn't load this series. Check your connection and try again.")
-        else LoadingBox()
+        if (failed || loadFailed) {
+            EmptyState(
+                "Couldn't load this series. Check your connection and try again.",
+                onRetry = { loadFailed = false; retry++ },
+            )
+        } else LoadingBox()
         return
     }
 
@@ -80,10 +87,10 @@ fun SeriesDetailScreen(container: AppContainer, nav: Nav, slug: String) {
     LazyColumn(Modifier.fillMaxSize()) {
         item(key = "header") {
             Box(Modifier.fillMaxWidth().aspectRatio(16f / 9f)) {
-                AsyncImage(
-                    model = current.backdropURL ?: current.posterURL,
+                BackdropImage(
+                    url = current.backdropURL ?: current.posterURL,
                     contentDescription = null,
-                    contentScale = ContentScale.Crop,
+                    accent = Color(0xFF2D5BFF),   // Classic TV accent (Decision 013)
                     modifier = Modifier.fillMaxSize(),
                 )
                 Box(
@@ -98,9 +105,13 @@ fun SeriesDetailScreen(container: AppContainer, nav: Nav, slug: String) {
                 )
                 IconButton(
                     onClick = { nav.pop() },
-                    modifier = Modifier.padding(top = 32.dp, start = 4.dp),
+                    modifier = Modifier.statusBarsPadding().padding(start = 4.dp),
                 ) {
-                    Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = Color.White)
+                    Icon(
+                        Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = "Back",
+                        tint = Color.White,
+                    )
                 }
             }
             Column(Modifier.padding(horizontal = 16.dp)) {

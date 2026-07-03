@@ -17,7 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.ui.screens.BrowseScreen
 import app.archivewatch.android.ui.screens.ChannelsScreen
@@ -45,7 +45,7 @@ import app.archivewatch.android.ui.screens.SurpriseScreen
  */
 @Composable
 fun AppRoot(container: AppContainer) {
-    val nav = remember { Nav() }
+    val nav = rememberSaveable(saver = Nav.Saver) { Nav() }
 
     // archivewatch://item/{id} deep link → Detail; a "series:" id (the
     // archivewatch.org/series/{slug} App Link) → the series page, else a
@@ -113,12 +113,17 @@ fun AppRoot(container: AppContainer) {
             },
         ) {
             Box(Modifier.fillMaxSize()) {
-                when (nav.tab) {
-                    Tab.Home -> HomeScreen(container, nav)
-                    Tab.Browse -> BrowseScreen(container, nav)
-                    Tab.Channels -> ChannelsScreen(container, nav)
-                    Tab.Search -> SearchScreen(container, nav)
-                    Tab.Library -> LibraryScreen(container, nav)
+                // Only compose the tab when nothing is pushed. Otherwise the
+                // hidden tab keeps running (Home's hero auto-advance timer, its
+                // queries) behind the full-screen route on top of it.
+                if (nav.stack.isEmpty()) {
+                    when (nav.tab) {
+                        Tab.Home -> HomeScreen(container, nav)
+                        Tab.Browse -> BrowseScreen(container, nav)
+                        Tab.Channels -> ChannelsScreen(container, nav)
+                        Tab.Search -> SearchScreen(container, nav)
+                        Tab.Library -> LibraryScreen(container, nav)
+                    }
                 }
                 // The pushed stack renders above the tab content; only the
                 // top route is composed.
@@ -134,7 +139,7 @@ fun AppRoot(container: AppContainer) {
                             is Route.Filtered -> FilteredGridScreen(container, nav, route)
                             is Route.Playlist -> PlaylistScreen(container, nav, route.playlistID)
                             is Route.Collection -> CollectionGridScreen(container, nav, route)
-                            is Route.Person -> PersonScreen(container, nav, route.name)
+                            is Route.Person -> PersonScreen(container, nav, route.name, route.tmdbPersonID)
                             is Route.ClipStudio -> ClipStudioScreen(container, nav, route.archiveID)
                             Route.Collections -> CollectionsScreen(container, nav)
                             Route.Cartoon -> CartoonScreen(container, nav)

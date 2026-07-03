@@ -41,8 +41,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
+import app.archivewatch.android.ui.BackdropImage
 import app.archivewatch.android.ui.LoadingBox
 import app.archivewatch.android.ui.Nav
+import app.archivewatch.android.ui.accentColor
 import app.archivewatch.android.ui.Route
 import app.archivewatch.android.ui.ShelfRow
 import coil3.compose.AsyncImage
@@ -311,10 +313,10 @@ private fun HeroCarousel(items: List<CatalogItem>, onItem: (CatalogItem) -> Unit
                 .clip(RoundedCornerShape(16.dp))
                 .clickable { onItem(item) },
         ) {
-            AsyncImage(
-                model = item.backdropURL,
+            BackdropImage(
+                url = item.backdropURL,
                 contentDescription = item.title,
-                contentScale = ContentScale.Crop,
+                accent = item.accentColor,
                 modifier = Modifier.fillMaxSize(),
             )
             Box(

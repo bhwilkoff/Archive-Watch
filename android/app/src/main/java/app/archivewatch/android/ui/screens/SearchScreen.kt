@@ -26,10 +26,13 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.SearchBar
+import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -47,12 +50,12 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
+import app.archivewatch.android.ui.BackdropImage
 import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.PosterTile
 import app.archivewatch.android.ui.Route
-import app.archivewatch.android.ui.theme.BrandSurface
-import coil3.compose.AsyncImage
+import app.archivewatch.android.ui.accentColor
 import kotlinx.coroutines.delay
 
 // Search filter vocabulary — the Browse facet types (iOS parity: the Search
@@ -65,6 +68,7 @@ private val TYPE_FILTERS = listOf(
 )
 
 /** Full-text search over the catalog's FTS5 index (contract §5 `search`). */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchScreen(container: AppContainer, nav: Nav) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
@@ -100,17 +104,32 @@ fun SearchScreen(container: AppContainer, nav: Nav) {
 
     Surface(color = MaterialTheme.colorScheme.background, modifier = Modifier.fillMaxSize()) {
         Column(Modifier.fillMaxSize()) {
-            OutlinedTextField(
-                value = query,
-                onValueChange = { query = it },
-                singleLine = true,
-                leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
-                placeholder = { Text("Search films, people, genres…") },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 12.dp)
-                    .padding(top = 32.dp),
-            )
+            // M3 SearchBar (docked; results render live below rather than in the
+            // expand overlay). The top-level SearchBar applies its own status-bar
+            // inset, so no magic top padding.
+            SearchBar(
+                inputField = {
+                    SearchBarDefaults.InputField(
+                        query = query,
+                        onQueryChange = { query = it },
+                        onSearch = {},
+                        expanded = false,
+                        onExpandedChange = {},
+                        leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
+                        trailingIcon = {
+                            if (query.isNotEmpty()) {
+                                IconButton(onClick = { query = "" }) {
+                                    Icon(Icons.Default.Close, contentDescription = "Clear search")
+                                }
+                            }
+                        },
+                        placeholder = { Text("Search films, people, genres…") },
+                    )
+                },
+                expanded = false,
+                onExpandedChange = {},
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 12.dp),
+            ) {}
             if (searched && results.isNotEmpty()) {
                 FilterRow(
                     results = results,
@@ -241,14 +260,13 @@ private fun EpisodeItemRow(item: CatalogItem, onClick: () -> Unit) {
             .padding(vertical = 6.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        AsyncImage(
-            model = item.resolvedPosterURL,
+        BackdropImage(
+            url = item.backdropURL ?: item.posterURL,
             contentDescription = item.title,
-            contentScale = ContentScale.Crop,
+            accent = item.accentColor,
             modifier = Modifier
                 .size(width = 96.dp, height = 54.dp)
-                .clip(RoundedCornerShape(6.dp))
-                .background(BrandSurface),
+                .clip(RoundedCornerShape(6.dp)),
         )
         Spacer(Modifier.width(12.dp))
         Column(Modifier.weight(1f)) {

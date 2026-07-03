@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -23,7 +24,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.PlayArrow
@@ -44,6 +45,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
@@ -64,6 +66,8 @@ import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.data.Review
 import app.archivewatch.android.data.PlaySpec
+import app.archivewatch.android.ui.AvatarImage
+import app.archivewatch.android.ui.BackdropImage
 import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.LoadingBox
 import app.archivewatch.android.ui.Nav
@@ -71,8 +75,8 @@ import app.archivewatch.android.ui.PosterImage
 import app.archivewatch.android.ui.Route
 import app.archivewatch.android.ui.SectionHeader
 import app.archivewatch.android.ui.ShelfRow
+import app.archivewatch.android.ui.accentColor
 import app.archivewatch.android.ui.theme.BrandSurface
-import coil3.compose.AsyncImage
 import kotlinx.coroutines.launch
 
 @Composable
@@ -81,7 +85,8 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
 
-    val item by produceState<CatalogItem?>(null, archiveID, dbVersion) {
+    var retry by remember { mutableIntStateOf(0) }
+    val item by produceState<CatalogItem?>(null, archiveID, dbVersion, retry) {
         value = container.catalog.db?.item(archiveID)
     }
     val related by produceState<List<CatalogItem>>(emptyList(), item) {
@@ -97,12 +102,16 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
         // that isn't in the catalog (e.g. a stale share link to an archive
         // copy the IMDb dedup dropped) — without a timeout that second case
         // spins forever. Same pattern as SeriesDetailScreen.
-        val failed by produceState(false, archiveID, dbVersion) {
+        val failed by produceState(false, archiveID, dbVersion, retry) {
             kotlinx.coroutines.delay(8_000)
             value = true
         }
-        if (failed) EmptyState("This title isn't in the catalog anymore — it may have moved. Try searching its name.")
-        else LoadingBox()
+        if (failed) {
+            EmptyState(
+                "This title isn't in the catalog anymore — it may have moved. Try searching its name.",
+                onRetry = { retry++ },
+            )
+        } else LoadingBox()
         return
     }
 
@@ -113,10 +122,10 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
     ) {
         // Backdrop header with back button
         Box(Modifier.fillMaxWidth().aspectRatio(16f / 9f)) {
-            AsyncImage(
-                model = current.backdropURL ?: current.resolvedPosterURL,
+            BackdropImage(
+                url = current.backdropURL ?: current.posterURL,
                 contentDescription = null,
-                contentScale = ContentScale.Crop,
+                accent = current.accentColor,
                 modifier = Modifier.fillMaxSize(),
             )
             Box(
@@ -131,9 +140,13 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
             )
             IconButton(
                 onClick = { nav.pop() },
-                modifier = Modifier.padding(top = 32.dp, start = 4.dp),
+                modifier = Modifier.statusBarsPadding().padding(start = 4.dp),
             ) {
-                Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = Color.White)
+                Icon(
+                    Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = "Back",
+                    tint = Color.White,
+                )
             }
         }
 
@@ -273,23 +286,15 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     Column(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         modifier = Modifier.width(72.dp)
-                            .clickable { nav.push(Route.Person(member.name)) },
+                            .clickable {
+                                nav.push(Route.Person(member.name, member.tmdbPersonID))
+                            },
                     ) {
-                        Box(
-                            Modifier
-                                .size(64.dp)
-                                .clip(CircleShape)
-                                .background(BrandSurface),
-                        ) {
-                            member.profileURL?.let { url ->
-                                AsyncImage(
-                                    model = url,
-                                    contentDescription = member.name,
-                                    contentScale = ContentScale.Crop,
-                                    modifier = Modifier.fillMaxSize(),
-                                )
-                            }
-                        }
+                        AvatarImage(
+                            url = member.profileURL,
+                            name = member.name,
+                            modifier = Modifier.size(64.dp).clip(CircleShape),
+                        )
                         Text(
                             member.name,
                             style = MaterialTheme.typography.labelSmall,

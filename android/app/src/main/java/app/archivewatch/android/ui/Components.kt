@@ -59,12 +59,11 @@ fun PosterImage(item: CatalogItem, modifier: Modifier = Modifier) {
     }
 }
 
-/** The brand placeholder card (Decision 013 typographic poster) — accent gradient + centered
- *  title. The guaranteed non-blank fallback. */
-@Composable
-fun PosterTitleCard(item: CatalogItem, modifier: Modifier = Modifier) {
-    val accent = when (item.contentType) {
-        "tv-series", "tv-special" -> Color(0xFF2D5BFF)
+/** Per-category semantic accent (Decision 013) — the shared brand palette, used by the title-card
+ *  fallback and the backdrop-gradient fallback. */
+val CatalogItem.accentColor: Color
+    get() = when (contentType) {
+        "tv-series", "tv-special", "tv-episode" -> Color(0xFF2D5BFF)
         "silent-film" -> Color(0xFFC9A66B)
         "animation" -> Color(0xFFFF4D8D)
         "newsreel" -> Color(0xFF8A8F98)
@@ -73,6 +72,12 @@ fun PosterTitleCard(item: CatalogItem, modifier: Modifier = Modifier) {
         "short-film" -> Color(0xFFE8A317)
         else -> Color(0xFFFF5C35)
     }
+
+/** The brand placeholder card (Decision 013 typographic poster) — accent gradient + centered
+ *  title. The guaranteed non-blank fallback. */
+@Composable
+fun PosterTitleCard(item: CatalogItem, modifier: Modifier = Modifier) {
+    val accent = item.accentColor
     Box(
         modifier = modifier.background(
             Brush.linearGradient(listOf(accent.copy(alpha = 0.85f), Color(0xFF101010)))
@@ -88,6 +93,64 @@ fun PosterTitleCard(item: CatalogItem, modifier: Modifier = Modifier) {
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier.padding(8.dp),
         )
+    }
+}
+
+/**
+ * Backdrop / hero / still image with a guaranteed non-blank fallback. A raw AsyncImage that
+ * 404s or gets throttled renders an empty box; instead fail to a quiet brand gradient — NEVER the
+ * archive.org services/img thumbnail (owner 2026-06-29). Used for heroes, Detail/Series backdrops,
+ * and episode stills.
+ */
+@Composable
+fun BackdropImage(
+    url: String?,
+    contentDescription: String? = null,
+    accent: Color = Color(0xFFFF5C35),
+    modifier: Modifier = Modifier,
+) {
+    var failed by remember(url) { mutableStateOf(false) }
+    if (!failed && url != null) {
+        AsyncImage(
+            model = url,
+            contentDescription = contentDescription,
+            contentScale = ContentScale.Crop,
+            onError = { failed = true },
+            modifier = modifier,
+        )
+    } else {
+        Box(
+            modifier = modifier.background(
+                Brush.linearGradient(listOf(accent.copy(alpha = 0.5f), Color(0xFF101010)))
+            ),
+        )
+    }
+}
+
+/** Circular cast/crew avatar with a monogram fallback (raw AsyncImage left a blank circle when a
+ *  profile image 404s). */
+@Composable
+fun AvatarImage(url: String?, name: String, modifier: Modifier = Modifier) {
+    var failed by remember(url) { mutableStateOf(false) }
+    if (!failed && url != null) {
+        AsyncImage(
+            model = url,
+            contentDescription = name,
+            contentScale = ContentScale.Crop,
+            onError = { failed = true },
+            modifier = modifier,
+        )
+    } else {
+        Box(
+            modifier = modifier.background(BrandSurface),
+            contentAlignment = Alignment.Center,
+        ) {
+            Text(
+                name.firstOrNull()?.uppercase() ?: "?",
+                color = Color.White,
+                style = MaterialTheme.typography.titleMedium,
+            )
+        }
     }
 }
 
@@ -169,12 +232,21 @@ fun LoadingBox(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun EmptyState(message: String, modifier: Modifier = Modifier) {
+fun EmptyState(message: String, modifier: Modifier = Modifier, onRetry: (() -> Unit)? = null) {
     Box(modifier.fillMaxSize().padding(32.dp), contentAlignment = Alignment.Center) {
-        Text(
-            message,
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Text(
+                message,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center,
+            )
+            if (onRetry != null) {
+                androidx.compose.material3.TextButton(
+                    onClick = onRetry,
+                    modifier = Modifier.padding(top = 8.dp),
+                ) { Text("Retry") }
+            }
+        }
     }
 }

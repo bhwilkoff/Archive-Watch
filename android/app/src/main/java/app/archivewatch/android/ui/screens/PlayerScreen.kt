@@ -1,7 +1,14 @@
 package app.archivewatch.android.ui.screens
 
+import android.app.Activity
+import android.content.Context
+import android.content.ContextWrapper
+import android.content.pm.ActivityInfo
 import android.net.Uri
 import android.view.View
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.annotation.OptIn
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
@@ -51,9 +58,29 @@ import androidx.media3.ui.PlayerView
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.PlaySpec
 import app.archivewatch.android.ui.Nav
+import app.archivewatch.android.ui.PlaybackPresence
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.io.IOException
+
+/** Resolve the host Activity from a Compose context (the player is a pushed route in the
+ *  single Activity, so fullscreen/orientation must act on — and restore — that Activity). */
+private fun Context.findActivity(): Activity? = when (this) {
+    is Activity -> this
+    is ContextWrapper -> baseContext.findActivity()
+    else -> null
+}
+
+private fun Activity.setImmersive(on: Boolean) {
+    val controller = WindowCompat.getInsetsController(window, window.decorView)
+    if (on) {
+        controller.systemBarsBehavior =
+            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        controller.hide(WindowInsetsCompat.Type.systemBars())
+    } else {
+        controller.show(WindowInsetsCompat.Type.systemBars())
+    }
+}
 
 /**
  * Full-screen Media3 player. The Archive resets idle connections;
@@ -203,9 +230,32 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                     nowDescription = md.description?.toString() ?: md.subtitle?.toString()
                 }
             }
+
+            override fun onVideoSizeChanged(videoSize: androidx.media3.common.VideoSize) {
+                // Feed the real video aspect to PiP so the window isn't 16:9-forced
+                // for a 4:3 archival film.
+                if (videoSize.width > 0 && videoSize.height > 0) {
+                    PlaybackPresence.aspectWidth = videoSize.width
+                    PlaybackPresence.aspectHeight = videoSize.height
+                }
+            }
         }
         player.addListener(listener)
         onDispose { player.removeListener(listener) }
+    }
+
+    // Publish playback presence so MainActivity can auto-enter PiP on leave, and
+    // ALWAYS restore orientation + system bars when the player route is popped
+    // (covers backing out while in the fullscreen/landscape state).
+    DisposableEffect(Unit) {
+        PlaybackPresence.active.value = true
+        onDispose {
+            PlaybackPresence.active.value = false
+            context.findActivity()?.let { activity ->
+                activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+                activity.setImmersive(false)
+            }
+        }
     }
 
     Box(modifier = Modifier.fillMaxSize().background(Color.Black)) {
@@ -222,6 +272,21 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                             controlsVisible = visibility == View.VISIBLE
                         },
                     )
+                    // Registering this listener is what makes Media3 draw the
+                    // fullscreen button. Toggle landscape + immersive system bars;
+                    // both are restored on dispose (the player shares the Activity).
+                    setFullscreenButtonClickListener { isFullScreen ->
+                        val activity = ctx.findActivity() ?: return@setFullscreenButtonClickListener
+                        if (isFullScreen) {
+                            activity.requestedOrientation =
+                                ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
+                            activity.setImmersive(true)
+                        } else {
+                            activity.requestedOrientation =
+                                ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+                            activity.setImmersive(false)
+                        }
+                    }
                 }
             },
             update = { view -> view.player = player },

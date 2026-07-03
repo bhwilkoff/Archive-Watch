@@ -1,7 +1,10 @@
 package app.archivewatch.android
 
+import android.app.PictureInPictureParams
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Rational
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -9,6 +12,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import app.archivewatch.android.app.ArchiveWatchApplication
 import app.archivewatch.android.ui.AppRoot
 import app.archivewatch.android.ui.DeepLinks
+import app.archivewatch.android.ui.PlaybackPresence
 import app.archivewatch.android.ui.theme.ArchiveWatchTheme
 
 /** Single Activity — Compose-only. */
@@ -32,6 +36,23 @@ class MainActivity : ComponentActivity() {
         super.onNewIntent(intent)
         setIntent(intent)
         handleDeepLink(intent)
+    }
+
+    /** Leaving the app (Home / recents) mid-playback drops the player into a
+        Picture-in-Picture window, sized to the real video aspect. */
+    override fun onUserLeaveHint() {
+        super.onUserLeaveHint()
+        if (!PlaybackPresence.active.value) return
+        if (!packageManager.hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE)) return
+        val w = PlaybackPresence.aspectWidth
+        val h = PlaybackPresence.aspectHeight
+        // Android rejects PiP aspect ratios outside [1:2.39 .. 2.39:1]; fall back
+        // to 16:9 for anything out of range (or an unknown video size).
+        val ratio = if (h > 0) w.toFloat() / h else 0f
+        val ar = if (ratio in 0.42f..2.39f) Rational(w, h) else Rational(16, 9)
+        runCatching {
+            enterPictureInPictureMode(PictureInPictureParams.Builder().setAspectRatio(ar).build())
+        }
     }
 
     /** archivewatch://item/{id} (same scheme as tvOS/iOS) and verified App

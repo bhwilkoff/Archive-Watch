@@ -4,6 +4,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -288,10 +289,15 @@ private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
         horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         // Rail: accent chip + name; long-press a user channel's rail to delete.
+        // Tap is a no-op (no full-day schedule screen yet) — suppress the ripple
+        // so a plain tap doesn't read as a broken button.
+        val railInteraction = remember { MutableInteractionSource() }
         Column(
             Modifier.width(railW).height(64.dp)
                 .then(if (onDelete != null) {
                     Modifier.combinedClickable(
+                        interactionSource = railInteraction,
+                        indication = null,
                         onClick = {},
                         onLongClick = { scope.launch { onDelete() } },
                     )

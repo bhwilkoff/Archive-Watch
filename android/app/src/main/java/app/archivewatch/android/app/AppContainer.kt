@@ -1,6 +1,7 @@
 package app.archivewatch.android.app
 
 import android.app.Application
+import app.archivewatch.android.BuildConfig
 import app.archivewatch.android.data.CatalogRepository
 import app.archivewatch.android.data.ClipExporter
 import app.archivewatch.android.data.EditorialRepository
@@ -18,9 +19,24 @@ import java.util.concurrent.TimeUnit
 /** Manual DI — created once by the Application; passed down via AppRoot. */
 class AppContainer(private val application: Application) {
 
+    // A real User-Agent is REQUIRED on every archive.org request: its main host
+    // rate-limits/blocks UA-less bursts, and most poster/cover URLs 302 through
+    // that host. Without this, Coil's poster bursts get 403/429/reset and fall
+    // back to title cards — the Android analog of the iOS -1004 storm. Shared by
+    // Coil (images), catalog refresh, and editorial fetches.
     val okHttp: OkHttpClient = OkHttpClient.Builder()
         .connectTimeout(20, TimeUnit.SECONDS)
         .readTimeout(60, TimeUnit.SECONDS)
+        .addInterceptor { chain ->
+            chain.proceed(
+                chain.request().newBuilder()
+                    .header(
+                        "User-Agent",
+                        "ArchiveWatch-Android/${BuildConfig.VERSION_NAME} (+https://archivewatch.org)",
+                    )
+                    .build(),
+            )
+        }
         .build()
 
     val json: Json = Json {

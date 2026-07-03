@@ -131,13 +131,24 @@ fun CollectionGridScreen(container: AppContainer, nav: Nav, route: Route.Collect
     GridScaffold(title = route.title, subtitle = route.blurb, nav = nav, items = items)
 }
 
-/** Person filmography — FTS over names (cast tap target). */
+/** Person filmography — name FTS, disambiguated by TMDB person id when we have one (two
+ *  different "John Smith"s no longer collapse into one grid). */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PersonScreen(container: AppContainer, nav: Nav, name: String) {
+fun PersonScreen(container: AppContainer, nav: Nav, name: String, tmdbPersonID: Int? = null) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
-    val items by produceState<List<CatalogItem>?>(null, dbVersion) {
-        value = container.catalog.db?.search(name, limit = 120)
+    val items by produceState<List<CatalogItem>?>(null, dbVersion, tmdbPersonID) {
+        val hits = container.catalog.db?.search(name, limit = 120) ?: emptyList()
+        value = if (tmdbPersonID != null) {
+            // Keep only titles whose cast/crew actually carries this person id; fall
+            // back to the raw name hits if none are tagged (older items lack the id).
+            val exact = hits.filter { item ->
+                item.cast.any { it.tmdbPersonID == tmdbPersonID }
+            }
+            exact.ifEmpty { hits }
+        } else {
+            hits
+        }
     }
     GridScaffold(title = name, subtitle = "Titles featuring $name", nav = nav, items = items)
 }
