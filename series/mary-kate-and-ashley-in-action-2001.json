@@ -202,5 +202,8 @@
       "order": 9,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/335549/photo/64dfee1f4ed4a.jpg"
     }
-  ]
+  ],
+  "seriesImdbID": "tt0300802",
+  "canonicalEpisodeCount": 25,
+  "canonicalSeasons": 1
 }
