@@ -86,7 +86,7 @@ jobs:
           gh release view subtitle-assets >/dev/null 2>&1 || \
             gh release create subtitle-assets --title "Subtitle assets (rolling)" \
               --notes "VTT + HLS subtitle assets served to Pages at /subs (Decision 039)."
-          gh release upload subtitle-assets subs.tar.gz --clobber
+          bash tools/gh_retry.sh gh release upload subtitle-assets subs.tar.gz --clobber
 
       - name: Remediate catalog data quality
         run: python tools/remediate_catalog.py
@@ -99,7 +99,7 @@ jobs:
       - name: Rebuild app DB
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh workflow run publish-db.yml
+        run: bash tools/gh_dispatch.sh publish-db.yml
 
       # Self-chain: archive.org throttles runner IPs, so each run scans a bounded
       # batch (the `[subs] N items to scan` line = min(unchecked, limit)). If this
@@ -119,7 +119,7 @@ jobs:
           echo "scanned=$SCANNED limit=$LIMIT"
           if [ "$LIMIT" -gt 0 ] && [ -n "$SCANNED" ] && [ "$SCANNED" -ge "$LIMIT" ]; then
             echo "Full batch scanned — backlog remains; queuing next run."
-            gh workflow run subtitles.yml -f limit="$LIMIT" -f refresh=false -f build_assets=true
+            bash tools/gh_dispatch.sh subtitles.yml -f limit="$LIMIT" -f refresh=false -f build_assets=true
           else
             echo "Backlog drained (scanned < limit) — chain complete."
           fi

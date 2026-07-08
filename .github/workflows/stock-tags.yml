@@ -58,4 +58,4 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python3 -c "import zlib; d=open('clips.sqlite','rb').read(); c=zlib.compressobj(9,zlib.DEFLATED,-15); open('clips.sqlite.zz','wb').write(c.compress(d)+c.flush())"
-          gh release upload stock-index clips.sqlite clips.sqlite.zz --clobber
+          bash tools/gh_retry.sh gh release upload stock-index clips.sqlite clips.sqlite.zz --clobber

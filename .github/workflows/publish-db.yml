@@ -101,7 +101,7 @@ jobs:
           # downloads + inflates natively (Decision 019). catalog.sqlite
           # (uncompressed) is kept for already-shipped app builds that still
           # fetch it directly; drop it once those ages out.
-          gh release upload catalog-db catalog.sqlite catalog.sqlite.zz catalog-manifest.json --clobber
+          bash tools/gh_retry.sh gh release upload catalog-db catalog.sqlite catalog.sqlite.zz catalog-manifest.json --clobber
 
       # Slim search index for the public editorial tool (index.html "Browse the
       # catalog"). Committed to the repo so GitHub Pages serves it same-origin
@@ -132,7 +132,7 @@ jobs:
               # Pages run — without this dispatch the live site never picks up the
               # new index/details and archivewatch.org freezes (it was 8 days stale
               # on 2026-06-27). Explicitly kick the deploy. Non-fatal.
-              gh workflow run deploy-pages.yml || echo "deploy-pages dispatch failed (non-fatal)"
+              bash tools/gh_dispatch.sh deploy-pages.yml
               exit 0
             fi
             echo "push race, retry $i"; sleep $((i * 3))

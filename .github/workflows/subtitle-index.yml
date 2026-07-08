@@ -55,4 +55,4 @@ jobs:
           python3 -c "import zlib; d=open('subtitle.sqlite','rb').read(); c=zlib.compressobj(9,zlib.DEFLATED,-15); open('subtitle.sqlite.zz','wb').write(c.compress(d)+c.flush())"
           gh release view subtitle-index >/dev/null 2>&1 || \
             gh release create subtitle-index --title "Subtitle cue index" --notes "subtitle.sqlite for Creation Studio Supercut (#9)"
-          gh release upload subtitle-index subtitle.sqlite subtitle.sqlite.zz --clobber
+          bash tools/gh_retry.sh gh release upload subtitle-index subtitle.sqlite subtitle.sqlite.zz --clobber

@@ -88,7 +88,7 @@ jobs:
           gh release view subtitle-assets >/dev/null 2>&1 || \
             gh release create subtitle-assets --title "Subtitle assets (rolling)" \
               --notes "VTT + HLS subtitle assets served to Pages at /subs (Decision 039)."
-          gh release upload subtitle-assets subs.tar.gz --clobber
+          bash tools/gh_retry.sh gh release upload subtitle-assets subs.tar.gz --clobber
 
       - name: Remediate catalog data quality
         run: python tools/remediate_catalog.py
@@ -102,8 +102,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh workflow run deploy-pages.yml
-          gh workflow run publish-db.yml
+          bash tools/gh_dispatch.sh deploy-pages.yml
+          bash tools/gh_dispatch.sh publish-db.yml
 
       # Self-chain: free_subtitles prints "[subs] <prov>: N targets" = min(remaining,
       # limit). If N >= limit, the batch was full and more remain — queue the next run

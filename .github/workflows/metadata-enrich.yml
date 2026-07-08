@@ -74,4 +74,4 @@ jobs:
         if: steps.fill.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh workflow run publish-db.yml
+        run: bash tools/gh_dispatch.sh publish-db.yml

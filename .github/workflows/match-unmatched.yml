@@ -41,4 +41,4 @@ jobs:
       - name: Publish + rebuild
         if: steps.m.outputs.changed == 'true'
         env: { GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}" }
-        run: python tools/catalog_release.py publish && gh workflow run publish-db.yml
+        run: python tools/catalog_release.py publish && bash tools/gh_dispatch.sh publish-db.yml
