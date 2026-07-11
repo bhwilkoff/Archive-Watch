@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-07-08T06:31:54Z",
+  "updated_at": "2026-07-11T06:17:32Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 17280,
-    "wanted": 17064,
+    "total": 17281,
+    "wanted": 17065,
     "fulfilled": 216,
     "series_with_gaps": 346
   },
@@ -8951,6 +8951,16 @@
       "episodeImdbID": "tt0108139",
       "status": "wanted",
       "added_at": "2026-06-19T09:23:32Z"
+    },
+    {
+      "seriesID": "american-experience-1988",
+      "seriesTitle": "American Experience",
+      "season": 5,
+      "episode": 10,
+      "title": "Sit Down and Fight",
+      "episodeImdbID": "tt1406222",
+      "status": "wanted",
+      "added_at": "2026-07-11T06:17:32Z"
     },
     {
       "seriesID": "american-experience-1988",
