@@ -1,361 +1,363 @@
 {
- "version": 2,
- "seriesID": "moone-boy-2012",
- "tvmazeID": 373,
- "title": "Moone Boy",
- "yearStart": 2012,
- "yearEnd": 2015,
- "overview": "Chris O'Dowd brings his childhood to life in Moone Boy. In Boyle, Ireland, in 1989, 11-year-old Martin Moone has a somewhat unusual friend.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/2/5530.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "Sky Showcase"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "moone-boy-2012",
+  "tvmazeID": 373,
+  "title": "Moone Boy",
+  "yearStart": 2012,
+  "yearEnd": 2015,
+  "overview": "Chris O'Dowd brings his childhood to life in Moone Boy. In Boyle, Ireland, in 1989, 11-year-old Martin Moone has a somewhat unusual friend.",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/473779/posters/69894e890134e.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "Sky Showcase"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "moone-boy-s01E01-men-of-the-houses",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Men of the Houses",
-     "overview": "Martin is bullied by his classmates; Martin's dad becomes friends with the bullies' father; Martin sets his sister up on a date with a boy who can protect him from the bullies.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658782.jpg",
-     "airDate": "2012-09-14",
-     "year": 2012,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Moone Boy - S01E01 - Men of the Houses.mp4",
-      "format": "h.264",
-      "sizeBytes": 132962078,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/moone-boy-s01E01-men-of-the-houses/Moone Boy - S01E01 - Men of the Houses.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "moone-boy-s01E01-men-of-the-houses",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Men of the Houses",
+          "overview": "Martin is bullied by his classmates; Martin's dad becomes friends with the bullies' father; Martin sets his sister up on a date with a boy who can protect him from the bullies.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658782.jpg",
+          "airDate": "2012-09-14",
+          "year": 2012,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Moone Boy - S01E01 - Men of the Houses.mp4",
+            "format": "h.264",
+            "sizeBytes": 132962078,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moone-boy-s01E01-men-of-the-houses/Moone Boy - S01E01 - Men of the Houses.mp4"
+        },
+        {
+          "archiveID": "moone-boy-s01E02-bunch-of-marys",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Bunch of Marys",
+          "overview": "Martin befriends new boy Trevor in order to dine on his family's regular gourmet meals while Debra is too distracted with political campaigning to feed her youngest child. Ma Moone and her friends hope to incite girl power in the local area by canvassing for politician Mary Robinson, but they're less than thrilled when they're forced to turn to fishy rich man Francie Feeley for funding.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658783.jpg",
+          "airDate": "2012-09-14",
+          "year": 2012,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Moone Boy - S01E02 - Bunch of Marys.mp4",
+            "format": "h.264",
+            "sizeBytes": 131104192,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moone-boy-s01E02-bunch-of-marys/Moone Boy - S01E02 - Bunch of Marys.mp4"
+        },
+        {
+          "archiveID": "moone-boy-s01E03-another-prick-in-the-wall",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Another Prick in the Wall",
+          "overview": "Using the battle for the bathroom as an opportunity to catch extra zeds, Martin falls foul of Sinead's pranks when she covers him in make-up while he's asleep. Unable to get to a mirror, Martin heads off to school unaware of his Boy George-esque look.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658784.jpg",
+          "airDate": "2012-09-21",
+          "year": 2012,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Moone Boy - S01E03 - Another Prick in the Wall.mp4",
+            "format": "h.264",
+            "sizeBytes": 127153230,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moone-boy-s01E03-another-prick-in-the-wall/Moone Boy - S01E03 - Another Prick in the Wall.mp4"
+        },
+        {
+          "archiveID": "moone-boy-s01E04-dark-side-of-the-moone",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Dark Side of the Moone",
+          "overview": "Uncle Danny arrives just in time for Martin's birds-and-the-bees talk with Mum and Dad. Sean seeks solace with other imaginary friends when Martin upsets him.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658785.jpg",
+          "airDate": "2012-09-28",
+          "year": 2012,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Moone Boy - S01E04 - Dark Side of the Moone.mp4",
+            "format": "h.264",
+            "sizeBytes": 131445929,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moone-boy-s01E04-dark-side-of-the-moone/Moone Boy - S01E04 - Dark Side of the Moone.mp4"
+        },
+        {
+          "archiveID": "moone-boy-s01E05-godfellas",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Godfellas",
+          "overview": "Fidelma joins the church choir while Martin's confirmation service leads to an epiphany.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658786.jpg",
+          "airDate": "2012-10-05",
+          "year": 2012,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Moone Boy - S01E05 - Godfellas.mp4",
+            "format": "h.264",
+            "sizeBytes": 129866241,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moone-boy-s01E05-godfellas/Moone Boy - S01E05 - Godfellas.mp4"
+        },
+        {
+          "archiveID": "moone-boy-s01E06-the-bell-end-of-an-era",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Bell-End of an Era",
+          "overview": "It's Martin's final week at primary school and he wants to leave a mark. Fidelma manages to drop a bombshell.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658787.jpg",
+          "airDate": "2012-10-12",
+          "year": 2012,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Moone Boy - S01E06 - The Bell-End of an Era.mp4",
+            "format": "h.264",
+            "sizeBytes": 131869415,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moone-boy-s01E06-the-bell-end-of-an-era/Moone Boy - S01E06 - The Bell-End of an Era.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "moone-boy-s01E02-bunch-of-marys",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "Bunch of Marys",
-     "overview": "Martin befriends new boy Trevor in order to dine on his family's regular gourmet meals while Debra is too distracted with political campaigning to feed her youngest child. Ma Moone and her friends hope to incite girl power in the local area by canvassing for politician Mary Robinson, but they're less than thrilled when they're forced to turn to fishy rich man Francie Feeley for funding.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658783.jpg",
-     "airDate": "2012-09-14",
-     "year": 2012,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Moone Boy - S01E02 - Bunch of Marys.mp4",
-      "format": "h.264",
-      "sizeBytes": 131104192,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/moone-boy-s01E02-bunch-of-marys/Moone Boy - S01E02 - Bunch of Marys.mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "moone-boy-s02E01-boyle-boyle-boyle",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Boylé, Boylé, Boylé",
+          "overview": "Martin is appalled when his dad takes the family on holiday during the 1990 World Cup, so he tries to hitch-hike back to Boyle to watch a vital match on home turf.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658788.jpg",
+          "airDate": "2014-02-17",
+          "year": 2014,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Moone Boy - S02E01 - Boylé, Boylé, Boylé.mp4",
+            "format": "h.264",
+            "sizeBytes": 132667909,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moone-boy-s02E01-boyle-boyle-boyle/Moone Boy - S02E01 - Boylé, Boylé, Boylé.mp4"
+        },
+        {
+          "archiveID": "moone-boy-s02E02-moone-dance",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Moone Dance",
+          "overview": "It's the dawn of a new era for Martin Moone as he begins secondary school, and while he isn't impressed with his friends' talk about girls, he soon changes his tune when he meets art teacher Miss Tivnan (Amy Huberman), a vision at the blackboard who sparks a romantic rivalry between him and Sean. Meanwhile, Dessie has an important question for Fidelma.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658789.jpg",
+          "airDate": "2014-02-24",
+          "year": 2014,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Moone Boy - S02E02 - Moone Dance.mp4",
+            "format": "h.264",
+            "sizeBytes": 133643637,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moone-boy-s02E02-moone-dance/Moone Boy - S02E02 - Moone Dance.mp4"
+        },
+        {
+          "archiveID": "moone-boy-s02E03-ghost-raft",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Ghost Raft",
+          "overview": "Back in the summer, Martin and Padraic started building a raft. They planned to sail down the river into town, buy ice cream and frolic in the water. But now it's October and the raft still isn't quite finished. So instead, they'll make it a Halloween ghost ship.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658790.jpg",
+          "airDate": "2014-03-03",
+          "year": 2014,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Moone Boy - S02E03 - Ghost Raft.mp4",
+            "format": "h.264",
+            "sizeBytes": 132252012,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moone-boy-s02E03-ghost-raft/Moone Boy - S02E03 - Ghost Raft.mp4"
+        },
+        {
+          "archiveID": "moone-boy-s02E04-handball-duel",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Handball Duel",
+          "overview": "Like all young lads in the early 90s, Martin wants needs a Sega Mega Drive. Be gone slinky, hello magic machine. But Liam is having none of it: not only is this whole computer thing just a fad, work is slow and money is tight.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658791.jpg",
+          "airDate": "2014-03-10",
+          "year": 2014,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Moone Boy - S02E04 - Handball Duel.mp4",
+            "format": "h.264",
+            "sizeBytes": 132612068,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moone-boy-s02E04-handball-duel/Moone Boy - S02E04 - Handball Duel.mp4"
+        },
+        {
+          "archiveID": "moone-boy-s02E05-stags-and-hens",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Stags and Hens",
+          "overview": "Could love be in the air when Martin's new classmate and neighbour Majella catches his eye? Father Linehan plans a memorable stag do for Dessie.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658792.jpg",
+          "airDate": "2014-03-17",
+          "year": 2014,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Moone Boy - S02E05 - Stags and Hens.mp4",
+            "format": "h.264",
+            "sizeBytes": 133338495,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moone-boy-s02E05-stags-and-hens/Moone Boy - S02E05 - Stags and Hens.mp4"
+        },
+        {
+          "archiveID": "moone-boy-s02E06-the-boyle-wedding",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "The Boyle Wedding",
+          "overview": "Celebration is in the air as St Patrick's Day dawns, but the Moones are having a different kind of party today: Fidelma's wedding.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658793.jpg",
+          "airDate": "2014-03-24",
+          "year": 2014,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Moone Boy - S02E06 - The Boyle Wedding.mp4",
+            "format": "h.264",
+            "sizeBytes": 132369583,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moone-boy-s02E06-the-boyle-wedding/Moone Boy - S02E06 - The Boyle Wedding.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "moone-boy-s01E03-another-prick-in-the-wall",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Another Prick in the Wall",
-     "overview": "Using the battle for the bathroom as an opportunity to catch extra zeds, Martin falls foul of Sinead's pranks when she covers him in make-up while he's asleep. Unable to get to a mirror, Martin heads off to school unaware of his Boy George-esque look.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658784.jpg",
-     "airDate": "2012-09-21",
-     "year": 2012,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Moone Boy - S01E03 - Another Prick in the Wall.mp4",
-      "format": "h.264",
-      "sizeBytes": 127153230,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/moone-boy-s01E03-another-prick-in-the-wall/Moone Boy - S01E03 - Another Prick in the Wall.mp4"
-    },
-    {
-     "archiveID": "moone-boy-s01E04-dark-side-of-the-moone",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Dark Side of the Moone",
-     "overview": "Uncle Danny arrives just in time for Martin's birds-and-the-bees talk with Mum and Dad. Sean seeks solace with other imaginary friends when Martin upsets him.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658785.jpg",
-     "airDate": "2012-09-28",
-     "year": 2012,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Moone Boy - S01E04 - Dark Side of the Moone.mp4",
-      "format": "h.264",
-      "sizeBytes": 131445929,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/moone-boy-s01E04-dark-side-of-the-moone/Moone Boy - S01E04 - Dark Side of the Moone.mp4"
-    },
-    {
-     "archiveID": "moone-boy-s01E05-godfellas",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "Godfellas",
-     "overview": "Fidelma joins the church choir while Martin's confirmation service leads to an epiphany.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658786.jpg",
-     "airDate": "2012-10-05",
-     "year": 2012,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Moone Boy - S01E05 - Godfellas.mp4",
-      "format": "h.264",
-      "sizeBytes": 129866241,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/moone-boy-s01E05-godfellas/Moone Boy - S01E05 - Godfellas.mp4"
-    },
-    {
-     "archiveID": "moone-boy-s01E06-the-bell-end-of-an-era",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "The Bell-End of an Era",
-     "overview": "It's Martin's final week at primary school and he wants to leave a mark. Fidelma manages to drop a bombshell.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658787.jpg",
-     "airDate": "2012-10-12",
-     "year": 2012,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Moone Boy - S01E06 - The Bell-End of an Era.mp4",
-      "format": "h.264",
-      "sizeBytes": 131869415,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/moone-boy-s01E06-the-bell-end-of-an-era/Moone Boy - S01E06 - The Bell-End of an Era.mp4"
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "moone-boy-s03E01-where-the-streets-do-have-names",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Where the Streets Do Have Names",
+          "overview": "Liam and Debra abandon the kids for a romantic break to celebrate their 20th anniversary - but it all threatens to fall apart after a chance encounter with Liam's old flame. Meanwhile, Martin and Padraic are in Dublin, where they soon discover new talents.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658794.jpg",
+          "airDate": "2015-03-02",
+          "year": 2015,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Moone Boy - S03E01 - Where the Streets Do Have Names.mp4",
+            "format": "h.264",
+            "sizeBytes": 133000880,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moone-boy-s03E01-where-the-streets-do-have-names/Moone Boy - S03E01 - Where the Streets Do Have Names.mp4"
+        },
+        {
+          "archiveID": "moone-boy-s03E02-the-plunder-years",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "The Plunder Years",
+          "overview": "Padraic finds himself caught in the middle of his warring parents and decides to escape his troubles, leading his worried mum and dad to raise the alarm following his disappearance. Unaware of the chaos he is causing, the lad embarks on a life of crime with the help of Martin. Meanwhile, Crunchie's friends stage an intervention after he resorts to drowning his sorrows.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658795.jpg",
+          "airDate": "2015-03-09",
+          "year": 2015,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Moone Boy - S03E02 - The Plunder Years.mp4",
+            "format": "h.264",
+            "sizeBytes": 135100591,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moone-boy-s03E02-the-plunder-years/Moone Boy - S03E02 - The Plunder Years.mp4"
+        },
+        {
+          "archiveID": "moone-boy-s03E03-fecks-lies-and-videotape",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "Fecks, Lies and Videotape",
+          "overview": "Martin finds out that every clip played on a TV video out-take show earns £250 - so he and Padraic get hold of a camera and try to film themselves doing something stupid. Meanwhile, the Moone household is bursting at the seams when Fidelma, Dessie and baby Rose move in, leaving Liam at the end of his tether.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658796.jpg",
+          "airDate": "2015-03-16",
+          "year": 2015,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Moone Boy - S03E03 - Fecks, Lies and Videotape.mp4",
+            "format": "h.264",
+            "sizeBytes": 130898922,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moone-boy-s03E03-fecks-lies-and-videotape/Moone Boy - S03E03 - Fecks, Lies and Videotape.mp4"
+        },
+        {
+          "archiveID": "moone-boy-s03E04-unidentified-feckin-objects",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "Unidentified Feckin' Objects",
+          "overview": "When crop circles are discovered in Boyle, Martin goes UFO-hunting - and ends up telling the local media his donkey has been abducted by aliens. As the town council goes into crisis mode, fearing the gentle image they've created of Boyle will be destroyed, the council and church try to strong-arm Liam into suppressing his son's story. Will he side with Martin or the leaders of Boyle?",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658797.jpg",
+          "airDate": "2015-03-23",
+          "year": 2015,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Moone Boy - S03E04 - Unidentified Feckin' Objects.mp4",
+            "format": "h.264",
+            "sizeBytes": 134150636,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moone-boy-s03E04-unidentified-feckin-objects/Moone Boy - S03E04 - Unidentified Feckin' Objects.mp4"
+        },
+        {
+          "archiveID": "moone-boy-s03E05-bells-n-smells",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "Bells 'N' Smells",
+          "overview": "With Dessie, Fidelma and baby Rose back living with the Moones, the choirmaster sets to work on a new business to help him give his family their own home. But does Boyle really need a Catholic book shop? Liam isn't convinced, and starts building an extension in the garden instead, while Martin has his own building project - renovating his new `penthouse'.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658798.jpg",
+          "airDate": "2015-03-30",
+          "year": 2015,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Moone Boy - S03E05 - Bells 'n' Smells.mp4",
+            "format": "h.264",
+            "sizeBytes": 131987923,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moone-boy-s03E05-bells-n-smells/Moone Boy - S03E05 - Bells 'n' Smells.mp4"
+        },
+        {
+          "archiveID": "moone-boy-s03E06-gershwin-s-bucket-list",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "A Bucket List for George Gershwin",
+          "overview": "Grandad's childhood imaginary friend George Gershwin, a cool, piano-playing guy, turns up to fulfil his bucket list., Martin takes an unusual approach to his exam revision.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658799.jpg",
+          "airDate": "2015-04-06",
+          "year": 2015,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Moone Boy - S03E06 - Gershwin's Bucket List.mp4",
+            "format": "h.264",
+            "sizeBytes": 170496651,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moone-boy-s03E06-gershwin-s-bucket-list/Moone Boy - S03E06 - Gershwin's Bucket List.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
-    {
-     "archiveID": "moone-boy-s02E01-boyle-boyle-boyle",
-     "seasonNumber": 2,
-     "episodeNumber": 1,
-     "title": "Boylé, Boylé, Boylé",
-     "overview": "Martin is appalled when his dad takes the family on holiday during the 1990 World Cup, so he tries to hitch-hike back to Boyle to watch a vital match on home turf.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658788.jpg",
-     "airDate": "2014-02-17",
-     "year": 2014,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Moone Boy - S02E01 - Boylé, Boylé, Boylé.mp4",
-      "format": "h.264",
-      "sizeBytes": 132667909,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/moone-boy-s02E01-boyle-boyle-boyle/Moone Boy - S02E01 - Boylé, Boylé, Boylé.mp4"
-    },
-    {
-     "archiveID": "moone-boy-s02E02-moone-dance",
-     "seasonNumber": 2,
-     "episodeNumber": 2,
-     "title": "Moone Dance",
-     "overview": "It's the dawn of a new era for Martin Moone as he begins secondary school, and while he isn't impressed with his friends' talk about girls, he soon changes his tune when he meets art teacher Miss Tivnan (Amy Huberman), a vision at the blackboard who sparks a romantic rivalry between him and Sean. Meanwhile, Dessie has an important question for Fidelma.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658789.jpg",
-     "airDate": "2014-02-24",
-     "year": 2014,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Moone Boy - S02E02 - Moone Dance.mp4",
-      "format": "h.264",
-      "sizeBytes": 133643637,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/moone-boy-s02E02-moone-dance/Moone Boy - S02E02 - Moone Dance.mp4"
-    },
-    {
-     "archiveID": "moone-boy-s02E03-ghost-raft",
-     "seasonNumber": 2,
-     "episodeNumber": 3,
-     "title": "Ghost Raft",
-     "overview": "Back in the summer, Martin and Padraic started building a raft. They planned to sail down the river into town, buy ice cream and frolic in the water. But now it's October and the raft still isn't quite finished. So instead, they'll make it a Halloween ghost ship.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658790.jpg",
-     "airDate": "2014-03-03",
-     "year": 2014,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Moone Boy - S02E03 - Ghost Raft.mp4",
-      "format": "h.264",
-      "sizeBytes": 132252012,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/moone-boy-s02E03-ghost-raft/Moone Boy - S02E03 - Ghost Raft.mp4"
-    },
-    {
-     "archiveID": "moone-boy-s02E04-handball-duel",
-     "seasonNumber": 2,
-     "episodeNumber": 4,
-     "title": "Handball Duel",
-     "overview": "Like all young lads in the early 90s, Martin wants needs a Sega Mega Drive. Be gone slinky, hello magic machine. But Liam is having none of it: not only is this whole computer thing just a fad, work is slow and money is tight.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658791.jpg",
-     "airDate": "2014-03-10",
-     "year": 2014,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Moone Boy - S02E04 - Handball Duel.mp4",
-      "format": "h.264",
-      "sizeBytes": 132612068,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/moone-boy-s02E04-handball-duel/Moone Boy - S02E04 - Handball Duel.mp4"
-    },
-    {
-     "archiveID": "moone-boy-s02E05-stags-and-hens",
-     "seasonNumber": 2,
-     "episodeNumber": 5,
-     "title": "Stags and Hens",
-     "overview": "Could love be in the air when Martin's new classmate and neighbour Majella catches his eye? Father Linehan plans a memorable stag do for Dessie.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658792.jpg",
-     "airDate": "2014-03-17",
-     "year": 2014,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Moone Boy - S02E05 - Stags and Hens.mp4",
-      "format": "h.264",
-      "sizeBytes": 133338495,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/moone-boy-s02E05-stags-and-hens/Moone Boy - S02E05 - Stags and Hens.mp4"
-    },
-    {
-     "archiveID": "moone-boy-s02E06-the-boyle-wedding",
-     "seasonNumber": 2,
-     "episodeNumber": 6,
-     "title": "The Boyle Wedding",
-     "overview": "Celebration is in the air as St Patrick's Day dawns, but the Moones are having a different kind of party today: Fidelma's wedding.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658793.jpg",
-     "airDate": "2014-03-24",
-     "year": 2014,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Moone Boy - S02E06 - The Boyle Wedding.mp4",
-      "format": "h.264",
-      "sizeBytes": 132369583,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/moone-boy-s02E06-the-boyle-wedding/Moone Boy - S02E06 - The Boyle Wedding.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 3,
-   "episodes": [
-    {
-     "archiveID": "moone-boy-s03E01-where-the-streets-do-have-names",
-     "seasonNumber": 3,
-     "episodeNumber": 1,
-     "title": "Where the Streets Do Have Names",
-     "overview": "Liam and Debra abandon the kids for a romantic break to celebrate their 20th anniversary - but it all threatens to fall apart after a chance encounter with Liam's old flame. Meanwhile, Martin and Padraic are in Dublin, where they soon discover new talents.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658794.jpg",
-     "airDate": "2015-03-02",
-     "year": 2015,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Moone Boy - S03E01 - Where the Streets Do Have Names.mp4",
-      "format": "h.264",
-      "sizeBytes": 133000880,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/moone-boy-s03E01-where-the-streets-do-have-names/Moone Boy - S03E01 - Where the Streets Do Have Names.mp4"
-    },
-    {
-     "archiveID": "moone-boy-s03E02-the-plunder-years",
-     "seasonNumber": 3,
-     "episodeNumber": 2,
-     "title": "The Plunder Years",
-     "overview": "Padraic finds himself caught in the middle of his warring parents and decides to escape his troubles, leading his worried mum and dad to raise the alarm following his disappearance. Unaware of the chaos he is causing, the lad embarks on a life of crime with the help of Martin. Meanwhile, Crunchie's friends stage an intervention after he resorts to drowning his sorrows.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658795.jpg",
-     "airDate": "2015-03-09",
-     "year": 2015,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Moone Boy - S03E02 - The Plunder Years.mp4",
-      "format": "h.264",
-      "sizeBytes": 135100591,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/moone-boy-s03E02-the-plunder-years/Moone Boy - S03E02 - The Plunder Years.mp4"
-    },
-    {
-     "archiveID": "moone-boy-s03E03-fecks-lies-and-videotape",
-     "seasonNumber": 3,
-     "episodeNumber": 3,
-     "title": "Fecks, Lies and Videotape",
-     "overview": "Martin finds out that every clip played on a TV video out-take show earns £250 - so he and Padraic get hold of a camera and try to film themselves doing something stupid. Meanwhile, the Moone household is bursting at the seams when Fidelma, Dessie and baby Rose move in, leaving Liam at the end of his tether.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658796.jpg",
-     "airDate": "2015-03-16",
-     "year": 2015,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Moone Boy - S03E03 - Fecks, Lies and Videotape.mp4",
-      "format": "h.264",
-      "sizeBytes": 130898922,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/moone-boy-s03E03-fecks-lies-and-videotape/Moone Boy - S03E03 - Fecks, Lies and Videotape.mp4"
-    },
-    {
-     "archiveID": "moone-boy-s03E04-unidentified-feckin-objects",
-     "seasonNumber": 3,
-     "episodeNumber": 4,
-     "title": "Unidentified Feckin' Objects",
-     "overview": "When crop circles are discovered in Boyle, Martin goes UFO-hunting - and ends up telling the local media his donkey has been abducted by aliens. As the town council goes into crisis mode, fearing the gentle image they've created of Boyle will be destroyed, the council and church try to strong-arm Liam into suppressing his son's story. Will he side with Martin or the leaders of Boyle?",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658797.jpg",
-     "airDate": "2015-03-23",
-     "year": 2015,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Moone Boy - S03E04 - Unidentified Feckin' Objects.mp4",
-      "format": "h.264",
-      "sizeBytes": 134150636,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/moone-boy-s03E04-unidentified-feckin-objects/Moone Boy - S03E04 - Unidentified Feckin' Objects.mp4"
-    },
-    {
-     "archiveID": "moone-boy-s03E05-bells-n-smells",
-     "seasonNumber": 3,
-     "episodeNumber": 5,
-     "title": "Bells 'N' Smells",
-     "overview": "With Dessie, Fidelma and baby Rose back living with the Moones, the choirmaster sets to work on a new business to help him give his family their own home. But does Boyle really need a Catholic book shop? Liam isn't convinced, and starts building an extension in the garden instead, while Martin has his own building project - renovating his new `penthouse'.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658798.jpg",
-     "airDate": "2015-03-30",
-     "year": 2015,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Moone Boy - S03E05 - Bells 'n' Smells.mp4",
-      "format": "h.264",
-      "sizeBytes": 131987923,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/moone-boy-s03E05-bells-n-smells/Moone Boy - S03E05 - Bells 'n' Smells.mp4"
-    },
-    {
-     "archiveID": "moone-boy-s03E06-gershwin-s-bucket-list",
-     "seasonNumber": 3,
-     "episodeNumber": 6,
-     "title": "A Bucket List for George Gershwin",
-     "overview": "Grandad's childhood imaginary friend George Gershwin, a cool, piano-playing guy, turns up to fulfil his bucket list., Martin takes an unusual approach to his exam revision.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/263/658799.jpg",
-     "airDate": "2015-04-06",
-     "year": 2015,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Moone Boy - S03E06 - Gershwin's Bucket List.mp4",
-      "format": "h.264",
-      "sizeBytes": 170496651,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/moone-boy-s03E06-gershwin-s-bucket-list/Moone Boy - S03E06 - Gershwin's Bucket List.mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 18,
- "canonicalEpisodesCount": 18
+  ],
+  "episodesCount": 18,
+  "canonicalEpisodesCount": 18,
+  "tvdbID": "473779",
+  "artworkSource": "tvdb"
 }

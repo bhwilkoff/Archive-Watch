@@ -73,12 +73,84 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the outer limits-s1e1-1963-colorized.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-tv-1963-s01e05-the-sixth-finger",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Sixth Finger",
+          "overview": "A Welsh miner volunteers for an experiment to advance him 20,000 years up the evolutionary ladder.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/145/364214.jpg",
+          "airDate": "1963-10-14",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Outer Limits TV 1963 colorized s01e05 The Sixth Finger.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 310869401,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-tv-1963-s01e05-the-sixth-finger/The%20Outer%20Limits%20TV%201963%20colorized%20s01e05%20The%20Sixth%20Finger.mp4"
         }
       ]
     },
     {
       "seasonNumber": 2,
       "episodes": [
+        {
+          "archiveID": "the-outer-limits-tv-1964-s02e05-demon-with-a-glass-hand",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Demon with a Glass Hand",
+          "overview": "A man named Trent travels from future Earth to the present via a time mirror. Aliens who have invaded Earth come after him, seeking the secrets of Trent's glass hand... which will reveal where Earth's population has disappeared to.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/17/44290.jpg",
+          "airDate": "1964-10-17",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Outer Limits TV 1964 colorized s02e05 Demon with a Glass Hand.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 347530923,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-tv-1964-s02e05-demon-with-a-glass-hand/The%20Outer%20Limits%20TV%201964%20colorized%20s02e05%20Demon%20with%20a%20Glass%20Hand.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-tv-1964-s02e07-the-invisible-enemy",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "The Invisible Enemy",
+          "overview": "On a world of unending sand, Earth astronauts are picked off one by one by an unseen killer.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/120/300907.jpg",
+          "airDate": "1964-10-31",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Outer Limits TV 1964 colorized s02e07 The Invisible Enemy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 472612763,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-tv-1964-s02e07-the-invisible-enemy/The%20Outer%20Limits%20TV%201964%20colorized%20s02e07%20The%20Invisible%20Enemy.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s02e09-i-robot",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "I, Robot",
+          "overview": "A sentient robot is put on trial for the crime of murder.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/120/302446.jpg",
+          "airDate": "1964-11-14",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Outer Limits TV 1964 colorized s02e09 I, Robot.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 404604449,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s02e09-i-robot/The%20Outer%20Limits%20TV%201964%20colorized%20s02e09%20I%2C%20Robot.mp4"
+        },
         {
           "archiveID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd",
           "seasonNumber": 2,
@@ -100,11 +172,8 @@
       ]
     }
   ],
-  "episodesCount": 4,
+  "episodesCount": 8,
   "canonicalEpisodesCount": 49,
   "tvdbID": "71699",
-  "artworkSource": "tvdb",
-  "seriesImdbID": "tt0056777",
-  "canonicalEpisodeCount": 42,
-  "canonicalSeasons": 2
+  "artworkSource": "tvdb"
 }

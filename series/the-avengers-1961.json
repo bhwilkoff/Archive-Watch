@@ -115,6 +115,24 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/theavengerss04e13toomanychristmastrees25december1965/The_Avengers_-_S04E13_-_Too_Many_Christmas_Trees_%2825_December_1965%29.mp4"
+        },
+        {
+          "archiveID": "the.avengers.1966.s04e21.a.touch.of.brimstone_202001",
+          "seasonNumber": 4,
+          "episodeNumber": 21,
+          "title": "A Touch of Brimstone",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w780/6E61gL975YjkBlKRtvvPwKW2cSF.jpg",
+          "airDate": "1966-02-19",
+          "year": 1966,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Avengers.1966.S04E21.A.Touch.of.Brimstone.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 127330836,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the.avengers.1966.s04e21.a.touch.of.brimstone_202001/The.Avengers.1966.S04E21.A.Touch.of.Brimstone.mp4"
         }
       ]
     },
@@ -255,7 +273,7 @@
       ]
     }
   ],
-  "episodesCount": 12,
+  "episodesCount": 13,
   "canonicalEpisodesCount": 161,
   "tvdbID": "71020",
   "artworkSource": "tvdb",
@@ -338,8 +356,5 @@
       "order": 12,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/6103.jpg"
     }
-  ],
-  "seriesImdbID": "tt0054518",
-  "canonicalEpisodeCount": 94,
-  "canonicalSeasons": 7
+  ]
 }

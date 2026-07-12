@@ -114,6 +114,29 @@
       ]
     },
     {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "doctor-who_202207",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "The Lion (The Crusade, Part One)",
+          "overview": "The TARDIS arrives in 12th century Palestine where a holy war is in progress between the forces of King Richard the Lionheart and the Saracenruler Saladin. Barbara is abducted in a Saracen ambush and the Doctor, Ianand Vicki make their way to King Richard's palace in the city of Jaffa.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/56250.jpg",
+          "airDate": "1965-03-27",
+          "year": 1965,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Doctor Who - S02E22 - The Lion.mp4",
+            "format": "h.264",
+            "sizeBytes": 156642462,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctor-who_202207/Doctor%20Who%20-%20S02E22%20-%20The%20Lion.mp4"
+        }
+      ]
+    },
+    {
       "seasonNumber": 3,
       "episodes": [
         {
@@ -160,6 +183,29 @@
       ]
     },
     {
+      "seasonNumber": 7,
+      "episodes": [
+        {
+          "archiveID": "70s-Doctor-Who-AI-Remastered",
+          "seasonNumber": 7,
+          "episodeNumber": 12,
+          "title": "The Ambassadors of Death, Part One",
+          "overview": "While the Brigadier investigates a loss of contact with Mars Probe 7, the Doctor realises signals coming from the probe are of extra-terrestrial origin.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/114/285326.jpg",
+          "airDate": "1970-03-21",
+          "year": 1970,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Doctor Who - S07E12 - The Ambassadors Of Death (1).mp4",
+            "format": "h.264",
+            "sizeBytes": 146221350,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/70s-Doctor-Who-AI-Remastered/Doctor%20Who%20-%20S07E12%20-%20The%20Ambassadors%20Of%20Death%20%281%29.mp4"
+        }
+      ]
+    },
+    {
       "seasonNumber": null,
       "episodes": [
         {
@@ -201,7 +247,7 @@
       ]
     }
   ],
-  "episodesCount": 9,
+  "episodesCount": 11,
   "canonicalEpisodesCount": 700,
   "tvdbID": "76107",
   "artworkSource": "tvdb",
@@ -314,8 +360,5 @@
       "order": 17,
       "profilePath": "https://artworks.thetvdb.com/banners/person/349096/5f1575d3b0fed.jpg"
     }
-  ],
-  "seriesImdbID": "tt0056751",
-  "canonicalEpisodeCount": 695,
-  "canonicalSeasons": 26
+  ]
 }

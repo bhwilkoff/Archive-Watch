@@ -1,0 +1,63 @@
+{
+  "version": 2,
+  "seriesID": "have-gun-will-travel-1957",
+  "tvmazeID": 3360,
+  "title": "Have Gun, Will Travel",
+  "yearStart": 1957,
+  "yearEnd": 1963,
+  "overview": "The man known only as \"Paladin\" lives in San Francisco at the Carlton Hotel, accustomed to the fanciest food and furnishings. He afford it all by riding out as a gunslinger and charging top dollar for his services. His calling card? \"Have Gun Will Travel.\" Paladin will take on any case if a client meets his fee, but whether he helps them or not depends on whether he thinks that they deserve it. A West Point graduate with an unknown past, Paladin is as likely to help a client with his lightning wits and sense of strategy, as he is to use his gun and his hold-out derringer.",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/72097/posters/62f693ef83e26.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Western"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 6,
+      "episodes": [
+        {
+          "archiveID": "have-gun-will-travel-tv-1962-colorized-s06e01-genesis",
+          "seasonNumber": 6,
+          "episodeNumber": 1,
+          "title": "Genesis",
+          "overview": "When a young man comes to kill Paladin to pay off his gambling IOUs, Paladin stops him and tells him the story of how he faced a similar dilemma ten years earlier... and became the man known as Paladin.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/119/299506.jpg",
+          "airDate": "1962-09-15",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Have Gun Will Travel TV 1962 colorized s06e01 Genesis.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 158749921,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/have-gun-will-travel-tv-1962-colorized-s06e01-genesis/Have%20Gun%20Will%20Travel%20TV%201962%20colorized%20s06e01%20Genesis.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 225,
+  "tvdbID": "72097",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Richard Boone",
+      "character": "Paladin",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/14723.jpg"
+    },
+    {
+      "name": "Kam Tong",
+      "character": "Kim \"Hey Boy\" Chan",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/81093.jpg"
+    }
+  ]
+}

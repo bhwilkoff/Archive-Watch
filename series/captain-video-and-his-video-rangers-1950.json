@@ -1,105 +1,102 @@
 {
-  "version": 2,
-  "seriesID": "captain-video-and-his-video-rangers-1950",
-  "tvmazeID": 10643,
-  "title": "Captain Video and His Video Rangers",
-  "yearStart": 1950,
-  "yearEnd": 1953,
-  "overview": "Captain Video and His Video Rangers is an American science fiction television series, which was aired on the DuMont Television Network, and was the first series of its kind on American television. The series aired between June 27, 1949 and April 1, 1955, originally Monday through Saturday at 7 p.m. ET, and then Monday through Friday at 7 p.m. ET. A separate 30-minute spinoff series, The Secret Files of Captain Video, aired Saturday mornings, alternating with Tom Corbett, Space Cadet, from September 5, 1953 to May 29, 1954 for a total of 20 episodes. Set in the distant future, the series followed the adventures of a group of fighters for truth and justice, the Video Rangers, led by Captain Video. The Rangers operated from a secret base on a mountain top. Their uniforms resembled United States Army surplus with lightning bolts sewn on.The Captain had a teen-age companion who was known only as the Video Ranger. Captain Video received his orders from the Commissioner of Public Safety, whose responsibilities took in the entire solar system as well as human colonies on planets around other stars. Captain Video was the first adventure hero explicitly designed (by DuMont's idea-man Larry Menkin) for early live television. \"I TOBOR\" the robot was an important, semi-regular character on the program, and represents the first appearance of a robot in live televised science fiction; the character's name was actually supposed to be \"ROBOT I\", but the stencil with its name was applied to its costume backwards.The show was broadcast live five to six days a week and was popular with both children and adults. Because of the large adult audience, the usual network broadcast time of the daily series was 7 to 7:30 p.m. EST, leading off the \"prime evening\" time-block. For the last two seasons the show still aired at 7 p.m. ET, but was 15 minutes long. The production was hampered by a very low budget, and the Captain did not originally have a space ship of his own.Until 1953, Captain Video's live adventures occupied 20 minutes of each day's 30-minute program time. About 10 minutes into each episode, a Video Ranger communications officer showed about 7 minutes of old cowboy movies. These were described by the communications officer, Ranger Rogers, as the adventures of Captain Video's \"undercover agents\" on Earth.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89680.jpg",
-  "backdropURL": null,
-  "genres": [],
-  "networks": [
-    "DuMont Television Network"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "captain-video-and-his-video-rangers-1950",
+ "tvmazeID": 10643,
+ "title": "Captain Video and His Video Rangers",
+ "yearStart": 1950,
+ "yearEnd": 1953,
+ "overview": "Captain Video and His Video Rangers is an American science fiction television series, which was aired on the DuMont Television Network, and was the first series of its kind on American television. The series aired between June 27, 1949 and April 1, 1955, originally Monday through Saturday at 7 p.m. ET, and then Monday through Friday at 7 p.m. ET. A separate 30-minute spinoff series, The Secret Files of Captain Video, aired Saturday mornings, alternating with Tom Corbett, Space Cadet, from September 5, 1953 to May 29, 1954 for a total of 20 episodes. Set in the distant future, the series followed the adventures of a group of fighters for truth and justice, the Video Rangers, led by Captain Video. The Rangers operated from a secret base on a mountain top. Their uniforms resembled United States Army surplus with lightning bolts sewn on.The Captain had a teen-age companion who was known only as the Video Ranger. Captain Video received his orders from the Commissioner of Public Safety, whose responsibilities took in the entire solar system as well as human colonies on planets around other stars. Captain Video was the first adventure hero explicitly designed (by DuMont's idea-man Larry Menkin) for early live television. \"I TOBOR\" the robot was an important, semi-regular character on the program, and represents the first appearance of a robot in live televised science fiction; the character's name was actually supposed to be \"ROBOT I\", but the stencil with its name was applied to its costume backwards.The show was broadcast live five to six days a week and was popular with both children and adults. Because of the large adult audience, the usual network broadcast time of the daily series was 7 to 7:30 p.m. EST, leading off the \"prime evening\" time-block. For the last two seasons the show still aired at 7 p.m. ET, but was 15 minutes long. The production was hampered by a very low budget, and the Captain did not originally have a space ship of his own.Until 1953, Captain Video's live adventures occupied 20 minutes of each day's 30-minute program time. About 10 minutes into each episode, a Video Ranger communications officer showed about 7 minutes of old cowboy movies. These were described by the communications officer, Ranger Rogers, as the adventures of Captain Video's \"undercover agents\" on Earth.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89680.jpg",
+ "backdropURL": null,
+ "genres": [],
+ "networks": [
+  "DuMont Television Network"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "captain-video-and-his-video-rangers-episode-3-of-4-mkv",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Code of Honor",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89680.jpg",
-          "airDate": null,
-          "year": 1949,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Captain Video and His Video Rangers - V01E03.mp4",
-            "format": "h.264",
-            "sizeBytes": 177542226,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/captain-video-and-his-video-rangers-episode-3-of-4-mkv/Captain Video and His Video Rangers - V01E03.mp4"
-        },
-        {
-          "archiveID": "captain-video-and-his-video-rangers-episode-4-of-4-mkv",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "Episode 4",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89680.jpg",
-          "airDate": "1951-07-16",
-          "year": 1951,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Captain Video and His Video Rangers - V01E04.mp4",
-            "format": "h.264",
-            "sizeBytes": 176591374,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/captain-video-and-his-video-rangers-episode-4-of-4-mkv/Captain Video and His Video Rangers - V01E04.mp4"
-        },
-        {
-          "archiveID": "captain-video-and-his-video-rangers-episode-2-of-4-mkv",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "The Power of Leonis",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89680.jpg",
-          "airDate": "1951-08-13",
-          "year": 1951,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Captain Video and His Video Rangers - V01E02.mp4",
-            "format": "h.264",
-            "sizeBytes": 177470844,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/captain-video-and-his-video-rangers-episode-2-of-4-mkv/Captain Video and His Video Rangers - V01E02.mp4"
-        }
-      ]
+     "archiveID": "captain-video-and-his-video-rangers-episode-3-of-4-mkv",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Code of Honor",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89680.jpg",
+     "airDate": null,
+     "year": 1949,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Captain Video and His Video Rangers - V01E03.mp4",
+      "format": "h.264",
+      "sizeBytes": 177542226,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/captain-video-and-his-video-rangers-episode-3-of-4-mkv/Captain Video and His Video Rangers - V01E03.mp4"
     },
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "captain-video-and-his-video-rangers-v01e01",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Captain Video and His Video Rangers - V01E01",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89680.jpg",
-          "airDate": null,
-          "year": 1949,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Captain Video and His Video Rangers - V01E01.mp4",
-            "format": "h.264",
-            "sizeBytes": 176131457,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/captain-video-and-his-video-rangers-v01e01/Captain Video and His Video Rangers - V01E01.mp4"
-        }
-      ]
+     "archiveID": "captain-video-and-his-video-rangers-episode-4-of-4-mkv",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "Episode 4",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89680.jpg",
+     "airDate": "1951-07-16",
+     "year": 1951,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Captain Video and His Video Rangers - V01E04.mp4",
+      "format": "h.264",
+      "sizeBytes": 176591374,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/captain-video-and-his-video-rangers-episode-4-of-4-mkv/Captain Video and His Video Rangers - V01E04.mp4"
+    },
+    {
+     "archiveID": "captain-video-and-his-video-rangers-episode-2-of-4-mkv",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "The Power of Leonis",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89680.jpg",
+     "airDate": "1951-08-13",
+     "year": 1951,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Captain Video and His Video Rangers - V01E02.mp4",
+      "format": "h.264",
+      "sizeBytes": 177470844,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/captain-video-and-his-video-rangers-episode-2-of-4-mkv/Captain Video and His Video Rangers - V01E02.mp4"
     }
-  ],
-  "episodesCount": 4,
-  "canonicalEpisodesCount": 40,
-  "seriesImdbID": "tt0041014",
-  "canonicalEpisodeCount": 4,
-  "canonicalSeasons": 1
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "captain-video-and-his-video-rangers-v01e01",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Captain Video and His Video Rangers - V01E01",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89680.jpg",
+     "airDate": null,
+     "year": 1949,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Captain Video and His Video Rangers - V01E01.mp4",
+      "format": "h.264",
+      "sizeBytes": 176131457,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/captain-video-and-his-video-rangers-v01e01/Captain Video and His Video Rangers - V01E01.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 4,
+ "canonicalEpisodesCount": 40
 }

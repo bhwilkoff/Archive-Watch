@@ -38,6 +38,24 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/the.-twilight.-zone.-2002.-s-01.480p.-dvd-rip.-x-264.-will-1869/The.Twilight.Zone.2002.S01.480p.DvdRip.X264.Will1869/S01E01-E02.ia.mp4"
+        },
+        {
+          "archiveID": "the-twilight-zone-1959-s-01-e-00-original-pilot",
+          "seasonNumber": 1,
+          "episodeNumber": null,
+          "title": "The Twilight Zone",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/the-twilight-zone-1959-s-01-e-00-original-pilot.88b660e5.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Twilight Zone 1959 S01E00 Original Pilot.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 89210093,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-twilight-zone-1959-s-01-e-00-original-pilot/The Twilight Zone 1959 S01E00 Original Pilot.mp4"
         }
       ]
     },
@@ -188,7 +206,7 @@
       ]
     }
   ],
-  "episodesCount": 8,
+  "episodesCount": 9,
   "canonicalEpisodesCount": 156,
   "tvdbID": "73587",
   "artworkSource": "tvdb",
@@ -199,8 +217,5 @@
       "order": 0,
       "profilePath": "https://artworks.thetvdb.com/banners/person/257368/5e9a4ed160de8.jpg"
     }
-  ],
-  "seriesImdbID": "tt0052520",
-  "canonicalEpisodeCount": 156,
-  "canonicalSeasons": 5
+  ]
 }

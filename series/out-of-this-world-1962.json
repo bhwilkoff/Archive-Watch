@@ -1,0 +1,57 @@
+{
+  "version": 2,
+  "seriesID": "out-of-this-world-1962",
+  "tvmazeID": 16829,
+  "title": "Out of This World",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": "Out of This World was a science fiction series broadcast in 1962. A spin-off from the Armchair Theatre series, each episode was introduced by Boris Karloff.",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/78616/posters/612a782c67179.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Science-Fiction",
+    "Thriller"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "out-of-this-world-tv-1962-s01e03-little-lost-robot",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Little Lost Robot",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/out-of-this-world-tv-1962-s01e03-little-lost-robot.d76bb77f.jpg",
+          "airDate": "1962-07-07",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Out of This World TV 1962 colorized s01e03 Little Lost Robot.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 333506201,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/out-of-this-world-tv-1962-s01e03-little-lost-robot/Out%20of%20This%20World%20TV%201962%20colorized%20s01e03%20Little%20Lost%20Robot.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 14,
+  "tvdbID": "78616",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Boris Karloff",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/266111/photo/609baccb98a39.jpg"
+    }
+  ]
+}

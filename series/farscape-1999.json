@@ -204,7 +204,7 @@
       "name": "Anthony Simcoe",
       "character": "Ka D'Argo",
       "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/65c960b4e0934.jpg"
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/6a4a1947ef762.jpg"
     },
     {
       "name": "Gigi Edgley",
@@ -219,61 +219,58 @@
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262114/photo/634eded1044b0.jpg"
     },
     {
-      "name": "Wayne Pygram",
-      "character": "Scorpius",
-      "order": 5,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/262112/primary.jpg"
-    },
-    {
       "name": "Virginia Hey",
       "character": "Pa'u Zotoh Zhaan",
-      "order": 6,
+      "order": 5,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262113/photo/646396d73e4b4.jpg"
     },
     {
       "name": "Lani John Tupu",
-      "character": "Bialar Crais",
-      "order": 7,
+      "character": "Pilot",
+      "order": 6,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/631335/photo/64639204c71e0.jpg"
+    },
+    {
+      "name": "Wayne Pygram",
+      "character": "Scorpius",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/262112/primary.jpg"
+    },
+    {
+      "name": "David Franklin",
+      "character": "Meeklo Braca",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262120/photo/646398e3b100a.jpg"
+    },
+    {
+      "name": "Rebecca Riggs",
+      "character": "Mele-On Grayza",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/6a4a16ae9d34b.jpg"
     },
     {
       "name": "Raelee Hill",
       "character": "Sikozu",
-      "order": 8,
+      "order": 10,
       "profilePath": "https://artworks.thetvdb.com/banners/person/262115/primary.jpg"
     },
     {
       "name": "Paul Goddard",
       "character": "Stark",
-      "order": 9,
+      "order": 11,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262118/photo/64639848a05f8.jpg"
-    },
-    {
-      "name": "David Franklin",
-      "character": "Meeklo Braca",
-      "order": 10,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262120/photo/646398e3b100a.jpg"
     },
     {
       "name": "Tammy MacIntosh",
       "character": "Jool",
-      "order": 11,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/65c95f85da21b.jpg"
+      "order": 12,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/6a4a1489b1e74.jpg"
     },
     {
       "name": "Melissa Jaffer",
       "character": "Noranti",
-      "order": 12,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262110/photo/66c42477bbd58.jpg"
-    },
-    {
-      "name": "Rebecca Riggs",
-      "character": "Mele-On Grayza",
       "order": 13,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/69690f6dedc89.jpg"
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262110/photo/66c42477bbd58.jpg"
     }
-  ],
-  "seriesImdbID": "tt0187636",
-  "canonicalEpisodeCount": 88,
-  "canonicalSeasons": 4
+  ]
 }

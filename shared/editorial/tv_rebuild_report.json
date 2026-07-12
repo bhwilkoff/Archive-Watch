@@ -40,6 +40,10 @@
     },
     {
      "kind": "orphan-episode",
+     "ref": "murphy-brown-s07E13-the-best-and-not-so-brightest"
+    },
+    {
+     "kind": "orphan-episode",
      "ref": "murphy-brown-s08E01-altered-states"
     },
     {
@@ -48,15 +52,23 @@
     },
     {
      "kind": "orphan-episode",
+     "ref": "murphy-brown-s06E16-the-deal-of-the-art"
+    },
+    {
+     "kind": "orphan-episode",
      "ref": "murphy-brown-s06E15-the-thrill-of-the-hunt"
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s06E18-fjord-eyes-only"
+     "ref": "murphy-brown-s07E05-burger-she-wrote"
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s06E17-the-anchorman"
+     "ref": "murphy-brown-s06E24-my-movie-with-louis"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "murphy-brown-s06E18-fjord-eyes-only"
     },
     {
      "kind": "orphan-episode",
@@ -76,15 +88,15 @@
     },
     {
      "kind": "orphan-episode",
+     "ref": "murphy-brown-s06E04-political-correctness"
+    },
+    {
+     "kind": "orphan-episode",
      "ref": "murphy-brown-s06E01-the-more-things-change"
     },
     {
      "kind": "orphan-episode",
      "ref": "murphy-brown-s05E25-one"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "murphy-brown-s06E04-political-correctness"
     },
     {
      "kind": "orphan-episode",
@@ -112,11 +124,11 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s04E25-a-chance-of-showers"
+     "ref": "murphy-brown-s04E17-heartfelt"
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s04E17-heartfelt"
+     "ref": "murphy-brown-s04E25-a-chance-of-showers"
     },
     {
      "kind": "orphan-episode",
@@ -132,7 +144,7 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s05E05-i-never-sang-for-my-husband"
+     "ref": "murphy-brown-s05E10-winners-take-all"
     },
     {
      "kind": "orphan-episode",
@@ -140,7 +152,7 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s05E10-winners-take-all"
+     "ref": "murphy-brown-s05E05-i-never-sang-for-my-husband"
     },
     {
      "kind": "orphan-episode",
@@ -220,7 +232,7 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s04E09-the-queen-of-soul"
+     "ref": "murphy-brown-s03E15-hoarse-play"
     },
     {
      "kind": "orphan-episode",
@@ -228,7 +240,7 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s03E15-hoarse-play"
+     "ref": "murphy-brown-s04E09-the-queen-of-soul"
     },
     {
      "kind": "orphan-episode",
@@ -241,6 +253,10 @@
     {
      "kind": "orphan-episode",
      "ref": "murphy-brown-s03E25-q-a-on-fyi"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "murphy-brown-s03E17-terror-on-the-17th-floor"
     },
     {
      "kind": "orphan-episode",
@@ -260,15 +276,15 @@
     },
     {
      "kind": "orphan-episode",
+     "ref": "murphy-brown-s03E06-bob-murphy-ted-avery"
+    },
+    {
+     "kind": "orphan-episode",
      "ref": "murphy-brown-s02E18-the-murphy-brown-school-of-broadcasting"
     },
     {
      "kind": "orphan-episode",
      "ref": "murphy-brown-s03E08-rootless-people"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "murphy-brown-s03E06-bob-murphy-ted-avery"
     },
     {
      "kind": "orphan-episode",
@@ -280,14 +296,6 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s02E14-what-are-you-doing-new-year-s-eve"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "murphy-brown-s03E07-the-last-laugh"
-    },
-    {
-     "kind": "orphan-episode",
      "ref": "murphy-brown-s02E20-heart-of-gold"
     },
     {
@@ -296,15 +304,23 @@
     },
     {
      "kind": "orphan-episode",
+     "ref": "murphy-brown-s03E07-the-last-laugh"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "murphy-brown-s02E14-what-are-you-doing-new-year-s-eve"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "murphy-brown-s02E23-frank-s-appendectomy"
+    },
+    {
+     "kind": "orphan-episode",
      "ref": "murphy-brown-s02E21-on-the-road-again"
     },
     {
      "kind": "orphan-episode",
      "ref": "murphy-brown-s03E03-loco-hero"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "murphy-brown-s02E23-frank-s-appendectomy"
     },
     {
      "kind": "orphan-episode",
@@ -324,7 +340,15 @@
     },
     {
      "kind": "orphan-episode",
+     "ref": "murphy-brown-s03E05-the-gold-rush"
+    },
+    {
+     "kind": "orphan-episode",
      "ref": "murphy-brown-s03E09-the-bummer-of-42"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "murphy-brown-s03E10-trouble-in-sherwood-forrest"
     },
     {
      "kind": "orphan-episode",
@@ -333,10 +357,6 @@
     {
      "kind": "orphan-episode",
      "ref": "murphy-brown-s02E22-but-first-a-word-from-our-sponsor"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "murphy-brown-s03E10-trouble-in-sherwood-forrest"
     },
     {
      "kind": "orphan-episode",
@@ -384,11 +404,11 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s02E02-anchors-away"
+     "ref": "murphy-brown-s01E16-moscow-on-the-potomac"
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s01E16-moscow-on-the-potomac"
+     "ref": "murphy-brown-s02E02-anchors-away"
     },
     {
      "kind": "orphan-episode",
@@ -397,10 +417,6 @@
     {
      "kind": "orphan-episode",
      "ref": "murphy-brown-s01E12-why-do-fools-fall-in-love"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "murphy-brown-s02E11-brown-like-me-2"
     },
     {
      "kind": "orphan-episode",
@@ -432,11 +448,15 @@
     },
     {
      "kind": "orphan-episode",
+     "ref": "murphy-brown-s02E07-whose-garbage-is-it-anyway"
+    },
+    {
+     "kind": "orphan-episode",
      "ref": "murphy-brown-s02E08-and-the-whiner-is"
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s02E07-whose-garbage-is-it-anyway"
+     "ref": "murphy-brown-s02E06-buddies-schmuddies"
     },
     {
      "kind": "orphan-episode",
@@ -472,35 +492,15 @@
     },
     {
      "kind": "orphan-episode",
+     "ref": "murphy-brown-s06E17-the-anchorman"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "murphy-brown-s02E11-brown-like-me-2"
+    },
+    {
+     "kind": "orphan-episode",
      "ref": "murphy-brown-s01E06-baby-love"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "murphy-brown-s07E13-the-best-and-not-so-brightest"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "murphy-brown-s07E05-burger-she-wrote"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "murphy-brown-s06E24-my-movie-with-louis"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "murphy-brown-s02E06-buddies-schmuddies"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "murphy-brown-s06E16-the-deal-of-the-art"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "murphy-brown-s03E17-terror-on-the-17th-floor"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "murphy-brown-s03E05-the-gold-rush"
     }
    ]
   },
@@ -529,114 +529,6 @@
     {
      "kind": "orphan-episode",
      "ref": "saturday-night-live-s-02e-10-candice-bergen-frank-zappa-12-11-1976_202501"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "saturday-night-live-s-7-e-07-tim-curry-meat-loaf"
-    }
-   ]
-  },
-  {
-   "slug": "knight-rider-1982",
-   "tvmazeID": 825,
-   "title": "Knight Rider",
-   "matched": true,
-   "canonEps": 84,
-   "ourItems": 86,
-   "mappedEps": 79,
-   "extras": 7,
-   "repicked": 0,
-   "deadItems": 0,
-   "availableEps": 86,
-   "kinds": [
-    "orphan-episode",
-    "series"
-   ],
-   "mergedFrom": 3,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "knight-rider-1982"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-03-e-06.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-03-e-09.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-01-e-03.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-01-e-07.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-02-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-01-e-20.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-02-e-11.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-01-e-09.-blu-ray.-1080p-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-01-e-12.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-01-e-04.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-01-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-01-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-04-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-03-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-02-e-18-e-19.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-03-e-07.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-01-e-19.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-01-e-10.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-01-e-08.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-01-e-06.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
     }
    ]
   },
@@ -666,6 +558,10 @@
     {
      "kind": "orphan-episode",
      "ref": "the-adventures-of-ozzie-and-harriet-season-8-to-14"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-adventures-of-ozzie-and-harriet-the-complete-series"
     },
     {
      "kind": "single",
@@ -701,6 +597,86 @@
     {
      "kind": "series",
      "ref": "four-star-playhouse-1952"
+    }
+   ]
+  },
+  {
+   "slug": "knight-rider-1982",
+   "tvmazeID": 825,
+   "title": "Knight Rider",
+   "matched": true,
+   "canonEps": 84,
+   "ourItems": 86,
+   "mappedEps": 79,
+   "extras": 7,
+   "repicked": 0,
+   "deadItems": 0,
+   "availableEps": 86,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "knight-rider-1982"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "knight.-rider.-s-03-e-06.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "knight.-rider.-s-03-e-09.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "knight.-rider.-s-01-e-03.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "knight.-rider.-s-01-e-07.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "knight.-rider.-s-02-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "knight.-rider.-s-01-e-20.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "knight.-rider.-s-02-e-11.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "knight.-rider.-s-01-e-19.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "knight.-rider.-s-01-e-09.-blu-ray.-1080p-ac-3.-h-265-d-3g"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "knight.-rider.-s-01-e-12.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "knight.-rider.-s-01-e-04.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "knight.-rider.-s-01-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "knight.-rider.-s-01-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "knight.-rider.-s-01-e-06.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
     }
    ]
   },
@@ -788,11 +764,7 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "the.-dukes.-of.-hazzard-s-02-e-21-mason-dixons-girls"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the.-dukes.-of.-hazzard-s-02-e-01-days-of-shine-and-roses"
+     "ref": "the-dukes-of-hazzard-s-01-e-09-limo-one-is-missing"
     }
    ]
   },
@@ -957,6 +929,10 @@
     },
     {
      "kind": "orphan-episode",
+     "ref": "playboy-after-dark-s02e21-1970-04-16"
+    },
+    {
+     "kind": "orphan-episode",
      "ref": "playboy-after-dark-s02e11-1970-01-08"
     },
     {
@@ -973,19 +949,15 @@
     },
     {
      "kind": "orphan-episode",
+     "ref": "playboy-after-dark-s01e02-1968-07-24"
+    },
+    {
+     "kind": "orphan-episode",
      "ref": "playboy-after-dark-s01e03-1968-08-08"
     },
     {
      "kind": "orphan-episode",
      "ref": "playboy-after-dark-s01e14-1968-10-23"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "playboy-after-dark-s02e21-1970-04-16"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "playboy-after-dark-s01e02-1968-07-24"
     }
    ]
   },
@@ -1069,10 +1041,6 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "wkrp-in-cincinnati-season-02-episodes-21-22-fifty-pictures"
-    },
-    {
-     "kind": "orphan-episode",
      "ref": "wkrp-in-cincinnati-season-02-episodes-05-6-jennifer-falls-in-lovecarlson-for-president"
     },
     {
@@ -1081,11 +1049,15 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "wkrp-in-cincinnati-season-03-episodes-04-05-the-babyhotel-oceanview"
+     "ref": "wkrp-in-cincinnati-season-02-episodes-19-20-in-concert-the-doctor-daughter"
     },
     {
      "kind": "orphan-episode",
      "ref": "wkrp-in-cincinnati-season-04-episodes-03-04-the-unionrumors"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "wkrp-in-cincinnati-season-03-episodes-04-05-the-babyhotel-oceanview"
     },
     {
      "kind": "orphan-episode",
@@ -1109,10 +1081,6 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "wkrp-in-cincinnati-season-02-episodes-19-20-in-concert-the-doctor-daughter"
-    },
-    {
-     "kind": "orphan-episode",
      "ref": "wkrp-in-cincinnati-season-03-episode-22-clean-up-radio-everywhere"
     },
     {
@@ -1121,7 +1089,7 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "wkrp-in-cincinnati-season-03-episodes-01-03-the-airplane-showreal-families"
+     "ref": "wkrp-in-cincinnati-season-03-episodes-17-18-secrets-of-dayton-heightsout-to-lunch"
     },
     {
      "kind": "orphan-episode",
@@ -1129,7 +1097,11 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "wkrp-in-cincinnati-season-03-episodes-17-18-secrets-of-dayton-heightsout-to-lunch"
+     "ref": "wkrp-in-cincinnati-season-02-episodes-21-22-fifty-pictures"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "wkrp-in-cincinnati-season-03-episodes-01-03-the-airplane-showreal-families"
     }
    ]
   },
@@ -1162,6 +1134,10 @@
     },
     {
      "kind": "orphan-episode",
+     "ref": "honey-i-shrunk-the-kids-tv-show-season-3-episode-2-honey-its-a-billion-dollar-brain"
+    },
+    {
+     "kind": "orphan-episode",
      "ref": "honey-i-shrunk-the-kids-tv-show-episode-14-honey-youve-drained-my-brain"
     },
     {
@@ -1178,15 +1154,11 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "honey-i-shrunk-the-kids-tv-show-season-1-episode-11-honey-youre-living-in-the-past"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "honey-i-shrunk-the-kids-tv-show-season-3-episode-2-honey-its-a-billion-dollar-brain"
-    },
-    {
-     "kind": "orphan-episode",
      "ref": "honey-i-shrunk-the-kids-tv-show-episode-24-honey-shes-like-a-fish-out-of-water"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "honey-i-shrunk-the-kids-tv-show-season-1-episode-11-honey-youre-living-in-the-past"
     },
     {
      "kind": "single",
@@ -1260,6 +1232,99 @@
     {
      "kind": "series",
      "ref": "the-man-from-snowy-river-1994"
+    }
+   ]
+  },
+  {
+   "slug": "mama-s-family-1983",
+   "tvmazeID": 6199,
+   "title": "Mama's Family",
+   "matched": true,
+   "canonEps": 130,
+   "ourItems": 19,
+   "mappedEps": 18,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "availableEps": 19,
+   "kinds": [
+    "orphan-episode",
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "mama-s-family-1983"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "mamas-family-s-02e-11-mama-learns-to-drive"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "mamas-family-s-02e-13-mama-buys-a-car"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "mamas-family-s-01e-03-the-wedding-pt-1"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "mamas-family-s-01e-07-mama-gets-a-job"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "mamas-family-s-01e-12-positive-thinkin"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "mamas-family-s-01e-01-vint-and-the-kids-move-in"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "mamas-family-s-01e-06-cellmates"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "mamas-family-s-01e-08-double-standard"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "mamas-family-s-01e-02-for-better-or-for-worse_202202"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "mamas-family-s-01e-05-family-feud"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "mamas-family-s-01e-13-mama-s-silver"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "mamas-family-s-02e-05-rashomama"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "mama-s-family-s-01e-09-mama-s-boyfriend"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "mamas-family-s-02e-09-amateur-night"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "mamas-family-s-02e-01-flaming-forties"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "mamas-family-s-02e-06-obscene-call"
+    },
+    {
+     "kind": "single",
+     "ref": "mamas-family-Lando18"
     }
    ]
   },
@@ -1550,70 +1615,6 @@
    ]
   },
   {
-   "slug": "grange-hill-1978",
-   "tvmazeID": 4743,
-   "title": "Grange Hill",
-   "matched": true,
-   "canonEps": 601,
-   "ourItems": 14,
-   "mappedEps": 13,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "availableEps": 14,
-   "kinds": [
-    "orphan-episode",
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "grange-hill-1978"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "grange-hill-series-1"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "grange-hill-series-3"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "grange-hill-series-11"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "grange-hill-series-2"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "grange-hill-series-6"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "grange-hill-series-9"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "grange-hill-season-4-s-04-e-09-episode-9"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "grange-hill-series-12"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "grange-hill-series-10"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "grange-hill-series-7"
-    }
-   ]
-  },
-  {
    "slug": "man-with-a-camera-1958",
    "tvmazeID": 38770,
    "title": "Man with a Camera",
@@ -1661,6 +1662,66 @@
     {
      "kind": "series",
      "ref": "soul-train-1971"
+    }
+   ]
+  },
+  {
+   "slug": "grange-hill-1978",
+   "tvmazeID": 4743,
+   "title": "Grange Hill",
+   "matched": true,
+   "canonEps": 601,
+   "ourItems": 14,
+   "mappedEps": 13,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "availableEps": 14,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "grange-hill-1978"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "grange-hill-series-1"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "grange-hill-series-3"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "grange-hill-season-4-s-04-e-09-episode-9"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "grange-hill-series-11"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "grange-hill-series-2"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "grange-hill-series-12"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "grange-hill-series-6"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "grange-hill-series-9"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "grange-hill-series-10"
     }
    ]
   },
@@ -1883,7 +1944,15 @@
     },
     {
      "kind": "orphan-episode",
+     "ref": "are-you-being-served-uncut"
+    },
+    {
+     "kind": "orphan-episode",
      "ref": "are-you-being-served-3"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "are-you-being-served-2"
     },
     {
      "kind": "orphan-episode",
@@ -1899,7 +1968,7 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "are-you-being-served-10"
+     "ref": "are-you-being-served-8"
     },
     {
      "kind": "orphan-episode",
@@ -1907,19 +1976,11 @@
     },
     {
      "kind": "orphan-episode",
+     "ref": "are-you-being-served-10"
+    },
+    {
+     "kind": "orphan-episode",
      "ref": "are-you-being-served-9"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "are-you-being-served-uncut"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "are-you-being-served-2"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "are-you-being-served-8"
     }
    ]
   },
@@ -2287,98 +2348,6 @@
    ]
   },
   {
-   "slug": "mama-s-family-1983",
-   "tvmazeID": 6199,
-   "title": "Mama's Family",
-   "matched": true,
-   "canonEps": 130,
-   "ourItems": 18,
-   "mappedEps": 17,
-   "extras": 1,
-   "repicked": 1,
-   "deadItems": 0,
-   "availableEps": 18,
-   "kinds": [
-    "orphan-episode",
-    "single"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "mamas-family-s-02e-11-mama-learns-to-drive"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mamas-family-s-02e-13-mama-buys-a-car"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mamas-family-s-01e-03-the-wedding-pt-1"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mamas-family-s-01e-07-mama-gets-a-job"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mamas-family-s-01e-12-positive-thinkin"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mamas-family-s-01e-06-cellmates"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mamas-family-s-01e-01-vint-and-the-kids-move-in"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mamas-family-s-01e-08-double-standard"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mamas-family-s-01e-02-for-better-or-for-worse_202202"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mamas-family-s-01e-05-family-feud"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mamas-family-s-01e-13-mama-s-silver"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mamas-family-s-02e-05-rashomama"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mama-s-family-s-01e-09-mama-s-boyfriend"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mamas-family-s-02e-01-flaming-forties"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mamas-family-s-02e-09-amateur-night"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mamas-family-s-01e-10-fran-s-dress"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mamas-family-s-02e-02-the-return-of-leonard-oates"
-    },
-    {
-     "kind": "single",
-     "ref": "mamas-family-Lando18"
-    }
-   ]
-  },
-  {
    "slug": "bill-nye-the-science-guy-1993",
    "tvmazeID": 8602,
    "title": "Bill Nye: The Science Guy",
@@ -2569,6 +2538,46 @@
     {
      "kind": "single",
      "ref": "last-of-the-summer-wine-series-01"
+    }
+   ]
+  },
+  {
+   "slug": "the-avengers-1961",
+   "tvmazeID": 1929,
+   "title": "The Avengers",
+   "matched": true,
+   "canonEps": 161,
+   "ourItems": 13,
+   "mappedEps": 7,
+   "extras": 6,
+   "repicked": 0,
+   "deadItems": 0,
+   "availableEps": 13,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-avengers-1961"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the.avengers.1966.s04e21.a.touch.of.brimstone_202001"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-avengers-s-4e-1"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the.avengers.1965.s04e09.the.hour.that.never.was"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-avengers-s-5e-1-restored-720p-hd"
     }
    ]
   },
@@ -2837,38 +2846,6 @@
    ]
   },
   {
-   "slug": "the-avengers-1961",
-   "tvmazeID": 1929,
-   "title": "The Avengers",
-   "matched": true,
-   "canonEps": 161,
-   "ourItems": 12,
-   "mappedEps": 6,
-   "extras": 6,
-   "repicked": 0,
-   "deadItems": 0,
-   "availableEps": 12,
-   "kinds": [
-    "orphan-episode",
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-avengers-1961"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-avengers-s-4e-1"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-avengers-s-5e-1-restored-720p-hd"
-    }
-   ]
-  },
-  {
    "slug": "the-perry-como-show-1948",
    "tvmazeID": 10602,
    "title": "The Perry Como Show",
@@ -3044,6 +3021,87 @@
    ]
   },
   {
+   "slug": "the-twilight-zone-1959",
+   "tvmazeID": 787,
+   "title": "The Twilight Zone",
+   "matched": true,
+   "canonEps": 156,
+   "ourItems": 9,
+   "mappedEps": 8,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "availableEps": 9,
+   "kinds": [
+    "orphan-episode",
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-twilight-zone-1959"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-twilight-zone-1959-s-01-e-00-original-pilot"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-twilight-zone-s-4e-3-colorized-720p-hd"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-twilight-zone-s-2-e-1-colorized-720p-hd"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-twilight-zone-s-3e-1-colorized-720p-hd"
+    },
+    {
+     "kind": "single",
+     "ref": "the.-twilight.-zone.-2002.-s-01.480p.-dvd-rip.-x-264.-will-1869"
+    }
+   ]
+  },
+  {
+   "slug": "doctor-who-1963",
+   "tvmazeID": 766,
+   "title": "Doctor Who",
+   "matched": true,
+   "canonEps": 700,
+   "ourItems": 11,
+   "mappedEps": 9,
+   "extras": 2,
+   "repicked": 3,
+   "deadItems": 0,
+   "availableEps": 11,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "doctor-who-1963"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "doctor-who_202207"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "70s-Doctor-Who-AI-Remastered"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd"
+    }
+   ]
+  },
+  {
    "slug": "far-out-space-nuts-1975",
    "tvmazeID": 7279,
    "title": "Far Out Space Nuts",
@@ -3113,47 +3171,6 @@
    ]
   },
   {
-   "slug": "the-twilight-zone-1959",
-   "tvmazeID": 787,
-   "title": "The Twilight Zone",
-   "matched": true,
-   "canonEps": 156,
-   "ourItems": 8,
-   "mappedEps": 8,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "availableEps": 8,
-   "kinds": [
-    "orphan-episode",
-    "series",
-    "single"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-twilight-zone-1959"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-twilight-zone-s-4e-3-colorized-720p-hd"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-twilight-zone-s-2-e-1-colorized-720p-hd"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-twilight-zone-s-3e-1-colorized-720p-hd"
-    },
-    {
-     "kind": "single",
-     "ref": "the.-twilight.-zone.-2002.-s-01.480p.-dvd-rip.-x-264.-will-1869"
-    }
-   ]
-  },
-  {
    "slug": "you-bet-your-life-1950",
    "tvmazeID": 2197,
    "title": "You Bet Your Life",
@@ -3217,7 +3234,7 @@
    "tvmazeID": 24062,
    "title": "At the BBC",
    "matched": true,
-   "canonEps": 258,
+   "canonEps": 259,
    "ourItems": 11,
    "mappedEps": 0,
    "extras": 11,
@@ -3331,11 +3348,11 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "mister-ed-s-03"
+     "ref": "mister-ed-s-02-"
     },
     {
      "kind": "orphan-episode",
-     "ref": "mister-ed-s-02-"
+     "ref": "mister-ed-s-03"
     },
     {
      "kind": "orphan-episode",
@@ -3418,6 +3435,59 @@
     {
      "kind": "series",
      "ref": "the-kate-smith-evening-hour-1951"
+    }
+   ]
+  },
+  {
+   "slug": "the-outer-limits-1963",
+   "tvmazeID": 2147,
+   "title": "The Outer Limits",
+   "matched": true,
+   "canonEps": 49,
+   "ourItems": 8,
+   "mappedEps": 6,
+   "extras": 2,
+   "repicked": 1,
+   "deadItems": 0,
+   "availableEps": 8,
+   "kinds": [
+    "orphan-episode",
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-outer-limits-1963"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-outer-limits-tv-1963-s01e05-the-sixth-finger"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-outer-limits-tv-1964-s02e05-demon-with-a-glass-hand"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-outer-limits-tv-1964-s02e07-the-invisible-enemy"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-outer-limits-s02e09-i-robot"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-outer-limits-s-1e-1-1963-colorized"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-outer-limits-s-2e-3-1964-colorized-576p-sd"
+    },
+    {
+     "kind": "single",
+     "ref": "the-outer-limits-1995_202304"
     }
    ]
   },
@@ -3605,34 +3675,6 @@
     {
      "kind": "single",
      "ref": "DangerousAssignment1952Eps1-12"
-    }
-   ]
-  },
-  {
-   "slug": "doctor-who-1963",
-   "tvmazeID": 766,
-   "title": "Doctor Who",
-   "matched": true,
-   "canonEps": 700,
-   "ourItems": 9,
-   "mappedEps": 7,
-   "extras": 2,
-   "repicked": 3,
-   "deadItems": 0,
-   "availableEps": 9,
-   "kinds": [
-    "orphan-episode",
-    "series"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "doctor-who-1963"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd"
     }
    ]
   },
@@ -3984,22 +4026,17 @@
    "ourItems": 9,
    "mappedEps": 0,
    "extras": 9,
-   "repicked": 1,
+   "repicked": 0,
    "deadItems": 0,
    "availableEps": 9,
    "kinds": [
-    "series",
-    "single"
+    "series"
    ],
-   "mergedFrom": 2,
+   "mergedFrom": 1,
    "consumedRefs": [
     {
      "kind": "series",
      "ref": "the-ed-wynn-show-1949"
-    },
-    {
-     "kind": "single",
-     "ref": "TheEdWynnShow1950"
     }
    ]
   },
@@ -4097,6 +4134,47 @@
     {
      "kind": "series",
      "ref": "brilliant-heritage-2020"
+    }
+   ]
+  },
+  {
+   "slug": "dad-s-army-1968",
+   "tvmazeID": 7770,
+   "title": "Dad's Army",
+   "matched": true,
+   "canonEps": 77,
+   "ourItems": 5,
+   "mappedEps": 3,
+   "extras": 2,
+   "repicked": 1,
+   "deadItems": 0,
+   "availableEps": 5,
+   "kinds": [
+    "orphan-episode",
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "dad-s-army-1968"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "dads-army-series-1"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "dads-army-series-4"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "dads-army-series-3"
+    },
+    {
+     "kind": "single",
+     "ref": "dads_army_202604"
     }
    ]
   },
@@ -4234,7 +4312,7 @@
    "tvmazeID": 12968,
    "title": "GameCenter CX",
    "matched": true,
-   "canonEps": 430,
+   "canonEps": 431,
    "ourItems": 8,
    "mappedEps": 8,
    "extras": 0,
@@ -4335,15 +4413,15 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "RvB_S4"
-    },
-    {
-     "kind": "orphan-episode",
      "ref": "RvB_S2"
     },
     {
      "kind": "orphan-episode",
      "ref": "RvB_S3"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "RvB_S4"
     }
    ]
   },
@@ -4547,15 +4625,15 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "degrassi-junior-high-season-03"
-    },
-    {
-     "kind": "orphan-episode",
      "ref": "degrassi-jr-high-s-02"
     },
     {
      "kind": "orphan-episode",
      "ref": "degrassi-jr-high-season-01_202208"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "degrassi-junior-high-season-03"
     }
    ]
   },
@@ -4587,7 +4665,7 @@
    "tvmazeID": 793,
    "title": "EastEnders",
    "matched": true,
-   "canonEps": 7269,
+   "canonEps": 7277,
    "ourItems": 7,
    "mappedEps": 0,
    "extras": 7,
@@ -4836,43 +4914,6 @@
    ]
   },
   {
-   "slug": "the-outer-limits-1963",
-   "tvmazeID": 2147,
-   "title": "The Outer Limits",
-   "matched": true,
-   "canonEps": 49,
-   "ourItems": 4,
-   "mappedEps": 2,
-   "extras": 2,
-   "repicked": 1,
-   "deadItems": 0,
-   "availableEps": 4,
-   "kinds": [
-    "orphan-episode",
-    "series",
-    "single"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-outer-limits-1963"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-outer-limits-s-1e-1-1963-colorized"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-outer-limits-s-2e-3-1964-colorized-576p-sd"
-    },
-    {
-     "kind": "single",
-     "ref": "the-outer-limits-1995_202304"
-    }
-   ]
-  },
-  {
    "slug": "tom-corbett-space-cadet-1950",
    "tvmazeID": 10632,
    "title": "Tom Corbett, Space Cadet",
@@ -4892,6 +4933,43 @@
     {
      "kind": "series",
      "ref": "tom-corbett-space-cadet-1950"
+    }
+   ]
+  },
+  {
+   "slug": "veronica-s-closet-1997",
+   "tvmazeID": 12736,
+   "title": "Veronica's Closet",
+   "matched": true,
+   "canonEps": 66,
+   "ourItems": 4,
+   "mappedEps": 4,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "availableEps": 4,
+   "kinds": [
+    "orphan-episode",
+    "series",
+    "single"
+   ],
+   "mergedFrom": 3,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "veronica-s-closet-1997"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "veronicascloset"
+    },
+    {
+     "kind": "single",
+     "ref": "veronicasclosets2e4veronicasdogdayafternoonconvertvideoonline.com"
+    },
+    {
+     "kind": "single",
+     "ref": "veronicasclosets2e5veronicascrushedpartialconvertvideoonline.com"
     }
    ]
   },
@@ -5065,38 +5143,6 @@
    ]
   },
   {
-   "slug": "dad-s-army-1968",
-   "tvmazeID": 7770,
-   "title": "Dad's Army",
-   "matched": true,
-   "canonEps": 77,
-   "ourItems": 4,
-   "mappedEps": 3,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "availableEps": 4,
-   "kinds": [
-    "orphan-episode",
-    "series"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "dad-s-army-1968"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "dads-army-series-4"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "dads-army-series-1"
-    }
-   ]
-  },
-  {
    "slug": "dusty-s-trail-1973",
    "tvmazeID": 22148,
    "title": "Dusty's Trail",
@@ -5189,15 +5235,15 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "it-takes-a-worried-man-1981-season-1-of-3-xvid-avi"
-    },
-    {
-     "kind": "orphan-episode",
      "ref": "it-takes-a-worried-man-1983-season-3-of-3-xvid-avi"
     },
     {
      "kind": "orphan-episode",
      "ref": "it-takes-a-worried-man-1983-season-2-of-3-xvid-avi"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "it-takes-a-worried-man-1981-season-1-of-3-xvid-avi"
     }
    ]
   },
@@ -5349,6 +5395,38 @@
     {
      "kind": "series",
      "ref": "scene-of-the-crime-1991"
+    }
+   ]
+  },
+  {
+   "slug": "space-1999-1975",
+   "tvmazeID": 5920,
+   "title": "Space: 1999",
+   "matched": true,
+   "canonEps": 48,
+   "ourItems": 4,
+   "mappedEps": 4,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "availableEps": 4,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "space-1999-1975"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "Space1999.Series1"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "Space1999.Series1_201602"
     }
    ]
   },
@@ -5624,43 +5702,6 @@
    ]
   },
   {
-   "slug": "veronica-s-closet-1997",
-   "tvmazeID": 12736,
-   "title": "Veronica's Closet",
-   "matched": true,
-   "canonEps": 66,
-   "ourItems": 4,
-   "mappedEps": 4,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "availableEps": 4,
-   "kinds": [
-    "orphan-episode",
-    "series",
-    "single"
-   ],
-   "mergedFrom": 3,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "veronica-s-closet-1997"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "veronicascloset"
-    },
-    {
-     "kind": "single",
-     "ref": "veronicasclosets2e4veronicasdogdayafternoonconvertvideoonline.com"
-    },
-    {
-     "kind": "single",
-     "ref": "veronicasclosets2e5veronicascrushedpartialconvertvideoonline.com"
-    }
-   ]
-  },
-  {
    "slug": "angie-1979",
    "tvmazeID": 23993,
    "title": "Angie",
@@ -5886,34 +5927,6 @@
    ]
   },
   {
-   "slug": "space-1999-1975",
-   "tvmazeID": 5920,
-   "title": "Space: 1999",
-   "matched": true,
-   "canonEps": 48,
-   "ourItems": 4,
-   "mappedEps": 4,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "availableEps": 4,
-   "kinds": [
-    "orphan-episode",
-    "series"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "space-1999-1975"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "Space1999.Series1"
-    }
-   ]
-  },
-  {
    "slug": "the-adventures-of-ellery-queen-1950",
    "tvmazeID": 26664,
    "title": "The Adventures of Ellery Queen",
@@ -6066,6 +6079,39 @@
    ]
   },
   {
+   "slug": "yes-minister-1980",
+   "tvmazeID": 1606,
+   "title": "Yes Minister",
+   "matched": true,
+   "canonEps": 21,
+   "ourItems": 3,
+   "mappedEps": 0,
+   "extras": 3,
+   "repicked": 1,
+   "deadItems": 0,
+   "availableEps": 3,
+   "kinds": [
+    "orphan-episode",
+    "series",
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "yes-minister-1980"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "yes-minister-1980-1984"
+    },
+    {
+     "kind": "single",
+     "ref": "WishYouWereHere2"
+    }
+   ]
+  },
+  {
    "slug": "13-demon-street",
    "tvmazeID": 34738,
    "title": "13 Demon Street",
@@ -6094,6 +6140,38 @@
     {
      "kind": "single",
      "ref": "13_demon_street_black_hand_1959"
+    }
+   ]
+  },
+  {
+   "slug": "a-league-of-their-own-1993",
+   "tvmazeID": 19120,
+   "title": "A League of Their Own",
+   "matched": true,
+   "canonEps": 6,
+   "ourItems": 2,
+   "mappedEps": 1,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "availableEps": 2,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 3,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "a-league-of-their-own-1993"
+    },
+    {
+     "kind": "single",
+     "ref": "a-league-of-their-own-1993-tv-series"
+    },
+    {
+     "kind": "single",
+     "ref": "league-of-their-own-1993-series"
     }
    ]
   },
@@ -6590,11 +6668,11 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "looney_tunes"
+     "ref": "LTT101"
     },
     {
      "kind": "orphan-episode",
-     "ref": "LTT101"
+     "ref": "looney_tunes"
     }
    ]
   },
@@ -6923,38 +7001,6 @@
    ]
   },
   {
-   "slug": "the-amazing-spider-man-1977",
-   "tvmazeID": 7623,
-   "title": "The Amazing Spider-Man",
-   "matched": true,
-   "canonEps": 14,
-   "ourItems": 2,
-   "mappedEps": 2,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "availableEps": 2,
-   "kinds": [
-    "orphan-episode",
-    "series"
-   ],
-   "mergedFrom": 3,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-amazing-spider-man-1977"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-amazing-spider-man-complete-series-1977"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-amazing-spider-man-1977-complete-series_202301"
-    }
-   ]
-  },
-  {
    "slug": "the-duck-factory-1984",
    "tvmazeID": 25633,
    "title": "The Duck Factory",
@@ -7180,34 +7226,6 @@
    ]
   },
   {
-   "slug": "yes-minister-1980",
-   "tvmazeID": 1606,
-   "title": "Yes Minister",
-   "matched": true,
-   "canonEps": 21,
-   "ourItems": 3,
-   "mappedEps": 0,
-   "extras": 3,
-   "repicked": 1,
-   "deadItems": 0,
-   "availableEps": 3,
-   "kinds": [
-    "series",
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "yes-minister-1980"
-    },
-    {
-     "kind": "single",
-     "ref": "WishYouWereHere2"
-    }
-   ]
-  },
-  {
    "slug": "abc-in-concert-1972",
    "tvmazeID": 22594,
    "title": "ABC in Concert",
@@ -7388,7 +7406,7 @@
    "tvmazeID": 2548,
    "title": "Emmerdale",
    "matched": true,
-   "canonEps": 8807,
+   "canonEps": 8813,
    "ourItems": 3,
    "mappedEps": 0,
    "extras": 3,
@@ -7875,6 +7893,34 @@
     {
      "kind": "series",
      "ref": "take-five-1987"
+    }
+   ]
+  },
+  {
+   "slug": "the-amazing-spider-man-1977",
+   "tvmazeID": 7623,
+   "title": "The Amazing Spider-Man",
+   "matched": true,
+   "canonEps": 14,
+   "ourItems": 2,
+   "mappedEps": 2,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "availableEps": 2,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-amazing-spider-man-1977"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-amazing-spider-man-complete-series-1977"
     }
    ]
   },
@@ -8643,6 +8689,34 @@
    ]
   },
   {
+   "slug": "not-the-nine-o-clock-news-1979",
+   "tvmazeID": 8589,
+   "title": "Not the Nine O'Clock News",
+   "matched": true,
+   "canonEps": 27,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "availableEps": 1,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "not-the-nine-o-clock-news-1979"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "not-the-nine-o-clock-news-s-1x-e-1-16-october-1979"
+    }
+   ]
+  },
+  {
    "slug": "planet-of-the-apes-1974",
    "tvmazeID": 1133,
    "title": "Planet of the Apes",
@@ -8895,6 +8969,34 @@
    ]
   },
   {
+   "slug": "the-adventures-of-sherlock-holmes-1984",
+   "tvmazeID": 3255,
+   "title": "The Adventures of Sherlock Holmes",
+   "matched": true,
+   "canonEps": 41,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "availableEps": 1,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-adventures-of-sherlock-holmes-1984"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-adventures-of-sherlock-holmes-1984_202303"
+    }
+   ]
+  },
+  {
    "slug": "the-adventures-of-the-scarlet-pimpernel-1955",
    "tvmazeID": 28391,
    "title": "The Adventures of the Scarlet Pimpernel",
@@ -9101,7 +9203,7 @@
     "orphan-episode",
     "series"
    ],
-   "mergedFrom": 2,
+   "mergedFrom": 1,
    "consumedRefs": [
     {
      "kind": "series",
@@ -9394,11 +9496,39 @@
    ]
   },
   {
-   "slug": "a-league-of-their-own-1993",
-   "tvmazeID": 19120,
-   "title": "A League of Their Own",
+   "slug": "spider-man-1978",
+   "tvmazeID": 41312,
+   "title": "Spider-Man",
    "matched": true,
-   "canonEps": 6,
+   "canonEps": 41,
+   "ourItems": 2,
+   "mappedEps": 0,
+   "extras": 2,
+   "repicked": 1,
+   "deadItems": 0,
+   "availableEps": 2,
+   "kinds": [
+    "orphan-episode",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "orphan-episode",
+     "ref": "the-amazing-spider-man-1977-complete-series_202301"
+    },
+    {
+     "kind": "single",
+     "ref": "Supaidman"
+    }
+   ]
+  },
+  {
+   "slug": "the-berenstain-bears-2003",
+   "tvmazeID": 53605,
+   "title": "The Berenstain Bears",
+   "matched": true,
+   "canonEps": 80,
    "ourItems": 2,
    "mappedEps": 0,
    "extras": 2,
@@ -9412,11 +9542,11 @@
    "consumedRefs": [
     {
      "kind": "single",
-     "ref": "a-league-of-their-own-1993-tv-series"
+     "ref": "the-berenstain-bears-2003"
     },
     {
      "kind": "single",
-     "ref": "league-of-their-own-1993-series"
+     "ref": "the-berenstain-bears-2003-1080p-hd"
     }
    ]
   },
@@ -10019,6 +10149,29 @@
    ]
   },
   {
+   "slug": "worzel-gummidge-down-under-1987",
+   "tvmazeID": 92056,
+   "title": "Worzel Gummidge Down Under",
+   "matched": true,
+   "canonEps": 22,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "worzel-gummidge-down-under-1987"
+    }
+   ]
+  },
+  {
    "slug": "the-kids-in-the-hall-death-comes-to-town-2010",
    "tvmazeID": 7381,
    "title": "The Kids in the Hall: Death Comes to Town",
@@ -10103,6 +10256,28 @@
     {
      "kind": "orphan-episode",
      "ref": "Mommartz_Der_Finger_1967"
+    }
+   ]
+  },
+  {
+   "slug": "the-lady-killers-2020",
+   "tvmazeID": 54288,
+   "title": "The Lady Killers",
+   "matched": true,
+   "canonEps": 10,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "kinds": [
+    "orphan-episode"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "orphan-episode",
+     "ref": "the-killers-1946-1080p-1456x-1080-blu-ray-x-264"
     }
    ]
   },
@@ -10415,6 +10590,29 @@
    ]
   },
   {
+   "slug": "jason-king-1971",
+   "tvmazeID": 21039,
+   "title": "Jason King",
+   "matched": true,
+   "canonEps": 26,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "availableEps": 1,
+   "kinds": [
+    "orphan-episode"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "orphan-episode",
+     "ref": "jason-king-the-complete-series-1971"
+    }
+   ]
+  },
+  {
    "slug": "do-it-yourself-2022",
    "tvmazeID": 64319,
    "title": "Do It Yourself!",
@@ -10591,6 +10789,52 @@
    ]
   },
   {
+   "slug": "my-favorite-martian-1963",
+   "tvmazeID": 4512,
+   "title": "My Favorite Martian",
+   "matched": true,
+   "canonEps": 107,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "availableEps": 1,
+   "kinds": [
+    "orphan-episode"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "orphan-episode",
+     "ref": "my-favorite-martian-tv-1963-s01e01-my-favorite-martin"
+    }
+   ]
+  },
+  {
+   "slug": "out-of-this-world-1962",
+   "tvmazeID": 16829,
+   "title": "Out of This World",
+   "matched": true,
+   "canonEps": 14,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "availableEps": 1,
+   "kinds": [
+    "orphan-episode"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "orphan-episode",
+     "ref": "out-of-this-world-tv-1962-s01e03-little-lost-robot"
+    }
+   ]
+  },
+  {
    "slug": "inside-the-big-east-2005",
    "tvmazeID": 11255,
    "title": "Inside the Big East",
@@ -10745,6 +10989,28 @@
    ]
   },
   {
+   "slug": "pete-and-gladys-1960",
+   "tvmazeID": 42874,
+   "title": "Pete and Gladys",
+   "matched": true,
+   "canonEps": 72,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "kinds": [
+    "orphan-episode"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "orphan-episode",
+     "ref": "PeteAndGladys1960CbsSneakPreview"
+    }
+   ]
+  },
+  {
    "slug": "the-love-matter",
    "tvmazeID": 79815,
    "title": "The Love Matter",
@@ -10789,17 +11055,16 @@
    ]
   },
   {
-   "slug": "the-adventures-of-sherlock-holmes-1984",
-   "tvmazeID": 3255,
-   "title": "The Adventures of Sherlock Holmes",
+   "slug": "v-1983",
+   "tvmazeID": 1039,
+   "title": "V",
    "matched": true,
-   "canonEps": 41,
+   "canonEps": 24,
    "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
+   "mappedEps": 0,
+   "extras": 1,
    "repicked": 0,
    "deadItems": 0,
-   "availableEps": 1,
    "kinds": [
     "orphan-episode"
    ],
@@ -10807,30 +11072,7 @@
    "consumedRefs": [
     {
      "kind": "orphan-episode",
-     "ref": "the-adventures-of-sherlock-holmes-1984_202303"
-    }
-   ]
-  },
-  {
-   "slug": "not-the-nine-o-clock-news-1979",
-   "tvmazeID": 8589,
-   "title": "Not the Nine O'Clock News",
-   "matched": true,
-   "canonEps": 27,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "not-the-nine-o-clock-news-s-1x-e-1-16-october-1979"
+     "ref": "v-the-series-1984-85-s-01e-19-the-return_202210"
     }
    ]
   },
@@ -10857,11 +11099,11 @@
    ]
   },
   {
-   "slug": "worzel-gummidge-down-under-1987",
-   "tvmazeID": 92056,
-   "title": "Worzel Gummidge Down Under",
+   "slug": "have-gun-will-travel-1957",
+   "tvmazeID": 3360,
+   "title": "Have Gun, Will Travel",
    "matched": true,
-   "canonEps": 22,
+   "canonEps": 225,
    "ourItems": 1,
    "mappedEps": 1,
    "extras": 0,
@@ -10875,16 +11117,16 @@
    "consumedRefs": [
     {
      "kind": "orphan-episode",
-     "ref": "worzel-gummidge-down-under-s-01-e-01_202311"
+     "ref": "have-gun-will-travel-tv-1962-colorized-s06e01-genesis"
     }
    ]
   },
   {
-   "slug": "v-1983",
-   "tvmazeID": 1039,
-   "title": "V",
+   "slug": "lost-worlds-vanished-lives-1989",
+   "tvmazeID": 13068,
+   "title": "Lost Worlds, Vanished Lives",
    "matched": true,
-   "canonEps": 24,
+   "canonEps": 4,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -10897,7 +11139,7 @@
    "consumedRefs": [
     {
      "kind": "orphan-episode",
-     "ref": "v-the-series-1984-85-s-01e-19-the-return_202210"
+     "ref": "AlmostLiveS7"
     }
    ]
   },
@@ -10920,6 +11162,28 @@
     {
      "kind": "single",
      "ref": "on-the-buses-1969-73"
+    }
+   ]
+  },
+  {
+   "slug": "the-ed-wynn-show-1958",
+   "tvmazeID": 40536,
+   "title": "The Ed Wynn Show",
+   "matched": true,
+   "canonEps": 16,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "TheEdWynnShow1950"
     }
    ]
   },
@@ -10990,11 +11254,11 @@
    ]
   },
   {
-   "slug": "the-great-train-robbery-2013",
-   "tvmazeID": 6884,
-   "title": "The Great Train Robbery",
+   "slug": "the-great-rhino-robbery-2024",
+   "tvmazeID": 72842,
+   "title": "The Great Rhino Robbery",
    "matched": true,
-   "canonEps": 2,
+   "canonEps": 3,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -11056,11 +11320,11 @@
    ]
   },
   {
-   "slug": "malibu-rescue-the-series-2019",
-   "tvmazeID": 40171,
-   "title": "Malibu Rescue: The Series",
+   "slug": "amanda-to-the-rescue-2018",
+   "tvmazeID": 39403,
+   "title": "Amanda to the Rescue",
    "matched": true,
-   "canonEps": 8,
+   "canonEps": 20,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -11192,7 +11456,7 @@
    "tvmazeID": 9539,
    "title": "NBC Nightly News",
    "matched": true,
-   "canonEps": 4753,
+   "canonEps": 4770,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -11382,28 +11646,6 @@
     {
      "kind": "single",
      "ref": "daves-old-porn-full-series"
-    }
-   ]
-  },
-  {
-   "slug": "spider-man-1978",
-   "tvmazeID": 41312,
-   "title": "Spider-Man",
-   "matched": true,
-   "canonEps": 41,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "Supaidman"
     }
    ]
   },
@@ -12024,11 +12266,11 @@
    ]
   },
   {
-   "slug": "still-standing-2015",
-   "tvmazeID": 17180,
+   "slug": "still-standing-2002",
+   "tvmazeID": 1502,
    "title": "Still Standing",
    "matched": true,
-   "canonEps": 121,
+   "canonEps": 88,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -12156,11 +12398,11 @@
    ]
   },
   {
-   "slug": "bless-this-house-1995",
-   "tvmazeID": 56547,
+   "slug": "bless-this-house-1971",
+   "tvmazeID": 7763,
    "title": "Bless This House",
    "matched": true,
-   "canonEps": 16,
+   "canonEps": 65,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -12310,11 +12552,11 @@
    ]
   },
   {
-   "slug": "a-fine-romance-1981",
-   "tvmazeID": 7755,
+   "slug": "a-fine-romance-1989",
+   "tvmazeID": 41745,
    "title": "A Fine Romance",
    "matched": true,
-   "canonEps": 26,
+   "canonEps": 12,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -13124,11 +13366,11 @@
    ]
   },
   {
-   "slug": "the-armando-iannucci-shows-2001",
-   "tvmazeID": 2574,
-   "title": "The Armando Iannucci Shows",
+   "slug": "daniel-sloss-live-shows-2018",
+   "tvmazeID": 45198,
+   "title": "Daniel Sloss: Live Shows",
    "matched": true,
-   "canonEps": 8,
+   "canonEps": 2,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -13322,11 +13564,11 @@
    ]
   },
   {
-   "slug": "alice-1976",
-   "tvmazeID": 7553,
+   "slug": "alice-2009",
+   "tvmazeID": 1024,
    "title": "Alice",
    "matched": true,
-   "canonEps": 202,
+   "canonEps": 2,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -13762,11 +14004,11 @@
    ]
   },
   {
-   "slug": "teen-angel-1989",
-   "tvmazeID": 50653,
+   "slug": "teen-angel-1997",
+   "tvmazeID": 7987,
    "title": "Teen Angel",
    "matched": true,
-   "canonEps": 12,
+   "canonEps": 17,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -15874,14 +16116,14 @@
    ]
   },
   {
-   "slug": "young-americans-2000",
-   "tvmazeID": 4511,
+   "slug": "young-americans",
+   "tvmazeID": 92846,
    "title": "Young Americans",
    "matched": true,
-   "canonEps": 8,
+   "canonEps": 0,
    "ourItems": 1,
    "mappedEps": 0,
-   "extras": 1,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "kinds": [
@@ -16072,11 +16314,11 @@
    ]
   },
   {
-   "slug": "tv-systrar-2021",
-   "tvmazeID": 50970,
-   "title": "Två systrar",
+   "slug": "alien-tv-2020",
+   "tvmazeID": 48640,
+   "title": "Alien TV",
    "matched": true,
-   "canonEps": 8,
+   "canonEps": 26,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -16310,28 +16552,6 @@
     {
      "kind": "single",
      "ref": "timothy-goes-to-school"
-    }
-   ]
-  },
-  {
-   "slug": "the-berenstain-bears-2003",
-   "tvmazeID": 53605,
-   "title": "The Berenstain Bears",
-   "matched": true,
-   "canonEps": 80,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "the-berenstain-bears-2003"
     }
    ]
   },
@@ -16798,11 +17018,11 @@
    ]
   },
   {
-   "slug": "harry-2013",
-   "tvmazeID": 7272,
+   "slug": "harry-2016",
+   "tvmazeID": 6373,
    "title": "Harry",
    "matched": true,
-   "canonEps": 6,
+   "canonEps": 176,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -17018,9 +17238,9 @@
    ]
   },
   {
-   "slug": "alice-or-alice-siscon-niisan-to-futago-no-imouto-2018",
-   "tvmazeID": 35313,
-   "title": "Alice or Alice: Siscon Niisan to Futago no Imouto",
+   "slug": "alice-zouroku-2017",
+   "tvmazeID": 25928,
+   "title": "Alice & Zouroku",
    "matched": true,
    "canonEps": 12,
    "ourItems": 1,
@@ -17348,11 +17568,11 @@
    ]
   },
   {
-   "slug": "the-misery-index-2019",
-   "tvmazeID": 43103,
-   "title": "The Misery Index",
+   "slug": "misery-loves-company-1995",
+   "tvmazeID": 37170,
+   "title": "Misery Loves Company",
    "matched": true,
-   "canonEps": 49,
+   "canonEps": 8,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -17569,11 +17789,11 @@
    ]
   },
   {
-   "slug": "perfect-strangers-1986",
-   "tvmazeID": 4304,
+   "slug": "perfect-strangers-2001",
+   "tvmazeID": 30850,
    "title": "Perfect Strangers",
    "matched": true,
-   "canonEps": 150,
+   "canonEps": 3,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -17921,11 +18141,11 @@
    ]
   },
   {
-   "slug": "dennis-the-menace-1959",
-   "tvmazeID": 2121,
+   "slug": "dennis-the-menace-1986",
+   "tvmazeID": 26779,
    "title": "Dennis the Menace",
    "matched": true,
-   "canonEps": 146,
+   "canonEps": 36,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -18711,6 +18931,160 @@
      "ref": "OperationPetticoatS1"
     }
    ]
+  },
+  {
+   "slug": "the-world-of-peter-rabbit-and-friends-1992",
+   "tvmazeID": 9570,
+   "title": "The World of Peter Rabbit and Friends",
+   "matched": true,
+   "canonEps": 9,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "world-of-peter-rabbit-and-friends-1992-98"
+    }
+   ]
+  },
+  {
+   "slug": "wolverine-and-the-x-men-2008",
+   "tvmazeID": 439,
+   "title": "Wolverine and the X-Men",
+   "matched": true,
+   "canonEps": 26,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "wolverine-and-the-x-men-2009-tv-series"
+    }
+   ]
+  },
+  {
+   "slug": "pinky-dinky-doo-2006",
+   "tvmazeID": 12454,
+   "title": "Pinky Dinky Doo",
+   "matched": true,
+   "canonEps": 104,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "pinky-dinky-doo_"
+    }
+   ]
+  },
+  {
+   "slug": "soap-1977",
+   "tvmazeID": 2137,
+   "title": "Soap",
+   "matched": true,
+   "canonEps": 90,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "soap-1977-1981-s-01e-01"
+    }
+   ]
+  },
+  {
+   "slug": "not-necessarily-the-news-1983",
+   "tvmazeID": 33965,
+   "title": "Not Necessarily the News",
+   "matched": true,
+   "canonEps": 47,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "Not-Necessarily-the-News"
+    }
+   ]
+  },
+  {
+   "slug": "rollergirls-2006",
+   "tvmazeID": 16873,
+   "title": "Rollergirls",
+   "matched": true,
+   "canonEps": 13,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "rollergirls-1978-complete"
+    }
+   ]
+  },
+  {
+   "slug": "come-back-mrs-noah-1977",
+   "tvmazeID": 19411,
+   "title": "Come Back Mrs. Noah",
+   "matched": true,
+   "canonEps": 5,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "come-back-mrs-noah"
+    }
+   ]
   }
  ],
  "reclassifyArchiveIDs": [
@@ -18718,6 +19092,7 @@
   "2017-the-saint-movie-1080p-spanish-or-english",
   "Nativity",
   "Mommartz_Der_Finger_1967",
+  "the-killers-1946-1080p-1456x-1080-blu-ray-x-264",
   "men.into.-space.-",
   "Mommartz_Die_Schiller_1976",
   "china-smith-1x-12-kaprielian-cipher",
@@ -18747,11 +19122,14 @@
   "Love_That_Bob_Ep4x26_Bob_Goes_Bird_Watching",
   "Dragnet_S05E12_-_The_Big_Bounce",
   "Dragnet_S05E06_-_The_Big_Gap",
+  "PeteAndGladys1960CbsSneakPreview",
   "mother-love.-s-01-e-01",
   "dark-desire.-s02.-e13-e14.720p",
-  "the-invisible-man-the-complete-series-1975_202505",
   "v-the-series-1984-85-s-01e-19-the-return_202210",
+  "the-invisible-man-the-complete-series-1975_202505",
+  "AlmostLiveS7",
   "on-the-buses-1969-73",
+  "TheEdWynnShow1950",
   "Tales_Of_Tomorrow_-_World_Of_Water",
   "Tales_Of_Tomorrow_-_Red_Dust",
   "bbc-connections-1978",
@@ -18773,7 +19151,6 @@
   "peacock_202107",
   "ranma-nibunnoichi-espanol-latino-y-japones",
   "daves-old-porn-full-series",
-  "Supaidman",
   "how-to-train-your-dragon-2010_202106",
   "DragonTalesTVSeries",
   "ReadingRainbowTVSeries",
@@ -18997,7 +19374,6 @@
   "s-01-e-06-monkey-business_202109",
   "robotboy-113-crying-time-runaway-robot-th-v",
   "timothy-goes-to-school",
-  "the-berenstain-bears-2003",
   "jackasscompleteseries",
   "1977TVCommercials",
   "pig-sty-1995",
@@ -19104,7 +19480,14 @@
   "men-at-work_202503",
   "pikwik-pack-complete",
   "Open_All_Hours",
-  "OperationPetticoatS1"
+  "OperationPetticoatS1",
+  "world-of-peter-rabbit-and-friends-1992-98",
+  "wolverine-and-the-x-men-2009-tv-series",
+  "pinky-dinky-doo_",
+  "soap-1977-1981-s-01e-01",
+  "Not-Necessarily-the-News",
+  "rollergirls-1978-complete",
+  "come-back-mrs-noah"
  ],
  "orphanSeriesSlugs": [],
  "unmatched": [
@@ -20061,6 +20444,13 @@
    "ref": "Hercules_Unchained"
   },
   {
+   "title": "Wing Flapping",
+   "year": 1975,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "FLUEGELSCHLAGEN"
+  },
+  {
    "title": "Der Sieg des Glaubens Reichsparteitag",
    "year": 1933,
    "items": 1,
@@ -20143,13 +20533,6 @@
    "items": 1,
    "kind": "orphan-episode",
    "ref": "1937-Gebt-mir-4-Zeit"
-  },
-  {
-   "title": "The Killers FilmNoir Ava Gardner, Burt Lancaster & Edmond O'Brien",
-   "year": 1946,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-killers-1946-1080p-1456x-1080-blu-ray-x-264"
   },
   {
    "title": "Ewiger Wald Bedeutung der Natur im Dritten Reich",
@@ -20537,14 +20920,14 @@
    "ref": "1941-Mein-Leben-fuer-Irland"
   },
   {
-   "title": "Junker der Waffen SS Gestaltet nach Aufnahmen von SS Kriegs Berichterstattern",
+   "title": "Junker der Waffen SS",
    "year": 1943,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "1943-Junker-der-Waffen-SS"
   },
   {
-   "title": "Die Treppe",
+   "title": "The Stairs",
    "year": 1967,
    "items": 1,
    "kind": "orphan-episode",
@@ -20552,7 +20935,7 @@
   },
   {
    "title": "Mommartz Haircut",
-   "year": 1974,
+   "year": null,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "Mommartz_Haircut_1974"
@@ -20740,7 +21123,7 @@
    "ref": "1941-Ritt-zwischen-den-Fronten"
   },
   {
-   "title": "Vier kleine Stücke",
+   "title": "Four Little Pieces",
    "year": 1988,
    "items": 1,
    "kind": "orphan-episode",
@@ -20775,7 +21158,7 @@
    "ref": "1944-Panzer-im-Angriff"
   },
   {
-   "title": "Mommartz Spanienkrimi",
+   "title": "Spanish Crime Story",
    "year": 1970,
    "items": 1,
    "kind": "orphan-episode",
@@ -20831,7 +21214,7 @@
    "ref": "1944-OKH-Lehrfilm-463"
   },
   {
-   "title": "Joseph Goebbels spricht als Vorredner Adolf Hitlers am 10 Februar im Berliner Sportpalast",
+   "title": "Joseph Goebbels spricht als Vorredner Adolf Hitlers am 10 Februar",
    "year": 1933,
    "items": 1,
    "kind": "orphan-episode",
@@ -20852,7 +21235,7 @@
    "ref": "1940-1945-Eva-Braun-Private-Filmrollen-7-und-8"
   },
   {
-   "title": "Die Bauten Adolf Hitlers Die groessten Bauwerke seit",
+   "title": "Die Bauten Adolf Hitlers",
    "year": 1938,
    "items": 1,
    "kind": "orphan-episode",
@@ -20978,7 +21361,7 @@
    "ref": "1936-Echo-der-Heimat-Folge-3"
   },
   {
-   "title": "Jugend der Welt Bericht ueber die Winterolympiade in Garmisch Partenkirchen",
+   "title": "Jugend der Welt Bericht ueber die Winterolympiade",
    "year": 1936,
    "items": 1,
    "kind": "orphan-episode",
@@ -20999,7 +21382,7 @@
    "ref": "1936-Ewige-Wache"
   },
   {
-   "title": "Die Angst am Rhein",
+   "title": "The Fear at the Rhein",
    "year": 1974,
    "items": 1,
    "kind": "orphan-episode",
@@ -21125,7 +21508,7 @@
    "ref": "1935-Die-Jahrhundertfeier-der-Deutschen-Eisenbahnen"
   },
   {
-   "title": "Sprung in den Feind Gefechtsbericht eines Fallschirmjaeger Bataillons",
+   "title": "Sprung in den Feind",
    "year": 1942,
    "items": 1,
    "kind": "orphan-episode",
@@ -21221,13 +21604,6 @@
    "items": 1,
    "kind": "orphan-episode",
    "ref": "1933-Filmaufnahmen-vom-Tag-der-Machtergreifung"
-  },
-  {
-   "title": "The Twilight Zone S01",
-   "year": 1959,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-twilight-zone-1959-s-01-e-00-original-pilot"
   },
   {
    "title": "Die Frontschau Nr 07 Lehrfilm Angriff von Infanterie und Panzern gegen eine Ortschaft",
@@ -21447,7 +21823,7 @@
    "ref": "1937-Echo-der-Heimat-V.-Bericht"
   },
   {
-   "title": "Kavalleristen Tag in Duesseldorf",
+   "title": "Kavalleristen Tag",
    "year": 1937,
    "items": 1,
    "kind": "orphan-episode",
@@ -21748,7 +22124,7 @@
    "ref": "Matt-Helm-1975-Series"
   },
   {
-   "title": "Kukla, Fran and Ollie through",
+   "title": "Kukla, Fran and Ollie",
    "year": 1947,
    "items": 1,
    "kind": "orphan-episode",
@@ -21790,7 +22166,7 @@
    "ref": "gogs-the-complete-series-1-2-1993-96"
   },
   {
-   "title": "Twilight Zone \"Next Week\" Promos (",
+   "title": "Twilight Zone \"Next Week\" Promos",
    "year": 1959,
    "items": 1,
    "kind": "orphan-episode",
@@ -21853,13 +22229,6 @@
    "ref": "Follow_That_Man_EP4x23_The_Iceman"
   },
   {
-   "title": "Jason King The",
-   "year": 1971,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "jason-king-the-complete-series-1971"
-  },
-  {
    "title": "OneStep Beyond",
    "year": null,
    "items": 1,
@@ -21888,7 +22257,7 @@
    "ref": "ClutchCargoOperationMoonBeam"
   },
   {
-   "title": "Bearcats The",
+   "title": "bearcats the",
    "year": 1971,
    "items": 1,
    "kind": "orphan-episode",
@@ -21958,7 +22327,7 @@
    "ref": "life_of_riley_-_3x01_-_juniors_secret"
   },
   {
-   "title": "The Richard Pryor Show S01 + Extras",
+   "title": "The Richard Pryor Show S01",
    "year": 1977,
    "items": 1,
    "kind": "orphan-episode",
@@ -22140,13 +22509,6 @@
    "ref": "s00e2"
   },
   {
-   "title": "\"Song of the Rainbow\" Written by",
-   "year": 1916,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "song-of-the-rainbow-2020-ws"
-  },
-  {
    "title": "Cosmos S 2 E 13 Sindhi Unafraid Of The Dark",
    "year": 1915,
    "items": 1,
@@ -22168,25 +22530,11 @@
    "ref": "thriller-s-01-e-010-spell-of-evil"
   },
   {
-   "title": "Doctor Who 's Colourised and/or AI Remastered",
-   "year": 1960,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "doctor-who_202207"
-  },
-  {
    "title": "jsc2022m000151 Down to Earth",
    "year": 2022,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "jsc2022m000151_Down_to_Earth_S2_E3_The_Miracle_Planet"
-  },
-  {
-   "title": "The Avengers S 04 E 21 A Touch of Brimstone",
-   "year": 1966,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the.avengers.1966.s04e21.a.touch.of.brimstone_202001"
   },
   {
    "title": "The Avengers S 04 E 04 Death At Bargain Prices 23 October",
@@ -22385,20 +22733,6 @@
    "ref": "theavengers3x14dressedtokill"
   },
   {
-   "title": "The Outer Limits colorized",
-   "year": 1963,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-outer-limits-tv-1963-s01e05-the-sixth-finger"
-  },
-  {
-   "title": "My Favorite Martian colorized",
-   "year": 1963,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "my-favorite-martian-tv-1963-s01e01-my-favorite-martin"
-  },
-  {
    "title": "The Avengers 2x 18 Warlock",
    "year": 1963,
    "items": 1,
@@ -22411,13 +22745,6 @@
    "items": 1,
    "kind": "orphan-episode",
    "ref": "theavengers3x08secondsight"
-  },
-  {
-   "title": "Out of This World colorized",
-   "year": 1962,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "out-of-this-world-tv-1962-s01e03-little-lost-robot"
   },
   {
    "title": "Bonanza in 3D Episode \"Denver McKee\"",
@@ -22579,13 +22906,6 @@
    "items": 1,
    "kind": "orphan-episode",
    "ref": "s2e03_202002"
-  },
-  {
-   "title": "Doctor Who 's AI Remastered",
-   "year": 1970,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "70s-Doctor-Who-AI-Remastered"
   },
   {
    "title": "NOVA The Miracle of Life (",
@@ -22777,18 +23097,11 @@
    "ref": "Love_That_Bob_Ep4x32_Grandpas_Old_Buddy"
   },
   {
-   "title": "Hollywood Palace October 2,",
+   "title": "Hollywood Palace October 2",
    "year": 1965,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "HollywoodPalace100965"
-  },
-  {
-   "title": "Pete and Gladys CBS Sneak Preview",
-   "year": 1960,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "PeteAndGladys1960CbsSneakPreview"
   },
   {
    "title": "S 01 E 02",
@@ -22924,13 +23237,6 @@
    "ref": "cheyenne.-s-01-e-14.-johnny.-bravo"
   },
   {
-   "title": "Revenge of the Dark Stone",
-   "year": 1928,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "revenge-of-the-dark-stone-2020-ws"
-  },
-  {
    "title": "We Stand Dan Bongino",
    "year": 1927,
    "items": 1,
@@ -22980,6 +23286,188 @@
    "ref": "20251002_Once-in-Memory-Love-at-First-Sight-Parte-S01E02-mp4"
   },
   {
+   "title": "The A Team S 02 E 23 Curtain Call",
+   "year": 1984,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-02-e-23-curtain-call"
+  },
+  {
+   "title": "Saturday Night Live January 23, (",
+   "year": 2019,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "saturdaynightlivejanuary231988s13e9pt.1"
+  },
+  {
+   "title": "Coming Of Age Sitcom",
+   "year": 1988,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "coming-of-age-1988-sitcom"
+  },
+  {
+   "title": "Indians, Outlaws and Angie Debo",
+   "year": 1988,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "IndiansOutlawsandAngieDebo"
+  },
+  {
+   "title": "Let Us Now Praise Famous Men, Revisited",
+   "year": 1988,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "LetUsNowPraiseFamousMenRevisited"
+  },
+  {
+   "title": "The A Team S 04 E 05 The Heart Of Rock N' Roll",
+   "year": 1987,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-04-e-05-the-heart-of-rock-n-roll"
+  },
+  {
+   "title": "Great Moments from NOVA",
+   "year": 1987,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "GreatMomentsfromNOVA"
+  },
+  {
+   "title": "Orangutans of the Rainforest",
+   "year": 1987,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "OrangutansoftheRainforest"
+  },
+  {
+   "title": "The A Team S 05 E 01 Dishpan Man",
+   "year": 1986,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-05-e-01-dishpan-man"
+  },
+  {
+   "title": "The A Team S 04 E 20 The Little Town With An Accent",
+   "year": 1986,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-04-e-21-the-little-town-with-an-accent"
+  },
+  {
+   "title": "The A Team S 04 E 22 Cowboy George",
+   "year": 1986,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-04-e-23-cowboy-george"
+  },
+  {
+   "title": "Edgerton and His Incredible Seeing Machines",
+   "year": 1985,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "EdgertonAndHisIncredibleSeeingMachines"
+  },
+  {
+   "title": "The A Team S 03 E 15 The Big Squeeze",
+   "year": 1985,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-03-e-15-the-big-squeeze"
+  },
+  {
+   "title": "The A Team S 03 E 22 Bounty",
+   "year": 1985,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-03-e-22-bounty"
+  },
+  {
+   "title": "The A Team S 04 E 09 There Goes The Neighborhood",
+   "year": 1985,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-04-e-09-there-goes-the-neighborhood"
+  },
+  {
+   "title": "The A Team S 02 E 21 Deadly Maneuvers",
+   "year": 1984,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-02-e-21-deadly-maneuvers"
+  },
+  {
+   "title": "The A Team S 02 E 18 It's A Desert Out There",
+   "year": 1984,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-02-e-18-its-a-desert-out-there"
+  },
+  {
+   "title": "The A Team S 02 E 10 Water, Water Everywhere",
+   "year": 1984,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-02-e-10-water-water-everywhere_202401"
+  },
+  {
+   "title": "The A Team S 02 E 17 Pure Dee Poison",
+   "year": 1984,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-02-e-17-pure-dee-poison"
+  },
+  {
+   "title": "The A Team S 03 E 06 Double Heat",
+   "year": 1984,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-03-e-06-double-heat_202402"
+  },
+  {
+   "title": "The A Team S 02 E 19 Chopping Spree",
+   "year": 1984,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-02-e-19-chopping-spree"
+  },
+  {
+   "title": "The A Team S 03 E 09 Showdown!",
+   "year": 1984,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-03-e-09-showdown"
+  },
+  {
+   "title": "The A Team S 01 E 08 Holiday In The Hills",
+   "year": 1983,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-01-e-09-holiday-in-the-hills"
+  },
+  {
+   "title": "Gavilan NBC",
+   "year": 1982,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "Gavilan"
+  },
+  {
+   "title": "The Kojak Chronicles",
+   "year": 2026,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-kojak-chronicles-the-marcus-nelson-murders"
+  },
+  {
+   "title": "The A Team S 02 E 05 When You Comin' Back, Range Rider Part 1",
+   "year": 1983,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-02-e-05-when-you-comin-back-range-rider-part-1"
+  },
+  {
    "title": "NO SONGS",
    "year": 2020,
    "items": 1,
@@ -23001,25 +23489,18 @@
    "ref": "farscape-s-03-"
   },
   {
+   "title": "farscape s 04",
+   "year": 1999,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "farscape-s-04"
+  },
+  {
    "title": "Snoops dramedy",
    "year": 1999,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "snoops-1999"
-  },
-  {
-   "title": "Murphy Brown S10E04 Operation",
-   "year": 1997,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "murphy-brown-s10E04-operation-murphy-brown"
-  },
-  {
-   "title": "From Wikipedia",
-   "year": 1980,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "yes-minister-1980-1984"
   },
   {
    "title": "benson ctv",
@@ -23043,6 +23524,13 @@
    "ref": "space-999-8"
   },
   {
+   "title": "Land Of The Lost \"Downstream\"",
+   "year": 1974,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "land-of-the-lost-downstream"
+  },
+  {
    "title": "Land of The Lost \"Tag Team\"",
    "year": 1974,
    "items": 1,
@@ -23064,39 +23552,11 @@
    "ref": "sigmund-and-the-sea-monsters-s-01-e-01_202106"
   },
   {
-   "title": "The Avengers S 04 E 09 The Hour That Never Was",
-   "year": 1965,
+   "title": "Petticoat Junction \"Spur Line To Shady Rest\"",
+   "year": 1963,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "the.avengers.1965.s04e09.the.hour.that.never.was"
-  },
-  {
-   "title": "The Outer Limits colorized",
-   "year": 1964,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-outer-limits-tv-1964-s02e05-demon-with-a-glass-hand"
-  },
-  {
-   "title": "The Outer Limits colorized",
-   "year": 1964,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-outer-limits-tv-1964-s02e07-the-invisible-enemy"
-  },
-  {
-   "title": "The Outer Limits colorized",
-   "year": 1964,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-outer-limits-s02e09-i-robot"
-  },
-  {
-   "title": "The Avengers 3 X 12 Don't Look Behind You",
-   "year": 1964,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "theavengers3x12dontlookbehindyou"
+   "ref": "PJ_Spurline"
   },
   {
    "title": "The Avengers 2x 12 The Big Thinker",
@@ -23111,13 +23571,6 @@
    "items": 1,
    "kind": "orphan-episode",
    "ref": "PJ_Herbie"
-  },
-  {
-   "title": "Have Gun Will Travel colorized",
-   "year": 1962,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "have-gun-will-travel-tv-1962-colorized-s06e01-genesis"
   },
   {
    "title": "Diver Dan",
@@ -23173,21 +23626,7 @@
    "year": 1961,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "DiverDan_Ep05_Treasure_Ship"
-  },
-  {
-   "title": "Diver Dan",
-   "year": 1961,
-   "items": 1,
-   "kind": "orphan-episode",
    "ref": "DiverDan_Ep07_Shell_O_Phone"
-  },
-  {
-   "title": "Diver Dan",
-   "year": 1961,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "DiverDan_Ep09_Murder_Ink"
   },
   {
    "title": "Diver Dan",
@@ -23201,7 +23640,7 @@
    "year": 1961,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "DiverDan_Ep06_Sawfish_Rescue"
+   "ref": "DiverDan_Ep09_Murder_Ink"
   },
   {
    "title": "Diver Dan",
@@ -23589,11 +24028,11 @@
    "ref": "DeathValleyDays-LittleWashington"
   },
   {
-   "title": "farscape s 04",
-   "year": 1999,
+   "title": "Checkmate: The Human Touch",
+   "year": 1961,
    "items": 1,
-   "kind": "orphan-episode",
-   "ref": "farscape-s-04"
+   "kind": "single",
+   "ref": "CheckmateTheHumanTouch1961"
   },
   {
    "title": "Bonanza Breed Of Violence",
@@ -23610,63 +24049,70 @@
    "ref": "DiverDan_Ep01_Hard_Water"
   },
   {
-   "title": "Hollywood Palace September 17,",
+   "title": "Hollywood Palace September 17",
    "year": 1966,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "HollywoodPalace091766"
   },
   {
-   "title": "Hollywood Palace May 7,",
+   "title": "Hollywood Palace May 7",
    "year": 1966,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "HollywoodPalace050666"
   },
   {
-   "title": "Hollywood Palace April 02,",
+   "title": "Hollywood Palace April 02",
    "year": 1966,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "HollywoodPalace040266"
   },
   {
-   "title": "Hollywood Palace March 27,",
+   "title": "Hollywood Palace February 6",
+   "year": 1965,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "HollywoodPalace020665"
+  },
+  {
+   "title": "Hollywood Palace March 27",
    "year": 1965,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "HollywoodPalace032765"
   },
   {
-   "title": "Hollywood Palace October 2,",
+   "title": "Hollywood Palace October 2",
    "year": 1965,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "HollywoodPalace100265"
   },
   {
-   "title": "Hollywood Palace February 12,",
+   "title": "Hollywood Palace February 12",
    "year": 1966,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "HollywoodPalace021266"
   },
   {
-   "title": "Hollywood Palace November 13,",
+   "title": "Hollywood Palace November 13",
    "year": 1965,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "HollywoodPalace111365"
   },
   {
-   "title": "Hollywood Palace April 10,",
+   "title": "Hollywood Palace April 10",
    "year": 1965,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "HollywoodPalace041065"
   },
   {
-   "title": "Hollywood Palace December 12,",
+   "title": "Hollywood Palace December 12",
    "year": 1964,
    "items": 1,
    "kind": "orphan-episode",
@@ -23680,207 +24126,11 @@
    "ref": "Bonanza_-_The_Abduction"
   },
   {
-   "title": "The A Team S 02 E 23 Curtain Call",
-   "year": 1984,
+   "title": "The Kojak Chronicles",
+   "year": 2026,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "the-a-team-s-02-e-23-curtain-call"
-  },
-  {
-   "title": "Petticoat Junction \"Spur Line To Shady Rest\"",
-   "year": 1963,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "PJ_Spurline"
-  },
-  {
-   "title": "Hollywood Palace February 6,",
-   "year": 1965,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "HollywoodPalace020665"
-  },
-  {
-   "title": "Checkmate: The Human Touch",
-   "year": 1961,
-   "items": 1,
-   "kind": "single",
-   "ref": "CheckmateTheHumanTouch1961"
-  },
-  {
-   "title": "Saturday Night Live January 23, (",
-   "year": 2019,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "saturdaynightlivejanuary231988s13e9pt.1"
-  },
-  {
-   "title": "Coming Of Age Sitcom",
-   "year": 1988,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "coming-of-age-1988-sitcom"
-  },
-  {
-   "title": "Indians, Outlaws and Angie Debo",
-   "year": 1988,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "IndiansOutlawsandAngieDebo"
-  },
-  {
-   "title": "Let Us Now Praise Famous Men, Revisited",
-   "year": 1988,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "LetUsNowPraiseFamousMenRevisited"
-  },
-  {
-   "title": "The A Team S 04 E 05 The Heart Of Rock N' Roll",
-   "year": 1987,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-a-team-s-04-e-05-the-heart-of-rock-n-roll"
-  },
-  {
-   "title": "America's Wild Horses",
-   "year": 1987,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "AmericasWildHorses"
-  },
-  {
-   "title": "Great Moments from NOVA",
-   "year": 1987,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "GreatMomentsfromNOVA"
-  },
-  {
-   "title": "Orangutans of the Rainforest",
-   "year": 1987,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "OrangutansoftheRainforest"
-  },
-  {
-   "title": "The A Team S 05 E 01 Dishpan Man",
-   "year": 1986,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-a-team-s-05-e-01-dishpan-man"
-  },
-  {
-   "title": "The A Team S 04 E 20 The Little Town With An Accent",
-   "year": 1986,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-a-team-s-04-e-21-the-little-town-with-an-accent"
-  },
-  {
-   "title": "The A Team S 04 E 22 Cowboy George",
-   "year": 1986,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-a-team-s-04-e-23-cowboy-george"
-  },
-  {
-   "title": "Edgerton and His Incredible Seeing Machines",
-   "year": 1985,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "EdgertonAndHisIncredibleSeeingMachines"
-  },
-  {
-   "title": "The A Team S 03 E 15 The Big Squeeze",
-   "year": 1985,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-a-team-s-03-e-15-the-big-squeeze"
-  },
-  {
-   "title": "The A Team S 03 E 22 Bounty",
-   "year": 1985,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-a-team-s-03-e-22-bounty"
-  },
-  {
-   "title": "The A Team S 04 E 09 There Goes The Neighborhood",
-   "year": 1985,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-a-team-s-04-e-09-there-goes-the-neighborhood"
-  },
-  {
-   "title": "The A Team S 02 E 21 Deadly Maneuvers",
-   "year": 1984,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-a-team-s-02-e-21-deadly-maneuvers"
-  },
-  {
-   "title": "The A Team S 02 E 18 It's A Desert Out There",
-   "year": 1984,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-a-team-s-02-e-18-its-a-desert-out-there"
-  },
-  {
-   "title": "The A Team S 02 E 10 Water, Water Everywhere",
-   "year": 1984,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-a-team-s-02-e-10-water-water-everywhere_202401"
-  },
-  {
-   "title": "The A Team S 02 E 17 Pure Dee Poison",
-   "year": 1984,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-a-team-s-02-e-17-pure-dee-poison"
-  },
-  {
-   "title": "The A Team S 03 E 06 Double Heat",
-   "year": 1984,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-a-team-s-03-e-06-double-heat_202402"
-  },
-  {
-   "title": "The A Team S 02 E 19 Chopping Spree",
-   "year": 1984,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-a-team-s-02-e-19-chopping-spree"
-  },
-  {
-   "title": "The A Team S 03 E 09 Showdown!",
-   "year": 1984,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-a-team-s-03-e-09-showdown"
-  },
-  {
-   "title": "The A Team S 01 E 08 Holiday In The Hills",
-   "year": 1983,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-a-team-s-01-e-09-holiday-in-the-hills"
-  },
-  {
-   "title": "Gavilan NBC Full Series",
-   "year": 1982,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "Gavilan"
-  },
-  {
-   "title": "Land Of The Lost \"Downstream\"",
-   "year": 1974,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "land-of-the-lost-downstream"
+   "ref": "the-kojak-chronicles-s01e16-18"
   },
   {
    "title": "The Kojak Chronicles",
@@ -23890,25 +24140,60 @@
    "ref": "kojak-chronicles-s01e12-15"
   },
   {
+   "title": "The Chronicles Of Kojak",
+   "year": 2026,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "kojak-s-01e-18-22"
+  },
+  {
    "title": "The Kojak Chronicles",
    "year": 2026,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "the-kojak-chronicles-the-marcus-nelson-murders"
+   "ref": "kojak-chronicles-s-01e-08-11"
   },
   {
-   "title": "The A Team S 02 E 05 When You Comin' Back, Range Rider Part 1",
-   "year": 1983,
+   "title": "The Avengers 3 X 12 Don't Look Behind You",
+   "year": 1964,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "the-a-team-s-02-e-05-when-you-comin-back-range-rider-part-1"
+   "ref": "theavengers3x12dontlookbehindyou"
   },
   {
    "title": "Diver Dan",
    "year": 1961,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "DiverDan_Ep37_School_Daze"
+   "ref": "DiverDan_Ep05_Treasure_Ship"
+  },
+  {
+   "title": "Diver Dan",
+   "year": 1961,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "DiverDan_Ep06_Sawfish_Rescue"
+  },
+  {
+   "title": "Spider Man 5000",
+   "year": 1981,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "spider-man-5000-1981-season-1-xvid"
+  },
+  {
+   "title": "MIT OpenCourseWare Chalk Radio Podcast",
+   "year": 2020,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "chalk-radio"
+  },
+  {
+   "title": "jackie gleason show",
+   "year": 1969,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "jackie-gleason-show-season-8-1969-1970"
   },
   {
    "title": "Lucy meets John Wayne",
@@ -39820,6 +40105,111 @@
    "items": 1,
    "kind": "single",
    "ref": "1985.09.14-golden-girls-premier-community-access-channel-3-snl-with-bill-m"
+  },
+  {
+   "title": "Supernatural Seasons 01-15 1080p BluRay x265 HEVC 10bit AAC 5.1 + Extras",
+   "year": 2005,
+   "items": 1,
+   "kind": "single",
+   "ref": "supernatural-seasons-01-15-1080p-bluray-x265-hevc-10bit-aac-5.1"
+  },
+  {
+   "title": "Late Night With Conan O' Brien - 2001",
+   "year": null,
+   "items": 1,
+   "kind": "single",
+   "ref": "late-night-with-conan-o-brien-2001"
+  },
+  {
+   "title": "Don't Hug Me I'm Scared TV Series | Season 1 Episodes 1 - 6",
+   "year": 2022,
+   "items": 1,
+   "kind": "single",
+   "ref": "dont-hug-me-im-scared-tv-series-s-01-e-03-family-full-episode"
+  },
+  {
+   "title": "The Big Idea Collection.",
+   "year": 1989,
+   "items": 1,
+   "kind": "single",
+   "ref": "and-remember-god-made-you-special-and-he-loves-you-very-much."
+  },
+  {
+   "title": "TV total: Sexskandal beim ZDF - Sendung #408 vom 10.06.2003",
+   "year": 2003,
+   "items": 1,
+   "kind": "single",
+   "ref": "tvtotalsexskandalbeimzdf-sendung408vom10.06.2003"
+  },
+  {
+   "title": "Transformers - Complete Original Series: Deluxe Edition",
+   "year": null,
+   "items": 1,
+   "kind": "single",
+   "ref": "MaverickTF"
+  },
+  {
+   "title": "Disney's Aladdin: The Series",
+   "year": null,
+   "items": 1,
+   "kind": "single",
+   "ref": "disneys-aladdin-the-series-1994"
+  },
+  {
+   "title": "In the Beginning | S1E1 | Good Omens",
+   "year": 2019,
+   "items": 1,
+   "kind": "single",
+   "ref": "101_20260419"
+  },
+  {
+   "title": "Medici al Capolinea",
+   "year": 2003,
+   "items": 1,
+   "kind": "single",
+   "ref": "picciafuoco"
+  },
+  {
+   "title": "Peacock Original Series The 'Burbs TV Series 2026 Season 01 -TV-MA, A Comedy-Drama Television Series Created By: Celeste Hughey For Peacock Network,The Series Premiered On February 8, 2026",
+   "year": null,
+   "items": 1,
+   "kind": "single",
+   "ref": "peacock-original-series-the-burbs-tv-series-2026-season-01"
+  },
+  {
+   "title": "M A S H",
+   "year": 1972,
+   "items": 1,
+   "kind": "single",
+   "ref": "mash_martinis_and_medicine_202604"
+  },
+  {
+   "title": "Apple Tv Original Series Amazing Stories (2000) Season 01,Created By: Steven Spielberg, The Series Was Produced For Apple TV+ And It's Executive Producers For The Series Included Spielberg, Edward Kitsis, Adam Horowitz, Darryl Frank, And Justin Falvey.",
+   "year": null,
+   "items": 1,
+   "kind": "single",
+   "ref": "apple-tv-original-series-amazing-stories-2000-season-01"
+  },
+  {
+   "title": "Delta (1992) [Complete Series]",
+   "year": 1993,
+   "items": 1,
+   "kind": "single",
+   "ref": "delta_1992"
+  },
+  {
+   "title": "DVD-6836 - The Rosie O'Donnell Show - The Tonight Show starring Johnny Carson - May 15, 2000",
+   "year": 2000,
+   "items": 1,
+   "kind": "single",
+   "ref": "dvd-6836-the-rosie-o-donnell-show-the-tonight-show-starring-johnny-carson-2"
+  },
+  {
+   "title": "The Book | S1E2 | Good Omens",
+   "year": 2019,
+   "items": 1,
+   "kind": "single",
+   "ref": "102_20260419"
   }
  ]
 }

@@ -1,0 +1,93 @@
+{
+  "version": 2,
+  "seriesID": "my-favorite-martian-1963",
+  "tvmazeID": 4512,
+  "title": "My Favorite Martian",
+  "yearStart": 1963,
+  "yearEnd": 1966,
+  "overview": "A Martian crash-lands on Earth and is taken in by young newspaper reporter Tim O'Hara. Disguised asTim's Uncle Martin, he attempts to repair his ship and keep himself out of trouble. But Tim's nosy landlady, Mrs. Brown, takes a liking to Uncle Martin, which complicates things, as does Uncle Martin's tendency to use his Martian powers at the wrong time.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71778-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy",
+    "Family",
+    "Science-Fiction"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "my-favorite-martian-tv-1963-s01e01-my-favorite-martin",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "My Favorite Martin",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/my-favorite-martian-tv-1963-s01e01-my-favorite-martin.7ce3ab1f.jpg",
+          "airDate": "1963-09-29",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "My Favorite Martian TV 1963 colorized s01e01 My Favorite Martin.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 188420158,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/my-favorite-martian-tv-1963-s01e01-my-favorite-martin/My%20Favorite%20Martian%20TV%201963%20colorized%20s01e01%20My%20Favorite%20Martin.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 107,
+  "tvdbID": "71778",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Ray Walston",
+      "character": "Uncle Martin",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258160/photo/649ebe70e66d3.jpg"
+    },
+    {
+      "name": "Bill Bixby",
+      "character": "Tim O'Hara",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257717/photo/6146afbb92eba.jpg"
+    },
+    {
+      "name": "Pamela Britton",
+      "character": "Mrs. Lorelei Brown",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/78043.jpg"
+    },
+    {
+      "name": "Ann Marshall",
+      "character": "Angela Brown",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/78044.jpg"
+    },
+    {
+      "name": "J. Pat O'Malley",
+      "character": "Harry Burns",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/260002/photo/63f6056578b39.jpg"
+    },
+    {
+      "name": "Alan Hewitt",
+      "character": "Detective Bill Brennan",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/260167/photo/64943c5cdeb78.jpg"
+    },
+    {
+      "name": "Roy Engel",
+      "character": "Police Chief",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/78047.jpg"
+    }
+  ]
+}

@@ -19,6 +19,29 @@
   "creator": null,
   "seasons": [
     {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "league-of-their-own-1993-series",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Drinking Problems",
+          "overview": "Jimmy and Dottie go on a date together after Jimmy is dumped and Dottie's husband forgets their anniversary.",
+          "stillURL": null,
+          "airDate": "1993-08-13",
+          "year": 1993,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E05 Drinking Problems.mp4",
+            "format": "h.264",
+            "sizeBytes": 155589550,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/league-of-their-own-1993-series/S01E05%20Drinking%20Problems.mp4"
+        }
+      ]
+    },
+    {
       "seasonNumber": null,
       "episodes": [
         {
@@ -38,24 +61,6 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/a-league-of-their-own-1993-tv-series/A%20League%20Of%20The-4.mp4"
-        },
-        {
-          "archiveID": "league-of-their-own-1993-series",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "A League of Their Own",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "S01E05 Drinking Problems.mp4",
-            "format": "h.264",
-            "sizeBytes": 155589550,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/league-of-their-own-1993-series/S01E05%20Drinking%20Problems.mp4"
         }
       ]
     }
@@ -113,8 +118,5 @@
       "order": 7,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0106055",
-  "canonicalEpisodeCount": 0,
-  "canonicalSeasons": null
+  ]
 }
