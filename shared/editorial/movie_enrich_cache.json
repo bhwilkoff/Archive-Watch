@@ -129062,5 +129062,18 @@
   "JSCExplorationMediaDayResources-111914": {
     "imdb_id": null,
     "fetched_at": "2026-07-09T06:16:17Z"
+  },
+  "Utada_Hikaru_This_Is_Love": {
+    "imdb_id": null,
+    "fetched_at": "2026-07-12T05:39:16Z"
+  },
+  "the-invisible-man-shadow-bomb": {
+    "imdb_id": "tt0050516",
+    "tmdb_id": 92708,
+    "fetched_at": "2026-07-12T05:39:16Z"
+  },
+  "the-fall-of-the-house-of-usher-1928-jean-epstein": {
+    "imdb_id": null,
+    "fetched_at": "2026-07-12T05:39:16Z"
   }
 }

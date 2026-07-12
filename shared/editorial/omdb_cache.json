@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-07-11T05:22:53Z",
+  "updated_at": "2026-07-12T05:39:08Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-07-11T05:22:53Z"
+      "last_tried": "2026-07-12T05:39:08Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-07-11T05:22:53Z"
+      "last_tried": "2026-07-12T05:39:08Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -318458,6 +318458,43 @@
       ],
       "genres": [],
       "fetched_at": "2026-07-08T05:31:46Z",
+      "schema": 3
+    },
+    "tt0013144": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzRmNTA2MTctNWIyYS00N2JhLTg0MzEtYzUwZDJiMmY1ZjI2XkEyXkFqcGdeQXVyNjA5MTAzODY@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Anne Woodstock, a singer, is engaged to district attorney Christopher Armstrong and is a patient of Dr. Kasimir, a Hindu hypnotist-physician, who presumably restores her voice. By a ruse, he lures Anne to his office and hypnotizes...",
+      "runtime_min": 50,
+      "director": "Paul Powell",
+      "actors": [
+        "Ethel Clayton",
+        "Vernon Steele",
+        "Zasu Pitts"
+      ],
+      "genres": [
+        "Drama",
+        "Mystery"
+      ],
+      "fetched_at": "2026-07-12T05:39:08Z",
+      "schema": 3
+    },
+    "tt0267326": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZDYwOGQ2M2QtYjU1OS00NTA2LTk2OTgtNDZhMGZkOWE4NmRkXkEyXkFqcGdeQXVyNjA5MTAzODY@._V1_SX300.jpg",
+      "imdb_rating": 5.4,
+      "imdb_votes": 11,
+      "content_rating": null,
+      "plot": "Blanchette, whose parents have sacrificed to give her an education, has received her teaching diploma, but is unable to find work. A dispute with her father leads to her being throw out of the house, and she goes to Paris to look for work.",
+      "runtime_min": null,
+      "director": "René Hervil",
+      "actors": [
+        "Pauline Johnson",
+        "Léon Mathot",
+        "Thérèse Kolb"
+      ],
+      "genres": [],
+      "fetched_at": "2026-07-12T05:39:08Z",
       "schema": 3
     }
   },
