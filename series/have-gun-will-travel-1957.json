@@ -19,6 +19,116 @@
   "creator": null,
   "seasons": [
     {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "have-gun-will-travel-tv-1957-s01e12-no-visitors",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Have Gun Will Travel TV 1957 colorized s01e12 No Visitors",
+          "overview": "Paladin's patience is tested when a settlement, believing typhoid to be a direct result of divine will, condemns innocents to death. Guest stars: June Lockhart, Grant Withers, Ruth Storey, Whit Bissell",
+          "stillURL": "https://archive.org/services/img/have-gun-will-travel-tv-1957-s01e12-no-visitors",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1558,
+          "videoFile": {
+            "name": "Have Gun Will Travel TV 1957 colorized s01e12 No Visitors.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 265342494,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/have-gun-will-travel-tv-1957-s01e12-no-visitors/Have%20Gun%20Will%20Travel%20TV%201957%20colorized%20s01e12%20No%20Visitors.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "have-gun-will-travel-tv-1958-s02e03-the-man-who-wouldnt-talk",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Have Gun Will Travel TV 1958 colorized s02e03 The Man Who Wouldnt Talk",
+          "overview": "<div>After seeing a performance of Cyrano De Bergerac, an awkward rancher (Charles Bronson) hires Paladin (Richard Boone) to tutor him in romance, even as conflict escalates with a neighboring landowner (Grace Raynor).</div><div><div><br /></div>I colorized this using AI software that doesn't always \nget the colors right, but I think it looks fairly natural. Hopefully a \nmore professional job will be done someday.\n</div>",
+          "stillURL": "https://archive.org/services/img/have-gun-will-travel-tv-1958-s02e03-the-man-who-wouldnt-talk",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1546,
+          "videoFile": {
+            "name": "Have Gun Will Travel TV 1958 colorized s02e03 The Man Who Wouldnt Talk.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 266111395,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/have-gun-will-travel-tv-1958-s02e03-the-man-who-wouldnt-talk/Have%20Gun%20Will%20Travel%20TV%201958%20colorized%20s02e03%20The%20Man%20Who%20Wouldnt%20Talk.mp4"
+        },
+        {
+          "archiveID": "have-gun-will-travel-tv-1959-s02e28-maggie-obannion",
+          "seasonNumber": 2,
+          "episodeNumber": 28,
+          "title": "Have Gun Will Travel TV 1959 colorized s02e28 Maggie O'Bannion",
+          "overview": "After Paladin (Richard Boone) is ambushed and robbed by an arrogant ranch foreman (Don Haggerty), he signs on as household help, quickly making friends with the cook (Peggy Rea) and eventually captivating the beautiful ranch owner (Marion Marshall). Written by Gene Roddenberry",
+          "stillURL": "https://archive.org/services/img/have-gun-will-travel-tv-1959-s02e28-maggie-obannion",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1523,
+          "videoFile": {
+            "name": "Have Gun Will Travel TV 1959 colorized s02e28 Maggie O'Bannion.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 187300615,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/have-gun-will-travel-tv-1959-s02e28-maggie-obannion/Have%20Gun%20Will%20Travel%20TV%201959%20colorized%20s02e28%20Maggie%20O%27Bannion.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "have-gun-will-travel-tv-1961-s04e35-the-cure",
+          "seasonNumber": 4,
+          "episodeNumber": 35,
+          "title": "Have Gun Will Travel TV 1961 colorized s04e35 The Cure",
+          "overview": "Martha Jane Conroy (Norma Crane) is at rock bottom. With the help of her old friend Paladin (Richard Boone), she tries to recoup some losses from her former business partner, who has been promoting a different woman in a sharpshooter act using her stage name, \"Calamity Jane\".",
+          "stillURL": "https://archive.org/services/img/have-gun-will-travel-tv-1961-s04e35-the-cure",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1557,
+          "videoFile": {
+            "name": "Have Gun Will Travel TV 1961 colorized s04e35 The Cure.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 236113159,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/have-gun-will-travel-tv-1961-s04e35-the-cure/Have%20Gun%20Will%20Travel%20TV%201961%20colorized%20s04e35%20The%20Cure.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "have-gun-will-travel-tv-1962-s05e21-the-hunt",
+          "seasonNumber": 5,
+          "episodeNumber": 21,
+          "title": "Have Gun Will Travel TV 1962 colorized s05e21 The Hunt",
+          "overview": "<div>Paladin (Richard Boone) is lured to Oregon under the pretense of a widow (Joan Elan) in distress, but he real reason is to engage him in a \"Most Dangerous Game\"-style hunt to the death with a bored prince (Leonid Kinskey).</div>",
+          "stillURL": "https://archive.org/services/img/have-gun-will-travel-tv-1962-s05e21-the-hunt",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 1541,
+          "videoFile": {
+            "name": "Have Gun Will Travel TV 1962 colorized s05e21 The Hunt.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 339045494,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/have-gun-will-travel-tv-1962-s05e21-the-hunt/Have%20Gun%20Will%20Travel%20TV%201962%20colorized%20s05e21%20The%20Hunt.mp4"
+        }
+      ]
+    },
+    {
       "seasonNumber": 6,
       "episodes": [
         {
@@ -38,11 +148,29 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/have-gun-will-travel-tv-1962-colorized-s06e01-genesis/Have%20Gun%20Will%20Travel%20TV%201962%20colorized%20s06e01%20Genesis.mp4"
+        },
+        {
+          "archiveID": "have-gun-will-travel-tv-1962-colorized-s06e18-bob-wire",
+          "seasonNumber": 6,
+          "episodeNumber": 18,
+          "title": "Have Gun Will Travel TV 1962 colorized s06e18 Bob Wire",
+          "overview": "<div>Paladin (Richard Boone) is hired by a man (Woodrow Parfrey) to escort his wagon load of barbed wire. What he doesn't say until they arrive at their destination is that a range war is brewing, and Paladin is now right in the middle of it.</div><div>Written by Bruce Geller. Guest stars: James Bell, Irish McCalla</div>",
+          "stillURL": "https://archive.org/services/img/have-gun-will-travel-tv-1962-colorized-s06e18-bob-wire",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 1537,
+          "videoFile": {
+            "name": "Have Gun Will Travel TV 1962 colorized s06e18 Bob Wire.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 220265611,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/have-gun-will-travel-tv-1962-colorized-s06e18-bob-wire/Have%20Gun%20Will%20Travel%20TV%201962%20colorized%20s06e18%20Bob%20Wire.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 7,
   "canonicalEpisodesCount": 225,
   "tvdbID": "72097",
   "artworkSource": "tvdb",
@@ -59,5 +187,8 @@
       "order": 1,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/81093.jpg"
     }
-  ]
+  ],
+  "seriesImdbID": "tt0050025",
+  "canonicalEpisodeCount": 183,
+  "canonicalSeasons": 6
 }

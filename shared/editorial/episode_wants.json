@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-07-11T06:17:32Z",
+  "updated_at": "2026-07-13T07:29:24Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 17281,
-    "wanted": 17065,
-    "fulfilled": 216,
-    "series_with_gaps": 346
+    "total": 17573,
+    "wanted": 17352,
+    "fulfilled": 221,
+    "series_with_gaps": 350
   },
   "wants": [
     {
@@ -59512,6 +59512,1831 @@
       "added_at": "2026-06-04T08:24:27Z"
     },
     {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 1,
+      "title": "Three Bells to Perdido",
+      "episodeImdbID": "tt0597682",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 2,
+      "title": "The Outlaw",
+      "episodeImdbID": "tt0597639",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 3,
+      "title": "The Great Mojave Chase",
+      "episodeImdbID": "tt0597607",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 4,
+      "title": "Winchester Quarantine",
+      "episodeImdbID": "tt0597692",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 5,
+      "title": "A Matter of Ethics",
+      "episodeImdbID": "tt0597471",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 6,
+      "title": "The Bride",
+      "episodeImdbID": "tt0597585",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 7,
+      "title": "Strange Vendetta",
+      "episodeImdbID": "tt0597577",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 8,
+      "title": "High Wire",
+      "episodeImdbID": "tt0597528",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 9,
+      "title": "Show of Force",
+      "episodeImdbID": "tt0597571",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 10,
+      "title": "The Long Night",
+      "episodeImdbID": "tt0597626",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 14,
+      "title": "The Yuma Treasure",
+      "episodeImdbID": "tt0597681",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 15,
+      "title": "The Hanging Cross",
+      "episodeImdbID": "tt0597608",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 16,
+      "title": "Helen of Abajinian",
+      "episodeImdbID": "tt0597525",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 18,
+      "title": "The Reasonable Man",
+      "episodeImdbID": "tt0597652",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 20,
+      "title": "The Last Laugh",
+      "episodeImdbID": "tt0597622",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 22,
+      "title": "The Singer",
+      "episodeImdbID": "tt0597665",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 24,
+      "title": "Girl from Piccadilly",
+      "episodeImdbID": "tt0597522",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 28,
+      "title": "Killer's Widow",
+      "episodeImdbID": "tt0597538",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 30,
+      "title": "The Prize Fight Story",
+      "episodeImdbID": "tt0597647",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 31,
+      "title": "Hey Boy's Revenge",
+      "episodeImdbID": "tt0597527",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 32,
+      "title": "The Five Books of Owen Deaver",
+      "episodeImdbID": "tt0597602",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 33,
+      "title": "The Silver Queen",
+      "episodeImdbID": "tt0597664",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 34,
+      "title": "Three Sons",
+      "episodeImdbID": "tt0597683",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 35,
+      "title": "The Return of Dr. Thackeray",
+      "episodeImdbID": "tt0597653",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 36,
+      "title": "Twenty-Four Hours at North Fork",
+      "episodeImdbID": "tt0597687",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 37,
+      "title": "Silver Convoy",
+      "episodeImdbID": "tt0597573",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 38,
+      "title": "Deliver the Body",
+      "episodeImdbID": "tt0597505",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 1,
+      "episode": 39,
+      "title": "The Statue of San Sebastian",
+      "episodeImdbID": "tt0597667",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 1,
+      "title": "The Manhunter",
+      "episodeImdbID": "tt0597630",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 2,
+      "title": "In an Evil Time",
+      "episodeImdbID": "tt0597532",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 3,
+      "title": "The Man Who Wouldn't Talk",
+      "episodeImdbID": "tt0597629",
+      "status": "fulfilled",
+      "added_at": "2026-07-13T07:11:33Z",
+      "fulfilled_at": "2026-07-13T07:29:24Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 4,
+      "title": "The Hanging of Roy Carter",
+      "episodeImdbID": "tt0597610",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 5,
+      "title": "Duel at Florence",
+      "episodeImdbID": "tt0597508",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 6,
+      "title": "The Protégé",
+      "episodeImdbID": "tt0597649",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 7,
+      "title": "The Road to Wickenburg",
+      "episodeImdbID": "tt0597657",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 8,
+      "title": "A Sense of Justice",
+      "episodeImdbID": "tt0597474",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 9,
+      "title": "Young Gun",
+      "episodeImdbID": "tt0597693",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 10,
+      "title": "The Lady",
+      "episodeImdbID": "tt0597618",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 11,
+      "title": "A Snare for Murder",
+      "episodeImdbID": "tt0597475",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 12,
+      "title": "The Ballad of Oscar Wilde",
+      "episodeImdbID": "tt0597580",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 13,
+      "title": "The Solid Gold Patrol",
+      "episodeImdbID": "tt0597666",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 14,
+      "title": "Something to Live For",
+      "episodeImdbID": "tt0597575",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 15,
+      "title": "The Moor's Revenge",
+      "episodeImdbID": "tt0597635",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 16,
+      "title": "The Wager",
+      "episodeImdbID": "tt0597678",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 17,
+      "title": "The Taffeta Mayor",
+      "episodeImdbID": "tt0597668",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 18,
+      "title": "Lady on the Stagecoach",
+      "episodeImdbID": "tt0597539",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 20,
+      "title": "Juliet",
+      "episodeImdbID": "tt0597536",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 21,
+      "title": "Hunt the Man Down",
+      "episodeImdbID": "tt0597531",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 23,
+      "title": "The Return of the Lady",
+      "episodeImdbID": "tt0597654",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 24,
+      "title": "The Monster of Moon Ridge",
+      "episodeImdbID": "tt0597634",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 25,
+      "title": "The Long Hunt",
+      "episodeImdbID": "tt0597625",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 26,
+      "title": "Death of a Gunfighter",
+      "episodeImdbID": "tt0597503",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 27,
+      "title": "Incident at Borrasca Bend",
+      "episodeImdbID": "tt0597533",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 28,
+      "title": "Maggie O'Bannion",
+      "episodeImdbID": "tt0597546",
+      "status": "fulfilled",
+      "added_at": "2026-07-13T07:11:33Z",
+      "fulfilled_at": "2026-07-13T07:29:24Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 29,
+      "title": "The Chase",
+      "episodeImdbID": "tt0597590",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 30,
+      "title": "Alaska",
+      "episodeImdbID": "tt0597476",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 31,
+      "title": "The Man Who Lost",
+      "episodeImdbID": "tt0597628",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 33,
+      "title": "Sons of Aaron Murdock",
+      "episodeImdbID": "tt0597576",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 34,
+      "title": "Comanche",
+      "episodeImdbID": "tt0597498",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 35,
+      "title": "Homecoming",
+      "episodeImdbID": "tt0597530",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 36,
+      "title": "The Fifth Man",
+      "episodeImdbID": "tt0597601",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 37,
+      "title": "Heritage of Anger",
+      "episodeImdbID": "tt0597526",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 38,
+      "title": "The Haunted Trees",
+      "episodeImdbID": "tt0597612",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 2,
+      "episode": 39,
+      "title": "Gold and Brimstone",
+      "episodeImdbID": "tt0597523",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 2,
+      "title": "Episode in Laredo",
+      "episodeImdbID": "tt0597512",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 4,
+      "title": "The Posse",
+      "episodeImdbID": "tt0597643",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 7,
+      "title": "Fragile",
+      "episodeImdbID": "tt0597519",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 8,
+      "title": "Unforgiven",
+      "episodeImdbID": "tt0597689",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 10,
+      "title": "The Golden Toad",
+      "episodeImdbID": "tt0597605",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 11,
+      "title": "Tiger",
+      "episodeImdbID": "tt0597684",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 12,
+      "title": "Champagne Safari",
+      "episodeImdbID": "tt0597496",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 13,
+      "title": "Charley Red Dog",
+      "episodeImdbID": "tt0597497",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 15,
+      "title": "One Came Back",
+      "episodeImdbID": "tt0597555",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 16,
+      "title": "The Prophet",
+      "episodeImdbID": "tt0597648",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 17,
+      "title": "The Day of the Bad Man",
+      "episodeImdbID": "tt0597593",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 20,
+      "title": "Return to Fort Benjamin",
+      "episodeImdbID": "tt0597566",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 21,
+      "title": "The Night the Town Died",
+      "episodeImdbID": "tt0597637",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 22,
+      "title": "The Ledge",
+      "episodeImdbID": "tt0597623",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 23,
+      "title": "The Lady on the Wall",
+      "episodeImdbID": "tt0597620",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 25,
+      "title": "The Hatchet Man",
+      "episodeImdbID": "tt0597611",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 26,
+      "title": "Fight at Adobe Wells",
+      "episodeImdbID": "tt0597516",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 27,
+      "title": "The Gladiators",
+      "episodeImdbID": "tt0597603",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 28,
+      "title": "Love of a Bad Woman",
+      "episodeImdbID": "tt0597627",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 29,
+      "title": "An International Affair",
+      "episodeImdbID": "tt0597480",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 30,
+      "title": "Lady with a Gun",
+      "episodeImdbID": "tt0597540",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 31,
+      "title": "Never Help the Devil",
+      "episodeImdbID": "tt0597552",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 33,
+      "title": "Black Sheep",
+      "episodeImdbID": "tt0597488",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 34,
+      "title": "Full Circle",
+      "episodeImdbID": "tt0597520",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 35,
+      "title": "The Twins",
+      "episodeImdbID": "tt0597675",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 37,
+      "title": "Ransom",
+      "episodeImdbID": "tt0597564",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 3,
+      "episode": 38,
+      "title": "The Trial",
+      "episodeImdbID": "tt0597674",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 1,
+      "title": "The Fatalist",
+      "episodeImdbID": "tt0597599",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 2,
+      "title": "Love's Young Dream",
+      "episodeImdbID": "tt0597545",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 3,
+      "title": "A Head of Hair",
+      "episodeImdbID": "tt0597469",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 4,
+      "title": "Out at the Old Ball Park",
+      "episodeImdbID": "tt0597557",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 6,
+      "title": "The Calf",
+      "episodeImdbID": "tt0597588",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 8,
+      "title": "The Shooting of Jessie May",
+      "episodeImdbID": "tt0597662",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 9,
+      "title": "The Poker Fiend",
+      "episodeImdbID": "tt0597642",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 10,
+      "title": "Crowbait",
+      "episodeImdbID": "tt0597501",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 11,
+      "title": "The Marshal's Boy",
+      "episodeImdbID": "tt0597632",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 12,
+      "title": "Fogg Bound",
+      "episodeImdbID": "tt0597518",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 13,
+      "title": "The Legacy",
+      "episodeImdbID": "tt0597624",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 14,
+      "title": "The Prisoner",
+      "episodeImdbID": "tt0597646",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 15,
+      "title": "The Puppeteer",
+      "episodeImdbID": "tt0597650",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 16,
+      "title": "The Sanctuary",
+      "episodeImdbID": "tt0597658",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 17,
+      "title": "A Quiet Night in Town: Part 1",
+      "episodeImdbID": "tt0597562",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 18,
+      "title": "A Quiet Night in Town: Part 2",
+      "episodeImdbID": "tt0597563",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 19,
+      "title": "The Princess and the Gunfighter",
+      "episodeImdbID": "tt0597645",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 21,
+      "title": "Long Way Home",
+      "episodeImdbID": "tt0597543",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 22,
+      "title": "The Tax Gatherer",
+      "episodeImdbID": "tt0597669",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 25,
+      "title": "The Last Judgment",
+      "episodeImdbID": "tt0597621",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 27,
+      "title": "Everyman",
+      "episodeImdbID": "tt0597513",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 29,
+      "title": "Long Weekend",
+      "episodeImdbID": "tt0597544",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 30,
+      "title": "El Paso Stage",
+      "episodeImdbID": "tt0597510",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 31,
+      "title": "Duke of Texas",
+      "episodeImdbID": "tt0597509",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 32,
+      "title": "Broken Image",
+      "episodeImdbID": "tt0597491",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 33,
+      "title": "Brother's Keeper",
+      "episodeImdbID": "tt0597492",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 34,
+      "title": "Bearbait",
+      "episodeImdbID": "tt0597483",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 35,
+      "title": "The Cure",
+      "episodeImdbID": "tt0597592",
+      "status": "fulfilled",
+      "added_at": "2026-07-13T07:11:33Z",
+      "fulfilled_at": "2026-07-13T07:29:24Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 36,
+      "title": "The Road",
+      "episodeImdbID": "tt0597656",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 37,
+      "title": "The Uneasy Grave",
+      "episodeImdbID": "tt0597676",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 4,
+      "episode": 38,
+      "title": "Soledad Crossing",
+      "episodeImdbID": "tt0597574",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 1,
+      "title": "The Vigil",
+      "episodeImdbID": "tt0597677",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 2,
+      "title": "The Education of Sara Jane",
+      "episodeImdbID": "tt0597594",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 3,
+      "title": "The Revenger",
+      "episodeImdbID": "tt0597655",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 4,
+      "title": "Odds for Big Red",
+      "episodeImdbID": "tt0597554",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 5,
+      "title": "A Proof of Love",
+      "episodeImdbID": "tt0597473",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 6,
+      "title": "The Gospel Singer",
+      "episodeImdbID": "tt0597606",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 7,
+      "title": "The Race",
+      "episodeImdbID": "tt0597651",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 8,
+      "title": "The Hanging of Aaron Gibbs",
+      "episodeImdbID": "tt0597609",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 9,
+      "title": "The Piano",
+      "episodeImdbID": "tt0597640",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 10,
+      "title": "Ben Jalisco",
+      "episodeImdbID": "tt0597485",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 11,
+      "title": "The Brothers",
+      "episodeImdbID": "tt0597586",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 12,
+      "title": "A Drop of Blood",
+      "episodeImdbID": "tt0597468",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 13,
+      "title": "A Knight to Remember",
+      "episodeImdbID": "tt0597470",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 14,
+      "title": "Blind Circle",
+      "episodeImdbID": "tt0597489",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 15,
+      "title": "The Kid",
+      "episodeImdbID": "tt0597616",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 16,
+      "title": "Squatter's Rights",
+      "episodeImdbID": "tt0597636",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 17,
+      "title": "Lazarus",
+      "episodeImdbID": "tt0597537",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 18,
+      "title": "Justice in Hell",
+      "episodeImdbID": "tt0597631",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 19,
+      "title": "The Mark of Cain",
+      "episodeImdbID": "tt0597541",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 20,
+      "title": "The Exiles",
+      "episodeImdbID": "tt0597597",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 21,
+      "title": "The Hunt",
+      "episodeImdbID": "tt0597614",
+      "status": "fulfilled",
+      "added_at": "2026-07-13T07:11:33Z",
+      "fulfilled_at": "2026-07-13T07:29:24Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 22,
+      "title": "Dream Girl",
+      "episodeImdbID": "tt0597507",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 23,
+      "title": "One, Two, Three",
+      "episodeImdbID": "tt0597556",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 24,
+      "title": "The Waiting Room",
+      "episodeImdbID": "tt0597679",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 25,
+      "title": "The Trap",
+      "episodeImdbID": "tt0597672",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 26,
+      "title": "Don't Shoot the Piano Player",
+      "episodeImdbID": "tt0597506",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 27,
+      "title": "Alice",
+      "episodeImdbID": "tt0597477",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 28,
+      "title": "Man Who Struck Moonshine",
+      "episodeImdbID": "tt0597547",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 29,
+      "title": "Silent Death, Secret Death",
+      "episodeImdbID": "tt0597572",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 30,
+      "title": "Hobson's Choice",
+      "episodeImdbID": "tt0597529",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 31,
+      "title": "Coming of the Tiger",
+      "episodeImdbID": "tt0597499",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 32,
+      "title": "Darwin's Man",
+      "episodeImdbID": "tt0597502",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 33,
+      "title": "Invasion",
+      "episodeImdbID": "tt0597534",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 34,
+      "title": "Cream of the Jest",
+      "episodeImdbID": "tt0597500",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 35,
+      "title": "Bandit",
+      "episodeImdbID": "tt0597481",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 37,
+      "title": "Jonah and the Trout",
+      "episodeImdbID": "tt0597615",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 5,
+      "episode": 38,
+      "title": "The Knight",
+      "episodeImdbID": "tt0597617",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 2,
+      "title": "Taylor's Woman",
+      "episodeImdbID": "tt0597579",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 3,
+      "title": "The Fifth Bullet",
+      "episodeImdbID": "tt0597600",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 4,
+      "title": "Place for Abel Hix",
+      "episodeImdbID": "tt0597561",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 5,
+      "title": "Beau Geste",
+      "episodeImdbID": "tt0597484",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 6,
+      "title": "The Bird of Time",
+      "episodeImdbID": "tt0597581",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 7,
+      "title": "Memories of Monica",
+      "episodeImdbID": "tt0597550",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 8,
+      "title": "The Predators",
+      "episodeImdbID": "tt0597644",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 11,
+      "title": "Marshal of Sweetwater",
+      "episodeImdbID": "tt0597549",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 13,
+      "title": "Penelope",
+      "episodeImdbID": "tt0597560",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 14,
+      "title": "Trial at Tablerock",
+      "episodeImdbID": "tt0597686",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 16,
+      "title": "The Treasure",
+      "episodeImdbID": "tt0597673",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 17,
+      "title": "Brotherhood",
+      "episodeImdbID": "tt0597493",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 18,
+      "title": "Bob Wire",
+      "episodeImdbID": "tt0597490",
+      "status": "fulfilled",
+      "added_at": "2026-07-13T07:11:33Z",
+      "fulfilled_at": "2026-07-13T07:29:24Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 19,
+      "title": "Debutante",
+      "episodeImdbID": "tt0597504",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 20,
+      "title": "Unforgiving Minute",
+      "episodeImdbID": "tt0597690",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 21,
+      "title": "American Primitive",
+      "episodeImdbID": "tt0597479",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 24,
+      "title": "Caravan",
+      "episodeImdbID": "tt0597495",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 25,
+      "title": "The Walking Years",
+      "episodeImdbID": "tt0597680",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 26,
+      "title": "Sweet Lady of the Moon",
+      "episodeImdbID": "tt0597578",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 27,
+      "title": "The Savages",
+      "episodeImdbID": "tt0597659",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 28,
+      "title": "The Eve of St. Elmo",
+      "episodeImdbID": "tt0597596",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 29,
+      "title": "The Lady of the Fifth Moon",
+      "episodeImdbID": "tt0597619",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "have-gun-will-travel-1957",
+      "seriesTitle": "Have Gun, Will Travel",
+      "season": 6,
+      "episode": 32,
+      "title": "Face of a Shadow",
+      "episodeImdbID": "tt0597514",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
       "seriesID": "hawaii-five-o-1968",
       "seriesTitle": "Hawaii Five-O",
       "season": 1,
@@ -67711,6 +69536,246 @@
       "episodeImdbID": "tt0613138",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 2,
+      "title": "A Page Before Dying",
+      "episodeImdbID": "tt0614629",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 3,
+      "title": "Buried in the Cold Cold Ground",
+      "episodeImdbID": "tt0614637",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 4,
+      "title": "A Deadly Line in Digits",
+      "episodeImdbID": "tt0614627",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 5,
+      "title": "Variations on a Theme",
+      "episodeImdbID": "tt0614650",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 6,
+      "title": "As Easy as A.B.C.",
+      "episodeImdbID": "tt0614636",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 8,
+      "title": "A Red Red Rose Forever",
+      "episodeImdbID": "tt0614630",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 9,
+      "title": "All That Glisters...: Part 1",
+      "episodeImdbID": "tt0614633",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 10,
+      "title": "All That Glisters...: Part 2",
+      "episodeImdbID": "tt0614634",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 11,
+      "title": "Flamingos Only Fly on Tuesdays",
+      "episodeImdbID": "tt0614640",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 12,
+      "title": "Toki",
+      "episodeImdbID": "tt0614648",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 13,
+      "title": "The Constance Missal",
+      "episodeImdbID": "tt0614645",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 14,
+      "title": "Uneasy Lies the Head",
+      "episodeImdbID": "tt0614649",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 15,
+      "title": "Nadine",
+      "episodeImdbID": "tt0614643",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 16,
+      "title": "A Kiss for a Beautiful Killer",
+      "episodeImdbID": "tt0614628",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 17,
+      "title": "If It's Got to Go - It's Got to Go",
+      "episodeImdbID": "tt0614641",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 18,
+      "title": "A Thin Band of Air",
+      "episodeImdbID": "tt0614632",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 19,
+      "title": "It's Too Bad About Auntie",
+      "episodeImdbID": "tt0614642",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 20,
+      "title": "The Stones of Venice",
+      "episodeImdbID": "tt0614646",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 21,
+      "title": "A Royal Flush",
+      "episodeImdbID": "tt0614631",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 22,
+      "title": "Every Picture Tells a Story",
+      "episodeImdbID": "tt0614639",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 23,
+      "title": "Chapter One: The Company I Keep",
+      "episodeImdbID": "tt0614638",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 24,
+      "title": "Zenia",
+      "episodeImdbID": "tt0614652",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 25,
+      "title": "An Author in Search of Two Characters",
+      "episodeImdbID": "tt0614635",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "jason-king-1971",
+      "seriesTitle": "Jason King",
+      "season": 1,
+      "episode": 26,
+      "title": "That Isn't Me, It's Somebody Else",
+      "episodeImdbID": "tt0614644",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
     },
     {
       "seriesID": "johnny-midnight-1960",
@@ -83187,6 +85252,856 @@
       "added_at": "2026-06-14T08:26:25Z"
     },
     {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 2,
+      "title": "The Matchmakers",
+      "episodeImdbID": "tt0654559",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 3,
+      "title": "There Is No Cure for the Common Martian",
+      "episodeImdbID": "tt0654564",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 4,
+      "title": "Russians R in Season",
+      "episodeImdbID": "tt0654542",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 5,
+      "title": "Man or Amoeba",
+      "episodeImdbID": "tt0654516",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 6,
+      "title": "The Man on the Couch",
+      "episodeImdbID": "tt0654557",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 7,
+      "title": "A Loaf of Bread, a Jug of Wine, and Peaches",
+      "episodeImdbID": "tt0654482",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 8,
+      "title": "The Awful Truth",
+      "episodeImdbID": "tt0654549",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 9,
+      "title": "Rocket to Mars",
+      "episodeImdbID": "tt0654541",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 10,
+      "title": "Raffles No. 2",
+      "episodeImdbID": "tt0654540",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 11,
+      "title": "The Atom Misers",
+      "episodeImdbID": "tt0654548",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 12,
+      "title": "That Little Old Matchmaker, Martin",
+      "episodeImdbID": "tt0654547",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 13,
+      "title": "How to Be a Hero Without Really Trying",
+      "episodeImdbID": "tt0654510",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 14,
+      "title": "Blood Is Thicker Than the Martian",
+      "episodeImdbID": "tt0654488",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 15,
+      "title": "Poor Little Rich Cat",
+      "episodeImdbID": "tt0654537",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 16,
+      "title": "RX for a Martian",
+      "episodeImdbID": "tt0654539",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 17,
+      "title": "Going, Going, Gone",
+      "episodeImdbID": "tt0654501",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 18,
+      "title": "Who Am I?",
+      "episodeImdbID": "tt0654579",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 19,
+      "title": "Now You See It, Now You Don't",
+      "episodeImdbID": "tt0654531",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 20,
+      "title": "My Nephew the Artist",
+      "episodeImdbID": "tt0654526",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 21,
+      "title": "Hitch-Hike to Mars",
+      "episodeImdbID": "tt0654506",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 23,
+      "title": "An Old, Old Friend of the Family",
+      "episodeImdbID": "tt0654486",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 24,
+      "title": "Super-Duper Snooper",
+      "episodeImdbID": "tt0654545",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 25,
+      "title": "The Sinkable Mrs. Brown",
+      "episodeImdbID": "tt0654562",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 26,
+      "title": "Martin and the Eternal Triangle",
+      "episodeImdbID": "tt0654520",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 27,
+      "title": "Danger! High Voltage",
+      "episodeImdbID": "tt0654491",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 28,
+      "title": "If You Can't Lick 'Em",
+      "episodeImdbID": "tt0654513",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 29,
+      "title": "Unidentified Flying Uncle Martin",
+      "episodeImdbID": "tt0654574",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 30,
+      "title": "How You Gonna Keep 'Em Down on the Pharmacy?",
+      "episodeImdbID": "tt0654509",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 31,
+      "title": "Miss Jekyll and Hyde",
+      "episodeImdbID": "tt0654525",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 32,
+      "title": "Who's Got the Power?",
+      "episodeImdbID": "tt0654581",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 33,
+      "title": "Oh, My Aching Antenna",
+      "episodeImdbID": "tt0654532",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 34,
+      "title": "The Disastro-Nauts",
+      "episodeImdbID": "tt0654551",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 35,
+      "title": "Shake Well and Don't Use",
+      "episodeImdbID": "tt0654543",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 36,
+      "title": "A Nose for News",
+      "episodeImdbID": "tt0654485",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 1,
+      "episode": 37,
+      "title": "Uncle Martin's Wisdom Tooth",
+      "episodeImdbID": "tt0654571",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 1,
+      "title": "Dreaming Can Make It So",
+      "episodeImdbID": "tt0654496",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 2,
+      "title": "The Memory Pill",
+      "episodeImdbID": "tt0654560",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 4,
+      "title": "Nothing But the Truth",
+      "episodeImdbID": "tt0654530",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 5,
+      "title": "Dial M for Martin",
+      "episodeImdbID": "tt0654492",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 6,
+      "title": "Extra! Extra! Sensory Perception!",
+      "episodeImdbID": "tt0654498",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 7,
+      "title": "My Uncle the Folk Singer",
+      "episodeImdbID": "tt0654528",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 8,
+      "title": "The Great Brain Robbery",
+      "episodeImdbID": "tt0654553",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 9,
+      "title": "Double Trouble",
+      "episodeImdbID": "tt0654495",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 10,
+      "title": "Has Anybody Seen My Electro-Magnetic Neutron Converting Gravitator?",
+      "episodeImdbID": "tt0654503",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 11,
+      "title": "Don't Rain on My Parade",
+      "episodeImdbID": "tt0654494",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 13,
+      "title": "To Make a Rabbit Stew, First Catch a Martian",
+      "episodeImdbID": "tt0654569",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 14,
+      "title": "Won't You Come Home, Uncle Martin, Won't You Come Home?",
+      "episodeImdbID": "tt0654582",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 15,
+      "title": "The Case of the Missing Sleuth",
+      "episodeImdbID": "tt0654550",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 16,
+      "title": "How Are Things in Glocca, Martin?",
+      "episodeImdbID": "tt0654508",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 17,
+      "title": "Gesundheit, Uncle Martin",
+      "episodeImdbID": "tt0775651",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 18,
+      "title": "Martian Report #1",
+      "episodeImdbID": "tt0654517",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 19,
+      "title": "Uncle Martin and the Identified Flying Object",
+      "episodeImdbID": "tt0654572",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 20,
+      "title": "A Martian Fiddles Around",
+      "episodeImdbID": "tt0654483",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 21,
+      "title": "Humbug, Mrs. Brown",
+      "episodeImdbID": "tt0654511",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 22,
+      "title": "Crash Diet",
+      "episodeImdbID": "tt0654490",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 23,
+      "title": "Gone But Not Forgotten",
+      "episodeImdbID": "tt0654502",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 24,
+      "title": "Stop, or I'll Steam",
+      "episodeImdbID": "tt0654544",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 25,
+      "title": "The Magnetic Personality and Who Needs It",
+      "episodeImdbID": "tt0654555",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 26,
+      "title": "We Love You, Miss Pringle",
+      "episodeImdbID": "tt0654576",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 27,
+      "title": "Uncle Baby",
+      "episodeImdbID": "tt0654570",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 28,
+      "title": "Once Upon a Martian Mother's Day",
+      "episodeImdbID": "tt0654533",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 29,
+      "title": "Uncle Martin's Bedtime Story",
+      "episodeImdbID": "tt0781911",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 31,
+      "title": "Never Trust a Naked Martian",
+      "episodeImdbID": "tt0783991",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 32,
+      "title": "Martin's Favorite Martian",
+      "episodeImdbID": "tt0654522",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 33,
+      "title": "The Martian's Fair Hobo",
+      "episodeImdbID": "tt0654558",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 34,
+      "title": "A Martian Sonata in Mrs. B's Flat",
+      "episodeImdbID": "tt0654484",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 35,
+      "title": "The Green-Eyed Martian",
+      "episodeImdbID": "tt0654554",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 36,
+      "title": "El Señor from Mars",
+      "episodeImdbID": "tt0654497",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 37,
+      "title": "Time Out for Martin",
+      "episodeImdbID": "tt0654568",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 2,
+      "episode": 38,
+      "title": "Portrait in Brown",
+      "episodeImdbID": "tt0654538",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 3,
+      "episode": 6,
+      "title": "Tim, the Mastermind",
+      "episodeImdbID": "tt0654567",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 3,
+      "episode": 7,
+      "title": "Martin Goldfinger",
+      "episodeImdbID": "tt0654518",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 3,
+      "episode": 8,
+      "title": "Bottled Martian",
+      "episodeImdbID": "tt0654489",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 3,
+      "episode": 9,
+      "title": "Hate Me a Little",
+      "episodeImdbID": "tt0654504",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 3,
+      "episode": 10,
+      "title": "The Girl in the Flying Machine",
+      "episodeImdbID": "tt0654552",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 3,
+      "episode": 11,
+      "title": "The Time Machine Is Waking Up That Old Gang of Mine",
+      "episodeImdbID": "tt0654563",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 3,
+      "episode": 13,
+      "title": "Tim and Tim Again",
+      "episodeImdbID": "tt0654566",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 3,
+      "episode": 18,
+      "title": "Martin's Revoltin' Development",
+      "episodeImdbID": "tt0654523",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 3,
+      "episode": 19,
+      "title": "TV or Not TV",
+      "episodeImdbID": "tt0654546",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 3,
+      "episode": 20,
+      "title": "The Man from Uncle Martin",
+      "episodeImdbID": "tt0654556",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 3,
+      "episode": 22,
+      "title": "Butterball",
+      "episodeImdbID": "tt0802788",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 3,
+      "episode": 26,
+      "title": "Virus M for Martian",
+      "episodeImdbID": "tt0654575",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 3,
+      "episode": 27,
+      "title": "Our Notorious Landlady",
+      "episodeImdbID": "tt0654534",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 3,
+      "episode": 28,
+      "title": "Martin Meets His Match",
+      "episodeImdbID": "tt0654519",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
+      "seriesID": "my-favorite-martian-1963",
+      "seriesTitle": "My Favorite Martian",
+      "season": 3,
+      "episode": 30,
+      "title": "Stop the Presses, I Want to Get Off",
+      "episodeImdbID": "tt0815531",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
+    },
+    {
       "seriesID": "my-hero-1952",
       "seriesTitle": "My Hero",
       "season": 1,
@@ -85806,6 +88721,16 @@
       "episodeImdbID": "tt0066912",
       "status": "wanted",
       "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "out-of-this-world-1962",
+      "seriesTitle": "Out of This World",
+      "season": 1,
+      "episode": 5,
+      "title": "Impostor",
+      "episodeImdbID": "tt0667673",
+      "status": "wanted",
+      "added_at": "2026-07-13T07:11:33Z"
     },
     {
       "seriesID": "outlaws-1960",
