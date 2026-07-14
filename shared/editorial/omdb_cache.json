@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-07-13T05:49:26Z",
+  "updated_at": "2026-07-14T05:10:18Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-07-13T05:49:26Z"
+      "last_tried": "2026-07-14T05:10:18Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-07-13T05:49:26Z"
+      "last_tried": "2026-07-14T05:10:18Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -318495,6 +318495,121 @@
       ],
       "genres": [],
       "fetched_at": "2026-07-12T05:39:08Z",
+      "schema": 3
+    },
+    "tt0050009": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzcwMWQ0MGQtNDkxMy00OWJkLWEzZWUtMGJhMWM1ZGIwOGVmXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
+      "imdb_rating": 7.0,
+      "imdb_votes": 147,
+      "content_rating": "Not Rated",
+      "plot": "New bride Vickie and her insurance salesman husband Gus involve their friends and neighbors in a variety of comic episodes.",
+      "runtime_min": 30,
+      "director": null,
+      "actors": [
+        "Betty White",
+        "Bill Williams",
+        "Natalie Masters"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "fetched_at": "2026-07-14T05:10:18Z",
+      "schema": 3
+    },
+    "tt0084181": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOGViMDE3MWUtZjQ4My00YjAyLWFhNmQtODA2YmU0MDEwYTZkXkEyXkFqcGdeQXVyNTI2Njg2OTI@._V1_SX300.jpg",
+      "imdb_rating": 4.2,
+      "imdb_votes": 129,
+      "content_rating": "TV-MA",
+      "plot": "A Spanish police chief hires an undercover agent (a Jewish mercenary(?)) to infiltrate a gang of heroin smugglers. The mercenary is code-named Eagle because of a tattoo. Infiltrating the gang, he uses a female agent as a point of contact. However, as he gets deeper into the gang, he discovers that there bigger goings-on than dope. The gang is involved in the transportation of smuggled uranium for the manufacture of nuclear arms for sale to Libya and other aspiring third world countries. Things get even stickier when a ruthless bad guy shows up and he turns out to be one of Eagle's former cohorts in the Foreign Legion.",
+      "runtime_min": 100,
+      "director": "José Antonio de la Loma",
+      "actors": [
+        "Jorge Rivero",
+        "Maud Adams",
+        "Max von Sydow"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Crime"
+      ],
+      "fetched_at": "2026-07-14T05:10:18Z",
+      "schema": 3
+    },
+    "tt0457390": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMGM5Y2NiOGEtZGEyNy00ZjNmLTlhOTMtY2QzY2RlZDMwNGFkXkEyXkFqcGdeQXVyMTEwODg2MDY@._V1_SX300.jpg",
+      "imdb_rating": 8.4,
+      "imdb_votes": 17,
+      "content_rating": null,
+      "plot": "Benny and Burns play five-hundred-year-old Roman fountain statues.",
+      "runtime_min": 60,
+      "director": "Norman Abbott",
+      "actors": [
+        "Jack Benny",
+        "George Burns",
+        "Johnny Carson",
+        "Redd Foxx"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "fetched_at": "2026-07-14T05:10:18Z",
+      "schema": 3
+    },
+    "tt1096925": {
+      "poster_url": null,
+      "imdb_rating": 6.1,
+      "imdb_votes": 7,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 30,
+      "director": "Charles S. Dubin",
+      "actors": [
+        "Ceil Cabot",
+        "Jane Connell",
+        "Fay DeWitt",
+        "Andrew Duncan"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "fetched_at": "2026-07-14T05:10:18Z",
+      "schema": 3
+    },
+    "tt2111468": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Ted Trent",
+      "actors": [],
+      "genres": [
+        "Short",
+        "Musical"
+      ],
+      "fetched_at": "2026-07-14T05:10:18Z",
+      "schema": 3
+    },
+    "tt3241086": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": null,
+      "actors": [
+        "Tetsuo Narikawa",
+        "Tôru Ôhira"
+      ],
+      "genres": [
+        "Short",
+        "Sci-Fi"
+      ],
+      "fetched_at": "2026-07-14T05:10:18Z",
       "schema": 3
     }
   },
