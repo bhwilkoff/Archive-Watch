@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-07-14T06:17:19Z",
+  "updated_at": "2026-07-15T06:19:31Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 17573,
-    "wanted": 17352,
+    "total": 17614,
+    "wanted": 17393,
     "fulfilled": 221,
-    "series_with_gaps": 350
+    "series_with_gaps": 351
   },
   "wants": [
     {
@@ -114532,6 +114532,416 @@
       "episodeImdbID": "tt10443032",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 1,
+      "title": "Fukushû no toki wa kitareri! Ute tetsu jûji dan!!",
+      "episodeImdbID": "tt1446632",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 2,
+      "title": "Kaiki no sekai! Shukumei ni ikiru otoko",
+      "episodeImdbID": "tt1488452",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 3,
+      "title": "Kaito daburu-o wan tai kumo otoko",
+      "episodeImdbID": "tt1806560",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 4,
+      "title": "Kyofu no han kyojin! Kiseki o yobu gin no ito",
+      "episodeImdbID": "tt1806564",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 5,
+      "title": "Gekitotsu mashin Ji-Pi-Sebun! Kyodai no chikai",
+      "episodeImdbID": "tt1806550",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 6,
+      "title": "Senritsu no shikkenshitsu! Akuma no monsuta kyoshu",
+      "episodeImdbID": "tt1806575",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 7,
+      "title": "Osoroshiki hitto kyoku! Katte odoru satsujin rokku",
+      "episodeImdbID": "tt1806569",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 8,
+      "title": "Yo ni mo fushigi na mukashi ba nashi noroi no neko zuka",
+      "episodeImdbID": "tt1806578",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 9,
+      "title": "Ugoku akusesari wa koi no kabuto mushi supai",
+      "episodeImdbID": "tt1806577",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 10,
+      "title": "Hono jigoku ni hebi onna no namida o mita",
+      "episodeImdbID": "tt1806555",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 11,
+      "title": "Monsuta kyoshu no Urutora Dokusatsu",
+      "episodeImdbID": "tt1806567",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 12,
+      "title": "Karei naru satsujin mashin e no henshin",
+      "episodeImdbID": "tt1806562",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 13,
+      "title": "Dokuro dan tai akuma no reikyusha",
+      "episodeImdbID": "tt1806547",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 14,
+      "title": "Chichi ni sasage yo tatakae nu yusha no uta o",
+      "episodeImdbID": "tt1806546",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 15,
+      "title": "Boku tachi no Inochi no Yakusoku",
+      "episodeImdbID": "tt1805008",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 16,
+      "title": "Meiken yo chichi no moto e hashire",
+      "episodeImdbID": "tt1806566",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 17,
+      "title": "Puro resura samuson no namida",
+      "episodeImdbID": "tt1806572",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 18,
+      "title": "Haha no mune ni yomigaeru shonen",
+      "episodeImdbID": "tt1806552",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 19,
+      "title": "Maboroshi no shonen chizu ni nai mura",
+      "episodeImdbID": "tt1806565",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 20,
+      "title": "Nazo ga nazo o yobu watashi no shuusho no himitsu",
+      "episodeImdbID": "tt1806568",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 21,
+      "title": "Ozora ni chiru chichi no ai",
+      "episodeImdbID": "tt1806571",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 22,
+      "title": "Kurai unmei ni nake chichi to ko",
+      "episodeImdbID": "tt1806563",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 23,
+      "title": "Ienakiko tachi ni ai no gakuen o",
+      "episodeImdbID": "tt1806556",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 24,
+      "title": "Gokiburi shonen dai senso",
+      "episodeImdbID": "tt1806551",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 25,
+      "title": "Hiho to inu to fuku sei ningen",
+      "episodeImdbID": "tt1806553",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 26,
+      "title": "Zettai pinchi no nisemono hiro",
+      "episodeImdbID": "tt1806579",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 27,
+      "title": "Saraba sen'yu itoshi no sepado",
+      "episodeImdbID": "tt1806573",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 28,
+      "title": "Ekimae yokocho no shonen tantei dan",
+      "episodeImdbID": "tt1806548",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 29,
+      "title": "Isoge Ji-Pi-Sebun jikan yo tomare",
+      "episodeImdbID": "tt1806557",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 30,
+      "title": "Ganbare bijin omawarisan",
+      "episodeImdbID": "tt1806549",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 31,
+      "title": "Ashita naki kotsure keiji",
+      "episodeImdbID": "tt1806543",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 32,
+      "title": "Amaku sasayaku yojo",
+      "episodeImdbID": "tt1806542",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 33,
+      "title": "Otokonoko ibiru yasei no sugoi shojo",
+      "episodeImdbID": "tt1806570",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 34,
+      "title": "Bikkuri kamera satsujin jiken",
+      "episodeImdbID": "tt1806544",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 35,
+      "title": "Hikyo Amazon kara kita mira bijo",
+      "episodeImdbID": "tt1806554",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 36,
+      "title": "Tamanegi gin kamen to shonen tantei dan",
+      "episodeImdbID": "tt1806576",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 37,
+      "title": "Jigoku kara no missha enma daio",
+      "episodeImdbID": "tt1806558",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 38,
+      "title": "Buriki no ichibanboshi to shonen tantei dan",
+      "episodeImdbID": "tt1806545",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 39,
+      "title": "Kakutoki sekai ichidai kai",
+      "episodeImdbID": "tt1806561",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 40,
+      "title": "Saraba zero sen no nazo",
+      "episodeImdbID": "tt1806574",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
+    },
+    {
+      "seriesID": "spider-man-1978",
+      "seriesTitle": "Spider-Man",
+      "season": 1,
+      "episode": 41,
+      "title": "Kagayake nekketsu no yusha",
+      "episodeImdbID": "tt1806559",
+      "status": "wanted",
+      "added_at": "2026-07-15T06:19:31Z"
     },
     {
       "seriesID": "stage-7-1955",
