@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-07-16T05:21:24Z",
+  "updated_at": "2026-07-17T05:23:32Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-07-16T05:21:24Z"
+      "last_tried": "2026-07-17T05:23:32Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-07-16T05:21:24Z"
+      "last_tried": "2026-07-17T05:23:32Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -318610,6 +318610,2202 @@
         "Sci-Fi"
       ],
       "fetched_at": "2026-07-14T05:10:18Z",
+      "schema": 3
+    },
+    "tt0000011": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODdhY2VmNTItYTM5My00MjQ0LTgzMTUtMjk2ZTE0ODAwYzYzXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.2,
+      "imdb_votes": 426,
+      "content_rating": null,
+      "plot": "The fifth sequence of the \"Wintergartenprogramm (1895)\" by the Skladanowsky Brothers. In it, eight circus performers known as the Grunato Family perform their famous balancing act.",
+      "runtime_min": 1,
+      "director": "Max Skladanowsky",
+      "actors": [
+        "Grunato"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0000017": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYjM2M2NhMTQtNDY2ZS00YWVjLWExNzgtZjZhMmVkODE2NDc5XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 4.6,
+      "imdb_votes": 386,
+      "content_rating": null,
+      "plot": "The first sequence of the \"Wintergartenprogramm (1895)\" by the Skladanowsky Brothers. In it, two children, Ploetz and Larella, perform an Italian peasant dance.",
+      "runtime_min": 1,
+      "director": "Emil Skladanowsky, Max Skladanowsky",
+      "actors": [
+        "Ploetz",
+        "Larella"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0000032": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzEzMGUyNjQtNTRjZC00OGY1LThmMTYtM2UwM2Q0ZWM3NzE2XkEyXkFqcGdeQXVyNzg5OTk2OA@@._V1_SX300.jpg",
+      "imdb_rating": 5.0,
+      "imdb_votes": 437,
+      "content_rating": null,
+      "plot": "The seventh sequence of the \"Wintergartenprogramm (1895)\" by the Skladanowsky Brothers. In it, a young female dancer with large, flowing robes, swirls round herself quickly, making her light robe flow around her like a butterfly's...",
+      "runtime_min": 1,
+      "director": "Max Skladanowsky",
+      "actors": [
+        "Ancion"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0000075": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMDhhN2IxMTUtYmQzNy00NTc4LTliNTAtYjdlOGEzNzU1ODliXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.3,
+      "imdb_votes": 2182,
+      "content_rating": null,
+      "plot": "An elegantly dressed man enters through a stage door onto a set with decorated back screen, a chair and small table. He brings a well-dressed women through the door, spreads a newspaper on the floor, and places the chair on it. She sits and fans herself; he covers her with a diaphanous cloth. She disappears; he tries to conjure her back with incomplete results. Can he go beyond the bare bones of a conjuring trick and succeed in the complete reconstitution of a the lady?",
+      "runtime_min": 1,
+      "director": "Georges Méliès",
+      "actors": [
+        "Jehanne d'Alcy",
+        "Georges Méliès"
+      ],
+      "genres": [
+        "Short",
+        "Horror"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0000162": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNjg2YmE4MzUtYWQ1Ny00ZWM3LWFjZTMtMTVhODMxN2YzZjFhXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
+      "imdb_rating": 5.4,
+      "imdb_votes": 488,
+      "content_rating": "Not Rated",
+      "plot": "A stationary camera looks west across Niagara Falls from the United States' side (the Niagara River rushes toward the falls from right to left). Virtually overlooking the falls and surrounded by the swift current not far from the camera is a small island where six or eight tourists watch the water, talk, and move about.",
+      "runtime_min": 1,
+      "director": "Alexandre Promio",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0000187": {
+      "poster_url": null,
+      "imdb_rating": 5.3,
+      "imdb_votes": 63,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 1,
+      "director": "Alice Guy",
+      "actors": [],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0000229": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODJhYTg5YjktOTUyMS00YjVmLWJkMDItZWE3ZmIzZDc3Mzg4XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 4.5,
+      "imdb_votes": 123,
+      "content_rating": "TV-G",
+      "plot": "\"The umpire makes a decision that Casey doesn't like, and an argument follows, during which Casey deftly trips him up, and continues the argument on the ground. The other players run from the bench and join in the rumpus. The fielders come running in and the pile on the home plate looks like a foot ball scrimmage. A solemn warning to all rotten umpires.\"",
+      "runtime_min": 1,
+      "director": "James H. White",
+      "actors": [],
+      "genres": [
+        "Short",
+        "Sport"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0000285": {
+      "poster_url": null,
+      "imdb_rating": 5.0,
+      "imdb_votes": 24,
+      "content_rating": null,
+      "plot": "A Chinese magician turns himself into a huge bat.",
+      "runtime_min": null,
+      "director": "Walter R. Booth",
+      "actors": [],
+      "genres": [
+        "Short",
+        "Horror"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0000455": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZGQ1ZDZjNDMtYjBlYy00MDZiLTlkZTUtYThmNmI0N2E3YjJlXkEyXkFqcGdeQXVyNDE5MTU2MDE@._V1_SX300.jpg",
+      "imdb_rating": 6.8,
+      "imdb_votes": 1958,
+      "content_rating": null,
+      "plot": "Under a set of five telegraph lines, a bandmaster and his marching band of talented female vocalists prepare to sing. But first, the leader needs to arrange the notes and place the G-clef on the lines. There he goes. Now, everything is ready for an unforgettable performance.",
+      "runtime_min": 3,
+      "director": "Georges Méliès",
+      "actors": [
+        "Georges Méliès"
+      ],
+      "genres": [
+        "Short",
+        "Comedy",
+        "Music"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0000511": {
+      "poster_url": null,
+      "imdb_rating": 6.7,
+      "imdb_votes": 46,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 10,
+      "director": "Alice Guy, Victorin-Hippolyte Jasset",
+      "actors": [
+        "Denise Becker",
+        "Henry Vorins"
+      ],
+      "genres": [
+        "Short",
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0001141": {
+      "poster_url": null,
+      "imdb_rating": 3.2,
+      "imdb_votes": 6,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Robert W. Paul",
+      "actors": [],
+      "genres": [],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0002066": {
+      "poster_url": null,
+      "imdb_rating": 3.8,
+      "imdb_votes": 100,
+      "content_rating": null,
+      "plot": "In a little village there lived two families who were almost lifetime neighbors and friends. In the one family there was a boy, in the other, a girl. These two had been sweethearts from childhood and each found happiness in the other's company. All was sunshine for Dave, the boy, until the day of the church lawn party, when the nephew of the minister arrived from college. His easy manners and good clothes make an impression on the unsophisticated girl, and it is with slight persuasion she consents to elope with him that evening. The result is the inevitable, for the man proves to be a scapegrace. Meanwhile, the girl, through pride, pretends in her letters home to be doing well. Dave, however, has his misgivings and decides to pay them a visit. The result of this visit is a startling revelation. Later the girl is made to realize faithful Dave's true worth.",
+      "runtime_min": 9,
+      "director": "D.W. Griffith",
+      "actors": [
+        "Blanche Sweet",
+        "Harry Hyde",
+        "Edward Dillon"
+      ],
+      "genres": [
+        "Drama",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0002465": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzg5YjY4OWYtZDJiOS00MzE3LWJmNTktODQyMDM4ZThkZDA3XkEyXkFqcGdeQXVyNDU3NjYwOTI@._V1_SX300.jpg",
+      "imdb_rating": 5.2,
+      "imdb_votes": 73,
+      "content_rating": null,
+      "plot": "Maid Marian is represented in the cast as the daughter of Old Merwyn and it is at his house that the action begins. He introduces a rich gentleman as her prospective husband after displaying jewelry which the formal suitor has sent ahead with his declaration of love. Friar Tuck appears under the pretense of asking for alms and warns Marian that Robin is waiting at their meeting place. She manages to escape during a parley between her father and her future husband, Guy de Gisbourne, and keeps her appointment. She is discovered, however, and her angry father, backed up by the unheroic Guy, protests valiantly against the clandestine love-making, but formidable Robin is only amused. The bold outlaw is so careless about his personal safety that he eventually falls into an ambush prepared by Guy de Gisbourne, is captured and is bound to a tree while they set off in search of the Sheriff of Nottingham to obtain a formal warrant for Robin Hood's arrest. Marian hurries to where Little John is repairing swords at his forge and finds besides the brawny blacksmith Will Scarlet and Alan-a-Dale. As soon as these members of Robin Hood's band hear of their leader's plight they go to his rescue, free him and organize for revenge. Guy, meanwhile, repairs to the Sheriff of Nottingham's house, where he obtains the warrant he desires. He next visits Marian's father and uses his legal instrument to such advantage that he is promised the hand of the maid as soon as he arrests the outlaw. Guy gets busy. He sets out with a body of armed men expecting to find his prey tied to the tree, but is drawn into an ambush like that he prepared for Robin Hood. Robin and his men fall upon the invaders of their natural domain, drag them from their horses and bind them to the trees in the same manner as their leader had been treated. They then decide to capture the Sheriff. This bold plan fails when it is on the verge of success. The old gentleman wakes just in time to sound an alarm, which summons the guards and the entire band of outlaws is captured. Maid Marian effects a second rescue with greater difficulty, as Robin and his men had been incarcerated in a prison. She and a bunch of her pretty girl friends flirt with the sentinels and lure them away from their posts, while the outlaws scale the wall and descend to the other side by means of a rope secretly furnished for that purpose. The Sheriff now puts a price on Robin's head, while the latter buries himself deeper in the forest and gathers a powerful band of recruits. The second part opens at a wayside tavern near Nottingham. The Sheriff of Nottingham, Guy de Gisbourne, and Old Merwyn are in conspiracy, Friar Tuck watching them closely from another table while pretending to be drunk, and into this plotting comes a new character, a majestic stranger of formidable aspect. The newcomer is none other than Richard Coeur de Leon, the King himself, whose adventures are so entrancingly told by Sir Walter Scott. For some reason or another, not satisfactorily explained, the three gentlemen engaged in conspiring propose to capture the mysterious stranger. Without suspecting their evil devices the mysterious unknown seats himself and calls for refreshment. Friar Tuck draws near and warns the stranger. The latter secretly draws his sword and laughs at the idea of danger. Presently the Sheriff signals soldiers who are awaiting his call and they pour into the tavern. Their attack is directed against the stranger and some lively sword play follows. He backs up to the wall, cuts and thrusts in magnificent style and is materially aided by the monk. They do effective work, accomplishing marvels with their weapons, but are about to be overcome when Tuck draws the stranger away through a secret hiding-place and they seek safety in flight. The belligerent Friar conducts his new friend through the forest to the secret camp of the outlaw and there a great feast is prepared of venison and other game. Robin Hood gives up his own tent to the accommodation of the stranger when the latter retires for the night. Next day Robin and the unknown have a friendly bout with swords in which the famous outlaw is disarmed. He exclaims in amazement, \"Only one man in all England could disarm me.\" \"Who may that be?\" asked the stranger. \"Our Most Gracious King,\" replied Robin. Then Richard Coeur de Leon drops his long coat and exclaims: \"I am the King!\" This is Robin's opportunity. He and his band acclaim the monarch, while Richard the Lion-Hearted seems to enter into the spirit of their calling. When they depart on a secret mission, attired as monks, he gives them his sanction and bids them godspeed. They are on their way to abduct the beautiful Marian. Some lively adventures follow, but they get the girl and carry her away to their forest retreat, where she is wedded to her true lover by Friar Tuck. He performs the ceremony beneath the tree on whose trunk has been fashioned a cross made of daisies. All is not over. The persecutors are still busy. The Sheriff and Guy and Merwyn with all their soldiers appear at the wedding of Maid Marian and lay violent hands upon Robin. Now does the King advance and say, \"Hold, that lady is Robin's wife!\" In vain Merwyn urges that Marian is his daughter and that the King shall be informed of this indignity practiced upon his family. The monarch reveals his identity and orders Robin's men to clear his forest of the intruders, Sheriff and all. They do this with no reluctance and the play is over; virtue triumphs in the person of the noble lawbreaker, while vice, typified then as now by those who make and interpret the laws, is punished as it deserves.",
+      "runtime_min": 30,
+      "director": "Étienne Arnaud, Herbert Blaché",
+      "actors": [
+        "Robert Frazer",
+        "Barbara Tennant",
+        "Alec B. Francis"
+      ],
+      "genres": [
+        "Short",
+        "Adventure",
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0003265": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNDZhYzg0OTEtZjkzOC00MTJlLTgwOTctNzc5Y2YwOTU0MTc5XkEyXkFqcGdeQXVyMzMxODgwODI@._V1_SX300.jpg",
+      "imdb_rating": 4.5,
+      "imdb_votes": 96,
+      "content_rating": null,
+      "plot": "This early Keystone has Pete spying on his neighbor's wife through one of those little knotholes in a fence. The neighbor (Sterling) notices and chases him all over town with sheriff and family close behind. Fatty Arbuckle plays the peeper's wife(!).",
+      "runtime_min": 7,
+      "director": "Mack Sennett",
+      "actors": [
+        "Roscoe 'Fatty' Arbuckle",
+        "Mack Sennett",
+        "Ford Sterling"
+      ],
+      "genres": [
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0003607": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Keystone hasn't turned out anything funnier than this two-part farce in a long while, if ever. As usual, it is rough and tumble, helter-skelter; but the spirit of laughs is behind most of what goes on in it, especially of the second reel. As an offering to the public, it is first class, there can be no doubt at all of that. But it is so full that it would be hard to give a compressive account of it. Roscoe Arbuckle is the author and director. It's a scream. - The Moving Picture World, June 27, 1914",
+      "runtime_min": null,
+      "director": "Roscoe 'Fatty' Arbuckle, Edward Dillon",
+      "actors": [
+        "Roscoe 'Fatty' Arbuckle",
+        "Mabel Normand",
+        "Al St. John"
+      ],
+      "genres": [
+        "Comedy",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0004812": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "While in New Orleans, Matthew Culver introduces Lucille Ferrant, an old sweetheart, to Robert Gray, a lawyer. Lucille falls in love with Gray and when he contracts the fever, persuades the doctor to allow her to nurse him. The doctor tells Gray that his recovering is due to Lucille's nursing. Gray has grown fond of Lucille, but does not love her. Out of gratitude he asks her to marry him and she consents. While gathering flowers in the garden Lucille meets Culver. She tells him of her engagement to Gray. He begs her for one rose as a last token. He then grasps her hand and kisses her. Gray having witnessed this scene, denounces Lucille and breaks the engagement. Gray and Culver are rival candidates for the office of United States District Attorney. They both seek the aid of Senator Rutherford. Lucille and her aunt receive an invitation to spend the winter with Major Putnam and his sister at Newport. Mrs. Ives issues invitations for an amateur theatrical and Lucille and her aunt are invited. Gray, who takes part in the play, falls in love with Helen Truman. Culver, anxious to disgrace Gray, arranges with an editor friend of his for an article to be published to the effect that Gray cruelly abandoned a woman in New Orleans. Lucille agrees to aid Culver. Culver shows the article to Rutherford who doubts its authenticity. He speaks to Lucille and she confirms the story. Senator Rutherford is also in love with Helen, and asks her father for her hand. Rutherford calls Gray in to show him the article. Gray is prevented from striking Culver, whom he believes is responsible for the story. Helen finds the paper and believes Gray has deceived her. Lucille tells Helen that Gray deserted her. Helen breaks her friendship with Gray and when Senator Rutherford proposes she accepts him. Gray, broken-hearted, leaves for New York. He is ill when Helen marries the Senator and does not read the wedding announcement. Months later he attends a ball given by Senator Dexter in Washington and meets Helen for the first time since her marriage. Rutherford receives Gray warmly and leaves his wife to entertain him. Helen accuses him of having wronged Lucille. Gray convinces Helen that he is innocent and she is overcome. Gray prevents her from falling by catching her in his arms. Lucille, who has seen Helen in Gray's arms, informs Culver, who, in turn, tells Rutherford. The story soon becomes known and Gray accuses Culver of having circulated it. They have a violent quarrel. Culver is requested to report at the Senator's apartment after the ball. Rutherford asks Gray to follow him to his home and to bring Lucille with him. He urges Helen to retire as he has urgent business to transact. Lucille and Gray arrive and are concealed behind the portieres when Culver makes his appearance. Rutherford accuses him of having spread the falsehood, which Culver denies until he is confronted by Gray and Lucille. Lucille accuses him and he confesses. Before Gray departs he confesses to Rutherford that he still loves Helen. Helen comes down to see what is keeping her husband and he questions her about Gray and asks her if she loved Gray when she married him. She collapses. Gray receives a telegram congratulating him on his appointment as United States District Attorney. Culver disgusted, leaves for the West Indies. The engagement of Major Putnam and Mrs. Ives and Jack Dexter and Kitty Ives is announced. Rutherford treats Helen with every consideration, but does not speak of his love. He accepts a mission to St. Petersburg and Helen realizing that she does love her husband, begs him to take her along. This convinces him that his devotion is reciprocated and they leave together.",
+      "runtime_min": 30,
+      "director": "David Miles",
+      "actors": [
+        "Charles West",
+        "Linda Arvidson",
+        "Robert Drouet"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0004914": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "The new foreman falls in love with the ranchman's daughter, and notes with jealousy her joy over a letter which her father receives. An hour later, in town to purchase supplies, he sees the girl, who has driven to meet the train, bestow a warm welcome on a young \"tenderfoot.\" The newcomer is the girl's brother, as her lover might have learned, but in a fit of jealousy he rides back to the ranch and draws his time. The ranchman, not wishing to lose a good man, inquires the reason, but gets no satisfactory answer. \"I want to quit,\" is all the foreman will vouchsafe. He takes what is coming to him and rides away on a prospecting trip. The girl's brother, home after four years at college, has brought back with him some ill habits. He falls in with bad company and goes down the line. While he is gambling in a saloon with two card sharps, the ex-foreman, on a trip to town, enters, and recognizing the tenderfoot, watches the play. It is obvious that the young man is being cheated. Suddenly his suspicions are aroused, and he jumps to his feet, only to look down the barrel of a pistol. There is a shot, and the card sharp, wounded in the arm, drops his gun. It is the ex-foreman who has fired. A few moments later, outside the saloon, he hears the tenderfoot confess that the large sum of money thus miraculously saved was stolen from his father. \"Your father?\" exclaims the ex-foreman. \"Then she is your sister.\" Cautioning the young man to say nothing, he rides to the ranch house late at night, and effecting an entrance, replaces the money in the drawer from which it was taken. Hearing a sound, the rancher comes on the scene, and after denouncing the foreman as a thief, orders him out. On the road, he finds the tenderfoot a victim of the card sharps, who, not finding the money, have ridden on to break into the ranch house. Taking the boy back to the ranch, the ex-foreman is held up by the card sharps, but by means of the \"twirling gun\" trick gets the drop on them. His honor cleared, he wins the girl.",
+      "runtime_min": null,
+      "director": "Anthony O'Sullivan",
+      "actors": [
+        "Claire McDowell",
+        "Harry Carey",
+        "L.M. Wells"
+      ],
+      "genres": [
+        "Short",
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0006468": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYTY5YzY4MDUtNWI0Ni00YjhmLTgxMDgtMjZhMWExZDdhNjIyXkEyXkFqcGdeQXVyMDUyOTUyNQ@@._V1_SX300.jpg",
+      "imdb_rating": 4.4,
+      "imdb_votes": 5,
+      "content_rating": null,
+      "plot": "The manager of a small town hotel installs a cabaret in an attempt to achieve the standard set by restaurants in the large cities. His effort is ludicrous because of the fact that his talent is all recruited from the help in the hotel. Roscoe, the cook, is forced to appear in a dress suit and when Al St. John appears from the bar there is a lively rivalry between the two for the applause of the crowd. Mabel, the waitress, vies with a professional dancer from the city. Into this setting comes William Jefferson, a polished sharper, who takes the innocent Mabel by storm. She listens with open mouth to his stories of life in the metropolis and willingly leaves the village with him. Roscoe, who has been mildly in love with the waitress, realizes what her fate is likely to be and starts in pursuit. His search takes him to the Bowery just as an old sailor is being thrown out of a dive. From the sailor Roscoe learns that Mabel is inside, practically a prisoner and forced to associate with thugs and the women of the resort. He plans a heroic rescue, but when his purpose becomes known he is promptly bounced. Meanwhile the sailor has returned with reinforcements. Led by the persistent Roscoe they storm the resort. There is a free-for-all fight, in the course of which Roscoe throws a member of the gang through a solid brick wall. This loosens the foundations and a shoe shop and Chinese laundry above drop into the dive. Mabel is found in an inner room, which she is only too glad to leave to return to the country with \"Fatty.\"",
+      "runtime_min": null,
+      "director": "Roscoe 'Fatty' Arbuckle",
+      "actors": [
+        "Roscoe 'Fatty' Arbuckle",
+        "Mabel Normand",
+        "William Jefferson"
+      ],
+      "genres": [
+        "Comedy",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0007684": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODVmNWVjNjMtNzEzZC00NDlmLTlkZWYtYTZkNzBkNGQzNzlkXkEyXkFqcGdeQXVyNjA5MTAzODY@._V1_SX300.jpg",
+      "imdb_rating": 6.6,
+      "imdb_votes": 18,
+      "content_rating": null,
+      "plot": "A barrier stands between Lt. Meade Burrell and Necia, the woman he loves. That barrier is the fact that she's a \"half-breed\"--half Indian and half white, with an Indian mother and John Gale, a white trader, for a father. Although he has proposed marriage to Necia, she releases him from it when she realizes the damage that marrying a half-breed would do to him personally and professionally. One day a man arrives in town with information that may solve everyone's problems.",
+      "runtime_min": 100,
+      "director": "Edgar Lewis",
+      "actors": [
+        "Mabel Julienne Scott",
+        "Russell Simpson",
+        "Howard Hall"
+      ],
+      "genres": [
+        "Adventure"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0007690": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYWQwZTMxOTMtMWRjYS00ZTczLTgwNzEtYmRlNjI2MDgyNjVhXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.7,
+      "imdb_votes": 20,
+      "content_rating": "Passed",
+      "plot": "A henpecked husband and his wife vacation at a seaside resort. While he's enjoying the view of the local bathing beauties, he has to be careful not to let his wife see him enjoying himself.",
+      "runtime_min": 20,
+      "director": "Edward F. Cline, Hampton Del Ruth",
+      "actors": [
+        "Charles Murray",
+        "Mary Thurman",
+        "Wayland Trask"
+      ],
+      "genres": [
+        "Short",
+        "Adventure",
+        "Comedy"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0008374": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzdiYzZmMjctNTE0YS00YWRiLWJjMGItMWMzYjI5YmFhMjFlXkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_SX300.jpg",
+      "imdb_rating": 6.3,
+      "imdb_votes": 42,
+      "content_rating": null,
+      "plot": "A young man from a good family named Gyuri falls madly in love with a girl he can't marry. Desperate, and despite the maternal opposition, he enrolls in the army and goes to the front. Some years later, his mother and sister do not know that their long-absent son and brother has been killed in the war. Gyuri's soldier best friend goes to tell them the news, but in the event he can't bring himself to tell them the truth, and introduces himself as Gyuri, whom they haven't seen in many years. But things grow difficult when he finds himself falling in love with his \"sister\".",
+      "runtime_min": 65,
+      "director": "Béla Balogh",
+      "actors": [
+        "Helene von Bolvary",
+        "Attila Petheö",
+        "Ottó Torday"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0009364": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYTAzYzEwNDctYjNhNS00OGJkLWFhODktMDk2YWFhODBmNDEyXkEyXkFqcGdeQXVyNjA5MTAzODY@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "In order to prove his theory that environment rather than heredity determines a man's character, Dr. Burnell adopts young Richard, the son of an imprisoned crook named Morgan. Upon graduating from college, Richard proposes to Virg...",
+      "runtime_min": 50,
+      "director": "John S. Robertson",
+      "actors": [
+        "Corinne Griffith",
+        "Evart Overton",
+        "Herbert Prior"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0012040": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BM2ZiY2U3MTYtYzA5MS00OTI4LWIzY2MtOGIwYTJlZWMyMmJjXkEyXkFqcGdeQXVyMjUxODE0MDY@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Sonya (Carmel Myers) arrives as immigrant to the United States and works in her father's ghetto grocery store, where she gains the affections of a young settlement worker, David Dahlman (Allan Forrest). But she loves Mischa, a young doctor who soon arrives from Odessa, and to aid him financially, she distinguishes herself in the local Yiddish theater. Mischa turns her down for a wealthy heiress, however, and owing to the jealousy of Yazurka, a prominent Polish actress, Sonya is refused an important role. During a performance, attended by David, there is a boiler explosion that causes panic in the theater, and Sonya comes from backstage and calms the crowd. Later, rescued by David, she accepts his love.",
+      "runtime_min": 50,
+      "director": "King Baggot",
+      "actors": [
+        "Carmel Myers",
+        "George B. Williams",
+        "Allan Forrest"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0012202": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMGQwNDk5Y2YtMGYwNS00OTE5LTllOTMtNTc1ZWI2MjYwNjE3XkEyXkFqcGdeQXVyMjUxODE0MDY@._V1_SX300.jpg",
+      "imdb_rating": 6.3,
+      "imdb_votes": 18,
+      "content_rating": null,
+      "plot": "About a boob who put his town on the map by selling fake oil stock. For Gus didn't know an oil well from an oil stove, so the two crooks had easy pickings. Until the well started to spout.",
+      "runtime_min": 50,
+      "director": "James Cruze",
+      "actors": [
+        "Roscoe 'Fatty' Arbuckle",
+        "Lila Lee",
+        "Charles Ogle"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0013023": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYjcxN2NhZTUtYTA0Yy00OWMwLTljMzItZGMxNmNkMGM3OGJlXkEyXkFqcGdeQXVyMDU4MTQ0Ng@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 50,
+      "director": "Harry A. Pollard",
+      "actors": [
+        "Herbert Rawlinson",
+        "Harriet Hammond",
+        "Lincoln Plumer",
+        "William A. Carroll"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0013105": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYmE4N2ZmNDgtZjk0Yi00ZmFlLWJhOWUtYzRkODZkMjMxNjczXkEyXkFqcGdeQXVyMjUwMDUwNA@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 50,
+      "director": "George Archainbaud",
+      "actors": [
+        "Elaine Hammerstein",
+        "Niles Welch",
+        "Holmes Herbert",
+        "Constance Bennett"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0015641": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTA3Mjg4MTMzOV5BMl5BanBnXkFtZTgwNDQxMTYxMjE@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "After a long mission at sea, two ensigns, Manuel d'Astures and viscount of Brazza nicknamed Boy, return to Spain. The latter is surprised to find his father with a woman he hates instantly. Soon afterward, he falls for a countess, whose lavish lifestyle ruins him. Unfortunately, the lender from whom he has just borrowed money is murdered and Boy is suspected...",
+      "runtime_min": 72,
+      "director": "Benito Perojo",
+      "actors": [
+        "Juan de Orduña",
+        "Manuel San Germán",
+        "Suzy Vernon"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0016521": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMmFkZDc5N2EtYzUwOS00MzJjLWIyYmEtYjkyOTIyMWZlYTkyXkEyXkFqcGdeQXVyNjA5MTAzODY@._V1_SX300.jpg",
+      "imdb_rating": 7.0,
+      "imdb_votes": 34,
+      "content_rating": null,
+      "plot": "Mistaken for a private eye, Billy finds himself hot (or not) on the trail of a stolen ruby.",
+      "runtime_min": null,
+      "director": "Del Lord",
+      "actors": [
+        "Billy Bevan",
+        "Andy Clyde",
+        "Madeline Hurlock"
+      ],
+      "genres": [
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0016961": {
+      "poster_url": null,
+      "imdb_rating": 5.0,
+      "imdb_votes": 10,
+      "content_rating": null,
+      "plot": "A professor who has won a Paris painting scholarship proposes to a dark haired woman who rejects him because of her past: She had been seduced by a man she asked for help with her dying mother , and kept by him as his so called niece.",
+      "runtime_min": null,
+      "director": "Wilfred Lucas",
+      "actors": [
+        "Gaston Glass",
+        "Bryant Washburn",
+        "Herbert Rawlinson"
+      ],
+      "genres": [],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0017132": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYmMzNmQ2ZDAtMGViZi00N2UyLThiNTYtOTNlYjk2ZjJmMGE3L2ltYWdlXkEyXkFqcGdeQXVyNDg4NjY0Nzg@._V1_SX300.jpg",
+      "imdb_rating": 7.4,
+      "imdb_votes": 24,
+      "content_rating": "Passed",
+      "plot": "Mary, on the day of her wedding to Jimmie, finds she has not lost her affection for another sweetheart, Joe. A confrontation arises when Jimmie discovers that Joe has come along on their honeymoon.",
+      "runtime_min": 78,
+      "director": "John M. Stahl",
+      "actors": [
+        "Eleanor Boardman",
+        "Conrad Nagel",
+        "William Haines"
+      ],
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0017818": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzBiMDBkM2ItOTNmMi00MzMwLWI5YWItMmVmMjg1MjlmMGQ0XkEyXkFqcGdeQXVyMDUyOTUyNQ@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 60,
+      "director": "Lloyd Ingraham",
+      "actors": [
+        "Fred Thomson",
+        "Ruth Clifford",
+        "Noah Young"
+      ],
+      "genres": [
+        "Romance",
+        "Western"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0018450": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTAwNjgwMmEtYWM4Yi00MDFkLTgyNjQtZmVlMDJlZmRhZWZhXkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_SX300.jpg",
+      "imdb_rating": 6.8,
+      "imdb_votes": 12,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Phil Rosen",
+      "actors": [
+        "Shirley Mason",
+        "William Collier Jr.",
+        "John Miljan"
+      ],
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0020393": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzIwMzVjMjUtNjA5NS00YWQxLWIxMzQtODViNjAzOTA0ZTA1XkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Having spent several wasted months in a Shanghai opium dem, former prostitute Cassie Cook yearns to start her life afresh. Likewise, ex-convict Badlands McKinney also wants to clean up his act. Upon meeting one another, Cassie and McKinney each assume that the other is a pillar of respectability. This mutual self-deception eventually blossoms into love and opens the door for redemption. The fly in the ointment is Repen, an unforgiving detective who knows the truth about both Cassie and McKinney.",
+      "runtime_min": 66,
+      "director": "John S. Robertson",
+      "actors": [
+        "Mary Nolan",
+        "James Murray",
+        "Lydia Yeamans Titus"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0122381": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZjc0ZjdmMTYtMTU4Yi00NzdiLTlmMjItZmEyMmM4ZWY1MTFlXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 4.2,
+      "imdb_votes": 285,
+      "content_rating": null,
+      "plot": "The two inventors of the Bioskop, a sort of magic lantern that projected images so fast as to give the illusion of movement, bow to the camera at both sides of an empty screen. The scene was shown in continuity, at the end of the session, as if the producers and directors of the session were beading the public a farewell.",
+      "runtime_min": 1,
+      "director": "Max Skladanowsky",
+      "actors": [
+        "Eugen Skladanowsky",
+        "Max Skladanowsky"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0132490": {
+      "poster_url": null,
+      "imdb_rating": 6.4,
+      "imdb_votes": 37,
+      "content_rating": null,
+      "plot": "Charley Wise with a Waldorf appetite on a beany salary finds himself growing unpopular with his landlord as well as other creditors. In fact the sighing breezes seem to whisper \"Charley it's your move.\" So together with Pete, his valet, they decide upon a visit to the country to spend a few days with the rich old uncle. Upon their arrival they find Uncle Jim and Sarah are just planning a trip to Europe and the timely arrival of Charley renders it unnecessary to close up the home as he is placed in full charge with faithful Pete as his assistant and Jim and Sarah are off for the other side. Charles repairs to the race track and donates the remaining fragments of his bank roll, to the other man's better judgment. Pete hits upon a plan to open the palatial home of the uncle as a sanitarium and thus collect a few of the shining shekels that health seekers are always anxious to let loose of. Accordingly an ad is inserted in the daily papers, a sign put over the door, and the rooms are all numbered in regular order, per city hotel fashion. The patients begin to flock in like children to a nickel show. All sorts, ages, sizes, suffering from every known and unknown malady from Reno-it is to raving maniac. Pete was collecting in advance and the place in a few short hours looked more like a castle garden of Blackville Island than a country home. The money was rolling in so fast that Chas. and Pete almost went into hysteria. Just then a telegram arrives from 'Frisco from Uncle Jim saying that Aunt Sarah had lost her necklace and was returning home that night to find it. To clear the house for her coming was no small job and they encounter all kinds of trouble, compelled to return their money, which has a telling effect on Charles' ambitions. No sooner than this part of the program was completed a second message arrives saying the necklace had been found and they were off for Europe. Charles had no time to rejoice over the finding of the pearls; he was too busy thinking about the money he had found necessary to return to his sanitarium patients.",
+      "runtime_min": null,
+      "director": "Tom Santschi",
+      "actors": [
+        "Roscoe 'Fatty' Arbuckle",
+        "Nick Cogley",
+        "George Hernandez"
+      ],
+      "genres": [],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0139943": {
+      "poster_url": null,
+      "imdb_rating": 6.2,
+      "imdb_votes": 17,
+      "content_rating": null,
+      "plot": "The artist is presented, with his board: his only appearance. The hand rapidly outlines a human head, into the chalky jaws of which it inserts a cigarette. The chalk head smokes, and finally eats, the cigarette. The head of a woman is drawn, which gradually fills and becomes undoubtedly human. Eyes of feminine longing are turned in the direction of a chalk-outlined teapot, which materializes into the real thing, from the spout of which the woman-head drinks with satisfaction. The woman's head resumes its chalky outline, and disappears, feature by feature. The hand of the artist cuts out of paper the figure of a Pierrot. This is placed inside a magic ring drawn on the blackboard. The paper clown changes into a real, embodied Pierrot, who dances, juggles with hoops, and finally dissolves by a rapid catherine-wheel movement into a vivacious head. Head, life size, of the Pierrot. Smoke is seen to issue from the mouth, and comical facial expressions are produced. Again the wheel movement, and the clown disappears. The head of a man is now drawn in chalk. This gradually assumes life and gesticulates in a marvelous manner. The head is seen to split from crown to chin, the halves fall apart, as if hinged, and from the eyes are drawn numberless yards of fine tape. From inside the two halves of the head are produced champagne and liquor in bottles, cigars, cigarettes and glasses. The halves of the head are rejoined, life and comic gesticulations again occur, and the hand of the artist wipes the whole from the blackboard, section by section, though muscular action remains even in the last portion left, one eye which winks at the audience in an impudent manner before being finally wiped out.",
+      "runtime_min": 4,
+      "director": "Walter R. Booth",
+      "actors": [],
+      "genres": [
+        "Animation",
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0180271": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 100,
+      "director": "Luiz de Barros",
+      "actors": [
+        "Otília Amorim",
+        "Manuel F. Araujo",
+        "Luiz de Barros",
+        "João de Deus"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0190392": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Wally Van",
+      "actors": [
+        "Grace Darling",
+        "Hugh Thompson",
+        "Florence Billings"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0193873": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZTg3NzdjYjgtMmQ0Mi00M2Y2LWE1MzEtODVkY2RlM2U0MGRmXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 118,
+      "director": "Ewald André Dupont",
+      "actors": [
+        "Max Maxudian",
+        "Henri Garat",
+        "Marie Glory"
+      ],
+      "genres": [
+        "Drama",
+        "War"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0196724": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Franco Magliani",
+      "actors": [
+        "Aurora Fúlgida",
+        "Ortolando Garcia",
+        "Leonardo Loponte",
+        "Franco Magliani"
+      ],
+      "genres": [
+        "Romance"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0203363": {
+      "poster_url": null,
+      "imdb_rating": 5.5,
+      "imdb_votes": 139,
+      "content_rating": null,
+      "plot": "\"A very graceful dance with voluminous draperies, by Annabelle Moore, well-known on the metropolitan stage.\"",
+      "runtime_min": null,
+      "director": null,
+      "actors": [
+        "Annabelle Moore"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0205127": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjFlMWRlZDMtNjc1OS00YmE3LTg4ZmYtMWZjMTVmYTJiNWViXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 4.6,
+      "imdb_votes": 206,
+      "content_rating": null,
+      "plot": "\"Formed by the junction of Broadway, Sixth Avenue and 35th Street. The picturesque low roofed Herald building is plainly shown; also the passing crowds and group of idlers.\"",
+      "runtime_min": null,
+      "director": "James H. White",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0205786": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "A country girl elopes, is abandoned, and saved from drowning by a blacksmith.",
+      "runtime_min": null,
+      "director": "David Aylott",
+      "actors": [
+        "David Aylott",
+        "Dorothy Fane"
+      ],
+      "genres": [
+        "Short",
+        "Drama",
+        "Romance"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0208025": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "He has miraculous luck with a charmed fishing pole and finally sells it for a huge price to an old-time enemy, who finds that in changing hands the rod has lost its power.",
+      "runtime_min": null,
+      "director": "Louis Feuillade",
+      "actors": [
+        "René Dary",
+        "Renée Carl",
+        "Paul Manson"
+      ],
+      "genres": [
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0208126": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZTA4YWZmNWEtMjYwYS00OWM0LWJkMWUtNjc5YjQzMTAwOTlkXkEyXkFqcGdeQXVyMDUyOTUyNQ@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "PART ONE: \"The Marriage of Esther\" King Abasueris, who is now generally understood to have been Xerxes, and who ruled over India and its provinces about B.C. 521, is recorded to have cast aside his wife and directs that it be heralded throughout the domain that he is in search of a new spouse. He issues instructions to have brought before him for his approval the most beautiful young girls of all his lands. Accordingly, the maidens are led to the palace, and we see them being sumptuously gowned and bejeweled before being brought into the presence of his Majesty. Among the number, the king is greatly impressed by the beauty and grace of a handsome young Jewish girl. This one is Esther, who was adopted by her uncle, Mordecai, and by him brought to the palace of the king. Esther's beauty surpasses that of all the others and she is crowned Queen by Abasueris. Mordecai is appointed to sit at the king's gateway. PART TWO: \"Esther and Mordecai\" Mordecai is appointed to sit at the King's gateway. While on duty he discovers a plot to assassinate the King and discloses the facts, whereupon the King orders that this brave deed be recorded in the Annals of the Kingdom. Among the King's favorites, Haman is supreme. He soon becomes violently jealous of Mordecai and plans his destruction. As Mordecai is a Jew, Haman makes preparations to massacre the entire race and thereby complete his revenge on Mordecai. About this time the King decides to make a review of the Annals and to his amazement finds no record there of the good deed of Mordecai, whereupon Haman is ordered to give honors to Mordecai. This only serves to increase the jealousy of Haman. Through the gracious intercession of Esther, Mordecai soon has another and greater victory over Haman. As the time for the massacre of the Israelites approaches. Esther, who has been told all by her uncle, Mordecai, invites Haman to dine with her and the King at the palace. During the feast she discloses the fact that she is a Jewess and declares that all those who are enemies of the King and are not worthy of his favor, whereupon the King, who has been informed of the full facts, orders Haman delivered up to the guards and has him hanged on the very gallows Haman had designed for Mordecai. The victory of the Israelites is now the cause of great rejoicing.",
+      "runtime_min": null,
+      "director": "Louis Feuillade",
+      "actors": [
+        "Renée Carl",
+        "Léonce Perret",
+        "Madeleine Roch"
+      ],
+      "genres": [
+        "Short",
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0208133": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": 8,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Louis Feuillade",
+      "actors": [
+        "Renée Carl",
+        "Nadette Darson",
+        "Alice Tissot"
+      ],
+      "genres": [
+        "Short",
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0208219": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Louis Feuillade",
+      "actors": [
+        "Renée Carl",
+        "Christiane Mandelys",
+        "Maurice Vinot"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0208665": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "On his way to visit his mistress, a man has a serious car accident. His wife cares for him with such devotion that he rediscovers his love for her.",
+      "runtime_min": null,
+      "director": "Louis Feuillade",
+      "actors": [
+        "Yvette Andréyor",
+        "Renée Carl",
+        "Paul Manson"
+      ],
+      "genres": [
+        "Drama",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0209243": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Louis Feuillade",
+      "actors": [
+        "René Navarre",
+        "Henri Collen",
+        "Renée Carl"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0214902": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNjU0NjM5NTYtOWNmYy00M2RjLTk4NzMtOGJhMDQ2M2RkYWVhXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.4,
+      "imdb_votes": 1025,
+      "content_rating": null,
+      "plot": "In a traditional \"magician\" attire complete with a black robe and a pointy hat, the wizard of illusion and jump cuts, Georges Méliès, says the magic words, and out of thin air, he conjures up a plain wooden box atop an ordinary table. Unexpectedly, the illusionist jumps into the box, and a comical and famished Pierrot emerges, only to give place to a bearded sculptor, ready to put the finishing touches on a life-like female bust. Suddenly, a beautiful woman appears. Is she real or is she a delightful mirage?",
+      "runtime_min": 1,
+      "director": "Georges Méliès",
+      "actors": [
+        "Georges Méliès"
+      ],
+      "genres": [
+        "Short",
+        "Fantasy",
+        "Horror"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0216080": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMGNiOTMwZmMtMTgxYS00ZWYwLTk2NjUtNDdlMWQzNWI5ZjJhXkEyXkFqcGdeQXVyNzg5OTk2OA@@._V1_SX300.jpg",
+      "imdb_rating": 5.0,
+      "imdb_votes": 324,
+      "content_rating": null,
+      "plot": "\"A comic subject, clear, bright and characteristic. Shows four girls in their night dresses, engaged in an animated pillow fight. During the action the pillows become torn, and the feathers fly over their heads and about the room in great numbers, producing with the white dresses and the black background a novel effect. Sharp, full of action, and popular in character.\"",
+      "runtime_min": 1,
+      "director": "William Heise",
+      "actors": [],
+      "genres": [
+        "Comedy",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0217247": {
+      "poster_url": null,
+      "imdb_rating": 3.6,
+      "imdb_votes": 57,
+      "content_rating": null,
+      "plot": "\"Stable door opens and ambulance dashes out into the street. Policeman holds back a furniture van till ambulance passes by.\"",
+      "runtime_min": null,
+      "director": "William Heise",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0217314": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZWU0M2Y2MmQtNTBkMS00ZjY1LTgxN2ItYzdiMzhhYTkzZmFjXkEyXkFqcGdeQXVyODAwMDUyMjE@._V1_SX300.jpg",
+      "imdb_rating": 4.2,
+      "imdb_votes": 179,
+      "content_rating": null,
+      "plot": "Charity Ball (1897) James T. Kelley and Dorothy Kent are the ones billed on IMDb as being the dancers. This film clocks in at just around half a minute so obviously people shouldn't be watching a film from this era expecting any sort of plot. It's amazing to see how many dance pictures were made back in the day but we must remember that this was a major form of entertainment at the turn of the century so putting it on film was just a natural and obvious thing to do in order to make money. This dance here certainly isn't anything special but it's an important part of history and I'm sure both dancers would be amazed that people would actually be watching this over a hundred years later.",
+      "runtime_min": null,
+      "director": "William Heise",
+      "actors": [
+        "James T. Kelley",
+        "Dorothy Kent"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0217340": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZDIxMmVkMzItYTdkZC00MTIwLTlhNWYtYTdmZWU4NmEzODkxXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.4,
+      "imdb_votes": 274,
+      "content_rating": "Not Rated",
+      "plot": "A serpentine dance being performed by the dancer whose name is the main title of the film.",
+      "runtime_min": null,
+      "director": "William K.L. Dickson",
+      "actors": [
+        "Crissie Sheridan"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0218859": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "The girl gets a beautiful bouquet of flowers from her fiancé, who wants her to enjoy the fragrance because these flowers will be in their new home when they are married. The girl puts them in a vase and uses them for a table decoration. There is to be a party at her home that day and they are a very welcome ornament. Sweedie, the maid, also loves flowers, and when she sees them on the table, decides to put some greens in with them. She goes into the woods and picks nettles and puts them in with the flowers. When the guests arrive they all admire and smell the flowers. By the time they are ready to partake of the refreshments, their skin is stinging from contact with nettles. The fiancé comes and he gets it too. The girl's mother finds out Sweedie is responsible and calls the police. The policemen also get it and when last seen they are all running to try to get away from it.",
+      "runtime_min": null,
+      "director": null,
+      "actors": [
+        "Wallace Beery"
+      ],
+      "genres": [
+        "Comedy",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0220490": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOWRlZTBkMjEtYzliMC00YzllLTg2N2EtNGI4ZjNkMGZlYmNkXkEyXkFqcGdeQXVyNzU3NjUzNTc@._V1_SX300.jpg",
+      "imdb_rating": 5.8,
+      "imdb_votes": 14,
+      "content_rating": null,
+      "plot": "Fernande, the daughter of poor parents, is very much dissatisfied with her lot in life and wants to get out where she can have some pleasure. She is a great flirt and has several men on the string. When the doctor comes to the hou...",
+      "runtime_min": null,
+      "director": "Albert Capellani",
+      "actors": [
+        "Mistinguett",
+        "Paul Capellani",
+        "Henry Krauss"
+      ],
+      "genres": [],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0221048": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZTZjYWRjNzctM2I3My00Yzg5LWE0YTYtYjkxY2M3NWEyYTEyXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 4.7,
+      "imdb_votes": 103,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 1,
+      "director": "James H. White",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0222178": {
+      "poster_url": null,
+      "imdb_rating": 4.4,
+      "imdb_votes": 38,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Louis Lumière",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0222271": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNGMyMjlkNTAtYzI3NC00NjNjLWI4MGEtNDZmNTM4MDRhZjE2XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.8,
+      "imdb_votes": 551,
+      "content_rating": null,
+      "plot": "A photographer has his camera all set up to take a gentleman's picture. The subject checks his face in a hand mirror, and the photographer poses him. Just as the photographer is about to take the picture, the subject gets up to look at the camera more closely. The frustrated photographer soon becomes quite impatient.",
+      "runtime_min": 1,
+      "director": "Louis Lumière",
+      "actors": [
+        "Auguste Lumière",
+        "Clément Maurice"
+      ],
+      "genres": [
+        "Documentary",
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0222296": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNmYzYWY3MDEtNTA0YS00YWVjLThkMDUtMmU0Mjk4NTNkMDZmXkEyXkFqcGdeQXVyMjM5NTI4Mzc@._V1_SX300.jpg",
+      "imdb_rating": 6.0,
+      "imdb_votes": 470,
+      "content_rating": null,
+      "plot": "A short black and white film which documents a mother taking her children out for a walk.",
+      "runtime_min": 1,
+      "director": "Louis Lumière",
+      "actors": [
+        "Jeanne Koehler",
+        "Madeleine Koehler",
+        "Marcel Koehler"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0222946": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYWRkYjBhOWEtMTNiYS00YTVjLTkxMDYtYjgzZWNiYjQ1YjkxXkEyXkFqcGdeQXVyNDE5MTU2MDE@._V1_SX300.jpg",
+      "imdb_rating": 6.5,
+      "imdb_votes": 1927,
+      "content_rating": "Not Rated",
+      "plot": "A man sleeps fitfully then dreams that a lovely woman is sitting at the foot of his bed. He reaches to embrace her and she becomes a minstrel, then Pierrot. The clown gestures to the moon that becomes huge and bites the dreamer's hand. In fright, the man punches the moon, which returns to his proper place in the sky, only to be replaced by all three visions - woman, minstrel, and Pierrot. Finally the man wakes, his bed a shambles. What to do now?",
+      "runtime_min": 1,
+      "director": "Georges Méliès",
+      "actors": [
+        "Jehanne d'Alcy",
+        "Georges Méliès"
+      ],
+      "genres": [
+        "Short",
+        "Horror"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0223460": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BN2RiN2VkNWMtNWMwNS00MmFhLWI2OGMtN2QzMGUyYmY0MDZlXkEyXkFqcGdeQXVyNDE5MTU2MDE@._V1_SX300.jpg",
+      "imdb_rating": 6.5,
+      "imdb_votes": 291,
+      "content_rating": "Not Rated",
+      "plot": "A gang of thieves and murderers plans an attack on a farmer's house. They kill his two faithful servants and burn the farmer in order to get the location of his receipts from his market sales. The farmer does not give in. When the robbers are about to burn the feet of the farmer's child, the wife in desperation gives in and reveals the secret. Just as the robbers are escaping the wife manages to catch a glimpse of the chief's face. Then later the thieves' abode is discovered by the police. A chase follows, resulting with the capture of the chief, who is found guilty when at his trial the farmer's wife makes her appearance and accuses the thief. As punishment for his crimes, the robber is executed by guillotine and his body tossed into an unmarked grave.",
+      "runtime_min": 7,
+      "director": "Georges Méliès",
+      "actors": [
+        "Manuel",
+        "Georges Méliès"
+      ],
+      "genres": [
+        "Short",
+        "Crime",
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0223507": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYWYzNTkxNmQtZWMxMS00M2IwLTkxZjMtMTBhNGJkN2FjMzQ1XkEyXkFqcGdeQXVyNzUyMjQ3NTQ@._V1_SX300.jpg",
+      "imdb_rating": 6.3,
+      "imdb_votes": 514,
+      "content_rating": "Not Rated",
+      "plot": "In this hand-colored short, a magician and his assistant do a series of magic tricks, including making potted plants appear, among others. Melies played the magician, and the actor Manuel played his assistant.",
+      "runtime_min": 5,
+      "director": "Georges Méliès",
+      "actors": [
+        "Manuel",
+        "Georges Méliès"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0225801": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOWFhZmJlMzMtZmI2OC00NWY5LWI0NjQtNTg4MGMyNzU3NzA2XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 4.5,
+      "imdb_votes": 117,
+      "content_rating": null,
+      "plot": "Freight Train (1898) Another entry in Edison's \"Southern Pacific Company Series\", which pretty much had cameramen hanging around the train line just shooting anything they could. It's funny to think how popular films were that featured a train but this one here simply has the camera around a bend in the track and we see the train coming and passing by. That's pretty much it but the 56-seconds are pretty entertaining if you enjoy these type of movies from the early days of cinema. It was fun seeing the train as well as the men standing on top of it; I'm guessing some sort of guards.",
+      "runtime_min": 1,
+      "director": "James H. White",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0226203": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzJiM2MyNjUtZTdmZC00NmU0LTkzNjQtZjkxMDZmMTE5YTRkXkEyXkFqcGdeQXVyODAwMDUyMjE@._V1_SX300.jpg",
+      "imdb_rating": 3.2,
+      "imdb_votes": 96,
+      "content_rating": null,
+      "plot": "Native Daughters (1898) This Edison film runs just 33-seconds and was filmed at the Golden Jubilee in San Francisco, CA. There's really not too much going on as this is one of those films that simple capture a moment in time. The camera picks up a large group of people wondering around and that's pretty much it. This type of film certainly isn't going to entertain modern viewers but I think history or film buffs should at least get something out of it. I always enjoy watching these films because you get to take a look at a time that's obviously long gone. I enjoy seeing what type of clothes people were wearing back in the day and this one here offers up a great view of that. Outside of a few buildings in the background there's not much else to see here but it's certainly worth watching if you enjoy these type of films.",
+      "runtime_min": null,
+      "director": "James H. White",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0226415": {
+      "poster_url": null,
+      "imdb_rating": 4.9,
+      "imdb_votes": 50,
+      "content_rating": null,
+      "plot": "\"Shows the beach at Long Branch, N.J. immediately after a heavy storm. The breaking waves dash over a row of spiles, throwing a spray high into the air.\"",
+      "runtime_min": null,
+      "director": "William Heise",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0229220": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYTg5YjE2MTAtMTUwMy00YjExLThkNGEtZmRhZjMyYjljZTJiXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
+      "imdb_rating": 6.3,
+      "imdb_votes": 1520,
+      "content_rating": "Not Rated",
+      "plot": "Annie get your guns. Standing on the left-hand corner of the stage, wearing a cowboy hat, a skirt with fringe at the hem, and a jacket with fringe hanging from the sleeves, Annie Oakley takes a rifle from her assistant, turns, and rapidly fires six shots, cocking the gun after each one, hitting six targets on a board at the other side of the stage. Then, as her assistant moves quickly to the target side of the stage and kneels down, Annie changes guns. The assistant tosses small clay pigeons in the air, one at a time, directly above his head; Annie takes aim and pulverizes each one. She's finished her seventh of these shots when the reel ends.",
+      "runtime_min": 1,
+      "director": "William K.L. Dickson",
+      "actors": [
+        "Francis E. Butler",
+        "Annie Oakley"
+      ],
+      "genres": [
+        "Documentary",
+        "Short",
+        "Western"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0229276": {
+      "poster_url": null,
+      "imdb_rating": 5.6,
+      "imdb_votes": 96,
+      "content_rating": null,
+      "plot": "\"The famous army scout in an exhibition of rifle shooting. A fine picture of the principal, and beautiful smoke effects.\"",
+      "runtime_min": 1,
+      "director": "William K.L. Dickson",
+      "actors": [
+        "Buffalo Bill Cody"
+      ],
+      "genres": [
+        "Short",
+        "Western"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0229721": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYjM2ZjM4OTYtODdkNy00NTExLWE4ZTgtNmIwYjQzODUzODZkXkEyXkFqcGdeQXVyMDUyOTUyNQ@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Part One: Constance, the second wife of General Haverhill, befriends the officer's son, Frank, who has been ostracized. On the night of April 12th, 1861, she gives a ball at Charleston, S.C. Frank gets word to Mrs. Haverhill that he is hiding in the city. The father will not be reconciled, but sends the boy a miniature of Constance. At the ball are Col. Kerchival West and his sister, Madeline, Robert Illingham and his sister, Gertrude. Fort Sumter is fired upon and Illingham declares his allegiance to the Confederacy. He is deeply in love with Madeline West, whose brother fondly admires Gertrude. Capt. Thornton insults Mrs. Haverhill and is called upon to fight a duel with West. Through a peculiar circumstance General Haverhill suspects Colonel West. Frank enlists in his father's regiment under another name. He has grown a beard and is not recognized. One year later the Confederates make a night attack on the Federals and Frank is made prisoner. Capt. Thornton, in the Confederate service, takes Constance's miniature from the captive at Richmond. Frank and several companions make a daring escape. Part Two: In 1863 the Federal army invades the Shenandoah Valley. Col. West accompanies General Haverhill, who makes headquarters at the Illingham home. Madeline West comes to visit Gertrude. The sweethearts are brought together but Gertrude will not acknowledge her love for the gallant Col. West. An expedition is sent to capture a Confederate signal tower, with Frank Haverhill in command. He loses his life in the perilous undertaking. Later Col. Illingham is captured, but is granted parole by his old friend. Col. West. West secures the miniature from Thornton, when the latter is captured, but later he is wounded by Thornton and General Haverhill is more embittered than ever when he finds the picture on West's person. Part Three: The Confederates have planned an attack on the Federals during the absence of General Phil Sheridan. A terrific battle is waged, in which Col. West is taken prisoner. Twenty miles away, Sheridan hears the cannonading and makes a wild dash toward Winchester, to assume command. The Federals are unable to withstand the fearful assault and flee in panic. Sheridan arrives, rallies his men and thwarts the enemy. Gertrude becomes a second Evangeline in her search for Col. West. She finally locates him just as he is released from prison and they visit a little church near the battlefield. In 1865 General Haverhill visits his wife in Washington, still thinking her unfaithful. Gertrude arrives and delivers to Constance and Frank's widow a message which was written in his last hour. The general is brought to a realization of his wife's nobility.",
+      "runtime_min": null,
+      "director": "Kenean Buel",
+      "actors": [
+        "Henry Hallam",
+        "Guy Coombs",
+        "Harry F. Millarde"
+      ],
+      "genres": [
+        "Short",
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0232643": {
+      "poster_url": null,
+      "imdb_rating": 7.1,
+      "imdb_votes": 24,
+      "content_rating": null,
+      "plot": "The tragedy of a man, about to kill himself, who contemplates his past in a series of flashbacks.",
+      "runtime_min": 25,
+      "director": "Louis Delluc",
+      "actors": [
+        "Gabriel Signoret",
+        "Ève Francis",
+        "Ginette Darnys"
+      ],
+      "genres": [
+        "Short",
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0240586": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjY0OGMzNzktZGFlOC00MzlkLTkxMzktYTlhZjkxODJlY2I1L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNzg5OTk2OA@@._V1_SX300.jpg",
+      "imdb_rating": 4.1,
+      "imdb_votes": 250,
+      "content_rating": null,
+      "plot": "One of the pictures to be seen in the machine, for example, was that of a blacksmith shop in which two men were working, one shoeing a horse, the other heating iron at the forge. One would be seen to drive the nail into the shoe of the horse's hoof, to change his position and every movement needed in the work was clearly shown as if the object was in real (life). In fact, the whole routine of the two men's labour and their movements for the day was presented to the view of the observer.",
+      "runtime_min": null,
+      "director": "William K.L. Dickson",
+      "actors": [
+        "William K.L. Dickson"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0241715": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNDEwZjIzOTQtMTRkMy00MDIzLTgzNWUtNDJhYmYwZmZiMmM4XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 4.7,
+      "imdb_votes": 1150,
+      "content_rating": "Not Rated",
+      "plot": "Two men wearing boxing gloves stand in a simulated boxing ring in the Thomas Edison Company studio. The man on the left takes up a boxing stance and moves his fists as if looking for an opportunity to land a blow. But the man on the right leans back, away from his opponent, keeping his arms back or to his side, and smiling at the other boxer's efforts.",
+      "runtime_min": 1,
+      "director": "William K.L. Dickson, William Heise",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short",
+        "Action"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0241763": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZTQ4NTBiNDMtM2YyZS00M2I0LThkMDUtMWEwZWY0ODc0NGFmXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 4.9,
+      "imdb_votes": 1863,
+      "content_rating": "Not Rated",
+      "plot": "A young man stands before the camera holding a club in each hand, horizontal to the ground. He raises the heads of the two clubs in unison, by rotating the clubs without lifting his arms. The film then shows the same footage over again, at different speeds.",
+      "runtime_min": 1,
+      "director": "William K.L. Dickson",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short",
+        "Sport"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0245701": {
+      "poster_url": null,
+      "imdb_rating": 7.0,
+      "imdb_votes": 13,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 20,
+      "director": "Hal Yates",
+      "actors": [
+        "Charley Chase",
+        "Edgar Kennedy",
+        "Nina Quartero"
+      ],
+      "genres": [
+        "Comedy",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0249592": {
+      "poster_url": null,
+      "imdb_rating": 5.3,
+      "imdb_votes": 29,
+      "content_rating": null,
+      "plot": "Turpin is hungry and tries to steal food, later on he works at a beauty shop.",
+      "runtime_min": null,
+      "director": "Leslie Goodwins",
+      "actors": [
+        "Ben Turpin",
+        "Georgia O'Dell",
+        "Helen Gilmore"
+      ],
+      "genres": [
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0256205": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNjYyOTBhZDItN2NkMy00Yjc4LTk5NDctMjJjZGI2NGU1MGY0XkEyXkFqcGdeQXVyMjk0NTgxNzY@._V1_SX300.jpg",
+      "imdb_rating": 7.6,
+      "imdb_votes": 45,
+      "content_rating": null,
+      "plot": "Surprisingly funny, dreamy little comedy as down-on-his-luck Ham looks for work, gets thrown out of his rooming house and tries to make it on the street -- in the best, gag-filled 20s comedy style.  Ignore the early Ham and Bud comedies:  this one really works as Ham sourly tries to make the best of things, despite the ubiquitous cops, with their threatening orders to \"move along.\"",
+      "runtime_min": 21,
+      "director": "Norman Taurog",
+      "actors": [
+        "Lloyd Hamilton",
+        "Helen Foster",
+        "Glen Cavender"
+      ],
+      "genres": [
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0263473": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Henri Pouctal",
+      "actors": [
+        "Raphaël Duflos",
+        "Huguette Duflos",
+        "Suzanne Avril"
+      ],
+      "genres": [],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0286110": {
+      "poster_url": null,
+      "imdb_rating": 4.6,
+      "imdb_votes": 33,
+      "content_rating": null,
+      "plot": "The participants are natives of Ceylon. Their dance is very interesting being so different from Western ideas of harmonies of motion.",
+      "runtime_min": null,
+      "director": "William Heise",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0302396": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTJjMWQ1MjctYzU5OC00ZTVjLThmNjctMGE2MWI2MDRhN2MzXkEyXkFqcGdeQXVyNzg5OTk2OA@@._V1_SX300.jpg",
+      "imdb_rating": 3.8,
+      "imdb_votes": 103,
+      "content_rating": null,
+      "plot": "Near the main entrance. Hundreds of carriages and characteristic Parisian busses are passing.",
+      "runtime_min": 1,
+      "director": "James H. White",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0309396": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNmY0MTAwYmUtOWI2ZS00MjAxLWIwMTItZGM1YmI0MTc5YjU5XkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
+      "imdb_rating": 5.1,
+      "imdb_votes": 760,
+      "content_rating": "Not Rated",
+      "plot": "Lee Martin, one of the cowboy stars in 'Buffalo Bill's Wild West', rides a bronco as a crowd looks on. While the horse is trying to throw Martin off its back, another cowboy stands on top of a fence rail and occasionally fires his six-shooter, to spur on both horse and rider.",
+      "runtime_min": 1,
+      "director": "William K.L. Dickson, William Heise",
+      "actors": [
+        "Frank Hammitt",
+        "Lee Martin",
+        "Sunfish"
+      ],
+      "genres": [
+        "Documentary",
+        "Short",
+        "Western"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0325518": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzczMTc3NWUtOWI2Mi00ZDAyLThkOWEtNzAwZmMzN2QzZTMyXkEyXkFqcGdeQXVyNzg5OTk2OA@@._V1_SX300.jpg",
+      "imdb_rating": 5.0,
+      "imdb_votes": 526,
+      "content_rating": "Not Rated",
+      "plot": "Hadj Cheriff, a performer known for a variety of unusual abilities, demonstrates part of his act in the Thomas Edison studio. He has a large knife in his hand at the opening of the act. He then hurls the knife away and begins a rapid series of dance-like motions, executing numerous cartwheels and whirling movements.",
+      "runtime_min": 1,
+      "director": "William K.L. Dickson, William Heise",
+      "actors": [
+        "Hadj Cheriff"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0339681": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Simone has been brought up by her widowed father and Hermance, the old governess. She loves her father and worships her dead mother. But nobody has ever told her about the strange circumstances in which her mother lost her life. In fact, fifteen years earlier, following a hunting party, Mme de Sergeac had been found in her bedroom, killed by gunshot. Beside her, her husband, wounded and unconscious. Now Simone is fifteen. She is in love with Michel Mignier, but she still does not know the truth. It is Hermance, the governess, who will the reveal the whole thing ...",
+      "runtime_min": null,
+      "director": "Camille de Morlhon",
+      "actors": [
+        "Edmond Duquesne",
+        "Armand Tallier",
+        "Lilian Greuze"
+      ],
+      "genres": [],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0350952": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTM3NWY0Y2MtZjQ5Yy00MGQ3LTg5OTItMGViMGQzYWJjZDEzXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.3,
+      "imdb_votes": 366,
+      "content_rating": null,
+      "plot": "This black and white short film is the first known film about football match.",
+      "runtime_min": 1,
+      "director": "Alexandre Promio",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short",
+        "Sport"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0393670": {
+      "poster_url": null,
+      "imdb_rating": 5.9,
+      "imdb_votes": 61,
+      "content_rating": null,
+      "plot": "This short subject can be found on the Europa Film site and it is noteworthy on several accounts. Although not particularly cinematic, even for the era, with a confining proscenium arch composition and stagy acting. It is a worthy viewing subject nonetheless. Based, according to the site, on Oscar Wilde's version of the story, what is noteworthy is the sheer luxury of the production, an attempt to capture the wild and weird Aubrey Beardsley illustrations that transfigure the work. The sets are elaborate, with stonework and palm trees and draperies. There seem to be dozens of dress extras, courtiers at Salome's dance and soldiers; the costumes are beautiful; when Salome begins her strip-tease, you can see the liquidity of the silks as they slide over her body.Most of all, however, is the elaboration of colors: I don't know whether this is a beautifully-preserved example of stencil coloring from the era, or if it was elaborated from a few faded frames, but every shot seems to have at least three or four colors in it. It's worth seeing if only for that.",
+      "runtime_min": 12,
+      "director": "Ugo Falena",
+      "actors": [
+        "Vittoria Lepanto",
+        "Laura Orette",
+        "Ciro Galvani"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0434271": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Albert Capellani",
+      "actors": [
+        "Henry Krauss",
+        "Paul Capellani",
+        "Claude Benedict",
+        "Léon Bernard"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0440289": {
+      "poster_url": null,
+      "imdb_rating": 7.1,
+      "imdb_votes": 19,
+      "content_rating": null,
+      "plot": "Marie's inebriated husband refuses to go to bed, so she asks Snub, a homeless man she finds sleeping in the park, to assist.",
+      "runtime_min": null,
+      "director": "Charley Chase",
+      "actors": [
+        "'Snub' Pollard",
+        "Marie Mosquini",
+        "Mark Jones"
+      ],
+      "genres": [
+        "Comedy",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0448813": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Victorin-Hippolyte Jasset",
+      "actors": [
+        "André Liabel",
+        "Josette Andriot",
+        "Olga Demidoff",
+        "Camille Bardou"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0449988": {
+      "poster_url": null,
+      "imdb_rating": 5.4,
+      "imdb_votes": 165,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 1,
+      "director": "Georges Hatot",
+      "actors": [],
+      "genres": [
+        "Short",
+        "Drama",
+        "History"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0450054": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZTY2MmMzYWMtY2Y2OS00N2YyLThiNzAtNTg5MWE2Njg5ZTFlXkEyXkFqcGdeQXVyNzUyMjQ3NTQ@._V1_SX300.jpg",
+      "imdb_rating": 5.7,
+      "imdb_votes": 177,
+      "content_rating": null,
+      "plot": "The most famous magician is outdone in this film, for, by the simple means of a wand and an empty glass, toys are transformed into animals, animals into flowers and flowers into a bevy of beautiful girls.",
+      "runtime_min": 5,
+      "director": "Segundo de Chomón",
+      "actors": [
+        "France Mathieu"
+      ],
+      "genres": [
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0450197": {
+      "poster_url": null,
+      "imdb_rating": 7.1,
+      "imdb_votes": 13,
+      "content_rating": null,
+      "plot": "A couple of Englishmen reach the middle of the earth accompanied by their guides. Here they find huge caverns covered with stalactites with gigantic mushrooms springing up spontaneously. Elephants innumerable, huge frogs, crocodiles and other monsters appear suddenly, and the travelers flee in tenor. After passing through streams of molten lava and fire they manage to return as if by miracle to the face of the earth.",
+      "runtime_min": 9,
+      "director": "Segundo de Chomón",
+      "actors": [],
+      "genres": [
+        "Short",
+        "Adventure",
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0453304": {
+      "poster_url": null,
+      "imdb_rating": 3.3,
+      "imdb_votes": 29,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Max Skladanowsky",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0454320": {
+      "poster_url": null,
+      "imdb_rating": 5.2,
+      "imdb_votes": 21,
+      "content_rating": null,
+      "plot": "A sacked man's dog finds hidden jewels and tracks the thieves.",
+      "runtime_min": 7,
+      "director": "James Williamson",
+      "actors": [],
+      "genres": [
+        "Short",
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0460751": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "A beautiful actress is deeply in love with a clubman, who unfortunately has gotten himself financially involved at his club and has to pay up immediately or suffer the disgrace of being dismissed. Just before he tells his sweetheart of his predicament she has received an invitation from a wealthy baron to dine at his house after the show. The ruined lover begs her to accept and leave a window on the lower floor open, which she does. The baron shows her his patent safe which he never keeps locked, but which, unless you know the secret, fires two shots from the interior when the door is opened. In the midst of their supper, the unwilling accomplice hears her lover stealthily creeping through the open window. Realizing that his death is imminent, and realizing also that she cannot warn him, and yet with the desire to cover his movements so he will not be heard, in the hope that he will abandon his plan and escape, she danced for the baron's amusement, dancing ever nearer and nearer the curtains which separate her from her lover, hoping thus to be able to warn him if she can only get near enough to the curtains. A sudden report and a sharp cry tells her, however, that her ruse has failed, and, rushing into the next room, she finds her lover dead upon the floor.",
+      "runtime_min": null,
+      "director": "Albert Capellani",
+      "actors": [
+        "Paul Numa",
+        "Stacia Napierkowska"
+      ],
+      "genres": [
+        "Short",
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0462701": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 58,
+      "director": "Maurice Mariaud",
+      "actors": [
+        "Paul Vermoyal",
+        "Julien Clément",
+        "Yvonne Sergyl"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0477341": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODU3MmJiMDktMTE4Ni00ZjY2LTk4YjAtOGI1NTU1MjI2YzYzXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
+      "imdb_rating": 5.3,
+      "imdb_votes": 230,
+      "content_rating": "Not Rated",
+      "plot": "It's meal time at a training camp for the New York state militia at Peekskill, New York. An Edison Company film crew has set up a camera to film the soldiers, and it gradually attracts their attention. As the soldiers eat and drink, many of them come closer to the camera, smiling and gesturing towards it.",
+      "runtime_min": 1,
+      "director": "James H. White",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0757230": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "A man buys magic powder which makes him invisible.",
+      "runtime_min": 11,
+      "director": "Lewin Fitzhamon, Cecil M. Hepworth",
+      "actors": [
+        "Lewin Fitzhamon"
+      ],
+      "genres": [
+        "Short",
+        "Fantasy"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0860480": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzg3YzdmMmItMmViYi00NjBhLWIwZWYtYjk4Y2Q0N2ViNmQzXkEyXkFqcGdeQXVyNjA5MTAzODY@._V1_SX300.jpg",
+      "imdb_rating": 7.6,
+      "imdb_votes": 17,
+      "content_rating": null,
+      "plot": "This was another Hal Roach comedy I watched on the one DVD set of Hal Roach Rarities from Alpha Home Entertainment. Snub Pollard is a sailor whose ship he may lose unless he has enough money to pay his license. Marie Mosquini is his girlfriend who tries to help him. The film begins with Pollard recounting a pirate ancestor getting the best of his shipmates-all of whom have peg legs! In present day, quite a few visual gags involving falling in the water abound, funny each time it happens. Charlie Chase-as Charles Parrott-directed with a sure hand with fine visual timing. The print is not the best but it's good enough for such an old print. So on that note, I recommend The Old Sea Dog.",
+      "runtime_min": null,
+      "director": "Charley Chase",
+      "actors": [
+        "'Snub' Pollard",
+        "Marie Mosquini",
+        "Noah Young"
+      ],
+      "genres": [
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt0880979": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Jay Hunt",
+      "actors": [
+        "Crane Wilbur",
+        "P. Dempsey Tabler",
+        "Ella Oswald",
+        "Leona Hutton"
+      ],
+      "genres": [
+        "Short",
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt1003194": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": 6,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Louis Feuillade",
+      "actors": [
+        "Luitz-Morat"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt1029287": {
+      "poster_url": null,
+      "imdb_rating": 5.0,
+      "imdb_votes": 28,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Charles Pathé",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt1179866": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Because her father breaks her engagement to a young man, Jane, a spoiled girl of luxury, retires to a country hospital of which her father is a director, in order to sulk and give vent to her feelings. She and her father have many tilts over her stubbornness, and Jane is perpetually victor. Her father discharges the flirtatious hospital superintendent one day, and that worthy leaves, taking with him the entire staff and leaving the hospital isolated and cut off from the world. That evening, the \"red-haired person,\" the new superintendent, arrives and his experiences with the hungry patients, not to mention the bad-tempered Jane, serve as a background for a most delightful little comedy. Suffice to say, Jane, for once in her life, meets her match in the \"red-haired person,\" but she rather enjoys being bossed, and an ultimate midnight episode in which she is the moving factor, brings father, the next morning at dawn with three autos loaded with assistance, only to burst in on the greatest surprise of his life. But we'll not discuss it here.",
+      "runtime_min": null,
+      "director": null,
+      "actors": [
+        "Ruth Stonehouse",
+        "Francis X. Bushman",
+        "Rapley Holmes"
+      ],
+      "genres": [
+        "Short",
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt1186197": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzgyZGNmOGMtNGZiMi00MjI0LWEyMWMtZTIzZWQ3Njc1Mjk5XkEyXkFqcGdeQXVyMDM1MzIyMQ@@._V1_SX300.jpg",
+      "imdb_rating": 6.0,
+      "imdb_votes": 376,
+      "content_rating": null,
+      "plot": "In 1896, cinema pioneer Louis Lumière decided to register a man doing impressive tricks on his bicycle, closely observed by a curious crowd. Riding it backwards or standing on the top of the bike, sometimes in a clumsy way, other ...",
+      "runtime_min": 1,
+      "director": "Louis Lumière",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt1186240": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "A henpeck persuades his friend to pose as a burglar.",
+      "runtime_min": null,
+      "director": "Percy Stow",
+      "actors": [],
+      "genres": [
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt1228653": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "One of the toughest bronchos in Oklahoma. It takes two men to hold him while he is being saddled. The cowboy who rides him has hardly time to get into the saddle before the men holding the animal are compelled to let him go and get out of danger. As soon as released, the horse tries rising on his hind legs, swings around in a circle and gives his rider a severe shaking up.",
+      "runtime_min": null,
+      "director": "Edwin S. Porter",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt1594454": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYWY1MGJlMmYtMWE5Ny00NGZlLTlhYWQtMjIyNTA1M2NiMzRhXkEyXkFqcGdeQXVyMDUyOTUyNQ@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Musty holds down a job as general factotum at the Busy Bee Amusement Arcade, one of his chief duties being that of taking tickets at the entrance to the moving stairway which leads to the cinema theater on the second floor. A \"tough guy\" slips Musty a milk ticket and starts up the stairway, but Musty proves himself equal to the occasion by reversing the escalator which causes the miscreant to lose his footing and make a hasty exit head over heels. The boss introduces Musty to Woof-Woof, the wild man, and Leonardo the Lion, who share a cage in the museum of the arcade. \"If they get rough, slip 'em one of these magic crackers and they'll be as peaceful as two lambs,\" he informs Musty as he presents him with several of the wonderful bits of pastry. The boss departs and Musty hugely enjoys teasing the occupants of the cage. Then he passes on to a music box, which he succeeds in putting out of order. Woof-Woof and Leonardo, much peeved at the teasing Musty has given them, escape from the cage and chase the patrons and employees through the various rooms of the arcade until Musty subdues them with one of the magic crackers and lures them back into their cage. While cleaning the hat of a patron, Musty carelessly covers the headpiece, which is whirling on the electric drier, with shoe blacking instead of cleaner. The whirling drier covers the unfortunate patron from head to foot with the blacking. In this emergency Musty calls upon the Hindoo Spot Remover for aid. While trying to explain to the Hindoo how the accident occurred, he splatters the Indian's white robe with the remaining contents of the blacking bottle. Unperturbed, the Asiatic waves his magic handkerchief over the spots and they disappear. Musty seizes the handkerchief and hurries back to the disgruntled patron. He waves the handkerchief before the blacking-stained victim, and lo, the latter appears clad in a new suit of clothes. Flossie, the ticket-seller, attempts to steal a tune from the music box which Musty has broken, and finding it out of order hangs upon it a sign reading \"Out of Order\" and calls upon Musty for aid. Musty fixes it so well that it explodes. Then he hangs a sign reading \"Now it is\" beside the original sign of \"Out of Order.\" The escalator or moving stairway is operated by power which the human dynamo generates by riding a stationary bicycle, and when the fat boy from the freak room steps on the slanting lift, the human dynamo breaks down. Musty has to oil him in order to start the escalator again. Later Musty takes his place but tiring of the work, uses a magic cracker to coax Leonardo the lion to ride the stationary wheel. Leonardo does beautifully until his tail catches in the mechanism, when Musty has to hurry to the rescue. Musty's boss sets him to operating the old prize package game in front of the box office, and Musty's spiel hugely interests a large crowd consisting of two children until the spieler spies a copper and beats a hasty retreat. Once more taking tickets at the escalator another \"tough\" tries to enter without the formality of presenting his credentials, but Musty once more proves equal to the occasion. He pulls the cord connecting with the trick doors at the head of the stairs, and the \"tough\" loses no time in \"coming down.\"",
+      "runtime_min": null,
+      "director": "Louis Myll",
+      "actors": [
+        "Harry Watson",
+        "George Bickel",
+        "Dan Crimmins"
+      ],
+      "genres": [
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt1663890": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODZmZmQ2N2UtZDRjMC00N2JmLWEzMzktY2I2NTQ4ZWUyODRhXkEyXkFqcGdeQXVyNzUyMjQ3NTQ@._V1_SX300.jpg",
+      "imdb_rating": 4.6,
+      "imdb_votes": 139,
+      "content_rating": null,
+      "plot": "On the terrace, a small concert which consists of a man playing the violin, two women at a piano, and another woman who sings, play a lovely tune.",
+      "runtime_min": 1,
+      "director": "Louis Lumière",
+      "actors": [
+        "André Honnorat",
+        "Jeanne Koehler",
+        "Mrs. Auguste Lumiere"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt1732154": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZGFhOTQwY2ItYTcwOS00NjVmLTkxZjMtMzVkZGM1YjFiNzRjXkEyXkFqcGdeQXVyMTYzMjc0Nzc3._V1_SX300.jpg",
+      "imdb_rating": 5.7,
+      "imdb_votes": 78,
+      "content_rating": null,
+      "plot": "Prinsengracht (1899) The title refers to a canal in Amsterdam, which is where a small boat is going down as the camera is on it filming. PRINSENGRACHT is like a lot of other films from America and Europe in that it simply shows everyday life. There's nothing ground-breaking here but this film is highly recommended because the camera-work is actually excellent. As other reviewers have pointed out, the camera-work actually brings you right into the boat and you get a feel as if you're actually there and this here is especially true when the boat goes under a bridge that people are walking across. Not only is the camera-work excellent but this short gives us a terrific view of the locations and I always enjoy seeing how places really were over a hundred years ago.",
+      "runtime_min": 2,
+      "director": "Emile Lauste",
+      "actors": [],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt1740498": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTA0MTVkMmQtZTIwNy00YThjLTk5MWMtZDEwNzlmYzMyNzgzXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
+      "imdb_rating": 5.2,
+      "imdb_votes": 136,
+      "content_rating": "G",
+      "plot": "At the bottom of the screen, people walk about from left to right and right to left as whim takes them. In the middle ground, others dance in a circle, hand in hand. People are dressed formally and most of the men wear boaters. At the top of the screen, in the distance, is a mountain with a waterfall. Motion grows more ordered as the point of view moves further and patterns are revealed.The earliest Lumiere films were carefully composed, as befit the cameramen whose roots were in still photography. More than that, they understood, as few other movie pioneers did, that motion pictures were about motion and blocked off different sections of the screen for different sorts of motion: the random movement at the bottom yielding gradually to linear motion at the top.",
+      "runtime_min": 1,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt2007349": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "A horse fetches help when tramps attack its master.",
+      "runtime_min": null,
+      "director": "Lewin Fitzhamon",
+      "actors": [
+        "Lewin Fitzhamon"
+      ],
+      "genres": [
+        "Short",
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt2150537": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "William Heise",
+      "actors": [],
+      "genres": [
+        "Short",
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt2181915": {
+      "poster_url": null,
+      "imdb_rating": 3.2,
+      "imdb_votes": 24,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Louis Lumière",
+      "actors": [],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt2207613": {
+      "poster_url": null,
+      "imdb_rating": 5.7,
+      "imdb_votes": 24,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt2217949": {
+      "poster_url": null,
+      "imdb_rating": 4.8,
+      "imdb_votes": 29,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Louis Lumière",
+      "actors": [],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt2268551": {
+      "poster_url": null,
+      "imdb_rating": 4.6,
+      "imdb_votes": 42,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Gabriel Veyre",
+      "actors": [],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt2347417": {
+      "poster_url": null,
+      "imdb_rating": 4.6,
+      "imdb_votes": 27,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 1,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt2479918": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Robert W. Paul",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short",
+        "Sport"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt3186740": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTlkYWVmOTQtODRjNS00ZGQ2LWFmMWEtZDY3YzcyYjJmMzFmXkEyXkFqcGdeQXVyMDM0MzU2NA@@._V1_SX300.jpg",
+      "imdb_rating": 5.9,
+      "imdb_votes": 208,
+      "content_rating": null,
+      "plot": "A short black and white film in which a fixed camera records a busy New York street, Broadway.",
+      "runtime_min": 1,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt5503064": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjQ2OTA2NDktZTcxOS00ZTgzLTgxOTktMWU1MmRlZWRhYTYwL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjMxMjkwMjI@._V1_SX300.jpg",
+      "imdb_rating": 5.8,
+      "imdb_votes": 26,
+      "content_rating": null,
+      "plot": "Adapted from the novel of Russian literature, focused on the military life of a young rebel and his youthful passion in Tsarist Russia.",
+      "runtime_min": 87,
+      "director": "Yuri Tarich",
+      "actors": [
+        "I. Arcana",
+        "Ivan Arkanov",
+        "Klavdia Chebyshyova"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt5625326": {
+      "poster_url": null,
+      "imdb_rating": 5.0,
+      "imdb_votes": 7,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 20,
+      "director": "Leslie Goodwins",
+      "actors": [
+        "Marvin Loback",
+        "Harry Martell",
+        "'Snub' Pollard",
+        "Leo White"
+      ],
+      "genres": [
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt6134006": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": 13,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Clément Maurice",
+      "actors": [
+        "Carlotta Zambelli"
+      ],
+      "genres": [
+        "Short",
+        "Music"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
+      "schema": 3
+    },
+    "tt8442154": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzY1ZGUxMWItNGY3ZS00YWFiLWFjNDUtMTRjN2NiZWJlNDFjXkEyXkFqcGdeQXVyNzUyMjQ3NTQ@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "A man, in the imitation of a serpentine dance, takes a long piece of cloth and twirls it around him.",
+      "runtime_min": 1,
+      "director": "Louis Lumière",
+      "actors": [
+        "Félicien Trewey"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "fetched_at": "2026-07-17T05:23:32Z",
       "schema": 3
     }
   },
