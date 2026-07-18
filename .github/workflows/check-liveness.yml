@@ -11,7 +11,11 @@ name: Check Archive liveness
 
 on:
   schedule:
-    - cron: '0 6 * * 3'   # weekly, Wed 06:00 UTC
+    # DAILY, not weekly: the byte-level playability probe has a ~22k-item
+    # backlog to work through (most of the catalog was only ever checked
+    # metadata-only), and the 90-day re-probe TTL then needs steady throughput
+    # to keep coverage from decaying.
+    - cron: '0 6 * * *'
   workflow_dispatch:
     inputs:
       limit:
@@ -26,6 +30,14 @@ on:
         description: 'Re-check already-checked items (true/false)'
         required: false
         default: 'false'
+      no_probe:
+        description: 'Metadata only; skip the byte playability probe (true/false)'
+        required: false
+        default: 'false'
+      reprobe_days:
+        description: 'Re-verify playback older than N days (0 = never)'
+        required: false
+        default: '90'
 
 concurrency:
   group: catalog-writers
@@ -54,8 +66,10 @@ jobs:
         run: |
           python tools/check_liveness.py \
             --limit ${{ github.event.inputs.limit || '8000' }} \
+            --reprobe-days ${{ github.event.inputs.reprobe_days || '90' }} \
             ${{ github.event.inputs.clusters_only == 'true' && '--clusters-only' || '' }} \
-            ${{ github.event.inputs.refresh == 'true' && '--refresh' || '' }} | tee liveness.log
+            ${{ github.event.inputs.refresh == 'true' && '--refresh' || '' }} \
+            ${{ github.event.inputs.no_probe == 'true' && '--no-probe' || '' }} | tee liveness.log
           echo "## Archive liveness" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 liveness.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 

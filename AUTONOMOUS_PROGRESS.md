@@ -97,10 +97,10 @@ and format string*. A 0-byte or corrupt `.mp4` passes every gate we have.
 
 | # | Item | State |
 |---|---|---|
-| D1 | Byte-level playability probe — ranged `bytes=0-1023` GET in `check_liveness`, assert 200/206 + `video/*` + `ftyp`/`moov`. Mirrors the pattern `validate_posters.py:76-77` already uses for images. | ⏳ |
+| D1 | ✅ Byte-level playability probe — ranged `bytes=0-1023` GET in `check_liveness`, assert 200/206 + `video/*` + `ftyp`/`moov`. Mirrors the pattern `validate_posters.py:76-77` already uses for images. | ✅ tick 2 |
 | D2 | Add `playable` (and `downloadURL`) as real `items` columns in `build_sqlite.py` so queries *can* gate. | ⏳ |
 | D3 | Flip the gate: `playable=1` required on hero + all Home/community shelves + `randomPlayable()`. **Only after D1 coverage ≥95%** — flipping early empties Home. | ⏳ |
-| D4 | Re-probe cadence: `livenessChecked` is a one-time marker today, so a URL that dies *after* its check is never re-probed. Add a 90-day TTL re-sweep. | ⏳ |
+| D4 | ✅ Re-probe cadence: `livenessChecked` is a one-time marker today, so a URL that dies *after* its check is never re-probed. Add a 90-day TTL re-sweep. | ✅ tick 2 |
 | D5 | Runtime truth — **nothing validates runtime against the file.** `remediate_catalog.py:352-357` says so outright. ffprobe the popularity head, write `trueRuntimeSeconds`, flag \|Δ\| > 20%. Closest existing proxy is `detect_trailers.py:46-60`. | ⏳ |
 | D6 | Synopsis gap: 4,763 empty + 3,940 stubs. Existing enrichment covers the mechanism; this is a coverage push. | ⏳ |
 | D7 | contentType audit — `documentary` (9 items) and `trailer` (10) are near-dead categories; 1,511 `tv-special` is orphan-episode residue (Decisions 035/036). | 🔮 |
@@ -124,9 +124,9 @@ correct and complete on every platform. There is simply never a second swap.
 
 | # | Defect | Confidence | Platforms |
 |---|---|---|---|
-| A1 | No catalog refresh on foreground — the reported "screens don't refresh". Needs `refreshIfStale()` + a `lastCheckedAt` TTL (~6h) called from the existing `scenePhase` handlers. | Very high | tvOS ⏳ · iOS ⏳ · macOS ⏳ |
+| A1 | No catalog refresh on foreground — the reported "screens don't refresh". Needs `refreshIfStale()` + a `lastCheckedAt` TTL (~6h) called from the existing `scenePhase` handlers. | Very high | ✅ tvOS · ✅ iOS · ✅ macOS (tick 1) |
 | A2 | Same on Android — `AppContainer.kt:58-63` `start()` runs `catalog.refresh()` once from `onCreate:23-27`. No `ProcessLifecycleOwner`/`ON_RESUME` observer. | Very high | Android ⏳ |
-| A3 | **`scenePhase` frozen inside the 60s sync loop.** `ContentView.swift:42-49` / `RootView_iOS.swift:76-83` read `scenePhase` *inside* a `.task {}` with no `id:` — the View struct is captured at appear time and never updates. If the view first appears while `.inactive` (common on cold launch), the periodic sync **never fires for the whole session**. One-line fix; silently disables sync today. | High | tvOS ⏳ · iOS ⏳ |
+| A3 | **`scenePhase` frozen inside the 60s sync loop.** `ContentView.swift:42-49` / `RootView_iOS.swift:76-83` read `scenePhase` *inside* a `.task {}` with no `id:` — the View struct is captured at appear time and never updates. If the view first appears while `.inactive` (common on cold launch), the periodic sync **never fires for the whole session**. One-line fix; silently disables sync today. | High | ✅ tvOS · ✅ iOS (tick 1) |
 | A4 | No sync retry/backoff — `CloudKitSyncService.swift:120-122` swallows into `lastError` and waits for the next tick. Combined with A3, a user gets one foreground shot and no retry. **Likely the "account doesn't sync".** | Medium | all Apple ⏳ |
 | A5 | Web viewer never re-fetches — `watch.js:123-124` `Data.load()` runs once from `boot()`; no `visibilitychange`/`pageshow`/`focus`/`online` listener. | High | web ⏳ |
 | A6 | `featured.json` is bundle-only (`CatalogLoader.swift:12-20`) — curated shelves and `deprioritizedSeries` can't update without an App Store release. | Medium-high | all Apple ⏳ |
@@ -185,3 +185,34 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
   updated.
 - **Next:** tick 2 = **D1**, the byte-level playability probe, which has to
   start banking coverage before D3 can gate Home.
+
+### Tick 2 — 2026-07-18 — DATA: D1 + D4, byte-level playability probe
+- **Context:** metadata liveness was never playability. `check_liveness` read
+  `archive.org/metadata/{id}` and trusted that a *listed* derivative plays; a
+  0-byte, truncated, or error-page `.mp4` passed every gate until a user hit play.
+- **Implementation** (`tools/check_liveness.py`):
+  - `probe_playable()` — ranged `bytes=0-1023` GET of the real video. Fails on
+    404/410 on the file, a 0-byte body, an HTML/JSON error page, or a container
+    signature that doesn't match the extension (`ftyp` for mp4/m4v, EBML for
+    mkv/webm, `OggS`, `RIFF`). Unknown extensions are never failed for lack of a
+    signature. Reads at most 1 KB then closes — a node that ignores `Range`
+    answers 200 with the WHOLE file, so an uncapped stream would pull GBs/item.
+  - New `unplayable` verdict → the same reversible `excluded` + `playbackDead`
+    mechanism as a dead item; recovery clears it if the item comes back.
+  - `playbackVerified` / `playbackCheckedAt` are markers **independent** of
+    `livenessChecked`, so the whole metadata-only back catalog is re-queued for a
+    first byte probe. **D4:** `--reprobe-days 90` re-verifies afterwards — a URL
+    that dies *after* its check would otherwise never be re-probed.
+  - Workflow moved weekly → **daily** (a ~22k backlog at 8k/run), with
+    `no_probe` / `reprobe_days` dispatch inputs.
+- **Verification:** probed 12 real popular catalog URLs — 11 verified, 1 left as
+  transient (a genuinely unresponsive `dn600301.us` node, confirmed by hand), and
+  a deliberately-missing file correctly failed with `derivative_http_404`. Then
+  ran the real tool end-to-end on a 40-item catalog built from the live DB:
+  **35 verified, 5 left for retry, 0 excluded** — the intended conservative
+  behavior (never wrongly hide). Python + workflow YAML both parse.
+- **Note:** archive.org answers **503**, not 404, for a missing item on the
+  download path, so only a 404/410 on the *file* is treated as definitive.
+- **Next:** tick 3 = APP, A2 + A5 (Android `ProcessLifecycleOwner` resume refresh
+  and the web viewer's missing `visibilitychange` re-fetch) — the same defect
+  class as tick 1, on the two platforms that still have it.
