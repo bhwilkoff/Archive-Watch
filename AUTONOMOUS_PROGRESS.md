@@ -101,7 +101,7 @@ and format string*. A 0-byte or corrupt `.mp4` passes every gate we have.
 | D2 | Add `playable` (and `downloadURL`) as real `items` columns in `build_sqlite.py` so queries *can* gate. | ⏳ |
 | D3 | Flip the gate: `playable=1` required on hero + all Home/community shelves + `randomPlayable()`. **Only after D1 coverage ≥95%** — flipping early empties Home. | ⏳ |
 | D4 | ✅ Re-probe cadence: `livenessChecked` is a one-time marker today, so a URL that dies *after* its check is never re-probed. Add a 90-day TTL re-sweep. | ✅ tick 2 |
-| D5 | Runtime truth — **nothing validates runtime against the file.** `remediate_catalog.py:352-357` says so outright. ffprobe the popularity head, write `trueRuntimeSeconds`, flag \|Δ\| > 20%. Closest existing proxy is `detect_trailers.py:46-60`. | ⏳ |
+| D5 | ✅ Runtime truth — **nothing validates runtime against the file.** `remediate_catalog.py:352-357` says so outright. ffprobe the popularity head, write `trueRuntimeSeconds`, flag \|Δ\| > 20%. Closest existing proxy is `detect_trailers.py:46-60`. | ✅ tick 4 (no ffprobe needed — Archive's own file `length` is the authority) |
 | D6 | Synopsis gap: 4,763 empty + 3,940 stubs. Existing enrichment covers the mechanism; this is a coverage push. | ⏳ |
 | D7 | contentType audit — `documentary` (9 items) and `trailer` (10) are near-dead categories; 1,511 `tv-special` is orphan-episode residue (Decisions 035/036). | 🔮 |
 | D8 | 290 items carry no `downloadURL` at all — drop or repair. | ⏳ |
@@ -241,3 +241,37 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
   does get fresh bytes — A5 was purely a missing listener, not a caching bug.
 - **Next:** tick 4 = DATA. Read the finished liveness run's numbers, then D5
   (runtime truth via ffprobe) — the last uncovered metadata field.
+
+### Tick 4 — 2026-07-18 — DATA: D5, runtime truth from the file itself
+- **Context:** runtime was the one metadata field with NO correctness check
+  anywhere — `remediate_catalog.py:352-357` says so in its own comment, and
+  suggests "a CI file probe".
+- **Key finding — no ffprobe pass was needed.** archive.org derives every
+  derivative's `length` from the file at ingest, so the authoritative duration
+  is already in the metadata `check_liveness` **was already fetching**, via a
+  helper (`archive_lib.runtime_from_file`) it already called — but only when
+  repointing a URL. Reconciling runtime is therefore nearly free, and rides the
+  same daily cadence + 90-day re-probe as the playability check, so it
+  self-heals instead of needing its own workflow.
+- **Measured before building:** of 45 popular titles, 42 agreed with the file
+  (≤25%), **2 were badly wrong** — `ThePinkPanther-cartoons` claimed 115 min
+  over a 25 min file; `utopia` claimed 82 min over a 142 min file. ~4.5% drift
+  plus 5,118 playable items with no runtime at all.
+- **Implementation:** `apply_file_runtime()` records `fileRuntimeSeconds` on
+  every alive item, fills a missing runtime, and corrects one that disagrees by
+  >`RUNTIME_DRIFT` (25%), keeping the prior value in `runtimeWasSeconds` and
+  stamping `runtimeSource="archive_file"`. The file wins because it is what the
+  user actually watches — a catalog runtime matched from an external record may
+  describe a different cut, or a different film.
+- **Three defects caught in my own change before shipping:** the temp carrier
+  key leaked into the catalog on the `unplayable` path (now popped on any
+  non-alive verdict); `tally` was incremented off-lock from 12 threads (Counter
+  `+=` isn't atomic — now under the existing lock); and the repoint path
+  re-assigned `runtimeSeconds` from the same file, overwriting the reconciled
+  value.
+- **Verification:** end-to-end on 25 live items with two seeded controls — a
+  wiped runtime and a bogus 99999. Result: 2 filled, 3 corrected, 0 leaks,
+  25/25 carrying `fileRuntimeSeconds`. Spot-checked against reality: His Girl
+  Friday filled to 5504s (actual 92 min), the 99999 corrected to 664s.
+- **Next:** tick 5 = OPT — re-measure both scorecards against the freshly
+  published DB once the liveness run lands, and net-remove lines.
