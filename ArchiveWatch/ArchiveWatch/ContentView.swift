@@ -35,16 +35,24 @@ struct ContentView: View {
             if phase == .background { BackgroundRefresh.schedule() }
             else if phase == .active {
                 Task { await CloudKitSyncService.shared.sync(modelContext) }
+                // The launch download runs once per process; without this an
+                // app resumed after days keeps serving its cold-launch catalog.
+                Task { await store.refreshCatalogIfStale() }
             }
         }
         // #11b live sync: a gentle periodic pull while in use, so two TVs left on
         // converge without a foreground event. Reentrancy-guarded in the service.
-        .task {
+        //
+        // Keyed on scenePhase deliberately: an unkeyed .task captures the View
+        // struct once, so the `scenePhase` it reads is frozen at appear time —
+        // if the view first appeared while .inactive (common on cold launch),
+        // the guard never passed again and periodic sync silently never ran.
+        // Keying restarts the loop per phase, so it runs exactly while active.
+        .task(id: scenePhase) {
+            guard scenePhase == .active else { return }
             while !Task.isCancelled {
                 try? await Task.sleep(nanoseconds: 60_000_000_000)
-                if scenePhase == .active {
-                    await CloudKitSyncService.shared.sync(modelContext)
-                }
+                await CloudKitSyncService.shared.sync(modelContext)
             }
         }
     }

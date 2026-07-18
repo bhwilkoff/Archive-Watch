@@ -69,14 +69,24 @@ struct RootView: View {
             // changes made on the Apple TV never arrived mid-session). Gated on
             // sign-in: Decision 022 — nothing leaves the device until opted in.
             .onChange(of: scenePhase) { _, phase in
-                if phase == .active && account.isSignedIn {
+                guard phase == .active else { return }
+                if account.isSignedIn {
                     Task { await CloudKitSyncService.shared.sync(modelContext) }
                 }
+                // load() is memoized and runs once per process; without this a
+                // resumed app keeps serving its cold-launch catalog.
+                Task { await store.refreshCatalogIfStale() }
             }
-            .task {
+            // Keyed on scenePhase deliberately: an unkeyed .task captures the
+            // View struct once, so the `scenePhase` it read was frozen at
+            // appear time — if the view first appeared while .inactive (common
+            // on cold launch), the guard never passed again and periodic sync
+            // silently never ran for the whole session.
+            .task(id: scenePhase) {
+                guard scenePhase == .active else { return }
                 while !Task.isCancelled {
                     try? await Task.sleep(nanoseconds: 60_000_000_000)
-                    if scenePhase == .active && account.isSignedIn {
+                    if account.isSignedIn {
                         await CloudKitSyncService.shared.sync(modelContext)
                     }
                 }

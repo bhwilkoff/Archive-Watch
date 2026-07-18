@@ -52,8 +52,13 @@ struct ArchiveWatchMacApp: App {
                     await CloudKitSyncService.shared.sync(modelContainer.mainContext)
                 }
                 .onChange(of: scenePhase) { _, phase in
-                    guard phase == .active, account.isSignedIn else { return }
-                    Task { await CloudKitSyncService.shared.sync(modelContainer.mainContext) }
+                    guard phase == .active else { return }
+                    if account.isSignedIn {
+                        Task { await CloudKitSyncService.shared.sync(modelContainer.mainContext) }
+                    }
+                    // load() runs once per process; a Mac left open for days
+                    // would otherwise never see a newer catalog.
+                    Task { await store.refreshCatalogIfStale() }
                 }
                 // Deep links (archivewatch://item/{id} · /surprise · /random) and
                 // Universal Links (https://archivewatch.org/item/{id}) — the share URLs

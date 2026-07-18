@@ -24,8 +24,11 @@ actor CatalogRefreshService {
     /// follows the redirect to the asset CDN automatically.
     private let dbURL = URL(string: "https://github.com/bhwilkoff/Archive-Watch/releases/download/catalog-db/catalog.sqlite.zz")!
     private static let dbETagKey = "catalogDBETag"
+    private static let lastCheckedKey = "catalogDBLastCheckedAt"
     /// A valid full DB is tens of MB; a far smaller inflate means corruption.
     private static let minValidBytes = 10_000_000
+    /// How long a check stays fresh before a foreground resume re-checks.
+    static let defaultStaleAfter: TimeInterval = 6 * 3600
 
     // tvOS only permits writes to Caches / tmp — never Application Support.
     private var dbCacheURL: URL {
@@ -39,11 +42,34 @@ actor CatalogRefreshService {
         FileManager.default.fileExists(atPath: dbCacheURL.path) ? dbCacheURL.path : nil
     }
 
+    /// True when the release hasn't been checked for a newer DB within `ttl`.
+    func isStale(ttl: TimeInterval = defaultStaleAfter) -> Bool {
+        let last = UserDefaults.standard.double(forKey: Self.lastCheckedKey)
+        guard last > 0 else { return true }
+        return Date().timeIntervalSince1970 - last >= ttl
+    }
+
+    /// Foreground/resume path. The launch path (`downloadDatabase`) only ever
+    /// runs once per process, so an app resumed after days served the catalog
+    /// from its last cold launch forever. This is the re-check: throttled by
+    /// `ttl`, and it reports a path ONLY when the bytes actually changed, so
+    /// callers bump `dbGeneration` (re-querying every view) exactly once per
+    /// real update rather than on every foreground.
+    func refreshIfStale(ttl: TimeInterval = defaultStaleAfter) async -> String? {
+        guard isStale(ttl: ttl) else { return nil }
+        return await downloadDatabase(onlyIfChanged: true)
+    }
+
     /// Download the compressed catalog DB to Caches and inflate it (ETag-
     /// conditional so an unchanged DB isn't re-fetched). Returns the local
     /// path, or the cached path on 304/failure. Validated by the caller
     /// opening it via CatalogDB.
-    func downloadDatabase() async -> String? {
+    ///
+    /// `onlyIfChanged` returns nil instead of the cached path when the release
+    /// is unchanged or unreachable — the resume path uses it to distinguish
+    /// "nothing new" from "here is a newer DB".
+    func downloadDatabase(onlyIfChanged: Bool = false) async -> String? {
+        func unchanged() -> String? { onlyIfChanged ? nil : cachedDatabasePath() }
         var request = URLRequest(url: dbURL)
         request.cachePolicy = .reloadRevalidatingCacheData
         if let etag = UserDefaults.standard.string(forKey: Self.dbETagKey),
@@ -53,9 +79,12 @@ actor CatalogRefreshService {
         do {
             let (tmp, response) = try await URLSession.shared.download(for: request)
             defer { try? FileManager.default.removeItem(at: tmp) }
-            guard let http = response as? HTTPURLResponse else { return cachedDatabasePath() }
-            if http.statusCode == 304 { return cachedDatabasePath() }
-            guard http.statusCode == 200 else { return cachedDatabasePath() }
+            guard let http = response as? HTTPURLResponse else { return unchanged() }
+            // A completed round trip counts as a check even when unchanged, so
+            // the TTL throttles re-checks rather than re-downloads.
+            UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: Self.lastCheckedKey)
+            if http.statusCode == 304 { return unchanged() }
+            guard http.statusCode == 200 else { return unchanged() }
 
             // Inflate to a sibling temp file, validate, then atomically swap in.
             let staging = dbCacheURL.appendingPathExtension("inflating")
@@ -66,7 +95,7 @@ actor CatalogRefreshService {
             let size = (attrs?[.size] as? Int) ?? 0
             guard size >= Self.minValidBytes else {
                 try? FileManager.default.removeItem(at: staging)
-                return cachedDatabasePath()
+                return unchanged()
             }
             try? FileManager.default.removeItem(at: dbCacheURL)
             try FileManager.default.moveItem(at: staging, to: dbCacheURL)
@@ -75,7 +104,7 @@ actor CatalogRefreshService {
             }
             return dbCacheURL.path
         } catch {
-            return cachedDatabasePath()
+            return unchanged()
         }
     }
 

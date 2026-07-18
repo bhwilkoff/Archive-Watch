@@ -156,3 +156,32 @@ highlighted on the home screen"). It cannot ship first: only 45% of shelf items
 have ever been verified, so gating on `playable=1` today would empty Home. The
 order is forced — D1 builds the truth, CI banks coverage over days, D3 flips
 the gate once ≥95%. The release wave is what makes all of it visible at once.
+
+### Tick 1 — 2026-07-18 — APP: A1 + A3 on Apple (tvOS · iOS · macOS)
+- **Context:** the two highest-confidence cold-resume defects from tick 0.
+- **Implementation:**
+  - `CatalogRefreshService` — added `lastCheckedAt` persistence, `isStale(ttl:)`,
+    and `refreshIfStale(ttl:)` (6h default). `downloadDatabase` gained
+    `onlyIfChanged:` so the resume path can distinguish "nothing new" from "here
+    is a newer DB" and only bump `dbGeneration` on a real update. A completed
+    round trip stamps `lastCheckedAt` even on 304, so the TTL throttles
+    *re-checks*, not just re-downloads.
+  - `AppStore.refreshCatalogIfStale()` (tvOS) and `AppStore_iOS` twin (iOS+macOS
+    share the store) — swap in a newer DB, guarded on already-loaded.
+  - Wired into the **existing** `scenePhase == .active` handlers at
+    `ContentView.swift`, `RootView_iOS.swift`, `ArchiveWatchApp_macOS.swift`.
+    (A1 closed on all three Apple platforms.)
+  - **A3:** the 60s sync loops now use `.task(id: scenePhase)` with an early
+    `guard`, replacing an unkeyed `.task` that captured `scenePhase` at appear
+    time. Previously, if the view first appeared while `.inactive`, periodic
+    sync never fired again for the whole session.
+- **Verification:** `xcodebuild` BUILD SUCCEEDED on all three — tvOS, iOS
+  (generic destinations) and macOS. SourceKit showed the usual phantom
+  "Cannot find type in scope" cascade; ignored per CLAUDE.md, and the real
+  compiler disagreed. Version 1.3.252 / build 774.
+- **Lessons:** build recipe memory was stale — `/Applications/Xcode.app` no
+  longer exists (beta only), there is no `ArchiveWatch-iOS` scheme, and a fresh
+  Xcode needs `xcodebuild -downloadComponent MetalToolchain` once. Memory
+  updated.
+- **Next:** tick 2 = **D1**, the byte-level playability probe, which has to
+  start banking coverage before D3 can gate Home.

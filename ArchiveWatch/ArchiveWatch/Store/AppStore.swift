@@ -206,6 +206,19 @@ final class AppStore {
         }
     }
 
+    /// Re-check the release for a newer catalog and swap it in. Called on
+    /// foreground: the launch path above runs once per process, so without
+    /// this a resumed app serves the catalog from its last cold launch
+    /// forever. Throttled by the service's TTL and a no-op when unchanged.
+    func refreshCatalogIfStale() async {
+        guard isReady,
+              let path = await CatalogRefreshService.shared.refreshIfStale(),
+              let fullDB = CatalogDB(path: path),
+              fullDB.itemCount >= (db?.itemCount ?? 0) else { return }
+        swapDB(fullDB)
+        print("[AppStore] refreshed catalog on resume: \(fullDB.itemCount) items")
+    }
+
     /// Items assigned to the given shelf id (SQLite, Decision 017).
     func items(forShelf shelfID: String) -> [Catalog.Item] {
         db?.shelf(shelfID) ?? []

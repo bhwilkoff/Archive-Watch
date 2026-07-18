@@ -129,6 +129,18 @@ final class AppStore {
         if db == nil { loadError = "Could not open the catalog." }
     }
 
+    /// Re-check the release for a newer catalog and swap it in. `load()` is
+    /// memoized behind `loadTask` and short-circuits once `hasFullCatalog` is
+    /// true, so it runs exactly once per process — without this, an app
+    /// resumed after days serves its cold-launch catalog forever. Throttled by
+    /// the service's TTL and a no-op when the release is unchanged.
+    func refreshCatalogIfStale() async {
+        guard hasFullCatalog,
+              let path = await CatalogRefreshService.shared.refreshIfStale(),
+              let full = CatalogDB(path: path) else { return }
+        swap(full)
+    }
+
     private func swap(_ newDB: CatalogDB) {
         newDB.hideAdult = hideAdultContent
         newDB.hiddenTypes = Self.contentTypes(for: hiddenCategories)
