@@ -76,10 +76,62 @@ Measured 2026-07-18 against the published `catalog.sqlite`.
 
 ## Backlog
 
-Populated from the tick-0 audits. Items are pulled in cadence order; each
-carries its per-platform state.
+Populated from the tick-0 audits. Pulled in cadence order. `✅ shipped ·
+⏳ open · 🔮 later`.
 
-_(tick 0 audit results appended below as they land)_
+### DATA — why videos don't play, and why they still reach Home
+
+**Root cause of "offending titles on the home screen":** `downloadURL` is not a
+column in `items` (`build_sqlite.py:509-521`) — it lives only inside the
+`item_json` blob. **No shelf/hero/browse SQL query can filter on playability,
+so none does.** `shelf()`, `hiddenGems()`, `topRated()`, `mostDiscussed()`,
+`communityFavorites()`, `watchingNow()`, `browseSQL()` and `randomPlayable()`
+in `CatalogDB.swift` gate on artwork, votes and rights — never on whether the
+video plays. Hero (`HomeView.swift:49-64`) is the same. Only *episodes* check
+for a URL (`build_sqlite.py:590,738`).
+
+**And verification never touches the bytes:** `check_liveness.py:64` fetches
+`archive.org/metadata/{id}` only — no HEAD, no ranged GET, no content-type, no
+codec. `archive_lib.pick_video:39-68` ranks derivatives by *filename extension
+and format string*. A 0-byte or corrupt `.mp4` passes every gate we have.
+
+| # | Item | State |
+|---|---|---|
+| D1 | Byte-level playability probe — ranged `bytes=0-1023` GET in `check_liveness`, assert 200/206 + `video/*` + `ftyp`/`moov`. Mirrors the pattern `validate_posters.py:76-77` already uses for images. | ⏳ |
+| D2 | Add `playable` (and `downloadURL`) as real `items` columns in `build_sqlite.py` so queries *can* gate. | ⏳ |
+| D3 | Flip the gate: `playable=1` required on hero + all Home/community shelves + `randomPlayable()`. **Only after D1 coverage ≥95%** — flipping early empties Home. | ⏳ |
+| D4 | Re-probe cadence: `livenessChecked` is a one-time marker today, so a URL that dies *after* its check is never re-probed. Add a 90-day TTL re-sweep. | ⏳ |
+| D5 | Runtime truth — **nothing validates runtime against the file.** `remediate_catalog.py:352-357` says so outright. ffprobe the popularity head, write `trueRuntimeSeconds`, flag \|Δ\| > 20%. Closest existing proxy is `detect_trailers.py:46-60`. | ⏳ |
+| D6 | Synopsis gap: 4,763 empty + 3,940 stubs. Existing enrichment covers the mechanism; this is a coverage push. | ⏳ |
+| D7 | contentType audit — `documentary` (9 items) and `trailer` (10) are near-dead categories; 1,511 `tv-special` is orphan-episode residue (Decisions 035/036). | 🔮 |
+| D8 | 290 items carry no `downloadURL` at all — drop or repair. | ⏳ |
+| D9 | `repick_derivatives.py` is wired into **no workflow**. | 🔮 |
+
+### APP — why a resumed app is stale
+
+**Root cause:** `CatalogRefreshService.downloadDatabase()` is correct, but it is
+reachable *only* from the once-per-process load path. tvOS `AppStore.swift:196`
+sits inside `loadBundledData()`, called from `ContentView.swift:19` in a branch
+that renders only while `!isReady` — once the seed DB opens, never again. iOS
+`AppStore_iOS.swift:123` is memoized behind a `loadTask` retained forever
+(`:100-104`). macOS the same. **A resumed process serves the catalog from its
+last cold launch, forever.** The `scenePhase == .active` handlers that already
+exist (`ContentView.swift:36`, `RootView_iOS.swift:72`,
+`ArchiveWatchApp_macOS.swift:55`) call CloudKit sync — never the catalog.
+
+View invalidation is **not** the bug: `dbGeneration`/`dbVersion` keying is
+correct and complete on every platform. There is simply never a second swap.
+
+| # | Defect | Confidence | Platforms |
+|---|---|---|---|
+| A1 | No catalog refresh on foreground — the reported "screens don't refresh". Needs `refreshIfStale()` + a `lastCheckedAt` TTL (~6h) called from the existing `scenePhase` handlers. | Very high | tvOS ⏳ · iOS ⏳ · macOS ⏳ |
+| A2 | Same on Android — `AppContainer.kt:58-63` `start()` runs `catalog.refresh()` once from `onCreate:23-27`. No `ProcessLifecycleOwner`/`ON_RESUME` observer. | Very high | Android ⏳ |
+| A3 | **`scenePhase` frozen inside the 60s sync loop.** `ContentView.swift:42-49` / `RootView_iOS.swift:76-83` read `scenePhase` *inside* a `.task {}` with no `id:` — the View struct is captured at appear time and never updates. If the view first appears while `.inactive` (common on cold launch), the periodic sync **never fires for the whole session**. One-line fix; silently disables sync today. | High | tvOS ⏳ · iOS ⏳ |
+| A4 | No sync retry/backoff — `CloudKitSyncService.swift:120-122` swallows into `lastError` and waits for the next tick. Combined with A3, a user gets one foreground shot and no retry. **Likely the "account doesn't sync".** | Medium | all Apple ⏳ |
+| A5 | Web viewer never re-fetches — `watch.js:123-124` `Data.load()` runs once from `boot()`; no `visibilitychange`/`pageshow`/`focus`/`online` listener. | High | web ⏳ |
+| A6 | `featured.json` is bundle-only (`CatalogLoader.swift:12-20`) — curated shelves and `deprioritizedSeries` can't update without an App Store release. | Medium-high | all Apple ⏳ |
+| A7 | No `AVAudioSession` interruption observer (`PlayerView_iOS.swift:93-94` activates once). Audio stays dead after a post-background interruption. | Medium | iOS ⏳ |
+| A8 | Stale SW shell — `sw.js:53-56` cache-first with no revalidation, no `controllerchange` handler. A tab open for days never picks up a new build. | Low-medium | web ⏳ |
 
 ---
 
@@ -92,6 +144,15 @@ _(tick 0 audit results appended below as they land)_
 - **Verification:** all numbers queried from the released `catalog.sqlite`
   (2026-07-18 16:56Z), not estimated. CI reviewed: all nightly catalog
   workflows green over the last 24h.
-- **Next:** tick 1 pulls from the two audit punch lists — DATA side starts with
-  playability verification coverage, since it is both the largest gap and the
-  defect the owner actually hit.
+- **Next:** tick 1 = **A1 + A3 on Apple** (the two very-high/high-confidence
+  defects that directly explain "screens don't refresh" and "account doesn't
+  sync", and both are small, contained changes). Tick 2 = **D1** (byte-level
+  playability probe), which must bank coverage for several days before D3 can
+  flip the Home gate on.
+
+### Sequencing note — why the Home gate can't flip first
+D3 is the change the owner asked for literally ("should certainly not be
+highlighted on the home screen"). It cannot ship first: only 45% of shelf items
+have ever been verified, so gating on `playable=1` today would empty Home. The
+order is forced — D1 builds the truth, CI banks coverage over days, D3 flips
+the gate once ≥95%. The release wave is what makes all of it visible at once.
