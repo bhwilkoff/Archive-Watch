@@ -119,12 +119,15 @@
     episodes: [],        // episode-items (Decision 045) — see episodes-index.json
     episodeMeta: new Map(),  // archiveID → {slug, series, season, episode}
 
+    loadedAt: 0,
+
     async load() {
       const [idxR, featR, epR] = await Promise.all([
         fetch(INDEX_URL), fetch(FEATURED_URL), fetch(EPISODES_URL).catch(() => null),
       ]);
       if (!idxR.ok) throw new Error(`catalog index ${idxR.status}`);
       const idx = await idxR.json();
+      this.byID.clear();          // a reload re-populates; never accumulate
       this.rows = idx.items || [];
       this.shelves = idx.shelves || {};
       this.collections = idx.collections || {};
@@ -143,6 +146,24 @@
           this.byID.set(aid, [aid, title, year, 'tv-episode', still, 1]);
           this.episodeMeta.set(aid, { slug, series, season, episode });
         }
+      }
+      this.loadedAt = Date.now();
+    },
+
+    /**
+     * Re-fetch the catalog when a long-open tab comes back to the foreground.
+     * load() ran once from boot(), so a PWA left open for days kept serving the
+     * rows parsed at first boot — the web twin of the native cold-resume bug.
+     * The SW is network-first for data URLs, so this really does get fresh
+     * bytes. Returns true when the caller should re-render.
+     */
+    async reloadIfStale(ttlMs = 6 * 60 * 60 * 1000) {
+      if (!this.loadedAt || Date.now() - this.loadedAt < ttlMs) return false;
+      try {
+        await this.load();
+        return true;
+      } catch {
+        return false;      // keep the last-good copy; try again next resume
       }
     },
 
@@ -2017,6 +2038,24 @@
     $('boot').hidden = true;
     window.addEventListener('hashchange', route);
     route();
+
+    // Cold-resume refresh: a tab or installed PWA left open for days otherwise
+    // renders forever from the rows parsed at first boot. Never re-render while
+    // the player is open — that would interrupt playback; the data still
+    // updates and the next route() picks it up.
+    let resuming = false;
+    const resumeRefresh = async () => {
+      if (resuming || document.visibilityState !== 'visible') return;
+      resuming = true;
+      try {
+        if (await Data.reloadIfStale() && !$('player').open) route();
+      } finally {
+        resuming = false;
+      }
+    };
+    document.addEventListener('visibilitychange', resumeRefresh);
+    window.addEventListener('pageshow', resumeRefresh);
+    window.addEventListener('online', resumeRefresh);
 
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js').catch(() => { /* http or old browser */ });

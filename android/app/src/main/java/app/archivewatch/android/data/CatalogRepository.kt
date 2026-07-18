@@ -28,10 +28,13 @@ class CatalogRepository(
             "https://github.com/bhwilkoff/Archive-Watch/releases/download/catalog-db/catalog.sqlite.zz"
         private const val MIN_VALID_BYTES = 10_000_000L
         private const val SEED_ASSET = "seed.sqlite"
+        /** How long a check stays fresh before a foreground resume re-checks. */
+        const val DEFAULT_STALE_AFTER_MS = 6L * 60 * 60 * 1000
     }
 
     private val dbFile: File get() = File(context.filesDir, "catalog.sqlite")
     private val etagFile: File get() = File(context.filesDir, "catalog.etag")
+    private val lastCheckFile: File get() = File(context.filesDir, "catalog.lastcheck")
 
     @Volatile var db: CatalogDatabase? = null
         private set
@@ -70,6 +73,23 @@ class CatalogRepository(
         _dbVersion.value += 1
     }
 
+    /** True when the release hasn't been checked for a newer DB within [ttlMillis]. */
+    fun isStale(ttlMillis: Long = DEFAULT_STALE_AFTER_MS): Boolean {
+        val last = lastCheckFile.takeIf { it.exists() }?.readText()?.trim()?.toLongOrNull()
+            ?: return true
+        return System.currentTimeMillis() - last >= ttlMillis
+    }
+
+    /**
+     * Foreground/resume path. [refresh] runs once from Application.onCreate, so
+     * a process kept alive for days served its cold-start catalog forever.
+     * Throttled by [ttlMillis]; a no-op when the release is unchanged.
+     */
+    suspend fun refreshIfStale(ttlMillis: Long = DEFAULT_STALE_AFTER_MS) {
+        if (!isStale(ttlMillis)) return
+        refresh()
+    }
+
     /** ETag-conditional download → inflate → validate → atomic swap. */
     suspend fun refresh() = withContext(Dispatchers.IO) {
         try {
@@ -78,6 +98,9 @@ class CatalogRepository(
             if (!etag.isNullOrEmpty()) builder.header("If-None-Match", etag)
 
             okHttp.newCall(builder.build()).execute().use { response ->
+                // A completed round trip counts as a check even when unchanged,
+                // so the TTL throttles re-checks rather than re-downloads.
+                lastCheckFile.writeText(System.currentTimeMillis().toString())
                 if (response.code == 304) return@withContext
                 if (!response.isSuccessful) return@withContext
                 val body = response.body ?: return@withContext

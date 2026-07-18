@@ -7,6 +7,9 @@ import app.archivewatch.android.data.ClipExporter
 import app.archivewatch.android.data.EditorialRepository
 import app.archivewatch.android.data.SettingsStore
 import app.archivewatch.android.data.UserStateStore
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ProcessLifecycleOwner
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -61,5 +64,21 @@ class AppContainer(private val application: Application) {
             catalog.applyFilters(settings.hideAdultContent.first())
             catalog.refresh()
         }
+        observeForeground()
+    }
+
+    /**
+     * Re-check the catalog whenever the app comes to the foreground. Without
+     * this, [start] is the ONLY caller of refresh — so a process Android kept
+     * alive across days of non-use kept serving its cold-start catalog and the
+     * user saw stale shelves forever. Throttled by the repository's TTL, and
+     * the UI re-queries automatically off the dbVersion bump.
+     */
+    private fun observeForeground() {
+        ProcessLifecycleOwner.get().lifecycle.addObserver(object : DefaultLifecycleObserver {
+            override fun onStart(owner: LifecycleOwner) {
+                scope.launch { catalog.refreshIfStale() }
+            }
+        })
     }
 }

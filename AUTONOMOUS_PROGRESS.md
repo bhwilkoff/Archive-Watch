@@ -125,10 +125,10 @@ correct and complete on every platform. There is simply never a second swap.
 | # | Defect | Confidence | Platforms |
 |---|---|---|---|
 | A1 | No catalog refresh on foreground — the reported "screens don't refresh". Needs `refreshIfStale()` + a `lastCheckedAt` TTL (~6h) called from the existing `scenePhase` handlers. | Very high | ✅ tvOS · ✅ iOS · ✅ macOS (tick 1) |
-| A2 | Same on Android — `AppContainer.kt:58-63` `start()` runs `catalog.refresh()` once from `onCreate:23-27`. No `ProcessLifecycleOwner`/`ON_RESUME` observer. | Very high | Android ⏳ |
+| A2 | Same on Android — `AppContainer.kt:58-63` `start()` runs `catalog.refresh()` once from `onCreate:23-27`. No `ProcessLifecycleOwner`/`ON_RESUME` observer. | Very high | ✅ Android (tick 3) |
 | A3 | **`scenePhase` frozen inside the 60s sync loop.** `ContentView.swift:42-49` / `RootView_iOS.swift:76-83` read `scenePhase` *inside* a `.task {}` with no `id:` — the View struct is captured at appear time and never updates. If the view first appears while `.inactive` (common on cold launch), the periodic sync **never fires for the whole session**. One-line fix; silently disables sync today. | High | ✅ tvOS · ✅ iOS (tick 1) |
 | A4 | No sync retry/backoff — `CloudKitSyncService.swift:120-122` swallows into `lastError` and waits for the next tick. Combined with A3, a user gets one foreground shot and no retry. **Likely the "account doesn't sync".** | Medium | all Apple ⏳ |
-| A5 | Web viewer never re-fetches — `watch.js:123-124` `Data.load()` runs once from `boot()`; no `visibilitychange`/`pageshow`/`focus`/`online` listener. | High | web ⏳ |
+| A5 | Web viewer never re-fetches — `watch.js:123-124` `Data.load()` runs once from `boot()`; no `visibilitychange`/`pageshow`/`focus`/`online` listener. | High | ✅ web (tick 3) |
 | A6 | `featured.json` is bundle-only (`CatalogLoader.swift:12-20`) — curated shelves and `deprioritizedSeries` can't update without an App Store release. | Medium-high | all Apple ⏳ |
 | A7 | No `AVAudioSession` interruption observer (`PlayerView_iOS.swift:93-94` activates once). Audio stays dead after a post-background interruption. | Medium | iOS ⏳ |
 | A8 | Stale SW shell — `sw.js:53-56` cache-first with no revalidation, no `controllerchange` handler. A tab open for days never picks up a new build. | Low-medium | web ⏳ |
@@ -216,3 +216,28 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
 - **Next:** tick 3 = APP, A2 + A5 (Android `ProcessLifecycleOwner` resume refresh
   and the web viewer's missing `visibilitychange` re-fetch) — the same defect
   class as tick 1, on the two platforms that still have it.
+
+### Tick 3 — 2026-07-18 — APP: A2 + A5, resume refresh on Android + web
+- **Context:** same defect class as tick 1, on the two platforms that still had
+  it. Closes A1/A2/A5 across all five platforms.
+- **Implementation:**
+  - **Android** — `CatalogRepository` gained `isStale()` / `refreshIfStale()` on
+    a 6h TTL backed by a `catalog.lastcheck` file, stamped on any completed
+    round trip (including 304) so the TTL throttles *re-checks*, not just
+    re-downloads. `AppContainer.observeForeground()` registers a
+    `ProcessLifecycleOwner` `DefaultLifecycleObserver` whose `onStart` refreshes
+    — previously `start()` from `Application.onCreate` was the only caller of
+    `refresh()`, so a process Android kept alive across days of non-use served
+    its cold-start catalog forever. Added the `lifecycle-process` dependency.
+  - **Web** — `Data.loadedAt` + `Data.reloadIfStale()`, driven by
+    `visibilitychange` / `pageshow` / `online` listeners in `boot()`. `load()`
+    now clears `byID` first so a reload re-populates rather than accumulating.
+    The re-render is **skipped while `<dialog id="player">` is open** so a
+    refresh can never interrupt playback; data still updates and the next
+    `route()` picks it up. A re-entrancy guard stops overlapping resumes.
+- **Verification:** Android `assembleDebug` BUILD SUCCESSFUL; `watch.js` and
+  `sw.js` both parse under `new Function(...)`. Confirmed from `sw.js:30-50`
+  that the SW is **network-first for data URLs**, so the web re-fetch really
+  does get fresh bytes — A5 was purely a missing listener, not a caching bug.
+- **Next:** tick 4 = DATA. Read the finished liveness run's numbers, then D5
+  (runtime truth via ffprobe) — the last uncovered metadata field.

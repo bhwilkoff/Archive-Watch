@@ -139,6 +139,7 @@ dependencies {
 
     implementation(libs.activity.compose)
     implementation(libs.lifecycle.runtime.compose)
+    implementation(libs.lifecycle.process)
 
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)
