@@ -632,7 +632,7 @@ def main():
     # rights reconcile must touch ONLY exclusions the rights audit itself created, or
     # running --apply every build would UN-HIDE dead/duplicate items those tools hid.
     FOREIGN = ("livenessReason", "livenessDead", "episodeDuplicate", "duplicateOf",
-               "duplicateMergedInto")
+               "duplicateMergedInto", "excludedReason")
     hidden = 0
     unhid = 0
     for it in items:
