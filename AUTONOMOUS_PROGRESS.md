@@ -43,7 +43,7 @@ items, 21,860 on shelves); "now" re-measured after tick 12.
 ### DATA
 | Metric | Baseline | Now | Gate |
 |---|---|---|---|
-| Shelf items byte-verified playable | 0 (marker didn't exist) | **14,146 / 21,825 (65%)** | ≥95%, re-verified within 90d |
+| Shelf items byte-verified playable | 0 (marker didn't exist) | **16,706 / 21,824 (76%)** | ≥95%, re-verified within 90d |
 | Unverified items on hero / community shelves | unbounded | **0 — gated (ticks 10, 12)** | 0 |
 | Items missing runtime | 5,408 (17%) | **2,212** — shelf items **2%** | ✅ **MET** (≤3% of shelf items) |
 | Items missing year | 5,409 | **5,168** | — |
@@ -802,3 +802,18 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
 - **Lesson:** tick 26's own log congratulated me for finally reading D9's
   docstring. The docstring was the error. Code comments and prose are claims, not
   evidence; `ffprobe` took 30 seconds and would have prevented the whole detour.
+
+### Tick 28 — 2026-07-19 — FINAL: consolidate and stop
+- **Coverage 76%** (0% → 45% → 65% → **76%**), climbing unattended on the daily
+  13:00 cron — which is itself the proof the starvation fix works.
+- **Final published state:** 32,260 items · 18,656 byte-verified · 76% shelf
+  coverage · 2,073 missing runtime (from 5,408) · hero + 4 community shelves
+  gated on **all 5 platforms** · A1–A8 stability defects all fixed.
+- **Stopping because the ACTIONABLE backlog is empty**, not because the work is
+  done. What remains is time-based (coverage on cron), blocked with no data
+  source (synopsis), or the owner's call (Documentary IA, store submission).
+- Durable findings written to memory `db_health_stability_loop_2026_07.md` —
+  the CI starvation + its diagnostic, the schedule map, the five measurement
+  traps, the synopsis dead-ends, and the three open owner items.
+- **Restart anytime with `/loop`.** The daily crons keep improving the catalog
+  without it.
