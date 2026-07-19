@@ -755,3 +755,27 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
   (blocked on data) and D7's Documentary category (owner call) — stated in full.
 - **Next:** tick 26 — coverage advances on the 13:00 cron; verify the day's run
   and re-measure toward the 95% gate.
+
+### Tick 26 — 2026-07-19 — DATA: the gate was passing unplayable titles
+- **Starvation fix validated unattended:** the first scheduled run from the new
+  13:00 slot fired (14:17Z) and **started a job**.
+- **⚠️ False positive in my own gate.** The byte probe validates the CONTAINER,
+  not the codec — a `512Kb MPEG4` is a well-formed `.mp4` with a correct `ftyp`,
+  so it passed as `playbackVerified` despite AVPlayer being unable to decode
+  MPEG-4 Part 2. **3,147 items still point at 512kb derivatives; 1,205 were
+  marked playable, 761 on shelves, 82 eligible for the HERO.**
+- **Two coordinated fixes:** `check_liveness` now inspects the picked
+  derivative's format/name and withholds the mark for Apple-undecodable
+  formats, stamping `needsRepick`; `remediate` clears `playbackVerified` on any
+  undecodable `downloadURL`, because items verified BEFORE the first fix would
+  keep the stale mark until their 90-day re-probe — three months of a lying gate.
+- **Deliberately NOT excluded:** Android and web decode these fine. Withholding
+  the mark only stops them LEADING a surface.
+- **Verified:** 6 synthetic cases + a real item (`his_girl_friday` → h.264 → OK);
+  live catalog `playbackVerified` 14,673 → 13,468 — exactly the 1,205 — with
+  3,156 flagged `needsRepick`. **Reported coverage 65% → 60%, the honest number.**
+- **Lesson:** every earlier tick treated "container is valid" as "it plays". The
+  distinction only surfaced from reading D9's docstring, which I had dismissed as
+  low-value backlog twice.
+- **Next:** tick 27 = wire `repick_derivatives.py` (still in no workflow) so
+  those 3,156 upgrade to H.264 where archive.org has since derived one.
