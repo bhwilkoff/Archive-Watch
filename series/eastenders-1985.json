@@ -178,91 +178,88 @@
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9128578/photo/6729b07806732.jpg"
     },
     {
-      "name": "Ronni Ancona",
-      "character": "Bea Pollard",
-      "order": 4,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/300831/photo/65b6ab9530f97.jpg"
-    },
-    {
       "name": "Perry Fenwick",
       "character": "Billy Mitchell",
-      "order": 5,
+      "order": 4,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/400062.jpg"
     },
     {
       "name": "Tony Clay",
       "character": "Callum \"Halfway\" Highway",
-      "order": 6,
+      "order": 5,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/493986.jpg"
     },
     {
       "name": "Zaraah Abrahams",
       "character": "Chelsea Fox",
-      "order": 7,
+      "order": 6,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/487831/photo/60d2e526d50b9.jpg"
     },
     {
       "name": "Michelle Collins",
       "character": "Cindy Williams/Beale",
-      "order": 8,
+      "order": 7,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/313244/photo/65f3012dd2cb6.jpg"
     },
     {
       "name": "Diane Parish",
       "character": "Denise Fox",
-      "order": 9,
+      "order": 8,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/400052.jpg"
     },
     {
       "name": "Jaden Ladega",
       "character": "Denzel Danes",
-      "order": 10,
+      "order": 9,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9112738/photo/64737aa07a1cc.jpg"
     },
     {
       "name": "Harriet Thorpe",
       "character": "Elaine Peacock",
-      "order": 11,
+      "order": 10,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/359388/photo/65f083bd6f6f7.jpg"
     },
     {
       "name": "Heather Peace",
       "character": "Eve Unwin",
-      "order": 12,
+      "order": 11,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/320066/photo/619bd232213c5.jpg"
     },
     {
       "name": "Colin Salmon",
       "character": "George Knight",
-      "order": 13,
+      "order": 12,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/278489/photo/6097e4a2c8d53.jpg"
     },
     {
       "name": "Francesca Henry",
       "character": "Gina Knight",
-      "order": 14,
+      "order": 13,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9097796/photo/64b97167343f5.jpg"
     },
     {
       "name": "Toby-Alexander Smith",
       "character": "Gray Atkins",
-      "order": 15,
+      "order": 14,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/535860.jpg"
     },
     {
       "name": "Elijah Holloway",
       "character": "Harry Mitchell",
-      "order": 16,
+      "order": 15,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9128577/photo/667c0083db3ac.jpg"
     },
     {
       "name": "Ross Boatman",
       "character": "Harvey Monroe",
-      "order": 17,
+      "order": 16,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/281033/photo/63893451a6a3b.jpg"
+    },
+    {
+      "name": "Emma Barton",
+      "character": "Honey Mitchell",
+      "order": 17,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/400064.jpg"
     }
-  ],
-  "seriesImdbID": "tt0088512",
-  "canonicalEpisodeCount": 100,
-  "canonicalSeasons": 1
+  ]
 }

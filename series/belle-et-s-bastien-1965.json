@@ -1,46 +1,43 @@
 {
-  "version": 2,
-  "seriesID": "belle-et-s-bastien-1965",
-  "tvmazeID": 34749,
-  "title": "Belle et Sébastien",
-  "yearStart": 1965,
-  "yearEnd": 1970,
-  "overview": "Rescued in a cottage during a snowstorm by Caesar, the old shepherd, Sebastian whose mother has just died giving him birth will grow with the two grandchildren of Caesar, Jean and Angelina, also orphans. Belle, a large white dog, breed Pyrenean mountain dog was born the same day as Sebastian. Six years later, Sébastien and Belle will meet. Belle escaped from a kennel and while she is hunted down by the villagers, Sebastien saves her life, they become inseparable and will live together many adventures.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/144/362228.jpg",
-  "backdropURL": null,
-  "genres": [],
-  "networks": [
-    "ORTF"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "belle-et-s-bastien-1965",
+ "tvmazeID": 34749,
+ "title": "Belle et Sébastien",
+ "yearStart": 1965,
+ "yearEnd": 1970,
+ "overview": "Rescued in a cottage during a snowstorm by Caesar, the old shepherd, Sebastian whose mother has just died giving him birth will grow with the two grandchildren of Caesar, Jean and Angelina, also orphans. Belle, a large white dog, breed Pyrenean mountain dog was born the same day as Sebastian. Six years later, Sébastien and Belle will meet. Belle escaped from a kennel and while she is hunted down by the villagers, Sebastien saves her life, they become inseparable and will live together many adventures.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/144/362228.jpg",
+ "backdropURL": null,
+ "genres": [],
+ "networks": [
+  "ORTF"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "belle-et-sebastien",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "L'étranger",
-          "overview": null,
-          "stillURL": "https://archive.org/download/archivewatch-covers/belle-et-sebastien.9bc802f3.jpg",
-          "airDate": "1965-10-17",
-          "year": 1965,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Belle_et_Sébastien_-_S01E04_-_L'étranger.FR.mp4",
-            "format": "h.264",
-            "sizeBytes": 156940392,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_Sébastien_-_S01E04_-_L'étranger.FR.mp4"
-        }
-      ]
+     "archiveID": "belle-et-sebastien",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "L'étranger",
+     "overview": null,
+     "stillURL": "https://archive.org/download/archivewatch-covers/belle-et-sebastien.9bc802f3.jpg",
+     "airDate": "1965-10-17",
+     "year": 1965,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Belle_et_Sébastien_-_S01E04_-_L'étranger.FR.mp4",
+      "format": "h.264",
+      "sizeBytes": 156940392,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_Sébastien_-_S01E04_-_L'étranger.FR.mp4"
     }
-  ],
-  "episodesCount": 1,
-  "canonicalEpisodesCount": 39,
-  "seriesImdbID": "tt0166900",
-  "canonicalEpisodeCount": 7,
-  "canonicalSeasons": 2
+   ]
+  }
+ ],
+ "episodesCount": 1,
+ "canonicalEpisodesCount": 39
 }

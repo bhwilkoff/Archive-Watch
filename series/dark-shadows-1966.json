@@ -180,52 +180,52 @@
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/364281/photo/6349eeaea78ac.jpg"
     },
     {
-      "name": "Grayson Hall",
-      "character": "Doctor Julia Hoffman, Countess Natalie DuPres, Magda Rakosi, Julia Collins",
-      "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257421/photo/63dddfc27b9ab.jpg"
-    },
-    {
-      "name": "Nancy Barrett",
-      "character": "Carolyn Stoddard Hawkes, Millicent Collins Forbes, Charity Trask, Carolyn Loomis, Leticia Faye,",
-      "order": 2,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/364282/photo/63ddc8adb907d.jpg"
-    },
-    {
       "name": "Joan Bennett",
       "character": "Elizabeth Collins Stoddard, Naomi Collins, Judith Collins Trask, Flora Collins",
-      "order": 3,
+      "order": 1,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/80044.jpg"
-    },
-    {
-      "name": "Alexandra Isles",
-      "character": "Victoria Winters",
-      "order": 4,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/80045.jpg"
     },
     {
       "name": "Louis Edmonds",
       "character": "Roger Collins, Joshua Collins, Edward Collins, Daniel Collins, Amadeus Collins, Brutus Collins",
-      "order": 5,
+      "order": 2,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/364284/photo/63ddd968bf082.jpg"
+    },
+    {
+      "name": "Grayson Hall",
+      "character": "Doctor Julia Hoffman, Countess Natalie DuPres, Magda Rakosi, Julia Collins",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257421/photo/63dddfc27b9ab.jpg"
+    },
+    {
+      "name": "Lara Parker",
+      "character": "Angélique Bouchard Collins, Cassandra Blair Collins, Alexis Stokes, Angélique Stokes Collins,",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/283539/photo/63ddc60d8044e.jpg"
+    },
+    {
+      "name": "David Selby",
+      "character": "Quentin Collins",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/328763/62076562.jpg"
+    },
+    {
+      "name": "Nancy Barrett",
+      "character": "Carolyn Stoddard Hawkes, Millicent Collins Forbes, Charity Trask, Carolyn Loomis, Leticia Faye,",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/364282/photo/63ddc8adb907d.jpg"
     },
     {
       "name": "Kathryn Leigh Scott",
       "character": "Maggie Evans, Josette DuPres, Rachel Drummond, Lady Kitty Hampshire, Maggie Evans Collins",
-      "order": 6,
+      "order": 7,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/255615/photo/63ddc38381942.jpg"
     },
     {
-      "name": "Thayer David",
-      "character": "Matthew Morgan, Ben Stokes, Professor Timothy Elliot Stokes, Sandor Rakosi, Count Andreas Petof",
-      "order": 7,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256797/photo/63ddd807399a0.jpg"
-    },
-    {
-      "name": "John Karlen",
-      "character": "Willie Loomis, Carl Collins, William H. Loomis, Desmond Collins, Kendrick Young",
+      "name": "Alexandra Isles",
+      "character": "Victoria Winters",
       "order": 8,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/255290/photo/635f10dae1547.jpg"
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/80045.jpg"
     },
     {
       "name": "Joel Crothers",
@@ -234,40 +234,40 @@
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7882663/photo/63dddaedba31f.jpg"
     },
     {
+      "name": "John Karlen",
+      "character": "Willie Loomis, Carl Collins, William H. Loomis, Desmond Collins, Kendrick Young",
+      "order": 10,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/255290/photo/635f10dae1547.jpg"
+    },
+    {
+      "name": "David Henesy",
+      "character": "David Collins, Daniel Collins, Jamison Collins",
+      "order": 11,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/80059.jpg"
+    },
+    {
+      "name": "Thayer David",
+      "character": "Matthew Morgan, Ben Stokes, Professor Timothy Elliot Stokes, Sandor Rakosi, Count Andreas Petof",
+      "order": 12,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256797/photo/63ddd807399a0.jpg"
+    },
+    {
       "name": "Roger Davis",
       "character": "Peter Bradford, Jeff Clark, Ned Stuart, Dirk Wilkins, Charles Delaware Tate/Harrison Munroe",
-      "order": 10,
+      "order": 13,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256240/photo/63ddc74b03bdf.jpg"
     },
     {
       "name": "Christopher Pennock",
       "character": "Jeb Hawkes, Cyrus Longworth/John Yaeger, Sebastian Shaw, Gabriel Collins",
-      "order": 11,
+      "order": 14,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/279676/photo/63ddc2b89ddac.jpg"
-    },
-    {
-      "name": "David Ford",
-      "character": "Sam Evans, Andre DuPres",
-      "order": 12,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/80055.jpg"
     },
     {
       "name": "Jerry Lacy",
       "character": "Tony Peterson, Reverend Trask, Gregory Trask, Mr Trask, Lamar Trask",
-      "order": 13,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/364285/photo/63ddc689ac922.jpg"
-    },
-    {
-      "name": "Mitch Ryan",
-      "character": "Burke Devlin",
-      "order": 14,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/80057.jpg"
-    },
-    {
-      "name": "David Henesy",
-      "character": "David Collins, Daniel Collins, Jamison Collins",
       "order": 15,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/80059.jpg"
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/364285/photo/63ddc689ac922.jpg"
     },
     {
       "name": "Humbert Allen Astredo",
@@ -276,13 +276,10 @@
       "profilePath": "https://artworks.thetvdb.com/banners/actors/310072.jpg"
     },
     {
-      "name": "Clarice Blackburn",
-      "character": "Mrs Sarah Johnson, Abigail Collins, Minerva Trask",
+      "name": "Don Briscoe",
+      "character": "Chris Jennings, Tom Jennings, Timothy Shaw, Chris Collins",
       "order": 17,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/310073.jpg"
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/364289/photo/63ddd389f4145.jpg"
     }
-  ],
-  "seriesImdbID": "tt0059978",
-  "canonicalEpisodeCount": 100,
-  "canonicalSeasons": 1
+  ]
 }

@@ -1,0 +1,85 @@
+{
+  "version": 2,
+  "seriesID": "treehouse-detectives-2018",
+  "tvmazeID": 21822,
+  "title": "Treehouse Detectives",
+  "yearStart": 2018,
+  "yearEnd": 2018,
+  "overview": "When their animal friends need help, brother-and-sister team Toby and Teri use the clues and follow the facts to solve mysteries in their own backyard.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/5b24529f7fc15.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Adventure",
+    "Children",
+    "Mystery"
+  ],
+  "networks": [
+    "Netflix"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "treehouse-tv-2007",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Treehouse TV",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Treehouse TV (2007) (Part 3).mp4",
+            "format": "h.264",
+            "sizeBytes": 942733207,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/treehouse-tv-2007/Treehouse%20TV%20%282007%29%20%28Part%203%29.mp4"
+        },
+        {
+          "archiveID": "treehouse-tv-2008-part-5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Treehouse TV",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Treehouse TV (2008) Part 5.mp4",
+            "format": "h.264",
+            "sizeBytes": 718486682,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/treehouse-tv-2008-part-5/Treehouse%20TV%20%282008%29%20Part%205.mp4"
+        },
+        {
+          "archiveID": "treehouse-tv-2008-part-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Treehouse TV",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Treehouse TV (2008) Part 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 720205693,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/treehouse-tv-2008-part-2/Treehouse%20TV%20%282008%29%20Part%202.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3,
+  "canonicalEpisodesCount": 20,
+  "tvdbID": "348077",
+  "artworkSource": "tvdb"
+}

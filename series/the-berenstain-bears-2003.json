@@ -18,34 +18,16 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": null,
+      "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "the-berenstain-bears-2003",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Berenstain Bears - TV Series",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 2003,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Berenstain Bears - Too Small For The Team_ The Jump Rope Contest - Ep.15.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 102668870,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-berenstain-bears-2003/Berenstain%20Bears%20-%20Too%20Small%20For%20The%20Team_%20The%20Jump%20Rope%20Contest%20-%20Ep.15.ia.mp4"
-        },
-        {
           "archiveID": "the-berenstain-bears-2003-1080p-hd",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Berenstain Bears - TV Series",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Mighty Milton",
           "overview": null,
           "stillURL": null,
-          "airDate": null,
+          "airDate": "2003-01-14",
           "year": 2003,
           "runtimeSeconds": null,
           "videoFile": {
@@ -55,6 +37,24 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/the-berenstain-bears-2003-1080p-hd/The.Berenstain.Bears.%282003%29.S01E07.Trouble.with.Pets.AAC2.0.1080p.WEBRip.x265-PoF.mp4"
+        },
+        {
+          "archiveID": "the-berenstain-bears-2003",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Out for the Team",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "2003-01-24",
+          "year": 2003,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Berenstain Bears - Too Small For The Team_ The Jump Rope Contest - Ep.15.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 102668870,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-berenstain-bears-2003/Berenstain%20Bears%20-%20Too%20Small%20For%20The%20Team_%20The%20Jump%20Rope%20Contest%20-%20Ep.15.ia.mp4"
         }
       ]
     }
@@ -136,8 +136,5 @@
       "order": 11,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt1541156",
-  "canonicalEpisodeCount": 0,
-  "canonicalSeasons": null
+  ]
 }

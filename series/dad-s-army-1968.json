@@ -43,6 +43,24 @@
       "seasonNumber": 2,
       "episodes": [
         {
+          "archiveID": "dads_army_202604",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "The Loneliness of the Long Distance Walker",
+          "overview": "Walker is called up into the army. The platoon, anxious at how they will obtain off-the-ration supplies without him, fight to keep him.",
+          "stillURL": null,
+          "airDate": "1969-03-15",
+          "year": 1969,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Dads Army/Season 02/S02E03 - The Loneliness of the Long Distance Walker.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2047673139,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/dads_army_202604/Dads%20Army/Season%2002/S02E03%20-%20The%20Loneliness%20of%20the%20Long%20Distance%20Walker.ia.mp4"
+        },
+        {
           "archiveID": "dads-army-series-2",
           "seasonNumber": 2,
           "episodeNumber": 5,
@@ -107,29 +125,6 @@
           "downloadURL": "https://archive.org/download/dads-army-series-4/S04 E14 - Battle Of Giants.ia.mp4"
         }
       ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "dads_army_202604",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Dads Army",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1968,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Dads Army/Season 02/S02E03 - The Loneliness of the Long Distance Walker.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 2047673139,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/dads_army_202604/Dads%20Army/Season%2002/S02E03%20-%20The%20Loneliness%20of%20the%20Long%20Distance%20Walker.ia.mp4"
-        }
-      ]
     }
   ],
   "episodesCount": 5,
@@ -191,8 +186,5 @@
       "order": 8,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/537951.jpg"
     }
-  ],
-  "seriesImdbID": "tt0062552",
-  "canonicalEpisodeCount": 62,
-  "canonicalSeasons": 9
+  ]
 }

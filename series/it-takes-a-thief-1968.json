@@ -39,9 +39,32 @@
           "downloadURL": "https://archive.org/download/it-takes-a-thief-complete-series-1968/It Takes a Thief S01E01 - A Thief Is a Thief.mp4"
         }
       ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "it-takes-a-thief-the-suzie-simone-caper",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It Takes A Thief",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/it-takes-a-thief-the-suzie-simone-caper",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2893,
+          "videoFile": {
+            "name": "3x21 - It Takes a Thief - The Suzie Simone Caper.mp4",
+            "format": "h.264",
+            "sizeBytes": 281257661,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/it-takes-a-thief-the-suzie-simone-caper/3x21%20-%20It%20Takes%20a%20Thief%20-%20The%20Suzie%20Simone%20Caper.mp4"
+        }
+      ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 2,
   "canonicalEpisodesCount": 66,
   "tvdbID": "76398",
   "artworkSource": "tvdb",
@@ -58,8 +81,5 @@
       "order": 1,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0062572",
-  "canonicalEpisodeCount": 12,
-  "canonicalSeasons": 3
+  ]
 }

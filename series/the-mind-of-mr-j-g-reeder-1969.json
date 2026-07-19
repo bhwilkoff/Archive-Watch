@@ -26,7 +26,7 @@
           "episodeNumber": 4,
           "title": "Sheer Melodrama",
           "overview": null,
-          "stillURL": "https://archive.org/download/archivewatch-covers/the-mind-of-jg-reeder-complete-series-1969.3cf38ea7.jpg",
+          "stillURL": "https://archive.org/services/img/the-mind-of-jg-reeder-complete-series-1969",
           "airDate": "1969-05-14",
           "year": 1969,
           "runtimeSeconds": 3600,
@@ -34,9 +34,9 @@
             "name": "The Mind of JG Reeder S01E04 - Sheer Melodrama.mp4",
             "format": "h.264",
             "sizeBytes": 301543744,
-            "tier": 2
+            "tier": 1
           },
-          "downloadURL": "https://archive.org/download/the-mind-of-jg-reeder-complete-series-1969/The Mind of JG Reeder S01E04 - Sheer Melodrama.mp4"
+          "downloadURL": "https://archive.org/download/the-mind-of-jg-reeder-complete-series-1969/The%20Mind%20of%20JG%20Reeder%20S01E04%20-%20Sheer%20Melodrama.mp4"
         }
       ]
     }
@@ -52,8 +52,5 @@
       "order": 0,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0161173",
-  "canonicalEpisodeCount": 7,
-  "canonicalSeasons": 2
+  ]
 }

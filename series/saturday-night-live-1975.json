@@ -2993,82 +2993,82 @@
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8289873/photo/6a2ac20483d25.jpg"
     },
     {
-      "name": "Chloe Fineman",
-      "character": "Chloe Fineman",
-      "order": 3,
-      "profilePath": "https://artworks.thetvdb.com/banners/person/8116813/5ef870cc5542c.jpg"
-    },
-    {
       "name": "Marcello Hernandez",
       "character": "Marcello Hernandez",
-      "order": 4,
+      "order": 3,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9102625/photo/6a0726cbe4a4c.jpg"
     },
     {
       "name": "James Austin Johnson",
       "character": "James Austin Johnson",
-      "order": 5,
+      "order": 4,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/532005/photo/66dcf14d7db2f.jpg"
     },
     {
       "name": "Colin Jost",
       "character": "Colin Jost",
-      "order": 6,
+      "order": 5,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/404900/photo/673f983d86183.jpg"
     },
     {
       "name": "Ashley Padilla",
       "character": "Ashley Padillia",
-      "order": 7,
+      "order": 6,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9131187/photo/66f977f42ca0c.jpg"
     },
     {
       "name": "Sarah Sherman",
       "character": "Sarah Sherman",
-      "order": 8,
+      "order": 7,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8083955/photo/673f6606cd26d.jpg"
     },
     {
       "name": "Kenan Thompson",
       "character": "Kenan Thompson",
-      "order": 9,
+      "order": 8,
       "profilePath": "https://artworks.thetvdb.com/banners/person/267225/primary.jpg"
     },
     {
       "name": "Jane Wickline",
       "character": "Jane Wickline",
-      "order": 10,
+      "order": 9,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9131188/photo/66f978177e6e8.jpg"
     },
     {
       "name": "Tommy Brennan",
       "character": "Tommy Brennan",
-      "order": 11,
+      "order": 10,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8873391/photo/69aed568031b9.jpg"
     },
     {
       "name": "Jeremy Culhane",
       "character": "Jeremy Culhane",
-      "order": 12,
+      "order": 11,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/596087/photo/65a1a96c8b919.jpg"
     },
     {
       "name": "Kam Patterson",
       "character": "Kam Patterson",
-      "order": 13,
+      "order": 12,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9146029/photo/69df21cd60aae.jpg"
     },
     {
       "name": "Veronika Slowikowska",
       "character": "Veronika Slowikowska",
-      "order": 14,
+      "order": 13,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8166610/photo/6608637bf23c1.jpg"
     },
     {
       "name": "Ben Marshall",
       "character": "Ben Marshall",
-      "order": 15,
+      "order": 14,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9095384/photo/624094dc564a0.jpg"
+    },
+    {
+      "name": "Chloe Fineman",
+      "character": "Chloe Fineman",
+      "order": 15,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/8116813/5ef870cc5542c.jpg"
     },
     {
       "name": "Bowen Yang",
