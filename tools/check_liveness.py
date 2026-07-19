@@ -52,6 +52,7 @@ import argparse
 import json
 import sys
 import threading
+import time
 from collections import Counter, defaultdict
 from datetime import date
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -266,7 +267,14 @@ def main() -> int:
     ap.add_argument("--reprobe-days", type=int, default=90,
                     help="re-verify playback for items last verified longer ago "
                          "than this (0 = never re-verify)")
+    ap.add_argument("--max-minutes", type=float, default=0,
+                    help="stop starting new probes after this long and publish "
+                         "what's done (0 = no budget). Bounds how long the run "
+                         "holds the shared catalog-writers lock; the work is "
+                         "resumable, so the next run continues where this left off")
     args = ap.parse_args()
+
+    deadline = (time.monotonic() + args.max_minutes * 60) if args.max_minutes else None
 
     today = date.today().isoformat()
 
@@ -328,6 +336,11 @@ def main() -> int:
         tmp.replace(CATALOG)
 
     def work(it):
+        # Budget exhausted: drain the remaining futures cheaply rather than
+        # cancelling mid-flight. The item stays unmarked, so the next run picks
+        # it up — the whole tool is resumable by design.
+        if deadline and time.monotonic() > deadline:
+            return "skipped_budget"
         verdict, info, playback = classify(it, session, probe=not args.no_probe)
         if args.dry_run:
             return verdict

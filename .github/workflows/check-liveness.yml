@@ -15,7 +15,13 @@ on:
     # backlog to work through (most of the catalog was only ever checked
     # metadata-only), and the 90-day re-probe TTL then needs steady throughput
     # to keep coverage from decaying.
-    - cron: '0 6 * * *'
+    #
+    # 10:00 UTC, deliberately CLEAR of the ordered nightly chain — rights-audit
+    # 01:10 -> validate-posters 02:15 -> publish-db 04:30 -> cover-generation
+    # 05:00 -> free-subtitles 06:00 all share the `catalog-writers` lock, and
+    # this job now runs for hours (two network round trips per item). Parking it
+    # at 06:00 would have held the lock across the morning and starved them.
+    - cron: '0 10 * * *'
   workflow_dispatch:
     inputs:
       limit:
@@ -38,6 +44,10 @@ on:
         description: 'Re-verify playback older than N days (0 = never)'
         required: false
         default: '90'
+      max_minutes:
+        description: 'Stop starting new probes after N minutes (0 = no budget)'
+        required: false
+        default: '150'
 
 concurrency:
   group: catalog-writers
@@ -67,6 +77,7 @@ jobs:
           python tools/check_liveness.py \
             --limit ${{ github.event.inputs.limit || '8000' }} \
             --reprobe-days ${{ github.event.inputs.reprobe_days || '90' }} \
+            --max-minutes ${{ github.event.inputs.max_minutes || '150' }} \
             ${{ github.event.inputs.clusters_only == 'true' && '--clusters-only' || '' }} \
             ${{ github.event.inputs.refresh == 'true' && '--refresh' || '' }} \
             ${{ github.event.inputs.no_probe == 'true' && '--no-probe' || '' }} | tee liveness.log

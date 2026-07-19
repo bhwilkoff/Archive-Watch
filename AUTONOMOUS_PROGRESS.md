@@ -275,3 +275,32 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
   Friday filled to 5504s (actual 92 min), the 99999 corrected to 664s.
 - **Next:** tick 5 = OPT — re-measure both scorecards against the freshly
   published DB once the liveness run lands, and net-remove lines.
+
+### Tick 5 — 2026-07-18 — OPT: bound the lock my own change made expensive
+- **Context:** the OPT tick's job is to catch what the feature ticks broke. It
+  did — in tick 2's own workflow change.
+- **The problem:** ticks 2 + 4 roughly doubled the per-item network cost (a byte
+  probe on top of the metadata fetch) AND moved the workflow weekly → daily at
+  **06:00 UTC**. But every catalog workflow shares one `catalog-writers`
+  concurrency lock, and the nightly chain is deliberately ordered:
+  `rights-audit 01:10 → validate-posters 02:15 → publish-db 04:30 →
+  cover-generation 05:00 → free-subtitles 06:00`. A daily 2–3h job at 06:00
+  would collide with free-subtitles and hold the lock across the morning,
+  starving the chain that publishes the DB. The in-flight run has now been going
+  ~100 min, which is what made the cost concrete.
+- **Fix:**
+  - `--max-minutes` (CI default **150**) — once the budget is spent, remaining
+    items return `skipped_budget` instead of starting new probes, so the run
+    finishes cleanly and publishes what it has. Items stay unmarked, so the next
+    run resumes them; the tool was already resumable by design.
+  - Schedule moved **06:00 → 10:00 UTC**, clear of the ordered chain, with the
+    ordering written into the workflow comment so it isn't re-broken.
+- **Verification:** ran with `--max-minutes 0.25` over 60 items — 30 processed,
+  30 `skipped_budget`, and exactly 30 left unmarked for the next run. 0 temp-key
+  leaks. YAML parses; cron confirmed as `0 10 * * *`.
+- **Lesson:** a shared concurrency group makes "run it more often" a
+  cross-workflow decision, not a local one. Any workflow in `catalog-writers`
+  that grows its per-item cost needs a time budget, not just a limit.
+- **Next:** tick 6 returns to DATA — D2, adding `playable` as a real `items`
+  column so shelf queries *can* gate on it (D3 flips the gate once coverage
+  clears the bar).
