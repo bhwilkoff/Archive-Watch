@@ -31,11 +31,39 @@ final class CatalogDB {
         // mmap OFF: if the DB file is corrupted under disk pressure, an mmap'd read faults the process
         // (EXC_BAD_ACCESS) instead of returning a recoverable SQLITE_CORRUPT we can handle.
         sqlite3_exec(h, "PRAGMA mmap_size=0;", nil, nil, nil)
+        // `playable` arrived after this app shipped, so a build running against a
+        // still-cached older DB would hit "no such column" — and a failed prepare
+        // returns [], silently EMPTYING the shelves that gate on it. Probe once
+        // and drop the clause when it's absent; the shelf is merely ungated until
+        // the next catalog refresh lands. Must be assigned before any method call
+        // on self (metaInt below) — all stored properties initialized first.
+        hasPlayableColumn = Self.columnExists(h, table: "items", column: "playable")
         // Fail fast if it isn't actually our schema.
         guard metaInt("itemCount") != nil else {
             sqlite3_close(h); return nil
         }
     }
+
+    /// True when `table` has `column` (PRAGMA table_info).
+    private static func columnExists(_ h: OpaquePointer, table: String, column: String) -> Bool {
+        var stmt: OpaquePointer?
+        guard sqlite3_prepare_v2(h, "PRAGMA table_info(\(table));", -1, &stmt, nil) == SQLITE_OK
+        else { return false }
+        defer { sqlite3_finalize(stmt) }
+        while sqlite3_step(stmt) == SQLITE_ROW {
+            if let c = sqlite3_column_text(stmt, 1), String(cString: c) == column { return true }
+        }
+        return false
+    }
+
+    private let hasPlayableColumn: Bool
+
+    /// Restricts a surface to titles whose bytes were verified playable
+    /// (tools/check_liveness.py). Applied to the most PROMINENT surfaces only —
+    /// the marquee and the community shelves — so the app never showcases a
+    /// title that turns out not to play, while Browse/Search keep the full
+    /// catalog available as coverage climbs. Empty (no-op) on an older DB.
+    private var verifiedAnd: String { hasPlayableColumn ? "AND i.playable = 1" : "" }
 
     deinit { sqlite3_close(handle) }
 
@@ -436,7 +464,7 @@ final class CatalogDB {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
             WHERE i.imdbRating IS NOT NULL AND COALESCE(i.imdbVotes, 0) >= \(minVotes)
-              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd)
+              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd)
             ORDER BY i.imdbRating DESC, i.imdbVotes DESC LIMIT \(limit)
         """)
     }
@@ -452,7 +480,7 @@ final class CatalogDB {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
             WHERE COALESCE(i.numReviews, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= \(minVotes)
-              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd)
+              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd)
             ORDER BY i.numReviews DESC LIMIT \(limit)
         """)
     }
@@ -462,7 +490,7 @@ final class CatalogDB {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
             WHERE COALESCE(i.numFavorites, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= \(minVotes)
-              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd)
+              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd)
             ORDER BY i.numFavorites DESC LIMIT \(limit)
         """)
     }
@@ -472,7 +500,7 @@ final class CatalogDB {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
             WHERE COALESCE(i.views30d, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= \(minVotes)
-              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd)
+              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd)
             ORDER BY i.views30d DESC LIMIT \(limit)
         """)
     }

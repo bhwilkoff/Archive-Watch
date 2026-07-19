@@ -462,3 +462,29 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
 - **Next:** the loop is now DATA-only. Tick 12 re-measures coverage from the
   budget-bounded run and extends the playability gate from the hero to the
   community shelves as coverage allows.
+
+### Tick 12 — 2026-07-18 — DATA: community shelves gated; targeting fix validated
+- **The re-prioritised run proved tick 6's fix.** Same 8,000-item budget, targets
+  sorted by visibility instead of cluster membership:
+  `{alive: 7507, dead: 127, unplayable: 93, runtime_filled: 1195,
+  runtime_corrected: 614, unreachable: 254, skipped_budget: 15}`.
+  **220 broken items found vs 11 in the first run — 20× the yield** for the same
+  cost, because it stopped probing duplicates that get merged away.
+- **Published DB movement:** byte-verified 3,063 → **9,796**; shelf coverage
+  13.8% → **44.6%**; no-runtime 5,408 → 4,294; no-year 5,409 → 5,168. The
+  `--max-minutes` budget worked as designed (only 15 skipped).
+- **Gate extended:** the four community shelves (Top Rated, Most Discussed,
+  Community Favorites, Watching Now) now require `playable = 1`. Safe because
+  each draws from a population that is 78–88% verified and shows only 24 —
+  confirmed against the live DB that all four still return a full 24 gated.
+- **Regression guarded:** `playable` postdates shipped builds, so a new app on a
+  still-cached older DB would hit "no such column" — and `items()` returns `[]`
+  on a failed prepare, which would have **silently emptied these shelves**.
+  `CatalogDB` probes the column once at open (`columnExists`) and drops the
+  clause when absent. Also hit (and fixed) Swift's "self used before all stored
+  properties are initialized" — the probe has to precede the `metaInt` guard.
+- **Deliberately NOT gated:** Browse and Search. The full catalog stays
+  reachable; only surfaces that SHOWCASE a title are gated.
+- **Next:** tick 13 = APP/opt. The APP backlog is empty, so this is an opt tick:
+  re-measure, and consider whether Home's generic shelves can gate yet (they draw
+  from far larger pools, so they need more coverage than 45%).
