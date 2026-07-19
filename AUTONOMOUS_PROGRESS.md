@@ -612,3 +612,32 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
   real failures later.
 - **Next:** tick 18 = DATA. If archive.org is back, the daily 10:00 UTC probe
   resumes banking coverage; otherwise hold and do catalog-local work.
+
+### Tick 18 — 2026-07-19 — APP: fix the DB-swap unlink + a double download
+- **Context:** archive.org still 502, so coverage can't move. Took the tick-15
+  finding instead — a defect **my own tick-1 change amplified**.
+- **Defect 1 — use-after-unlink.** The swap did `removeItem` + `moveItem`,
+  unlinking a file the open `CatalogDB` was still reading; libsqlite3 logged
+  *"database integrity compromised by API violation: vnode unlinked while in
+  use"*. Survivable (the old handle drops moments later) but real — and tick 1's
+  second swap path made it routine rather than once-per-launch.
+  **Fix:** each download lands in its own generation (`catalog-<stamp>.sqlite`,
+  recorded in UserDefaults), so a file anything might be reading is never
+  mutated. Superseded generations are swept at the **start of the next
+  download**, never during a swap. Bounded at ~2 DBs. The legacy path is still
+  read for existing installs and explicitly **protected from the sweep** when no
+  generation is recorded — otherwise a just-updated install would delete the file
+  it had open, reintroducing the same bug.
+- **Defect 2, found while verifying defect 1 — the DB downloaded TWICE.** The
+  simulator showed two generations a second apart: on a first launch the
+  unconditional launch download AND the tick-1 foreground refresh both fire
+  (nothing checked yet ⇒ resume also reads "stale"), pulling ~44 MB twice on
+  every fresh install. Added an in-flight guard; the actor serialises the calls
+  so the second is a no-op.
+- **Verified on a clean install** (uninstall → reinstall → launch): unlink
+  warnings **multiple → 0**; catalog generations **2 → 1**. Builds green on
+  tvOS, iOS, macOS.
+- **Lesson:** verifying a fix on-device found a second, larger defect the fix
+  itself didn't cause. Build-verification would have caught neither.
+- **Next:** tick 19 = DATA if archive.org is back (the 10:00 UTC probe should
+  have run); otherwise hold coverage work and re-measure.

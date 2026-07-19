@@ -25,22 +25,75 @@ actor CatalogRefreshService {
     private let dbURL = URL(string: "https://github.com/bhwilkoff/Archive-Watch/releases/download/catalog-db/catalog.sqlite.zz")!
     private static let dbETagKey = "catalogDBETag"
     private static let lastCheckedKey = "catalogDBLastCheckedAt"
+    /// Filename of the catalog generation currently in use.
+    private static let dbFilenameKey = "catalogDBFilename"
     /// A valid full DB is tens of MB; a far smaller inflate means corruption.
     private static let minValidBytes = 10_000_000
     /// How long a check stays fresh before a foreground resume re-checks.
     static let defaultStaleAfter: TimeInterval = 6 * 3600
 
     // tvOS only permits writes to Caches / tmp — never Application Support.
-    private var dbCacheURL: URL {
-        let caches = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+    private var cachesDirectory: URL {
+        FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
             ?? URL(fileURLWithPath: NSTemporaryDirectory())
-        return caches.appendingPathComponent("catalog.sqlite")
+    }
+
+    /// Pre-generational path. Still read (so an existing install keeps working)
+    /// and swept once nothing has it open.
+    private var legacyDBURL: URL { cachesDirectory.appendingPathComponent("catalog.sqlite") }
+
+    /// Each download lands in its OWN file rather than overwriting the live one.
+    ///
+    /// The previous swap did `removeItem(dbCacheURL)` + `moveItem(...)`, which
+    /// unlinks a file the open `CatalogDB` handle is still reading — libsqlite3
+    /// logs it outright: "BUG IN CLIENT OF libsqlite3.dylib: database integrity
+    /// compromised by API violation: vnode unlinked while in use" (observed on
+    /// the simulator, tick 15). It was survivable because the old handle is
+    /// dropped moments later, but it is a genuine use-after-unlink — and the
+    /// foreground refresh path added a SECOND swap, so it now happens routinely
+    /// rather than once per launch. Writing a new generation instead means a
+    /// file that anything might be reading is never mutated.
+    private func newGenerationURL() -> URL {
+        let stamp = Int(Date().timeIntervalSince1970)
+        return cachesDirectory.appendingPathComponent("catalog-\(stamp).sqlite")
     }
 
     /// Path to the already-downloaded DB, if present.
     func cachedDatabasePath() -> String? {
-        FileManager.default.fileExists(atPath: dbCacheURL.path) ? dbCacheURL.path : nil
+        if let name = UserDefaults.standard.string(forKey: Self.dbFilenameKey) {
+            let url = cachesDirectory.appendingPathComponent(name)
+            if FileManager.default.fileExists(atPath: url.path) { return url.path }
+        }
+        // Pre-generational install: the legacy file IS the current DB.
+        return FileManager.default.fileExists(atPath: legacyDBURL.path) ? legacyDBURL.path : nil
     }
+
+    /// Delete every catalog generation except the one in use. Called at the
+    /// START of a download, never during a swap: by then the previous
+    /// generation's handle has long been released, whereas deleting mid-swap is
+    /// exactly the use-after-unlink this scheme exists to avoid. Bounds the
+    /// cache at ~2 DBs.
+    private func sweepStaleDatabases() {
+        let keep = UserDefaults.standard.string(forKey: Self.dbFilenameKey)
+        // With no recorded generation, the LEGACY file is the one currently
+        // open (a just-updated install reads it at launch) — deleting it here
+        // would recreate the very use-after-unlink this scheme removes.
+        let inUse = keep ?? legacyDBURL.lastPathComponent
+        let files = (try? FileManager.default.contentsOfDirectory(atPath: cachesDirectory.path)) ?? []
+        for name in files where name.hasPrefix("catalog") && name != inUse
+            && (name.hasSuffix(".sqlite") || name.hasSuffix(".inflating")) {
+            try? FileManager.default.removeItem(at: cachesDirectory.appendingPathComponent(name))
+        }
+    }
+
+    /// Set while a download is in flight. The launch path calls
+    /// `downloadDatabase` unconditionally while the foreground path calls
+    /// `refreshIfStale`, and on a FIRST launch both fire — nothing has been
+    /// checked yet, so the resume path also sees "stale". Observed on the
+    /// simulator: two generations written a second apart, i.e. the ~44 MB asset
+    /// pulled twice on every fresh install. The actor serialises them, so a
+    /// simple in-flight flag makes the second call a no-op.
+    private var isDownloading = false
 
     /// True when the release hasn't been checked for a newer DB within `ttl`.
     func isStale(ttl: TimeInterval = defaultStaleAfter) -> Bool {
@@ -56,7 +109,7 @@ actor CatalogRefreshService {
     /// callers bump `dbGeneration` (re-querying every view) exactly once per
     /// real update rather than on every foreground.
     func refreshIfStale(ttl: TimeInterval = defaultStaleAfter) async -> String? {
-        guard isStale(ttl: ttl) else { return nil }
+        guard !isDownloading, isStale(ttl: ttl) else { return nil }
         return await downloadDatabase(onlyIfChanged: true)
     }
 
@@ -70,10 +123,14 @@ actor CatalogRefreshService {
     /// "nothing new" from "here is a newer DB".
     func downloadDatabase(onlyIfChanged: Bool = false) async -> String? {
         func unchanged() -> String? { onlyIfChanged ? nil : cachedDatabasePath() }
+        isDownloading = true
+        defer { isDownloading = false }
+        // Safe point to reclaim superseded generations — nothing holds them now.
+        sweepStaleDatabases()
         var request = URLRequest(url: dbURL)
         request.cachePolicy = .reloadRevalidatingCacheData
         if let etag = UserDefaults.standard.string(forKey: Self.dbETagKey),
-           FileManager.default.fileExists(atPath: dbCacheURL.path) {
+           cachedDatabasePath() != nil {
             request.setValue(etag, forHTTPHeaderField: "If-None-Match")
         }
         do {
@@ -86,8 +143,10 @@ actor CatalogRefreshService {
             if http.statusCode == 304 { return unchanged() }
             guard http.statusCode == 200 else { return unchanged() }
 
-            // Inflate to a sibling temp file, validate, then atomically swap in.
-            let staging = dbCacheURL.appendingPathExtension("inflating")
+            // Inflate to a sibling temp file, validate, then publish it as a NEW
+            // generation — never overwrite the file a CatalogDB may have open.
+            let destination = newGenerationURL()
+            let staging = destination.appendingPathExtension("inflating")
             try? FileManager.default.removeItem(at: staging)
             try Self.inflate(src: tmp, dst: staging)
 
@@ -97,12 +156,12 @@ actor CatalogRefreshService {
                 try? FileManager.default.removeItem(at: staging)
                 return unchanged()
             }
-            try? FileManager.default.removeItem(at: dbCacheURL)
-            try FileManager.default.moveItem(at: staging, to: dbCacheURL)
+            try FileManager.default.moveItem(at: staging, to: destination)
+            UserDefaults.standard.set(destination.lastPathComponent, forKey: Self.dbFilenameKey)
             if let etag = http.value(forHTTPHeaderField: "ETag") {
                 UserDefaults.standard.set(etag, forKey: Self.dbETagKey)
             }
-            return dbCacheURL.path
+            return destination.path
         } catch {
             return unchanged()
         }
