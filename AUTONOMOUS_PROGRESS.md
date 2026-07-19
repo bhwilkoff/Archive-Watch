@@ -43,9 +43,9 @@ items, 21,860 on shelves); "now" re-measured after tick 12.
 ### DATA
 | Metric | Baseline | Now | Gate |
 |---|---|---|---|
-| Shelf items byte-verified playable | 0 (marker didn't exist) | **9,741 / 21,841 (45%)** | ≥95%, re-verified within 90d |
+| Shelf items byte-verified playable | 0 (marker didn't exist) | **14,146 / 21,825 (65%)** | ≥95%, re-verified within 90d |
 | Unverified items on hero / community shelves | unbounded | **0 — gated (ticks 10, 12)** | 0 |
-| Items missing runtime | 5,408 (17%) | **4,294** | ≤3% of shelf items |
+| Items missing runtime | 5,408 (17%) | **2,212** — shelf items **2%** | ✅ **MET** (≤3% of shelf items) |
 | Items missing year | 5,409 | **5,168** | — |
 | Empty synopsis | 4,763 (15%) | 4,763 | ~~≤5%~~ **NOT ACHIEVABLE — see tick 14** |
 | Stub synopsis (<80 chars) | 3,940 (12%) | 3,940 | ~~≤10%~~ **NOT ACHIEVABLE — see tick 14** |
@@ -752,3 +752,27 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
   Android and web.**
 - **Next:** tick 24 = read the probe run and re-measure coverage; the release
   wave's only open criterion.
+
+### Tick 24 — 2026-07-19 — DATA: measure — coverage 45% → 65%, runtime gate MET
+- **Third probe run** (first from a clear slot):
+  `alive 6910 · dead 165 · unplayable 4 · alive_repointed 127 ·
+  runtime_filled 2392 · runtime_corrected 262 · skipped_budget 792`.
+  **`unreachable` 254 → 2** — archive.org healthy again.
+- **Published DB movement:**
+  | metric | baseline | prev | now |
+  |---|---|---|---|
+  | shelf playability verified | 0 | 45% | **65%** (14,146/21,825) |
+  | items byte-verified | 0 | 9,796 | **14,673** |
+  | catalog missing runtime | 5,408 | 4,295 | **2,212** |
+  | feature-film / short-film | 11,059 / 3,578 | — | **9,737 / 4,895** (tick 16 landed) |
+- **✅ EXIT CRITERION MET:** shelf items missing runtime **462/21,825 = 2%**
+  against the ≤3% gate (17% at baseline).
+- **One criterion resolved by measurement, not work.** The "implausible runtime
+  (1–59s, non-commercial)" gate reads 638 — but **zero of them have a
+  file-verified runtime**; every one is an unverified externally-matched value.
+  `apply_file_runtime` corrects them the moment the probe reaches them, so that
+  gate is **downstream of coverage**, not independent work.
+- **Remaining blocker is singular:** playability coverage 65% vs the 95% gate.
+  At ~4,900 newly-verified items per completed run, that is roughly 2 more runs.
+- **Next:** tick 25 = opt/verify; coverage now advances on the daily 13:00 cron
+  without dispatches.
