@@ -857,3 +857,21 @@ pushing from the last published 76% toward the 95% gate.
 - Residual: Teaserama (1955 burlesque) carries a lone Documentary tag upstream
   and surfaces — one bad tag, not worth a false-positive-prone rule.
 - Builds green: tvOS, iOS, macOS, Android; web JS parses.
+
+### Tick 32 — 2026-07-19 — RELEASE-READY: 98.3% coverage, all betas fresh
+- **Playability coverage 98.3%** (21,459/21,822 shelf items) — past the ≥95%
+  gate. Two big runs + a drain run caught 493 more dead/unplayable items. Only
+  128 shelf items never probed (queued for the daily cron).
+- **Fresh betas on all channels, both changes included** (Documentary genre-
+  resolved + 98% coverage):
+  | Channel | Build | State |
+  |---|---|---|
+  | Apple iOS·macOS·tvOS | 1.3.282 (804) | uploaded to App Store Connect, all 3 confirmed |
+  | Android | 1.3.282 (vc12) | Play internal track |
+  | Web | — | live (publish-db 21:10Z) |
+- **Every DATA exit criterion is now MET:** playability coverage ✅, unverified on
+  showcase surfaces 0 ✅, runtime gate ✅ (2%), contentType audit ✅. Only the
+  synopsis gates remain, and those are documented NOT ACHIEVABLE (no source).
+- **Nothing promoted to production** — the owner's manual step, as intended.
+- Loop's core objectives are complete; remaining catalog improvement rides the
+  daily crons.
