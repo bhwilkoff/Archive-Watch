@@ -817,3 +817,27 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
   traps, the synopsis dead-ends, and the three open owner items.
 - **Restart anytime with `/loop`.** The daily crons keep improving the catalog
   without it.
+
+### Tick 29 — 2026-07-19 — OWNER ASKS: documentary precision, beta builds, coverage
+Owner directives after the loop's first close-out.
+
+**1. Documentary precision — done.** Audited all 8 members against their own
+genres; 2 didn't belong: **Fantasia** (Animation/Family/Fantasy) → `animation`,
+**Morgan the Bushranger** (Western) → `feature-film`. 6 remain, all carrying the
+Documentary genre. Rule only fires when an item HAS genres and none is
+Documentary, so unenriched items are never re-typed on absence of evidence.
+⚠️ **Still an owner call:** at 6 items the category stays below the ≥30 tile gate,
+so it won't appear on Home. Populating it means resolving by GENRE — but 396 of
+the 1,113 genre-carriers are silent films and 126 ephemeral, which have their own
+categories, so they'd sit in two at once (partition → overlapping facet).
+
+**2. Beta builds — all three channels staged.**
+| Channel | Version | State |
+|---|---|---|
+| Apple (iOS · macOS · tvOS) | 1.3.280 (802) | uploaded to App Store Connect, all three confirmed |
+| Android | 1.3.280 (vc 11) | Play **internal** track (script defaults to production — `--track internal` passed explicitly) |
+| Web | — | live at archivewatch.org (Pages 17:44Z) |
+Nothing promoted to production; that stays the owner's manual step.
+
+**3. Coverage — 12,000-item run in flight** (5h budget vs the usual 8k/2h),
+pushing from the last published 76% toward the 95% gate.
