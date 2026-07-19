@@ -65,64 +65,29 @@ account; the editorial layer refreshes without an App Store release.
 
 ## Backlog
 
-Populated from the tick-0 audits. Pulled in cadence order. `✅ shipped ·
-⏳ open · 🔮 later`.
+Resolved items keep one line; the detail is in the tick log below.
+`✅ done · ⛔ blocked on data · ⚠️ owner decision · ⏳ open`
 
-### DATA — why videos don't play, and why they still reach Home
-
-**Root cause of "offending titles on the home screen":** `downloadURL` is not a
-column in `items` (`build_sqlite.py:509-521`) — it lives only inside the
-`item_json` blob. **No shelf/hero/browse SQL query can filter on playability,
-so none does.** `shelf()`, `hiddenGems()`, `topRated()`, `mostDiscussed()`,
-`communityFavorites()`, `watchingNow()`, `browseSQL()` and `randomPlayable()`
-in `CatalogDB.swift` gate on artwork, votes and rights — never on whether the
-video plays. Hero (`HomeView.swift:49-64`) is the same. Only *episodes* check
-for a URL (`build_sqlite.py:590,738`).
-
-**And verification never touches the bytes:** `check_liveness.py:64` fetches
-`archive.org/metadata/{id}` only — no HEAD, no ranged GET, no content-type, no
-codec. `archive_lib.pick_video:39-68` ranks derivatives by *filename extension
-and format string*. A 0-byte or corrupt `.mp4` passes every gate we have.
-
+### DATA
 | # | Item | State |
 |---|---|---|
-| D1 | ✅ Byte-level playability probe — ranged `bytes=0-1023` GET in `check_liveness`, assert 200/206 + `video/*` + `ftyp`/`moov`. Mirrors the pattern `validate_posters.py:76-77` already uses for images. | ✅ tick 2 |
-| D2 | ✅ Add `playable` (and `downloadURL`) as real `items` columns in `build_sqlite.py` so queries *can* gate. | ✅ tick 6 |
-| D3 | 🟡 Flip the gate: `playable=1` required on hero + all Home/community shelves + `randomPlayable()`. **Only after D1 coverage ≥95%** — flipping early empties Home. | 🟡 **hero gated tick 10** (its pool is small + popularity-skewed, so 244 verified candidates ≫ the 7 shown); broad shelves still pending coverage |
-| D4 | ✅ Re-probe cadence: `livenessChecked` is a one-time marker today, so a URL that dies *after* its check is never re-probed. Add a 90-day TTL re-sweep. | ✅ tick 2 |
-| D5 | ✅ Runtime truth — **nothing validates runtime against the file.** `remediate_catalog.py:352-357` says so outright. ffprobe the popularity head, write `trueRuntimeSeconds`, flag \|Δ\| > 20%. Closest existing proxy is `detect_trailers.py:46-60`. | ✅ tick 4 (no ffprobe needed — Archive's own file `length` is the authority) |
-| D6 | Synopsis gap: 4,763 empty + 3,940 stubs. **Tick 14: NOT a coverage push — no source exists.** 98.5% of empty-synopsis items have no external ID; 78% of playable episodes have no spine overview and TVmaze doesn't have them either (Murphy Brown 5%, Four Star Playhouse 1%). | ⛔ blocked on data, not effort |
-| D7 | 🟡 contentType audit — `documentary` (9 items) and `trailer` (10) are near-dead categories; 1,511 `tv-special` is orphan-episode residue (Decisions 035/036). | 🟡 **form errors fixed tick 16** (520 feature→short on file-verified runtime); **Documentary needs an OWNER decision — see tick 16** |
-| D8 | ~~290 items carry no `downloadURL`~~ — **false alarm (tick 8):** all 290 are tv-series CARDS, which are navigational and correctly have no video of their own. 0 non-series items lack a URL. Dropping them would have removed 290 series from the app. | ✅ n/a |
-| D9 | `repick_derivatives.py` is wired into **no workflow**. | 🔮 |
+| D1 | Byte-level playability probe (ranged GET, container signature) | ✅ tick 2 |
+| D2 | `items.playable` column + index, so queries *can* gate | ✅ tick 6 |
+| D3 | Gate showcase surfaces on `playable` | ✅ hero + 4 community shelves, all 5 platforms (ticks 10, 12, 22, 23). Browse/Search intentionally ungated |
+| D4 | 90-day re-probe TTL | ✅ tick 2 |
+| D5 | Runtime truth from the file's own duration | ✅ tick 4 — **gate MET, 17% → 2%** |
+| D6 | Synopsis (4,763 empty + 3,940 stub) | ⛔ **no source exists.** 98.5% lack an external ID; TVmaze lacks vintage-TV summaries (Murphy Brown 5%); archive.org descriptions are 16% coverage and often not synopses (ticks 14, 19) |
+| D7 | contentType audit | ✅ 520 feature→short on file-verified runtime (tick 16) · ⚠️ **Documentary category needs an owner call** — 1,113 items carry the genre, 9 carry the type; fixing it changes what a category *means* |
+| D8 | ~~290 items with no downloadURL~~ | ✅ n/a — all are tv-series *cards*, correctly video-less (tick 8) |
+| D9 | `repick_derivatives.py` unwired | 🔮 unmeasured; `backfill_tv_episode_meta.py` was the same shape and proved not worth wiring |
+| D10 | Hate propaganda / CSAM-titled uploads | ✅ 4 excluded, word-boundary matched (tick 19) |
+| D11 | CI starvation — half of probe runs cancelled while pending | ✅ ticks 20–21; 5 pipelines unblocked |
 
-### APP — why a resumed app is stale
-
-**Root cause:** `CatalogRefreshService.downloadDatabase()` is correct, but it is
-reachable *only* from the once-per-process load path. tvOS `AppStore.swift:196`
-sits inside `loadBundledData()`, called from `ContentView.swift:19` in a branch
-that renders only while `!isReady` — once the seed DB opens, never again. iOS
-`AppStore_iOS.swift:123` is memoized behind a `loadTask` retained forever
-(`:100-104`). macOS the same. **A resumed process serves the catalog from its
-last cold launch, forever.** The `scenePhase == .active` handlers that already
-exist (`ContentView.swift:36`, `RootView_iOS.swift:72`,
-`ArchiveWatchApp_macOS.swift:55`) call CloudKit sync — never the catalog.
-
-View invalidation is **not** the bug: `dbGeneration`/`dbVersion` keying is
-correct and complete on every platform. There is simply never a second swap.
-
-| # | Defect | Confidence | Platforms |
-|---|---|---|---|
-| A1 | No catalog refresh on foreground — the reported "screens don't refresh". Needs `refreshIfStale()` + a `lastCheckedAt` TTL (~6h) called from the existing `scenePhase` handlers. | Very high | ✅ tvOS · ✅ iOS · ✅ macOS (tick 1) |
-| A2 | Same on Android — `AppContainer.kt:58-63` `start()` runs `catalog.refresh()` once from `onCreate:23-27`. No `ProcessLifecycleOwner`/`ON_RESUME` observer. | Very high | ✅ Android (tick 3) |
-| A3 | **`scenePhase` frozen inside the 60s sync loop.** `ContentView.swift:42-49` / `RootView_iOS.swift:76-83` read `scenePhase` *inside* a `.task {}` with no `id:` — the View struct is captured at appear time and never updates. If the view first appears while `.inactive` (common on cold launch), the periodic sync **never fires for the whole session**. One-line fix; silently disables sync today. | High | ✅ tvOS · ✅ iOS (tick 1) |
-| A4 | No sync retry/backoff — `CloudKitSyncService.swift:120-122` swallows into `lastError` and waits for the next tick. Combined with A3, a user gets one foreground shot and no retry. **Likely the "account doesn't sync".** | Medium | ✅ all Apple (tick 7) |
-| A5 | Web viewer never re-fetches — `watch.js:123-124` `Data.load()` runs once from `boot()`; no `visibilitychange`/`pageshow`/`focus`/`online` listener. | High | ✅ web (tick 3) |
-| A6 | `featured.json` is bundle-only (`CatalogLoader.swift:12-20`) — curated shelves and `deprioritizedSeries` can't update without an App Store release. | Medium-high | ✅ all Apple (tick 9) |
-| A7 | No `AVAudioSession` interruption observer (`PlayerView_iOS.swift:93-94` activates once). Audio stays dead after a post-background interruption. | Medium | ✅ iOS (tick 7) |
-| A8 | Stale SW shell — `sw.js:53-56` cache-first with no revalidation, no `controllerchange` handler. A tab open for days never picks up a new build. | Low-medium | ✅ web (tick 11) |
-
----
+### APP — ✅ COMPLETE
+A1 foreground catalog refresh · A2 Android `ProcessLifecycleOwner` · A3 frozen
+`scenePhase` · A4 sync retry/backoff · A5 web resume re-fetch · A6 remote
+`featured.json` · A7 audio-interruption recovery · A8 self-healing SW shell.
+Plus the DB-swap use-after-unlink and a double first-launch download (tick 18).
 
 ## Tick log
 
@@ -776,3 +741,17 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
   At ~4,900 newly-verified items per completed run, that is roughly 2 more runs.
 - **Next:** tick 25 = opt/verify; coverage now advances on the daily 13:00 cron
   without dispatches.
+
+### Tick 25 — 2026-07-19 — OPT: gates verified live; backlog collapsed
+- **Re-verified against CURRENT data**, not the numbers the gates were designed
+  on (165 more items excluded since): all four community shelves return
+  **24/24**; the hero pool holds **500+** verified candidates for 7 slots.
+- **The web gate is already LIVE**, sooner than expected —
+  `archivewatch.org/catalog-index.json` serves **schema 8, 9-column rows,
+  19,594/32,690 playable**, and **all 300** items in the hero's wide pool are
+  verified. The gate is active on the real site, not just merged.
+- **Net −35 lines:** the backlog duplicated tick-log detail. Collapsed to one
+  line per resolved item, keeping the two entries that still need a human — D6
+  (blocked on data) and D7's Documentary category (owner call) — stated in full.
+- **Next:** tick 26 — coverage advances on the 13:00 cron; verify the day's run
+  and re-measure toward the 95% gate.
