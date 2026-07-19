@@ -16,12 +16,23 @@ on:
     # metadata-only), and the 90-day re-probe TTL then needs steady throughput
     # to keep coverage from decaying.
     #
-    # 10:00 UTC, deliberately CLEAR of the ordered nightly chain — rights-audit
-    # 01:10 -> validate-posters 02:15 -> publish-db 04:30 -> cover-generation
-    # 05:00 -> free-subtitles 06:00 all share the `catalog-writers` lock, and
-    # this job now runs for hours (two network round trips per item). Parking it
-    # at 06:00 would have held the lock across the morning and starved them.
-    - cron: '0 10 * * *'
+    # 13:00 UTC. Slot choice is load-bearing, not cosmetic. Every catalog
+    # workflow shares the `catalog-writers` concurrency group, and GitHub keeps
+    # only ONE pending run per group — a newer arrival SUPERSEDES an older
+    # pending one. This job is long (up to the --max-minutes budget), so if it
+    # queues behind the morning wave it gets cancelled before it ever starts a
+    # job. Measured 2026-07-19: 2 of the last 4 scheduled runs were cancelled
+    # while pending, and a 09:43Z dispatch was cancelled having never started —
+    # which is why playability coverage stalled for months while the tool itself
+    # was healthy.
+    #
+    # Scheduled writers, UTC: color-classify 00/08/16 (every 8h) · rights-audit
+    # 01:10 · validate-posters 02:15 · cover-generation 05:00 · free-subtitles
+    # 06:00 · plus publish-db, which each of them dispatches on completion.
+    # 13:00 is clear of all of them and leaves ~3h of headroom before the 16:00
+    # color-classify. Keep it there; moving it back into the morning re-creates
+    # the starvation.
+    - cron: '0 13 * * *'
   workflow_dispatch:
     inputs:
       limit:
@@ -47,7 +58,7 @@ on:
       max_minutes:
         description: 'Stop starting new probes after N minutes (0 = no budget)'
         required: false
-        default: '150'
+        default: '120'
 
 concurrency:
   group: catalog-writers
@@ -77,7 +88,7 @@ jobs:
           python tools/check_liveness.py \
             --limit ${{ github.event.inputs.limit || '8000' }} \
             --reprobe-days ${{ github.event.inputs.reprobe_days || '90' }} \
-            --max-minutes ${{ github.event.inputs.max_minutes || '150' }} \
+            --max-minutes ${{ github.event.inputs.max_minutes || '120' }} \
             ${{ github.event.inputs.clusters_only == 'true' && '--clusters-only' || '' }} \
             ${{ github.event.inputs.refresh == 'true' && '--refresh' || '' }} \
             ${{ github.event.inputs.no_probe == 'true' && '--no-probe' || '' }} | tee liveness.log

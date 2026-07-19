@@ -665,3 +665,27 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
   existing Decision 027 `excluded` flag.
 - **Next:** tick 20 = read the probe run, re-measure coverage, and re-assess the
   release wave.
+
+### Tick 20 — 2026-07-19 — DATA: found why coverage stalled — CI starvation
+- **Root cause, and it isn't the tool.** Every catalog workflow shares the
+  `catalog-writers` concurrency group, and **GitHub keeps only ONE pending run
+  per group — a newer arrival supersedes an older pending one.** `check-liveness`
+  is long, so queuing behind the morning wave gets it cancelled *before it starts
+  a single job*.
+- **Evidence:** the 09:43Z dispatch was cancelled with **no jobs ever started**;
+  scheduled history shows **2 of the last 4 runs cancelled the same way**
+  (07-08 ✗, 07-01 ✗, 07-15 ✓, 06-24 ✓). Roughly half the runs lost, silently —
+  which explains a catalog sitting at 31% liveness coverage for months while
+  `check_liveness.py` itself was perfectly healthy.
+- **Fix:** schedule **10:00 → 13:00 UTC**, clear of every scheduled writer
+  (color-classify 00/08/16 · rights-audit 01:10 · validate-posters 02:15 ·
+  cover-generation 05:00 · free-subtitles 06:00) *and* of the `publish-db` runs
+  each dispatches on completion. `--max-minutes` **150 → 120** so the run plus
+  its remediate/publish tail clears before the 16:00 color-classify.
+- The full UTC map and the reasoning are in the workflow comment so the slot
+  isn't innocently moved back into the morning later.
+- **Retrospective:** ticks 2–12 treated coverage as purely a throughput problem
+  and kept dispatching runs. Two of those dispatches happened to land in quiet
+  windows and worked, which masked the pattern. The right diagnostic —
+  *did the run actually start?* — only got asked when one visibly failed.
+- **Next:** tick 21 = verify a run completes from the new slot, then re-measure.
