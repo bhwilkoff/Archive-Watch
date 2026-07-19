@@ -211,8 +211,17 @@ final class AppStore {
     /// this a resumed app serves the catalog from its last cold launch
     /// forever. Throttled by the service's TTL and a no-op when unchanged.
     func refreshCatalogIfStale() async {
-        guard isReady,
-              let path = await CatalogRefreshService.shared.refreshIfStale(),
+        guard isReady else { return }
+        // Editorial config first: it's small, and swapDB() reads `featured` for
+        // demotedIDs, so a fresh curation lands with the same swap.
+        if let fresh = await CatalogLoader.refreshFeatured() {
+            featured = fresh
+            if let db {                       // no new DB? re-apply to the live one
+                db.demotedIDs = Set(fresh.deprioritizedSeries ?? [])
+                dbGeneration += 1
+            }
+        }
+        guard let path = await CatalogRefreshService.shared.refreshIfStale(),
               let fullDB = CatalogDB(path: path),
               fullDB.itemCount >= (db?.itemCount ?? 0) else { return }
         swapDB(fullDB)

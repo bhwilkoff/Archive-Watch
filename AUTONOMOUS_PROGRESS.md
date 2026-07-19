@@ -129,7 +129,7 @@ correct and complete on every platform. There is simply never a second swap.
 | A3 | **`scenePhase` frozen inside the 60s sync loop.** `ContentView.swift:42-49` / `RootView_iOS.swift:76-83` read `scenePhase` *inside* a `.task {}` with no `id:` — the View struct is captured at appear time and never updates. If the view first appears while `.inactive` (common on cold launch), the periodic sync **never fires for the whole session**. One-line fix; silently disables sync today. | High | ✅ tvOS · ✅ iOS (tick 1) |
 | A4 | No sync retry/backoff — `CloudKitSyncService.swift:120-122` swallows into `lastError` and waits for the next tick. Combined with A3, a user gets one foreground shot and no retry. **Likely the "account doesn't sync".** | Medium | ✅ all Apple (tick 7) |
 | A5 | Web viewer never re-fetches — `watch.js:123-124` `Data.load()` runs once from `boot()`; no `visibilitychange`/`pageshow`/`focus`/`online` listener. | High | ✅ web (tick 3) |
-| A6 | `featured.json` is bundle-only (`CatalogLoader.swift:12-20`) — curated shelves and `deprioritizedSeries` can't update without an App Store release. | Medium-high | all Apple ⏳ |
+| A6 | `featured.json` is bundle-only (`CatalogLoader.swift:12-20`) — curated shelves and `deprioritizedSeries` can't update without an App Store release. | Medium-high | ✅ all Apple (tick 9) |
 | A7 | No `AVAudioSession` interruption observer (`PlayerView_iOS.swift:93-94` activates once). Audio stays dead after a post-background interruption. | Medium | ✅ iOS (tick 7) |
 | A8 | Stale SW shell — `sw.js:53-56` cache-first with no revalidation, no `controllerchange` handler. A tab open for days never picks up a new build. | Low-medium | web ⏳ |
 
@@ -398,3 +398,24 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
   markers, and the existing 666 title cleanings still fire (no regression).
 - **Next:** tick 9 = APP (A6 bundle-only `featured.json`, or A8 SW staleness).
   Then re-measure coverage once the re-prioritised probe run lands.
+
+### Tick 9 — 2026-07-18 — APP: A6, editorial config goes remote
+- **Context:** `loadFeatured()` read only the bundled JSON. The catalog refreshed
+  daily, but the editorial layer ON TOP of it — curated shelves, category tiles,
+  `deprioritizedSeries`, the adult-collection list — was frozen at build time. A
+  curation fix could not reach users without an App Store release. That directly
+  limits this loop: data improvements land, editorial ones don't.
+- **Implementation:** ETag-conditional GET of `archivewatch.org/featured.json`
+  with a 6h TTL, cached in Caches, bundled copy as fallback. The payload is
+  **decoded before it is cached**, so a malformed or truncated response can never
+  replace a good local copy. Wired into the `refreshCatalogIfStale()` resume path
+  from tick 1 on all three Apple platforms; when no new DB arrives, the fresh
+  `demotedIDs` are re-applied to the live DB with a generation bump so views
+  re-query.
+- **Verification:** the served file is byte-identical to the repo copy the app
+  bundles (12,643 bytes, same 11 top-level keys, `deprioritizedSeries` present),
+  so the decode path is proven compatible rather than assumed. BUILD SUCCEEDED on
+  tvOS, iOS, macOS at 1.3.260 / 782.
+- **Next:** tick 10 = DATA. Re-measure coverage from the re-prioritised run and
+  decide whether D3 (the Home playability gate) is close enough to stage behind a
+  threshold, or whether coverage needs more days first.
