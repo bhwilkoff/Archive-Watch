@@ -1113,6 +1113,28 @@ def remediate(items):
                 it["contentTypeSource"] = "file_runtime"
                 stats["contenttype_short"] += 1
 
+        # 0x) DOCUMENTARY PRECISION (owner 2026-07-19: "fix documentary so that
+        # everything that is in that category actually belongs there"). An item
+        # typed `documentary` whose own genres say otherwise is mis-categorised
+        # — measured: Fantasia (Animation/Family/Fantasy) and Morgan the
+        # Bushranger (Western) were 2 of the 8 members. Re-type from the genres
+        # the item actually carries.
+        #
+        # Only fires when the item HAS genres and none of them is Documentary,
+        # so an unenriched item (no genres) is never re-typed on absence of
+        # evidence.
+        if it.get("contentType") == "documentary":
+            gs = {g for g in (it.get("genres") or []) if g}
+            if gs and "Documentary" not in gs:
+                if "Animation" in gs:
+                    it["contentType"] = "animation"
+                else:
+                    rt = it.get("fileRuntimeSeconds") or it.get("runtimeSeconds") or 0
+                    it["contentType"] = "short-film" if 0 < rt < 2400 else "feature-film"
+                it["contentTypeWas"] = "documentary"
+                it["contentTypeSource"] = "genres"
+                stats["documentary_retyped"] += 1
+
         # Retitle year-only PD-animation compilation reels (#7).
         m = _PD_ANIM.match(it.get("archiveID") or "")
         if m and _NUMERIC_TITLE.match((it.get("title") or "").strip()):
