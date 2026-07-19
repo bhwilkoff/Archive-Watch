@@ -527,3 +527,30 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
 - **Next:** tick 15 = APP/opt. DATA's remaining live work is coverage-driven
   (the daily probe) plus D7 (contentType audit); re-check archive.org for the
   description source when it's back.
+
+### Tick 15 — 2026-07-19 — OPT: ran the app (first end-to-end verification)
+- **Gap addressed:** everything in ticks 1–14 was build-verified only. The hero
+  and shelf gates had never been *observed*. archive.org was still 503, so this
+  was the right tick for it (no archive dependency).
+- **Verified on the tvOS 26.5 simulator against the real published catalog:**
+  - Launches, opens the bundled seed, downloads `catalog.sqlite.zz` from the
+    release and swaps in the full DB (confirmed in `os_log`).
+  - **Home renders with a full 7-item hero carousel** — tick 10's playability
+    gate did not starve it, which is exactly what the floor fallback existed to
+    prevent. Verified, not assumed.
+  - **Runtime is visibly correct** on the hero: "1969 · 1h 1m · Directed by
+    Jesús Franco" — tick 4's reconciliation reaching the UI.
+- **Found, NOT fixed — pre-existing DB-swap warning:**
+  `BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API
+  violation: vnode unlinked while in use … Library/Caches/catalog.sqlite`.
+  `downloadDatabase` removes the live file while an old `CatalogDB` handle is
+  open. Pre-existing (the `mmap_size=0` PRAGMA already guards the related crash
+  class) and the app works — but **tick 1 added a second swap path, so it now
+  fires more often**. Deserves its own change (open the new DB at a fresh path,
+  close the old handle, then unlink), not a hasty re-architecture.
+- **Environment limit:** AppleScript key-driving of the focus engine doesn't work
+  here (needs Accessibility/TCC grants), so the lower shelves couldn't be
+  scrolled to on-sim; the SQL check (24/24 per gated shelf) stands in.
+- **Next:** tick 16 = DATA. Re-check archive.org; if up, evaluate its
+  `description` field as the last synopsis source. Otherwise take D7
+  (contentType audit), which is catalog-local.
