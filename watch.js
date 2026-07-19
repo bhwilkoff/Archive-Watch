@@ -616,7 +616,14 @@
       const filmPool = Data.rows.filter(r => Data.isPro(r) && Data.isFilm(r));
       const wide = filmPool.filter(r => r[7]).slice(0, 300);
       const useWide = wide.length >= 4;
-      const pool = shuffle(useWide ? wide : filmPool.slice(0, 300)).slice(0, 6);
+      let base = useWide ? wide : filmPool.slice(0, 300);
+      // Never marquee a title that doesn't play (index col 8, schema 8 — verified
+      // from the video's own bytes, not its metadata). Matches the app gate.
+      // Falls back to the ungated pool while probe coverage climbs, and on an
+      // older index that has no column 8, so the hero can never go empty.
+      const verified = base.filter(r => r[8] === 1);
+      if (verified.length >= 4) base = verified;
+      const pool = shuffle(base).slice(0, 6);
       if (!pool.length) return [];
       const el = $('hero');
       const rail = $('hero-rail');

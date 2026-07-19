@@ -736,3 +736,19 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
   so it needs an additive schema bump first.
 - **Next:** tick 23 = web index schema bump + hero gate, then read the probe run
   (started 11:25Z) and re-measure.
+
+### Tick 23 — 2026-07-19 — DATA/APP: web hero gated — **all 5 platforms covered**
+- **Last platform closed.** The web viewer's flat `catalog-index.json` carried no
+  playability column, so unlike the apps it could still marquee a dead title.
+- `build_catalog_index` gains **column 8 `playable` (schema 8, additive)** from
+  `playbackVerified` — bytes, not metadata. `watch.js`'s hero prefers verified
+  rows, falling back to the ungated pool when fewer than 4 qualify, so it can
+  never go empty — whether coverage is still climbing OR the visitor has an
+  older index with no column 8.
+- **Verified with the real builder** over a 300-item live slice: schema 8, rows
+  9 columns, col 8 ∈ {0,1}, 240/279 playable. Against the live DB the gated web
+  hero pool is **2,329 candidates for 6 slots**.
+- **Milestone: the owner's core requirement now holds on tvOS, iOS, macOS,
+  Android and web.**
+- **Next:** tick 24 = read the probe run and re-measure coverage; the release
+  wave's only open criterion.

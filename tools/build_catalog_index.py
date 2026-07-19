@@ -9,7 +9,7 @@ index to GitHub Pages (same-origin as the tool). To keep it small AND
 git-delta-friendly (it's committed + refreshed on every DB update), each item is
 a positional array, not an object:
 
-    [archiveID, title, year, contentType, poster, pro, search]
+    [archiveID, title, year, contentType, poster, pro, search, backdrop, playable]
 
 `poster` is the designed-artwork URL (TMDb/Wikidata/commons/generated) or null;
 the browser falls back to archive.org/services/img/{id} when null — so the web
@@ -113,8 +113,15 @@ def main():
         # art, never a cropped 2:3 poster (owner 2026-06-29). Only a real designed backdrop; null
         # otherwise. Older consumers ignore the extra column (additive).
         backdrop = it.get("backdropURL") if pro else None
+        # Playability (column 8, schema 8) — verified from the video's own BYTES
+        # by tools/check_liveness.py, not from metadata. The web hero uses it so
+        # it never marquees a title that turns out not to play, matching the
+        # apps (ticks 10/12/22). 0 = not probed yet, NOT a failure: items that
+        # fail are excluded upstream. Older consumers ignore the extra column.
+        playable = 1 if it.get("playbackVerified") is True else 0
         rows.append([aid, it.get("title") or aid, it.get("year"),
-                     it.get("contentType") or "", poster, pro, search, backdrop])
+                     it.get("contentType") or "", poster, pro, search, backdrop,
+                     playable])
         for k in keywords:
             keyword_freq[k] = keyword_freq.get(k, 0) + 1
         for s in studios:
@@ -168,7 +175,7 @@ def main():
     }
 
     out = {
-        "schema": 7,
+        "schema": 8,
         "updatedAt": catalog.get("updatedAt") or "",
         "count": len(rows),
         "fields": ["id", "title", "year", "contentType", "poster", "pro", "search", "backdrop"],
