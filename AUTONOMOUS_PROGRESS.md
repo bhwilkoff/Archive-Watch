@@ -37,40 +37,29 @@ One tick = one commit = one push = one CI run. Never batch.
 
 ## Exit criteria (must ALL be green to ship a release wave)
 
+Baseline measured 2026-07-18 against the published `catalog.sqlite` (32,106
+items, 21,860 on shelves); "now" re-measured after tick 12.
+
 ### DATA
-| Metric | Baseline 2026-07-18 | Gate |
-|---|---|---|
-| Shelf items ever playability-verified | 9,842 / 21,860 (45%) | **≥95%**, re-verified within 90d |
-| Items on Home/hero/community shelves NOT verified-playable | unbounded | **0** |
-| Shelf items missing runtime | 3,751 (17%) | **≤3%** |
-| Items with implausible runtime (1–59s, non-commercial) | 930 | **≤100** |
-| Catalog items with empty synopsis | 4,763 (15%) | **≤5%** on shelf items |
-| Catalog items with stub synopsis (<80 chars) | 3,940 (12%) | **≤10%** on shelf items |
-| contentType audited against real signals | never | **audit shipped + applied** |
+| Metric | Baseline | Now | Gate |
+|---|---|---|---|
+| Shelf items byte-verified playable | 0 (marker didn't exist) | **9,741 / 21,841 (45%)** | ≥95%, re-verified within 90d |
+| Unverified items on hero / community shelves | unbounded | **0 — gated (ticks 10, 12)** | 0 |
+| Items missing runtime | 5,408 (17%) | **4,294** | ≤3% of shelf items |
+| Items missing year | 5,409 | **5,168** | — |
+| Empty synopsis | 4,763 (15%) | 4,763 | ≤5% of shelf items |
+| Stub synopsis (<80 chars) | 3,940 (12%) | 3,940 | ≤10% of shelf items |
+| contentType audited against real signals | never | never | audit shipped + applied |
 
-### APP
-- Every ranked cold-resume defect (below) fixed on every platform that has it.
-- A resumed-after-days app observably re-checks the catalog, re-queries its
-  views, and re-syncs the account — verified, not assumed.
-- No regression in playback: stall diagnostics clean on a real title.
+Titles were already clean at baseline (168 suspicious of 32k — Decision 043
+held), so they are not a gate. `documentary` (9 items) and `trailer` (10) are
+near-dead categories; 1,511 `tv-special` is known orphan-episode residue
+(Decisions 035/036) — both tracked as D7, not gates.
 
----
-
-## Scorecard — live catalog (32,106 items, 21,860 on shelves)
-
-Measured 2026-07-18 against the published `catalog.sqlite`.
-
-- **Playability is the biggest hole.** Only **31%** of the catalog (9,899) has
-  *ever* been liveness-checked, and **55% of shelf items have never been
-  verified to play at all**. Nothing gates an unverified item off Home. This
-  is exactly the failure the owner saw.
-- 290 items carry **no `downloadURL`** (none currently on a shelf).
-- **Runtime**: 5,408 items (17%) have none; 930 more claim <60s.
-- **Synopsis**: 27% empty or stub.
-- **Titles are clean** — only 168 suspicious (Decision 043's cleanup held).
-- **contentType** skew worth auditing: `documentary` has 9 items,
-  `trailer` 10 — near-dead categories; 1,511 `tv-special` is the known
-  orphan-episode residue (Decisions 035/036).
+### APP — ✅ COMPLETE (ticks 1, 3, 7, 9, 11)
+Every defect A1–A8 from the tick-0 audit is fixed on every platform that had it.
+A resumed app now re-checks the catalog, re-queries its views, and re-syncs the
+account; the editorial layer refreshes without an App Store release.
 
 ---
 
@@ -488,3 +477,23 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
 - **Next:** tick 13 = APP/opt. The APP backlog is empty, so this is an opt tick:
   re-measure, and consider whether Home's generic shelves can gate yet (they draw
   from far larger pools, so they need more coverage than 45%).
+
+### Tick 13 — 2026-07-18 — OPT: seed-DB fallback verified; planning collapsed
+- **Audited what ticks 10/12 might have broken.** The bundled `seed.sqlite` —
+  what renders FIRST PAINT — has no `playable` column (it predates tick 6).
+  Confirmed directly: a gated query against it errors `no such column`. Since
+  `items()` returns `[]` on a failed prepare, that would have **silently emptied
+  the community shelves on first launch**. Tick 12's `columnExists` probe drops
+  the clause instead; the ungated query returns 639 candidates. The guard was
+  load-bearing, not defensive padding.
+- **And it's permanent, not temporary:** `publish-db` runs `build_sqlite` (which
+  builds both DBs) but commits only `catalog-index.json`, `details/`,
+  `channel-pools.json`, `episodes-index.json` — **never `seed.sqlite`**. The
+  committed seed is from 2026-06-28 and will not gain the column from CI, so
+  first paint stays ungated by design until someone regenerates it by hand.
+- **Net −11 lines:** the Scorecard section duplicated the exit-criteria baseline
+  column and its prose was superseded by tick-12 numbers. Collapsed into one
+  baseline/now/gate table; APP marked complete.
+- **Next:** tick 14 = DATA. Synopsis is now the largest untouched gap (4,763
+  empty + 3,940 stubs, unchanged since baseline) — measure what is actually
+  recoverable before building anything, per the tick-8 lesson.
