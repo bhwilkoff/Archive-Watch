@@ -92,7 +92,7 @@ and format string*. A 0-byte or corrupt `.mp4` passes every gate we have.
 | D4 | ✅ Re-probe cadence: `livenessChecked` is a one-time marker today, so a URL that dies *after* its check is never re-probed. Add a 90-day TTL re-sweep. | ✅ tick 2 |
 | D5 | ✅ Runtime truth — **nothing validates runtime against the file.** `remediate_catalog.py:352-357` says so outright. ffprobe the popularity head, write `trueRuntimeSeconds`, flag \|Δ\| > 20%. Closest existing proxy is `detect_trailers.py:46-60`. | ✅ tick 4 (no ffprobe needed — Archive's own file `length` is the authority) |
 | D6 | Synopsis gap: 4,763 empty + 3,940 stubs. **Tick 14: NOT a coverage push — no source exists.** 98.5% of empty-synopsis items have no external ID; 78% of playable episodes have no spine overview and TVmaze doesn't have them either (Murphy Brown 5%, Four Star Playhouse 1%). | ⛔ blocked on data, not effort |
-| D7 | contentType audit — `documentary` (9 items) and `trailer` (10) are near-dead categories; 1,511 `tv-special` is orphan-episode residue (Decisions 035/036). | 🔮 |
+| D7 | 🟡 contentType audit — `documentary` (9 items) and `trailer` (10) are near-dead categories; 1,511 `tv-special` is orphan-episode residue (Decisions 035/036). | 🟡 **form errors fixed tick 16** (520 feature→short on file-verified runtime); **Documentary needs an OWNER decision — see tick 16** |
 | D8 | ~~290 items carry no `downloadURL`~~ — **false alarm (tick 8):** all 290 are tv-series CARDS, which are navigational and correctly have no video of their own. 0 non-series items lack a URL. Dropping them would have removed 290 series from the app. | ✅ n/a |
 | D9 | `repick_derivatives.py` is wired into **no workflow**. | 🔮 |
 
@@ -554,3 +554,31 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
 - **Next:** tick 16 = DATA. Re-check archive.org; if up, evaluate its
   `description` field as the last synopsis source. Otherwise take D7
   (contentType audit), which is catalog-local.
+
+### Tick 16 — 2026-07-19 — DATA: D7, 520 objectively wrong content types fixed
+- **Context:** archive.org now times out entirely, so this took D7's
+  catalog-local half.
+- **Enabled by tick 4:** runtime is trustworthy now, which makes an objective
+  form error checkable. **520 items typed `feature-film` have a FILE-VERIFIED
+  duration under 40 min** (Academy short boundary) — "Malice in the Palace" (15m
+  Stooges short), "The Battle Of Midway" (18m), "Hemp for Victory" (13m).
+- **Rule discipline:** acts ONLY on `fileRuntimeSeconds` (archive.org's own
+  per-derivative length), never on an externally-matched runtime — that is
+  exactly the value that can describe a different cut or film. **One-directional:**
+  short → feature is NOT safe, since a short-film item with a long file is
+  usually a compilation reel.
+- **Verified:** feature-film 11,059 → 10,536; short-film 3,578 → 4,097. Inspected
+  the risky 37–39m boundary — all genuinely shorts (e.g. "The Hunt for Gollum",
+  a 38m fan film).
+- **⚠️ OWNER DECISION NEEDED — the Documentary category is starved.** 1,113 items
+  carry the Documentary **genre**; only **9** have `contentType='documentary'`,
+  so the tile is count-gated off Home (needs ≥30) and documentaries are
+  unbrowsable as a category. **Reclassifying is the wrong fix:** `contentType` is
+  a FORM axis (silent / feature / short) and Documentary is a GENRE — moving the
+  396 silent documentaries would gut Silent Era to fill Documentary. The real
+  question is whether that category should resolve **by genre**, which changes
+  what a category *means* (partition → overlapping facet). That is IA, not a
+  defect, so it is surfaced rather than decided here.
+- **Next:** tick 17 = the scheduled RELEASE-WAVE slot. Assess against the exit
+  criteria and report honestly which are met; playability coverage (45%) is below
+  the 95% gate, so the wave likely slips pending more probe days.

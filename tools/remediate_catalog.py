@@ -1060,6 +1060,27 @@ def remediate(items):
                 it["yearSource"] = "source_naming"
                 stats["year_filled"] += 1
 
+        # 0y) FORM vs RUNTIME: a "feature film" that is actually 12 minutes is
+        # mis-categorised — the owner's "wrong category". Only acts on a
+        # FILE-VERIFIED duration (fileRuntimeSeconds, written by check_liveness
+        # from archive.org's own per-derivative length), never on a runtime that
+        # came from an external match, since that is exactly the value that can
+        # describe a different cut or a different film. 40 min is the Academy
+        # short-film boundary. Measured on the live catalog: 520 items, e.g.
+        # "Malice in the Palace" (15m Stooges short), "The Battle Of Midway"
+        # (18m), "Hemp for Victory" (13m) — all typed feature-film.
+        #
+        # Deliberately ONE-DIRECTIONAL (feature -> short only). The reverse is
+        # not safe: a short-film item whose file is long is usually a compilation
+        # reel of several shorts, which is not a feature.
+        if it.get("contentType") == "feature-film":
+            fr = it.get("fileRuntimeSeconds")
+            if isinstance(fr, int) and 60 <= fr < 2400:
+                it["contentType"] = "short-film"
+                it["contentTypeWas"] = "feature-film"
+                it["contentTypeSource"] = "file_runtime"
+                stats["contenttype_short"] += 1
+
         # Retitle year-only PD-animation compilation reels (#7).
         m = _PD_ANIM.match(it.get("archiveID") or "")
         if m and _NUMERIC_TITLE.match((it.get("title") or "").strip()):
