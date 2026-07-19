@@ -5,7 +5,16 @@ name: Match unmatched films
 # title + poster + metadata. Resumable (matchAttempted). Weekly + manual.
 on:
   schedule:
-    - cron: '53 3 * * 1'      # weekly Mon, clear of the daily cron wave
+    # Moved into the evening window (2026-07-19): every catalog workflow shares
+    # the `catalog-writers` group, and GitHub keeps only ONE pending run per
+    # group — a newer arrival supersedes an older PENDING one, so a job that
+    # queues behind a busy slot is cancelled before it ever starts. Measured
+    # cancellation rates over the last 20 runs: detect-trailers 75%,
+    # check-liveness 50%, match-unmatched 33%, free-subtitles 30%,
+    # subtitles 25% — while every workflow in a quiet slot sat at 0%.
+    # This window is clear of color-classify (00/08/16 UTC) and of the daily
+    # check-liveness run (13:00 + up to ~2h). Keep these staggered.
+    - cron: '0 21 * * 1'      # weekly Mon, clear of the daily cron wave
   workflow_dispatch:
     inputs:
       limit:

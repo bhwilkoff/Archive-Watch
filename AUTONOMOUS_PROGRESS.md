@@ -689,3 +689,29 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
   windows and worked, which masked the pattern. The right diagnostic —
   *did the run actually start?* — only got asked when one visibly failed.
 - **Next:** tick 21 = verify a run completes from the new slot, then re-measure.
+
+### Tick 21 — 2026-07-19 — DATA: four more starved pipelines unblocked
+- **Confirmed tick 20's fix first:** a run dispatched into a clear group
+  **started a job** (`started_at` set) — where the cancelled one had none. The
+  diagnostic that had been missing all along.
+- **Then generalised the finding.** Cancellation rate, last 20 runs each:
+  | starved | | healthy | |
+  |---|---|---|---|
+  | detect-trailers | **75%** | rights-audit | 0% |
+  | check-liveness | 50% (fixed) | validate-posters | 0% |
+  | match-unmatched | 33% | cast-images | 0% |
+  | free-subtitles | 30% | tvdb-movies | 0% |
+  | subtitles | 25% | wikidata-posters | 0% |
+- **Pattern: long jobs in busy slots.** `detect-trailers` (Wed 06:00) collides
+  **exactly** with `free-subtitles` (daily 06:00) — same group, same minute, so
+  one is always pending and can be superseded before starting.
+- **Moved the four starved weeklies** into the evening window, staggered an hour
+  apart, clear of color-classify (00/08/16) and the 13:00 liveness run + budget:
+  detect-trailers → Wed 18:00 · verify-matches → Tue 19:00 · subtitles →
+  Thu 20:00 · match-unmatched → Mon 21:00. `free-subtitles` keeps 06:00 as the
+  daily incumbent. Measured rates recorded in each workflow comment.
+- **Why this matters beyond CI hygiene:** these are the pipelines that fix
+  matches, find trailers, and add subtitles. A quarter to three-quarters of
+  their work was being silently discarded — so several "the data isn't
+  improving" symptoms were scheduling, not tooling.
+- **Next:** tick 22 = read the probe run (started 11:25Z), re-measure coverage.
