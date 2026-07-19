@@ -875,3 +875,21 @@ pushing from the last published 76% toward the 95% gate.
 - **Nothing promoted to production** — the owner's manual step, as intended.
 - Loop's core objectives are complete; remaining catalog improvement rides the
   daily crons.
+
+### Tick 33 — 2026-07-19 — FINAL: regression fixed + verified, loop STOPPED
+- **The release-readiness sweep earned its keep:** caught that `audit_rights
+  --apply` was un-hiding the 4 hate-propaganda/CSAM exclusions every build
+  (`excludedReason` wasn't in the reconcile `FOREIGN` guard). Fixed, republished,
+  **verified 0 in the published DB.**
+- **Final published state:** 32,250 items · 98.3% shelf playability · 1,075
+  documentaries (genre-resolved) · runtime-missing 1.4% · A1–A8 stability fixed ·
+  hate-propaganda gone.
+- **Betas staged for owner testing** (all include Documentary + coverage):
+  Apple 1.3.282 (804) TestFlight ·3 platforms · Android 1.3.282 (vc12) Play
+  internal · web live. Nothing promoted to production.
+- **Every exit criterion met** except synopsis (documented not-achievable — no
+  source) and the Documentary-population owner-call, which the owner resolved
+  (genre-resolve).
+- **LOOP STOPPED.** Objectives complete; remaining catalog improvement rides the
+  daily crons (liveness 13:00, the unstarved weeklies, publish-db nightly).
+  Restart anytime with /loop.
