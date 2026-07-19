@@ -327,12 +327,24 @@ def main() -> int:
     # ones survived into the published DB. Most of the budget bought coverage of
     # copies nobody sees.
     #
-    # Shelf-assigned items first (Home/browse surfaces), then popularity, and
-    # cluster membership only as the final tiebreak — it still gets checked, just
-    # not ahead of everything a user will actually open.
-    targets.sort(key=lambda it: (bool(it.get("shelves")),
-                                 it.get("popularityScore") or 0,
-                                 it.get("archiveID") in prio), reverse=True)
+    # CAREFUL: the stored `shelves` field is NOT shelf membership. Only 934 of
+    # the 21,860 items in the published `item_shelves` table carry one — the rest
+    # are assigned at build time by build_sqlite._shelf_ids_for() from their
+    # COLLECTIONS. Sorting on `shelves` alone therefore promotes ~4% of what the
+    # user actually sees, so visibility is approximated by the signals that do
+    # exist here: designed artwork (the Home/browse gate — build_sqlite orders
+    # designed-art-first everywhere) and popularity (how every shelf orders).
+    # Cluster membership stays last: those are mostly duplicate uploads that get
+    # merged away, so probing them buys coverage of copies nobody can open.
+    def visibility(it):
+        designed = bool(it.get("hasRealArtwork")
+                        and (it.get("artworkSource") or "archive") != "archive")
+        return (bool(it.get("shelves")),
+                designed,
+                it.get("popularityScore") or 0,
+                it.get("archiveID") in prio)
+
+    targets.sort(key=visibility, reverse=True)
     if args.limit:
         targets = targets[:args.limit]
     print(f"[liveness] {len(targets)} items to probe "

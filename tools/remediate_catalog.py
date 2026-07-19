@@ -328,6 +328,7 @@ def fix_wrong_external_matches(it):
     if new_y is None and it.get("colorMode") == "bw":
         it["year"] = None
         it["decade"] = None
+        it.pop("yearSource", None)      # don't leave a marker for a nulled year
     return "yearfix" if new_y is not None else "yearnull"
 
 
@@ -1029,10 +1030,35 @@ def is_junk(it):
 
 def remediate(items):
     stats = Counter()
+    # A later rule can null a year this pass filled (e.g. the B&W-vs-modern
+    # wrong-match check); sweep any marker left without a year at the end so
+    # the catalog never carries a provenance claim for a value that is gone.
+    def _drop_stale_year_markers():
+        for it in items:
+            if it.get("yearSource") and not isinstance(it.get("year"), int):
+                it.pop("yearSource", None)
     for it in items:
         ct = it.get("contentType")
         if ct == "tv-series" or ct not in MOVIE_TYPES:
             continue
+
+        # 0z) FILL A MISSING YEAR from the item's own naming. source_year() is
+        # the vetted extractor already used to CORRECT wrong matches (paren years
+        # win; resolution tokens like 720p/1920x1080 are stripped first) — it was
+        # simply never applied when the year was absent rather than wrong.
+        # Recovers ~450 items. Deliberately NOT sourced from the Archive `date`
+        # field: that is usually the UPLOAD date, not the release year (measured:
+        # 30/30 no-year items had a date, but e.g. `ThePink.Panther1963` reports
+        # 2015 for a 1963 film). Stamping a modern year would corrupt decade
+        # browse AND could push a PD title into the rights audit's post-1978
+        # bucket, hiding it.
+        if not isinstance(it.get("year"), int) or (it.get("year") or 0) <= 0:
+            sy = source_year(it)
+            if sy is not None and 1888 <= sy <= CURRENT_YEAR:
+                it["year"] = sy
+                it["decade"] = decade_of(sy)
+                it["yearSource"] = "source_naming"
+                stats["year_filled"] += 1
 
         # Retitle year-only PD-animation compilation reels (#7).
         m = _PD_ANIM.match(it.get("archiveID") or "")
@@ -1251,6 +1277,7 @@ def remediate(items):
         if it.get("contentType") not in MOVIE_TYPES and sanitize_title(it):
             stats["other_title_cleaned"] += 1
 
+    _drop_stale_year_markers()
     return stats
 
 

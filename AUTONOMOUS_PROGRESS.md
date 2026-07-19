@@ -104,7 +104,7 @@ and format string*. A 0-byte or corrupt `.mp4` passes every gate we have.
 | D5 | ✅ Runtime truth — **nothing validates runtime against the file.** `remediate_catalog.py:352-357` says so outright. ffprobe the popularity head, write `trueRuntimeSeconds`, flag \|Δ\| > 20%. Closest existing proxy is `detect_trailers.py:46-60`. | ✅ tick 4 (no ffprobe needed — Archive's own file `length` is the authority) |
 | D6 | Synopsis gap: 4,763 empty + 3,940 stubs. Existing enrichment covers the mechanism; this is a coverage push. | ⏳ |
 | D7 | contentType audit — `documentary` (9 items) and `trailer` (10) are near-dead categories; 1,511 `tv-special` is orphan-episode residue (Decisions 035/036). | 🔮 |
-| D8 | 290 items carry no `downloadURL` at all — drop or repair. | ⏳ |
+| D8 | ~~290 items carry no `downloadURL`~~ — **false alarm (tick 8):** all 290 are tv-series CARDS, which are navigational and correctly have no video of their own. 0 non-series items lack a URL. Dropping them would have removed 290 series from the app. | ✅ n/a |
 | D9 | `repick_derivatives.py` is wired into **no workflow**. | 🔮 |
 
 ### APP — why a resumed app is stale
@@ -366,3 +366,35 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
 - **Next:** tick 8 = DATA. Re-measure playability coverage after the
   re-prioritised daily run, and start D6 (synopsis coverage) or D8 (the 290
   items with no downloadURL) depending on what the numbers show.
+
+### Tick 8 — 2026-07-18 — DATA: year recovery; two backlog items corrected
+- **D8 was wrong.** All 290 "no downloadURL" items are tv-series **cards** —
+  navigational, no video of their own; 0 non-series items lack a URL. Acting on
+  the backlog without checking would have deleted 290 series from the app.
+- **Bug found in tick 6's own prioritisation.** The sort keyed on the stored
+  `shelves` field, but only **934** of the 21,860 items in the published
+  `item_shelves` table have one — the rest are assigned at build time by
+  `build_sqlite._shelf_ids_for()` from their COLLECTIONS. So "shelf-first" was
+  promoting ~4% of what users see. Now approximates visibility with signals that
+  exist in `catalog.json`: designed artwork (the Home/browse gate) then
+  popularity (how every shelf orders), cluster membership last.
+- **Year: measured a tempting fix and rejected it.** 4,101 shelf items have no
+  year. Archive metadata has a `date` for 30/30 sampled — but it is usually the
+  **upload** date: `ThePink.Panther1963` reports 2015 for a 1963 film. Filling
+  from it would corrupt decade browse *and* could push PD titles into the rights
+  audit's post-1978 bucket and hide them. **Not done.**
+- **What shipped instead:** `remediate_catalog` already had `source_year()` — a
+  vetted extractor (parenthesised years win; `720p`/`1920x1080` stripped so they
+  can't pose as years) used only to CORRECT wrong matches, never to FILL a
+  missing one. Now it fills when the year is absent, stamping
+  `yearSource="source_naming"`. **233 recovered**, decade spread plausible for a
+  PD catalog (peaks in the 1930s and 1970s), spot-checks correct
+  (`haider-2014`→2014, `grey-gardens-1975`→1975).
+- **Also fixed:** a later rule (the B&W-vs-modern wrong-match check) can null a
+  year this pass just filled, which left a `yearSource` marker describing a value
+  that no longer existed. A sweep at the end of `remediate()` drops those — 3
+  observed, now 0.
+- **Verification:** full 32k-item catalog run — no-year 5,409 → 5,176, 0 stale
+  markers, and the existing 666 title cleanings still fire (no regression).
+- **Next:** tick 9 = APP (A6 bundle-only `featured.json`, or A8 SW staleness).
+  Then re-measure coverage once the re-prioritised probe run lands.
