@@ -2044,10 +2044,12 @@
     // the player is open — that would interrupt playback; the data still
     // updates and the next route() picks it up.
     let resuming = false;
+    let swRegistration = null;
     const resumeRefresh = async () => {
       if (resuming || document.visibilityState !== 'visible') return;
       resuming = true;
       try {
+        swRegistration?.update().catch(() => {});   // pick up a new build
         if (await Data.reloadIfStale() && !$('player').open) route();
       } finally {
         resuming = false;
@@ -2058,7 +2060,21 @@
     window.addEventListener('online', resumeRefresh);
 
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js').catch(() => { /* http or old browser */ });
+      navigator.serviceWorker.register('sw.js').then(reg => {
+        // Long-open tabs never re-check for a new worker on their own. Ask on
+        // every resume (cheap — the browser 304s), alongside the catalog reload.
+        swRegistration = reg;
+        // When a new worker takes over, the page is still running the OLD code.
+        // Reload once so they match — but NEVER mid-film: the player dialog
+        // holds the video, and reloading would kill playback. A user who is
+        // watching gets the new build on their next visit instead.
+        let reloading = false;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          if (reloading || $('player').open) return;
+          reloading = true;
+          location.reload();
+        });
+      }).catch(() => { /* http or old browser */ });
     }
   }
 

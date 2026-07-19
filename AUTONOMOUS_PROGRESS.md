@@ -131,7 +131,7 @@ correct and complete on every platform. There is simply never a second swap.
 | A5 | Web viewer never re-fetches — `watch.js:123-124` `Data.load()` runs once from `boot()`; no `visibilitychange`/`pageshow`/`focus`/`online` listener. | High | ✅ web (tick 3) |
 | A6 | `featured.json` is bundle-only (`CatalogLoader.swift:12-20`) — curated shelves and `deprioritizedSeries` can't update without an App Store release. | Medium-high | ✅ all Apple (tick 9) |
 | A7 | No `AVAudioSession` interruption observer (`PlayerView_iOS.swift:93-94` activates once). Audio stays dead after a post-background interruption. | Medium | ✅ iOS (tick 7) |
-| A8 | Stale SW shell — `sw.js:53-56` cache-first with no revalidation, no `controllerchange` handler. A tab open for days never picks up a new build. | Low-medium | web ⏳ |
+| A8 | Stale SW shell — `sw.js:53-56` cache-first with no revalidation, no `controllerchange` handler. A tab open for days never picks up a new build. | Low-medium | ✅ web (tick 11) |
 
 ---
 
@@ -440,3 +440,25 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
   daily probe has banked enough, and the same floor pattern applies.
 - **Next:** tick 11 = APP (A8, the last open defect) or an opt tick; then
   re-measure once the re-prioritised run publishes.
+
+### Tick 11 — 2026-07-18 — APP: A8, self-healing web shell (LAST stability defect)
+- **Context:** the SW served the shell cache-first with no revalidation. Two
+  failure modes: a long-open tab never picked up a new build, and a deploy that
+  changed `watch.js` **without bumping `SHELL`** froze every existing install
+  permanently — nothing ever re-fetched the asset.
+- **Implementation:** shell fetches are now stale-while-revalidate — cache
+  answers instantly, a background fetch refreshes the entry (kept alive with
+  `e.waitUntil`) so the next load is correct without depending on a version bump.
+  Data URLs stay network-first. Client side: the registration is retained so the
+  tick-3 resume path also calls `reg.update()`, and a `controllerchange` listener
+  reloads once so page code matches the controlling worker. **Both guarded on the
+  player dialog being closed** — a background update must never kill a film
+  mid-playback.
+- **Verification:** both files parse; all six `SHELL_URLS` resolve 200 live (one
+  404 there rejects `addAll` and the worker never installs at all — worth
+  checking explicitly, since the failure is silent).
+- **Milestone: the APP workstream is COMPLETE.** A1–A8, every defect from the
+  tick-0 audit, fixed across all five platforms.
+- **Next:** the loop is now DATA-only. Tick 12 re-measures coverage from the
+  budget-bounded run and extends the playability gate from the hero to the
+  community shelves as coverage allows.
