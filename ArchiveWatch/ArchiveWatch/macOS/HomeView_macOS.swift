@@ -61,8 +61,16 @@ struct HomeView: View {
         // frame-grab cover. Require a backdrop; if too few qualify the hero shows fewer (or hides)
         // rather than cropping a poster into the full-bleed banner (owner 2026-06-29).
         let pool = base.filter { $0.backdropURLParsed != nil }
+        // The marquee must never feature a title that doesn't play (owner:
+        // "should certainly not be highlighted on the home screen"). Prefer
+        // byte-verified items; fall back to the full pool while probe coverage
+        // is still climbing, so the hero can never go empty. Measured
+        // 2026-07-18: 244 of the 758 backdrop-bearing candidates are already
+        // verified — far more than the 7 the hero shows.
+        let verified = pool.filter { $0.isPlaybackVerified }
+        let heroPool = verified.count >= 7 ? verified : pool
         var rng = SplitMix(seed: heroSeed)
-        heroItems = Array(pool.shuffled(using: &rng).prefix(7))
+        heroItems = Array(heroPool.shuffled(using: &rng).prefix(7))
         heroItems.forEach { used.insert($0.dedupKey) }
         continueItems.forEach { used.insert($0.dedupKey) }   // don't resurface Continue Watching
 

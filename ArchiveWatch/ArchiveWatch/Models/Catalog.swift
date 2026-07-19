@@ -128,6 +128,14 @@ struct Catalog: Decodable, Sendable {
         // unchanged.
         let colorMode: String?
 
+        // Playback verified from the BYTES by tools/check_liveness.py — a ranged
+        // GET of the video's first KB confirming it is a real, non-empty video
+        // (not a 0-byte or error-page .mp4 that the metadata API still lists).
+        // nil = not probed yet, NOT a failure: items that fail are excluded
+        // upstream and never reach the app. Optional so older catalogs decode
+        // unchanged.
+        let playbackVerified: Bool?
+
         // Subtitle/caption tracks (tools/enrich_subtitles.py). Additive +
         // optional. Each is a side-loadable track the players attach to the
         // progressive MP4 (archive.org's own ASR captions, OpenSubtitles, or
@@ -178,6 +186,12 @@ struct Catalog: Decodable, Sendable {
         var posterURLParsed: URL? { posterURL.flatMap(URL.init(string:)) }
         var backdropURLParsed: URL? { backdropURL.flatMap(URL.init(string:)) }
         var videoURLParsed: URL? { downloadURL.flatMap(URL.init(string:)) }
+
+        /// The video's bytes were probed and are a real playable file. Used to
+        /// gate the most prominent surfaces (the full-bleed hero) so the app
+        /// never MARQUEES a title that turns out not to play — the rest of the
+        /// catalog stays browsable while probe coverage climbs.
+        var isPlaybackVerified: Bool { playbackVerified == true }
 
         /// True when the poster is a real designed artwork (TMDb, Wikidata, Commons, TVmaze),
         /// false when it's just the Archive first-frame thumbnail.

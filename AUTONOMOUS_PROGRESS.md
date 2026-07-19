@@ -99,7 +99,7 @@ and format string*. A 0-byte or corrupt `.mp4` passes every gate we have.
 |---|---|---|
 | D1 | ✅ Byte-level playability probe — ranged `bytes=0-1023` GET in `check_liveness`, assert 200/206 + `video/*` + `ftyp`/`moov`. Mirrors the pattern `validate_posters.py:76-77` already uses for images. | ✅ tick 2 |
 | D2 | ✅ Add `playable` (and `downloadURL`) as real `items` columns in `build_sqlite.py` so queries *can* gate. | ✅ tick 6 |
-| D3 | Flip the gate: `playable=1` required on hero + all Home/community shelves + `randomPlayable()`. **Only after D1 coverage ≥95%** — flipping early empties Home. | ⏳ |
+| D3 | 🟡 Flip the gate: `playable=1` required on hero + all Home/community shelves + `randomPlayable()`. **Only after D1 coverage ≥95%** — flipping early empties Home. | 🟡 **hero gated tick 10** (its pool is small + popularity-skewed, so 244 verified candidates ≫ the 7 shown); broad shelves still pending coverage |
 | D4 | ✅ Re-probe cadence: `livenessChecked` is a one-time marker today, so a URL that dies *after* its check is never re-probed. Add a 90-day TTL re-sweep. | ✅ tick 2 |
 | D5 | ✅ Runtime truth — **nothing validates runtime against the file.** `remediate_catalog.py:352-357` says so outright. ffprobe the popularity head, write `trueRuntimeSeconds`, flag \|Δ\| > 20%. Closest existing proxy is `detect_trailers.py:46-60`. | ✅ tick 4 (no ffprobe needed — Archive's own file `length` is the authority) |
 | D6 | Synopsis gap: 4,763 empty + 3,940 stubs. Existing enrichment covers the mechanism; this is a coverage push. | ⏳ |
@@ -419,3 +419,24 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
 - **Next:** tick 10 = DATA. Re-measure coverage from the re-prioritised run and
   decide whether D3 (the Home playability gate) is close enough to stage behind a
   threshold, or whether coverage needs more days first.
+
+### Tick 10 — 2026-07-18 — DATA: D3 staged — the hero is gated
+- **Context:** the full gate is still blocked (~14% shelf coverage), but that
+  framing treated all surfaces as one problem. They aren't.
+- **Insight:** the hero draws **7** items from a small, popularity-skewed pool —
+  and popularity is exactly what the probe prioritises. Measured per popularity
+  band on the live DB: top-500 45% verified, top-1000 42%, top-3000 33%. The real
+  hero pool (top 3000 ∩ designed art ∩ has backdrop) is 758 candidates, of which
+  **244 are already verified** — 35× what the hero shows.
+- **Shipped:** the marquee now prefers byte-verified items on tvOS, iOS and
+  macOS, with a floor — fall back to the full pool if fewer than 7 qualify, so
+  the hero can never go empty. The fallback becomes unreachable as coverage
+  climbs; no follow-up needed to "turn it on".
+- **Model:** `Catalog.Item.playbackVerified` (optional, so older catalogs decode
+  unchanged) + `isPlaybackVerified`.
+- **Verification:** BUILD SUCCEEDED on tvOS, iOS, macOS at 1.3.261 / 783.
+- **Note:** broad Home shelves and Browse stay ungated deliberately — at 14%
+  coverage they'd lose most of their content. They gate in a later tick once the
+  daily probe has banked enough, and the same floor pattern applies.
+- **Next:** tick 11 = APP (A8, the last open defect) or an opt tick; then
+  re-measure once the re-prioritised run publishes.
