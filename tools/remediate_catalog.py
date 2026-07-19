@@ -1028,6 +1028,38 @@ def is_junk(it):
     return bool(_NUMERIC_TITLE.match((it.get("title") or "").strip()))
 
 
+# --- Overt hate propaganda / CSAM-advertising uploads -----------------------
+# archive.org hosts modern propaganda alongside public-domain film, and a few
+# such uploads reached the catalog with contentType='feature-film' and no adult
+# flag, so they were fully browsable. These are not PD films and have no place
+# in a cinematheque app.
+#
+# WORD-BOUNDARY matching is mandatory here: a naive substring test for "pedo"
+# matches TORPEDO and would have excluded eight legitimate films (Torpedo
+# Flotilla Visit to Manchester, "Secret Agent X-9: Torpedo Rendezvous", the
+# Dutch submarine reels...). Markers are deliberately narrow — phrases whose
+# presence in a title is unambiguous — not a general content classifier.
+_HATE_MARKERS = re.compile(
+    r"\bholohoax\b"
+    r"|\bchild\s+pornography\b"
+    r"|\bwhite\s+genocide\b"
+    r"|\bjewish\s+question\b",
+    re.I)
+
+
+def exclude_hate_propaganda(items, stats):
+    """Reversibly exclude uploads whose own title advertises Holocaust denial or
+    child sexual abuse material (Decision 027's `excluded` mechanism)."""
+    for it in items:
+        if it.get("excluded"):
+            continue
+        text = f"{it.get('archiveID') or ''} {it.get('title') or ''}"
+        if _HATE_MARKERS.search(text):
+            it["excluded"] = True
+            it["excludedReason"] = "hate_propaganda"
+            stats["hate_propaganda_excluded"] += 1
+
+
 def remediate(items):
     stats = Counter()
     # A later rule can null a year this pass filled (e.g. the B&W-vs-modern
@@ -1299,6 +1331,7 @@ def remediate(items):
             stats["other_title_cleaned"] += 1
 
     _drop_stale_year_markers()
+    exclude_hate_propaganda(items, stats)
     return stats
 
 

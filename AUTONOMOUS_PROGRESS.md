@@ -641,3 +641,27 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
   itself didn't cause. Build-verification would have caught neither.
 - **Next:** tick 19 = DATA if archive.org is back (the 10:00 UTC probe should
   have run); otherwise hold coverage work and re-measure.
+
+### Tick 19 — 2026-07-19 — DATA: hate propaganda excluded; synopsis question closed
+- **archive.org recovered (200)** after ~5h. Dispatched a fresh probe run, then
+  closed tick 14's open question.
+- **Synopsis — 4th source evaluated, also NOT viable.** Of 25 popular
+  empty-synopsis films, only **4** had a usable archive.org `description`, and of
+  those: one a note about a defunct website, one a BBFC censorship comparison,
+  one **explicit pornographic content**. Low coverage, wrong content type, and
+  hazardous to pipe into the UI. **D6 is now blocked on all four sources.**
+- **⚠️ The real find — content that isn't film at all.** That sampling surfaced
+  uploads that are modern propaganda, not PD cinema. **4 now reversibly
+  excluded**: one antisemitic video whose title advertises CSAM, and three
+  Holocaust-denial ("holohoax") uploads. All were `contentType='feature-film'`
+  with `isAdult=0` — fully browsable and searchable.
+- **Word-boundary matching is load-bearing.** A naive substring test for "pedo"
+  matches **TORPEDO** and would have excluded six legitimate films (*Torpedo
+  Flotilla Visit to Manchester*, *Secret Agent X-9: Torpedo Rendezvous*, the
+  Dutch submarine reels). Verified on the full 32k catalog: **4 excluded, all
+  correct; 6 torpedo films untouched.**
+- **Scope discipline:** markers are narrow phrases that are unambiguous in a
+  title — deliberately NOT a general content classifier — and reversible via the
+  existing Decision 027 `excluded` flag.
+- **Next:** tick 20 = read the probe run, re-measure coverage, and re-assess the
+  release wave.
