@@ -9,7 +9,7 @@ index to GitHub Pages (same-origin as the tool). To keep it small AND
 git-delta-friendly (it's committed + refreshed on every DB update), each item is
 a positional array, not an object:
 
-    [archiveID, title, year, contentType, poster, pro, search, backdrop, playable]
+    [archiveID, title, year, contentType, poster, pro, search, backdrop, playable, docs]
 
 `poster` is the designed-artwork URL (TMDb/Wikidata/commons/generated) or null;
 the browser falls back to archive.org/services/img/{id} when null — so the web
@@ -119,9 +119,16 @@ def main():
         # apps (ticks 10/12/22). 0 = not probed yet, NOT a failure: items that
         # fail are excluded upstream. Older consumers ignore the extra column.
         playable = 1 if it.get("playbackVerified") is True else 0
+        # Documentary flag (column 9, schema 9). The Documentary CATEGORY
+        # resolves by GENRE, not contentType (only ~8 items are typed
+        # documentary vs 1,109 carrying the genre) — same as the apps. A cartoon
+        # carrying the tag (Betty Boop) is not a documentary, so animation is
+        # excluded. One bit per row; older consumers ignore the extra column.
+        docs = 1 if ("Documentary" in (it.get("genres") or [])
+                     and (it.get("contentType") or "") != "animation") else 0
         rows.append([aid, it.get("title") or aid, it.get("year"),
                      it.get("contentType") or "", poster, pro, search, backdrop,
-                     playable])
+                     playable, docs])
         for k in keywords:
             keyword_freq[k] = keyword_freq.get(k, 0) + 1
         for s in studios:
@@ -175,7 +182,7 @@ def main():
     }
 
     out = {
-        "schema": 8,
+        "schema": 9,
         "updatedAt": catalog.get("updatedAt") or "",
         "count": len(rows),
         "fields": ["id", "title", "year", "contentType", "poster", "pro", "search", "backdrop"],

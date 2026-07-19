@@ -193,6 +193,15 @@
     isFilm(row) {
       return !TV_TYPES.has(row[3]);
     },
+    // The Documentary CATEGORY resolves by the genre flag (index col 9), not by
+    // contentType — only ~8 items are typed documentary vs 1,109 carrying the
+    // genre, so a contentType match would show almost nothing. Every other
+    // category is still a plain contentType match. Matches the apps.
+    matchesCategory(row, type) {
+      if (!type) return !TV_TYPES.has(row[3]);
+      if (type === 'documentary') return row[9] === 1 && row[3] !== "animation";
+      return row[3] === type;
+    },
 
     /** Resolve a featured.json shelf through the index's editorial shelves
         map — the same curated item_shelves assignments the apps query, so
@@ -556,6 +565,10 @@
     categoryTiles() {
       const counts = {};
       for (const r of Data.rows) counts[r[3]] = (counts[r[3]] || 0) + 1;
+      // Documentary is genre-resolved, so its tile count isn't a contentType
+      // tally — count the flagged rows (index col 9) instead.
+      counts['documentary'] = Data.rows.reduce(
+        (n, r) => n + (r[9] === 1 && r[3] !== 'animation' ? 1 : 0), 0);
       const sec = document.createElement('section');
       sec.className = 'shelf';
       const h = document.createElement('h2');
@@ -740,7 +753,7 @@
       this.controls(type, decade, sort, kw, studio);
 
       this.filtered = Data.rows.filter(r =>
-        (type ? r[3] === type : !TV_TYPES.has(r[3])) &&
+        Data.matchesCategory(r, type) &&
         (!decade || (r[2] && Math.floor(r[2] / 10) * 10 === Number(decade))) &&
         (!kw || (r[6] && r[6].includes(kw))) &&
         (!studio || (r[6] && r[6].includes(studio))));

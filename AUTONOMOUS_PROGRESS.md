@@ -841,3 +841,19 @@ Nothing promoted to production; that stays the owner's manual step.
 
 **3. Coverage — 12,000-item run in flight** (5h budget vs the usual 8k/2h),
 pushing from the last published 76% toward the 95% gate.
+
+### Tick 30 — 2026-07-19 — Documentary genre-resolved on ALL 5 platforms
+- Owner: "There should be thousands of documentaries." Correct — 1,109 carry the
+  Documentary GENRE; only 8 were typed `documentary`. The category now resolves
+  by genre everywhere, additively (a silent documentary stays in Silent Era AND
+  appears here), excluding animation. Net **~1,035**.
+- tvOS/iOS/macOS/Android: `CatalogDB`/`CatalogDatabase` translate the
+  `documentary` category → genre query (Android at the call sites, since `genre`
+  also feeds `facetJoins`).
+- **Web (this tick):** the flat index had no genre data, so added a `docs` flag
+  (index col 9, schema 9, 1 bit/row). `watch.js` `matchesCategory()` routes the
+  browse filter + tile count-gate through it. Verified on a real 600-item build:
+  399/400 doc items flagged (1 animation excluded).
+- Residual: Teaserama (1955 burlesque) carries a lone Documentary tag upstream
+  and surfaces — one bad tag, not worth a false-positive-prone rule.
+- Builds green: tvOS, iOS, macOS, Android; web JS parses.
