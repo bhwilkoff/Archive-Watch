@@ -98,7 +98,7 @@ and format string*. A 0-byte or corrupt `.mp4` passes every gate we have.
 | # | Item | State |
 |---|---|---|
 | D1 | ✅ Byte-level playability probe — ranged `bytes=0-1023` GET in `check_liveness`, assert 200/206 + `video/*` + `ftyp`/`moov`. Mirrors the pattern `validate_posters.py:76-77` already uses for images. | ✅ tick 2 |
-| D2 | Add `playable` (and `downloadURL`) as real `items` columns in `build_sqlite.py` so queries *can* gate. | ⏳ |
+| D2 | ✅ Add `playable` (and `downloadURL`) as real `items` columns in `build_sqlite.py` so queries *can* gate. | ✅ tick 6 |
 | D3 | Flip the gate: `playable=1` required on hero + all Home/community shelves + `randomPlayable()`. **Only after D1 coverage ≥95%** — flipping early empties Home. | ⏳ |
 | D4 | ✅ Re-probe cadence: `livenessChecked` is a one-time marker today, so a URL that dies *after* its check is never re-probed. Add a 90-day TTL re-sweep. | ✅ tick 2 |
 | D5 | ✅ Runtime truth — **nothing validates runtime against the file.** `remediate_catalog.py:352-357` says so outright. ffprobe the popularity head, write `trueRuntimeSeconds`, flag \|Δ\| > 20%. Closest existing proxy is `detect_trailers.py:46-60`. | ✅ tick 4 (no ffprobe needed — Archive's own file `length` is the authority) |
@@ -304,3 +304,36 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
 - **Next:** tick 6 returns to DATA — D2, adding `playable` as a real `items`
   column so shelf queries *can* gate on it (D3 flips the gate once coverage
   clears the bar).
+
+### Tick 6 — 2026-07-18 — DATA: D2 (`playable` column) + probe prioritisation
+- **First real probe results** (run 29664795585, 8,000 items):
+  `{alive: 7916, unreachable: 73, unplayable: 10, dead: 1}`. **The byte probe
+  caught 10 items that the metadata check called healthy** — the "doesn't play"
+  class, previously invisible. Published DB now carries 3,063 verified items.
+- **Finding — the probe was spending its budget on invisible copies.** 7,565 of
+  the 8,000 probed were IMDb-cluster members, but only 3,063 of 7,916 alive ones
+  survived into the DB: cluster members are mostly duplicate uploads that
+  `dedupe_by_imdb`/`merge_film_duplicates` merge away. Coverage of what users
+  actually see was climbing far slower than the run count suggested. Sort is now
+  **shelf-assigned first, then popularity, with cluster membership only as the
+  final tiebreak** — the dead-winner-hides-siblings concern is still served
+  (metadata liveness is the cheap half), just not ahead of everything a user
+  will open.
+- **D2:** `items.playable` — promoted out of the `item_json` blob so shelf,
+  hero, and browse queries **can** gate at all. Plus a composite
+  `idx_items_playable(playable, popularityScore DESC)` matching how every shelf
+  query orders. 1 = byte-verified; 0 = has a URL but unproven (episodes are 0 —
+  `check_liveness` walks catalog items, not series spines).
+- **Two defects caught by actually running the build:**
+  `INSERT INTO items` hardcoded `"?" * 29` in **two** places, so the new column
+  failed the build outright — the kind of break that would have taken down every
+  nightly publish. Replaced with `_insert_many()`, which derives the placeholder
+  count from the rows so the next column can't repeat it; then a second pass to
+  make it no-op on an empty batch (the hardcoded literal had been accidentally
+  safe there).
+- **Verification:** real `build_sqlite` run over an 800-item live slice —
+  builds clean, `playable=1` count (77) matches `item_json.playbackVerified`
+  exactly, index present, and the gate query returns sensible popular titles.
+- **Next:** tick 7 = APP (A4 sync retry/backoff, A7 audio-session interruption).
+  D3 — the actual Home gate — waits on coverage; at ~14% of shelf items it would
+  still empty Home. The re-prioritised daily run is what moves that number.

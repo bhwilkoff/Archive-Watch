@@ -317,9 +317,22 @@ def main() -> int:
         return not args.no_probe and playback_stale(it)
 
     targets = [it for it in items if candidate(it)]
-    # cluster members first, then popularity
-    targets.sort(key=lambda it: (it.get("archiveID") in prio,
-                                 it.get("popularityScore") or 0), reverse=True)
+    # Order by what the USER can actually reach, not by catalog bookkeeping.
+    #
+    # The original sort put IMDb-cluster members first, for a real reason: a dead
+    # copy that wins dedup hides its live siblings. But cluster members are
+    # mostly DUPLICATE uploads, and build_sqlite merges them away — so they never
+    # become rows the app can show. Measured on the first probe run: 7,565 of
+    # 8,000 probed items were cluster members, and only 3,063 of the 7,916 alive
+    # ones survived into the published DB. Most of the budget bought coverage of
+    # copies nobody sees.
+    #
+    # Shelf-assigned items first (Home/browse surfaces), then popularity, and
+    # cluster membership only as the final tiebreak — it still gets checked, just
+    # not ahead of everything a user will actually open.
+    targets.sort(key=lambda it: (bool(it.get("shelves")),
+                                 it.get("popularityScore") or 0,
+                                 it.get("archiveID") in prio), reverse=True)
     if args.limit:
         targets = targets[:args.limit]
     print(f"[liveness] {len(targets)} items to probe "

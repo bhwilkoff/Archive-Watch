@@ -502,6 +502,17 @@ def merge_film_duplicates(items):
     return [it for it in items if it["archiveID"] not in drop_ids]
 
 
+def _insert_many(db, table, rows, mode="INSERT OR IGNORE"):
+    """Insert with the placeholder count derived from the rows, not hardcoded —
+    adding a column to `items` previously meant editing two unrelated `"?" * 29`
+    literals, and missing one failed the whole build at insert time. No-ops on
+    an empty batch (a shard with no series has no episode rows)."""
+    if not rows:
+        return
+    n = len(rows[0])
+    db.executemany(f"{mode} INTO {table} VALUES ({','.join('?' * n)})", rows)
+
+
 def create_schema(db):
     db.executescript("""
     PRAGMA journal_mode = OFF;
@@ -516,7 +527,13 @@ def create_schema(db):
       contentRating TEXT, language TEXT, network TEXT, director TEXT,
       seriesID TEXT, yearEnd INTEGER, seasonsCount INTEGER, episodesCount INTEGER,
       isAdult INTEGER,
-      numFavorites INTEGER, numReviews INTEGER, avgRating REAL, views30d INTEGER
+      numFavorites INTEGER, numReviews INTEGER, avgRating REAL, views30d INTEGER,
+      -- Playability, promoted OUT of the item_json blob so shelf/hero/browse
+      -- queries can actually gate on it. Before this, downloadURL lived only in
+      -- the JSON, so NO SQL query could filter on whether a title plays -- which
+      -- is how dead items reached the home screen. 1 = the bytes were verified
+      -- by check_liveness's ranged probe; 0 = has a URL but is unverified.
+      playable INTEGER
     );
     -- Full item as JSON in a side table so the lean `items` table stays small
     -- for scalar WHERE/ORDER scans; the app JOINs this only for the handful of
@@ -621,6 +638,7 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
             _is_adult(it),
             it.get("numFavorites"), it.get("numReviews"), it.get("avgRating"),
             it.get("views30d"),
+            1 if it.get("playbackVerified") is True else 0,
         ))
         json_rows.append((aid, json.dumps(it, ensure_ascii=False, separators=(",", ":"))))
         for g in (it.get("genres") or []):
@@ -660,7 +678,7 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
         ]).strip()
         fts_rows.append((aid, it.get("title") or "", names, extra))
 
-    db.executemany("INSERT OR IGNORE INTO items VALUES (%s)" % ",".join("?" * 29), item_rows)
+    _insert_many(db, "items", item_rows)
     db.executemany("INSERT OR IGNORE INTO item_json VALUES (?,?)", json_rows)
     db.executemany("INSERT INTO item_genres VALUES (?,?)", genre_rows)
     db.executemany("INSERT INTO item_collections VALUES (?,?)", coll_rows)
@@ -750,6 +768,9 @@ def populate_series(db, materialize_episode_items=True):
                     None, None, None,
                     0,
                     None, None, None, None,
+                    # Episodes aren't byte-probed (check_liveness walks catalog
+                    # items, not series spines); their URL comes from the spine.
+                    0,
                 ))
                 ep_json_rows.append((aid, json.dumps(it, ensure_ascii=False, separators=(",", ":"))))
                 # extra = series name + a synopsis snippet, so the series name finds the episode.
@@ -758,7 +779,7 @@ def populate_series(db, materialize_episode_items=True):
     db.executemany("INSERT OR IGNORE INTO series VALUES (%s)" % ",".join("?" * 13), s_rows)
     db.executemany("INSERT INTO episodes VALUES (%s)" % ",".join("?" * 12), e_rows)
     # OR IGNORE: a standalone item with the same id (rare post-Decision-035) keeps its row.
-    db.executemany("INSERT OR IGNORE INTO items VALUES (%s)" % ",".join("?" * 29), ep_item_rows)
+    _insert_many(db, "items", ep_item_rows)
     db.executemany("INSERT OR IGNORE INTO item_json VALUES (?,?)", ep_json_rows)
     db.executemany("INSERT INTO items_fts VALUES (?,?,?,?)", ep_fts_rows)
     if ep_item_rows:
@@ -771,6 +792,9 @@ def create_indexes(db):
     CREATE INDEX idx_items_type     ON items(contentType);
     CREATE INDEX idx_items_decade   ON items(decade);
     CREATE INDEX idx_items_pop      ON items(popularityScore DESC);
+    -- Composite: every shelf query orders by popularity and will gate on
+    -- playable once coverage clears the bar (D3).
+    CREATE INDEX idx_items_playable ON items(playable, popularityScore DESC);
     CREATE INDEX idx_items_series   ON items(seriesID);
     CREATE INDEX idx_genres_genre   ON item_genres(genre);
     CREATE INDEX idx_genres_item    ON item_genres(archiveID);
