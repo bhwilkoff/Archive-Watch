@@ -582,3 +582,33 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
 - **Next:** tick 17 = the scheduled RELEASE-WAVE slot. Assess against the exit
   criteria and report honestly which are met; playability coverage (45%) is below
   the 95% gate, so the wave likely slips pending more probe days.
+
+### Tick 17 — 2026-07-19 — RELEASE WAVE: assessed → **HOLD**
+| Criterion | Status |
+|---|---|
+| APP defects A1–A8, all platforms | ✅ complete |
+| Unverified titles on hero / community shelves | ✅ **0** |
+| contentType form errors | ✅ 520 fixed (tick 16) |
+| All five platforms build clean @ 1.3.268/790 | ✅ tvOS · iOS · macOS · Android · web |
+| **Shelf playability coverage ≥95%** | ❌ **45%** (9,741/21,841) — binding |
+| Synopsis gates | ⛔ not achievable (tick 14) |
+| Documentary category | ⚠️ owner decision (tick 16) |
+
+- **Why hold:** coverage is the one binding gap, and it needs more daily probe
+  runs. archive.org has been down for hours (503 → timeout → 502), so tonight's
+  runs bank little.
+- **The distinction worth stating:** the owner's actual complaint — don't
+  *highlight* titles that don't play — **is** satisfied, because every surface
+  that showcases a title is gated. The 95% criterion was set to allow gating
+  Browse too, which is stricter than the complaint. Both are worth having; one
+  is done.
+- **Not auto-submitting.** Store submission is outward-facing and effectively
+  irreversible (App Review, public release), and this project's docs make it
+  owner-triggered. Staged so it's one command when wanted.
+- **Assessed and deliberately NOT fixed:** `cover-generation.yml` failed tonight
+  after **9 consecutive successes** — `no upload log … run upload_covers.py
+  first`, i.e. the generate/upload stage produced nothing because archive.org is
+  down. Transient collateral, not a defect. Masking the exit code would hide
+  real failures later.
+- **Next:** tick 18 = DATA. If archive.org is back, the daily 10:00 UTC probe
+  resumes banking coverage; otherwise hold and do catalog-local work.
