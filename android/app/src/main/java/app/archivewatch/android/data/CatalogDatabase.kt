@@ -134,8 +134,10 @@ class CatalogDatabase private constructor(
         offset: Int = 0,
         homeOnly: Boolean = false,
     ): List<CatalogItem> {
-        val (where, binds) = browseWhere(contentType, decade, genre, year, homeOnly)
-        val (joins, joinBinds) = facetJoins(genre, keyword, studio)
+        val (ct, gn, docAnd) = docCategory(contentType, genre)
+        val (where0, binds) = browseWhere(ct, decade, gn, year, homeOnly)
+        val where = where0 + docAnd
+        val (joins, joinBinds) = facetJoins(gn, keyword, studio)
         // Popular = demoted ids last, designed (professional) artwork first,
         // then popularity; series cards have NULL popularityScore, so
         // episodesCount breaks their ties (iOS/tvOS parity).
@@ -161,8 +163,10 @@ class CatalogDatabase private constructor(
         year: Int? = null,
         homeOnly: Boolean = false,
     ): Int {
-        val (where, binds) = browseWhere(contentType, decade, genre, year, homeOnly)
-        val (joins, joinBinds) = facetJoins(genre, keyword, studio)
+        val (ct, gn, docAnd) = docCategory(contentType, genre)
+        val (where0, binds) = browseWhere(ct, decade, gn, year, homeOnly)
+        val where = where0 + docAnd
+        val (joins, joinBinds) = facetJoins(gn, keyword, studio)
         return dbCall {
             queryRaw("SELECT COUNT(*) FROM items i$joins WHERE $where", joinBinds + binds) {
                 it.getLong(0).toInt()
@@ -190,6 +194,19 @@ class CatalogDatabase private constructor(
         }
         return sb.toString() to binds
     }
+
+    /** The Documentary CATEGORY resolves by GENRE, not contentType (Apple
+        parity). contentType is a FORM axis (silent/short/feature) while
+        "documentary" is a SUBJECT: only 8 items were ever typed `documentary`
+        while 1,109 carry the Documentary genre, so the tile was effectively
+        empty. Resolving by genre is ADDITIVE — a silent documentary stays in
+        Silent Era AND appears here — whereas re-typing would fill one category
+        by gutting three. Applied at the call sites because `genre` also feeds
+        facetJoins(). */
+    private fun docCategory(contentType: String?, genre: String?): Triple<String?, String?, String> =
+        if (contentType == "documentary")
+            Triple(null, genre ?: "Documentary", " AND i.contentType != 'animation'")
+        else Triple(contentType, genre, "")
 
     private fun browseWhere(
         contentType: String?,

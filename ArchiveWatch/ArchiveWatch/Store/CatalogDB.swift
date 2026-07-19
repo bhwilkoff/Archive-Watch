@@ -227,6 +227,29 @@ final class CatalogDB {
         // "the Classic TV category contains no items").
         var where_: [String] = []
         var binds: [String] = []
+        var contentType = contentType
+        var genre = genre
+        // The Documentary CATEGORY resolves by GENRE, not by contentType.
+        //
+        // contentType is a FORM axis (silent-film / short-film / feature-film);
+        // "documentary" is a SUBJECT. Only 8 items were ever typed
+        // `documentary`, while 1,109 carry the Documentary genre — so the
+        // category tile was effectively empty and count-gated off Home while
+        // the catalog held over a thousand documentaries (owner, 2026-07-19:
+        // "There should be thousands of documentaries").
+        //
+        // Resolving by genre is ADDITIVE: a silent documentary stays in Silent
+        // Era AND appears here. Re-typing them instead would have moved 396
+        // silents, 297 shorts and 151 features out of their own categories —
+        // filling one category by gutting three.
+        //
+        // `animation` is excluded: 29 genre-tagged items are cartoons (Betty
+        // Boop), which are not documentaries whatever the tag says.
+        if contentType == "documentary" {
+            contentType = nil
+            genre = genre ?? "Documentary"
+            where_.append("i.contentType != 'animation'")
+        }
         if contentType == "tv-series" {
             // The Classic TV category grid: series cards only, and only ones
             // with a real poster — a poster-less card in a curated category
