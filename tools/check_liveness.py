@@ -84,36 +84,6 @@ PLAYBACK_DEAD_CODES = {404, 410}
 # beyond which the catalog value is treated as simply wrong.
 RUNTIME_DRIFT = 0.25
 
-# Derivative formats Apple's AVPlayer cannot decode. The byte probe validates
-# the CONTAINER (a `512Kb MPEG4` file is a perfectly well-formed .mp4 with a
-# correct `ftyp`), so without this a title that cannot play on tvOS/iOS/macOS
-# was still being marked playbackVerified — measured 2026-07-19: 1,205 such
-# items marked playable, 761 on shelves, 82 eligible for the HERO. Those are
-# exactly the "doesn't play" titles, passing the gate meant to stop them.
-#
-# NOT a reason to exclude the item: Android (ExoPlayer) and the web player
-# handle MPEG-4 Part 2 and webm/mkv fine. It only withholds the verified mark,
-# so the title stays fully browsable and playable where supported but never
-# LEADS a showcase surface. tools/repick_derivatives.py upgrades these when
-# archive.org has since derived an H.264 copy.
-_APPLE_UNDECODABLE = ("512kb", "mpeg2", "ogg video", "cinepack", "wmv",
-                      "matroska", "webm", "msvideo", "quicktime")
-
-
-def apple_decodable(vf):
-    """True when the picked derivative is something AVPlayer can play."""
-    fmt = (vf.get("format") or "").lower()
-    name = (vf.get("name") or "").lower()
-    if any(m in fmt for m in _APPLE_UNDECODABLE):
-        return False
-    if name.endswith((".ogv", ".avi", ".mkv", ".webm", ".wmv", ".mpeg", ".mpg")):
-        return False
-    if "512kb" in name:
-        return False
-    # h.264 is the explicit good case; a plain .mp4/.m4v with no bad marker is
-    # accepted (archive.org labels most H.264 derivatives "h.264").
-    return "h.264" in fmt or name.endswith((".mp4", ".m4v"))
-
 # Container signatures, checked against the first KB. Keyed by extension so an
 # unrecognised/exotic extension is never failed for lack of a signature.
 CONTAINER_SIGS = {
@@ -230,7 +200,6 @@ def classify(it, session, probe=True):
     # so it is the authority on how long the thing we actually stream runs —
     # unlike runtimeSeconds, which came from whichever TMDb/OMDb record matched.
     it["_fileRuntime"] = A.runtime_from_file(vf)
-    it["_appleOK"] = apple_decodable(vf)
     if not probe:
         return "alive", refreshed, None
     # The metadata says a derivative exists; confirm the BYTES are a real video.
@@ -429,19 +398,9 @@ def main() -> int:
                 it.pop(reason_key, None)
                 if it.get("excluded"):
                     it["excluded"] = False
-        apple_ok = it.pop("_appleOK", True)
         if playback is True:
-            # Bytes are a real video — but only claim VERIFIED when Apple can
-            # actually decode it, since the gate protects Apple showcase
-            # surfaces. Still stamped as checked so it isn't re-probed every run.
+            it["playbackVerified"] = True
             it["playbackCheckedAt"] = today
-            if apple_ok:
-                it["playbackVerified"] = True
-                it.pop("needsRepick", None)
-            else:
-                it.pop("playbackVerified", None)
-                it["needsRepick"] = True
-                tally["undecodable_derivative"] += 1
         with lock:
             apply_file_runtime(it, tally)
         if info:

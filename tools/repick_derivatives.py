@@ -1,18 +1,28 @@
 #!/usr/bin/env python3
 """
-repick_derivatives.py — fix films whose baked downloadURL is a derivative AVPlayer
-can't play. ~4,240 items point at a `512Kb MPEG4` (MPEG-4 Part 2) file, plus a few
-MPEG2/avi/mov/ogv/wmv — formats iOS AVPlayer won't decode. They were baked at ingest
-when archive.org had only derived the legacy MPEG4; archive.org derives H.264 over
-time, so re-running the picker (archive_lib.pick_video, which ranks H.264 MP4 first)
-upgrades them.
+repick_derivatives.py — fix films whose baked downloadURL is a container AVPlayer
+can't play: `.ogv` (Theora), `.mkv`, `.avi`, `.wmv`, `.flv`, `.divx`, `_mpeg2`.
 
-Per affected item: fetch archive.org metadata, re-pick the best derivative, and if a
-BETTER playable one now exists (H.264/plain MP4, different from the current file),
-rewrite downloadURL (+ videoFile). Items with only a 512kb MPEG4 (no H.264 derived
-yet, e.g. Gumbasia) are marked checked and left — they need an H.264 transcode, not a
-re-pick. Resumable via derivativeRepicked; bounded (per-item metadata fetch). Catalog
-on the release (Decision 018): fetch -> repick -> publish.
+CORRECTION 2026-07-19 (measured, not assumed): this docstring previously claimed
+~4,240 items point at a `512Kb MPEG4` file that "iOS AVPlayer won't decode".
+That is FALSE and it is a costly thing to believe — acting on it de-verified
+1,205 perfectly playable titles before ffprobe settled it. archive.org's
+"512Kb MPEG4" names a DERIVATIVE PRESET (bitrate), not the codec: the files are
+H.264. Sampled 7 live 512kb.mp4 derivatives, 7/7 `codec_name=h264`
+(`the_stranger`, `Popeye_forPresident`, `McLintock`, `superman_1941`,
+`horror_express`, `Return_of_the_Kung_Fu_Dragon`, `Teaserama` — the first
+reporting profile "Constrained Baseline", tag `avc1`).
+
+The `_BAD` regex below has always been right to exclude 512kb; only this
+docstring was wrong. If you doubt it again, re-run:
+    ffprobe -v error -select_streams v:0 -show_entries stream=codec_name \
+      -of csv=p=0 <a 512kb.mp4 URL>
+
+Per affected item: fetch archive.org metadata, re-pick the best derivative, and
+if a BETTER playable one now exists (H.264/plain MP4, different from the current
+file), rewrite downloadURL (+ videoFile). Resumable via derivativeRepicked;
+bounded (per-item metadata fetch). Catalog on the release (Decision 018):
+fetch -> repick -> publish.
 """
 
 from __future__ import annotations

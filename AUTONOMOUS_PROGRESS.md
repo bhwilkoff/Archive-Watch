@@ -79,7 +79,7 @@ Resolved items keep one line; the detail is in the tick log below.
 | D6 | Synopsis (4,763 empty + 3,940 stub) | ⛔ **no source exists.** 98.5% lack an external ID; TVmaze lacks vintage-TV summaries (Murphy Brown 5%); archive.org descriptions are 16% coverage and often not synopses (ticks 14, 19) |
 | D7 | contentType audit | ✅ 520 feature→short on file-verified runtime (tick 16) · ⚠️ **Documentary category needs an owner call** — 1,113 items carry the genre, 9 carry the type; fixing it changes what a category *means* |
 | D8 | ~~290 items with no downloadURL~~ | ✅ n/a — all are tv-series *cards*, correctly video-less (tick 8) |
-| D9 | `repick_derivatives.py` unwired | 🔮 unmeasured; `backfill_tv_episode_meta.py` was the same shape and proved not worth wiring |
+| D9 | `repick_derivatives.py` unwired | ✅ **closed — nothing to do.** Its docstring claimed ~4,240 undecodable `512Kb MPEG4` items; ffprobe says 7/7 are **h264** (the label is a bitrate preset). Only **6** items are genuinely undecodable containers. Docstring corrected (tick 27) |
 | D10 | Hate propaganda / CSAM-titled uploads | ✅ 4 excluded, word-boundary matched (tick 19) |
 | D11 | CI starvation — half of probe runs cancelled while pending | ✅ ticks 20–21; 5 pipelines unblocked |
 
@@ -779,3 +779,26 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
   low-value backlog twice.
 - **Next:** tick 27 = wire `repick_derivatives.py` (still in no workflow) so
   those 3,156 upgrade to H.264 where archive.org has since derived one.
+
+### Tick 27 — 2026-07-19 — **REVERT tick 26: I was wrong about the codec**
+- **Tick 26 was incorrect.** It withheld verification from 1,205 titles believing
+  `512Kb MPEG4` derivatives are MPEG-4 Part 2 and undecodable by AVPlayer. That
+  came from `repick_derivatives.py`'s **docstring**. It is false.
+- **Measured:** `ffprobe` on 7 live 512kb derivatives → **7/7 `codec_name=h264`**
+  (`the_stranger` also reporting profile "Constrained Baseline", tag `avc1`).
+  "512Kb MPEG4" names a **bitrate preset**, not a codec. They play fine.
+- **The same file's `_BAD` regex was right all along** — `# NOT 512kb (plays)`.
+  I trusted the prose above the code over the code itself.
+- **Reverted both changes**; verified `remediate` clears nothing now
+  (`playbackVerified` 14,673 → 14,673). Reported coverage returns to the correct
+  **65%**, not the 60% I published last tick.
+- **Corrected the misleading docstring**, including the ffprobe command to
+  re-check, so the next reader isn't led into the same error.
+- **D9 closes:** only **6** items sit on genuinely undecodable containers, so
+  wiring `repick_derivatives` would be pure overhead — the right conclusion, for
+  the opposite reason I believed an hour ago.
+- **Also my bug:** a stray 12,616 count while scoping — `_` is a SQL `LIKE`
+  wildcard, so `%_mpeg2%` matched broadly. Real answer: 6.
+- **Lesson:** tick 26's own log congratulated me for finally reading D9's
+  docstring. The docstring was the error. Code comments and prose are claims, not
+  evidence; `ffprobe` took 30 seconds and would have prevented the whole detour.

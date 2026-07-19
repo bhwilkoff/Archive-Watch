@@ -1047,30 +1047,6 @@ _HATE_MARKERS = re.compile(
     re.I)
 
 
-# --- Apple-undecodable derivatives ------------------------------------------
-# The byte probe validates the CONTAINER, so a `512Kb MPEG4` file (MPEG-4 Part 2
-# in a well-formed .mp4 with a correct `ftyp`) passed as playbackVerified even
-# though AVPlayer cannot decode it. check_liveness now withholds the mark at
-# probe time, but items verified BEFORE that fix keep it until their 90-day
-# re-probe — measured 2026-07-19: 1,205 such items marked playable, 761 on
-# shelves, 82 eligible for the HERO. This clears them on the next build instead
-# of leaving the gate lying for three months.
-#
-# It only withholds the VERIFIED mark; the item stays browsable and plays fine
-# on Android/web, which decode these formats.
-_UNDECODABLE_URL = re.compile(r"(512kb\.mp4|\.ogv|\.avi|\.mkv|\.webm|\.wmv|\.mpe?g)$", re.I)
-
-
-def clear_undecodable_verification(items, stats):
-    for it in items:
-        url = (it.get("downloadURL") or "").split("?")[0]
-        if url and _UNDECODABLE_URL.search(url):
-            if it.get("playbackVerified") is True:
-                it.pop("playbackVerified", None)
-                stats["undecodable_unverified"] += 1
-            it["needsRepick"] = True
-
-
 def exclude_hate_propaganda(items, stats):
     """Reversibly exclude uploads whose own title advertises Holocaust denial or
     child sexual abuse material (Decision 027's `excluded` mechanism)."""
@@ -1356,7 +1332,6 @@ def remediate(items):
 
     _drop_stale_year_markers()
     exclude_hate_propaganda(items, stats)
-    clear_undecodable_verification(items, stats)
     return stats
 
 
