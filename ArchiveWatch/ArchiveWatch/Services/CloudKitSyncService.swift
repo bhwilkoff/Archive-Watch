@@ -49,6 +49,8 @@ final class CloudKitSyncService {
     private(set) var lastError: String?
 
     private var isSyncing = false
+    /// Attempts per sync call, including the first.
+    private static let maxSyncAttempts = 3
 
     private static let recordType = "AWSync"
     private enum Blob: String, CaseIterable {
@@ -89,6 +91,49 @@ final class CloudKitSyncService {
         guard let database, !isSyncing else { return }
         isSyncing = true
         defer { isSyncing = false }
+        // Retry transient failures here rather than dropping them. Previously a
+        // single network blip set lastError and returned, leaving the user
+        // unsynced until the next 60s tick or foreground event — and if the
+        // periodic loop wasn't running (the frozen-scenePhase bug), the
+        // foreground attempt was the ONLY one. A dropped sync is exactly the
+        // "account doesn't sync" symptom.
+        var attempt = 0
+        while true {
+            do {
+                try await performSync(context, database: database)
+                lastSyncAt = Date()
+                lastError = nil
+                return
+            } catch {
+                attempt += 1
+                guard attempt < Self.maxSyncAttempts,
+                      let delay = Self.retryDelay(for: error, attempt: attempt) else {
+                    lastError = Self.describe(error)
+                    return
+                }
+                // Surface the in-progress state; a successful retry clears it.
+                lastError = Self.describe(error)
+                try? await Task.sleep(nanoseconds: UInt64(delay * 1_000_000_000))
+            }
+        }
+    }
+
+    /// How long to wait before retrying, or nil when the error is permanent
+    /// (not signed in, quota, permission) and retrying can't help.
+    private static func retryDelay(for error: Error, attempt: Int) -> TimeInterval? {
+        let backoff = min(pow(2.0, Double(attempt)), 8)      // 2s, 4s, 8s
+        guard let ck = error as? CKError else { return backoff }
+        if let after = ck.retryAfterSeconds { return max(after, backoff) }
+        switch ck.code {
+        case .networkUnavailable, .networkFailure, .serviceUnavailable,
+             .requestRateLimited, .zoneBusy, .internalError:
+            return backoff
+        default:
+            return nil                                       // permanent
+        }
+    }
+
+    private func performSync(_ context: ModelContext, database: CKDatabase) async throws {
         do {
             let status = try await CKContainer(identifier: CloudSync.containerID).accountStatus()
             guard status == .available else {
@@ -115,10 +160,8 @@ final class CloudKitSyncService {
             try await save(database, records[.playlists]!, encode(lists))
             try await save(database, records[.progress]!, encode(progress))
             try await save(database, records[.channels]!, encode(channels))
-            lastSyncAt = Date()
-            lastError = nil
         } catch {
-            lastError = Self.describe(error)
+            throw error          // the retry loop in sync() decides what's transient
         }
     }
 

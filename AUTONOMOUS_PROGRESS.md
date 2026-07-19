@@ -127,10 +127,10 @@ correct and complete on every platform. There is simply never a second swap.
 | A1 | No catalog refresh on foreground — the reported "screens don't refresh". Needs `refreshIfStale()` + a `lastCheckedAt` TTL (~6h) called from the existing `scenePhase` handlers. | Very high | ✅ tvOS · ✅ iOS · ✅ macOS (tick 1) |
 | A2 | Same on Android — `AppContainer.kt:58-63` `start()` runs `catalog.refresh()` once from `onCreate:23-27`. No `ProcessLifecycleOwner`/`ON_RESUME` observer. | Very high | ✅ Android (tick 3) |
 | A3 | **`scenePhase` frozen inside the 60s sync loop.** `ContentView.swift:42-49` / `RootView_iOS.swift:76-83` read `scenePhase` *inside* a `.task {}` with no `id:` — the View struct is captured at appear time and never updates. If the view first appears while `.inactive` (common on cold launch), the periodic sync **never fires for the whole session**. One-line fix; silently disables sync today. | High | ✅ tvOS · ✅ iOS (tick 1) |
-| A4 | No sync retry/backoff — `CloudKitSyncService.swift:120-122` swallows into `lastError` and waits for the next tick. Combined with A3, a user gets one foreground shot and no retry. **Likely the "account doesn't sync".** | Medium | all Apple ⏳ |
+| A4 | No sync retry/backoff — `CloudKitSyncService.swift:120-122` swallows into `lastError` and waits for the next tick. Combined with A3, a user gets one foreground shot and no retry. **Likely the "account doesn't sync".** | Medium | ✅ all Apple (tick 7) |
 | A5 | Web viewer never re-fetches — `watch.js:123-124` `Data.load()` runs once from `boot()`; no `visibilitychange`/`pageshow`/`focus`/`online` listener. | High | ✅ web (tick 3) |
 | A6 | `featured.json` is bundle-only (`CatalogLoader.swift:12-20`) — curated shelves and `deprioritizedSeries` can't update without an App Store release. | Medium-high | all Apple ⏳ |
-| A7 | No `AVAudioSession` interruption observer (`PlayerView_iOS.swift:93-94` activates once). Audio stays dead after a post-background interruption. | Medium | iOS ⏳ |
+| A7 | No `AVAudioSession` interruption observer (`PlayerView_iOS.swift:93-94` activates once). Audio stays dead after a post-background interruption. | Medium | ✅ iOS (tick 7) |
 | A8 | Stale SW shell — `sw.js:53-56` cache-first with no revalidation, no `controllerchange` handler. A tab open for days never picks up a new build. | Low-medium | web ⏳ |
 
 ---
@@ -337,3 +337,32 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
 - **Next:** tick 7 = APP (A4 sync retry/backoff, A7 audio-session interruption).
   D3 — the actual Home gate — waits on coverage; at ~14% of shelf items it would
   still empty Home. The re-prioritised daily run is what moves that number.
+
+### Tick 7 — 2026-07-18 — APP: A4 sync retry/backoff + A7 audio interruption
+- **A4 — a dropped sync stayed dropped.** `CloudKitSyncService.sync()` caught any
+  error into `lastError` and returned; the next attempt was the 60s tick or a
+  foreground event. Combined with the (now-fixed) frozen-`scenePhase` bug, a user
+  could get exactly ONE attempt per session — the "account doesn't sync"
+  symptom. The body moved to a throwing `performSync()`, wrapped in a retry loop
+  (3 attempts) that distinguishes transient from permanent:
+  `retryDelay(for:attempt:)` honours `CKError.retryAfterSeconds` when CloudKit
+  supplies it, else 2s/4s/8s backoff for `.networkUnavailable`, `.networkFailure`,
+  `.serviceUnavailable`, `.requestRateLimited`, `.zoneBusy`, `.internalError`, and
+  returns nil (don't retry) for permanent ones — not signed in, quota, permission.
+  A successful retry clears `lastError`, so Settings stops showing a stale failure.
+- **A7 — audio stayed dead after an interruption.** `PlayerView_iOS` activated the
+  `.playback` session once at player creation and had **no interruption observer
+  anywhere** in the target. A call/alarm/Siri deactivates the session and pauses
+  playback; nothing reactivated it, so after an interruption — the common case
+  when the app has been backgrounded a while — audio never came back until the
+  player was rebuilt. Added the observer next to the existing background/foreground
+  pair: on `.ended`, reactivate the session and resume **only** when the system
+  sets `.shouldResume`. Torn down with the others.
+- **Two compile errors caught by building rather than assuming:** `Notification`
+  isn't `Sendable`, so capturing it into `MainActor.assumeIsolated` is a Swift 6
+  data-race error — the primitives are now extracted before the isolation
+  boundary; and a parameter/usage naming slip (`optionsRaw` vs `optsRaw`).
+- **Verification:** BUILD SUCCEEDED on tvOS, iOS, and macOS at 1.3.258 / 780.
+- **Next:** tick 8 = DATA. Re-measure playability coverage after the
+  re-prioritised daily run, and start D6 (synopsis coverage) or D8 (the 290
+  items with no downloadURL) depending on what the numbers show.

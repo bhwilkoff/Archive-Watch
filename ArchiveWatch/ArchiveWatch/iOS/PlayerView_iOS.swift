@@ -155,6 +155,7 @@ struct PlayerView: UIViewControllerRepresentable {
         private var endObserver: NSObjectProtocol?
         private var backgroundObserver: NSObjectProtocol?
         private var foregroundObserver: NSObjectProtocol?
+        private var interruptionObserver: NSObjectProtocol?
         private var isPiPActive = false
         private weak var player: AVPlayer?
         // HLS-subtitle → resilient-MP4 fallback (non-faststart MP4s fail to start
@@ -212,6 +213,41 @@ struct PlayerView: UIViewControllerRepresentable {
                 forName: UIApplication.willEnterForegroundNotification, object: nil,
                 queue: .main) { [weak self] _ in
                 MainActor.assumeIsolated { self?.enterForeground() }
+            }
+
+            // Audio-session interruptions (a call, an alarm, Siri, another app
+            // taking the session). The system DEACTIVATES our session and pauses
+            // playback; nothing reactivated it, so after an interruption — the
+            // common case when an app has been backgrounded a long time — audio
+            // stayed dead until the player was torn down and rebuilt.
+            // Reactivating on .ended is the documented recovery, and we only
+            // auto-resume when the system says we should.
+            interruptionObserver = NotificationCenter.default.addObserver(
+                forName: AVAudioSession.interruptionNotification,
+                object: AVAudioSession.sharedInstance(),
+                queue: .main) { [weak self] note in
+                // Pull the primitives out here: Notification isn't Sendable, so
+                // capturing it into the isolated closure is a Swift 6 error.
+                let typeRaw = note.userInfo?[AVAudioSessionInterruptionTypeKey] as? UInt
+                let optsRaw = note.userInfo?[AVAudioSessionInterruptionOptionKey] as? UInt
+                MainActor.assumeIsolated {
+                    self?.handleInterruption(typeRaw: typeRaw, optionsRaw: optsRaw)
+                }
+            }
+        }
+
+        private func handleInterruption(typeRaw: UInt?, optionsRaw: UInt?) {
+            guard let typeRaw, let type = AVAudioSession.InterruptionType(rawValue: typeRaw)
+            else { return }
+            switch type {
+            case .began:
+                break                                   // the system already paused us
+            case .ended:
+                try? AVAudioSession.sharedInstance().setActive(true)
+                let opts = optionsRaw.map(AVAudioSession.InterruptionOptions.init(rawValue:)) ?? []
+                if opts.contains(.shouldResume) { player?.play() }
+            @unknown default:
+                break
             }
         }
 
@@ -329,6 +365,7 @@ struct PlayerView: UIViewControllerRepresentable {
             if let e = endObserver { NotificationCenter.default.removeObserver(e) }
             if let b = backgroundObserver { NotificationCenter.default.removeObserver(b) }
             if let f = foregroundObserver { NotificationCenter.default.removeObserver(f) }
+            if let i = interruptionObserver { NotificationCenter.default.removeObserver(i) }
         }
     }
 }
