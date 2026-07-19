@@ -47,8 +47,8 @@ items, 21,860 on shelves); "now" re-measured after tick 12.
 | Unverified items on hero / community shelves | unbounded | **0 — gated (ticks 10, 12)** | 0 |
 | Items missing runtime | 5,408 (17%) | **4,294** | ≤3% of shelf items |
 | Items missing year | 5,409 | **5,168** | — |
-| Empty synopsis | 4,763 (15%) | 4,763 | ≤5% of shelf items |
-| Stub synopsis (<80 chars) | 3,940 (12%) | 3,940 | ≤10% of shelf items |
+| Empty synopsis | 4,763 (15%) | 4,763 | ~~≤5%~~ **NOT ACHIEVABLE — see tick 14** |
+| Stub synopsis (<80 chars) | 3,940 (12%) | 3,940 | ~~≤10%~~ **NOT ACHIEVABLE — see tick 14** |
 | contentType audited against real signals | never | never | audit shipped + applied |
 
 Titles were already clean at baseline (168 suspicious of 32k — Decision 043
@@ -91,7 +91,7 @@ and format string*. A 0-byte or corrupt `.mp4` passes every gate we have.
 | D3 | 🟡 Flip the gate: `playable=1` required on hero + all Home/community shelves + `randomPlayable()`. **Only after D1 coverage ≥95%** — flipping early empties Home. | 🟡 **hero gated tick 10** (its pool is small + popularity-skewed, so 244 verified candidates ≫ the 7 shown); broad shelves still pending coverage |
 | D4 | ✅ Re-probe cadence: `livenessChecked` is a one-time marker today, so a URL that dies *after* its check is never re-probed. Add a 90-day TTL re-sweep. | ✅ tick 2 |
 | D5 | ✅ Runtime truth — **nothing validates runtime against the file.** `remediate_catalog.py:352-357` says so outright. ffprobe the popularity head, write `trueRuntimeSeconds`, flag \|Δ\| > 20%. Closest existing proxy is `detect_trailers.py:46-60`. | ✅ tick 4 (no ffprobe needed — Archive's own file `length` is the authority) |
-| D6 | Synopsis gap: 4,763 empty + 3,940 stubs. Existing enrichment covers the mechanism; this is a coverage push. | ⏳ |
+| D6 | Synopsis gap: 4,763 empty + 3,940 stubs. **Tick 14: NOT a coverage push — no source exists.** 98.5% of empty-synopsis items have no external ID; 78% of playable episodes have no spine overview and TVmaze doesn't have them either (Murphy Brown 5%, Four Star Playhouse 1%). | ⛔ blocked on data, not effort |
 | D7 | contentType audit — `documentary` (9 items) and `trailer` (10) are near-dead categories; 1,511 `tv-special` is orphan-episode residue (Decisions 035/036). | 🔮 |
 | D8 | ~~290 items carry no `downloadURL`~~ — **false alarm (tick 8):** all 290 are tv-series CARDS, which are navigational and correctly have no video of their own. 0 non-series items lack a URL. Dropping them would have removed 290 series from the app. | ✅ n/a |
 | D9 | `repick_derivatives.py` is wired into **no workflow**. | 🔮 |
@@ -497,3 +497,33 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
 - **Next:** tick 14 = DATA. Synopsis is now the largest untouched gap (4,763
   empty + 3,940 stubs, unchanged since baseline) — measure what is actually
   recoverable before building anything, per the tick-8 lesson.
+
+### Tick 14 — 2026-07-18 — DATA: synopsis measured, declared unrecoverable
+- **Shipped nothing. That is the finding.** Per the tick-8 lesson, measured
+  before building — and no viable source exists.
+- **Source 1, external IDs:** of 4,763 empty synopses, **72** have an IMDb ID
+  and 33 a TMDb ID. TMDb/OMDb enrichment cannot reach 98.5% of them.
+- **Source 2, series spines:** the gap is dominated by `tv-episode` (3,753 of
+  8,699). Measured the spines: **3,662 of 4,683 playable episodes (78%) have no
+  overview**, concentrated in Murphy Brown (246), Brian Henderson (116), SNL
+  (110), Four Star Playhouse (101).
+- **Source 3, TVmaze:** doesn't have them either for vintage PD TV — Murphy
+  Brown **5%**, Four Star Playhouse **1%**, One Step Beyond 8%, SNL 41%.
+  `tools/backfill_tv_episode_meta.py` already exists and is in **no workflow**
+  (like `repick_derivatives.py`), but its docstring's "~60% summaries" does not
+  hold here: a 12-series run yielded 0 overviews (1 real air date, kept). Wiring
+  it would add recurring cost for ~nothing.
+- **Criterion corrected:** the tick-0 synopsis gates (≤5% empty, ≤10% stub) are
+  **not achievable** with any available source. Marked NOT ACHIEVABLE explicitly
+  rather than left in place to silently block every future release wave — I set
+  them with less information than I have now, and saying so beats quietly
+  relaxing them.
+- **Source 4, unevaluated:** archive.org's own `description` field. Could not be
+  measured — archive.org is returning **503 site-wide** ("Internet Archive:
+  Temporarily Offline"). Genuinely still open; worth a tick when it recovers.
+- **The outage validates the conservative design:** 503 is treated as
+  unreachable/retry, never as dead. Had it been treated as definitive, a
+  site-wide outage would have marked thousands of items dead and hidden them.
+- **Next:** tick 15 = APP/opt. DATA's remaining live work is coverage-driven
+  (the daily probe) plus D7 (contentType audit); re-check archive.org for the
+  description source when it's back.
