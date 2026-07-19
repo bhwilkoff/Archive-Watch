@@ -715,3 +715,24 @@ the gate once ≥95%. The release wave is what makes all of it visible at once.
   their work was being silently discarded — so several "the data isn't
   improving" symptoms were scheduling, not tooling.
 - **Next:** tick 22 = read the probe run (started 11:25Z), re-measure coverage.
+
+### Tick 22 — 2026-07-19 — DATA/APP: Android home-surface gate (parity)
+- **Gap closed:** the "don't highlight titles that don't play" guarantee shipped
+  on tvOS/iOS/macOS (ticks 10/12) but **not Android**, so a broken title could
+  still lead a shelf there. The four community shelves now require
+  `playable = 1`, mirroring the Apple change clause-for-clause.
+- **Same guard as Apple:** `playable` postdates shipped builds, so a new APK on a
+  still-cached older DB would throw on every one of these queries.
+  `CatalogDatabase` probes `PRAGMA table_info(items)` once at construction —
+  reusing the existing `queryRaw` idiom (as `probeItemCount` does, after my first
+  attempt used a non-existent `driver` property and a delegate that wouldn't
+  infer) — and drops the clause when absent.
+- **Verified the probe's assumptions against the live DB** rather than assuming:
+  `PRAGMA table_info` column 1 is the column NAME, and `playable` is present
+  (cid 29). `assembleDebug` green.
+- Browse/Search stay ungated on Android too — full catalog reachable; only
+  showcase surfaces gated.
+- **Web still ungated:** its flat `catalog-index.json` has no playability column,
+  so it needs an additive schema bump first.
+- **Next:** tick 23 = web index schema bump + hero gate, then read the probe run
+  (started 11:25Z) and re-measure.

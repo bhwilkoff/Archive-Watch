@@ -71,6 +71,22 @@ class CatalogDatabase private constructor(
         " AND (i.rightsStatus IN ('public_domain','creative_commons')" +
             " OR (i.year >= 1888 AND i.year <= 1977))"
     private val notCommercial = " AND i.contentType != 'commercial'"
+
+    /** Restricts the most PROMINENT surfaces to titles whose bytes were verified
+        playable (tools/check_liveness.py), so the app never showcases something
+        that turns out not to play. Browse/Search stay ungated — the full catalog
+        remains reachable while probe coverage climbs (iOS/tvOS parity).
+
+        Empty when the column is absent: `playable` postdates shipped builds, and
+        a new APK reading a still-cached older catalog.sqlite would otherwise
+        throw on every one of these queries. */
+    private val verifiedAnd: String get() = if (hasPlayableColumn) " AND i.playable = 1" else ""
+
+    private val hasPlayableColumn: Boolean = try {
+        queryRaw("PRAGMA table_info(items)") { it.getText(1) }.contains("playable")
+    } catch (_: Throwable) {
+        false
+    }
     // Standalone TV (tv-special) never appears on film surfaces — Home shelves,
     // discovery rows, Random Film (owner directive 2026-06-18: "TV shows should
     // never appear in Movies"). Surfaced only via the TV scope's TV Specials grid.
@@ -322,7 +338,7 @@ class CatalogDatabase private constructor(
         curios from outranking the classics (iOS/tvOS parity). */
     suspend fun topRated(limit: Int = 24, minVotes: Int = 1000): List<CatalogItem> = items(
         "$itemSelect WHERE i.imdbRating IS NOT NULL AND COALESCE(i.imdbVotes, 0) >= ?" +
-            " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd" +
+            " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd$verifiedAnd" +
             " ORDER BY i.imdbRating DESC, i.imdbVotes DESC LIMIT ?",
         listOf(minVotes, limit),
     )
@@ -332,21 +348,21 @@ class CatalogDatabase private constructor(
         adult filter can't catch, but those have no votes (iOS/tvOS parity). */
     suspend fun watchingNow(limit: Int = 24, minVotes: Int = 1000): List<CatalogItem> = items(
         "$itemSelect WHERE COALESCE(i.views30d, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= ?" +
-            " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd" +
+            " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd$verifiedAnd" +
             " ORDER BY i.views30d DESC LIMIT ?",
         listOf(minVotes, limit),
     )
 
     suspend fun communityFavorites(limit: Int = 24, minVotes: Int = 1000): List<CatalogItem> = items(
         "$itemSelect WHERE COALESCE(i.numFavorites, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= ?" +
-            " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd" +
+            " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd$verifiedAnd" +
             " ORDER BY i.numFavorites DESC LIMIT ?",
         listOf(minVotes, limit),
     )
 
     suspend fun mostDiscussed(limit: Int = 24, minVotes: Int = 1000): List<CatalogItem> = items(
         "$itemSelect WHERE COALESCE(i.numReviews, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= ?" +
-            " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd" +
+            " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd$verifiedAnd" +
             " ORDER BY i.numReviews DESC LIMIT ?",
         listOf(minVotes, limit),
     )
