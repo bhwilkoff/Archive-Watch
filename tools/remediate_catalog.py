@@ -519,6 +519,41 @@ def _strip_quality_tail(t):
     return _QUAL_DANGLE.sub("", nt).rstrip()
 
 
+# Owner directive (2026-07-20): a title must be ONLY the film title — nothing about
+# video quality, version, or "full movie" packaging. This REVERSES the earlier
+# choice to keep colorized/restored/remastered as "version markers" (_QUAL_TAIL
+# above): those ARE quality metadata and are now stripped. Matches a trailing RUN
+# of version/packaging tokens, bare or separator-joined ("Stagecoach colorized",
+# "… widescreen & quality upgrade.", "… - Film Noir Full Movie", "… - mp4 version").
+# Trailing-only ($) + known tokens + _keep_if_lettered guard = a real title whose
+# last word merely resembles one of these is never emptied; dry-run-checked for FPs.
+_VERSION_TOK = (
+    r"\b(?:colou?ri[sz]ed|colou?ri[sz]ation|restored|restoration|remastered|remaster|"
+    r"uncut|uncensored|unedited|upscaled|ai[\s-]?upscaled|upscale|enhanced|"
+    r"(?:video|image|picture|sound|audio|hd|full[\s-]?hd)[\s-]?quality(?:[\s-]?upgrade)?|"
+    r"high[\s-]?quality|hq[\s-]?version|quality[\s-]?upgrade|new[\s-]?transfer|"
+    r"new[\s-]?scan|new[\s-]?restoration|full[\s-]?movie|full[\s-]?film|"
+    r"full[\s-]?length|feature[\s-]?length|complete[\s-]?film|complete[\s-]?version|"
+    r"mp4[\s-]?version|digitally[\s-]?remastered)\b")
+_VERSION_TAIL = re.compile(
+    r"(?:\s*[-–—|,&/]+\s*" + _VERSION_TOK + r"|\s+" + _VERSION_TOK + r")+\s*\.?\s*$",
+    re.I)
+_VERSION_DANGLE = re.compile(r"\s*[-–—|,&/(\[]\s*$")
+
+
+def _strip_version_tail(t):
+    # Iterate: stripping one trailing version token can expose another that was not
+    # trailing before ("… widescreen & quality upgrade" -> "… widescreen" -> "…"),
+    # interleaving the existing format/quality tail (_QUAL_TAIL: widescreen/hd/dvd…).
+    for _ in range(6):
+        nt = _VERSION_DANGLE.sub("", _VERSION_TAIL.sub("", t)).rstrip()
+        nt = _strip_quality_tail(nt)
+        if nt == t:
+            break
+        t = nt
+    return t
+
+
 # Uploader cruft: site tags / handles / file extensions an uploader stamped onto
 # the title ("Romance (1983) Musical Love Story { Brego}", "...HEVCBay.com",
 # "FAASLE 1985@malikjee", "Tapasya 1976 ... .avi"). Conservative + per-pattern:
@@ -932,6 +967,24 @@ def _canonical_clean(it):
     return None
 
 
+def _audited_clean(it):
+    """An LLM-audited title (`auditedTitle`) to ADOPT for items with NO external id, where
+    canonical + regex can't reach the real title (actor names glued mid-title, description-
+    titles). Trusted but GUARDED against hallucination: every word of the audited title must
+    appear in the uploader title — the audit may only REMOVE text (strip actors/quality/
+    description), never invent or rename to an AKA. A rename would fail this and fall through."""
+    a = (it.get("auditedTitle") or "").strip()
+    if not a:
+        return None
+    an = _norm_words(a)
+    if not an:
+        return None
+    un = set(_norm_words(it.get("title") or ""))
+    if set(an).issubset(un):
+        return a
+    return None
+
+
 def sanitize_title(it):
     raw = (it.get("title") or "").strip()
     if not raw:
@@ -939,7 +992,7 @@ def sanitize_title(it):
     # UNIFIED TITLE RESOLUTION (Decision 046): a matched film's title should BE its authoritative
     # canonical title, not a regex-cleaned uploader string — adopt it when it's a clean version of
     # the uploader title (guarded), else fall through to the cleaning chain below for unmatched films.
-    canon = _canonical_clean(it)
+    canon = _canonical_clean(it) or _audited_clean(it)
     if canon:
         if canon != raw:
             it["title"] = canon
@@ -959,6 +1012,7 @@ def sanitize_title(it):
     t = _strip_source_specs(t)
     t = _strip_runtime_size(t)        # file size / fps / runtime stamp / rip words
     t = _strip_quality_tail(t)
+    t = _keep_if_lettered(_strip_version_tail(t), t)   # colorized/restored/full movie/mp4 version …
     # Star ratings + closed-caption markers an uploader stuck in the title ("… ★★★ CC: …", "(CC)").
     t = _keep_if_lettered(_STAR_RATING.sub(" ", t), t)
     t = _keep_if_lettered(_CC_MARK.sub(" ", t), t)
@@ -979,6 +1033,9 @@ def sanitize_title(it):
     # Uploader credit clause ("… directed by X" / "… starring Y") — generic, not tied to the item's
     # own director field, so it catches the "(1913) director Victor Sjöström" collection style.
     t = _keep_if_lettered(_CREDIT_TAIL.sub("", t).rstrip(" -–—,|"), t)
+    # Genre/credit removal can expose a version token that was not trailing before
+    # ("… - Film Noir Full Movie" -> "… - Film Noir" -> "…"): strip once more.
+    t = _keep_if_lettered(_strip_version_tail(t), t)
     t = _strip_uscore_suffix(t)       # "Title_The" / "Title_Weirdness bad Movie"
     t = _underscore_filename(t)
     t = _invert_sort_article(t)
