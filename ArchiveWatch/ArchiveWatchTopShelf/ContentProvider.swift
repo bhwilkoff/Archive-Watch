@@ -1,118 +1,155 @@
 import TVServices
 import Foundation
 
-// Top Shelf content provider (Decision 015 / M4; sectioned rewrite 2026-07-20).
+// Top Shelf content provider (Decision 015 / M4; network-feed rewrite 2026-07-20).
 //
-// Renders the snapshot the main app writes into the shared App Group container
-// as SECTIONED content — named rows of poster tiles, exactly like Apple TV's own
-// "Continue Watching / Recommended" shelves and how Netflix / Plex / Infuse
-// present their Top Shelf.
+// Renders SECTIONED content — named rows of poster tiles, like Apple TV's own
+// "Continue Watching / Recommended" shelves and how Netflix / Plex / Infuse do
+// it. This is the "individual movies, not just the app icon" experience.
 //
-// WHY sectioned, not a carousel (the previous implementation): the full-screen
-// carousel hero is shown ONLY when the app icon is in the top row AND focused,
-// and it presents a SINGLE rotating title. Sectioned content is the tasteful
-// default for a repertory app — it shows MANY individual movies as rows of
-// posters. That is the "individual movies, not just the app icon" experience.
-// (Both styles require the top row + App Group data; sectioned is the one that
-// actually surfaces a browsable set of titles.)
+// DATA SOURCE — why the network, not only the App Group:
+// The App Groups capability was never enabled on the bundle ids in the developer
+// portal, so on DEVICE the shared container is nil (verified: the tvOS
+// provisioning profiles carry no `application-groups` entitlement). The app
+// therefore couldn't hand the extension a snapshot, and the Top Shelf fell back
+// to the static app image. (The simulator does not enforce App Group
+// provisioning, which masked this.)
+//
+// So the extension fetches a small PUBLIC feed over the network
+// (archivewatch.org/topshelf.json) — no App Group, no provisioning dependency,
+// and it even populates before the user first launches the app. When the App
+// Group IS provisioned, the app's local snapshot is preferred because it also
+// carries personalized Continue Watching; otherwise the network feed is the
+// always-present editorial backbone.
 //
 // Robustness (the extension is out-of-process + memory-constrained): never
 // decode/resize images here — hand the system a URL and let it load + cache.
-// Return nil only when there is genuinely nothing to show (the system then
-// falls back to the static Top Shelf brandasset).
-//
-// Self-contained on purpose: the extension can't share the app's in-memory
-// state, and keeping the tiny reader here avoids cross-target file coupling.
+// The one network call is a few-KB JSON with a short timeout.
 
-private enum Snapshot {
-    static let appGroup = "group.app.archivewatch.tvos"
-    static let fileName = "topshelf.json"
+private let kAppGroup = "group.app.archivewatch.tvos"
+private let kSnapshotFile = "topshelf.json"
+private let kFeedURL = URL(string: "https://archivewatch.org/topshelf.json")!
 
-    struct Payload: Decodable {
-        struct Item: Decodable {
-            let archiveID: String
-            let title: String
-            let posterURL: String?
-            let backdropURL: String?
-            let year: Int?
-            let synopsis: String?
-            let runtimeSeconds: Int?
-            let genre: String?
-            let director: String?
-            let cast: [String]
-            let hasCaptions: Bool
-            let context: String       // section name / "why shown"
-            let progress: Double?
-            let resume: Bool
-        }
-        let items: [Item]
+// A row item, normalized from either source.
+private struct Card {
+    let id: String
+    let title: String
+    let year: Int?
+    let posterURL: URL
+    let resume: Bool
+    let progress: Double?
+}
+private struct Section { let title: String; let cards: [Card] }
+
+// MARK: - App Group snapshot (personalized; present only when provisioned)
+
+private struct SnapshotPayload: Decodable {
+    struct Item: Decodable {
+        let archiveID: String
+        let title: String
+        let posterURL: String?
+        let year: Int?
+        let context: String
+        let progress: Double?
+        let resume: Bool
     }
+    let items: [Item]
+}
 
-    static func read() -> Payload? {
-        guard let dir = FileManager.default
-            .containerURL(forSecurityApplicationGroupIdentifier: appGroup) else { return nil }
-        let url = dir.appendingPathComponent(fileName)
-        guard let data = try? Data(contentsOf: url) else { return nil }
-        return try? JSONDecoder().decode(Payload.self, from: data)
+private func readSnapshotSections() -> [Section] {
+    guard let dir = FileManager.default
+        .containerURL(forSecurityApplicationGroupIdentifier: kAppGroup),
+          let data = try? Data(contentsOf: dir.appendingPathComponent(kSnapshotFile)),
+          let payload = try? JSONDecoder().decode(SnapshotPayload.self, from: data)
+    else { return [] }
+
+    var order: [String] = []
+    var byContext: [String: [Card]] = [:]
+    for it in payload.items {
+        guard let p = it.posterURL, let url = URL(string: p) else { continue }
+        if byContext[it.context] == nil { order.append(it.context) }
+        byContext[it.context, default: []].append(
+            Card(id: it.archiveID, title: it.title, year: it.year,
+                 posterURL: url, resume: it.resume, progress: it.progress))
+    }
+    return order.compactMap { ctx in
+        (byContext[ctx]?.isEmpty == false) ? Section(title: ctx, cards: byContext[ctx]!) : nil
     }
 }
+
+// MARK: - Public network feed (always present)
+
+private struct FeedPayload: Decodable {
+    struct Item: Decodable { let id: String; let title: String; let year: Int?; let poster: String }
+    struct Section: Decodable { let title: String; let items: [Item] }
+    let sections: [Section]
+}
+
+private func fetchFeedSections(_ completion: @escaping ([Section]) -> Void) {
+    var req = URLRequest(url: kFeedURL)
+    req.timeoutInterval = 12
+    req.cachePolicy = .reloadRevalidatingCacheData
+    URLSession.shared.dataTask(with: req) { data, _, _ in
+        guard let data, let payload = try? JSONDecoder().decode(FeedPayload.self, from: data) else {
+            completion([]); return
+        }
+        let sections: [Section] = payload.sections.compactMap { s in
+            let cards = s.items.compactMap { i -> Card? in
+                guard let url = URL(string: i.poster) else { return nil }
+                return Card(id: i.id, title: i.title, year: i.year,
+                            posterURL: url, resume: false, progress: nil)
+            }
+            return cards.isEmpty ? nil : Section(title: s.title, cards: cards)
+        }
+        completion(sections)
+    }.resume()
+}
+
+// MARK: - Provider
 
 class ContentProvider: TVTopShelfContentProvider {
 
     // Completion-handler overload (NOT the async one): the async form trips a
     // non-Sendable `TVTopShelfContent` error under Swift 6 strict concurrency.
     override func loadTopShelfContent(completionHandler: @escaping (TVTopShelfContent?) -> Void) {
-        guard let payload = Snapshot.read(), !payload.items.isEmpty else {
-            completionHandler(nil)      // nothing to show -> system uses the brandasset
+        // Prefer the app's local snapshot (has personalized Continue Watching)
+        // when the App Group is provisioned; otherwise fetch the public feed.
+        let local = readSnapshotSections()
+        if !local.isEmpty {
+            completionHandler(Self.content(from: local))
             return
         }
-
-        // Group into rows by the snapshot's `context` label, preserving the
-        // first-seen order the app wrote them in (Continue Watching leads).
-        var order: [String] = []
-        var byContext: [String: [Snapshot.Payload.Item]] = [:]
-        for it in payload.items {
-            if byContext[it.context] == nil { order.append(it.context) }
-            byContext[it.context, default: []].append(it)
+        fetchFeedSections { sections in
+            completionHandler(sections.isEmpty ? nil : Self.content(from: sections))
         }
-
-        let collections: [TVTopShelfItemCollection<TVTopShelfSectionedItem>] = order.compactMap { ctx in
-            let items = (byContext[ctx] ?? []).prefix(12).compactMap { Self.sectionedItem(from: $0) }
-            guard !items.isEmpty else { return nil }
-            let collection = TVTopShelfItemCollection(items: items)
-            collection.title = ctx
-            return collection
-        }
-        guard !collections.isEmpty else { completionHandler(nil); return }
-
-        completionHandler(TVTopShelfSectionedContent(sections: collections))
     }
 
-    private static func sectionedItem(from e: Snapshot.Payload.Item) -> TVTopShelfSectionedItem? {
-        // A sectioned tile is a 2:3 POSTER. Require designed poster art; the
-        // Archive first-frame thumbnail reads as broken at this size. (A resume
-        // item without a poster still can't render a tile — skip it rather than
-        // show a blank.)
-        guard let posterString = e.posterURL, let posterURL = URL(string: posterString) else {
-            return nil
+    private static func content(from sections: [Section]) -> TVTopShelfContent? {
+        let collections: [TVTopShelfItemCollection<TVTopShelfSectionedItem>] = sections.compactMap { s in
+            let items = s.cards.prefix(12).map { sectionedItem(from: $0) }
+            guard !items.isEmpty else { return nil }
+            let c = TVTopShelfItemCollection(items: items)
+            c.title = s.title
+            return c
         }
+        guard !collections.isEmpty else { return nil }
+        return TVTopShelfSectionedContent(sections: collections)
+    }
 
-        let item = TVTopShelfSectionedItem(identifier: e.archiveID)
-        item.title = e.year.map { "\(e.title) (\($0))" } ?? e.title
+    private static func sectionedItem(from c: Card) -> TVTopShelfSectionedItem {
+        let item = TVTopShelfSectionedItem(identifier: c.id)
+        item.title = c.year.map { "\(c.title) (\($0))" } ?? c.title
         item.imageShape = .poster
-        item.setImageURL(posterURL, for: [.screenScale1x, .screenScale2x])
+        item.setImageURL(c.posterURL, for: [.screenScale1x, .screenScale2x])
+        if c.resume, let p = c.progress { item.playbackProgress = p }
 
-        // Continue Watching shows a progress bar; editorial rows don't.
-        if e.resume, let p = e.progress { item.playbackProgress = p }
-
-        // Learning guardrail (CLAUDE.md): SELECT opens Detail (a look, a choice).
-        // The Play button resumes only for Continue Watching, where intent is
-        // explicit; elsewhere Play also opens Detail rather than autoplaying.
-        if let detail = URL(string: "archivewatch://item/\(e.archiveID)") {
+        // Learning guardrail (CLAUDE.md): SELECT opens Detail (a look, a choice);
+        // Play resumes only for Continue Watching, else also opens Detail.
+        if let detail = URL(string: "archivewatch://item/\(c.id)") {
             item.displayAction = TVTopShelfAction(url: detail)
         }
-        let playPath = e.resume ? "play" : "item"
-        if let play = URL(string: "archivewatch://\(playPath)/\(e.archiveID)") {
+        let playPath = c.resume ? "play" : "item"
+        if let play = URL(string: "archivewatch://\(playPath)/\(c.id)") {
             item.playAction = TVTopShelfAction(url: play)
         }
         return item

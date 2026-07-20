@@ -195,7 +195,92 @@ def main():
     mb = OUT.stat().st_size / 1_000_000
     print(f"[index] wrote {OUT.name}: {len(rows):,} items, "
           f"{len(shelves)} shelves, {len(collections)} collections, {mb:.1f} MB", flush=True)
+
+    write_topshelf_feed()
     return 0
+
+
+# ---------------------------------------------------------------------------
+# tvOS Top Shelf feed
+# ---------------------------------------------------------------------------
+# The Top Shelf extension is a separate, out-of-process, memory-constrained
+# process. It CANNOT read the app's App Group container reliably (that needs the
+# App Groups capability provisioned on the bundle ids — a portal step that was
+# never done, so the shared container is nil on device and the Top Shelf showed
+# only the static app image). So instead the extension fetches THIS small public
+# feed directly over the network — no App Group, no provisioning dependency, and
+# it even populates before the user first launches the app. Continue Watching
+# still comes from the App Group snapshot when that is provisioned; this feed is
+# the always-present editorial backbone.
+TOPSHELF_OUT = REPO / "topshelf.json"
+CATALOG_DB = REPO / "catalog.sqlite"
+
+# A designed poster in the built DB: hasRealArtwork and a source that isn't the
+# Archive thumbnail or a generated frame cover.
+_DESIGNED = ("i.hasRealArtwork = 1 "
+             "AND COALESCE(i.artworkSource,'') NOT IN ('','archive','generated') "
+             "AND COALESCE(i.posterURL,'') <> '' "
+             "AND i.posterURL NOT LIKE '%archive.org/services/img%'")
+_NOT_TV_COMM = "i.isAdult = 0 AND i.contentType NOT IN ('tv-series','tv-special','tv-episode','commercial')"
+
+
+def write_topshelf_feed() -> None:
+    # Read the BUILT DB (already deduped + rights-gated by build_sqlite, which
+    # runs before this) so the feed is exactly the app's own data — not the raw
+    # catalog.json, which still carries excluded/duplicate rows.
+    if not CATALOG_DB.exists():
+        print("[topshelf] no catalog.sqlite yet — skipped", flush=True)
+        return
+    import sqlite3
+    db = sqlite3.connect(CATALOG_DB)
+
+    def cards(sql, binds=()):
+        out = []
+        for aid, title, year, poster in db.execute(sql, binds):
+            out.append({"id": aid, "title": title or aid, "year": year, "poster": poster})
+        return out
+
+    # Editor's Picks — the curated `editors-picks` shelf, designed art only.
+    picks = cards(f"""
+        SELECT i.archiveID, i.title, i.year, i.posterURL
+        FROM items i JOIN item_shelves s ON s.archiveID = i.archiveID AND s.shelfID = 'editors-picks'
+        WHERE {_DESIGNED} AND {_NOT_TV_COMM}
+        ORDER BY (i.hasRealArtwork = 1) DESC, i.popularityScore DESC LIMIT 12""")
+
+    # Top Rated — the app's topRated() (votes >= 1000, PD/CC or vintage year),
+    # PLUS two showcase tightenings: a year is required (a high-rated no-year row
+    # is a data artifact) and rows are de-duped by imdb id (collapses foreign
+    # re-title duplicates like "El Ocaso De Una Vida" for Sunset Boulevard).
+    rated = cards(f"""
+        SELECT i.archiveID, i.title, i.year, i.posterURL FROM items i
+        WHERE i.imdbRating IS NOT NULL AND COALESCE(i.imdbVotes,0) >= 1000
+          AND {_DESIGNED} AND {_NOT_TV_COMM}
+          AND i.year IS NOT NULL
+          AND (i.rightsStatus IN ('public_domain','creative_commons') OR (i.year BETWEEN 1888 AND 1977))
+          AND i.archiveID IN (
+            SELECT archiveID FROM (
+              SELECT archiveID, ROW_NUMBER() OVER (
+                PARTITION BY COALESCE(imdbID, archiveID)
+                ORDER BY imdbRating DESC, imdbVotes DESC) rn FROM items
+            ) WHERE rn = 1)
+        ORDER BY i.imdbRating DESC, i.imdbVotes DESC LIMIT 12""")
+    db.close()
+
+    # Drop any Top Rated id already shown in Editor's Picks.
+    seen = {c["id"] for c in picks}
+    rated = [c for c in rated if c["id"] not in seen]
+
+    sections = []
+    if picks:
+        sections.append({"title": "Editor's Picks", "items": picks})
+    if rated:
+        sections.append({"title": "Top Rated", "items": rated})
+
+    feed = {"version": 1, "sections": sections}
+    TOPSHELF_OUT.write_text(json.dumps(feed, ensure_ascii=False, separators=(",", ":")),
+                            encoding="utf-8")
+    total = sum(len(s["items"]) for s in sections)
+    print(f"[topshelf] wrote {TOPSHELF_OUT.name}: {len(sections)} rows, {total} items", flush=True)
 
 
 if __name__ == "__main__":
