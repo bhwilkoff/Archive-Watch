@@ -533,6 +533,11 @@ struct PlayerScreen: View {
     @State private var timeoutTask: Task<Void, Never>?
     @State private var autoRetried = false   // #10: silently retry once before failing
     @State private var skipCount = 0         // #7: bound auto-skips in a broken lineup
+    // If the native HLS-subtitle path fails to load, fall back to the direct MP4
+    // through ResilientStreamLoader (proven reliable). Playback is the priority
+    // (SCRATCHPAD: "play every single time"); losing the subtitle track beats a
+    // dead "resource unavailable". A broken HLS segment URI is the known cause.
+    @State private var forceDirectPlayback = false
     @State private var endObserver: NSObjectProtocol?
     @State private var playback: PlaybackState = .loading
     // #10: the item currently playing. Autoplay swaps this on end-of-item; the
@@ -612,6 +617,7 @@ struct PlayerScreen: View {
         // #10: autoplay swapped `current` -> rebuild the player for the next film.
         .onChange(of: current?.archiveID) { _, _ in
             autoRetried = false          // #10: fresh retry budget per item
+            forceDirectPlayback = false  // new item tries the HLS-subtitle path fresh
             teardownPlayer()
             playback = .loading
             setupPlayer()
@@ -709,6 +715,10 @@ struct PlayerScreen: View {
     private func handleLoadFailure(_ message: String) {
         if !autoRetried {
             autoRetried = true
+            // If this item used the HLS-subtitle path, the retry drops it and
+            // plays the MP4 directly — a broken HLS playlist must never make an
+            // otherwise-playable film unplayable.
+            if (current ?? catalogItem)?.subtitleHLSURL != nil { forceDirectPlayback = true }
             teardownPlayer(persist: false)
             playback = .loading
             setupPlayer()
@@ -731,7 +741,7 @@ struct PlayerScreen: View {
         let active = current ?? catalogItem
         let playURL = active?.videoURLParsed ?? url
         let playerItem: AVPlayerItem
-        if let hls = active?.subtitleHLSURL {
+        if let hls = active?.subtitleHLSURL, !forceDirectPlayback {
             // Native HLS subtitles (Decision 039): the Info/CC menu lists the
             // WebVTT tracks. Captioned titles use AVFoundation's native HLS path
             // instead of ResilientStreamLoader (byte-range = the resilience

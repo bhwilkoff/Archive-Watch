@@ -64,10 +64,26 @@ def srt_to_vtt(srt: str) -> str:
     return "WEBVTT\nX-TIMESTAMP-MAP=MPEGTS:0,LOCAL:00:00:00.000\n\n" + body + "\n"
 
 
+def encode_segment_url(url: str) -> str:
+    """Percent-encode the path of an MP4 URL so it is a VALID HLS segment URI.
+    AVFoundation strictly rejects a segment URI containing raw spaces/()/# (it
+    fails the whole item with "resource unavailable"), while lenient parsers
+    (ffprobe/curl/Python-requests) resolve it — which is exactly why raw-URL
+    playlists passed every probe yet never played on Apple TV. Encodes space,
+    (, ), # etc.; keeps / and any existing %XX (safe='/%')."""
+    from urllib.parse import quote
+    m = re.match(r"^(https?://[^/]+)(/.*)$", url or "", re.I)
+    if not m:
+        return url
+    host, path = m.groups()
+    return host + quote(path, safe="/%")
+
+
 def hls_manifests(mp4_url: str, runtime: int, langs):
     """(master.m3u8, video.m3u8, {lang: subs.<lang>.m3u8}). `langs` = list of
     (lang, label, vtt_filename). Single-segment VOD video playlist."""
     dur = max(int(runtime or 0), 1)
+    mp4_url = encode_segment_url(mp4_url)
     media = []
     for i, (lang, label, _vtt) in enumerate(langs):
         default = "YES" if (lang == "en" or i == 0) else "NO"
