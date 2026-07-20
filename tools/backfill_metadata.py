@@ -133,6 +133,11 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--refresh", action="store_true")
+    ap.add_argument("--refresh-missing-canonical", action="store_true",
+                    help="re-fetch ONLY items that have a tmdbID but no canonicalTitle "
+                         "(processed by an older run whose cache predates canonicalTitle "
+                         "capture) — fixes uploader-cruft titles like 'The Killers Burt "
+                         "Lancaster… - Full Movie', which remediate then cleans to 'The Killers'")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
@@ -146,12 +151,27 @@ def main() -> int:
     items = cat["items"]
 
     def needs(it) -> bool:
+        if args.refresh_missing_canonical:
+            # Only items with a tmdbID whose canonicalTitle never got captured.
+            return bool(it.get("tmdbID")) and not (it.get("canonicalTitle") or "").strip()
         if it.get("metaSource") and not args.refresh:
             return False
         return bool(it.get("tmdbID"))               # TMDb id is the gate (the workhorse source)
 
+    # --refresh-missing-canonical must bypass the stale cache (that's the whole point).
+    if args.refresh_missing_canonical:
+        args.refresh = True
+
+    import re as _re
+    _CRUFT = _re.compile(r"\b(full movie|full film|film noir|colorized|colorised)\b", _re.I)
+
+    def _priority(it):
+        # cruft-titled items first (they most need the canonical title), then popularity
+        cruft = 1 if _CRUFT.search(it.get("title") or "") else 0
+        return (cruft, it.get("popularityScore") or it.get("downloads") or 0)
+
     targets = [it for it in items if needs(it)]
-    targets.sort(key=lambda it: -(it.get("popularityScore") or it.get("downloads") or 0))
+    targets.sort(key=_priority, reverse=True)
     if args.limit:
         targets = targets[: args.limit]
     print(f"[meta] {len(targets)} items to enrich "

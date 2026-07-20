@@ -16,6 +16,9 @@ on:
       refresh:
         description: 're-enrich items already done (true/false)'
         default: 'false'
+      refresh_missing_canonical:
+        description: 'only re-fetch tmdbID items missing canonicalTitle (cleans cruft titles)'
+        default: 'false'
 
 concurrency:
   group: catalog-writers      # serialize with every catalog-mutating workflow (Decision 018/020)
@@ -52,6 +55,7 @@ jobs:
           fi
           python tools/backfill_metadata.py \
             ${{ github.event.inputs.refresh == 'true' && '--refresh' || '' }} \
+            ${{ github.event.inputs.refresh_missing_canonical == 'true' && '--refresh-missing-canonical' || '' }} \
             ${{ github.event.inputs.limit != '0' && format('--limit {0}', github.event.inputs.limit) || '' }} \
             | tee meta.log
           if grep -qE 'DONE filled=0 ' meta.log; then
