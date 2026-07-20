@@ -1354,7 +1354,45 @@ def remediate(items):
 
     _drop_stale_year_markers()
     exclude_hate_propaganda(items, stats)
+    encode_download_urls(items, stats)
     return stats
+
+
+# --- Percent-encode downloadURLs ------------------------------------------
+# archive.org filenames routinely contain spaces, parentheses, and commas
+# ("Ladies in Retirement (1941, USA) - Film Noir Full Movie.mp4"). A downloadURL
+# baked with those RAW characters is not a valid URL: the app's URL(string:)
+# rejects it (or the request 400s), so the title "does not play" — while the
+# liveness probe marked it playable because Python `requests` silently
+# percent-encodes before sending, so it verified a DIFFERENT (encoded) URL than
+# the one the app actually uses. Measured 2026-07-20: 9,821 items marked
+# playable had raw-space URLs. Encoding the stored URL makes it exactly what the
+# probe already verified, so it plays.
+_UNSAFE_URL = re.compile(r"[ \"<>\\^`{|}]")  # chars that are invalid in a bare URL
+
+
+_URL_HOST = re.compile(r"^(https?://[^/]+)(/.*)$", re.I)
+
+
+def encode_download_urls(items, stats):
+    from urllib.parse import quote
+    for it in items:
+        url = it.get("downloadURL")
+        if not url or not _UNSAFE_URL.search(url):
+            continue
+        m = _URL_HOST.match(url)
+        if not m:
+            continue
+        host, path = m.groups()
+        # Encode EVERYTHING after the host as the path. `safe="/%"` keeps path
+        # separators and existing %XX escapes (no double-encoding) but encodes
+        # spaces, parens, commas — AND a literal `#`/`?` in the filename (the
+        # DeOldify restorations have `#` in their names; urlsplit would wrongly
+        # treat it as a fragment and leave the tail unencoded).
+        fixed = host + quote(path, safe="/%")
+        if fixed != url:
+            it["downloadURL"] = fixed
+            stats["download_url_encoded"] += 1
 
 
 def fix_tmdb_collisions(items, stats):

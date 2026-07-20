@@ -29,6 +29,25 @@ extension KeyedDecodingContainer {
 // persisting user state (favorites, continue-watching, re-enrichments).
 
 struct Catalog: Decodable, Sendable {
+    /// Turn a stored downloadURL into a valid, playable URL.
+    ///
+    /// archive.org filenames routinely contain raw spaces and `#`
+    /// ("Ladies in Retirement (1941, USA) - Full Movie.mp4", the DeOldify
+    /// restorations with `#` in the name). A raw space makes `URL(string:)`
+    /// return nil (the title "does not play"); a raw `#` is parsed as a fragment
+    /// delimiter so the filename is truncated. The pipeline now percent-encodes
+    /// these (remediate_catalog.encode_download_urls), but this is the
+    /// belt-and-suspenders so ANY raw URL still plays. Only the two truly-invalid
+    /// characters are replaced — parens/commas are legal in URLs, and existing
+    /// %XX escapes are left untouched (no double-encoding).
+    static func playableURL(_ raw: String?) -> URL? {
+        guard let raw, !raw.isEmpty else { return nil }
+        if !raw.contains(" ") && !raw.contains("#") { return URL(string: raw) }
+        let fixed = raw.replacingOccurrences(of: " ", with: "%20")
+                       .replacingOccurrences(of: "#", with: "%23")
+        return URL(string: fixed)
+    }
+
     let version: Int
     let generatedAt: String
     let generator: String?
@@ -185,7 +204,7 @@ struct Catalog: Decodable, Sendable {
         var subtitleHLSURL: URL? { subtitleHLS.flatMap(URL.init(string:)) }
         var posterURLParsed: URL? { posterURL.flatMap(URL.init(string:)) }
         var backdropURLParsed: URL? { backdropURL.flatMap(URL.init(string:)) }
-        var videoURLParsed: URL? { downloadURL.flatMap(URL.init(string:)) }
+        var videoURLParsed: URL? { Catalog.playableURL(downloadURL) }
 
         /// The video's bytes were probed and are a real playable file. Used to
         /// gate the most prominent surfaces (the full-bleed hero) so the app
@@ -534,7 +553,7 @@ struct Episode: Decodable, Sendable, Hashable, Identifiable {
 
     var id: String { archiveID }
     var stillURLParsed: URL? { stillURL.flatMap(URL.init(string:)) }
-    var videoURLParsed: URL? { downloadURL.flatMap(URL.init(string:)) }
+    var videoURLParsed: URL? { Catalog.playableURL(downloadURL) }
 
     /// Compact label like "S1 · E2" or "Ep. 12" when season is unknown.
     var numberLabel: String? {
