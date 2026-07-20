@@ -104,3 +104,5 @@ tools/.play-venv/
 *.aab
 play-service-account*.json
 tools/.asc-venv/
+tools/title_audit/
+tools/.metadata_cache.json
