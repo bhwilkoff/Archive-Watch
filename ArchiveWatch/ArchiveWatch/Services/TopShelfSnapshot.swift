@@ -62,10 +62,19 @@ enum TopShelfSnapshot {
         }
     }
 
-    /// Build + write the carousel snapshot from the live catalog + watch progress.
-    /// Order: Continue Watching (resume) → Editor's Picks → Popular Now. Capped at
-    /// 10 heroes (Top Shelf memory budget is tight + WWDC says 5–10). `now` is
-    /// passed in so callers control the timestamp.
+    /// Build + write the SECTIONED snapshot from the live catalog + watch progress.
+    /// Rows: Continue Watching (resume) → Editor's Picks → Top Rated. Each tile is
+    /// a 2:3 POSTER, so items only need designed poster art (a wide backdrop is
+    /// NOT required — that was the old carousel's constraint and it starved the
+    /// snapshot: only ~23% of popular films have a backdrop). `now` is passed in
+    /// so callers control the timestamp.
+    ///
+    /// A previous version read a non-existent shelf id ("editor-picks" vs the
+    /// real "editors-picks") and required backdrops, so for a user with no watch
+    /// history the whole snapshot could come out empty — nothing was written and
+    /// the Top Shelf showed only the app icon. Top Rated is included last as an
+    /// always-populated backstop (24 designed-art classics), so the Top Shelf is
+    /// never empty for any user.
     @MainActor
     static func rebuild(store: AppStore, progress: [WatchProgress], now: Double) {
         guard store.db != nil else { return }
@@ -85,32 +94,42 @@ enum TopShelfSnapshot {
                 context: context, progress: progress, resume: resume)
         }
 
-        // 1) Continue Watching — highest-value, most personal; lead with it. Personal
-        //    enough to include even without wide art (the provider falls back to poster).
+        // A tile needs a real designed poster — the Archive first-frame thumbnail
+        // reads as broken at Top Shelf size.
+        func hasPoster(_ it: Catalog.Item) -> Bool {
+            it.hasDesignedArtwork && (it.posterURL?.isEmpty == false)
+        }
+
+        // 1) Continue Watching — most personal; lead with it.
         let resuming = progress
             .filter { !$0.isComplete && $0.positionSeconds > 30 }
             .sorted { $0.lastWatchedAt > $1.lastWatchedAt }
         for p in resuming {
-            guard let it = store.db?.item(p.archiveID), seen.insert(it.archiveID).inserted else { continue }
+            guard let it = store.db?.item(p.archiveID),
+                  hasPoster(it), seen.insert(it.archiveID).inserted else { continue }
             let frac = p.durationSeconds > 0
                 ? min(0.98, max(0.02, p.positionSeconds / p.durationSeconds)) : nil
             out.append(entry(it, context: "Continue Watching", resume: true, progress: frac))
-            if out.count >= 4 { break }   // cap so editorial heroes get room
+            if out.filter({ $0.context == "Continue Watching" }).count >= 8 { break }
         }
 
-        // 2) Editorial heroes — REQUIRE a wide backdrop (a 2:3 poster reads wrong in
-        //    the 16:9 hero) and designed art. Reason-labeled, select → Detail.
-        func addEditorial(_ items: [Catalog.Item], context: String) {
-            for it in items where it.backdropURL != nil && it.hasDesignedArtwork {
-                guard out.count < 10, seen.insert(it.archiveID).inserted else { continue }
+        // 2..n) Editorial rows — designed poster required, reason-labeled, select
+        //       → Detail. Each capped so the rows stay tight (WWDC: 5–10 each).
+        func addRow(_ items: [Catalog.Item], context: String, limit: Int = 8) {
+            var n = 0
+            for it in items where hasPoster(it) {
+                guard seen.insert(it.archiveID).inserted else { continue }
                 out.append(entry(it, context: context, resume: false, progress: nil))
+                n += 1
+                if n >= limit { break }
             }
         }
-        addEditorial(store.items(forShelf: "editor-picks"), context: "Editor's Pick")
-        addEditorial(store.items(forShelf: "popular-features"), context: "Popular Now")
+        addRow(store.items(forShelf: "editors-picks"), context: "Editor's Picks")
+        // Always-populated backstop so the Top Shelf is never empty.
+        addRow(store.dbTopRated(), context: "Top Rated")
 
         guard !out.isEmpty else { return }
-        write(Payload(items: Array(out.prefix(10)), generatedAt: now))
+        write(Payload(items: out, generatedAt: now))
     }
 }
 

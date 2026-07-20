@@ -1,20 +1,28 @@
 import TVServices
 import Foundation
 
-// Top Shelf content provider (Decision 015 / M4; carousel redesign 2026-06-24).
+// Top Shelf content provider (Decision 015 / M4; sectioned rewrite 2026-07-20).
 //
-// Reads the snapshot the main app writes into the shared App Group container
-// (TopShelfSnapshot in the app target) and renders it as a best-in-class
-// editorial CAROUSEL (the large rotating hero at the top of the Apple TV Home
-// when the app icon is in the top row).
+// Renders the snapshot the main app writes into the shared App Group container
+// as SECTIONED content — named rows of poster tiles, exactly like Apple TV's own
+// "Continue Watching / Recommended" shelves and how Netflix / Plex / Infuse
+// present their Top Shelf.
 //
-// Note: TVTopShelfCarouselItem has NO `title` property — the hero conveys identity
-// via the artwork plus `contextTitle` (why it's shown), `summary`, `genre`,
-// `duration`, `creationDate`, and up to 4 `namedAttributes`. We lead the summary
-// with the title + year so it always reads.
+// WHY sectioned, not a carousel (the previous implementation): the full-screen
+// carousel hero is shown ONLY when the app icon is in the top row AND focused,
+// and it presents a SINGLE rotating title. Sectioned content is the tasteful
+// default for a repertory app — it shows MANY individual movies as rows of
+// posters. That is the "individual movies, not just the app icon" experience.
+// (Both styles require the top row + App Group data; sectioned is the one that
+// actually surfaces a browsable set of titles.)
 //
-// Self-contained on purpose: the extension can't share the app's in-memory state,
-// and keeping the tiny reader here avoids cross-target file-membership coupling.
+// Robustness (the extension is out-of-process + memory-constrained): never
+// decode/resize images here — hand the system a URL and let it load + cache.
+// Return nil only when there is genuinely nothing to show (the system then
+// falls back to the static Top Shelf brandasset).
+//
+// Self-contained on purpose: the extension can't share the app's in-memory
+// state, and keeping the tiny reader here avoids cross-target file coupling.
 
 private enum Snapshot {
     static let appGroup = "group.app.archivewatch.tvos"
@@ -33,7 +41,7 @@ private enum Snapshot {
             let director: String?
             let cast: [String]
             let hasCaptions: Bool
-            let context: String
+            let context: String       // section name / "why shown"
             let progress: Double?
             let resume: Bool
         }
@@ -55,52 +63,51 @@ class ContentProvider: TVTopShelfContentProvider {
     // non-Sendable `TVTopShelfContent` error under Swift 6 strict concurrency.
     override func loadTopShelfContent(completionHandler: @escaping (TVTopShelfContent?) -> Void) {
         guard let payload = Snapshot.read(), !payload.items.isEmpty else {
-            completionHandler(nil)
+            completionHandler(nil)      // nothing to show -> system uses the brandasset
             return
         }
 
-        let items = payload.items.prefix(10).compactMap { Self.carouselItem(from: $0) }
-        guard !items.isEmpty else { completionHandler(nil); return }
-        completionHandler(TVTopShelfCarouselContent(style: .details, items: items))
+        // Group into rows by the snapshot's `context` label, preserving the
+        // first-seen order the app wrote them in (Continue Watching leads).
+        var order: [String] = []
+        var byContext: [String: [Snapshot.Payload.Item]] = [:]
+        for it in payload.items {
+            if byContext[it.context] == nil { order.append(it.context) }
+            byContext[it.context, default: []].append(it)
+        }
+
+        let collections: [TVTopShelfItemCollection<TVTopShelfSectionedItem>] = order.compactMap { ctx in
+            let items = (byContext[ctx] ?? []).prefix(12).compactMap { Self.sectionedItem(from: $0) }
+            guard !items.isEmpty else { return nil }
+            let collection = TVTopShelfItemCollection(items: items)
+            collection.title = ctx
+            return collection
+        }
+        guard !collections.isEmpty else { completionHandler(nil); return }
+
+        completionHandler(TVTopShelfSectionedContent(sections: collections))
     }
 
-    private static func carouselItem(from e: Snapshot.Payload.Item) -> TVTopShelfCarouselItem? {
-        // A carousel hero needs wide art. Prefer the backdrop; allow a poster only
-        // for personal Continue Watching items so an obscure resume still appears.
-        let artString = e.backdropURL ?? (e.resume ? e.posterURL : nil)
-        guard let art = artString, let artURL = URL(string: art) else { return nil }
-
-        let item = TVTopShelfCarouselItem(identifier: e.archiveID)
-        item.contextTitle = e.context          // "Continue Watching" / "Editor's Pick" / …
-
-        // Title + year lead the summary, since the carousel has no title field.
-        let titled = e.year.map { "\(e.title) (\($0))" } ?? e.title
-        item.summary = e.synopsis.map { "\(titled). \($0)" } ?? titled
-
-        item.genre = e.genre
-        if let secs = e.runtimeSeconds, secs > 0 { item.duration = TimeInterval(secs) }
-        if let y = e.year, let date = Self.date(forYear: y) { item.creationDate = date }
-
-        // Up to 4 stylized attributes: Director, then Cast.
-        var attrs: [TVTopShelfNamedAttribute] = []
-        if let d = e.director, !d.isEmpty {
-            attrs.append(TVTopShelfNamedAttribute(name: "Director", values: [d]))
+    private static func sectionedItem(from e: Snapshot.Payload.Item) -> TVTopShelfSectionedItem? {
+        // A sectioned tile is a 2:3 POSTER. Require designed poster art; the
+        // Archive first-frame thumbnail reads as broken at this size. (A resume
+        // item without a poster still can't render a tile — skip it rather than
+        // show a blank.)
+        guard let posterString = e.posterURL, let posterURL = URL(string: posterString) else {
+            return nil
         }
-        if !e.cast.isEmpty {
-            attrs.append(TVTopShelfNamedAttribute(name: "Cast", values: Array(e.cast.prefix(3))))
-        }
-        item.namedAttributes = attrs
 
-        // Capability badges: HD always (we stream H.264); CC when captions exist.
-        var media: TVTopShelfCarouselItem.MediaOptions = [.videoResolutionHD]
-        if e.hasCaptions { media.insert(.audioTranscriptionClosedCaptioning) }
-        item.mediaOptions = media
+        let item = TVTopShelfSectionedItem(identifier: e.archiveID)
+        item.title = e.year.map { "\(e.title) (\($0))" } ?? e.title
+        item.imageShape = .poster
+        item.setImageURL(posterURL, for: [.screenScale1x, .screenScale2x])
 
-        // Light + dark art variants for tvOS 26 Liquid Glass legibility.
-        item.setImageURL(artURL, for: [.screenScale1x, .screenScale2x])
+        // Continue Watching shows a progress bar; editorial rows don't.
+        if e.resume, let p = e.progress { item.playbackProgress = p }
 
-        // Learning guardrail: SELECT opens Detail (a look, a choice). Resume play is
-        // reserved for Continue Watching, where the intent is explicit.
+        // Learning guardrail (CLAUDE.md): SELECT opens Detail (a look, a choice).
+        // The Play button resumes only for Continue Watching, where intent is
+        // explicit; elsewhere Play also opens Detail rather than autoplaying.
         if let detail = URL(string: "archivewatch://item/\(e.archiveID)") {
             item.displayAction = TVTopShelfAction(url: detail)
         }
@@ -109,10 +116,5 @@ class ContentProvider: TVTopShelfContentProvider {
             item.playAction = TVTopShelfAction(url: play)
         }
         return item
-    }
-
-    private static func date(forYear year: Int) -> Date? {
-        var c = DateComponents(); c.year = year; c.month = 1; c.day = 1
-        return Calendar(identifier: .gregorian).date(from: c)
     }
 }
