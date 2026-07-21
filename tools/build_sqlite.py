@@ -703,11 +703,28 @@ def _has_letter(s):
     return bool(s and _re_ep.search(r"[^\W\d_]", s))
 
 
-def _clean_ep_title(t):
+try:
+    import remediate_catalog as _remediate   # reuse the film title-cleaning chain
+except Exception:
+    _remediate = None
+
+
+def _clean_ep_title(t, year=None):
     if not t:
         return t
     nt = _EP_TITLE_PREFIX.sub("", t).strip(" :.-")
-    return nt if _has_letter(nt) else t
+    nt = nt if _has_letter(nt) else t
+    # Episodes bypass remediate (materialized from spines), so run the SAME title
+    # chain films get — strips trailing "(1989) [1080p]", version/quality/year cruft.
+    if _remediate is not None:
+        it = {"title": nt, "year": year}
+        try:
+            _remediate.sanitize_title(it)
+            if _has_letter(it.get("title")):
+                nt = it["title"]
+        except Exception:
+            pass
+    return nt
 
 
 def _clean_series_title(t):
@@ -724,8 +741,8 @@ def _episode_item(ep, sid, series_title, series_poster, series_backdrop):
     episode-specific interactions. seriesID + season/episode + seriesTitle carry the
     linkage; the item is excluded from film browse surfaces but fully actionable."""
     aid = ep.get("archiveID")
-    title = _clean_ep_title(ep.get("title")) or aid
     year = ep.get("year")
+    title = _clean_ep_title(ep.get("title"), year) or aid
     still = ep.get("stillURL")
     poster = still or series_poster
     return {
