@@ -689,6 +689,34 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
     return len(item_rows)
 
 
+import re as _re_ep
+# An episode's display title should be the EPISODE NAME only — season/episode live in
+# their own fields. Strip a leading "Show ... SxxEyy " prefix (the colorized-classic-TV
+# uploads carry the show name + "TV 1954 colorized s01e01" cruft in every episode title,
+# Decision 045 materializes them verbatim). Guarded: never empty a title.
+_EP_TITLE_PREFIX = _re_ep.compile(r"^.*?\bs\d{1,2}\s*e\d{1,3}\b[\s:.\-]*", _re_ep.I)
+# A series card title like "Annie Oakley TV 1954 colorized" -> "Annie Oakley".
+_SERIES_TV_CRUFT = _re_ep.compile(r"\s+TV\s+(?:19|20)\d{2}\s+colou?ri[sz]ed\b.*$", _re_ep.I)
+
+
+def _has_letter(s):
+    return bool(s and _re_ep.search(r"[^\W\d_]", s))
+
+
+def _clean_ep_title(t):
+    if not t:
+        return t
+    nt = _EP_TITLE_PREFIX.sub("", t).strip(" :.-")
+    return nt if _has_letter(nt) else t
+
+
+def _clean_series_title(t):
+    if not t:
+        return t
+    nt = _SERIES_TV_CRUFT.sub("", t).strip()
+    return nt if _has_letter(nt) else t
+
+
 def _episode_item(ep, sid, series_title, series_poster, series_backdrop):
     """A playable episode as a first-class catalog item (contentType 'tv-episode',
     Decision 045). Episodes become real items so favorite / playlist / share / Clip
@@ -696,7 +724,7 @@ def _episode_item(ep, sid, series_title, series_poster, series_backdrop):
     episode-specific interactions. seriesID + season/episode + seriesTitle carry the
     linkage; the item is excluded from film browse surfaces but fully actionable."""
     aid = ep.get("archiveID")
-    title = ep.get("title") or aid
+    title = _clean_ep_title(ep.get("title")) or aid
     year = ep.get("year")
     still = ep.get("stillURL")
     poster = still or series_poster
@@ -732,7 +760,7 @@ def populate_series(db, materialize_episode_items=True):
     for f in sorted(SERIES_DIR.glob("*.json")):
         d = json.loads(f.read_text(encoding="utf-8"))
         sid = d.get("seriesID") or f.stem
-        series_title = d.get("title")
+        series_title = _clean_series_title(d.get("title"))
         series_poster = d.get("posterURL")
         series_backdrop = d.get("backdropURL")
         s_rows.append((

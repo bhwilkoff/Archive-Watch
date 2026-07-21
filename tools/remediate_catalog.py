@@ -530,8 +530,8 @@ def _strip_quality_tail(t):
 _VERSION_TOK = (
     r"\b(?:colou?ri[sz]ed|colou?ri[sz]ation|restored|restoration|remastered|remaster|"
     r"uncut|uncensored|unedited|upscaled|ai[\s-]?upscaled|upscale|enhanced|"
-    r"(?:video|image|picture|sound|audio|hd|full[\s-]?hd)[\s-]?quality(?:[\s-]?upgrade)?|"
-    r"high[\s-]?quality|hq[\s-]?version|quality[\s-]?upgrade|new[\s-]?transfer|"
+    r"(?:video|image|picture|sound|audio|hd|full[\s-]?hd)[\s-]?quality(?:[\s-]?upgrades?)?|"
+    r"high[\s-]?quality|hq[\s-]?version|quality[\s-]?upgrades?|new[\s-]?transfer|"
     r"new[\s-]?scan|new[\s-]?restoration|full[\s-]?movie|full[\s-]?film|"
     r"full[\s-]?length|feature[\s-]?length|complete[\s-]?film|complete[\s-]?version|"
     r"mp4[\s-]?version|digitally[\s-]?remastered|ipod[\s-]?version|"
