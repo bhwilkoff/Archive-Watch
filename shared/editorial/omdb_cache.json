@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-07-20T05:50:14Z",
+  "updated_at": "2026-07-21T05:30:52Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-07-20T05:50:14Z"
+      "last_tried": "2026-07-21T05:30:52Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-07-20T05:50:14Z"
+      "last_tried": "2026-07-21T05:30:52Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -320838,6 +320838,249 @@
         "Short"
       ],
       "fetched_at": "2026-07-20T05:50:14Z",
+      "schema": 3
+    },
+    "tt0067847": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTcwOTg3OTcwMV5BMl5BanBnXkFtZTcwNTI4NzQyMQ@@._V1_SX300.jpg",
+      "imdb_rating": 5.5,
+      "imdb_votes": 274,
+      "content_rating": "TV-PG",
+      "plot": "A small-town district attorney's saddled with several major investigations, including a gambler's murder and a possible insurance scam.",
+      "runtime_min": 95,
+      "director": "Walter Grauman",
+      "actors": [
+        "Jim Hutton",
+        "Lloyd Bochner",
+        "Jo Ann Pflug"
+      ],
+      "genres": [
+        "Drama",
+        "Mystery"
+      ],
+      "fetched_at": "2026-07-21T05:30:52Z",
+      "schema": 3
+    },
+    "tt0069715": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYWY4NGZjMjQtYjY1NC00NWY0LTlhN2QtZmUyMWUwNTRiNTcwXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.9,
+      "imdb_votes": 3248,
+      "content_rating": "R",
+      "plot": "In 1795, in England, the young woman Catherine moves to the house of her fiancé Charles Fengriffen in the country to get married with him. When she arrives, she feels interest in the portraits of the Fengriffen family, particularly in the one of Charle's grandfather Henry Fengriffen, which seems to have a sort of evil entity possessing it. While admiring Henry's face, a severed hand attacks Catherine through the picture on the wall. Later, she gets married with Charles, beginning her journey of mystery, eerie apparitions, secrets and deaths, and having her days filled with fear and the nights with horrors in a cursed family.",
+      "runtime_min": 91,
+      "director": "Roy Ward Baker",
+      "actors": [
+        "Peter Cushing",
+        "Herbert Lom",
+        "Patrick Magee"
+      ],
+      "genres": [
+        "Horror"
+      ],
+      "fetched_at": "2026-07-21T05:30:52Z",
+      "schema": 3
+    },
+    "tt0070107": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzAzZTI3ZDYtZjk5Yy00YjhmLWEwNjktMjgzMWYzMjRhNmQyL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNzc5MjA3OA@@._V1_SX300.jpg",
+      "imdb_rating": 5.1,
+      "imdb_votes": 391,
+      "content_rating": "PG",
+      "plot": "An attractive young hitchhiker named Ginger meets and and takes up with a lonely, middle-aged advertising executive who is recently divorced. He is inspired by her free-spirited independence while she is drawn to his old-fashioned romanticism.",
+      "runtime_min": 90,
+      "director": "Gordon Wiles",
+      "actors": [
+        "Monte Markham",
+        "Susan Oliver",
+        "Mark Miller"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "fetched_at": "2026-07-21T05:30:52Z",
+      "schema": 3
+    },
+    "tt0071867": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTk3MzQzMzMyOV5BMl5BanBnXkFtZTgwNTY4MDkyOTE@._V1_SX300.jpg",
+      "imdb_rating": 5.4,
+      "imdb_votes": 192,
+      "content_rating": "G",
+      "plot": "An unusual but affectionate story of a man's longing for his ideal of peace and serenity. A postman and part-time poet is inspired by the Greek legend of the two elderly guards at Jupiter's temple who are transformed into beautiful trees. His wife has him committed when he stands in his backyard awaiting the same metamorphosis to take place. With the help of a friendly librarian, he escapes in a milk truck during a violent storm.",
+      "runtime_min": 87,
+      "director": "Pancho Kohner",
+      "actors": [
+        "Jason Robards",
+        "Sandy Dennis",
+        "Jean Simmons"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Fantasy"
+      ],
+      "fetched_at": "2026-07-21T05:30:52Z",
+      "schema": 3
+    },
+    "tt0072831": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMWYwZmQ0N2QtNjgyZC00MDNhLTgwNmUtZmRiZGJmNDg5MWZkXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.3,
+      "imdb_votes": 1267,
+      "content_rating": "R",
+      "plot": "After her doctors declare her ready to return to society, Ethel leaves the psychiatric hospital and goes to live with her grandmother. She soon develops a few odd habits, in particular an insatiable compulsion to eat massive amounts of food. When Grandma locks up the food supply out of fear for her granddaughter's health, Ethel kills her for the keys to the pantry. Left to her own devices, she now indulges her hunger non-stop, murdering anyone who dares to stand in her way. Will anyone be able to stop her?",
+      "runtime_min": 61,
+      "director": "Nick Millard",
+      "actors": [
+        "Priscilla Alden",
+        "Michael Flood",
+        "Jane Lambert"
+      ],
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "fetched_at": "2026-07-21T05:30:52Z",
+      "schema": 3
+    },
+    "tt0079480": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNDg1NTlhZDgtOTM3ZC00N2I2LWIxMTAtYmRjZDk3NjNmOGM0XkEyXkFqcGdeQXVyMzU0NzkwMDg@._V1_SX300.jpg",
+      "imdb_rating": 7.3,
+      "imdb_votes": 111,
+      "content_rating": null,
+      "plot": "Miguel is a corrupt cop. After a drug bust word goes around someone in Miguel squad kept the seized drugs. Miguel must take the heat and gets sent to jail where he gets severely beaten up.",
+      "runtime_min": 105,
+      "director": "Alfredo Gurrola, Francisco Guerrero",
+      "actors": [
+        "Sasha Montenegro",
+        "Alejandro Parodi",
+        "Víctor Alcocer"
+      ],
+      "genres": [
+        "Action",
+        "Comedy",
+        "Crime"
+      ],
+      "fetched_at": "2026-07-21T05:30:52Z",
+      "schema": 3
+    },
+    "tt0083661": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzc4MWZjMjMtNTgwMy00NjJlLThjMWUtZjM5MjViNDMyNWExXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 4.3,
+      "imdb_votes": 2662,
+      "content_rating": "R",
+      "plot": "An adventurer hunting for treasure in Greece accidentally frees a monster that forces local villagers to sacrifice virgins.",
+      "runtime_min": 82,
+      "director": "Richard Jefferies",
+      "actors": [
+        "James Earl Jones",
+        "José Ferrer",
+        "Lila Kedrova"
+      ],
+      "genres": [
+        "Adventure",
+        "Horror",
+        "Thriller"
+      ],
+      "fetched_at": "2026-07-21T05:30:52Z",
+      "schema": 3
+    },
+    "tt0086814": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMWYwODdlMGQtODcyZS00ZTgwLWI5ZDQtMDYyY2RhNjkwMjRkXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.4,
+      "imdb_votes": 7400,
+      "content_rating": "TV-14",
+      "plot": "Each episode of this TV series depicts a short, strange tale...with a twist! With eerie stories vaguely reminiscent of 'The Twilight Zone,' viewers learn to appreciate that things are often not as they seem. The usual plot formula is comprised of an initial normal, mundane situation that gradually begins to get off-kilter, with suspense building up to the final, chilling, surprise conclusion.",
+      "runtime_min": 30,
+      "director": null,
+      "actors": [
+        "Paul Sparer",
+        "Catherine Battistone",
+        "John Marzilli"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Fantasy"
+      ],
+      "fetched_at": "2026-07-21T05:30:52Z",
+      "schema": 3
+    },
+    "tt0094843": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BY2U1NTQyNjYtMTgwMC00ZDY3LTljZDYtOGI4NmRkY2RjMzRkXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 4.1,
+      "imdb_votes": 629,
+      "content_rating": "Not Rated",
+      "plot": "Algiers, 1942. The special counter-intelligence agent, Alan Cooper, is assigned to protect the British Prime Minister, Winston Churchill, who is aboard the Casablanca Express, on his way to a top-secret meeting with Franklin D. Roosevelt, and Iosif Stalin. However, the Nazis already know everything about their plan, and a tactical unit of German paratroopers take the commando guards by surprise, intent on kidnapping Churchill. Now, it's up to Cooper and his fellow agents, Captain Franchetti and Lt. Lorna Fisher, to lead a desperate counter-attack before all is lost. But, can they make it in time?",
+      "runtime_min": 85,
+      "director": "Sergio Martino",
+      "actors": [
+        "Jason Connery",
+        "Francesco Quinn",
+        "Jinny Steffan"
+      ],
+      "genres": [
+        "Action",
+        "Thriller",
+        "War"
+      ],
+      "fetched_at": "2026-07-21T05:30:52Z",
+      "schema": 3
+    },
+    "tt0101264": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNmQ5YzQyZDEtNzdjMy00ZWM3LWI4OTQtMWY2NmY4ODljMjA4XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 2.9,
+      "imdb_votes": 2470,
+      "content_rating": "R",
+      "plot": "An alien \"policeman\" arrives on Earth to apprehend a renegade of his own race who impregnates a woman with a potentially destructive mutant embryo.",
+      "runtime_min": 87,
+      "director": "Damian Lee",
+      "actors": [
+        "Jesse Ventura",
+        "Sven-Ole Thorsen",
+        "Damian Lee"
+      ],
+      "genres": [
+        "Action",
+        "Drama",
+        "Sci-Fi"
+      ],
+      "fetched_at": "2026-07-21T05:30:52Z",
+      "schema": 3
+    },
+    "tt0107552": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjEwMDEwMzgzMl5BMl5BanBnXkFtZTYwNjIyMDk4._V1_SX300.jpg",
+      "imdb_rating": 8.6,
+      "imdb_votes": 286,
+      "content_rating": "TV-MA",
+      "plot": "In 1945, camera crews went with the American and British armies in the nazis death camps and filmed the horror they found there. A group of directors among whom was Alfred Hichcock developed a script to present these horrors and b...",
+      "runtime_min": 56,
+      "director": "Sidney Bernstein",
+      "actors": [
+        "Trevor Howard",
+        "Sidney Bernstein",
+        "Alfred Hitchcock"
+      ],
+      "genres": [
+        "Documentary",
+        "News"
+      ],
+      "fetched_at": "2026-07-21T05:30:52Z",
+      "schema": 3
+    },
+    "tt0296168": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZmMyYWZjMjQtOWE2OS00MGEyLWI0N2YtOGMzZjhlM2ZhZjc3XkEyXkFqcGdeQXVyOTQ0NzQxMDA@._V1_SX300.jpg",
+      "imdb_rating": 8.4,
+      "imdb_votes": 21,
+      "content_rating": null,
+      "plot": "Join renowned wildlife filmmakers Dereck Joubert and Beverly Joubert as they capture the drama of Africa's largest free-roaming elephant herds on their timeless journey across the bush country of northern Botswana. Two years in th...",
+      "runtime_min": null,
+      "director": null,
+      "actors": [
+        "Stacy Keach"
+      ],
+      "genres": [
+        "Documentary"
+      ],
+      "fetched_at": "2026-07-21T05:30:52Z",
       "schema": 3
     }
   },
