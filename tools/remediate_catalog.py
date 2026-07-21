@@ -534,11 +534,23 @@ _VERSION_TOK = (
     r"high[\s-]?quality|hq[\s-]?version|quality[\s-]?upgrade|new[\s-]?transfer|"
     r"new[\s-]?scan|new[\s-]?restoration|full[\s-]?movie|full[\s-]?film|"
     r"full[\s-]?length|feature[\s-]?length|complete[\s-]?film|complete[\s-]?version|"
-    r"mp4[\s-]?version|digitally[\s-]?remastered)\b")
+    r"mp4[\s-]?version|digitally[\s-]?remastered|ipod[\s-]?version|"
+    r"widescreen[\s-]?version|english[\s-]?sub(?:s|title|titles)?|vose|vosi|"
+    r"subtitulad[oa])\b")
 _VERSION_TAIL = re.compile(
     r"(?:\s*[-–—|,&/]+\s*" + _VERSION_TOK + r"|\s+" + _VERSION_TOK + r")+\s*\.?\s*$",
     re.I)
 _VERSION_DANGLE = re.compile(r"\s*[-–—|,&/(\[]\s*$")
+# A trailing parenthetical/bracket whose FIRST token is a version/quality word —
+# "Notorious (restored)", "(Widescreen 1954)", "(colorized, uncut)". The _VERSION_TAIL
+# separator class deliberately excludes '(' (so a mid-title paren is safe); this catches
+# the paren case explicitly, only when the paren LEADS with a version word (extra words
+# like a year inside are swept with it). Behind _keep_if_lettered.
+_VERSION_PAREN = re.compile(
+    r"\s*[\(\[]\s*(?:colou?ri[sz]ed|restored|remastered|remaster|widescreen|uncut|"
+    r"uncensored|hd|hq|full\s*hd|1080p|720p|480p|4k|english\s+sub\w*|vose|"
+    r"digitally\s+remastered|quality\s+upgrade|video\s+quality)\b[^)\]]*[\)\]]\s*$",
+    re.I)
 
 
 def _strip_version_tail(t):
@@ -546,7 +558,8 @@ def _strip_version_tail(t):
     # trailing before ("… widescreen & quality upgrade" -> "… widescreen" -> "…"),
     # interleaving the existing format/quality tail (_QUAL_TAIL: widescreen/hd/dvd…).
     for _ in range(6):
-        nt = _VERSION_DANGLE.sub("", _VERSION_TAIL.sub("", t)).rstrip()
+        nt = _VERSION_PAREN.sub("", t).rstrip()
+        nt = _VERSION_DANGLE.sub("", _VERSION_TAIL.sub("", nt)).rstrip()
         nt = _strip_quality_tail(nt)
         if nt == t:
             break
