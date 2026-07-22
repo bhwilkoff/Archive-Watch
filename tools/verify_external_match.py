@@ -174,7 +174,7 @@ def main() -> int:
 
     omdb_key = O.load_omdb_key(REPO / "Secrets.xcconfig")
     if not omdb_key:
-        print("[verify] no OMDB key — set OMDB_API_KEY"); return 0
+        print("[verify] no OMDB key — set OMDB_KEY"); return 0
 
     cat = json.load(open(CATALOG))
     items = cat["items"] if isinstance(cat, dict) else cat
