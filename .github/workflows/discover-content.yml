@@ -170,6 +170,7 @@ jobs:
             --resolve-limit ${{ github.event.inputs.resolve_limit || '600' }} \
             ${{ github.event.inputs.prioritize_source && format('--prioritize-source {0}', github.event.inputs.prioritize_source) || '' }} \
             --workers 6 --no-seed --skip-omdb \
+            --ingested-ids-out ingested_ids.txt \
             ${{ github.event.inputs.include_low_confidence == 'true' && '--include-low-confidence' || '' }} \
             | tee ingest.log
 
@@ -241,6 +242,21 @@ jobs:
           # + conservative — see tools/rights_evidence.py.
           python tools/rights_evidence.py | tee rights.log
 
+      - name: Vet freshly-ingested items (targeted liveness + playability probe)
+        run: |
+          # A non-working new title must not surface. ingest_candidates bakes a
+          # downloadURL but never verifies playability, and discover-content does
+          # NOT run the popularity-first check_liveness — so new items historically
+          # shipped UNVERIFIED. Probe EXACTLY the archiveIDs added this run (metadata
+          # liveness + 1KB byte probe; Linux-compatible). The strict AVFoundation
+          # schedule (macOS) upgrades them to a full decode-verify later. A dead/
+          # unplayable new item is reversibly excluded here, before publish.
+          if [ -s ingested_ids.txt ]; then
+            python tools/check_liveness.py --ids ingested_ids.txt --workers 8 | tee vet.log
+          else
+            echo "no newly-ingested ids to vet" | tee vet.log
+          fi
+
       - name: Summary
         run: |
           echo "## Daily content pipeline" >> $GITHUB_STEP_SUMMARY
@@ -255,6 +271,7 @@ jobs:
           echo '--- tv backfill ---'          >> $GITHUB_STEP_SUMMARY; tail -8 tv.log >> $GITHUB_STEP_SUMMARY
           echo '--- episode audit ---'        >> $GITHUB_STEP_SUMMARY; tail -4 episode_audit.log >> $GITHUB_STEP_SUMMARY
           echo '--- rights evidence ---'       >> $GITHUB_STEP_SUMMARY; tail -3 rights.log >> $GITHUB_STEP_SUMMARY
+          [ -f vet.log ] && { echo '--- ingest-time vet ---' >> $GITHUB_STEP_SUMMARY; tail -3 vet.log >> $GITHUB_STEP_SUMMARY; }
           echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Commit if changed

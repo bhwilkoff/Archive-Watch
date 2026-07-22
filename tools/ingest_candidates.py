@@ -268,6 +268,10 @@ def main():
     ap.add_argument("--skip-omdb", action="store_true",
                     help="Don't call OMDb during ingest — add items as archiveOnly "
                          "and let enrich_movies (TMDb, uncapped) fill metadata later.")
+    ap.add_argument("--ingested-ids-out", default=None,
+                    help="Write the archiveIDs newly ingested this run (one per "
+                         "line) to this file — fed to check_liveness.py --ids so "
+                         "new items get a playability probe BEFORE they can surface.")
     args = ap.parse_args()
 
     if not CANDIDATES.exists():
@@ -352,6 +356,7 @@ def main():
           flush=True)
 
     ingested = no_video = skipped = errored = 0
+    ingested_ids = []          # archiveIDs actually added this run (for --ingested-ids-out)
     queue = workable[:args.max_items]
 
     def write_all():
@@ -394,6 +399,7 @@ def main():
                 cand["status"] = "duplicate"; skipped += 1; continue
             have.add(iaid)
             chunk_items.append(item)
+            ingested_ids.append(iaid)
             cand["status"] = "ingested"; cand["ingested_at"] = now; ingested += 1
         full_catalog["items"].extend(chunk_items)
         write_all()
@@ -403,6 +409,14 @@ def main():
 
     if not queue:
         write_all()   # persist resolver status changes even with nothing to ingest
+    # Emit the newly-ingested archiveIDs so a targeted liveness/playability probe
+    # can vet them BEFORE they surface (check_liveness.py --ids). Always write the
+    # file (even empty) so a downstream step can run unconditionally. Skipped on
+    # --dry-run (nothing was actually added).
+    if args.ingested_ids_out and not args.dry_run:
+        Path(args.ingested_ids_out).write_text("\n".join(ingested_ids) + ("\n" if ingested_ids else ""))
+        print(f"[ingest] wrote {len(ingested_ids)} ingested archiveIDs -> "
+              f"{args.ingested_ids_out}", flush=True)
     print(f"[ingest] done: +{ingested} ingested, {no_video} no-video/skip, "
           f"{skipped} dup, {errored} err"
           f"{' (full-only)' if args.no_seed else ''}", flush=True)

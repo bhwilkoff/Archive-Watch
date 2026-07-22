@@ -262,6 +262,13 @@ def main() -> int:
     ap.add_argument("--refresh", action="store_true",
                     help="re-check items already marked livenessChecked")
     ap.add_argument("--dry-run", action="store_true", help="report only; write nothing")
+    ap.add_argument("--ids", default=None,
+                    help="TARGETED mode: probe EXACTLY the archiveIDs in this file "
+                         "(one per line), ignoring the popularity-first/budget "
+                         "ordering. Used by discover-content to vet freshly-"
+                         "ingested items BEFORE they can surface. Reuses the same "
+                         "metadata + playability probe; still respects a foreign "
+                         "(rights) exclusion as final.")
     ap.add_argument("--no-probe", action="store_true",
                     help="metadata only; skip the byte-level playability probe")
     ap.add_argument("--reprobe-days", type=int, default=90,
@@ -316,7 +323,23 @@ def main() -> int:
         # so those items are live-but-unverified and still need a first probe.
         return not args.no_probe and playback_stale(it)
 
-    targets = [it for it in items if candidate(it)]
+    if args.ids:
+        # TARGETED mode: probe exactly the requested archiveIDs (a small, freshly-
+        # ingested set), bypassing candidate()'s livenessChecked/staleness gate and
+        # the visibility sort/limit — but still skip an item with no downloadURL or
+        # one another tool (rights audit) has excluded (that exclusion is final).
+        wanted = {ln.strip() for ln in Path(args.ids).read_text().splitlines() if ln.strip()}
+        targets = [it for it in items
+                   if it.get("archiveID") in wanted
+                   and it.get("downloadURL")
+                   and not (it.get("excluded") and not it.get(DEAD_FLAG))]
+        print(f"[liveness] --ids: {len(wanted)} requested, {len(targets)} probeable "
+              f"in catalog; workers {args.workers}{' DRY-RUN' if args.dry_run else ''}",
+              flush=True)
+        # Fall through to the SAME executor below (work()/classify()/probe_playable).
+    else:
+        targets = [it for it in items if candidate(it)]
+
     # Order by what the USER can actually reach, not by catalog bookkeeping.
     #
     # The original sort put IMDb-cluster members first, for a real reason: a dead
@@ -344,12 +367,13 @@ def main() -> int:
                 it.get("popularityScore") or 0,
                 it.get("archiveID") in prio)
 
-    targets.sort(key=visibility, reverse=True)
-    if args.limit:
-        targets = targets[:args.limit]
-    print(f"[liveness] {len(targets)} items to probe "
-          f"({sum(1 for it in targets if it.get('archiveID') in prio)} in IMDb clusters; "
-          f"workers {args.workers}{' DRY-RUN' if args.dry_run else ''})", flush=True)
+    if not args.ids:      # --ids probes exactly the given set, no sort/limit
+        targets.sort(key=visibility, reverse=True)
+        if args.limit:
+            targets = targets[:args.limit]
+        print(f"[liveness] {len(targets)} items to probe "
+              f"({sum(1 for it in targets if it.get('archiveID') in prio)} in IMDb clusters; "
+              f"workers {args.workers}{' DRY-RUN' if args.dry_run else ''})", flush=True)
 
     tally = Counter()
     lock = threading.Lock()
