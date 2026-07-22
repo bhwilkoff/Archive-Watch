@@ -94,17 +94,23 @@ struct PlayerView: UIViewControllerRepresentable {
         try? AVAudioSession.sharedInstance().setActive(true)
 
         let pItem: AVPlayerItem
-        if let hls = subtitleHLSURL {
-            // Native HLS (Decision 039): AVPlayerViewController shows the CC menu
-            // for the WebVTT tracks. The MP4 streams as the HLS variant, so on
-            // captioned titles we use AVFoundation's native HLS path instead of
-            // ResilientStreamLoader (byte-range segments would restore loader-
-            // grade resilience — the documented robustness upgrade).
-            pItem = AVPlayerItem(url: hls)
-            // A non-faststart (moov-at-EOF) MP4 can fail to start as a single HLS
+        if let hls = subtitleHLSURL, let mp4 = videoURL {
+            // Part (a) Config C (Decision 039): AVPlayerViewController shows the CC
+            // menu for the WebVTT tracks. A resource-loader delegate serves the HLS
+            // playlists with the video segment rewritten to a freshly node-resolved
+            // direct https URL, so captioned playback STARTS on a known-live storage
+            // node (skips the /download 302 + node-rotation-at-start). The segment
+            // stays AVFoundation-owned (no mid-stream failover — Part c's stall
+            // fallback covers that).
+            let (asset, hlsLoader) = CaptionedHLSLoader.makeAsset(hls: hls, downloadURL: mp4)
+            context.coordinator.captionedLoader = hlsLoader   // retain (weak delegate)
+            pItem = AVPlayerItem(asset: asset)
+            // A non-faststart (moov-at-EOF) MP4 can still fail as a single HLS
             // segment. Arm a fallback to the resilient MP4 loader (handles
             // moov-at-EOF via byte-range seeks) so the film still plays (sans CC).
-            context.coordinator.fallbackVideoURL = videoURL
+            context.coordinator.fallbackVideoURL = mp4
+        } else if let hls = subtitleHLSURL {
+            pItem = AVPlayerItem(url: hls)         // no MP4 to node-resolve; native HLS
         } else if let url = videoURL {
             let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
             context.coordinator.loader = loader   // retain (delegate is held weakly)
@@ -150,6 +156,7 @@ struct PlayerView: UIViewControllerRepresentable {
         let onAdvance: ((String) -> Void)?
         let persistsProgress: Bool
         var loader: ResilientStreamLoader?
+        var captionedLoader: CaptionedHLSLoader?   // Part (a): Config C HLS (weak delegate)
         weak var playerVC: AVPlayerViewController?
         private var timeObserver: Any?
         private var endObserver: NSObjectProtocol?
@@ -265,6 +272,7 @@ struct PlayerView: UIViewControllerRepresentable {
             fallbackWork?.cancel(); fallbackWork = nil
             statusObs = nil
             captionStall.detach()
+            captionedLoader = nil                 // release the Config-C HLS loader
             let pos = player.currentTime()
             let (asset, ldr) = ResilientStreamLoader.makeAsset(for: url)
             loader = ldr

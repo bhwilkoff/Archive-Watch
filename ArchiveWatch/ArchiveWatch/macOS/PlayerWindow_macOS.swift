@@ -130,6 +130,7 @@ private struct PlayerSurface: View {
     // On a persistent mid-stream stall — or a hard load failure — drop CC and
     // rebuild on the resilient MP4 (smooth-without-CC beats stutter-with-CC).
     @State private var captionStall = CaptionStallMonitor()
+    @State private var captionedLoader: CaptionedHLSLoader?   // Part (a): Config C HLS
     @State private var statusObs: NSKeyValueObservation?
     @State private var didFallback = false
 
@@ -151,8 +152,15 @@ private struct PlayerSurface: View {
     private func setup() {
         guard player == nil else { return }
         let playerItem: AVPlayerItem
-        if let hls = subtitleHLS {
-            playerItem = AVPlayerItem(url: hls)                 // native CC + seek
+        if let hls = subtitleHLS, let mp4 = videoURL {
+            // Part (a) Config C: native CC menu, but START on a known-live storage
+            // node — the loader serves the HLS playlists with the segment rewritten
+            // to a freshly node-resolved direct https URL (skips the /download 302).
+            let (asset, l) = CaptionedHLSLoader.makeAsset(hls: hls, downloadURL: mp4)
+            captionedLoader = l
+            playerItem = AVPlayerItem(asset: asset)
+        } else if let hls = subtitleHLS {
+            playerItem = AVPlayerItem(url: hls)                 // no MP4 to resolve; native HLS
         } else if let url = videoURL {
             let (asset, l) = ResilientStreamLoader.makeAsset(for: url)
             loader = l
@@ -201,6 +209,7 @@ private struct PlayerSurface: View {
         didFallback = true
         captionStall.detach()
         statusObs = nil
+        captionedLoader = nil
         let pos = p.currentTime()
         let (asset, l) = ResilientStreamLoader.makeAsset(for: url)
         loader = l
@@ -221,6 +230,7 @@ private struct PlayerSurface: View {
         if let t = timeObserver { player?.removeTimeObserver(t); timeObserver = nil }
         captionStall.detach()
         statusObs = nil
+        captionedLoader = nil
         persist()
     }
 

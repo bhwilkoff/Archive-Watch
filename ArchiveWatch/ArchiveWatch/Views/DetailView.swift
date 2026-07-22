@@ -530,6 +530,7 @@ struct PlayerScreen: View {
     @State private var captionStall = CaptionStallMonitor()
     @State private var nowPlaying = NowPlayingController()
     @State private var streamLoader: ResilientStreamLoader?
+    @State private var captionedLoader: CaptionedHLSLoader?   // Part (a): Config C HLS
     @State private var statusObserver: NSKeyValueObservation?
     @State private var timeoutTask: Task<Void, Never>?
     @State private var autoRetried = false   // #10: silently retry once before failing
@@ -754,11 +755,15 @@ struct PlayerScreen: View {
         let playURL = active?.videoURLParsed ?? url
         let playerItem: AVPlayerItem
         if let hls = active?.subtitleHLSURL, !forceDirectPlayback {
-            // Native HLS subtitles (Decision 039): the Info/CC menu lists the
-            // WebVTT tracks. Captioned titles use AVFoundation's native HLS path
-            // instead of ResilientStreamLoader (byte-range = the resilience
-            // upgrade). streamLoader stays nil.
-            playerItem = AVPlayerItem(url: hls)
+            // Part (a) Config C: keep the native CC menu but START on a known-live
+            // storage node — a resource-loader delegate serves the HLS playlists
+            // with the video segment rewritten to a freshly node-resolved direct
+            // https URL (skips the /download 302 + node-rotation-at-start). The
+            // segment stays AVFoundation-owned (no mid-stream failover — that's
+            // Part c's stall fallback). streamLoader stays nil.
+            let (asset, hlsLoader) = CaptionedHLSLoader.makeAsset(hls: hls, downloadURL: playURL)
+            captionedLoader = hlsLoader
+            playerItem = AVPlayerItem(asset: asset)
         } else {
             let (asset, loader) = ResilientStreamLoader.makeAsset(for: playURL)
             streamLoader = loader
@@ -881,6 +886,7 @@ struct PlayerScreen: View {
         player = nil
         timeObserver = nil
         streamLoader = nil
+        captionedLoader = nil
         statusObserver?.invalidate()
         statusObserver = nil
         timeoutTask?.cancel()
