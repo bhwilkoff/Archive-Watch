@@ -1,0 +1,181 @@
+name: Faststart remux (generate + host)
+
+# FIX the moov-at-EOF films that AVFoundation-over-HTTP rejects (-11829, the owner's
+# "resource unavailable on Apple" + start-stutter class). The strict verifier
+# (verify-playback-strict.yml) flags these needsFaststart=True; archive.org has NO
+# .ia.mp4 derivative to swap to, so the ONLY fix is to remux the moov to the front
+# (lossless -c copy) and HOST the result. This workflow does exactly that and then
+# CONFIRMS the hosted URL actually plays on AVFoundation before keeping the swap.
+#
+# Shape (fetch -> remux+host -> re-verify -> keep-or-revert -> publish):
+#   1. remux (ubuntu): fetch catalog -> faststart_remux.py on the needsFaststart
+#      set (bounded per run) -> download+remux+validate+UPLOAD to archive.org item
+#      `archivewatch-faststart` (IAS3 secrets) -> re-point downloadURL, set
+#      faststartRemuxed=true, clear needsFaststart/applePlayable. Publishes the
+#      mutated catalog to the source release.
+#   2. verify (macos): fetch the just-published catalog -> run the strict AVFoundation
+#      harness (--reverify-strictfail catches the swapped set) on the NEW hosted URLs
+#      to confirm they reach readyToPlay. Emits a delta.
+#   3. reconcile (ubuntu): apply the strict delta. A hosted URL that PASSES keeps the
+#      swap + cleared flags; one that does NOT pass is reverted to needsFaststart via
+#      the strict tool's own verdict logic (it re-flags apple_faststart_quirk), so a
+#      bad remux never ships. Remediate + publish + dispatch publish-db.
+#
+# Bounded (LIMIT default 25) so it never runs away on the broader class as the
+# strict pass drains more items into needsFaststart. IAS3 secrets are the SAME
+# ones cover-generation.yml uses (Decision 023). Only the catalog-mutating jobs
+# join the catalog-writers group; the read-only macOS verify does NOT (a pending
+# writer must not starve it — same reason as verify-playback-strict.yml).
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max needsFaststart items to remux this run'
+        required: false
+        default: '25'
+      ids:
+        description: 'Optional comma-separated archiveIDs (overrides the needsFaststart scan)'
+        required: false
+        default: ''
+  # Chain after the daily strict verify so newly-flagged moov-at-EOF films get
+  # remuxed the next day (bounded, so a big flag day drains over several runs).
+  workflow_run:
+    workflows: ["Verify playback (strict / AVFoundation)"]
+    types: [completed]
+
+jobs:
+  # 1) Remux + host + re-point. This job mutates + publishes the catalog, so it
+  #    holds the catalog-writers lock.
+  remux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    # Skip the workflow_run trigger when the upstream strict verify FAILED.
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    concurrency:
+      group: catalog-writers
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      actions: write
+    outputs:
+      hosted: ${{ steps.remux.outputs.hosted }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Remux + host + re-point (bounded)
+        id: remux
+        env:
+          IAS3_ACCESS_KEY: ${{ secrets.IAS3_ACCESS_KEY }}
+          IAS3_SECRET_KEY: ${{ secrets.IAS3_SECRET_KEY }}
+        run: |
+          IDS='${{ github.event.inputs.ids }}'
+          ARGS="--limit ${{ github.event.inputs.limit || '25' }}"
+          if [ -n "$IDS" ]; then ARGS="--ids $IDS"; fi
+          python tools/faststart_remux.py $ARGS | tee remux.log
+          # Signal downstream whether anything was actually hosted (skip re-verify if not).
+          if grep -q "hosted + re-pointed" remux.log; then echo "hosted=1" >> "$GITHUB_OUTPUT"; fi
+          echo "## Faststart remux" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -6 remux.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Remediate + publish catalog
+        if: ${{ steps.remux.outputs.hosted == '1' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python tools/remediate_catalog.py
+          python tools/catalog_release.py publish
+
+  # 2) Re-verify the swapped URLs on AVFoundation (read-only; NOT in catalog-writers).
+  verify:
+    needs: remux
+    if: ${{ needs.remux.outputs.hosted == '1' }}
+    runs-on: macos-15
+    timeout-minutes: 120
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Ensure ffmpeg/ffprobe
+        run: command -v ffprobe >/dev/null 2>&1 || brew install ffmpeg
+      - name: Build the strict verifier
+        run: swift build -c release
+        working-directory: tools/PlaybackVerifierCLI
+      - name: Fetch catalog (with the swapped URLs)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+      - name: Strict re-verify the swapped set
+        run: |
+          # --recheck-remuxed targets EXACTLY the faststartRemuxed items awaiting
+          # confirmation (re-pointed, no fresh strictCheckedAt) — not the whole
+          # catalog. Confirms each NEW hosted URL reaches readyToPlay; emits a delta.
+          python tools/verify_playback_strict.py --recheck-remuxed \
+            --concurrency 4 --no-publish \
+            --deltas-out delta-faststart.json | tee verify.log
+          echo "## Faststart re-verify" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -4 verify.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+      - name: Upload verify delta
+        uses: actions/upload-artifact@v4
+        with:
+          name: faststart-verify-delta
+          path: delta-faststart.json
+          if-no-files-found: warn
+
+  # 3) Apply the re-verify verdict: a PASS keeps the swap; a FAIL re-flags
+  #    apple_faststart_quirk (the strict tool's own logic), so a bad remux reverts.
+  reconcile:
+    needs: [remux, verify]
+    if: ${{ needs.remux.outputs.hosted == '1' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    concurrency:
+      group: catalog-writers
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Ensure ffmpeg/ffprobe
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+      - name: Download verify delta
+        uses: actions/download-artifact@v4
+        with:
+          name: faststart-verify-delta
+          path: deltas
+      - name: Apply verdict + publish
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python tools/verify_playback_strict.py --apply-deltas deltas --publish | tee apply.log
+          echo "## Faststart reconcile (keep-or-revert)" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -4 apply.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+      - name: Rebuild app DB
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash tools/gh_dispatch.sh publish-db.yml

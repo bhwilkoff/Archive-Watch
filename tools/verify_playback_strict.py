@@ -628,6 +628,13 @@ def main() -> int:
                          "verdict-mapping change (e.g. the -11829 container-error "
                          "fix): the harness re-runs and the ffprobe disambiguation "
                          "un-hides faststart-quirk films + re-labels the truncated ones.")
+    ap.add_argument("--recheck-remuxed", action="store_true",
+                    help="Target ONLY the faststart-remuxed set awaiting confirmation "
+                         "(faststartRemuxed=True with no fresh strictCheckedAt) — the "
+                         "faststart-remux workflow's re-verify step. Confirms the NEW "
+                         "hosted URL actually reaches readyToPlay before the swap is "
+                         "kept; a fail re-flags apple_faststart_quirk via the normal "
+                         "verdict logic, so a bad remux reverts.")
     ap.add_argument("--deltas-out", default="",
                     help="also write a compact per-item verdict delta JSON here "
                          "(for a sharded CI matrix: shards emit deltas, one publish "
@@ -661,7 +668,16 @@ def main() -> int:
     today = date.today().isoformat()
 
     cat, items = load_catalog()
-    if args.reverify_strictfail:
+    if args.recheck_remuxed:
+        # Confirm the faststart-remux workflow's swapped URLs. Target exactly the
+        # re-pointed set awaiting confirmation — faststartRemuxed=True and not yet
+        # strict-stamped (repoint() clears strictCheckedAt) — ignoring visibility
+        # ordering + limit so every swapped item is verified this run.
+        targets = [it for it in items
+                   if it.get("faststartRemuxed") and not it.get("strictCheckedAt")
+                   and it.get("downloadURL")
+                   and shard_ok(it, args.shard_index, args.shard_count)]
+    elif args.reverify_strictfail:
         # Force-reverify the CURRENT strict-excluded set — ignore the TTL + excluded
         # gate (these are exactly the items candidate() would skip because they were
         # just checked). This catches ALL strictFail items (the named 6 plus any
