@@ -88,6 +88,18 @@ UNAVAIL_COUNT_THRESHOLD = 3     # all-nodes failures on >= this many distinct da
 UNAVAIL_SPAN_DAYS = 2           # ... spanning >= this many calendar days
 UNAVAIL_REASON = "persistently_unavailable"
 
+# Run-level INFRA circuit breaker. A single item that fails all its storage nodes
+# is a per-item signal (mark_unavailable accumulates it across days). But if a
+# LARGE FRACTION of a whole run verdicts `unavailable_all_nodes`, that is not N
+# independent dead films — it is archive.org rate-limiting our runner's IP (or an
+# archive.org-wide blip), and every unavail verdict that run is untrustworthy. On
+# a healthy run the all-nodes-unavail rate is ~3% (measured: 170/6000 on a real
+# run). When it exceeds this fraction we treat the run as infra-affected and do NOT
+# touch the per-item unavail counters/timestamps/exclusions for ANY unavail item
+# that run (they stay exactly as they were, to be re-checked next run). HARD media
+# verdicts (bad codec / no video track) still apply — a bad file isn't infra.
+UNAVAIL_CIRCUIT_BREAKER_FRAC = 0.15
+
 
 def build_harness() -> None:
     """Build the Swift harness if the binary is missing. Local dev + CI both call
@@ -222,17 +234,40 @@ def mark_unavailable(it, check_date, tally):
         tally["_unavail"] += 1
 
 
-def apply_verdict(it, r, today, tally):
+def _breaker(n_unavail, n_hard, n_pass):
+    """Run-level infra guard. Returns (fraction, tripped) where the fraction is
+    unavail over all DECIDED verdicts (hard+pass+unavail) and tripped is True when
+    it exceeds UNAVAIL_CIRCUIT_BREAKER_FRAC. Transient/no-result verdicts are not
+    'decided' and never counted (they carry no unavail signal)."""
+    decided = n_unavail + n_hard + n_pass
+    frac = (n_unavail / decided) if decided else 0.0
+    return frac, frac > UNAVAIL_CIRCUIT_BREAKER_FRAC
+
+
+def _log_breaker(frac):
+    print(f"[strict] CIRCUIT BREAKER: unavail {frac:.0%} > "
+          f"{UNAVAIL_CIRCUIT_BREAKER_FRAC:.0%} — treating as infra, no unavail "
+          f"counters/exclusions this run", flush=True)
+
+
+def apply_verdict(it, r, today, tally, unavail_infra=False):
     """Write additive strict flags. HARD -> reversible exclude; UNAVAIL -> accumulate
     a confirm-across-runs counter (exclude only when persistently dead); PASS -> clear
     a strict exclusion WE set; TRANSIENT -> leave unverified (retry next run).
     `today` is the ISO date to stamp (the delta's own check date when re-applying a
-    shard delta, so strictCheckedAt reflects when the check actually ran)."""
+    shard delta, so strictCheckedAt reflects when the check actually ran).
+    `unavail_infra` (the run-level circuit breaker tripped) makes an UNAVAIL verdict
+    a no-op — the item is left EXACTLY as it was (no counter, no timestamp, no
+    exclusion), because the whole run's unavailability is IP-throttle noise, not a
+    real per-item signal. HARD/PASS still apply (a bad codec isn't an infra problem)."""
     verdict = r.get("verdict")
     reason = r.get("reason") or verdict
     check_date = r.get("date") or today
 
     if verdict == UNAVAIL_VERDICT:
+        if unavail_infra:
+            tally["infra_unavail"] += 1          # breaker tripped: leave item as-is
+            return
         mark_unavailable(it, check_date, tally)
         return
     if verdict not in HARD_VERDICTS and verdict not in PASS_VERDICTS:
@@ -284,6 +319,19 @@ def apply_deltas_mode(args) -> int:
                 merged[k] = r
     print(f"[strict] applying {len(merged)} deltas from {len(files)} file(s)", flush=True)
 
+    # Run-level infra circuit breaker: the whole-run unavail fraction is known here
+    # (this job sees the MERGED delta set from every shard), so this is where the
+    # breaker belongs for the sharded CI matrix.
+    n_unavail = sum(1 for r in merged.values() if r.get("verdict") == UNAVAIL_VERDICT)
+    n_hard = sum(1 for r in merged.values() if r.get("verdict") in HARD_VERDICTS)
+    n_pass = sum(1 for r in merged.values() if r.get("verdict") in PASS_VERDICTS)
+    frac, breaker = _breaker(n_unavail, n_hard, n_pass)
+    if breaker:
+        _log_breaker(frac)
+    else:
+        print(f"[strict] unavail {frac:.0%} of {n_unavail + n_hard + n_pass} decided "
+              f"(<= {UNAVAIL_CIRCUIT_BREAKER_FRAC:.0%}) — applying normally", flush=True)
+
     cat, items = load_catalog()
     by_id = {it.get("archiveID"): it for it in items}
     tally = Counter()
@@ -299,7 +347,13 @@ def apply_deltas_mode(args) -> int:
         # can clear our own exclusion).
         if it.get("excluded") and not it.get(STRICT_FAIL_FLAG):
             continue
-        apply_verdict(it, r, today, tally)
+        apply_verdict(it, r, today, tally, unavail_infra=breaker)
+
+    if args.dry_run:
+        # --apply-deltas --dry-run: report the breaker decision + verdict tally,
+        # write NOTHING (the in-memory mutations above are discarded).
+        print(f"[strict] apply DRY-RUN (no write): {dict(tally)}", flush=True)
+        return 0
 
     tmp = CATALOG.with_suffix(".json.tmp")
     json.dump(cat, open(tmp, "w"), ensure_ascii=False, separators=(",", ":"))
@@ -377,7 +431,12 @@ def main() -> int:
 
     tally = Counter()
     done = 0
-    deltas = {}   # archiveID -> {verdict, reason, date} for HARD/PASS items only
+    deltas = {}   # archiveID -> {verdict, reason, date} for HARD/PASS/UNAVAIL items
+    # UNAVAIL decisions are DEFERRED until the whole run is done: the run-level
+    # circuit breaker (unavail fraction over all decided verdicts) can only be judged
+    # once, and a same-run breaker must apply to every unavail item that run. HARD/PASS
+    # are applied streaming (they never depend on the run fraction).
+    unavail_pending = []   # (item, check_date)
 
     def flush():
         tmp = CATALOG.with_suffix(".json.tmp")
@@ -397,8 +456,8 @@ def main() -> int:
             if r is None:
                 tally["_no_result"] += 1          # harness produced nothing: retry next run
                 continue
+            v = r.get("verdict")
             if args.dry_run:
-                v = r.get("verdict")
                 if v in HARD_VERDICTS:
                     key, bucket = f"hard:{v}", "_hard"
                 elif v in PASS_VERDICTS:
@@ -410,8 +469,10 @@ def main() -> int:
                 tally[key] += 1
                 tally[bucket] += 1
             else:
-                apply_verdict(it, r, today, tally)
-                v = r.get("verdict")
+                if v == UNAVAIL_VERDICT:
+                    unavail_pending.append((it, r.get("date") or today))
+                else:
+                    apply_verdict(it, r, today, tally)
                 # Carry HARD/PASS AND the SOFT unavail verdict in deltas so a sharded
                 # CI run accumulates the confirm-across-runs counters across shards+days.
                 if v in HARD_VERDICTS or v in PASS_VERDICTS or v == UNAVAIL_VERDICT:
@@ -421,8 +482,29 @@ def main() -> int:
         if not args.dry_run:
             flush()
         print(f"[{min(start + args.batch, len(targets))}/{len(targets)}] "
-              f"pass={tally['_pass']} hard={tally['_hard']} unavail={tally['_unavail']} "
+              f"pass={tally['_pass']} hard={tally['_hard']} "
+              f"unavail={len(unavail_pending) if not args.dry_run else tally['_unavail']} "
               f"transient={tally['_transient']} no_result={tally['_no_result']}", flush=True)
+
+    # Resolve the deferred UNAVAIL items with the run-level circuit breaker now that
+    # the whole run's fraction is known (a non-sharded direct run applies here; a
+    # sharded CI run re-decides the merged fraction in apply_deltas_mode).
+    if args.dry_run:
+        frac, tripped = _breaker(tally["_unavail"], tally["_hard"], tally["_pass"])
+        if tripped:
+            _log_breaker(frac)
+        else:
+            print(f"[strict] unavail {frac:.0%} of decided (<= "
+                  f"{UNAVAIL_CIRCUIT_BREAKER_FRAC:.0%}) — would apply normally", flush=True)
+    elif unavail_pending:
+        frac, tripped = _breaker(len(unavail_pending), tally["_hard"], tally["_pass"])
+        if tripped:
+            _log_breaker(frac)
+            tally["infra_unavail"] += len(unavail_pending)   # leave every item as-is
+        else:
+            for it, cd in unavail_pending:
+                mark_unavailable(it, cd, tally)
+        flush()
 
     print(f"[strict] done: {dict(tally)}", flush=True)
 

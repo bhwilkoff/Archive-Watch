@@ -16,10 +16,27 @@ name: Verify playback (strict / AVFoundation)
 # applies them (mirrors the subtitle/liveness fetch->shard->merge->single-publish
 # pattern so parallel shards never clobber the shared catalog on the release).
 #
-# workflow_dispatch ONLY — the schedule: trigger is deliberately withheld until a
-# review of the first real runs confirms the hard-fail rate + classification.
+# ONGOING AUDIT (Decision 044-style enforce-every-build discipline): this runs
+# daily. The bounded default (1500/shard x 4 = 6000 items/day) drains the ~40k
+# catalog in ~7 days, then just maintains + catches newly-ingested titles (the
+# strict pass UPGRADES the Linux ingest-time lenient probe). An apply-time infra
+# circuit breaker (UNAVAIL_CIRCUIT_BREAKER_FRAC in verify_playback_strict.py)
+# ignores a run where archive.org throttled our IP, so a bad-network day never
+# mass-hides playable films.
+#
+# UTC-slot map (dodge the catalog-writer cron-wave):
+#   00,08 color-classify | 01:10 rights-audit | 02:15 validate-posters
+#   03:42 discover-content | 04:30 publish-db | 05:00 cover-gen + rebuild(Mon)
+#   06:00 free-subtitles | 13:00 check-liveness
+#   weeklies: 18:00 Wed detect-trailers | 19:00 Tue verify-matches
+#             20:00 Thu subtitles | 21:00 Mon match-unmatched
+# 10:20 UTC is clear (nothing else in the 09:00-12:00 window) and an odd minute
+# to avoid top-of-hour runner congestion. The macOS verify shards only READ the
+# catalog, so they do NOT sit in the catalog-writers group (see the publish job).
 
 on:
+  schedule:
+    - cron: '20 10 * * *'   # daily 10:20 UTC — quiet slot (see the map above)
   workflow_dispatch:
     inputs:
       limit:
@@ -35,9 +52,11 @@ on:
         required: false
         default: '180'
 
-concurrency:
-  group: catalog-writers
-  cancel-in-progress: false
+# NO whole-workflow concurrency: the macOS verify shards are READ-ONLY (they fetch
+# the catalog + upload delta artifacts, mutating nothing), so they must NOT sit in
+# the catalog-writers group — a newer pending catalog-writer would supersede a long
+# multi-hour verify and starve it (the group keeps only one pending run). Only the
+# short ubuntu publish job mutates the catalog, and it alone holds the writers lock.
 
 jobs:
   # Fan-out: each shard fetches the catalog, verifies its slice of the items, and
@@ -101,6 +120,12 @@ jobs:
     if: ${{ always() }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    # Only the publish job mutates the shared catalog on the release, so ONLY it
+    # joins the catalog-writers group. It's short (merge deltas + publish), so it
+    # holds the lock briefly and can't starve other writers.
+    concurrency:
+      group: catalog-writers
+      cancel-in-progress: false
     permissions:
       contents: write
       actions: write
