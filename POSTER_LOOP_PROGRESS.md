@@ -94,3 +94,14 @@ platforms via the shared catalog, and make it ONGOING via cron.
   on target films: year/director/synopsis); (4) the ~6,591 title+year-only no-id tail via
   match_unmatched (year-corroborated) + verify_external_match/tmdb_verify_matches/color sweeps; (5)
   raise classify_color coverage so the B&W×modern guard fires on the fuzzy tail.
+
+### Tick 4 — 2026-07-22 — Bounded run RESULT + drain more + audit the no-id matcher
+- Run 29959789641 SUCCESS: **601 upgraded** (578 posterDead→TMDb, 23 generated→TMDb) of 1500; all
+  3000 tmdb posters verified LIVE (0 dead); safety skips firing (year-mismatch + B&W→modern);
+  published to all platforms. Pro film coverage ~53%→~55%.
+- Dispatched another bounded TMDb drain run (limit=2500) → keep the id-anchored push going (safe).
+- **Dispatching one audit agent (diagnostic-first for the RISKY path):** the ~10,699 no-id
+  (title+year-only) films are the biggest lever AND where old→modern wrong-match risk lives.
+  `match_unmatched.py` (title+year, ±2yr + 0.6 sim, Decision 026) resolves id + sources poster in one
+  shot. Before scaling it, run it in DRY-RUN/report on a no-id film sample, assess match quality +
+  wrong-era false-positive rate (esp. old/silent films), flag risky matches, recommend stronger guards.
