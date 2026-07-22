@@ -123,3 +123,15 @@ platforms via the shared catalog, and make it ONGOING via cron.
   trailer + exclude tv-special; #4 pre-1950 sim≥0.85 / 1-2-word require exact title+year or Archive id;
   #5 abstain when ≥2 TMDb candidates share the title in-window. Re-validate old-biased dry-run → confirm
   wrong rate near-zero. Then safe to scale the ~8.5k no-id tail.
+
+### Tick 6 — 2026-07-22 — Matcher HARDENED (0% wrong); cleanup existing wrong matches
+- Matcher hardened + committed `3eef0e5f` (v1.3.304/826). Re-validation: 120 pre-1950 films →
+  7 matched / 113 abstained / **0 wrong** (was ~30%). Archetypes rejected (Kolchak TV, trailer,
+  Assassination 0.59). Fix 1 = Decision-026 alignment (adopt Archive-declared imdb FIRST; fuzzy no
+  longer self-certifies). Eligible no-id set tightened to 7,128 (colorMode-required + tv-special-excluded).
+- 3rd TMDb drain run 29962531408: 89 upgraded (72 dead, 17 gen) — **TMDb id-anchored path SATURATING**
+  (~1,866 total upgraded, ~59% pro coverage). Diminishing returns → shift to cleanup + matcher + other sources.
+- **2,254 previously-self-certified fuzzy matches** are now re-checkable → dispatched the cleanup
+  `verify-matches.yml refresh=true limit=8000` (Decision 026: re-check matched items vs Archive
+  external-identifier/date/color, clear/re-resolve wrong ones = fixes existing wrong posters+identities+
+  metadata). Review cleared count next tick, then scale the hardened matcher on the no-id tail.
