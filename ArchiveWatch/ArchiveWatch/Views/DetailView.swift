@@ -527,6 +527,7 @@ struct PlayerScreen: View {
     @State private var player: AVPlayer?
     @State private var timeObserver: Any?
     @State private var freezeGuard = PlaybackFreezeGuard()
+    @State private var captionStall = CaptionStallMonitor()
     @State private var nowPlaying = NowPlayingController()
     @State private var streamLoader: ResilientStreamLoader?
     @State private var statusObserver: NSKeyValueObservation?
@@ -736,6 +737,17 @@ struct PlayerScreen: View {
 
     private var activeArchiveID: String { current?.archiveID ?? archiveID }
 
+    // Part (c): a persistent mid-stream stall on the native-HLS (captioned) path
+    // drops CC and rebuilds on the resilient MP4. persist:true captures the
+    // current position first so setupPlayer resumes at (within ~5s of) the stall.
+    private func forceDirectFallback() {
+        guard !forceDirectPlayback, (current ?? catalogItem)?.subtitleHLSURL != nil else { return }
+        forceDirectPlayback = true
+        teardownPlayer(persist: true)
+        playback = .loading
+        setupPlayer()
+    }
+
     private func setupPlayer() {
         playback = .loading
         let active = current ?? catalogItem
@@ -768,6 +780,13 @@ struct PlayerScreen: View {
         player = p
         freezeGuard.attach(to: p, item: playerItem)
         nowPlaying.begin(posterURL: active?.posterURLParsed, item: playerItem)
+        // Part (c): captioned items play native HLS (bypassing ResilientStreamLoader).
+        // If that path STUTTERS persistently, drop CC and rebuild on the resilient
+        // MP4 — smooth-without-CC beats stutter-with-CC. The existing hard-failure
+        // fallback (handleLoadFailure) stays as the startup safety net.
+        if active?.subtitleHLSURL != nil, !forceDirectPlayback {
+            captionStall.attach(player: p, item: playerItem) { forceDirectFallback() }
+        }
 
         // Watch the item ready or fail so a broken stream becomes a visible,
         // recoverable error instead of the dead "no-entry" circle (#19). KVO can
@@ -853,6 +872,7 @@ struct PlayerScreen: View {
         if let obs = timeObserver { player?.removeTimeObserver(obs) }
         if let e = endObserver { NotificationCenter.default.removeObserver(e); endObserver = nil }
         freezeGuard.detach()
+        captionStall.detach()
         nowPlaying.end()
         if persist, let p = player {
             persistProgress(at: p.currentTime().seconds, duration: p.currentItem?.duration.seconds)

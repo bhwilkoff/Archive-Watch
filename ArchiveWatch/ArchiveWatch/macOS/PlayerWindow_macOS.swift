@@ -126,6 +126,12 @@ private struct PlayerSurface: View {
     @State private var loader: ResilientStreamLoader?     // retained for the asset's lifetime
     @State private var endObserver: NSObjectProtocol?
     @State private var timeObserver: Any?                 // periodic progress save (Continue Watching)
+    // Part (c): captioned titles play native HLS (bypassing ResilientStreamLoader).
+    // On a persistent mid-stream stall — or a hard load failure — drop CC and
+    // rebuild on the resilient MP4 (smooth-without-CC beats stutter-with-CC).
+    @State private var captionStall = CaptionStallMonitor()
+    @State private var statusObs: NSKeyValueObservation?
+    @State private var didFallback = false
 
     var body: some View {
         ZStack {
@@ -171,6 +177,15 @@ private struct PlayerSurface: View {
             forName: AVPlayerItem.didPlayToEndTimeNotification, object: playerItem, queue: .main) { _ in
             MainActor.assumeIsolated { onEnded?() }
         }
+        // Part (c): captioned (HLS) titles — recover to the resilient MP4 on a hard
+        // load failure OR a persistent stutter. Non-captioned MP4 already streams
+        // through ResilientStreamLoader, so it needs no fallback.
+        if subtitleHLS != nil, videoURL != nil {
+            statusObs = playerItem.observe(\.status, options: [.new]) { item, _ in
+                MainActor.assumeIsolated { if item.status == .failed { fallbackToResilientMP4() } }
+            }
+            captionStall.attach(player: p, item: playerItem) { fallbackToResilientMP4() }
+        }
         // Periodic save (every 5s) — macOS previously saved ONLY on window close, so a crash /
         // force-quit lost the whole session and nothing synced mid-playback (owner 2026-06-29).
         timeObserver = p.addPeriodicTimeObserver(
@@ -179,9 +194,33 @@ private struct PlayerSurface: View {
         }
     }
 
+    /// Part (c): swap the failed/stuttering native-HLS item for the resilient MP4
+    /// (resume-on-reset + node failover), preserving the play position. Fires once.
+    private func fallbackToResilientMP4() {
+        guard !didFallback, let url = videoURL, let p = player else { return }
+        didFallback = true
+        captionStall.detach()
+        statusObs = nil
+        let pos = p.currentTime()
+        let (asset, l) = ResilientStreamLoader.makeAsset(for: url)
+        loader = l
+        let newItem = AVPlayerItem(asset: asset)
+        newItem.preferredForwardBufferDuration = 300
+        if let e = endObserver { NotificationCenter.default.removeObserver(e); endObserver = nil }
+        endObserver = NotificationCenter.default.addObserver(
+            forName: AVPlayerItem.didPlayToEndTimeNotification, object: newItem, queue: .main) { _ in
+            MainActor.assumeIsolated { onEnded?() }
+        }
+        p.replaceCurrentItem(with: newItem)
+        if pos.seconds > 5 { p.seek(to: pos) }
+        p.play()
+    }
+
     private func teardown() {
         if let e = endObserver { NotificationCenter.default.removeObserver(e); endObserver = nil }
         if let t = timeObserver { player?.removeTimeObserver(t); timeObserver = nil }
+        captionStall.detach()
+        statusObs = nil
         persist()
     }
 

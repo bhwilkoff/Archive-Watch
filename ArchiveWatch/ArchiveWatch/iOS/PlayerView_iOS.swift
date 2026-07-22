@@ -165,6 +165,7 @@ struct PlayerView: UIViewControllerRepresentable {
         private var didFallback = false
         private var statusObs: NSKeyValueObservation?
         private var fallbackWork: DispatchWorkItem?
+        private let captionStall = CaptionStallMonitor()   // Part (c): stutter → resilient MP4
 
         init(archiveID: String, ctx: ModelContext, queue: PlaybackQueue?,
              onAdvance: ((String) -> Void)? = nil, persistsProgress: Bool = true) {
@@ -197,6 +198,13 @@ struct PlayerView: UIViewControllerRepresentable {
                 }
                 fallbackWork = work
                 DispatchQueue.main.asyncAfter(deadline: .now() + 15, execute: work)
+                // Part (c): also fall back when the native-HLS path merely STUTTERS
+                // mid-stream (not just on a hard load failure) — the resilient loader
+                // is only used once we've dropped CC, so a persistent stall is a
+                // strict win. Gated against transient blips inside the monitor.
+                captionStall.attach(player: player, item: playerItem) { [weak self] in
+                    self?.fallbackToLoader()
+                }
             }
 
             // Background play: AVKit pauses any player it is DISPLAYING when the
@@ -256,6 +264,7 @@ struct PlayerView: UIViewControllerRepresentable {
             didFallback = true
             fallbackWork?.cancel(); fallbackWork = nil
             statusObs = nil
+            captionStall.detach()
             let pos = player.currentTime()
             let (asset, ldr) = ResilientStreamLoader.makeAsset(for: url)
             loader = ldr
@@ -361,6 +370,7 @@ struct PlayerView: UIViewControllerRepresentable {
         // isolated deinit (SE-0371): touch the MainActor-isolated observers natively under
         // the Swift 6 language mode without a nonisolated(unsafe) escape hatch.
         isolated deinit {
+            captionStall.detach()
             if let t = timeObserver { player?.removeTimeObserver(t) }
             if let e = endObserver { NotificationCenter.default.removeObserver(e) }
             if let b = backgroundObserver { NotificationCenter.default.removeObserver(b) }
