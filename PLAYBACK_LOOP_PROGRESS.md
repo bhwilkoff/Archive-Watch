@@ -192,3 +192,21 @@ work is preserved across session limits.
   subtitle selection group + byte-range scrub) BEFORE wiring the app, then build tvOS/iOS/
   macOS. Preserve all Decision 021/031/034 invariants; serve .m3u8/.vtt on a separate
   non-chunked branch so the MP4 range/resume path is untouched.
+- **RESULT:**
+  - **P3 SHIPPED** `ae50c6a4` (v1.3.295/817): transport-level (-1001/-1005/-1008) node
+    blacklisting after 3 consecutive same-host fails w/ no bytes; resets on any delivered byte.
+  - **P0 BLOCKED by a hard AVFoundation platform limit** (harness-proven, reverted unshipped,
+    loader byte-identical): a resource-loader can serve HLS playlists+WebVTT+keys via a custom
+    scheme, but the media SEGMENT → **CoreMediaError -12881**. Captioned VIDEO bytes cannot flow
+    through ResilientStreamLoader. Memory: `hls-custom-scheme-segment-limit`. Config C
+    (playlists+VTT via loader, segment DIRECT https) passes all 3 harness checks → viable path
+    is Config C + segment = FRESH node-resolved URL (reliable start, keeps CC) + stall-fallback.
+
+### Tick 8 — 2026-07-22 — Captioned reliability via Config C (start) + stall-fallback (mid-stream)
+- Verify run 29935233014 STILL in_progress (~55min; failover-heavy tail, capped 120min) —
+  review exclusions once done, then A-core (circuit-breaker + schedule + ingest verification).
+- Dispatching one Apple agent: ship (c) stall-triggered `forceDirectPlayback` fallback FIRST
+  (captioned film that STALLS mid-stream drops to resilient MP4 — loses CC, plays smoothly;
+  gated to PERSISTENT stall, not one blip; commit alone), then attempt (a) Config-C
+  playlists-via-loader with a play-time node-resolved + encoded segment (reliable start WITH
+  CC, harness-gated on the same 3 checks; wire only if green).
