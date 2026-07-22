@@ -7,11 +7,17 @@ name: Re-source durable posters (TMDb)
 # is the durable CDN validate_posters trusts and never decay-checks, so a
 # re-sourced TMDb poster is the highest-leverage, lowest-risk poster-quality win.
 #
-# workflow_dispatch ONLY for now — no schedule until the first run is reviewed.
-# TMDb has no daily cap, so a run can drain a large batch; --reprobe-days keeps
-# no-poster items from being re-queried every run.
+# Reviewed + validated (3 dispatch runs, ~1,866 films upgraded, all re-sourced
+# image.tmdb.org posters verified live, all safety guards firing) → now on an
+# ongoing schedule so new ingests + un-drained items keep getting durable posters.
+# TMDb has no daily cap; --reprobe-days keeps no-poster items from being re-queried.
+# Slot: daily 11:30 UTC — a QUIET window in the catalog-writers group (clear of
+# 00-08 color/rights/posters/cover/free-subs, publish-db 04:30, strict-verify 10:20,
+# check-liveness 13:00, and the evening verify/subtitle/match weeklies).
 
 on:
+  schedule:
+    - cron: '30 11 * * *'   # daily 11:30 UTC (quiet catalog-writers slot)
   workflow_dispatch:
     inputs:
       limit:
