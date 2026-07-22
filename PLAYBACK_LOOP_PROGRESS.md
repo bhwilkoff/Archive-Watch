@@ -210,3 +210,22 @@ work is preserved across session limits.
   gated to PERSISTENT stall, not one blip; commit alone), then attempt (a) Config-C
   playlists-via-loader with a play-time node-resolved + encoded segment (reliable start WITH
   CC, harness-gated on the same 3 checks; wire only if green).
+- **RESULT — both SHIPPED, built green from scratch tvOS/iOS/macOS:**
+  - **(c) SHIPPED** `6c5e585f` (v1.3.296/818): `CaptionStallMonitor` — captioned film drops to
+    resilient MP4 on PERSISTENT stall (≥2 `playbackStalled`/20s OR one `.waitingToPlay` >8s after
+    currentTime>3s). Wired 3 call sites (macOS gained the HLS fallback it lacked). Loader byte-identical.
+  - **(a) SHIPPED** `69478e90` (v1.3.297/819): `CaptionedHLSLoader` (separate `aw-hls://` branch)
+    serves playlists; video segment = FRESH node-resolved + encoded direct https URL (falls back to
+    /download if none verifies). Harness PASSED all 3 on 2 real items incl. encoded filename. Keeps CC.
+- **Workstream B: identified stutter causes all addressed** (P1 Android, P2 web, P3 transport-blacklist,
+  captioned c+a). Residual: captioned mid-stream failover = platform limit (-12881), mitigated by (c);
+  P4 freeze-guard iOS/macOS parity (low pri); on-device validation = owner's call.
+
+### Tick 9 — 2026-07-22 — Await verify-run evidence, then Workstream A core
+- B well-covered; pivoting to A-core (owner's central criteria): ongoing-audit schedule + circuit-
+  breaker + ingest-time verification + coverage. GATED on the bounded verify run's real distribution
+  (hard-fail rate, unavail/throttle, failover-slowdown) — waiting for run 29935233014 (in_progress
+  ~1h15m, capped 120min) before designing blind. Gating decision (reasoned): confirmed-fails are
+  ALREADY fully inaccessible via `excluded`; hiding the ~6,855 unverified tail from browse would gut
+  ~17% of the catalog, so the lever is growing `excluded` accurately + runtime resilience (done) +
+  ongoing audit, NOT blanket-hiding unverified.
