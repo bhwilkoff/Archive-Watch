@@ -76,3 +76,21 @@ platforms via the shared catalog, and make it ONGOING via cron.
   (catches a wrong stored imdbID); NEVER overwrite a professional poster; KEEP the generated frame as
   fallback if TMDb has none (don't delete). Resumable, popularity-first, --limit/--dry-run. Validate on
   a real sample + wire a cron workflow (no schedule until reviewed). Lifts coverage 53%→~66%.
+
+- **DONE:** `tools/resource_posters_tmdb.py` built + validated + committed `9f949acf` (v1.3.303/825).
+  Dry-run 300: 152 upgraded (151 posterDead, 1 generated), 131 no_tmdb_poster, 13 no_tmdb_id,
+  3 year-mismatch + 1 bw→modern skip. Concrete before/after year-corroborated, image.tmdb.org live.
+  Target set 4,167 id-anchored non-pro (2,448 posterDead + 1,177 generated + 542 archive/none).
+  Est. ~2,100 films gain durable posters catalog-wide (~44% no_tmdb_poster → need other sources).
+  `resource-posters.yml` (workflow_dispatch, no schedule yet).
+
+### Tick 3 — 2026-07-22 — Bounded re-source run + plan next sources
+- Dispatched `resource-posters.yml -f limit=1500` → run **29959789641** (popularity-first, ~750
+  upgrades; run → validate_posters → publish → publish-db). REVIEW upgraded posters for correctness
+  before scaling (posters are highly visible).
+- **Next workstreams queued (sequential):** (1) review + scale + schedule the TMDb re-sourcer; (2)
+  the ~44% no_tmdb_poster id-anchored films → Wikidata/Commons P18 (resolve QID via imdbID SPARQL,
+  then P18) + TVDB/fanart; (3) metadata accuracy sweep (tmdb_fill_metadata/backfill_metadata id-keyed
+  on target films: year/director/synopsis); (4) the ~6,591 title+year-only no-id tail via
+  match_unmatched (year-corroborated) + verify_external_match/tmdb_verify_matches/color sweeps; (5)
+  raise classify_color coverage so the B&W×modern guard fires on the fuzzy tail.
