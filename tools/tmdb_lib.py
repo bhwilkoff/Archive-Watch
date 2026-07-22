@@ -79,9 +79,21 @@ def search_movie(title, year, token, session, *, timeout=20):
         return sim + ybonus + pop
 
     best = max(results, key=score)
-    if difflib.SequenceMatcher(None, want,
-                               _norm(best.get("title") or best.get("original_title"))).ratio() < 0.6:
+    best_norm = _norm(best.get("title") or best.get("original_title"))
+    if difflib.SequenceMatcher(None, want, best_norm).ratio() < 0.6:
         return None
+    # Abstain on ambiguity (Decision 026): if >=2 results share the winning
+    # normalized title within the ±2yr window, a common title can't be
+    # disambiguated without the Archive's own imdb id — better no match.
+    if year:
+        same = 0
+        for m in results:
+            cn = _norm(m.get("title") or m.get("original_title"))
+            rd = (m.get("release_date") or "")[:4]
+            if cn == best_norm and rd.isdigit() and abs(int(rd) - year) <= 2:
+                same += 1
+        if same >= 2:
+            return None
     return best.get("id")
 
 
