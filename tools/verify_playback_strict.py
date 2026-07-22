@@ -16,18 +16,31 @@ CAPTIONED item (subtitleHLS set) via AVPlayerItem on the RAW HLS master URL, the
 strict path that actually ships — then waits for readyToPlay and decodes a real
 frame at t~=0 and t~=duration/2.
 
+The harness ALSO fails over across archive.org storage nodes exactly as the app does
+(Decision 034): a -1008/5xx/reset on the origin node is retried against the item's
+other storage nodes (from /metadata) before any verdict — so a rotating-node blip the
+app would recover from is reported as a PASS (ok_failover), and a genuinely
+all-nodes-down item is reported `unavailable_all_nodes`.
+
 Conventions mirror check_liveness.py exactly (popularity-first `visibility()`
 ordering, --limit / --reprobe-days / --max-minutes budgets, catalog_release.py
 fetch/publish, HARD-vs-TRANSIENT discipline). It writes NEW additive flags and
 never clobbers the lenient `playbackVerified`:
-  * strictVerified   (bool)   — True on PASS, False on a HARD fail.
+  * strictVerified   (bool)   — True on PASS, False on a HARD/persistent fail.
   * strictReason      (str)   — the harness reason code.
   * strictCheckedAt   (date)  — ISO date of the last strict check.
-On a HARD verdict it ALSO sets excluded=True + strictFail=True + playbackReason so
-build_sqlite's existing `excluded` gate hides the item everywhere — but ONLY on a
-hard verdict, NEVER on a transient one (bias against false-excluding a playable
-film: a wrongly-hidden film is the costly error). On PASS it clears any prior
-strict exclusion IT set (never a rights/liveness exclusion owned by another tool).
+  * strictUnavailCount/First/LastAt — confirm-across-runs tracking for all-nodes
+                                unavailability (cleared on any PASS/recovery).
+On a HARD verdict (deterministic media problem: bad file) it ALSO sets excluded=True
++ strictFail=True + playbackReason so build_sqlite's existing `excluded` gate hides
+the item everywhere — but ONLY on a hard verdict, NEVER on a transient one (bias
+against false-excluding a playable film: a wrongly-hidden film is the costly error).
+An `unavailable_all_nodes` verdict does NOT exclude on first sight: it increments a
+per-item counter (at most once per calendar day) and excludes only when the item has
+failed all-nodes on >= 3 distinct days spanning >= 2 days (strictReason
+"persistently_unavailable"). Any subsequent PASS clears the counters and un-hides it.
+On PASS it clears any prior strict exclusion IT set (never a rights/liveness exclusion
+owned by another tool).
 
 Run: python tools/verify_playback_strict.py [--limit N] [--reprobe-days 90]
         [--max-minutes M] [--concurrency 4] [--dry-run] [--shard-index i --shard-count n]
@@ -55,14 +68,25 @@ HARNESS_BIN = HARNESS_DIR / ".build" / "release" / "PlaybackVerifierCLI"
 # rights-audit (Decision 027) or liveness (check_liveness.py) exclusion).
 STRICT_FAIL_FLAG = "strictFail"
 
-# Harness verdicts that are DETERMINISTIC media problems -> exclude. Everything
-# else the harness can emit (`transient`, `ok`) never excludes. Kept in lock-step
+# Harness verdicts that are DETERMINISTIC media problems -> exclude immediately.
+# Everything else the harness can emit never excludes on its own. Kept in lock-step
 # with the Verdict enum in PlaybackVerifierCLI/main.swift.
 HARD_VERDICTS = {
     "url_invalid", "not_playable", "no_video_track",
     "decode_failed", "unsupported_codec", "failed_permanent",
 }
-PASS_VERDICT = "ok"
+# PASS is either a first-node success or a recovery on an alternate storage node.
+PASS_VERDICTS = {"ok", "ok_failover"}
+
+# SOFT persistent-unavailability: the harness failed over across EVERY known storage
+# node and none served the media (the app's own failover would also fail). This is
+# NOT a hard exclude — a single all-nodes failure can be an archive.org-wide blip or
+# an item mid-rotation. We only exclude once it recurs across separate runs spanning
+# multiple days (confirm-across-runs), so a transient outage never hides a film.
+UNAVAIL_VERDICT = "unavailable_all_nodes"
+UNAVAIL_COUNT_THRESHOLD = 3     # all-nodes failures on >= this many distinct days
+UNAVAIL_SPAN_DAYS = 2           # ... spanning >= this many calendar days
+UNAVAIL_REASON = "persistently_unavailable"
 
 
 def build_harness() -> None:
@@ -154,20 +178,70 @@ def run_harness(batch, concurrency, timeout):
     return out
 
 
+def _span_days(a, b):
+    """Calendar days between two ISO dates (0 if unparseable)."""
+    try:
+        return (date.fromisoformat(str(b)) - date.fromisoformat(str(a))).days
+    except (ValueError, TypeError):
+        return 0
+
+
+def _clear_unavail(it):
+    """Drop the persistent-unavailability tracking counters (on any PASS/recovery)."""
+    for k in ("strictUnavailCount", "strictUnavailFirstAt", "strictUnavailLastAt"):
+        it.pop(k, None)
+
+
+def mark_unavailable(it, check_date, tally):
+    """An all-nodes availability failure. Accumulate a per-item counter (at most one
+    increment per calendar day, so a same-day re-run or CI retry never double-counts)
+    and exclude ONLY once it has failed on >= UNAVAIL_COUNT_THRESHOLD distinct days
+    spanning >= UNAVAIL_SPAN_DAYS. Never excludes on the first (or a single day's)
+    occurrence — bias against hiding a film for a transient archive.org outage."""
+    if it.get("strictUnavailLastAt") != check_date:
+        it["strictUnavailCount"] = int(it.get("strictUnavailCount") or 0) + 1
+    if not it.get("strictUnavailFirstAt"):
+        it["strictUnavailFirstAt"] = check_date
+    it["strictUnavailLastAt"] = check_date
+
+    count = int(it.get("strictUnavailCount") or 0)
+    span = _span_days(it.get("strictUnavailFirstAt"), it.get("strictUnavailLastAt"))
+    if count >= UNAVAIL_COUNT_THRESHOLD and span >= UNAVAIL_SPAN_DAYS:
+        it["strictVerified"] = False
+        it[STRICT_FAIL_FLAG] = True
+        it["excluded"] = True
+        it["strictReason"] = UNAVAIL_REASON
+        it["strictCheckedAt"] = check_date
+        it["playbackReason"] = f"strict_{UNAVAIL_REASON}"
+        tally[f"hard:{UNAVAIL_REASON}"] += 1
+        tally["_hard"] += 1
+    else:
+        # Pending confirmation: NOT excluded, strictVerified left unset so candidate()
+        # re-checks it next run to accumulate (or clear on recovery).
+        tally[f"unavail:pending(d{count}/s{span})"] += 1
+        tally["_unavail"] += 1
+
+
 def apply_verdict(it, r, today, tally):
-    """Write additive strict flags. HARD -> reversible exclude; PASS -> clear a
-    strict exclusion WE set; TRANSIENT -> leave unverified (retry next run).
-    `today` is the ISO date to stamp (the delta's own check date when re-applying
-    a shard delta, so strictCheckedAt reflects when the check actually ran)."""
+    """Write additive strict flags. HARD -> reversible exclude; UNAVAIL -> accumulate
+    a confirm-across-runs counter (exclude only when persistently dead); PASS -> clear
+    a strict exclusion WE set; TRANSIENT -> leave unverified (retry next run).
+    `today` is the ISO date to stamp (the delta's own check date when re-applying a
+    shard delta, so strictCheckedAt reflects when the check actually ran)."""
     verdict = r.get("verdict")
     reason = r.get("reason") or verdict
-    if verdict not in HARD_VERDICTS and verdict != PASS_VERDICT:
+    check_date = r.get("date") or today
+
+    if verdict == UNAVAIL_VERDICT:
+        mark_unavailable(it, check_date, tally)
+        return
+    if verdict not in HARD_VERDICTS and verdict not in PASS_VERDICTS:
         # transient / timeout / internal: leave completely unmarked so the next
         # run retries it. NEVER exclude, NEVER stamp strictCheckedAt.
         tally[f"transient:{reason}"] += 1
         tally["_transient"] += 1
         return
-    it["strictCheckedAt"] = r.get("date") or today
+    it["strictCheckedAt"] = check_date
     it["strictReason"] = reason
     if verdict in HARD_VERDICTS:
         it["strictVerified"] = False
@@ -177,11 +251,12 @@ def apply_verdict(it, r, today, tally):
         tally[f"hard:{verdict}"] += 1
         tally["_hard"] += 1
         return
-    # PASS
+    # PASS (ok or ok_failover) — clears any strict exclusion WE set + unavail counters.
     it["strictVerified"] = True
+    _clear_unavail(it)
     if it.get(STRICT_FAIL_FLAG):
-        # Item recovered (was a strict false-fail / re-derived) — clear ONLY the
-        # exclusion WE set; never touch a rights/liveness exclusion.
+        # Item recovered (was a strict false-fail / re-derived / node came back) —
+        # clear ONLY the exclusion WE set; never touch a rights/liveness exclusion.
         it.pop(STRICT_FAIL_FLAG, None)
         if it.get("excluded"):
             it["excluded"] = False
@@ -218,10 +293,11 @@ def apply_deltas_mode(args) -> int:
         if it is None:
             tally["_gone"] += 1              # item merged away/removed since the shard ran
             continue
-        # An exclusion owned by another tool is final — apply_verdict already
-        # guards clearing, but skip re-excluding an item another tool excluded
-        # for a non-strict reason.
-        if it.get("excluded") and not it.get(STRICT_FAIL_FLAG) and r.get("verdict") == PASS_VERDICT:
+        # An exclusion owned by ANOTHER tool (rights audit / liveness) is final —
+        # never clear it on a PASS nor accumulate unavail against it. Only touch an
+        # item that is unexcluded, or that WE excluded (strictFail set, so a recovery
+        # can clear our own exclusion).
+        if it.get("excluded") and not it.get(STRICT_FAIL_FLAG):
             continue
         apply_verdict(it, r, today, tally)
 
@@ -243,8 +319,9 @@ def main() -> int:
     ap.add_argument("--concurrency", type=int, default=4,
                     help="parallel AVFoundation loads in the harness (keep LOW — "
                          "archive.org rate-limits an IP that storms its hosts)")
-    ap.add_argument("--timeout", type=float, default=45,
-                    help="hard per-item verification timeout (seconds)")
+    ap.add_argument("--timeout", type=float, default=90,
+                    help="hard per-item verification timeout (seconds) — covers the "
+                         "origin load PLUS node failover within one item")
     ap.add_argument("--batch", type=int, default=40,
                     help="items per harness process (amortizes process startup)")
     ap.add_argument("--reprobe-days", type=int, default=90,
@@ -322,23 +399,29 @@ def main() -> int:
                 continue
             if args.dry_run:
                 v = r.get("verdict")
-                key = (f"hard:{v}" if v in HARD_VERDICTS
-                       else "pass" if v == PASS_VERDICT
-                       else f"transient:{r.get('reason') or v}")
+                if v in HARD_VERDICTS:
+                    key, bucket = f"hard:{v}", "_hard"
+                elif v in PASS_VERDICTS:
+                    key, bucket = "pass", "_pass"
+                elif v == UNAVAIL_VERDICT:
+                    key, bucket = f"unavail:{r.get('reason') or v}", "_unavail"
+                else:
+                    key, bucket = f"transient:{r.get('reason') or v}", "_transient"
                 tally[key] += 1
-                tally["_pass" if v == PASS_VERDICT
-                      else "_hard" if v in HARD_VERDICTS else "_transient"] += 1
+                tally[bucket] += 1
             else:
                 apply_verdict(it, r, today, tally)
                 v = r.get("verdict")
-                if v in HARD_VERDICTS or v == PASS_VERDICT:
+                # Carry HARD/PASS AND the SOFT unavail verdict in deltas so a sharded
+                # CI run accumulates the confirm-across-runs counters across shards+days.
+                if v in HARD_VERDICTS or v in PASS_VERDICTS or v == UNAVAIL_VERDICT:
                     deltas[it["archiveID"]] = {"verdict": v, "reason": r.get("reason"),
                                                "date": today}
             done += 1
         if not args.dry_run:
             flush()
         print(f"[{min(start + args.batch, len(targets))}/{len(targets)}] "
-              f"pass={tally['_pass']} hard={tally['_hard']} "
+              f"pass={tally['_pass']} hard={tally['_hard']} unavail={tally['_unavail']} "
               f"transient={tally['_transient']} no_result={tally['_no_result']}", flush=True)
 
     print(f"[strict] done: {dict(tally)}", flush=True)

@@ -22,19 +22,37 @@
 // mid-seek surfaces as `decodeFailed` yet retries fine), so it never excludes; it
 // only annotates the reason. Bias against false-excluding a playable film.
 //
+// NODE FAILOVER (2026-07, mirrors ResilientStreamLoader / Decision 034): a direct
+// load of an archive.org `/download/{id}/{file}` URL 302-redirects to ONE storage
+// node, and a single node can be degraded (-1008 resource-unavailable / 5xx / reset)
+// while its siblings serve fine — exactly the "resource unavailable" the app RECOVERS
+// from by switching to a healthy node. So when the direct load fails with a
+// NETWORK/AVAILABILITY error (never a deterministic media error), this harness does
+// what the app does: fetch `archive.org/metadata/{id}` for the node list
+// (`server` + `alternate_locations.workable`), rewrite the URL onto each node host,
+// skip nodes that can't even serve a byte, and retry the AVFoundation load against
+// the healthy ones (bounded by a global per-item deadline so it never hangs). Only
+// after failover is EXHAUSTED do we emit `unavailable_all_nodes` — and that is a SOFT
+// signal (the Python tool requires it to recur across ≥3 runs / ≥2 days before it
+// excludes), never an immediate exclude. A deterministic media error on a node that
+// DID serve bytes stays HARD (bad file, not a bad node).
+//
 // CARDINAL RULE: bias every ambiguous verdict toward TRANSIENT/PASS. A wrongly
 // hidden playable film is the costly error; a missed bad one is retried next run.
 // Only DETERMINISTIC hard signals (nil URL, isPlayable=false, no video track, a
-// clear decode/format AVError) exclude; all network/unknown errors are transient.
+// clear decode/format AVError) exclude; all network/unknown errors are transient,
+// and an all-node availability failure is soft (confirm-across-runs in Python).
 //
 // I/O: reads one input per line from stdin as JSON `{"id","url","hls"}` (or a
-// bare URL string), plus any bare URLs passed as argv. Emits one JSON result per
-// input to stdout: {"id","url","verdict","reason","detail","ms"}.
+// bare URL string), plus any bare URLs passed as argv. `id` is the archive.org
+// identifier (the harness fetches its /metadata for node failover). Emits one JSON
+// result per input to stdout: {"id","url","verdict","reason","detail","ms"}.
 //
 // Verdicts:
-//   PASS      : ok
+//   PASS      : ok, ok_failover
 //   HARD      : url_invalid, not_playable, no_video_track, decode_failed,
 //               unsupported_codec, failed_permanent   (-> app should exclude)
+//   SOFT      : unavailable_all_nodes  (-> Python confirms across runs before excluding)
 //   TRANSIENT : transient   (-> leave unverified, retry later, NEVER exclude)
 
 import Foundation
@@ -47,13 +65,29 @@ signal(SIGPIPE, SIG_IGN)
 
 enum Verdict: String {
     case ok
+    case ok_failover
     case url_invalid
     case not_playable
     case no_video_track
     case decode_failed
     case unsupported_codec
     case failed_permanent
+    case unavailable_all_nodes
     case transient
+}
+
+/// Deterministic media problems (a bad FILE, not a bad node). If the ORIGIN — or a
+/// node that served bytes — returns one of these, do NOT fail over: it means the
+/// file itself is unplayable, which is a HARD exclude. Availability/network errors
+/// are NOT in this set and are what trigger node failover.
+func isHardMedia(_ v: Verdict) -> Bool {
+    switch v {
+    case .url_invalid, .not_playable, .no_video_track,
+         .decode_failed, .unsupported_codec, .failed_permanent:
+        return true
+    default:
+        return false
+    }
 }
 
 struct Input {
@@ -131,10 +165,80 @@ func classify(_ error: Error?, hard: Bool) -> (Verdict, String) {
     return (.transient, "\(ns.domain)_\(ns.code)")
 }
 
+// MARK: - Node failover (mirrors ResilientStreamLoader / Decision 034)
+
+/// Shared session for the auxiliary /metadata + node-health probes. Capped per host
+/// (archive.org refuses an IP that opens too many connections) and NOT the session
+/// AVFoundation uses to load the media — this only fetches the node list + a 2-byte
+/// health probe. Short timeouts so a dead node is abandoned fast.
+let metaSession: URLSession = {
+    let cfg = URLSessionConfiguration.ephemeral
+    cfg.timeoutIntervalForRequest = 20
+    cfg.timeoutIntervalForResource = 25
+    cfg.httpMaximumConnectionsPerHost = 3
+    cfg.requestCachePolicy = .reloadIgnoringLocalCacheData
+    return URLSession(configuration: cfg)
+}()
+
+/// The encoded `{file}` portion of an archive.org `/download/{id}/{file}` URL, kept
+/// URL-encoded exactly as the app keeps it when building node-direct URLs. Returns
+/// nil for a non-archive / non-/download URL (e.g. an HLS master on our own host) —
+/// those have no node list to fail over to.
+func archiveDownloadFile(_ url: URL) -> String? {
+    let s = url.absoluteString
+    guard (url.host?.hasSuffix("archive.org") ?? false),
+          let r = s.range(of: "/download/") else { return nil }
+    let after = s[r.upperBound...]
+    guard let slash = after.firstIndex(of: "/") else { return nil }
+    return String(after[after.index(after: slash)...])
+}
+
+/// Fetch the item's storage-node list from /metadata and build the node-DIRECT URLs
+/// (`https://{server}{dir}/{file}`), preferred node first — exactly as
+/// ResilientStreamLoader.loadAlternates does. Best-effort: [] when metadata is
+/// unavailable or the URL isn't a /download URL, so the caller degrades gracefully.
+func alternateNodeURLs(archiveID: String, originalURL: URL) async -> [URL] {
+    guard let encFile = archiveDownloadFile(originalURL) else { return [] }
+    let idEnc = archiveID.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? archiveID
+    guard let metaURL = URL(string: "https://archive.org/metadata/\(idEnc)") else { return [] }
+    guard let (data, resp) = try? await metaSession.data(from: metaURL),
+          let http = resp as? HTTPURLResponse, http.statusCode == 200,
+          let obj = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any] else { return [] }
+
+    var bases: [URL] = []
+    var seen = Set<String>()
+    func add(_ server: String?, _ dir: String?) {
+        guard let server, let dir, !server.isEmpty,
+              let u = URL(string: "https://\(server)\(dir)/\(encFile)"),
+              seen.insert(server).inserted else { return }
+        bases.append(u)
+    }
+    add(obj["server"] as? String, obj["dir"] as? String)
+    if let alt = obj["alternate_locations"] as? [String: Any],
+       let workable = alt["workable"] as? [[String: Any]] {
+        for w in workable { add(w["server"] as? String, w["dir"] as? String) }
+    }
+    return bases
+}
+
+/// A cheap 2-byte ranged GET: does this node serve the file at all right now?
+/// Used to skip a degraded node BEFORE spending the per-item deadline on a full
+/// AVFoundation load — mirrors ResilientStreamLoader picking a "healthy known node".
+func nodeServesBytes(_ url: URL) async -> Bool {
+    var req = URLRequest(url: url)
+    req.setValue("bytes=0-1", forHTTPHeaderField: "Range")
+    req.timeoutInterval = 12
+    guard let (_, resp) = try? await metaSession.data(for: req),
+          let h = resp as? HTTPURLResponse else { return false }
+    return (200...299).contains(h.statusCode)
+}
+
 // MARK: - Core verification
 
 /// Verify a single already-resolved URL through AVFoundation the way the app does.
-func verify(id: String, targetURL: URL, isHLS: Bool) async -> (Verdict, String, String) {
+/// `deadline` caps the readyToPlay wait so failover across several nodes still fits
+/// inside the per-item hard timeout.
+func verify(id: String, targetURL: URL, isHLS: Bool, deadline: Date) async -> (Verdict, String, String) {
     let asset = AVURLAsset(url: targetURL, options: [
         AVURLAssetPreferPreciseDurationAndTimingKey: true
     ])
@@ -175,7 +279,9 @@ func verify(id: String, targetURL: URL, isHLS: Bool) async -> (Verdict, String, 
     player.automaticallyWaitsToMinimizeStalling = true
     defer { player.replaceCurrentItem(with: nil) }
 
-    let statusDeadline = Date().addingTimeInterval(35)
+    // Cap this node's readyToPlay wait at 25s, but never past the item-wide
+    // deadline (so origin + a couple failover nodes all fit the hard timeout).
+    let statusDeadline = min(Date().addingTimeInterval(25), deadline)
     while Date() < statusDeadline {
         switch item.status {
         case .readyToPlay:
@@ -238,10 +344,53 @@ func decodeCheck(asset: AVURLAsset, duration: CMTime) async -> (Verdict, String,
     return (.ok, "decoded", "")
 }
 
+/// Verify the origin URL, and — on a network/availability failure (never a
+/// deterministic media error) — fail over across the item's storage nodes exactly
+/// as the app does. Returns:
+///   * .ok / .ok_failover           — some node reached readyToPlay (PASS)
+///   * a HARD verdict               — the origin, or a node that served bytes, has a
+///                                     deterministic media problem (bad FILE)
+///   * .unavailable_all_nodes       — origin + every known node failed with an
+///                                     availability/network error (SOFT: Python
+///                                     confirms across runs before excluding)
+func verifyWithFailover(id: String, archiveID: String, target: URL,
+                        isHLS: Bool, deadline: Date) async -> (Verdict, String, String) {
+    let r0 = await verify(id: id, targetURL: target, isHLS: isHLS, deadline: deadline)
+    if r0.0 == .ok { return r0 }                 // passed on the origin's node
+    if isHardMedia(r0.0) { return r0 }           // bad file — a node switch won't help
+
+    // Origin failed with a network/availability error. Fetch the node list and try
+    // the healthy node-DIRECT URLs (skipping any node that can't even serve a byte).
+    let alts = await alternateNodeURLs(archiveID: archiveID, originalURL: target)
+    if alts.isEmpty {
+        // No node list (metadata down, or a non-/download URL like an HLS master —
+        // captioned playback has no failover in the app either). SOFT, not HARD.
+        return (.unavailable_all_nodes, "no_alternates",
+                "origin unavailable (\(r0.1)); no node list to fail over to")
+    }
+    var served = 0
+    var lastReason = r0.1
+    for node in alts {
+        if Date() >= deadline { break }
+        if !(await nodeServesBytes(node)) { continue }   // dead node — skip fast
+        served += 1
+        let rn = await verify(id: id, targetURL: node, isHLS: isHLS, deadline: deadline)
+        if rn.0 == .ok {
+            return (.ok_failover, "ok_failover", "recovered on node \(node.host ?? "?")")
+        }
+        if isHardMedia(rn.0) { return rn }        // node served bytes, file is bad
+        lastReason = rn.1
+    }
+    return (.unavailable_all_nodes, "all_nodes_unavailable",
+            "origin + \(alts.count) node(s) unavailable (served=\(served)); last=\(lastReason)")
+}
+
 /// Wrap one input: pick the URL the app would use, guard nil (url_invalid), and
-/// race the verification against a hard per-item timeout so nothing hangs.
+/// race the verification (incl. node failover) against a hard per-item timeout so
+/// nothing hangs.
 func run(_ input: Input, timeout: Double) async -> VResult {
     let start = Date()
+    let deadline = start.addingTimeInterval(timeout)
     let isHLS = (input.hls?.isEmpty == false)
     let rawForReport = isHLS ? (input.hls ?? "") : (input.url ?? "")
 
@@ -259,7 +408,12 @@ func run(_ input: Input, timeout: Double) async -> VResult {
     }
 
     let verdictTuple: (Verdict, String, String) = await withTaskGroup(of: (Verdict, String, String)?.self) { group in
-        group.addTask { await verify(id: input.id, targetURL: target, isHLS: isHLS) }
+        // Leave the failover a ~1s margin under the race so it returns a clean
+        // unavailable_all_nodes rather than the race's generic timeout.
+        group.addTask {
+            await verifyWithFailover(id: input.id, archiveID: input.id, target: target,
+                                     isHLS: isHLS, deadline: deadline.addingTimeInterval(-1))
+        }
         group.addTask {
             try? await Task.sleep(nanoseconds: UInt64(timeout * 1_000_000_000))
             return (.transient, "timeout", "no verdict within \(Int(timeout))s")
@@ -307,7 +461,7 @@ func emit(_ r: VResult) {
 
 func main() async {
     var concurrency = 4
-    var timeout = 45.0
+    var timeout = 90.0   // room for origin + node failover within one item
     var argvURLs: [String] = []
     let args = Array(CommandLine.arguments.dropFirst())
     var i = 0
