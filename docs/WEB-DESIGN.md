@@ -171,9 +171,15 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
 
 - **§5.1 Native `<video controls playsinline>`** in the player dialog. The
   browser's ranged GETs handle seeking; PiP/AirPlay come free from the UA.
-- **§5.2 Reconnect wrapper** (the Decision 021 analog): on `error`, or
-  `waiting` > 12s, persist position, reload `src`, re-seek, replay. Surface a
-  visible retry message only if the re-play fails.
+- **§5.2 Reconnect wrapper** (the Decision 021 analog): on `error`, persist
+  position, reload `src`, re-seek, replay immediately. On a `waiting` STALL,
+  recovery is two-stage and buffer-preserving (`onStall()`): if bytes are still
+  arriving (networkState LOADING + buffered end advancing) wait; else try a
+  cheap nudge (`currentTime += 0.1` + play) that un-sticks a transient underrun
+  WITHOUT dropping the buffer or paying a fresh 302; only if still stalled after
+  ~4s fall through to the full `src`-reset. A full reset discards the whole
+  buffer, so never do it on every 12s stall. Surface a visible retry message
+  only if the re-play fails.
 - **§5.3 Progress persists every 10s** and on close/end to IndexedDB; resume
   seeks when 10s < position < 95%.
 - **§5.4 Video is never cached** by the service worker.

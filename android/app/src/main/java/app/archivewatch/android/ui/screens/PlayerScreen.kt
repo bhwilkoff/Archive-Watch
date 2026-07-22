@@ -49,6 +49,7 @@ import androidx.media3.common.MimeTypes
 import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.datasource.okhttp.OkHttpDataSource
+import androidx.media3.exoplayer.DefaultLoadControl
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.session.MediaSession
 import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
@@ -113,10 +114,27 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
 
             override fun getMinimumLoadableRetryCount(dataType: Int): Int = 8
         }
+        // Time-prioritized buffering: the Archive resets idle connections, and
+        // DefaultLoadControl's default byte cap (bitrate-derived) banks only a
+        // few seconds for a high-bitrate progressive MP4 — too little to ride
+        // out a reset. Buffer by TIME with deep headroom (~120s cap avoids the
+        // high-bitrate OOM path where targetBufferBytes balloons). The tvOS
+        // ResilientStreamLoader pins 300s; this is the Android analog.
+        val loadControl = DefaultLoadControl.Builder()
+            .setBufferDurationsMs(
+                50_000,   // minBufferMs
+                120_000,  // maxBufferMs
+                2_500,    // bufferForPlaybackMs
+                5_000,    // bufferForPlaybackAfterRebufferMs
+            )
+            .setPrioritizeTimeOverSizeThresholds(true)  // buffer by TIME not bytes
+            .setBackBuffer(30_000, true)                // cheap re-seek without refetch
+            .build()
         ExoPlayer.Builder(context)
             .setMediaSourceFactory(
                 DefaultMediaSourceFactory(httpFactory).setLoadErrorHandlingPolicy(policy),
             )
+            .setLoadControl(loadControl)
             .build()
             .apply {
                 // Binge queue (episodes): all entries load as Media3 items so

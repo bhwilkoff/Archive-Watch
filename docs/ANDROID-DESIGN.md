@@ -236,7 +236,12 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   `LoadErrorHandlingPolicy` (more retries, modest capped backoff) so
   Archive's idle-connection resets resume from the byte offset instead of
   failing playback — the Android analog of the tvOS `ResilientStreamLoader`
-  (Decision 021, plan §3). We add overlays only; never a parallel transport.
+  (Decision 021, plan §3). Paired with a time-prioritized `DefaultLoadControl`
+  (min 50s / max 120s, `setPrioritizeTimeOverSizeThresholds(true)`, 30s
+  back-buffer) so a high-bitrate progressive MP4 banks deep TIME headroom to
+  ride out a reset — `DefaultLoadControl`'s default byte cap banks only seconds
+  (cap ~120s avoids the high-bitrate `targetBufferBytes` OOM path). We add
+  overlays only; never a parallel transport.
 - **§5.2 Never a bitrate ceiling.** `downloadURL` is the highest-quality
   derivative, baked in at build time — no runtime derivative selection.
 - **§5.3 Progress persists every 10 s and on dispose**; resume seeks when

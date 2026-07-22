@@ -1931,11 +1931,9 @@
       clearInterval(this.saveTimer);
       this.saveTimer = setInterval(() => this.persist(), 10000);
 
-      video.onerror = () => this.recover('error');
-      video.onwaiting = () => {
-        clearTimeout(this.stallTimer);
-        this.stallTimer = setTimeout(() => this.recover('stall'), 12000);
-      };
+      video.onerror = () => this.recover('error');   // a real error needs the full reset
+      this._lastBufferedEnd = 0;
+      video.onwaiting = () => this.onStall();
       video.onplaying = () => clearTimeout(this.stallTimer);
       video.onended = () => {
         this.persist();
@@ -1947,6 +1945,36 @@
           this.close();
         }
       };
+    },
+
+    /** Two-stage, buffer-preserving stall recovery. A full `recover()` throws
+        away the entire buffer and pays a fresh 302 + node handshake, so a flaky
+        connection thrashes if we do it on every 12s stall. Instead:
+        (1) if bytes are STILL arriving (networkState LOADING + buffered end
+            advancing), just wait — the download is healthy, don't touch it;
+        (2) otherwise try a lightweight nudge (currentTime += 0.1 + play), which
+            often un-sticks a transient underrun WITHOUT dropping the buffer;
+        (3) only if still stalled after a short window fall through to the full
+            src-reset recover('stall'). */
+    onStall() {
+      clearTimeout(this.stallTimer);
+      const video = $('video');
+      if (!this.ctx || !video.src) return;
+      const bufferedEnd = video.buffered.length
+        ? video.buffered.end(video.buffered.length - 1) : 0;
+      // Stage 1 — bytes still flowing and the buffer is growing: extend, wait.
+      if (video.networkState === HTMLMediaElement.NETWORK_LOADING &&
+          bufferedEnd > (this._lastBufferedEnd || 0) + 0.01) {
+        this._lastBufferedEnd = bufferedEnd;
+        this.stallTimer = setTimeout(() => this.onStall(), 2000);
+        return;
+      }
+      this._lastBufferedEnd = bufferedEnd;
+      // Stage 2 — cheap nudge (no buffer drop, no fresh 302).
+      try { video.currentTime = video.currentTime + 0.1; } catch { /* seeking not ready */ }
+      video.play().catch(() => { /* user-gesture rules; controls remain */ });
+      // Stage 3 — still stuck after a short window → full buffer-dropping reset.
+      this.stallTimer = setTimeout(() => this.recover('stall'), 4000);
     },
 
     recover(kind) {
