@@ -79,6 +79,18 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
     private var alternateBases: [URL]?
     private var alternatesRequested = false
 
+    // TRANSPORT-LEVEL BLACKLISTING (2026-07): a single timeout/reset is the
+    // EXPECTED Decision-021 idle drop and is NOT a node-health signal — but a
+    // host that produces them REPEATEDLY with no bytes delivered in between is
+    // degraded, and `markNodeFailed` was only reached by HTTP 5xx/403/404, so
+    // `currentTarget()` could keep re-picking the same dead node forever on a
+    // pure-transport failure. Count CONSECUTIVE transport failures per host
+    // (timeout / connection-lost / resource-unavailable); after N on the SAME
+    // host with no progress, blacklist it too so failover rotates away. ANY
+    // delivered byte resets that host's counter. Queue-confined.
+    private var transportFailsByHost: [String: Int] = [:]
+    private let transportFailThreshold = 3
+
     // 8 MB ranges: with STREAMING delivery (bytes reach the player as they
     // arrive, not at chunk completion) a large chunk has no latency downside,
     // and it quarters how often we pay per-request time-to-first-byte.
@@ -391,7 +403,11 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
             do {
                 try await stream.run(session, req)
                 offset += Int64(stream.delivered)
-                if stream.delivered > 0 { retries = 0 }    // progress → reset backoff
+                if stream.delivered > 0 {
+                    retries = 0                             // progress → reset backoff
+                    let host = target.host ?? ""           // ...and the host is alive
+                    queue.sync { transportFailsByHost[host] = 0 }
+                }
                 if let final = stream.finalURL, final != target {
                     queue.sync { if !failedHosts.contains(final.host ?? "") { pinnedURL = final } }
                     if Self.diag { NSLog("AWSTREAM pinned node %@", final.host ?? "?") }
@@ -415,16 +431,35 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
                 if request.isCancelled || Task.isCancelled { return }
                 // A HARD server error (5xx/403/404) means THIS node is degraded —
                 // blacklist its host and switch to a healthy known alternate
-                // (markNodeFailed). A timeout/reset is the EXPECTED Decision-021
-                // idle drop, not a node-health signal: just drop the pin and
-                // re-resolve, exactly as before. `currentTarget()` picks the next.
+                // (markNodeFailed). A SINGLE timeout/reset is the EXPECTED
+                // Decision-021 idle drop, not a node-health signal: just drop the
+                // pin and re-resolve. BUT a host that yields N consecutive
+                // transport failures with no bytes in between is degraded too —
+                // blacklist it so `currentTarget()` rotates away instead of
+                // re-picking it.
                 let st = stream.status
+                let host = target.host ?? ""
+                let ec = (error as? URLError)?.code
+                let isTransport = ec == .timedOut || ec == .networkConnectionLost
+                    || ec == .resourceUnavailable
                 queue.sync {
                     if (500...599).contains(st) || st == 403 || st == 404 {
                         markNodeFailed(target)
-                        if Self.diag { NSLog("AWSTREAM node %@ failed (status %d) -> rotating", target.host ?? "?", st) }
-                    } else if target != realURL {
-                        pinnedURL = nil
+                        transportFailsByHost[host] = 0
+                        if Self.diag { NSLog("AWSTREAM node %@ failed (status %d) -> rotating", host, st) }
+                    } else {
+                        if stream.delivered > 0 {
+                            transportFailsByHost[host] = 0     // progress → host is alive
+                        } else if isTransport {
+                            let n = (transportFailsByHost[host] ?? 0) + 1
+                            transportFailsByHost[host] = n
+                            if n >= transportFailThreshold {
+                                markNodeFailed(target)
+                                transportFailsByHost[host] = 0
+                                if Self.diag { NSLog("AWSTREAM node %@ failed (transport x%d) -> rotating", host, n) }
+                            }
+                        }
+                        if target != realURL { pinnedURL = nil }
                     }
                 }
                 retries += 1
