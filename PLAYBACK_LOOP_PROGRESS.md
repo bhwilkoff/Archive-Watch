@@ -229,3 +229,21 @@ work is preserved across session limits.
   ALREADY fully inaccessible via `excluded`; hiding the ~6,855 unverified tail from browse would gut
   ~17% of the catalog, so the lever is growing `excluded` accurately + runtime resilience (done) +
   ongoing audit, NOT blanket-hiding unverified.
+- **RESULT — bounded run 29935233014 (6000 items, deep tail): 5,818 pass (97.1%) · 6 hard
+  `unsupported_codec` EXCLUDED (high-confidence, reversible, zero false-exclude) · 170
+  `unavail:pending(d1)` NOT excluded (2.8% = blip-level, not throttle; day-1 counters only).**
+  Evidence confirms: strict verifier catches real AVFoundation-only failures the lenient probe
+  missed; unavail policy behaves; CI not throttled. Breaker threshold ~15% is safe (normal ≈3%).
+
+### Tick 10 — 2026-07-22 — Workstream A core: circuit-breaker + ongoing schedule + ingest verification
+- Dispatching one pipeline agent (Python + YAML, no long builds) for A-core:
+  1. **Circuit-breaker** in verify_playback_strict.py: if a run's unavail rate > ~15%, treat as
+     infra — skip counter increments/exclusions that run (fail-safe; normal is ~3%).
+  2. **Concurrency fix:** move `catalog-writers` from the whole verify-playback-strict.yml to the
+     PUBLISH job only — the long macOS verify shards only READ + write artifact deltas, so keeping
+     the whole workflow in the group risks the documented starvation (superseded-while-pending).
+  3. **Enable `schedule:`** (quiet daily UTC slot, documented map like the other workflows) = the
+     owner's ongoing audit. Bounded per-shard (6000/day) → drains 40k in ~7d + catches new items.
+  4. **Ingest-time verification** in discover-content.yml: emit newly-ingested IDs → targeted lenient
+     check_liveness probe of ONLY those IDs before publish (Linux-OK; strict schedule upgrades later)
+     so non-working new titles can't surface. (check_liveness gains an --ids mode.)
