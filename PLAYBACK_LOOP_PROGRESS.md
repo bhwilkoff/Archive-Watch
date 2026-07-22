@@ -247,3 +247,19 @@ work is preserved across session limits.
   4. **Ingest-time verification** in discover-content.yml: emit newly-ingested IDs → targeted lenient
      check_liveness probe of ONLY those IDs before publish (Linux-OK; strict schedule upgrades later)
      so non-working new titles can't surface. (check_liveness gains an --ids mode.)
+- **DONE — A-core SHIPPED, tested, 2 commits:**
+  - `b5ab33b7` (v1.3.298/820): circuit-breaker (15% frac, both cases tested) + concurrency→publish-
+    job-only + schedule `20 10 * * *` (daily 10:20 UTC, quiet slot, documented map).
+  - `7cf33655` (v1.3.299/821): `ingest_candidates.py --ingested-ids-out` + `check_liveness.py --ids`
+    (targeted, tested: 4 requested→3 real probed, bogus dropped) wired into discover-content pre-publish.
+  - **Resource-unavailable workstream is now STRUCTURALLY COMPLETE:** strict verifier + node-failover
+    (verifier & app) + safe exclusion policy + circuit-breaker + ongoing daily audit + ingest vetting +
+    excluded=fully-inaccessible on all 5 platforms. Remaining = coverage DRAIN (time/CI-bound).
+  - Durable memory written: `playback-guarantee-loop-2026-07`.
+
+### Tick 11 — 2026-07-22 — Accelerate coverage drain
+- Dispatched larger bounded coverage run `limit=3000 shard_count=4 max_minutes=250` (~12k items) →
+  run **29942844807** (in_progress). Advances strict coverage toward ~18k; schedule handles the rest.
+- Both owner symptoms now addressed at the system level. Loop's remaining productive work = draining
+  strict coverage + reviewing exclusions; then hand off to the daily schedule + notify owner of the
+  owner-gated items (on-device validation, store submission).
