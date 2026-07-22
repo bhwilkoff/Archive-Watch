@@ -263,3 +263,23 @@ work is preserved across session limits.
 - Both owner symptoms now addressed at the system level. Loop's remaining productive work = draining
   strict coverage + reviewing exclusions; then hand off to the daily schedule + notify owner of the
   owner-gated items (on-device validation, store submission).
+
+### Tick 12 — 2026-07-22 — AUDIT CAUGHT A FALSE-EXCLUDE BUG → fix + un-hide
+- Exclusion-audit agent (ffprobe + harness re-verify on the 6 strict-excluded items) found the
+  verifier maps AVFoundation **-11829** (a non-faststart / **moov-at-EOF container** error, "media
+  damaged") → `unsupported_codec` → GLOBAL exclude. **5 of 6 are FALSE-EXCLUDES**: valid H.264-Main/
+  AAC-LC films (`LadiesInLove1930`, `KeptHusbands1931-02-22`, `Extravagance1930bwPre-codeFilm`,
+  `TheReckoning1932`, `CityPark1934`) that play on Android/browsers + are faststart-fixable on Apple,
+  yet hidden on ALL 5 platforms. Only `StaroyeINovoye` (The General Line 1929) is genuinely broken
+  (TRUNCATED: mdat 413MB > file 179MB, no moov). ~8% of items are moov-at-EOF → this would SCALE.
+- **Dual insight:** moov-at-EOF is ALSO a stutter cause (AVFoundation must fetch EOF for the moov
+  before starting) → faststart remux fixes BOTH -11829 exclusion AND startup stutter.
+- **Cancelled the in-flight 12k run 29942844807** (was publishing more false-excludes w/ buggy code).
+- **Dispatched the fix agent:** (1) harness maps -11828/-11829 → distinct `apple_container_error`
+  (not unsupported_codec); (2) Python ffprobe-disambiguates: universal-codec+readable →
+  `apple_faststart_quirk` (DON'T exclude, flag `needsFaststart`), truncated/no-moov → `truncated_no_moov`
+  (exclude + `needsReSource`), exotic → `applePlayable=false` (Apple-only, not global-hidden);
+  (3) add ffmpeg to CI; (4) force-re-verify the CURRENT strictFail set → un-hide the 5 (+ any extras from
+  the cancelled run), re-label the truncated one, apply+publish+publish-db. MUST land before the daily
+  10:20 UTC schedule re-excludes. The audit earned its keep — caught a scaling false-exclude before a week
+  of drift. Global-exclude now reserved for TRULY-universal failures (url_invalid/no_video_track/truncated).
