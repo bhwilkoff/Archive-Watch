@@ -105,3 +105,21 @@ platforms via the shared catalog, and make it ONGOING via cron.
   `match_unmatched.py` (title+year, ±2yr + 0.6 sim, Decision 026) resolves id + sources poster in one
   shot. Before scaling it, run it in DRY-RUN/report on a no-id film sample, assess match quality +
   wrong-era false-positive rate (esp. old/silent films), flag risky matches, recommend stronger guards.
+
+### Tick 5 — 2026-07-22 — Audit verdict: HARDEN the no-id matcher before scaling
+- Second drain run 29961559531 SUCCESS (all 3000 posters live, published).
+- **Audit verdict: match_unmatched NOT safe to scale as-is (~30% of matches wrong/questionable).**
+  GOOD: old→modern is reliably blocked by ±2yr gate; colorMode 99%. BAD failure modes (outside the
+  year gate): (1) OMDb path has NO similarity floor → wrong imdbID → delayed poster corruption; (2)
+  generic-title/same-era collisions (14% are 1-2 word titles); (3) `_NOT_A_FILM` checks only title not
+  archiveID slug → "complete-series"(TV)/"MovieTrailer" slip through; tv-special eligible (1,291,
+  Decision 036); (4) CRITICAL — sets `matchVerified=True` on every accept → verify_external_match
+  SKIPS it → the authoritative Decision-026 Archive-declared-imdb check NEVER runs (a real bug on
+  existing matches too). No-id eligible set = 8,489 films (pre-1950: 3,283; pre-1930: 887).
+- **Dispatching hardening agent** (small localized diffs): #1 consult Archive metadata FIRST — adopt
+  the Archive-declared imdb id directly (skip fuzzy) + corroborate on Archive date, and STOP
+  self-certifying (leave matchVerified unset for fuzzy so verify re-checks); #2 add ≥0.6 (≥0.8
+  short/generic) OMDb similarity floor; #3 not-a-film on archiveID slug + serial/complete-series/
+  trailer + exclude tv-special; #4 pre-1950 sim≥0.85 / 1-2-word require exact title+year or Archive id;
+  #5 abstain when ≥2 TMDb candidates share the title in-window. Re-validate old-biased dry-run → confirm
+  wrong rate near-zero. Then safe to scale the ~8.5k no-id tail.
