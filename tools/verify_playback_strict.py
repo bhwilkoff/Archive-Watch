@@ -31,10 +31,24 @@ never clobbers the lenient `playbackVerified`:
   * strictCheckedAt   (date)  — ISO date of the last strict check.
   * strictUnavailCount/First/LastAt — confirm-across-runs tracking for all-nodes
                                 unavailability (cleared on any PASS/recovery).
-On a HARD verdict (deterministic media problem: bad file) it ALSO sets excluded=True
-+ strictFail=True + playbackReason so build_sqlite's existing `excluded` gate hides
-the item everywhere — but ONLY on a hard verdict, NEVER on a transient one (bias
-against false-excluding a playable film: a wrongly-hidden film is the costly error).
+On a HARD verdict (GENUINELY-universal media problem: nil URL, no tracks, or a
+`truncated` no-moov / mdat>file) it ALSO sets excluded=True + strictFail=True +
+playbackReason so build_sqlite's existing `excluded` gate hides the item everywhere
+— but ONLY on a hard verdict, NEVER on a transient one (bias against false-excluding
+a playable film: a wrongly-hidden film is the costly error).
+
+APPLE-SPECIFIC failures are NOT blind-excluded (the 2026-07 -11829 false-exclude
+fix): the harness's container/parse "media damaged" (apple_container_error) and
+decode/codec verdicts are ffprobe-disambiguated here (disambiguate_apple) into
+  * faststart-quirk  -> needsFaststart=True, NOT excluded (valid H.264 moov-at-EOF
+                        that AVFoundation-over-HTTP rejects but ffmpeg/Android/web
+                        read fine; feeds a later faststart-remux pass);
+  * truncated        -> excluded + needsReSource=True (no moov / mdat>file: broken
+                        everywhere, genuinely unplayable);
+  * exotic_codec     -> applePlayable=False advisory, NOT global-excluded (legacy
+                        codec Apple won't play but ExoPlayer/browsers will).
+`--reverify-strictfail` force-re-verifies the current strictFail set (ignoring the
+TTL + excluded gate) to correct prior false-excludes after a mapping change.
 An `unavailable_all_nodes` verdict does NOT exclude on first sight: it increments a
 per-item counter (at most once per calendar day) and excludes only when the item has
 failed all-nodes on >= 3 distinct days spanning >= 2 days (strictReason
@@ -52,6 +66,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import shutil
 import subprocess
 import sys
 import time
@@ -68,15 +83,170 @@ HARNESS_BIN = HARNESS_DIR / ".build" / "release" / "PlaybackVerifierCLI"
 # rights-audit (Decision 027) or liveness (check_liveness.py) exclusion).
 STRICT_FAIL_FLAG = "strictFail"
 
-# Harness verdicts that are DETERMINISTIC media problems -> exclude immediately.
-# Everything else the harness can emit never excludes on its own. Kept in lock-step
-# with the Verdict enum in PlaybackVerifierCLI/main.swift.
+# GENUINELY-UNIVERSAL media problems -> exclude on every platform immediately.
+# These mean the file has NO playable video ANYWHERE (nil URL, no tracks) or is
+# truncated (no moov / mdat > file). `truncated` is produced by the ffprobe
+# disambiguation below, not emitted by the harness. Kept in lock-step with
+# PlaybackVerifierCLI/main.swift + disambiguate_apple().
 HARD_VERDICTS = {
-    "url_invalid", "not_playable", "no_video_track",
-    "decode_failed", "unsupported_codec", "failed_permanent",
+    "url_invalid", "not_playable", "no_video_track", "truncated",
 }
 # PASS is either a first-node success or a recovery on an alternate storage node.
 PASS_VERDICTS = {"ok", "ok_failover"}
+
+# AVFoundation-SPECIFIC playback failures. These are NOT proof the file is broken
+# everywhere: -11829/-11828/-11833 (apple_container_error) are container/parse
+# "damaged" errors that a valid H.264 film with a non-faststart moov-at-EOF layout
+# returns over HTTP yet plays fine on Android/web and after a local faststart remux.
+# On ANY of these we run ffprobe (disambiguate_apple) to decide faststart-quirk
+# (keep) vs truncated (exclude) vs exotic-codec (Apple-advisory, keep) — NEVER a
+# blind global exclude. decode_failed/unsupported_codec/failed_permanent are folded
+# in for the same reason (Apple couldn't play it -> verify with ffprobe, don't hide).
+APPLE_DISAMBIG_VERDICTS = {
+    "apple_container_error", "decode_failed", "unsupported_codec", "failed_permanent",
+}
+
+# ffprobe video-codec classification. A UNIVERSAL codec that ffprobe can read means
+# the file is fine everywhere and Apple's rejection is the moov/faststart quirk. An
+# EXOTIC/legacy codec is one Apple won't play but ExoPlayer/browsers usually will.
+UNIVERSAL_VIDEO = {"h264", "hevc", "h265", "mpeg1video", "mpeg2video", "vp8", "vp9", "av1"}
+EXOTIC_VIDEO = {"mpeg4", "msmpeg4v1", "msmpeg4v2", "msmpeg4v3", "wmv1", "wmv2", "wmv3",
+                "rv10", "rv20", "rv30", "rv40", "vp6", "vp6f", "vp6a", "flv1", "theora"}
+
+# The ONLY ffprobe stderr signature we trust as a structural truncation signal is a
+# missing moov atom — and only when it PERSISTS across retries (see below). Broader
+# markers like "Invalid data found" are deliberately NOT trusted: under archive.org
+# load, a 5XX HTML error body fed to ffprobe surfaces as "Invalid data found",
+# which would false-exclude a perfectly playable film. The authoritative truncation
+# signal is the structural mdat>file check (_mdat_exceeds_file).
+_NO_MOOV_MARKER = "moov atom not found"
+
+
+def _ffprobe_streams(url, timeout=90):
+    """Run ffprobe on the URL. Returns None if ffprobe is unavailable (caller then
+    biases to NOT excluding), else (ok, video_codec, format_name, err) where
+    ok=False means ffprobe could not read/demux the file (moov not found, etc.)."""
+    exe = shutil.which("ffprobe")
+    if not exe:
+        return None
+    try:
+        p = subprocess.run(
+            [exe, "-v", "error",
+             "-show_entries", "stream=codec_type,codec_name",
+             "-show_entries", "format=format_name",
+             "-of", "json", url],
+            capture_output=True, text=True, timeout=timeout)
+    except (subprocess.TimeoutExpired, OSError) as e:
+        return (False, None, None, f"ffprobe_error:{e}")
+    if p.returncode != 0:
+        return (False, None, None, (p.stderr or "").strip()[-200:])
+    try:
+        j = json.loads(p.stdout or "{}")
+    except ValueError:
+        return (False, None, None, "ffprobe_bad_json")
+    vcodec = None
+    for s in j.get("streams", []):
+        if s.get("codec_type") == "video" and not vcodec:
+            vcodec = (s.get("codec_name") or "").lower()
+    fmt = (j.get("format", {}) or {}).get("format_name")
+    return (True, vcodec, fmt, "")
+
+
+def _mdat_exceeds_file(url, timeout=45):
+    """True iff the top-level `mdat` box declares more bytes than the file actually
+    has — a truncated non-faststart MP4 (e.g. The General Line: mdat=413.6 MB, file
+    179.8 MB, no moov). Best-effort: any uncertainty -> False (ffprobe demux is the
+    primary truncation signal; this is a belt-and-suspenders secondary)."""
+    try:
+        import requests
+    except ImportError:
+        return False
+    try:
+        total = 0
+        h = requests.head(url, allow_redirects=True, timeout=timeout)
+        total = int(h.headers.get("Content-Length") or 0)
+        if total <= 0:
+            g = requests.get(url, stream=True, allow_redirects=True, timeout=timeout,
+                             headers={"Range": "bytes=0-0"})
+            cr = g.headers.get("Content-Range", "")
+            g.close()
+            if "/" in cr:
+                total = int(cr.rsplit("/", 1)[-1])
+        if total <= 0:
+            return False
+        g = requests.get(url, stream=True, allow_redirects=True, timeout=timeout,
+                         headers={"Range": "bytes=0-262143"})
+        head = g.content
+        g.close()
+        off = 0
+        while off + 8 <= len(head):
+            size = int.from_bytes(head[off:off + 4], "big")
+            typ = head[off + 4:off + 8]
+            if size == 1:  # 64-bit largesize
+                if off + 16 > len(head):
+                    break
+                size = int.from_bytes(head[off + 8:off + 16], "big")
+            if typ == b"mdat":
+                return size > 1 and size > total
+            if size <= 0:
+                break
+            off += size
+        return False
+    except Exception:
+        return False
+
+
+def disambiguate_apple(url):
+    """Classify an AVFoundation-specific playback failure via ffprobe. Returns
+    (kind, detail) where kind is one of:
+      * 'faststart'    — universal codec, ffprobe reads it (or ffprobe/ambiguous):
+                          DON'T exclude; the file is fine, Apple just needs a
+                          faststart remux (moov-at-EOF quirk). Plays on Android/web.
+      * 'truncated'    — ffprobe cannot demux it OR mdat > file: genuinely broken
+                          everywhere -> exclude, re-source needed.
+      * 'exotic_codec' — legacy codec Apple won't play but ExoPlayer/browsers will:
+                          Apple-advisory (applePlayable=false), DON'T global-exclude.
+    A fourth kind, 'retry', means ffprobe failed with a TRANSIENT (network/5XX)
+    error — no verdict, re-check next run. Biases to 'faststart'/'retry'
+    (non-excluding) whenever ffprobe is unavailable/ambiguous."""
+    if not url:
+        return ("faststart", "no_url")
+    # 1) Structural truncation — authoritative, immune to transient 5XX HTML bodies.
+    if _mdat_exceeds_file(url):
+        return ("truncated", "mdat_exceeds_file")
+
+    # 2) ffprobe, with retries. "moov atom not found" is the only trusted truncation
+    #    marker, and only when it PERSISTS (a 5XX under load never yields it twice).
+    probe = None
+    no_moov_hits = 0
+    for attempt in range(4):
+        probe = _ffprobe_streams(url)
+        if probe is None:
+            return ("faststart", "ffprobe_unavailable")  # never blind-exclude
+        ok, vcodec, fmt, err = probe
+        if ok:
+            break
+        if _NO_MOOV_MARKER in (err or "").lower():
+            no_moov_hits += 1
+        # Transient (Server returned 5XX / timeout / connection) — back off + retry.
+        if attempt < 3:
+            time.sleep(2 + attempt * 4)
+
+    ok, vcodec, fmt, err = probe
+    if not ok:
+        # A PERSISTENT no-moov failure (>= 2 attempts) is a genuinely truncated /
+        # moov-less file -> truncated. Any other exhausted failure is transient
+        # (network/5XX) -> retry next run. NEVER exclude on a network blip.
+        if no_moov_hits >= 2:
+            return ("truncated", f"no_moov_persistent:{(err or '')[:120]}")
+        return ("retry", f"ffprobe_transient:{(err or '')[:140]}")
+    if vcodec in EXOTIC_VIDEO:
+        return ("exotic_codec", f"codec={vcodec}")
+    if vcodec in UNIVERSAL_VIDEO:
+        return ("faststart", f"codec={vcodec};fmt={fmt}")
+    # ffprobe read the container but the codec is unknown/absent -> ambiguous.
+    # Bias to NOT excluding (a maybe-playable film must never be hidden).
+    return ("faststart", f"codec={vcodec or '?'};fmt={fmt}")
 
 # SOFT persistent-unavailability: the harness failed over across EVERY known storage
 # node and none served the media (the app's own failover would also fail). This is
@@ -250,6 +420,66 @@ def _log_breaker(frac):
           f"counters/exclusions this run", flush=True)
 
 
+def apply_apple_disambig(it, check_date, tally):
+    """An AVFoundation-specific failure -> ffprobe-disambiguate, then:
+      * truncated    -> reversible global exclude (needsReSource), stays hidden.
+      * faststart    -> NOT excluded (needsFaststart flag feeds a later remux pass);
+                        clears any strict exclusion WE set.
+      * exotic_codec -> NOT global-excluded (applePlayable=false advisory); clears
+                        any strict exclusion WE set — still visible on Android/web.
+    Never a blind exclude — this is the whole point of the false-exclude fix."""
+    kind, detail = disambiguate_apple(it.get("downloadURL"))
+
+    if kind == "retry":
+        # Transient ffprobe failure — no verdict. Leave the item EXACTLY as-is
+        # (no strictCheckedAt stamp) so candidate() re-checks it next run. A
+        # strictFail item stays excluded until a clean probe; never hidden anew,
+        # never wrongly un-hidden.
+        tally["transient:apple_ffprobe_retry"] += 1
+        tally["_transient"] += 1
+        return
+
+    it["strictCheckedAt"] = check_date
+
+    if kind == "truncated":
+        it["strictVerified"] = False
+        it[STRICT_FAIL_FLAG] = True
+        it["excluded"] = True
+        it["strictReason"] = "truncated_no_moov"
+        it["needsReSource"] = True
+        it["playbackReason"] = "strict_truncated_no_moov"
+        it.pop("needsFaststart", None)
+        it.pop("applePlayable", None)
+        tally["hard:truncated"] += 1
+        tally["_hard"] += 1
+        return
+
+    # From here the item is NOT excluded. Set the advisory flag and clear any
+    # strict exclusion / unavail counters WE previously set (never another tool's).
+    if kind == "exotic_codec":
+        it["strictReason"] = "apple_unsupported_codec"
+        it["applePlayable"] = False        # Apple-only advisory; visible on Android/web
+        it.pop("needsFaststart", None)
+        tally["advisory:apple_unsupported_codec"] += 1
+    else:  # faststart
+        it["strictReason"] = "apple_faststart_quirk"
+        it["needsFaststart"] = True        # feeds a later faststart-remux pass
+        it.pop("applePlayable", None)
+        tally["advisory:apple_faststart_quirk"] += 1
+
+    it["strictVerified"] = True
+    it.pop("needsReSource", None)
+    _clear_unavail(it)
+    if it.get(STRICT_FAIL_FLAG):
+        # Recovered from a prior (false) strict exclusion — clear ONLY the exclusion
+        # WE set; never touch a rights/liveness exclusion owned by another tool.
+        it.pop(STRICT_FAIL_FLAG, None)
+        if it.get("excluded"):
+            it["excluded"] = False
+        it.pop("playbackReason", None)
+    tally["_pass"] += 1
+
+
 def apply_verdict(it, r, today, tally, unavail_infra=False):
     """Write additive strict flags. HARD -> reversible exclude; UNAVAIL -> accumulate
     a confirm-across-runs counter (exclude only when persistently dead); PASS -> clear
@@ -269,6 +499,11 @@ def apply_verdict(it, r, today, tally, unavail_infra=False):
             tally["infra_unavail"] += 1          # breaker tripped: leave item as-is
             return
         mark_unavailable(it, check_date, tally)
+        return
+    if verdict in APPLE_DISAMBIG_VERDICTS:
+        # AVFoundation-specific failure — ffprobe decides keep vs exclude. NEVER a
+        # blind global exclude (the -11829 "media damaged" false-exclude fix).
+        apply_apple_disambig(it, check_date, tally)
         return
     if verdict not in HARD_VERDICTS and verdict not in PASS_VERDICTS:
         # transient / timeout / internal: leave completely unmarked so the next
@@ -386,6 +621,13 @@ def main() -> int:
                          "done (0 = no budget). Resumable: the next run continues.")
     ap.add_argument("--shard-index", type=int, default=0)
     ap.add_argument("--shard-count", type=int, default=1)
+    ap.add_argument("--reverify-strictfail", action="store_true",
+                    help="Force re-verify EVERY item this tool previously "
+                         "strict-EXCLUDED (strictFail=True), ignoring the reprobe "
+                         "TTL and the excluded gate. Corrects false-excludes after a "
+                         "verdict-mapping change (e.g. the -11829 container-error "
+                         "fix): the harness re-runs and the ffprobe disambiguation "
+                         "un-hides faststart-quirk films + re-labels the truncated ones.")
     ap.add_argument("--deltas-out", default="",
                     help="also write a compact per-item verdict delta JSON here "
                          "(for a sharded CI matrix: shards emit deltas, one publish "
@@ -419,8 +661,17 @@ def main() -> int:
     today = date.today().isoformat()
 
     cat, items = load_catalog()
-    targets = [it for it in items
-               if candidate(it, args) and shard_ok(it, args.shard_index, args.shard_count)]
+    if args.reverify_strictfail:
+        # Force-reverify the CURRENT strict-excluded set — ignore the TTL + excluded
+        # gate (these are exactly the items candidate() would skip because they were
+        # just checked). This catches ALL strictFail items (the named 6 plus any
+        # extras a cancelled OLD-code run may have hidden).
+        targets = [it for it in items
+                   if it.get(STRICT_FAIL_FLAG) and it.get("downloadURL")
+                   and shard_ok(it, args.shard_index, args.shard_count)]
+    else:
+        targets = [it for it in items
+                   if candidate(it, args) and shard_ok(it, args.shard_index, args.shard_count)]
     targets.sort(key=visibility, reverse=True)
     if args.limit:
         targets = targets[:args.limit]
@@ -462,6 +713,11 @@ def main() -> int:
                     key, bucket = f"hard:{v}", "_hard"
                 elif v in PASS_VERDICTS:
                     key, bucket = "pass", "_pass"
+                elif v in APPLE_DISAMBIG_VERDICTS:
+                    # Report the ffprobe outcome so a dry-run shows keep-vs-exclude.
+                    kind, _ = disambiguate_apple(it.get("downloadURL"))
+                    key = f"apple:{v}->{kind}"
+                    bucket = "_hard" if kind == "truncated" else "_apple"
                 elif v == UNAVAIL_VERDICT:
                     key, bucket = f"unavail:{r.get('reason') or v}", "_unavail"
                 else:
@@ -473,9 +729,11 @@ def main() -> int:
                     unavail_pending.append((it, r.get("date") or today))
                 else:
                     apply_verdict(it, r, today, tally)
-                # Carry HARD/PASS AND the SOFT unavail verdict in deltas so a sharded
-                # CI run accumulates the confirm-across-runs counters across shards+days.
-                if v in HARD_VERDICTS or v in PASS_VERDICTS or v == UNAVAIL_VERDICT:
+                # Carry HARD/PASS, the APPLE-disambig verdicts, AND the SOFT unavail
+                # verdict in deltas so a sharded CI run re-disambiguates + accumulates
+                # the confirm-across-runs counters across shards+days at apply time.
+                if (v in HARD_VERDICTS or v in PASS_VERDICTS or v == UNAVAIL_VERDICT
+                        or v in APPLE_DISAMBIG_VERDICTS):
                     deltas[it["archiveID"]] = {"verdict": v, "reason": r.get("reason"),
                                                "date": today}
             done += 1

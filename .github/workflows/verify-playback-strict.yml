@@ -77,6 +77,13 @@ jobs:
           python-version: '3.11'
       - run: pip install requests
 
+      # ffprobe disambiguates an AVFoundation container/parse error (apple_container_
+      # error) into faststart-quirk (keep) vs truncated (exclude) vs exotic-codec —
+      # so a valid H.264 moov-at-EOF film is never blind-excluded. Preinstalled on
+      # macos-15 runners; install only if missing.
+      - name: Ensure ffmpeg/ffprobe
+        run: command -v ffprobe >/dev/null 2>&1 || brew install ffmpeg
+
       - name: Build the strict verifier
         run: swift build -c release
         working-directory: tools/PlaybackVerifierCLI
@@ -135,6 +142,11 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install requests
+
+      # apply-deltas re-runs the ffprobe disambiguation for every apple_container_
+      # error / codec delta at apply time, so the publish job needs ffprobe too.
+      - name: Ensure ffmpeg/ffprobe
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
 
       - name: Fetch catalog
         env:

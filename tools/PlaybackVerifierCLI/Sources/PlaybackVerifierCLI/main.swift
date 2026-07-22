@@ -50,10 +50,22 @@
 //
 // Verdicts:
 //   PASS      : ok, ok_failover
-//   HARD      : url_invalid, not_playable, no_video_track, decode_failed,
-//               unsupported_codec, failed_permanent   (-> app should exclude)
+//   HARD      : url_invalid, not_playable, no_video_track   (-> app should exclude)
+//   APPLE     : apple_container_error, decode_failed, unsupported_codec,
+//               failed_permanent  (-> AVFoundation-specific failure; NOT proof the
+//               file is universally broken. The Python tool ffprobe-disambiguates
+//               these into faststart-quirk (keep) / truncated (exclude) /
+//               exotic-codec (Apple-advisory, keep) — never a blind global exclude.)
 //   SOFT      : unavailable_all_nodes  (-> Python confirms across runs before excluding)
 //   TRANSIENT : transient   (-> leave unverified, retry later, NEVER exclude)
+//
+// NOTE (2026-07 false-exclude fix): AVFoundation's -11829/-11828/-11833 are
+// container/parse "media damaged" errors, NOT "unsupported codec". A valid
+// H.264/AAC film with a non-faststart moov-at-EOF layout is REJECTED by
+// AVFoundation-over-HTTP yet plays fine after a local faststart remux, and on
+// ExoPlayer/browsers. So those codes now map to `apple_container_error` (distinct
+// from a genuine codec problem) and the Python side runs ffprobe to tell a
+// faststart quirk apart from a truly truncated/no-moov file.
 
 import Foundation
 import AVFoundation
@@ -71,6 +83,7 @@ enum Verdict: String {
     case no_video_track
     case decode_failed
     case unsupported_codec
+    case apple_container_error   // AVFoundation container/parse "damaged" (-11829/-11828/-11833)
     case failed_permanent
     case unavailable_all_nodes
     case transient
@@ -83,7 +96,11 @@ enum Verdict: String {
 func isHardMedia(_ v: Verdict) -> Bool {
     switch v {
     case .url_invalid, .not_playable, .no_video_track,
-         .decode_failed, .unsupported_codec, .failed_permanent:
+         .decode_failed, .unsupported_codec, .apple_container_error, .failed_permanent:
+        // apple_container_error is a property of the FILE (moov layout / damaged
+        // container) — identical on every storage node, so a node switch won't
+        // help. Treat it as hard-media for failover purposes (do NOT rotate nodes);
+        // the Python side then ffprobe-disambiguates it (it is NOT a blind exclude).
         return true
     default:
         return false
@@ -132,11 +149,15 @@ func hlsURL(_ raw: String?) -> URL? {
 /// Everything else in that domain is left transient — many AVFoundation errors are
 /// network/HTTP wrappers and must not false-exclude a playable film.
 let hardAVCodes: [Int: (Verdict, String)] = [
-    -11828: (.unsupported_codec, "format_not_recognized"), // AVErrorFileFormatNotRecognized
-    -11829: (.unsupported_codec, "file_type_unsupported"), // AVErrorContentIsUnavailable-adjacent; format
-    -11821: (.decode_failed, "decode_failed"),             // AVErrorDecodeFailed
-    -11833: (.decode_failed, "file_failed_to_parse"),      // AVErrorFileFailedToParse
-    -11850: (.unsupported_codec, "operation_not_supported"),
+    // Container/parse "media damaged" family -> apple_container_error (NOT a codec
+    // problem). These are exactly what a valid H.264 film with a non-faststart
+    // moov-at-EOF returns over HTTP; ffprobe reads it fine and it plays after a
+    // local remux. The Python side disambiguates before ever excluding.
+    -11828: (.apple_container_error, "format_not_recognized"),  // AVErrorFileFormatNotRecognized
+    -11829: (.apple_container_error, "failed_to_parse"),        // AVErrorFailedToParse (media damaged)
+    -11833: (.apple_container_error, "file_failed_to_parse"),   // AVErrorFileFailedToParse
+    -11821: (.decode_failed, "decode_failed"),                 // AVErrorDecodeFailed
+    -11850: (.unsupported_codec, "operation_not_supported"),   // genuine "op not supported"
 ]
 
 func classify(_ error: Error?, hard: Bool) -> (Verdict, String) {
@@ -253,8 +274,9 @@ func verify(id: String, targetURL: URL, isHLS: Bool, deadline: Date) async -> (V
             return (.not_playable, "asset_not_playable", "")
         }
     } catch {
+        let ns = error as NSError
         let (v, r) = classify(error, hard: false)
-        return (v, r, (error as NSError).localizedDescription)
+        return (v, r, "avcode=\(ns.code); \(ns.localizedDescription)")
     }
 
     // 2) Video-track presence. HLS master track loading is unreliable until an
@@ -266,8 +288,9 @@ func verify(id: String, targetURL: URL, isHLS: Bool, deadline: Date) async -> (V
                 return (.no_video_track, "no_video_track", "")
             }
         } catch {
+            let ns = error as NSError
             let (v, r) = classify(error, hard: false)
-            return (v, r, (error as NSError).localizedDescription)
+            return (v, r, "avcode=\(ns.code); \(ns.localizedDescription)")
         }
     }
 
@@ -290,12 +313,16 @@ func verify(id: String, targetURL: URL, isHLS: Bool, deadline: Date) async -> (V
             if isHLS { return (.ok, "hls_ready", "") }
             return await decodeCheck(asset: asset, duration: duration)
         case .failed:
+            let ns = item.error as NSError?
             let (v, r) = classify(item.error, hard: true)
-            // A .failed status that classifies as a media error is a permanent
-            // failure; a network-classified one stays transient (retry).
-            if v == .transient { return (.transient, r, item.error.map { ($0 as NSError).localizedDescription } ?? "") }
-            let permanent: Verdict = (v == .decode_failed || v == .unsupported_codec) ? v : .failed_permanent
-            return (permanent, r, item.error.map { ($0 as NSError).localizedDescription } ?? "")
+            // classify returns either .transient (network/unknown -> retry) or a
+            // SPECIFIC verdict (a hardAVCodes mapping incl. apple_container_error).
+            // Return the specific verdict AS-IS — never collapse apple_container_error
+            // or unsupported_codec into failed_permanent (the Python side needs the
+            // distinction to ffprobe-disambiguate instead of blind-excluding). The
+            // raw AVError code rides in `detail` as evidence.
+            let detail = "avcode=\(ns?.code ?? 0); \(ns?.localizedDescription ?? "")"
+            return (v, r, detail)
         default:
             try? await Task.sleep(nanoseconds: 200_000_000)
         }
@@ -303,8 +330,9 @@ func verify(id: String, targetURL: URL, isHLS: Bool, deadline: Date) async -> (V
     // Never reached readyToPlay or failed in time -> transient (retry), unless the
     // player already latched a hard error we can read.
     if item.status == .failed {
+        let ns = item.error as NSError?
         let (v, r) = classify(item.error, hard: true)
-        if v != .transient { return (v == .decode_failed || v == .unsupported_codec ? v : .failed_permanent, r, "") }
+        if v != .transient { return (v, r, "avcode=\(ns?.code ?? 0); \(ns?.localizedDescription ?? "")") }
     }
     return (.transient, "status_timeout", "no readyToPlay/failed within budget")
 }
