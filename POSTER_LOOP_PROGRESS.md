@@ -135,3 +135,15 @@ platforms via the shared catalog, and make it ONGOING via cron.
   `verify-matches.yml refresh=true limit=8000` (Decision 026: re-check matched items vs Archive
   external-identifier/date/color, clear/re-resolve wrong ones = fixes existing wrong posters+identities+
   metadata). Review cleared count next tick, then scale the hardened matcher on the no-id tail.
+
+### Tick 7 — 2026-07-22 — Found + fixed a SILENT no-op: verify-matches OMDb key
+- The cleanup run 29963670315 revealed `[verify] no OMDB key`: `verify-matches.yml` mapped
+  `OMDB_API_KEY: ${{ secrets.OMDB_API_KEY }}` but (a) the tool reads env `OMDB_KEY` (via omdb_lib),
+  (b) the real secret is `OMDB_KEY` (OMDB_API_KEY doesn't exist). `verify_external_match.py` exits
+  EARLY (return 0) with no key → **the Decision-026 match-verification step has been a SILENT NO-OP
+  on EVERY weekly run** since setup. (Only the deterministic remediate step ran: anim/PD-anim poster
+  clears ×17, silent-year nulls ×3, etc.)
+- FIXED `4044ce4d` (v1.3.305/827): map `OMDB_KEY: ${{ secrets.OMDB_KEY }}` + corrected the misleading
+  error string. Re-dispatched `verify-matches.yml refresh=true limit=8000` → run **29965502612** —
+  NOW functional (re-checks matched items vs Archive imdb/date/color + re-resolves wrong ones via OMDb).
+  This finally activates the ongoing match-correctness audit the user is asking for. Review next tick.
