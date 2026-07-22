@@ -295,3 +295,16 @@ work is preserved across session limits.
   at-EOF (needsFaststart), apply + **strict-re-verify the swap actually reaches AVFoundation readyToPlay**,
   clear needsFaststart on fixed items, wire ongoing, publish. Quantify the subset with no `.ia.mp4`
   (would need generate-host, deferred) + assess the broader startup-stutter class (quality tradeoff).
+
+### Tick 14 — 2026-07-22 — Faststart-REMUX host pipeline (the real fix)
+- Faststart agent found the 5 moov-at-EOF films have NO archive.org `.ia.mp4` (Archive doesn't
+  derive a 2nd MP4 for H.264 uploads) → cheap re-point impossible; committed 92674eef (repair
+  extended to auto-swap IF an .ia.mp4 ever appears + wired ongoing). The real fix = generate+host a
+  bitrate-preserving faststart remux (`ffmpeg -c copy -movflags +faststart`, lossless).
+- IAS3 hosting secrets ARE in CI (verified; local env has none). Earlier un-hide's publish-db
+  (29949136892) SUCCEEDED → 5 films back on Android/web.
+- Dispatched pipeline agent: `tools/faststart_remux.py` (remux→IAS3 upload to `archivewatch-faststart`
+  →re-point downloadURL→clear needsFaststart/applePlayable) reusing upload_covers IAS3 pattern; PROVE
+  locally via the AVFoundation harness that a remuxed file goes -11829→readyToPlay before hosting;
+  `faststart-remux.yml` (Linux remux+upload → macOS re-verify-before-keep → publish). Then I dispatch
+  the CI run to fix the 5. This resolves the moov-at-EOF class for BOTH symptoms, no quality loss.
