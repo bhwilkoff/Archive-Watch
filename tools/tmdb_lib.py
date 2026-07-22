@@ -119,6 +119,25 @@ def movie_detail(movie_id, token, session, *, timeout=20):
     }
 
 
+def find_by_imdb(imdb_id, token, session, *, timeout=20):
+    """Resolve a TMDb movie id from an IMDb id via /find (authoritative key —
+    no fuzzy title match). Returns the movie id or None. Raises RuntimeError on
+    auth/rate-limit so callers can stop the run cleanly."""
+    if not imdb_id:
+        return None
+    r = session.get(f"{TMDB_API}/find/{imdb_id}",
+                    params={"external_source": "imdb_id"},
+                    headers=_headers(token), timeout=timeout)
+    if r.status_code == 401:
+        raise RuntimeError("TMDb auth failed (401) — check TMDB_BEARER_TOKEN")
+    if r.status_code == 429:
+        raise RuntimeError("TMDb rate limited (429)")
+    if not r.ok:
+        return None
+    mr = (r.json() or {}).get("movie_results") or []
+    return mr[0]["id"] if mr else None
+
+
 def resolve(title, year, token, session):
     """title+year -> normalized detail record, or None."""
     mid = search_movie(title, year, token, session)

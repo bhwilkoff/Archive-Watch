@@ -1,0 +1,100 @@
+name: Re-source durable posters (TMDb)
+
+# Re-source DURABLE professional posters from TMDb for FILMS whose current art
+# is a rotted poster (posterDead) or a frame still (generated), but that already
+# carry an authoritative imdbID/tmdbID — so NO fuzzy matching is needed
+# (Decision 026: trust the Archive imdbID; corroborate by year). image.tmdb.org
+# is the durable CDN validate_posters trusts and never decay-checks, so a
+# re-sourced TMDb poster is the highest-leverage, lowest-risk poster-quality win.
+#
+# workflow_dispatch ONLY for now — no schedule until the first run is reviewed.
+# TMDb has no daily cap, so a run can drain a large batch; --reprobe-days keeps
+# no-poster items from being re-queried every run.
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max items to attempt (0 = all id-anchored non-pro targets)'
+        required: false
+        default: '2000'
+      reprobe_days:
+        description: 'Skip items probed within this many days'
+        required: false
+        default: '30'
+      dry_run:
+        description: 'Resolve + report only, write nothing'
+        required: false
+        default: 'false'
+
+concurrency:
+  # Shared with every catalog-mutating workflow so two runs never push to the
+  # catalog release / main at the same time.
+  group: catalog-writers
+  cancel-in-progress: false
+
+jobs:
+  resource-posters:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write    # publish updated catalog (release) — no git commit here
+      actions: write     # dispatch publish-db after the catalog updates
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Re-source posters from TMDb
+        env:
+          TMDB_BEARER_TOKEN: ${{ secrets.TMDB_BEARER_TOKEN }}
+        run: |
+          # No-op (green, not red) when the TMDb token secret isn't configured.
+          if [ -z "$TMDB_BEARER_TOKEN" ]; then
+            echo "TMDB_BEARER_TOKEN secret not set — skipping (not an error)."
+            echo "## Re-source posters: skipped (no TMDB_BEARER_TOKEN)" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          python tools/resource_posters_tmdb.py \
+            --limit ${{ github.event.inputs.limit || '2000' }} \
+            --reprobe-days ${{ github.event.inputs.reprobe_days || '30' }} \
+            ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} \
+            | tee resource-posters.log
+
+      - name: Stats summary
+        if: hashFiles('resource-posters.log') != ''
+        run: |
+          echo "## Re-source posters (TMDb)" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          tail -25 resource-posters.log >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Verify re-sourced posters are live
+        if: github.event.inputs.dry_run != 'true'
+        run: |
+          # image.tmdb.org is skipped by validate_posters by default, so probe it
+          # explicitly to confirm the freshly-sourced TMDb posters resolve. Only
+          # 404/410 demotes; a throttle is left for the next run.
+          python tools/validate_posters.py --include-tmdb --source tmdb \
+            --limit 3000 --workers 16 || true
+
+      - name: Publish catalog to release
+        if: github.event.inputs.dry_run != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py publish
+
+      - name: Rebuild app DB
+        if: github.event.inputs.dry_run != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash tools/gh_dispatch.sh publish-db.yml
