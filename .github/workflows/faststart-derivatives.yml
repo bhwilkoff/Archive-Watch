@@ -4,6 +4,17 @@ name: Faststart derivative upgrade
 # Archive faststart .ia.mp4 derivative when one now exists, so slow-starting
 # (moov-at-EOF) uploads become instant-start (#6, Decision 019 rationale).
 #
+# ALSO covers the strict verifier's needsFaststart=True set (H.264 moov-at-EOF
+# films that AVFoundation rejects with -11829 — the owner's "resource unavailable
+# on Apple" class): repair_derivatives.py's --faststart gate now treats any
+# needsFaststart-flagged item as a candidate regardless of its stored format
+# label, and swaps + clears the flag the moment Archive derives an .ia.mp4.
+# A cheap targeted `--needs-faststart-only` step runs first so the flagged set is
+# re-checked even if the full pass is throttled/interrupted. NOTE: an item whose
+# ONLY derivative is the moov-at-EOF original itself (Archive skips deriving a
+# second MP4 when the upload is already H.264) has nothing to swap to and stays
+# flagged — that subset needs a generate-and-host faststart remux (not built).
+#
 # Cadence is monthly on purpose: measured yield is ~0.3% today because Archive
 # hasn't backfilled most legacy remuxes yet — a daily pass would re-fetch the
 # same ~12k items for almost nothing. Run monthly so value accrues as Archive
@@ -43,13 +54,22 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py fetch
 
-      - name: Faststart re-pick (full pass)
+      - name: Faststart re-pick (needsFaststart set first, then full pass)
         run: |
+          # 1) Cheap targeted pass over the strict verifier's flagged -11829 set,
+          #    so it is re-checked even if the full pass is throttled/interrupted.
+          python tools/repair_derivatives.py --needs-faststart-only --skip-series \
+            --throttle ${{ github.event.inputs.throttle || '0.15' }} \
+            | tee faststart-flagged.log
+          # 2) Full monthly pass (exotic-format originals + any flagged items).
           python tools/repair_derivatives.py --faststart --skip-series \
             --throttle ${{ github.event.inputs.throttle || '0.15' }} \
             | tee faststart.log
           echo "## Faststart pass" >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY; tail -4 faststart.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+          echo '### needsFaststart set' >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 faststart-flagged.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+          echo '### full pass' >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 faststart.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Remediate catalog data quality
         run: python tools/remediate_catalog.py
