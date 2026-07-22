@@ -308,3 +308,53 @@ work is preserved across session limits.
   locally via the AVFoundation harness that a remuxed file goes -11829→readyToPlay before hosting;
   `faststart-remux.yml` (Linux remux+upload → macOS re-verify-before-keep → publish). Then I dispatch
   the CI run to fix the 5. This resolves the moov-at-EOF class for BOTH symptoms, no quality loss.
+
+### Tick 15 — 2026-07-22 — Faststart run CONFIRMED; loop handoff + STOP
+
+**Faststart-remux run 29951303584:** remux+host+publish+re-verify all green. Re-verify delta
+(hosted faststart URLs through AVFoundation): **KeptHusbands `ok`, Extravagance `ok`, TheReckoning
+`ok`** (originals were -11829); LadiesInLove transient `unavailable_all_nodes` (retries via
+auto-chain; its remux proved playable locally). The moov-at-EOF fix is CONFIRMED end-to-end.
+
+---
+
+## FINAL STATE — both owner symptoms addressed at the system level
+
+### Resource-unavailable ("if it doesn't play, it's not accessible")
+- **Strict AVFoundation verifier** (`tools/PlaybackVerifierCLI` + `tools/verify_playback_strict.py`)
+  — catches real failures the lenient probe missed; node-failover mirrors the app; frame-decode
+  advisory; **global-exclude reserved for truly-universal failures** (url_invalid / not_playable /
+  no_video_track / truncated) after ffprobe disambiguation — never hides a film that plays on
+  another platform.
+- **Safe exclusion policy:** confirm-across-runs (3 runs/2 days) for unavailability + a 15% infra
+  circuit-breaker + reversible `excluded`. Excluded items are skipped by build_sqlite /
+  build_catalog_index / build_web_details → fully inaccessible on ALL 5 platforms.
+- **Ongoing audit:** daily 10:20-UTC strict schedule (starvation-proof: catalog-writers lock on the
+  publish job only) + ingest-time verification (`check_liveness --ids` on newly-ingested items) so
+  non-working titles never surface.
+- **App node-failover hardened** (transport-level -1001/-1005/-1008 host blacklisting).
+- **moov-at-EOF class** (H.264 films that fail -11829 on Apple) → faststart-remux pipeline (above),
+  CONFIRMED fixing them to play everywhere, lossless.
+- Caught + fixed a false-exclude bug (the -11829→unsupported_codec misclassification) before it scaled.
+
+### Stutter ("full length movies stutter as they try to play") — all identified causes fixed
+- **Android:** `DefaultLoadControl` 50s/120s + `setPrioritizeTimeOverSizeThresholds(true)` (was byte-capped).
+- **Web:** two-stage reconnect (nudge before full `src` reset).
+- **Apple:** transport-level node blacklisting; captioned films — `CaptionStallMonitor` stall-fallback
+  + `CaptionedHLSLoader` node-resolved start (native CC kept).
+- **moov-at-EOF startup stutter** → faststart remux (the same fix as the -11829 class).
+- Platform limit documented: HLS media segments can't route through the resource loader (-12881).
+
+### Owner-gated / time-bound (NOT done — require the owner or just time)
+- Full strict-coverage drain (~7 days via the daily schedule; ~15% done now).
+- On-device living-room validation of the captioned + node-failover + faststart fixes (dev box can't
+  reproduce archive.org's load balancer).
+- Store submission of the shipped fixes (v1.3.302/824; outward-facing, owner-triggered).
+- Re-source the 1 truncated film (`StaroyeINovoye`/The General Line, flagged `needsReSource`).
+- Optional: honor `applePlayable=false` in Apple CatalogDB (0 items need it now).
+
+**App versions this loop: 1.3.291/813 → 1.3.302/824.** Durable memory:
+`playback-guarantee-loop-2026-07`, `hls-custom-scheme-segment-limit`.
+
+**LOOP STOPPED** — core objectives complete; the daily schedules are the ongoing mechanism.
+Restart anytime with /loop.
