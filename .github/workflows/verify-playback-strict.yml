@@ -1,0 +1,137 @@
+name: Verify playback (strict / AVFoundation)
+
+# STRICT playability verification against AVFoundation — the app's REAL playback
+# engine — instead of check_liveness.py's lenient 1 KB byte-probe (which every
+# ffprobe/curl/requests-style check shares: they auto-encode URLs and never decode
+# a frame, so a URL passes the byte-probe yet fails in the app with "resource
+# unavailable"). Each shard runs the compiled Swift harness
+# (tools/PlaybackVerifierCLI) on a macOS runner, loading each URL exactly as
+# DetailView does (MP4 via AVURLAsset + the app's encoding; a captioned item's
+# subtitleHLS via AVPlayerItem on the raw master URL), waiting for readyToPlay and
+# decoding a real frame. HARD verdicts set a reversible excluded=true; TRANSIENT
+# ones are left unverified (retried next run) — a wrongly-hidden playable film is
+# the costly error, so we bias against it.
+#
+# Sharded macOS matrix -> per-shard delta artifacts -> ONE publish job merges +
+# applies them (mirrors the subtitle/liveness fetch->shard->merge->single-publish
+# pattern so parallel shards never clobber the shared catalog on the release).
+#
+# workflow_dispatch ONLY — the schedule: trigger is deliberately withheld until a
+# review of the first real runs confirms the hard-fail rate + classification.
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max items to verify PER SHARD this run (0 = all in shard)'
+        required: false
+        default: '1500'
+      shard_count:
+        description: 'Number of parallel macOS shards'
+        required: false
+        default: '4'
+      max_minutes:
+        description: 'Stop starting new batches after N minutes per shard (0 = no budget)'
+        required: false
+        default: '180'
+
+concurrency:
+  group: catalog-writers
+  cancel-in-progress: false
+
+jobs:
+  # Fan-out: each shard fetches the catalog, verifies its slice of the items, and
+  # uploads ONLY a compact per-item verdict delta (not the whole catalog).
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    runs-on: macos-15
+    timeout-minutes: 300
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+
+      - name: Build the strict verifier
+        run: swift build -c release
+        working-directory: tools/PlaybackVerifierCLI
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Verify shard ${{ matrix.shard }}
+        run: |
+          # Guard: only run this shard if it's within the requested shard_count
+          # (the matrix is fixed at 4; a smaller shard_count no-ops the extras).
+          COUNT=${{ github.event.inputs.shard_count || '4' }}
+          if [ "${{ matrix.shard }}" -ge "$COUNT" ]; then
+            echo "shard ${{ matrix.shard }} >= shard_count $COUNT — nothing to do"
+            echo '{}' > delta-${{ matrix.shard }}.json
+            exit 0
+          fi
+          python tools/verify_playback_strict.py \
+            --shard-index ${{ matrix.shard }} --shard-count "$COUNT" \
+            --limit ${{ github.event.inputs.limit || '1500' }} \
+            --max-minutes ${{ github.event.inputs.max_minutes || '180' }} \
+            --concurrency 4 --no-publish \
+            --deltas-out delta-${{ matrix.shard }}.json | tee shard-${{ matrix.shard }}.log
+          echo "## Strict verify shard ${{ matrix.shard }}" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 shard-${{ matrix.shard }}.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload shard delta
+        uses: actions/upload-artifact@v4
+        with:
+          name: strict-delta-${{ matrix.shard }}
+          path: delta-${{ matrix.shard }}.json
+          if-no-files-found: warn
+
+  # Fan-in: a single job merges every shard delta onto the fetched catalog and
+  # publishes — one writer, no clobber. Runs even if a shard failed, applying the
+  # deltas that DID land.
+  publish:
+    needs: verify
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Download all shard deltas
+        uses: actions/download-artifact@v4
+        with:
+          pattern: strict-delta-*
+          path: deltas
+          merge-multiple: true
+
+      - name: Apply deltas + publish
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python tools/verify_playback_strict.py --apply-deltas deltas --publish | tee apply.log
+          echo "## Strict verify — apply + publish" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 apply.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Rebuild app DB
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash tools/gh_dispatch.sh publish-db.yml
