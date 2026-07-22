@@ -283,3 +283,15 @@ work is preserved across session limits.
   the cancelled run), re-label the truncated one, apply+publish+publish-db. MUST land before the daily
   10:20 UTC schedule re-excludes. The audit earned its keep — caught a scaling false-exclude before a week
   of drift. Global-exclude now reserved for TRULY-universal failures (url_invalid/no_video_track/truncated).
+
+### Tick 13 — 2026-07-22 — Faststart-fix the moov-at-EOF class (both symptoms)
+- Fix agent SHIPPED d447124d (v1.3.300/822): -11829 reclassified, 5 films un-hidden
+  (needsFaststart), truncated one re-labelled (needsReSource), publish-db dispatched.
+- Found the real fix gap: `repair_derivatives.py --faststart` only re-picks `.ia.mp4` for EXOTIC
+  originals (mpeg4/divx/avi) — it SKIPS H.264 `.mp4` moov-at-EOF originals, which is why the 5 were
+  never fixed. moov-at-EOF = the owner's "stutter as they try to play" (AVFoundation fetches EOF moov
+  first) AND -11829 on Apple. Faststart swap to archive's `.ia.mp4` fixes BOTH.
+- Dispatched faststart agent: investigate `.ia.mp4` availability, extend `--faststart` to H.264 moov-
+  at-EOF (needsFaststart), apply + **strict-re-verify the swap actually reaches AVFoundation readyToPlay**,
+  clear needsFaststart on fixed items, wire ongoing, publish. Quantify the subset with no `.ia.mp4`
+  (would need generate-host, deferred) + assess the broader startup-stutter class (quality tradeoff).
