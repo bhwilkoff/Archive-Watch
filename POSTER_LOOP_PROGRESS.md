@@ -147,3 +147,50 @@ platforms via the shared catalog, and make it ONGOING via cron.
   error string. Re-dispatched `verify-matches.yml refresh=true limit=8000` → run **29965502612** —
   NOW functional (re-checks matched items vs Archive imdb/date/color + re-resolves wrong ones via OMDb).
   This finally activates the ongoing match-correctness audit the user is asking for. Review next tick.
+
+### Tick 8 — 2026-07-22 — verify-matches now runs; enable ongoing poster schedule
+- Confirmed the fix WORKS: cleanup run 29965502612 "Verify external matches" step is genuinely
+  RUNNING (not exiting early) — re-checking 8000 matches vs Archive+OMDb (slow, ~1-2h). Review next.
+- **Enabled `resource-posters.yml` schedule** (daily 11:30 UTC, quiet catalog-writers slot) — ongoing
+  durable-poster sourcing for new ingests + un-drained id-anchored films. This is the poster analog of
+  the playback strict schedule.
+
+### Tick 9 — 2026-07-22 — Cleanup CONFIRMED sensible; loop handoff
+- verify-matches cleanup run 29965502612 COMPLETE: **~1,797 verified correct · ~10 wrong cleared/
+  fixed** (cleared_bw + cleared_year + re-resolved — the exact old→wrong-poster class) · **~4,400
+  unverifiable left UNTOUCHED** (Archive didn't respond — never wrongly cleared). Conservative + safe,
+  exactly per Decision 026. Published. The now-functional match-correctness audit is CONFIRMED working.
+
+---
+
+## FINAL STATE — professional posters + metadata
+
+### Posters
+- **id-anchored TMDb re-sourcer** (`resource_posters_tmdb.py`, commit 9f949acf): ~1,866 FILMS upgraded
+  from rotted/frame-still → durable image.tmdb.org posters; pro film coverage **53% → ~59%**; all
+  re-sourced posters verified live; year+color corroboration blocks old→modern. SATURATED on the
+  reachable id-anchored set (~44% of targets genuinely have no TMDb art → frame-still is the correct
+  fallback, per owner). **Now on a daily 11:30-UTC schedule** (new ingests + un-drained items ongoing).
+- **no-id fuzzy matcher hardened** (`match_unmatched.py`, commit 3eef0e5f): ~30%→~0% wrong; Decision-026
+  aligned (adopt Archive-declared imdb first, no self-certification); OMDb similarity floor; TV/trailer/
+  ambiguity guards; pre-1950 tightening. Runs weekly (Mon 21:00) — drains the ~7,128 no-id tail safely
+  (low recall on old PD is correct: those films genuinely aren't in the DBs → abstain → frame-still).
+
+### Correctness / metadata (the "not sourced correctly" fixes)
+- **FIXED a silent no-op** (`verify-matches.yml` OMDb key, commit 4044ce4d): `verify_external_match`
+  (the Decision-026 wrong-match guard) had NEVER run in CI. Now functional + confirmed (cleared ~10
+  wrong, verified ~1,797, 0 over-clears). Runs weekly (Tue 19:00) + re-resolves via OMDb.
+- Metadata fills (year/director/synopsis) run daily via id-keyed tmdb-enrich/metadata-enrich/
+  omdb-backfill; the matcher fills no-id metadata. Residual gaps are mostly no-id films with no external
+  source (the genuine floor).
+
+### All 5 platforms
+Every fix is DATA in the shared catalog.json → build_sqlite (apps) + index + detail shards (web) →
+every platform renders the same corrected posterURL on the next catalog refresh. No app build needed.
+
+### Ongoing mechanisms (the loop's lasting output)
+daily resource-posters (11:30) · weekly verify-matches (Tue 19:00, now functional) · weekly
+match-unmatched (Mon 21:00, hardened) · daily metadata fills · daily validate-posters (liveness).
+
+**App versions 1.3.302→1.3.306.** Memory: `poster-metadata-loop-2026-07`.
+**LOOP STOPPED** — core complete + self-sustaining; the schedules drain the rest. Restart with /loop.
