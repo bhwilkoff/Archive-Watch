@@ -1,0 +1,102 @@
+name: Re-source posters (secondary — TVDB / Wikipedia / Wikidata)
+
+# Re-source professional posters from SECONDARY public sources — TheTVDB,
+# English-Wikipedia film-infobox images, and Wikidata P18 (Commons) — for the
+# ~6,070 feature/silent/animation FILMS still on a frame-still / dead / no poster
+# that TMDb does NOT cover (resource_posters_tmdb.py can only help id-anchored
+# films TMDb has art for). STRICT identity-anchored matching: imdb/tmdb → QID is
+# authoritative; TVDB + title-only QID are corroborated by year; every candidate
+# poster URL is proven LIVE before adoption. Abstain-over-wrong — the frame still
+# is kept whenever nothing safe is found.
+#
+# workflow_dispatch ONLY (no schedule yet) — run + review the distribution before
+# promoting to a cron slot, exactly like resource-posters.yml was.
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max items to attempt (0 = all feature/silent/animation non-pro targets)'
+        required: false
+        default: '1000'
+      reprobe_days:
+        description: 'Skip items probed within this many days'
+        required: false
+        default: '30'
+      sleep:
+        description: 'Seconds between items (Wikidata/Commons/TVDB rate-limit courtesy)'
+        required: false
+        default: '0.4'
+      dry_run:
+        description: 'Resolve + report only, write nothing'
+        required: false
+        default: 'false'
+
+concurrency:
+  # Shared with every catalog-mutating workflow so two runs never push to the
+  # catalog release / main at the same time.
+  group: catalog-writers
+  cancel-in-progress: false
+
+jobs:
+  resource-posters-secondary:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write    # publish updated catalog (release) — no git commit here
+      actions: write     # dispatch publish-db after the catalog updates
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Re-source posters from secondary sources
+        env:
+          # tvdb_lib reads THETVDB_API_KEY from the environment (verified).
+          # The tool still runs (Wikipedia/Wikidata) if the key is absent —
+          # TVDB is simply disabled, so a missing secret is NOT an error.
+          THETVDB_API_KEY: ${{ secrets.THETVDB_API_KEY }}
+        run: |
+          python tools/resource_posters_secondary.py \
+            --limit ${{ github.event.inputs.limit || '1000' }} \
+            --reprobe-days ${{ github.event.inputs.reprobe_days || '30' }} \
+            --sleep ${{ github.event.inputs.sleep || '0.4' }} \
+            ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} \
+            | tee resource-posters-secondary.log
+
+      - name: Stats summary
+        if: hashFiles('resource-posters-secondary.log') != ''
+        run: |
+          echo "## Re-source posters (secondary — TVDB / Wikipedia / Wikidata)" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          tail -40 resource-posters-secondary.log >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Verify re-sourced posters are live
+        if: github.event.inputs.dry_run != 'true'
+        run: |
+          # tvdb + commons are decay-prone designed sources validate_posters
+          # checks by default (Decision 044) — demotes only a 404/410 poster to
+          # the archive.org thumbnail; a throttle is left for the next run.
+          python tools/validate_posters.py --limit 6000 --workers 16 || true
+
+      - name: Publish catalog to release
+        if: github.event.inputs.dry_run != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py publish
+
+      - name: Rebuild app DB
+        if: github.event.inputs.dry_run != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash tools/gh_dispatch.sh publish-db.yml
