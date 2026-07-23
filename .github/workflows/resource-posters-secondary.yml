@@ -9,16 +9,26 @@ name: Re-source posters (secondary — TVDB / Wikipedia / Wikidata)
 # poster URL is proven LIVE before adoption. Abstain-over-wrong — the frame still
 # is kept whenever nothing safe is found.
 #
-# workflow_dispatch ONLY (no schedule yet) — run + review the distribution before
-# promoting to a cron slot, exactly like resource-posters.yml was.
+# Scheduled DAILY at 14:00 UTC — the emptiest catalog-writers window (no daily
+# catalog cron runs 14:00–01:00 UTC), so this ~4–5h run never blocks the daily
+# publish wave that shares the catalog-writers concurrency group. Reviewed clean
+# on run 30018358797 (limit=500: 93 upgraded, 0 dead posters adopted, abstains
+# firing correctly) before promotion — exactly like resource-posters.yml was.
+#
+# The default limit is a CONSERVATIVE 450: the tool is network-bound (~35s/item on
+# Wikidata SPARQL + Wikimedia throttling) and only persists on the FINAL publish,
+# so a run must finish well under the GitHub 6h job wall or it saves nothing.
+# 450 ≈ 4h20m (≈1h40m margin). Raise manually only for a one-off you'll watch.
 
 on:
+  schedule:
+    - cron: '0 14 * * *'   # daily 14:00 UTC — clear of the 01:00–13:00 daily cron wave
   workflow_dispatch:
     inputs:
       limit:
-        description: 'Max items to attempt (0 = all feature/silent/animation non-pro targets)'
+        description: 'Max items to attempt (0 = all; keep <=500 to stay under the 6h wall)'
         required: false
-        default: '1000'
+        default: '450'
       reprobe_days:
         description: 'Skip items probed within this many days'
         required: false
@@ -67,7 +77,7 @@ jobs:
           THETVDB_API_KEY: ${{ secrets.THETVDB_API_KEY }}
         run: |
           python tools/resource_posters_secondary.py \
-            --limit ${{ github.event.inputs.limit || '1000' }} \
+            --limit ${{ github.event.inputs.limit || '450' }} \
             --reprobe-days ${{ github.event.inputs.reprobe_days || '30' }} \
             --sleep ${{ github.event.inputs.sleep || '0.4' }} \
             ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} \

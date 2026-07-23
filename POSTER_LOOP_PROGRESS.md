@@ -194,3 +194,36 @@ match-unmatched (Mon 21:00, hardened) · daily metadata fills · daily validate-
 
 **App versions 1.3.302→1.3.306.** Memory: `poster-metadata-loop-2026-07`.
 **LOOP STOPPED** — core complete + self-sustaining; the schedules drain the rest. Restart with /loop.
+
+---
+
+## Resume — 2026-07-23 (secondary-source tail)
+
+### Tick 10 — 2026-07-23 — Secondary re-sourcer: first real run reviewed + promoted to daily cron
+- Resumed the loop. A brand-new **secondary-source re-sourcer** had been built + committed since
+  the "stopped" handoff: `tools/resource_posters_secondary.py` (commit `c12c6045`) — targets the
+  **~6,070 feature/silent/animation FILMS TMDb can't reach** (no imdb/tmdb id, or TMDb has no art)
+  via **TheTVDB → Wikidata QID (imdb/tmdb authoritative; title-only = unique-film + year±2 + colorMode
+  guard) → English-Wikipedia film-infobox image (preferred; the infobox IS conventionally the
+  theatrical poster) → Commons P18 fallback**, every candidate proven LIVE before adoption,
+  abstain-over-wrong. Workflow was `workflow_dispatch`-only, un-promoted.
+- **First real run `30018358797` (`--limit 500`, popularity-first) reviewed:** UPGRADED **93**
+  (tvdb 41 · wikipedia_infobox 44 · wikidata_p18 8); no_qid 280 (couldn't ID → abstained);
+  abstain_no_year 53; abstain_bw_modern 2 (guard fired: Sympathy for Mr. Vengeance / Sisters);
+  **0 dead posters adopted** (verify: alive=49, dead/demoted=0, rest transient Wikimedia throttles).
+  Adoptions spot-checked clean — high-confidence ones id-anchored (Le comte de Monte Cristo 1918
+  imdb→QID→infobox; Loie Fuller 1902 imdb→QID; Werewolf of Washington stored→QID→infobox); only 2
+  title-only QID matches, both unique+year+color gated. Published + app-DB rebuilt (`30039896711`) →
+  live on all 5 platforms. Catalog now 40,630 items.
+- **Two operational facts drove the promotion shape:** (1) it's SLOW (~35s/item, network-bound on
+  SPARQL + Wikimedia throttling) → a full 6,070 drain ≈ 59h of runner time, so bounded manual runs
+  can't finish it — the schedule IS the draining mechanism. (2) It only persists on the FINAL publish
+  and shares `catalog-writers` concurrency with the whole daily cron wave → a 5h run risks both the
+  6h wall (saves nothing) and queue starvation (`db_health_stability_loop_2026_07`).
+- **Promoted `resource-posters-secondary.yml`** (v1.3.308/830): **daily `0 14 * * *`** — the emptiest
+  window (no daily catalog cron 14:00–01:00 UTC), so the ~4–5h run never blocks the daily publish;
+  default limit lowered **1000→450** (both scheduled + dispatch paths; ≈4h20m, ≈1h40m wall margin)
+  since a wall-kill persists nothing. Drains ~450/day → full pass in ~14 days, ongoing for new ingests.
+- Ongoing poster mechanisms now: daily resource-posters TMDb (11:30) + daily resource-posters
+  **secondary (14:00, NEW)** + weekly match-unmatched (Mon 21:00) + weekly verify-matches (Tue 19:00)
+  + daily validate-posters (liveness).
