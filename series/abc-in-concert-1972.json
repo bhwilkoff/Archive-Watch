@@ -1,63 +1,66 @@
 {
- "version": 2,
- "seriesID": "abc-in-concert-1972",
- "tvmazeID": 22594,
- "title": "ABC in Concert",
- "yearStart": 1972,
- "yearEnd": 1997,
- "overview": "ABC in Concert is a revival of its old \"Wide World of Entertainment\" series from the 70's, this ABC series presented concert performances featuring a different rock or pop performer each week. Musical acts ranged from well-known performers like The Rolling Stones and Cher, to newer, up-and-coming acts like New Kids on the Block, Sinead O' Connor and Mariah Carey. These late-night concerts were also simultaneously broadcast on ABC radio.",
- "posterURL": null,
- "backdropURL": null,
- "genres": [
-  "Music"
- ],
- "networks": [
-  "ABC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "abc-in-concert-1972",
+  "tvmazeID": 22594,
+  "title": "ABC in Concert",
+  "yearStart": 1972,
+  "yearEnd": 1997,
+  "overview": "ABC in Concert is a revival of its old \"Wide World of Entertainment\" series from the 70's, this ABC series presented concert performances featuring a different rock or pop performer each week. Musical acts ranged from well-known performers like The Rolling Stones and Cher, to newer, up-and-coming acts like New Kids on the Block, Sinead O' Connor and Mariah Carey. These late-night concerts were also simultaneously broadcast on ABC radio.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [
+    "Music"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "bbc-in-concert-s-01-e-01-joni-mitchell-9-october-1970_202509",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "BBC In Concert S01E01 Joni Mitchell 9 October, 1970",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rFH2sDqpqBCggRRj9QS4GbEjl1t.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "BBC In Concert S01E01 Joni Mitchell 9 October, 1970.mp4",
-      "format": "h.264",
-      "sizeBytes": 177302450,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/bbc-in-concert-s-01-e-01-joni-mitchell-9-october-1970_202509/BBC In Concert S01E01 Joni Mitchell 9 October, 1970.mp4"
-    },
-    {
-     "archiveID": "bbc-in-concert-s-01-e-03-elton-john-23-oct-1970",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "BBC In Concert S01E03 Elton John 23 Oct, 1970",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/bbc-in-concert-s-01-e-03-elton-john-23-oct-1970",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "BBC In Concert S01E03 Elton John 23 Oct, 1970.mp4",
-      "format": "h.264",
-      "sizeBytes": 162078254,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/bbc-in-concert-s-01-e-03-elton-john-23-oct-1970/BBC In Concert S01E03 Elton John 23 Oct, 1970.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "bbc-in-concert-s-01-e-01-joni-mitchell-9-october-1970_202509",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "BBC In Concert S01E01 Joni Mitchell 9 October, 1970",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rFH2sDqpqBCggRRj9QS4GbEjl1t.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BBC In Concert S01E01 Joni Mitchell 9 October, 1970.mp4",
+            "format": "h.264",
+            "sizeBytes": 177302450,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bbc-in-concert-s-01-e-01-joni-mitchell-9-october-1970_202509/BBC In Concert S01E01 Joni Mitchell 9 October, 1970.mp4"
+        },
+        {
+          "archiveID": "bbc-in-concert-s-01-e-03-elton-john-23-oct-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "BBC In Concert S01E03 Elton John 23 Oct, 1970",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bbc-in-concert-s-01-e-03-elton-john-23-oct-1970",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BBC In Concert S01E03 Elton John 23 Oct, 1970.mp4",
+            "format": "h.264",
+            "sizeBytes": 162078254,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bbc-in-concert-s-01-e-03-elton-john-23-oct-1970/BBC In Concert S01E03 Elton John 23 Oct, 1970.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 2,
- "canonicalEpisodesCount": 298
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 298,
+  "seriesImdbID": "tt0334826",
+  "canonicalEpisodeCount": 1,
+  "canonicalSeasons": 1
 }
