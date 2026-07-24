@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-07-23T06:32:58Z",
+  "updated_at": "2026-07-24T06:30:56Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 17614,
-    "wanted": 17393,
+    "total": 17623,
+    "wanted": 17402,
     "fulfilled": 221,
-    "series_with_gaps": 351
+    "series_with_gaps": 352
   },
   "wants": [
     {
@@ -170082,6 +170082,96 @@
       "episodeImdbID": "tt0731601",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "treehouse-detectives-2018",
+      "seriesTitle": "Treehouse Detectives",
+      "season": 1,
+      "episode": 2,
+      "title": "The Case of the Collapsing Castle/The Case of the Hurt Bird",
+      "episodeImdbID": "tt9288470",
+      "status": "wanted",
+      "added_at": "2026-07-24T06:30:56Z"
+    },
+    {
+      "seriesID": "treehouse-detectives-2018",
+      "seriesTitle": "Treehouse Detectives",
+      "season": 1,
+      "episode": 3,
+      "title": "The Case of the Invisible Owl/The Case of the Flying Pig",
+      "episodeImdbID": "tt8637690",
+      "status": "wanted",
+      "added_at": "2026-07-24T06:30:56Z"
+    },
+    {
+      "seriesID": "treehouse-detectives-2018",
+      "seriesTitle": "Treehouse Detectives",
+      "season": 1,
+      "episode": 5,
+      "title": "The Case of the Talking Rock/The Case of the Readymade Rainbow",
+      "episodeImdbID": "tt8681226",
+      "status": "wanted",
+      "added_at": "2026-07-24T06:30:56Z"
+    },
+    {
+      "seriesID": "treehouse-detectives-2018",
+      "seriesTitle": "Treehouse Detectives",
+      "season": 1,
+      "episode": 6,
+      "title": "The Case of the Missing Explorer/The Case of the Orphaned Egg",
+      "episodeImdbID": "tt8637708",
+      "status": "wanted",
+      "added_at": "2026-07-24T06:30:56Z"
+    },
+    {
+      "seriesID": "treehouse-detectives-2018",
+      "seriesTitle": "Treehouse Detectives",
+      "season": 1,
+      "episode": 7,
+      "title": "The Case of the Lost Logs/The Case of the Super Squirrel",
+      "episodeImdbID": "tt9288660",
+      "status": "wanted",
+      "added_at": "2026-07-24T06:30:56Z"
+    },
+    {
+      "seriesID": "treehouse-detectives-2018",
+      "seriesTitle": "Treehouse Detectives",
+      "season": 1,
+      "episode": 8,
+      "title": "The Case of the Floating Ghost/The Case of the Wise Eyes",
+      "episodeImdbID": "tt8637724",
+      "status": "wanted",
+      "added_at": "2026-07-24T06:30:56Z"
+    },
+    {
+      "seriesID": "treehouse-detectives-2018",
+      "seriesTitle": "Treehouse Detectives",
+      "season": 1,
+      "episode": 10,
+      "title": "The Case of the Counterfeit Chameleon/The Case of the Remarkable Rocks",
+      "episodeImdbID": "tt9292296",
+      "status": "wanted",
+      "added_at": "2026-07-24T06:30:56Z"
+    },
+    {
+      "seriesID": "treehouse-detectives-2018",
+      "seriesTitle": "Treehouse Detectives",
+      "season": 2,
+      "episode": 2,
+      "title": "The Case of the Suspicious Snowflakes/The Case of the Missing Instrument",
+      "episodeImdbID": "tt9342070",
+      "status": "wanted",
+      "added_at": "2026-07-24T06:30:56Z"
+    },
+    {
+      "seriesID": "treehouse-detectives-2018",
+      "seriesTitle": "Treehouse Detectives",
+      "season": 3,
+      "episode": 1,
+      "title": "Episode #3.1",
+      "episodeImdbID": "tt12189248",
+      "status": "wanted",
+      "added_at": "2026-07-24T06:30:56Z"
     },
     {
       "seriesID": "treehouse-masters-2013",
