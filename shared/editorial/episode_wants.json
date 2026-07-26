@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-07-25T06:23:23Z",
+  "updated_at": "2026-07-26T06:36:36Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 17623,
-    "wanted": 17402,
+    "total": 17625,
+    "wanted": 17404,
     "fulfilled": 221,
     "series_with_gaps": 352
   },
@@ -45472,6 +45472,16 @@
       "seriesID": "eastenders-1985",
       "seriesTitle": "EastEnders",
       "season": 1,
+      "episode": 134,
+      "title": "Episode #1.134",
+      "episodeImdbID": "tt1249636",
+      "status": "wanted",
+      "added_at": "2026-07-26T06:36:36Z"
+    },
+    {
+      "seriesID": "eastenders-1985",
+      "seriesTitle": "EastEnders",
+      "season": 1,
       "episode": 135,
       "title": "Episode #1.135",
       "episodeImdbID": "tt1249637",
@@ -45577,6 +45587,16 @@
       "episodeImdbID": "tt1249647",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "eastenders-1985",
+      "seriesTitle": "EastEnders",
+      "season": 1,
+      "episode": 146,
+      "title": "Episode #1.146",
+      "episodeImdbID": "tt1249648",
+      "status": "wanted",
+      "added_at": "2026-07-26T06:36:36Z"
     },
     {
       "seriesID": "eastenders-1985",
