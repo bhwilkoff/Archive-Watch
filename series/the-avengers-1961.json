@@ -158,6 +158,24 @@
           "downloadURL": "https://archive.org/download/the.avengers.s05e07.the.living.dead/The.Avengers.S05E07.The.Living.Dead.mp4"
         },
         {
+          "archiveID": "the.avengers.s05e10.never.never.say.die",
+          "seasonNumber": 5,
+          "episodeNumber": 10,
+          "title": "Never, Never Say Die",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/the.avengers.s05e10.never.never.say.die.faddbaea.jpg",
+          "airDate": "1967-03-18",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Avengers.S05E10.Never.Never.Say.Die.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 134623798,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the.avengers.s05e10.never.never.say.die/The.Avengers.S05E10.Never.Never.Say.Die.mp4"
+        },
+        {
           "archiveID": "the-avengers-s-5e-1-restored-720p-hd",
           "seasonNumber": 5,
           "episodeNumber": 12,
@@ -273,7 +291,7 @@
       ]
     }
   ],
-  "episodesCount": 13,
+  "episodesCount": 14,
   "canonicalEpisodesCount": 161,
   "tvdbID": "71020",
   "artworkSource": "tvdb",

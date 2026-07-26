@@ -19,18 +19,36 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": null,
+      "seasonNumber": 1,
       "episodes": [
         {
+          "archiveID": "treehouse-tv-2008-part-2",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Case of the Collapsing Castle / The Case of the Hurt Bird",
+          "overview": "After Rumy, Jay and Bean build a sandcastle, they wake up to find it in ruins. / A hurt bird seems like she wants the friends to follow her.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/174/436773.jpg",
+          "airDate": "2018-06-08",
+          "year": 2018,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Treehouse TV (2008) Part 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 720205693,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/treehouse-tv-2008-part-2/Treehouse%20TV%20%282008%29%20Part%202.mp4"
+        },
+        {
           "archiveID": "treehouse-tv-2007",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Treehouse TV",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Case of the Invisible Owl / The Case of the Flying Pig",
+          "overview": "Something swoops in out of nowhere and starts snatching the gang's most prized possessions. / Rumy wants to fly but can't seem to get off the ground.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/174/436776.jpg",
+          "airDate": "2018-06-08",
+          "year": 2018,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "Treehouse TV (2007) (Part 3).mp4",
             "format": "h.264",
@@ -41,14 +59,14 @@
         },
         {
           "archiveID": "treehouse-tv-2008-part-5",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Treehouse TV",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Case of the Talking Rock / The Case of the Readymade Rainbow",
+          "overview": "Rumy makes friends with a talking rock named Rocco! But rocks can't talk ... or can they? / Toby and Teri learn where rainbows really come from.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/174/436778.jpg",
+          "airDate": "2018-06-08",
+          "year": 2018,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "Treehouse TV (2008) Part 5.mp4",
             "format": "h.264",
@@ -56,24 +74,6 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/treehouse-tv-2008-part-5/Treehouse%20TV%20%282008%29%20Part%205.mp4"
-        },
-        {
-          "archiveID": "treehouse-tv-2008-part-2",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Treehouse TV",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Treehouse TV (2008) Part 2.mp4",
-            "format": "h.264",
-            "sizeBytes": 720205693,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/treehouse-tv-2008-part-2/Treehouse%20TV%20%282008%29%20Part%202.mp4"
         }
       ]
     }
@@ -81,8 +81,5 @@
   "episodesCount": 3,
   "canonicalEpisodesCount": 20,
   "tvdbID": "348077",
-  "artworkSource": "tvdb",
-  "seriesImdbID": "tt8591984",
-  "canonicalEpisodeCount": 9,
-  "canonicalSeasons": 3
+  "artworkSource": "tvdb"
 }

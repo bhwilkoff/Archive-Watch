@@ -2,7 +2,7 @@
   "version": 2,
   "seriesID": "have-gun-will-travel-1957",
   "tvmazeID": 3360,
-  "title": "Have Gun, Will Travel",
+  "title": "Have Gun - Will Travel",
   "yearStart": 1957,
   "yearEnd": 1963,
   "overview": "The man known only as \"Paladin\" lives in San Francisco at the Carlton Hotel, accustomed to the fanciest food and furnishings. He afford it all by riding out as a gunslinger and charging top dollar for his services. His calling card? \"Have Gun Will Travel.\" Paladin will take on any case if a client meets his fee, but whether he helps them or not depends on whether he thinks that they deserve it. A West Point graduate with an unknown past, Paladin is as likely to help a client with his lightning wits and sense of strategy, as he is to use his gun and his hold-out derringer.",
@@ -187,8 +187,5 @@
       "order": 1,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/81093.jpg"
     }
-  ],
-  "seriesImdbID": "tt0050025",
-  "canonicalEpisodeCount": 183,
-  "canonicalSeasons": 6
+  ]
 }

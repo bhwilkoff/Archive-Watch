@@ -1,0 +1,157 @@
+{
+  "version": 2,
+  "seriesID": "love-is-blind-2020",
+  "tvmazeID": 46167,
+  "title": "Love Is Blind",
+  "yearStart": 2020,
+  "yearEnd": null,
+  "overview": "With no distractions from the outside world, the singles talk to a stream of potential love interests and when a meaningful connection is made, they propose and then lay their eyes on their fiancé for the first time. Engaged and back in the real world, as the couples plan their wedding day, they will quickly discover whether they can turn their emotional connection into a physical one before the fast-approaching ceremony.",
+  "posterURL": "https://artworks.thetvdb.com/banners/series/376459/posters/62072350.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Romance"
+  ],
+  "networks": [
+    "Netflix"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "murphy-brown-s04E13-love-is-blonde",
+          "seasonNumber": 4,
+          "episodeNumber": 13,
+          "title": "The Reunion",
+          "overview": "In this reunion special, the Season 4 cast dishes on love, life and lessons learned after saying \"I do\" — or \"don't.\"",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/457/1144319.jpg",
+          "airDate": "2023-04-16",
+          "year": 2023,
+          "runtimeSeconds": 5880,
+          "videoFile": {
+            "name": "Murphy Brown - S04E13 - Love is Blonde.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 212820701,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/murphy-brown-s04E13-love-is-blonde/Murphy%20Brown%20-%20S04E13%20-%20Love%20is%20Blonde.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 136,
+  "tvdbID": "376459",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Nick Lachey",
+      "character": "Self - Host",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/268160/photo/609a374e49e64.jpg"
+    },
+    {
+      "name": "Vanessa Lachey",
+      "character": "Self - Host",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/501850/photo/605d90a5c83eb.jpg"
+    },
+    {
+      "name": "Alex Henderson",
+      "character": "Alex",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9152037/photo/6994f61b575a8.jpg"
+    },
+    {
+      "name": "Amber Morrison",
+      "character": "Amber",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9152036/photo/6994f6668714c.jpg"
+    },
+    {
+      "name": "Ashley Carpenter",
+      "character": "Ashley",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9152035/photo/6994f6a5797e2.jpg"
+    },
+    {
+      "name": "Brianna McNees",
+      "character": "Bri",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9152046/photo/69962b9aceba4.jpg"
+    },
+    {
+      "name": "Brittany Wicker",
+      "character": "Brittany",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9152034/photo/6994f6e222f51.jpg"
+    },
+    {
+      "name": "Chris Fusco",
+      "character": "Chris",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9152047/photo/69964003deb59.jpg"
+    },
+    {
+      "name": "Christine Hamilton",
+      "character": "Christine",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9152033/photo/6994f7215517c.jpg"
+    },
+    {
+      "name": "Connor Spies",
+      "character": "Connor",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9152032/photo/6994f75da80b9.jpg"
+    },
+    {
+      "name": "Devonta Anderson",
+      "character": "Devonta",
+      "order": 10,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9152031/photo/6994f79489f7b.jpg"
+    },
+    {
+      "name": "Emma Betsinger",
+      "character": "Emma",
+      "order": 11,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9152029/photo/6994f81160a06.jpg"
+    },
+    {
+      "name": "Jessica Barrett",
+      "character": "Jessica",
+      "order": 12,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9152048/photo/6996405852bc8.jpg"
+    },
+    {
+      "name": "Jordan Faeth",
+      "character": "Jordan",
+      "order": 13,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9152028/photo/6994f85039ab2.jpg"
+    },
+    {
+      "name": "Kevan Jones",
+      "character": "Kevan",
+      "order": 14,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9152027/photo/6994f89436369.jpg"
+    },
+    {
+      "name": "Keya Kellum",
+      "character": "Keya",
+      "order": 15,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9152026/photo/6994f8d86fe02.jpg"
+    },
+    {
+      "name": "Mike Gibney",
+      "character": "Mike",
+      "order": 16,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9152025/photo/6994f9ab38635.jpg"
+    },
+    {
+      "name": "Tyler Lanier",
+      "character": "Tyler",
+      "order": 17,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9152019/photo/6994f94c57994.jpg"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "version": 2,
+  "seriesID": "married-at-first-sight-2014",
+  "tvmazeID": 2709,
+  "title": "Married at First Sight",
+  "yearStart": 2014,
+  "yearEnd": null,
+  "overview": "Married at First Sight is an extreme social experiment that follows six brave singles yearning for a life-long partnership as they agree to a provocative proposal: getting legally married to a complete stranger the moment they first meet. Four specialists – sexologist, Dr. Logan Levkoff; psychologist, Dr. Joseph Cilona; sociologist, Dr. Pepper Schwartz; and spiritual advisor, Greg Epstein – create what they believe are three perfect couples, based on scientific matchmaking. The couples will not meet until they walk down the aisle and see each other face-to-face, for the first time, at the altar. Over the course of several weeks, episodes capture each couple's journey as they go from wedding, to honeymoon, to early nesting, to the daily struggle of working on their marriage. After several weeks together, each couple must make a decision: do they remain together or decide to divorce?",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/283196/posters/68fa30ed3d8d2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Romance"
+  ],
+  "networks": [
+    "Peacock"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "20251002_Once-in-Memory-Love-at-First-Sight-Parte-S01E02-mp4",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Weddings",
+          "overview": "This is a social experiment whereby a team of relationship experts have matched three couples. Six singles who have failed to find love have agreed to take the most radical step: they will marry a total stranger. The first time the couples meet is at their wedding ceremony in front of their family and friends. Will they all have the courage to say \"I do?\"",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/324/811620.jpg",
+          "airDate": "2014-07-15",
+          "year": 2014,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Once-in-Memory-Love-at-First-Sight-Parte-S01E02.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 222313505,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20251002_Once-in-Memory-Love-at-First-Sight-Parte-S01E02-mp4/Once-in-Memory-Love-at-First-Sight-Parte-S01E02.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 349,
+  "tvdbID": "283196",
+  "artworkSource": "tvdb"
+}

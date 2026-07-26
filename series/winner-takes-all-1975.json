@@ -1,0 +1,43 @@
+{
+ "version": 2,
+ "seriesID": "winner-takes-all-1975",
+ "tvmazeID": 10659,
+ "title": "Winner Takes All",
+ "yearStart": 1975,
+ "yearEnd": 1987,
+ "overview": "Winner Takes All was a game show that aired on ITV from 20 April 1975 to 28 June 1988, first hosted by Jimmy Tarbuck from 1975 to 1986 and then hosted by Geoffrey Wheeler from 1987 to 1988. The show then returned on the screens in 1997, this time on Challenge TV hosted by Bobby Davro.The two contestants started with 50 points each (30 points when it became a daytime show in 1988) and were asked multiple choice questions with six possible answers but each answer had some odds (Evens, 2–1, 3–1, 4–1, 5–1 & 10–1) and after each question was asked, the contestants were asked how many points they would like to bet and then, they selected the odds that corresponded to the answer they thought was correct, if they got the correct answer, they won the points the odds were worth, if they gave a wrong answer, they lost the points, the contestant with the most points won through to the final while the loser left the show with nothing. In later series, the losers took home a filofax (except the 1988 series where they took home an encyclopedia). In the Challenge TV version, the losers took home a Winner Takes All T-Shirt. Then, they played again with two different contestants and the winner of that met the winner of the first game.The two winners played for cash in the final with a maximum of £1,000 to be won. Only the winner took the money home while the loser took home a consolation prize of £100: the winning contestant was given the option of returning on the next show to add to his or her winnings, but if they returned and lost they would lose all but £100 of their winnings.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89938.jpg",
+ "backdropURL": null,
+ "genres": [],
+ "networks": [
+  "ITV1"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 5,
+   "episodes": [
+    {
+     "archiveID": "murphy-brown-s05E10-winners-take-all",
+     "seasonNumber": 5,
+     "episodeNumber": 10,
+     "title": "Episode 10",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/murphy-brown-s05E10-winners-take-all",
+     "airDate": "1979-05-18",
+     "year": 1979,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Murphy Brown - S05E10 - Winners Take All.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 180901862,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/murphy-brown-s05E10-winners-take-all/Murphy%20Brown%20-%20S05E10%20-%20Winners%20Take%20All.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 1,
+ "canonicalEpisodesCount": 188
+}

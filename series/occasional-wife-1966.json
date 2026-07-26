@@ -1,0 +1,115 @@
+{
+  "version": 2,
+  "seriesID": "occasional-wife-1966",
+  "tvmazeID": 24045,
+  "title": "Occasional Wife",
+  "yearStart": 1966,
+  "yearEnd": 1967,
+  "overview": "A young executive persuades his neighbor to pose as his wife to win a promotion with his company.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77930-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "So Little Time",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/s-01-e-30-so-little-time.0034dd22.jpg",
+          "airDate": "1967-05-09",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E30 - So Little Time.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 274601429,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E30%20-%20So%20Little%20Time.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 30,
+  "tvdbID": "77930",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Bryan O'Byrne",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/260191/photo/63c05cd05cbfd.jpg"
+    },
+    {
+      "name": "Susan Silo",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Chris Noel",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Vin Scully",
+      "character": "",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Stuart Margolin",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Joan Tompkins",
+      "character": "",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257619/photo/64ac49dc57592.jpg"
+    },
+    {
+      "name": "Jack Collins",
+      "character": "",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Sara Seegar",
+      "character": "",
+      "order": 7,
+      "profilePath": null
+    },
+    {
+      "name": "Jack Riley",
+      "character": "",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256617/photo/62f2f92a50ce0.jpg"
+    },
+    {
+      "name": "Michael Callan",
+      "character": "Peter Christopher",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/468664.jpg"
+    },
+    {
+      "name": "Patricia Harty",
+      "character": "Greta Patterson",
+      "order": 10,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/468665.jpg"
+    }
+  ]
+}
