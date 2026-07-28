@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-07-27T07:43:16Z",
+  "updated_at": "2026-07-28T06:40:19Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 17942,
-    "wanted": 17720,
+    "total": 17943,
+    "wanted": 17721,
     "fulfilled": 222,
-    "series_with_gaps": 356
+    "series_with_gaps": 357
   },
   "wants": [
     {
@@ -177104,6 +177104,16 @@
       "episodeImdbID": "tt1576345",
       "status": "wanted",
       "added_at": "2026-06-04T08:24:27Z"
+    },
+    {
+      "seriesID": "winner-takes-all-1975",
+      "seriesTitle": "Winner Takes All",
+      "season": 8,
+      "episode": 1,
+      "title": "Episode #8.1",
+      "episodeImdbID": "tt32461749",
+      "status": "wanted",
+      "added_at": "2026-07-28T06:40:19Z"
     },
     {
       "seriesID": "wkrp-in-cincinnati-1978",
