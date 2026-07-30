@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-07-29T05:32:03Z",
+  "updated_at": "2026-07-30T05:19:16Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-07-29T05:32:03Z"
+      "last_tried": "2026-07-30T05:19:16Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-07-29T05:32:03Z"
+      "last_tried": "2026-07-30T05:19:16Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -321135,6 +321135,62 @@
         "Sci-Fi"
       ],
       "fetched_at": "2026-07-28T05:25:57Z",
+      "schema": 3
+    },
+    "tt0058286": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzFhY2Q4ZmQtZjU1ZC00Njc1LWI1Y2UtODkzMzNmMjVmZDg2XkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_SX300.jpg",
+      "imdb_rating": 6.0,
+      "imdb_votes": 411,
+      "content_rating": "Approved",
+      "plot": "Clem Rogers, known as \"the Hanging Judge\" has come to Stone Junction, Kansas in 1889 to preside over the murder trial of Pete Stone, son of town ruler \"Big Tom\" Stone. Things are made more difficult when Rogers learns that Joe Rile, the man who killed his father, is working for Stone. The latter, in an effort to discredit Rogers, has his henchmen leave the unconscious, beaten and half-dressed Ellie Irish in his hotel room. On the day of the trial the town slowly fills fills with strangers, all in black and all hired to fill the courtroom. Stone tells Rogers that everyone in the courtroom is related to someone Rogers has hanged and is armed, and defies Rogers to send his son to the gallows.",
+      "runtime_min": 87,
+      "director": "William F. Claxton",
+      "actors": [
+        "Dale Robertson",
+        "Yvonne De Carlo",
+        "William Bendix"
+      ],
+      "genres": [
+        "Western"
+      ],
+      "fetched_at": "2026-07-30T05:19:16Z",
+      "schema": 3
+    },
+    "tt0437857": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjE5MDE3MTQxOV5BMl5BanBnXkFtZTcwNDY0NzA0MQ@@._V1_SX300.jpg",
+      "imdb_rating": 6.7,
+      "imdb_votes": 26270,
+      "content_rating": "R",
+      "plot": "The next great psycho horror slasher has given a documentary crew exclusive access to his life as he plans his reign of terror over the sleepy town of Glen Echo.",
+      "runtime_min": 92,
+      "director": "Scott Glosserman",
+      "actors": [
+        "Nathan Baesel",
+        "Angela Goethals",
+        "Zelda Rubinstein"
+      ],
+      "genres": [
+        "Comedy",
+        "Horror",
+        "Thriller"
+      ],
+      "fetched_at": "2026-07-30T05:19:16Z",
+      "schema": 3
+    },
+    "tt0479305": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 7,
+      "director": "Paul Fierlinger",
+      "actors": [],
+      "genres": [
+        "Animation",
+        "Short"
+      ],
+      "fetched_at": "2026-07-30T05:19:16Z",
       "schema": 3
     }
   },
