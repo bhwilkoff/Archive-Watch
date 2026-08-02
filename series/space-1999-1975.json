@@ -1,0 +1,146 @@
+{
+  "version": 2,
+  "seriesID": "space-1999-1975",
+  "tvmazeID": 5920,
+  "title": "Space: 1999",
+  "yearStart": 1975,
+  "yearEnd": 1977,
+  "overview": "It's 1999 and Moonbase Alpha has been built on the Moon to safeguard the nuclear waste shipped from Earth. On September 13, 1999, disaster strikes and the nuclear waste explodes, causing a chain reaction that hurls the Moon out of Earth's orbit and into deep space.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76366-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Science-Fiction"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Space1999.Series1",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Death's Other Dominion",
+          "overview": "The Moon comes to a frozen planet inhabited by seeming immortals who invites the Alphans to join them.",
+          "stillURL": "https://archive.org/services/img/Space1999.Series1",
+          "airDate": "1975-10-02",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Space 1999 S01E05 Death's Other Dominion.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 356766945,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Space1999.Series1/Space%201999%20S01E05%20Death%27s%20Other%20Dominion.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "Space1999.Series1_201602",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "The Rules of Luton",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Space1999.Series1_201602",
+          "airDate": "1976-10-23",
+          "year": 1976,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Space 1999 S02E08 The Rules of Luton.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 349128668,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space%201999%20S02E08%20The%20Rules%20of%20Luton.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 48,
+  "tvdbID": "76366",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Martin Landau",
+      "character": "Com. John Koenig",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/256570/604414c98ed02.jpg"
+    },
+    {
+      "name": "Barbara Bain",
+      "character": "Dr. Helena Russell",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259631/photo/6320e09fee80d.jpg"
+    },
+    {
+      "name": "Barry Morse",
+      "character": "Victor Bergman",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265636/photo/61dd029cf25a8.jpg"
+    },
+    {
+      "name": "Nick Tate",
+      "character": "Cap. Alan Carter",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/45637.jpg"
+    },
+    {
+      "name": "Anton Phillips",
+      "character": "Dr. Bob Mathias",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/45626.jpg"
+    },
+    {
+      "name": "Catherine Schell",
+      "character": "Maya",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/45635.jpg"
+    },
+    {
+      "name": "Tony Anholt",
+      "character": "Tony Verdeschi",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/45638.jpg"
+    },
+    {
+      "name": "Zienia Merton",
+      "character": "Sandra Benes",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/308720/photo/631f8cc2dfde6.jpg"
+    },
+    {
+      "name": "Suzanne Roquette",
+      "character": "Tanya Alexander",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/45627.jpg"
+    },
+    {
+      "name": "Clifton Jones",
+      "character": "David Kano",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/45630.jpg"
+    },
+    {
+      "name": "Prentis Hancock",
+      "character": "Paul Morrow",
+      "order": 10,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258532/photo/658fd1faa5385.jpg"
+    },
+    {
+      "name": "Barbara Kelly",
+      "character": "Main Computer Voice",
+      "order": 11,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/288700/photo/6474ae6e71e77.jpg"
+    }
+  ]
+}
