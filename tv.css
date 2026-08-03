@@ -1,0 +1,173 @@
+/* Archive Watch — smart-TV stylesheet (Tizen · webOS · VIDAA · aggregators).
+ *
+ * Binding rules: docs/TV-DESIGN.md §4 (layout/type/colour) and §3.2 (focus).
+ *
+ * ADDITIVE ONLY. Every rule is scoped under `html.tv`, which tv.js adds solely
+ * on a TV runtime, so the mobile-first stylesheet is untouched and the phone /
+ * desktop viewer cannot regress (§7.5). The existing `min-width` media-query
+ * discipline is preserved — this is a TV *breakpoint*, not a TV fork.
+ */
+
+html.tv {
+  /* §4.1 — 1920x1080 is the design baseline.
+     §4.2 — 5% overscan-safe inset: nothing meaningful crosses this line. */
+  --tv-overscan-x: 96px;
+  --tv-overscan-y: 54px;
+
+  /* §4.3 — six levels, three weights x two sizes. 24px is the ten-foot body
+     floor; a seventh level is refused (refactor instead). */
+  --tv-body: 24px;
+  --tv-body-lg: 28px;
+  --tv-title: 32px;
+  --tv-title-lg: 40px;
+  --tv-hero: 64px;
+
+  --tv-focus-ring: #ffffff;
+}
+
+/* §4.4 — dark-first. Living rooms are dark; a bright UI is fatiguing at ten
+   feet. Light mode is not offered on TV. */
+html.tv,
+html.tv body {
+  background: #000;
+  color: #fff;
+  font-size: var(--tv-body);
+  /* TVs do not scroll-bounce and a visible scrollbar reads as a bug. */
+  overflow: hidden;
+}
+
+/* A TV browser has no pointer by default; hide the cursor unless the LG Magic
+   Remote wakes it (that pointer generates real mousemove events). */
+html.tv:not(.tv-webos) body { cursor: none; }
+
+/* ------------------------------------------------------------------ *
+ * §3.2 — Focus is visible from ten feet.
+ *
+ * At LEAST two of scale / ring / lift, never colour alone: colour alone fails
+ * colour-blind viewers and washes out on a bright living-room panel. Here we
+ * use all three.
+ * ------------------------------------------------------------------ */
+
+html.tv :focus {
+  outline: none;   /* replaced by the ring below, not removed */
+}
+
+html.tv a:focus,
+html.tv button:focus,
+html.tv [tabindex]:focus {
+  outline: 3px solid var(--tv-focus-ring);
+  outline-offset: 3px;
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75);
+}
+
+html.tv .card {
+  transition: transform 120ms ease-out;
+  transform-origin: center center;
+}
+
+html.tv .card:focus {
+  transform: scale(1.08);
+  z-index: 5;   /* the lifted card must sit above its neighbours */
+}
+
+/* ------------------------------------------------------------------ *
+ * Layout — overscan-safe insets
+ * ------------------------------------------------------------------ */
+
+html.tv main {
+  padding-left: var(--tv-overscan-x);
+  padding-right: var(--tv-overscan-x);
+  padding-bottom: var(--tv-overscan-y);
+  height: 100vh;
+  overflow-y: auto;
+}
+
+html.tv .topnav {
+  padding: var(--tv-overscan-y) var(--tv-overscan-x) 16px;
+  font-size: var(--tv-title);
+  gap: 28px;
+}
+
+html.tv .topnav a {
+  padding: 10px 18px;
+  font-size: var(--tv-title);
+}
+
+/* §4.6 — rows at the root. Shelves get room to breathe and the focused tile
+   needs trailing space so it can scroll clear of the screen edge (§3.3). */
+html.tv .shelf-row {
+  gap: 20px;
+  padding-bottom: 28px;
+  /* The last tile must be able to reach the centre when focused. */
+  scroll-padding-inline: var(--tv-overscan-x);
+}
+
+html.tv .card {
+  width: 200px;
+}
+
+html.tv .card .t {
+  font-size: var(--tv-body);
+  line-height: 1.25;
+}
+
+html.tv .card .y {
+  font-size: 20px;
+}
+
+html.tv h1 { font-size: var(--tv-hero); }
+html.tv h2 { font-size: var(--tv-title-lg); }
+html.tv h3 { font-size: var(--tv-title); }
+html.tv p,
+html.tv li { font-size: var(--tv-body); line-height: 1.5; }
+
+/* Grids get bigger cells: at ten feet a phone-density grid is unreadable and
+   takes far too many D-pad presses to cross. */
+html.tv .grid {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 28px;
+}
+
+/* ------------------------------------------------------------------ *
+ * Player — the video fills the panel; the native controls stay native
+ * (§5.1: never build a custom transport over a platform player).
+ * ------------------------------------------------------------------ */
+
+html.tv dialog.player,
+html.tv .player {
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #000;
+}
+
+html.tv video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  background: #000;
+}
+
+/* The title/description overlay rides inside the safe area and must never
+   swallow a press meant for the controls (Decision 037). */
+html.tv .player-overlay {
+  padding: var(--tv-overscan-y) var(--tv-overscan-x);
+  font-size: var(--tv-title);
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------ *
+ * Touch-only affordances have no meaning on a remote — hide rather than
+ * leave dead controls the D-pad can land on (§3.4, no dead ends).
+ * ------------------------------------------------------------------ */
+
+html.tv .install-prompt,
+html.tv .smart-banner,
+html.tv .share-menu-trigger {
+  display: none !important;
+}

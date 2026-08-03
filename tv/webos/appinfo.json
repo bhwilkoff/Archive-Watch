@@ -1,0 +1,16 @@
+{
+  "id": "org.archivewatch.app",
+  "version": "1.3.284",
+  "vendor": "Ben Wilkoff",
+  "type": "web",
+  "main": "index.html",
+  "title": "Archive Watch",
+  "icon": "icon.png",
+  "largeIcon": "largeIcon.png",
+  "splashBackground": "splash.png",
+  "bgColor": "#0A0A0A",
+  "iconColor": "#FF5C35",
+  "disableBackHistoryAPI": false,
+  "supportPortraitMode": false,
+  "requiredMemory": 150
+}

@@ -20,6 +20,11 @@
   <link rel="icon" href="assets/app-icon/favicon.png">
   <link rel="apple-touch-icon" href="assets/app-icon/favicon.png">
   <link rel="stylesheet" href="watch.css">
+  <!-- Smart-TV layer (Tizen · webOS · VIDAA). Both files no-op entirely on
+       phone/desktop: tv.js returns immediately unless it detects a TV runtime,
+       and every tv.css rule is scoped under `html.tv`, which only tv.js adds.
+       docs/TV-DESIGN.md §7. -->
+  <link rel="stylesheet" href="tv.css">
 </head>
 <body>
   <header class="topbar">
@@ -296,5 +301,6 @@
 
   <script src="js/api.js"></script>
   <script src="watch.js"></script>
+  <script src="tv.js"></script>
 </body>
 </html>
