@@ -48,12 +48,14 @@ runtime. Roku is last because it is the only target with 0% code reuse.
 | **F1** | Land + correct `TV-PLATFORM-EXPANSION.md` on main | ENG | S | ✅ done |
 | **F2** | `docs/TV-DESIGN.md` binding doc | ENG | M | ✅ done |
 | **F3** | This backlog | ENG | S | ✅ done |
-| **F4** | `DECISIONS.md` 047 — the TV expansion decision | ENG | S | ⏳ |
-| **F5** | Add **Android TV** + **Web-TV** columns to `PARITY.md` | ENG | S | ⏳ |
-| **F6** | Author project skills `androidtv-compose-focus` + `smarttv-web-app` | ENG | M | ⏳ |
+| **F4** | `DECISIONS.md` 047 — the TV expansion decision | ENG | S | ✅ done |
+| **F5** | Add **Android TV** + **Web-TV** coverage to `PARITY.md` | ENG | S | ✅ done (§8b — a dedicated section, not 2 more columns on already-6-wide tables) |
+| **F6** | Author project skills `androidtv-compose-focus` + `smarttv-web-app` | ENG | M | ✅ done |
 
-**F5 acceptance:** every row in PARITY.md has a cell for both new columns; every
-non-✅ cell carries a reason (`cross-platform-parity-discipline`).
+**F5 note:** the existing tables are already six columns wide, so TV coverage
+landed as a dedicated `PARITY.md` §8b (client table + verb table + a compliance-gate
+line) rather than two more columns. Every non-✅ cell still carries a reason
+(`cross-platform-parity-discipline`).
 
 **F6 rationale:** no existing skill covers Compose for TV focus or Tizen/webOS
 packaging. `android-production-gotchas` is phone-shaped; `web-platform-patterns`
@@ -103,12 +105,12 @@ written back; AirPlay route confirmed on a real iPhone.
 
 | ID | Item | Who | Size | Acceptance |
 |---|---|---|---|---|
-| **A1** | `LEANBACK_LAUNCHER` intent filter (TV-ML) | ENG | S | App appears in the Android TV launcher |
-| **A2** | `touchscreen` + TV-absent hardware `required="false"` (TV-MT) | ENG | S | Play accepts the AAB for the TV form factor |
-| **A3** | **320×180 banner containing the app name** + ≥160×160 xhdpi icon (TV-LB/TV-BN) | ENG | S | Banner renders in the launcher; name legible |
-| **A4** | Landscape, no letterboxing, 5% overscan insets (TV-LO/TV-OV) | ENG | S | Nothing clipped on a real panel |
-| **A5** | **TV-G6 audit: 64-bit + 16 KB page size** across `sqlite-bundled`, Media3, Coil | ENG | M | Every bundled `.so` is 16 KB-aligned; **live requirement since 2026-08-01** |
-| **A6** | Confirm TV-PS (`minSdk` ≤ 31 — currently 29) and TV-G1 (AAB) | ENG | S | Both already satisfied; assert in CI |
+| **A1** ✅ | `LEANBACK_LAUNCHER` intent filter (TV-ML) | ENG | S | App appears in the Android TV launcher |
+| **A2** ✅ | `touchscreen` + TV-absent hardware `required="false"` (TV-MT) | ENG | S | Play accepts the AAB for the TV form factor |
+| **A3** ✅ | **320×180 banner containing the app name** + ≥160×160 xhdpi icon (TV-LB/TV-BN) | ENG | S | Banner renders in the launcher; name legible |
+| **A4** ✅ | Landscape, no letterboxing, 5% overscan insets (TV-LO/TV-OV) | ENG | S | Nothing clipped on a real panel |
+| **A5** ✅ | **TV-G6 audit: 64-bit + 16 KB page size** across `sqlite-bundled`, Media3, Coil | ENG | M | Every bundled `.so` is 16 KB-aligned; **live requirement since 2026-08-01** |
+| **A6** ✅ | Confirm TV-PS (`minSdk` ≤ 31 — currently 29) and TV-G1 (AAB) | ENG | S | Both already satisfied; assert in CI |
 
 **A5 is the sleeper risk.** It went live two days before this backlog was
 written, it is not automatically satisfied, and it blocks the TV form factor.
@@ -118,16 +120,16 @@ Do it early — the fix may be a dependency bump, which has lead time.
 
 | ID | Item | Who | Size | Deps |
 |---|---|---|---|---|
-| **A7** | Add `androidx.tv:tv-material` **1.1.0**; runtime TV branch via `UiModeManager` (TV-DESIGN §6.5) | ENG | S | — |
-| **A8** | Focus primitives: focusable card with scale+ring+lift, initial-focus claim, row/grid containers on standard `LazyRow`/`LazyColumn` | ENG | M | A7 |
-| **A9** | TV **Home** — hero + editorial rows + category/decade rows | ENG | M | A8 |
+| **A7** ✅ | Add `androidx.tv:tv-material` **1.1.0**; runtime TV branch via `UiModeManager` (TV-DESIGN §6.5) | ENG | S | — |
+| **A8** ✅ | Focus primitives: focusable card with scale+ring+lift, initial-focus claim, row/grid containers on standard `LazyRow`/`LazyColumn` | ENG | M | A7 |
+| **A9** ✅ | TV **Home** — hero + editorial rows + category/decade rows | ENG | M | A8 |
 | **A10** | TV **Browse/Movies** + **TV Shows** grids with facets | ENG | M | A8 |
 | **A11** | TV **Detail** — hero, metadata, Play/Favorite, More Like This | ENG | M | A8 |
 | **A12** | TV **Search** — D-pad-operable, with the no-typing browse escape (TV-DESIGN §3.6) | ENG | M | A8 |
 | **A13** | TV **Library** + **Settings** | ENG | S | A8 |
-| **A14** | TV **Player**: Media3 `PlayerView` TV controls, D-pad center/left/right (TV-PC), `KEYCODE_MEDIA_PLAY_PAUSE` (TV-PP), title+description overlay (Decision 037) | ENG | M | A8 |
-| **A15** | **⚠️ Gate `media3-session` MediaSession OFF on TV; pause video on switch-away (TV-NP)** | ENG | S | A14 |
-| **A16** | Back returns to launcher from root, never mid-playback (TV-DB) | ENG | S | A8 |
+| **A14** ✅ | TV **Player**: Media3 `PlayerView` TV controls, D-pad center/left/right (TV-PC), `KEYCODE_MEDIA_PLAY_PAUSE` (TV-PP), title+description overlay (Decision 037) | ENG | M | A8 |
+| **A15** ✅ | **⚠️ Gate `media3-session` MediaSession OFF on TV; pause video on switch-away (TV-NP)** | ENG | S | A14 |
+| **A16** ✅ | Back returns to launcher from root, never mid-playback (TV-DB) | ENG | S | A8 |
 | **A17** | Subtitles via Media3 `SubtitleConfiguration` from `captions[]` | ENG | S | A14 |
 | **A18** | v1.1 surfaces: Channels · Surprise · Collections (TV-DESIGN §2) | ENG | L | A9 |
 
@@ -142,7 +144,7 @@ for the data-layer/`produceState` discipline, which is unchanged on TV.
 
 | ID | Item | Who | Size |
 |---|---|---|---|
-| **A19** | Emulator verification (Android TV emulator image) on every surface | ENG | M |
+| **A19** | Emulator verification (Android TV emulator image) on every surface | ENG | M | ⚠️ **BLOCKED on this machine** — `system-images;android-36;android-tv;arm64-v8a` + a `tv_1080p` AVD are installed, but QEMU hangs before opening its console ports. Root cause: **~9 GB free disk**. Freeing space should unblock it. |
 | **A20** | **Buy an Android TV / Google TV device** for real-remote QA | **OWNER** | S |
 | **A21** | Play Console → *Setup › Advanced settings › Form factors › Add Android TV*; accept the TV policy | **OWNER** | S |
 | **A22** | TV screenshots (≥1, up to 8) + TV banner upload + "Android TV" in the description | **OWNER** (assets by ENG) | S |
@@ -152,7 +154,7 @@ for the data-layer/`produceState` discipline, which is unchanged on TV.
 
 | ID | Item | Who | Size | Notes |
 |---|---|---|---|---|
-| **A24** | Fire variant: **exclude Cast/any GMS**; re-assert zero-GMS in CI | ENG | S | Dependency set is already GMS-free — keep it that way |
+| **A24** ✅ | Fire variant: **exclude Cast/any GMS**; re-assert zero-GMS in CI | ENG | S | Dependency set is already GMS-free — keep it that way |
 | **A25** | Validate Media3 1.9.4 progressive-MP4 playback on **real Fire hardware** | ENG+OWNER | M | Do **not** adopt the stale `amzn` ExoPlayer port |
 | **A26** | **Buy a Fire TV Stick (~$30)** | **OWNER** | S | Amazon expects physical-device QA |
 | **A27** | **Create a free Amazon Developer account** | **OWNER** | S | $0 registration, $0 submission |
@@ -172,20 +174,20 @@ tests; phone build is byte-for-byte unaffected in behavior.
 
 | ID | Item | Who | Size | Notes |
 |---|---|---|---|---|
-| **W1** | Vanilla **spatial-navigation focus engine** (~200 lines): registry, nearest-in-direction resolver, roving `tabindex`, `scrollIntoView`, single `keydown` | ENG | M | Norigin et al. are React-only → out (TV-DESIGN §7.1) |
-| **W2** | Register/unregister focusables on `showView()` — same lifecycle discipline as the IntersectionObservers | ENG | S | |
-| **W3** | TV CSS breakpoint: 1920×1080, 5% overscan insets, 24px body floor, dark-first | ENG | M | Additive to the mobile-first CSS |
-| **W4** | Player key contract: center=play/pause, L/R=seek, media keys; overlay syncs with controls | ENG | M | |
+| **W1** ✅ | Vanilla **spatial-navigation focus engine** (~200 lines): registry, nearest-in-direction resolver, roving `tabindex`, `scrollIntoView`, single `keydown` | ENG | M | Norigin et al. are React-only → out (TV-DESIGN §7.1) |
+| **W2** ✅ | Register/unregister focusables on `showView()` — same lifecycle discipline as the IntersectionObservers | ENG | S | |
+| **W3** ✅ | TV CSS breakpoint: 1920×1080, 5% overscan insets, 24px body floor, dark-first | ENG | M | Additive to the mobile-first CSS |
+| **W4** ✅ | Player key contract: center=play/pause, L/R=seek, media keys; overlay syncs with controls | ENG | M | |
 | **W5** | Subtitles: SRT→WebVTT client-side → `<track>` | ENG | S | Already the web viewer's model |
-| **W6** | Lifecycle: pause on suspend/blur; resume state | ENG | S | |
-| **W7** | Bump the service-worker shell version | ENG | S | Or TVs serve a stale app for days |
+| **W6** ✅ | Lifecycle: pause on suspend/blur; resume state | ENG | S | |
+| **W7** ✅ | Bump the service-worker shell version | ENG | S | Or TVs serve a stale app for days |
 
 ### 3b — LG webOS *(first: individuals can publish globally)*
 
 | ID | Item | Who | Size | Notes |
 |---|---|---|---|---|
-| **L1** | `appinfo.json`; `ares-package` → `.ipk` | ENG | S | Verify the current CLI version at install time — sources disagree (1.12.x vs 3.2.x) |
-| **L2** | webOS shim: Back = keyCode **461**; `webOSLaunch`/`webOSRelaunch` | ENG | S | |
+| **L1** ✅ | `appinfo.json`; `ares-package` → `.ipk` | ENG | S | Verify the current CLI version at install time — sources disagree (1.12.x vs 3.2.x) |
+| **L2** ✅ | webOS shim: Back = keyCode **461**; `webOSLaunch`/`webOSRelaunch` | ENG | S | |
 | **L3** | **Magic Remote pointer coexistence** with D-pad focus | ENG | M | Not optional (TV-DESIGN §7.4) |
 | **L4** | **Create a free LG Seller Lounge account** (individual, 18+, global OK) | **OWNER** | S | |
 | **L5** | **Create an LG Developer account + enable Developer Mode on an LG TV**; side-load the `.ipk` | **OWNER** | S | Requires access to an LG TV |
@@ -197,8 +199,8 @@ tests; phone build is byte-for-byte unaffected in behavior.
 
 | ID | Item | Who | Size | Notes |
 |---|---|---|---|---|
-| **S1** | `config.xml`; `tizen build-web` + `tizen package` → signed `.wgt` | ENG | S | **Keep the signing certificate — updates must reuse it** |
-| **S2** | Tizen shim: `tizen.tvinputdevice.registerKey()` for media keys; `tizenhwkey` Back; `visibilitychange` pause | ENG | S | |
+| **S1** ✅ | `config.xml`; `tizen build-web` + `tizen package` → signed `.wgt` | ENG | S | **Keep the signing certificate — updates must reuse it** |
+| **S2** ✅ | Tizen shim: `tizen.tvinputdevice.registerKey()` for media keys; `tizenhwkey` Back; `visibilitychange` pause | ENG | S | |
 | **S3** | **Create a free TV Seller Office account** | **OWNER** | S | |
 | **S4** | **Decide: US-only Public Seller, or sign an offline contract with Samsung HQ for Partner (global)** | **OWNER** | — | Business decision, not engineering |
 | **S5** | Enable Developer Mode on a Samsung TV (keyed to the TV's IP); side-load | **OWNER** | S | Requires access to a Samsung TV |
@@ -279,6 +281,12 @@ Grouped by when it is needed. Nothing here is blocked on engineering unless note
 | O3 | Create a free **Amazon Developer account** | $0 | Fire TV (A27) |
 | O4 | Create a free **LG Seller Lounge account** (individual, 18+) + a separate **LG Developer account** for Developer Mode | $0 | webOS (L4, L5) |
 | O5 | Create a free **Samsung TV Seller Office account** | $0 | Tizen (S3) |
+
+### Blocked right now — free up disk
+
+| # | Action | Why |
+|---|---|---|
+| **O0** | **Free disk space on the dev Mac** (~9 GB free at 2026-08-03) | The Android TV emulator (A19) cannot boot — QEMU hangs before opening its console ports. This is the same disk-pressure issue logged 2026-06-26. Everything else in Phase 2 is verified by build + static audit; the emulator pass needs room. |
 
 ### Hardware (certification expects physical devices — emulators do not satisfy)
 
