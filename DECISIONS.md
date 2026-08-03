@@ -2000,3 +2000,69 @@ catalog-writers concurrency) join the pipeline alongside `backfill_language.py` 
 platform's DESIGN doc are updated as the per-platform search/filter/Detail surfaces land
 (tvOS/iOS/macOS `CatalogDB`, Android Room, web index). Complements Decision 007 (TMDb primary) and
 the cast/person gap noted in Decision 038.
+
+---
+
+## 047 — Expand to smart TVs via TWO builds, not six; Cast/AirPlay for the closed platforms; Roku deferred
+*Date: 2026-08-03*
+
+Archive Watch expands to the non-Apple living room through exactly **two reuse
+vehicles plus two zero-app routes**, not a per-platform app: (1) the existing
+**Kotlin/Compose/Media3 Android app gains a TV form factor** — the SAME
+`applicationId` and AAB, with `leanback`/`touchscreen` declared `required="false"` —
+which ships to **both Google TV/Android TV and Amazon Fire TV**; (2) the existing
+**vanilla no-build web PWA gains a TV input/focus layer**, which ships to **both LG
+webOS and Samsung Tizen** (and technically VIDAA / Titan OS / Zeasn, whose doors are
+partnership-gated); (3) **Google Cast** (one $5 registration + one hosted HTML
+receiver) reaches Chromecast, Google TV, and Chromecast-built-in TVs — **the only
+realistic Vizio path**; (4) **AirPlay** already works via `AVPlayer` at zero cost.
+**Roku is explicitly deferred** to its own funded decision. The binding UI rules are
+`docs/TV-DESIGN.md`; the ordered work is `docs/TV-PLATFORM-BACKLOG.md`; the viability
+research is `docs/TV-PLATFORM-EXPANSION.md`.
+
+**Why**: the brand names (Roku, Tizen, webOS, Fire, Google TV, SmartCast) hide the
+fact that there are only **four runtime families**, and Archive Watch already owns a
+codebase for two of them. Treating each brand as a separate app would mean six ports
+of a data plane that Decision 028 deliberately made platform-agnostic; treating them
+as two runtime families means the engine (downloaded SQLite catalog, HTTPS
+progressive H.264 MP4, captions side-load) carries over at ~100% on Android and
+~70–80% on web, and the genuine work is a 10-foot D-pad UI in each — which is a
+UI/navigation pass, not an engine port. Two facts measured on 2026-08-03 make this
+concrete: our Android dependency set has **zero Google Play Services** (so Fire TV
+needs no GMS removal at all), and progressive H.264 MP4 over HTTPS plays natively on
+every one of these platforms with no DRM and no transcode. Roku is the sole exception
+and is deferred precisely because it breaks the thesis: BrightScript/SceneGraph is a
+proprietary stack with 0% reuse (~2–4 months), and its `Video` node owns networking,
+so Decisions 021/031/034's byte-range resume and node failover **cannot be
+reproduced** — a real quality regression that must be priced and accepted, not
+absorbed silently. Vizio is not deferred but *closed*: no self-serve program exists,
+and post-Walmart it is an ad-monetization vehicle with no interest in a free no-ads
+app — so Cast is the answer, not a partnership chase.
+
+**How to apply**: **never fork the Android app or the web app for TV.** TV is a
+runtime branch (`UiModeManager` type on Android; a CSS breakpoint + focus layer on
+web), sharing the data layer, player engine, and routes verbatim — a fork
+re-introduces exactly the divergence Decision 028 forbids. **Never add a framework to
+the web-TV build** (it is vanilla, no build step — which is why React-based focus
+libraries like Norigin are out and the ~200-line spatial-navigation engine is ours).
+**Cast is GMS-dependent and must be excluded from the Fire TV variant** — this is the
+one cross-cutting constraint between the two Android targets. Every new TV surface
+traces to a rule in `docs/TV-DESIGN.md` and inherits its information architecture
+from `docs/tvOS-DESIGN.md §2` — a TV build never invents a top-level surface. Three
+platform rules bind and are easy to miss: **TV-G6** (64-bit + **16 KB page sizes**,
+live since 2026-08-01) must be verified against every bundled native library, not
+assumed; **TV-NP** forbids a *video* app from surfacing background/Now-Playing media
+controls, so the phone build's `media3-session` `MediaSession` **must be gated off on
+TV**; and `TvLazyRow`/`tv-foundation` no longer exist (depend on `androidx.tv:tv-material`
+only and use standard `LazyRow`/`LazyColumn`).
+
+**Consequences**: total cash outlay to reach five new stores is **$5** (Cast) plus
+test hardware — Play TV is a form factor of the existing $25 account, and Amazon, LG
+and Samsung charge nothing to register or submit. Two owner-gated business decisions
+remain: Samsung's default **Public Seller tier is US-only** (global needs a signed
+offline contract with Samsung HQ, i.e. a business entity), and Roku needs a budget.
+`PARITY.md` gains **Android TV** and **Web-TV** columns, and two project skills
+(`androidtv-compose-focus`, `smarttv-web-app`) are authored since no existing skill
+covers Compose-for-TV focus or Tizen/webOS packaging. The rights-audit exclusions
+(Decisions 027/044) become load-bearing on five more storefronts — a copyrighted
+title on the home screen is a rejection and takedown risk on every one of them.

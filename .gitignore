@@ -109,3 +109,10 @@ play-service-account*.json
 tools/.asc-venv/
 tools/title_audit/
 tools/.metadata_cache.json
+
+# TV packaging — staged copies of the shared web app + vendor build output.
+# The SOURCE is the repo root (index.html/watch.js/tv.js); these are generated
+# by tv/build-tv-packages.sh and must never be edited or committed.
+tv/webos/app/
+tv/tizen/app/
+tv/dist/

@@ -57,10 +57,10 @@ android {
         targetSdk = 36
         // Play rejects ANY previously-uploaded versionCode — bump +1 before
         // every Play upload, even if that upload was never released.
-        versionCode = 13
+        versionCode = 15
         // Marketing version tracks the Apple apps (AppVersion.xcconfig) so a
         // user report names one version family across platforms.
-        versionName = "1.3.282"
+        versionName = "1.3.284"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables { useSupportLibrary = true }
@@ -136,6 +136,10 @@ dependencies {
     debugImplementation(libs.compose.ui.tooling)
 
     implementation(libs.bundles.adaptive)
+
+    // Compose for TV — the 10-foot D-pad surfaces (docs/TV-DESIGN.md §6.1).
+    // tv-material ONLY; tv-foundation no longer exists.
+    implementation(libs.tv.material)
 
     implementation(libs.activity.compose)
     implementation(libs.lifecycle.runtime.compose)

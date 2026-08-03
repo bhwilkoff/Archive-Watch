@@ -187,6 +187,46 @@ macOS) since they share the Swift Core.
 | Installable app | App Store (cloud-built) | App Store (cloud-built) | **App Store — UPLOADED 1.3.249/771** via the cloud workflow (`.github/workflows/appstore-build.yml`, GitHub `macos-26` runner = released macOS + Xcode 26.6 → clears ITMS-90301 beta-OS + ITMS-90111 floor; free for this public repo). Same `app.archivewatch.tvos` record (Decision 042); manual `.p12` signing; macOS-DESIGN §C2c. Local `submit-appstore.sh` only works on a released-macOS box. | ✅ PWA | Play Store | All 3 Apple platforms build cloud-side now |
 | Handoff / continuity | 🔮 | 🔮 | 🔮 | n/a | n/a | NSUserActivity declared |
 
+## 8b. Non-Apple TV platforms (Decision 047 · `docs/TV-DESIGN.md`)
+
+Two new **clients**, not two new products. They are tracked in their own section
+rather than as two more columns above because the existing tables are already
+six wide, and because a TV client's parity question is *"which wave is this
+surface in?"* — the per-surface waves are binding in TV-DESIGN §2.
+
+| Client | Reuse vehicle | Ships to | Status |
+|---|---|---|---|
+| **Android TV** | the SAME `android/` app + AAB + `applicationId`, TV branched at runtime on `UiModeManager` | Google TV / Android TV **and** Amazon Fire TV | 🚧 shell + Home + player key contract; compliance gates pass |
+| **Web-TV** | the SAME root PWA + `tv.js`/`tv.css` layer | LG webOS, Samsung Tizen, VIDAA / Titan / Zeasn | 🚧 focus engine + packaging staged |
+| **Google Cast** | hosted HTML receiver + web/Android senders | Chromecast, Google TV, Chromecast-built-in (incl. most **Vizio**) | ⏳ blocked on the $5 registration (owner) |
+| **AirPlay** | existing `AVPlayer` — no new code | Apple TV + AirPlay-2 TVs (Samsung, LG, Vizio, Sony, TCL, Roku TV) | ⏳ confirm-and-document |
+| **Roku** | none — 0% reuse, BrightScript/SceneGraph rewrite | Roku (#1 US CTV) | 🔮 separate funded decision |
+| **Vizio native** | — | — | 🚫 no self-serve program; BD-gated and ad-aligned post-Walmart. Reached via Cast/AirPlay instead. |
+
+| Verb | Android TV | Web-TV | Notes (native idiom) |
+|---|---|---|---|
+| Top-level nav | ✅ focusable left rail, expands on focus | 🚧 existing topnav + spatial focus | a bottom tab bar is a touch affordance; it reads as an error at ten feet |
+| Home (hero + shelves) | ✅ shares `rememberHomePayload` with phone Home | 🚧 existing shelves + TV breakpoint | shelf order + cross-shelf dedup single-sourced, so it cannot drift |
+| Focus contract | ✅ scale + ring + lift; initial focus claimed | ✅ spatial engine, 10/10 shim tests | never colour alone (TV-DESIGN §3.2) |
+| Browse / TV / Search / Library | ⏳ shared screens reachable, ten-foot pass pending | ⏳ same | honest interim: functional, not yet 10-foot |
+| Detail | ⏳ shared screen | ⏳ shared view | |
+| Playback | ✅ Media3 + D-pad centre/seek + media keys | ✅ `<video>` + remote key contract | TV-PC / TV-PP |
+| Background media controls | 🚫 **gated off — TV-NP forbids it for video apps** | 🚫 n/a | phone keeps its MediaSession; TV pauses on switch-away |
+| Picture-in-Picture | 🚫 gated off on TV (TV-NP wants a pause) | 🚫 n/a | |
+| Subtitles | ⏳ Media3 `SubtitleConfiguration` from `captions[]` | ⏳ `<track>` (SRT→VTT client-side) | if present, must be selectable — a rule on every platform |
+| Channels / Surprise / Collections | ⏳ v1.1 wave | ⏳ v1.1 wave | the participatory surfaces — deferred for a date, never permanently (§1.5) |
+| Cartoon Mode / Playlists | ⏳ v2 wave | ⏳ v2 wave | |
+| Clip Studio / Creation Studio | 🚫 **never** | 🚫 **never** | a remote has no text entry or direct manipulation (Decisions 033 / 042) |
+| Sign-in + sync | 🚫 first wave | 🚫 first wave | no CloudKit off Apple; Drive App Data is the Android-family path, deferred |
+| Platform home-screen integration | 🔮 Google TV channels / Fire TV catalog | n/a | constrained by §1.4 — our editorial + the user's own Continue Watching, never an opaque model row |
+
+**Compliance gates (Google TV app quality).** ✅ TV-ML leanback launcher · ✅ TV-MT
+touchscreen not required · ✅ TV-LB/TV-BN 320×180 banner with app name · ✅ TV-PS
+`minSdk` 29 ≤ 31 · ✅ **TV-G6 64-bit + 16 KB page sizes** (measured, all 12 native
+libs — `tools/audit_tv_g6.py`) · ✅ TV-G1 AAB · ✅ **Fire TV zero-GMS**
+(`tools/audit_fire_tv_gms.py`) · ⏳ TV-DP full D-pad reachability (needs the
+remaining ten-foot passes + device QA).
+
 ## 9. Shared backend / data plane (consumed by ALL clients — no per-platform copy)
 
 | Service / asset | Purpose | Where | Consumed by |

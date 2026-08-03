@@ -9,6 +9,11 @@ kotlin = "2.1.21"
 compose-bom = "2026.05.00"
 compose-material3 = "1.5.0-alpha19"
 material3-adaptive = "1.1.0"
+# Compose for TV. NOTE: depend on tv-material ONLY. `tv-foundation` and every
+# TvLazy* composable were REMOVED once their behavior merged into
+# compose-foundation — TV lists/grids use the standard LazyRow/LazyColumn
+# (docs/TV-DESIGN.md §6.1, Decision 047).
+tv-material = "1.1.0"
 activity-compose = "1.10.1"
 lifecycle = "2.9.1"
 coroutines = "1.9.0"
@@ -33,6 +38,9 @@ compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 compose-foundation = { module = "androidx.compose.foundation:foundation" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
 compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended" }
+
+# --- Compose for TV (10-foot D-pad surfaces; docs/TV-DESIGN.md §6)
+tv-material = { module = "androidx.tv:tv-material", version.ref = "tv-material" }
 
 # --- Adaptive navigation (bottom bar → rail → drawer by window size)
 material3-adaptive = { module = "androidx.compose.material3.adaptive:adaptive", version.ref = "material3-adaptive" }
