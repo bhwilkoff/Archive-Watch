@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-08-02T06:36:10Z",
+  "updated_at": "2026-08-03T07:14:22Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 17943,
-    "wanted": 17721,
+    "total": 17944,
+    "wanted": 17722,
     "fulfilled": 222,
     "series_with_gaps": 357
   },
@@ -82413,6 +82413,16 @@
       "episodeImdbID": "tt11033816",
       "status": "wanted",
       "added_at": "2026-07-27T07:24:21Z"
+    },
+    {
+      "seriesID": "married-at-first-sight-2014",
+      "seriesTitle": "Married at First Sight",
+      "season": 9,
+      "episode": 15,
+      "title": "Finale Reunion",
+      "episodeImdbID": "tt11033828",
+      "status": "wanted",
+      "added_at": "2026-08-03T07:14:22Z"
     },
     {
       "seriesID": "married-at-first-sight-2014",
