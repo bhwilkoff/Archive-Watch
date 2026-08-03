@@ -32,6 +32,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
+import androidx.compose.runtime.State
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
@@ -51,7 +52,7 @@ import coil3.compose.AsyncImage
 import kotlinx.coroutines.delay
 import java.util.Calendar
 
-private data class HomePayload(
+internal data class HomePayload(
     val hero: List<CatalogItem> = emptyList(),
     val continueWatching: List<CatalogItem> = emptyList(),
     val shelves: List<Pair<String, List<CatalogItem>>> = emptyList(),
@@ -79,15 +80,22 @@ private val HOME_SHELF_PRIORITY = listOf(
     "all-time-features",
 )
 
-@OptIn(ExperimentalMaterial3Api::class)
+/**
+ * The Home data assembly, shared by the phone Home and the TV Home
+ * (docs/TV-DESIGN.md §1.1 — one product, two idioms).
+ *
+ * It lives here, once, because the cross-shelf dedup (`seen`) is subtle and
+ * load-bearing: no title may repeat across ANY Home shelf on any platform, and
+ * a second copy of this logic would drift. TV renders the same payload with TV
+ * components; it does not re-derive it.
+ */
 @Composable
-fun HomeScreen(container: AppContainer, nav: Nav) {
+internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
     val dbVersion by container.catalog.dbVersion.collectAsState()
     val userChanges by container.userState.changes.collectAsState()
-
     val hideWatched by container.settings.hideWatchedOnHome.collectAsState(initial = false)
 
-    val payload by produceState(HomePayload(), dbVersion, userChanges, hideWatched) {
+    return produceState(HomePayload(), dbVersion, userChanges, hideWatched) {
         val db = container.catalog.db ?: return@produceState
         val featured = container.editorial.featured()
         // #17 parity: completed titles disappear from Home when the toggle is on.
@@ -172,6 +180,12 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
             loaded = true,
         )
     }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun HomeScreen(container: AppContainer, nav: Nav) {
+    val payload by rememberHomePayload(container)
 
     Scaffold(
         topBar = {

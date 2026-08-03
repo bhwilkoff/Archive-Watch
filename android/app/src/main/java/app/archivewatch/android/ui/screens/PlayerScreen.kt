@@ -58,8 +58,13 @@ import androidx.media3.exoplayer.upstream.LoadErrorHandlingPolicy
 import androidx.media3.ui.PlayerView
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.PlaySpec
+import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.PlaybackPresence
+import app.archivewatch.android.ui.tv.LocalIsTelevision
+import app.archivewatch.android.ui.tv.tvPlaybackKeys
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.io.IOException
@@ -193,10 +198,30 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
     }
 
     // Lock-screen / notification media controls (the MediaSession parity row).
-    val mediaSession = remember(player) {
-        MediaSession.Builder(context, player).build()
+    //
+    // ⚠️ TV-NP: a *video* app must NOT surface background/Now-Playing media
+    // controls on TV, and must pause when the user switches away. So the
+    // MediaSession is phone/tablet ONLY — on TV it is a quality-review failure,
+    // not a feature (docs/TV-DESIGN.md §5.4, Decision 047).
+    val isTv = LocalIsTelevision.current
+    val mediaSession = remember(player, isTv) {
+        if (isTv) null else MediaSession.Builder(context, player).build()
     }
-    DisposableEffect(mediaSession) { onDispose { mediaSession.release() } }
+    DisposableEffect(mediaSession) { onDispose { mediaSession?.release() } }
+
+    // TV-NP, second half: pause on switch-away. On phones the player keeps
+    // going (background audio + PiP are deliberate parity features); on TV it
+    // must stop.
+    if (isTv) {
+        val lifecycleOwner = LocalLifecycleOwner.current
+        DisposableEffect(lifecycleOwner, player) {
+            val observer = LifecycleEventObserver { _, event ->
+                if (event == Lifecycle.Event.ON_STOP) player.pause()
+            }
+            lifecycleOwner.lifecycle.addObserver(observer)
+            onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+        }
+    }
 
     // Resume when 10s < saved position < 95% of duration. Channel lineups
     // skip this (join-in-progress beats per-title resume).
@@ -276,7 +301,17 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
         }
     }
 
-    Box(modifier = Modifier.fillMaxSize().background(Color.Black)) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Black)
+            // TV-PC / TV-PP (docs/TV-DESIGN.md §5.2). Media3's PlayerView
+            // handles most remote keys once its controller has focus, but the
+            // quality bar is that these ALWAYS work during playback — including
+            // while the controller is hidden, which is when a viewer is most
+            // likely to press them. Handled explicitly rather than assumed.
+            .then(if (isTv) Modifier.tvPlaybackKeys(player) else Modifier),
+    ) {
         AndroidView(
             factory = { ctx ->
                 PlayerView(ctx).apply {
