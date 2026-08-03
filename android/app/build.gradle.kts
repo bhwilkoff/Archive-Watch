@@ -57,10 +57,10 @@ android {
         targetSdk = 36
         // Play rejects ANY previously-uploaded versionCode — bump +1 before
         // every Play upload, even if that upload was never released.
-        versionCode = 13
+        versionCode = 14
         // Marketing version tracks the Apple apps (AppVersion.xcconfig) so a
         // user report names one version family across platforms.
-        versionName = "1.3.282"
+        versionName = "1.3.283"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables { useSupportLibrary = true }
