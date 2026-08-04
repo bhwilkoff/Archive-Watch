@@ -33,6 +33,18 @@ fun Context.isTelevision(): Boolean {
 val LocalIsTelevision = compositionLocalOf { false }
 
 /**
+ * The nav rail's focus target (§3.4).
+ *
+ * Left from the LEFTMOST tile of a row must reach the rail, or the tabs are
+ * unreachable by remote and TV-DP fails. Compose's own focus search does not
+ * cross from a LazyRow's first item into a sibling container, and
+ * `focusProperties { exit = ... }` is not delivered through the lazy list
+ * either — both verified on the Android TV emulator. So rows request it
+ * explicitly, and a CompositionLocal keeps that out of every signature.
+ */
+val LocalTvRailFocus = compositionLocalOf<androidx.compose.ui.focus.FocusRequester?> { null }
+
+/**
  * Ten-foot design tokens (docs/TV-DESIGN.md §4). These are the binding numbers;
  * a surface that needs a value not listed here needs a rule change first.
  */

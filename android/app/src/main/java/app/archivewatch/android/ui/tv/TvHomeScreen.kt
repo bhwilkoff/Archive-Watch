@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -51,8 +52,17 @@ fun TvHomeScreen(container: AppContainer, nav: Nav) {
         return
     }
 
-    // §3.1 — claim focus on the first real tile once content exists.
-    ClaimInitialFocus(firstTile, key = payload.shelves.firstOrNull()?.first)
+    // §3.1 — EXACTLY ONE surface claims initial focus, and it is the content,
+    // not the nav rail (Left from here reaches the rail). Prefer the hero so
+    // first paint shows it whole; fall back to the first shelf tile when no
+    // hero qualifies. Two competing claims scrolled the hero off-screen —
+    // caught on the Android TV emulator.
+    val heroItem = payload.hero.firstOrNull()
+    val heroFocus = remember { FocusRequester() }
+    ClaimInitialFocus(
+        if (heroItem != null) heroFocus else firstTile,
+        key = heroItem?.archiveID ?: payload.shelves.firstOrNull()?.first,
+    )
 
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -60,8 +70,14 @@ fun TvHomeScreen(container: AppContainer, nav: Nav) {
             bottom = TvDims.OverscanV * 2,
         ),
     ) {
-        if (payload.hero.isNotEmpty()) {
-            item(key = "hero") { TvHero(payload.hero.first()) }
+        if (heroItem != null) {
+            item(key = "hero") {
+                TvHero(
+                    item = heroItem,
+                    focusRequester = heroFocus,
+                    onPlay = { nav.openItem(heroItem.archiveID, heroItem.seriesID, heroItem.contentType) },
+                )
+            }
         }
 
         if (payload.continueWatching.isNotEmpty()) {
@@ -136,11 +152,18 @@ private fun androidx.compose.foundation.lazy.LazyListScope.shelf(
  * contrast regardless of what the backdrop looks like.
  */
 @Composable
-private fun TvHero(item: CatalogItem) {
+private fun TvHero(
+    item: CatalogItem,
+    focusRequester: FocusRequester,
+    onPlay: () -> Unit,
+) {
     Box(
         Modifier
             .fillMaxWidth()
-            .height(420.dp),
+            // Sized so the whole hero — title included — fits above the first
+            // shelf on a 1080p panel. It was 420dp, which pushed the title out
+            // of frame once the first row scrolled into view.
+            .height(360.dp),
     ) {
         BackdropImage(
             url = item.backdropURL,
@@ -201,5 +224,25 @@ private fun TvHero(item: CatalogItem) {
                 )
             }
         }
+
+        // §1.6 — the hero is a door, not decoration: select opens the film,
+        // which is also what makes it a legitimate initial focus target.
+        //
+        // The focus target is INSET by the overscan margin rather than laid on
+        // the full-bleed box: §4.2 lets ARTWORK cross the overscan line but not
+        // a resting focus ring, and a full-bleed ring sits exactly on the bezel
+        // where a real panel would clip it.
+        Box(
+            Modifier
+                .fillMaxSize()
+                .padding(horizontal = TvDims.OverscanH / 2, vertical = 10.dp)
+                .tvFocusable(
+                    onClick = onPlay,
+                    focusRequester = focusRequester,
+                    shape = RoundedCornerShape(12.dp),
+                    ringColor = item.accentColor,
+                    scaleWhenFocused = 1f,
+                ),
+        )
     }
 }

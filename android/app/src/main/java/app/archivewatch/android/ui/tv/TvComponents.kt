@@ -23,6 +23,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.input.key.Key
+import androidx.compose.ui.input.key.KeyEventType
+import androidx.compose.ui.input.key.key
+import androidx.compose.ui.input.key.onKeyEvent
+import androidx.compose.ui.input.key.type
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -48,11 +53,23 @@ fun TvPosterTile(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     focusRequester: FocusRequester? = null,
+    exitLeftTo: FocusRequester? = null,
     onFocused: () -> Unit = {},
 ) {
     Column(
         modifier = modifier
             .width(TvDims.PosterWidth)
+            // Must sit BEFORE tvFocusable so this tile — the focused element —
+            // sees Left first and can hand focus to the rail.
+            .then(
+                if (exitLeftTo != null) {
+                    Modifier.onKeyEvent { ev ->
+                        if (ev.type == KeyEventType.KeyUp && ev.key == Key.DirectionLeft) {
+                            runCatching { exitLeftTo.requestFocus() }.isSuccess
+                        } else false
+                    }
+                } else Modifier,
+            )
             .tvFocusable(
                 onClick = onClick,
                 focusRequester = focusRequester,
@@ -107,6 +124,7 @@ fun TvShelfRow(
 ) {
     if (items.isEmpty()) return
     val scope = rememberCoroutineScope()
+    val railFocus = LocalTvRailFocus.current
 
     Column(Modifier.padding(bottom = TvDims.RowSpacing)) {
         Column(Modifier.padding(start = TvDims.OverscanH, bottom = 12.dp)) {
@@ -141,6 +159,8 @@ fun TvShelfRow(
                     item = item,
                     onClick = { onItem(item) },
                     focusRequester = if (index == 0) firstItemFocusRequester else null,
+                    // §3.4 — the leftmost tile is the door back to the nav rail.
+                    exitLeftTo = if (index == 0) railFocus else null,
                     onFocused = {
                         scope.launch {
                             // Keep one tile of context visible behind the focused

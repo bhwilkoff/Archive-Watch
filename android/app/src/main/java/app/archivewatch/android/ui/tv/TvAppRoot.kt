@@ -29,6 +29,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -103,12 +104,21 @@ fun TvAppRoot(container: AppContainer) {
     // consumed, so the system returns to the launcher home (TV-DB).
     BackHandler(enabled = nav.stack.isNotEmpty()) { nav.pop() }
 
+    // §3.4 — Left from the leftmost content must reach the rail, or the tabs are
+    // unreachable by remote and TV-DP fails. Compose's 2D focus search does NOT
+    // cross from a LazyRow's first item into a sibling container on its own —
+    // verified on the emulator, where Left simply stopped at the first tile.
+    // `exit` fires only when focus actually LEAVES the content container, so
+    // Left-within-a-row keeps working normally.
+    val railFocus = remember { FocusRequester() }
+
+    CompositionLocalProvider(LocalTvRailFocus provides railFocus) {
     Surface(color = MaterialTheme.colorScheme.background) {
         Row(Modifier.fillMaxSize()) {
             // The rail is hidden while a route is pushed: a full-screen detail
             // or player must not leave a competing focus target on screen.
             if (nav.stack.isEmpty()) {
-                TvNavRail(nav)
+                TvNavRail(nav, railFocus)
             }
             Box(Modifier.fillMaxSize()) {
                 if (nav.stack.isEmpty()) {
@@ -150,6 +160,8 @@ fun TvAppRoot(container: AppContainer) {
     }
 }
 
+}
+
 private data class RailItem(
     val label: String,
     val icon: ImageVector,
@@ -165,13 +177,12 @@ private data class RailItem(
  * spending 220dp of a 1920px canvas.
  */
 @Composable
-private fun TvNavRail(nav: Nav) {
+private fun TvNavRail(nav: Nav, railFocus: FocusRequester) {
     var expanded by remember { mutableStateOf(false) }
     val width by animateDpAsState(
         if (expanded) TvDims.NavRailWidth else TvDims.NavRailCollapsed,
         label = "railWidth",
     )
-    val homeFocus = remember { FocusRequester() }
 
     val items = listOf(
         RailItem("Home", Icons.Default.Home, { nav.stack.clear(); nav.tab = Tab.Home }, nav.tab == Tab.Home),
@@ -188,22 +199,29 @@ private fun TvNavRail(nav: Nav) {
             .width(width)
             .fillMaxHeight()
             .background(Color(0xFF0B0B0B))
-            .padding(vertical = TvDims.OverscanV, horizontal = 12.dp),
+            // §4.2 — the rail's controls must clear the overscan line too; 12dp
+            // put the icons under the bezel on a real panel.
+            .padding(vertical = TvDims.OverscanV, horizontal = 24.dp),
         verticalArrangement = Arrangement.spacedBy(6.dp),
     ) {
         items.forEachIndexed { index, entry ->
             TvRailButton(
                 item = entry,
                 expanded = expanded,
-                focusRequester = if (index == 0) homeFocus else null,
+                focusRequester = if (index == 0) railFocus else null,
                 onFocused = { expanded = true },
             )
         }
         Spacer(Modifier.height(8.dp))
     }
 
-    // §3.1 — the rail owns initial focus when no shelf has claimed it.
-    ClaimInitialFocus(homeFocus, key = nav.tab)
+    // NOTE: the rail deliberately does NOT claim initial focus.
+    //
+    // It used to, and that raced the content's own claim (§3.1): the shelf
+    // claim scrolled the hero off-screen while the rail won the focus ring, so
+    // first paint showed a headless hero. Initial focus belongs to the CONTENT
+    // (the TV convention — Left from the content reaches the rail), and exactly
+    // one surface may claim it. Verified on the Android TV emulator.
 }
 
 @Composable
