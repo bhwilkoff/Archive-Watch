@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-08-03T05:53:37Z",
+  "updated_at": "2026-08-04T05:25:47Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-08-03T05:53:37Z"
+      "last_tried": "2026-08-04T05:25:47Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-08-03T05:53:37Z"
+      "last_tried": "2026-08-04T05:25:47Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -321191,6 +321191,106 @@
         "Short"
       ],
       "fetched_at": "2026-07-30T05:19:16Z",
+      "schema": 3
+    },
+    "tt0041325": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTcwMzI0NTM2Nl5BMl5BanBnXkFtZTgwMTcwMTk3ODE@._V1_SX300.jpg",
+      "imdb_rating": 5.6,
+      "imdb_votes": 80,
+      "content_rating": "Approved",
+      "plot": "Gunner Peterson is a veteran dynamite man working for Jake and is romantically interested in Jake's daughter Mary. Johnny Brown, son of Nellie Brown who operates a boarding house, finds college too tame after his stint with a demolition squad in the army, and decides to quit. Getting a job with Jake, he is soon resented by Gunner when he tries to introduce some new methods and also starts showing an interest in Mary. A truck loaded with dynamite gets away from Hard Rock Mason and the loss of the truck causes Jake to have to borrow money from Nellie to keep his business going. Hard Rock is killed in a blast which Gunner decides was his fault, since he wouldn't listen to Johnny's ideas about how to set the charge, and he leaves. Later, when Johnny is testing charges, there is an unexpected blast and he is trapped in the tunnel.",
+      "runtime_min": 68,
+      "director": "William H. Pine",
+      "actors": [
+        "William Gargan",
+        "Virginia Welles",
+        "Richard Crane"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-08-04T05:25:47Z",
+      "schema": 3
+    },
+    "tt0049991": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjI1MDk3MDMxM15BMl5BanBnXkFtZTcwMTU5ODU5Mw@@._V1_SX300.jpg",
+      "imdb_rating": 7.8,
+      "imdb_votes": 116,
+      "content_rating": null,
+      "plot": "True stories of the Arizona rangers around 1900.",
+      "runtime_min": 30,
+      "director": null,
+      "actors": [
+        "Tristram Coffin",
+        "Kelo Henderson",
+        "Hal Hopper"
+      ],
+      "genres": [
+        "Western"
+      ],
+      "fetched_at": "2026-08-04T05:25:47Z",
+      "schema": 3
+    },
+    "tt0349122": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYjdlMWIyOGUtNGU4YS00MzJlLWJlMWItY2EwYjQ0NGE0YmExXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg",
+      "imdb_rating": 6.3,
+      "imdb_votes": 104,
+      "content_rating": null,
+      "plot": "Amit (Rakesh Roshan) is a big city boy, but his parents (Utpal Dutt and Usha Kiran) want him to marry a village girl, Madhuri (Rekha). Amit reluctantly agrees and goes through the wedding ceremony, but on the pretext that the dowry gold is not genuine, leaves his bride. Madhuri and her brother (Rakesh Bedi) concoct a scheme to try and convince Amit that Madhuri can also be a big city girl. Will Madhuri and Shrikanth succeed?",
+      "runtime_min": null,
+      "director": "Manik Chatterjee",
+      "actors": [
+        "Rekha",
+        "Rakesh Bedi",
+        "Urmila Bhatt"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Family"
+      ],
+      "fetched_at": "2026-08-04T05:25:47Z",
+      "schema": 3
+    },
+    "tt26757462": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOWNmZTQ0Y2UtNDJhZC00Y2MwLWFjOWQtM2ZmNjFmMTU5Mjg5XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 4.5,
+      "imdb_votes": 15786,
+      "content_rating": "R",
+      "plot": "Hellboy and a rookie B.P.R.D. agent in the 1950s are sent to the Appalachians, where they discover a remote community dominated by witches and led by the sinister local demon, the Crooked Man.",
+      "runtime_min": 99,
+      "director": "Brian Taylor",
+      "actors": [
+        "Jack Kesy",
+        "Jefferson White",
+        "Adeline Rudolph"
+      ],
+      "genres": [
+        "Action",
+        "Horror",
+        "Mystery"
+      ],
+      "fetched_at": "2026-08-04T05:25:47Z",
+      "schema": 3
+    },
+    "tt8523028": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYmQ2MzVhMzktMWRmYi00NzY2LWE3NGEtZGQ0NTQzNzU4NjcwXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.5,
+      "imdb_votes": 1865,
+      "content_rating": "PG",
+      "plot": "A progressive town erupts when a traveling rodeo lands within its city limits. The town councilman butts head with a young cowboy on his rise to super stardom. When the councilman's daughter falls in love with the cowboy their battle becomes deeply personal.",
+      "runtime_min": 91,
+      "director": "Shaun Paul Piccinino",
+      "actors": [
+        "Josh Swickard",
+        "Casper Van Dien",
+        "Lauren Swickard"
+      ],
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "fetched_at": "2026-08-04T05:25:47Z",
       "schema": 3
     }
   },
