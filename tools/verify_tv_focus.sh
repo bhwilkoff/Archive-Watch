@@ -41,6 +41,34 @@ launch() { # launch <extra-flag> <value>
   sleep "${LAUNCH_WAIT:-24}"
 }
 
+# Focus state straight from the accessibility tree.
+#
+# The AWFOCUS trace only sees elements built with our own tvFocusable(), which
+# covers the TV-native screens. But the TV also routes to SHARED phone screens
+# (Settings, Playlist, Person, Collection grid) — those carry no trace at all,
+# so a trace-based check would report a false FAILURE on a screen that works,
+# or worse, a false PASS. uiautomator reports what the framework actually
+# focused, whoever built the widget.
+ui_focused() {
+  $ADB -s "$SERIAL" shell uiautomator dump /sdcard/aw_ui.xml >/dev/null 2>&1
+  $ADB -s "$SERIAL" shell cat /sdcard/aw_ui.xml 2>/dev/null \
+    | tr '>' '\n' | grep 'focused="true"'
+}
+
+check_ui() { # check_ui <label> <expected-regex-over-the-focused-node>
+  local label="$1" want="$2" got
+  got="$(ui_focused)"
+  if printf '%s\n' "$got" | grep -qE "$want"; then
+    echo "  PASS  $label"
+    PASS=$((PASS + 1))
+  else
+    echo "  FAIL  $label — focused node does not match /$want/"
+    printf '%s\n' "$got" | cut -c1-160 | sed 's/^/          /' | head -4
+    [ -z "$got" ] && echo "          (NOTHING is focused — a hard TV-DP failure)"
+    FAIL=$((FAIL + 1))
+  fi
+}
+
 check() { # check <label> <expected-regex>
   local label="$1" want="$2" got
   got="$(trace | tail -20)"
@@ -78,11 +106,34 @@ want home        && surface_tab   home            "tile:|rail:"
 want browse      && surface_tab   browse          "tile:"
 want search      && surface_tab   search          "focusable|tile:"
 want library     && surface_tab   library         "focusable|tile:"
-want channels    && surface_tab   channels        "focusable"
+want channels    && surface_tab   channels        "program:"
 want surprise    && surface_route surprise        "tile:"
 want collections && surface_route collections     "collection:"
 want decade      && surface_route "decade:1920"   "tile:"
 want cartoon     && surface_route cartoon         "tile:|focusable"
+
+# Shared phone screens the TV routes to. These have no AWFOCUS trace, so they
+# are asserted against the accessibility tree instead — and they are exactly
+# where an unreachable control hides, because they were never designed for a
+# remote.
+if want settings; then
+  echo "== route: settings (shared screen)"
+  launch --es route settings
+  key DOWN
+  check_ui "settings has something focused" 'focused="true"'
+  # The toggles must be operable, not merely present. Compose renders a Switch
+  # as a bare View, so assert on SEMANTICS (checkable) rather than a class name.
+  check_ui "settings focus is an operable control" 'checkable="true"|clickable="true"'
+fi
+
+if want playlist; then
+  echo "== route: playlist (shared screen)"
+  # Library → Playlists is the only door to PlaylistScreen; route straight in
+  # so the check cannot drift onto a neighbouring screen.
+  launch --es tab library
+  key DOWN; key RIGHT
+  check_ui "library section chips are focusable" 'focused="true"'
+fi
 
 echo
 echo "$PASS passed, $FAIL failed"

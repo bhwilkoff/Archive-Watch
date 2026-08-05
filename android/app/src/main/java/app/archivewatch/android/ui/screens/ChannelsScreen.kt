@@ -71,6 +71,8 @@ import app.archivewatch.android.data.ScheduledProgram
 import app.archivewatch.android.ui.LoadingBox
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.tv.LocalIsTelevision
+import androidx.compose.ui.focus.FocusRequester
+import app.archivewatch.android.ui.tv.ClaimInitialFocus
 import app.archivewatch.android.ui.tv.tvFocusable
 import app.archivewatch.android.ui.Route
 import app.archivewatch.android.ui.theme.colorFromHex
@@ -187,6 +189,11 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
                     ChannelGuideRow(
                         channel = ch, startMs = start, endMs = endMs,
                         windowMinutes = windowMinutes, railW = railW, nowMs = nowMs,
+                        // §3.3 — content, not chrome. Only the FIRST row claims,
+                        // and only what is airing NOW: focusing the guide is the
+                        // point, and "what's on right now" is what a viewer
+                        // opening a TV guide is looking at.
+                        claimInitialFocus = LocalIsTelevision.current && idx == 0,
                         onTune = { slot -> tune(container, nav, ch, slot) },
                         onDelete = if (ch.id.startsWith("user-")) ({
                             container.userState.deleteUserChannel(ch.id.removePrefix("user-"))
@@ -284,10 +291,14 @@ private fun Ruler(startMs: Long, windowMinutes: Int, railW: androidx.compose.ui.
 private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
                             windowMinutes: Int, railW: androidx.compose.ui.unit.Dp,
                             nowMs: Long, onTune: suspend (ScheduledProgram) -> Unit,
-                            onDelete: (suspend () -> Unit)? = null) {
+                            onDelete: (suspend () -> Unit)? = null,
+                            claimInitialFocus: Boolean = false) {
     val accent = colorFromHex(channel.accentHex) ?: MaterialTheme.colorScheme.primary
     val scope = androidx.compose.runtime.rememberCoroutineScope()
     val isTv = LocalIsTelevision.current
+    // Claimed by the airing block below, so the guide — not the header's "+"
+    // button and not the nav rail — owns focus when Channels opens.
+    val nowFocus = remember { FocusRequester() }
     Row(
         Modifier.fillMaxWidth().padding(horizontal = 8.dp, vertical = 2.dp),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
@@ -327,10 +338,25 @@ private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
+        if (claimInitialFocus) ClaimInitialFocus(nowFocus, key = channel.id)
         // Timeline strip: proportional blocks placed by minute offset.
         androidx.compose.ui.layout.Layout(
             content = {
                 val visible = channel.slots.filter { it.endMs > startMs && it.startMs < endMs }
+                // Initial-focus target for the guide — what a real EPG does:
+                // focus what is ON NOW, unless it is nearly over, in which case
+                // focus what is NEXT.
+                //
+                // Both halves were learned the hard way. "Always the airing
+                // slot" put the ring on a 3-minute tail rendered ~24px wide — a
+                // poor target. "The first slot that starts in view" then skipped
+                // the airing programme entirely, because the window begins at
+                // now, so the thing playing almost always started before it.
+                val airingNow = visible.firstOrNull { it.contains(nowMs) }
+                val focusSlot = airingNow?.takeIf { it.endMs - nowMs >= 5 * 60_000L }
+                    ?: visible.firstOrNull { it.startMs >= nowMs }
+                    ?: airingNow
+                    ?: visible.firstOrNull()
                 visible.forEach { slot ->
                     val airing = slot.contains(nowMs)
                     Column(
@@ -349,11 +375,14 @@ private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
                             // focusability, not a rewrite.
                             .then(
                                 if (isTv) {
+                                    val takesClaim = claimInitialFocus && slot === focusSlot
                                     Modifier.tvFocusable(
                                         onClick = { scope.launch { onTune(slot) } },
+                                        focusRequester = if (takesClaim) nowFocus else null,
                                         shape = RoundedCornerShape(8.dp),
                                         ringColor = Color.White,
                                         scaleWhenFocused = 1f,
+                                        focusTag = "program:" + slot.item.title.take(24),
                                     )
                                 } else {
                                     Modifier.clickable { scope.launch { onTune(slot) } }

@@ -35,7 +35,10 @@ import android.net.Uri
 import app.archivewatch.android.BuildConfig
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.ui.Nav
+import app.archivewatch.android.ui.tv.LocalIsTelevision
 import kotlinx.coroutines.launch
+
+private const val DONATE_URL = "https://archive.org/donate"
 
 private const val TMDB_NOTICE =
     "This product uses the TMDB API but is not endorsed or certified by TMDB."
@@ -54,6 +57,7 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
     val hideAdult by container.settings.hideAdultContent.collectAsState(initial = true)
     val autoplay by container.settings.autoplayNext.collectAsState(initial = false)
     val hideWatched by container.settings.hideWatchedOnHome.collectAsState(initial = false)
+    val isTv = LocalIsTelevision.current
 
     Scaffold(
         topBar = {
@@ -122,19 +126,49 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
 
             HorizontalDivider(Modifier.padding(vertical = 16.dp))
 
-            Text(
-                "Donate to the Internet Archive",
-                style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.primary,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable {
-                        context.startActivity(
-                            Intent(Intent.ACTION_VIEW, Uri.parse("https://archive.org/donate")),
-                        )
-                    }
-                    .padding(vertical = 12.dp),
-            )
+            // Donate (Decision 010). The link is REACHABLE on TV — verified on
+            // the emulator that D-pad focus lands on it, since Modifier
+            // .clickable carries focusability. The problem is what happens
+            // next: Android TV ships no browser, so ACTION_VIEW resolves to
+            // `frameworkpackagestubs.Stubs$BrowserStub` (verified with
+            // `pm resolve-activity`) — a stub whose whole job is to tell the
+            // user nothing can open this. And card details cannot be typed with
+            // a remote regardless.
+            //
+            // So TV shows the address to read and type on a phone, matching the
+            // tvOS app; only touch devices get a live link.
+            if (isTv) {
+                Text(
+                    "Support the Internet Archive",
+                    style = MaterialTheme.typography.bodyLarge,
+                    modifier = Modifier.fillMaxWidth().padding(top = 12.dp),
+                )
+                Text(
+                    DONATE_URL,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.fillMaxWidth().padding(bottom = 12.dp),
+                )
+            } else {
+                Text(
+                    "Donate to the Internet Archive",
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable {
+                            // Most phones resolve this fine, but a device with
+                            // no handler at all throws ActivityNotFound — a
+                            // donate link must never take the app down.
+                            runCatching {
+                                context.startActivity(
+                                    Intent(Intent.ACTION_VIEW, Uri.parse(DONATE_URL)),
+                                )
+                            }
+                        }
+                        .padding(vertical = 12.dp),
+                )
+            }
 
             HorizontalDivider(Modifier.padding(vertical = 16.dp))
 

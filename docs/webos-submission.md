@@ -138,6 +138,7 @@ the app hosts no content.
 | 1 | Create an **LG Seller Lounge** account (free; individuals may publish globally) |
 | 2 | Create an **LG Developer** account and enable **Developer Mode** on an LG TV |
 | 3 | Install the webOS TV CLI, then `./tv/build-tv-packages.sh webos` to produce the `.ipk` |
+| 3b | **Before submitting, sanity-check the side-loaded app actually shows films.** A packaged app runs from `file://`, and a relative data URL there resolves to a path that is not in the package — that bug was found and fixed on 2026-08-05, but it is invisible in the browser build, so confirm on the TV: if Home is empty, the data plane regressed (`node tools/test_packaged_origin.mjs` guards it) |
 | 4 | Side-load and spot-check on the TV: `ares-install`, then `ares-launch` |
 | 5 | Capture five 1280×720 screenshots |
 | 6 | Submit the `.ipk`, this UX scenario (§1) and this self-checklist (§2) |

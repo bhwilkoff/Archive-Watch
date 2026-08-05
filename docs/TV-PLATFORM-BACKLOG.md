@@ -175,7 +175,7 @@ for the data-layer/`produceState` discipline, which is unchanged on TV.
 
 | ID | Item | Who | Size |
 |---|---|---|---|
-| **A19** | Emulator verification (Android TV emulator image) on every surface | ENG | M | ⚠️ **BLOCKED on this machine** — `system-images;android-36;android-tv;arm64-v8a` + a `tv_1080p` AVD are installed, but QEMU hangs before opening its console ports. Root cause: **~9 GB free disk**. Freeing space should unblock it. |
+| **A19** ✅ | Emulator verification (Android TV emulator image) on every surface | ENG | M | **Unblocked.** The original diagnosis (disk) was WRONG — the emulator's own log said `Available Memory: 951 MB, Required: 5120 MB` while the disk check PASSED. It was **RAM** on an 8 GB Mac. Boots headless with `-no-window -gpu swiftshader_indirect -memory 2048`. `tools/verify_tv_focus.sh` asserts 9 surfaces by remote |
 | **A20** | **Buy an Android TV / Google TV device** for real-remote QA | **OWNER** | S |
 | **A21** | Play Console → *Setup › Advanced settings › Form factors › Add Android TV*; accept the TV policy | **OWNER** | S |
 | **A22** | TV screenshots (≥1, up to 8) + TV banner upload + "Android TV" in the description | **OWNER** (assets by ENG) | S |

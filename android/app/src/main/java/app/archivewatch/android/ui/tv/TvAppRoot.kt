@@ -158,6 +158,12 @@ fun TvAppRoot(container: AppContainer) {
                     when (nav.tab) {
                         Tab.Home -> TvHomeScreen(container, nav)
                         Tab.Browse -> TvBrowseScreen(container, nav)
+                        // Channels claims focus INSIDE the guide (the airing
+                        // block), not here. A shell-level focusGroup claim was
+                        // tried first and was wrong: focusGroup hands focus to
+                        // the FIRST focusable child, which is the header's "+"
+                        // button — chrome again, just different chrome. And a
+                        // shell claim would then race the screen's own.
                         Tab.Channels -> ChannelsScreen(container, nav)
                         Tab.Search -> TvSearchScreen(container, nav)
                         Tab.Library -> TvLibraryScreen(container, nav)

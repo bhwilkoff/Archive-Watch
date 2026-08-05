@@ -92,4 +92,5 @@ time rather than trusting a cached number.
 | 3 | Install Tizen Studio CLI and create a signing certificate — **back it up** |
 | 4 | `./tv/build-tv-packages.sh tizen`, then build + package (§3) |
 | 5 | Enable Developer Mode on a Samsung TV (it is keyed to the TV's IP) and side-load |
+| 5b | **Confirm the side-loaded app actually shows films before submitting.** A packaged app runs from `file://`, where a relative data URL resolves inside the package instead of to the server — fixed 2026-08-05, but invisible in the browser build. An empty Home means the data plane regressed; `node tools/test_packaged_origin.mjs` guards it |
 | 6 | Submit through Seller Office; expect ~1–2 weeks and possibly several cycles |
