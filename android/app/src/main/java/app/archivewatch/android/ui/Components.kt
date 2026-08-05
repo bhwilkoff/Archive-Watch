@@ -34,6 +34,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.ui.theme.BrandSurface
+import app.archivewatch.android.ui.tv.LocalIsTelevision
+import app.archivewatch.android.ui.tv.tvFocusable
 import coil3.compose.AsyncImage
 
 /**
@@ -155,13 +157,39 @@ fun AvatarImage(url: String?, name: String, modifier: Modifier = Modifier) {
 }
 
 /** 2:3 poster + two text lines — the one content tile (density rule). */
+/**
+ * The shared content tile.
+ *
+ * ⚠️ TV: `clickable` is a TOUCH affordance and gives NO D-pad focus. This one
+ * component backs Surprise, Collections, Cartoon Mode, person filmographies and
+ * every filtered grid, so leaving it touch-only made all of those surfaces
+ * completely unreachable by remote (TV-DP) — including the destination the TV
+ * Search "browse without typing" doors push to. Found by auditing for
+ * `.clickable` after the same bug turned up in the Channels EPG.
+ *
+ * TV-native screens use TvPosterTile; this keeps the shared fall-through
+ * screens operable until each gets its own ten-foot pass.
+ */
 @Composable
 fun PosterTile(
     item: CatalogItem,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Column(modifier = modifier.clickable(onClick = onClick)) {
+    val isTv = LocalIsTelevision.current
+    Column(
+        modifier = modifier.then(
+            if (isTv) {
+                Modifier.tvFocusable(
+                    onClick = onClick,
+                    ringColor = item.accentColor,
+                    shape = RoundedCornerShape(10.dp),
+                )
+            } else {
+                Modifier.clickable(onClick = onClick)
+            },
+        ),
+    ) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()

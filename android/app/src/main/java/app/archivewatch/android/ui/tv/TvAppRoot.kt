@@ -3,6 +3,7 @@ package app.archivewatch.android.ui.tv
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.background
+import androidx.compose.foundation.focusGroup
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -39,6 +40,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
@@ -140,9 +142,29 @@ fun TvAppRoot(container: AppContainer) {
                     }
                 }
                 nav.stack.lastOrNull()?.let { route ->
+                    // §3.1 at the SHELL level. Screens that still fall through
+                    // to the shared phone implementation never claim focus, and
+                    // with nothing focused a direction key does NOTHING — so
+                    // e.g. a filtered grid reached from Search's browse doors
+                    // rendered correctly and was completely inert. Requesting
+                    // focus on a focusGroup hands it to the first focusable
+                    // child, which fixes every fall-through route at once
+                    // instead of patching each screen.
+                    val routeFocus = remember(route) { FocusRequester() }
+                    LaunchedEffect(route) {
+                        repeat(12) {
+                            if (runCatching { routeFocus.requestFocus() }.isSuccess) {
+                                return@LaunchedEffect
+                            }
+                            kotlinx.coroutines.delay(120)
+                        }
+                    }
                     Surface(
                         color = MaterialTheme.colorScheme.background,
-                        modifier = Modifier.fillMaxSize(),
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .focusRequester(routeFocus)
+                            .focusGroup(),
                     ) {
                         when (route) {
                             is Route.Detail -> TvDetailScreen(container, nav, route.archiveID)
