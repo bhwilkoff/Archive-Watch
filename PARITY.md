@@ -205,20 +205,37 @@ surface in?"* — the per-surface waves are binding in TV-DESIGN §2.
 
 | Verb | Android TV | Web-TV | Notes (native idiom) |
 |---|---|---|---|
-| Top-level nav | ✅ focusable left rail, expands on focus | 🚧 existing topnav + spatial focus | a bottom tab bar is a touch affordance; it reads as an error at ten feet |
-| Home (hero + shelves) | ✅ shares `rememberHomePayload` with phone Home | 🚧 existing shelves + TV breakpoint | shelf order + cross-shelf dedup single-sourced, so it cannot drift |
-| Focus contract | ✅ scale + ring + lift; initial focus claimed | ✅ spatial engine, 10/10 shim tests | never colour alone (TV-DESIGN §3.2) |
-| Browse / TV / Search / Library | ⏳ shared screens reachable, ten-foot pass pending | ⏳ same | honest interim: functional, not yet 10-foot |
-| Detail | ⏳ shared screen | ⏳ shared view | |
+| Top-level nav | ✅ focusable rail, expands on focus | ✅ topnav + spatial focus | a bottom tab bar is a touch affordance; it reads as an error at ten feet |
+| Home (hero + shelves) | ✅ shares `rememberHomePayload` with phone | ✅ existing shelves + TV breakpoint | shelf order + cross-shelf dedup single-sourced so they cannot drift |
+| Browse | ✅ TV-native: scope chips + 6-col D-pad grid, focus-driven paging | ✅ | grid uses FIXED columns so "first column" is knowable |
+| Detail | ✅ TV-native: full-bleed hero, focus-first Play, More Like This | ✅ | |
+| Search | ✅ TV-native: on-screen keyboard **+ no-typing browse doors** | ✅ | §3.6 — a keyboard-only Search is a dead end on a remote |
+| Library | ✅ TV-native: focusable sections; **Clips tab omitted** | ✅ | Clip Studio is never on TV (§2) |
+| Channels (EPG) | ✅ focusable programme blocks, tune-in by remote | ✅ | the EPG layout was already a ten-foot idiom; it needed focusability, not a rewrite |
+| Surprise · Collections · Cartoon · filtered grids | ✅ operable via shared focusable tiles + shell focus claim | ✅ | |
 | Playback | ✅ Media3 + D-pad centre/seek + media keys | ✅ `<video>` + remote key contract | TV-PC / TV-PP |
 | Background media controls | 🚫 **gated off — TV-NP forbids it for video apps** | 🚫 n/a | phone keeps its MediaSession; TV pauses on switch-away |
 | Picture-in-Picture | 🚫 gated off on TV (TV-NP wants a pause) | 🚫 n/a | |
-| Subtitles | ⏳ Media3 `SubtitleConfiguration` from `captions[]` | ⏳ `<track>` (SRT→VTT client-side) | if present, must be selectable — a rule on every platform |
-| Channels / Surprise / Collections | ⏳ v1.1 wave | ⏳ v1.1 wave | the participatory surfaces — deferred for a date, never permanently (§1.5) |
-| Cartoon Mode / Playlists | ⏳ v2 wave | ⏳ v2 wave | |
+| Cast (send to TV) | ⏳ needs `CastPlayer` wiring; flavor split ✅ done | ✅ sender shipped | Cast is GMS — `google` flavor only, never `amazon`/Fire |
+| Subtitles | ⏳ Media3 `SubtitleConfiguration` | ⏳ `<track>` (SRT→VTT client-side) | if present, must be selectable — a rule on every platform |
+| Sign-in + sync | 🚫 first wave | 🚫 first wave | no CloudKit off Apple; Drive App Data deferred |
 | Clip Studio / Creation Studio | 🚫 **never** | 🚫 **never** | a remote has no text entry or direct manipulation (Decisions 033 / 042) |
-| Sign-in + sync | 🚫 first wave | 🚫 first wave | no CloudKit off Apple; Drive App Data is the Android-family path, deferred |
 | Platform home-screen integration | 🔮 Google TV channels / Fire TV catalog | n/a | constrained by §1.4 — our editorial + the user's own Continue Watching, never an opaque model row |
+
+**Verification (all runnable, all green):**
+
+| Gate | Covers | Result |
+|---|---|---|
+| `tools/verify_tv_focus.sh` | Android TV, 9 surfaces by remote | 9/9 |
+| `tools/tv_browser_tests.js` | web-TV in Chrome | 20/20 |
+| `tools/test_tv_focus.mjs` | web-TV focus algorithm | 10/10 |
+| `tools/test_tv_ua.mjs` | platform detection vs real UAs | 5/5 |
+| `tools/audit_tv_g6.py` | 64-bit + 16 KB page sizes | PASS |
+| `tools/audit_fire_tv_gms.py` | Fire TV zero-GMS (amazon flavor) | PASS |
+
+**Submission packs drafted:** `docs/webos-submission.md` (UX scenario +
+self-checklist — LG auto-rejects thin checklists), `docs/tizen-submission.md`
+(Samsung manual-QA pass + the US-only tier decision).
 
 **Compliance gates (Google TV app quality).** ✅ TV-ML leanback launcher · ✅ TV-MT
 touchscreen not required · ✅ TV-LB/TV-BN 320×180 banner with app name · ✅ TV-PS

@@ -233,6 +233,55 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-08-04/05 — Smart-TV expansion: Android TV + web-TV shipped, verified by harness
+Owner: research every TV app store, build each platform first-class, document
+for reuse, "test everything you need to ensure features work the first time."
+Decision **047**. Binding rules `docs/TV-DESIGN.md`; work list
+`docs/TV-PLATFORM-BACKLOG.md` (incl. an OWNER section = every publish step).
+
+**Strategy:** there are four RUNTIMES, not seven platforms. Two builds reach
+five stores — the existing Android app gains a TV form factor (Google TV + Fire
+TV), and the existing web PWA gains a TV layer (webOS + Tizen + VIDAA). Cast
+($5) + AirPlay cover the closed sets incl. **Vizio, which has no other route**.
+Roku deferred: 0% reuse (~2-4 months) AND its `Video` node owns networking, so
+Decisions 021/031/034 resilience cannot be reproduced.
+
+**Android TV (1.3.285 -> 1.3.294):** TV form-factor manifest (TV-ML/MT/LB/BN),
+Compose-for-TV focus layer, TV-native Home/Browse/Detail/Search/Library,
+D-pad player contract, focusable Channels EPG, google/amazon flavor split so
+Cast can never reach Fire. **`tv-material` ONLY — `TvLazy*` was removed.**
+
+**Web-TV:** additive `tv.js`/`tv.css` (vanilla; Norigin is React-only so the
+~200-line spatial engine is ours), webOS/Tizen packaging staged from the SAME
+root files, Cast receiver + web sender (works TODAY on Google's default
+receiver CC1AD845 — the $5 upgrades subtitles + provenance).
+
+**Ten bugs that compiled clean and looked right in screenshots** — the reason
+the harness exists: rem-basis rescale; a CSS selector matching nothing; Back
+leaving a film playing over Home; focus-on-logo; two racing focus claims; an
+unreachable nav rail; a clipped player overlay; **dead SELECT on every leftmost
+element**; a focus anchor stealing focus from real controls; and **`.clickable`
+making the entire EPG + every shared grid unreachable by remote**.
+
+**The lesson, now in the skills:** focus is invisible to screenshots, which
+misled in BOTH directions (a rendered-but-unreachable EPG; a "broken" Surprise
+that worked). Build a harness — route hooks + identity focus traces + scripted
+assertions — and verify where a navigation LANDS, not that a screen drew.
+
+**Verification (all green):** `verify_tv_focus.sh` 9/9 · `tv_browser_tests.js`
+20/20 · `test_tv_focus.mjs` 10/10 · `test_tv_ua.mjs` 5/5 · `audit_tv_g6.py`
+PASS · `audit_fire_tv_gms.py` PASS.
+
+**Docs:** global skill `smart-tv-platform-expansion` + project skills
+`androidtv-compose-focus` / `smarttv-web-app`; submission packs for
+`webos` and `tizen`.
+
+**OWNER (nothing blocks further engineering):** store accounts (Play TV form
+factor, Amazon, LG Seller Lounge, Samsung Seller Office); test hardware;
+**Samsung Public Seller is US-ONLY** (LG lets individuals publish globally, so
+LG first); Cast $5 (optional — upgrades subtitles/provenance); Roku funding.
+
+
 ### 2026-06-26 — macOS player (native) + Creation Studio accuracy + title audit (1.3.195/b717)
 Long session, all on `main`, builds green. Detail lives in user memory:
 `session_handoff_2026_06_26`, `macos_player_native`,

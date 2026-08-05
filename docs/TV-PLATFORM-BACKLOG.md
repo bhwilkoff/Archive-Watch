@@ -131,7 +131,7 @@ Do it early — the fix may be a dependency bump, which has lead time.
 | **A15** ✅ | **⚠️ Gate `media3-session` MediaSession OFF on TV; pause video on switch-away (TV-NP)** | ENG | S | A14 |
 | **A16** ✅ | Back returns to launcher from root, never mid-playback (TV-DB) | ENG | S | A8 |
 | **A17** | Subtitles via Media3 `SubtitleConfiguration` from `captions[]` | ENG | S | A14 |
-| **A18** | v1.1 surfaces: Channels · Surprise · Collections (TV-DESIGN §2) | ENG | L | A9 |
+| **A18** ✅ | v1.1 surfaces: Channels · Surprise · Collections (TV-DESIGN §2) | ENG | L | A9 |
 
 **A15 is a shipped-code conflict, not a new feature.** The MediaSession added for
 phone lock-screen controls in the 2026-06-13 parity wave violates TV-NP for a
@@ -202,7 +202,7 @@ tests; phone build is byte-for-byte unaffected in behavior.
 | **S1** ✅ | `config.xml`; `tizen build-web` + `tizen package` → signed `.wgt` | ENG | S | **Keep the signing certificate — updates must reuse it** |
 | **S2** ✅ | Tizen shim: `tizen.tvinputdevice.registerKey()` for media keys; `tizenhwkey` Back; `visibilitychange` pause | ENG | S | |
 | **S3** | **Create a free TV Seller Office account** | **OWNER** | S | |
-| **S4** | **Decide: US-only Public Seller, or sign an offline contract with Samsung HQ for Partner (global)** | **OWNER** | — | Business decision, not engineering |
+| **S4** | **Decide: US-only Public Seller, or sign an offline contract with Samsung HQ for Partner (global)** | **OWNER** | — | Business decision, not engineering · framed with options at `docs/tizen-submission.md` §1 |
 | **S5** | Enable Developer Mode on a Samsung TV (keyed to the TV's IP); side-load | **OWNER** | S | Requires access to a Samsung TV |
 | **S6** | Submit; Samsung manual QA against the Launch/Development checklists | **OWNER** | S | ≈ 1–2 weeks, multi-cycle rejections common |
 
