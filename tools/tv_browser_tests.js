@@ -152,6 +152,57 @@
     }
   }
 
+  /* ---------------------------------------------------------------- *
+   * Magic Remote pointer coexistence (TV-DESIGN §7.4, backlog L3)
+   *
+   * LG ships a pointer remote and supporting it is not optional. The rule is
+   * ONE focus state shared by both input models: hovering moves focus, and
+   * the D-pad then continues from the hovered element. A pointer that merely
+   * highlights, leaving the D-pad to resume somewhere else, is the failure.
+   * ---------------------------------------------------------------- */
+  {
+    location.hash = '';
+    await wait(1000);
+    const tiles = [...document.querySelectorAll('a[href^="#/item/"]')]
+      .filter((e) => e.offsetParent);
+    const hover = (el) => el.dispatchEvent(new MouseEvent('mouseover', { bubbles: true }));
+
+    if (tiles.length >= 5) {
+      tiles[0].focus();
+      hover(tiles[3]);
+      check('hover moves focus', document.activeElement === tiles[3], who());
+
+      // The point of the bridge: the D-pad resumes from the POINTER, not from
+      // wherever focus was before the user picked the pointer up.
+      press(39); await wait(150);
+      check('D-pad continues from the hovered element',
+            document.activeElement === tiles[4], who());
+
+      // A pointer drifting over inert chrome must not drag focus with it.
+      tiles[0].focus();
+      const heading = document.querySelector('h2, .shelf-title, .row-title');
+      if (heading) hover(heading);
+      check('hovering a non-focusable element keeps focus',
+            document.activeElement === tiles[0], who());
+
+      // Hidden views still hold focusables; hovering one would focus an
+      // element the viewer cannot see.
+      const buried = document.querySelector('section[hidden] a[href]');
+      if (buried) hover(buried);
+      check('hovering inside a hidden view keeps focus',
+            document.activeElement === tiles[0], who());
+
+      // preventScroll: a hover must never yank the page out from under the
+      // pointer, or the element under the cursor changes as you hover it.
+      const sy = window.scrollY;
+      hover(tiles[tiles.length - 1]);
+      check('hover does not jump the scroll position', window.scrollY === sy,
+            sy + ' -> ' + window.scrollY);
+    } else {
+      check('tiles present for pointer test', false, 'only ' + tiles.length);
+    }
+  }
+
   const summary = { pass, fail, results };
   console.log('[TV TESTS] ' + pass + ' passed, ' + fail + ' failed');
   results.filter((r) => !r.ok).forEach((r) => console.warn('FAIL: ' + r.name + ' — ' + r.detail));

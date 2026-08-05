@@ -178,7 +178,7 @@ tests; phone build is byte-for-byte unaffected in behavior.
 | **W2** ✅ | Register/unregister focusables on `showView()` — same lifecycle discipline as the IntersectionObservers | ENG | S | |
 | **W3** ✅ | TV CSS breakpoint: 1920×1080, 5% overscan insets, 24px body floor, dark-first | ENG | M | Additive to the mobile-first CSS |
 | **W4** ✅ | Player key contract: center=play/pause, L/R=seek, media keys; overlay syncs with controls | ENG | M | |
-| **W5** | Subtitles: SRT→WebVTT client-side → `<track>` | ENG | S | Already the web viewer's model |
+| **W5** ✅ | Subtitles: SRT→WebVTT client-side → `<track>` | ENG | S | A cross-origin `<track>` fails **silently** (readyState 3, zero cues) and `crossorigin` on `<video>` is unavailable — archive.org's storage nodes send no CORS, so it would break playback. Fetched into a same-origin `blob:` instead; verified 1,947 cues |
 | **W6** ✅ | Lifecycle: pause on suspend/blur; resume state | ENG | S | |
 | **W7** ✅ | Bump the service-worker shell version | ENG | S | Or TVs serve a stale app for days |
 
@@ -188,7 +188,7 @@ tests; phone build is byte-for-byte unaffected in behavior.
 |---|---|---|---|---|
 | **L1** ✅ | `appinfo.json`; `ares-package` → `.ipk` | ENG | S | Verify the current CLI version at install time — sources disagree (1.12.x vs 3.2.x) |
 | **L2** ✅ | webOS shim: Back = keyCode **461**; `webOSLaunch`/`webOSRelaunch` | ENG | S | |
-| **L3** | **Magic Remote pointer coexistence** with D-pad focus | ENG | M | Not optional (TV-DESIGN §7.4) |
+| **L3** ✅ | **Magic Remote pointer coexistence** with D-pad focus | ENG | M | Not optional (TV-DESIGN §7.4) · verified in-browser + 5 permanent assertions in `tools/tv_browser_tests.js`: hover moves focus, **D-pad continues from the hovered element**, inert chrome and hidden views never steal focus, no scroll jump |
 | **L4** | **Create a free LG Seller Lounge account** (individual, 18+, global OK) | **OWNER** | S | |
 | **L5** | **Create an LG Developer account + enable Developer Mode on an LG TV**; side-load the `.ipk` | **OWNER** | S | Requires access to an LG TV |
 | **L6** | Store assets: **1280×720** screenshots, description, content rating | ENG assets / **OWNER** upload | S | |
