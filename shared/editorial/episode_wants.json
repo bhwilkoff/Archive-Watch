@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-08-04T06:33:46Z",
+  "updated_at": "2026-08-05T06:25:46Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 17944,
-    "wanted": 17722,
+    "total": 17946,
+    "wanted": 17724,
     "fulfilled": 222,
     "series_with_gaps": 357
   },
@@ -115107,6 +115107,16 @@
       "seriesID": "space-1999-1975",
       "seriesTitle": "Space: 1999",
       "season": 1,
+      "episode": 1,
+      "title": "Breakaway",
+      "episodeImdbID": "tt0706316",
+      "status": "wanted",
+      "added_at": "2026-08-05T06:25:46Z"
+    },
+    {
+      "seriesID": "space-1999-1975",
+      "seriesTitle": "Space: 1999",
+      "season": 1,
       "episode": 2,
       "title": "Force of Life",
       "episodeImdbID": "tt0706326",
@@ -115152,6 +115162,16 @@
       "episodeImdbID": "tt0706313",
       "status": "wanted",
       "added_at": "2026-06-04T08:24:27Z"
+    },
+    {
+      "seriesID": "space-1999-1975",
+      "seriesTitle": "Space: 1999",
+      "season": 1,
+      "episode": 8,
+      "title": "Dragon's Domain",
+      "episodeImdbID": "tt0706323",
+      "status": "wanted",
+      "added_at": "2026-08-05T06:25:46Z"
     },
     {
       "seriesID": "space-1999-1975",
