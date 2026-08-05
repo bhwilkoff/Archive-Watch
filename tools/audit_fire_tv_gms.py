@@ -54,6 +54,22 @@ DEFAULT_CANDIDATES = [
     "android/app/build/outputs/apk/debug/app-debug.apk",
 ]
 
+# Negative control: the google variant must CONTAIN what amazon must not.
+GOOGLE_CANDIDATES = [
+    "android/app/build/outputs/bundle/googleRelease/app-google-release.aab",
+    "android/app/build/outputs/apk/google/release/app-google-release.apk",
+    "android/app/build/outputs/apk/google/debug/app-google-debug.apk",
+]
+
+# Each is load-bearing for casting: the framework, our receiver registration,
+# the system route button, and the registered receiver's App ID.
+GOOGLE_EXPECTED = [
+    "com/google/android/gms/cast/framework",
+    "CastOptionsProvider",
+    "androidx/mediarouter/app/MediaRouteButton",
+    "58AF34C3",
+]
+
 CATALOG = Path("android/gradle/libs.versions.toml")
 BUILD_FILE = Path("android/app/build.gradle.kts")
 
@@ -89,6 +105,13 @@ def check_sources() -> list[str]:
         if GMS_COORDS.search(line) or "libs.play.services" in line or "media3.cast" in line:
             hits.append(f"{BUILD_FILE}:{n}: {stripped}")
     return hits
+
+
+def check_present(target: Path, expected: list[str]) -> list[str]:
+    """Inverse of check_artifact: return the expected markers that are ABSENT."""
+    zf = zipfile.ZipFile(target)
+    blob = b"".join(zf.read(n) for n in zf.namelist() if n.endswith(".dex"))
+    return [e for e in expected if e.encode() not in blob]
 
 
 def check_artifact(target: Path) -> list[str]:
@@ -143,9 +166,31 @@ def main() -> int:
         else:
             print("OK: no GMS/Firebase classes in the compiled output.")
 
+    # NEGATIVE CONTROL. "amazon has no Cast" passes trivially if Cast was
+    # removed from BOTH flavors — the audit would go green while casting was
+    # silently dead everywhere. So assert the google artifact DOES carry Cast.
+    # A test that cannot fail is not a test.
+    google = next((Path(p) for p in GOOGLE_CANDIDATES if Path(p).exists()), None)
+    if google is None:
+        print("\nNOTE: no google artifact built — negative control skipped.")
+        print("  Build it to make this audit meaningful:")
+        print("    cd android && ./gradlew assembleGoogleDebug")
+    else:
+        print(f"\nNegative control — scanning {google} …")
+        missing = check_present(google, GOOGLE_EXPECTED)
+        if missing:
+            failed = True
+            print("FAIL: the google variant is MISSING Cast:")
+            for m in missing:
+                print(f"  - {m}")
+            print("\nThe amazon result above is therefore meaningless. Casting")
+            print("is broken on Play, or the flavor split has been undone.")
+        else:
+            print("OK: the google variant carries Cast — the split is real.")
+
     if failed:
         return 1
-    print("\nPASS: the build is Fire TV-safe (zero Play Services dependency).")
+    print("\nPASS: Fire TV-safe (zero GMS) AND Cast present on google.")
     return 0
 
 

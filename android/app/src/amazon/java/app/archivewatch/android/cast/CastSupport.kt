@@ -1,6 +1,7 @@
 package app.archivewatch.android.cast
 
 import android.content.Context
+import android.view.View
 
 /**
  * Cast support — **amazon flavor: permanently absent**.
@@ -28,4 +29,26 @@ object CastSupport {
 
     /** No devices are ever discoverable from this variant. */
     fun isCastAvailable(): Boolean = false
+
+    /** Never casting: there is no session to be in. */
+    fun isCasting(): Boolean = false
+
+    /** No button — the caller renders nothing when this is null. */
+    fun createCastButton(ctx: Context): View? = null
+
+    /**
+     * Never loads. Returning false tells the caller to keep playing locally,
+     * which is the correct and only behaviour on Fire OS.
+     *
+     * The signature matches the google twin exactly so call sites compile
+     * unchanged against either flavor — that is what keeps the GMS split
+     * structural instead of leaking `if (store == ...)` into the UI.
+     */
+    fun loadMedia(
+        url: String,
+        title: String,
+        description: String?,
+        captions: List<CastCaption>,
+        positionMs: Long,
+    ): Boolean = false
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  google-flavor manifest additions (Decision 047 §6.6).
+
+  This exists ONLY to point the Cast SDK at CastOptionsProvider. It is merged
+  into the main manifest for the google flavor and is absent from the amazon
+  flavor, which links no GMS at all — see
+  android/app/src/amazon/java/.../cast/CastSupport.kt and
+  tools/audit_fire_tv_gms.py.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <meta-data
+            android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
+            android:value="app.archivewatch.android.cast.CastOptionsProvider" />
+    </application>
+</manifest>

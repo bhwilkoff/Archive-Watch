@@ -61,6 +61,8 @@ import app.archivewatch.android.data.PlaySpec
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
+import app.archivewatch.android.cast.CastCaption
+import app.archivewatch.android.cast.CastSupport
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.PlaybackPresence
 import app.archivewatch.android.ui.tv.LocalIsTelevision
@@ -302,6 +304,47 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
         }
     }
 
+    // Cast hand-off (backlog C4). Deliberately POLLED rather than wired to a
+    // SessionManagerListener: that type only exists in the google flavor, and
+    // referencing it here would break the structural GMS split that keeps Fire
+    // TV safe (docs/TV-DESIGN.md §6.6). Polling costs nothing — it runs only
+    // while the player is on screen, and the whole block compiles away to a
+    // no-op on amazon, where IS_SUPPORTED is a const false.
+    //
+    // Not offered on TV: a television is a Cast RECEIVER, not a sender.
+    if (!isTv && CastSupport.IS_SUPPORTED) {
+        var handedOff by remember(spec.url) { mutableStateOf(false) }
+        LaunchedEffect(spec.url) {
+            while (true) {
+                delay(700)
+                val casting = CastSupport.isCasting()
+                if (casting && !handedOff) {
+                    val ok = CastSupport.loadMedia(
+                        url = spec.url,
+                        title = spec.title,
+                        description = spec.description,
+                        // VTT only. The receiver is handed a URL it fetches
+                        // itself and parses as text/vtt; an .srt would simply
+                        // fail there. The pipeline publishes a vttURL for
+                        // essentially every caption, so this drops almost
+                        // nothing (Decision 039).
+                        captions = spec.captions
+                            .filter { it.format.equals("vtt", true) || it.url.endsWith(".vtt", true) }
+                            .map { CastCaption(it.lang, it.displayLabel, it.url) },
+                        positionMs = player.currentPosition,
+                    )
+                    if (ok) {
+                        handedOff = true
+                        player.pause()      // the TV owns playback; don't double the audio
+                    }
+                } else if (!casting && handedOff) {
+                    handedOff = false       // route ended — pick it back up here
+                    player.play()
+                }
+            }
+        }
+    }
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -390,6 +433,27 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                         overflow = TextOverflow.Ellipsis,
                     )
                 }
+            }
+        }
+
+        // The system Cast button, shown with the transport controls. This is
+        // Google's own MediaRouteButton (device picker, connection states and
+        // accessibility for free) rather than a drawn icon — the Cast design
+        // checklist expects that exact affordance. Renders nothing when Cast is
+        // unusable: no GMS, no receiver, or the amazon flavor.
+        if (!isTv && CastSupport.IS_SUPPORTED) {
+            AnimatedVisibility(
+                visible = controlsVisible,
+                enter = fadeIn(),
+                exit = fadeOut(),
+                modifier = Modifier.align(Alignment.TopEnd),
+            ) {
+                AndroidView(
+                    factory = { ctx -> CastSupport.createCastButton(ctx) ?: View(ctx) },
+                    modifier = Modifier
+                        .windowInsetsPadding(WindowInsets.systemBars)
+                        .padding(horizontal = 20.dp, vertical = 16.dp),
+                )
             }
         }
     }

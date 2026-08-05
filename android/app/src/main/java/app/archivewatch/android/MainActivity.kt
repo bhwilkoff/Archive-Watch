@@ -11,6 +11,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import app.archivewatch.android.app.ArchiveWatchApplication
+import app.archivewatch.android.cast.CastSupport
 import app.archivewatch.android.ui.AppRoot
 import app.archivewatch.android.ui.DeepLinks
 import app.archivewatch.android.ui.PlaybackPresence
@@ -34,6 +35,12 @@ class MainActivity : ComponentActivity() {
         // or a build flavor (docs/TV-DESIGN.md §6.5, Decision 047). Resolved
         // once here so no composable has to ask again.
         val isTv = isTelevision()
+
+        // Cast discovery has to be running BEFORE the player opens or the
+        // route button has nothing to show. No-ops on the amazon flavor (no
+        // GMS) and on any device with Play Services missing or disabled.
+        // Skipped on TV: a television is a Cast receiver, not a sender.
+        if (!isTv) CastSupport.initialize(applicationContext)
 
         setContent {
             ArchiveWatchTheme {
