@@ -93,6 +93,10 @@ struct PlayerView: UIViewControllerRepresentable {
         try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .moviePlayback)
         try? AVAudioSession.sharedInstance().setActive(true)
 
+        // Receiver-fetchable URLs for AirPlay (A0) — see Coordinator.directVideoURL.
+        context.coordinator.directVideoURL = videoURL
+        context.coordinator.directHLSURL = subtitleHLSURL
+
         let pItem: AVPlayerItem
         if let hls = subtitleHLSURL, let mp4 = videoURL {
             // Part (a) Config C (Decision 039): AVPlayerViewController shows the CC
@@ -169,6 +173,21 @@ struct PlayerView: UIViewControllerRepresentable {
         // as a single HLS segment; the loader handles moov-at-EOF via byte ranges).
         var fallbackVideoURL: URL?
         var fallbackMetadata: [AVMetadataItem] = []
+        // AirPlay (backlog A0). A custom-scheme resource-loader asset CANNOT be
+        // routed to an AirPlay receiver: the delegate that serves `aw-stream://`
+        // lives on THIS device, so the receiver has no way to fetch the media.
+        // Apple states video AirPlay is unsupported with a custom resource
+        // loader, and every playback path here is loader-backed (Decisions 021 /
+        // 031 / 034 for MP4, Config C for captioned HLS) — so AirPlay would have
+        // failed on every title. When a route engages we swap to a URL the
+        // RECEIVER can pull itself, and swap the resilient path back in when it
+        // disengages. The loader's resume/failover cannot help on AirPlay anyway:
+        // the receiver owns the connection, exactly the trade Decision 047
+        // records for Roku.
+        var directVideoURL: URL?          // published progressive MP4
+        var directHLSURL: URL?            // published HLS — receiver-fetchable AND keeps captions
+        private var externalObs: NSKeyValueObservation?
+        private var isExternalActive = false
         private var didFallback = false
         private var statusObs: NSKeyValueObservation?
         private var fallbackWork: DispatchWorkItem?
@@ -191,6 +210,12 @@ struct PlayerView: UIViewControllerRepresentable {
                 MainActor.assumeIsolated { self?.persistCurrent() }
             }
             registerEnd(for: playerItem)
+
+            // AirPlay route engaged/disengaged — see `directVideoURL` above.
+            externalObs = player.observe(\.isExternalPlaybackActive, options: [.new]) { [weak self] p, _ in
+                let active = p.isExternalPlaybackActive
+                MainActor.assumeIsolated { self?.externalPlaybackChanged(active) }
+            }
 
             // HLS-subtitle → resilient-MP4 fallback. If the HLS item fails, or
             // never becomes ready within a grace window (a non-faststart MP4 as a
@@ -283,6 +308,52 @@ struct PlayerView: UIViewControllerRepresentable {
             player.replaceCurrentItem(with: item)
             if pos.seconds > 5 { player.seek(to: pos) }
             player.play()
+        }
+
+        /// Swap between a receiver-fetchable asset (AirPlay) and the resilient
+        /// on-device path. Preserves position, metadata and the end observer.
+        private func externalPlaybackChanged(_ active: Bool) {
+            guard active != isExternalActive, let player else { return }
+            isExternalActive = active
+            let item: AVPlayerItem?
+            if active {
+                // The stall/fallback machinery watches the LOCAL loader paths;
+                // it must not fire against a receiver-owned stream.
+                fallbackWork?.cancel(); fallbackWork = nil
+                statusObs = nil
+                captionStall.detach()
+                // Prefer the published HLS: the receiver fetches it directly and
+                // keeps the WebVTT caption renditions. MP4 is the fallback.
+                guard let url = directHLSURL ?? directVideoURL else { return }
+                item = AVPlayerItem(url: url)
+            } else {
+                item = makeLocalItem()
+            }
+            guard let item else { return }
+            let pos = player.currentTime()
+            item.externalMetadata = fallbackMetadata
+            item.preferredForwardBufferDuration = 300
+            registerEnd(for: item)
+            player.replaceCurrentItem(with: item)
+            if pos.seconds > 5 { player.seek(to: pos) }
+            player.play()
+        }
+
+        /// Rebuild the on-device item, mirroring `makeUIViewController`'s branch
+        /// so returning from AirPlay restores the same path playback started on.
+        private func makeLocalItem() -> AVPlayerItem? {
+            if let hls = directHLSURL, let mp4 = directVideoURL, !didFallback {
+                let (asset, l) = CaptionedHLSLoader.makeAsset(hls: hls, downloadURL: mp4)
+                captionedLoader = l
+                return AVPlayerItem(asset: asset)
+            }
+            if let mp4 = directVideoURL {
+                let (asset, l) = ResilientStreamLoader.makeAsset(for: mp4)
+                loader = l
+                return AVPlayerItem(asset: asset)
+            }
+            if let hls = directHLSURL { return AVPlayerItem(url: hls) }
+            return nil
         }
 
         private func enterBackground() {
@@ -379,6 +450,7 @@ struct PlayerView: UIViewControllerRepresentable {
         // the Swift 6 language mode without a nonisolated(unsafe) escape hatch.
         isolated deinit {
             captionStall.detach()
+            externalObs = nil
             if let t = timeObserver { player?.removeTimeObserver(t) }
             if let e = endObserver { NotificationCenter.default.removeObserver(e) }
             if let b = backgroundObserver { NotificationCenter.default.removeObserver(b) }

@@ -10,18 +10,26 @@
  * function here no-ops and the button stays hidden. Nothing else in the viewer
  * knows this file exists.
  *
- * ⚠️ APP ID: `CAST_APP_ID` below is Google's **Default Media Receiver**, which
- * works without any registration and is what makes this testable today. Once
- * the owner completes the $5 Cast registration (backlog O1) and the custom
- * receiver at /cast/ has an ID, put it here — the custom receiver is what
- * carries subtitles and the provenance credit.
+ * APP ID: our registered **Custom Receiver**, hosted at /cast/. It is what
+ * carries the side-loaded WebVTT subtitles, the public-domain provenance
+ * credit, and real error text instead of a black screen.
+ *
+ * ⚠️ A registered receiver is UNPUBLISHED until the owner publishes it in the
+ * Cast console, and an unpublished receiver launches ONLY on devices added
+ * under Console → Devices (by serial number). So before publication, casting
+ * works on registered test devices and silently fails everywhere else — that
+ * is Google's behaviour, not a bug here. Publish before any public release
+ * (backlog C1/O1).
  */
 (function () {
   'use strict';
 
-  // Default Media Receiver — replace with the registered custom-receiver ID.
-  var CAST_APP_ID = 'CC1AD845';
-  var USING_DEFAULT_RECEIVER = true;
+  // Archive Watch custom receiver (registered 2026-08-05, hosted at /cast/).
+  // Google's Default Media Receiver 'CC1AD845' remains a working fallback if
+  // the custom receiver ever needs to be bypassed — it needs no registration
+  // but drops subtitles and provenance.
+  var CAST_APP_ID = '58AF34C3';
+  var USING_DEFAULT_RECEIVER = (CAST_APP_ID === 'CC1AD845');
 
   var castContext = null;
   var button = null;
@@ -96,7 +104,9 @@
     for (var i = 0; i < trackEls.length; i++) {
       var el = trackEls[i];
       var t = new chrome.cast.media.Track(i + 1, chrome.cast.media.TrackType.TEXT);
-      t.trackContentId = el.src;
+      // NEVER el.src — that is a blob: URL scoped to this document (see
+      // addSubtitleTrack in watch.js). The receiver needs the real https URL.
+      t.trackContentId = el.dataset.awSrc || el.src;
       t.trackContentType = 'text/vtt';
       t.subtype = chrome.cast.media.TextTrackType.SUBTITLES;
       t.name = el.label || el.srclang;

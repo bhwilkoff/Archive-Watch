@@ -153,6 +153,65 @@
   }
 
   /* ---------------------------------------------------------------- *
+   * Subtitles: the two-URL invariant
+   *
+   * A <track> carries TWO urls and BOTH must stay correct:
+   *   .src           a same-origin blob:  — a cross-origin <track> fails
+   *                  SILENTLY (readyState 3, zero cues), and `crossorigin` on
+   *                  <video> is unavailable (archive.org storage nodes send no
+   *                  CORS, so it would break playback instead of fixing text).
+   *   .dataset.awSrc the real https url   — what a Cast receiver is handed. A
+   *                  blob: is scoped to THIS document; a receiver could never
+   *                  fetch one, so casting would silently lose subtitles.
+   * Collapsing them into one url breaks either subtitles or casting, and
+   * NEITHER failure is visible on screen.
+   *
+   * Most popular titles have no captions, so this deliberately hunts for a
+   * captioned one rather than testing whatever Home happened to focus — a
+   * check that quietly never runs is worse than no check.
+   * ---------------------------------------------------------------- */
+  {
+    let capId = null;
+    try {
+      // Find a captioned id the router can actually resolve: it must be in the
+      // catalog index too. No hard-coded id — dedup merges re-uploads away.
+      const shard = await fetch('https://archivewatch.org/details/00.json',
+                                { credentials: 'omit' }).then((r) => r.json());
+      for (const [id, rec] of Object.entries(shard)) {
+        if (Array.isArray(rec) && rec[7] && rec[7].length) { capId = id; break; }
+      }
+    } catch (e) { /* offline — reported below */ }
+
+    check('found a captioned title to test', !!capId, capId || 'none in shard 00');
+
+    if (capId) {
+      location.hash = '#/item/' + encodeURIComponent(capId);
+      await wait(3000);
+      const playBtn = document.getElementById('item-play');
+      if (playBtn) {
+        playBtn.click();
+        await wait(9000);
+        const cv = document.querySelector('video');
+        const trk = cv && cv.querySelector('track');
+        check('captioned title produced a <track>', !!trk, capId);
+        if (trk) {
+          check('track renders from a same-origin blob',
+                /^blob:/.test(trk.src), trk.src.slice(0, 30));
+          check('track keeps the https url for Cast',
+                /^https:/.test(trk.dataset.awSrc || ''), trk.dataset.awSrc);
+          check('track actually parsed cues (not a silent CORS failure)',
+                trk.track && trk.track.cues && trk.track.cues.length > 0,
+                'readyState=' + trk.readyState + ' cues=' +
+                (trk.track && trk.track.cues ? trk.track.cues.length : 'n/a'));
+        }
+        press(461); await wait(700);      // close the player again
+      } else {
+        check('captioned detail page offered Play', false, capId);
+      }
+    }
+  }
+
+  /* ---------------------------------------------------------------- *
    * Magic Remote pointer coexistence (TV-DESIGN §7.4, backlog L3)
    *
    * LG ships a pointer remote and supporting it is not optional. The rule is

@@ -1858,6 +1858,12 @@
    *  captions the pipeline has not pre-converted. */
   async function addSubtitleTrack(video, id, lang, label, url) {
     const tr = document.createElement('track');
+    // Keep the ORIGINAL https URL alongside the blob. The blob is what makes
+    // the local <track> work (a cross-origin track fails silently), but a blob
+    // is scoped to THIS document — a Cast receiver handed one cannot fetch it.
+    // cast-sender.js sends this instead, and the receiver, served from the same
+    // origin as the VTT, loads it directly.
+    tr.dataset.awSrc = url;
     tr.kind = 'subtitles';
     tr.srclang = lang || 'en';
     tr.label = label || (lang || 'en').toUpperCase();
