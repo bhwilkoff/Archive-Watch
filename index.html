@@ -307,6 +307,8 @@
        absent (non-Chromium, or gstatic blocked), so this is safe everywhere.
        docs/TV-PLATFORM-BACKLOG.md Phase 1. -->
   <script src="cast-sender.js"></script>
-  <script src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+  <!-- Absolute https, NOT protocol-relative: a packaged TV app (webOS/Tizen)
+       is served over file://, where "//host/..." resolves to file://host/... -->
+  <script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
 </body>
 </html>
