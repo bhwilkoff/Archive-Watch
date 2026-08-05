@@ -75,7 +75,7 @@ rather than being re-derived.
 | **C3** ✅ | Cast **sender** in the web viewer (Cast SDK for Web) | ENG | M | C2 |
 | **C4** | Cast **sender** in the Android phone app — **excluded from the Fire variant** | ENG | M | C2, A7 · needs a `google`/`amazon` product-flavor split first, so Fire never links GMS |
 | **C5** | Register a physical Cast device for testing | **OWNER** | S | C1 |
-| **A0** | Confirm + expose the **AirPlay** route in the iOS player | ENG | S | — |
+| **A0** ✅ | Confirm + expose the **AirPlay** route in the iOS player | ENG | S | — · **the "no new code" premise was WRONG** — see below |
 
 **C2 notes.** The receiver is HTML/JS and reuses the PWA player, including the
 `captions[]` → `<track>` conversion and the resilient reconnect. It is hosted
@@ -86,10 +86,40 @@ deprecated; build **CAF v3**.
 variant or the Fire build breaks (`TV-DESIGN §6.6`). This is the single
 cross-cutting constraint between Phase 1 and Phase 2.
 
-**A0 notes.** `AVPlayer` already exposes AirPlay with no entitlement and no fee.
-This is verify-and-document, not build. It reaches Apple TV plus AirPlay-2 TVs
-from Samsung, LG, Vizio, Sony, TCL, Hisense, Roku TV and Philips — but only in
-Apple households, so it is reach, not discovery.
+**A0 notes — CORRECTED 2026-08-05.** The original premise ("`AVPlayer` already
+exposes AirPlay, so this is verify-and-document, not build") was **wrong for
+this player**, and the correction is the whole point of the item.
+
+Every playback path here is backed by a **custom-scheme resource loader** —
+`aw-stream://` for progressive MP4 (Decisions 021 / 031 / 034) and Config C for
+captioned HLS. Apple is explicit that **video AirPlay is unsupported with a
+custom `AVAssetResourceLoaderDelegate`**: the delegate that serves those bytes
+lives on the *sending* device, so an AirPlay receiver has nothing it can fetch.
+AirPlay would therefore have failed on **every title**, and nothing in the build
+or a screenshot would have shown it.
+
+Fixed in `PlayerView_iOS.swift`: the player observes
+`AVPlayer.isExternalPlaybackActive` and, when a route engages, swaps to a URL
+the **receiver** can pull itself — preferring the published HLS (which also
+keeps the WebVTT caption renditions) and falling back to the plain MP4. When the
+route disengages it rebuilds the resilient on-device item, mirroring the branch
+in `makeUIViewController`, preserving position and metadata. The stall/fallback
+machinery is detached while external, since it watches the local loader paths.
+
+Losing loader resilience on AirPlay costs nothing: the **receiver owns the
+connection**, so byte-range resume and node failover are unavailable on that
+path regardless — the same trade Decision 047 records for Roku.
+
+Code landed in commit `e2286886` (bundled with the Cast work; that message does
+not mention it).
+
+**⏳ Owner QA — the one thing that cannot be verified here:** AirPlay routes do
+not exist in the Simulator. On a real iPhone + Apple TV: start a film, pick the
+AirPlay route, confirm video appears on the TV (not a black screen), then
+disengage and confirm playback resumes on-device at the same position.
+
+Reach is Apple TV plus AirPlay-2 TVs from Samsung, LG, Vizio, Sony, TCL, Hisense,
+Roku TV and Philips — but only in Apple households, so it is reach, not discovery.
 
 **Phase 1 acceptance:** a film plays on a Chromecast-built-in TV from both the
 web viewer and the Android phone app, with captions selectable and resume
