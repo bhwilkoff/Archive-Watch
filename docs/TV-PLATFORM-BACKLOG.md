@@ -70,12 +70,12 @@ rather than being re-derived.
 
 | ID | Item | Who | Size | Deps |
 |---|---|---|---|---|
-| **C1** ✅ | Register in the Google Cast SDK Developer Console; pay the one-time **$5**; create an app ID | **OWNER** | S | Done 2026-08-05. Custom Receiver **`58AF34C3`** → `https://archivewatch.org/cast/`. Android TV package left BLANK on purpose (filling it makes Cast launch our native TV app, which implements a sender not a receiver). **⚠️ Status is Unpublished** — see C6 |
-| **C6** | **Publish the receiver** in the Cast console | **OWNER** | S | Google launches an unpublished receiver ONLY on devices registered under Console → Devices. Until published, casting works on your test devices and silently does nothing for everyone else. **Must happen before any public release** |
+| **C1** ✅ | Register in the Google Cast SDK Developer Console; pay the one-time **$5**; create an app ID | **OWNER** | S | Done 2026-08-05. Custom Receiver **`58AF34C3`** → `https://archivewatch.org/cast/`. Android TV package left BLANK on purpose (filling it makes Cast launch our native TV app, which implements a sender not a receiver). Published — see C6 |
+| **C6** ✅ | **Publish the receiver** in the Cast console | **OWNER** | S | **Published 2026-08-05.** Publishing was BLOCKED until at least one sender was declared — added Chrome (`https://archivewatch.org/`) and Android (`com.archivewatch.app`). Listing left **Unlisted** (no public Chromecast-apps listing; the app is reached from our own senders). Propagation can take up to ~24h |
 | **C2** ✅ | Build the **Custom Web Receiver** (CAF v3) page, hosted at `archivewatch.org/cast/` | ENG | M | C1 |
 | **C3** ✅ | Cast **sender** in the web viewer (Cast SDK for Web) | ENG | M | C2 |
 | **C4** ✅ | Cast **sender** in the Android phone app — **excluded from the Fire variant** | ENG | M | C2, A7 · `CastOptionsProvider` + system `MediaRouteButton` + `loadMedia` on the google flavor only; hand-off POLLED (a `SessionManagerListener` type exists only in that flavor and referencing it would undo the structural split). Not offered on TV — a television is a receiver, not a sender. Binary-verified both ways |
-| **C5** | Register a physical Cast device for testing | **OWNER** | S | C1 |
+| ~~C5~~ | Register a physical Cast device for testing | **OWNER** | S | **No longer required** — device registration only exists to launch an UNPUBLISHED receiver. Now that C6 is published, any Cast device can launch it |
 | **A0** ✅ | Confirm + expose the **AirPlay** route in the iOS player | ENG | S | — · **the "no new code" premise was WRONG** — see below |
 
 **C2 notes.** The receiver is HTML/JS and reuses the PWA player, including the
@@ -308,7 +308,7 @@ Grouped by when it is needed. Nothing here is blocked on engineering unless note
 | # | Action | Cost | Needed for |
 |---|---|---|---|
 | ~~O1~~ ✅ | ~~Register in the **Google Cast SDK Developer Console**, pay the **$5**, create an app ID~~ — done 2026-08-05, receiver `58AF34C3` | ~~$5~~ | Cast (C1) |
-| **O1b** | **Publish the receiver** (Cast console → Applications → publish) **and** add your Cast device under **Devices** by serial number | $0 | Casting works ONLY on registered devices until published (C5, C6) |
+| ~~O1b~~ ✅ | ~~Publish the receiver~~ — done 2026-08-05; now launches on ANY Cast device, so no device registration is needed | ~~$0~~ | Cast (C5, C6) |
 | ~~O2~~ ✅ | ~~Play Console → Form factors → **Add Android TV**; accept the TV policy~~ — done 2026-08-05 (opt-in shows as locked/complete) | ~~$0~~ | Google TV (A21) |
 | **O2b** | **Upload the Android TV screenshots + TV banner** — the ONE remaining Play gate ("Upload Android TV screenshots for all store listings") | $0 | Google TV |
 | O3 | Create a free **Amazon Developer account** | $0 | Fire TV (A27) |

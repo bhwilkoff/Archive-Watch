@@ -14,12 +14,12 @@
  * carries the side-loaded WebVTT subtitles, the public-domain provenance
  * credit, and real error text instead of a black screen.
  *
- * ⚠️ A registered receiver is UNPUBLISHED until the owner publishes it in the
- * Cast console, and an unpublished receiver launches ONLY on devices added
- * under Console → Devices (by serial number). So before publication, casting
- * works on registered test devices and silently fails everywhere else — that
- * is Google's behaviour, not a bug here. Publish before any public release
- * (backlog C1/O1).
+ * PUBLISHED 2026-08-05, so any Cast device can launch it. Note for anyone
+ * registering a NEW receiver: Google launches an *unpublished* one only on
+ * devices added under Console → Devices by serial number, so it silently does
+ * nothing everywhere else — that is Google's behaviour, not a bug here. And
+ * publishing is blocked until at least one sender is declared in the console
+ * (we declare Chrome + Android).
  */
 (function () {
   'use strict';

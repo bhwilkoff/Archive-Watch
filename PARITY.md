@@ -198,7 +198,7 @@ surface in?"* — the per-surface waves are binding in TV-DESIGN §2.
 |---|---|---|---|
 | **Android TV** | the SAME `android/` app + AAB + `applicationId`, TV branched at runtime on `UiModeManager` | Google TV / Android TV **and** Amazon Fire TV | ✅ all surfaces D-pad-verified (12/12); compliance gates pass; Play TV form factor opted in — only the asset upload remains (owner) |
 | **Web-TV** | the SAME root PWA + `tv.js`/`tv.css` layer | LG webOS, Samsung Tizen, VIDAA / Titan / Zeasn | 🚧 focus engine + packaging staged |
-| **Google Cast** | hosted HTML receiver + web/Android senders | Chromecast, Google TV, Chromecast-built-in (incl. most **Vizio**) | ✅ receiver registered `58AF34C3`, both senders wired · ⏳ owner must PUBLISH it (unpublished receivers launch only on registered devices) |
+| **Google Cast** | hosted HTML receiver + web/Android senders | Chromecast, Google TV, Chromecast-built-in (incl. most **Vizio**) | ✅ **PUBLISHED** `58AF34C3`; both senders wired + declared in the console. ⏳ on-device verification (needs a Cast device) |
 | **AirPlay** | **needed new code** — see below | Apple TV + AirPlay-2 TVs (Samsung, LG, Vizio, Sony, TCL, Roku TV) | ✅ built, ⏳ owner device QA |
 | **Roku** | none — 0% reuse, BrightScript/SceneGraph rewrite | Roku (#1 US CTV) | 🔮 separate funded decision |
 | **Vizio native** | — | — | 🚫 no self-serve program; BD-gated and ad-aligned post-Walmart. Reached via Cast/AirPlay instead. |
