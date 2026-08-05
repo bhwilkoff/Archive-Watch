@@ -216,16 +216,12 @@ private fun TvScopeChips(
             val selected = s == active
             Box(
                 Modifier
-                    .then(
-                        if (s == TvScope.entries.first() && railFocus != null) {
-                            Modifier.exitLeftTo(railFocus)
-                        } else Modifier,
-                    )
                     .tvFocusable(
                         onClick = { onSelect(s) },
                         focusRequester = if (s == TvScope.entries.first()) firstChipFocus else null,
                         shape = RoundedCornerShape(24.dp),
                         scaleWhenFocused = 1.04f,
+                        exitLeftTo = if (s == TvScope.entries.first()) railFocus else null,
                     )
                     .background(
                         if (selected) Color(0xFFFF5C35) else Color(0xFF1C1C1C),

@@ -54,14 +54,12 @@ fun TvPosterTile(
     Column(
         modifier = modifier
             .width(TvDims.PosterWidth)
-            // Must sit BEFORE tvFocusable so this tile — the focused element —
-            // sees Left first and can hand focus to the rail (§3.4).
-            .then(if (exitLeftTo != null) Modifier.exitLeftTo(exitLeftTo) else Modifier)
             .tvFocusable(
                 onClick = onClick,
                 focusRequester = focusRequester,
                 ringColor = item.accentColor,
                 onFocused = onFocused,
+                exitLeftTo = exitLeftTo,
             ),
     ) {
         Box(

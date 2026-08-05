@@ -64,6 +64,18 @@ fun Modifier.tvFocusable(
     ringColor: Color = Color.White,
     scaleWhenFocused: Float = TvDims.FocusScale,
     onFocused: () -> Unit = {},
+    /**
+     * §3.4 — where Left should go when this element is the leftmost in a lazy
+     * row (Compose focus search will not cross out of it).
+     *
+     * Handled HERE, inside the one key handler this element owns, rather than
+     * as a separate Modifier.onKeyEvent wrapped around tvFocusable. That
+     * arrangement puts two key handlers on opposite sides of the focus node and
+     * the SELECT key stopped reaching onClick entirely — verified on the
+     * emulator, where every column-0 key of the on-screen keyboard was dead
+     * while other columns typed fine.
+     */
+    exitLeftTo: FocusRequester? = null,
 ): Modifier {
     var focused by remember { mutableStateOf(false) }
     val scale by animateFloatAsState(
@@ -92,34 +104,14 @@ fun Modifier.tvFocusable(
         .then(focusRequester?.let { Modifier.focusRequester(it) } ?: Modifier)
         .focusable(interactionSource = interaction)
         .onKeyEvent { ev ->
-            if (ev.type == KeyEventType.KeyUp && ev.key in SELECT_KEYS) {
-                onClick()
-                true
-            } else {
-                false
+            if (ev.type != KeyEventType.KeyUp) return@onKeyEvent false
+            when {
+                ev.key in SELECT_KEYS -> { onClick(); true }
+                ev.key == Key.DirectionLeft && exitLeftTo != null ->
+                    runCatching { exitLeftTo.requestFocus() }.isSuccess
+                else -> false
             }
         }
-}
-
-/**
- * §3.4 — hand focus to [target] when Left is pressed, so the leftmost element
- * of a row or grid column is a door back to the nav rail.
- *
- * This exists because Compose's focus search will NOT cross from a lazy list's
- * first item into a sibling container, and `focusProperties { exit = … }` is
- * not delivered through a lazy list either (both observed failing on the
- * Android TV emulator). Without it the nav rail is unreachable and tabs cannot
- * be changed by remote at all — a TV-DP failure.
- *
- * MUST be applied BEFORE [tvFocusable] in the chain so the focused element
- * sees the key first.
- */
-fun Modifier.exitLeftTo(target: FocusRequester): Modifier = this.onKeyEvent { ev ->
-    if (ev.type == KeyEventType.KeyUp && ev.key == Key.DirectionLeft) {
-        runCatching { target.requestFocus() }.isSuccess
-    } else {
-        false
-    }
 }
 
 /**

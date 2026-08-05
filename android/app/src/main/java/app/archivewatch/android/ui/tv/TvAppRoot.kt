@@ -57,7 +57,6 @@ import app.archivewatch.android.ui.screens.FilteredGridScreen
 import app.archivewatch.android.ui.screens.PersonScreen
 import app.archivewatch.android.ui.screens.PlayerScreen
 import app.archivewatch.android.ui.screens.PlaylistScreen
-import app.archivewatch.android.ui.screens.SearchScreen
 import app.archivewatch.android.ui.screens.SeriesDetailScreen
 import app.archivewatch.android.ui.screens.SettingsScreen
 import app.archivewatch.android.ui.screens.SurpriseScreen
@@ -98,6 +97,19 @@ fun TvAppRoot(container: AppContainer) {
         }
     }
 
+    // Verification hook (see MainActivity): jump straight to a tab so automated
+    // TV checks don't have to steer by counting D-pad presses.
+    LaunchedEffect(Unit) {
+        DeepLinks.pendingTab.collect { name ->
+            if (name != null) {
+                DeepLinks.pendingTab.value = null
+                Tab.entries.firstOrNull { it.name.equals(name, ignoreCase = true) }?.let {
+                    nav.stack.clear(); nav.tab = it
+                }
+            }
+        }
+    }
+
     // §1.7 — Back is sacred. It pops the stack; from the root it is NOT
     // consumed, so the system returns to the launcher home (TV-DB).
     BackHandler(enabled = nav.stack.isNotEmpty()) { nav.pop() }
@@ -124,7 +136,7 @@ fun TvAppRoot(container: AppContainer) {
                         Tab.Home -> TvHomeScreen(container, nav)
                         Tab.Browse -> TvBrowseScreen(container, nav)
                         Tab.Channels -> ChannelsScreen(container, nav)
-                        Tab.Search -> SearchScreen(container, nav)
+                        Tab.Search -> TvSearchScreen(container, nav)
                         Tab.Library -> LibraryScreen(container, nav)
                     }
                 }

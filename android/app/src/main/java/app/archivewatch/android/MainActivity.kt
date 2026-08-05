@@ -75,6 +75,14 @@ class MainActivity : ComponentActivity() {
         Links from https://archivewatch.org/item/{id} + /series/{slug} → the
         matching surface. */
     private fun handleDeepLink(intent: Intent?) {
+        // Verification hook, mirroring the Apple apps' AW_START_TAB (SCRATCHPAD
+        // 2026-06-10). Driving a TV surface by counting blind D-pad presses is
+        // fragile — focus lands on the nearest item, not a fixed one — so tests
+        // jump straight to a tab:
+        //   adb shell am start -n <pkg>/<act> --es aw_start_tab search
+        // No-op in normal use: nothing sends this extra.
+        intent?.getStringExtra("aw_start_tab")?.let { DeepLinks.pendingTab.value = it }
+
         val uri = intent?.data ?: return
         if (uri.scheme == "archivewatch" && uri.host == "item") {
             uri.lastPathSegment?.let { DeepLinks.pendingItem.value = it }
