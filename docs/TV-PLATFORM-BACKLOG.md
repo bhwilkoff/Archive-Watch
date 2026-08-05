@@ -130,7 +130,7 @@ Do it early — the fix may be a dependency bump, which has lead time.
 | **A14** ✅ | TV **Player**: Media3 `PlayerView` TV controls, D-pad center/left/right (TV-PC), `KEYCODE_MEDIA_PLAY_PAUSE` (TV-PP), title+description overlay (Decision 037) | ENG | M | A8 |
 | **A15** ✅ | **⚠️ Gate `media3-session` MediaSession OFF on TV; pause video on switch-away (TV-NP)** | ENG | S | A14 |
 | **A16** ✅ | Back returns to launcher from root, never mid-playback (TV-DB) | ENG | S | A8 |
-| **A17** | Subtitles via Media3 `SubtitleConfiguration` from `captions[]` | ENG | S | A14 |
+| **A17** ✅ | Subtitles via Media3 `SubtitleConfiguration` from `captions[]` | ENG | S | ✅ inherited from the shared player; **verified rendering on the TV emulator** |
 | **A18** ✅ | v1.1 surfaces: Channels · Surprise · Collections (TV-DESIGN §2) | ENG | L | A9 |
 
 **A15 is a shipped-code conflict, not a new feature.** The MediaSession added for

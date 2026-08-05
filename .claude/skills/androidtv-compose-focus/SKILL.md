@@ -164,6 +164,18 @@ because the shortcuts rendered; they pushed into a completely inert grid.
   before opening its console ports when the disk is near-full, which looks like
   a boot failure rather than a space problem.
 
+## Testing against real content
+
+The bundled seed and the DOWNLOADED catalog are not the same set — the dedup
+pass merges same-film re-uploads, so an archiveID that exists in the seed can be
+absent from the live DB and the app correctly shows "isn't in the catalog
+anymore". Pick test ids from the DB the app is actually running:
+
+```bash
+adb shell "run-as <pkg> cat files/catalog.sqlite" > live.sqlite
+# then query item_json for whatever the test needs (captions, downloadURL, ...)
+```
+
 ## See also
 
 - `docs/TV-DESIGN.md` — the binding rules any surface must cite
