@@ -48,6 +48,8 @@ import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.LoadingBox
 import app.archivewatch.android.ui.Nav
+import app.archivewatch.android.ui.tv.LocalIsTelevision
+import app.archivewatch.android.ui.tv.tvFocusable
 import app.archivewatch.android.ui.PosterTile
 import app.archivewatch.android.ui.Route
 import app.archivewatch.android.ui.ShelfRow
@@ -91,9 +93,16 @@ fun CollectionsScreen(container: AppContainer, nav: Nav) {
             modifier = Modifier.fillMaxSize().padding(padding),
         ) {
             listItems(list, key = { it.first.id }) { (meta, count) ->
-                Card(modifier = Modifier.clickable {
+                val openCollection = {
                     nav.push(Route.Collection(meta.id, meta.title, meta.blurb))
-                }) {
+                }
+                Card(
+                    modifier = if (LocalIsTelevision.current) {
+                        Modifier.tvFocusable(onClick = openCollection)
+                    } else {
+                        Modifier.clickable(onClick = openCollection)
+                    },
+                ) {
                     Row(
                         Modifier.fillMaxWidth().padding(14.dp),
                         verticalAlignment = Alignment.CenterVertically,

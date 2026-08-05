@@ -50,6 +50,8 @@ import app.archivewatch.android.ui.BackdropImage
 import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.LoadingBox
 import app.archivewatch.android.ui.Nav
+import app.archivewatch.android.ui.tv.LocalIsTelevision
+import app.archivewatch.android.ui.tv.tvFocusable
 import app.archivewatch.android.ui.Route
 import app.archivewatch.android.ui.theme.BrandSurface
 import coil3.compose.AsyncImage
@@ -210,7 +212,11 @@ private fun EpisodeRow(episode: SeriesEpisode, onPlay: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(enabled = playable, onClick = onPlay)
+            .then(
+                if (LocalIsTelevision.current) {
+                    Modifier.tvFocusable(onClick = { if (playable) onPlay() })
+                } else Modifier.clickable(enabled = playable, onClick = onPlay),
+            )
             .padding(horizontal = 16.dp, vertical = 8.dp),
         horizontalArrangement = Arrangement.spacedBy(12.dp),
         verticalAlignment = Alignment.CenterVertically,

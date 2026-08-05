@@ -51,6 +51,8 @@ import app.archivewatch.android.data.FeaturedCategory
 import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.LoadingBox
 import app.archivewatch.android.ui.Nav
+import app.archivewatch.android.ui.tv.LocalIsTelevision
+import app.archivewatch.android.ui.tv.tvFocusable
 import app.archivewatch.android.ui.PosterTile
 import app.archivewatch.android.ui.Route
 import app.archivewatch.android.ui.theme.colorFromHex
@@ -86,7 +88,12 @@ fun CategoryTilesRow(categories: List<FeaturedCategory>, onCategory: (FeaturedCa
                                 listOf(accent.copy(alpha = 0.95f), accent.copy(alpha = 0.55f)),
                             ),
                         )
-                        .clickable { onCategory(cat) }
+                        // TV: `clickable` gives no D-pad focus (see Components.PosterTile).
+                        .then(
+                            if (LocalIsTelevision.current) {
+                                Modifier.tvFocusable(onClick = { onCategory(cat) })
+                            } else Modifier.clickable { onCategory(cat) },
+                        )
                         .padding(12.dp),
                     contentAlignment = Alignment.BottomStart,
                 ) {
@@ -122,7 +129,11 @@ fun EraTilesRow(decades: List<Pair<Int, Int>>, onDecade: (Int) -> Unit) {
                         .size(width = 130.dp, height = 92.dp)
                         .clip(RoundedCornerShape(10.dp))
                         .background(MaterialTheme.colorScheme.surfaceVariant)
-                        .clickable { onDecade(decade) }
+                        .then(
+                            if (LocalIsTelevision.current) {
+                                Modifier.tvFocusable(onClick = { onDecade(decade) })
+                            } else Modifier.clickable { onDecade(decade) },
+                        )
                         .padding(12.dp),
                     verticalArrangement = Arrangement.SpaceBetween,
                 ) {
