@@ -53,7 +53,6 @@ import app.archivewatch.android.ui.screens.CartoonScreen
 import app.archivewatch.android.ui.screens.ChannelsScreen
 import app.archivewatch.android.ui.screens.CollectionGridScreen
 import app.archivewatch.android.ui.screens.CollectionsScreen
-import app.archivewatch.android.ui.screens.DetailScreen
 import app.archivewatch.android.ui.screens.FilteredGridScreen
 import app.archivewatch.android.ui.screens.PersonScreen
 import app.archivewatch.android.ui.screens.PlayerScreen
@@ -135,7 +134,7 @@ fun TvAppRoot(container: AppContainer) {
                         modifier = Modifier.fillMaxSize(),
                     ) {
                         when (route) {
-                            is Route.Detail -> DetailScreen(container, nav, route.archiveID)
+                            is Route.Detail -> TvDetailScreen(container, nav, route.archiveID)
                             is Route.Series -> SeriesDetailScreen(container, nav, route.slug)
                             is Route.Player -> PlayerScreen(container, nav, route.spec)
                             is Route.Filtered -> FilteredGridScreen(container, nav, route)

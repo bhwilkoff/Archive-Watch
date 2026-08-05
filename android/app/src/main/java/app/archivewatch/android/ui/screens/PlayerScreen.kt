@@ -64,6 +64,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.PlaybackPresence
 import app.archivewatch.android.ui.tv.LocalIsTelevision
+import app.archivewatch.android.ui.tv.TvDims
 import app.archivewatch.android.ui.tv.tvPlaybackKeys
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -363,7 +364,14 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                         ),
                     )
                     .windowInsetsPadding(WindowInsets.systemBars)
-                    .padding(horizontal = 20.dp, vertical = 16.dp),
+                    // TVs report no system-bar insets, so the phone's 20/16dp
+                    // put the title hard against the panel edge where overscan
+                    // clips it (docs/TV-DESIGN.md §4.2 — artwork may cross that
+                    // line, text may not). Caught on the emulator.
+                    .padding(
+                        horizontal = if (isTv) TvDims.OverscanH else 20.dp,
+                        vertical = if (isTv) TvDims.OverscanV else 16.dp,
+                    ),
             ) {
                 Text(
                     text = nowTitle,
