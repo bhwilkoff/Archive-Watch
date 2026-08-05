@@ -40,8 +40,10 @@ VN="$(grep -E '^\s*versionName\s*=' "$GRADLE" | head -1 | sed -E 's/.*"(.*)".*/\
 VC="$(grep -E '^\s*versionCode\s*=' "$GRADLE" | head -1 | sed -E 's/[^0-9]//g')"
 echo "Building Android $VN (versionCode $VC) …"
 
-( cd android && ./gradlew --quiet bundleRelease )
-AAB="android/app/build/outputs/bundle/release/app-release.aab"
+# GOOGLE flavor — Play is this flavor's store. The amazon flavor is the
+# GMS-free Fire TV build and must never be uploaded here (Decision 047 §6.6).
+( cd android && ./gradlew --quiet bundleGoogleRelease )
+AAB="android/app/build/outputs/bundle/googleRelease/app-google-release.aab"
 [ -f "$AAB" ] || { echo "AAB not produced at $AAB"; exit 1; }
 echo "signed AAB: $AAB ($(du -h "$AAB" | cut -f1))"
 

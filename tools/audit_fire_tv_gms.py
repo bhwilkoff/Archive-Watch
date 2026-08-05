@@ -42,7 +42,13 @@ GMS_COORDS = re.compile(
     re.I,
 )
 
+# The AMAZON variant is the one that must be clean — the google variant is
+# SUPPOSED to contain Cast. Prefer amazon artifacts; fall back to unflavored
+# ones for older builds.
 DEFAULT_CANDIDATES = [
+    "android/app/build/outputs/bundle/amazonRelease/app-amazon-release.aab",
+    "android/app/build/outputs/apk/amazon/release/app-amazon-release.apk",
+    "android/app/build/outputs/apk/amazon/debug/app-amazon-debug.apk",
     "android/app/build/outputs/bundle/release/app-release.aab",
     "android/app/build/outputs/apk/release/app-release.apk",
     "android/app/build/outputs/apk/debug/app-debug.apk",
@@ -52,19 +58,36 @@ CATALOG = Path("android/gradle/libs.versions.toml")
 BUILD_FILE = Path("android/app/build.gradle.kts")
 
 
+# A GMS dependency is only dangerous for Fire TV when a configuration that
+# reaches the AMAZON variant consumes it. `googleImplementation(...)` is
+# correct and expected once the store flavors exist.
+GOOGLE_SCOPED = re.compile(r'^\s*"?google[A-Za-z]*"?\s*\(')
+
+
 def check_sources() -> list[str]:
-    """Declared dependencies — catches a GMS coordinate before it is ever built."""
+    """Declared dependencies that would reach the amazon variant.
+
+    NOTE: a coordinate sitting in the version catalog links NOTHING — only a
+    dependency *configuration* does. So the catalog is ignored and the build
+    file is checked for GMS pulled in on a configuration that is not scoped to
+    the google flavor.
+    """
     hits = []
-    for path in (CATALOG, BUILD_FILE):
-        if not path.exists():
+    if not BUILD_FILE.exists():
+        return hits
+    for n, line in enumerate(BUILD_FILE.read_text().splitlines(), 1):
+        stripped = line.strip()
+        if stripped.startswith("//") or stripped.startswith("#"):
             continue
-        for n, line in enumerate(path.read_text().splitlines(), 1):
-            stripped = line.strip()
-            # Skip comments — this file's own prose mentions the packages.
-            if stripped.startswith("#") or stripped.startswith("//"):
-                continue
-            if GMS_COORDS.search(line):
-                hits.append(f"{path}:{n}: {stripped}")
+        if not GMS_COORDS.search(line) and "cast" not in line.lower():
+            continue
+        # Is it a dependency line at all, and is it google-scoped?
+        if "(" not in stripped:
+            continue
+        if GOOGLE_SCOPED.match(line):
+            continue          # googleImplementation(...) — correct
+        if GMS_COORDS.search(line) or "libs.play.services" in line or "media3.cast" in line:
+            hits.append(f"{BUILD_FILE}:{n}: {stripped}")
     return hits
 
 
@@ -92,11 +115,11 @@ def main() -> int:
     declared = check_sources()
     if declared:
         failed = True
-        print("FAIL: GMS/Firebase coordinates declared:")
+        print("FAIL: GMS/Firebase reaching the amazon variant:")
         for h in declared:
             print(f"  - {h}")
     else:
-        print("OK: no GMS/Firebase coordinates declared in the build files.")
+        print("OK: no un-flavor-scoped GMS dependency (googleImplementation is fine).")
 
     if len(sys.argv) > 1:
         target = Path(sys.argv[1])

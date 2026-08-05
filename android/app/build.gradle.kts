@@ -57,13 +57,32 @@ android {
         targetSdk = 36
         // Play rejects ANY previously-uploaded versionCode — bump +1 before
         // every Play upload, even if that upload was never released.
-        versionCode = 20
+        versionCode = 21
         // Marketing version tracks the Apple apps (AppVersion.xcconfig) so a
         // user report names one version family across platforms.
-        versionName = "1.3.289"
+        versionName = "1.3.290"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables { useSupportLibrary = true }
+    }
+
+    // Store flavors (Decision 047 §6.6). The ONLY difference is Google Play
+    // Services: Cast is GMS-dependent, and Fire OS has no GMS, so linking Cast
+    // into the Fire build would crash it at runtime — not at build time, which
+    // is exactly why this is a hard structural split rather than a code guard.
+    // tools/audit_fire_tv_gms.py gates the amazon variant in CI.
+    flavorDimensions += "store"
+    productFlavors {
+        create("google") {
+            dimension = "store"
+            // Same applicationId — Play is the store for this flavor.
+        }
+        create("amazon") {
+            dimension = "store"
+            // Amazon Appstore. Deliberately ZERO GMS: no Cast, no Play
+            // Services of any kind. If you are about to add a dependency
+            // here, check it first with tools/audit_fire_tv_gms.py.
+        }
     }
 
     signingConfigs {
@@ -159,6 +178,12 @@ dependencies {
     implementation(libs.okhttp)
 
     implementation(libs.bundles.media3)
+
+    // Cast — GOOGLE FLAVOR ONLY. `googleImplementation` is what keeps GMS out
+    // of the amazon variant; a plain `implementation` here would silently
+    // break Fire TV (docs/TV-DESIGN.md §6.6).
+    "googleImplementation"(libs.play.services.cast.framework)
+    "googleImplementation"(libs.media3.cast)
 
     implementation(libs.splashscreen)
 
