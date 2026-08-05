@@ -43,13 +43,32 @@
     text-align: center; font-size: 1.6vh; letter-spacing: .08em;
     color: #9a9a9a; text-transform: uppercase; pointer-events: none;
   }
+  /* A cast that fails must SAY so. "Nothing happened" is the worst possible
+     feedback on a screen the viewer is sitting ten feet from, with no controls
+     on the device showing the error. */
+  #error {
+    position: fixed; inset: 0; display: none;
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 2vh; background: #000; text-align: center; padding: 0 8vw;
+  }
+  #error.shown { display: flex; }
+  #error h1 { font-size: 3.4vh; font-weight: 600; margin: 0; }
+  #error p  { font-size: 2.2vh; color: #b9b9b9; margin: 0; max-width: 70ch; }
+  #error code { color: #FF5C35; font-size: 1.8vh; }
 </style>
 </head>
 <body>
   <cast-media-player></cast-media-player>
   <div id="credit">archivewatch.org · public domain · courtesy of the Internet Archive</div>
+  <div id="error" role="alert">
+    <h1>Can’t play this title</h1>
+    <p id="error-detail"></p>
+    <p><code id="error-code"></code></p>
+  </div>
 
-  <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+  <!-- Absolute https, not protocol-relative: keeps this identical to the rule
+       the app shell follows, where "//host" breaks under a file:// origin. -->
+  <script src="https://www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
   <script>
   (function () {
     'use strict';
@@ -77,18 +96,70 @@
         if (meta && !meta.metadataType) {
           meta.metadataType = cast.framework.messages.MetadataType.MOVIE;
         }
+
+        // Carrying subtitles is the main reason this receiver exists, so make
+        // them actually LEGIBLE and actually ON:
+        //
+        //  - CAF's default caption style is small and often near-invisible over
+        //    bright archival footage. A TV is watched from ten feet; this
+        //    mirrors the ten-foot type floor the TV apps use.
+        //  - A track that is present but not in `activeTrackIds` is simply off.
+        //    The local web player defaults English on (`track.default = true`),
+        //    so casting the same film would otherwise LOSE the captions the
+        //    viewer already had — the exact regression this receiver exists to
+        //    prevent.
+        const style = new cast.framework.messages.TextTrackStyle();
+        style.foregroundColor = '#FFFFFFFF';
+        style.backgroundColor = '#000000B3';   // legible over bright frames
+        style.edgeType = cast.framework.messages.TextTrackEdgeType.OUTLINE;
+        style.edgeColor = '#000000FF';
+        style.fontScale = 1.2;
+        style.fontFamily = 'sans-serif';
+        style.fontGenericFamily =
+          cast.framework.messages.TextTrackFontGenericFamily.SANS_SERIF;
+        request.media.textTrackStyle = style;
+
+        const tracks = request.media.tracks || [];
+        if (tracks.length && !(request.activeTrackIds || []).length) {
+          const text = tracks.filter(function (t) { return t.type === 'TEXT'; });
+          const pick = text.find(function (t) {
+            return (t.language || '').toLowerCase().indexOf('en') === 0;
+          }) || text[0];
+          if (pick) request.activeTrackIds = [pick.trackId];
+        }
         return request;
       },
     );
 
     // Surface real errors rather than a silent black screen — archive.org can
     // rate-limit or a node can 5xx mid-cast, and "nothing happened" is the
-    // worst possible feedback on a TV across the room.
+    // worst possible feedback on a TV across the room. This previously only
+    // wrote to a console nobody can read from a couch.
+    const ERROR_TEXT = {
+      100: 'The video could not be loaded. archive.org may be rate-limiting this device — try again in a minute.',
+      101: 'This title timed out while loading.',
+      102: 'Playback was aborted.',
+      104: 'The video file could not be read.',
+      110: 'The source could not be reached.',
+    };
+    function showError(code) {
+      const box = document.getElementById('error');
+      document.getElementById('error-detail').textContent =
+        ERROR_TEXT[code] || 'This title could not be played from the Internet Archive.';
+      document.getElementById('error-code').textContent = code ? 'Error ' + code : '';
+      box.classList.add('shown');
+    }
+    function clearError() {
+      document.getElementById('error').classList.remove('shown');
+    }
+
     playerManager.addEventListener(
       cast.framework.events.EventType.ERROR,
       function (e) {
+        const code = e && (e.detailedErrorCode || e.reason);
         // eslint-disable-next-line no-console
-        console.error('[AW cast] playback error', e && e.detailedErrorCode, e);
+        console.error('[AW cast] playback error', code, e);
+        showError(code);
       },
     );
 
@@ -98,7 +169,10 @@
     );
     playerManager.addEventListener(
       cast.framework.events.EventType.PLAYER_LOAD_COMPLETE,
-      function () { document.getElementById('credit').hidden = true; },
+      function () {
+        document.getElementById('credit').hidden = true;
+        clearError();          // a retry that succeeds must clear the message
+      },
     );
 
     const options = new cast.framework.CastReceiverOptions();

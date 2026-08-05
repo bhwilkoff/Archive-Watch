@@ -114,6 +114,15 @@ object CastSupport {
                     .setMediaInfo(info)
                     .setAutoplay(true)
                     .setCurrentTime(positionMs)
+                    // A track that is supplied but not ACTIVE is simply off, so
+                    // casting would silently drop the captions the phone was
+                    // showing. Prefer English, matching the local player.
+                    .apply {
+                        if (tracks.isNotEmpty()) {
+                            val en = captions.indexOfFirst { it.lang.startsWith("en", true) }
+                            setActiveTrackIds(longArrayOf(((if (en >= 0) en else 0) + 1).toLong()))
+                        }
+                    }
                     .build()
             )
             true

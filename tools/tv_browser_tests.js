@@ -25,6 +25,13 @@
   function check(name, ok, detail) {
     results.push({ name, ok: !!ok, detail });
     ok ? pass++ : fail++;
+    // Publish progress as we go. A run that stalls — a film whose node never
+    // responds, an autoplay block in a tab with no user gesture — used to
+    // return NOTHING, which is indistinguishable from the harness being broken.
+    // Now the caller can always read how far it got and on which assertion.
+    try {
+      window.__awProgress = { pass, fail, last: name, at: results.length };
+    } catch (e) { /* non-browser host */ }
   }
 
   function press(keyCode, target) {
@@ -106,12 +113,25 @@
     const v = document.querySelector('video');
     const dlg = document.getElementById('player');
 
+    // Whether the media ever became decodable. In a tab with no user gesture
+    // Chrome BLOCKS autoplay, the element stays at readyState 0, and the
+    // seek/play/pause assertions below can never pass — they would sit there
+    // measuring a video that is not running. Report that as its own result and
+    // skip only the assertions that genuinely need decoded media; the Back
+    // layering below is what certification actually cares about and does not.
+    const playable = !!v && v.readyState >= 2;
+    check('player reached a playable state', playable,
+          v ? ('readyState=' + v.readyState + (v.paused ? ' paused' : ' playing') +
+               (v.readyState === 0 ? ' — autoplay blocked? click the page first' : ''))
+            : 'no video element');
+
     if (v && dlg) {
       const r = v.getBoundingClientRect();
       check('player video fills viewport width',
             Math.abs(r.width - window.innerWidth) <= 2,
             Math.round(r.width) + ' vs ' + window.innerWidth);
 
+      if (playable) {
       v.currentTime = 100; await wait(600);
       const t0 = v.currentTime;
       press(39); await wait(400);
@@ -132,9 +152,12 @@
       check('MediaPause(19) pauses', v.paused, 'paused=' + v.paused);
       press(10252); await wait(300);
       check('Tizen PlayPause(10252) toggles', !v.paused, 'paused=' + v.paused);
+      }   // end: assertions that require decoded media
 
       // THE certification case: Back must close the overlay FIRST, not
-      // navigate away leaving a film playing over the home page.
+      // navigate away leaving a film playing over the home page. Runs even when
+      // the media never decoded — LG and Samsung both test Back behaviour, and
+      // an overlay left open is a failure whether or not pixels are moving.
       const hashAtPlay = location.hash;
       press(461); await wait(900);
       check('Back closes the player (not navigate)',

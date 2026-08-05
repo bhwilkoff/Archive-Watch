@@ -120,6 +120,17 @@
     // restart it.
     request.currentTime = Math.max(0, Math.floor(video.currentTime || 0));
     request.autoplay = true;
+    // A track that is supplied but not ACTIVE is simply off. Carry across
+    // whichever caption the local player is actually showing, so casting does
+    // not silently drop subtitles the viewer already had. (The receiver has the
+    // same defaulting as a backstop, for senders that don't set this.)
+    if (tracks.length) {
+      var showing = -1;
+      for (var j = 0; j < trackEls.length; j++) {
+        if (trackEls[j].track && trackEls[j].track.mode === 'showing') { showing = j; break; }
+      }
+      request.activeTrackIds = [tracks[showing >= 0 ? showing : 0].trackId];
+    }
 
     session.loadMedia(request).then(function () {
       // The TV owns playback now; stop the local copy so audio isn't doubled.
