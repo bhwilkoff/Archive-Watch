@@ -189,7 +189,7 @@ for the data-layer/`produceState` discipline, which is unchanged on TV.
 | **A25** | Validate Media3 1.9.4 progressive-MP4 playback on **real Fire hardware** | ENG+OWNER | M | Do **not** adopt the stale `amzn` ExoPlayer port |
 | **A26** | **Buy a Fire TV Stick (~$30)** | **OWNER** | S | Amazon expects physical-device QA |
 | **A27** | **Create a free Amazon Developer account** | **OWNER** | S | $0 registration, $0 submission |
-| **A28** | Submit to the Amazon Appstore (APK/AAB + assets + Fire TV form factors) | **OWNER** | S | Review ≈ 3–5 business days |
+| **A28** | Submit to the Amazon Appstore (APK/AAB + assets + Fire TV form factors) | **OWNER** | S | **Artifact READY**: `~/Desktop/ArchiveWatch-TV-Screenshots/ArchiveWatch-FireTV-<version>.apk` — signed release, verified zero-GMS and TV-G6 16 KB-aligned. Reuse the same six 1920×1080 screenshots. Review ≈ 3–5 business days |
 
 **Phase 2 acceptance:** the same AAB installs and is fully D-pad-operable on an
 Android TV device and a Fire TV Stick; both pass the §9 remote/ten-foot/parity
@@ -222,7 +222,7 @@ tests; phone build is byte-for-byte unaffected in behavior.
 | **L3** ✅ | **Magic Remote pointer coexistence** with D-pad focus | ENG | M | Not optional (TV-DESIGN §7.4) · verified in-browser + 5 permanent assertions in `tools/tv_browser_tests.js`: hover moves focus, **D-pad continues from the hovered element**, inert chrome and hidden views never steal focus, no scroll jump |
 | **L4** | **Create a free LG Seller Lounge account** (individual, 18+, global OK) | **OWNER** | S | |
 | **L5** | **Create an LG Developer account + enable Developer Mode on an LG TV**; side-load the `.ipk` | **OWNER** | S | Requires access to an LG TV |
-| **L6** | Store assets: **1280×720** screenshots, description, content rating | ENG assets / **OWNER** upload | S | |
+| **L6** | Store assets: **1280×720** screenshots, description, content rating | ENG assets / **OWNER** upload | S | ⚠️ Capture these from a REAL LG panel during the L5 side-load, not from a desktop browser. Attempted here and rejected: the web-TV CSS targets 1920×1080, so a desktop-width capture clips the nav, and forcing a 1920 layout via a CSS transform breaks the lazy-load geometry (70 of 363 posters loaded) — the result misrepresents the app. Since L5 already requires the TV, capture there |
 | **L7** ✅ | **UX scenario doc + the mandatory self-checklist** | ENG drafts / **OWNER** submits | M | ✅ drafted at `docs/webos-submission.md` — paste-ready |
 | **L8** | Submit; pretest + function test + content test | **OWNER** | S | ≈ 5–10 business days, often 2–3 cycles |
 
