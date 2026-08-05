@@ -23,11 +23,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
-import androidx.compose.ui.input.key.Key
-import androidx.compose.ui.input.key.KeyEventType
-import androidx.compose.ui.input.key.key
-import androidx.compose.ui.input.key.onKeyEvent
-import androidx.compose.ui.input.key.type
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -60,16 +55,8 @@ fun TvPosterTile(
         modifier = modifier
             .width(TvDims.PosterWidth)
             // Must sit BEFORE tvFocusable so this tile — the focused element —
-            // sees Left first and can hand focus to the rail.
-            .then(
-                if (exitLeftTo != null) {
-                    Modifier.onKeyEvent { ev ->
-                        if (ev.type == KeyEventType.KeyUp && ev.key == Key.DirectionLeft) {
-                            runCatching { exitLeftTo.requestFocus() }.isSuccess
-                        } else false
-                    }
-                } else Modifier,
-            )
+            // sees Left first and can hand focus to the rail (§3.4).
+            .then(if (exitLeftTo != null) Modifier.exitLeftTo(exitLeftTo) else Modifier)
             .tvFocusable(
                 onClick = onClick,
                 focusRequester = focusRequester,

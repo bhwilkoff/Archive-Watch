@@ -102,6 +102,27 @@ fun Modifier.tvFocusable(
 }
 
 /**
+ * §3.4 — hand focus to [target] when Left is pressed, so the leftmost element
+ * of a row or grid column is a door back to the nav rail.
+ *
+ * This exists because Compose's focus search will NOT cross from a lazy list's
+ * first item into a sibling container, and `focusProperties { exit = … }` is
+ * not delivered through a lazy list either (both observed failing on the
+ * Android TV emulator). Without it the nav rail is unreachable and tabs cannot
+ * be changed by remote at all — a TV-DP failure.
+ *
+ * MUST be applied BEFORE [tvFocusable] in the chain so the focused element
+ * sees the key first.
+ */
+fun Modifier.exitLeftTo(target: FocusRequester): Modifier = this.onKeyEvent { ev ->
+    if (ev.type == KeyEventType.KeyUp && ev.key == Key.DirectionLeft) {
+        runCatching { target.requestFocus() }.isSuccess
+    } else {
+        false
+    }
+}
+
+/**
  * §3.1 — something is ALWAYS focused. On entering a surface, focus is claimed
  * imperatively; leaving it to a default is unreliable across OEMs and strands
  * the user holding a remote that does nothing.
