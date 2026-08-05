@@ -60,6 +60,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.ChannelPresets
 import app.archivewatch.android.data.ChannelScheduler
@@ -69,6 +70,8 @@ import app.archivewatch.android.data.QueueEntry
 import app.archivewatch.android.data.ScheduledProgram
 import app.archivewatch.android.ui.LoadingBox
 import app.archivewatch.android.ui.Nav
+import app.archivewatch.android.ui.tv.LocalIsTelevision
+import app.archivewatch.android.ui.tv.tvFocusable
 import app.archivewatch.android.ui.Route
 import app.archivewatch.android.ui.theme.colorFromHex
 import kotlinx.coroutines.launch
@@ -284,6 +287,7 @@ private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
                             onDelete: (suspend () -> Unit)? = null) {
     val accent = colorFromHex(channel.accentHex) ?: MaterialTheme.colorScheme.primary
     val scope = androidx.compose.runtime.rememberCoroutineScope()
+    val isTv = LocalIsTelevision.current
     Row(
         Modifier.fillMaxWidth().padding(horizontal = 8.dp, vertical = 2.dp),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
@@ -331,18 +335,36 @@ private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
                     val airing = slot.contains(nowMs)
                     Column(
                         Modifier
-                            .height(64.dp)
+                            .height(if (isTv) 84.dp else 64.dp)
                             .clip(RoundedCornerShape(8.dp))
                             .background(
                                 if (airing) accent
                                 else MaterialTheme.colorScheme.surfaceVariant,
                             )
-                            .clickable { scope.launch { onTune(slot) } }
-                            .padding(horizontal = 6.dp, vertical = 5.dp),
+                            // `clickable` alone gives NO D-pad focus, so on a TV
+                            // the entire guide was unreachable by remote — every
+                            // press fell through to the nav rail (a TV-DP
+                            // failure; verified on the emulator). The EPG layout
+                            // itself is already a ten-foot idiom, so TV needs
+                            // focusability, not a rewrite.
+                            .then(
+                                if (isTv) {
+                                    Modifier.tvFocusable(
+                                        onClick = { scope.launch { onTune(slot) } },
+                                        shape = RoundedCornerShape(8.dp),
+                                        ringColor = Color.White,
+                                        scaleWhenFocused = 1f,
+                                    )
+                                } else {
+                                    Modifier.clickable { scope.launch { onTune(slot) } }
+                                },
+                            )
+                            .padding(horizontal = if (isTv) 10.dp else 6.dp, vertical = 5.dp),
                     ) {
                         Text(
                             slot.item.title,
                             style = MaterialTheme.typography.labelMedium,
+                            fontSize = if (isTv) 20.sp else androidx.compose.ui.unit.TextUnit.Unspecified,
                             fontWeight = if (airing) FontWeight.Bold else FontWeight.SemiBold,
                             color = if (airing) Color.White
                                     else MaterialTheme.colorScheme.onSurface,
