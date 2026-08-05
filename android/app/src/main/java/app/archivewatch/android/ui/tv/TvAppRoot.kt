@@ -60,7 +60,6 @@ import app.archivewatch.android.ui.screens.PlaylistScreen
 import app.archivewatch.android.ui.screens.SeriesDetailScreen
 import app.archivewatch.android.ui.screens.SettingsScreen
 import app.archivewatch.android.ui.screens.SurpriseScreen
-import app.archivewatch.android.ui.screens.LibraryScreen
 
 /**
  * The TV root shell (docs/TV-DESIGN.md §2 — the IA is inherited from
@@ -137,7 +136,7 @@ fun TvAppRoot(container: AppContainer) {
                         Tab.Browse -> TvBrowseScreen(container, nav)
                         Tab.Channels -> ChannelsScreen(container, nav)
                         Tab.Search -> TvSearchScreen(container, nav)
-                        Tab.Library -> LibraryScreen(container, nav)
+                        Tab.Library -> TvLibraryScreen(container, nav)
                     }
                 }
                 nav.stack.lastOrNull()?.let { route ->
