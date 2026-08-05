@@ -13,7 +13,15 @@
 (() => {
   'use strict';
 
-  const PAGES_ROOT = new URL('.', location.href);   // the site root (archivewatch.org/)
+  // The site root. A PACKAGED TV app (webOS .ipk / Tizen .wgt) runs its
+  // document from file://, where a relative data URL would resolve to a local
+  // file that isn't in the package — every fetch would 404 and the app would
+  // launch to an empty catalog. Fall back to the canonical origin so ONE build
+  // serves the browser and both packages (Decision 047 §7.1).
+  const CANONICAL_ROOT = 'https://archivewatch.org/';
+  const PAGES_ROOT = /^https?:$/.test(location.protocol)
+    ? new URL('.', location.href)
+    : new URL(CANONICAL_ROOT);
   const INDEX_URL = new URL('catalog-index.json', PAGES_ROOT);
   const EPISODES_URL = new URL('episodes-index.json', PAGES_ROOT);
   const FEATURED_URL = new URL('featured.json', PAGES_ROOT);
@@ -2144,7 +2152,9 @@
     window.addEventListener('pageshow', resumeRefresh);
     window.addEventListener('online', resumeRefresh);
 
-    if ('serviceWorker' in navigator) {
+    // Packaged TV apps (file://) ship their shell inside the package and have
+    // no sw.js — registering would only produce a rejected promise.
+    if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
       navigator.serviceWorker.register('sw.js').then(reg => {
         // Long-open tabs never re-check for a new worker on their own. Ask on
         // every resume (cheap — the browser 304s), alongside the catalog reload.

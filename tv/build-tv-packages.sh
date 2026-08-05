@@ -39,17 +39,16 @@ stage() {
   done
   # The service worker is deliberately NOT packaged: a packaged TV app already
   # stores its resources locally, and a stale SW inside the package would shadow
-  # the packaged files. Network data still comes from archivewatch.org.
+  # the packaged files. Network data still comes from archivewatch.org, which
+  # watch.js reaches because PAGES_ROOT falls back to the canonical origin under
+  # file:// — do not "simplify" that back to a relative URL.
   rm -f "$dest/sw.js"
-  # ...so strip the registration too, or the app tries to register a file that
-  # is not there.
-  if grep -q "serviceWorker" "$dest/index.html" 2>/dev/null; then
-    python3 - "$dest/index.html" <<'PY'
-import re, sys, pathlib
-p = pathlib.Path(sys.argv[1]); s = p.read_text()
-s = re.sub(r"<script>[^<]*serviceWorker[^<]*</script>", "", s, flags=re.S)
-p.write_text(s)
-PY
+  # watch.js skips registration itself when the protocol is not http(s), so
+  # there is nothing to strip here. Assert it, rather than trusting it: a
+  # regression would mean a rejected register() on every TV launch.
+  if ! grep -qF 'in navigator && /^https?:$/.test(location.protocol)' "$dest/watch.js"; then
+    echo "  !! watch.js no longer guards serviceWorker registration by protocol" >&2
+    exit 1
   fi
 }
 
