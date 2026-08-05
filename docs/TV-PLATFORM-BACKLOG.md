@@ -178,7 +178,7 @@ for the data-layer/`produceState` discipline, which is unchanged on TV.
 | **A19** ✅ | Emulator verification (Android TV emulator image) on every surface | ENG | M | **Unblocked.** The original diagnosis (disk) was WRONG — the emulator's own log said `Available Memory: 951 MB, Required: 5120 MB` while the disk check PASSED. It was **RAM** on an 8 GB Mac. Boots headless with `-no-window -gpu swiftshader_indirect -memory 2048`. `tools/verify_tv_focus.sh` asserts 9 surfaces by remote |
 | **A20** | **Buy an Android TV / Google TV device** for real-remote QA | **OWNER** | S |
 | **A21** | Play Console → *Setup › Advanced settings › Form factors › Add Android TV*; accept the TV policy | **OWNER** | S |
-| **A22** | TV screenshots (≥1, up to 8) + TV banner upload + "Android TV" in the description | **OWNER** (assets by ENG) | S |
+| **A22** | TV screenshots (≥1, up to 8) + TV banner upload + "Android TV" in the description | **OWNER** (assets by ENG) | S | **Assets are DONE and waiting at `~/Desktop/ArchiveWatch-TV-Screenshots/`** — six 1920×1080 shots + the 320×180 banner. Regenerate any time with `./tools/tv_screenshots.sh`. Upload is owner-only: the Play Console page would not accept automation (see §OWNER) |
 | **A23** | Submit; pass the **separate Android TV app-quality review** | **OWNER** | S |
 
 ### 2d — Fire TV
@@ -217,7 +217,7 @@ tests; phone build is byte-for-byte unaffected in behavior.
 
 | ID | Item | Who | Size | Notes |
 |---|---|---|---|---|
-| **L1** ✅ | `appinfo.json`; `ares-package` → `.ipk` | ENG | S | Verify the current CLI version at install time — sources disagree (1.12.x vs 3.2.x) |
+| **L1** ✅ | `appinfo.json`; `ares-package` → `.ipk` | ENG | S | **A real `.ipk` is built** — `tv/dist/org.archivewatch.app_<version>_all.ipk`. CLI resolved: `npm i -g @webos-tools/cli` → **3.2.5**. Needs `-n/--no-minify` (undocumented): the bundled uglify-js cannot parse modern syntax and aborts the package. Version is stamped from `AppVersion.xcconfig` at build time |
 | **L2** ✅ | webOS shim: Back = keyCode **461**; `webOSLaunch`/`webOSRelaunch` | ENG | S | |
 | **L3** ✅ | **Magic Remote pointer coexistence** with D-pad focus | ENG | M | Not optional (TV-DESIGN §7.4) · verified in-browser + 5 permanent assertions in `tools/tv_browser_tests.js`: hover moves focus, **D-pad continues from the hovered element**, inert chrome and hidden views never steal focus, no scroll jump |
 | **L4** | **Create a free LG Seller Lounge account** (individual, 18+, global OK) | **OWNER** | S | |
@@ -309,7 +309,8 @@ Grouped by when it is needed. Nothing here is blocked on engineering unless note
 |---|---|---|---|
 | ~~O1~~ ✅ | ~~Register in the **Google Cast SDK Developer Console**, pay the **$5**, create an app ID~~ — done 2026-08-05, receiver `58AF34C3` | ~~$5~~ | Cast (C1) |
 | **O1b** | **Publish the receiver** (Cast console → Applications → publish) **and** add your Cast device under **Devices** by serial number | $0 | Casting works ONLY on registered devices until published (C5, C6) |
-| O2 | Play Console → *Setup › Advanced settings › Form factors › **Add Android TV***; accept the TV policy | $0 (same $25 account) | Google TV (A21) |
+| ~~O2~~ ✅ | ~~Play Console → Form factors → **Add Android TV**; accept the TV policy~~ — done 2026-08-05 (opt-in shows as locked/complete) | ~~$0~~ | Google TV (A21) |
+| **O2b** | **Upload the Android TV screenshots + TV banner** — the ONE remaining Play gate ("Upload Android TV screenshots for all store listings") | $0 | Google TV |
 | O3 | Create a free **Amazon Developer account** | $0 | Fire TV (A27) |
 | O4 | Create a free **LG Seller Lounge account** (individual, 18+) + a separate **LG Developer account** for Developer Mode | $0 | webOS (L4, L5) |
 | O5 | Create a free **Samsung TV Seller Office account** | $0 | Tizen (S3) |
@@ -347,6 +348,34 @@ Grouped by when it is needed. Nothing here is blocked on engineering unless note
 | O16 | **Amazon Appstore** | Upload APK/AAB + assets, target Fire TV form factors, submit (≈3–5 business days) |
 | O17 | **LG Seller Lounge** | Upload `.ipk`, 1280×720 screenshots, description, rating, **UX scenario + self-checklist** (mandatory — thin submissions are auto-rejected), submit (≈5–10 business days) |
 | O18 | **Samsung Seller Office** | Upload the signed `.wgt` (**keep the certificate for future updates**), metadata, rating, submit to manual QA (≈1–2 weeks) |
+
+### Exact steps for the two things sitting ready right now
+
+**1. Play — upload the TV assets (5 minutes).** Everything is generated; only
+the upload is left. Play Console → *Grow users → Store presence → Main store
+listing*, scroll to the graphics section:
+
+| Field | File | Note |
+|---|---|---|
+| **Android TV screenshots** | `~/Desktop/ArchiveWatch-TV-Screenshots/01-home … 06-surprise.png` | 1920×1080; Play accepts 1–8 |
+| **TV banner** | `~/Desktop/ArchiveWatch-TV-Screenshots/00-tv-banner-320x180.png` | 320×180, app name baked in (TV-LB/BN) |
+
+Then *Save*, and mention "Android TV" in the description. Regenerate the shots
+any time with `./tools/tv_screenshots.sh` (asserts the 1920×1080 the stores
+require — they reject on dimensions).
+
+*Why this one is yours:* the Play Console asset uploader offers no file input
+until its button is clicked, and clicking opens a **native OS file dialog** that
+browser automation cannot see or drive. The page also stopped responding to the
+extension entirely during the attempt. It is a genuine tooling boundary, not a
+missing permission.
+
+**2. LG — the `.ipk` exists.** `tv/dist/org.archivewatch.app_<version>_all.ipk`,
+rebuilt with `./tv/build-tv-packages.sh webos`. Remaining: create the Seller
+Lounge account (L4), enable Developer Mode on an LG TV and side-load
+(`ares-setup-device`, `ares-install`), spot-check per
+`docs/webos-submission.md` §5 step 3b, then submit with the UX scenario and
+self-checklist already drafted there.
 
 ### Standing rights obligation (applies to every platform)
 

@@ -110,7 +110,7 @@ macOS) since they share the Swift Core.
 | Autoplay / continuous play | ✅ | ✅ | ⏳ | ⏳ | ⏳ | F4 queue shared via Core |
 | Picture-in-Picture | ✅ AVKit | ✅ AVKit + auto-PiP | ⏳ (AVPlayerView PiP) | ✅ presentation-mode | ⏳ Activity PiP | |
 | Background play | n/a | ✅ | n/a (desktop) | ✅ | ⏳ | |
-| Cast / AirPlay | ✅ AirPlay | ✅ AirPlay | ✅ AirPlay (AVPlayerView) | ⏳ Remote Playback | ⏳ Google Cast | |
+| Cast / AirPlay | ✅ AirPlay (route-swap; receiver-fetchable URL) | ✅ AirPlay | ✅ AirPlay (AVPlayerView) | ✅ Cast sender (receiver 58AF34C3) | ✅ Cast sender, google flavor only | Fire TV excluded: Cast is GMS-dependent |
 
 ## 4b. Create — Clip Studio (phone-differentiating; Decision 033)
 
@@ -196,9 +196,9 @@ surface in?"* — the per-surface waves are binding in TV-DESIGN §2.
 
 | Client | Reuse vehicle | Ships to | Status |
 |---|---|---|---|
-| **Android TV** | the SAME `android/` app + AAB + `applicationId`, TV branched at runtime on `UiModeManager` | Google TV / Android TV **and** Amazon Fire TV | 🚧 shell + Home + player key contract; compliance gates pass |
+| **Android TV** | the SAME `android/` app + AAB + `applicationId`, TV branched at runtime on `UiModeManager` | Google TV / Android TV **and** Amazon Fire TV | ✅ all surfaces D-pad-verified (12/12); compliance gates pass; Play TV form factor opted in — only the asset upload remains (owner) |
 | **Web-TV** | the SAME root PWA + `tv.js`/`tv.css` layer | LG webOS, Samsung Tizen, VIDAA / Titan / Zeasn | 🚧 focus engine + packaging staged |
-| **Google Cast** | hosted HTML receiver + web/Android senders | Chromecast, Google TV, Chromecast-built-in (incl. most **Vizio**) | ⏳ blocked on the $5 registration (owner) |
+| **Google Cast** | hosted HTML receiver + web/Android senders | Chromecast, Google TV, Chromecast-built-in (incl. most **Vizio**) | ✅ receiver registered `58AF34C3`, both senders wired · ⏳ owner must PUBLISH it (unpublished receivers launch only on registered devices) |
 | **AirPlay** | **needed new code** — see below | Apple TV + AirPlay-2 TVs (Samsung, LG, Vizio, Sony, TCL, Roku TV) | ✅ built, ⏳ owner device QA |
 | **Roku** | none — 0% reuse, BrightScript/SceneGraph rewrite | Roku (#1 US CTV) | 🔮 separate funded decision |
 | **Vizio native** | — | — | 🚫 no self-serve program; BD-gated and ad-aligned post-Walmart. Reached via Cast/AirPlay instead. |
@@ -226,7 +226,7 @@ surface in?"* — the per-surface waves are binding in TV-DESIGN §2.
 
 | Gate | Covers | Result |
 |---|---|---|
-| `tools/verify_tv_focus.sh` | Android TV, 9 surfaces by remote | 9/9 |
+| `tools/verify_tv_focus.sh` | Android TV surfaces by remote (incl. shared Settings/Library via the a11y tree) | 12/12 |
 | `tools/tv_browser_tests.js` | web-TV in Chrome | 20/20 |
 | `tools/test_tv_focus.mjs` | web-TV focus algorithm | 10/10 |
 | `tools/test_tv_ua.mjs` | platform detection vs real UAs | 5/5 |
