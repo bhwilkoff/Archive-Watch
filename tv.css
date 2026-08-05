@@ -31,9 +31,20 @@ html.tv,
 html.tv body {
   background: #000;
   color: #fff;
-  font-size: var(--tv-body);
   /* TVs do not scroll-bounce and a visible scrollbar reads as a bug. */
   overflow: hidden;
+}
+
+/* ⚠️ DO NOT set `font-size` on `html.tv`.
+   watch.css uses 62 rem values, and rem resolves against the ROOT font size —
+   so a root override silently rescales EVERY rem dimension in the app (1.5x at
+   24px), which overflowed the top nav and blew out the hero. Caught in Chrome;
+   the Node DOM shim cannot see it because it does not do layout.
+   Ten-foot type is set explicitly per element below (§4.3), which is also what
+   the six-level rule requires. `body` alone is safe — it does not move the rem
+   basis — and gives unstyled text a floor. */
+html.tv body {
+  font-size: var(--tv-body);
 }
 
 /* A TV browser has no pointer by default; hide the cursor unless the LG Magic
@@ -134,8 +145,10 @@ html.tv .grid {
  * (§5.1: never build a custom transport over a platform player).
  * ------------------------------------------------------------------ */
 
-html.tv dialog.player,
-html.tv .player {
+/* Selectors verified against the LIVE DOM (dialog#player > .player-stage >
+   video#video) — an earlier guess at `dialog.player` silently matched nothing,
+   so the player never went full-screen. Read the markup; do not assume it. */
+html.tv dialog#player {
   width: 100vw;
   height: 100vh;
   max-width: none;
@@ -146,9 +159,21 @@ html.tv .player {
   background: #000;
 }
 
-html.tv video {
+html.tv .player-stage {
   width: 100vw;
   height: 100vh;
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  margin: 0;
+}
+
+html.tv #video,
+html.tv .player-stage video {
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  max-height: none;
   object-fit: contain;
   background: #000;
 }

@@ -150,8 +150,26 @@
     return next ? focusEl(next) : false;
   }
 
-  /** §3.1 — something is ALWAYS focused. Called on every view change, and
-   *  retried because views render asynchronously after the hash changes. */
+  /**
+   * Chrome that is NOT a destination. Landing initial focus here is technically
+   * "something is focused" while being useless to a viewer — the brand logo and
+   * the footer links are not what anyone came for.
+   */
+  const CHROME_SEL = '.brand, .sitefoot a, footer a, .install-prompt *';
+
+  function isChrome(el) {
+    return typeof el.closest === 'function' && el.closest(CHROME_SEL) != null;
+  }
+
+  /**
+   * §3.1 — something is ALWAYS focused. Called on every view change, and
+   * retried because views render asynchronously after the hash changes.
+   *
+   * Prefers real CONTENT over page chrome: focus landing on the logo was the
+   * first thing a real browser showed (the shim has no notion of "useful"),
+   * and it reads as broken because the first Right/Down goes somewhere
+   * unrelated to what the viewer is looking at.
+   */
   let claimTimer = null;
   function claimFocus() {
     clearTimeout(claimTimer);
@@ -160,7 +178,10 @@
       const active = document.activeElement;
       if (active && active !== document.body && isReachable(active)) return;
       const pool = candidates();
-      if (pool.length) { focusEl(pool[0]); return; }
+      if (pool.length) {
+        focusEl(pool.find(function (el) { return !isChrome(el); }) || pool[0]);
+        return;
+      }
       if (++tries < 20) claimTimer = setTimeout(attempt, 100);
     })();
   }
@@ -185,7 +206,24 @@
    * ------------------------------------------------------------------ */
 
   function goBack() {
-    // §1.7 — Back navigates back, and exits from the root. Never swallowed.
+    // §1.7 — Back is layered, and the layers matter.
+    //
+    // An OPEN OVERLAY IS THE TOP LAYER. Backing out of the player used to run
+    // history.back(), which changed the hash to home while leaving the <dialog>
+    // open and the video PLAYING — a film over the home page with no way out,
+    // and an automatic fail on LG's and Samsung's Back-behaviour tests.
+    // Verified in Chrome; close the overlay and stop playback first.
+    const openDialog = document.querySelector('dialog[open]');
+    if (openDialog) {
+      const vid = openDialog.querySelector('video');
+      if (vid) { try { vid.pause(); } catch (e) { /* ignore */ } }
+      if (typeof openDialog.close === 'function') openDialog.close();
+      else openDialog.removeAttribute('open');
+      claimFocus();
+      return;
+    }
+
+    // Otherwise navigate back, and exit from the root. Never swallowed.
     if ((location.hash || '#/').replace(/^#\/?/, '') === '') {
       exitApp();
     } else {
@@ -230,9 +268,16 @@
       case KEY.RIGHT: ev.preventDefault(); move('right'); break;
       case KEY.DOWN:  ev.preventDefault(); move('down');  break;
       case KEY.ENTER: {
-        // Anchors activate natively on Enter; buttons need the nudge.
+        // Activate EXPLICITLY rather than relying on native behaviour.
+        // Chrome does activate a focused <a> on a real Enter (verified), but TV
+        // browsers are inconsistent about it, and "it works in Chrome" is not
+        // the bar — the app has to work on the panel. preventDefault() first so
+        // a browser that WOULD have activated natively cannot double-fire.
         const a = document.activeElement;
-        if (a && a.tagName === 'BUTTON') { ev.preventDefault(); a.click(); }
+        if (a && a !== document.body && typeof a.click === 'function') {
+          ev.preventDefault();
+          a.click();
+        }
         break;
       }
       default: break;
