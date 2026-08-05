@@ -192,7 +192,7 @@ tests; phone build is byte-for-byte unaffected in behavior.
 | **L4** | **Create a free LG Seller Lounge account** (individual, 18+, global OK) | **OWNER** | S | |
 | **L5** | **Create an LG Developer account + enable Developer Mode on an LG TV**; side-load the `.ipk` | **OWNER** | S | Requires access to an LG TV |
 | **L6** | Store assets: **1280×720** screenshots, description, content rating | ENG assets / **OWNER** upload | S | |
-| **L7** | **UX scenario doc + the mandatory self-checklist** | ENG drafts / **OWNER** submits | M | Missing or thin self-checklist = automatic rejection |
+| **L7** ✅ | **UX scenario doc + the mandatory self-checklist** | ENG drafts / **OWNER** submits | M | ✅ drafted at `docs/webos-submission.md` — paste-ready |
 | **L8** | Submit; pretest + function test + content test | **OWNER** | S | ≈ 5–10 business days, often 2–3 cycles |
 
 ### 3c — Samsung Tizen
