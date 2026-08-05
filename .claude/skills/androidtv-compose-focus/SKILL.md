@@ -119,7 +119,41 @@ pre-Media3); Amazon itself now directs Fire OS 14+ developers to Media3.
    tile handles Left explicitly — placed BEFORE `tvFocusable` so the focused
    tile sees the key first.
 
-## Verification
+
+## Verification: build a harness, do not verify by eye
+
+The single highest-leverage thing on this platform. Focus IS the interaction
+model and it is **invisible to a screenshot** — in one build a screenshot showed
+a perfectly-rendered EPG that could not be reached by remote at all, and
+separately showed a "broken" grid that was working fine. Screenshots mislead in
+BOTH directions. Compiling proves even less: `.clickable` compiles, renders
+beautifully, and is simply unreachable by D-pad.
+
+Three pieces, each of which pays for itself immediately:
+
+1. **Route directly to any surface.** `--es aw_start_tab <tab>` and
+   `--es aw_start_route <route>` intent extras. Steering by counting D-pad
+   presses is unreliable — Left lands on the NEAREST item, not a fixed one — and
+   will repeatedly land your checks on the wrong screen.
+2. **Emit a focus trace.** A `focusTag` on the focusable modifier plus a
+   `--ez aw_focus_log true` switch, logging `tile:<title>`, `rail:<label>`,
+   `collection:<title>`. Verify by IDENTITY, not by pixels.
+3. **Assert, don't eyeball.** A script that launches each surface, presses
+   Down/Right/Down, and greps the trace for an expected pattern.
+
+```bash
+./tools/verify_tv_focus.sh              # all surfaces
+./tools/verify_tv_focus.sh home browse  # a subset
+```
+
+Make these permanent facilities, not logging you paste in and rip out — you will
+need them on every new surface, and the ripping-out is where regressions hide.
+
+**"It renders" is not "it works."** Verify where a navigation LANDS, not just
+that the source screen drew. A set of browse shortcuts was reported working
+because the shortcuts rendered; they pushed into a completely inert grid.
+
+## Build verification
 
 - `./gradlew assembleDebug` — compile gate.
 - Inspect the **merged** manifest (`app/build/intermediates/merged_manifest/…`),
