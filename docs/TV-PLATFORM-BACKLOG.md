@@ -70,10 +70,10 @@ rather than being re-derived.
 
 | ID | Item | Who | Size | Deps |
 |---|---|---|---|---|
-| **C1** | Register in the Google Cast SDK Developer Console; pay the one-time **$5**; create an app ID | **OWNER** | S | — |
-| **C2** | Build the **Custom Web Receiver** (CAF v3) page, hosted at `archivewatch.org/cast/` | ENG | M | C1 |
-| **C3** | Cast **sender** in the web viewer (Cast SDK for Web) | ENG | M | C2 |
-| **C4** | Cast **sender** in the Android phone app — **excluded from the Fire variant** | ENG | M | C2, A7 |
+| **C1** | Register in the Google Cast SDK Developer Console; pay the one-time **$5**; create an app ID | **OWNER** | S | — · *unblocked in the meantime: the sender ships against Google's Default Media Receiver (CC1AD845), which needs no registration. Swapping in the custom ID is one line.* |
+| **C2** ✅ | Build the **Custom Web Receiver** (CAF v3) page, hosted at `archivewatch.org/cast/` | ENG | M | C1 |
+| **C3** ✅ | Cast **sender** in the web viewer (Cast SDK for Web) | ENG | M | C2 |
+| **C4** | Cast **sender** in the Android phone app — **excluded from the Fire variant** | ENG | M | C2, A7 · needs a `google`/`amazon` product-flavor split first, so Fire never links GMS |
 | **C5** | Register a physical Cast device for testing | **OWNER** | S | C1 |
 | **A0** | Confirm + expose the **AirPlay** route in the iOS player | ENG | S | — |
 
@@ -123,10 +123,10 @@ Do it early — the fix may be a dependency bump, which has lead time.
 | **A7** ✅ | Add `androidx.tv:tv-material` **1.1.0**; runtime TV branch via `UiModeManager` (TV-DESIGN §6.5) | ENG | S | — |
 | **A8** ✅ | Focus primitives: focusable card with scale+ring+lift, initial-focus claim, row/grid containers on standard `LazyRow`/`LazyColumn` | ENG | M | A7 |
 | **A9** ✅ | TV **Home** — hero + editorial rows + category/decade rows | ENG | M | A8 |
-| **A10** | TV **Browse/Movies** + **TV Shows** grids with facets | ENG | M | A8 |
-| **A11** | TV **Detail** — hero, metadata, Play/Favorite, More Like This | ENG | M | A8 |
-| **A12** | TV **Search** — D-pad-operable, with the no-typing browse escape (TV-DESIGN §3.6) | ENG | M | A8 |
-| **A13** | TV **Library** + **Settings** | ENG | S | A8 |
+| **A10** ✅ | TV **Browse/Movies** + **TV Shows** grids with facets | ENG | M | A8 |
+| **A11** ✅ | TV **Detail** — hero, metadata, Play/Favorite, More Like This | ENG | M | A8 |
+| **A12** ✅ | TV **Search** — D-pad-operable, with the no-typing browse escape (TV-DESIGN §3.6) | ENG | M | A8 |
+| **A13** ✅ | TV **Library** + **Settings** | ENG | S | A8 |
 | **A14** ✅ | TV **Player**: Media3 `PlayerView` TV controls, D-pad center/left/right (TV-PC), `KEYCODE_MEDIA_PLAY_PAUSE` (TV-PP), title+description overlay (Decision 037) | ENG | M | A8 |
 | **A15** ✅ | **⚠️ Gate `media3-session` MediaSession OFF on TV; pause video on switch-away (TV-NP)** | ENG | S | A14 |
 | **A16** ✅ | Back returns to launcher from root, never mid-playback (TV-DB) | ENG | S | A8 |
