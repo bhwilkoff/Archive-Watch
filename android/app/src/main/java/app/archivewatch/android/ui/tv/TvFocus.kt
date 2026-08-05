@@ -76,6 +76,8 @@ fun Modifier.tvFocusable(
      * while other columns typed fine.
      */
     exitLeftTo: FocusRequester? = null,
+    /** Label for the focus trace (see [TvFocusLogging]); defaults to the caller. */
+    focusTag: String = "focusable",
 ): Modifier {
     var focused by remember { mutableStateOf(false) }
     val scale by animateFloatAsState(
@@ -99,7 +101,10 @@ fun Modifier.tvFocusable(
         )
         .onFocusChanged {
             focused = it.isFocused
-            if (it.isFocused) onFocused()
+            if (it.isFocused) {
+                if (TvFocusLogging) android.util.Log.i("AWFOCUS", focusTag)
+                onFocused()
+            }
         }
         .then(focusRequester?.let { Modifier.focusRequester(it) } ?: Modifier)
         .focusable(interactionSource = interaction)

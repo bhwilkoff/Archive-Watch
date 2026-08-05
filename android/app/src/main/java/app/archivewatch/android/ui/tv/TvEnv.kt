@@ -33,6 +33,19 @@ fun Context.isTelevision(): Boolean {
 val LocalIsTelevision = compositionLocalOf { false }
 
 /**
+ * Verification aid, off unless an automated run turns it on
+ * (`--ez aw_focus_log true`).
+ *
+ * On a TV, focus is the whole interaction model and it is INVISIBLE to a
+ * screenshot — this session had a screenshot show a working EPG that was
+ * unreachable, and a "broken" Surprise that was fine. A focus trace is the only
+ * consistently trustworthy signal, so it is a permanent, cheap facility rather
+ * than logging pasted in and ripped out each time.
+ */
+@Volatile
+var TvFocusLogging: Boolean = false
+
+/**
  * The nav rail's focus target (§3.4).
  *
  * Left from the LEFTMOST tile of a row must reach the rail, or the tabs are

@@ -91,7 +91,7 @@ fun CategoryTilesRow(categories: List<FeaturedCategory>, onCategory: (FeaturedCa
                         // TV: `clickable` gives no D-pad focus (see Components.PosterTile).
                         .then(
                             if (LocalIsTelevision.current) {
-                                Modifier.tvFocusable(onClick = { onCategory(cat) })
+                                Modifier.tvFocusable(onClick = { onCategory(cat) }, focusTag = "category:" + cat.displayName)
                             } else Modifier.clickable { onCategory(cat) },
                         )
                         .padding(12.dp),
@@ -131,7 +131,7 @@ fun EraTilesRow(decades: List<Pair<Int, Int>>, onDecade: (Int) -> Unit) {
                         .background(MaterialTheme.colorScheme.surfaceVariant)
                         .then(
                             if (LocalIsTelevision.current) {
-                                Modifier.tvFocusable(onClick = { onDecade(decade) })
+                                Modifier.tvFocusable(onClick = { onDecade(decade) }, focusTag = "decade:" + decade)
                             } else Modifier.clickable { onDecade(decade) },
                         )
                         .padding(12.dp),

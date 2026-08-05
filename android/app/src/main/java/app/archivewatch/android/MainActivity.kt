@@ -82,6 +82,13 @@ class MainActivity : ComponentActivity() {
         //   adb shell am start -n <pkg>/<act> --es aw_start_tab search
         // No-op in normal use: nothing sends this extra.
         intent?.getStringExtra("aw_start_tab")?.let { DeepLinks.pendingTab.value = it }
+        // ...and straight to a pushed ROUTE, so no screen has to be reached by
+        // counting D-pad presses (which lands on the nearest item, not a fixed
+        // one, and has repeatedly steered automated checks to the wrong screen).
+        intent?.getStringExtra("aw_start_route")?.let { DeepLinks.pendingRoute.value = it }
+        if (intent?.getBooleanExtra("aw_focus_log", false) == true) {
+            app.archivewatch.android.ui.tv.TvFocusLogging = true
+        }
 
         val uri = intent?.data ?: return
         if (uri.scheme == "archivewatch" && uri.host == "item") {

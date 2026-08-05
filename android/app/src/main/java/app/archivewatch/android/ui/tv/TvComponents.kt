@@ -60,6 +60,7 @@ fun TvPosterTile(
                 ringColor = item.accentColor,
                 onFocused = onFocused,
                 exitLeftTo = exitLeftTo,
+                focusTag = "tile:" + item.title.take(28),
             ),
     ) {
         Box(

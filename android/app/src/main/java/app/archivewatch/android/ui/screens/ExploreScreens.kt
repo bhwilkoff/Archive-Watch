@@ -98,7 +98,7 @@ fun CollectionsScreen(container: AppContainer, nav: Nav) {
                 }
                 Card(
                     modifier = if (LocalIsTelevision.current) {
-                        Modifier.tvFocusable(onClick = openCollection)
+                        Modifier.tvFocusable(onClick = openCollection, focusTag = "collection:" + meta.title)
                     } else {
                         Modifier.clickable(onClick = openCollection)
                     },

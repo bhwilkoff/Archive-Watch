@@ -111,6 +111,28 @@ fun TvAppRoot(container: AppContainer) {
         }
     }
 
+    // Verification hook: jump straight to a pushed route.
+    LaunchedEffect(Unit) {
+        DeepLinks.pendingRoute.collect { name ->
+            if (name == null) return@collect
+            DeepLinks.pendingRoute.value = null
+            val route: Route? = when {
+                name == "collections" -> Route.Collections
+                name == "surprise" -> Route.Surprise
+                name == "cartoon" -> Route.Cartoon
+                name == "settings" -> Route.Settings
+                name.startsWith("series:") -> Route.Series(name.removePrefix("series:"))
+                name.startsWith("item:") -> Route.Detail(name.removePrefix("item:"))
+                name.startsWith("decade:") ->
+                    name.removePrefix("decade:").toIntOrNull()?.let {
+                        Route.Filtered(title = "${'$'}{it}s", decade = it)
+                    }
+                else -> null
+            }
+            route?.let { nav.push(it) }
+        }
+    }
+
     // §1.7 — Back is sacred. It pops the stack; from the root it is NOT
     // consumed, so the system returns to the launcher home (TV-DB).
     BackHandler(enabled = nav.stack.isNotEmpty()) { nav.pop() }
@@ -273,6 +295,7 @@ private fun TvRailButton(
                 // the tint carry the state instead of scale.
                 scaleWhenFocused = 1f,
                 onFocused = onFocused,
+                focusTag = "rail:" + item.label,
             )
             .background(
                 if (item.selected) Color(0x22FF5C35) else Color.Transparent,

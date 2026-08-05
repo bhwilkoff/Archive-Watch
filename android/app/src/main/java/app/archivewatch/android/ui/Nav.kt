@@ -112,6 +112,8 @@ object DeepLinks {
     val pendingAction = MutableStateFlow<String?>(null)   // "surprise" | "channels"
     /** Verification hook only (`--es aw_start_tab <name>`); never set in normal use. */
     val pendingTab = MutableStateFlow<String?>(null)
+    /** Verification hook only (`--es aw_start_route <name>`); never set in normal use. */
+    val pendingRoute = MutableStateFlow<String?>(null)
 }
 
 /** The player publishes here so MainActivity can auto-enter Picture-in-Picture when the user

@@ -184,6 +184,7 @@ fun PosterTile(
                     onClick = onClick,
                     ringColor = item.accentColor,
                     shape = RoundedCornerShape(10.dp),
+                    focusTag = "tile:" + item.title.take(28),
                 )
             } else {
                 Modifier.clickable(onClick = onClick)
