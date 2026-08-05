@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Archive Watch — Cast Receiver</title>
+<!--
+  Archive Watch — Google Cast Custom Web Receiver (CAF v3).
+
+  Hosted at https://archivewatch.org/cast/ and pointed at by the app ID
+  registered in the Google Cast SDK Developer Console (see
+  docs/TV-PLATFORM-BACKLOG.md §OWNER O1 — a one-time $5 registration).
+
+  Why a CUSTOM receiver rather than the Default Media Receiver: Archive Watch
+  needs three things the default one will not do —
+    1. side-loaded WebVTT subtitle tracks (Decision 039), so captions survive
+       the cast instead of being dropped,
+    2. the provenance line (archive.org + public domain) on the loading screen,
+       which is the same attribution rule every other surface follows,
+    3. tolerance for archive.org's redirect + idle-reset behaviour, which the
+       default receiver surfaces as a hard error.
+
+  Receiver v2 is deprecated; this is v3 (CAF). Style is deliberately minimal —
+  a receiver is glanced at from a couch, not read.
+-->
+<style>
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    background: #000; color: #fff; overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  cast-media-player {
+    --theme-hue: 16;                       /* marquee orange family */
+    --progress-color: #FF5C35;
+    --splash-image: url('../assets/app-icon/app-icon.png');
+    --splash-size: contain;
+    --background-color: #000;
+    width: 100%; height: 100%;
+  }
+  /* Provenance, always on screen while idle — the same attribution the apps
+     carry (Decision 007 / the Archive credit). */
+  #credit {
+    position: fixed; left: 0; right: 0; bottom: 3%;
+    text-align: center; font-size: 1.6vh; letter-spacing: .08em;
+    color: #9a9a9a; text-transform: uppercase; pointer-events: none;
+  }
+</style>
+</head>
+<body>
+  <cast-media-player></cast-media-player>
+  <div id="credit">archivewatch.org · public domain · courtesy of the Internet Archive</div>
+
+  <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+  <script>
+  (function () {
+    'use strict';
+
+    const context = cast.framework.CastReceiverContext.getInstance();
+    const playerManager = context.getPlayerManager();
+
+    /**
+     * Sender-supplied WebVTT tracks arrive in `media.tracks`. The Default Media
+     * Receiver ignores them; we keep them and let the receiver expose them, so
+     * a cast film keeps the captions the phone/web player had.
+     */
+    playerManager.setMessageInterceptor(
+      cast.framework.messages.MessageType.LOAD,
+      function (request) {
+        if (!request.media) return request;
+
+        // archive.org serves progressive H.264 MP4 and 302s to a storage node.
+        // Declaring the type explicitly stops the receiver guessing from a URL
+        // whose extension is hidden behind the redirect.
+        request.media.contentType = request.media.contentType || 'video/mp4';
+        request.media.streamType = cast.framework.messages.StreamType.BUFFERED;
+
+        const meta = request.media.metadata;
+        if (meta && !meta.metadataType) {
+          meta.metadataType = cast.framework.messages.MetadataType.MOVIE;
+        }
+        return request;
+      },
+    );
+
+    // Surface real errors rather than a silent black screen — archive.org can
+    // rate-limit or a node can 5xx mid-cast, and "nothing happened" is the
+    // worst possible feedback on a TV across the room.
+    playerManager.addEventListener(
+      cast.framework.events.EventType.ERROR,
+      function (e) {
+        // eslint-disable-next-line no-console
+        console.error('[AW cast] playback error', e && e.detailedErrorCode, e);
+      },
+    );
+
+    playerManager.addEventListener(
+      cast.framework.events.EventType.MEDIA_FINISHED,
+      function () { document.getElementById('credit').hidden = false; },
+    );
+    playerManager.addEventListener(
+      cast.framework.events.EventType.PLAYER_LOAD_COMPLETE,
+      function () { document.getElementById('credit').hidden = true; },
+    );
+
+    const options = new cast.framework.CastReceiverOptions();
+    // A film is long and viewers pause; don't tear the session down on a pause.
+    options.maxInactivity = 3600;
+    context.start(options);
+  })();
+  </script>
+</body>
+</html>

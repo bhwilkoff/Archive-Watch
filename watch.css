@@ -633,3 +633,7 @@ dialog#player::backdrop { background: rgba(0, 0, 0, 0.85); }
 }
 .item-series-link:hover { text-decoration: underline; }
 .item-series-link[hidden] { display: none; }
+
+/* Cast button — matches #player-pip; `is-casting` marks an active session. */
+#player-cast { cursor: pointer; }
+#player-cast.is-casting { color: var(--color-primary, #FF5C35); }

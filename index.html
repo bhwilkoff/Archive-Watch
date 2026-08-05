@@ -286,6 +286,7 @@
         <option value="2">2×</option>
       </select>
       <button id="player-pip" aria-label="Picture in picture" hidden>⧉</button>
+      <button id="player-cast" aria-label="Cast to TV" hidden>⛶</button>
       <button id="player-close" aria-label="Close player">✕</button>
     </div>
     <div class="player-stage">
@@ -302,5 +303,10 @@
   <script src="js/api.js"></script>
   <script src="watch.js"></script>
   <script src="tv.js"></script>
+  <!-- Google Cast sender. cast-sender.js self-disables when the framework is
+       absent (non-Chromium, or gstatic blocked), so this is safe everywhere.
+       docs/TV-PLATFORM-BACKLOG.md Phase 1. -->
+  <script src="cast-sender.js"></script>
+  <script src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
 </body>
 </html>
