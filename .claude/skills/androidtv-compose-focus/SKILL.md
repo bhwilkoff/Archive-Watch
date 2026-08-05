@@ -101,6 +101,24 @@ coordinates and the compiled DEX (a transitive pull names no coordinate).
 Use **Media3**, not the `amzn/exoplayer-amazon-port` (stale at ExoPlayer 2.18.7,
 pre-Media3); Amazon itself now directs Fire OS 14+ developers to Media3.
 
+## Focus defects the emulator caught (compiling never would)
+
+1. **Two surfaces raced to claim initial focus** — the content claim scrolled
+   the hero off-screen while the nav rail won the ring, so first paint showed a
+   headless hero. EXACTLY ONE surface may claim it, and it is the content.
+2. **The hero was unfocusable decoration** — no way to act on the thing filling
+   the screen. Make it focusable and openable; that also makes it a legitimate
+   initial focus target. Inset its ring by the overscan margin (artwork may
+   cross that line, a resting ring may not).
+3. **The nav rail was UNREACHABLE from content** — Left stopped dead at the
+   leftmost tile, so tabs could not be changed by remote at all (TV-DP failure).
+   Compose focus search does not cross from a `LazyRow`'s first item into a
+   sibling container, and `focusProperties { exit = … }` is **not delivered
+   through a lazy list** (both tried, both observed failing). Fix: a
+   `CompositionLocal` carrying the rail's `FocusRequester`, and the leftmost
+   tile handles Left explicitly — placed BEFORE `tvFocusable` so the focused
+   tile sees the key first.
+
 ## Verification
 
 - `./gradlew assembleDebug` — compile gate.

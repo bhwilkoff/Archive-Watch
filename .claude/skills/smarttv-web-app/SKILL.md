@@ -97,7 +97,32 @@ Two packaging gotchas:
 
 Bump `sw.js` `SHELL` on every web-TV change, or installs serve stale assets.
 
-## Verification — Node DOM shim, not a headless browser
+## Bugs a real browser found that the shim could not
+
+The Node shim does no layout, has no `<dialog>` semantics and no media element.
+These four shipped past it and were caught in Chrome — check them on any new
+TV surface:
+
+1. **The rem trap.** `font-size` on `html.tv` rescales EVERY rem dimension in
+   the app (watch.css has 62 of them) — the nav overflowed and the hero blew
+   out at 1.5x. Set ten-foot type per element; only `body` may carry the floor.
+2. **Guessed selectors match nothing.** The full-screen player rule targeted
+   `dialog.player`; the real markup is `dialog#player > .player-stage >
+   video#video`, so video rendered 1100px wide in a 1512px viewport. Read the
+   DOM; do not assume it.
+3. **Back must be LAYERED.** An open overlay is the top layer. Running
+   `history.back()` with the player `<dialog>` still open left a film playing
+   over the home page with no way out — an automatic fail on LG's and Samsung's
+   Back tests. Close the overlay + stop playback first, then navigate, then
+   exit at the root.
+4. **Initial focus on the logo.** Technically focused, practically useless.
+   Prefer content over chrome (`.brand`, footer links).
+
+Also: make Enter activation **explicit** (preventDefault + click). Chrome
+activates a focused `<a>` on a real Enter, but TV browsers are inconsistent and
+"works in Chrome" is not the bar.
+
+## Verification — BOTH a Node shim and a real browser
 
 `tools/test_tv_focus.mjs` loads the **real** `tv.js` into a minimal DOM shim
 (stubbed `getBoundingClientRect`, `focus()`, `activeElement`) and asserts:
@@ -109,11 +134,33 @@ timers and `AbortSignal`, so exercising the real script in a shim is more
 trustworthy than driving a browser.
 
 ```bash
-node tools/test_tv_focus.mjs      # expects 10/10
+node tools/test_tv_focus.mjs      # algorithm — expects 10/10
+python3 tools/devserve.py 8123    # then load http://localhost:8123/?tv=1
+# in the page: eval tools/tv_browser_tests.js — expects 20/20
 ```
 
-Note `Object.defineProperty(global, 'navigator', …)` — modern Node makes
-`navigator` a getter-only global, so a plain assignment throws.
+`tools/tv_browser_tests.js` asserts the things only an engine can: computed
+type scale, overscan, zero overflow, content-focus, rail traversal, Enter, the
+full-bleed player, all six transport keys, and the Back layering.
+
+Note `Object.defineProperty(global, 'navigator', …)` in the shim — modern Node
+makes `navigator` a getter-only global, so a plain assignment throws.
+
+### Three caching traps (each cost real time)
+
+1. **Service workers are scoped by origin INCLUDING PORT.** A leftover SW from
+   a different local project on the same port controls your app — we hit a
+   `tidbits-v59-test` cache serving this one. Unregister + clear caches, or use
+   a fresh port. `tools/devserve.py` withholds `sw.js` entirely for this reason.
+2. `python3 -m http.server` sends **no cache headers**; Chrome holds stale
+   assets across reloads. Use `tools/devserve.py` (`no-store`).
+3. **A hash-only navigation does NOT re-fetch the document** — a hash-router app
+   keeps running the OLD JS while you think you're testing the fix. Change the
+   **query string** between edits. This masked a fix for three cycles.
+
+And `fetch()` returning the fixed file proves the FILE is fresh, not the RUNNING
+script — compare `performance.getEntriesByType('resource')` `encodedBodySize`
+against the file on disk.
 
 ## See also
 
