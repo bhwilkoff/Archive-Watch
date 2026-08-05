@@ -217,7 +217,7 @@ surface in?"* — the per-surface waves are binding in TV-DESIGN §2.
 | Background media controls | 🚫 **gated off — TV-NP forbids it for video apps** | 🚫 n/a | phone keeps its MediaSession; TV pauses on switch-away |
 | Picture-in-Picture | 🚫 gated off on TV (TV-NP wants a pause) | 🚫 n/a | |
 | Cast (send to TV) | ⏳ needs `CastPlayer` wiring; flavor split ✅ done | ✅ sender shipped | Cast is GMS — `google` flavor only, never `amazon`/Fire |
-| Subtitles | ✅ Media3 `SubtitleConfiguration` — **verified rendering on TV** | ⏳ `<track>` (SRT→VTT client-side) | inherited from the shared player (Decision 039); 3,948 captioned playable titles live |
+| Subtitles | ✅ Media3 `SubtitleConfiguration` — **verified rendering on TV** | ✅ `<track>` via a same-origin **blob** — **verified 1,947 cues** | cross-origin `<track>` fails silently and `crossorigin` on `<video>` would break playback (no CORS on archive.org storage nodes) |
 | Sign-in + sync | 🚫 first wave | 🚫 first wave | no CloudKit off Apple; Drive App Data deferred |
 | Clip Studio / Creation Studio | 🚫 **never** | 🚫 **never** | a remote has no text entry or direct manipulation (Decisions 033 / 042) |
 | Platform home-screen integration | 🔮 Google TV channels / Fire TV catalog | n/a | constrained by §1.4 — our editorial + the user's own Continue Watching, never an opaque model row |

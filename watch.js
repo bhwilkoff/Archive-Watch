@@ -1831,6 +1831,48 @@
       connection mid-film; on error/stall we reload the src and re-seek to
       where we were (the browser's ranged GETs make this seamless) — the web
       analog of the tvOS ResilientStreamLoader (Decision 021). */
+
+  /** Attach one subtitle track, fetching it into a same-origin blob first.
+   *
+   *  ⚠️ A cross-origin <track> silently fails: the element needs `crossorigin`
+   *  on the MEDIA element, and we cannot set that — archive.org 302s video to a
+   *  storage node that sends NO CORS header (verified; Decision 029), so
+   *  `crossorigin` on <video> would break PLAYBACK, which is far worse than
+   *  missing subtitles.
+   *
+   *  This matters most for the PACKAGED TV apps (webOS .ipk / Tizen .wgt),
+   *  where the page is served from a local app origin, so the remote VTT is
+   *  ALWAYS cross-origin and subtitles would never appear. On archivewatch.org
+   *  itself the VTT happens to be same-origin, which is exactly why this hid.
+   *
+   *  The VTT host does send CORS, so fetch() works and a blob: URL is
+   *  same-origin by construction. Also converts SRT, for the handful of
+   *  captions the pipeline has not pre-converted. */
+  async function addSubtitleTrack(video, id, lang, label, url) {
+    const tr = document.createElement('track');
+    tr.kind = 'subtitles';
+    tr.srclang = lang || 'en';
+    tr.label = label || (lang || 'en').toUpperCase();
+    if (lang === 'en') tr.default = true;
+    video.appendChild(tr);
+    try {
+      const res = await fetch(url, { credentials: 'omit' });
+      if (!res.ok) return;
+      let text = await res.text();
+      if (!/^\uFEFF?WEBVTT/.test(text)) text = srtToVtt(text);
+      // Player may have moved on while this was in flight.
+      if (!video.isConnected || video.dataset.awItem !== id) return;
+      tr.src = URL.createObjectURL(new Blob([text], { type: 'text/vtt' }));
+    } catch { /* no subtitles is a degradation, never an error */ }
+  }
+
+  /** Minimal SRT -> WebVTT: header, and comma decimal separators to dots. */
+  function srtToVtt(srt) {
+    return 'WEBVTT\n\n' + srt
+      .replace(/\r+/g, '')
+      .replace(/(\d{2}:\d{2}:\d{2}),(\d{3})/g, '$1.$2');
+  }
+
   const Player = {
     saveTimer: null,
     stallTimer: null,
@@ -1856,6 +1898,7 @@
       $('player-title').textContent = title;
       $('player-error').hidden = true;
       video.querySelectorAll('track').forEach(t => t.remove());   // clear last title's subs
+      video.dataset.awItem = id;
       video.src = url;
 
       // Title + description overlay (fades with the controls — see syncOverlay).
@@ -1868,13 +1911,7 @@
         // the browser lists in its own CC menu. English defaults on.
         for (const [lang, label, vttURL] of (det?.captions || [])) {
           if (!vttURL) continue;
-          const tr = document.createElement('track');
-          tr.kind = 'subtitles';
-          tr.srclang = lang;
-          tr.label = label || (lang || '').toUpperCase();
-          tr.src = vttURL;
-          if (lang === 'en') tr.default = true;
-          video.appendChild(tr);
+          addSubtitleTrack(video, id, lang, label, vttURL);
         }
       }).catch(() => {});
       this.syncOverlay();

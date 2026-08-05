@@ -179,8 +179,20 @@ This is a rule, not a preference — it is a quality-review failure otherwise.
 
 **5.5 Subtitles side-load, never burn in.** The `captions[]` contract (Decisions
 039 / 043) is directly usable: Media3 `SubtitleConfiguration` on Android TV, a
-`<track kind="subtitles">` (WebVTT, converted from SRT client-side) on web-TV.
-If captions exist they must be user-selectable — a rule on every platform.
+`<track kind="subtitles">` on web-TV. If captions exist they must be
+user-selectable — a rule on every platform.
+
+The pipeline already emits WebVTT (`vttURL`) for 404 of 411 SRT sources, so
+client-side conversion is a fallback, not the main path.
+
+**⚠️ On web-TV the track MUST be fetched into a same-origin blob.** A
+cross-origin `<track>` fails silently, and the usual fix — `crossorigin` on the
+media element — is UNAVAILABLE here: archive.org 302s video to a storage node
+that sends no CORS header (Decision 029, re-verified), so `crossorigin` on
+`<video>` would break PLAYBACK. This bites the PACKAGED apps hardest: a webOS
+`.ipk` / Tizen `.wgt` serves the page from a local app origin, so a remote VTT
+is always cross-origin. On archivewatch.org the VTT is same-origin, which is
+exactly why the bug hid.
 
 **5.6 Playback resilience is per-platform, and it is not optional.** Archive.org
 resets idle connections (Decisions 021 / 031 / 034). Android TV inherits the
