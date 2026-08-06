@@ -2106,6 +2106,16 @@ code failure. A sweeper cron is itself dropped during an outage, so the lookback
 hours, not one tick: it must heal a backlog after the incident ends, not only while it
 is happening.
 
+That lookback is only half the mechanism, and the other half is the non-obvious part:
+the sweeper **checks githubstatus and sits out a declared Actions outage entirely**.
+Retrying INTO an outage is how the retry budget gets destroyed — at a 30-minute
+cadence, three attempts are spent in 90 minutes, every one failing for the same
+reason, and the run is then abandoned permanently. Today's outage was already 3.5
+hours old when this shipped, so a sweeper without the gate would have exhausted every
+retry and healed nothing. Degraded performance still gets retried; only a declared
+outage is worth waiting out, and an unreachable status API means proceed — a status
+page we cannot read must never block healing.
+
 **Consequences**: failures that survive the sweep are now signal — if a run failed and
 was not re-run, our code failed. The `MAX_RERUNS` cap (10 per sweep) exists because
 this repo has 35 workflows and a long outage could otherwise queue a re-run storm into

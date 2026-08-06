@@ -38,6 +38,7 @@ import json
 import os
 import subprocess
 import sys
+import urllib.request
 from datetime import datetime, timedelta, timezone
 
 LOOKBACK_HOURS = int(os.environ.get("LOOKBACK_HOURS", "12"))
@@ -47,6 +48,14 @@ DRY_RUN = os.environ.get("DRY_RUN", "") not in ("", "0", "false")
 
 # Steps the runner harness contributes itself. Anything else is ours.
 HARNESS_STEPS = {"Set up job", "Complete job"}
+
+STATUS_URL = "https://www.githubstatus.com/api/v2/components.json"
+# Retrying INTO an ongoing outage is how the retry budget gets burned before Actions
+# is well again: at a 30-minute cadence, three attempts are spent in 90 minutes and
+# the run is then abandoned for good. Sit out an outage instead and heal afterwards —
+# which is what the 12-hour lookback is for. Degraded performance still gets retried;
+# only a declared outage is worth waiting out.
+OUTAGE_STATUSES = {"major_outage", "partial_outage"}
 
 
 def gh(*args: str) -> str:
@@ -60,6 +69,24 @@ def gh(*args: str) -> str:
 
 def gh_json(*args: str):
     return json.loads(gh(*args) or "null")
+
+
+def actions_outage() -> str | None:
+    """Return the Actions component status when GitHub is declaring an outage.
+
+    Best-effort: if the status API cannot be reached, say nothing is wrong and let
+    the sweep proceed — a status page we cannot read must not block healing.
+    """
+    try:
+        with urllib.request.urlopen(STATUS_URL, timeout=15) as resp:
+            components = json.load(resp)["components"]
+    except Exception:
+        return None
+    for component in components:
+        if component.get("name") == "Actions":
+            status = component.get("status")
+            return status if status in OUTAGE_STATUSES else None
+    return None
 
 
 def repo_slug() -> str:
@@ -100,6 +127,20 @@ def healed_since(repo: str, workflow_id: int, created_at: datetime) -> bool:
 
 def main() -> int:
     repo = repo_slug()
+    outage = actions_outage()
+    if outage and not DRY_RUN:
+        report = (
+            f"GitHub Actions is reporting {outage}. Sitting this sweep out so the "
+            f"retry budget survives the incident; the {LOOKBACK_HOURS}h lookback "
+            "heals the backlog once Actions recovers."
+        )
+        print(report)
+        summary = os.environ.get("GITHUB_STEP_SUMMARY")
+        if summary:
+            with open(summary, "a") as fh:
+                fh.write(f"## Runner-allocation sweep\n\n{report}\n")
+        return 0
+
     cutoff = datetime.now(timezone.utc) - timedelta(hours=LOOKBACK_HOURS)
     self_name = os.environ.get("GITHUB_WORKFLOW", "")
 
