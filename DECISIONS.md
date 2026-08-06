@@ -2066,3 +2066,47 @@ offline contract with Samsung HQ, i.e. a business entity), and Roku needs a budg
 covers Compose-for-TV focus or Tizen/webOS packaging. The rights-audit exclusions
 (Decisions 027/044) become load-bearing on five more storefronts — a copyrighted
 title on the home screen is a rejection and takedown risk on every one of them.
+
+## 048 — A run that never started is not a failure to read; it is a failure to retry
+*Date: 2026-08-06*
+
+When a scheduled run fails and **not one of our steps ever executed**, that is
+GitHub's hosted-runner fleet declining to start the job, not our code breaking.
+`.github/workflows/retry-infra-failures.yml` sweeps for exactly those runs every 30
+minutes and re-runs their failed jobs. Every other failure is left alone, loudly.
+
+**Why**: on 2026-08-06 an Actions **major outage** (githubstatus incident opened
+15:22 UTC) took out three scheduled runs — `Color / B&W classification`, `Re-source
+posters (secondary)`, and four shards of `Stock shot index`. Each sat ~15 minutes and
+died with a single annotation:
+
+    The job was not acquired by Runner of type hosted even after multiple attempts
+
+The API shape is unambiguous: the job carries `"steps": []` and an empty
+`runner_name`, or a lone failed `Set up job`. Nothing of ours ran, so nothing of ours
+was at fault. That fact is also what makes the retry safe **for a catalog writer**:
+a job that never started never ran `catalog_release.py fetch`, so there is no stale
+snapshot in flight and no publish to repeat — the re-run fetches the catalog fresh at
+re-run time and takes `catalog-writers` in the normal way. The cost of not retrying
+scales with the cron period, which is the whole argument here: these are 8-hourly and
+daily jobs, so one dropped run is 8–24 hours of backlog on a pipeline whose entire
+design is "chip away at the backlog every tick" (Decision 018).
+
+**How to apply**: the gate is "did any step of ours reach a conclusion", never a
+match on the annotation text — GitHub rewords those. Keep the four conditions in
+`tools/retry_infra_failures.py` conservative, and in particular keep these two:
+**never retry a `cancelled` run** — this repo cancels long jobs routinely and several
+workflows share the `catalog-writers` concurrency group, so retrying would fight
+whoever cancelled it — and **never retry when a later run of the same workflow already
+succeeded**. Use `rerun-failed-jobs`, never a whole-run re-run: the sharded workflows
+(`stock-index`, `verify-playback-strict`) must re-run only the shards that never
+started. Verify changes with `DRY_RUN=1` against real history before pushing — swept
+across six weeks it flags only the genuine never-started runs and ignores every real
+code failure. A sweeper cron is itself dropped during an outage, so the lookback is 12
+hours, not one tick: it must heal a backlog after the incident ends, not only while it
+is happening.
+
+**Consequences**: failures that survive the sweep are now signal — if a run failed and
+was not re-run, our code failed. The `MAX_RERUNS` cap (10 per sweep) exists because
+this repo has 35 workflows and a long outage could otherwise queue a re-run storm into
+a single `catalog-writers` group.
