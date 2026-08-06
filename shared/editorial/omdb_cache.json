@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-08-05T05:25:41Z",
+  "updated_at": "2026-08-06T05:27:52Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-08-05T05:25:41Z"
+      "last_tried": "2026-08-06T05:27:52Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-08-05T05:25:41Z"
+      "last_tried": "2026-08-06T05:27:52Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -321291,6 +321291,830 @@
         "Romance"
       ],
       "fetched_at": "2026-08-04T05:25:47Z",
+      "schema": 3
+    },
+    "tt0010498": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Herbert Brenon",
+      "actors": [
+        "Marie Doro",
+        "Alberto Capozzi",
+        "Angelo Gallina"
+      ],
+      "genres": [],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0010947": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNjhmMzQyZTEtZWQwNi00ZjcyLThlYmMtNGMzMjJlOGUwYzk2XkEyXkFqcGdeQXVyMjUxODE0MDY@._V1_SX300.jpg",
+      "imdb_rating": 7.2,
+      "imdb_votes": 63,
+      "content_rating": null,
+      "plot": "Cheston, a millionaire, is looking after Maud, a beautiful woman from the 'demimonde'. Her brother, Brilburn, forces her to ask her rich admirer for an expensive piece of jewelry. Cheston buys a precious pearl necklace, which he proudly presents that evening. Prince, a bankrupt 'bon vivant', hatches a plan to steal the necklace. He breaks into the Cheston mansion, but is surprised by the owner. Prince strikes Cheston to the ground. To make the crime look like suicide, the robber hangs his victim and makes off with the necklace. That very same night, Brilburn breaks into the Cheston mansion with the intention of stealing the necklace himself. He finds Cheston hanging, and takes him down from the rope. While trying to flee the crime scene, he is caught by the police. Cheston, who had actually only fainted, calls Detective Ward. At first the detective suspects Brilburn, whose dagger was found on the crime scene. In the end, however, Ward uncovers a piece of evidence that leads to the discovery of the real criminal: the tobacco crumbs that Prince had left on the scene.",
+      "runtime_min": 50,
+      "director": "F.W. Murnau",
+      "actors": [
+        "Bruno Ziener",
+        "Gertrude Welcker",
+        "Conrad Veidt"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0011849": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOGM2ZDgyZTAtYWFiMS00NzAxLWE1MGItODViZGFkNDA2MTk4XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.8,
+      "imdb_votes": 22,
+      "content_rating": null,
+      "plot": "During World War I, Francine D'Espard, a young French woman, meets William Holliday, a U.S. Army officer at the front, and they become engaged. Returning to America, William finds his father at the mercy of his business rival, Ezekiel Bates. Shortly after, when Francine arrives in America to marry her fiancé, she is informed that her lover is about to marry Bates's daughter Susan. Her love now turning to hate, Francine devotes herself to the task of destroying her former suitor. Through her connections with the U.S. Secret Service, the two are involved in many adventures, and just as Francine is about to avenge herself, she discovers that Holliday has been true to her all the time. Upon finding evidence that Bates, in addition to being the cause of all their troubles, also has defrauded the government, Francine has him arrested and finally is reunited with her lover.",
+      "runtime_min": null,
+      "director": "George Archainbaud",
+      "actors": [
+        "Louise Huff",
+        "Van Dyke Brooke",
+        "Robert Ames"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0021584": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNDU1ZmEzZmUtMGNjMi00ZmM2LWI4ZDktNmEwYTZkNDhjY2E5XkEyXkFqcGdeQXVyNzQ1NjM2MDg@._V1_SX300.jpg",
+      "imdb_rating": 7.6,
+      "imdb_votes": 38,
+      "content_rating": null,
+      "plot": "Card sharp Bimbo competes in a heated poker tournament to buy himself a ticket for the sunny South.",
+      "runtime_min": 7,
+      "director": "Dave Fleischer, Rudy Zamora",
+      "actors": [],
+      "genres": [
+        "Animation",
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0033362": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZjMwZWE2MmEtMDdiOS00MTBmLTk1OTUtYjhlN2RkZjkzYTUyXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.1,
+      "imdb_votes": 84,
+      "content_rating": null,
+      "plot": "Lawyer De Sica is drawn into the marriage problems of his glamorous neighbor.",
+      "runtime_min": 80,
+      "director": "Raffaello Matarazzo",
+      "actors": [
+        "Vittorio De Sica",
+        "Clara Calamai",
+        "Giuditta Rissone"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0038685": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZjBhYWU3MWQtMmE4Ni00M2E0LWE2YjMtNjg1ZmJkODZjN2I5XkEyXkFqcGdeQXVyNTUyMTMyMDg@._V1_SX300.jpg",
+      "imdb_rating": 5.7,
+      "imdb_votes": 44,
+      "content_rating": null,
+      "plot": "A nobleman is sent to England by Robespierre to steal Marie Antoinette's former pearls from the Prince of Wales in order to save his mother from the guillotine.",
+      "runtime_min": 100,
+      "director": "Paul L. Stein",
+      "actors": [
+        "Anne Ziegler",
+        "Webster Booth",
+        "Francis L. Sullivan"
+      ],
+      "genres": [
+        "Drama",
+        "Musical"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0046750": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTYxMjk3NjEtYzI3OS00MDY1LTgzZWEtZGY5YjIyZDYwNzYwXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.4,
+      "imdb_votes": 1222,
+      "content_rating": null,
+      "plot": "What is the life of a Geisha like once her beauty has faded and she has retired? Kin has saved her money, and has become a wealthy money-lender, spending her days cold-heartedly collecting debts. Even her best friends, Tomi, Nobu, and Tamae, who were her fellow Geisha, are now indebted to her. For all of them, the glamor of their young lives has passed; Tomi and Tamae have children, but their children have disappointed them. Kin has two former lovers who still pursue her; one she wants to see, and the other she doesn't. But even the one she remembers fondly, when he shows up, proves to be a disappointment.",
+      "runtime_min": 101,
+      "director": "Mikio Naruse",
+      "actors": [
+        "Haruko Sugimura",
+        "Ken Uehara",
+        "Sadako Sawamura"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0052768": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZWY0NmVmMWItOWRjZi00YjA5LWIxOWMtNmM0NmMyZmMwYmM5XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.9,
+      "imdb_votes": 215,
+      "content_rating": null,
+      "plot": "The setting is the countryside, where an independent, landowning farmer busies himself in his free time by bedding down the women on his farm and then tossing them aside. One such ill-treated lass ends up marrying a young man who is in charge of a communal farm, a farm the womanizing \"beast\" of the title is later forced to join. The arrogant, formerly independent farmer does not reform his ways and is soon chasing after the young manager's wife, the woman he dropped not that long ago.",
+      "runtime_min": 96,
+      "director": "Zoltán Fábri",
+      "actors": [
+        "Ferenc Bessenyei",
+        "Tibor Bitskey",
+        "Mária Medgyesi"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0053274": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODA3MDBjZjQtM2VhZC00NjcyLWE0YjYtYTJmNzljNmFkM2UwXkEyXkFqcGdeQXVyNjM2ODEyOTY@._V1_SX300.jpg",
+      "imdb_rating": 7.4,
+      "imdb_votes": 316,
+      "content_rating": "G",
+      "plot": "Soviet film of Nikolay Gogol's classic tale.",
+      "runtime_min": 75,
+      "director": "Aleksey Batalov",
+      "actors": [
+        "Rolan Bykov",
+        "Yuriy Tolubeev",
+        "Aleksandra Yozhkina"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0059399": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjE0MzU5MDItODM4YS00MGM4LWIyMWEtODFiYjUxYjU4NWQ2XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.7,
+      "imdb_votes": 4394,
+      "content_rating": "Not Rated",
+      "plot": "James Burke, after distinguishing himself as a midshipman in the British merchant marine, rapidly rises to the rank of executive officer, second in command of a ship. A broken foot necessitates that he be put ashore to heal. After his recovery, the very proud Jim - his pride rooted in his competence, which had made him a highly respected and admired naval officer - signs on as the executive officer of the Patna, a rusty tub manned by a third-rate crew overseen by a barbarous captain, that is transporting a group of Moslem pilgrims to Mecca. During a severe storm that causes the unseaworthy ship to founder, Jim abandons ship with the rest of the white crew without even lowering the other lifeboat for the passengers. The fleeing crew are prepared to swear they saw the Patna sink with all its passengers; however, in what Jim believes is a cosmic joke upon himself, it is revealed when they get into port on their lifeboat that the Patma did not sink but had been salvaged by a French vessel. In the ensuing inquiry that he himself sought to do penance for his sins (the ultimate sin for a naval officer being to abandon ship particularly when passengers or crew are still on-board), Jim is admonished after confessing his cowardice, chastised for bringing shame upon those to whom he belongs, the British merchant marine. His chief judge asks him why he did not \"bury himself 20 feet deep\" rather than seek the inquiry and humiliate himself and all professional British sailors. Jim does succeed in \"burying himself 20 feet deep\" by becoming a drifter and common laborer in various southeast Asian ports, though he never can completely escape into anonymity. The burden of his sin follows him everywhere. Racked by guilt over abandoning his ship, the proud Jim seeks atonement, a second chance, which comes in the guise of running arms and gunpowder to a tribe of indigenous peoples oppressed by a ruthless and brutal warlord. The warlord knows that the difference between a hero and a coward is not as thick as a piece of paper. What will this mean for Jim, now committed to a heroic path for a people whom he does not even know? The man the natives soon call \"Lord Jim\" is about to face his destiny, which is relentless and inescapable.",
+      "runtime_min": 154,
+      "director": "Richard Brooks",
+      "actors": [
+        "Peter O'Toole",
+        "James Mason",
+        "Curd Jürgens"
+      ],
+      "genres": [
+        "Adventure",
+        "Drama",
+        "Romance"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0060309": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYWU3YzY5MjQtOWQzNC00YmE2LWJlZDQtYTdmZjgwZmZjYjY3XkEyXkFqcGdeQXVyMTEyODcxMTc@._V1_SX300.jpg",
+      "imdb_rating": 6.5,
+      "imdb_votes": 16,
+      "content_rating": null,
+      "plot": "A literary adaptation about the unrealized romance between a Russian woman photographer during WWIi and the colonel of the regiment to which she is assigned.",
+      "runtime_min": 98,
+      "director": "Vladimir Chebotaryov",
+      "actors": [
+        "Alla Larionova",
+        "Vladimir Samoylov",
+        "Vladimir Yemelyanov"
+      ],
+      "genres": [
+        "Drama",
+        "War"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0071910": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTgwZTg4NDYtMDlmYi00ODJkLTk0ZTktMTExYmEwY2JhZTc5XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.6,
+      "imdb_votes": 16314,
+      "content_rating": "R",
+      "plot": "Thirteen years after World War II, concentration camp survivor Lucia (Charlotte Rampling) and her tormentor Max (Sir Dirk Bogarde), currently the night porter at a Vienna hotel, meet again and fall back into their sado-masochistic relationship.",
+      "runtime_min": 118,
+      "director": "Liliana Cavani",
+      "actors": [
+        "Dirk Bogarde",
+        "Charlotte Rampling",
+        "Philippe Leroy"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0077189": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTI1YWE1OTktZDJlZi00ZDBjLTg3MGMtMzg2ZTM3NTE0MzZiXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 3.8,
+      "imdb_votes": 2750,
+      "content_rating": "PG",
+      "plot": "The vacationers at a winter wonderland struggle to survive after an avalanche of snow crashes into their ski resort. Their holiday then turns into a game of survival.",
+      "runtime_min": 91,
+      "director": "Corey Allen, Lewis Teague",
+      "actors": [
+        "Rock Hudson",
+        "Mia Farrow",
+        "Robert Forster"
+      ],
+      "genres": [
+        "Action",
+        "Drama",
+        "Thriller"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0102395": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOGU4NTNlNDgtNzRjZS00MDVjLWIxYzYtY2ZmMmQ5ZDI0M2M2XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 4.4,
+      "imdb_votes": 7043,
+      "content_rating": "PG",
+      "plot": "The flamboyant Hollywood Montrose is promoted to head window dresser at Prince and Company department store. Hollywood hires his new assistant Jason Williamson, who in a past life was the prince of the Hauptmann-Koenig kingdom. Prince and Company plans to display a mannequin known as the Enchanted Peasant Girl in celebration of the kingdom. And Jason has a nagging feeling he has seen this mannequin somewhere before. Removing a necklace from the mannequin reveals that the Enchanted Peasant Girl is really Jessie, the love of his past life who was placed under a thousand year spell by an evil sorcerer. Their rekindled romance is not without its challenges when the evil sorcerer reappears in his descendant Count Gunther Spretzle, who has plans of his own for Jessie. But Jessie must receive a kiss from her one true love to break free from the curse before Count Spretzle finds her.",
+      "runtime_min": 95,
+      "director": "Stewart Raffill",
+      "actors": [
+        "Kristy Swanson",
+        "William Ragsdale",
+        "Meshach Taylor"
+      ],
+      "genres": [
+        "Comedy",
+        "Fantasy",
+        "Romance"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0106226": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzFkYjQzZjUtY2NjNi00ZDFkLWI4M2MtN2RjODQ0NDJkMWM0XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.2,
+      "imdb_votes": 73037,
+      "content_rating": "PG",
+      "plot": "Society scion Newland Archer is engaged to May Welland, but his well-ordered life is upset when he meets May's unconventional cousin, the Countess Olenska. At first, Newland becomes a defender of the Countess, whose separation from her abusive husband makes her a social outcast in the restrictive high society of late-19th Century New York, but he finds in her a kindred spirit and they fall in love.",
+      "runtime_min": 139,
+      "director": "Martin Scorsese",
+      "actors": [
+        "Daniel Day-Lewis",
+        "Michelle Pfeiffer",
+        "Winona Ryder"
+      ],
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0116503": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYTg0MGMxNzYtNGFlMi00MjUwLWJhNjktYWNkOTE2ODM5MmYwXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.3,
+      "imdb_votes": 2980,
+      "content_rating": "R",
+      "plot": "The Stackpool family have been doing some freaky experiments in the bowels of their basement and the local residents find that they are in it way over their heads. Howard is the meanest nastiest thug in town, a Harley riding criminal with a hot wife Loretta. Loretta's problem is she's having an affair with Lance owner of the town diner and Howard's getting suspicious. Driving back from one of their nightly flings, Lance witnesses the local family of weirdos, the Stackpools, dragging a man from his truck and into their house. Seeing this as an opportunity, Lance discovers the Stackpools terrible secret. The whole family is run by the one who has super intelligence, meet....MYRON the 'Head of the family'.",
+      "runtime_min": 82,
+      "director": "Charles Band",
+      "actors": [
+        "Blake Adams",
+        "Jacqueline Lovell",
+        "Bob Schott"
+      ],
+      "genres": [
+        "Comedy",
+        "Horror"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0123135": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMmJjYWJlNTgtY2Y0MS00YjNmLWExMDEtNzEzZGIwM2Y5NjQ5L2ltYWdlXkEyXkFqcGdeQXVyMjUyNDk2ODc@._V1_SX300.jpg",
+      "imdb_rating": 7.0,
+      "imdb_votes": 92,
+      "content_rating": null,
+      "plot": "The clown Joe Higgins and the circus princess Daisy have grown up together and seem perfect for each other.",
+      "runtime_min": 128,
+      "director": "A.W. Sandberg",
+      "actors": [
+        "Gösta Ekman",
+        "Maurice de Féraudy",
+        "Kate Fabian"
+      ],
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0138051": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjY3MTg1MDkxMF5BMl5BanBnXkFtZTcwODA0ODUyMQ@@._V1_SX300.jpg",
+      "imdb_rating": 7.0,
+      "imdb_votes": 95,
+      "content_rating": null,
+      "plot": "Remember that man in the rainbow-colored Afro wig who carried the \"John 3:16\" sign? During the 70s and 80s he seemed to be everywhere: at televised baseball and football games, shuttle launches, and hundreds of other events. So who was he, and what ever happened to him? In Sam Green's award-winning new \"slapstick tragedy,\" we find out. And the truth involving an unhappy childhood, a kidnapped hotel maid, and three life sentences in prison is stranger than fiction...",
+      "runtime_min": 41,
+      "director": "Sam Green",
+      "actors": [
+        "Rollen Stewart"
+      ],
+      "genres": [
+        "Documentary",
+        "Short",
+        "Biography"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0148137": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Dave Tendlar",
+      "actors": [
+        "John Myhers"
+      ],
+      "genres": [
+        "Animation",
+        "Short"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0192217": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTBlYzE0MWUtNWE5Ny00MzM2LWE0OTQtMWQxYjQ1NjRiZDBiXkEyXkFqcGdeQXVyNTg2NDk1Mjk@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "A primary school teacher rallies the citizens of a small town to resist the corruption of the local government and unite to build reinforcements against an oncoming flood.",
+      "runtime_min": 80,
+      "director": "Bugao Cheng",
+      "actors": [
+        "Chia-Nung Kung",
+        "Butterfly Wu",
+        "Xianzhai Wang"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0246482": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOGFkMWQzYTgtM2NmMS00OTVmLWIwZDYtZDIzMjExYjhlNTAzXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
+      "imdb_rating": 5.9,
+      "imdb_votes": 53,
+      "content_rating": "Not Rated",
+      "plot": "A cross-dressing detective is hired to expose a husband with a wandering eye.",
+      "runtime_min": 10,
+      "director": "Stan Laurel",
+      "actors": [
+        "James Finlayson",
+        "William Gillespie",
+        "Helen Gilmore"
+      ],
+      "genres": [
+        "Comedy",
+        "Short"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0249753": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMDNkMjE0NzMtM2UyZS00MDc4LTg5YjAtY2M0NGQ4ZmI4ZjdmXkEyXkFqcGdeQXVyMDU4MTQ0Ng@@._V1_SX300.jpg",
+      "imdb_rating": 6.0,
+      "imdb_votes": 51,
+      "content_rating": null,
+      "plot": "A burlesque boxing contest is featured, and the principal bout occurs between the \"Champ\" and the \"Chump,\" Snub appearing as the latter.",
+      "runtime_min": 9,
+      "director": "Hal Roach",
+      "actors": [
+        "'Snub' Pollard",
+        "Marie Mosquini",
+        "Eddie Boland"
+      ],
+      "genres": [
+        "Comedy",
+        "Short"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0316356": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTYyNjA4NTY3N15BMl5BanBnXkFtZTYwNjc0MDM3._V1_SX300.jpg",
+      "imdb_rating": 7.4,
+      "imdb_votes": 83685,
+      "content_rating": "R",
+      "plot": "Boss Spearman (Robert Duvall), Charley Waite (Kevin Costner), Mose Harrison (Abraham Benrubi), and Button (Diego Luna) freegraze their cattle across the vast prairies of the West, sharing a friendship forged by a steadfast code of honor and living a life unencumbered by civilization. When their wayward herd forces them near the small town of Harmonville, the cowboys encounter the corrupt Sheriff Poole (James Russo) and kingpin rancher Denton Baxter (Sir Michael Gambon), who govern the territory through fear, tyranny, and violence. Boss and Charley find themselves inextricably drawn towards an inevitable showdown, as they are forced to defend the freedom and values of a lifestyle that is all too quickly vanishing. Amidst the turmoil, life suddenly takes an unexpected turn for the loner Charley when he meets the beautiful and warm spirited Sue Barlow (Annette Bening), a woman who embraces both his heart and his soul.",
+      "runtime_min": 139,
+      "director": "Kevin Costner",
+      "actors": [
+        "Kevin Costner",
+        "Robert Duvall",
+        "Diego Luna"
+      ],
+      "genres": [
+        "Action",
+        "Drama",
+        "Romance"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0356443": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjA0NDEwMTA2Nl5BMl5BanBnXkFtZTcwNjEyMTAzMQ@@._V1_SX300.jpg",
+      "imdb_rating": 5.0,
+      "imdb_votes": 3714,
+      "content_rating": "PG",
+      "plot": "In early 18th century Peru an old Inca rope bridge collapses, plunging five travelers to their deaths in the Andean chasm below. Brother Juniper, who was within minutes of being on the bridge himself, becomes obsessed with discovering how five people of differing class and circumstances came to be on the bridge at that moment. The Catholic friar wants to know if it was mere existential happenstance or part of God's cosmic plan. After researching the lives of the victims for five years and publishing his findings in a book, he is accused of heresy by the worldly Archbishop of Lima and is put on trial for his life by the Inquisition.",
+      "runtime_min": 120,
+      "director": "Mary McGuckian",
+      "actors": [
+        "Gabriel Byrne",
+        "Robert De Niro",
+        "Harvey Keitel"
+      ],
+      "genres": [
+        "Drama",
+        "History",
+        "Romance"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0410630": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzYzYmVlMmUtN2YwOS00YzViLTk1ZWUtYWM5OWRjZmRmYzk3XkEyXkFqcGdeQXVyMDUyOTUyNQ@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "An old man has an ingenious plan to circumvent the customs officials and for a time it works like a charm. Officers and sailors on various transatlantic liners, who are in the gang, are given in Europe rare gems and laces, which they are to bring to America. The ordinary methods of smuggling by members of the crews being well guarded against, the men do not dare to bring the valuables into port with them. But they encase them in lifebelts, and on nearing the coast near Fire Island they keep a close watch out for the racing yacht which the old man owns. The rest is easy. The life-belt is slipped overboard, the men on the boat pic it up and land at their little village, from where the jewels are taken to the city. The old man has two nieces, who are orphans, and dependent upon him. He decides that the elder girl shall take part in the crime, hoping that if anything goes wrong, she may be the one to suffer, rather than he. And although the girl did not like the task, the fact that smuggling was a crime was not thoroughly clear to her, and for the sake of her little sister she consents to take the boat out and pick up the jewels. Unfortunately, the United States district attorney's attention has been directed to the gang. An enemy of the old man sends an anonymous letter, calling the law's notice to the boat, and a detective is sent to investigate. He manages to secure a position on the boat as sailor, and his very first cruise proves that the charges were well founded. The detective and his police allies confront the old man just after the jewels have been turned over to him. The girl is in tears when the detective appears. But he, from his place of concealment, has hears enough to convince him that she was not a willing participant in the plot. The two are arrested, but the detective, at the girl's plea, takes care of the little sister. He places her with his old nurse, who owns a farm in the country, and who promises to give the child a mother's attention. Then the detective tells the district attorney the facts in the case and pleads for the release of the girl. He shows that the blame was not really hers, but belonged to the wicked relative who practically forced her to commit wrong. And the law was merciful. Some time later the detective met his one-time prisoner again, but this time he was the prisoner, for she bound him with the invisible chains of love.",
+      "runtime_min": null,
+      "director": null,
+      "actors": [
+        "William Garwood",
+        "Florence La Badie",
+        "Harry Benham"
+      ],
+      "genres": [
+        "Drama",
+        "Romance",
+        "Short"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0754391": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYTI1M2FkNTktODg4MC00YzE2LTk1OWItMTdmZmFlZGMxZmU5XkEyXkFqcGdeQXVyMzMyODMwMTI@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": 69,
+      "content_rating": "TV-14",
+      "plot": "Zero Hour: The Last Hours of Flight 11 dramatically recounts the final sixty minutes of American Airlines Flight 11 - an hour, and a flight, that changes the world forever. At 08:46 on the morning of September 11, 2001, Flight 11,...",
+      "runtime_min": 53,
+      "director": "David Hickman",
+      "actors": [
+        "David Morrissey",
+        "Amy Sweeney",
+        "Michael Sweeney"
+      ],
+      "genres": [
+        "Documentary",
+        "Biography",
+        "Drama"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt0978759": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTk2NjMwMDgzNF5BMl5BanBnXkFtZTcwMDY0NDY3MQ@@._V1_SX300.jpg",
+      "imdb_rating": 7.1,
+      "imdb_votes": 26675,
+      "content_rating": "R",
+      "plot": "Takes place in the days before Christmas near a little-known border crossing on the Mohawk reservation between New York State and Quebec. Here, the lure of fast money from smuggling presents a daily challenge to single moms who would otherwise be earning minimum wage. Two women - one white, one Mohawk, both single mothers faced with desperate circumstances - are drawn into the world of border smuggling across the frozen water of the St. Lawrence River. Ray and Lila - and a New York State Trooper as opponent in an evolving cat-and-mouse game.",
+      "runtime_min": 97,
+      "director": "Courtney Hunt",
+      "actors": [
+        "Melissa Leo",
+        "Misty Upham",
+        "Charlie McDermott"
+      ],
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt1002457": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNDE5N2YxZTQtMDhjMi00NTU1LThhNGUtM2Q2MGIwMDEyZjlmXkEyXkFqcGdeQXVyMTAyNTQ0MTk@._V1_SX300.jpg",
+      "imdb_rating": 5.4,
+      "imdb_votes": 94,
+      "content_rating": null,
+      "plot": "During Iran-Iraq war a group of Iranian soldiers are surrounded by Iraqi army. Four soldiers are chose to go get help but only one manages to make it through enemy lines.",
+      "runtime_min": 115,
+      "director": "Rasool Mollagholi Poor",
+      "actors": [
+        "Farajollah Salahshoor",
+        "Ali Yaghoubzadeh",
+        "Tajbakhsh Fanaiyan"
+      ],
+      "genres": [
+        "Drama",
+        "War"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt1016193": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": "Approved",
+      "plot": "At a high-society house party, the hostess finds herself short of the expected booked-talent, and discovers the five kids of the kitchen maid singing up a storm. She brings them to the party as performers. The Six Mountain Melodeers also sing a song.",
+      "runtime_min": 9,
+      "director": "William Watson",
+      "actors": [
+        "The Cabin Kids",
+        "Ruth Hall",
+        "Helen Hall",
+        "James Hall"
+      ],
+      "genres": [
+        "Short",
+        "Comedy",
+        "Music"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt10676042": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzdmYWIyN2MtMTVjNC00MGQ4LTkzMWMtNDA0NDQ5MzZiMzI3XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.0,
+      "imdb_votes": 149,
+      "content_rating": null,
+      "plot": "Invalids devastated by war in the Democratic Republic of the Congo make the trek to the capital to make their voices heard, to demand dignity and some kind of compensation.",
+      "runtime_min": 90,
+      "director": "Dieudo Hamadi",
+      "actors": [],
+      "genres": [
+        "Documentary"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt1070781": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZGE3MzAzYTItZjM3My00OGFhLWJlYmYtOGFiYmIwOTIxYzYwXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.3,
+      "imdb_votes": 712,
+      "content_rating": "PG-13",
+      "plot": "Meet Etta Milford. Loving Wife. Doting Mother. Armed Robber. Etta's husband constantly blows their money on make-shift inventions. When she decides to secretly take \"investment\" matters into her own hands - things quickly go awry! With their savings gone, her husband suspicious, and their children out of control, Etta concocts a scheme to get back their money and save her family. There are just a few things she has to do first, including blackmailing the sheriff and holding up the grocery store. Starring Luke Perry, Elaine Hendrix and Grammy award-winner, LeAnn Rimes.",
+      "runtime_min": 84,
+      "director": "Jim Issa",
+      "actors": [
+        "Luke Perry",
+        "Elaine Hendrix",
+        "Jon Gries"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt1195763": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzcyOWZjNjgtMDI1NS00NGJiLTllZWYtNDlmNGY5NmI0MzY2XkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
+      "imdb_rating": 4.9,
+      "imdb_votes": 17,
+      "content_rating": "Not Rated",
+      "plot": "This Weiss Bros. production starring veteran silent comic Jimmy Aubrey opens with the warning. \"Man is clay (a woman's touch and he becomes all wet) and his name is mud.\" When jobless Jimmy's landlady seizes his clothes for lack of rent payment, he improvises a sailor suit and finds himself vying with a real gob for the love of a girl he's already accidentally brained with his alarm clock. Fleeing the irate seaman, he finds himself winds up stuck at a lunch counter with no money and one very punchy proprietor. Needless to say, things will get messy. Hint: there's pie on the menu. - Dennis Harvey",
+      "runtime_min": 19,
+      "director": null,
+      "actors": [
+        "Jimmy Aubrey",
+        "Leone Lane",
+        "Al Thompson"
+      ],
+      "genres": [
+        "Short",
+        "Comedy"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt13492364": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOGMzNTkzM2EtZDI3YS00OTNhLTk2NTMtMDZiMThmYWZiZGU4XkEyXkFqcGdeQXVyNjEwMTI5NzI@._V1_SX300.jpg",
+      "imdb_rating": 7.8,
+      "imdb_votes": 21,
+      "content_rating": null,
+      "plot": "In the 1980s, the Upper Engadine region was the setting of a social tragedy that remained unmentionable. Opposed to the traditional way of life of Swiss mountain society, the local youth started doing drugs through a desire to esc...",
+      "runtime_min": 70,
+      "director": "Ivo Zen",
+      "actors": [
+        "Men Bisaz",
+        "Nicole Buchmeier",
+        "Andrea Clavadetscher"
+      ],
+      "genres": [
+        "Documentary"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt1524137": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjE3NzY5NTg0OF5BMl5BanBnXkFtZTcwODk4MzgxNw@@._V1_SX300.jpg",
+      "imdb_rating": 6.4,
+      "imdb_votes": 128790,
+      "content_rating": "R",
+      "plot": "Chris Faraday once smuggled illegal items or contraband into the country on freighters. He left that life behind, got married, has a family and went legit. But when his brother-in-law got involved with Briggs, a drug dealer and when he blew a deal, Briggs demands restitution which he can't deliver. So Chris offers to find a way to pay Briggs but then he threatens Chris' family if he doesn't deliver. So he gets on a freighter destined for Panama and he sets out to bring back some counterfeit currency. Briggs \"goes to see\" Chris' family. When Chris learns of this he asks his friend Sebastian to take care of them which he does. He tells Chris that it would be better to bring drugs instead of the cash.",
+      "runtime_min": 109,
+      "director": "Baltasar Kormákur",
+      "actors": [
+        "Mark Wahlberg",
+        "Giovanni Ribisi",
+        "Kate Beckinsale"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Crime"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt1707386": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BY2Q1YjIxZTAtZTU0YS00ZmE5LWEwODEtY2IyYWM2ZTJlOWE1XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.5,
+      "imdb_votes": 360640,
+      "content_rating": "PG-13",
+      "plot": "Jean Valjean, known as Prisoner 24601, is released from prison and breaks parole to create a new life for himself while evading the grip of the persistent Inspector Javert. Set in post-revolutionary France, the story reaches resolution against the background of the June Rebellion.",
+      "runtime_min": 158,
+      "director": "Tom Hooper",
+      "actors": [
+        "Hugh Jackman",
+        "Russell Crowe",
+        "Anne Hathaway"
+      ],
+      "genres": [
+        "Drama",
+        "Musical",
+        "Romance"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt1937292": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzJlZGNjMDQtODRhZS00Mzc5LWFlMTctOThlMDhkMzI1NWIyXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.7,
+      "imdb_votes": 735,
+      "content_rating": null,
+      "plot": "May 1945, a young pilot Aleksey Kaverin stationed in Germany is going home to Russia for vacation. The problem is he needs to bring a bride. And not only to himself but to four his friends as well.",
+      "runtime_min": 103,
+      "director": "Karen Oganesyan",
+      "actors": [
+        "Elizaveta Boyarskaya",
+        "Aleksey Dmitriev",
+        "Andrey Fedortsov"
+      ],
+      "genres": [
+        "Adventure",
+        "Comedy",
+        "Romance"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt2057445": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODVmOGU4ZTctMjUyMy00ZWRjLTgwYjEtYTYxNzY4ZWQ4NTYxXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.0,
+      "imdb_votes": 363,
+      "content_rating": "TV-14",
+      "plot": "Furniture supplier Ram (Derek Ramsay) is happily married to Charmaine (Cristine Reyes). One day, Ram lands a big client, a new luxury resort. But he needs the help of Kara (Anne Curtis), the daughter of the owner of the resort, to finalize the deal. Kara's help, however, comes with a price, because she fancies Ram to be her lover. Not before long, Kara successfully seduces Ram, even though she knows about his marriage. When Charmaine learns of the affair, she finds ways to fight for her husband's waning attention.",
+      "runtime_min": 101,
+      "director": "Ruel S. Bayani",
+      "actors": [
+        "Anne Curtis",
+        "Derek Ramsay",
+        "Cristine Reyes"
+      ],
+      "genres": [
+        "Drama",
+        "Romance",
+        "Thriller"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt2091987": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTkyMTQ1MTE3NV5BMl5BanBnXkFtZTcwMDg3MTE2OA@@._V1_SX300.jpg",
+      "imdb_rating": 7.0,
+      "imdb_votes": 73,
+      "content_rating": null,
+      "plot": "A modern comedy about two men and a woman driving from Los Angeles to San Francisco for individual reasons, but the same goal -- finding happiness and a reason for it all. A simple story of friends on the road, searching for meaning in an indifferent existence.",
+      "runtime_min": 85,
+      "director": "Brandon Willer",
+      "actors": [
+        "Paul Haapaniemi",
+        "Dannikke Walkker",
+        "Brandon Willer"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt2382915": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BY2QwMWQxNzItZDRkNy00NWRhLWIzZmYtNWNiOGJhYjc2ZDAyXkEyXkFqcGdeQXVyNjkxOTM4ODY@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": 20,
+      "content_rating": null,
+      "plot": "Two brothers are separated from each other for many years. Khosrow is now a police officer but his missing brother Essi is a thief. Essi gets release from the prison but is in need to money for the treatment of his ill son so he participates once again in a rubbery with a gangsters mob. The police brother is involved in the events too. Essi when sees a special mark on his brother's hand recognizes him but the mob taking him as an hostage. Essi threatens them not to hurt his young brother.",
+      "runtime_min": 97,
+      "director": "Iraj Ghaderi",
+      "actors": [
+        "Iraj Ghaderi",
+        "Saeed Rad",
+        "Dinamik"
+      ],
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt27147360": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNGFkMTc4MzEtODA3MS00ZDFjLWFjZmItODYxOWVmMDg2NTA3XkEyXkFqcGc@._V1_QL75_UX380_CR0,1,380,562_.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "The lives of four strangers are forever changed by an act of kindness.",
+      "runtime_min": 7,
+      "director": "Alexander Sharp",
+      "actors": [
+        "Blake Stadel",
+        "Marcel Heim",
+        "Vanessa von Schwarz"
+      ],
+      "genres": [
+        "Short",
+        "Crime",
+        "Drama"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt29473923": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTYyMGQ1YzItYzhmZS00YzZjLWFjZWEtZGY2YWNiNTc2ZTA1XkEyXkFqcGdeQXVyMzUwMDU2MjM@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 30,
+      "director": null,
+      "actors": [
+        "Shin'ichirô Miki",
+        "Masako Nozawa"
+      ],
+      "genres": [
+        "Short",
+        "Family"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
+      "schema": 3
+    },
+    "tt7754528": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTY4YjUzZjUtNTZmNS00NmY1LTkxZDctYzlmOGM0ZGI5ZTkzXkEyXkFqcGdeQXVyMTAwMzY3NDg@._V1_SX300.jpg",
+      "imdb_rating": 7.6,
+      "imdb_votes": 78,
+      "content_rating": null,
+      "plot": "MAKING THE GRADE invites us into the world of the piano lesson. Every year teachers and students throughout Ireland prepare for graded musical exams. These exams can be pleasing for some but daunting for others. Each student has their own particular goal but reaching Grade Eight is considered a pinnacle. This endearing and uplifting documentary explores the bond between piano teachers and their pupils as they struggle through these grades. This is a story of the trans-formative power of music and the pride and happiness it provides both the students and teachers. It may inspire us all to keep making the grade.",
+      "runtime_min": 85,
+      "director": "Ken Wardrop",
+      "actors": [],
+      "genres": [
+        "Documentary"
+      ],
+      "fetched_at": "2026-08-06T05:27:52Z",
       "schema": 3
     }
   },
