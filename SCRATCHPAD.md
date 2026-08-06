@@ -233,6 +233,57 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-08-05 (later) — Play submitted · Cast PUBLISHED · Fire TV artifact · 5 silent bugs
+App **1.3.312 / vc28**, all on `main`, pushed. Full handoff in the
+`session-handoff-2026-08-05-tv` memory; owner steps in
+`docs/TV-PLATFORM-BACKLOG.md` §OWNER.
+
+**Stores.** Play: TV form factor opted in, owner uploaded the TV screenshots and
+**submitted for review**. Cast: receiver `58AF34C3` → archivewatch.org/cast/ is
+**PUBLISHED** — publishing was blocked on an undocumented prerequisite, that at
+least one SENDER be declared (added Chrome + Android); device registration is
+now moot since that only gates an *unpublished* receiver. Amazon: signed release
+APK built and verified (zero-GMS w/ negative control, TV-G6 16 KB). webOS: a real
+`.ipk` builds. All artifacts staged together at
+`~/Desktop/ArchiveWatch-TV-Screenshots/`.
+
+**Five bugs that were invisible to both a compile and a screenshot:**
+1. **`file://` packaged origin** — `PAGES_ROOT = new URL('.', href)` pointed
+   every catalog fetch at a path not in the package; the `.ipk`/`.wgt` would have
+   launched to an EMPTY catalog on every LG and Samsung TV. Same class:
+   protocol-relative `//gstatic` tags (shell AND receiver) and `cast-sender.js`
+   never staged. Guarded by `tools/test_packaged_origin.mjs`.
+2. **Cast lost subtitles** — the `blob:` that makes a local `<track>` work is
+   document-scoped, so a receiver can never fetch it. Keep BOTH (blob local,
+   https in `dataset.awSrc`). Also a track not in `activeTrackIds` is simply OFF.
+3. **AirPlay was dead on every title** — Apple does not support video AirPlay
+   with a custom `AVAssetResourceLoaderDelegate`, and every path here uses one.
+   Now swaps to a receiver-fetchable URL on `isExternalPlaybackActive`. The
+   backlog had recorded this as "already works, just document it" — wrong.
+4. **Channels focused chrome** — three wrong fixes before the right rule (focus
+   what is ON NOW unless <5 min left, else what's NEXT).
+5. **webOS packager** aborts minifying modern JS → needs the undocumented
+   `-n/--no-minify`; vendor manifests now version-stamped from
+   `AppVersion.xcconfig` (they had drifted to 1.3.284).
+
+**Harness.** Focus 9→12 (now covers the SHARED phone screens the TV routes into,
+asserted via the accessibility tree since those carry no AWFOCUS trace). Browser
+suite 20→30, and it no longer HANGS: it publishes progress per assertion and
+time-boxes the player block, so an autoplay-blocked tab reports a named failure
+instead of returning nothing. `audit_fire_tv_gms.py` gained a **negative
+control** — it previously would have passed if Cast were deleted from both
+flavors. New `tools/tv_screenshots.sh` (1920×1080, asserts dimensions).
+
+**Deliberately not done, with reasons:** LG 1280×720 screenshots (capture on the
+real panel during side-load — a desktop capture clips the nav, and forcing 1920
+via CSS transform breaks lazy-load: 70/363 posters); Play asset upload by
+automation (no file input until clicked, and clicking opens a native OS dialog).
+
+**OWNER:** LG Seller Lounge + TV + side-load + submit · Samsung Tizen CLI +
+signing cert (KEEP IT; Public Seller is US-ONLY → LG first) · free Amazon
+account + upload the staged APK · device QA incl. **AirPlay on a real
+iPhone+Apple TV** (Simulator has no AirPlay routes) · Roku = funded decision.
+
 ### 2026-08-04/05 — Smart-TV expansion: Android TV + web-TV shipped, verified by harness
 Owner: research every TV app store, build each platform first-class, document
 for reuse, "test everything you need to ensure features work the first time."
