@@ -22,15 +22,28 @@ final class IntentInbox {
         case randomFilm            // play/open a random playable film
         case randomCategory        // open a random category's browse view
         case openItem(String)      // open a specific title by archiveID (deep link / Top Shelf)
+        case playItem(String)      // open AND start playing (Top Shelf Play button, resume)
     }
 
     /// Parse an `archivewatch://` deep link into a request. Returns nil for
     /// anything we don't recognise.
+    ///
+    /// `play` is what the Top Shelf's `playAction` emits (tvOS-DESIGN §15.5).
+    /// It was missing here for the whole life of the Top Shelf feature, so every
+    /// Press-Play on a Continue Watching tile launched the app and then did
+    /// nothing — an unrouted deep link is a dead tile.
     static func request(for url: URL) -> Request? {
         guard url.scheme == "archivewatch" else { return nil }
+        // `lastPathComponent` of a bare "archivewatch://item/" is "/", not "" —
+        // so an id-less link used to parse as a request for the item named "/",
+        // which resolves to nothing.
+        func id(_ url: URL) -> String? {
+            let c = url.lastPathComponent
+            return (c.isEmpty || c == "/") ? nil : c
+        }
         switch url.host {
-        case "item":   let id = url.lastPathComponent
-                       return id.isEmpty ? nil : .openItem(id)
+        case "item":   return id(url).map { .openItem($0) }
+        case "play":   return id(url).map { .playItem($0) }
         case "surprise":        return .surprise
         case "random":          return .randomFilm
         case "randomcategory":  return .randomCategory

@@ -56,6 +56,12 @@ final class Router {
 
     var tab: Tab = Router.initialTab
 
+    /// Set when a route asks for playback, not just a look — today only the Top
+    /// Shelf's Play button (`archivewatch://play/{id}`, tvOS-DESIGN §15.5).
+    /// DetailView consumes it once, on appear, and starts the player, which then
+    /// resumes from the stored WatchProgress like any other play.
+    var autoplayItemID: String?
+
     // Screenshot/dev affordance: `AW_START_TAB=channels` (etc.) lands on that tab
     // at launch. Unset in production, so this is a no-op (defaults to .home).
     static var initialTab: Tab {

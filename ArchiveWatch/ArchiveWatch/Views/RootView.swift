@@ -55,17 +55,14 @@ struct RootView: View {
         // is configured — CloudSync.entitlementConfigured).
         .task { await CloudKitSyncService.shared.sync(modelContext) }
         // Screenshot/dev affordance: `AW_START_ITEM=<archiveID>` deep-opens that
-        // item's Detail once the DB is ready. Unset in production (no-op).
+        // item's Detail once the DB is ready; add `AW_AUTOPLAY=1` to also start
+        // playback, which is how the Top Shelf's Play route is exercised on a
+        // simulator (`simctl openurl` raises a system "Open in…?" prompt that
+        // needs a Simulator GUI to dismiss). Both unset in production (no-op).
         .task {
             guard let id = ProcessInfo.processInfo.environment["AW_START_ITEM"] else { return }
-            for _ in 0..<50 {
-                if let item = store.dbItem(id) {
-                    router.tab = .home
-                    router.homePath.append(item)
-                    return
-                }
-                try? await Task.sleep(for: .milliseconds(200))
-            }
+            openDeepLinkedItem(
+                id, autoplay: ProcessInfo.processInfo.environment["AW_AUTOPLAY"] == "1")
         }
         // Screenshot/dev affordance: `AW_START_MODE=kids|party|saver` lands on that
         // immersive tab once the catalog is ready (`saver` also opens the running
@@ -142,13 +139,33 @@ struct RootView: View {
                 router.browsePath.append(BrowseFilter(category: category.id))
             }
         case .openItem(let id):
-            if let item = store.dbItem(id) {
-                router.homePath = NavigationPath()
-                router.tab = .home
-                router.homePath.append(item)
-            }
+            openDeepLinkedItem(id, autoplay: false)
+        case .playItem(let id):
+            openDeepLinkedItem(id, autoplay: true)
         }
         inbox.request = nil
+    }
+
+    /// Open a title arriving from a deep link (Top Shelf tap, Handoff, Siri).
+    ///
+    /// Retries while the full catalog swaps in: a cold launch paints from the
+    /// lean bundled seed, which holds only a few thousand of the ~40k titles, so
+    /// resolving once would silently drop the tap for most of the catalog and
+    /// look exactly like a broken tile.
+    private func openDeepLinkedItem(_ id: String, autoplay: Bool) {
+        func land(_ item: Catalog.Item) {
+            if autoplay { router.autoplayItemID = item.archiveID }
+            router.homePath = NavigationPath()
+            router.tab = .home
+            router.homePath.append(item)
+        }
+        if let item = store.dbItem(id) { land(item); return }
+        Task {
+            for _ in 0..<25 {
+                try? await Task.sleep(for: .milliseconds(200))
+                if let item = store.dbItem(id) { land(item); return }
+            }
+        }
     }
 
     /// Sidebar tab selection always lands at that tab's root view.

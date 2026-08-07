@@ -83,6 +83,18 @@ struct DetailView: View {
                 try? await Task.sleep(for: .milliseconds(40))
                 focusTarget = .play
             }
+            // The Top Shelf's Play button (archivewatch://play/{id}, tvOS-DESIGN
+            // §15.5) routes here with autoplay armed. Consumed once, after the
+            // view is settled in the hierarchy — presenting a fullScreenCover
+            // from the same tick as the push is the sheet-race that shows a
+            // black screen. PlayerScreen seeks to the stored WatchProgress on
+            // its own, so this resumes rather than restarting.
+            .task(id: item.archiveID) {
+                guard router.autoplayItemID == item.archiveID else { return }
+                router.autoplayItemID = nil
+                try? await Task.sleep(for: .milliseconds(250))
+                isPlaying = true
+            }
             // When focus returns to Play (e.g. user pressed up-arrow
             // from the Related shelf and we forwarded focus), scroll
             // the hero back into view so Play is visible — otherwise

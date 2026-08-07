@@ -204,14 +204,21 @@ def main():
 # tvOS Top Shelf feed
 # ---------------------------------------------------------------------------
 # The Top Shelf extension is a separate, out-of-process, memory-constrained
-# process. It CANNOT read the app's App Group container reliably (that needs the
-# App Groups capability provisioned on the bundle ids — a portal step that was
-# never done, so the shared container is nil on device and the Top Shelf showed
-# only the static app image). So instead the extension fetches THIS small public
-# feed directly over the network — no App Group, no provisioning dependency, and
-# it even populates before the user first launches the app. Continue Watching
-# still comes from the App Group snapshot when that is provisioned; this feed is
-# the always-present editorial backbone.
+# process that cannot reach the app's SwiftData store or catalog, so it fetches
+# THIS small public feed over the network. Continue Watching comes from the App
+# Group snapshot the app writes; the two MERGE in the extension (tvOS-DESIGN
+# §15.6) — the feed is the editorial backbone, and it populates even before the
+# user's first launch.
+#
+# SCHEMA 2 (tvOS-DESIGN §15.3): we publish `rows` — a POOL of ~30 candidates per
+# named row, and more rows than fit — because a feed of exactly what to show,
+# ordered deterministically, renders the same titles forever. (Measured: the v1
+# feed's 2 rows / 15 titles were byte-identical across three weeks of publishes,
+# which is what the owner saw as "the Top Shelf never changes.") The extension
+# rotates over these pools on a time bucket, so the surface changes between
+# sittings without the pipeline republishing.
+#
+# `sections` is kept as a v1-shaped digest so already-shipped builds keep working.
 TOPSHELF_OUT = REPO / "topshelf.json"
 CATALOG_DB = REPO / "catalog.sqlite"
 
@@ -222,6 +229,75 @@ _DESIGNED = ("i.hasRealArtwork = 1 "
              "AND COALESCE(i.posterURL,'') <> '' "
              "AND i.posterURL NOT LIKE '%archive.org/services/img%'")
 _NOT_TV_COMM = "i.isAdult = 0 AND i.contentType NOT IN ('tv-series','tv-special','tv-episode','commercial')"
+# §15.7: a Top Shelf tile is the most visible surface the app has — it must play.
+# `playable = 1` is check_liveness's byte-verified flag; the rights clause mirrors
+# CatalogDB.homeAnd so the system Home screen can never show a modern title whose
+# rights we can't vouch for.
+_PLAYS = "i.playable = 1"
+_RIGHTS = ("(i.rightsStatus IN ('public_domain','creative_commons') "
+           "OR (i.year BETWEEN 1888 AND 1977))")
+_TS_GATE = f"{_DESIGNED} AND {_NOT_TV_COMM} AND {_PLAYS} AND {_RIGHTS}"
+
+# One row per named reason (§15.2 — never "For You"). Ordered by how strongly each
+# earns a slot: earlier rows get first pick of a title, since pools are made
+# disjoint so a rotation can't show the same film twice under two headings.
+POOL_SIZE = 30          # candidates published per row; the extension shows 8
+MIN_ROW = 6             # a row thinner than this reads as broken — drop it
+
+
+def _shelf_sql(shelf_ids, order="s.position"):
+    ids = ",".join(f"'{s}'" for s in shelf_ids)
+    return f"""
+        SELECT i.archiveID, i.title, i.year, i.posterURL, i.imdbID
+        FROM items i JOIN item_shelves s USING(archiveID)
+        WHERE s.shelfID IN ({ids}) AND {_TS_GATE}
+        ORDER BY {order} LIMIT 400"""
+
+
+def _signal_sql(where, order):
+    return f"""
+        SELECT i.archiveID, i.title, i.year, i.posterURL, i.imdbID FROM items i
+        WHERE {where} AND {_TS_GATE} AND i.year IS NOT NULL
+        ORDER BY {order} LIMIT 400"""
+
+
+def _topshelf_rows(pd_year):
+    """(row id, display title, SQL, min items) in priority order. `pd_year` is the
+    film year that entered the US public domain most recently (current year - 95).
+
+    NOT here: a "Hidden Gems" row. The app's definition (qualityScore >= 60 AND
+    popularityScore <= 40) matches ZERO rows in the live DB — every item scoring
+    >= 60 on quality has popularity >= 226 — so it can't fill a row. That is a
+    real bug in CatalogDB.hiddenGems (Home's shelf is empty on every platform);
+    it needs an editorial call on the threshold, not a divergent copy here."""
+    votes = "COALESCE(i.imdbVotes,0) >= 1000"
+    return [
+        # Curated, so it leads and is allowed to be short — only 3 of the 7 picks
+        # have designed art (the rest are frame covers, excluded by §15.7).
+        ("editors-picks", "Editor's Picks",
+         _shelf_sql(["editors-picks"], "i.popularityScore DESC"), 3),
+        ("top-rated", "Top Rated",
+         _signal_sql(f"i.imdbRating IS NOT NULL AND {votes}",
+                     "i.imdbRating DESC, i.imdbVotes DESC"), MIN_ROW),
+        ("watching-now", "Watching Now on the Archive",
+         _signal_sql(f"COALESCE(i.views30d,0) > 0 AND {votes}", "i.views30d DESC"), MIN_ROW),
+        ("community-favorites", "Community Favorites",
+         _signal_sql(f"COALESCE(i.numFavorites,0) > 0 AND {votes}", "i.numFavorites DESC"), MIN_ROW),
+        ("public-domain-day", f"Public Domain Day — {pd_year}",
+         _signal_sql(f"i.year = {pd_year}", "i.popularityScore DESC"), MIN_ROW),
+        ("film-noir", "Film Noir", _shelf_sql(["film-noir"]), MIN_ROW),
+        ("silent-era", "Silent Era", _shelf_sql(["silent-era", "silent-hall-of-fame"]), MIN_ROW),
+        ("scifi-horror", "Sci-Fi & Horror", _shelf_sql(["scifi-horror"]), MIN_ROW),
+        ("animation", "Animation",
+         _shelf_sql(["vintage-cartoons", "classic-cartoons", "animation-all"]), MIN_ROW),
+        ("comedy", "Comedy", _shelf_sql(["comedy"]), MIN_ROW),
+        ("melies", "Early Cinema", _shelf_sql(["melies"]), MIN_ROW),
+        ("most-discussed", "Most Discussed",
+         _signal_sql(f"COALESCE(i.numReviews,0) > 0 AND {votes}", "i.numReviews DESC"), MIN_ROW),
+        ("prelinger", "The Prelinger Archives", _shelf_sql(["prelinger"]), MIN_ROW),
+        ("nasa", "From the NASA Archive", _shelf_sql(["nasa"]), MIN_ROW),
+        ("newsreels", "Newsreels", _shelf_sql(["newsreels"]), MIN_ROW),
+    ]
 
 
 def write_topshelf_feed() -> None:
@@ -231,56 +307,49 @@ def write_topshelf_feed() -> None:
     if not CATALOG_DB.exists():
         print("[topshelf] no catalog.sqlite yet — skipped", flush=True)
         return
+    import datetime
     import sqlite3
     db = sqlite3.connect(CATALOG_DB)
+    pd_year = datetime.date.today().year - 95   # rolling US PD-by-age cutoff
 
-    def cards(sql, binds=()):
+    seen_ids: set[str] = set()
+    seen_imdb: set[str] = set()
+
+    def pool(sql):
+        """Up to POOL_SIZE cards, skipping anything an earlier row already took
+        and collapsing imdb duplicates (foreign re-titles of one film)."""
         out = []
-        for aid, title, year, poster in db.execute(sql, binds):
+        for aid, title, year, poster, imdb in db.execute(sql):
+            if aid in seen_ids or (imdb and imdb in seen_imdb):
+                continue
+            seen_ids.add(aid)
+            if imdb:
+                seen_imdb.add(imdb)
             out.append({"id": aid, "title": title or aid, "year": year, "poster": poster})
+            if len(out) >= POOL_SIZE:
+                break
         return out
 
-    # Editor's Picks — the curated `editors-picks` shelf, designed art only.
-    picks = cards(f"""
-        SELECT i.archiveID, i.title, i.year, i.posterURL
-        FROM items i JOIN item_shelves s ON s.archiveID = i.archiveID AND s.shelfID = 'editors-picks'
-        WHERE {_DESIGNED} AND {_NOT_TV_COMM}
-        ORDER BY (i.hasRealArtwork = 1) DESC, i.popularityScore DESC LIMIT 12""")
-
-    # Top Rated — the app's topRated() (votes >= 1000, PD/CC or vintage year),
-    # PLUS two showcase tightenings: a year is required (a high-rated no-year row
-    # is a data artifact) and rows are de-duped by imdb id (collapses foreign
-    # re-title duplicates like "El Ocaso De Una Vida" for Sunset Boulevard).
-    rated = cards(f"""
-        SELECT i.archiveID, i.title, i.year, i.posterURL FROM items i
-        WHERE i.imdbRating IS NOT NULL AND COALESCE(i.imdbVotes,0) >= 1000
-          AND {_DESIGNED} AND {_NOT_TV_COMM}
-          AND i.year IS NOT NULL
-          AND (i.rightsStatus IN ('public_domain','creative_commons') OR (i.year BETWEEN 1888 AND 1977))
-          AND i.archiveID IN (
-            SELECT archiveID FROM (
-              SELECT archiveID, ROW_NUMBER() OVER (
-                PARTITION BY COALESCE(imdbID, archiveID)
-                ORDER BY imdbRating DESC, imdbVotes DESC) rn FROM items
-            ) WHERE rn = 1)
-        ORDER BY i.imdbRating DESC, i.imdbVotes DESC LIMIT 12""")
+    rows = []
+    for row_id, title, sql, minimum in _topshelf_rows(pd_year):
+        items = pool(sql)
+        if len(items) >= minimum:
+            rows.append({"id": row_id, "title": title, "items": items})
+        else:
+            print(f"[topshelf] row '{row_id}' has {len(items)} items — dropped", flush=True)
     db.close()
 
-    # Drop any Top Rated id already shown in Editor's Picks.
-    seen = {c["id"] for c in picks}
-    rated = [c for c in rated if c["id"] not in seen]
+    # v1-shaped digest for already-shipped extensions (they read `sections` and
+    # take the first 12 of each). Two rows, exactly as before.
+    sections = [{"title": r["title"], "items": r["items"][:12]} for r in rows[:2]]
 
-    sections = []
-    if picks:
-        sections.append({"title": "Editor's Picks", "items": picks})
-    if rated:
-        sections.append({"title": "Top Rated", "items": rated})
-
-    feed = {"version": 1, "sections": sections}
+    feed = {"version": 2, "rows": rows, "sections": sections}
     TOPSHELF_OUT.write_text(json.dumps(feed, ensure_ascii=False, separators=(",", ":")),
                             encoding="utf-8")
-    total = sum(len(s["items"]) for s in sections)
-    print(f"[topshelf] wrote {TOPSHELF_OUT.name}: {len(sections)} rows, {total} items", flush=True)
+    total = sum(len(r["items"]) for r in rows)
+    kb = TOPSHELF_OUT.stat().st_size / 1000
+    print(f"[topshelf] wrote {TOPSHELF_OUT.name}: {len(rows)} rows, {total} items, "
+          f"{kb:.0f} KB", flush=True)
 
 
 if __name__ == "__main__":

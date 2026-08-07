@@ -2120,3 +2120,52 @@ page we cannot read must never block healing.
 was not re-run, our code failed. The `MAX_RERUNS` cap (10 per sweep) exists because
 this repo has 35 workflows and a long outage could otherwise queue a re-run storm into
 a single `catalog-writers` group.
+
+## 049 — The Top Shelf rotates over published pools; personal and editorial rows MERGE
+*Date: 2026-08-07*
+
+The tvOS Top Shelf publishes **pools, not a playlist**: `topshelf.json` (schema 2)
+carries ~15 named rows of ~30 rights-gated, playable, designed-art candidates each,
+and the extension picks which rows and which titles to show from a **6-hour time
+bucket** — the row start advances one per window and the picks stride across the
+priority list, while each row's own offset walks its pool. The extension now MERGES
+the App Group snapshot's personal rows (Continue Watching, leading, with
+`playbackProgress`) with the live feed's editorial rows instead of returning early
+on either. The snapshot is rebuilt on a **position signature** and on backgrounding,
+not on the count of watched titles. `archivewatch://play/{id}` is routed for the
+first time, to Detail with autoplay armed, so the Play button resumes.
+
+**Why**: the owner reported the Top Shelf "serves the exact same videos every single
+time" and "doesn't work to resume movies you haven't finished." Four independent
+causes, each verified: (1) the feed was `ORDER BY imdbRating DESC LIMIT 12` — byte
+identical across three weeks of publishes; (2) the extension short-circuited on the
+snapshot (`if !local.isEmpty { return }`), and since the app always wrote editorial
+rows into it, the network feed was dead code for anyone who had launched the app;
+(3) `TopShelfUpdater` keyed on `progress.count`, which does not change when you watch
+more of a film you already started or when you finish one — so resume positions went
+stale and completed films never left; (4) the extension emitted
+`archivewatch://play/{id}` as its `playAction` but `IntentInbox.request(for:)` had no
+`play` case, so Press-Play launched the app and did nothing. Only #1 is a content
+problem; the other three are the surface being wired to sources it could never read.
+
+**How to apply**: publish MORE than is shown and rotate client-side — a feed of
+exactly what to display, ordered deterministically, is static by construction no
+matter how often the pipeline runs. Rotation must be **arithmetic on a time bucket**,
+never `String.hashValue` (Swift seeds string hashing per process, so a hashValue-derived
+offset reshuffles on every query instead of holding still) and never `Math.random`
+(a shelf that reshuffles under the viewer is its own bug). Pick rows by **striding**
+across the priority-ordered list, not by taking a contiguous slice: rows are published
+strongest-first, so a sliding window of 4 eventually lands wholly in the tail and
+renders a shelf with no recognizable cinema on it — every assertion passed while that
+happened, which is why `tools/test_topshelf_rotation.swift` now asserts that each
+window contains a marquee row. Any URL either Top Shelf action can emit must have an
+`IntentInbox` case; an unrouted deep link is indistinguishable from a broken app.
+
+**Consequences**: the feed grew 15 rows / 394 items / 66 KB (from 15 items), still
+trivial for a ~16 MB extension that only handles URLs. `topshelf.json` keeps a v1-shaped
+`sections` digest so already-shipped builds keep working. The pure selection logic lives
+in `ArchiveWatchTopShelf/TopShelfRotation.swift` — Foundation-only precisely so the
+harness can compile and exercise the SHIPPED file, since the Top Shelf is invisible to a
+simulator screenshot and its provider runs out-of-process. Binding rules: tvOS-DESIGN
+§15. Related: Decision 015 (the original surface), 023/044 (the art + playability gates
+a tile must pass), 027 (rights).

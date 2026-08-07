@@ -317,3 +317,56 @@ Decision 006). Live/linear broadcast beyond the §9.1 channel simulation.
 | 18 | Episode reclassification | (pipeline) | canonical TV | Decision 016 |
 | 19 | No-entry play bug | (bug) | player failure state | §2.5, §8.1 |
 | 20 | Wrong poster/desc | (pipeline) | metadata matching | §7.1 |
+
+| 21 | Top Shelf | System surface | tvOS Home top row | §15 |
+
+---
+
+## §15 — Top Shelf: the system surface (binding; governs #21)
+
+The Top Shelf is not a §3 surface — it lives on the tvOS Home screen, outside our
+navigation — so §2's tab ceiling and §12.3's depth test do not apply. These rules
+do.
+
+15.1 **Shape is `TVTopShelfSectionedContent`, poster tiles.** Named rows of 2:3
+posters, never the carousel as the permanent default: a single rotating hero is
+the most passive shape we could pick, and rows are doorways (§1.1). Reserve the
+carousel for a genuine moment (a Public Domain Day, a retrospective).
+
+15.2 **A row is named by its REASON, never "For You".** "Silent Era", "Film
+Noir", "Watching Now on the Archive", "Public Domain Day" — the row title teaches
+the catalog's organizing concepts, the same vocabulary Home and Browse use
+(§1.2). An opaque personalized row is an anti-pattern here for the same reason
+it is on Home: the user learns nothing from it.
+
+15.3 **It must CHANGE.** A deterministic `ORDER BY … LIMIT n` renders the same
+titles forever and reads as broken (measured: the shipped feed was byte-identical
+for three weeks). Both which rows appear and which titles fill them rotate on a
+fixed time window — stable while someone is looking at it, different by the next
+sitting. Rotation is a time bucket over a published pool, not a model: predictable
+and debuggable (§1.2, clarity over cleverness).
+
+15.4 **Continue Watching leads when it exists**, carries `playbackProgress`, and
+drops a title the moment it completes (§10.3/§10.4 — same in-progress semantics as
+the Home row). It is the one personal row; it comes from the app's App Group
+snapshot, which must be rebuilt whenever a POSITION changes, not merely when the
+set of watched titles changes.
+
+15.5 **Two actions, two verbs.** `displayAction` (Select) opens Detail — a look, a
+choice, never autoplay. `playAction` (the Play button) plays, resuming where the
+viewer left off. Every route either action emits must be handled by
+`IntentInbox`; an unrouted deep link is a dead tile, indistinguishable from a
+broken app.
+
+15.6 **Editorial content comes from the published feed, personal content from the
+snapshot, and the two MERGE.** Never either/or — a snapshot that exists must not
+suppress the fresher feed. The feed is cached on device so a network blip degrades
+to yesterday's rows, not to the static app image.
+
+15.7 **A tile must be playable and have designed art** (§7.1, Decision 023/044
+gates: `playable = 1`, real artwork, rights-gated). A poster-less or dead tile on
+the system Home screen is the most visible quality failure the app can have.
+
+15.8 **Budget: ≤5 rows, ≤8 tiles each** (WWDC guidance). The extension is a
+separate ~16 MB process — hand the system image URLs, never decode or resize
+art there, and never block first paint on the network.

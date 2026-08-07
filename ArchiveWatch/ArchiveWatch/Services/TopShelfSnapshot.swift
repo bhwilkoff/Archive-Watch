@@ -3,24 +3,26 @@ import SwiftUI
 import SwiftData
 import TVServices
 
-// Top Shelf snapshot (Decision 015 / M4; carousel redesign 2026-06-24).
+// Top Shelf snapshot (Decision 015 / M4; tvOS-DESIGN §15).
 //
 // The Top Shelf extension is a separate process — it can't reach the app's
 // SwiftData store or in-memory catalog — so the app writes a small JSON into the
-// shared App Group container and the extension reads it. The extension renders a
-// best-in-class editorial CAROUSEL (TVTopShelfCarouselContent .details), so the
-// snapshot carries everything a hero card shows: backdrop art, a "why it's here"
-// context label, synopsis, genre, runtime, year, director + cast, captions flag,
-// and a resume flag for Continue Watching.
+// shared App Group container and the extension reads it.
 //
-// Learning-orientation guardrails (CLAUDE.md): every hero's SELECT opens Detail
-// (a look, a choice) — not autoplay; only Continue Watching carries a resume
-// play action where the intent is explicit. Editorial heroes lead with their
-// reason ("Editor's Pick", "Public Domain Day"), the repertory-programmer voice,
-// never an opaque "for you".
+// This snapshot carries the PERSONAL half of the shelf: Continue Watching, the
+// one row only the app can know (§15.4, §15.6). The editorial rows come from the
+// published feed the extension fetches directly, so they stay fresh without the
+// app running; the editorial rows written here are its offline fallback. Some
+// fields (backdrop, synopsis, cast) are richer than the poster tiles need — they
+// are kept so a future carousel moment doesn't need a schema change.
 //
-// No-ops gracefully until the App Group `group.app.archivewatch.tvos` is
-// configured, so it's safe to ship ahead of the extension.
+// Learning-orientation guardrails (CLAUDE.md): SELECT opens Detail (a look, a
+// choice) — never autoplay; the Play button plays, resuming where the viewer left
+// off. Rows lead with their reason ("Continue Watching", "Editor's Picks"), the
+// repertory-programmer voice, never an opaque "for you".
+//
+// No-ops gracefully if the App Group `group.app.archivewatch.tvos` container is
+// unavailable — the extension still has the network feed.
 
 enum TopShelfSnapshot {
     static let appGroup = "group.app.archivewatch.tvos"
@@ -42,6 +44,12 @@ enum TopShelfSnapshot {
             let context: String          // "why shown": Continue Watching / Editor's Pick / …
             let progress: Double?        // 0…1, Continue Watching only (ordering)
             let resume: Bool             // Continue Watching → play action resumes
+            // "personal" | "editorial" (tvOS-DESIGN §15.6). The extension always
+            // shows personal rows and prefers the LIVE feed over these editorial
+            // ones, falling back to them only when the network and its cache are
+            // both unavailable. Optional so a snapshot written by an older build
+            // still decodes.
+            let kind: String?
         }
         let items: [Item]
         let generatedAt: Double
@@ -82,7 +90,8 @@ enum TopShelfSnapshot {
         var out: [Payload.Item] = []
         var seen = Set<String>()
 
-        func entry(_ it: Catalog.Item, context: String, resume: Bool, progress: Double?) -> Payload.Item {
+        func entry(_ it: Catalog.Item, context: String, resume: Bool,
+                   progress: Double?, kind: String) -> Payload.Item {
             Payload.Item(
                 archiveID: it.archiveID, title: it.title,
                 posterURL: it.hasDesignedArtwork ? it.posterURL : nil,
@@ -91,7 +100,7 @@ enum TopShelfSnapshot {
                 genre: it.genres.first, director: it.director,
                 cast: it.cast.sorted { $0.order < $1.order }.prefix(3).map(\.name),
                 hasCaptions: !(it.captions?.isEmpty ?? true),
-                context: context, progress: progress, resume: resume)
+                context: context, progress: progress, resume: resume, kind: kind)
         }
 
         // A tile needs a real designed poster — the Archive first-frame thumbnail
@@ -109,7 +118,8 @@ enum TopShelfSnapshot {
                   hasPoster(it), seen.insert(it.archiveID).inserted else { continue }
             let frac = p.durationSeconds > 0
                 ? min(0.98, max(0.02, p.positionSeconds / p.durationSeconds)) : nil
-            out.append(entry(it, context: "Continue Watching", resume: true, progress: frac))
+            out.append(entry(it, context: "Continue Watching", resume: true,
+                             progress: frac, kind: "personal"))
             if out.filter({ $0.context == "Continue Watching" }).count >= 8 { break }
         }
 
@@ -119,7 +129,8 @@ enum TopShelfSnapshot {
             var n = 0
             for it in items where hasPoster(it) {
                 guard seen.insert(it.archiveID).inserted else { continue }
-                out.append(entry(it, context: context, resume: false, progress: nil))
+                out.append(entry(it, context: context, resume: false,
+                                 progress: nil, kind: "editorial"))
                 n += 1
                 if n >= limit { break }
             }
@@ -138,13 +149,34 @@ enum TopShelfSnapshot {
 // progress changes, and rebuilds when the catalog finishes loading.
 struct TopShelfUpdater: View {
     @Environment(AppStore.self) private var store
+    @Environment(\.scenePhase) private var scenePhase
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var progress: [WatchProgress]
 
     var body: some View {
         Color.clear
             .frame(width: 0, height: 0)
             .task(id: store.dbGeneration) { rebuild() }
-            .onChange(of: progress.count) { _, _ in rebuild() }
+            .onChange(of: signature) { _, _ in rebuild() }
+            // Leaving the app is the moment the Top Shelf is about to be seen —
+            // and the moment the last position write has landed.
+            .onChange(of: scenePhase) { _, phase in if phase != .active { rebuild() } }
+    }
+
+    /// What the Continue Watching row actually depends on.
+    ///
+    /// This used to key on `progress.count`, which changes only when a title is
+    /// added to the set. Watching more of a film you had already started does not
+    /// change the count, and neither does finishing one — so the snapshot froze at
+    /// whatever it held the first time a title was tracked: resume positions went
+    /// stale and completed films never left the shelf. Position is bucketed to the
+    /// minute so a playing film rewrites the snapshot at most once a minute rather
+    /// than on every periodic time observer tick.
+    private var signature: String {
+        progress
+            .filter { !$0.isComplete && $0.positionSeconds > 30 }
+            .prefix(8)
+            .map { "\($0.archiveID):\(Int($0.positionSeconds / 60))" }
+            .joined(separator: ",")
     }
 
     private func rebuild() {
