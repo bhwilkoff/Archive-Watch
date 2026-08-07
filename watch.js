@@ -544,11 +544,20 @@
       communityShelf('watching-now', 'Watching Now', 'Most-viewed on archive.org this month');
       communityShelf('community-favorites', 'Community Favorites', 'Most-favorited by archive.org viewers');
       communityShelf('most-discussed', 'Most Discussed', 'The films people are talking about');
-      // Hidden Gems (apps' parity row): designed art from the popularity TAIL.
-      const tail = Data.rows.slice(Math.floor(Data.rows.length * 0.4));
-      const gems = shuffle(tail.filter(r => Data.isPro(r) && Data.isFilm(r) && !used.has(r[0]))).slice(0, 16);
+      // Hidden Gems — the index's `hidden-gems` shelf, which the pipeline fills
+      // from the SAME computed flag the apps query (build_sqlite _mark_hidden_gems).
+      // This used to shuffle the popularity TAIL, which is "random obscure", not
+      // "high craft, low traffic" — no quality signal took part at all.
+      let gems = (Data.shelves['hidden-gems'] || []).map(x => Data.byID.get(x))
+        .filter(r => r && Data.isPro(r) && Data.isFilm(r) && !used.has(dedupKey(r))).slice(0, 16);
+      if (!gems.length) {
+        // Index predates the shelf: fall back to the old tail shuffle so the row
+        // degrades rather than disappearing.
+        const tail = Data.rows.slice(Math.floor(Data.rows.length * 0.4));
+        gems = shuffle(tail.filter(r => Data.isPro(r) && Data.isFilm(r) && !used.has(dedupKey(r)))).slice(0, 16);
+      }
       if (gems.length >= 6) {
-        gems.forEach(r => used.add(r[0]));
+        gems.forEach(r => used.add(dedupKey(r)));
         host.append(shelfSection('Hidden Gems', 'Lovingly restored, rarely watched', gems));
       }
       // Public Domain Day: this year's newly-free class (currentYear - 95).

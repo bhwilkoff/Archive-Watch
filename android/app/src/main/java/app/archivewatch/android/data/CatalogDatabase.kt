@@ -87,6 +87,12 @@ class CatalogDatabase private constructor(
     } catch (_: Throwable) {
         false
     }
+
+    private val hasHiddenGemColumn: Boolean = try {
+        queryRaw("PRAGMA table_info(items)") { it.getText(1) }.contains("hiddenGem")
+    } catch (_: Throwable) {
+        false
+    }
     // Standalone TV (tv-special) never appears on film surfaces — Home shelves,
     // discovery rows, Random Film (owner directive 2026-06-18: "TV shows should
     // never appear in Movies"). Surfaced only via the TV scope's TV Specials grid.
@@ -384,11 +390,29 @@ class CatalogDatabase private constructor(
         listOf(minVotes, limit),
     )
 
-    suspend fun hiddenGems(limit: Int = 20): List<CatalogItem> = items(
-        "$itemSelect WHERE i.hasRealArtwork = 1 AND i.qualityScore >= 60 AND i.popularityScore <= 40" +
-            "$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd ORDER BY i.qualityScore DESC LIMIT ?",
-        listOf(limit),
-    )
+    /** "Hidden Gems" — high craft, low traffic.
+     *
+     *  Membership is the `hiddenGem` column COMPUTED by
+     *  tools/build_sqlite.py::_mark_hidden_gems, not a predicate written here.
+     *  This shelf used to ask for `qualityScore >= 60 AND popularityScore <= 40`,
+     *  written in June against a popularityScore that ran 0-89; when _pop_score
+     *  was rescaled on 2026-06-29 so every scored item is >= 100, that could no
+     *  longer match anything and the shelf was silently empty on every platform
+     *  for five weeks. A threshold against a scale the PIPELINE owns does not
+     *  belong in a client.
+     *
+     *  Fallback for a DB predating the column: the scale-free part of the same
+     *  idea — well-rated, not famous. */
+    suspend fun hiddenGems(limit: Int = 20): List<CatalogItem> {
+        val gemAnd = if (hasHiddenGemColumn) "i.hiddenGem = 1"
+            else "i.imdbRating >= 7.0 AND i.imdbVotes BETWEEN 100 AND 5000 AND i.year IS NOT NULL"
+        return items(
+            "$itemSelect WHERE $gemAnd AND i.hasRealArtwork = 1" +
+                "$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd$verifiedAnd" +
+                " ORDER BY i.imdbRating DESC, i.imdbVotes DESC LIMIT ?",
+            listOf(limit),
+        )
+    }
 
     suspend fun topDirectors(minFilms: Int = 3, limit: Int = 4): List<String> = dbCall {
         queryRaw(

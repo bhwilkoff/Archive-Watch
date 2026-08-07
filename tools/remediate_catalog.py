@@ -87,6 +87,12 @@ _NOT_YEAR_CTX = re.compile(r"(?:720|1080|2160|480|240)p?", re.I)
 # (e.g. dipwad2_zoho_507, mary59_gmx_919) and the title is just a number.
 # These are camera-roll/test uploads with garbage auto-enriched metadata.
 _JUNK_ID = re.compile(r"_(zoho|gmx|gmail|yahoo|hotmail|outlook|aol|mail|qq|protonmail|icloud|web|live|msn)_?\d", re.I)
+# A scraped uploader id left at the head of the title ("video52967: A Snack of
+# the Show"). DELIBERATELY narrow to the literal `video<digits>:` form: a general
+# "<digits>: " rule would eat "2001: A Space Odyssey", "1896: Director Unknown"
+# and "911: the Road to Tyranny", which are real titles. Dry-run-checked against
+# the live catalog — every hit is a g4tv.com scrape, no false positives.
+_UPLOADER_ID_PREFIX = re.compile(r"^\s*video\d{3,}\s*:\s*", re.I)
 _NUMERIC_TITLE = re.compile(r"^[\d\W]{1,6}$")
 # Year-only "public domain animation" compilation reels (1941publicdomainanimation
 # titled just "1941") — legit content, useless title.
@@ -1020,6 +1026,7 @@ def sanitize_title(it):
             return True
         return False
     t = _fix_mojibake(_html.unescape(raw))
+    t = _keep_if_lettered(_UPLOADER_ID_PREFIX.sub("", t), t)   # leading scraped "videoNNNNN:" id
     t = _keep_if_lettered(_TIMECODE_TAIL.sub("", t), t)   # trailing timecode run an uploader left in
     t = _strip_format_dump(t)
     t = _strip_source_specs(t)

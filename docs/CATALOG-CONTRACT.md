@@ -100,7 +100,9 @@ CREATE TABLE items (
   qualityScore INTEGER, isSilentFilm INTEGER, rightsStatus TEXT,
   contentRating TEXT, language TEXT, network TEXT, director TEXT,
   seriesID TEXT, yearEnd INTEGER, seasonsCount INTEGER, episodesCount INTEGER,
-  isAdult INTEGER
+  isAdult INTEGER,
+  playable INTEGER,      -- bytes verified by check_liveness.py
+  hiddenGem INTEGER      -- Decision 050: "high craft, low traffic", computed
 );
 CREATE TABLE item_json (archiveID TEXT PRIMARY KEY, json TEXT);
 CREATE TABLE item_genres (archiveID TEXT, genre TEXT);
@@ -173,6 +175,7 @@ CREATE INDEX idx_episodes_series ON episodes(seriesID, position);
 |---|---|
 | `isAdult` | `1` if item JSON `isAdult` is truthy, OR any item collection (lowercased) contains an adult marker substring. Markers = `featured.json.adultCollections` lowercased (fallback list `pron, adult, erotica, sexploitation, nudism, mature-content`), with `"fav-"` excluded. Decision 012. |
 | `isSilentFilm` | `1` if item `isSilentFilm` is truthy OR `contentType == "silent-film"`. |
+| `hiddenGem` | `1` for the "Hidden Gems" shelf: `imdbRating >= 7.0`, `imdbVotes` in `[100, 5000]`, a known year, designed art, playable, home-rights-eligible, not in an Archive-suppressed collection (`deemphasize` / `loggedin` / `g4video-web`), AND `popularityScore <= ` the **45th percentile of the eligible pool, recomputed every build** (published as `meta.hiddenGemPopCut`). Decision 050. **Clients must query this column, never restate the thresholds** — the shelf was silently empty on every platform for five weeks because a client held `popularityScore <= 40` against a scale the pipeline had rescaled. |
 | `hasRealArtwork` | `1` if item `hasRealArtwork` is truthy OR `artworkSource` not in (`null`, `"archive"`). Note: `"generated"` frame-covers count as real artwork here (Decision 023); the *professional*-art distinction lives only in the client model (`hasProfessionalArtwork` excludes `"generated"`). |
 | `decade` | NOT computed here — copied from item JSON (set upstream by `remediate_catalog.py` / `build-catalog.mjs` as `floor(year/10)*10`, nulled when the year is implausible). |
 

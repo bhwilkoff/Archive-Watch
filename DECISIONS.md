@@ -2169,3 +2169,53 @@ harness can compile and exercise the SHIPPED file, since the Top Shelf is invisi
 simulator screenshot and its provider runs out-of-process. Binding rules: tvOS-DESIGN
 §15. Related: Decision 015 (the original surface), 023/044 (the art + playability gates
 a tile must pass), 027 (rights).
+
+## 050 — Shelf membership that depends on an internal score is COMPUTED in the pipeline, never restated in a client
+*Date: 2026-08-07*
+
+"Hidden Gems" membership is a `hiddenGem` column computed by
+`tools/build_sqlite.py::_mark_hidden_gems` and queried as a boolean by every
+platform (tvOS/iOS/macOS `CatalogDB`, Android `CatalogDatabase`, and the web via
+a `hidden-gems` shelf in `catalog-index.json`). The rule: external, semantic
+signals stay literal (`imdbRating >= 7.0`, `imdbVotes` in `[100, 5000]` — IMDb's
+scale means the same thing next year); our internal `popularityScore` is
+thresholded by **percentile of the live distribution, recomputed every build**
+(published as `meta.hiddenGemPopCut`). The build prints the count and warns below
+`GEM_MIN_EXPECTED`.
+
+**Why**: the shelf shipped 2026-06-01 as the client predicate `qualityScore >= 60
+AND popularityScore <= 40`, correct against the popularityScore of that day, a
+0-89 band. On 2026-06-29 Decision-041 work rescaled `_pop_score` to a single
+scale where every scored item is `100 + s*1000` (~100-4500), so `<= 40` could
+thereafter match only un-harvested items — which carry no craft signal either.
+Intersection: **zero rows, on tvOS, iOS, macOS and Android simultaneously, for
+five weeks.** Nothing failed: the SQL was valid, the columns existed, the query
+returned an empty set and each Home just omitted the row. A constant in a client
+that is only meaningful relative to a scale the PIPELINE owns is a
+silently-breaking coupling; the pipeline is the only place that can see the
+distribution, so it is the only place the threshold can live. (The web had the
+opposite failure — a *different* homegrown definition, shuffling the bottom 60%
+of the popularity list, which is "random obscure", not "high craft".)
+
+**How to apply**: a shelf whose membership depends on an internal score gets a
+computed column, not a client predicate — clients query the flag. Clients keep
+only per-USER filters (the adult toggle, hidden content types), which the
+pipeline cannot know. Keep a scale-free fallback for a DB predating the column
+(a client updated before its catalog refresh lands): express it as a percentile
+subquery, never as a fresh constant. Items with no IMDb rating cannot qualify —
+a "gem" is a claim about craft, and without a rating we would be guessing.
+`qualityScore` is deliberately NOT used: a legacy registry field on ~53% of the
+catalog with a murky definition.
+
+**Consequences**: 170 gems on the full DB, 66 in the bundled seed (so first paint
+has the row before the full DB downloads). Two data findings surfaced by the fix
+and acted on — archive.org's OWN `deemphasize` / `loggedin` collection markers
+were never read anywhere in the pipeline (442 visible items carry one; the
+`deemphasize` set is heavily adult/exploitation content the metadata filter
+misses), now honored for this curated shelf as demote-not-delete; and
+`remediate_catalog` gained a narrow `^video\d+:` title strip for g4tv scrape ids
+(15 hits, dry-run-verified to leave "2001: A Space Odyssey" and "1896: Director
+Unknown" alone). STILL OPEN, reported not fixed: honoring `deemphasize` /
+`loggedin` catalog-wide is an owner curation call (`geo_restricted` must NOT be
+swept in — it includes real Chaplin), and a wrong external match can still put a
+non-film on a film shelf (Decision 026's domain).

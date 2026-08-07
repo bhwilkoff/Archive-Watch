@@ -38,6 +38,7 @@ final class CatalogDB {
         // the next catalog refresh lands. Must be assigned before any method call
         // on self (metaInt below) — all stored properties initialized first.
         hasPlayableColumn = Self.columnExists(h, table: "items", column: "playable")
+        hasHiddenGemColumn = Self.columnExists(h, table: "items", column: "hiddenGem")
         // Fail fast if it isn't actually our schema.
         guard metaInt("itemCount") != nil else {
             sqlite3_close(h); return nil
@@ -57,6 +58,7 @@ final class CatalogDB {
     }
 
     private let hasPlayableColumn: Bool
+    private let hasHiddenGemColumn: Bool
 
     /// Restricts a surface to titles whose bytes were verified playable
     /// (tools/check_liveness.py). Applied to the most PROMINENT surfaces only —
@@ -471,12 +473,31 @@ final class CatalogDB {
     }
 
     /// "Hidden Gems" — high craft, low traffic. Home surface → home-gated.
+    ///
+    /// The membership test is the `hiddenGem` column COMPUTED by
+    /// `tools/build_sqlite.py::_mark_hidden_gems`, not a predicate written here.
+    /// This shelf previously asked for `qualityScore >= 60 AND popularityScore
+    /// <= 40`, written in June against a popularityScore that ran 0-89. When
+    /// `_pop_score` was rescaled on 2026-06-29 so every scored item is >= 100,
+    /// that predicate could no longer match anything, and the shelf was silently
+    /// empty on every platform for five weeks — the query stayed valid, so
+    /// nothing failed, it just returned zero rows. A threshold against a scale
+    /// the PIPELINE owns does not belong in a client; the pipeline recomputes the
+    /// cut per build (percentile) and hands us a boolean.
+    ///
+    /// Fallback for a DB predating the column (an app updated before its catalog
+    /// refresh lands): the scale-free part of the same idea — well-rated, not
+    /// famous. Deliberately omits the popularity condition rather than
+    /// re-inventing a constant.
     func hiddenGems(limit: Int = 20) -> [Catalog.Item] {
-        items("""
+        let gemAnd = hasHiddenGemColumn
+            ? "i.hiddenGem = 1"
+            : "i.imdbRating >= 7.0 AND i.imdbVotes BETWEEN 100 AND 5000 AND i.year IS NOT NULL"
+        return items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
-            WHERE i.hasRealArtwork = 1 AND i.qualityScore >= 60
-              AND i.popularityScore <= 40 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd)
-            ORDER BY i.qualityScore DESC LIMIT \(limit)
+            WHERE \(gemAnd) AND i.hasRealArtwork = 1
+              \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd)
+            ORDER BY i.imdbRating DESC, i.imdbVotes DESC LIMIT \(limit)
         """)
     }
 

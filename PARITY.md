@@ -68,7 +68,7 @@ macOS) since they share the Swift Core.
 | Curated + dynamic shelves | ✅ | ✅ horizontal rows, deduped | ✅ shelves (Top Rated / Watching Now / Hidden Gems / Community Favorites / Most Discussed) | ✅ scroll-snap rails | ✅ `LazyRow`s | `featured.json` shared |
 | Category tiles | ✅ | ✅ tile row → filtered grid | ✅ tile row → filtered grid | ✅ accent tiles | ✅ tile row → filtered grid | accent colors shared; count-gated ≥30 |
 | Decade tiles | ✅ | ✅ era tiles + counts | ✅ era tiles + counts | ✅ era tiles | ✅ era tiles | |
-| Hidden Gems shelf | ✅ | ✅ | ✅ | ✅ | ✅ | shared query |
+| Hidden Gems shelf | ✅ | ✅ | ✅ | ✅ | ✅ | **shared computed `hiddenGem` column** (Decision 050) — all five query the pipeline's flag, none restates a threshold. Was silently EMPTY on all four apps 2026-06-29→08-07 (client constant vs a rescaled popularityScore); web had a different, weaker definition (popularity-tail shuffle). |
 | Top Rated shelf (IMDb) + rating sort in Browse | ✅ | ✅ | ✅ shelf + Browse sort (`CatalogDB.Sort`) | ⏳ (index lacks rating column) | ✅ | votes floor ≥1,000 |
 | Community shelves (Watching Now / Favorites / Most Discussed) | ✅ | ✅ | ✅ | ✅ | ✅ | archive.org signals; vote-floored ≥1,000 |
 | Detail community (stats + genuine reviews) | ✅ | ✅ | ✅ | ✅ | ✅ | reviews filtered in the pipeline (`comment_fit.py`), baked into the catalog |

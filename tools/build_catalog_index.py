@@ -167,6 +167,13 @@ def main():
         if members:
             shelves[sid] = [aid for _, aid in sorted(members, reverse=True)[:60]]
 
+    # Hidden Gems — read from the BUILT DB's computed flag so the web uses the
+    # SAME membership as the apps. The web previously rendered its own "Hidden
+    # Gems" by shuffling the popularity tail, which is "random obscure", not
+    # "high craft, low traffic": no quality signal took part at all.
+    if (gems := _hidden_gem_ids()):
+        shelves["hidden-gems"] = gems
+
     collections = {
         cid: [aid for _, _, aid in sorted(members, reverse=True)[:120]]
         for cid, members in sorted(collection_members.items())
@@ -263,13 +270,7 @@ def _signal_sql(where, order):
 
 def _topshelf_rows(pd_year):
     """(row id, display title, SQL, min items) in priority order. `pd_year` is the
-    film year that entered the US public domain most recently (current year - 95).
-
-    NOT here: a "Hidden Gems" row. The app's definition (qualityScore >= 60 AND
-    popularityScore <= 40) matches ZERO rows in the live DB — every item scoring
-    >= 60 on quality has popularity >= 226 — so it can't fill a row. That is a
-    real bug in CatalogDB.hiddenGems (Home's shelf is empty on every platform);
-    it needs an editorial call on the threshold, not a divergent copy here."""
+    film year that entered the US public domain most recently (current year - 95)."""
     votes = "COALESCE(i.imdbVotes,0) >= 1000"
     return [
         # Curated, so it leads and is allowed to be short — only 3 of the 7 picks
@@ -283,6 +284,9 @@ def _topshelf_rows(pd_year):
          _signal_sql(f"COALESCE(i.views30d,0) > 0 AND {votes}", "i.views30d DESC"), MIN_ROW),
         ("community-favorites", "Community Favorites",
          _signal_sql(f"COALESCE(i.numFavorites,0) > 0 AND {votes}", "i.numFavorites DESC"), MIN_ROW),
+        # The build-time flag, not a threshold restated here (see _mark_hidden_gems).
+        ("hidden-gems", "Hidden Gems",
+         _signal_sql("i.hiddenGem = 1", "i.imdbRating DESC, i.imdbVotes DESC"), MIN_ROW),
         ("public-domain-day", f"Public Domain Day — {pd_year}",
          _signal_sql(f"i.year = {pd_year}", "i.popularityScore DESC"), MIN_ROW),
         ("film-noir", "Film Noir", _shelf_sql(["film-noir"]), MIN_ROW),
@@ -298,6 +302,30 @@ def _topshelf_rows(pd_year):
         ("nasa", "From the NASA Archive", _shelf_sql(["nasa"]), MIN_ROW),
         ("newsreels", "Newsreels", _shelf_sql(["newsreels"]), MIN_ROW),
     ]
+
+
+def _hidden_gem_ids(limit: int = 60) -> list:
+    """archiveIDs flagged `hiddenGem` by build_sqlite (which runs before this).
+
+    ONE definition of the shelf, in the pipeline, consumed by every platform —
+    the arrangement this shelf lacked when it silently emptied everywhere at
+    once. Returns [] if the DB isn't built yet; the caller then omits the shelf
+    and the viewer falls back."""
+    if not CATALOG_DB.exists():
+        return []
+    import sqlite3
+    db = sqlite3.connect(CATALOG_DB)
+    try:
+        db.execute("SELECT hiddenGem FROM items LIMIT 1")
+    except sqlite3.OperationalError:
+        db.close()
+        return []                                   # DB predates the column
+    rows = [r[0] for r in db.execute(
+        "SELECT archiveID FROM items WHERE hiddenGem = 1 "
+        "ORDER BY imdbRating DESC, imdbVotes DESC LIMIT ?", (limit,))]
+    db.close()
+    print(f"[index] hidden-gems shelf: {len(rows)} items", flush=True)
+    return rows
 
 
 def write_topshelf_feed() -> None:
@@ -332,7 +360,13 @@ def write_topshelf_feed() -> None:
 
     rows = []
     for row_id, title, sql, minimum in _topshelf_rows(pd_year):
-        items = pool(sql)
+        try:
+            items = pool(sql)
+        except sqlite3.OperationalError as e:
+            # A row whose SQL references a column this DB predates must not take
+            # the whole feed down with it.
+            print(f"[topshelf] row '{row_id}' skipped: {e}", flush=True)
+            continue
         if len(items) >= minimum:
             rows.append({"id": row_id, "title": title, "items": items})
         else:

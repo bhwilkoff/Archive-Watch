@@ -357,6 +357,111 @@ def _pop_score(it):
     return 100 + int(round(s * 1000))
 
 
+# --- "Hidden Gems": high craft, low traffic ------------------------------------
+#
+# COMPUTED HERE, not in the clients, because of exactly how this broke. The shelf
+# shipped 2026-06-01 as the client predicate `qualityScore >= 60 AND
+# popularityScore <= 40`, written against the popularityScore of the day, a 0-89
+# band. On 2026-06-29 `_pop_score` was rescaled to a single scale where every
+# SCORED item is `100 + s*1000` (~100-4500) — so `<= 40` could thereafter match
+# only un-harvested items, which have no craft signal either. Intersection: ZERO.
+# The Hidden Gems row was silently empty on tvOS, iOS, macOS and Android for five
+# weeks, and nothing failed: the query was valid, the column existed, the app
+# rendered an empty shelf.
+#
+# The lesson is about WHICH SCALE OWNS THE CONSTANT. `imdbRating >= 7.0` and a
+# vote band are semantic and stable — IMDb's 0-10 means the same thing next year,
+# and vote counts are an absolute measure of fame. `popularityScore` is OUR
+# internal, unstable score. So the external signals stay literal and the internal
+# one is thresholded by PERCENTILE of the live distribution, recomputed each
+# build. A future rescale of `_pop_score` now moves the cut automatically instead
+# of silently emptying a shelf.
+#
+# Items with no IMDb rating can't qualify: a "gem" is a claim about craft, and
+# without a rating we would only be guessing. (qualityScore, the old signal, is a
+# legacy registry field present on ~53% of the catalog with a murky definition —
+# deliberately not used.)
+GEM_MIN_RATING = 7.0        # comfortably above the catalog median (6.1)
+GEM_MIN_VOTES = 100         # enough votes that the rating is not noise
+GEM_MAX_VOTES = 5000        # ...but not famous — the famous ones are "Top Rated"
+GEM_POP_PERCENTILE = 45     # "low traffic", relative to the eligible pool
+GEM_MIN_EXPECTED = 25       # below this, something is wrong — say so, loudly
+
+# archive.org's OWN suppression signals, which we had never read. `deemphasize`
+# is the Archive explicitly asking that an item not be surfaced, and it is a
+# strong adult/exploitation marker the metadata filter misses (the visible set
+# includes "The Naked Witch", "Eveready Harton in Buried Treasure", assorted
+# stripper reels). `loggedin` items need an archive.org account, so they cannot
+# play for our users at all. Honored for the CURATED shelf only — the items stay
+# reachable in Browse/Search, the same demote-don't-delete stance as
+# deprioritizedSeries. NOT `geo_restricted`: that includes real Chaplin, which
+# plays fine in most regions.
+#
+# `g4video-web` is a g4tv.com web-video scrape — unambiguously not film. Its
+# items reach a film shelf only via a WRONG external match (one carries King
+# Vidor's "The Crowd" credits and 1928 on a games-show clip), so a named
+# non-film collection is the honest guard; the match itself is Decision 026's
+# problem, not this shelf's.
+GEM_SUPPRESSED_COLLECTIONS = {"deemphasize", "loggedin", "g4video-web"}
+
+
+def _gem_suppressed(it):
+    return bool(GEM_SUPPRESSED_COLLECTIONS &
+                {str(c).lower() for c in (it.get("collections") or [])})
+
+
+def _mark_hidden_gems(rows, col, suppressed=frozenset()):
+    """Set the hiddenGem flag on `rows` (the tuples about to be inserted).
+
+    `col` maps a column name to its index in the row tuple; `suppressed` holds
+    archiveIDs the Archive itself asks us not to feature. Only catalog-wide,
+    scale-dependent conditions belong in the flag; per-USER filters (the adult
+    toggle, hidden content types) stay in the client queries, since the pipeline
+    cannot know them.
+    """
+    def eligible(r):
+        # The population a Home shelf actually draws from — used as the base for
+        # the percentile so the cut means "low traffic among comparable films",
+        # not "low traffic among 5,000 un-harvested stubs".
+        return (r[col["archiveID"]] not in suppressed
+                and r[col["playable"]] == 1 and r[col["hasRealArtwork"]] == 1
+                and (r[col["artworkSource"]] or "") not in ("", "archive", "generated")
+                and r[col["isAdult"]] == 0
+                and (r[col["contentType"]] or "") not in
+                    ("tv-series", "tv-special", "tv-episode", "commercial")
+                and (r[col["rightsStatus"]] in ("public_domain", "creative_commons")
+                     or (r[col["year"]] is not None and 1888 <= r[col["year"]] <= 1977)))
+
+    pool = [r for r in rows if eligible(r)]
+    pops = sorted(r[col["popularityScore"]] or 0 for r in pool)
+    if not pops:
+        print("[gems] WARNING: no eligible items — hiddenGem left unset", flush=True)
+        return rows, 0
+    cut = pops[min(len(pops) - 1, int(len(pops) * GEM_POP_PERCENTILE / 100))]
+
+    n = 0
+    out = []
+    for r in rows:
+        gem = 0
+        rating, votes = r[col["imdbRating"]], r[col["imdbVotes"]] or 0
+        if (eligible(r) and r[col["year"]] is not None       # a no-year row is a data artifact
+                and rating is not None and rating >= GEM_MIN_RATING
+                and GEM_MIN_VOTES <= votes <= GEM_MAX_VOTES
+                and (r[col["popularityScore"]] or 0) <= cut):
+            gem = 1
+            n += 1
+        out.append(r[:col["hiddenGem"]] + (gem,) + r[col["hiddenGem"] + 1:])
+
+    print(f"[gems] {n} hidden gems (pool {len(pool)}, "
+          f"P{GEM_POP_PERCENTILE} popularity cut {cut})", flush=True)
+    if n < GEM_MIN_EXPECTED:
+        # The alarm that did not exist in June. An empty curated shelf is invisible
+        # in the app and invisible in the build log unless something says so.
+        print(f"[gems] WARNING: only {n} hidden gems (expected >= {GEM_MIN_EXPECTED}). "
+              f"Has _pop_score been rescaled, or enrichment regressed?", flush=True)
+    return out, cut
+
+
 def _same_film(a, b):
     """True when two same-titled copies are CONFIDENTLY the same film. Color and
     year must be compatible (B&W vs color = different version; years apart >2 =
@@ -533,7 +638,10 @@ def create_schema(db):
       -- the JSON, so NO SQL query could filter on whether a title plays -- which
       -- is how dead items reached the home screen. 1 = the bytes were verified
       -- by check_liveness's ranged probe; 0 = has a URL but is unverified.
-      playable INTEGER
+      playable INTEGER,
+      -- "Hidden Gems": high craft, low traffic. COMPUTED here (like isAdult)
+      -- rather than as a client predicate -- see _mark_hidden_gems for why.
+      hiddenGem INTEGER
     );
     -- Full item as JSON in a side table so the lean `items` table stays small
     -- for scalar WHERE/ORDER scans; the app JOINs this only for the handful of
@@ -611,6 +719,7 @@ def _playable_episode_aids():
 
 def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
     item_rows, json_rows, genre_rows, coll_rows, shelf_rows, fts_rows = [], [], [], [], [], []
+    gem_suppressed = set()      # archive.org asked us not to feature these
     kw_rows, studio_rows = [], []   # metadata-expansion facets (Decision 046)
     shelf_pos = _rotated_shelf_positions(items, rotate_seed)
     for it in items:
@@ -639,7 +748,10 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
             it.get("numFavorites"), it.get("numReviews"), it.get("avgRating"),
             it.get("views30d"),
             1 if it.get("playbackVerified") is True else 0,
+            0,                      # hiddenGem — filled by _mark_hidden_gems below
         ))
+        if _gem_suppressed(it):
+            gem_suppressed.add(aid)
         json_rows.append((aid, json.dumps(it, ensure_ascii=False, separators=(",", ":"))))
         for g in (it.get("genres") or []):
             if g:
@@ -678,7 +790,23 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
         ]).strip()
         fts_rows.append((aid, it.get("title") or "", names, extra))
 
+    # Column order must match the `items` tuple built above (and the CREATE TABLE).
+    _ITEM_COLS = ["archiveID", "title", "year", "decade", "runtimeSeconds", "contentType",
+                  "posterURL", "hasRealArtwork", "artworkSource", "imdbID", "imdbRating",
+                  "imdbVotes", "popularityScore", "qualityScore", "isSilentFilm",
+                  "rightsStatus", "contentRating", "language", "network", "director",
+                  "seriesID", "yearEnd", "seasonsCount", "episodesCount", "isAdult",
+                  "numFavorites", "numReviews", "avgRating", "views30d", "playable",
+                  "hiddenGem"]
+    col = {name: i for i, name in enumerate(_ITEM_COLS)}
+    assert len(item_rows) == 0 or len(item_rows[0]) == len(_ITEM_COLS), \
+        f"items tuple has {len(item_rows[0])} fields, _ITEM_COLS has {len(_ITEM_COLS)}"
+    item_rows, gem_cut = _mark_hidden_gems(item_rows, col, gem_suppressed)
+
     _insert_many(db, "items", item_rows)
+    # Published so the cut is inspectable after the fact — the June regression was
+    # invisible partly because nothing recorded what the threshold had become.
+    db.execute("INSERT OR REPLACE INTO meta VALUES ('hiddenGemPopCut', ?)", (str(gem_cut),))
     db.executemany("INSERT OR IGNORE INTO item_json VALUES (?,?)", json_rows)
     db.executemany("INSERT INTO item_genres VALUES (?,?)", genre_rows)
     db.executemany("INSERT INTO item_collections VALUES (?,?)", coll_rows)
@@ -816,6 +944,7 @@ def populate_series(db, materialize_episode_items=True):
                     # Episodes aren't byte-probed (check_liveness walks catalog
                     # items, not series spines); their URL comes from the spine.
                     0,
+                    0,      # hiddenGem — a gem is a film claim; episodes never qualify
                 ))
                 ep_json_rows.append((aid, json.dumps(it, ensure_ascii=False, separators=(",", ":"))))
                 # extra = series name + a synopsis snippet, so the series name finds the episode.
@@ -850,6 +979,7 @@ def create_indexes(db):
     CREATE INDEX idx_studio_studio  ON item_studios(studio);
     CREATE INDEX idx_items_director ON items(director);
     CREATE INDEX idx_items_quality  ON items(qualityScore);
+    CREATE INDEX idx_items_gem      ON items(hiddenGem, imdbRating DESC);
     CREATE INDEX idx_items_reviews  ON items(numReviews DESC);
     CREATE INDEX idx_items_favs     ON items(numFavorites DESC);
     CREATE INDEX idx_items_views30d ON items(views30d DESC);
