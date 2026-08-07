@@ -301,53 +301,71 @@ measured on hardware. Then log it as its own decision with a budget.
 
 ## §OWNER — everything only Ben can do
 
-Grouped by when it is needed. Nothing here is blocked on engineering unless noted.
+**Status 2026-08-07.** Engineering is complete for every platform that has a
+self-serve door. Nothing below is waiting on code; each item needs an account,
+a physical device, money, or a business decision.
 
-### Accounts & fees (total cash outlay: **$5** + hardware)
+### Step 1 — Amazon Fire TV (do this first: free, no hardware needed to submit)
 
-| # | Action | Cost | Needed for |
-|---|---|---|---|
-| ~~O1~~ ✅ | ~~Register in the **Google Cast SDK Developer Console**, pay the **$5**, create an app ID~~ — done 2026-08-05, receiver `58AF34C3` | ~~$5~~ | Cast (C1) |
-| ~~O1b~~ ✅ | ~~Publish the receiver~~ — done 2026-08-05; now launches on ANY Cast device, so no device registration is needed | ~~$0~~ | Cast (C5, C6) |
-| ~~O2~~ ✅ | ~~Play Console → Form factors → **Add Android TV**; accept the TV policy~~ — done 2026-08-05 (opt-in shows as locked/complete) | ~~$0~~ | Google TV (A21) |
-| ~~O2b~~ ✅ | ~~Upload the Android TV screenshots + TV banner~~ — DONE 2026-08-07 **via the Play Developer API**, not the console: 6 tvScreenshots (owner, 08-05) + the 1280×720 `tvBanner` + an "ON YOUR TV — ANDROID TV AND GOOGLE TV" section in the listing. The console's asset uploader is un-automatable, but `edits().images().upload()` is not — that is what unblocked it. | $0 | Google TV |
-| O3 | Create a free **Amazon Developer account** | $0 | Fire TV (A27) |
-| O4 | Create a free **LG Seller Lounge account** (individual, 18+) + a separate **LG Developer account** for Developer Mode | $0 | webOS (L4, L5) |
-| O5 | Create a free **Samsung TV Seller Office account** | $0 | Tizen (S3) |
-
-### Blocked right now — free up disk
-
-| # | Action | Why |
+| # | Action | Cost |
 |---|---|---|
-| ~~O0~~ ✅ | ~~Free disk space on the dev Mac~~ | RESOLVED — 83 GB free as of 2026-08-07. The emulator boots (19 s cold), and the pass it blocked has now run: `verify_tv_focus.sh` **12/12** and a fresh set of 1920×1080 store screenshots. |
+| O3 | Create a free **Amazon Developer account** | $0 |
+| O16 | Upload `app-amazon-release.apk` (staged, 1.3.314/vc29), target the **Fire TV** form factors, attach the 1920×1080 screenshots + description, submit | $0 |
 
-### Hardware (certification expects physical devices — emulators do not satisfy)
+Review is ~3–5 business days. This is the highest-value next move: the build is
+signed, zero-GMS-verified and TV-G6-verified, and Amazon does not gate
+submission on owning the device.
 
-| # | Action | Approx. cost |
+### Step 2 — Verify Google Play has nothing outstanding (5 minutes)
+
+Play Console → *Grow → Store presence → Main store listing*, and the **Android
+TV** form-factor panel. Everything it used to ask for is now uploaded via the
+API (6 TV screenshots, the 1280×720 TV banner, an "ON YOUR TV" description
+section), and production is live at 1.3.314 / vc29. Confirm the TV panel shows
+no remaining requirement and that the TV app-quality review is queued.
+
+**Also re-check the TV submission you made on 2026-08-05.** Play's API shows the
+previous live production release was versionCode **10** (1.3.251) and that
+nothing above vc13 ever existed — so that submission is not reflected in the
+track history. Worth confirming it actually landed.
+
+### Step 3 — LG webOS (individuals can publish globally — do before Samsung)
+
+| # | Action | Cost |
 |---|---|---|
-| O6 | An **Android TV / Google TV** device | ~$30–100 |
-| O7 | A **Fire TV Stick** | ~$30 |
-| O8 | Access to an **LG TV** (Developer Mode app from the LG Content Store) | — |
-| O9 | Access to a **Samsung TV** (Developer Mode, keyed to the TV's IP) | — |
-| O10 | A **Cast device** registered in the console for testing | — |
-| O11 | *(Roku only, if pursued)* a Roku device | ~$30–100 |
+| O4 | Create a free **LG Seller Lounge** account (individual, 18+) **and** a separate LG Developer account for Developer Mode | $0 |
+| O8 | Get access to an **LG TV**; install the Developer Mode app from the LG Content Store | — |
+| O17 | Side-load `tv/dist/org.archivewatch.app_1.3.314_all.ipk` (`ares-setup-device`, `ares-install`), spot-check per `docs/webos-submission.md` §5, capture the **1280×720 screenshots on the panel**, then submit with the UX scenario + self-checklist already drafted there | $0 |
 
-### Decisions only you can make
+The screenshots must come from the TV (or a ≥1920-wide display): the layout
+targets a 1920 CSS-px viewport, and below that the top nav and category rail
+clip. Do not force 1920 with a CSS transform — it breaks lazy-load.
 
-| # | Decision | Why it's yours |
+### Step 4 — Samsung Tizen (needs a decision first)
+
+| # | Action | Cost |
 |---|---|---|
-| O12 | **Samsung: accept US-only distribution, or pursue Partner Seller?** Partner requires signing an offline contract with Samsung HQ or a local subsidiary — i.e. a business entity. | Business/legal, not technical |
-| O13 | **Fund Roku?** ~2–4 months of work, 0% reuse, for the largest US CTV audience — with an accepted playback-resilience regression (R-c). | Budget + risk acceptance |
-| O14 | **Aggregator inquiries** (Titan OS, VIDAA, Zeasn/Foxxum) — pricing is unpublished; these are partnership conversations. | Requires you to negotiate |
+| O12 | **Decide:** accept **US-only** distribution on the default Public Seller tier, or pursue Partner Seller (an offline contract with Samsung HQ — i.e. a business entity) | — |
+| O5 | Create a free **Samsung TV Seller Office** account | $0 |
+| O5b | Install **Tizen Studio CLI** and create a signing certificate — **KEEP THAT CERTIFICATE**, every future update must be signed with the same one | $0 |
+| O9 | Access to a **Samsung TV** (Developer Mode is keyed to the TV's IP) | — |
+| O18 | `bash tv/build-tv-packages.sh tizen` produces the payload; sign it into a `.wgt`, then submit to Seller Office (manual QA, ~1–2 weeks) | $0 |
 
-### Submission steps (per store, when the build is ready)
+### Step 5 — Device QA (the things no emulator can prove)
 
-| # | Store | Steps |
-|---|---|---|
-| O15 | **Google Play (TV)** | Add the TV form factor, upload the TV banner + ≥1 TV screenshot, mention "Android TV" in the description, submit for the **separate TV app-quality review** |
-| O16 | **Amazon Appstore** | Upload APK/AAB + assets, target Fire TV form factors, submit (≈3–5 business days) |
-| O17 | **LG Seller Lounge** | Upload `.ipk`, 1280×720 screenshots, description, rating, **UX scenario + self-checklist** (mandatory — thin submissions are auto-rejected), submit (≈5–10 business days) |
-| O18 | **Samsung Seller Office** | Upload the signed `.wgt` (**keep the certificate for future updates**), metadata, rating, submit to manual QA (≈1–2 weeks) |
+| # | Check |
+|---|---|
+| O6 | An **Android TV / Google TV** device (~$30–100) — real remote, real HDMI |
+| O7 | A **Fire TV Stick** (~$30) — confirm the zero-GMS build runs on Fire OS |
+| O10 | A **Cast** device — the receiver is published, so any Chromecast works |
+| O20 | **AirPlay on a real iPhone + Apple TV.** The Simulator exposes no AirPlay routes, so this path has never been exercised on hardware — and it was silently broken until 2026-08-05 |
+
+### Standing decisions
+
+| # | Decision |
+|---|---|
+| O13 | **Fund Roku?** ~2–4 months, 0% code reuse, for the largest US CTV audience — and its `Video` node owns networking, so the Decision 021/031/034 playback resilience cannot be reproduced. A real quality regression to accept knowingly. |
+| O14 | **Aggregator inquiries** (Titan OS, VIDAA, Zeasn/Foxxum) — unpublished pricing, partnership conversations. Before starting one, note the 1920-viewport assumption above: webOS/Tizen present 1920, these are unverified. |
 
 ### Exact steps for what is sitting ready right now
 
