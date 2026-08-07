@@ -310,7 +310,7 @@ Grouped by when it is needed. Nothing here is blocked on engineering unless note
 | ~~O1~~ ✅ | ~~Register in the **Google Cast SDK Developer Console**, pay the **$5**, create an app ID~~ — done 2026-08-05, receiver `58AF34C3` | ~~$5~~ | Cast (C1) |
 | ~~O1b~~ ✅ | ~~Publish the receiver~~ — done 2026-08-05; now launches on ANY Cast device, so no device registration is needed | ~~$0~~ | Cast (C5, C6) |
 | ~~O2~~ ✅ | ~~Play Console → Form factors → **Add Android TV**; accept the TV policy~~ — done 2026-08-05 (opt-in shows as locked/complete) | ~~$0~~ | Google TV (A21) |
-| **O2b** | **Upload the Android TV screenshots + TV banner** — the ONE remaining Play gate ("Upload Android TV screenshots for all store listings") | $0 | Google TV |
+| ~~O2b~~ ✅ | ~~Upload the Android TV screenshots + TV banner~~ — DONE 2026-08-07 **via the Play Developer API**, not the console: 6 tvScreenshots (owner, 08-05) + the 1280×720 `tvBanner` + an "ON YOUR TV — ANDROID TV AND GOOGLE TV" section in the listing. The console's asset uploader is un-automatable, but `edits().images().upload()` is not — that is what unblocked it. | $0 | Google TV |
 | O3 | Create a free **Amazon Developer account** | $0 | Fire TV (A27) |
 | O4 | Create a free **LG Seller Lounge account** (individual, 18+) + a separate **LG Developer account** for Developer Mode | $0 | webOS (L4, L5) |
 | O5 | Create a free **Samsung TV Seller Office account** | $0 | Tizen (S3) |
@@ -319,7 +319,7 @@ Grouped by when it is needed. Nothing here is blocked on engineering unless note
 
 | # | Action | Why |
 |---|---|---|
-| **O0** | **Free disk space on the dev Mac** (~9 GB free at 2026-08-03) | The Android TV emulator (A19) cannot boot — QEMU hangs before opening its console ports. This is the same disk-pressure issue logged 2026-06-26. Everything else in Phase 2 is verified by build + static audit; the emulator pass needs room. |
+| ~~O0~~ ✅ | ~~Free disk space on the dev Mac~~ | RESOLVED — 83 GB free as of 2026-08-07. The emulator boots (19 s cold), and the pass it blocked has now run: `verify_tv_focus.sh` **12/12** and a fresh set of 1920×1080 store screenshots. |
 
 ### Hardware (certification expects physical devices — emulators do not satisfy)
 
@@ -349,33 +349,38 @@ Grouped by when it is needed. Nothing here is blocked on engineering unless note
 | O17 | **LG Seller Lounge** | Upload `.ipk`, 1280×720 screenshots, description, rating, **UX scenario + self-checklist** (mandatory — thin submissions are auto-rejected), submit (≈5–10 business days) |
 | O18 | **Samsung Seller Office** | Upload the signed `.wgt` (**keep the certificate for future updates**), metadata, rating, submit to manual QA (≈1–2 weeks) |
 
-### Exact steps for the two things sitting ready right now
+### Exact steps for what is sitting ready right now
 
-**1. Play — upload the TV assets (5 minutes).** Everything is generated; only
-the upload is left. Play Console → *Grow users → Store presence → Main store
-listing*, scroll to the graphics section:
+Everything below is built, verified, and staged at **1.3.314 / versionCode 29**
+(2026-08-07). Regenerate any of it with the commands shown.
 
-| Field | File | Note |
+| Artifact | Path | Rebuild with |
 |---|---|---|
-| **Android TV screenshots** | `~/Desktop/ArchiveWatch-TV-Screenshots/01-home … 06-surprise.png` | 1920×1080; Play accepts 1–8 |
-| **TV banner** | `~/Desktop/ArchiveWatch-TV-Screenshots/00-tv-banner-320x180.png` | 320×180, app name baked in (TV-LB/BN) |
+| Fire TV APK (signed, zero-GMS, TV-G6) | `android/app/build/outputs/apk/amazon/release/app-amazon-release.apk` | `cd android && ./gradlew assembleAmazonRelease` |
+| LG webOS package | `tv/dist/org.archivewatch.app_1.3.314_all.ipk` | `bash tv/build-tv-packages.sh webos` |
+| Samsung Tizen payload (unsigned — needs your cert) | `tv/tizen/app/` | `bash tv/build-tv-packages.sh tizen` |
+| 1920×1080 store screenshots ×6 | `~/Desktop/ArchiveWatch-TV-Screenshots/` | `bash tools/tv_screenshots.sh` (emulator booted) |
+| Store TV banner **1280×720** | `assets/tv/tv-banner-1280x720.png` | `python3 tools/make_tv_banner.py` |
+| In-APK leanback banner **320×180** | `android/app/src/main/res/drawable-xhdpi/tv_banner.png` | same command (renders both) |
 
-Then *Save*, and mention "Android TV" in the description. Regenerate the shots
-any time with `./tools/tv_screenshots.sh` (asserts the 1920×1080 the stores
-require — they reject on dimensions).
+**⚠️ The two "TV banners" are different assets and this doc previously conflated
+them.** Play's STORE `tvBanner` field is **1280×720** — uploading the 320×180
+returns `Invalid dimensions - expected width: [1280], expected height: [720]`.
+The 320×180 is the in-APK `android:banner` the launcher draws (TV-BN).
+`tools/make_tv_banner.py` renders both from the photographic master so they can
+never drift apart again.
 
-*Why this one is yours:* the Play Console asset uploader offers no file input
-until its button is clicked, and clicking opens a **native OS file dialog** that
-browser automation cannot see or drive. The page also stopped responding to the
-extension entirely during the attempt. It is a genuine tooling boundary, not a
-missing permission.
+**LG 1280×720 screenshots — still yours, and here is the precise reason.** The
+web-TV layout targets a **1920 CSS-px viewport** (webOS and Tizen both present
+1920 regardless of panel resolution). Captured below that, the top nav overflows
+on the right and the category rail clips — verified 2026-08-07 at a 1456 px
+viewport. So a faithful LG capture needs either a ≥1920-wide display or the TV
+itself during side-load. Do NOT force 1920 with a CSS transform: it breaks
+lazy-load geometry (70 of 363 posters failed to resolve when that was tried).
 
-**2. LG — the `.ipk` exists.** `tv/dist/org.archivewatch.app_<version>_all.ipk`,
-rebuilt with `./tv/build-tv-packages.sh webos`. Remaining: create the Seller
-Lounge account (L4), enable Developer Mode on an LG TV and side-load
-(`ares-setup-device`, `ares-install`), spot-check per
-`docs/webos-submission.md` §5 step 3b, then submit with the UX scenario and
-self-checklist already drafted there.
+*Related risk worth knowing before the aggregators (O14):* because the layout
+assumes 1920, any platform that reports a narrower CSS viewport would clip the
+same way. webOS/Tizen are safe; VIDAA / Titan OS / Zeasn are unverified.
 
 ### Standing rights obligation (applies to every platform)
 

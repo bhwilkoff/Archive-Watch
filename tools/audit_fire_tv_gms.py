@@ -107,15 +107,62 @@ def check_sources() -> list[str]:
     return hits
 
 
+def mapping_for(target: Path) -> Path | None:
+    """The R8 mapping for a build output, if that variant was minified.
+
+    Release builds run R8 with `isMinifyEnabled = true`, which RENAMES library
+    classes — `androidx.mediarouter.app.MediaRouteButton` becomes `x62`. A raw
+    dex substring search therefore reports a class as ABSENT when it is merely
+    renamed, and this audit false-FAILED its own negative control the first time
+    it was pointed at a release artifact (it had only ever seen debug builds,
+    where nothing is renamed). Worse in the other direction: a renamed GMS class
+    would slip past the amazon check as a false PASS. The mapping file records
+    every ORIGINAL name verbatim, so it is the reliable index for a minified
+    artifact.
+
+    android/app/build/outputs/{bundle/googleRelease/x.aab, apk/google/release/…}
+      → android/app/build/outputs/mapping/googleRelease/mapping.txt
+    """
+    parts = target.parts
+    if "outputs" not in parts:
+        return None
+    base = Path(*parts[: parts.index("outputs") + 1])
+    variant = target.parent.name                      # e.g. googleRelease
+    cands = [base / "mapping" / variant / "mapping.txt"]
+    # apk/google/release/… → the variant is the two path segments joined
+    if len(parts) >= 3 and target.parent.name in ("release", "debug"):
+        flavor = target.parent.parent.name
+        cands.append(base / "mapping" / f"{flavor}{target.parent.name.capitalize()}"
+                     / "mapping.txt")
+    return next((c for c in cands if c.exists()), None)
+
+
 def check_present(target: Path, expected: list[str]) -> list[str]:
-    """Inverse of check_artifact: return the expected markers that are ABSENT."""
+    """Inverse of check_artifact: return the expected markers that are ABSENT.
+
+    Searches the dex AND, when the variant was minified, the R8 mapping's
+    original names — otherwise renaming reads as removal (see mapping_for)."""
     zf = zipfile.ZipFile(target)
     blob = b"".join(zf.read(n) for n in zf.namelist() if n.endswith(".dex"))
-    return [e for e in expected if e.encode() not in blob]
+    mapping = mapping_for(target)
+    mtext = mapping.read_text(errors="ignore") if mapping else ""
+    missing = []
+    for e in expected:
+        if e.encode() in blob:
+            continue
+        # Mapping records dotted original names ("androidx.mediarouter.app.X -> a:").
+        if mtext and e.replace("/", ".") in mtext:
+            continue
+        missing.append(e)
+    return missing
 
 
 def check_artifact(target: Path) -> list[str]:
-    """Compiled output — catches a TRANSITIVE pull no coordinate names."""
+    """Compiled output — catches a TRANSITIVE pull no coordinate names.
+
+    Checks the R8 mapping too when the variant was minified: a GMS class that
+    R8 renamed would otherwise pass this audit while still shipping on Fire OS.
+    """
     zf = zipfile.ZipFile(target)
     found = set()
     for name in zf.namelist():
@@ -126,6 +173,12 @@ def check_artifact(target: Path) -> list[str]:
             # DEX stores type descriptors as Lcom/google/...; a plain substring
             # search over the raw dex is enough to detect presence.
             if prefix.encode() in blob:
+                found.add(prefix)
+    mapping = mapping_for(target)
+    if mapping:
+        mtext = mapping.read_text(errors="ignore")
+        for prefix in GMS_PREFIXES:
+            if prefix.replace("/", ".") in mtext:
                 found.add(prefix)
     return sorted(found)
 
