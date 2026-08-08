@@ -133,6 +133,13 @@ private struct PlayerSurface: View {
     @State private var captionedLoader: CaptionedHLSLoader?   // Part (a): Config C HLS
     @State private var statusObs: NSKeyValueObservation?
     @State private var didFallback = false
+    // AirPlay. The `.floating` HUD below carries a route button, but every path
+    // here builds a CUSTOM-SCHEME resource-loader asset, and Apple does not
+    // support video AirPlay for those (see AirPlayRouting) — so choosing a route
+    // failed on every title, exactly as it did on iOS before this was fixed
+    // there. macOS never got the fix; this is it.
+    @State private var externalObs: NSKeyValueObservation?
+    @State private var isExternalActive = false
 
     var body: some View {
         ZStack {
@@ -185,6 +192,11 @@ private struct PlayerSurface: View {
             forName: AVPlayerItem.didPlayToEndTimeNotification, object: playerItem, queue: .main) { _ in
             MainActor.assumeIsolated { onEnded?() }
         }
+        // AirPlay route engaged/disengaged — see externalPlaybackChanged.
+        externalObs = p.observe(\.isExternalPlaybackActive, options: [.new]) { pl, _ in
+            let active = pl.isExternalPlaybackActive
+            MainActor.assumeIsolated { externalPlaybackChanged(active) }
+        }
         // Part (c): captioned (HLS) titles — recover to the resilient MP4 on a hard
         // load failure OR a persistent stutter. Non-captioned MP4 already streams
         // through ResilientStreamLoader, so it needs no fallback.
@@ -200,6 +212,61 @@ private struct PlayerSurface: View {
             forInterval: CMTime(seconds: 5, preferredTimescale: 1), queue: .main) { _ in
             MainActor.assumeIsolated { persist() }
         }
+    }
+
+    /// Swap between a receiver-fetchable asset (AirPlay engaged) and the
+    /// resilient on-device path (disengaged), preserving position and the end
+    /// observer. Mirrors the iOS coordinator; the routing decision itself is
+    /// shared (AirPlayRouting) so both platforms cannot drift.
+    private func externalPlaybackChanged(_ active: Bool) {
+        guard active != isExternalActive, let p = player else { return }
+        isExternalActive = active
+        let newItem: AVPlayerItem
+        if active {
+            // The stall/failure machinery watches the LOCAL loader paths; it must
+            // not fire against a stream the receiver now owns.
+            captionStall.detach()
+            statusObs = nil
+            if PlaybackDiag.enabled {
+                print(AirPlayRouting.describe(hls: subtitleHLS, mp4: videoURL))
+            }
+            guard let url = AirPlayRouting.receiverURL(hls: subtitleHLS, mp4: videoURL) else {
+                isExternalActive = false
+                return          // nothing fetchable — leave playback as it is
+            }
+            newItem = AVPlayerItem(url: url)
+        } else {
+            // Restore the same path playback started on (Decision 021/031/034
+            // resilience only matters once we own the connection again).
+            guard let item = makeLocalItem() else { return }
+            newItem = item
+        }
+        let pos = p.currentTime()
+        newItem.preferredForwardBufferDuration = 300
+        if let e = endObserver { NotificationCenter.default.removeObserver(e); endObserver = nil }
+        endObserver = NotificationCenter.default.addObserver(
+            forName: AVPlayerItem.didPlayToEndTimeNotification, object: newItem, queue: .main) { _ in
+            MainActor.assumeIsolated { onEnded?() }
+        }
+        p.replaceCurrentItem(with: newItem)
+        if pos.seconds > 5 { p.seek(to: pos) }
+        p.play()
+    }
+
+    /// Rebuild the on-device item, mirroring `setup`'s branch.
+    private func makeLocalItem() -> AVPlayerItem? {
+        if let hls = subtitleHLS, let mp4 = videoURL, !didFallback {
+            let (asset, l) = CaptionedHLSLoader.makeAsset(hls: hls, downloadURL: mp4)
+            captionedLoader = l
+            return AVPlayerItem(asset: asset)
+        }
+        if let mp4 = videoURL {
+            let (asset, l) = ResilientStreamLoader.makeAsset(for: mp4)
+            loader = l
+            return AVPlayerItem(asset: asset)
+        }
+        if let hls = subtitleHLS { return AVPlayerItem(url: hls) }
+        return nil
     }
 
     /// Part (c): swap the failed/stuttering native-HLS item for the resilient MP4
@@ -230,6 +297,7 @@ private struct PlayerSurface: View {
         if let t = timeObserver { player?.removeTimeObserver(t); timeObserver = nil }
         captionStall.detach()
         statusObs = nil
+        externalObs = nil
         captionedLoader = nil
         persist()
     }

@@ -52,7 +52,9 @@ enum PlaybackDiag {
 }
 
 final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unchecked Sendable {
-    static let scheme = "aw-stream"
+    // Single source of truth: AirPlayRouting must know every loader scheme, or a
+    // receiver can be handed a URL only this device can serve.
+    static let scheme = AirPlayRouting.streamScheme
     private static let diag = PlaybackDiag.enabled
 
     private let realURL: URL

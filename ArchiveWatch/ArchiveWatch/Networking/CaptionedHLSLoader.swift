@@ -26,7 +26,8 @@ import AVFoundation
 // AVURLAsset holds its resourceLoader delegate WEAKLY — the caller must retain
 // the loader for the asset's lifetime (the player screens keep it in @State).
 final class CaptionedHLSLoader: NSObject, AVAssetResourceLoaderDelegate, @unchecked Sendable {
-    static let scheme = "aw-hls"
+    // See ResilientStreamLoader.scheme — AirPlayRouting owns the vocabulary.
+    static let scheme = AirPlayRouting.hlsScheme
 
     private let httpsMaster: URL   // https://archivewatch.org/subs/{id}/master.m3u8
     private let downloadURL: URL   // the progressive MP4 (its bytes stay AVFoundation-owned)

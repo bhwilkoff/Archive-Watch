@@ -2219,3 +2219,47 @@ Unknown" alone). STILL OPEN, reported not fixed: honoring `deemphasize` /
 `loggedin` catalog-wide is an owner curation call (`geo_restricted` must NOT be
 swept in — it includes real Chaplin), and a wrong external match can still put a
 non-film on a film shelf (Decision 026's domain).
+
+## 051 — AirPlay hands the RECEIVER a published URL; the resilient loader is a local-only path
+*Date: 2026-08-08*
+
+When an AirPlay route engages, the Apple players replace the current item with a
+**published, receiver-fetchable URL** (`AirPlayRouting.receiverURL` — the HLS
+first so WebVTT captions survive the handoff, else the progressive MP4), and
+restore the loader-backed local item when the route disengages. `AirPlayRouting`
+is Foundation-only and owns the custom-scheme vocabulary (`aw-stream`,
+`aw-hls`), which the loaders now read from, so a new loader cannot be added
+without the AirPlay check learning about it.
+
+**Why**: Apple's position, confirmed via TSI on the developer forums, is that
+**"Video AirPlay is not supported when using a custom resource loader."** Every
+playback path in this app is loader-backed — `aw-stream://` for the resilient
+MP4 stream (Decisions 021/031/034) and `aw-hls://` for the captioned HLS layer
+(Decision 039 Config C) — because the delegate that serves those schemes lives
+on the SENDING device, so a receiver has no way to fetch the media. Selecting a
+route showed an error on the Apple TV instead of playing, on *every title*. iOS
+got a swap on 2026-08-05; **macOS never did**, while its `.floating` HUD
+advertised an AirPlay button the whole time.
+
+**How to apply**: never hand a receiver a URL straight from the player's current
+asset — route it through `AirPlayRouting`, which CHECKS the scheme rather than
+assuming. `directHLSURL ?? directVideoURL` was the old iOS expression and would
+pass a custom-scheme URL through unexamined if either ever came from a loader
+path. When nothing fetchable exists, leave playback alone rather than replacing
+it with something that cannot play. Accept that Decision 021/031/034 resilience
+(resume-on-reset, node failover) is **structurally unavailable over AirPlay** —
+the receiver owns the connection, the same trade Decision 047 records for Roku;
+an archive.org 5xx mid-stream is unrecoverable there in a way it never is
+locally. tvOS is deliberately untouched: an Apple TV is a receiver, not a sender.
+
+**Consequences**: two harnesses, because AirPlay itself cannot be exercised on a
+simulator (no routes exist) — `tools/test_airplay_routing.swift` compiles the
+SHIPPED `AirPlayRouting` and asserts the decisions (21/21, including "a
+custom-scheme URL is never handed to a receiver"), and
+`tools/verify_airplay_receiver_path.py` walks master.m3u8 → rendition → media
+segment exactly as a receiver would. The latter taught its own lesson: it first
+reported two failures that were an SSL timeout and an archive.org 5xx, both of
+which answered 200/302 on retry — so transient and 5xx (rotating storage nodes)
+are retried and reported, never counted as unfetchable, the same
+never-condemn-on-a-throttle rule as the poster validator (Decision 044). The
+handoff on real hardware remains owner-verified: iPhone/Mac → Apple TV.

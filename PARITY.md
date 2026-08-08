@@ -110,7 +110,7 @@ macOS) since they share the Swift Core.
 | Autoplay / continuous play | ✅ | ✅ | ⏳ | ⏳ | ⏳ | F4 queue shared via Core |
 | Picture-in-Picture | ✅ AVKit | ✅ AVKit + auto-PiP | ⏳ (AVPlayerView PiP) | ✅ presentation-mode | ⏳ Activity PiP | |
 | Background play | n/a | ✅ | n/a (desktop) | ✅ | ⏳ | |
-| Cast / AirPlay | ✅ AirPlay (route-swap; receiver-fetchable URL) | ✅ AirPlay | ✅ AirPlay (AVPlayerView) | ✅ Cast sender (receiver 58AF34C3) | ✅ Cast sender, google flavor only | Fire TV excluded: Cast is GMS-dependent |
+| Cast / AirPlay | n/a (Apple TV IS the receiver — tvOS does not send) | ✅ AirPlay route-swap | ✅ AirPlay route-swap (**added 2026-08-08**; macOS had the AVPlayerView route button but no swap, so it failed on every title) | ✅ Cast sender (receiver 58AF34C3) | ✅ Cast sender, google flavor only | Shared `AirPlayRouting` picks the receiver-fetchable URL (HLS first, so captions survive). Apple does not support video AirPlay with a custom resource loader and every local path is loader-backed — Decision 051. Fire TV excluded: Cast is GMS-dependent |
 
 ## 4b. Create — Clip Studio (phone-differentiating; Decision 033)
 

@@ -324,7 +324,23 @@ struct PlayerView: UIViewControllerRepresentable {
                 captionStall.detach()
                 // Prefer the published HLS: the receiver fetches it directly and
                 // keeps the WebVTT caption renditions. MP4 is the fallback.
-                guard let url = directHLSURL ?? directVideoURL else { return }
+                //
+                // Routed through AirPlayRouting so the URL is CHECKED to be
+                // receiver-fetchable rather than assumed. `directHLSURL ??
+                // directVideoURL` would hand the receiver whatever was set —
+                // including, if either ever came from a loader-backed path, a
+                // custom-scheme URL only this device can serve, which is the
+                // exact failure the swap exists to fix.
+                if PlaybackDiag.enabled {
+                    print(AirPlayRouting.describe(hls: directHLSURL, mp4: directVideoURL))
+                }
+                guard let url = AirPlayRouting.receiverURL(hls: directHLSURL,
+                                                           mp4: directVideoURL) else {
+                    // Nothing the receiver can pull — leave the local item alone
+                    // rather than replace it with something that cannot play.
+                    isExternalActive = false
+                    return
+                }
                 item = AVPlayerItem(url: url)
             } else {
                 item = makeLocalItem()
