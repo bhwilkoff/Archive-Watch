@@ -2474,3 +2474,51 @@ in 60s instead of never. Applying `verifiedAnd` to curated shelves was measured
 first: 1,453 curated-shelf items, 100% already verified, so it hides nothing
 today and cannot regress tomorrow. Complements Decision 044 (enforce the gates
 every build) and 034 (node failover, which cannot help when the item is gone).
+
+## 057 — A run destroyed in the concurrency queue is retried; a long job may not hold the lock for hours
+*Date: 2026-08-09*
+
+`tools/retry_infra_failures.py` gains a second pass that re-runs workflow runs
+**cancelled before any job was created** — the signature of being displaced in a
+concurrency queue — and only when that run's group is idle, one per group per
+sweep. Separately, `resource_posters_secondary.py` gains `--max-minutes`
+(default 75): it stops starting new items at the budget, publishes what it has,
+and reports how many it left.
+
+**Why**: 27 workflows share the `catalog-writers` group, several with 5.5-hour
+budgets, and GitHub keeps only ONE pending run per group — a newer arrival
+CANCELS the older pending one. So while a long job holds the lock, scheduled
+catalog work is not queued behind it, it is **destroyed**, and nothing retried
+it: Decision 048's sweeper explicitly refused to touch `cancelled` on the
+reasoning that a cancel is usually a human or a concurrency group. Measured over
+one 12-hour window on 2026-08-09: **seven runs lost** — liveness ×2, colour ×2,
+free-subtitles ×2, community signals — including both attempts at that day's
+dead-link remediation, while a poster job held the lock for over four hours. The
+workflows' own comments already recorded 25–75% cancellation rates; what was
+missing was recovery.
+
+The distinction Decision 048 wanted is available and exact: a superseded run has
+**zero jobs**, because it never left the pending queue and GitHub never created
+one. A human (or a timeout) cancels a run that is RUNNING, which always has jobs
+with steps. Zero jobs therefore carries the same no-side-effect guarantee as
+"not one step of ours ran" — nothing was interrupted, nothing partially applied,
+so a re-run cannot repeat anything.
+
+**How to apply**: keep the zero-jobs test as the gate — never widen it to
+`cancelled` generally, which would fight whoever cancelled a running job (this
+repo cancels long jobs deliberately, including once in this very session). Only
+re-run into an IDLE group: re-running into a busy one is immediately superseded
+again and burns an attempt against `MAX_ATTEMPTS`, and the group is read from
+the workflow files on disk rather than guessed. One re-run per group per sweep,
+so seven recovered runs cannot re-enact the pile-up that lost them. Verify with
+`DRY_RUN=1` against real history before changing the gate. For the lock itself:
+any catalog writer that can run long needs a time budget that PUBLISHES rather
+than a `timeout-minutes` that kills — a killed job never publishes, so its work
+is lost outright, and a bounded one that says what it skipped keeps a backlog
+from reading as coverage.
+
+**Consequences**: dropped scheduled work now heals within ~30 minutes of the
+lock clearing instead of waiting for the next cron tick, or forever. The deeper
+fix — computing without the lock and taking it only to fetch→apply→publish, the
+shape `--deltas-out` already enables in several tools — remains open, and would
+make the group contention largely moot rather than merely survivable.
