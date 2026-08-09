@@ -14,6 +14,7 @@ struct DetailView: View {
     @State private var playing = false
     @State private var addingToPlaylist = false
     @State private var clipping = false
+    @State private var gettingSubtitles = false
 
     private var isFav: Bool { favorites.contains { $0.archiveID == item.archiveID } }
 
@@ -57,6 +58,11 @@ struct DetailView: View {
                         }
 
                         Menu {
+                            if SubtitleFinder.shouldOffer(for: item) {
+                                Button { gettingSubtitles = true } label: {
+                                    Label("Get subtitles…", systemImage: "captions.bubble")
+                                }
+                            }
                             if Callsheet.supports(item) {
                                 Button { Callsheet.open(Callsheet.url(for: item)) } label: {
                                     Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
@@ -109,6 +115,9 @@ struct DetailView: View {
         }
         .sheet(isPresented: $clipping) {
             ClipStudioView(source: item.clipSource)
+        }
+        .sheet(isPresented: $gettingSubtitles) {
+            GetSubtitlesView(item: item).presentationDetents([.medium, .large])
         }
         // Dev affordance (with AW_START_ITEM): start playback immediately so
         // playback diagnostics can run unattended on the simulator.

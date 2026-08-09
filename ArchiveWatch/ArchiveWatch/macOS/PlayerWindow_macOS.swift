@@ -131,6 +131,7 @@ private struct PlayerSurface: View {
     // rebuild on the resilient MP4 (smooth-without-CC beats stutter-with-CC).
     @State private var captionStall = CaptionStallMonitor()
     @State private var captionedLoader: CaptionedHLSLoader?   // Part (a): Config C HLS
+    @State private var localSubsLoader: LocalSubtitleHLSLoader?  // on-device subtitles
     @State private var statusObs: NSKeyValueObservation?
     @State private var didFallback = false
     // AirPlay. The `.floating` HUD below carries a route button, but every path
@@ -169,6 +170,14 @@ private struct PlayerSurface: View {
             playerItem = AVPlayerItem(asset: asset)
         } else if let hls = subtitleHLS {
             playerItem = AVPlayerItem(url: hls)                 // no MP4 to resolve; native HLS
+        } else if let mp4 = videoURL,
+                  let dir = SubtitleStore.cachedDir(for: archiveID),
+                  let (asset, l) = LocalSubtitleHLSLoader.makeAsset(
+                    dir: dir, downloadURL: mp4,
+                    resolveNode: { await ResilientStreamLoader.resolvedNodeURL(for: $0) }) {
+            // Subtitles fetched or transcribed on this device (SubtitleFinder).
+            localSubsLoader = l
+            playerItem = AVPlayerItem(asset: asset)
         } else if let url = videoURL {
             let (asset, l) = ResilientStreamLoader.makeAsset(for: url)
             loader = l

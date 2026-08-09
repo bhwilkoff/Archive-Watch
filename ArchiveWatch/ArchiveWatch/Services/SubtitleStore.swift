@@ -34,6 +34,16 @@ enum SubtitleStore {
         return d
     }
 
+    /// The stored directory for a title, if it holds a master playlist.
+    ///
+    /// The player takes the DIRECTORY, not the master file: a `file://` master
+    /// is never handed to AVPlayer (it silently never loads — see
+    /// `tools/test_local_master_playback.swift`), so `LocalSubtitleHLSLoader`
+    /// serves these files through a custom scheme instead.
+    static func cachedDir(for archiveID: String) -> URL? {
+        cachedHLS(for: archiveID)?.deletingLastPathComponent()
+    }
+
     /// A previously-stored local HLS master for this title, if any.
     static func cachedHLS(for archiveID: String) -> URL? {
         guard let m = dir(for: archiveID)?.appendingPathComponent("master.m3u8"),

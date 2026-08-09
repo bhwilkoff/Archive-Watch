@@ -14,6 +14,7 @@ struct DetailView: View {
     @Environment(\.modelContext) private var ctx
     @Query private var favorites: [Favorite]
     @State private var showPlaylistSheet = false
+    @State private var showGetSubtitles = false
 
     private var isFav: Bool { favorites.contains { $0.archiveID == item.archiveID } }
     private var shareURL: URL { URL(string: "https://archivewatch.org/item/\(item.archiveID)")! }
@@ -53,6 +54,9 @@ struct DetailView: View {
         .navigationTitle(item.title)
         .sheet(isPresented: $showPlaylistSheet) {
             AddToPlaylistSheet(archiveID: item.archiveID)
+        }
+        .sheet(isPresented: $showGetSubtitles) {
+            GetSubtitlesView(item: item).frame(minWidth: 460, minHeight: 320)
         }
     }
 
@@ -121,6 +125,11 @@ struct DetailView: View {
                                 Label("Open in Creation Studio", systemImage: "scissors")
                             }
                             Divider()
+                        }
+                        if SubtitleFinder.shouldOffer(for: item) {
+                            Button { showGetSubtitles = true } label: {
+                                Label("Get Subtitles…", systemImage: "captions.bubble")
+                            }
                         }
                         if Callsheet.supports(item) {
                             Button { Callsheet.open(Callsheet.url(for: item)) } label: {

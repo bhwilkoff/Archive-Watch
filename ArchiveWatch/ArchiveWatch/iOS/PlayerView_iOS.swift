@@ -115,6 +115,16 @@ struct PlayerView: UIViewControllerRepresentable {
             context.coordinator.fallbackVideoURL = mp4
         } else if let hls = subtitleHLSURL {
             pItem = AVPlayerItem(url: hls)         // no MP4 to node-resolve; native HLS
+        } else if let mp4 = videoURL,
+                  let dir = SubtitleStore.cachedDir(for: archiveID),
+                  let (asset, subsLoader) = LocalSubtitleHLSLoader.makeAsset(
+                    dir: dir, downloadURL: mp4,
+                    resolveNode: { await ResilientStreamLoader.resolvedNodeURL(for: $0) }) {
+            // Subtitles fetched or transcribed on this device (SubtitleFinder).
+            // Same Config C shape; the playlists are read off disk.
+            context.coordinator.localSubsLoader = subsLoader   // retain (weak delegate)
+            pItem = AVPlayerItem(asset: asset)
+            context.coordinator.fallbackVideoURL = mp4
         } else if let url = videoURL {
             let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
             context.coordinator.loader = loader   // retain (delegate is held weakly)
@@ -161,6 +171,7 @@ struct PlayerView: UIViewControllerRepresentable {
         let persistsProgress: Bool
         var loader: ResilientStreamLoader?
         var captionedLoader: CaptionedHLSLoader?   // Part (a): Config C HLS (weak delegate)
+        var localSubsLoader: LocalSubtitleHLSLoader?   // on-device subtitles (weak delegate)
         weak var playerVC: AVPlayerViewController?
         private var timeObserver: Any?
         private var endObserver: NSObjectProtocol?

@@ -25,6 +25,7 @@ struct DetailView: View {
     @State private var isPlaying = false
     @State private var showShare = false
     @State private var showAddPlaylist = false
+    @State private var showGetSubtitles = false
     @FocusState private var focusTarget: DetailFocusTarget?
 
     private var accent: Color {
@@ -195,6 +196,7 @@ struct DetailView: View {
                 favoriteButton
                 shareButton
                 playlistButton
+                if SubtitleFinder.shouldOffer(for: item) { subtitlesButton }
             }
             .padding(.top, 8)
             // Dedicated focus section for the action row so up-arrow
@@ -255,6 +257,20 @@ struct DetailView: View {
         .buttonStyle(CircleIconStyle())
         .focusEffectDisabled()
         .sheet(isPresented: $showShare) { ShareSheet(item: item) }
+    }
+
+    // Subtitles for a film the pipeline never found any for — shown only when
+    // there are none, so it disappears the moment the title has them.
+    private var subtitlesButton: some View {
+        Button { showGetSubtitles = true } label: {
+            Image(systemName: "captions.bubble")
+                .font(.title2)
+                .foregroundStyle(.white)
+                .padding(18)
+        }
+        .buttonStyle(CircleIconStyle())
+        .focusEffectDisabled()
+        .sheet(isPresented: $showGetSubtitles) { GetSubtitlesView(item: item) }
     }
 
     // #12: add this title to a playlist (or create one).
@@ -543,6 +559,7 @@ struct PlayerScreen: View {
     @State private var nowPlaying = NowPlayingController()
     @State private var streamLoader: ResilientStreamLoader?
     @State private var captionedLoader: CaptionedHLSLoader?   // Part (a): Config C HLS
+    @State private var localSubsLoader: LocalSubtitleHLSLoader?  // subtitles fetched on this device
     @State private var statusObserver: NSKeyValueObservation?
     @State private var timeoutTask: Task<Void, Never>?
     @State private var autoRetried = false   // #10: silently retry once before failing
@@ -776,6 +793,15 @@ struct PlayerScreen: View {
             let (asset, hlsLoader) = CaptionedHLSLoader.makeAsset(hls: hls, downloadURL: playURL)
             captionedLoader = hlsLoader
             playerItem = AVPlayerItem(asset: asset)
+        } else if !forceDirectPlayback,
+                  let dir = SubtitleStore.cachedDir(for: activeArchiveID),
+                  let (asset, subsLoader) = LocalSubtitleHLSLoader.makeAsset(
+                    dir: dir, downloadURL: playURL,
+                    resolveNode: { await ResilientStreamLoader.resolvedNodeURL(for: $0) }) {
+            // Subtitles the viewer fetched or transcribed on this device. Same
+            // Config C shape, playlists read off disk instead of the network.
+            localSubsLoader = subsLoader
+            playerItem = AVPlayerItem(asset: asset)
         } else {
             let (asset, loader) = ResilientStreamLoader.makeAsset(for: playURL)
             streamLoader = loader
@@ -899,6 +925,7 @@ struct PlayerScreen: View {
         timeObserver = nil
         streamLoader = nil
         captionedLoader = nil
+        localSubsLoader = nil
         statusObserver?.invalidate()
         statusObserver = nil
         timeoutTask?.cancel()
