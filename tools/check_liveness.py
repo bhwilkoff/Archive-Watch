@@ -138,10 +138,21 @@ def metadata(iaid, session):
     """Return (status, json|None). status in {ok, dark, error, unreachable}.
     Retries transient failures so a busy node never reads as 'dead'."""
     last = "unreachable"
-    for attempt in range(3):
+    for attempt in range(4):
+        # Back off between attempts and lengthen the timeout. Three back-to-back
+        # tries against a host that is throttling all fail together, which is why
+        # a genuinely DEAD item (metadata returns `files: []` — a definitive
+        # signal this function already handles) came back "unreachable" from CI
+        # while answering definitively from a laptop that happened to pause
+        # between tries. "Unreachable" is never acted on, so an under-patient
+        # probe does not merely lose information: it leaves the item unresolved
+        # forever, re-probed and re-abandoned on every sweep. 1,075 items landed
+        # there in the 2026-08-09 run, including both titles the owner reported.
+        if attempt:
+            time.sleep(3 * (2 ** (attempt - 1)))      # 3s, 6s, 12s
         try:
             r = session.get(A.ARCHIVE_META + iaid,
-                            headers={"User-Agent": A.UA}, timeout=30)
+                            headers={"User-Agent": A.UA}, timeout=30 + 30 * attempt)
         except requests.RequestException:
             last = "unreachable"
             continue
