@@ -22,6 +22,7 @@ import re
 import sqlite3
 import subprocess
 import tempfile
+import time
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -35,6 +36,13 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=800, help="films to align this run")
     ap.add_argument("--db", default=str(REPO / "subtitle.sqlite"))
+    ap.add_argument("--max-minutes", type=float, default=0,
+                    help="stop starting new films after this long and return "
+                         "cleanly, so the CALLER still gets to publish. Without "
+                         "it this job hit the 330-minute workflow timeout every "
+                         "single day — 15 runs, 15 'cancelled', never once "
+                         "reaching its publish step, so every day's alignment "
+                         "was computed and then discarded.")
     args = ap.parse_args()
 
     import torch
@@ -56,8 +64,17 @@ def main() -> int:
         WHERE archiveID NOT IN (SELECT archiveID FROM aligned)
         GROUP BY archiveID ORDER BY count(*) DESC LIMIT ?""", (args.limit,)).fetchall()
 
+    # The work is already resumable per film (each commits and marks `aligned`),
+    # so stopping early costs nothing — but only if the process EXITS, letting
+    # the caller publish what was committed.
+    deadline = (time.monotonic() + args.max_minutes * 60) if args.max_minutes else None
+    stopped_early = False
+
     done = 0
     for aid, url in films:
+        if deadline and time.monotonic() > deadline:
+            stopped_early = True
+            break
         cues = db.execute(
             "SELECT startSeconds, endSeconds, text FROM cues WHERE archiveID=? ORDER BY startSeconds",
             (aid,)).fetchall()
@@ -106,6 +123,9 @@ def main() -> int:
             print(f"[words] {done} films aligned…", flush=True)
 
     n = db.execute("SELECT count(*) FROM words").fetchone()[0]
+    if stopped_early:
+        print(f"[words] STOPPED EARLY at the {args.max_minutes:g}-minute budget "
+              f"({done} of {len(films)} selected). The rest are picked up next run.")
     print(f"[words] +{done} films this run; {n} word timings total in {args.db}")
     return 0
 

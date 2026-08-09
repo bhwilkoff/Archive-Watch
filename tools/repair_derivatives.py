@@ -125,6 +125,10 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--limit", type=int, default=0, help="cap candidates (testing)")
     ap.add_argument("--throttle", type=float, default=0.25)
+    ap.add_argument("--max-minutes", type=float, default=0,
+                    help="stop taking new candidates after this long and fall "
+                         "through to the write/publish, so a long run is not "
+                         "killed by the workflow timeout with nothing saved.")
     ap.add_argument("--skip-series", action="store_true")
     ap.add_argument("--faststart", action="store_true",
                     help="also re-pick non-.ia.mp4 uploader originals (mpeg4/divx) "
@@ -156,10 +160,19 @@ def main():
         if path.exists():
             catalogs[path] = json.loads(path.read_text(encoding="utf-8"))
 
+    # A time budget alongside the candidate budget: this workflow hit its
+    # 360-minute wall (reported as "cancelled") with nothing written, because
+    # the catalog is only saved after both passes.
+    deadline = (time.monotonic() + args.max_minutes * 60) if args.max_minutes else None
+    stopped_early = False
+
     changed_files = set()
     for path, cat in catalogs.items():
         for it in cat["items"]:
             if stats["candidates"] >= budget:
+                break
+            if deadline and time.monotonic() > deadline:
+                stopped_early = True
                 break
             if needs_repair(it.get("downloadURL"), (it.get("videoFile") or {}).get("format"),
                             bool(it.get("needsFaststart"))) \
@@ -169,9 +182,14 @@ def main():
         print(f"[repair] {path.name}: candidates so far={stats['candidates']} "
               f"fixed={stats['fixed']} no-mp4={stats['no_mp4']}", flush=True)
 
+    if stopped_early:
+        print(f"[repair] STOPPED EARLY at the {args.max_minutes:g}-minute budget "
+              f"after {stats['candidates']} candidates; writing what is done.",
+              flush=True)
+
     # 2) Series episodes (kept non-canonical series still carry .ogv).
     series_changed = 0
-    if not args.skip_series:
+    if not args.skip_series and not stopped_early:
         for f in sorted(glob.glob(str(SERIES_DIR / "*.json"))):
             if stats["candidates"] >= budget:
                 break

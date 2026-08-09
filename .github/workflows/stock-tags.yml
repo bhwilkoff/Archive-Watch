@@ -14,6 +14,9 @@ on:
       limit:
         description: 'Shots to tag this run'
         default: '4000'
+      max_minutes:
+        description: 'Stop tagging after this long so the publish step still runs'
+        default: '240'
 
 concurrency:
   group: stock-index            # share with stock-index.yml — both mutate clips.sqlite
@@ -49,7 +52,13 @@ jobs:
 
       - name: Tag shots
         run: |
-          python tools/tag_stock_shots.py --limit ${{ github.event.inputs.limit || '4000' }} | tee tag.log
+          # A BUDGET, not just a timeout: this job hit its wall (281m, 330m) and
+          # was reported as "cancelled", losing the whole run. Tagging commits
+          # every 100 shots and is resumable, so stopping early lets the publish
+          # step run and the next day continues.
+          python tools/tag_stock_shots.py \
+            --limit ${{ github.event.inputs.limit || '4000' }} \
+            --max-minutes ${{ github.event.inputs.max_minutes || '240' }} | tee tag.log
           echo "## Stock semantic tags" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY; tail -2 tag.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 

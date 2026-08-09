@@ -30,6 +30,9 @@ on:
         description: 'Per-request throttle (s)'
         required: false
         default: '0.15'
+      max_minutes:
+        description: 'Stop the full pass after this long so the catalog is still written'
+        default: '180'
 
 concurrency:
   group: catalog-writers     # serialise with the other catalog writers
@@ -60,10 +63,14 @@ jobs:
           #    so it is re-checked even if the full pass is throttled/interrupted.
           python tools/repair_derivatives.py --needs-faststart-only --skip-series \
             --throttle ${{ github.event.inputs.throttle || '0.15' }} \
+            --max-minutes 60 \
             | tee faststart-flagged.log
           # 2) Full monthly pass (exotic-format originals + any flagged items).
+          # Budgets, because both prior runs hit the 360-minute wall and were
+          # reported as "cancelled" with the catalog never written.
           python tools/repair_derivatives.py --faststart --skip-series \
             --throttle ${{ github.event.inputs.throttle || '0.15' }} \
+            --max-minutes ${{ github.event.inputs.max_minutes || '180' }} \
             | tee faststart.log
           echo "## Faststart pass" >> $GITHUB_STEP_SUMMARY
           echo '### needsFaststart set' >> $GITHUB_STEP_SUMMARY

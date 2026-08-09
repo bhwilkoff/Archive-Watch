@@ -16,6 +16,7 @@ Resumable (a `tagged` flag), popularity-irrelevant (processes whatever's in the 
 from __future__ import annotations
 import argparse
 import io
+import time
 import sqlite3
 import subprocess
 from pathlib import Path
@@ -76,6 +77,10 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=4000, help="shots to tag this run")
     ap.add_argument("--db", default=str(REPO / "clips.sqlite"))
     ap.add_argument("--topk", type=int, default=5)
+    ap.add_argument("--max-minutes", type=float, default=0,
+                    help="stop starting new shots after this long and return so "
+                         "the CALLER can publish. Without it this job hit the "
+                         "workflow timeout and threw away the run.")
     ap.add_argument("--threshold", type=float, default=0.18, help="min CLIP probability to keep a tag")
     args = ap.parse_args()
 
@@ -100,8 +105,13 @@ def main() -> int:
     rows = db.execute(
         "SELECT id, sourceURL, startSeconds, endSeconds FROM shots WHERE COALESCE(tagged,0)=0 LIMIT ?",
         (args.limit,)).fetchall()
+    deadline = (time.monotonic() + args.max_minutes * 60) if args.max_minutes else None
+    stopped_early = False
     done = 0
     for sid, url, s, e in rows:
+        if deadline and time.monotonic() > deadline:
+            stopped_early = True
+            break
         jpg = extract_frame(url, (s + e) / 2)
         if jpg:
             try:
@@ -125,6 +135,9 @@ def main() -> int:
             db.commit()
             print(f"[tag] {done}/{len(rows)}…", flush=True)
     db.commit()
+    if stopped_early:
+        print(f"[tag] STOPPED EARLY at the {args.max_minutes:g}-minute budget "
+              f"({done} of {len(rows)} selected); the rest are picked up next run.")
     print(f"[tag] tagged {done} shots in {args.db}")
     return 0
 

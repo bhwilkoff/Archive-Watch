@@ -13,6 +13,9 @@ on:
       limit:
         description: 'Films to align this run'
         default: '400'
+      max_minutes:
+        description: 'Stop aligning after this long so the publish step still runs'
+        default: '240'
 
 concurrency:
   group: subtitle-index           # share with subtitle-index.yml — both mutate subtitle.sqlite
@@ -46,9 +49,17 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh release download subtitle-index -p subtitle.sqlite -O subtitle.sqlite
 
+      # A BUDGET, not just a timeout. This job hit its 330-minute wall on every
+      # one of its 15 runs — GitHub reports a timeout as "cancelled", so the run
+      # list read as 15 cancellations and the workflow had never once completed.
+      # Alignment commits per film, but the DB is only PUBLISHED at the end, so
+      # being killed threw away every day's work. Stopping early lets the publish
+      # step run and the next day resume from the `aligned` marker.
       - name: Align words
         run: |
-          python tools/build_word_index.py --limit ${{ github.event.inputs.limit || '400' }} | tee words.log
+          python tools/build_word_index.py \
+            --limit ${{ github.event.inputs.limit || '400' }} \
+            --max-minutes ${{ github.event.inputs.max_minutes || '240' }} | tee words.log
           echo "## Word alignment" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY; tail -2 words.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 
