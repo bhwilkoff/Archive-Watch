@@ -109,7 +109,7 @@ class CatalogDatabase private constructor(
         """SELECT j.json FROM item_shelves s
            JOIN items i ON i.archiveID = s.archiveID
            JOIN item_json j ON j.archiveID = s.archiveID
-           WHERE s.shelfID = ?$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd
+           WHERE s.shelfID = ?$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd$verifiedAnd
            ORDER BY i.hasRealArtwork DESC, s.position LIMIT ?""",
         listOf(shelfID, limit),
     )

@@ -26,13 +26,18 @@ struct PlayerView: UIViewControllerRepresentable {
     // When present, the player loads this HLS playlist (MP4 + WebVTT) instead of
     // the bare MP4, so AVPlayerViewController shows native subtitles (Decision 039).
     var subtitleHLSURL: URL? = nil
+    /// Called when the title will never play, so the host can close the player
+    /// and say so instead of leaving a spinner up indefinitely.
+    var onUnplayable: ((String) -> Void)? = nil
 
     /// Play a movie/standalone item. Pass `store` to enable movie autoplay
     /// (gated by `store.autoplayMode`; .off means play just this one).
-    init(item: Catalog.Item, autoplayIn store: AppStore? = nil) {
+    init(item: Catalog.Item, autoplayIn store: AppStore? = nil,
+         onUnplayable: ((String) -> Void)? = nil) {
         archiveID = item.archiveID
         videoURL = item.videoURLParsed
         subtitleHLSURL = item.subtitleHLSURL
+        self.onUnplayable = onUnplayable
         queue = store.map { MovieAutoplayQueue(start: item, store: $0) }
         overlayTitle = item.title
         overlaySubtitle = [item.year.map(String.init), item.genres.first]
@@ -73,8 +78,10 @@ struct PlayerView: UIViewControllerRepresentable {
     @Environment(\.dismiss) private var dismiss
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(archiveID: archiveID, ctx: ctx, queue: queue, onAdvance: onAdvance,
-                    persistsProgress: persistsProgress)
+        let c = Coordinator(archiveID: archiveID, ctx: ctx, queue: queue, onAdvance: onAdvance,
+                            persistsProgress: persistsProgress)
+        c.onUnplayable = onUnplayable
+        return c
     }
 
     func makeUIViewController(context: Context) -> AVPlayerViewController {
@@ -202,6 +209,12 @@ struct PlayerView: UIViewControllerRepresentable {
         private var didFallback = false
         private var statusObs: NSKeyValueObservation?
         private var fallbackWork: DispatchWorkItem?
+        /// Reports a title that will never play, so the host can dismiss and say
+        /// so. Without it an unplayable item spins forever — see `loadWatchdog`.
+        var onUnplayable: ((String) -> Void)?
+        private var loadWatchdog: DispatchWorkItem?
+        private var didReportUnplayable = false
+        private var unplayableObs: NSKeyValueObservation?
         private let captionStall = CaptionStallMonitor()   // Part (c): stutter → resilient MP4
 
         init(archiveID: String, ctx: ModelContext, queue: PlaybackQueue?,
@@ -232,6 +245,15 @@ struct PlayerView: UIViewControllerRepresentable {
             // never becomes ready within a grace window (a non-faststart MP4 as a
             // single HLS segment can hang), recreate playback through the resilient
             // loader so the film plays even without the caption track.
+            // EVERY item is watched, not just captioned ones. These observers used
+            // to be armed only when `fallbackVideoURL != nil` — i.e. only on the
+            // captioned-HLS path — so a plain MP4 that could never load had no
+            // status observer, no timeout and no error surface, and simply span
+            // forever. That is what an archive.org item removed since the last
+            // catalog build looks like to a viewer: an eternal spinner.
+            // tvOS has had a 60s backstop all along; iOS and macOS had none.
+            watchForUnplayable(playerItem)
+
             if fallbackVideoURL != nil {
                 statusObs = playerItem.observe(\.status, options: [.new]) { [weak self] item, _ in
                     MainActor.assumeIsolated { if item.status == .failed { self?.fallbackToLoader() } }
@@ -318,6 +340,9 @@ struct PlayerView: UIViewControllerRepresentable {
             item.externalMetadata = fallbackMetadata
             item.preferredForwardBufferDuration = 300
             registerEnd(for: item)
+            // A swapped-in item (AirPlay, CC fallback, next episode) gets the same
+            // watchdog — otherwise only the FIRST item of a session is covered.
+            watchForUnplayable(item)
             resumeObs = nil
             player.replaceCurrentItem(with: item)
             guard pos.isNumeric, pos.seconds > 1 else { player.play(); return }
@@ -331,6 +356,53 @@ struct PlayerView: UIViewControllerRepresentable {
                     }
                 }
             }
+        }
+
+        /// Watch an item for "this will never play", on every path.
+        ///
+        /// Two ways a title dies: AVFoundation reports `.failed` (the loader gave
+        /// up — an item removed from archive.org 503s and lands here), or nothing
+        /// happens at all. The watchdog covers the silent case; 60s matches the
+        /// tvOS backstop, and is generous enough that a cold storage node still
+        /// wins. A captioned item is left to `fallbackToLoader` first — dropping
+        /// CC to play is always better than an error — and only reported if that
+        /// fallback has already been spent.
+        private func watchForUnplayable(_ item: AVPlayerItem) {
+            didReportUnplayable = false
+            let obs = item.observe(\.status, options: [.new]) { [weak self] it, _ in
+                MainActor.assumeIsolated {
+                    guard let self else { return }
+                    switch it.status {
+                    case .readyToPlay:
+                        self.loadWatchdog?.cancel(); self.loadWatchdog = nil
+                    case .failed:
+                        guard self.fallbackVideoURL == nil || self.didFallback else { return }
+                        self.reportUnplayable(it.error?.localizedDescription)
+                    default: break
+                    }
+                }
+            }
+            unplayableObs = obs
+            loadWatchdog?.cancel()
+            let work = DispatchWorkItem { [weak self] in
+                guard let self, self.player?.currentItem?.status != .readyToPlay else { return }
+                guard self.fallbackVideoURL == nil || self.didFallback else { return }
+                self.reportUnplayable(nil)
+            }
+            loadWatchdog = work
+            DispatchQueue.main.asyncAfter(deadline: .now() + 60, execute: work)
+        }
+
+        private func reportUnplayable(_ detail: String?) {
+            guard !didReportUnplayable else { return }
+            didReportUnplayable = true
+            loadWatchdog?.cancel(); loadWatchdog = nil
+            player?.pause()
+            // Say what is true — the source is gone or unreachable — rather than
+            // implying the viewer did something wrong.
+            onUnplayable?("This title couldn't be played. The copy on archive.org "
+                          + "may have been removed or is temporarily unavailable.")
+            if let detail { print("[AWPLAY] unplayable \(archiveID): \(detail)") }
         }
 
         private func fallbackToLoader() {

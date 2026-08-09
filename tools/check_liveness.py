@@ -274,6 +274,12 @@ def main() -> int:
     ap.add_argument("--reprobe-days", type=int, default=90,
                     help="re-verify playback for items last verified longer ago "
                          "than this (0 = never re-verify)")
+    ap.add_argument("--hot-reprobe-days", type=int, default=14,
+                    help="shorter TTL for items eligible to be RECOMMENDED "
+                         "(designed artwork = the Home/browse gate). A dead "
+                         "source is only as invisible as its check is fresh, and "
+                         "the front page is where a dead link costs the most. "
+                         "0 = use --reprobe-days for everything")
     ap.add_argument("--max-minutes", type=float, default=0,
                     help="stop starting new probes after this long and publish "
                          "what's done (0 = no budget). Bounds how long the run "
@@ -285,9 +291,29 @@ def main() -> int:
 
     today = date.today().isoformat()
 
+    def is_hot(it):
+        """Eligible to be RECOMMENDED — designed artwork is the Home/browse gate
+        (build_sqlite orders designed-art-first everywhere and the discovery rows
+        require it), so this is the population a viewer is steered into."""
+        return bool(it.get("hasRealArtwork")
+                    and (it.get("artworkSource") or "archive") not in ("archive", "generated", ""))
+
     def playback_stale(it):
-        """A URL that dies AFTER its check would otherwise never be re-probed."""
-        if args.reprobe_days <= 0:
+        """A URL that dies AFTER its check would otherwise never be re-probed.
+
+        The TTL is TIERED because a stale check is invisible: `playbackVerified`
+        records that a title played ONCE, not that it plays now, and the app has
+        no way to tell the difference. City That Never Sleeps and The Missing
+        Juror were both probed 2026-07-18/19, passed, and were removed from
+        archive.org afterwards — so they kept their `playable = 1` and kept being
+        recommended, and under a flat 90-day TTL would not have been re-checked
+        until mid-October. Meanwhile the daily run was using 314 of its 8,000
+        budget. The long tail can wait 90 days; the front page cannot.
+        """
+        ttl = args.reprobe_days
+        if args.hot_reprobe_days > 0 and is_hot(it):
+            ttl = min(ttl, args.hot_reprobe_days) if ttl > 0 else args.hot_reprobe_days
+        if ttl <= 0:
             return False
         when = it.get("playbackCheckedAt")
         if not when:
@@ -296,7 +322,7 @@ def main() -> int:
             age = (date.today() - date.fromisoformat(str(when))).days
         except ValueError:
             return True
-        return age >= args.reprobe_days
+        return age >= ttl
 
     if not CATALOG.exists():
         print("[liveness] no catalog.json (run catalog_release.py fetch first)")

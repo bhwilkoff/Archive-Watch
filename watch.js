@@ -195,6 +195,15 @@
       return row[5] === 1 || (row[5] === undefined && !!row[4]);
     },
 
+    /** Byte-verified playable (index col 8 — check_liveness). Only the HERO used
+        to check this, so a title whose archive.org copy had been removed could
+        still headline a Home SHELF and spin forever when opened. Rows from an
+        older index have no column 8; those pass, so the shelf degrades rather
+        than emptying while probe coverage climbs. */
+    plays(row) {
+      return row[8] === undefined || row[8] === 1;
+    },
+
     /** A film-surface row: never TV (series cards OR standalone tv-specials).
         TV has its own browse chips; it must never appear in film grids/shelves
         (owner directive 2026-06-18). */
@@ -526,7 +535,7 @@
         const shelf = shelfById[sid];
         if (!shelf) continue;
         const rows = Data.shelfRows(shelf, 32)
-          .filter(r => Data.isPro(r) && Data.isFilm(r) && !used.has(dedupKey(r))).slice(0, 16);
+          .filter(r => Data.isPro(r) && Data.isFilm(r) && Data.plays(r) && !used.has(dedupKey(r))).slice(0, 16);
         if (rows.length < 4) continue;
         rows.forEach(r => used.add(dedupKey(r)));
         host.append(shelfSection(shelf.title, shelf.subtitle, rows));
@@ -535,7 +544,7 @@
       // floored). Render from the index shelves map, dedup-aware like the apps.
       const communityShelf = (id, title, subtitle) => {
         const rows = (Data.shelves[id] || []).map(x => Data.byID.get(x))
-          .filter(r => r && Data.isPro(r) && Data.isFilm(r) && !used.has(dedupKey(r))).slice(0, 16);
+          .filter(r => r && Data.isPro(r) && Data.isFilm(r) && Data.plays(r) && !used.has(dedupKey(r))).slice(0, 16);
         if (rows.length >= 4) {
           rows.forEach(r => used.add(dedupKey(r)));
           host.append(shelfSection(title, subtitle, rows));
@@ -549,12 +558,12 @@
       // This used to shuffle the popularity TAIL, which is "random obscure", not
       // "high craft, low traffic" — no quality signal took part at all.
       let gems = (Data.shelves['hidden-gems'] || []).map(x => Data.byID.get(x))
-        .filter(r => r && Data.isPro(r) && Data.isFilm(r) && !used.has(dedupKey(r))).slice(0, 16);
+        .filter(r => r && Data.isPro(r) && Data.isFilm(r) && Data.plays(r) && !used.has(dedupKey(r))).slice(0, 16);
       if (!gems.length) {
         // Index predates the shelf: fall back to the old tail shuffle so the row
         // degrades rather than disappearing.
         const tail = Data.rows.slice(Math.floor(Data.rows.length * 0.4));
-        gems = shuffle(tail.filter(r => Data.isPro(r) && Data.isFilm(r) && !used.has(dedupKey(r)))).slice(0, 16);
+        gems = shuffle(tail.filter(r => Data.isPro(r) && Data.isFilm(r) && Data.plays(r) && !used.has(dedupKey(r)))).slice(0, 16);
       }
       if (gems.length >= 6) {
         gems.forEach(r => used.add(dedupKey(r)));
@@ -563,7 +572,7 @@
       // Public Domain Day: this year's newly-free class (currentYear - 95).
       const pdYear = new Date().getFullYear() - 95;
       const pd = shuffle(Data.rows.filter(r =>
-        r[2] === pdYear && Data.isPro(r) && Data.isFilm(r) && !used.has(dedupKey(r)))).slice(0, 16);
+        r[2] === pdYear && Data.isPro(r) && Data.isFilm(r) && Data.plays(r) && !used.has(dedupKey(r)))).slice(0, 16);
       if (pd.length >= 6) {
         host.append(shelfSection('Public Domain Day',
           `Class of ${pdYear} — newly free to share`, pd));

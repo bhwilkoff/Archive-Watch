@@ -15,6 +15,7 @@ struct DetailView: View {
     @State private var addingToPlaylist = false
     @State private var clipping = false
     @State private var gettingSubtitles = false
+    @State private var playbackError: String?
 
     private var isFav: Bool { favorites.contains { $0.archiveID == item.archiveID } }
 
@@ -108,7 +109,15 @@ struct DetailView: View {
         }
         .navigationTitle(item.title).navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(isPresented: $playing) {
-            PlayerView(item: item, autoplayIn: store).ignoresSafeArea()
+            PlayerView(item: item, autoplayIn: store, onUnplayable: { message in
+                playing = false
+                playbackError = message
+            }).ignoresSafeArea()
+        }
+        .alert("Can't play this title", isPresented: .constant(playbackError != nil)) {
+            Button("OK") { playbackError = nil }
+        } message: {
+            Text(playbackError ?? "")
         }
         .sheet(isPresented: $addingToPlaylist) {
             AddToPlaylistSheet(archiveID: item.archiveID)

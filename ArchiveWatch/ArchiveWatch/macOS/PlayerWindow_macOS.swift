@@ -134,6 +134,9 @@ private struct PlayerSurface: View {
     @State private var localSubsLoader: LocalSubtitleHLSLoader?  // on-device subtitles
     @State private var statusObs: NSKeyValueObservation?
     @State private var didFallback = false
+    @State private var unplayableObs: NSKeyValueObservation?
+    @State private var loadWatchdog: DispatchWorkItem?
+    @State private var loadError: String?
     // AirPlay. The `.floating` HUD below carries a route button, but every path
     // here builds a CUSTOM-SCHEME resource-loader asset, and Apple does not
     // support video AirPlay for those (see AirPlayRouting) — so choosing a route
@@ -146,7 +149,19 @@ private struct PlayerSurface: View {
     var body: some View {
         ZStack {
             Color.black
-            if let player {
+            if let loadError {
+                // A dead source is a fact worth stating, not a spinner to sit in.
+                VStack(spacing: 16) {
+                    Image(systemName: "exclamationmark.triangle")
+                        .font(.system(size: 40)).foregroundStyle(.secondary)
+                    Text("Can't play this title").font(.title3.weight(.semibold))
+                    Text(loadError)
+                        .font(.callout).foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center).frame(maxWidth: 420)
+                    Button("Close") { onEnded?() }.keyboardShortcut(.defaultAction)
+                }
+                .foregroundStyle(.white)
+            } else if let player {
                 // `.floating` = the native macOS TV-app HUD (centre play/skip, scrubber + timecodes,
                 // volume, PiP + AirPlay, full-screen, speed) — the interface the owner asked to mimic.
                 VideoPlayerNS(player: player, controlsStyle: .floating).ignoresSafeArea()
@@ -216,6 +231,30 @@ private struct PlayerSurface: View {
             }
             captionStall.attach(player: p, item: playerItem) { fallbackToResilientMP4() }
         }
+        // EVERY item is watched for "this will never play", not just captioned
+        // ones — the same gap iOS had. An archive.org item removed since the last
+        // catalog build 503s, and with no observer on the plain-MP4 path the
+        // window just spins forever. 60s matches the tvOS backstop.
+        unplayableObs = playerItem.observe(\.status, options: [.new]) { item, _ in
+            MainActor.assumeIsolated {
+                if item.status == .readyToPlay { loadWatchdog?.cancel(); loadWatchdog = nil }
+                // A captioned item gets its CC-dropping fallback first; only
+                // report once that has been spent.
+                if item.status == .failed, subtitleHLS == nil || didFallback {
+                    reportUnplayable()
+                }
+            }
+        }
+        loadWatchdog?.cancel()
+        let watchdog = DispatchWorkItem {
+            MainActor.assumeIsolated {
+                guard player?.currentItem?.status != .readyToPlay else { return }
+                guard subtitleHLS == nil || didFallback else { return }
+                reportUnplayable()
+            }
+        }
+        loadWatchdog = watchdog
+        DispatchQueue.main.asyncAfter(deadline: .now() + 60, execute: watchdog)
         // Periodic save (every 5s) — macOS previously saved ONLY on window close, so a crash /
         // force-quit lost the whole session and nothing synced mid-playback (owner 2026-06-29).
         timeObserver = p.addPeriodicTimeObserver(
@@ -297,6 +336,13 @@ private struct PlayerSurface: View {
 
     /// Part (c): swap the failed/stuttering native-HLS item for the resilient MP4
     /// (resume-on-reset + node failover), preserving the play position. Fires once.
+    private func reportUnplayable() {
+        guard loadError == nil else { return }
+        loadWatchdog?.cancel(); loadWatchdog = nil
+        player?.pause()
+        loadError = "The copy on archive.org may have been removed or is temporarily unavailable."
+    }
+
     private func fallbackToResilientMP4() {
         guard !didFallback, let url = videoURL, let p = player else { return }
         didFallback = true
@@ -317,6 +363,9 @@ private struct PlayerSurface: View {
         externalObs = nil
         resumeObs = nil
         captionedLoader = nil
+        localSubsLoader = nil
+        unplayableObs = nil
+        loadWatchdog?.cancel(); loadWatchdog = nil
         persist()
     }
 

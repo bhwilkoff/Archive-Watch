@@ -202,7 +202,7 @@ final class CatalogDB {
             SELECT j.json FROM item_shelves s
             JOIN item_json j USING(archiveID)
             JOIN items i USING(archiveID)
-            WHERE s.shelfID = ?1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd)
+            WHERE s.shelfID = ?1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd)
             ORDER BY i.hasRealArtwork DESC, s.position
             LIMIT \(limit)
         """, [shelfID])
@@ -555,7 +555,7 @@ final class CatalogDB {
     func topDirectors(minFilms: Int = 3, limit: Int = 4) -> [(name: String, count: Int)] {
         scalarRows("""
             SELECT i.director, COUNT(*) c FROM items i
-            WHERE i.director IS NOT NULL AND i.director != '' AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd)
+            WHERE i.director IS NOT NULL AND i.director != '' AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd)
             GROUP BY i.director HAVING c >= \(minFilms)
             ORDER BY c DESC, i.director LIMIT \(limit)
         """).map { (name: $0.0, count: $0.1) }
@@ -564,7 +564,7 @@ final class CatalogDB {
     func byDirector(_ name: String, limit: Int = 20, homeOnly: Bool = false) -> [Catalog.Item] {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
-            WHERE i.director = ? AND i.hasRealArtwork = 1 \(adultAnd) \(homeOnly ? homeAnd : "") \(notCommercial) \(notStandaloneTV) \(typeAnd)
+            WHERE i.director = ? AND i.hasRealArtwork = 1 \(adultAnd) \(homeOnly ? homeAnd : "") \(homeOnly ? verifiedAnd : "") \(notCommercial) \(notStandaloneTV) \(typeAnd)
             ORDER BY i.popularityScore DESC LIMIT \(limit)
         """, [name])
     }
