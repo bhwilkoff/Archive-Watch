@@ -59,6 +59,10 @@ on:
         description: 'Stop starting new probes after N minutes (0 = no budget)'
         required: false
         default: '120'
+      ids:
+        description: 'TARGETED: probe exactly these archiveIDs (space/comma separated), ignoring the popularity sort and budget'
+        required: false
+        default: ''
 
 concurrency:
   group: catalog-writers
@@ -83,8 +87,21 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py fetch
 
+      # TARGETED mode exists because the ordinary sweep is popularity-ordered and
+      # budget-bounded: on 2026-08-09 it probed 7,153 of 18,681 hot items, and the
+      # two titles the owner actually reported sat in the 11,528 it never reached.
+      # A specific reported title must be fixable now, not in three days' drain.
       - name: Check liveness
         run: |
+          IDS="${{ github.event.inputs.ids }}"
+          if [ -n "$IDS" ]; then
+            printf '%s\n' $(echo "$IDS" | tr ',' ' ') > /tmp/aw-ids.txt
+            echo "targeted: $(wc -l < /tmp/aw-ids.txt | tr -d ' ') archiveIDs"
+            python tools/check_liveness.py --ids /tmp/aw-ids.txt | tee liveness.log
+            echo "## Archive liveness (targeted)" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY; tail -5 liveness.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+            exit 0
+          fi
           python tools/check_liveness.py \
             --limit ${{ github.event.inputs.limit || '8000' }} \
             --reprobe-days ${{ github.event.inputs.reprobe_days || '90' }} \
