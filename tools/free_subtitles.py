@@ -47,7 +47,8 @@ from pathlib import Path
 from urllib.parse import quote, urlencode
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from build_subtitle_assets import srt_to_vtt, hls_manifests, safe_dir, PAGES_BASE, SUBS_DIR  # noqa: E402
+from build_subtitle_assets import (srt_to_vtt, hls_manifests, safe_dir, PAGES_BASE,  # noqa: E402
+                                   SUBS_DIR, decode_subtitle, validate_vtt)
 
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
@@ -92,27 +93,25 @@ def _last_cue_seconds(srt_text: str):
 
 
 def _pick_srt_from_zip(content: bytes):
-    """Largest .srt member of a zip, decoded — or the raw bytes if it isn't a zip
-    (SubDL unpack / direct .srt)."""
+    """Largest .srt member of a zip, decoded — or the payload itself when it is
+    not a zip (SubDL unpack / direct .srt).
+
+    Decoding goes through the SHARED `decode_subtitle`. The old chain here tried
+    utf-8 → windows-1252 → iso-8859-1, and the last two NEVER RAISE for arbitrary
+    bytes: a UTF-16 subtitle "decoded" into NUL-separated mojibake and a RAR
+    archive sailed past `BadZipFile` straight into a published .vtt. Both were
+    measured live ("Osaka Elegy"/"The Crusades" UTF-16, "Face of Terror" RAR) and
+    rendered no subtitles at all."""
     try:
         zf = zipfile.ZipFile(io.BytesIO(content))
     except zipfile.BadZipFile:
-        for enc in ("utf-8", "windows-1252", "iso-8859-1"):
-            try:
-                return content.decode(enc)
-            except UnicodeDecodeError:
-                continue
-        return content.decode("utf-8", "replace")
-    srts = [n for n in zf.namelist() if n.lower().endswith(".srt")]
+        text, _note = decode_subtitle(content)
+        return text
+    srts = [n for n in zf.namelist() if n.lower().endswith((".srt", ".vtt"))]
     if not srts:
         return None
-    raw = zf.read(max(srts, key=lambda n: zf.getinfo(n).file_size))
-    for enc in ("utf-8", "windows-1252", "iso-8859-1"):
-        try:
-            return raw.decode(enc)
-        except UnicodeDecodeError:
-            continue
-    return raw.decode("utf-8", "replace")
+    text, _note = decode_subtitle(zf.read(max(srts, key=lambda n: zf.getinfo(n).file_size)))
+    return text
 
 
 def _unwrap(obj):
@@ -248,7 +247,12 @@ def write_assets(item, srt_text, source):
     sid = safe_dir(item["archiveID"])
     out = SUBS_DIR / sid
     out.mkdir(parents=True, exist_ok=True)
-    (out / "en.vtt").write_text(srt_to_vtt(srt_text), encoding="utf-8")
+    vtt = srt_to_vtt(srt_text)
+    ok, why = validate_vtt(vtt, item.get("runtimeSeconds") or 0)
+    if not ok:
+        print(f"  [subs] {item.get('archiveID','?')[:38]}: rejected ({why})", flush=True)
+        return "rejected"
+    (out / "en.vtt").write_text(vtt, encoding="utf-8")
     base = f"{PAGES_BASE}/{sid}"
     master, video, subs = hls_manifests(item["downloadURL"], item.get("runtimeSeconds") or 0,
                                          [("en", "English", "en.vtt")])
@@ -381,7 +385,12 @@ def main() -> int:
             tally["sync-reject"] += 1
             print(f"[{n}] {it['archiveID']}: SYNC-REJECT (last cue {int(last)}s vs runtime {rt}s)", flush=True)
             continue
-        write_assets(it, srt, prov.name)
+        # NOTE the sync guard above is skipped when `last` is falsy — i.e. when
+        # the payload yielded NO cues at all, which is precisely the UTF-16 /
+        # RAR case. validate_vtt inside write_assets is what closes that hole.
+        if write_assets(it, srt, prov.name) == "rejected":
+            tally["rejected"] += 1
+            continue
         deltas[it["archiveID"]] = {"captions": it["captions"], "subtitleHLS": it["subtitleHLS"]}
         tally["built"] += 1
         print(f"[{n}] {it['archiveID']}: built", flush=True)
