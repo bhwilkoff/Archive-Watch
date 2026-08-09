@@ -233,6 +233,56 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-08-07/09 — Decisions 049-053 shipped; subtitle program MID-FLIGHT
+App **1.3.320 / build 842** (uploaded to ASC, mac+iOS+tvOS), Android prod
+**vc29/1.3.314**. All on `main`. Full handoff:
+`session_handoff_2026_08_09` + `subtitle_coverage_program` memories.
+
+**Shipped (each measured, not assumed):**
+- **049 Top Shelf** — was byte-identical for 3 weeks AND resume was dead:
+  `archivewatch://play` had NO IntentInbox case, `TopShelfUpdater` keyed on
+  progress.COUNT (so position changes never refreshed), and the extension
+  short-circuited the network feed. Now publishes POOLS and rotates on a 6h
+  bucket. Rows STRIDE the priority list — a contiguous slice rendered a shelf of
+  Prelinger+NASA+Newsreels while every assertion passed.
+- **050 Hidden Gems** — EMPTY on tvOS/iOS/macOS/Android for 5 weeks. A client
+  constant (`popularityScore <= 40`) written against a 0-89 scale the pipeline
+  rescaled to 100-4500 on 2026-06-29. Membership is now a COMPUTED `hiddenGem`
+  column (percentile, recomputed per build) + a build-time count warning.
+- **051 AirPlay** — Apple does not support video AirPlay with a custom resource
+  loader and every path here is loader-backed. iOS got a swap 08-05; **macOS
+  never did** while its HUD advertised the button.
+- **052 Trailers** — the Serpico TRAILER shipped as the feature. The existing
+  detector was blind twice (FILM_TYPES excluded `short-film`; the runtime gate
+  read an already-corrected value) and `contentType="trailer"` does NOTHING
+  because no client filters it. 74 removed as DATA, 12 real films restored.
+- **053 Launch double-load** — THREE db swaps per launch (seed → cached → the
+  same cached file again, because `downloadDatabase()` returns the cached path
+  on a 304). Now one paint from the cached catalog; seed is first-launch only.
+- Plus: AirPlay **resume** (a seek issued before `.readyToPlay` is DROPPED — 4
+  swap sites), the `2,010s` decade comma, Play TV banner uploaded via the Play
+  API, TV artifacts rebuilt, `audit_fire_tv_gms` made minification-aware.
+
+**MID-FLIGHT — subtitles.** Measured: 12.6% coverage x 70% working = **~9%** of
+films usable. Sourcing was NOT the main problem: Pages served `404.html` as VTT
+with HTTP 200 (a failed tarball restore silently republished a partial set), and
+UTF-16/RAR payloads were published as `.vtt`. Fixed + guarded. Built but NOT
+WIRED: `OpenSubtitlesClient` (BYO account — the DOWNLOAD quota is per USER),
+`AutoCaptions` (SpeechAnalyzer, 26+, incl. tvOS), `SubtitleStore`,
+`SubtitleAccount` (Keychain), `SubtitleAccountSection` in all three Settings.
+Harness 23/23. **Next: the "Get subtitles" action on Detail.** Plan:
+`docs/SUBTITLE-COVERAGE-PLAN.md`.
+
+**OWNER:** Submit build 842 in ASC · OpenSubtitles Api-Key into `Secrets.xcconfig`
+· ⚠️ **`Secrets.xcconfig` never reaches the cloud build, so shipped builds lack
+the TMDb token too** · AirPlay on real hardware · TV stores (Amazon first).
+
+**The lesson, three times over:** verify in the ENVIRONMENT and SEQUENCE the
+pipeline actually uses. And a failing test can be the best output — the first
+caption-quality gate rejected real human subtitles while accepting known-bad ASR;
+deleting it rather than tuning it found the real signal.
+
+
 ### 2026-08-05 (later) — Play submitted · Cast PUBLISHED · Fire TV artifact · 5 silent bugs
 App **1.3.312 / vc28**, all on `main`, pushed. Full handoff in the
 `session-handoff-2026-08-05-tv` memory; owner steps in
