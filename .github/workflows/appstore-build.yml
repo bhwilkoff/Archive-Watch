@@ -109,6 +109,26 @@ jobs:
           chmod 600 ~/.appstoreconnect/private_keys/AuthKey_${KID}.p8
           printf 'ASC_KEY_ID=%s\nASC_ISSUER_ID=%s\n' "$KID" "$ISS" > tools/asc-credentials.env
 
+      # The archive runs with `-allowProvisioningUpdates`, and every runner is a
+      # fresh machine with an empty keychain — so Xcode mints a NEW Apple
+      # Development certificate on every build. They accumulate until Apple
+      # refuses ("Your account has reached the maximum number of certificates"),
+      # at which point provisioning falls back to development profiles that do
+      # not exist and NOTHING can ship. That happened on 2026-08-09 at 11
+      # development certs, ten of them machine-created.
+      #
+      # The runner that owned each private key is destroyed minutes later, so
+      # these are disposable by construction. Pruning them here keeps the account
+      # under the cap permanently. Distribution/installer certs and the owner's
+      # own named development cert are never eligible — see the tool.
+      # continue-on-error: a pruning hiccup must never block a build that would
+      # otherwise ship; the cap is what blocks builds, and this only relieves it.
+      - name: Prune throwaway runner certificates
+        continue-on-error: true
+        run: |
+          set -a; . tools/asc-credentials.env; set +a
+          python3 tools/asc_prune_certs.py --apply --keep 2
+
       - name: Archive + sign + upload to App Store Connect
         env:
           ASC_DIST_CERT_ID: ${{ secrets.APPLE_DIST_CERT_ID }}
