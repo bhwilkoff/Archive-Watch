@@ -53,8 +53,16 @@ import urllib.error
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
 
-UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 "
-      "(KHTML, like Gecko) Version/17.0 Safari/605.1.15")
+# Identify the app, with contact details. NOT a spoofed browser string:
+# Wikimedia's User-Agent policy rejects generic browser UAs with HTTP 429, and
+# commons.wikimedia.org is 53% of the posters this tool checks. Measured
+# 2026-08-09 on the same 20 Commons URLs, back to back:
+#     browser-spoof UA -> 8/20 alive, the rest 429
+#     compliant UA     -> 20/20 alive
+# That single header was most of why this workflow reported 99% "transient" and
+# validated almost nothing, night after night.
+UA = ("ArchiveWatch/1.0 (+https://archivewatch.org; ben@learningischange.com) "
+      "python-urllib")
 
 # Hosts that rot and are worth re-checking. tmdb is reliable + 12k items, so it is
 # off by default (gate behind --include-tmdb). generated/archive/none are skipped.
@@ -69,25 +77,51 @@ def archive_thumb(archive_id: str) -> str:
     return f"https://archive.org/services/img/{quote(archive_id, safe='')}"
 
 
-def check(url: str, timeout: float = 12.0) -> int:
+def check(url: str, timeout: float = 12.0, attempts: int = 3) -> int:
     """Return the HTTP status (a redirect chain is followed); 0 on network error.
     A range GET of the first byte is enough to confirm the object exists without
-    downloading the whole image — and works on hosts that reject HEAD."""
-    req = urllib.request.Request(url, method="GET", headers={
-        "User-Agent": UA, "Range": "bytes=0-0", "Accept": "image/*,*/*"})
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            return r.status
-    except urllib.error.HTTPError as e:
-        return e.code
-    except Exception:
-        return 0
+    downloading the whole image — and works on hosts that reject HEAD.
+
+    RETRIES, because a single attempt made this whole workflow a no-op. Measured
+    2026-08-09: a run reported `500/1887 (alive=5 dead=0 transient=495)` — 99%
+    transient. Transient means "leave unmarked and retry next run", so the nightly
+    job was validating roughly 1% of what it looked at and re-abandoning the rest
+    forever. The hosts were not down; 16 workers at 62 req/s were being throttled,
+    and the throttle was being recorded as an unknown. Backing off and asking
+    again is the difference between a verdict and a shrug.
+    """
+    last = 0
+    for attempt in range(attempts):
+        if attempt:
+            time.sleep(2 ** attempt)                  # 2s, 4s
+        req = urllib.request.Request(url, method="GET", headers={
+            "User-Agent": UA, "Range": "bytes=0-0", "Accept": "image/*,*/*"})
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return r.status
+        except urllib.error.HTTPError as e:
+            if e.code in DEAD_CODES:
+                return e.code                         # definitive; no point retrying
+            # Honour an explicit Retry-After rather than guessing.
+            if e.code == 429:
+                try:
+                    wait = min(float(e.headers.get("Retry-After") or 0), 15.0)
+                except (TypeError, ValueError):
+                    wait = 0
+                if wait:
+                    time.sleep(wait)
+            last = e.code
+        except Exception:
+            last = 0
+    return last
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0, help="cap items checked this run")
-    ap.add_argument("--workers", type=int, default=16)
+    # 16 workers ran at ~62 req/s and provoked the throttling that made 99% of
+    # verdicts "transient". Fewer, patient workers verify far more per run.
+    ap.add_argument("--workers", type=int, default=6)
     ap.add_argument("--refresh", action="store_true",
                     help="re-check items already marked posterChecked")
     ap.add_argument("--include-tmdb", action="store_true",
