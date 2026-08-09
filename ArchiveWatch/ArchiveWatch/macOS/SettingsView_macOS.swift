@@ -25,6 +25,8 @@ struct SettingsView: View {
                         LabeledContent("Last sync", value: sync.formatted(date: .abbreviated, time: .shortened))
                     }
                 }
+                SubtitleAccountSection()
+                AutoCaptionsSettingsSection()
                 Section("Content") {
                     Toggle("Hide mature collections", isOn: $store.hideAdultContent)
                     Toggle("Hide watched on Home", isOn: $store.hideWatchedOnHome)

@@ -195,3 +195,48 @@ Sources: [SpeechAnalyzer platform availability + `analyzeSequence`](https://www.
 [Android Live Caption captions on-device media](https://support.google.com/accessibility/android/answer/9350862) ·
 [how Live Caption works on-device](https://www.androidauthority.com/how-live-caption-works-android-10-1048376/) ·
 [Android on-device SpeechRecognizer](https://picovoice.ai/blog/android-speech-recognition/)
+
+---
+
+## §6 — The OpenSubtitles API key (OWNER, one-time, free)
+
+The app needs ONE Api-Key. It identifies the APPLICATION, ships in the bundle,
+and the viewer never sees it. It is **not** where the download quota lives:
+
+| limit | scope | notes |
+|---|---|---|
+| **downloads** | **per signed-in user** | each viewer's own allowance; the API reports it as `allowed_downloads` and the app displays that rather than a hardcoded number |
+| request rate | per Api-Key (shared) | ~1–5 requests/**second**; 429 + `x-ratelimit-*`. Handled with token reuse (~20h) and Retry-After backoff |
+
+So one shared key is fine, and viewers still only enter a username and password.
+
+### Getting it
+
+1. Sign in (or register free) at **https://www.opensubtitles.com**
+2. Profile → **API Consumers** → **New Consumer**
+3. Name it (e.g. "Archive Watch"), submit → it issues an **Api-Key** string
+
+### Giving it to the app
+
+It goes where every other key in this project goes — `Secrets.xcconfig` at the
+repo root, which is **gitignored** and already holds `TMDB_BEARER_TOKEN`,
+`OMDB_KEY`, `FANART_TV_KEY`, `THETVDB_API_KEY`. Add one line:
+
+```
+OPENSUBTITLES_API_KEY = <the key>
+```
+
+`AppVersion.xcconfig` does `#include? "Secrets.xcconfig"`, both Info.plists now
+carry `OPENSUBTITLES_API_KEY = $(OPENSUBTITLES_API_KEY)`, and
+`SubtitleAccount.apiKey` reads it from the bundle — the same path
+`TMDbClient` uses. **Do not paste the key into chat or a commit.**
+
+⚠️ **The cloud App Store build will not have it.** `appstore-build.yml` checks
+out a fresh tree, and `Secrets.xcconfig` is gitignored — which means the App
+Store builds have never carried the TMDb key either, and subtitle search would
+be dark in shipped builds for the same reason. To ship it, add the key as a
+GitHub repo secret and have the workflow write `Secrets.xcconfig` before
+building. Worth doing for TMDB_BEARER_TOKEN at the same time.
+
+Until a key exists the feature is simply absent: `SubtitleAccount.isAvailable`
+is false and Settings says so rather than offering a sign-in that cannot work.

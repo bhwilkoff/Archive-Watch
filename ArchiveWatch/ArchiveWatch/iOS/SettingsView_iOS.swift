@@ -15,6 +15,8 @@ struct SettingsView: View {
         @Bindable var store = store
         Form {
             accountSection
+            SubtitleAccountSection()
+            AutoCaptionsSettingsSection()
             Section("Content") {
                 Toggle("Show mature collections", isOn: Binding(
                     get: { !store.hideAdultContent },

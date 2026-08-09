@@ -39,6 +39,8 @@
     <false/>
     <key>TMDB_BEARER_TOKEN</key>
     <string>$(TMDB_BEARER_TOKEN)</string>
+    <key>OPENSUBTITLES_API_KEY</key>
+    <string>$(OPENSUBTITLES_API_KEY)</string>
     <!-- Clip Studio (Decision 033, iOS/iPadOS): saving a finished clip/GIF to
          the user's library. Add-only is the lighter grant — the app never
          reads the photo library. tvOS has no Clip Studio so this is iOS-only,

@@ -37,6 +37,8 @@ struct SettingsView: View {
 
             List {
                 accountSection
+                SubtitleAccountSection()
+                AutoCaptionsSettingsSection()
                 visibilitySection
                 homeSection
                 playbackSection
