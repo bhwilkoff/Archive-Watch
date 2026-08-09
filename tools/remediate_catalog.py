@@ -1187,6 +1187,18 @@ def flag_trailers(items, stats):
     """Reclassify + reversibly exclude trailers/clips posing as the feature."""
     for it in items:
         if it.get("excluded"):
+            # An item the OLD detector excluded carries `excluded=True` but NO
+            # `excludedReason`. audit_rights --apply reconciles exclusions and
+            # UN-EXCLUDES anything without a foreign marker it recognises
+            # (Decision 044) — so a 38-second "13 Ghosts" trailer and Harold
+            # Lloyd's "Speedy" walked back into the published DB after every
+            # single publish, while a fresh local build (which does not run the
+            # rights apply) showed zero. Stamping the reason is what makes the
+            # exclusion stick. 17 items were unprotected this way.
+            if (it.get("contentType") == "trailer" or it.get("isTrailer")) \
+                    and not it.get("excludedReason"):
+                it["excludedReason"] = "trailer"
+                stats["trailer_reason_stamped"] += 1
             continue
         ct = it.get("contentType") or ""
         if ct in ("tv-episode", "tv-series", "commercial"):
