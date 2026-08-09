@@ -123,7 +123,9 @@ This is Decision 039a's sharded-runner design with a much better engine. Its
 lesson stands: **scale by adding shards, never by raising workers on one
 machine.**
 
-**The quality gate is the whole ballgame**, and it is what 039b lacked:
+**The quality gate is the whole ballgame**, and it is what 039b lacked. It is
+built and measured (`tools/caption_quality.py`), and the measurement produced one
+result that changes the plan — see "the limit" below.
 
 - reject on **repetition** — the hallucination signature is a low unique/total
   token ratio and repeated n-grams ("ALRIGHT ALRIGHT ALRIGHT", "why why why")
@@ -133,6 +135,46 @@ machine.**
 - **never** transcribe a title flagged `isSilentFilm` — Decision 043's exact
   failure was fabricated dialogue over silent films
 - label the track "English (auto-generated)" and sort it BELOW any human track
+
+### What the gate actually catches (measured, both directions)
+
+The first version used unique/total token ratio and **failed both ways**: real
+human subtitles for *His Girl Friday* scored 0.126 while the known-bad *White
+Zombie* ASR scored 0.292 — type-token ratio falls with LENGTH, so a long rich
+transcript looks worse than a short empty one. It is not a quality measure.
+
+What separates cleanly on the same real files is DENSITY — a recognizer failing
+on poor audio goes sparse rather than filling the film with nonsense:
+
+| file | words/min | cues/min | verdict |
+|---|---|---|---|
+| White Zombie (archive ASR) | 14 | 3.0 | REJECT |
+| Carnival of Souls (archive ASR) | 49 | 8.8 | REJECT |
+| His Girl Friday (human) | 187 | 38.2 | ACCEPT |
+| The Stranger (human) | 102 | 23.6 | ACCEPT |
+
+### THE LIMIT — read this before approving prong 5
+
+**A transcript that is FLUENT AND WRONG is not detectable from the text.** White
+Zombie's ASR — the file that got auto-captions banned — reads as ordinary English
+that simply is not what the film says. It happens to be caught here because it is
+also sparse, but nothing in the text would have revealed the error if the
+recognizer had been confidently verbose. No lexical statistic can.
+
+So the defence cannot be text statistics alone. It has to be:
+1. **the recognizer's own confidence** — SpeechAnalyzer reports it; whisper.cpp
+   effectively did not, which is a real difference between 039b's attempt and this one;
+2. **an audio-suitability precheck** — never transcribe an item flagged
+   `isSilentFilm`, and skip tracks with no speech energy (ffmpeg VAD), which is
+   how "fabricated dialogue over a silent film" is prevented rather than detected;
+3. **labelling** — "auto-generated", ranked below any human track, so the viewer
+   knows what they are reading.
+
+Two bad samples is also not a threshold study. Before prong 5 runs at scale, the
+gate should be calibrated against a larger archive-ASR corpus (thousands of
+`.asr.srt` files are still on archive.org, free to fetch) and spot-checked for
+false positives on genuinely quiet films, which are the population most at risk
+of being wrongly rejected.
 
 ---
 
