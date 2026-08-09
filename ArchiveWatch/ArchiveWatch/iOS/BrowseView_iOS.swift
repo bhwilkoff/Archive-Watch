@@ -92,7 +92,11 @@ struct BrowseView: View {
             }
             Picker("Decade", selection: $decade) {
                 Text("All Decades").tag(Int?.none)
-                ForEach(decades, id: \.self) { Text("\($0)s").tag(Int?.some($0)) }
+                // `Text("\(int)s")` builds a LocalizedStringKey, which formats the
+                // Int with locale GROUPING — "2,010s" instead of "2010s". A decade
+                // is a label, not a quantity. Every other decade site in the app
+                // already uses verbatim/String(); Browse was the last holdout.
+                ForEach(decades, id: \.self) { Text(verbatim: "\($0)s").tag(Int?.some($0)) }
             }
             Picker("Sort", selection: $sort) {
                 Text("Popular").tag(CatalogDB.Sort.popular)

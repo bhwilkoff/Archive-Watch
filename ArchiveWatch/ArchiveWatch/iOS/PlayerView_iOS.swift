@@ -291,6 +291,37 @@ struct PlayerView: UIViewControllerRepresentable {
             }
         }
 
+        private var resumeObs: NSKeyValueObservation?
+
+        /// Replace the current item and resume at `pos` EXACTLY.
+        ///
+        /// A seek issued straight after `replaceCurrentItem` is DROPPED: the new
+        /// item has no loaded timeline yet, so AVFoundation has nothing to seek
+        /// within and playback begins at 0. That restarted the film every time an
+        /// AirPlay route engaged, every time playback came back to the phone, and
+        /// on every caption-stall fallback. The fix is to wait for
+        /// `.readyToPlay`, then seek with ZERO tolerance (the viewer asked to land
+        /// exactly where they left off, not at the nearest keyframe), and only
+        /// then play.
+        private func swap(to item: AVPlayerItem, resumingAt pos: CMTime, on player: AVPlayer) {
+            item.externalMetadata = fallbackMetadata
+            item.preferredForwardBufferDuration = 300
+            registerEnd(for: item)
+            resumeObs = nil
+            player.replaceCurrentItem(with: item)
+            guard pos.isNumeric, pos.seconds > 1 else { player.play(); return }
+            // .initial so an item that is ALREADY ready still seeks.
+            resumeObs = item.observe(\.status, options: [.initial, .new]) { [weak self] it, _ in
+                guard it.status == .readyToPlay else { return }   // .failed -> the
+                MainActor.assumeIsolated {                        // fallback observers own it
+                    self?.resumeObs = nil
+                    player.seek(to: pos, toleranceBefore: .zero, toleranceAfter: .zero) { _ in
+                        player.play()
+                    }
+                }
+            }
+        }
+
         private func fallbackToLoader() {
             guard !didFallback, let url = fallbackVideoURL, let player else { return }
             didFallback = true
@@ -301,13 +332,7 @@ struct PlayerView: UIViewControllerRepresentable {
             let pos = player.currentTime()
             let (asset, ldr) = ResilientStreamLoader.makeAsset(for: url)
             loader = ldr
-            let item = AVPlayerItem(asset: asset)
-            item.externalMetadata = fallbackMetadata
-            item.preferredForwardBufferDuration = 300
-            registerEnd(for: item)
-            player.replaceCurrentItem(with: item)
-            if pos.seconds > 5 { player.seek(to: pos) }
-            player.play()
+            swap(to: AVPlayerItem(asset: asset), resumingAt: pos, on: player)
         }
 
         /// Swap between a receiver-fetchable asset (AirPlay) and the resilient
@@ -346,13 +371,7 @@ struct PlayerView: UIViewControllerRepresentable {
                 item = makeLocalItem()
             }
             guard let item else { return }
-            let pos = player.currentTime()
-            item.externalMetadata = fallbackMetadata
-            item.preferredForwardBufferDuration = 300
-            registerEnd(for: item)
-            player.replaceCurrentItem(with: item)
-            if pos.seconds > 5 { player.seek(to: pos) }
-            player.play()
+            swap(to: item, resumingAt: player.currentTime(), on: player)
         }
 
         /// Rebuild the on-device item, mirroring `makeUIViewController`'s branch
@@ -467,6 +486,7 @@ struct PlayerView: UIViewControllerRepresentable {
         isolated deinit {
             captionStall.detach()
             externalObs = nil
+            resumeObs = nil
             if let t = timeObserver { player?.removeTimeObserver(t) }
             if let e = endObserver { NotificationCenter.default.removeObserver(e) }
             if let b = backgroundObserver { NotificationCenter.default.removeObserver(b) }

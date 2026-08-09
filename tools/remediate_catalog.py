@@ -1238,6 +1238,55 @@ def flag_trailers(items, stats):
         stats["trailer_flagged"] += 1
 
 
+def restore_mistyped_trailers(items, stats):
+    """Give back a real contentType to films the OLD detector mislabelled.
+
+    `detect_trailers.py` used to overwrite contentType with "trailer" — and it
+    never recorded what the type had been, so there is nothing to roll back to.
+    Its comparison was wrong for a whole class of items (it measured a 13-minute
+    SERIAL CHAPTER against the whole 12-chapter serial, and Ozu's surviving
+    13-minute fragment against the feature it was cut from), so the label is on
+    real films: "King of the Rocket Men", "Tokkan kozô", "West Virginia, the
+    State Beautiful", "Häxan".
+
+    Anything still typed "trailer" AFTER flag_trailers has had its say is, by
+    construction, an item our runtime evidence does NOT consider a trailer. It is
+    reclassified with `ingest_candidates.classify` — the SAME function fresh
+    ingests use, so the type it gets is the type it would have been given on the
+    way in — using the file's TRUE duration rather than the matched film's.
+
+    This matters because contentType is not cosmetic: the film surfaces filter on
+    it, so a mistyped item is missing from Movies, from the category grids and
+    from every Home shelf even though it is in the database and plays fine.
+    """
+    try:
+        _sys.path.insert(0, str(Path(__file__).resolve().parent))
+        from ingest_candidates import classify          # noqa: PLC0415
+    except Exception:                                    # noqa: BLE001
+        print("[remediate] classify() unavailable — mistyped trailers left as-is")
+        return
+    for it in items:
+        if it.get("contentType") != "trailer" or it.get("excluded"):
+            continue
+        runtime = (it.get("trueRuntimeSeconds") or it.get("fileRuntimeSeconds")
+                   or it.get("runtimeSeconds") or 0)
+        new = classify([str(c) for c in (it.get("collections") or [])],
+                       [str(s) for s in (it.get("subjects") or [])],
+                       runtime, it.get("year"))
+        if new == "trailer":
+            continue
+        it["contentTypeWas"] = "trailer"
+        it["contentType"] = new
+        it.pop("isTrailer", None)
+        # The runtime shown must be the FILE's, not the feature it was cut from —
+        # these carry the canonical length (Häxan: 6300 s on a 490 s excerpt).
+        if runtime and it.get("runtimeSeconds") != runtime:
+            it["runtimeWasSeconds"] = it.get("runtimeSeconds")
+            it["runtimeSeconds"] = runtime
+            it["runtimeSource"] = "archive_file"
+        stats[f"trailer_restored_{new}"] += 1
+
+
 def remediate(items):
     stats = Counter()
     # A later rule can null a year this pass filled (e.g. the B&W-vs-modern
@@ -1534,6 +1583,8 @@ def remediate(items):
     exclude_hate_propaganda(items, stats)
     # After the year/runtime rules above have settled — flag_trailers reads both.
     flag_trailers(items, stats)
+    # ...then give a real type back to whatever it did NOT judge a trailer.
+    restore_mistyped_trailers(items, stats)
     encode_download_urls(items, stats)
     return stats
 

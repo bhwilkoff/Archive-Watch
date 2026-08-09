@@ -139,6 +139,7 @@ private struct PlayerSurface: View {
     // failed on every title, exactly as it did on iOS before this was fixed
     // there. macOS never got the fix; this is it.
     @State private var externalObs: NSKeyValueObservation?
+    @State private var resumeObs: NSKeyValueObservation?
     @State private var isExternalActive = false
 
     var body: some View {
@@ -214,6 +215,31 @@ private struct PlayerSurface: View {
         }
     }
 
+    /// Replace the current item and resume at `pos` EXACTLY.
+    ///
+    /// A seek issued straight after `replaceCurrentItem` is DROPPED — the new
+    /// item has no loaded timeline yet — so playback restarted at 0 on every
+    /// AirPlay engage/disengage and on every caption-stall fallback. Wait for
+    /// `.readyToPlay`, seek with ZERO tolerance, then play.
+    private func swap(to newItem: AVPlayerItem, resumingAt pos: CMTime, on p: AVPlayer) {
+        newItem.preferredForwardBufferDuration = 300
+        if let e = endObserver { NotificationCenter.default.removeObserver(e); endObserver = nil }
+        endObserver = NotificationCenter.default.addObserver(
+            forName: AVPlayerItem.didPlayToEndTimeNotification, object: newItem, queue: .main) { _ in
+            MainActor.assumeIsolated { onEnded?() }
+        }
+        resumeObs = nil
+        p.replaceCurrentItem(with: newItem)
+        guard pos.isNumeric, pos.seconds > 1 else { p.play(); return }
+        resumeObs = newItem.observe(\.status, options: [.initial, .new]) { it, _ in
+            guard it.status == .readyToPlay else { return }
+            MainActor.assumeIsolated {
+                resumeObs = nil
+                p.seek(to: pos, toleranceBefore: .zero, toleranceAfter: .zero) { _ in p.play() }
+            }
+        }
+    }
+
     /// Swap between a receiver-fetchable asset (AirPlay engaged) and the
     /// resilient on-device path (disengaged), preserving position and the end
     /// observer. Mirrors the iOS coordinator; the routing decision itself is
@@ -241,16 +267,7 @@ private struct PlayerSurface: View {
             guard let item = makeLocalItem() else { return }
             newItem = item
         }
-        let pos = p.currentTime()
-        newItem.preferredForwardBufferDuration = 300
-        if let e = endObserver { NotificationCenter.default.removeObserver(e); endObserver = nil }
-        endObserver = NotificationCenter.default.addObserver(
-            forName: AVPlayerItem.didPlayToEndTimeNotification, object: newItem, queue: .main) { _ in
-            MainActor.assumeIsolated { onEnded?() }
-        }
-        p.replaceCurrentItem(with: newItem)
-        if pos.seconds > 5 { p.seek(to: pos) }
-        p.play()
+        swap(to: newItem, resumingAt: p.currentTime(), on: p)
     }
 
     /// Rebuild the on-device item, mirroring `setup`'s branch.
@@ -280,16 +297,7 @@ private struct PlayerSurface: View {
         let pos = p.currentTime()
         let (asset, l) = ResilientStreamLoader.makeAsset(for: url)
         loader = l
-        let newItem = AVPlayerItem(asset: asset)
-        newItem.preferredForwardBufferDuration = 300
-        if let e = endObserver { NotificationCenter.default.removeObserver(e); endObserver = nil }
-        endObserver = NotificationCenter.default.addObserver(
-            forName: AVPlayerItem.didPlayToEndTimeNotification, object: newItem, queue: .main) { _ in
-            MainActor.assumeIsolated { onEnded?() }
-        }
-        p.replaceCurrentItem(with: newItem)
-        if pos.seconds > 5 { p.seek(to: pos) }
-        p.play()
+        swap(to: AVPlayerItem(asset: asset), resumingAt: pos, on: p)
     }
 
     private func teardown() {
@@ -298,6 +306,7 @@ private struct PlayerSurface: View {
         captionStall.detach()
         statusObs = nil
         externalObs = nil
+        resumeObs = nil
         captionedLoader = nil
         persist()
     }
