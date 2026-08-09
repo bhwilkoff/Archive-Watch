@@ -162,10 +162,24 @@ final class AppStore {
             // 017). This is the memory win: we never hold ~26k full items in RAM.
             featured = try CatalogLoader.loadFeatured()
             print("[AppStore] featured loaded in \(String(format: "%.2fs", Date().timeIntervalSince(bundleStart)))")
-            // Open the bundled seed DB for instant first paint.
-            if let seed = Bundle.main.path(forResource: "seed", ofType: "sqlite"),
-               let seedDB = CatalogDB(path: seed) {
-                swapDB(seedDB)
+            // FIRST PAINT: prefer the CACHED full catalog over the bundled seed.
+            //
+            // Opening either is `sqlite3_open_v2` on a local file plus one
+            // `itemCount` query — the 165 MB is paged in on demand, never read
+            // up front — so the cached DB is no slower to open than the 25 MB
+            // seed. Painting the seed first and swapping a moment later is
+            // exactly the "double loading" the owner reported: the hero row and
+            // Continue Watching render from the seed's 2,797 items, then
+            // re-render from ~27k a few seconds later, and a recently-watched
+            // film that is not among the seed's items pops in on the second
+            // pass. The seed is for the FIRST launch, when no cache exists yet.
+            if let cached = await CatalogRefreshService.shared.cachedDatabasePath(),
+               let fullDB = CatalogDB(path: cached) {
+                swapDB(fullDB, path: cached)
+                print("[AppStore] cached full DB: \(fullDB.itemCount) items")
+            } else if let seed = Bundle.main.path(forResource: "seed", ofType: "sqlite"),
+                      let seedDB = CatalogDB(path: seed) {
+                swapDB(seedDB, path: seed)
                 print("[AppStore] seed.sqlite: \(seedDB.itemCount) items")
             } else {
                 loadError = "Missing bundled seed.sqlite"
@@ -185,23 +199,18 @@ final class AppStore {
         // Full SQLite catalog (Decision 017). Open the cached DB if we
         // already downloaded one (upgrades from the bundled seed), then fetch a
         // fresh copy from the release in the background and swap it in.
+        // `onlyIfChanged: true` — the plain call returns the CACHED path on a 304,
+        // which we have already opened above, so it swapped a second time and
+        // bumped dbGeneration for content that had not changed at all: every view
+        // re-queried and the shelves visibly reshuffled for nothing. Now a swap
+        // happens only when the bytes actually changed.
         Task { [weak self] in
-            if let cached = await CatalogRefreshService.shared.cachedDatabasePath(),
-               let fullDB = CatalogDB(path: cached) {
-                await MainActor.run {
-                    guard let self else { return }
-                    if fullDB.itemCount >= (self.db?.itemCount ?? 0) { self.swapDB(fullDB) }
-                }
-            }
-            if let path = await CatalogRefreshService.shared.downloadDatabase(),
-               let fullDB = CatalogDB(path: path) {
-                await MainActor.run {
-                    guard let self else { return }
-                    if fullDB.itemCount >= (self.db?.itemCount ?? 0) {
-                        self.swapDB(fullDB)
-                        print("[AppStore] swapped to full DB: \(fullDB.itemCount) items")
-                    }
-                }
+            guard let path = await CatalogRefreshService.shared.downloadDatabase(onlyIfChanged: true),
+                  let fullDB = CatalogDB(path: path) else { return }
+            await MainActor.run {
+                guard let self, fullDB.itemCount >= (self.db?.itemCount ?? 0) else { return }
+                self.swapDB(fullDB, path: path)
+                print("[AppStore] swapped to full DB: \(fullDB.itemCount) items")
             }
         }
     }
@@ -224,7 +233,7 @@ final class AppStore {
         guard let path = await CatalogRefreshService.shared.refreshIfStale(),
               let fullDB = CatalogDB(path: path),
               fullDB.itemCount >= (db?.itemCount ?? 0) else { return }
-        swapDB(fullDB)
+        swapDB(fullDB, path: path)
         print("[AppStore] refreshed catalog on resume: \(fullDB.itemCount) items")
     }
 
@@ -238,11 +247,19 @@ final class AppStore {
     // state. Each returns [] when the db isn't open yet (first frames before
     // the seed loads), which views render as an empty state.
 
-    func swapDB(_ newDB: CatalogDB) {
+    /// The file currently open as `db`. Tracked so a swap to the SAME file is a
+    /// no-op: `dbGeneration` drives a re-query of every db-backed view, so
+    /// bumping it for an identical catalog is a visible reshuffle that shows the
+    /// user nothing new.
+    private(set) var dbPath: String?
+
+    func swapDB(_ newDB: CatalogDB, path: String? = nil) {
+        if let path, path == dbPath, db != nil { return }   // same file — nothing to do
         newDB.hideAdult = hideAdultContent
         newDB.hiddenTypes = Self.contentTypes(for: hiddenCategories)
         newDB.demotedIDs = Set(featured?.deprioritizedSeries ?? [])
         db = newDB
+        dbPath = path
         dbGeneration += 1
     }
 

@@ -2312,3 +2312,38 @@ wrong `contentType="trailer"` from the old detector — visible and playable, bu
 mistyped; restoring them from `contentTypeWas` is a follow-up. Complements
 Decision 027 (the reversible `excluded` mechanism) and 026 (match correctness,
 which owns the wrong-match half of this population).
+
+## 053 — First paint comes from the CACHED catalog; the bundled seed is for first launch only
+*Date: 2026-08-09*
+
+Both Apple stores (`AppStore` for tvOS, `AppStore_iOS` for iOS + macOS) now open
+the **cached full catalog** at launch and fall back to the bundled `seed.sqlite`
+only when no cache exists. The launch refresh uses
+`downloadDatabase(onlyIfChanged: true)`, and `swapDB`/`swap` take the file path
+and no-op when asked to swap in the file already open.
+
+**Why**: the owner reported that "the initial loading of the hero row movies and
+continue watching all load a certain set of movies first and then after about 5
+seconds, a new set of movies load, including the movies I was just most recently
+watching." That was three DB swaps on a normal launch, each bumping
+`dbGeneration`/`dbVersion` and re-querying every view: the bundled seed (~2.6k
+items) → the cached full DB (~27k) → and then the SAME cached file again,
+because `downloadDatabase()` without `onlyIfChanged` returns the cached path on a
+**304**. Recently-watched titles are usually absent from the seed's 2.6k items,
+which is exactly why Continue Watching looked wrong until the second pass.
+
+The seed-first ordering was written for "instant first paint", but that premise
+does not hold: opening either file is `sqlite3_open_v2` plus one `itemCount`
+query, and SQLite pages the 165 MB in on demand rather than reading it — so the
+cached DB is no slower to open than the 25 MB seed. Measured on the iPhone 17 Pro
+simulator: a relaunch with the cache present now logs exactly ONE paint,
+`first paint from cached full DB: 27051 items`, where it previously painted 2,619
+seed items first.
+
+**How to apply**: the seed is a cold-start fallback, not the first-paint path —
+do not reorder it back. Any new swap site must pass its `path` so the identical-
+file guard can work; a `dbGeneration` bump is a full re-query of every shelf, so
+bumping it for unchanged content is a visible reshuffle that shows the user
+nothing. Use `onlyIfChanged: true` for any refresh whose result you have already
+opened. First launch still paints the seed then swaps once — that is unavoidable
+and correct, and it is the only launch that should ever swap twice.
