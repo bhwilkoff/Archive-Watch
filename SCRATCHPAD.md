@@ -233,6 +233,50 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-08-09 (later) — Subtitles wired end to end; Decisions 054-055; build 844 uploaded
+App **1.3.324 / b846** on `main`; **1.3.322 (844) uploaded to ASC for mac+iOS+tvOS**
+(owner: Submit for Review). Android vc30. Handoff: `session_handoff_2026_08_09` +
+`subtitle_coverage_program`.
+
+**The recorded problem was measured wrong.** "12.6% coverage x 70% working = ~9%
+usable" — the 70% came from an audit whose regex required `HH:MM:SS` cue stamps,
+and WebVTT also permits `MM:SS`, so a fifth of HEALTHY files were counted empty.
+Re-measured against what the app fetches (`tools/audit_published_subtitles.py`):
+**16.6% x 95.1% = ~15.8% usable**. Integrity was never the headline; sourcing is.
+
+**054 — the seam had never been executed.** `SubtitleStore` wrote a local HLS
+master with a remote segment and handed AVPlayer that `file://` URL. It does not
+play, and fails SILENTLY: `.unknown` forever, **empty error log, zero access
+events**. The control (same harness, published REMOTE master) passes — which is
+what separated "code broken" from "harness blind". Fix = `LocalSubtitleHLSLoader`,
+the Config C shape with playlists read off disk, serving the VTT too. Harness
+`test_local_subtitle_loader.swift` compiles the SHIPPED files: 10/10 incl. seek.
+Also measured: **AVFoundation refuses to read a remote asset for anything but
+playback** (AVAssetReader "non-local URL"; AVAssetExportSession -11838), so
+transcription must download the whole film — hence a separate, confirmed action
+stating a HEAD-measured size, while OpenSubtitles search stays one tap.
+
+**055 — one flag had capped coverage for weeks.** The daily harvest reported
+"Backlog drained" and finished in **94 seconds**: `freeSubsChecked` was a single
+boolean shared by every provider, so once SubSource swept, SubDL (configured,
+keyed, selectable) could never see a target. Now per-provider. Verified against
+the live catalog: SubSource **2** targets left, SubDL **10,908**. Also closed the
+`|| true` tarball-restore clobber this workflow still had (fixed in subtitles.yml,
+missed here) + a shrunken-set guard.
+
+**Shipped with it:** "Get subtitles" on Detail for all three Apple platforms
+(`GetSubtitlesView` + `SubtitleFinder`); players consult `SubtitleStore.cachedDir`;
+OpenSubtitles key in `Secrets.xcconfig` + repo secret; Android Settings surfaces
+system **Live Caption** (no public file-transcription API exists).
+
+**CI secrets gap CLOSED** — `appstore-build.yml` writes `Secrets.xcconfig` from
+repo secrets and FAILS if one is missing. **844 is the first cloud build ever to
+carry the TMDb token.**
+
+**Still open:** drop the residual ~5% broken tracks (measured, not yet applied —
+and note a film with a BROKEN track is not offered "Get subtitles"); central
+macOS-26 generation pending gate calibration.
+
 ### 2026-08-07/09 — Decisions 049-053 shipped; subtitle program MID-FLIGHT
 App **1.3.320 / build 842** (uploaded to ASC, mac+iOS+tvOS), Android prod
 **vc29/1.3.314**. All on `main`. Full handoff:
