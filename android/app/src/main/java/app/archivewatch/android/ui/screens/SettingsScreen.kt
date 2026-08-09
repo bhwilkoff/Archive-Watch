@@ -111,6 +111,60 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
 
             HorizontalDivider(Modifier.padding(vertical = 16.dp))
 
+            SectionLabel("Subtitles")
+            // Android's prong is discoverability, not engineering. There is no
+            // public API to transcribe a FILE — createOnDeviceSpeechRecognizer
+            // is a microphone pipeline — but the system's Live Caption already
+            // captions whatever this app plays, on-device, with Google's model,
+            // for any film we have no subtitle track for. Most people have never
+            // been told it exists, so the app says so and opens the settings
+            // page. ACTION_CAPTIONING_SETTINGS is the public, stable entry
+            // point; Live Caption itself has no documented deep link, and it is
+            // toggled from the volume rocker, so that is spelled out.
+            Text(
+                "Films without a subtitle track can still be captioned by Android itself. " +
+                    "Live Caption transcribes anything playing on this device, offline, " +
+                    "and works on every title.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Spacer(Modifier.height(4.dp))
+            Text(
+                "Turn it on from Caption preferences, or press a volume key while a film " +
+                    "is playing and tap the Live Caption button.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Spacer(Modifier.height(8.dp))
+            Text(
+                "Open caption settings",
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable {
+                        // Fall back to Accessibility if a device (or a TV build)
+                        // ships no captioning activity — an unresolved intent
+                        // would otherwise crash rather than degrade.
+                        runCatching {
+                            context.startActivity(
+                                Intent(android.provider.Settings.ACTION_CAPTIONING_SETTINGS)
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+                            )
+                        }.onFailure {
+                            runCatching {
+                                context.startActivity(
+                                    Intent(android.provider.Settings.ACTION_ACCESSIBILITY_SETTINGS)
+                                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+                                )
+                            }
+                        }
+                    }
+                    .padding(vertical = 12.dp),
+            )
+
+            HorizontalDivider(Modifier.padding(vertical = 16.dp))
+
             SectionLabel("About")
             Text(
                 TMDB_NOTICE,
