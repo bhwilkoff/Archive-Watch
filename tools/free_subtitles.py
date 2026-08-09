@@ -83,6 +83,27 @@ def http(method, url, headers=None, timeout=60, retries=2):
         return status, base64.b64decode(r.get("body_b64", "") or "")
 
 
+def _tried_providers(item) -> set:
+    """Which providers have already had a go at this film.
+
+    `freeSubsChecked` (a bare boolean) is the legacy marker. A film carrying it
+    with no per-provider list was swept by SubSource — it was the only provider
+    ever scheduled — so it is credited to SubSource alone rather than retiring
+    the film from every future provider.
+    """
+    tried = item.get("freeSubsTried")
+    if isinstance(tried, list):
+        return set(tried)
+    return {"subsource"} if item.get("freeSubsChecked") else set()
+
+
+def _mark_tried(item, provider: str) -> None:
+    tried = _tried_providers(item)
+    tried.add(provider)
+    item["freeSubsTried"] = sorted(tried)
+    item["freeSubsChecked"] = True      # kept so older tooling still reads it
+
+
 def _last_cue_seconds(srt_text: str):
     import re
     times = re.findall(r"-->\s*(\d{1,2}):(\d{2}):(\d{2})[,.](\d{3})", srt_text)
@@ -344,8 +365,13 @@ def main() -> int:
             if args.upgrade:
                 return all(c.get("source") in ("whisper", "archive-asr") for c in caps)
             return False
-        # uncaptioned: skip films we already attempted (so the sweep drains)
-        if it.get("freeSubsChecked") and not args.refresh:
+        # uncaptioned: skip films THIS PROVIDER already attempted (so the sweep
+        # drains) — but only this one. `freeSubsChecked` was a single boolean
+        # shared by every provider, so once SubSource had swept the catalog the
+        # daily run reported "Backlog drained" forever and SubDL could never get
+        # a turn at the ~83% SubSource has nothing for. Coverage plateaued at
+        # 16.6% with a second provider sitting unused behind the flag.
+        if not args.refresh and args.provider in _tried_providers(it):
             return False
         return True
 
@@ -375,7 +401,7 @@ def main() -> int:
             print(f"[{n}] {it['archiveID']}: error {e!r}", flush=True)
             tally["error"] += 1
             continue
-        it["freeSubsChecked"] = True             # attempted — don't retry next sweep
+        _mark_tried(it, args.provider)           # attempted BY THIS PROVIDER
         if not srt:
             tally["no-match"] += 1
             continue

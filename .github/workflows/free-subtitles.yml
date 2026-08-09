@@ -56,34 +56,64 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py fetch
 
+      # A FAILED restore used to be swallowed by `|| true`, leaving subs/ empty —
+      # and the publish step below re-tars whatever is on disk, so one bad
+      # download silently replaced the entire accumulated asset set with a single
+      # run's output. That is the Decision-020 clobber shape; the same hole was
+      # closed in subtitles.yml and missed here.
       - name: Fetch existing subtitle assets (/subs)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           mkdir -p subs
           if gh release view subtitle-assets >/dev/null 2>&1; then
-            gh release download subtitle-assets -p 'subs.tar.gz' -O subs.tar.gz || true
-            [ -f subs.tar.gz ] && tar xzf subs.tar.gz && rm -f subs.tar.gz
+            if ! gh release download subtitle-assets -p 'subs.tar.gz' -O subs.tar.gz; then
+              echo "::error::The subtitle-assets release exists but its tarball could not be downloaded."
+              echo "::error::Continuing would republish a partial set over every accumulated asset."
+              exit 1
+            fi
+            tar xzf subs.tar.gz && rm -f subs.tar.gz
           fi
-          echo "existing subs files: $(find subs -type f | wc -l)"
+          COUNT=$(find subs -type f | wc -l | tr -d ' ')
+          echo "existing subs files: $COUNT"
+          echo "SUBS_BEFORE=$COUNT" >> "$GITHUB_ENV"
 
       - name: Harvest subtitles
         env:
           SUBSOURCE_API_KEY: ${{ secrets.SUBSOURCE_API_KEY }}
           SUBDL_API_KEY: ${{ secrets.SUBDL_API_KEY }}
         run: |
-          python tools/free_subtitles.py \
-            --provider ${{ github.event.inputs.provider || 'subsource' }} \
-            --limit ${{ github.event.inputs.limit || '2000' }} \
-            --sleep 1.5 \
-            ${{ github.event.inputs.upgrade == 'true' && '--upgrade' || '' }} | tee subs.log
-          echo "## Free subtitles (${{ github.event.inputs.provider || 'subsource' }})" >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 subs.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+          # A scheduled run sweeps EVERY provider; a dispatch can name one.
+          # "Already attempted" is per-provider, so SubDL now gets its own pass
+          # over the ~83% SubSource has nothing for — before this it inherited
+          # SubSource's sweep and had no targets at all.
+          PROVIDERS="${{ github.event.inputs.provider }}"
+          [ -n "$PROVIDERS" ] || PROVIDERS="subsource subdl"
+          : > subs.log
+          echo "## Free subtitles" >> $GITHUB_STEP_SUMMARY
+          for P in $PROVIDERS; do
+            echo "=== provider: $P ===" | tee -a subs.log
+            python tools/free_subtitles.py \
+              --provider "$P" \
+              --limit ${{ github.event.inputs.limit || '2000' }} \
+              --sleep 1.5 \
+              ${{ github.event.inputs.upgrade == 'true' && '--upgrade' || '' }} | tee -a subs.log
+            echo "### $P" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            grep -E "targets|built|no-match|rejected|sync-reject" subs.log | tail -5 >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          done
 
       - name: Publish subtitle assets to release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          AFTER=$(find subs -type f | wc -l | tr -d ' ')
+          if [ "${SUBS_BEFORE:-0}" -gt 0 ] && [ "$AFTER" -lt "${SUBS_BEFORE}" ]; then
+            echo "::error::Refusing to publish a SHRUNKEN asset set ($AFTER < $SUBS_BEFORE)."
+            exit 1
+          fi
+          echo "publishing $AFTER files (was ${SUBS_BEFORE:-0})"
           tar czf subs.tar.gz subs
           gh release view subtitle-assets >/dev/null 2>&1 || \
             gh release create subtitle-assets --title "Subtitle assets (rolling)" \
@@ -116,7 +146,9 @@ jobs:
       - name: Report backlog
         run: |
           LIMIT="${{ github.event.inputs.limit || '2000' }}"
-          N=$(grep -oE 'AWSUBS_TARGETS=[0-9]+' subs.log | grep -oE '[0-9]+' | head -1)
+          # One line PER PROVIDER now — the backlog is drained only when every
+          # provider is drained, so take the largest, not the first.
+          N=$(grep -oE 'AWSUBS_TARGETS=[0-9]+' subs.log | grep -oE '[0-9]+' | sort -rn | head -1)
           echo "targets=$N limit=$LIMIT"
           if [ -n "$N" ] && [ "$N" -ge "$LIMIT" ]; then
             echo "Backlog remains (>= one batch) — the daily cron continues the drain."
