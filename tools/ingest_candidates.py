@@ -42,6 +42,7 @@ import requests
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import omdb_lib as L  # noqa: E402
 import archive_lib as A  # noqa: E402
+from content_type import classify  # noqa: E402  (shared, dependency-free)
 
 REPO = Path(__file__).resolve().parent.parent
 FULL_CATALOG = REPO / "catalog.json"
@@ -64,36 +65,6 @@ def dump_json(p, data):
     tmp = p.with_suffix(p.suffix + ".tmp")
     tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     tmp.replace(p)
-
-
-def classify(collections, subjects, runtime_sec, year):
-    """Lightweight content-type classifier. Mirrors the JS builder's
-    heuristics closely enough for discovery items; the weekly rebuild can
-    refine later."""
-    cl = " ".join(collections).lower()
-    subj = " ".join(subjects).lower()
-    # Commercials/ads are a distinct type (interstitial + collection content,
-    # kept off Home — see CatalogDB.notCommercial). Match the dedicated ad
-    # collections by name only (not the broad "advertising" subject, which also
-    # tags docs ABOUT advertising) so we don't mislabel feature films.
-    if any(k in cl for k in ("aw_commercials", "classic_tv_commercials",
-                             "vhscommercials", "videogamecommercials")):
-        return "commercial"
-    if "tv" in cl or "television" in cl or "classic_tv" in cl:
-        return "tv-series" if "series" in cl else "tv-special"
-    if "animation" in cl or "cartoon" in cl or "animation" in subj:
-        return "animation"
-    if "newsreel" in cl or "news" in cl:
-        return "newsreel"
-    if "prelinger" in cl or "ephemeral" in cl or "advertising" in subj:
-        return "ephemeral"
-    if year and year < 1928:
-        return "silent-film"
-    if runtime_sec and runtime_sec < 2400:  # < 40 min
-        return "short-film"
-    if "documentary" in cl or "documentary" in subj:
-        return "documentary"
-    return "feature-film"
 
 
 def as_list(v):

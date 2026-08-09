@@ -1259,11 +1259,15 @@ def restore_mistyped_trailers(items, stats):
     it, so a mistyped item is missing from Movies, from the category grids and
     from every Home shelf even though it is in the database and plays fine.
     """
+    # From the dependency-free module, NOT ingest_candidates: that one imports
+    # `requests` at module level, and this step runs in CI as a bare `python
+    # tools/remediate_catalog.py`, so the import failed there and this rule
+    # silently did nothing on the first publish (caught only because it says so).
     try:
         _sys.path.insert(0, str(Path(__file__).resolve().parent))
-        from ingest_candidates import classify          # noqa: PLC0415
-    except Exception:                                    # noqa: BLE001
-        print("[remediate] classify() unavailable — mistyped trailers left as-is")
+        from content_type import classify               # noqa: PLC0415
+    except Exception as e:                               # noqa: BLE001
+        print(f"[remediate] classify() unavailable ({e}) — mistyped trailers left as-is")
         return
     for it in items:
         if it.get("contentType") != "trailer" or it.get("excluded"):
