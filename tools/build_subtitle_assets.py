@@ -64,6 +64,93 @@ def srt_to_vtt(srt: str) -> str:
     return "WEBVTT\nX-TIMESTAMP-MAP=MPEGTS:0,LOCAL:00:00:00.000\n\n" + body + "\n"
 
 
+# --- What actually came down the wire ------------------------------------------
+#
+# Subtitle sites serve whatever the uploader posted: UTF-16 SRT, cp1252 SRT, and
+# frequently a ZIP or RAR of the .srt rather than the .srt itself. Reading that
+# with `requests`' `r.text` — which guesses a charset and cheerfully decodes a
+# BINARY as latin-1 — produced files that passed every check here and rendered
+# NOTHING in a player:
+#   • a UTF-16 SRT became `ÿþ1\x00\n\x00...` mojibake, so the timestamp regex
+#     matched nothing, the commas stayed, and the WEBVTT header was pasted on top
+#     of unparseable bytes (measured: "Osaka Elegy", "The Crusades");
+#   • a RAR archive was published verbatim as `en.vtt`, header and all
+#     ("Face of Terror" — the file literally begins `Rar!\x1a\x07`).
+# The CC button appeared and there were no subtitles behind it, which is exactly
+# what the owner reported.
+
+_ARCHIVE_MAGIC = ((b"Rar!\x1a\x07", "rar"), (b"PK\x03\x04", "zip"),
+                  (b"\x1f\x8b", "gzip"), (b"7z\xbc\xaf\x27\x1c", "7z"))
+
+
+def decode_subtitle(raw: bytes):
+    """(text, note) from RAW BYTES — never `requests.text`. Returns (None, why)
+    when the payload is not usable subtitle text."""
+    if not raw or not raw.strip():
+        return None, "empty"
+    for magic, kind in _ARCHIVE_MAGIC:
+        if raw.startswith(magic):
+            if kind == "zip":                      # extract the first sub inside
+                import io as _io
+                import zipfile
+                try:
+                    z = zipfile.ZipFile(_io.BytesIO(raw))
+                    for n in z.namelist():
+                        if n.lower().endswith((".srt", ".vtt", ".ass", ".ssa")):
+                            return decode_subtitle(z.read(n))
+                except Exception:                  # noqa: BLE001
+                    pass
+            return None, f"archive:{kind}"         # rar/7z/gzip: never publish raw
+    # BOM-first, because a UTF-16 file decoded as UTF-8/latin-1 looks like text
+    # but parses as nothing.
+    for bom, enc in ((b"\xff\xfe\x00\x00", "utf-32"), (b"\x00\x00\xfe\xff", "utf-32"),
+                     (b"\xff\xfe", "utf-16"), (b"\xfe\xff", "utf-16"),
+                     (b"\xef\xbb\xbf", "utf-8-sig")):
+        if raw.startswith(bom):
+            try:
+                return raw.decode(enc), enc
+            except Exception:                      # noqa: BLE001
+                break
+    # No BOM: a NUL-heavy body is UTF-16 that lost its mark.
+    if raw[:400].count(b"\x00") > 40:
+        for enc in ("utf-16-le", "utf-16-be"):
+            try:
+                return raw.decode(enc), enc
+            except Exception:                      # noqa: BLE001
+                continue
+    for enc in ("utf-8", "cp1252", "latin-1"):
+        try:
+            return raw.decode(enc), enc
+        except UnicodeDecodeError:
+            continue
+    return None, "undecodable"
+
+
+_CUE = re.compile(r"\d{1,2}:\d{2}:\d{2}[.,]\d{1,3}\s*-->\s*\d{1,2}:\d{2}:\d{2}[.,]\d{1,3}")
+
+
+def validate_vtt(vtt: str, runtime: int):
+    """(ok, why). The guard that was missing: parse what we are about to publish
+    and refuse it unless it is really cues that really span the film. Every
+    defect above would have been caught here."""
+    cues = _CUE.findall(vtt)
+    if len(cues) < 5:
+        return False, f"only {len(cues)} cues"
+    last = _TS.findall(vtt)
+    if not last:
+        return False, "no timestamps"
+    h, m, s, _f = last[-1]
+    end = int(h) * 3600 + int(m) * 60 + int(s)
+    if runtime > 600:
+        # A track that stops a third of the way in is for a different cut. Allow
+        # a little past the runtime (credits, differing masters).
+        if end < 0.55 * runtime:
+            return False, f"cues end at {100 * end // runtime}% of runtime"
+        if end > 1.25 * runtime:
+            return False, f"cues run to {100 * end // runtime}% of runtime"
+    return True, f"{len(cues)} cues"
+
+
 def encode_segment_url(url: str) -> str:
     """Percent-encode the path of an MP4 URL so it is a VALID HLS segment URI.
     AVFoundation strictly rejects a segment URI containing raw spaces/()/# (it
@@ -119,8 +206,12 @@ def build_for(item, session) -> str:
         for attempt in range(3):              # archive.org 503s under load; retry
             try:
                 r = session.get(c["url"], headers={"User-Agent": A.UA}, timeout=40)
-                if r.status_code == 200 and r.text.strip():
-                    text = r.text
+                if r.status_code == 200 and r.content.strip():
+                    # BYTES, not r.text — see decode_subtitle.
+                    text, note = decode_subtitle(r.content)
+                    if text is None:
+                        print(f"  [subs] {item['archiveID'][:38]} {c['lang']}: "
+                              f"unusable payload ({note})", flush=True)
                     break
                 if r.status_code not in (429, 500, 502, 503, 504):
                     break                     # a real 404/permission error: give up
@@ -130,13 +221,31 @@ def build_for(item, session) -> str:
         if text is None:
             continue
         vtt = text if c["url"].lower().endswith(".vtt") else srt_to_vtt(text)
+        # A .vtt from upstream still gets normalized: several arrive with SRT
+        # comma timestamps, which a WebVTT parser rejects.
+        if "-->" in vtt and "," in vtt:
+            vtt = srt_to_vtt(vtt.split("\n\n", 1)[-1] if vtt.startswith("WEBVTT") else vtt)
+        ok, why = validate_vtt(vtt, item.get("runtimeSeconds") or 0)
+        if not ok:
+            print(f"  [subs] {item['archiveID'][:38]} {c['lang']}: rejected ({why})",
+                  flush=True)
+            continue
         out.mkdir(parents=True, exist_ok=True)
         fname = f"{c['lang']}.vtt"
         (out / fname).write_text(vtt, encoding="utf-8")
         c["vttURL"] = f"{base}/{fname}"        # web reader uses this (CORS-OK)
         langs.append((c["lang"], c.get("label") or c["lang"].upper(), fname))
     if not langs:
+        # Nothing usable survived validation. Drop the claim entirely: a caption
+        # entry with no playable file gives the viewer a CC button that shows
+        # nothing, which is worse than no button at all — and reads to them as
+        # "the subtitles are broken" (owner, 2026-08-09).
+        item.pop("captions", None)
+        item.pop("subtitleHLS", None)
         return "empty"
+    # Keep only the tracks that were actually written and validated.
+    kept = {l for l, _lbl, _f in langs}
+    item["captions"] = [c for c in caps if c.get("lang") in kept and c.get("vttURL")]
     master, video, subs = hls_manifests(item["downloadURL"], item.get("runtimeSeconds") or 0, langs)
     (out / "master.m3u8").write_text(master, encoding="utf-8")
     (out / "video.m3u8").write_text(video, encoding="utf-8")

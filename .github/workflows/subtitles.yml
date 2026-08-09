@@ -75,9 +75,23 @@ jobs:
         run: |
           mkdir -p subs
           if gh release view subtitle-assets >/dev/null 2>&1; then
+            # A FAILED download must not look like "no assets yet". This step is
+            # the restore half of an accumulate-in-place round trip: if it
+            # silently yields an empty subs/, the publish step below re-tars only
+            # THIS run's output and the accumulated assets are destroyed — the
+            # same clobber shape Decision 020 fixed for the catalog. Measured
+            # 2026-08-09: ~27% of published caption tracks 404'd on Pages (Pages
+            # then serves 404.html with HTTP 200, so the app saw "subtitles" that
+            # were an HTML page).
             gh release download subtitle-assets -p 'subs.tar.gz' -O subs.tar.gz || true
-            [ -f subs.tar.gz ] && tar xzf subs.tar.gz && rm -f subs.tar.gz
+            if [ -f subs.tar.gz ]; then
+              tar xzf subs.tar.gz && rm -f subs.tar.gz
+            else
+              echo "::error::could not restore subs.tar.gz — refusing to run and republish a partial set"
+              exit 1
+            fi
           fi
+          echo "SUBS_BEFORE=$(find subs -type f | wc -l | tr -d ' ')" >> "$GITHUB_ENV"
 
       - name: Build subtitle assets (VTT + HLS)
         if: ${{ github.event.inputs.build_assets == 'true' }}
@@ -91,6 +105,13 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          AFTER=$(find subs -type f | wc -l | tr -d ' ')
+          echo "subs files: ${SUBS_BEFORE:-0} -> $AFTER"
+          # Never publish a SHRUNKEN set (Decision 020's rule, applied here).
+          if [ "${SUBS_BEFORE:-0}" -gt 0 ] && [ "$AFTER" -lt "${SUBS_BEFORE}" ]; then
+            echo "::error::subs shrank ${SUBS_BEFORE} -> ${AFTER}; refusing to publish"
+            exit 1
+          fi
           tar czf subs.tar.gz subs
           gh release view subtitle-assets >/dev/null 2>&1 || \
             gh release create subtitle-assets --title "Subtitle assets (rolling)" \
