@@ -60,7 +60,9 @@ struct SubtitleAccountSection: View {
 
     private var signIn: some View {
         Group {
-            TextField("OpenSubtitles username", text: $username)
+            // Say "not your email" up front. OpenSubtitles rejects an email in
+            // this field, and it is the single most likely thing a person types.
+            TextField("OpenSubtitles username (not your email)", text: $username)
                 .textContentType(.username)
                 .focused($focused, equals: .user)
                 #if !os(macOS)

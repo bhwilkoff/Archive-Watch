@@ -46,9 +46,18 @@ final class SubtitleAccount {
 
     static var isAvailable: Bool { apiKey != nil }
 
-    func connect(username u: String, password p: String) async -> Bool {
+    func connect(username rawUser: String, password p: String) async -> Bool {
         guard let key = Self.apiKey else {
             lastError = "This build has no OpenSubtitles API key."
+            return false
+        }
+        // Autofill and keyboards routinely add a trailing space; the server
+        // treats it as part of the name and just says the login is wrong.
+        let u = rawUser.trimmingCharacters(in: .whitespacesAndNewlines)
+        // Catch the commonest mistake before spending a request against a
+        // 1-req/sec-per-IP login limit.
+        if u.contains("@") {
+            lastError = "OpenSubtitles wants your username, not your email address."
             return false
         }
         isWorking = true

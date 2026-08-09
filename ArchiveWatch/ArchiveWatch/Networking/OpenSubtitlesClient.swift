@@ -193,10 +193,19 @@ enum OpenSubtitles {
         let (data, http) = try await send(request(url, key: c.apiKey, token: nil,
                                                   method: "POST", body: body))
         let code = http.statusCode
-        guard code == 200,
-              let j = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-              let token = j["token"] as? String else {
-            throw Failure.auth(code == 401 ? "check your username and password" : "HTTP \(code)")
+        let j = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+        guard code == 200, let j, let token = j["token"] as? String else {
+            // Show what the SERVER said. It is specific and actionable, and
+            // discarding it in favour of "HTTP 400" is how a sign-in failure
+            // became unexplainable: OpenSubtitles answers an EMAIL in the
+            // username field with 400 and the message "remember to use your
+            // username and not your email" — the exact thing the person needs
+            // to read (owner, 2026-08-09).
+            let server = ((j?["message"] as? String) ?? "")
+                .trimmingCharacters(in: .whitespacesAndNewlines)
+            if !server.isEmpty { throw Failure.auth(server) }
+            throw Failure.auth(code == 401 ? "check your username and password"
+                                           : "the sign-in failed (HTTP \(code))")
         }
         return Session(token: token, quota: parseQuota(j))
     }
