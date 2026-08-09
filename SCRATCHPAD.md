@@ -233,6 +233,48 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-08-09 (latest) — Dead sources on Home; CI was destroying queued runs; builds were blocked
+App **1.3.331 / b853** on `main`; **1.3.330 (852) uploaded to ASC** (mac+iOS+tvOS).
+Decisions **056** + **057**. Memories: `dead_sources_freshness`,
+`ci_lock_starvation_and_certs`.
+
+**056 — two recommended films never played, and every gate PASSED.** *City That
+Never Sleeps* / *The Missing Juror*: two archive.org items now return `files: []`
+(503), a third 404s on a renamed file. All carried `playbackVerified: true` —
+probed 2026-07-18/19, passed, died after. A stale verification is invisible to the
+app, and the flat 90-day TTL meant they'd not be re-checked until mid-October while
+the daily run used **314 of its 8,000 budget**. TTL is now tiered by visibility
+(14d for recommendable = designed art, 90d for the tail): candidates 314 → 18,681
+catch-up, ~1,300/day steady. Closed the client hole too — `verifiedAnd` was on the
+discovery rows but NOT `shelf()`, so curated Home shelves bypassed playability on
+every platform (web gated only its hero). Measured first: 1,453 curated items, 100%
+already verified. iOS + macOS also gained the load watchdog they never had (observer
++ timeout were armed ONLY on the captioned path → a plain MP4 that couldn't load
+span forever; tvOS had 60s all along).
+
+**057 — the concurrency group was destroying scheduled work.** 27 workflows share
+`catalog-writers`; GitHub keeps only ONE pending run per group, so a newer arrival
+CANCELS the older. **7 runs lost in 12h** (liveness ×2, colour ×2, free-subs ×2,
+community signals) while a poster job held the lock 4+ hours. The sweeper refused
+`cancelled` — but a superseded run has **ZERO jobs** (never left the queue), which
+is the same no-side-effect guarantee as "no step of ours ran". Now re-run, idle
+groups only, one per group per sweep; `DRY_RUN=1` finds exactly those seven.
+`resource_posters_secondary` gained `--max-minutes 75` that PUBLISHES (a
+`timeout-minutes` kill would lose the work).
+
+**Builds were blocked entirely.** "Your account has reached the maximum number of
+certificates": the cloud archive uses `-allowProvisioningUpdates` and every runner
+is a fresh machine, so Xcode mints a NEW dev cert per build — 11 total, ten
+"Created via API". `tools/asc_prune_certs.py` revokes only
+`DEVELOPMENT` + displayName `"Created via API"` (distribution/installer excluded by
+type; the owner's **"Ben Wilkoff"** cert excluded by name). Wired as an
+`if: always()` post-build revoke (owner's suggestion) + a pre-archive belt-and-braces.
+
+**Subtitles (same session):** the "Offer automatic captions" toggle was read
+NOWHERE — a dead control whose wording implied the app was captioning films.
+Removed; the action moved out of the share menu to a visible button next to Play on
+iOS/macOS. Honest number: **15.9%** of visible titles carry `subtitleHLS`.
+
 ### 2026-08-09 (later) — Subtitles wired end to end; Decisions 054-055; build 844 uploaded
 App **1.3.324 / b846** on `main`; **1.3.322 (844) uploaded to ASC for mac+iOS+tvOS**
 (owner: Submit for Review). Android vc30. Handoff: `session_handoff_2026_08_09` +
