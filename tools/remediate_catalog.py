@@ -1137,6 +1137,107 @@ def exclude_hate_propaganda(items, stats):
             stats["hate_propaganda_excluded"] += 1
 
 
+# --- Trailers posing as the feature -------------------------------------------
+#
+# Owner 2026-08-09: the Serpico TRAILER was in the app carrying the full film's
+# synopsis, so it read as the feature — and Serpico (1973) is still under
+# copyright. The app is for public-domain films and TV, not promos for
+# copyrighted films.
+#
+# `tools/detect_trailers.py` already existed and could never have caught it, for
+# two independent reasons:
+#   1. its FILM_TYPES was {feature-film, tv-special, feature} — a trailer for a
+#      feature is classified `short-film` PRECISELY BECAUSE IT IS SHORT, so the
+#      detector skipped exactly the class it was meant to find; and
+#   2. it gates on `runtimeSeconds >= 1800`, but by then the runtime had already
+#      been corrected to the FILE's 237 s, erasing the very discrepancy it looks
+#      for.
+# It also only ever reclassified to contentType="trailer" — and no client
+# filters that type (the app surfaces use deny-lists), so 19 already-detected
+# trailers were still shipping.
+#
+# This rule needs NO network: the catalog already stores both numbers —
+# `runtimeWasSeconds` (the matched film's canonical runtime) and
+# `fileRuntimeSeconds` (what the file actually is). A recognized feature that
+# runs 70-300 s is a trailer.
+#
+# The bounds are set from the live catalog, not guessed, and each one prevents a
+# measured false positive:
+#   actual <= 300 s   a real Popeye cartoon (736 s) wrongly matched to Altman's
+#                     1980 "Popeye" (114 min) is a WRONG MATCH, not a trailer.
+#   year >= 1930 and not silent
+#                     a 4-minute silent is far more likely a surviving FRAGMENT
+#                     of a lost film than a trailer — "The Case of Lena Smith"
+#                     (1929) survives only as a fragment, "So This Is Paris"
+#                     (Lubitsch, 1926) likewise. Those are archival treasures.
+#                     The trailer as a mass-produced form belongs to the sound era.
+#   canonical >= 2400 s
+#                     only fragments of FEATURES qualify; a short matched to a
+#                     short is just a short.
+# Measured on the live catalog: 63 hidden, 30 silent-era fragments held back.
+# Anything held back is still reachable by the network detector, which can read
+# the archive.org metadata this rule deliberately does not fetch.
+TRAILER_MAX_ACTUAL = 300        # seconds — above this it is a real short
+TRAILER_MIN_CANONICAL = 2400    # the matched title must be feature-length
+TRAILER_MAX_FRACTION = 0.25     # ...and the file must be a small piece of it
+TRAILER_SOUND_ERA = 1930
+
+
+def flag_trailers(items, stats):
+    """Reclassify + reversibly exclude trailers/clips posing as the feature."""
+    for it in items:
+        if it.get("excluded"):
+            continue
+        ct = it.get("contentType") or ""
+        if ct in ("tv-episode", "tv-series", "commercial"):
+            continue
+        # NOTE: items already typed "trailer" are NOT trusted and NOT excluded
+        # wholesale — they run the same measured test as everything else. The
+        # previous detector used the flawed comparison described above and
+        # mislabelled real films: Ozu's "Tokkan kozô" (1929, the surviving 13-min
+        # fragment), a 13-min "King of the Rocket Men" SERIAL CHAPTER compared
+        # against the whole 12-chapter serial, and "Häxan". Blanket-excluding
+        # that bucket would have hidden them. They stay visible; the test below
+        # decides, on evidence, for every item alike.
+        # The file's REAL duration, from whichever pass measured it:
+        # `trueRuntimeSeconds` is what detect_trailers wrote after reading
+        # archive.org (for those items `runtimeSeconds` still holds the film's
+        # canonical length), `fileRuntimeSeconds` is what the runtime-correction
+        # pass measured, and otherwise the stored runtime is the best we have.
+        canonical = max(it.get("runtimeWasSeconds") or 0,
+                        it.get("runtimeSeconds") or 0 if it.get("trueRuntimeSeconds") else 0)
+        actual = (it.get("trueRuntimeSeconds") or it.get("fileRuntimeSeconds")
+                  or it.get("runtimeSeconds") or 0)
+        year = it.get("year") or 0
+        if not actual:
+            continue
+        if actual > TRAILER_MAX_ACTUAL:
+            continue                      # long enough to be a real short
+        # A silent, or an explicitly pre-1930 title, is held back — see above.
+        # An item with NO year is allowed through only when it was ALREADY judged
+        # a trailer, since the era guard cannot speak for it either way.
+        if it.get("isSilentFilm") or (year and year < TRAILER_SOUND_ERA):
+            continue
+        if ct == "trailer":
+            # Prior judgment PLUS a runtime no complete sound-era film has. The
+            # label alone is not trusted (it mislabelled Ozu and a serial
+            # chapter) — but those are 800 s and 815 s, so the length settles it.
+            pass
+        else:
+            if not year:
+                continue                  # unjudged and undateable — leave alone
+            if canonical < TRAILER_MIN_CANONICAL:
+                continue                  # the matched title is not a feature
+            if actual >= TRAILER_MAX_FRACTION * canonical:
+                continue
+        it["contentType"] = "trailer"
+        it["isTrailer"] = True
+        it["trueRuntimeSeconds"] = int(actual)
+        it["excluded"] = True
+        it["excludedReason"] = "trailer"
+        stats["trailer_flagged"] += 1
+
+
 def remediate(items):
     stats = Counter()
     # A later rule can null a year this pass filled (e.g. the B&W-vs-modern
@@ -1431,6 +1532,8 @@ def remediate(items):
 
     _drop_stale_year_markers()
     exclude_hate_propaganda(items, stats)
+    # After the year/runtime rules above have settled — flag_trailers reads both.
+    flag_trailers(items, stats)
     encode_download_urls(items, stats)
     return stats
 

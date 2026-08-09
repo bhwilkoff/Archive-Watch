@@ -39,7 +39,13 @@ import archive_lib as A  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
-FILM_TYPES = {"feature-film", "tv-special", "feature"}   # things that can pose as a film
+# Anything that can pose as a film. `short-film` and `silent-film` were MISSING,
+# which made this tool structurally blind to its own target: a trailer for a
+# feature is classified short-film PRECISELY BECAUSE IT IS SHORT. The Serpico
+# trailer (short-film, 237 s, matched to the real 129-min film) could never have
+# been considered.
+FILM_TYPES = {"feature-film", "tv-special", "feature", "short-film",
+              "silent-film", "animation"}
 MODERN_YEAR = 1978
 
 
@@ -80,7 +86,14 @@ def main() -> int:
         return (it.get("downloadURL") and not it.get("excluded")
                 and not it.get("trailerChecked")
                 and it.get("contentType") in FILM_TYPES
-                and (it.get("runtimeSeconds") or 0) >= args.min_runtime)
+                # The matched title must be feature-length. Check BOTH runtimes:
+                # once the runtime has been corrected to the file's own duration
+                # (runtimeSource="archive_file"), `runtimeSeconds` is already the
+                # SHORT value and the canonical one survives only in
+                # `runtimeWasSeconds` — so gating on runtimeSeconds alone hid
+                # exactly the items whose discrepancy was already proven.
+                and max(it.get("runtimeSeconds") or 0,
+                        it.get("runtimeWasSeconds") or 0) >= args.min_runtime)
 
     targets = [it for it in items if candidate(it)]
     targets.sort(key=lambda it: it.get("popularityScore") or 0, reverse=True)
@@ -106,7 +119,7 @@ def main() -> int:
             if dur is None:                       # couldn't read — retry next run
                 return
             it["trailerChecked"] = True
-            rt = it.get("runtimeSeconds") or 0
+            rt = max(it.get("runtimeSeconds") or 0, it.get("runtimeWasSeconds") or 0)
             if dur < args.max_clip and rt and dur < args.frac * rt:
                 it["contentType"] = "trailer"
                 it["isTrailer"] = True
@@ -115,10 +128,15 @@ def main() -> int:
                 # A trailer of a MODERN film, or of a clearly-recognized major
                 # studio film (high IMDb vote count = copyrighted, e.g. One Flew
                 # Over the Cuckoo's Nest), is copyrighted promo — don't host it.
+                # Owner 2026-08-09: remove trailers outright — the app is for
+                # public-domain films and TV, not promos. Reversible (Decision
+                # 027), and `contentType="trailer"` alone was never enough: no
+                # client filters that type, so reclassified trailers kept shipping.
+                it["excluded"] = True
+                it["excludedReason"] = "trailer"
                 if (it.get("year") or 0) >= MODERN_YEAR or (it.get("imdbVotes") or 0) >= 50000:
-                    it["excluded"] = True
                     it["rightsAudit"] = "copyrighted_trailer"
-                    excluded += 1
+                excluded += 1
                 print(f"  TRAILER {it['archiveID'][:34]:34} {int(dur)}s vs {rt}s runtime"
                       f"{' [EXCLUDED modern]' if it.get('excluded') else ''}", flush=True)
             if done % 50 == 0:

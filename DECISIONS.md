@@ -2263,3 +2263,52 @@ which answered 200/302 on retry — so transient and 5xx (rotating storage nodes
 are retried and reported, never counted as unfetchable, the same
 never-condemn-on-a-throttle rule as the poster validator (Decision 044). The
 handoff on real hardware remains owner-verified: iPhone/Mac → Apple TV.
+
+## 052 — Trailers are removed as DATA, judged on runtime evidence the catalog already holds
+*Date: 2026-08-09*
+
+Trailers and clips posing as the feature are reversibly `excluded` by a
+no-network rule in `remediate_catalog.flag_trailers`, which runs on every build.
+The test is evidence the catalog already stores: `trueRuntimeSeconds` /
+`fileRuntimeSeconds` (what the file actually is) against `runtimeWasSeconds` /
+`runtimeSeconds` (the matched title's canonical length). A sound-era item that
+runs ≤ 300 s against a ≥ 40-minute canonical runtime, at under a quarter of it,
+is a trailer. 74 removed on the live catalog — Serpico, Star Wars, Taxi Driver,
+The Sting, Close Encounters, Doctor Zhivago, Bicycle Thieves.
+
+**Why**: the owner found the **Serpico trailer** in the app carrying the full
+film's synopsis, so it read as the feature — and Serpico (1973) is still under
+copyright. A `detect_trailers.py` and a weekly workflow already existed and
+could never have caught it, for two independent reasons: its `FILM_TYPES` was
+`{feature-film, tv-special, feature}`, and a trailer for a feature is classified
+**`short-film` precisely because it is short**, so the detector skipped exactly
+the class it was built to find; and it gates on `runtimeSeconds >= 1800`, but by
+then the runtime had been corrected to the file's 237 s, erasing the very
+discrepancy it looks for. Worse, its only action was `contentType="trailer"` —
+and **no client filters that type** (the app surfaces use deny-lists), so 19
+already-detected trailers, including a 70-second *Star Wars*, were still
+shipping. Removing them as DATA reaches tvOS, iOS, macOS, Android and web on the
+next publish with no app release.
+
+**How to apply**: judge on runtime evidence, never on the label. Three bounds
+each prevent a MEASURED false positive and must not be loosened casually:
+`actual <= 300 s` (a real 736 s Popeye cartoon wrongly matched to Altman's 1980
+feature is a WRONG MATCH, not a trailer); **sound era only** (a 4-minute silent
+is far likelier a surviving FRAGMENT of a lost film — *The Case of Lena Smith*
+(1929) and Lubitsch's *So This Is Paris* (1926) survive only as fragments, and
+those are archival treasures); and a feature-length canonical runtime (a short
+matched to a short is just a short). Do NOT trust an existing
+`contentType="trailer"`: the old detector mislabelled Ozu's *Tokkan kozô* (the
+surviving 13-minute fragment), a 13-minute *King of the Rocket Men* SERIAL
+CHAPTER measured against the whole 12-chapter serial, and *Häxan* — blanket-
+excluding that bucket would have hidden all three. They run the same measured
+test as everything else and stay visible. Do NOT add a client-side
+`contentType='trailer'` filter for the same reason: it would hide those films.
+
+**Consequences**: `detect_trailers.py`'s two blind spots are fixed (FILM_TYPES
+widened; the runtime gate now reads whichever field holds the canonical length),
+and it now excludes rather than merely relabels. ~29 real films still carry a
+wrong `contentType="trailer"` from the old detector — visible and playable, but
+mistyped; restoring them from `contentTypeWas` is a follow-up. Complements
+Decision 027 (the reversible `excluded` mechanism) and 026 (match correctness,
+which owns the wrong-match half of this population).
