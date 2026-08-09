@@ -2,13 +2,25 @@ import Foundation
 
 // OpenSubtitles, using the VIEWER'S OWN free account.
 //
-// WHY THIS SHAPE: the OpenSubtitles REST API is free — 5 downloads/day
-// anonymous, 20/day with a free account — and their Pro packages exist
-// specifically "for applications where users don't need to enter login
-// credentials". That is the tell: WITHOUT Pro, the download quota follows the
-// END USER. So each viewer connects their own free account, their own 20/day
-// applies, and the project pays nothing and does not scale into a bill. It is
-// the same arrangement Infuse and Jellyfin use.
+// WHY THIS SHAPE — and which limits are shared, because they are NOT the same:
+//
+//   DOWNLOAD QUOTA is PER USER ACCOUNT. The login response carries the viewer's
+//     own `allowed_downloads` / `remaining_downloads`. Signing in with their own
+//     account means each viewer spends their OWN daily allowance; nothing is
+//     pooled. This is also why Pro exists "for applications where users don't
+//     need to enter login credentials" — without Pro the quota must follow a
+//     user, which is exactly the arrangement we want.
+//   REQUEST RATE is per API KEY, and IS shared if the app ships one: roughly
+//     1-5 requests/second across everyone, signalled by HTTP 429 and the
+//     `x-ratelimit-remaining-*` headers. It is a THROUGHPUT cap, not a daily
+//     cap. A fetch costs ~2 requests and only happens when a viewer asks for
+//     subtitles, so the shared key is comfortable — but the token is cached for
+//     24h rather than re-logging in per fetch, and 429 is retried with backoff,
+//     because a shared key is exactly how other apps have tripped this.
+//
+// The free allowance is NOT hardcoded anywhere here: it has changed repeatedly
+// over the years (reports of 200/day, then 20, then 10 across eras and tiers).
+// The API reports the real number per user, so we read it and show it.
 //
 // Sign-in is OPTIONAL and gates only this feature — browsing and playback are
 // untouched, per the no-funnel ethos (Decisions 009/010). Note this is a
@@ -102,6 +114,30 @@ enum OpenSubtitles {
         var password: String
     }
 
+    /// What the API says about THIS viewer's allowance. Shown in Settings so the
+    /// number is never a guess of ours.
+    struct Quota: Sendable, Equatable {
+        var allowed: Int
+        var remaining: Int
+        var level: String
+    }
+
+    struct Session: Sendable {
+        var token: String
+        var quota: Quota?
+        var obtained: Date = Date()
+        /// OpenSubtitles tokens are good for ~24h; re-login before that, not per fetch.
+        var isFresh: Bool { Date().timeIntervalSince(obtained) < 20 * 3600 }
+    }
+
+    static func parseQuota(_ j: [String: Any]) -> Quota? {
+        guard let u = j["user"] as? [String: Any] else { return nil }
+        return Quota(allowed: (u["allowed_downloads"] as? Int) ?? 0,
+                     remaining: (u["remaining_downloads"] as? Int)
+                                 ?? (u["allowed_downloads"] as? Int) ?? 0,
+                     level: (u["level"] as? String) ?? "Free")
+    }
+
     enum Failure: Error, LocalizedError {
         case notConfigured, auth(String), quota, none, network(String)
         var errorDescription: String? {
@@ -130,34 +166,57 @@ enum OpenSubtitles {
         return r
     }
 
-    static func login(_ c: Credentials) async throws -> String {
+    /// One request, retrying a 429 with backoff.
+    ///
+    /// 429 is the SHARED-key throughput limit (~1-5 req/sec across all viewers),
+    /// not the viewer's daily download quota — so it is transient and worth
+    /// waiting out. `Retry-After` is honored when present. This is the failure
+    /// other apps on a shared consumer key hit; it is a pause, not an error.
+    private static func send(_ req: URLRequest, tries: Int = 3) async throws -> (Data, HTTPURLResponse) {
+        var attempt = 0
+        while true {
+            let (data, resp) = try await URLSession.shared.data(for: req)
+            guard let http = resp as? HTTPURLResponse else {
+                throw Failure.network("No HTTP response")
+            }
+            guard http.statusCode == 429, attempt < tries - 1 else { return (data, http) }
+            let after = Double(http.value(forHTTPHeaderField: "Retry-After") ?? "") ?? 1.5
+            try? await Task.sleep(nanoseconds: UInt64(after * 1_000_000_000))
+            attempt += 1
+        }
+    }
+
+    static func login(_ c: Credentials) async throws -> Session {
         guard let url = URL(string: "\(host)/login") else { throw Failure.notConfigured }
         let body = try JSONSerialization.data(withJSONObject: ["username": c.username,
                                                               "password": c.password])
-        let (data, resp) = try await URLSession.shared.data(
-            for: request(url, key: c.apiKey, token: nil, method: "POST", body: body))
-        let code = (resp as? HTTPURLResponse)?.statusCode ?? 0
+        let (data, http) = try await send(request(url, key: c.apiKey, token: nil,
+                                                  method: "POST", body: body))
+        let code = http.statusCode
         guard code == 200,
               let j = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
               let token = j["token"] as? String else {
-            throw Failure.auth("HTTP \(code)")
+            throw Failure.auth(code == 401 ? "check your username and password" : "HTTP \(code)")
         }
-        return token
+        return Session(token: token, quota: parseQuota(j))
     }
 
     /// Fetch the best English subtitle for an IMDb id, as WebVTT.
     static func fetchVTT(imdbID: String, credentials c: Credentials,
                          token: String) async throws -> String {
         guard let url = searchURL(imdbID: imdbID) else { throw Failure.none }
-        let (data, _) = try await URLSession.shared.data(for: request(url, key: c.apiKey, token: token))
+        let (data, _) = try await send(request(url, key: c.apiKey, token: token))
         guard let pick = best(of: parseMatches(data)) else { throw Failure.none }
 
         guard let dl = URL(string: "\(host)/download") else { throw Failure.none }
         let body = try JSONSerialization.data(withJSONObject: ["file_id": pick.fileID])
-        let (dData, dResp) = try await URLSession.shared.data(
-            for: request(dl, key: c.apiKey, token: token, method: "POST", body: body))
-        let code = (dResp as? HTTPURLResponse)?.statusCode ?? 0
-        if code == 406 || code == 429 { throw Failure.quota }
+        let (dData, dHTTP) = try await send(request(dl, key: c.apiKey, token: token,
+                                                    method: "POST", body: body))
+        let code = dHTTP.statusCode
+        // 406 = the VIEWER's daily downloads are spent (their account, not ours).
+        // A 429 that survived the backoff above is the shared throughput cap.
+        if code == 406 { throw Failure.quota }
+        if code == 429 { throw Failure.network("OpenSubtitles is busy — try again in a moment.") }
         guard code == 200,
               let j = try? JSONSerialization.jsonObject(with: dData) as? [String: Any],
               let link = j["link"] as? String, let fileURL = URL(string: link) else {

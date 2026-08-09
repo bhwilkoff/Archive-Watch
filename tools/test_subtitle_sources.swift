@@ -61,6 +61,20 @@ import Foundation
     let looped = (0..<800).map { (start: Double($0) * 6, text: "alright alright alright") }
     ck("looped transcript rejected", !CaptionQuality.assess(cues: looped, runtime: 4800).ok)
 
+    // --- quota comes from the API, never hardcoded: it is PER USER, and the
+    // free allowance has changed repeatedly (200 -> 20 -> 10 across eras).
+    let loginJSON = """
+    {"token":"abc","user":{"allowed_downloads":20,"remaining_downloads":17,"level":"Sub leecher"}}
+    """.data(using: .utf8)!
+    let parsed = (try? JSONSerialization.jsonObject(with: loginJSON)) as? [String: Any] ?? [:]
+    let q = OpenSubtitles.parseQuota(parsed)
+    ck("quota read from API", q?.allowed == 20 && q?.remaining == 17, "\(String(describing: q))")
+    ck("quota absent -> nil", OpenSubtitles.parseQuota(["token": "x"]) == nil)
+    var fresh = OpenSubtitles.Session(token: "t", quota: q)
+    ck("token reused while fresh", fresh.isFresh)
+    fresh.obtained = Date(timeIntervalSinceNow: -22 * 3600)
+    ck("token re-login after ~24h", !fresh.isFresh)
+
     // --- the local HLS the player consumes
     let seg = SubtitleStore.encodeSegment(URL(string: "https://archive.org/download/x/A Film (1949).mp4")!)
     ck("segment percent-encoded", seg.contains("%20") && seg.contains("%28"), seg)
