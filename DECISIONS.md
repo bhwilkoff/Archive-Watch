@@ -2433,3 +2433,44 @@ time (`tools/audit_published_subtitles.py`): 95.1% of published tracks work, not
 the ~70% on record — the earlier figure came from a classifier that required
 `HH:MM:SS` timestamps when WebVTT also permits `MM:SS`, so it reported healthy
 files as empty. Integrity was not the problem; sourcing is.
+
+## 056 — Verification freshness is tiered by visibility; a stale "verified" is invisible
+*Date: 2026-08-09*
+
+`check_liveness.py` re-probes items eligible to be RECOMMENDED (designed artwork
+— the Home/browse gate) every **14 days**, while the long tail keeps the 90-day
+TTL (`--hot-reprobe-days`, default 14). The clients close the matching hole:
+`verifiedAnd` (`i.playable = 1`) now applies to `shelf()` and the Home director
+rows on tvOS/iOS/macOS and Android, and the web applies a `Data.plays()` gate to
+its Home shelves — all three previously gated only their hero and discovery rows,
+so a CURATED shelf bypassed playability entirely.
+
+**Why**: the owner reported two recommended titles — *City That Never Sleeps* and
+*The Missing Juror* — that never play. Nothing was wrong with any gate: every copy
+carried `playbackVerified: true`. They were probed on 2026-07-18/19, PASSED, and
+their archive.org items were removed afterwards (two now return `files: []` with
+no server and 503; a third 404s because its file was renamed). `playbackVerified`
+records that a title played ONCE; the app cannot distinguish a check made
+yesterday from one made three months ago, so a flat 90-day TTL means a dead title
+can headline the front page for a quarter. The daily run was meanwhile using
+**314 of its 8,000-item budget** — the constraint was never throughput, it was
+that the staleness gate had nothing to offer it.
+
+**How to apply**: any "we verified this" marker on data that can rot needs a TTL
+proportional to how visible the claim is, and the budget should be spent where
+the claim is loudest. Measure the tier before choosing it: 18,408 designed-art
+items at 14 days is ~1,300/day against an 8,000/day budget, which is affordable;
+7 days would not have been meaningfully better and 30 barely helps. Do NOT rely
+on a client-side gate alone — `playable = 1` was already correct here and still
+shipped a dead link, because the DATA was stale, not the query. And keep the
+client backstop regardless: a source can always die between the last probe and
+the next launch.
+
+**Consequences**: iOS and macOS gained the load watchdog they never had — both
+armed a status observer and timeout ONLY on the captioned-HLS path, so a plain
+MP4 that could never load had no error surface at all and simply span forever
+(tvOS has had a 60s backstop since Decision 021's era). A dead title now says so
+in 60s instead of never. Applying `verifiedAnd` to curated shelves was measured
+first: 1,453 curated-shelf items, 100% already verified, so it hides nothing
+today and cannot regress tomorrow. Complements Decision 044 (enforce the gates
+every build) and 034 (node failover, which cannot help when the item is gone).
