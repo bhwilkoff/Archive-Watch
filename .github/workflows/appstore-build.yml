@@ -118,9 +118,11 @@ jobs:
       # development certs, ten of them machine-created.
       #
       # The runner that owned each private key is destroyed minutes later, so
-      # these are disposable by construction. Pruning them here keeps the account
-      # under the cap permanently. Distribution/installer certs and the owner's
-      # own named development cert are never eligible — see the tool.
+      # these are disposable by construction. The primary cleanup is the
+      # always()-guarded revoke at the END of this job; this pass only catches
+      # what a force-killed earlier run left behind. Distribution/installer certs
+      # and the owner's own named development cert are never eligible — see the
+      # tool.
       # continue-on-error: a pruning hiccup must never block a build that would
       # otherwise ship; the cap is what blocks builds, and this only relieves it.
       - name: Prune throwaway runner certificates
@@ -135,6 +137,25 @@ jobs:
         run: |
           echo "Building ${{ github.event.inputs.platform }} | $(sw_vers -productVersion) ($(sw_vers -buildVersion)) | $(xcodebuild -version | tr '\n' ' ')"
           tools/submit-appstore.sh "${{ github.event.inputs.platform }}"
+
+      # Clean up after ourselves. The certificate this run minted is useless the
+      # moment the runner is torn down, so it is revoked here rather than left
+      # for the next build to find. `always()` because a cancelled or FAILED
+      # build mints one just the same — a failed archive is in fact the most
+      # likely way to leave one behind.
+      #
+      # --keep 0 is safe specifically because this workflow's concurrency group
+      # (appstore-build) admits one run at a time, so when this step executes no
+      # other build can be holding a machine certificate. The pre-archive prune
+      # stays as the belt-and-braces for a run that was force-killed before ever
+      # reaching this step.
+      - name: Revoke this run's throwaway certificate
+        if: always()
+        continue-on-error: true
+        run: |
+          set -a; . tools/asc-credentials.env 2>/dev/null || true; set +a
+          [ -n "${ASC_KEY_ID:-}" ] || { echo "no ASC credentials on this run — nothing to prune"; exit 0; }
+          python3 tools/asc_prune_certs.py --apply --keep 0
 
       - name: Build log tail on failure
         if: failure()
