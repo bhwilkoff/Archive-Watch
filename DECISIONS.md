@@ -2347,3 +2347,89 @@ bumping it for unchanged content is a visible reshuffle that shows the user
 nothing. Use `onlyIfChanged: true` for any refresh whose result you have already
 opened. First launch still paints the seed then swaps once — that is unavoidable
 and correct, and it is the only launch that should ever swap twice.
+
+## 054 — On-device subtitles are served by a resource loader; a `file://` HLS master never plays
+*Date: 2026-08-09*
+
+Subtitles obtained on the device — pulled from the viewer's own OpenSubtitles
+account, or transcribed locally — are played by `LocalSubtitleHLSLoader`, an
+`AVAssetResourceLoaderDelegate` that serves the master, video and subtitle
+playlists AND the WebVTT itself from `Caches` through the `aw-hls://` scheme,
+while the media segment stays a direct https URL. `SubtitleStore` still writes
+those files; what changed is that the player is handed the DIRECTORY and a
+loader, never the local master file. The action that produces them lives on
+Detail (`GetSubtitlesView` + `SubtitleFinder`), on all three Apple platforms.
+
+**Why**: the original design handed `AVPlayer` the `file://` master directly and
+was never executed. It does not work.
+`tools/test_local_master_playback.swift` runs both shapes against the same film:
+the already-published REMOTE master reaches `.readyToPlay` with a legible group
+of `["English"]` and advances, while the LOCAL master sits at `.unknown`
+indefinitely with an **empty error log and zero access-log events** —
+AVFoundation does not reject it, it never attempts the load at all. It will not
+follow a remote reference out of a local playlist, and a local subtitle
+rendition referenced from a custom-scheme playlist hits the same wall, which is
+why the VTT must be served too. The shape that works was already in the tree:
+Config C (`CaptionedHLSLoader`, Decision 039), playlists through a loader and
+the segment left to AVFoundation.
+
+Two other constraints were measured rather than assumed, and they shape the UI:
+`AVAssetReader` refuses a remote asset outright ("Cannot initialize an instance
+of AVAssetReader with an asset at non-local URL") and `AVAssetExportSession`
+fails -11838. There is no way to read a film's audio without downloading the
+film. So transcription is a SEPARATE, explicitly-confirmed action that states
+the real size — measured with a HEAD request, not estimated — while searching
+OpenSubtitles stays one tap.
+
+**How to apply**: never hand AVPlayer a `file://` HLS playlist that references
+anything remote; route it through a loader. Anything the playlists reference and
+we hold locally must be served by that loader too, WebVTT included. Keep the
+segment a direct https URL — a custom-scheme segment fails CoreMediaError
+-12881 (harness-proven), so there is no mid-stream failover on this path. Never
+add a "transcribe" affordance that starts without stating its cost: it spends a
+viewer's data plan, and the whole film is the unavoidable unit. Verify changes
+with `tools/test_local_subtitle_loader.swift`, which compiles the SHIPPED files
+and asserts the path end to end including seek.
+
+**Consequences**: `SubtitleStore.cachedDir` is what the three players consult
+when the catalog has no `subtitleHLS`, so a fetched or transcribed track appears
+in the native CC menu with no further wiring. Partially reverses Decision 039b
+for the on-device case only, under `CaptionQuality` and an opt-in toggle;
+central auto-captioning stays retired. Complements 039 (the seam) and 021/031
+(the segment stays AVFoundation-owned).
+
+## 055 — "Already attempted" markers are per-source, or a second source can never run
+*Date: 2026-08-09*
+
+`free_subtitles.py` records which PROVIDER has attempted a film
+(`freeSubsTried: [...]`) instead of a single `freeSubsChecked` boolean, and a
+scheduled run sweeps every configured provider. A film carrying only the legacy
+boolean is credited to SubSource alone, since it was the only provider ever
+scheduled.
+
+**Why**: subtitle coverage sat at 16.6% while the daily harvest reported
+"Backlog drained" and finished in 94 seconds. It was correct about the wrong
+thing: the marker recorded THAT a film had been attempted, not BY WHOM, so once
+SubSource had swept the catalog every film looked attempted to every provider.
+SubDL — configured, keyed, and selectable via a workflow input — had never had a
+single target and never would have. The plateau was a flag, not a ceiling on
+what is findable. This is the same shape as Decision 050: a value whose meaning
+depends on context the flag does not record, failing silently and looking like
+completion.
+
+**How to apply**: any "we already tried this" marker on a multi-source pipeline
+records the SOURCE. A bare boolean is only safe when there will never be a
+second source, which is a bet that keeps losing here. Distinguish attempted from
+FAILED-TRANSIENTLY as well: an exception must not mark the film (it already does
+not), because a 429 is not evidence that a subtitle does not exist — the same
+never-condemn-on-a-throttle rule as the poster validator (Decision 044). When a
+drain reports "drained", check the wall-clock: a sweep that finishes in seconds
+has found nothing to do, and that is a claim worth verifying rather than
+trusting.
+
+**Consequences**: SubDL gets a fresh pass over the ~83% SubSource has nothing
+for. The same audit that found this measured the live set properly for the first
+time (`tools/audit_published_subtitles.py`): 95.1% of published tracks work, not
+the ~70% on record — the earlier figure came from a classifier that required
+`HH:MM:SS` timestamps when WebVTT also permits `MM:SS`, so it reported healthy
+files as empty. Integrity was not the problem; sourcing is.
