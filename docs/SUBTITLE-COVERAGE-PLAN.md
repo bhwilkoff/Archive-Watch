@@ -1,26 +1,41 @@
-# Subtitles: getting from ~9% to near-total coverage
+# Subtitles: getting from ~16% to near-total coverage
 
-**Status 2026-08-09.** Owner: *"I am interested in making all titles available
-with subtitles, which will likely require multiple different approaches."*
+**Status 2026-08-09 (revised, second measurement).** Owner: *"I am interested in
+making all titles available with subtitles, which will likely require multiple
+different approaches."*
 
-## Where we actually are (measured, not estimated)
+## Where we actually are (measured against what the app fetches)
+
+Re-measured with `tools/audit_published_subtitles.py`, which samples the live
+detail shards, fetches the VTT the app would fetch, and classifies it:
 
 | | |
 |---|---|
-| items with a `captions[]` entry | **12.6%** (3,865 of 30,601) |
-| of the tracks the app plays, actually working | **70%** (60 sampled) |
-| → films a viewer can actually watch with subtitles | **~9%** |
+| items with a `captions[]` entry | **16.6%** (489 of 2,938 sampled) |
+| of those tracks, actually working | **95.1%** |
+| → films a viewer can watch with subtitles | **~15.8%** |
 
-The 30% failure was three defects, all fixed 2026-08-09 (see the commit and
-§0 below): files that were never deployed and returned Pages' `404.html` with
-HTTP 200; UTF-16 and **RAR** payloads published as `.vtt`; and no validation of
-what was being published. So the real coverage problem is the **87% with no
-captions at all**.
+**The earlier "70% working / ~9% usable" figures were wrong, and the audit was
+the thing at fault.** Its classifier required `HH:MM:SS` cue timestamps; WebVTT
+also permits `MM:SS`, so a fifth of perfectly healthy files were counted as
+empty. The integrity defects in §0 were real and are fixed, but they were never
+a third of the set.
 
-Sources today: SubSource and SubDL (keys set) plus uploader files on archive.org.
-**OpenSubtitles — the largest human-subtitle database in the world — is not wired
-in at all.** The tool `tools/opensubtitles_subtitles.py` exists; no workflow runs
-it and no key is configured.
+What survives as genuinely broken is ~5%: `short`, `empty`, `repetitive`
+(one line repeated the length of a film) and `binary`. Worth dropping — a CC
+button with nothing behind it is worse than no button — but not the headline.
+
+**The problem is sourcing, and it was blocked by a flag** (Decision 055): the
+daily harvest reported "Backlog drained" for weeks and finished in 94 seconds,
+because `freeSubsChecked` was one boolean shared by every provider. Once
+SubSource had swept, SubDL — configured and keyed — could never see a target.
+Fixed; SubDL now gets a first pass over the ~83% SubSource has nothing for.
+
+Sources today: SubSource, SubDL, uploader files on archive.org, and — new —
+**OpenSubtitles via the viewer's own account**, on demand from Detail
+(Decision 054). The app's Api-Key is configured in `Secrets.xcconfig` and as a
+repo secret; the download quota follows the signed-in viewer, so nothing is
+pooled.
 
 ---
 
