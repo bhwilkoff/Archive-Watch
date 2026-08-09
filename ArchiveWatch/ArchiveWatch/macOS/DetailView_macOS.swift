@@ -117,6 +117,14 @@ struct DetailView: View {
                         Label("Add to Playlist", systemImage: "text.badge.plus")
                     }
                     .controlSize(.large)
+                    // Subtitles belong next to the film, not inside a share menu.
+                    if SubtitleFinder.shouldOffer(for: item) {
+                        Button { showGetSubtitles = true } label: {
+                            Label("Subtitles", systemImage: "captions.bubble")
+                        }
+                        .controlSize(.large)
+                        .help("Find or generate subtitles for this film")
+                    }
                     // One consolidated Share menu (parity with iOS) — Callsheet + share link +
                     // archive.org, instead of three separate toolbar-ish buttons.
                     Menu {
@@ -125,11 +133,6 @@ struct DetailView: View {
                                 Label("Open in Creation Studio", systemImage: "scissors")
                             }
                             Divider()
-                        }
-                        if SubtitleFinder.shouldOffer(for: item) {
-                            Button { showGetSubtitles = true } label: {
-                                Label("Get Subtitles…", systemImage: "captions.bubble")
-                            }
                         }
                         if Callsheet.supports(item) {
                             Button { Callsheet.open(Callsheet.url(for: item)) } label: {

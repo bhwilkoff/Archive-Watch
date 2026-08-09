@@ -396,6 +396,11 @@ def main():
                     help="Skip items whose secondaryPosterCheckedAt is newer.")
     ap.add_argument("--sleep", type=float, default=0.4,
                     help="Sleep between items (respect Wikidata/Commons/TVDB limits).")
+    ap.add_argument("--max-minutes", type=float, default=75,
+                    help="Stop starting new items after this long and publish what "
+                         "is done (0 = no budget). Bounds how long this holds the "
+                         "shared catalog-writers lock; the work is resumable, so "
+                         "the next run continues where this one left off.")
     ap.add_argument("--dry-run", action="store_true",
                     help="Resolve + report the distribution; write nothing.")
     args = ap.parse_args()
@@ -441,8 +446,23 @@ def main():
         if not args.dry_run:
             dump(CATALOG, catalog)
 
+    # Bound how long this holds the shared `catalog-writers` lock. 27 workflows
+    # share that group and GitHub keeps only ONE pending run per group, so a
+    # newer arrival CANCELS the older pending one: every hour this job runs is an
+    # hour in which scheduled catalog work is destroyed rather than queued.
+    # Measured 2026-08-09 — this job ran 2h45m and seven runs were lost behind it.
+    # The work is resumable (reprobe markers), so stopping early costs nothing but
+    # the next run's start.
+    deadline = (time.monotonic() + args.max_minutes * 60) if args.max_minutes else None
+    stopped_early = False
+
     tried = 0
     for it in work:
+        if deadline and time.monotonic() > deadline:
+            stopped_early = True
+            print(f"[secondary-posters] time budget reached after {tried} items — "
+                  "publishing and releasing the catalog-writers lock", flush=True)
+            break
         tried += 1
         iyear = _item_year(it)
         anchor = None
@@ -537,6 +557,12 @@ def main():
                   f"ambig={stats['abstain_ambiguous']}", flush=True)
 
     # -------- report --------
+    if stopped_early:
+        # Never let a bounded run read as a complete one — a silent cap is how a
+        # backlog looks like coverage (no-silent-caps rule).
+        print(f"\n[secondary-posters] STOPPED EARLY at the {args.max_minutes:g}-minute "
+              f"budget: {tried} of {len(work)} attempted. The remaining "
+              f"{len(work) - tried} are picked up by the next run.", flush=True)
     print("\n[secondary-posters] === distribution ===", flush=True)
     order = ["upgraded_tvdb", "upgraded_wikipedia_infobox", "upgraded_wikidata_p18",
              "abstain_ambiguous", "abstain_no_year", "abstain_bw_modern",

@@ -10,8 +10,7 @@ cron means a whole missed day.
 This sweeper finds those runs and re-runs just their failed jobs. It is deliberately
 conservative; a run is only re-run when all of these hold:
 
-  * its conclusion is `failure` (never `cancelled` — that is usually a human or a
-    concurrency group, and re-running would fight whoever cancelled it),
+  * its conclusion is `failure` — or `cancelled` with ZERO jobs, see below,
   * every bad job got no further than "Set up job", so none of our own steps ran,
   * it has been retried fewer than MAX_ATTEMPTS times, and
   * no later run of the same workflow has since succeeded — an hourly cron heals
@@ -20,6 +19,28 @@ conservative; a run is only re-run when all of these hold:
 Because "no step of ours ran" is the gate, a re-run can never repeat a side effect:
 there was no side effect. A genuine code failure always shows a completed "Set up job"
 plus a failing step of ours, so it is never touched here.
+
+SUPERSEDED RUNS (the second pass). 27 workflows share the `catalog-writers`
+concurrency group, several with 5.5-hour budgets, and GitHub keeps only ONE pending
+run per group: a newer arrival CANCELS the older pending one. So while a long job
+holds the lock, every scheduled catalog writer behind it is destroyed rather than
+queued, and nothing ever retries it — the original docstring's blanket refusal to
+touch `cancelled` is what left that work lost. Measured 2026-08-09: two separate
+dispatches of the liveness remediation were cancelled this way within an hour, and
+the workflows' own comments record 25-75% cancellation rates.
+
+A superseded run is distinguishable with certainty, and it is not the same thing as
+a human cancelling a running job: it has **zero jobs**. It never left the pending
+queue, so GitHub never created one. A human (or a timeout) cancels a run that is
+RUNNING, which always has jobs with steps. Zero jobs therefore means nothing was
+interrupted and nothing partially applied — the same "no side effect" property the
+first pass relies on.
+
+Such a run is re-run only when its concurrency group is IDLE. Re-running into a busy
+group would simply be superseded again and burn an attempt, so the group is read from
+the workflow files on disk and checked against what is currently active. If the group
+is busy the run is left alone; the sweeper ticks every 30 minutes and will get it once
+the lock frees.
 
 Env:
   GH_TOKEN          auth for the gh CLI (the workflow passes the default token)
@@ -115,6 +136,74 @@ def never_ran_our_code(repo: str, run_id: int) -> bool:
     return True
 
 
+def workflow_groups() -> dict[str, str]:
+    """Map workflow FILE NAME -> concurrency group, read from the checkout.
+
+    Parsed with a line scan rather than a YAML dependency: the sweeper runs on a
+    bare runner, and `group:` under `concurrency:` is a one-line literal in every
+    workflow here. A workflow whose group we cannot read is treated as ungrouped,
+    which only makes the idle check more conservative.
+    """
+    groups: dict[str, str] = {}
+    wf_dir = os.path.join(os.getcwd(), ".github", "workflows")
+    if not os.path.isdir(wf_dir):
+        return groups
+    for name in os.listdir(wf_dir):
+        if not name.endswith((".yml", ".yaml")):
+            continue
+        try:
+            lines = open(os.path.join(wf_dir, name), encoding="utf-8").read().splitlines()
+        except OSError:
+            continue
+        in_concurrency = False
+        for line in lines:
+            stripped = line.strip()
+            if stripped.startswith("concurrency:"):
+                in_concurrency = True
+                continue
+            if in_concurrency:
+                if stripped.startswith("group:"):
+                    groups[name] = stripped.split("group:", 1)[1].strip().strip("'\"")
+                    break
+                # Any line back at column 0 ends the concurrency block.
+                if line and not line[0].isspace():
+                    in_concurrency = False
+    return groups
+
+
+def busy_groups(repo: str, groups: dict[str, str], ignore_run_id: int | None = None) -> set[str]:
+    """Concurrency groups with an active run right now (in_progress or pending)."""
+    busy: set[str] = set()
+    for status in ("in_progress", "queued", "pending"):
+        try:
+            runs = gh_json(
+                "api", f"repos/{repo}/actions/runs?status={status}&per_page=50"
+            )["workflow_runs"]
+        except (RuntimeError, KeyError):
+            # Unknown means "assume busy" is wrong (it would freeze the sweeper
+            # forever); but so is "assume idle". Skip the status and let the
+            # remaining ones decide — a missed sweep costs 30 minutes.
+            continue
+        for run in runs:
+            if ignore_run_id is not None and run["id"] == ignore_run_id:
+                continue
+            wf_file = os.path.basename(run.get("path") or "")
+            group = groups.get(wf_file)
+            if group:
+                busy.add(group)
+    return busy
+
+
+def superseded_by_concurrency(repo: str, run_id: int) -> bool:
+    """True when a cancelled run never had a job created — it was displaced in the
+    pending queue, so no step of ours ran and nothing was interrupted."""
+    try:
+        jobs = gh_json("api", f"repos/{repo}/actions/runs/{run_id}/jobs?per_page=100")["jobs"]
+    except (RuntimeError, KeyError):
+        return False
+    return not jobs
+
+
 def healed_since(repo: str, workflow_id: int, created_at: datetime) -> bool:
     """True when a later run of the same workflow already succeeded."""
     runs = gh_json(
@@ -176,8 +265,50 @@ def main() -> int:
                 continue
         reran.append(run)
 
+    # ---- second pass: runs destroyed in the pending queue by a newer arrival ----
+    groups = workflow_groups()
+    busy = busy_groups(repo, groups)
+    try:
+        cancelled = gh_json(
+            "api", f"repos/{repo}/actions/runs?status=cancelled&per_page=100"
+        )["workflow_runs"]
+    except (RuntimeError, KeyError):
+        cancelled = []
+
+    for run in cancelled:
+        created = parse_ts(run["created_at"])
+        if created < cutoff or run["name"] == self_name:
+            continue
+        if run.get("run_attempt", 1) >= MAX_ATTEMPTS:
+            skipped.append((run, f"already at attempt {run['run_attempt']}"))
+            continue
+        if not superseded_by_concurrency(repo, run["id"]):
+            continue  # a real cancel — a running job was stopped. Leave it.
+        group = groups.get(os.path.basename(run.get("path") or ""))
+        if group and group in busy:
+            skipped.append((run, f"group '{group}' is busy — will retry next sweep"))
+            continue
+        if healed_since(repo, run["workflow_id"], created):
+            skipped.append((run, "a later run of this workflow already succeeded"))
+            continue
+        if len(reran) >= MAX_RERUNS:
+            skipped.append((run, f"hit the {MAX_RERUNS}-re-run cap for this sweep"))
+            continue
+        if not DRY_RUN:
+            try:
+                # `rerun`, not `rerun-failed-jobs`: a superseded run has no jobs
+                # at all, so there is nothing "failed" to re-run.
+                gh("api", "-X", "POST", f"repos/{repo}/actions/runs/{run['id']}/rerun")
+            except RuntimeError as exc:
+                skipped.append((run, f"re-run rejected: {exc}"))
+                continue
+            if group:
+                busy.add(group)   # one re-run per group per sweep; it holds the lock now
+        reran.append(run)
+
     prefix = "would re-run" if DRY_RUN else "re-ran"
-    lines = [f"Swept {repo} for runner-allocation failures in the last {LOOKBACK_HOURS}h."]
+    lines = [f"Swept {repo} for dropped runs in the last {LOOKBACK_HOURS}h "
+             "(never-started + superseded-in-queue)."]
     for run in reran:
         lines.append(f"  {prefix}: {run['name']} #{run['run_number']} — {run['html_url']}")
     for run, why in skipped:

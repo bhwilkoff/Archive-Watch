@@ -89,21 +89,31 @@ struct SubtitleAccountSection: View {
     }
 }
 
-/// Automatic captions row — shown only where the on-device engine exists.
+/// Automatic captions — what they are and where to find them.
+///
+/// This was a "Offer automatic captions" TOGGLE, and the toggle was read
+/// nowhere: switching it on did nothing at all, while its wording implied the
+/// app would start captioning films. That is worse than having no control,
+/// because it answers "why don't I see subtitles?" with a reassuring lie.
+///
+/// There is nothing for a global preference to gate. Transcribing is a
+/// deliberate, per-film action that already asks for confirmation and states
+/// what it will download, so a switch in Settings could only duplicate that
+/// consent. What Settings owes the viewer here is an accurate account of what
+/// exists and where the button is.
 struct AutoCaptionsSettingsSection: View {
-    @AppStorage("autoCaptionsEnabled") private var enabled = false
-
     var body: some View {
         if AutoCaptions.isSupported {
             Section {
-                Toggle("Offer automatic captions", isOn: $enabled)
+                Label("Open a film, then choose Subtitles.", systemImage: "captions.bubble")
+                    .foregroundStyle(.secondary)
             } header: {
                 Text("Automatic Captions")
             } footer: {
-                // Say what they are. A machine transcript of eighty-year-old
-                // audio is sometimes wrong, and the viewer deserves to know that
-                // before they rely on it — the reason these were withdrawn once.
-                Text("When a film has no subtitles, Archive Watch can transcribe it on this device. Nothing is uploaded. Automatic captions are labelled as such, are never offered for silent films, and are discarded when the audio is too poor to transcribe well.")
+                // A machine transcript of eighty-year-old audio is sometimes
+                // wrong, and the viewer deserves to know that before relying on
+                // it — the reason these were withdrawn once (Decision 039b).
+                Text("When a film has no subtitles, this device can transcribe it. The film is downloaded first and nothing is uploaded. Automatic captions are labelled as such, are never offered for silent films, and are discarded when the audio is too poor to transcribe well.")
             }
         }
     }

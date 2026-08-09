@@ -47,6 +47,19 @@ struct DetailView: View {
                         }
                         .buttonStyle(.bordered)
 
+                        // Subtitles. This lived inside the share menu, which is
+                        // where nobody looks for subtitles — a viewer who wants
+                        // them looks at the film, not at a share sheet. It shows
+                        // only when the title has none, so it disappears the
+                        // moment it is answered.
+                        if SubtitleFinder.shouldOffer(for: item) {
+                            Button { gettingSubtitles = true } label: {
+                                Image(systemName: "captions.bubble")
+                                    .accessibilityLabel("Get subtitles")
+                            }
+                            .buttonStyle(.bordered)
+                        }
+
                         // Create: clip / GIF / fan-edit this title (Decision 033).
                         // Rights-gated — only public-domain / CC content (the
                         // affordance is hidden, not disabled, when not clippable).
@@ -59,11 +72,6 @@ struct DetailView: View {
                         }
 
                         Menu {
-                            if SubtitleFinder.shouldOffer(for: item) {
-                                Button { gettingSubtitles = true } label: {
-                                    Label("Get subtitles…", systemImage: "captions.bubble")
-                                }
-                            }
                             if Callsheet.supports(item) {
                                 Button { Callsheet.open(Callsheet.url(for: item)) } label: {
                                     Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)

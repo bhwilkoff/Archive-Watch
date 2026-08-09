@@ -37,6 +37,10 @@ on:
         description: 'Seconds between items (Wikidata/Commons/TVDB rate-limit courtesy)'
         required: false
         default: '0.4'
+      max_minutes:
+        description: 'Stop starting items after this long and publish (bounds the catalog-writers lock hold)'
+        required: false
+        default: '75'
       dry_run:
         description: 'Resolve + report only, write nothing'
         required: false
@@ -80,6 +84,7 @@ jobs:
             --limit ${{ github.event.inputs.limit || '450' }} \
             --reprobe-days ${{ github.event.inputs.reprobe_days || '30' }} \
             --sleep ${{ github.event.inputs.sleep || '0.4' }} \
+            --max-minutes ${{ github.event.inputs.max_minutes || '75' }} \
             ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} \
             | tee resource-posters-secondary.log
 
