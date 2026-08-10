@@ -36,6 +36,9 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=800, help="films to align this run")
     ap.add_argument("--db", default=str(REPO / "subtitle.sqlite"))
+    ap.add_argument("--max-cues", type=int, default=2500,
+                    help="skip items with more cues than this — they are "
+                         "multi-hour compilations whose audio pull never lands")
     ap.add_argument("--max-minutes", type=float, default=0,
                     help="stop starting new films after this long and return "
                          "cleanly, so the CALLER still gets to publish. Without "
@@ -59,10 +62,16 @@ def main() -> int:
     tokenizer = bundle.get_tokenizer()
     aligner = bundle.get_aligner()
 
+    # Ordering by cue count DESC picks the LONGEST items first — multi-hour
+    # compilations whose audio pull cannot finish, so the run burns its budget on
+    # the three worst candidates and aligns nothing. Cap the cue count so the
+    # queue is ordinary films.
     films = db.execute("""
-        SELECT archiveID, sourceURL FROM cues
+        SELECT archiveID, sourceURL, count(*) c FROM cues
         WHERE archiveID NOT IN (SELECT archiveID FROM aligned)
-        GROUP BY archiveID ORDER BY count(*) DESC LIMIT ?""", (args.limit,)).fetchall()
+        GROUP BY archiveID HAVING c <= ?
+        ORDER BY c DESC LIMIT ?""", (args.max_cues, args.limit)).fetchall()
+    films = [(a, u) for a, u, _c in films]
 
     # The work is already resumable per film (each commits and marks `aligned`),
     # so stopping early costs nothing — but only if the process EXITS, letting
@@ -71,6 +80,7 @@ def main() -> int:
     stopped_early = False
 
     done = 0
+    failed_dl = 0
     for aid, url in films:
         if deadline and time.monotonic() > deadline:
             stopped_early = True
@@ -92,6 +102,12 @@ def main() -> int:
             except Exception:
                 wav = None
         if wav is None:
+            # SILENT before this: three films failed here and the run reported
+            # "+0 films" with no indication why, which is indistinguishable from
+            # having nothing to do.
+            failed_dl += 1
+            print(f"[words] {aid[:44]}: audio download failed after 3 tries "
+                  f"({url[:70]})", flush=True)
             continue   # transient — leave unaligned so a later run retries
 
         rows = []
@@ -126,7 +142,8 @@ def main() -> int:
     if stopped_early:
         print(f"[words] STOPPED EARLY at the {args.max_minutes:g}-minute budget "
               f"({done} of {len(films)} selected). The rest are picked up next run.")
-    print(f"[words] +{done} films this run; {n} word timings total in {args.db}")
+    print(f"[words] +{done} films this run ({failed_dl} audio downloads failed); "
+          f"{n} word timings total in {args.db}")
     return 0
 
 
