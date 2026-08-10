@@ -156,6 +156,48 @@ enum AutoCaptions {
         return out
     }
 
+    /// Rewrite an audio file into `format`, streaming through AVAudioConverter.
+    private static func convert(_ source: AVAudioFile, to format: AVAudioFormat) throws -> AVAudioFile {
+        let dest = FileManager.default.temporaryDirectory
+            .appendingPathComponent("aw-analyzer-\(UUID().uuidString).wav")
+        let out = try AVAudioFile(forWriting: dest, settings: format.settings,
+                                  commonFormat: format.commonFormat,
+                                  interleaved: format.isInterleaved)
+        guard let converter = AVAudioConverter(from: source.processingFormat, to: format) else {
+            throw Failure.failed("This device can't convert the audio for transcription.")
+        }
+        let inCap: AVAudioFrameCount = 16384
+        guard let inBuf = AVAudioPCMBuffer(pcmFormat: source.processingFormat,
+                                           frameCapacity: inCap) else {
+            throw Failure.failed("Couldn't allocate an audio buffer.")
+        }
+        // Drive the loop off the file's length: `read(into:frameCount:)` throws
+        // eofErr (-39) at the end rather than returning zero frames.
+        while source.framePosition < source.length {
+            let remaining = AVAudioFrameCount(min(Int64(inCap),
+                                                  source.length - source.framePosition))
+            if remaining == 0 { break }
+            try source.read(into: inBuf, frameCount: remaining)
+            if inBuf.frameLength == 0 { break }
+            let ratio = format.sampleRate / source.processingFormat.sampleRate
+            let outCap = AVAudioFrameCount(Double(inBuf.frameLength) * ratio) + 1024
+            guard let outBuf = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: outCap) else {
+                throw Failure.failed("Couldn't allocate an audio buffer.")
+            }
+            var err: NSError?
+            var fed = false
+            converter.convert(to: outBuf, error: &err) { _, status in
+                if fed { status.pointee = .noDataNow; return nil }
+                fed = true
+                status.pointee = .haveData
+                return inBuf
+            }
+            if let err { throw err }
+            if outBuf.frameLength > 0 { try out.write(from: outBuf) }
+        }
+        return try AVAudioFile(forReading: dest)
+    }
+
     #if canImport(Speech)
     @available(iOS 26, tvOS 26, macOS 26, visionOS 26, *)
     private static func runTranscriber(fileURL: URL) async throws -> [(start: Double, text: String)] {
@@ -166,13 +208,39 @@ enum AutoCaptions {
         if let req = try? await AssetInventory.assetInstallationRequest(supporting: [transcriber]) {
             try? await req.downloadAndInstall()
         }
-        let audio = try AVAudioFile(forReading: fileURL)
+        // Hand the analyzer audio in a format it accepts, rather than whatever
+        // the extractor happened to produce.
+        //
+        // This is not defensive tidying: feeding it a 16 kHz mono AAC file
+        // worked on macOS 27 and failed on macOS 26 with SFSpeechErrorDomain
+        // Code=5 "No common audio format among modules" — 24 of 24 films on the
+        // first CI batch, a run that stayed green while producing nothing. The
+        // supported format is whatever `bestAvailableAudioFormat` reports for
+        // THESE modules on THIS OS, so ask, and convert when it differs.
+        // Try the file as extracted FIRST, and convert only if the analyzer
+        // refuses it. Converting unconditionally was measurably worse: the
+        // as-extracted path transcribes a 29-minute film in 26s, while routing
+        // the same audio through a conversion left the analyzer running for
+        // 17+ minutes without finishing. So the fast path stays the default and
+        // conversion is the fallback for the OS that needs it.
+        //
         // `finishAfterFile: true` drives the whole file and finishes, so results
         // can be consumed on THIS task. Collecting them from a separate Task
-        // instead is a Swift 6 data race on the accumulator — the compiler is
-        // right, and the sequential form is simpler anyway.
-        _ = try await SpeechAnalyzer(inputAudioFile: audio, modules: [transcriber],
-                                     finishAfterFile: true)
+        // instead is a Swift 6 data race on the accumulator.
+        let source = try AVAudioFile(forReading: fileURL)
+        do {
+            _ = try await SpeechAnalyzer(inputAudioFile: source, modules: [transcriber],
+                                         finishAfterFile: true)
+        } catch {
+            // SFSpeechErrorDomain Code=5 "No common audio format among modules"
+            // — seen on macOS 26 runners for a 16 kHz mono AAC file that macOS
+            // 27 accepted, which cost a whole CI batch (24 of 24 films).
+            guard let want = await SpeechAnalyzer
+                .bestAvailableAudioFormat(compatibleWith: [transcriber]) else { throw error }
+            let converted = try convert(source, to: want)
+            _ = try await SpeechAnalyzer(inputAudioFile: converted, modules: [transcriber],
+                                         finishAfterFile: true)
+        }
         var cues: [(start: Double, text: String)] = []
         for try await result in transcriber.results {
             let text = String(result.text.characters)
