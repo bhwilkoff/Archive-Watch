@@ -118,6 +118,10 @@ def main() -> int:
     ap.add_argument("--stale-days", type=int, default=6,
                     help="re-harvest items whose signalsCheckedAt is older than this")
     ap.add_argument("--sleep", type=float, default=0.3, help="pause between calls (be polite)")
+    ap.add_argument("--max-minutes", type=float, default=0,
+                    help="stop starting new batches after this long and publish "
+                         "what was harvested; a run that hits the job timeout "
+                         "instead is killed with nothing written.")
     args = ap.parse_args()
 
     if not CATALOG.exists():
@@ -160,9 +164,15 @@ def main() -> int:
         json.dump(cat, open(tmp, "w"), ensure_ascii=False, separators=(",", ":"))
         tmp.replace(CATALOG)
 
+    deadline = (time.monotonic() + args.max_minutes * 60) if args.max_minutes else None
+    stopped_early = False
+
     done = 0
     # advancedsearch pass
     for i in range(0, len(ids), args.batch):
+        if deadline and time.monotonic() > deadline:
+            stopped_early = True
+            break
         chunk = ids[i:i + args.batch]
         try:
             adv = fetch_adv_batch(chunk, session)
@@ -186,6 +196,9 @@ def main() -> int:
     # views pass (separate endpoint, larger batches)
     vdone = 0
     for i in range(0, len(ids), args.views_batch):
+        if deadline and time.monotonic() > deadline:
+            stopped_early = True
+            break
         chunk = ids[i:i + args.views_batch]
         try:
             views = fetch_views_batch(chunk, session)
@@ -202,6 +215,9 @@ def main() -> int:
         time.sleep(args.sleep)
 
     flush()
+    if stopped_early:
+        print(f"[signals] STOPPED EARLY at the {args.max_minutes:g}-minute budget; "
+              "the remaining items are picked up next run.", flush=True)
     # quick coverage report
     cov = sum(1 for it in targets if it.get("downloads") is not None)
     favs = sum(1 for it in targets if it.get("numFavorites"))

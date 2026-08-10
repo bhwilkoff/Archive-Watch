@@ -726,6 +726,12 @@ def main():
     ap.add_argument("--no-repick", action="store_true",
                     help="skip Archive MP4 re-pick (faster, for structure-only tests)")
     ap.add_argument("--throttle", type=float, default=0.35)
+    ap.add_argument("--max-minutes", type=float, default=0,
+                    help="stop building new shows after this long and fall "
+                         "through to the write. This step consumed the whole "
+                         "360-minute job timeout on three consecutive runs, so "
+                         "EVERY step after it was skipped — including the commit "
+                         "and the catalog publish. The workflow produced nothing.")
     args = ap.parse_args()
 
     raw = gather_raw_targets(args.titles)
@@ -740,7 +746,12 @@ def main():
     reclassify = []     # archiveIDs to drop from tv-series (singles w/ no map)
     orphan_series = []  # existing series-file slugs whose show was rejected
     seen_slugs = set()
+    deadline = (time.monotonic() + args.max_minutes * 60) if args.max_minutes else None
+    stopped_early = 0
     for sid, slot in sorted(shows.items(), key=lambda kv: -len(kv[1]["items"])):
+        if deadline and time.monotonic() > deadline:
+            stopped_early += 1
+            continue
         series, row = rebuild_show(slot["show"], slot["items"],
                                    repick=not args.no_repick)
         row["kinds"] = sorted(slot["kinds"])
@@ -791,6 +802,10 @@ def main():
                           for t, y, n, k, r in unmatched],
         }, ensure_ascii=False, indent=1))
         print(f"[tv] report -> {REPORT}")
+    if stopped_early:
+        print(f"[tv] STOPPED EARLY at the {args.max_minutes:g}-minute budget: "
+              f"{stopped_early} shows deferred to the next run. Everything built "
+              f"before the budget IS written and published.")
     return 0
 
 

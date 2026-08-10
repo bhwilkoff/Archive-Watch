@@ -19,6 +19,10 @@ on:
         description: 'Max items to harvest this run (0 = all stale)'
         required: false
         default: '0'
+      max_minutes:
+        description: 'Stop harvesting after this long so results are still published'
+        required: false
+        default: '240'
       stale_days:
         description: 'Re-harvest items whose signals are older than this many days'
         required: false
@@ -49,8 +53,12 @@ jobs:
 
       - name: Harvest community signals
         run: |
+          # A BUDGET: a prior run hit the 330-minute job timeout and was killed
+          # with nothing written. Harvesting flushes as it goes, so stopping
+          # early publishes what it has.
           python tools/harvest_community_signals.py \
             --limit ${{ github.event.inputs.limit || '0' }} \
+            --max-minutes ${{ github.event.inputs.max_minutes || '240' }} \
             --stale-days ${{ github.event.inputs.stale_days || '6' }} | tee signals.log
           echo "## Community signals" >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"; tail -3 signals.log >> "$GITHUB_STEP_SUMMARY"; echo '```' >> "$GITHUB_STEP_SUMMARY"

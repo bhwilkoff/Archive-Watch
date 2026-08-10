@@ -24,6 +24,10 @@ on:
         description: 'Per-request throttle (s) for TVmaze/Archive'
         required: false
         default: '0.3'
+      max_minutes:
+        description: 'Budget for the canonical build so the rest of the chain still runs'
+        required: false
+        default: '150'
 
 concurrency:
   group: catalog-writers      # serialise with the daily writers
@@ -32,6 +36,7 @@ concurrency:
 jobs:
   canonical-tv:
     runs-on: ubuntu-latest
+    timeout-minutes: 330
     permissions:
       contents: write
       pull-requests: write
@@ -66,8 +71,14 @@ jobs:
 
       - name: Build canonical TV (TVmaze spine + Archive map + MP4 re-pick)
         run: |
+          # A BUDGET. This step ran 5h59m on 2026-08-09 and consumed the whole
+          # 360-minute default job timeout, so every step after it — the TVDB
+          # re-apply, the reconcile, the COMMIT and the catalog publish — was
+          # SKIPPED. Three consecutive runs produced nothing. Stopping early
+          # writes what was built and lets the rest of the chain run.
           python tools/build_canonical_tv.py \
             --throttle ${{ github.event.inputs.throttle || '0.3' }} \
+            --max-minutes ${{ github.event.inputs.max_minutes || '150' }} \
             | tee tvbuild.log
 
       # build_canonical_tv rewrites series/*.json from TVmaze, which RESETS posters
