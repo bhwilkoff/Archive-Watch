@@ -113,6 +113,13 @@ final class LiveCaptions {
     }
     private static let holdAfterEnd: Double = 0.5
 
+    /// Everything transcribed so far.
+    ///
+    /// This is the app's own independent estimate of what is being said, which
+    /// makes it the only thing on hand that can judge whether a PUBLISHED
+    /// subtitle track actually matches the film (`SubtitleAgreement`).
+    func transcript() -> [(start: Double, end: Double, text: String)] { cues }
+
     /// How far ahead of `playhead` the transcript currently reaches.
     func leadSeconds(over playhead: CMTime) -> Double {
         (cues.last?.end ?? contentOffset) - playhead.seconds
