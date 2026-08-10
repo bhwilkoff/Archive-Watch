@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-08-09T05:07:22Z",
+  "updated_at": "2026-08-10T06:13:33Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
     "total": 17947,
@@ -59543,7 +59543,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 1,
       "title": "Three Bells to Perdido",
@@ -59553,7 +59553,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 2,
       "title": "The Outlaw",
@@ -59563,7 +59563,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 3,
       "title": "The Great Mojave Chase",
@@ -59573,7 +59573,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 4,
       "title": "Winchester Quarantine",
@@ -59583,7 +59583,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 5,
       "title": "A Matter of Ethics",
@@ -59593,7 +59593,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 6,
       "title": "The Bride",
@@ -59603,7 +59603,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 7,
       "title": "Strange Vendetta",
@@ -59613,7 +59613,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 8,
       "title": "High Wire",
@@ -59623,7 +59623,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 9,
       "title": "Show of Force",
@@ -59633,7 +59633,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 10,
       "title": "The Long Night",
@@ -59643,7 +59643,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 14,
       "title": "The Yuma Treasure",
@@ -59653,7 +59653,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 15,
       "title": "The Hanging Cross",
@@ -59663,7 +59663,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 16,
       "title": "Helen of Abajinian",
@@ -59673,7 +59673,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 18,
       "title": "The Reasonable Man",
@@ -59683,7 +59683,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 20,
       "title": "The Last Laugh",
@@ -59693,7 +59693,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 22,
       "title": "The Singer",
@@ -59703,7 +59703,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 24,
       "title": "Girl from Piccadilly",
@@ -59713,7 +59713,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 28,
       "title": "Killer's Widow",
@@ -59723,7 +59723,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 30,
       "title": "The Prize Fight Story",
@@ -59733,7 +59733,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 31,
       "title": "Hey Boy's Revenge",
@@ -59743,7 +59743,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 32,
       "title": "The Five Books of Owen Deaver",
@@ -59753,7 +59753,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 33,
       "title": "The Silver Queen",
@@ -59763,7 +59763,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 34,
       "title": "Three Sons",
@@ -59773,7 +59773,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 35,
       "title": "The Return of Dr. Thackeray",
@@ -59783,7 +59783,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 36,
       "title": "Twenty-Four Hours at North Fork",
@@ -59793,7 +59793,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 37,
       "title": "Silver Convoy",
@@ -59803,7 +59803,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 38,
       "title": "Deliver the Body",
@@ -59813,7 +59813,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 1,
       "episode": 39,
       "title": "The Statue of San Sebastian",
@@ -59823,7 +59823,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 1,
       "title": "The Manhunter",
@@ -59833,7 +59833,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 2,
       "title": "In an Evil Time",
@@ -59854,7 +59854,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 4,
       "title": "The Hanging of Roy Carter",
@@ -59864,7 +59864,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 5,
       "title": "Duel at Florence",
@@ -59874,7 +59874,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 6,
       "title": "The Protégé",
@@ -59884,7 +59884,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 7,
       "title": "The Road to Wickenburg",
@@ -59894,7 +59894,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 8,
       "title": "A Sense of Justice",
@@ -59904,7 +59904,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 9,
       "title": "Young Gun",
@@ -59914,7 +59914,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 10,
       "title": "The Lady",
@@ -59924,7 +59924,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 11,
       "title": "A Snare for Murder",
@@ -59934,7 +59934,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 12,
       "title": "The Ballad of Oscar Wilde",
@@ -59944,7 +59944,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 13,
       "title": "The Solid Gold Patrol",
@@ -59954,7 +59954,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 14,
       "title": "Something to Live For",
@@ -59964,7 +59964,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 15,
       "title": "The Moor's Revenge",
@@ -59974,7 +59974,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 16,
       "title": "The Wager",
@@ -59984,7 +59984,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 17,
       "title": "The Taffeta Mayor",
@@ -59994,7 +59994,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 18,
       "title": "Lady on the Stagecoach",
@@ -60004,7 +60004,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 20,
       "title": "Juliet",
@@ -60014,7 +60014,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 21,
       "title": "Hunt the Man Down",
@@ -60024,7 +60024,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 23,
       "title": "The Return of the Lady",
@@ -60034,7 +60034,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 24,
       "title": "The Monster of Moon Ridge",
@@ -60044,7 +60044,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 25,
       "title": "The Long Hunt",
@@ -60054,7 +60054,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 26,
       "title": "Death of a Gunfighter",
@@ -60064,7 +60064,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 27,
       "title": "Incident at Borrasca Bend",
@@ -60085,7 +60085,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 29,
       "title": "The Chase",
@@ -60095,7 +60095,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 30,
       "title": "Alaska",
@@ -60105,7 +60105,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 31,
       "title": "The Man Who Lost",
@@ -60115,7 +60115,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 33,
       "title": "Sons of Aaron Murdock",
@@ -60125,7 +60125,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 34,
       "title": "Comanche",
@@ -60135,7 +60135,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 35,
       "title": "Homecoming",
@@ -60145,7 +60145,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 36,
       "title": "The Fifth Man",
@@ -60155,7 +60155,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 37,
       "title": "Heritage of Anger",
@@ -60165,7 +60165,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 38,
       "title": "The Haunted Trees",
@@ -60175,7 +60175,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 2,
       "episode": 39,
       "title": "Gold and Brimstone",
@@ -60185,7 +60185,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 2,
       "title": "Episode in Laredo",
@@ -60195,7 +60195,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 4,
       "title": "The Posse",
@@ -60205,7 +60205,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 7,
       "title": "Fragile",
@@ -60215,7 +60215,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 8,
       "title": "Unforgiven",
@@ -60225,7 +60225,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 10,
       "title": "The Golden Toad",
@@ -60235,7 +60235,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 11,
       "title": "Tiger",
@@ -60245,7 +60245,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 12,
       "title": "Champagne Safari",
@@ -60255,7 +60255,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 13,
       "title": "Charley Red Dog",
@@ -60265,7 +60265,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 15,
       "title": "One Came Back",
@@ -60275,7 +60275,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 16,
       "title": "The Prophet",
@@ -60285,7 +60285,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 17,
       "title": "The Day of the Bad Man",
@@ -60295,7 +60295,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 20,
       "title": "Return to Fort Benjamin",
@@ -60305,7 +60305,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 21,
       "title": "The Night the Town Died",
@@ -60315,7 +60315,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 22,
       "title": "The Ledge",
@@ -60325,7 +60325,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 23,
       "title": "The Lady on the Wall",
@@ -60335,7 +60335,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 25,
       "title": "The Hatchet Man",
@@ -60345,7 +60345,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 26,
       "title": "Fight at Adobe Wells",
@@ -60355,7 +60355,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 27,
       "title": "The Gladiators",
@@ -60365,7 +60365,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 28,
       "title": "Love of a Bad Woman",
@@ -60375,7 +60375,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 29,
       "title": "An International Affair",
@@ -60385,7 +60385,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 30,
       "title": "Lady with a Gun",
@@ -60395,7 +60395,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 31,
       "title": "Never Help the Devil",
@@ -60405,7 +60405,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 33,
       "title": "Black Sheep",
@@ -60415,7 +60415,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 34,
       "title": "Full Circle",
@@ -60425,7 +60425,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 35,
       "title": "The Twins",
@@ -60435,7 +60435,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 37,
       "title": "Ransom",
@@ -60445,7 +60445,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 3,
       "episode": 38,
       "title": "The Trial",
@@ -60455,7 +60455,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 1,
       "title": "The Fatalist",
@@ -60465,7 +60465,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 2,
       "title": "Love's Young Dream",
@@ -60475,7 +60475,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 3,
       "title": "A Head of Hair",
@@ -60485,7 +60485,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 4,
       "title": "Out at the Old Ball Park",
@@ -60495,7 +60495,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 6,
       "title": "The Calf",
@@ -60505,7 +60505,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 8,
       "title": "The Shooting of Jessie May",
@@ -60515,7 +60515,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 9,
       "title": "The Poker Fiend",
@@ -60525,7 +60525,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 10,
       "title": "Crowbait",
@@ -60535,7 +60535,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 11,
       "title": "The Marshal's Boy",
@@ -60545,7 +60545,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 12,
       "title": "Fogg Bound",
@@ -60555,7 +60555,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 13,
       "title": "The Legacy",
@@ -60565,7 +60565,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 14,
       "title": "The Prisoner",
@@ -60575,7 +60575,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 15,
       "title": "The Puppeteer",
@@ -60585,7 +60585,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 16,
       "title": "The Sanctuary",
@@ -60595,7 +60595,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 17,
       "title": "A Quiet Night in Town: Part 1",
@@ -60605,7 +60605,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 18,
       "title": "A Quiet Night in Town: Part 2",
@@ -60615,7 +60615,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 19,
       "title": "The Princess and the Gunfighter",
@@ -60625,7 +60625,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 21,
       "title": "Long Way Home",
@@ -60635,7 +60635,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 22,
       "title": "The Tax Gatherer",
@@ -60645,7 +60645,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 25,
       "title": "The Last Judgment",
@@ -60655,7 +60655,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 27,
       "title": "Everyman",
@@ -60665,7 +60665,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 29,
       "title": "Long Weekend",
@@ -60675,7 +60675,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 30,
       "title": "El Paso Stage",
@@ -60685,7 +60685,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 31,
       "title": "Duke of Texas",
@@ -60695,7 +60695,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 32,
       "title": "Broken Image",
@@ -60705,7 +60705,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 33,
       "title": "Brother's Keeper",
@@ -60715,7 +60715,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 34,
       "title": "Bearbait",
@@ -60736,7 +60736,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 36,
       "title": "The Road",
@@ -60746,7 +60746,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 37,
       "title": "The Uneasy Grave",
@@ -60756,7 +60756,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 4,
       "episode": 38,
       "title": "Soledad Crossing",
@@ -60766,7 +60766,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 1,
       "title": "The Vigil",
@@ -60776,7 +60776,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 2,
       "title": "The Education of Sara Jane",
@@ -60786,7 +60786,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 3,
       "title": "The Revenger",
@@ -60796,7 +60796,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 4,
       "title": "Odds for Big Red",
@@ -60806,7 +60806,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 5,
       "title": "A Proof of Love",
@@ -60816,7 +60816,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 6,
       "title": "The Gospel Singer",
@@ -60826,7 +60826,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 7,
       "title": "The Race",
@@ -60836,7 +60836,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 8,
       "title": "The Hanging of Aaron Gibbs",
@@ -60846,7 +60846,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 9,
       "title": "The Piano",
@@ -60856,7 +60856,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 10,
       "title": "Ben Jalisco",
@@ -60866,7 +60866,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 11,
       "title": "The Brothers",
@@ -60876,7 +60876,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 12,
       "title": "A Drop of Blood",
@@ -60886,7 +60886,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 13,
       "title": "A Knight to Remember",
@@ -60896,7 +60896,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 14,
       "title": "Blind Circle",
@@ -60906,7 +60906,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 15,
       "title": "The Kid",
@@ -60916,7 +60916,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 16,
       "title": "Squatter's Rights",
@@ -60926,7 +60926,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 17,
       "title": "Lazarus",
@@ -60936,7 +60936,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 18,
       "title": "Justice in Hell",
@@ -60946,7 +60946,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 19,
       "title": "The Mark of Cain",
@@ -60956,7 +60956,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 20,
       "title": "The Exiles",
@@ -60977,7 +60977,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 22,
       "title": "Dream Girl",
@@ -60987,7 +60987,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 23,
       "title": "One, Two, Three",
@@ -60997,7 +60997,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 24,
       "title": "The Waiting Room",
@@ -61007,7 +61007,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 25,
       "title": "The Trap",
@@ -61017,7 +61017,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 26,
       "title": "Don't Shoot the Piano Player",
@@ -61027,7 +61027,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 27,
       "title": "Alice",
@@ -61037,7 +61037,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 28,
       "title": "Man Who Struck Moonshine",
@@ -61047,7 +61047,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 29,
       "title": "Silent Death, Secret Death",
@@ -61057,7 +61057,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 30,
       "title": "Hobson's Choice",
@@ -61067,7 +61067,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 31,
       "title": "Coming of the Tiger",
@@ -61077,7 +61077,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 32,
       "title": "Darwin's Man",
@@ -61087,7 +61087,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 33,
       "title": "Invasion",
@@ -61097,7 +61097,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 34,
       "title": "Cream of the Jest",
@@ -61107,7 +61107,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 35,
       "title": "Bandit",
@@ -61117,7 +61117,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 37,
       "title": "Jonah and the Trout",
@@ -61127,7 +61127,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 5,
       "episode": 38,
       "title": "The Knight",
@@ -61137,7 +61137,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 2,
       "title": "Taylor's Woman",
@@ -61147,7 +61147,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 3,
       "title": "The Fifth Bullet",
@@ -61157,7 +61157,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 4,
       "title": "Place for Abel Hix",
@@ -61167,7 +61167,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 5,
       "title": "Beau Geste",
@@ -61177,7 +61177,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 6,
       "title": "The Bird of Time",
@@ -61187,7 +61187,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 7,
       "title": "Memories of Monica",
@@ -61197,7 +61197,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 8,
       "title": "The Predators",
@@ -61207,7 +61207,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 11,
       "title": "Marshal of Sweetwater",
@@ -61217,7 +61217,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 13,
       "title": "Penelope",
@@ -61227,7 +61227,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 14,
       "title": "Trial at Tablerock",
@@ -61237,7 +61237,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 16,
       "title": "The Treasure",
@@ -61247,7 +61247,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 17,
       "title": "Brotherhood",
@@ -61268,7 +61268,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 19,
       "title": "Debutante",
@@ -61278,7 +61278,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 20,
       "title": "Unforgiving Minute",
@@ -61288,7 +61288,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 21,
       "title": "American Primitive",
@@ -61298,7 +61298,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 24,
       "title": "Caravan",
@@ -61308,7 +61308,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 25,
       "title": "The Walking Years",
@@ -61318,7 +61318,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 26,
       "title": "Sweet Lady of the Moon",
@@ -61328,7 +61328,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 27,
       "title": "The Savages",
@@ -61338,7 +61338,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 28,
       "title": "The Eve of St. Elmo",
@@ -61348,7 +61348,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 29,
       "title": "The Lady of the Fifth Moon",
@@ -61358,7 +61358,7 @@
     },
     {
       "seriesID": "have-gun-will-travel-1957",
-      "seriesTitle": "Have Gun, Will Travel",
+      "seriesTitle": "Have Gun - Will Travel",
       "season": 6,
       "episode": 32,
       "title": "Face of a Shadow",
