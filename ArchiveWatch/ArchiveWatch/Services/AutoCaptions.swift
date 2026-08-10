@@ -211,11 +211,34 @@ enum AutoCaptions {
     private static func runTranscriber(fileURL: URL) async throws -> [(start: Double, text: String)] {
         let transcriber = SpeechTranscriber(locale: Locale(identifier: "en-US"),
                                             preset: .timeIndexedTranscriptionWithAlternatives)
-        // Language assets are downloaded + managed by the system catalog; request
-        // them once rather than failing on first use.
-        if let req = try? await AssetInventory.assetInstallationRequest(supporting: [transcriber]) {
-            try? await req.downloadAndInstall()
+        // Install the language model, and REPORT it when that fails.
+        //
+        // Both calls used to be `try?`. On a machine where the model is already
+        // present (any Mac that has used dictation) that is invisible; on a
+        // fresh CI runner it silently leaves no model installed, and every
+        // subsequent failure surfaces as the misleading "No common audio format
+        // among modules" — 1,096 films in one batch, none of them actually an
+        // audio-format problem. A swallowed setup error is not a small thing:
+        // it renamed the bug.
+        let installed = await SpeechTranscriber.installedLocales
+            .contains { $0.identifier(.bcp47) == "en-US" }
+        if !installed {
+            do {
+                if let req = try await AssetInventory.assetInstallationRequest(
+                    supporting: [transcriber]) {
+                    try await req.downloadAndInstall()
+                }
+            } catch {
+                throw Failure.failed("Couldn't install the speech model: "
+                                     + error.localizedDescription)
+            }
         }
+        // Deliberately NOT gated on `status == .installed`: measured on a Mac
+        // where transcription demonstrably works, the status reads `.supported`,
+        // so treating anything else as fatal would break the path that works.
+        // The status is carried instead into the diagnosis below, where it is
+        // the difference between a real answer and a misleading one.
+        let status = await AssetInventory.status(forModules: [transcriber])
         // Hand the analyzer audio in a format it accepts, rather than whatever
         // the extractor happened to produce.
         //
@@ -250,7 +273,14 @@ enum AutoCaptions {
             // necessarily one AVAudioFile will write), so the file is taken out
             // of the loop entirely.
             guard let want = await SpeechAnalyzer
-                .bestAvailableAudioFormat(compatibleWith: [transcriber]) else { throw error }
+                .bestAvailableAudioFormat(compatibleWith: [transcriber]) else {
+                // No available format means the MODEL is missing, not the audio.
+                // Reporting the analyzer's original "No common audio format
+                // among modules" here sent a whole batch chasing codecs.
+                throw Failure.failed("No speech model is available for en-US "
+                                     + "(asset status \(status)) — transcription "
+                                     + "cannot run on this machine.")
+            }
             let stream = try pcmStream(from: source, as: want)
             let analyzer = SpeechAnalyzer(modules: [transcriber])
             _ = try await analyzer.analyzeSequence(stream)
