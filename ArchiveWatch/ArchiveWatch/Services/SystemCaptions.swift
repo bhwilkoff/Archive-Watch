@@ -22,9 +22,16 @@ import AVFoundation
 // There is no "are these generated?" API, and none is needed: the question that
 // decides our behaviour is whether ANY legible option exists. A published WebVTT
 // track and a generated one both answer yes, and in both cases our overlay is
-// redundant. `AVPlayerItem.selectableMediaSelectionOptions(in:)` is new in 27 and
-// is where a generated track can appear — it is not in the file, so the asset's
-// own group will never list it.
+// redundant.
+//
+// The asset's OWN legible group is what we read, deliberately. There is also
+// `AVPlayerItem.selectableMediaSelectionOptions(in:)`, new in 27 and the obvious
+// place to look for a track that is not in the file — but the App Store archive
+// is built with the RELEASED Xcode (the workflow requires it, to clear
+// ITMS-90111), whose SDK has no 27 symbols, so referencing it compiles here on
+// the beta and fails the only build that ships. It is also unnecessary:
+// measured on macOS 27 against a live archive.org film, the generated track
+// appears in the asset group too — `assetOptions=1` at t=1s.
 enum SystemCaptions {
 
     /// `AVAsset` and `AVMediaSelectionGroup` are not Sendable, so loading the
@@ -53,16 +60,7 @@ enum SystemCaptions {
         repeat {
             if let item = player?.currentItem {
                 let box = await LegibleProbe(asset: item.asset).group()
-                if let group = box.group {
-                    // Ask the ITEM what is selectable, not the asset what it
-                    // contains: a generated track exists only at the item.
-                    if #available(iOS 27, tvOS 27, macOS 27, visionOS 27, *) {
-                        if !item.selectableMediaSelectionOptions(in: group).isEmpty {
-                            return true
-                        }
-                    }
-                    if !group.options.isEmpty { return true }
-                }
+                if let group = box.group, !group.options.isEmpty { return true }
             }
             if Task.isCancelled { return false }
             try? await Task.sleep(nanoseconds: 700_000_000)

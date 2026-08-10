@@ -39,6 +39,7 @@ struct Harness {
             print("SKIP: system-generated subtitles need 27; this OS is older.")
             exit(0)
         }
+
         let url = URL(string: CommandLine.arguments.count > 1
                       ? CommandLine.arguments[1] : film)!
 
@@ -58,7 +59,12 @@ struct Harness {
     }
 
     /// Play briefly and report whether a subtitle option shows up.
-    @available(macOS 27, iOS 27, tvOS 27, *)
+    ///
+    /// Reads the ASSET's legible group — the same signal the shipped
+    /// `SystemCaptions` uses, and portable to a released Xcode.
+    /// `AVPlayerItem.selectableMediaSelectionOptions(in:)` is the 27-only
+    /// alternative; it is deliberately not used, because the App Store archive
+    /// builds with the RELEASED Xcode and would not compile against it.
     static func probe(_ label: String, _ item: AVPlayerItem) async -> Bool {
         let player = AVPlayer(playerItem: item)
         player.volume = 0
@@ -69,10 +75,9 @@ struct Harness {
             try? await Task.sleep(nanoseconds: 1_000_000_000)
             guard let group = try? await item.asset
                 .loadMediaSelectionGroup(for: .legible) else { continue }
-            let selectable = item.selectableMediaSelectionOptions(in: group)
-            guard !selectable.isEmpty || !group.options.isEmpty else { continue }
-            let names = selectable.map(\.displayName).joined(separator: ", ")
-            print("\(label): \(second)s — \(selectable.count) option(s): \(names)")
+            guard !group.options.isEmpty else { continue }
+            let names = group.options.map(\.displayName).joined(separator: ", ")
+            print("\(label): \(second)s — \(group.options.count) option(s): \(names)")
             return true
         }
         print("\(label): no subtitle option after 20s")
