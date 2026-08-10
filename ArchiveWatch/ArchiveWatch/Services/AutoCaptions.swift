@@ -156,49 +156,57 @@ enum AutoCaptions {
         return out
     }
 
-    /// Rewrite an audio file into `format`, streaming through AVAudioConverter.
-    private static func convert(_ source: AVAudioFile, to format: AVAudioFormat) throws -> AVAudioFile {
-        let dest = FileManager.default.temporaryDirectory
-            .appendingPathComponent("aw-analyzer-\(UUID().uuidString).wav")
-        let out = try AVAudioFile(forWriting: dest, settings: format.settings,
-                                  commonFormat: format.commonFormat,
-                                  interleaved: format.isInterleaved)
+    #if canImport(Speech)
+    /// Read `source` and yield its audio as `format` buffers for the analyzer.
+    ///
+    /// In memory, because the alternative — converting to a temp FILE — fails on
+    /// the format the analyzer actually asks for (coreaudio 'fmt?': what
+    /// `bestAvailableAudioFormat` returns is not necessarily something
+    /// `AVAudioFile` will write).
+    @available(iOS 26, tvOS 26, macOS 26, visionOS 26, *)
+    private static func pcmStream(from source: AVAudioFile,
+                                  as format: AVAudioFormat) throws -> AsyncStream<AnalyzerInput> {
         guard let converter = AVAudioConverter(from: source.processingFormat, to: format) else {
             throw Failure.failed("This device can't convert the audio for transcription.")
         }
         let inCap: AVAudioFrameCount = 16384
-        guard let inBuf = AVAudioPCMBuffer(pcmFormat: source.processingFormat,
-                                           frameCapacity: inCap) else {
-            throw Failure.failed("Couldn't allocate an audio buffer.")
-        }
-        // Drive the loop off the file's length: `read(into:frameCount:)` throws
-        // eofErr (-39) at the end rather than returning zero frames.
-        while source.framePosition < source.length {
-            let remaining = AVAudioFrameCount(min(Int64(inCap),
-                                                  source.length - source.framePosition))
-            if remaining == 0 { break }
-            try source.read(into: inBuf, frameCount: remaining)
-            if inBuf.frameLength == 0 { break }
-            let ratio = format.sampleRate / source.processingFormat.sampleRate
-            let outCap = AVAudioFrameCount(Double(inBuf.frameLength) * ratio) + 1024
-            guard let outBuf = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: outCap) else {
-                throw Failure.failed("Couldn't allocate an audio buffer.")
+        let ratio = format.sampleRate / source.processingFormat.sampleRate
+        return AsyncStream { continuation in
+            do {
+                // `read(into:frameCount:)` throws eofErr (-39) at the end rather
+                // than returning zero frames, so drive the loop off the length.
+                while source.framePosition < source.length {
+                    let remaining = AVAudioFrameCount(min(Int64(inCap),
+                                                          source.length - source.framePosition))
+                    if remaining == 0 { break }
+                    guard let inBuf = AVAudioPCMBuffer(pcmFormat: source.processingFormat,
+                                                       frameCapacity: remaining) else { break }
+                    try source.read(into: inBuf, frameCount: remaining)
+                    if inBuf.frameLength == 0 { break }
+                    let outCap = AVAudioFrameCount(Double(inBuf.frameLength) * ratio) + 1024
+                    guard let outBuf = AVAudioPCMBuffer(pcmFormat: format,
+                                                        frameCapacity: outCap) else { break }
+                    var err: NSError?
+                    var fed = false
+                    converter.convert(to: outBuf, error: &err) { _, status in
+                        if fed { status.pointee = .noDataNow; return nil }
+                        fed = true
+                        status.pointee = .haveData
+                        return inBuf
+                    }
+                    if err != nil { break }
+                    if outBuf.frameLength > 0 {
+                        continuation.yield(AnalyzerInput(buffer: outBuf))
+                    }
+                }
+            } catch {
+                // Fall through: whatever was yielded still gets transcribed, and
+                // CaptionQuality refuses a transcript that stops early.
             }
-            var err: NSError?
-            var fed = false
-            converter.convert(to: outBuf, error: &err) { _, status in
-                if fed { status.pointee = .noDataNow; return nil }
-                fed = true
-                status.pointee = .haveData
-                return inBuf
-            }
-            if let err { throw err }
-            if outBuf.frameLength > 0 { try out.write(from: outBuf) }
+            continuation.finish()
         }
-        return try AVAudioFile(forReading: dest)
     }
 
-    #if canImport(Speech)
     @available(iOS 26, tvOS 26, macOS 26, visionOS 26, *)
     private static func runTranscriber(fileURL: URL) async throws -> [(start: Double, text: String)] {
         let transcriber = SpeechTranscriber(locale: Locale(identifier: "en-US"),
@@ -232,14 +240,21 @@ enum AutoCaptions {
             _ = try await SpeechAnalyzer(inputAudioFile: source, modules: [transcriber],
                                          finishAfterFile: true)
         } catch {
-            // SFSpeechErrorDomain Code=5 "No common audio format among modules"
-            // — seen on macOS 26 runners for a 16 kHz mono AAC file that macOS
-            // 27 accepted, which cost a whole CI batch (24 of 24 films).
+            // SFSpeechErrorDomain Code=5 "No common audio format among modules".
+            // macOS 27 accepts the 16 kHz mono file the extractor produces;
+            // macOS 26 runners refuse it — 890 of 1096 films in one CI batch.
+            //
+            // Feed BUFFERS in the analyzer's own format rather than another
+            // file. Writing a converted file was the first attempt and failed
+            // its own way (coreaudio 'fmt?' — the format it asks for is not
+            // necessarily one AVAudioFile will write), so the file is taken out
+            // of the loop entirely.
             guard let want = await SpeechAnalyzer
                 .bestAvailableAudioFormat(compatibleWith: [transcriber]) else { throw error }
-            let converted = try convert(source, to: want)
-            _ = try await SpeechAnalyzer(inputAudioFile: converted, modules: [transcriber],
-                                         finishAfterFile: true)
+            let stream = try pcmStream(from: source, as: want)
+            let analyzer = SpeechAnalyzer(modules: [transcriber])
+            _ = try await analyzer.analyzeSequence(stream)
+            try await analyzer.finalizeAndFinishThroughEndOfInput()
         }
         var cues: [(start: Double, text: String)] = []
         for try await result in transcriber.results {
