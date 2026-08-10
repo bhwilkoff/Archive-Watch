@@ -629,7 +629,9 @@ struct PlayerScreen: View {
             if case .failed(let message) = playback {
                 failureView(message)
             } else if let player {
-                AVPlayerContainer(player: player, menuItems: autoplayMenu)
+                AVPlayerContainer(player: player, menuItems: autoplayMenu,
+                                  liveCaptionURL: (current ?? catalogItem)?.subtitleHLSURL == nil
+                                      ? ((current ?? catalogItem)?.videoURLParsed ?? url) : nil)
                     .ignoresSafeArea()
                     .onAppear { player.play() }
                     // VHS: analog overlay over channel playback (opt-in, channels only).

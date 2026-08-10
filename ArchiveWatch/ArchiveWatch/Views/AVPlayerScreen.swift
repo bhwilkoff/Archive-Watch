@@ -13,9 +13,71 @@ import UIKit
 // `externalMetadata` so that Info tab shows the real film details instead
 // of a bare scrubber.
 
+/// Owns the live-caption engine + its label for a tvOS player.
+@MainActor
+final class CaptionCoordinator {
+    private var captions: LiveCaptions?
+    private var label: UILabel?
+    private var loop: Task<Void, Never>?
+
+    func startCaptions(url: URL, player: AVPlayer?, in vc: AVPlayerViewController) {
+        guard captions == nil else { return }
+        let lc = LiveCaptions()
+        captions = lc
+
+        let l = UILabel()
+        l.numberOfLines = 2
+        l.textAlignment = .center
+        l.translatesAutoresizingMaskIntoConstraints = false
+        l.isUserInteractionEnabled = false     // the focus engine owns input here
+        l.isHidden = true
+        SystemCaptionStyle.apply(to: l, baseSize: 34)   // ten-foot size
+        if let overlay = vc.contentOverlayView {
+            overlay.addSubview(l)
+            NSLayoutConstraint.activate([
+                l.centerXAnchor.constraint(equalTo: overlay.centerXAnchor),
+                l.bottomAnchor.constraint(equalTo: overlay.safeAreaLayoutGuide.bottomAnchor,
+                                          constant: -90),
+                l.widthAnchor.constraint(lessThanOrEqualTo: overlay.widthAnchor,
+                                         multiplier: 0.8),
+            ])
+        }
+        label = l
+
+        loop = Task { @MainActor [weak self] in
+            let from = player?.currentTime() ?? .zero
+            lc.start(url: url, from: from)
+            while !Task.isCancelled, lc.isRunning {
+                let now = player?.currentTime() ?? .zero
+                lc.throttle(playhead: now)
+                let line = lc.line(at: now)
+                self?.label?.text = line.isEmpty ? nil : "  \(line)  "
+                self?.label?.isHidden = line.isEmpty
+                try? await Task.sleep(nanoseconds: 150_000_000)
+            }
+        }
+    }
+
+    func stop() {
+        loop?.cancel(); loop = nil
+        captions?.stop(); captions = nil
+        label?.removeFromSuperview(); label = nil
+    }
+}
+
 struct AVPlayerContainer: UIViewControllerRepresentable {
+    /// Source URL for live captions. When present and the title has no subtitle
+    /// track, the audio is transcribed AHEAD of playback and drawn over the
+    /// picture — the same engine iOS and macOS use, wired here so the living
+    /// room is not the one platform without it.
+
     let player: AVPlayer
     var menuItems: [UIMenuElement] = []   // #10: per-video transport menu (autoplay override)
+    /// Source URL for live captions. When present and the title has no subtitle
+    /// track, the audio is transcribed AHEAD of playback and drawn over the
+    /// picture — the same engine iOS and macOS use, wired here so the living
+    /// room is not the one platform without it.
+    var liveCaptionURL: URL? = nil
 
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let vc = AVPlayerViewController()
@@ -25,7 +87,17 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
         // tvOS PiP (swipe up / TV button while playing → corner window). Needs
         // the `audio` UIBackgroundModes entry, added alongside this.
         vc.allowsPictureInPicturePlayback = true
+        if let src = liveCaptionURL, LiveCaptions.isSupported {
+            context.coordinator.startCaptions(url: src, player: player, in: vc)
+        }
         return vc
+    }
+
+    func makeCoordinator() -> CaptionCoordinator { CaptionCoordinator() }
+
+    static func dismantleUIViewController(_ vc: AVPlayerViewController,
+                                          coordinator: CaptionCoordinator) {
+        coordinator.stop()
     }
 
     func updateUIViewController(_ vc: AVPlayerViewController, context: Context) {
