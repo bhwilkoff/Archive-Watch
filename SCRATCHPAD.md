@@ -275,6 +275,49 @@ NOWHERE — a dead control whose wording implied the app was captioning films.
 Removed; the action moved out of the share menu to a visible button next to Play on
 iOS/macOS. Honest number: **15.9%** of visible titles carry `subtitleHLS`.
 
+### 2026-08-10 — Live captions on every Apple platform; cron audit; Decisions 056-059
+App **1.3.350 / b872** on `main`. Handoff: `session_handoff_2026_08_10` +
+`live_captions_apple`.
+
+**LIVE CAPTIONS (058).** Any film with no subtitle track is now captioned on
+device, on iOS + macOS + tvOS. A **muted SCOUT player runs the same URL at 2x
+AHEAD of playback**, tapped via `MTAudioProcessingTap` into `SpeechAnalyzer`, so
+complete cues exist before they are needed and display is **pop-on**. Two of my
+claims were wrong and cost days: that transcription needs a full DOWNLOAD
+(AVAssetReader/-11838 only rule out reading the asset AS A FILE — a tap on a
+streaming player yields 9.1s of PCM in 8.8s wall clock), and that tapping the
+PLAYING item was enough (1x audio can only TRAIL the speech; every display style
+is then just a way of showing late text). The owner's "can you listen ahead?" is
+what fixed it.
+
+Six wrong turns, each with an exact signature — all in `live_captions_apple`:
+actor-isolation trap on the audio thread; invalid CMTime (`checkIsValidCMTime`);
+`SFSpeechError 17` overlap (answer: pass NO timestamp); the OFFLINE preset
+(`.timeIndexedProgressiveTranscription` is the live one); an unreserved locale
+("not subscribed to transcription.en", which on a model-less runner masquerades
+as "No common audio format" and cost three CI rounds); and cue times landing at
+HALF because 2x time-compresses the audio.
+
+**PACING (059).** Captions no longer overlap and are held for at least their
+READING time (~2.5 words/sec); spans divide by CHARACTER COUNT, not evenly. Same
+rules applied to PUBLISHED human VTTs via `pace_vtt`, so web + Android benefit.
+
+**CRON AUDIT.** "Cancelled" hid two diseases. TIMEOUTS (work computed then
+discarded because publish is last): word-index (15/15, never once completed),
+resource-posters-secondary, tv-canonical (its build step ate the whole 360m so
+the commit + publish were SKIPPED), stock-tags, faststart-derivatives,
+community-signals — all now take budgets that PUBLISH. SUPERSESSION: tmdb-enrich
+etc., recovered by Decision 057's zero-jobs sweeper. Two jobs were green while
+doing NOTHING: `validate-posters` (a spoofed Safari UA drew 429s from Wikimedia,
+53% of its posters; alive 5→1410) and `omdb-backfill` (its repo secret was EMPTY).
+
+**BUILDS WERE BLOCKED** by Apple's certificate cap — the cloud archive mints a
+dev cert per run (11 accumulated). `asc_prune_certs.py` + an `always()` revoke.
+
+**Verified vs merely fixed** is recorded in the handoff memory; several
+workflows are fixed but have not yet been observed to run, and `word-index`
+still aligns 0 films (31/31 ffmpeg downloads fail on ubuntu runners).
+
 ### 2026-08-09 (later) — Subtitles wired end to end; Decisions 054-055; build 844 uploaded
 App **1.3.324 / b846** on `main`; **1.3.322 (844) uploaded to ASC for mac+iOS+tvOS**
 (owner: Submit for Review). Android vc30. Handoff: `session_handoff_2026_08_09` +

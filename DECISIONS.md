@@ -2522,3 +2522,77 @@ lock clearing instead of waiting for the next cron tick, or forever. The deeper
 fix — computing without the lock and taking it only to fetch→apply→publish, the
 shape `--deltas-out` already enables in several tools — remains open, and would
 make the group contention largely moot rather than merely survivable.
+
+## 058 — Live captions are transcribed AHEAD of playback by a muted scout, never tapped from playback
+*Date: 2026-08-10*
+
+A film with no subtitle track is captioned on device by `LiveCaptions`: a SECOND,
+MUTED `AVPlayer` plays the same URL at 2x with an `MTAudioProcessingTap` on its
+audio mix, feeding `SpeechAnalyzer`. Because that scout runs ahead of the viewer,
+complete cues exist before they are needed and the display is **pop-on** — a whole
+caption appears when its line begins and is replaced by the next. Wired on iOS,
+macOS and tvOS; styled from the viewer's own `MediaAccessibility` preferences.
+
+**Why**: two claims I made were wrong and both cost days. First, that
+transcription requires downloading the film — `AVAssetReader` refuses a remote
+URL and `AVAssetExportSession` fails -11838, but those only rule out reading the
+asset AS A FILE; a player decodes remote audio continuously and a processing tap
+hands those buffers back (measured: 9.1s of PCM in 8.8s of wall clock from a
+remote asset). Second, that tapping the PLAYING item was good enough — it is not,
+because playback yields audio at 1x, so the transcript can only ever TRAIL the
+speech. Roll-up, rolling word windows and every other presentation are just
+different ways of showing text arrive late; the owner's question — can we listen
+ahead so complete lines appear like a professionally captioned film — is the only
+thing that actually fixes it.
+
+**How to apply**: never caption from the playing item's tap. Keep the scout MUTED
+but NOT `isMuted` (muting can remove audio from the render pipeline, and then the
+tap never fires). SCALE cue times by the scout rate: at 2x the audio is
+time-compressed, so the same speech yields half the samples and every cue lands
+at half its true time. Tap callbacks must NOT be declared inside a `@MainActor`
+type — Swift infers the closure's isolation from its enclosing type and the
+runtime traps from the audio thread. Pass NO explicit `bufferStartTime`: the
+tap's time is sometimes invalid (a trap in `checkIsValidCMTime`) and every derived
+clock was rejected as overlapping (`SFSpeechError 17`); the analyzer's own clock
+is correct. Use `.timeIndexedProgressiveTranscription`, not the offline preset.
+And reserve the locale (`AssetInventory.reserve`) — without it the error is "not
+subscribed to transcription.en", or, on a machine with no model, the utterly
+misleading "No common audio format among modules".
+
+**Consequences**: `SubtitleFinder`'s download-and-transcribe path is removed —
+it downloaded a whole film to do offline what now happens during playback for
+free. Central macOS-runner generation keeps its value only for platforms with no
+on-device recognizer. The Simulator CANNOT verify any of this (no speech model),
+so `AW_START_ITEM`/`AW_AUTOPLAY` were added to macOS and the harnesses
+(`test_live_audio_tap`, `test_live_captions_timing`, `test_caption_pacing`) drive
+the SHIPPED code against a real film.
+
+## 059 — A caption is never replaced before its words are spoken, or before it can be read
+*Date: 2026-08-10*
+
+Caption timing obeys two rules everywhere captions are produced or published:
+cues may not OVERLAP (the later one is pushed back, never the earlier one cut
+short), and every cue is held for at least its READING time (~2.5 words/second,
+the usual subtitle guideline). In `LiveCaptions` a transcriber result's span is
+divided among its lines by CHARACTER COUNT rather than evenly, and `line(at:)`
+has no lead-in. In the pipeline, `build_subtitle_assets.pace_vtt` applies the
+same two rules to every published WebVTT — clamping overlap and extending a
+too-brief cue INTO EMPTY SPACE only, never shortening one and never pushing past
+the next.
+
+**Why**: the owner reported constantly racing the screen — the next sentence
+appearing while the speaker was still finishing the last. Dividing a span evenly
+by line count gave a short trailing sentence as much time as a long leading one,
+so it surfaced early; and a 0.25s lead-in in the display is literally a licence
+for the next caption to preempt the current one. A flat one-second floor was also
+too crude: one 13-word line sat on screen for 1.7s, and a caption you cannot
+finish reading is the same as no caption. The fault is not specific to machine
+transcripts — human subtitles carry both, which is why the rules live in the
+publisher as well and therefore reach web and Android.
+
+**How to apply**: assert the PACING property, not merely that captions appear —
+`tools/test_caption_pacing.swift` measures dwell against reading time and checks
+for overlap and out-of-order display (median on screen 3.6s → 4.2s, too-fast
+2/17 → 1/17). When adjusting, do not trade one complaint for the other: forcing
+every line to full reading time drifts the captions behind the audio, and pauses
+in speech are what absorb that drift.
