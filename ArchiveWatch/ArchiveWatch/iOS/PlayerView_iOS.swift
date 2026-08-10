@@ -13,6 +13,17 @@ import SwiftData
 // play when the current one ends. The Coordinator swaps it in on the SAME AVPlayer
 // (`replaceCurrentItem`) so playback is seamless — episodes binge-advance, movies
 // autoplay per the user's AutoplayMode (off → queue returns nil → stops).
+/// A label with breathing room, so a caption is not flush against its backing.
+final class PaddedLabel: UILabel {
+    private let inset = UIEdgeInsets(top: 6, left: 10, bottom: 6, right: 10)
+    override func drawText(in rect: CGRect) { super.drawText(in: rect.inset(by: inset)) }
+    override var intrinsicContentSize: CGSize {
+        let s = super.intrinsicContentSize
+        return CGSize(width: s.width + inset.left + inset.right,
+                      height: s.height + inset.top + inset.bottom)
+    }
+}
+
 struct PlayerView: UIViewControllerRepresentable {
     let archiveID: String
     let videoURL: URL?
@@ -29,6 +40,8 @@ struct PlayerView: UIViewControllerRepresentable {
     /// Called when the title will never play, so the host can close the player
     /// and say so instead of leaving a spinner up indefinitely.
     var onUnplayable: ((String) -> Void)? = nil
+    /// Transcribe the streaming audio when the film carries no subtitle track.
+    var liveCaptionsEnabled: Bool = true
 
     /// Play a movie/standalone item. Pass `store` to enable movie autoplay
     /// (gated by `store.autoplayMode`; .off means play just this one).
@@ -159,6 +172,13 @@ struct PlayerView: UIViewControllerRepresentable {
             player.seek(to: CMTime(seconds: p, preferredTimescale: 600))
         }
         player.play()
+
+        // Live captions for a film with NO subtitle track: tap the audio that is
+        // already streaming and transcribe it on device. Costs no extra bytes —
+        // the player is decoding this audio regardless.
+        if liveCaptionsEnabled, subtitleHLSURL == nil, LiveCaptions.isSupported {
+            context.coordinator.startLiveCaptions(on: pItem, in: vc)
+        }
         return vc
     }
 
@@ -215,6 +235,8 @@ struct PlayerView: UIViewControllerRepresentable {
         private var loadWatchdog: DispatchWorkItem?
         private var didReportUnplayable = false
         private var unplayableObs: NSKeyValueObservation?
+        var liveCaptions: LiveCaptions?
+        var captionLabel: UILabel?
         private let captionStall = CaptionStallMonitor()   // Part (c): stutter → resilient MP4
 
         init(archiveID: String, ctx: ModelContext, queue: PlaybackQueue?,
@@ -403,6 +425,55 @@ struct PlayerView: UIViewControllerRepresentable {
             onUnplayable?("This title couldn't be played. The copy on archive.org "
                           + "may have been removed or is temporarily unavailable.")
             if let detail { print("[AWPLAY] unplayable \(archiveID): \(detail)") }
+        }
+
+        /// Transcribe the streaming audio and show it under the picture.
+        ///
+        /// The film's audio is already being decoded for playback, so this costs
+        /// no extra bytes — `tools/test_live_audio_tap.swift` measured 9.1s of
+        /// PCM captured in 8.8s of wall clock from a REMOTE asset.
+        func startLiveCaptions(on item: AVPlayerItem, in vc: AVPlayerViewController) {
+            let captions = LiveCaptions()
+            liveCaptions = captions
+            let label = PaddedLabel()
+            label.numberOfLines = 3
+            label.textAlignment = .center
+            label.textColor = .white
+            label.font = .systemFont(ofSize: 17, weight: .medium)
+            label.backgroundColor = UIColor.black.withAlphaComponent(0.55)
+            label.layer.cornerRadius = 6
+            label.clipsToBounds = true
+            label.translatesAutoresizingMaskIntoConstraints = false
+            // NEVER intercept touches: AVKit owns the gestures here, and a
+            // caption that swallows a tap makes the transport unreachable.
+            label.isUserInteractionEnabled = false
+            label.isHidden = true
+            if let overlay = vc.contentOverlayView {
+                overlay.addSubview(label)
+                NSLayoutConstraint.activate([
+                    label.centerXAnchor.constraint(equalTo: overlay.centerXAnchor),
+                    label.bottomAnchor.constraint(equalTo: overlay.safeAreaLayoutGuide.bottomAnchor,
+                                                  constant: -64),
+                    label.widthAnchor.constraint(lessThanOrEqualTo: overlay.widthAnchor,
+                                                 multiplier: 0.9),
+                ])
+            }
+            captionLabel = label
+
+            Task { @MainActor [weak self] in
+                guard let self else { return }
+                guard let track = try? await item.asset.loadTracks(withMediaType: .audio).first
+                else { return }
+                captions.start(item: item, track: track)
+                // Poll the observable rather than binding: this is UIKit inside a
+                // representable, with no SwiftUI view to invalidate.
+                while !Task.isCancelled, captions.isRunning {
+                    let line = captions.text
+                    self.captionLabel?.text = line.isEmpty ? nil : "  \(line)  "
+                    self.captionLabel?.isHidden = line.isEmpty
+                    try? await Task.sleep(nanoseconds: 250_000_000)
+                }
+            }
         }
 
         private func fallbackToLoader() {
