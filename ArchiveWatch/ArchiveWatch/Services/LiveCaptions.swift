@@ -29,10 +29,44 @@ import Speech
 @Observable
 final class LiveCaptions {
 
-    /// The line currently being spoken, or "" when there is nothing to show.
-    private(set) var text: String = ""
     private(set) var isRunning = false
     private(set) var failure: String?
+
+    /// Finalized cues, each on the FILM's timeline. A transcriber Result covers
+    /// its OWN range — it is not a sentence that grows — so they have to be
+    /// collected. Replacing a single string with each Result (what this did
+    /// first) shows nothing but the newest fragment, which is why only the last
+    /// word of every sentence appeared.
+    private var cues: [(range: CMTimeRange, text: String)] = []
+    /// Playhead position when analysis began — the offset from the analyzer's
+    /// clock to the film's.
+    private var analysisStart: Double = 0
+
+    /// What to show at `time`: the cue being spoken now, joined with its
+    /// immediate neighbours so a caption reads as a phrase rather than a word.
+    func line(at playhead: CMTime) -> String {
+        guard !cues.isEmpty else { return "" }
+        let time = CMTime(seconds: max(0, playhead.seconds - analysisStart),
+                          preferredTimescale: 600)
+        // The cue containing `time`, else the most recent one that has started —
+        // the analyzer runs a beat behind live audio, and a caption that
+        // disappears between cues flickers.
+        var idx = cues.lastIndex { $0.range.start <= time }
+        if let i = idx, CMTimeRangeContainsTime(cues[i].range, time: time) == false,
+           CMTimeGetSeconds(CMTimeSubtract(time, cues[i].range.end)) > 3.0 {
+            idx = nil                      // stale: nothing has been said for 3s
+        }
+        guard let i = idx else { return "" }
+        // Join backwards until the line is a readable length.
+        var parts: [String] = [cues[i].text]
+        var j = i - 1
+        while j >= 0, parts.joined(separator: " ").count < 60,
+              CMTimeGetSeconds(CMTimeSubtract(cues[i].range.end, cues[j].range.start)) < 6.0 {
+            parts.insert(cues[j].text, at: 0)
+            j -= 1
+        }
+        return parts.joined(separator: " ")
+    }
 
     /// True where the on-device recognizer exists at all.
     static var isSupported: Bool { AutoCaptions.isSupported }
@@ -50,6 +84,11 @@ final class LiveCaptions {
         guard !isRunning, Self.isSupported else { return }
         isRunning = true
         failure = nil
+        // Result ranges are relative to when ANALYSIS started, so remember where
+        // the film was at that moment. Without this a title resumed at 20:00
+        // would show cues 20 minutes early.
+        let now = item.currentTime()
+        analysisStart = (now.isValid && now.isNumeric) ? now.seconds : 0
 
         guard let tap = sink.makeTap() else {
             failure = "Couldn't attach to the audio."
@@ -57,6 +96,7 @@ final class LiveCaptions {
             return
         }
         self.tap = tap
+        print("[AWCAP] tap attached to track \(track.trackID)")
         let params = AVMutableAudioMixInputParameters(track: track)
         params.audioTapProcessor = tap
         let mix = AVMutableAudioMix()
@@ -75,7 +115,7 @@ final class LiveCaptions {
         sink.finish()
         tap = nil
         isRunning = false
-        text = ""
+        cues.removeAll()
     }
 
     // The tap callbacks live on BufferSink, NOT here — see the note there.
@@ -88,21 +128,18 @@ final class LiveCaptions {
         let transcriber = SpeechTranscriber(locale: Locale(identifier: "en-US"),
                                             preset: .timeIndexedTranscriptionWithAlternatives)
         do {
-            // Install the model if it isn't present, and SAY SO when that fails —
-            // swallowing this is what made a missing model look like an audio
-            // format problem for three CI rounds.
-            if !(await SpeechTranscriber.installedLocales)
-                .contains(where: { $0.identifier(.bcp47) == "en-US" }) {
-                if let req = try await AssetInventory
-                    .assetInstallationRequest(supporting: [transcriber]) {
-                    try await req.downloadAndInstall()
-                }
-            }
+            // Reserve the locale + install the model. Without the reservation
+            // the analyzer reports "not subscribed to transcription.en" and no
+            // format is ever available (see AutoCaptions.prepareModel).
+            try await AutoCaptions.prepareModel(for: transcriber,
+                                                locale: Locale(identifier: "en-US"))
             guard let want = await SpeechAnalyzer
                 .bestAvailableAudioFormat(compatibleWith: [transcriber]) else {
+                print("[AWCAP] NO speech model available — cannot transcribe")
                 await MainActor.run { self.failure = "No speech model is available." }
                 return
             }
+            print("[AWCAP] analyzer format \(want.sampleRate)Hz ch=\(want.channelCount)")
             sink.setTargetFormat(want)
 
             let analyzer = SpeechAnalyzer(modules: [transcriber])
@@ -112,10 +149,25 @@ final class LiveCaptions {
                 let line = String(result.text.characters)
                     .trimmingCharacters(in: .whitespacesAndNewlines)
                 guard !line.isEmpty else { continue }
-                await MainActor.run { self.text = line }
+                // Keep FINAL results only. Volatile ones are revised in place and
+                // would make the caption stutter as it is re-written.
+                guard result.isFinal else { continue }
+                if self.cues.count < 3 {
+                    print("[AWCAP] cue @\(String(format: "%.1f", CMTimeGetSeconds(result.range.start)))s: \(line.prefix(48))")
+                }
+                let range = result.range
+                await MainActor.run {
+                    // Replace any cue covering the same span (a final can supersede
+                    // an earlier one), then keep the list ordered and bounded.
+                    self.cues.removeAll { CMTimeCompare($0.range.start, range.start) == 0 }
+                    self.cues.append((range: range, text: line))
+                    self.cues.sort { CMTimeCompare($0.range.start, $1.range.start) < 0 }
+                    if self.cues.count > 400 { self.cues.removeFirst(self.cues.count - 400) }
+                }
             }
             feed.cancel()
         } catch {
+            print("[AWCAP] FAILED: \(error)")
             await MainActor.run {
                 self.failure = (error as? LocalizedError)?.errorDescription
                     ?? error.localizedDescription
@@ -135,6 +187,10 @@ final class BufferSink: @unchecked Sendable {
     private var sourceFormat: AVAudioFormat?
     private var targetFormat: AVAudioFormat?
     private var converter: AVAudioConverter?
+    /// Output frames emitted so far — the monotonic clock handed to the analyzer.
+    private var elapsedFrames: Int64 = 0
+    private var baseFrames: Int64 = 0
+    private var anchored = false
     #if canImport(Speech)
     private var continuation: AsyncStream<AnalyzerInput>.Continuation?
     #endif
@@ -165,12 +221,17 @@ final class BufferSink: @unchecked Sendable {
             },
             unprepare: nil,
             process: { tap, frames, _, bufferList, framesOut, flagsOut in
+                // The 5th parameter is the PRESENTATION TIME RANGE of this audio.
+                // Passing nil (as this did) throws away the only thing that ties a
+                // transcript to the film's timeline, which is why the captions
+                // were mistimed.
+                var when = CMTimeRange.zero
                 let status = MTAudioProcessingTapGetSourceAudio(tap, frames, bufferList,
-                                                                flagsOut, nil, framesOut)
+                                                                flagsOut, &when, framesOut)
                 guard status == noErr else { return }
                 let s = Unmanaged<BufferSink>.fromOpaque(MTAudioProcessingTapGetStorage(tap))
                     .takeUnretainedValue()
-                s.append(bufferList, frames: framesOut.pointee)
+                s.append(bufferList, frames: framesOut.pointee, at: when.start)
             })
         var out: MTAudioProcessingTap?
         let err = MTAudioProcessingTapCreate(kCFAllocatorDefault, &callbacks,
@@ -208,18 +269,26 @@ final class BufferSink: @unchecked Sendable {
         #endif
     }
 
-    func append(_ bufferList: UnsafeMutablePointer<AudioBufferList>, frames: CMItemCount) {
+    func append(_ bufferList: UnsafeMutablePointer<AudioBufferList>,
+                frames: CMItemCount, at start: CMTime) {
         #if canImport(Speech)
         guard #available(iOS 26, tvOS 26, macOS 26, visionOS 26, *) else { return }
+        // The WHOLE body holds the lock. Releasing it before advancing the frame
+        // counter let concurrent tap callbacks interleave and emit out-of-order
+        // timestamps, which the analyzer rejects outright with SFSpeechError 17,
+        // "Audio input timestamp overlaps or precedes prior audio input" — and no
+        // captions are produced at all. The clock has to advance atomically with
+        // the yield that uses it.
         lock.lock()
-        guard let src = sourceFormat, let dst = targetFormat,
-              let cont = continuation, frames > 0 else { lock.unlock(); return }
-        if converter == nil { converter = AVAudioConverter(from: src, to: dst) }
-        guard let conv = converter else { lock.unlock(); return }
-        lock.unlock()
+        defer { lock.unlock() }
 
-        guard let inBuf = AVAudioPCMBuffer(pcmFormat: src,
-                                           bufferListNoCopy: bufferList) else { return }
+        guard let src = sourceFormat, let dst = targetFormat,
+              let cont = continuation, frames > 0 else { return }
+        if converter == nil { converter = AVAudioConverter(from: src, to: dst) }
+        guard let conv = converter,
+              let inBuf = AVAudioPCMBuffer(pcmFormat: src, bufferListNoCopy: bufferList)
+        else { return }
+
         let ratio = dst.sampleRate / src.sampleRate
         let cap = AVAudioFrameCount(Double(frames) * ratio) + 1024
         guard let outBuf = AVAudioPCMBuffer(pcmFormat: dst, frameCapacity: cap) else { return }
@@ -232,6 +301,33 @@ final class BufferSink: @unchecked Sendable {
             return inBuf
         }
         guard err == nil, outBuf.frameLength > 0 else { return }
+
+        // A MONOTONIC clock, anchored once to the film's timeline.
+        //
+        // Passing the tap's raw time crashed on the buffers it leaves invalid
+        // (checkIsValidCMTime). So the FIRST valid timestamp sets the anchor and
+        // everything after is counted in output frames: monotonic by
+        // construction, and still on the film's timeline, which is what makes a
+        // cue match the moment it is spoken.
+        if !anchored, start.isValid, start.isNumeric {
+            baseFrames = Int64(start.seconds * dst.sampleRate)
+            anchored = true
+        }
+        // Counted in FRAMES at the target rate, not seconds at timescale 600.
+        // A 1024-frame step at 16 kHz is 0.064s = 38.4 ticks of a 600 timescale,
+        // so consecutive stamps ROUNDED TO THE SAME VALUE and the analyzer read
+        // them as overlapping (SFSpeechError 17) — no captions at all. Frames are
+        // exact and strictly increasing.
+        elapsedFrames += Int64(outBuf.frameLength)
+        // NO explicit timestamp. Three attempts at supplying one all failed —
+        // the tap's raw time is sometimes invalid (a trap in checkIsValidCMTime),
+        // and every clock I derived was rejected as overlapping (SFSpeechError
+        // 17), including exact frame counts. The analyzer keeps its own clock
+        // perfectly well; what it needs from us is the audio, in order.
+        //
+        // Result.range is then relative to when analysis STARTED, so
+        // `analysisStartSeconds` (the playhead at that moment) maps a cue back
+        // onto the film — which is all the display needs.
         cont.yield(AnalyzerInput(buffer: outBuf))
         #endif
     }

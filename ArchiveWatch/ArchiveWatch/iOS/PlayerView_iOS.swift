@@ -465,13 +465,16 @@ struct PlayerView: UIViewControllerRepresentable {
                 guard let track = try? await item.asset.loadTracks(withMediaType: .audio).first
                 else { return }
                 captions.start(item: item, track: track)
-                // Poll the observable rather than binding: this is UIKit inside a
-                // representable, with no SwiftUI view to invalidate.
+                // Render by PLAYBACK POSITION, not by "whatever arrived last".
+                // Cues carry the film's own timeline now, so the caption on
+                // screen is the one being spoken — and it stays correct across a
+                // seek, which a last-result-wins display never could.
                 while !Task.isCancelled, captions.isRunning {
-                    let line = captions.text
+                    let now = self.player?.currentTime() ?? .zero
+                    let line = captions.line(at: now)
                     self.captionLabel?.text = line.isEmpty ? nil : "  \(line)  "
                     self.captionLabel?.isHidden = line.isEmpty
-                    try? await Task.sleep(nanoseconds: 250_000_000)
+                    try? await Task.sleep(nanoseconds: 200_000_000)
                 }
             }
         }

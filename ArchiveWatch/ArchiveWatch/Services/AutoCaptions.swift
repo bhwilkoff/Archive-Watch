@@ -157,6 +157,38 @@ enum AutoCaptions {
     }
 
     #if canImport(Speech)
+    /// Reserve the locale and install its model — the step without which nothing
+    /// else works.
+    ///
+    /// An app must SUBSCRIBE to a transcription locale before it may use it.
+    /// Skipping `AssetInventory.reserve` produced, on device:
+    ///
+    ///   SFSpeechErrorDomain Code=1 "Cannot check the download status,
+    ///   app.archivewatch.tvos is not subscribed to transcription.en"
+    ///
+    /// and, on a CI runner with no model, the far more misleading "No common
+    /// audio format among modules" — which sent three rounds of work at audio
+    /// codecs. The error text was accurate both times; I had not read it.
+    ///
+    /// A command-line tool on a Mac that already has the model gets away without
+    /// this, which is exactly why it passed locally every time.
+    @available(iOS 26, tvOS 26, macOS 26, visionOS 26, *)
+    static func prepareModel(for transcriber: SpeechTranscriber,
+                             locale: Locale) async throws {
+        if !(await AssetInventory.reservedLocales).contains(where: {
+            $0.identifier(.bcp47) == locale.identifier(.bcp47)
+        }) {
+            _ = try await AssetInventory.reserve(locale: locale)
+        }
+        let installed = await SpeechTranscriber.installedLocales
+        if !installed.contains(where: { $0.identifier(.bcp47) == locale.identifier(.bcp47) }) {
+            if let req = try await AssetInventory.assetInstallationRequest(
+                supporting: [transcriber]) {
+                try await req.downloadAndInstall()
+            }
+        }
+    }
+
     /// Read `source` and yield its audio as `format` buffers for the analyzer.
     ///
     /// In memory, because the alternative — converting to a temp FILE — fails on
@@ -211,33 +243,12 @@ enum AutoCaptions {
     private static func runTranscriber(fileURL: URL) async throws -> [(start: Double, text: String)] {
         let transcriber = SpeechTranscriber(locale: Locale(identifier: "en-US"),
                                             preset: .timeIndexedTranscriptionWithAlternatives)
-        // Install the language model, and REPORT it when that fails.
-        //
-        // Both calls used to be `try?`. On a machine where the model is already
-        // present (any Mac that has used dictation) that is invisible; on a
-        // fresh CI runner it silently leaves no model installed, and every
-        // subsequent failure surfaces as the misleading "No common audio format
-        // among modules" — 1,096 films in one batch, none of them actually an
-        // audio-format problem. A swallowed setup error is not a small thing:
-        // it renamed the bug.
-        let installed = await SpeechTranscriber.installedLocales
-            .contains { $0.identifier(.bcp47) == "en-US" }
-        if !installed {
-            do {
-                if let req = try await AssetInventory.assetInstallationRequest(
-                    supporting: [transcriber]) {
-                    try await req.downloadAndInstall()
-                }
-            } catch {
-                throw Failure.failed("Couldn't install the speech model: "
-                                     + error.localizedDescription)
-            }
+        do {
+            try await prepareModel(for: transcriber, locale: Locale(identifier: "en-US"))
+        } catch {
+            throw Failure.failed("Couldn't prepare the speech model: "
+                                 + error.localizedDescription)
         }
-        // Deliberately NOT gated on `status == .installed`: measured on a Mac
-        // where transcription demonstrably works, the status reads `.supported`,
-        // so treating anything else as fatal would break the path that works.
-        // The status is carried instead into the diagnosis below, where it is
-        // the difference between a real answer and a misleading one.
         let status = await AssetInventory.status(forModules: [transcriber])
         // Hand the analyzer audio in a format it accepts, rather than whatever
         // the extractor happened to produce.
