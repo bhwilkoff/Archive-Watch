@@ -468,7 +468,7 @@ struct PlayerView: UIViewControllerRepresentable {
             Task { @MainActor [weak self] in
                 guard let self else { return }
                 let from = self.player?.currentTime() ?? .zero
-                captions.start(url: url, from: from)
+                await captions.start(url: url, from: from)
                 while !Task.isCancelled, captions.isRunning {
                     let now = self.player?.currentTime() ?? .zero
                     captions.throttle(playhead: now)

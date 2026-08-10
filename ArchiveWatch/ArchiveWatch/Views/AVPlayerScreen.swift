@@ -52,7 +52,7 @@ final class CaptionCoordinator {
 
         loop = Task { @MainActor [weak self] in
             let from = player?.currentTime() ?? .zero
-            lc.start(url: url, from: from)
+            await lc.start(url: url, from: from)
             while !Task.isCancelled, lc.isRunning {
                 let now = player?.currentTime() ?? .zero
                 lc.throttle(playhead: now)

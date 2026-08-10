@@ -44,6 +44,7 @@ struct RootView: View {
         // land on any sidebar section (AW_START_TAB) or open a specific title's Detail (AW_START_ITEM)
         // deterministically, since SwiftUI's AX tree isn't reliably scriptable from the shell.
         .task { await applyLaunchOverrides() }
+        .task { CaptionCapability.shared.probe() }
     }
 
     private func applyLaunchOverrides() async {

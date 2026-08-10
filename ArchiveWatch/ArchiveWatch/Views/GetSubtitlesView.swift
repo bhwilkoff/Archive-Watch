@@ -20,6 +20,7 @@ struct GetSubtitlesView: View {
     let item: Catalog.Item
     @State private var finder = SubtitleFinder()
     @State private var account = SubtitleAccount.shared
+    @State private var capability = CaptionCapability.shared
     @Environment(\.dismiss) private var dismiss
     @FocusState private var doneFocused: Bool
 
@@ -145,15 +146,23 @@ struct GetSubtitlesView: View {
             }
 
             Divider()
-            // Live captions already transcribe while the film streams, so there
-            // is nothing to download and nothing to wait for. What this screen is
-            // still for is HUMAN subtitles, which are better than any machine
-            // transcript and are worth fetching when they exist.
-            row("captions.bubble",
-                "This film is captioned automatically as it plays. Human-written "
-                + "subtitles, when they exist, are better — that is what a search "
-                + "here looks for.",
-                small: true)
+            // Only promise automatic captions where they can actually happen.
+            // Apple ships the Speech APIs on tvOS but an Apple TV carries no
+            // speech models and cannot install them (AssetInventory reports
+            // `unsupported`), so this screen used to tell a living room its film
+            // was being captioned while nothing appeared.
+            if capability.canAutoCaption == false {
+                row("captions.bubble",
+                    "This device can't caption films by itself, so human-written "
+                    + "subtitles are the only ones it can show.",
+                    small: true)
+            } else {
+                row("captions.bubble",
+                    "This film is captioned automatically as it plays. Human-written "
+                    + "subtitles, when they exist, are better — that is what a search "
+                    + "here looks for.",
+                    small: true)
+            }
         }
     }
 }

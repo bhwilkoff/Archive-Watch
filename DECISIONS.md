@@ -2596,3 +2596,57 @@ for overlap and out-of-order display (median on screen 3.6s → 4.2s, too-fast
 2/17 → 1/17). When adjusting, do not trade one complaint for the other: forcing
 every line to full reading time drifts the captions behind the audio, and pauses
 in speech are what absorb that drift.
+
+## 060 — The Speech API shipping on a platform is not the model shipping; ask `AssetInventory.status`
+*Date: 2026-08-10*
+
+`CaptionCapability` probes once per launch whether THIS device can actually
+transcribe — `AssetInventory.status(forModules:) != .unsupported` and a
+non-empty `SpeechTranscriber.supportedLocales` — and every caption surface reads
+it. When it is false the app does not start the scout player, does not claim a
+film is being captioned, and says so once. `auto-captions.yml`'s nightly
+schedule is disabled for the same reason.
+
+**Why**: live captions worked on the owner's Mac and iPhone and produced nothing
+on their Apple TV. Apple's documentation lists SpeechTranscriber on tvOS 26, the
+tvOS SDK ships `Speech.tbd` and the full Swift interface, and every layer we
+could measure on tvOS worked — the scout ran at 2x, the audio tap delivered
+44.1kHz stereo PCM, the caption label drew over the picture. The recognizer was
+the one link no simulator can exercise, so it stayed a hypothesis until the
+GitHub macos-26 runner turned out to reproduce it EXACTLY: the same
+"not subscribed to transcription.en", `passed=0 rejected=4`, on every nightly
+run for weeks. `tools/probe_speech_assets.swift` (run 31433486714) then asked the
+framework each question in order:
+
+    supportedLocales: 0 · installedLocales: 0 · status(forModules): unsupported
+    supportedLocale(en-US): en-US        <- answers with NO models present
+    reserve(locale): granted=true        <- grants a locale it cannot serve
+    assetInstallationRequest: THREW "… is not subscribed to transcription.en"
+    bestAvailableAudioFormat: nil
+
+There is nothing to download. Two APIs actively mislead — `supportedLocale(
+equivalentTo:)` is locale equivalence and says nothing about availability, and
+`reserve` grants a reservation for a locale the device cannot serve — so a
+model-less machine looks like a misconfigured app right up until the fourth
+call. The machines where this worked are the ones that already had the models;
+the pipeline's own "66x realtime" benchmark was measured on one of them, which
+is how a workflow that has never captioned a single film looked healthy.
+
+**How to apply**: gate on `status(forModules:)` before doing any work — it is
+the only honest signal, and it was the one call the code never made. Never infer
+availability from documented platform support, from `supportedLocale(
+equivalentTo:)`, or from a `reserve` that returns true. Do not "fix" a
+`not subscribed` error by retrying the install; on a model-less device it is a
+statement about the device. A feature that cannot run must not be advertised —
+the Get Subtitles sheet told a living room its film was being captioned while
+nothing appeared, and the player streamed a second muted copy of every film at
+2x to feed a recognizer that did not exist. Benchmark a pipeline on a machine
+that represents where it will RUN, not the one it was written on.
+
+**Consequences**: automatic captions are an iOS/iPadOS/macOS/visionOS feature;
+tvOS gets subtitles only from human sources (the OpenSubtitles/SubDL program,
+Decisions 039/055), which is now what the tvOS UI says. Central generation is
+still possible on a machine that has the models — a self-hosted Mac — so
+`auto-captions.yml` stays dispatchable rather than deleted. Complements
+Decision 039b (a wrong caption is worse than none) and 058 (the scout-ahead
+engine, unchanged and still correct where models exist).

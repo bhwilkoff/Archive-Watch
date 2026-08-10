@@ -14,7 +14,9 @@ import Speech
 // revisiting it, and three things make this attempt different:
 //
 //   1. `SpeechAnalyzer` / `SpeechTranscriber` (iOS/iPadOS/macOS/visionOS/tvOS
-//      26) is a materially stronger, long-form, on-device engine — not
+//      26 per Apple's documentation — but see `CaptionCapability`: the API
+//      shipping on a platform does NOT mean the models did, and an Apple TV
+//      has none) is a materially stronger, long-form, on-device engine — not
 //      whisper-tiny — and it reports CONFIDENCE, which whisper.cpp effectively
 //      did not. Confidence is the only signal that speaks to whether the AUDIO
 //      was intelligible, as opposed to whether the TEXT looks tidy.
@@ -91,6 +93,89 @@ enum CaptionQuality {
             out += "\(i + 1)\n\(stamp(c.start)) --> \(stamp(end))\n\(c.text)\n\n"
         }
         return out
+    }
+}
+
+/// Does THIS machine actually have speech models, as opposed to the API for them?
+///
+/// Measured on a GitHub macos-26 runner, which reproduces the owner's Apple TV
+/// exactly (`tools/probe_speech_assets.swift`, run 31433486714):
+///
+///     supportedLocales      : 0
+///     installedLocales      : 0
+///     supportedLocale(en-US): en-US        <- answers even with NO models
+///     maximumReservedLocales: 5
+///     status(forModules)    : unsupported
+///     reserve(locale)       : granted=true <- grants a locale it cannot serve
+///     status after reserve  : unsupported
+///     installationRequest   : THREW "… is not subscribed to transcription.en"
+///     bestAvailableFormat   : nil
+///
+/// So there is nothing to download: the models are not installable there. Two
+/// APIs actively mislead — `supportedLocale(equivalentTo:)` maps locales and
+/// says nothing about availability, and `reserve` grants a reservation for a
+/// locale the device cannot serve. The one honest signal is
+/// `status(forModules:)`, which our code never consulted; the "not subscribed"
+/// error three calls later is a CONSEQUENCE, and it reads like a bug in our
+/// setup rather than a device that simply has no models.
+@MainActor
+@Observable
+final class CaptionCapability {
+    static let shared = CaptionCapability()
+
+    /// nil until probed, then the truth for this device.
+    private(set) var canAutoCaption: Bool?
+    /// What the device reported, for the failure notice.
+    private(set) var report: String?
+    private var probing = false
+
+    /// The answer, waiting for the probe if it is still in flight.
+    ///
+    /// Playback starts within seconds of launch, so a fire-and-forget probe was
+    /// still running when the first film began — and the scout player spun up
+    /// anyway, downloading a second copy of a film nothing could transcribe.
+    func resolved() async -> Bool {
+        probe()
+        while canAutoCaption == nil {
+            try? await Task.sleep(nanoseconds: 50_000_000)
+        }
+        return canAutoCaption ?? false
+    }
+
+    /// Say "this device can't" once per launch, not before every film.
+    var shouldAnnounceUnavailable: Bool {
+        guard !announced else { return false }
+        announced = true
+        return true
+    }
+    private var announced = false
+
+    /// Cheap, once per launch. Safe to call from every root view.
+    func probe() {
+        guard canAutoCaption == nil, !probing else { return }
+        probing = true
+        Task { @MainActor in
+            defer { probing = false }
+            #if canImport(Speech)
+            if #available(iOS 26, tvOS 26, macOS 26, visionOS 26, *) {
+                guard let locale = await AutoCaptions.resolvedLocale() else {
+                    canAutoCaption = false
+                    report = "no transcription locale"
+                    return
+                }
+                let transcriber = SpeechTranscriber(
+                    locale: locale, preset: .timeIndexedProgressiveTranscription)
+                let status = await AssetInventory.status(forModules: [transcriber])
+                let supported = await SpeechTranscriber.supportedLocales
+                canAutoCaption = status != .unsupported && !supported.isEmpty
+                report = await AutoCaptions.availabilityReport(for: transcriber)
+                print("[AWCAP] device capability: \(canAutoCaption == true) — \(report ?? "")")
+                return
+            }
+            #endif
+            canAutoCaption = false
+            report = "system too old"
+        }
     }
 }
 

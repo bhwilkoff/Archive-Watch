@@ -18,10 +18,25 @@ name: Auto-captions (Apple SpeechTranscriber, sharded macOS)
 # Measured 2026-08-09: a 29-minute film -> 771 cues in 26s including the audio
 # pull (~66x realtime), so one runner clears several hundred films per run.
 # macOS runners are free for this PUBLIC repo.
+#
+# SCHEDULE DISABLED 2026-08-10 — this cannot work on a GitHub runner, and the
+# nightly run was burning ~1h15m and the catalog-writers lock to produce
+# nothing. `tools/probe_speech_assets.swift` on macos-26 (run 31433486714):
+#
+#     supportedLocales: 0 · installedLocales: 0 · status(forModules): unsupported
+#     assetInstallationRequest THREW "… is not subscribed to transcription.en"
+#
+# A hosted runner carries NO speech models and cannot install them, so every
+# film is rejected: the 2026-08-10 run finished passed=0 rejected=4, and every
+# earlier run reported the same thing behind a different error message. The
+# measurement above was taken on a Mac that already HAD the model — which is
+# exactly the mistake this pipeline was built on.
+#
+# It still works on a machine with the models (the owner's Mac), so this stays
+# dispatchable rather than deleted. Reviving it centrally needs a runner that
+# has them — a self-hosted Mac — not another retry here.
 
 on:
-  schedule:
-    - cron: '0 2 * * *'          # nightly, clear of the catalog-writer evening window
   workflow_dispatch:
     inputs:
       limit:

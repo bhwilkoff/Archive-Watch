@@ -137,8 +137,19 @@ final class LiveCaptions {
     /// Transcription measured at ~66x realtime, so the scout is limited by
     /// bandwidth, not compute; it pauses whenever it is far enough ahead
     /// (`throttle`) rather than racing to the end of the film.
-    func start(url: URL, from startTime: CMTime) {
+    func start(url: URL, from startTime: CMTime) async {
         guard !isRunning, Self.isSupported else { return }
+        // Don't stream a second copy of the film to feed a recognizer this
+        // device hasn't got. On an Apple TV that was pure waste — a muted 2x
+        // download of every film, for captions that could never appear. The
+        // answer is AWAITED: playback begins seconds after launch, so a
+        // fire-and-forget probe was still running and the scout started anyway.
+        guard await CaptionCapability.shared.resolved() else {
+            if CaptionCapability.shared.shouldAnnounceUnavailable {
+                failure = "This device can't caption films by itself."
+            }
+            return
+        }
         isRunning = true
         failure = nil
         failedAt = nil
@@ -359,6 +370,8 @@ final class LiveCaptions {
             print("[AWCAP] \(report)")
             await MainActor.run {
                 self.failure = Self.viewerMessage(for: error) + "  (\(report))"
+                // Nothing will consume this audio now — stop paying for it.
+                self.scoutPlayer?.rate = 0
             }
         }
     }

@@ -386,7 +386,7 @@ private struct PlayerSurface: View {
         Task { @MainActor in
             let lc = LiveCaptions()
             liveCaptions = lc
-            lc.start(url: src, from: p.currentTime())
+            await lc.start(url: src, from: p.currentTime())
             while lc.isRunning, player != nil {
                 let now = p.currentTime()
                 lc.throttle(playhead: now)

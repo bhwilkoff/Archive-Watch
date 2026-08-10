@@ -50,6 +50,10 @@ struct RootView: View {
         // Siri / Shortcuts requests (Decision 015). Handle one set before
         // we appeared (cold launch via "Hey Siri…") and any set while live.
         .task { handleIntent(inbox.request) }
+        // Ask once whether this device has speech models at all — an Apple TV
+        // ships the API and none of the assets, and the app must not claim
+        // otherwise (see CaptionCapability).
+        .task { CaptionCapability.shared.probe() }
         .onChange(of: inbox.request) { _, req in handleIntent(req) }
         // #11: best-effort CloudKit sync on launch (no-ops until the entitlement
         // is configured — CloudSync.entitlementConfigured).
