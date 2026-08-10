@@ -58,7 +58,16 @@ struct RootView: View {
             for _ in 0..<80 where store.itemsByIDs([id]).first == nil {
                 try? await Task.sleep(for: .milliseconds(250))
             }
-            if let it = store.itemsByIDs([id]).first { router.openDetail(it) }
+            if let it = store.itemsByIDs([id]).first {
+                router.openDetail(it)
+                // AW_AUTOPLAY starts playback too, so a test can reach the PLAYER
+                // without clicking — the same reason the other hooks exist, and
+                // the only way to verify live captions in the real app (SwiftUI
+                // exposes no scriptable Play button, as noted above).
+                if ProcessInfo.processInfo.environment["AW_AUTOPLAY"] == "1" {
+                    router.play(it)
+                }
+            }
         }
     }
 

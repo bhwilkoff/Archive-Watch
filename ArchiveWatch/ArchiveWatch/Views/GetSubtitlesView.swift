@@ -2,18 +2,17 @@ import SwiftUI
 
 // The "Get subtitles" sheet — one view for tvOS, iOS and macOS.
 //
-// It shows BOTH sources and what each costs, rather than running a ladder
-// silently. Looking a film up is free and gives a human transcript; transcribing
-// downloads the whole film first (AVFoundation will not read a remote asset for
-// anything but playback) and produces a machine one. Those are different enough
-// that the viewer should pick, and the second states its price in megabytes
-// before it starts.
+// It offers ONE thing: a search for HUMAN-written subtitles.
+//
+// The "transcribe on this device" option is gone. It downloaded a whole film to
+// do offline what LiveCaptions now does while that film streams, for free — so
+// it asked the viewer to wait for something they were already getting. Human
+// subtitles remain worth fetching: they are better than any machine transcript
+// and they persist.
 struct GetSubtitlesView: View {
     let item: Catalog.Item
     @State private var finder = SubtitleFinder()
     @State private var account = SubtitleAccount.shared
-    @State private var downloadBytes: Int64?
-    @State private var confirmingTranscribe = false
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
@@ -33,19 +32,10 @@ struct GetSubtitlesView: View {
 
             case .searching:
                 busy("Looking for subtitles…")
-            case .sizing:
-                busy("Checking the download size…")
-            case .downloading(let p):
-                VStack(alignment: .leading, spacing: 8) {
-                    ProgressView(value: p)
-                    Text(downloadBytes.map {
-                        "Downloading the film — \(Int(p * 100))% of \(ByteCountFormatter.string(fromByteCount: $0, countStyle: .file))"
-                    } ?? "Downloading the film — \(Int(p * 100))%")
-                        .font(.footnote).foregroundStyle(.secondary)
-                    Button("Cancel") { finder.cancel() }.buttonStyle(.bordered)
-                }
-            case .transcribing:
-                busy("Transcribing on this device. Nothing is uploaded.")
+            case .sizing, .downloading, .transcribing:
+                // Unreachable now that captions are produced during playback;
+                // kept so the switch stays exhaustive.
+                busy("Working…")
 
             case .idle:
                 choices
@@ -54,13 +44,6 @@ struct GetSubtitlesView: View {
         }
         .padding(28)
         .frame(maxWidth: 720, alignment: .leading)
-        .confirmationDialog("Transcribe on this device?",
-                            isPresented: $confirmingTranscribe, titleVisibility: .visible) {
-            Button("Download and transcribe") { finder.transcribe(item) }
-            Button("Not now", role: .cancel) { }
-        } message: {
-            Text(transcribeCost)
-        }
     }
 
     private var header: some View {
@@ -100,34 +83,16 @@ struct GetSubtitlesView: View {
                 }
             }
 
-            if SubtitleFinder.canTranscribe(item) {
-                Divider()
-                Button {
-                    Task {
-                        downloadBytes = await finder.measureDownload(item)
-                        confirmingTranscribe = true
-                    }
-                } label: {
-                    Label("Transcribe on this device", systemImage: "waveform")
-                }
-                .buttonStyle(.bordered)
-                Text("Machine-made, and sometimes wrong on old soundtracks. The film is downloaded first — nothing is sent anywhere.")
-                    .font(.footnote).foregroundStyle(.secondary)
-            } else if AutoCaptions.isSupported && item.isSilent {
-                Text("This is a silent film, so there's no dialogue to transcribe.")
-                    .font(.footnote).foregroundStyle(.secondary)
-            }
+            Divider()
+            // Live captions already transcribe while the film streams, so there
+            // is nothing to download and nothing to wait for. What this screen is
+            // still for is HUMAN subtitles, which are better than any machine
+            // transcript and are worth fetching when they exist.
+            Label("This film is captioned automatically as it plays. "
+                  + "Human-written subtitles, when they exist, are better — that "
+                  + "is what a search here looks for.",
+                  systemImage: "captions.bubble")
+                .font(.footnote).foregroundStyle(.secondary)
         }
-    }
-
-    private var transcribeCost: String {
-        let size = downloadBytes.map { ByteCountFormatter.string(fromByteCount: $0, countStyle: .file) }
-        let minutes = (item.runtimeSeconds ?? 0) / 60
-        var s = "The whole film has to be downloaded before it can be transcribed"
-        if let size { s += " — about \(size)" }
-        s += "."
-        if minutes > 0 { s += " It runs \(minutes) minutes, so this will take a while." }
-        s += " Best on Wi-Fi."
-        return s
     }
 }

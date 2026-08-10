@@ -176,8 +176,9 @@ struct PlayerView: UIViewControllerRepresentable {
         // Live captions for a film with NO subtitle track: tap the audio that is
         // already streaming and transcribe it on device. Costs no extra bytes —
         // the player is decoding this audio regardless.
-        if liveCaptionsEnabled, subtitleHLSURL == nil, LiveCaptions.isSupported {
-            context.coordinator.startLiveCaptions(on: pItem, in: vc)
+        if liveCaptionsEnabled, subtitleHLSURL == nil, LiveCaptions.isSupported,
+           let src = videoURL {
+            context.coordinator.startLiveCaptions(url: src, in: vc)
         }
         return vc
     }
@@ -432,22 +433,22 @@ struct PlayerView: UIViewControllerRepresentable {
         /// The film's audio is already being decoded for playback, so this costs
         /// no extra bytes — `tools/test_live_audio_tap.swift` measured 9.1s of
         /// PCM captured in 8.8s of wall clock from a REMOTE asset.
-        func startLiveCaptions(on item: AVPlayerItem, in vc: AVPlayerViewController) {
+        /// Transcribe AHEAD of playback and pop complete captions on in time.
+        ///
+        /// A second, muted player runs the same URL faster than playback and is
+        /// the one that gets tapped — so a caption is ready before the viewer
+        /// reaches it and can be shown whole, the way a captioned film reads.
+        /// Tapping the PLAYING item can only ever trail the speech.
+        func startLiveCaptions(url: URL, in vc: AVPlayerViewController) {
             let captions = LiveCaptions()
             liveCaptions = captions
             let label = PaddedLabel()
-            label.numberOfLines = 3
+            label.numberOfLines = 2
             label.textAlignment = .center
-            label.textColor = .white
-            label.font = .systemFont(ofSize: 17, weight: .medium)
-            label.backgroundColor = UIColor.black.withAlphaComponent(0.55)
-            label.layer.cornerRadius = 6
-            label.clipsToBounds = true
             label.translatesAutoresizingMaskIntoConstraints = false
-            // NEVER intercept touches: AVKit owns the gestures here, and a
-            // caption that swallows a tap makes the transport unreachable.
-            label.isUserInteractionEnabled = false
+            label.isUserInteractionEnabled = false   // AVKit owns the gestures
             label.isHidden = true
+            SystemCaptionStyle.apply(to: label)            // the viewer's system caption style
             if let overlay = vc.contentOverlayView {
                 overlay.addSubview(label)
                 NSLayoutConstraint.activate([
@@ -462,19 +463,15 @@ struct PlayerView: UIViewControllerRepresentable {
 
             Task { @MainActor [weak self] in
                 guard let self else { return }
-                guard let track = try? await item.asset.loadTracks(withMediaType: .audio).first
-                else { return }
-                captions.start(item: item, track: track)
-                // Render by PLAYBACK POSITION, not by "whatever arrived last".
-                // Cues carry the film's own timeline now, so the caption on
-                // screen is the one being spoken — and it stays correct across a
-                // seek, which a last-result-wins display never could.
+                let from = self.player?.currentTime() ?? .zero
+                captions.start(url: url, from: from)
                 while !Task.isCancelled, captions.isRunning {
                     let now = self.player?.currentTime() ?? .zero
+                    captions.throttle(playhead: now)
                     let line = captions.line(at: now)
                     self.captionLabel?.text = line.isEmpty ? nil : "  \(line)  "
                     self.captionLabel?.isHidden = line.isEmpty
-                    try? await Task.sleep(nanoseconds: 200_000_000)
+                    try? await Task.sleep(nanoseconds: 150_000_000)
                 }
             }
         }

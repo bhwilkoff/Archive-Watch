@@ -137,6 +137,8 @@ private struct PlayerSurface: View {
     @State private var unplayableObs: NSKeyValueObservation?
     @State private var loadWatchdog: DispatchWorkItem?
     @State private var loadError: String?
+    @State private var liveCaptions: LiveCaptions?
+    @State private var liveLine: String = ""
     // AirPlay. The `.floating` HUD below carries a route button, but every path
     // here builds a CUSTOM-SCHEME resource-loader asset, and Apple does not
     // support video AirPlay for those (see AirPlayRouting) — so choosing a route
@@ -165,6 +167,23 @@ private struct PlayerSurface: View {
                 // `.floating` = the native macOS TV-app HUD (centre play/skip, scrubber + timecodes,
                 // volume, PiP + AirPlay, full-screen, speed) — the interface the owner asked to mimic.
                 VideoPlayerNS(player: player, controlsStyle: .floating).ignoresSafeArea()
+                    .overlay(alignment: .bottom) {
+                        // Live captions for a film with no subtitle track of its
+                        // own. Non-interactive so it never intercepts the HUD.
+                        if !liveLine.isEmpty {
+                            Text(liveLine)
+                                .font(.system(size: 18, weight: .medium))
+                                .lineLimit(2)
+                                .foregroundStyle(.white)
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, 12).padding(.vertical, 7)
+                                .background(.black.opacity(0.6), in: .rect(cornerRadius: 7))
+                                .padding(.bottom, 72)
+                                .frame(maxWidth: 760)
+                                .allowsHitTesting(false)
+                                .transition(.opacity)
+                        }
+                    }
             } else {
                 ProgressView().controlSize(.large).tint(.white)
             }
@@ -257,6 +276,23 @@ private struct PlayerSurface: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 60, execute: watchdog)
         // Periodic save (every 5s) — macOS previously saved ONLY on window close, so a crash /
         // force-quit lost the whole session and nothing synced mid-playback (owner 2026-06-29).
+        // Live captions when the film carries no subtitle track of its own:
+        // transcribe the audio that is ALREADY streaming (no download).
+        if subtitleHLS == nil, LiveCaptions.isSupported, let src = videoURL {
+            Task { @MainActor in
+                let lc = LiveCaptions()
+                liveCaptions = lc
+                lc.start(url: src, from: p.currentTime())
+                while lc.isRunning, player != nil {
+                    let now = p.currentTime()
+                    lc.throttle(playhead: now)
+                    liveLine = lc.line(at: now)
+                    try? await Task.sleep(nanoseconds: 150_000_000)
+                }
+                liveLine = ""
+            }
+        }
+
         timeObserver = p.addPeriodicTimeObserver(
             forInterval: CMTime(seconds: 5, preferredTimescale: 1), queue: .main) { _ in
             MainActor.assumeIsolated { persist() }
@@ -366,6 +402,7 @@ private struct PlayerSurface: View {
         localSubsLoader = nil
         unplayableObs = nil
         loadWatchdog?.cancel(); loadWatchdog = nil
+        liveCaptions?.stop(); liveCaptions = nil
         persist()
     }
 

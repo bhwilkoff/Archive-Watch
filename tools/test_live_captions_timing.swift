@@ -52,16 +52,19 @@ struct Harness {
         let player = AVPlayer(playerItem: item)
         player.volume = 0
 
+        _ = track
         let captions = await LiveCaptions()
-        await captions.start(item: item, track: track)
+        await captions.start(url: url, from: .zero)
         player.play()
 
         print("listening for \(Int(seconds))s — cue text, and its film time vs the playhead\n")
         var seen = Set<String>()
+
         let deadline = Date().addingTimeInterval(seconds)
         while Date() < deadline {
             try? await Task.sleep(nanoseconds: 700_000_000)
             let now = player.currentTime()
+            await captions.throttle(playhead: now)
             let line = await captions.line(at: now)
             guard !line.isEmpty, !seen.contains(line) else { continue }
             seen.insert(line)

@@ -32,63 +32,60 @@ final class LiveCaptions {
     private(set) var isRunning = false
     private(set) var failure: String?
 
-    /// Finalized cues, each on the FILM's timeline. A transcriber Result covers
-    /// its OWN range — it is not a sentence that grows — so they have to be
-    /// collected. Replacing a single string with each Result (what this did
-    /// first) shows nothing but the newest fragment, which is why only the last
-    /// word of every sentence appeared.
-    private var cues: [(range: CMTimeRange, text: String)] = []
-    /// Playhead position when analysis began — the offset from the analyzer's
-    /// clock to the film's.
-    private var analysisStart: Double = 0
+    /// Complete cues on the FILM's timeline, transcribed AHEAD of playback.
+    ///
+    /// The display is POP-ON: a whole caption appears when its line begins and
+    /// is replaced by the next, which is how a professionally captioned film
+    /// reads. Live roll-up — words arriving one at a time and the line reflowing
+    /// — is the convention for BROADCAST, where nobody knows what is coming.
+    /// Here we do: the scout below transcribes ahead of the playhead, so there is
+    /// no reason to make the viewer watch a sentence assemble itself.
+    private var cues: [(start: Double, end: Double, text: String)] = []
+    /// Where the scout began, in film time; the analyzer clocks from zero.
+    private var contentOffset: Double = 0
+    private var pendingWords: [(start: Double, end: Double, text: String)] = []
 
-    /// What to show at `time`: the cue being spoken now, joined with its
-    /// immediate neighbours so a caption reads as a phrase rather than a word.
+    /// The caption to show at `playhead`, or "" between lines.
     func line(at playhead: CMTime) -> String {
-        guard !cues.isEmpty else { return "" }
-        let time = CMTime(seconds: max(0, playhead.seconds - analysisStart),
-                          preferredTimescale: 600)
-        // The cue containing `time`, else the most recent one that has started —
-        // the analyzer runs a beat behind live audio, and a caption that
-        // disappears between cues flickers.
-        var idx = cues.lastIndex { $0.range.start <= time }
-        if let i = idx, CMTimeRangeContainsTime(cues[i].range, time: time) == false,
-           CMTimeGetSeconds(CMTimeSubtract(time, cues[i].range.end)) > 3.0 {
-            idx = nil                      // stale: nothing has been said for 3s
+        let t = playhead.seconds
+        guard t.isFinite else { return "" }
+        // The cue covering now. A small lead-in keeps a caption from flashing on
+        // a frame late; a short hold keeps it up through natural pauses.
+        if let c = cues.last(where: { $0.start - 0.25 <= t && t <= $0.end + 0.6 }) {
+            return c.text
         }
-        guard let i = idx else { return "" }
-        // Join backwards until the line is a readable length.
-        var parts: [String] = [cues[i].text]
-        var j = i - 1
-        while j >= 0, parts.joined(separator: " ").count < 60,
-              CMTimeGetSeconds(CMTimeSubtract(cues[i].range.end, cues[j].range.start)) < 6.0 {
-            parts.insert(cues[j].text, at: 0)
-            j -= 1
-        }
-        return parts.joined(separator: " ")
+        return ""
+    }
+
+    /// How far ahead of `playhead` the transcript currently reaches.
+    func leadSeconds(over playhead: CMTime) -> Double {
+        (cues.last?.end ?? contentOffset) - playhead.seconds
     }
 
     /// True where the on-device recognizer exists at all.
     static var isSupported: Bool { AutoCaptions.isSupported }
 
     private var tap: MTAudioProcessingTap?
+    private var scoutPlayer: AVPlayer?
     private var task: Task<Void, Never>?
     private let sink = BufferSink()
 
-    /// Start captioning the audio of `item` as it plays.
+    /// Transcribe `url` AHEAD of playback, starting at `from`.
     ///
-    /// `track` is the item's audio track; the caller has it already from the
-    /// asset, and loading it here would mean an await on the main actor at the
-    /// moment playback starts.
-    func start(item: AVPlayerItem, track: AVAssetTrack) {
+    /// This deliberately does NOT tap the playing item. Tapping playback yields
+    /// audio at 1x, so the transcript can only ever trail what is being said —
+    /// no amount of display polish fixes that. Instead a second, MUTED player
+    /// runs the same URL at an elevated rate with the tap on it, so cues are
+    /// ready before the viewer reaches them and can be shown whole.
+    ///
+    /// Transcription measured at ~66x realtime, so the scout is limited by
+    /// bandwidth, not compute; it pauses whenever it is far enough ahead
+    /// (`throttle`) rather than racing to the end of the film.
+    func start(url: URL, from startTime: CMTime) {
         guard !isRunning, Self.isSupported else { return }
         isRunning = true
         failure = nil
-        // Result ranges are relative to when ANALYSIS started, so remember where
-        // the film was at that moment. Without this a title resumed at 20:00
-        // would show cues 20 minutes early.
-        let now = item.currentTime()
-        analysisStart = (now.isValid && now.isNumeric) ? now.seconds : 0
+        contentOffset = max(0, startTime.seconds.isFinite ? startTime.seconds : 0)
 
         guard let tap = sink.makeTap() else {
             failure = "Couldn't attach to the audio."
@@ -96,12 +93,31 @@ final class LiveCaptions {
             return
         }
         self.tap = tap
-        print("[AWCAP] tap attached to track \(track.trackID)")
-        let params = AVMutableAudioMixInputParameters(track: track)
-        params.audioTapProcessor = tap
-        let mix = AVMutableAudioMix()
-        mix.inputParameters = [params]
-        item.audioMix = mix
+
+        let asset = AVURLAsset(url: url)
+        let item = AVPlayerItem(asset: asset)
+        let scout = AVPlayer(playerItem: item)
+        // volume 0, but NOT isMuted: muting can take the audio out of the render
+        // pipeline altogether, and then the processing tap never fires.
+        scout.volume = 0
+        scoutPlayer = scout
+
+        Task { @MainActor [weak self] in
+            guard let self else { return }
+            guard let track = try? await asset.loadTracks(withMediaType: .audio).first else {
+                self.failure = "This title has no audio to transcribe."
+                self.isRunning = false
+                return
+            }
+            let params = AVMutableAudioMixInputParameters(track: track)
+            params.audioTapProcessor = tap
+            let mix = AVMutableAudioMix()
+            mix.inputParameters = [params]
+            item.audioMix = mix
+            await scout.seek(to: CMTime(seconds: self.contentOffset, preferredTimescale: 600))
+            scout.rate = Self.scoutRate
+            print("[AWCAP] scout playing at \(scout.rate)x from \(self.contentOffset)s")
+        }
 
         #if canImport(Speech)
         if #available(iOS 26, tvOS 26, macOS 26, visionOS 26, *) {
@@ -110,12 +126,65 @@ final class LiveCaptions {
         #endif
     }
 
+    /// Keep the scout a comfortable distance ahead — far enough that cues are
+    /// always ready, close enough that we are not downloading the whole film.
+    func throttle(playhead: CMTime) {
+        guard let scout = scoutPlayer else { return }
+        let lead = leadSeconds(over: playhead)
+        if lead > Self.maxLead, scout.rate != 0 {
+            scout.rate = 0
+        } else if lead < Self.minLead, scout.rate == 0 {
+            scout.rate = Self.scoutRate
+        }
+    }
+
+    /// Split a finalized span into caption-sized lines, filed by time.
+    ///
+    /// A Result can cover a long stretch; a caption should be one or two short
+    /// lines (~32 characters is the broadcast convention). Long spans are divided
+    /// proportionally so each piece still lands when it is spoken.
+    private func appendCue(start: Double, end: Double, text: String) {
+        let chunks = Self.wrap(text, limit: Self.maxCharsPerLine * Self.visibleLines)
+        guard !chunks.isEmpty else { return }
+        let span = max(end - start, 0.4)
+        let per = span / Double(chunks.count)
+        for (i, chunk) in chunks.enumerated() {
+            let s0 = start + per * Double(i)
+            cues.append((start: s0, end: s0 + per, text: chunk))
+        }
+        cues.sort { $0.start < $1.start }
+        if cues.count > 600 { cues.removeFirst(cues.count - 600) }
+    }
+
+    /// Greedy word wrap into pieces of at most `limit` characters.
+    static func wrap(_ text: String, limit: Int) -> [String] {
+        var out: [String] = []
+        var current = ""
+        for w in text.split(separator: " ").map(String.init) {
+            if current.isEmpty { current = w }
+            else if current.count + 1 + w.count <= limit { current += " " + w }
+            else { out.append(current); current = w }
+        }
+        if !current.isEmpty { out.append(current) }
+        return out
+    }
+
+    static let maxCharsPerLine = 32
+    static let visibleLines = 2
+
+    static let scoutRate: Float = 2.0
+    private static let maxLead: Double = 120
+    private static let minLead: Double = 45
+
     func stop() {
         task?.cancel(); task = nil
         sink.finish()
+        scoutPlayer?.rate = 0
+        scoutPlayer = nil
         tap = nil
         isRunning = false
         cues.removeAll()
+        pendingWords.removeAll()
     }
 
     // The tap callbacks live on BufferSink, NOT here — see the note there.
@@ -125,8 +194,12 @@ final class LiveCaptions {
     #if canImport(Speech)
     @available(iOS 26, tvOS 26, macOS 26, visionOS 26, *)
     private func consume() async {
+        // The LIVE preset. `.timeIndexedTranscriptionWithAlternatives` is the
+        // offline one: it reports no volatile results, so nothing appears until a
+        // whole utterance finalizes. `.timeIndexedProgressiveTranscription` gives
+        // interim results as they are heard, which is what a caption needs.
         let transcriber = SpeechTranscriber(locale: Locale(identifier: "en-US"),
-                                            preset: .timeIndexedTranscriptionWithAlternatives)
+                                            preset: .timeIndexedProgressiveTranscription)
         do {
             // Reserve the locale + install the model. Without the reservation
             // the analyzer reports "not subscribed to transcription.en" and no
@@ -143,29 +216,34 @@ final class LiveCaptions {
             sink.setTargetFormat(want)
 
             let analyzer = SpeechAnalyzer(modules: [transcriber])
-            let feed = Task { try await analyzer.analyzeSequence(sink.stream()) }
+            try await analyzer.start(inputSequence: sink.stream())
             for try await result in transcriber.results {
                 if Task.isCancelled { break }
-                let line = String(result.text.characters)
+                let text = String(result.text.characters)
                     .trimmingCharacters(in: .whitespacesAndNewlines)
-                guard !line.isEmpty else { continue }
-                // Keep FINAL results only. Volatile ones are revised in place and
-                // would make the caption stutter as it is re-written.
+                guard !text.isEmpty else { continue }
+                // Only FINAL results become cues. Volatile ones are revised in
+                // place and exist so a live display can show speech ARRIVING —
+                // exactly what we no longer need, because the scout runs ahead
+                // of the viewer and a caption can be shown whole.
                 guard result.isFinal else { continue }
-                if self.cues.count < 3 {
-                    print("[AWCAP] cue @\(String(format: "%.1f", CMTimeGetSeconds(result.range.start)))s: \(line.prefix(48))")
-                }
-                let range = result.range
+                // SCALE BY THE SCOUT RATE. The analyzer clocks by samples it has
+                // consumed, and playing at 2x time-compresses the audio — so the
+                // same speech yields half as many samples and every cue landed at
+                // half its true time ("From cave wall to billboard" at 14.2s when
+                // it is spoken at 28.4s). Multiplying by the rate puts cues back
+                // on the film's own timeline.
+                let rate = Double(Self.scoutRate)
+                let s0 = contentOffset + result.range.start.seconds * rate
+                let e0 = contentOffset + result.range.end.seconds * rate
+                guard s0.isFinite, e0.isFinite else { continue }
                 await MainActor.run {
-                    // Replace any cue covering the same span (a final can supersede
-                    // an earlier one), then keep the list ordered and bounded.
-                    self.cues.removeAll { CMTimeCompare($0.range.start, range.start) == 0 }
-                    self.cues.append((range: range, text: line))
-                    self.cues.sort { CMTimeCompare($0.range.start, $1.range.start) < 0 }
-                    if self.cues.count > 400 { self.cues.removeFirst(self.cues.count - 400) }
+                    if self.cues.count < 3 {
+                        print("[AWCAP] cue \(String(format: "%.1f", s0))-\(String(format: "%.1f", e0))s: \(text.prefix(40))")
+                    }
+                    self.appendCue(start: s0, end: e0, text: text)
                 }
             }
-            feed.cancel()
         } catch {
             print("[AWCAP] FAILED: \(error)")
             await MainActor.run {
