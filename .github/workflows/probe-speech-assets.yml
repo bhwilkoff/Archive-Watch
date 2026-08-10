@@ -27,7 +27,7 @@ jobs:
           xcrun swift --version
       - name: Probe
         run: |
-          xcrun swiftc -O tools/probe_speech_assets.swift -o probe
+          xcrun swiftc -O -parse-as-library tools/probe_speech_assets.swift -o probe
           ./probe 2>&1 | tee probe.log
           echo '## Speech asset probe' >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
