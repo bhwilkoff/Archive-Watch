@@ -51,6 +51,17 @@ final class CaptionCoordinator {
         label = l
 
         loop = Task { @MainActor [weak self] in
+            // Let the system speak first. On tvOS 27 it captions this film
+            // itself; ours would be a second, differently timed copy over the
+            // top of it. On tvOS 26 nothing legible ever appears, so this costs
+            // one poll and then proceeds exactly as before.
+            if await SystemCaptions.waitForLegibleOption(on: player) {
+                print("[AWCAP] system provides subtitles — standing down")
+                self?.label?.removeFromSuperview()
+                self?.label = nil
+                return
+            }
+            guard !Task.isCancelled else { return }
             let from = player?.currentTime() ?? .zero
             await lc.start(url: url, from: from)
             while !Task.isCancelled, lc.isRunning {

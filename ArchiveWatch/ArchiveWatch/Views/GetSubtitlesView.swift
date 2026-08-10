@@ -96,6 +96,14 @@ struct GetSubtitlesView: View {
         }
     }
 
+    /// From 27 the system captions films itself, with no app involvement —
+    /// verified against a real archive.org MP4 played through our own resilient
+    /// loader on macOS 27: "English (US) Transcribed" appears within a second.
+    private var systemGeneratesSubtitles: Bool {
+        if #available(iOS 27, tvOS 27, macOS 27, visionOS 27, *) { return true }
+        return false
+    }
+
     /// An icon and a sentence that is allowed to wrap.
     private func row(_ symbol: String, _ text: String,
                      tint: Color = .secondary, small: Bool = false) -> some View {
@@ -151,7 +159,19 @@ struct GetSubtitlesView: View {
             // speech models and cannot install them (AssetInventory reports
             // `unsupported`), so this screen used to tell a living room its film
             // was being captioned while nothing appeared.
-            if capability.canAutoCaption == false {
+            if systemGeneratesSubtitles {
+                // tvOS 27 generates subtitles for video that has none, on
+                // device, in the player's own menu (WWDC26 session 256). It
+                // needs nothing from us, so this screen should point at it
+                // rather than claim the app is doing the work.
+                row("captions.bubble",
+                    "This device can generate subtitles as a film plays — choose "
+                    + "them from the subtitles menu during playback, or turn "
+                    + "captions on in Accessibility settings to get them "
+                    + "automatically. Human-written subtitles, when they exist, "
+                    + "are better.",
+                    small: true)
+            } else if capability.canAutoCaption == false {
                 row("captions.bubble",
                     "This device can't caption films by itself, so human-written "
                     + "subtitles are the only ones it can show.",

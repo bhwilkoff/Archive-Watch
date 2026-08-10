@@ -467,6 +467,14 @@ struct PlayerView: UIViewControllerRepresentable {
 
             Task { @MainActor [weak self] in
                 guard let self else { return }
+                // Let the system speak first: from iOS 27 it captions this film
+                // itself, and ours would be a second, differently timed copy
+                // over the top of it.
+                if await SystemCaptions.waitForLegibleOption(on: self.player) {
+                    self.captionLabel?.removeFromSuperview()
+                    self.captionLabel = nil
+                    return
+                }
                 let from = self.player?.currentTime() ?? .zero
                 await captions.start(url: url, from: from)
                 while !Task.isCancelled, captions.isRunning {

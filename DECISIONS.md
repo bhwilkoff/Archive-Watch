@@ -2650,3 +2650,52 @@ still possible on a machine that has the models — a self-hosted Mac — so
 `auto-captions.yml` stays dispatchable rather than deleted. Complements
 Decision 039b (a wrong caption is worse than none) and 058 (the scout-ahead
 engine, unchanged and still correct where models exist).
+
+## 061 — From 27 the SYSTEM captions our films; the app's job is to get out of the way
+*Date: 2026-08-10*
+
+Apple generates subtitles on device for video that carries none, from iOS/tvOS/
+macOS/visionOS 27, automatically, for any app using AVPlayerViewController or
+AVPlayerView — which all three of ours do. So the implementation is subtractive:
+`SystemCaptions.waitForLegibleOption` polls the player for a legible option, and
+when one exists `LiveCaptions` never starts on any platform. Apple's own
+captions win: they live in the native subtitle menu, obey the viewer's
+Accessibility caption settings and style, survive scrubbing, and cost no second
+stream.
+
+**Why**: two things had to be true before the app could rely on it, and neither
+was answerable from Apple's documentation — the WWDC26 session names HLS and
+file-based content, and archive.org serves a PROGRESSIVE MP4 through a custom
+`AVAssetResourceLoaderDelegate`, which is exactly the property that disqualifies
+us from video AirPlay (Decision 051). Measured on macOS 27.0 (26A5388g) against
+a live archive.org film, both answers are yes within one second, direct AND
+through the shipped `ResilientStreamLoader`:
+
+    plain https MP4:              1s — 1 option(s): English (US) Transcribed
+    through ResilientStreamLoader: 1s — 1 option(s): English (US) Transcribed
+
+Without the stand-down, upgrade day would have produced DOUBLE captions on every
+uncaptioned film — the system's track and our differently-timed overlay on top of
+each other — on iOS and macOS, where our engine works. That regression was
+already live on this macOS 27 machine and is what the harness caught.
+
+**How to apply**: never draw captions over a player without first asking whether
+the system already offers a legible option — `AVPlayerItem.
+selectableMediaSelectionOptions(in:)` (new in 27) is where a generated track
+appears, since it is not in the file and the asset's own group cannot list it.
+Do NOT auto-select the generated option on the viewer's behalf: whether captions
+appear is their Accessibility preference, and our old always-on overlay was
+quietly overriding it. Do not add an app setting for generated subtitles —
+Apple's session is explicit that no opt-in exists, and a toggle that controls
+nothing is the dead control Decision 056 already removed once. Keep
+`tools/test_system_generated_subtitles.swift` green: it runs the shipped loader,
+so it will notice if a change there ever costs us the system's captions the way
+one cost us AirPlay.
+
+**Consequences**: on 27, tvOS finally gets captions — the platform Decision 060
+showed can never run our own engine, because an Apple TV has no speech models.
+Nothing needs to ship for that: a device upgrading to tvOS 27 captions our films
+whether or not the app is rebuilt. What this build adds is the stand-down, so
+the platforms that DO run our engine hand over cleanly instead of doubling up.
+Below 27 nothing changes: no legible option ever appears for a bare MP4, the
+poll costs one wait, and `LiveCaptions` proceeds exactly as before.

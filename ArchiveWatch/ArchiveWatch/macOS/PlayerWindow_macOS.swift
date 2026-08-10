@@ -384,6 +384,9 @@ private struct PlayerSurface: View {
     private func startLiveCaptions(on p: AVPlayer) {
         guard liveCaptions == nil, LiveCaptions.isSupported, let src = videoURL else { return }
         Task { @MainActor in
+            // From macOS 27 the system captions this film itself; ours would
+            // double up on it.
+            if await SystemCaptions.waitForLegibleOption(on: p) { return }
             let lc = LiveCaptions()
             liveCaptions = lc
             await lc.start(url: src, from: p.currentTime())
