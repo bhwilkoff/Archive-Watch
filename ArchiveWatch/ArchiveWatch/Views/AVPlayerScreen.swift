@@ -60,6 +60,8 @@ final class CaptionCoordinator {
                 // a failed recognizer look identical from the sofa.
                 let line = lc.line(at: now)
                 let text = line.isEmpty ? lc.notice : line
+                // A caption is two lines; an explanation may need more.
+                self?.label?.numberOfLines = line.isEmpty ? 4 : 2
                 self?.label?.text = text.isEmpty ? nil : "  \(text)  "
                 self?.label?.isHidden = text.isEmpty
                 try? await Task.sleep(nanoseconds: 150_000_000)

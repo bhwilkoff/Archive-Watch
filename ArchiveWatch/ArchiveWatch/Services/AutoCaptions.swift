@@ -105,10 +105,15 @@ enum AutoCaptions {
     }
 
     enum Failure: Error, LocalizedError {
-        case unsupported, silentFilm, noAudio, rejected(String), failed(String)
+        case unsupported, deviceUnsupported, reservationRefused
+        case silentFilm, noAudio, rejected(String), failed(String)
         var errorDescription: String? {
             switch self {
             case .unsupported: return "Automatic captions need a newer system version."
+            case .deviceUnsupported:
+                return "This device can't run automatic captions."
+            case .reservationRefused:
+                return "This device wouldn't allocate a speech model."
             case .silentFilm:  return "This is a silent film — there is no dialogue to caption."
             case .noAudio:     return "This title has no usable audio track."
             case .rejected(let why): return "Automatic captions weren't good enough to show: \(why)"
@@ -190,6 +195,33 @@ enum AutoCaptions {
         return supported.first { $0.language.languageCode?.identifier == "en" } ?? supported.first
     }
 
+    /// What this device says about its own speech models, in one line.
+    ///
+    /// Apple's documentation lists SpeechTranscriber as available on tvOS 26,
+    /// and the framework does ship in the tvOS SDK — but "the API exists" and
+    /// "the model exists" are different claims, and only the device can settle
+    /// which. This is printed to the log and, when captions fail, shown on the
+    /// television, because an Apple TV console is not something a viewer can
+    /// hand me.
+    @available(iOS 26, tvOS 26, macOS 26, visionOS 26, *)
+    static func availabilityReport(for transcriber: SpeechTranscriber) async -> String {
+        let supported = await SpeechTranscriber.supportedLocales.count
+        let installed = await SpeechTranscriber.installedLocales.count
+        let reserved = await AssetInventory.reservedLocales.count
+        let maximum = AssetInventory.maximumReservedLocales
+        let status = await AssetInventory.status(forModules: [transcriber])
+        let name: String
+        switch status {
+        case .unsupported: name = "unsupported"
+        case .downloading: name = "downloading"
+        case .supported: name = "supported"
+        case .installed: name = "installed"
+        @unknown default: name = "unknown"
+        }
+        return "models \(name) · supported \(supported) · installed \(installed) "
+            + "· reserved \(reserved)/\(maximum)"
+    }
+
     /// `onProgress` reports the model download 0…1 — on an Apple TV this is a
     /// real first-run wait, because nothing else on tvOS installs these assets,
     /// and a wait nobody is told about is indistinguishable from a broken app.
@@ -201,12 +233,27 @@ enum AutoCaptions {
         // threw right here, which SKIPPED the installation that would have made
         // the reservation possible. Remember the error, keep going, and only
         // report it if installing didn't resolve it.
+        // ASK FIRST. `AssetInventory.status(forModules:)` is the framework's own
+        // answer to "can this device do this at all", and it was never called —
+        // so a device that reports `.unsupported` was treated exactly like one
+        // that simply hadn't downloaded yet, and the failure surfaced as the
+        // confusing "not subscribed to transcription.en" three calls later.
+        let status = await AssetInventory.status(forModules: [transcriber])
+        if status == .unsupported { throw Failure.deviceUnsupported }
+
         var reserveError: Error?
         if !(await AssetInventory.reservedLocales).contains(where: {
             $0.identifier(.bcp47) == locale.identifier(.bcp47)
         }) {
-            do { _ = try await AssetInventory.reserve(locale: locale) }
-            catch { reserveError = error }
+            // reserve() RETURNS whether the reservation was granted. Discarding
+            // it (`_ =`) meant a refusal — no free slot, or a locale this device
+            // won't allocate — read as success, and the next call then failed
+            // with the app "not subscribed".
+            do {
+                if try await AssetInventory.reserve(locale: locale) == false {
+                    reserveError = Failure.reservationRefused
+                }
+            } catch { reserveError = error }
         }
 
         let installed = await SpeechTranscriber.installedLocales
@@ -228,7 +275,7 @@ enum AutoCaptions {
                     // The asset now exists, so a reservation that failed for
                     // want of one can succeed.
                     if reserveError != nil,
-                       (try? await AssetInventory.reserve(locale: locale)) != nil {
+                       (try? await AssetInventory.reserve(locale: locale)) == true {
                         reserveError = nil
                     }
                 }

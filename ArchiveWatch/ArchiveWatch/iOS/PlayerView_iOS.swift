@@ -476,6 +476,8 @@ struct PlayerView: UIViewControllerRepresentable {
                     // Between captions, say why there are none — silence and a
                     // failed recognizer are otherwise indistinguishable.
                     let text = line.isEmpty ? captions.notice : line
+                    // A caption is two lines; an explanation may need more.
+                    self.captionLabel?.numberOfLines = line.isEmpty ? 4 : 2
                     self.captionLabel?.text = text.isEmpty ? nil : "  \(text)  "
                     self.captionLabel?.isHidden = text.isEmpty
                     try? await Task.sleep(nanoseconds: 150_000_000)

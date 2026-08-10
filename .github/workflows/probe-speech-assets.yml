@@ -1,0 +1,35 @@
+name: Probe speech assets (diagnostic)
+
+# Why this exists: auto-captions rejects EVERY film on the macos-26 runner with
+# "not subscribed to transcription.en", and the owner's Apple TV reports the same
+# thing — while the dev Mac and an iPhone, both of which already carry the speech
+# model, work perfectly. A machine where it works cannot diagnose a machine where
+# it doesn't, and this runner reproduces the failure exactly.
+#
+# tools/probe_speech_assets.swift asks the framework every question our caption
+# path depends on, in order, and prints each answer — so the step that actually
+# refuses is named, rather than inferred from an error three calls later.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: macos-26
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - name: Select a released Xcode 26
+        run: |
+          XC="$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)"
+          [ -n "$XC" ] && sudo xcode-select -s "$XC"
+          sw_vers
+          xcrun swift --version
+      - name: Probe
+        run: |
+          xcrun swiftc -O tools/probe_speech_assets.swift -o probe
+          ./probe 2>&1 | tee probe.log
+          echo '## Speech asset probe' >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          cat probe.log >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"

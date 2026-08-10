@@ -351,9 +351,15 @@ final class LiveCaptions {
             }
         } catch {
             // The raw error stays in the log for a device console; the viewer
-            // gets a sentence about their situation, not our API's.
+            // gets a sentence about their situation, not our API's — plus what
+            // the device itself reports, because on an Apple TV that line is
+            // the only way this ever gets diagnosed.
             print("[AWCAP] FAILED: \(error)")
-            await MainActor.run { self.failure = Self.viewerMessage(for: error) }
+            let report = await AutoCaptions.availabilityReport(for: transcriber)
+            print("[AWCAP] \(report)")
+            await MainActor.run {
+                self.failure = Self.viewerMessage(for: error) + "  (\(report))"
+            }
         }
     }
     #endif
