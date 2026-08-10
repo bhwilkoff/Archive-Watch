@@ -51,7 +51,7 @@ final class LiveCaptions {
         isRunning = true
         failure = nil
 
-        guard let tap = makeTap() else {
+        guard let tap = sink.makeTap() else {
             failure = "Couldn't attach to the audio."
             isRunning = false
             return
@@ -78,34 +78,7 @@ final class LiveCaptions {
         text = ""
     }
 
-    // MARK: - The tap
-
-    private func makeTap() -> MTAudioProcessingTap? {
-        var callbacks = MTAudioProcessingTapCallbacks(
-            version: kMTAudioProcessingTapCallbacksVersion_0,
-            clientInfo: UnsafeMutableRawPointer(Unmanaged.passUnretained(sink).toOpaque()),
-            init: { _, clientInfo, storageOut in storageOut.pointee = clientInfo },
-            finalize: nil,
-            prepare: { tap, _, format in
-                let s = Unmanaged<BufferSink>.fromOpaque(MTAudioProcessingTapGetStorage(tap))
-                    .takeUnretainedValue()
-                s.setSourceFormat(format.pointee)
-            },
-            unprepare: nil,
-            process: { tap, frames, _, bufferList, framesOut, flagsOut in
-                let status = MTAudioProcessingTapGetSourceAudio(tap, frames, bufferList,
-                                                                flagsOut, nil, framesOut)
-                guard status == noErr else { return }
-                let s = Unmanaged<BufferSink>.fromOpaque(MTAudioProcessingTapGetStorage(tap))
-                    .takeUnretainedValue()
-                s.append(bufferList, frames: framesOut.pointee)
-            })
-
-        var out: MTAudioProcessingTap?
-        let err = MTAudioProcessingTapCreate(kCFAllocatorDefault, &callbacks,
-                                             kMTAudioProcessingTapCreationFlag_PostEffects, &out)
-        return err == noErr ? out : nil
-    }
+    // The tap callbacks live on BufferSink, NOT here — see the note there.
 
     // MARK: - The recognizer
 
@@ -165,6 +138,45 @@ final class BufferSink: @unchecked Sendable {
     #if canImport(Speech)
     private var continuation: AsyncStream<AnalyzerInput>.Continuation?
     #endif
+
+    /// Build the processing tap.
+    ///
+    /// THIS MUST NOT LIVE ON A @MainActor TYPE. The tap's `prepare` and `process`
+    /// callbacks are invoked on MediaToolbox's real-time audio thread, and Swift
+    /// infers actor isolation for a closure from the type it is written in — so
+    /// declaring them inside `@MainActor final class LiveCaptions` made the
+    /// runtime assert the main queue from the audio thread and trap:
+    ///
+    ///   _dispatch_assert_queue_fail <- swift_task_checkIsolatedSwift
+    ///     <- closure #2 in LiveCaptions.makeTap() <- aptap_PrepareTapIfNeeded
+    ///
+    /// A crash on Play, every time, for every film. `BufferSink` is a plain
+    /// final class with no isolation, which is what these callbacks require.
+    func makeTap() -> MTAudioProcessingTap? {
+        var callbacks = MTAudioProcessingTapCallbacks(
+            version: kMTAudioProcessingTapCallbacksVersion_0,
+            clientInfo: UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque()),
+            init: { _, clientInfo, storageOut in storageOut.pointee = clientInfo },
+            finalize: nil,
+            prepare: { tap, _, format in
+                let s = Unmanaged<BufferSink>.fromOpaque(MTAudioProcessingTapGetStorage(tap))
+                    .takeUnretainedValue()
+                s.setSourceFormat(format.pointee)
+            },
+            unprepare: nil,
+            process: { tap, frames, _, bufferList, framesOut, flagsOut in
+                let status = MTAudioProcessingTapGetSourceAudio(tap, frames, bufferList,
+                                                                flagsOut, nil, framesOut)
+                guard status == noErr else { return }
+                let s = Unmanaged<BufferSink>.fromOpaque(MTAudioProcessingTapGetStorage(tap))
+                    .takeUnretainedValue()
+                s.append(bufferList, frames: framesOut.pointee)
+            })
+        var out: MTAudioProcessingTap?
+        let err = MTAudioProcessingTapCreate(kCFAllocatorDefault, &callbacks,
+                                             kMTAudioProcessingTapCreationFlag_PostEffects, &out)
+        return err == noErr ? out : nil
+    }
 
     func setSourceFormat(_ asbd: AudioStreamBasicDescription) {
         var d = asbd

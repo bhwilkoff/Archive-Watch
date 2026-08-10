@@ -29,13 +29,22 @@ struct DetailView: View {
                     Text(item.title).font(.title.bold())
                     Text(metaLine).font(.subheadline).foregroundStyle(.secondary)
 
-                    HStack(spacing: 12) {
-                        Button { playing = true } label: {
-                            Label(playLabel, systemImage: "play.fill").frame(maxWidth: .infinity)
-                        }
-                        .buttonStyle(.borderedProminent).tint(Brand.primary)
-                        .disabled(item.videoURLParsed == nil)
+                    // Play gets its OWN row. It used to share one HStack with the
+                    // icon buttons, so each icon added stole width from it — and
+                    // once the subtitles button made five, "Play · 28 min" was
+                    // squeezed to one character per line. A row whose layout
+                    // degrades as actions are added is a row that will break
+                    // again, so the fix is structural rather than a tighter font.
+                    Button { playing = true } label: {
+                        Label(playLabel, systemImage: "play.fill")
+                            .lineLimit(1)              // never wrap, whatever happens
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderedProminent).tint(Brand.primary)
+                    .controlSize(.large)
+                    .disabled(item.videoURLParsed == nil)
 
+                    HStack(spacing: 12) {
                         Button { toggleFavorite() } label: {
                             Image(systemName: isFav ? "heart.fill" : "heart")
                         }
@@ -87,6 +96,7 @@ struct DetailView: View {
                             Image(systemName: "square.and.arrow.up")
                         }
                         .buttonStyle(.bordered)
+                        Spacer(minLength: 0)
                     }
 
                     if let tagline = item.tagline, !tagline.isEmpty {
