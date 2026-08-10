@@ -126,6 +126,68 @@ def decode_subtitle(raw: bytes):
     return None, "undecodable"
 
 
+def pace_vtt(vtt: str) -> tuple[str, int]:
+    """Stop a caption being replaced before it can be read.
+
+    Two faults are common in sourced subtitles and both make a viewer race the
+    screen: cues that OVERLAP (the next appears while the current line is still
+    being spoken) and cues held for less time than the line takes to read. The
+    owner reported exactly this behaviour, and it applies to human-sourced
+    subtitles as much as to generated ones.
+
+    Fixes, conservatively — a cue is only ever EXTENDED into empty space, never
+    shortened, and never pushed past the cue that follows it:
+      * clamp any end that runs past the next start (kills overlap)
+      * extend a too-short cue toward the next start, up to its reading time
+        (~2.5 words/second, the usual subtitle guideline)
+
+    Returns (vtt, number_of_cues_adjusted).
+    """
+    lines = vtt.splitlines()
+    stamps = [(i, m) for i, l in enumerate(lines) if (m := _RANGE.search(l))]
+    if len(stamps) < 2:
+        return vtt, 0
+
+    def secs(h, m_, s_, ms):
+        return int(h or 0) * 3600 + int(m_) * 60 + int(s_) + int(ms.ljust(3, "0")) / 1000
+
+    def stamp(t):
+        ms = int(round((t - int(t)) * 1000))
+        t = int(t)
+        return f"{t // 3600:02d}:{(t % 3600) // 60:02d}:{t % 60:02d}.{ms:03d}"
+
+    cues = []
+    for idx, (li, m) in enumerate(stamps):
+        g = m.groups()
+        start, end = secs(g[0], g[1], g[2], g[3]), secs(g[4], g[5], g[6], g[7])
+        body = []
+        for nxt in lines[li + 1:]:
+            if not nxt.strip() or _RANGE.search(nxt):
+                break
+            body.append(nxt)
+        cues.append({"line": li, "start": start, "end": end,
+                     "words": len(" ".join(body).split())})
+
+    changed = 0
+    for i, c in enumerate(cues):
+        nxt = cues[i + 1]["start"] if i + 1 < len(cues) else None
+        new_end = c["end"]
+        if nxt is not None and new_end > nxt:
+            new_end = nxt                              # overlap -> clamp
+        need = max(1.0, c["words"] / 2.5)
+        if new_end - c["start"] < need:                # too brief -> extend
+            room = nxt if nxt is not None else c["start"] + need
+            new_end = min(c["start"] + need, room)
+        if abs(new_end - c["end"]) > 0.01:
+            lines[c["line"]] = f"{stamp(c['start'])} --> {stamp(new_end)}"
+            changed += 1
+    return "\n".join(lines) + "\n", changed
+
+
+_RANGE = re.compile(
+    r"(?:(\d{1,3}):)?(\d{1,2}):(\d{2})[.,](\d{1,3})\s*-->\s*"
+    r"(?:(\d{1,3}):)?(\d{1,2}):(\d{2})[.,](\d{1,3})")
+
 _CUE = re.compile(r"\d{1,2}:\d{2}:\d{2}[.,]\d{1,3}\s*-->\s*\d{1,2}:\d{2}:\d{2}[.,]\d{1,3}")
 
 
@@ -225,6 +287,10 @@ def build_for(item, session) -> str:
         # comma timestamps, which a WebVTT parser rejects.
         if "-->" in vtt and "," in vtt:
             vtt = srt_to_vtt(vtt.split("\n\n", 1)[-1] if vtt.startswith("WEBVTT") else vtt)
+        vtt, paced = pace_vtt(vtt)
+        if paced:
+            print(f"  [subs] {item['archiveID'][:38]} {c['lang']}: paced {paced} cues "
+                  "(overlap / too brief to read)", flush=True)
         ok, why = validate_vtt(vtt, item.get("runtimeSeconds") or 0)
         if not ok:
             print(f"  [subs] {item['archiveID'][:38]} {c['lang']}: rejected ({why})",

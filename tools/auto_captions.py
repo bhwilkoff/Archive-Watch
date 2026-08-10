@@ -114,6 +114,7 @@ def cmd_publish(args) -> int:
             stats["unknown"] += 1
             continue
         vtt = vtt_path.read_text(encoding="utf-8", errors="replace")
+        vtt, _paced = B.pace_vtt(vtt)   # no overlap; nothing too brief to read
         ok, why = B.validate_vtt(vtt, it.get("runtimeSeconds") or 0)
         if not ok:
             # The generator already gated this; a second look here catches a

@@ -46,16 +46,25 @@ final class LiveCaptions {
     private var pendingWords: [(start: Double, end: Double, text: String)] = []
 
     /// The caption to show at `playhead`, or "" between lines.
+    ///
+    /// A cue is shown from its start and held until its END — never earlier.
+    /// The previous version allowed a 0.25s lead-in, which let the NEXT caption
+    /// replace one whose words were still being spoken.
     func line(at playhead: CMTime) -> String {
         let t = playhead.seconds
         guard t.isFinite else { return "" }
-        // The cue covering now. A small lead-in keeps a caption from flashing on
-        // a frame late; a short hold keeps it up through natural pauses.
-        if let c = cues.last(where: { $0.start - 0.25 <= t && t <= $0.end + 0.6 }) {
-            return c.text
-        }
-        return ""
+        guard let i = cues.lastIndex(where: { $0.start <= t }) else { return "" }
+        // Hold briefly past the end so a caption does not blink out in the gap
+        // before the next one begins.
+        return t <= cues[i].end + Self.holdAfterEnd ? cues[i].text : ""
     }
+
+    /// How long a line needs to be readable. ~2.5 words/second is a common
+    /// subtitle guideline (roughly 150 wpm); never less than a second.
+    static func readingTime(_ text: String) -> Double {
+        max(1.0, Double(text.split(separator: " ").count) / 2.5)
+    }
+    private static let holdAfterEnd: Double = 0.5
 
     /// How far ahead of `playhead` the transcript currently reaches.
     func leadSeconds(over playhead: CMTime) -> Double {
@@ -147,12 +156,36 @@ final class LiveCaptions {
         let chunks = Self.wrap(text, limit: Self.maxCharsPerLine * Self.visibleLines)
         guard !chunks.isEmpty else { return }
         let span = max(end - start, 0.4)
-        let per = span / Double(chunks.count)
-        for (i, chunk) in chunks.enumerated() {
-            let s0 = start + per * Double(i)
-            cues.append((start: s0, end: s0 + per, text: chunk))
+
+        // Divide the span by CHARACTER COUNT, not evenly by chunk.
+        //
+        // Splitting evenly gave a short trailing sentence the same time as a long
+        // leading one, so the second caption appeared while the first was still
+        // being spoken — the reader is then racing the audio. Characters are a
+        // decent proxy for how long a line takes to say.
+        let total = max(chunks.reduce(0) { $0 + $1.count }, 1)
+        var cursor = start
+        for chunk in chunks {
+            let share = span * Double(chunk.count) / Double(total)
+            // Floor each caption at the time it takes to READ, not a flat
+            // minimum. A recognizer span can be much shorter than its text is to
+            // read — one 13-word line was on screen for 1.7s — and a caption you
+            // cannot finish is the same as no caption.
+            let end0 = cursor + max(share, Self.readingTime(chunk))
+            cues.append((start: cursor, end: end0, text: chunk))
+            cursor = end0
         }
         cues.sort { $0.start < $1.start }
+
+        // A caption must never be replaced before its own words are finished, so
+        // no cue may begin before the previous one ends. Where the recognizer's
+        // spans overlap, the later cue is pushed back rather than cutting the
+        // earlier one short.
+        for i in 1..<max(cues.count, 1) where cues[i].start < cues[i - 1].end {
+            let shift = cues[i - 1].end - cues[i].start
+            cues[i].start += shift
+            cues[i].end += shift
+        }
         if cues.count > 600 { cues.removeFirst(cues.count - 600) }
     }
 
