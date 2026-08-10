@@ -94,6 +94,9 @@ struct PlayerView: UIViewControllerRepresentable {
         let c = Coordinator(archiveID: archiveID, ctx: ctx, queue: queue, onAdvance: onAdvance,
                             persistsProgress: persistsProgress)
         c.onUnplayable = onUnplayable
+        // A captioned film that drops to the plain MP4 loses its subtitle track
+        // with it; live captions are what should take over there.
+        c.liveCaptionsAllowed = liveCaptionsEnabled
         return c
     }
 
@@ -238,6 +241,7 @@ struct PlayerView: UIViewControllerRepresentable {
         private var unplayableObs: NSKeyValueObservation?
         var liveCaptions: LiveCaptions?
         var captionLabel: UILabel?
+        var liveCaptionsAllowed = true
         private let captionStall = CaptionStallMonitor()   // Part (c): stutter → resilient MP4
 
         init(archiveID: String, ctx: ModelContext, queue: PlaybackQueue?,
@@ -469,8 +473,11 @@ struct PlayerView: UIViewControllerRepresentable {
                     let now = self.player?.currentTime() ?? .zero
                     captions.throttle(playhead: now)
                     let line = captions.line(at: now)
-                    self.captionLabel?.text = line.isEmpty ? nil : "  \(line)  "
-                    self.captionLabel?.isHidden = line.isEmpty
+                    // Between captions, say why there are none — silence and a
+                    // failed recognizer are otherwise indistinguishable.
+                    let text = line.isEmpty ? captions.notice : line
+                    self.captionLabel?.text = text.isEmpty ? nil : "  \(text)  "
+                    self.captionLabel?.isHidden = text.isEmpty
                     try? await Task.sleep(nanoseconds: 150_000_000)
                 }
             }
@@ -487,6 +494,12 @@ struct PlayerView: UIViewControllerRepresentable {
             let (asset, ldr) = ResilientStreamLoader.makeAsset(for: url)
             loader = ldr
             swap(to: AVPlayerItem(asset: asset), resumingAt: pos, on: player)
+            // The subtitle track went with the HLS path — caption the audio
+            // instead, rather than leaving this film silently uncaptioned.
+            if liveCaptionsAllowed, liveCaptions == nil, LiveCaptions.isSupported,
+               let vc = playerVC {
+                startLiveCaptions(url: url, in: vc)
+            }
         }
 
         /// Swap between a receiver-fetchable asset (AirPlay) and the resilient

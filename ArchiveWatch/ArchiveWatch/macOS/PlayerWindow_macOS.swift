@@ -278,20 +278,7 @@ private struct PlayerSurface: View {
         // force-quit lost the whole session and nothing synced mid-playback (owner 2026-06-29).
         // Live captions when the film carries no subtitle track of its own:
         // transcribe the audio that is ALREADY streaming (no download).
-        if subtitleHLS == nil, LiveCaptions.isSupported, let src = videoURL {
-            Task { @MainActor in
-                let lc = LiveCaptions()
-                liveCaptions = lc
-                lc.start(url: src, from: p.currentTime())
-                while lc.isRunning, player != nil {
-                    let now = p.currentTime()
-                    lc.throttle(playhead: now)
-                    liveLine = lc.line(at: now)
-                    try? await Task.sleep(nanoseconds: 150_000_000)
-                }
-                liveLine = ""
-            }
-        }
+        if subtitleHLS == nil { startLiveCaptions(on: p) }
 
         timeObserver = p.addPeriodicTimeObserver(
             forInterval: CMTime(seconds: 5, preferredTimescale: 1), queue: .main) { _ in
@@ -389,6 +376,27 @@ private struct PlayerSurface: View {
         let (asset, l) = ResilientStreamLoader.makeAsset(for: url)
         loader = l
         swap(to: AVPlayerItem(asset: asset), resumingAt: pos, on: p)
+        // The subtitle track went with the HLS path — caption the audio instead.
+        startLiveCaptions(on: p)
+    }
+
+    /// Transcribe the streaming audio and publish it to `liveLine`.
+    private func startLiveCaptions(on p: AVPlayer) {
+        guard liveCaptions == nil, LiveCaptions.isSupported, let src = videoURL else { return }
+        Task { @MainActor in
+            let lc = LiveCaptions()
+            liveCaptions = lc
+            lc.start(url: src, from: p.currentTime())
+            while lc.isRunning, player != nil {
+                let now = p.currentTime()
+                lc.throttle(playhead: now)
+                // Between captions, say why there are none.
+                let line = lc.line(at: now)
+                liveLine = line.isEmpty ? lc.notice : line
+                try? await Task.sleep(nanoseconds: 150_000_000)
+            }
+            liveLine = ""
+        }
     }
 
     private func teardown() {

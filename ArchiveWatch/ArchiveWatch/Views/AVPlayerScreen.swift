@@ -19,9 +19,15 @@ final class CaptionCoordinator {
     private var captions: LiveCaptions?
     private var label: UILabel?
     private var loop: Task<Void, Never>?
+    /// The source currently being transcribed, so an autoplay advance to the
+    /// next film restarts the engine instead of captioning the previous one
+    /// forever (the container is reused; only its player is swapped).
+    private var sourceURL: URL?
 
     func startCaptions(url: URL, player: AVPlayer?, in vc: AVPlayerViewController) {
-        guard captions == nil else { return }
+        guard sourceURL != url else { return }
+        stop()
+        sourceURL = url
         let lc = LiveCaptions()
         captions = lc
 
@@ -50,9 +56,12 @@ final class CaptionCoordinator {
             while !Task.isCancelled, lc.isRunning {
                 let now = player?.currentTime() ?? .zero
                 lc.throttle(playhead: now)
+                // Between captions, say why there are none — a blank screen and
+                // a failed recognizer look identical from the sofa.
                 let line = lc.line(at: now)
-                self?.label?.text = line.isEmpty ? nil : "  \(line)  "
-                self?.label?.isHidden = line.isEmpty
+                let text = line.isEmpty ? lc.notice : line
+                self?.label?.text = text.isEmpty ? nil : "  \(text)  "
+                self?.label?.isHidden = text.isEmpty
                 try? await Task.sleep(nanoseconds: 150_000_000)
             }
         }
@@ -62,6 +71,7 @@ final class CaptionCoordinator {
         loop?.cancel(); loop = nil
         captions?.stop(); captions = nil
         label?.removeFromSuperview(); label = nil
+        sourceURL = nil
     }
 }
 
@@ -103,6 +113,14 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
     func updateUIViewController(_ vc: AVPlayerViewController, context: Context) {
         if vc.player !== player { vc.player = player }
         vc.transportBarCustomMenuItems = menuItems        // reflect autoplay-mode changes
+        // Autoplay swaps the player in place, and the HLS-subtitle path can fall
+        // back to the plain MP4 mid-film — both change what should be captioned,
+        // and neither goes through makeUIViewController.
+        if let src = liveCaptionURL, LiveCaptions.isSupported {
+            context.coordinator.startCaptions(url: src, player: player, in: vc)
+        } else {
+            context.coordinator.stop()
+        }
     }
 }
 

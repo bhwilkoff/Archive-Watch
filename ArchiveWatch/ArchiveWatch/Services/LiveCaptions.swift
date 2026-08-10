@@ -30,7 +30,54 @@ import Speech
 final class LiveCaptions {
 
     private(set) var isRunning = false
-    private(set) var failure: String?
+    private(set) var failure: String? {
+        didSet { if failure != nil, failedAt == nil { failedAt = Date() } }
+    }
+
+    /// When a film produces no captions, the viewer is owed a reason.
+    ///
+    /// Every failure here was previously stored and never shown: the engine set
+    /// `failure`, the label stayed hidden, and the screen was indistinguishable
+    /// from a film with nothing to say. That is what made "captions don't show
+    /// up at all" impossible to act on — the app knew why and never said. This
+    /// is the one line it will admit to, and only while it is still useful.
+    var notice: String {
+        if let failure, let failedAt,
+           Date().timeIntervalSince(failedAt) < Self.failureNoticeDuration {
+            return failure
+        }
+        // The model may need installing on first use — on an Apple TV nothing
+        // else asks for it, so this is a real download, not an instant.
+        if let modelProgress, failure == nil, isRunning {
+            return "Downloading the speech model\u{2026} \(Int(modelProgress * 100))%"
+        }
+        guard failure == nil, isRunning, !everProducedCue, let startedAt,
+              Date().timeIntervalSince(startedAt) > Self.noticeDelay else { return "" }
+        return "Preparing automatic captions\u{2026}"
+    }
+
+    /// Turn a recognizer error into something a viewer can act on.
+    ///
+    /// "not subscribed to transcription.en" is the shape this takes when the
+    /// device has no speech model and cannot get one — accurate, and useless on
+    /// a television. The raw text is logged either way.
+    static func viewerMessage(for error: Error) -> String {
+        let raw = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
+        let lowered = raw.lowercased()
+        if lowered.contains("not subscribed") || lowered.contains("download status")
+            || lowered.contains("no common audio format") {
+            return "Automatic captions need a speech model this device doesn't have."
+        }
+        return raw
+    }
+
+    private var modelProgress: Double?
+    private var failedAt: Date?
+    private var startedAt: Date?
+    private var everProducedCue = false
+    /// Long enough that a normal few-second warm-up never announces itself.
+    private static let noticeDelay: TimeInterval = 8
+    private static let failureNoticeDuration: TimeInterval = 12
 
     /// Complete cues on the FILM's timeline, transcribed AHEAD of playback.
     ///
@@ -94,6 +141,9 @@ final class LiveCaptions {
         guard !isRunning, Self.isSupported else { return }
         isRunning = true
         failure = nil
+        failedAt = nil
+        everProducedCue = false
+        startedAt = Date()
         contentOffset = max(0, startTime.seconds.isFinite ? startTime.seconds : 0)
 
         guard let tap = sink.makeTap() else {
@@ -155,6 +205,7 @@ final class LiveCaptions {
     private func appendCue(start: Double, end: Double, text: String) {
         let chunks = Self.wrap(text, limit: Self.maxCharsPerLine * Self.visibleLines)
         guard !chunks.isEmpty else { return }
+        everProducedCue = true
         let span = max(end - start, 0.4)
 
         // Divide the span by CHARACTER COUNT, not evenly by chunk.
@@ -218,6 +269,8 @@ final class LiveCaptions {
         isRunning = false
         cues.removeAll()
         pendingWords.removeAll()
+        startedAt = nil
+        everProducedCue = false
     }
 
     // The tap callbacks live on BufferSink, NOT here — see the note there.
@@ -231,14 +284,33 @@ final class LiveCaptions {
         // offline one: it reports no volatile results, so nothing appears until a
         // whole utterance finalizes. `.timeIndexedProgressiveTranscription` gives
         // interim results as they are heard, which is what a caption needs.
-        let transcriber = SpeechTranscriber(locale: Locale(identifier: "en-US"),
+        // ASK THE FRAMEWORK WHICH LOCALE IT MEANS. A hand-written
+        // `Locale(identifier: "en-US")` is not guaranteed to be the same object
+        // the transcriber allocates against — Apple's own guidance is to resolve
+        // it through `supportedLocale(equivalentTo:)` — and a near-miss fails as
+        // "not subscribed to transcription.en" or "unallocated locales", i.e. it
+        // looks exactly like a missing model. A device that has never installed
+        // one (an Apple TV; nothing else on tvOS asks) has no second chance to
+        // paper over the mismatch, which is why this bit first there.
+        guard let locale = await AutoCaptions.resolvedLocale() else {
+            print("[AWCAP] no supported transcription locale on this device")
+            await MainActor.run {
+                self.failure = "Automatic captions aren't available on this device."
+            }
+            return
+        }
+        print("[AWCAP] locale \(locale.identifier(.bcp47))")
+        let transcriber = SpeechTranscriber(locale: locale,
                                             preset: .timeIndexedProgressiveTranscription)
         do {
             // Reserve the locale + install the model. Without the reservation
             // the analyzer reports "not subscribed to transcription.en" and no
             // format is ever available (see AutoCaptions.prepareModel).
-            try await AutoCaptions.prepareModel(for: transcriber,
-                                                locale: Locale(identifier: "en-US"))
+            try await AutoCaptions.prepareModel(
+                for: transcriber,
+                locale: locale,
+                onProgress: { [weak self] fraction in self?.modelProgress = fraction })
+            await MainActor.run { self.modelProgress = nil }
             guard let want = await SpeechAnalyzer
                 .bestAvailableAudioFormat(compatibleWith: [transcriber]) else {
                 print("[AWCAP] NO speech model available — cannot transcribe")
@@ -278,11 +350,10 @@ final class LiveCaptions {
                 }
             }
         } catch {
+            // The raw error stays in the log for a device console; the viewer
+            // gets a sentence about their situation, not our API's.
             print("[AWCAP] FAILED: \(error)")
-            await MainActor.run {
-                self.failure = (error as? LocalizedError)?.errorDescription
-                    ?? error.localizedDescription
-            }
+            await MainActor.run { self.failure = Self.viewerMessage(for: error) }
         }
     }
     #endif
@@ -355,7 +426,18 @@ final class BufferSink: @unchecked Sendable {
         lock.lock(); defer { lock.unlock() }
         sourceFormat = AVAudioFormat(streamDescription: &d)
         converter = nil
+        if Self.diag {
+            print("[AWCAP] tap prepared: \(d.mSampleRate)Hz ch=\(d.mChannelsPerFrame)")
+        }
     }
+
+    /// `AW_CAPTION_DIAG=1` reports whether decoded audio is actually reaching us.
+    ///
+    /// This is the layer that cannot be seen from a screenshot or inferred from a
+    /// caption that never appears: if the tap never fires, no amount of work on
+    /// the recognizer or the label matters.
+    static let diag = ProcessInfo.processInfo.environment["AW_CAPTION_DIAG"] == "1"
+    private var tapCalls = 0
 
     func setTargetFormat(_ format: AVAudioFormat) {
         lock.lock(); defer { lock.unlock() }
@@ -392,6 +474,15 @@ final class BufferSink: @unchecked Sendable {
         // the yield that uses it.
         lock.lock()
         defer { lock.unlock() }
+
+        if Self.diag {
+            tapCalls += 1
+            if tapCalls == 1 || tapCalls % 200 == 0 {
+                print("[AWCAP] tap callback #\(tapCalls) frames=\(frames) "
+                      + "src=\(sourceFormat != nil) dst=\(targetFormat != nil) "
+                      + "sink=\(continuation != nil)")
+            }
+        }
 
         guard let src = sourceFormat, let dst = targetFormat,
               let cont = continuation, frames > 0 else { return }

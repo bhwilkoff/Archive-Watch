@@ -630,8 +630,7 @@ struct PlayerScreen: View {
                 failureView(message)
             } else if let player {
                 AVPlayerContainer(player: player, menuItems: autoplayMenu,
-                                  liveCaptionURL: (current ?? catalogItem)?.subtitleHLSURL == nil
-                                      ? ((current ?? catalogItem)?.videoURLParsed ?? url) : nil)
+                                  liveCaptionURL: liveCaptionSource)
                     .ignoresSafeArea()
                     .onAppear { player.play() }
                     // VHS: analog overlay over channel playback (opt-in, channels only).
@@ -655,6 +654,19 @@ struct PlayerScreen: View {
             playback = .loading
             setupPlayer()
         }
+    }
+
+    /// What live captions should transcribe, or nil when the film carries a real
+    /// subtitle track.
+    ///
+    /// `forceDirectPlayback` matters here: when the captioned-HLS path fails to
+    /// load or stalls, playback drops to the plain MP4 and the subtitle track
+    /// goes with it. Keying only on `subtitleHLSURL` left exactly those films —
+    /// the ones whose subtitles just failed — with no captions at all.
+    private var liveCaptionSource: URL? {
+        let active = current ?? catalogItem
+        guard active?.subtitleHLSURL == nil || forceDirectPlayback else { return nil }
+        return active?.videoURLParsed ?? url
     }
 
     // #10/#3 (tvOS-DESIGN §8.5): per-video transport menu — autoplay override + a

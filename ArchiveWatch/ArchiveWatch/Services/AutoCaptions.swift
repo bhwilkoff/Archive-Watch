@@ -173,20 +173,72 @@ enum AutoCaptions {
     /// A command-line tool on a Mac that already has the model gets away without
     /// this, which is exactly why it passed locally every time.
     @available(iOS 26, tvOS 26, macOS 26, visionOS 26, *)
+    /// The English locale THIS device's transcriber actually recognizes.
+    ///
+    /// `SpeechTranscriber.supportedLocale(equivalentTo:)` is not decoration: a
+    /// locale we invent may not be the one the module allocates against, and the
+    /// resulting failure ("not subscribed to transcription.en") is indis-
+    /// tinguishable from having no model at all. Falling back to the first
+    /// supported English keeps this working if the equivalence lookup declines.
+    @available(iOS 26, tvOS 26, macOS 26, visionOS 26, *)
+    static func resolvedLocale(preferring wanted: String = "en-US") async -> Locale? {
+        let want = Locale(identifier: wanted)
+        if let match = await SpeechTranscriber.supportedLocale(equivalentTo: want) {
+            return match
+        }
+        let supported = await SpeechTranscriber.supportedLocales
+        return supported.first { $0.language.languageCode?.identifier == "en" } ?? supported.first
+    }
+
+    /// `onProgress` reports the model download 0…1 — on an Apple TV this is a
+    /// real first-run wait, because nothing else on tvOS installs these assets,
+    /// and a wait nobody is told about is indistinguishable from a broken app.
     static func prepareModel(for transcriber: SpeechTranscriber,
-                             locale: Locale) async throws {
+                             locale: Locale,
+                             onProgress: (@Sendable @MainActor (Double) -> Void)? = nil) async throws {
+        // Reserving the locale is what subscribes this app to the model. It can
+        // fail on a device that has never installed one — and the original code
+        // threw right here, which SKIPPED the installation that would have made
+        // the reservation possible. Remember the error, keep going, and only
+        // report it if installing didn't resolve it.
+        var reserveError: Error?
         if !(await AssetInventory.reservedLocales).contains(where: {
             $0.identifier(.bcp47) == locale.identifier(.bcp47)
         }) {
-            _ = try await AssetInventory.reserve(locale: locale)
+            do { _ = try await AssetInventory.reserve(locale: locale) }
+            catch { reserveError = error }
         }
+
         let installed = await SpeechTranscriber.installedLocales
         if !installed.contains(where: { $0.identifier(.bcp47) == locale.identifier(.bcp47) }) {
-            if let req = try await AssetInventory.assetInstallationRequest(
-                supporting: [transcriber]) {
-                try await req.downloadAndInstall()
+            do {
+                if let req = try await AssetInventory.assetInstallationRequest(
+                    supporting: [transcriber]) {
+                    let watcher: Task<Void, Never>? = onProgress.map { report in
+                        let progress = req.progress
+                        return Task { @MainActor in
+                            while !Task.isCancelled {
+                                report(progress.fractionCompleted)
+                                try? await Task.sleep(nanoseconds: 500_000_000)
+                            }
+                        }
+                    }
+                    defer { watcher?.cancel() }
+                    try await req.downloadAndInstall()
+                    // The asset now exists, so a reservation that failed for
+                    // want of one can succeed.
+                    if reserveError != nil,
+                       (try? await AssetInventory.reserve(locale: locale)) != nil {
+                        reserveError = nil
+                    }
+                }
+            } catch {
+                // Prefer the reservation error: "not subscribed" says what to
+                // fix, where the install error is usually its consequence.
+                throw reserveError ?? error
             }
         }
+        if let reserveError { throw reserveError }
     }
 
     /// Read `source` and yield its audio as `format` buffers for the analyzer.
@@ -241,10 +293,13 @@ enum AutoCaptions {
 
     @available(iOS 26, tvOS 26, macOS 26, visionOS 26, *)
     private static func runTranscriber(fileURL: URL) async throws -> [(start: Double, text: String)] {
-        let transcriber = SpeechTranscriber(locale: Locale(identifier: "en-US"),
+        guard let locale = await resolvedLocale() else {
+            throw Failure.failed("No transcription locale is available on this device.")
+        }
+        let transcriber = SpeechTranscriber(locale: locale,
                                             preset: .timeIndexedTranscriptionWithAlternatives)
         do {
-            try await prepareModel(for: transcriber, locale: Locale(identifier: "en-US"))
+            try await prepareModel(for: transcriber, locale: locale)
         } catch {
             throw Failure.failed("Couldn't prepare the speech model: "
                                  + error.localizedDescription)

@@ -9,48 +9,106 @@ import SwiftUI
 // it asked the viewer to wait for something they were already getting. Human
 // subtitles remain worth fetching: they are better than any machine transcript
 // and they persist.
+//
+// LAYOUT NOTE (why this doesn't use `Label`). On tvOS a sheet is a card sized to
+// its content, so a `Label` whose title is a sentence reports an enormous ideal
+// width, gets clamped, and TRUNCATES rather than wrapping — every explanatory
+// line on this screen ended in "…" and said nothing. The rows below are built
+// from an icon plus a `Text` that is explicitly allowed to grow vertically
+// inside a definite width, which wraps on all three platforms.
 struct GetSubtitlesView: View {
     let item: Catalog.Item
     @State private var finder = SubtitleFinder()
     @State private var account = SubtitleAccount.shared
     @Environment(\.dismiss) private var dismiss
+    @FocusState private var doneFocused: Bool
+
+    #if os(tvOS)
+    private let contentWidth: CGFloat = 1100
+    private let rowSpacing: CGFloat = 24
+    #else
+    private let contentWidth: CGFloat = 460
+    private let rowSpacing: CGFloat = 14
+    #endif
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
+        VStack(alignment: .leading, spacing: rowSpacing) {
             header
 
             switch finder.phase {
             case .ready(let message):
-                Label(message, systemImage: "checkmark.circle.fill")
-                    .foregroundStyle(.green)
-                Button("Done") { dismiss() }.buttonStyle(.borderedProminent)
+                row("checkmark.circle.fill", message, tint: .green)
+                Button("Done") { dismiss() }
+                    .buttonStyle(.borderedProminent)
+                    .focused($doneFocused)
 
             case .failed(let message):
-                Label(message, systemImage: "exclamationmark.triangle")
-                    .foregroundStyle(.orange)
+                row("exclamationmark.triangle", message, tint: .orange)
                 choices
 
             case .searching:
-                busy("Looking for subtitles…")
+                busy("Looking for subtitles\u{2026}")
             case .sizing, .downloading, .transcribing:
                 // Unreachable now that captions are produced during playback;
                 // kept so the switch stays exhaustive.
-                busy("Working…")
+                busy("Working\u{2026}")
 
             case .idle:
                 choices
             }
             Spacer(minLength: 0)
+            #if os(tvOS)
+            // tvOS has no swipe-to-dismiss and, when no account is connected,
+            // nothing else here is focusable — without this the only way out of
+            // this screen was the Menu button.
+            Button("Done") { dismiss() }
+                .buttonStyle(.borderedProminent)
+                .focused($doneFocused)
+            #endif
         }
-        .padding(28)
-        .frame(maxWidth: 720, alignment: .leading)
+        .frame(width: contentWidth, alignment: .leading)
+        .padding(panelPadding)
+        #if os(tvOS)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.black.opacity(0.92).ignoresSafeArea())
+        .onAppear { doneFocused = true }
+        #endif
     }
+
+    #if os(tvOS)
+    private var panelPadding: CGFloat { 60 }
+    #else
+    private var panelPadding: CGFloat { 28 }
+    #endif
 
     private var header: some View {
         VStack(alignment: .leading, spacing: 6) {
+            #if os(tvOS)
+            Text("Subtitles").font(.system(size: 44, weight: .bold))
+            #else
             Text("Subtitles").font(.title2.weight(.semibold))
-            Text(item.title).font(.subheadline).foregroundStyle(.secondary)
+            #endif
+            Text(item.title)
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
         }
+    }
+
+    /// An icon and a sentence that is allowed to wrap.
+    private func row(_ symbol: String, _ text: String,
+                     tint: Color = .secondary, small: Bool = false) -> some View {
+        HStack(alignment: .firstTextBaseline, spacing: 12) {
+            Image(systemName: symbol)
+                .foregroundStyle(tint)
+            Text(text)
+                .foregroundStyle(tint)
+                .multilineTextAlignment(.leading)
+                .lineLimit(nil)
+                .fixedSize(horizontal: false, vertical: true)
+                .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .font(small ? .footnote : .body)
     }
 
     private func busy(_ label: String) -> some View {
@@ -62,7 +120,7 @@ struct GetSubtitlesView: View {
 
     @ViewBuilder
     private var choices: some View {
-        VStack(alignment: .leading, spacing: 14) {
+        VStack(alignment: .leading, spacing: rowSpacing) {
             if SubtitleAccount.isAvailable {
                 if account.isConnected {
                     Button {
@@ -72,14 +130,17 @@ struct GetSubtitlesView: View {
                     }
                     .buttonStyle(.borderedProminent)
                     .disabled(!SubtitleFinder.canSearch(item))
-                    Text(SubtitleFinder.canSearch(item)
-                         ? "Human-made subtitles, matched on this film's IMDb entry. Counts against your own daily allowance."
-                         : "This title has no IMDb match, so there's nothing reliable to look up.")
-                        .font(.footnote).foregroundStyle(.secondary)
+                    row("info.circle",
+                        SubtitleFinder.canSearch(item)
+                        ? "Human-made subtitles, matched on this film's IMDb entry. "
+                          + "Counts against your own daily allowance."
+                        : "This title has no IMDb match, so there's nothing reliable to look up.",
+                        small: true)
                 } else {
-                    Label("Connect a free OpenSubtitles account in Settings to search for human-made subtitles.",
-                          systemImage: "person.crop.circle.badge.plus")
-                        .font(.footnote).foregroundStyle(.secondary)
+                    row("person.crop.circle.badge.plus",
+                        "Connect a free OpenSubtitles account in Settings to search "
+                        + "for human-made subtitles.",
+                        small: true)
                 }
             }
 
@@ -88,11 +149,11 @@ struct GetSubtitlesView: View {
             // is nothing to download and nothing to wait for. What this screen is
             // still for is HUMAN subtitles, which are better than any machine
             // transcript and are worth fetching when they exist.
-            Label("This film is captioned automatically as it plays. "
-                  + "Human-written subtitles, when they exist, are better — that "
-                  + "is what a search here looks for.",
-                  systemImage: "captions.bubble")
-                .font(.footnote).foregroundStyle(.secondary)
+            row("captions.bubble",
+                "This film is captioned automatically as it plays. Human-written "
+                + "subtitles, when they exist, are better — that is what a search "
+                + "here looks for.",
+                small: true)
         }
     }
 }
