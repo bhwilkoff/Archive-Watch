@@ -25,6 +25,10 @@ on:
         description: 'Max films to attempt this run'
         required: false
         default: '2000'
+      max_minutes:
+        description: 'Per-provider budget so the job publishes instead of hitting the 330m wall'
+        required: false
+        default: '110'
       upgrade:
         description: 'Replace machine (whisper/asr) captions on popular titles'
         required: false
@@ -97,6 +101,7 @@ jobs:
               --provider "$P" \
               --limit ${{ github.event.inputs.limit || '2000' }} \
               --sleep 1.5 \
+              --max-minutes ${{ github.event.inputs.max_minutes || '110' }} \
               ${{ github.event.inputs.upgrade == 'true' && '--upgrade' || '' }} | tee -a subs.log
             echo "### $P" >> $GITHUB_STEP_SUMMARY
             echo '```' >> $GITHUB_STEP_SUMMARY

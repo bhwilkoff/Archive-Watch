@@ -321,6 +321,13 @@ def main() -> int:
                     help="also replace machine (whisper/asr) captions")
     ap.add_argument("--refresh", action="store_true",
                     help="re-attempt films already tried (ignore freeSubsChecked)")
+    ap.add_argument("--max-minutes", type=float, default=0,
+                    help="stop attempting new films after this long and publish "
+                         "what was harvested. Sweeping TWO providers gave this "
+                         "job far more work than one, and it began hitting the "
+                         "330-minute job timeout — killed with nothing written, "
+                         "while holding the catalog-writers lock the whole time "
+                         "and starving every other job behind it.")
     args = ap.parse_args()
 
     if not Path(NODE).exists() and not shutil.which("node"):
@@ -394,7 +401,15 @@ def main() -> int:
             json.dump(deltas, open(args.deltas_out, "w"), ensure_ascii=False)
 
     tally = Counter()
+    deadline = (time.monotonic() + args.max_minutes * 60) if args.max_minutes else None
+    stopped_early = False
     for n, it in enumerate(targets, 1):
+        if deadline and time.monotonic() > deadline:
+            stopped_early = True
+            print(f"[subs] STOPPED EARLY at the {args.max_minutes:g}-minute budget "
+                  f"({n - 1} of {len(targets)} attempted); the rest wait for the "
+                  "next run.", flush=True)
+            break
         try:
             srt = prov.best_srt(it)
         except Exception as e:
