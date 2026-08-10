@@ -92,22 +92,39 @@ def main() -> int:
         # weather (a fresh request load-balances to another node). A download that never succeeds
         # is NOT marked aligned, so it retries on a later run (not silently skipped forever).
         wav = None
+        last_err = ""
         for attempt in range(3):
             try:
                 with tempfile.NamedTemporaryFile(suffix=".wav") as tf:
-                    subprocess.run(["ffmpeg", "-nostdin", "-y", "-i", url, "-ac", "1", "-ar", "16000",
-                                    "-vn", tf.name], capture_output=True, timeout=900, check=True)
+                    # A UA: archive.org answers some datacenter clients differently,
+                    # and ffmpeg's default identifies nothing.
+                    r = subprocess.run(
+                        ["ffmpeg", "-nostdin", "-y",
+                         "-user_agent", "ArchiveWatch/1.0 (+https://archivewatch.org)",
+                         "-i", url, "-ac", "1", "-ar", "16000", "-vn", tf.name],
+                        capture_output=True, timeout=900, check=True)
+                    _ = r
                     wav, _ = torchaudio.load(tf.name)
                 break
-            except Exception:
+            except subprocess.CalledProcessError as e:
+                # KEEP the reason. Discarding stderr is why "31 of 31 failed" sat
+                # unexplained for a whole run.
+                last_err = (e.stderr or b"").decode("utf-8", "replace").strip().splitlines()[-1:] or [""]
+                last_err = last_err[0][:160]
+                wav = None
+            except subprocess.TimeoutExpired:
+                last_err = "ffmpeg timed out after 900s"
+                wav = None
+            except Exception as e:
+                last_err = f"{type(e).__name__}: {e}"[:160]
                 wav = None
         if wav is None:
             # SILENT before this: three films failed here and the run reported
             # "+0 films" with no indication why, which is indistinguishable from
             # having nothing to do.
             failed_dl += 1
-            print(f"[words] {aid[:44]}: audio download failed after 3 tries "
-                  f"({url[:70]})", flush=True)
+            print(f"[words] {aid[:44]}: audio download failed after 3 tries — "
+                  f"{last_err or 'no error captured'}", flush=True)
             continue   # transient — leave unaligned so a later run retries
 
         rows = []
