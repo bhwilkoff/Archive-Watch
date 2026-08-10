@@ -24,6 +24,7 @@ struct PlayerWindow: View {
             PlayerSurface(archiveID: item.archiveID,
                           videoURL: item.videoURLParsed,
                           subtitleHLS: item.subtitleHLSURL,
+                          publishedVTT: item.publishedVTTURL,
                           onEnded: autoplayNext)
                 .navigationTitle(item.year.map { "\(item.title) (\($0))" } ?? item.title)
                 .toolbar {
@@ -119,6 +120,8 @@ private struct PlayerSurface: View {
     let archiveID: String
     let videoURL: URL?
     let subtitleHLS: URL?
+    /// The published WebVTT, so the track can be CHECKED rather than trusted.
+    var publishedVTT: URL? = nil
     var onEnded: (() -> Void)? = nil
 
     @Environment(\.modelContext) private var ctx
@@ -139,6 +142,7 @@ private struct PlayerSurface: View {
     @State private var loadError: String?
     @State private var liveCaptions: LiveCaptions?
     @State private var liveLine: String = ""
+    @State private var drawsCaptions = true
     // AirPlay. The `.floating` HUD below carries a route button, but every path
     // here builds a CUSTOM-SCHEME resource-loader asset, and Apple does not
     // support video AirPlay for those (see AirPlayRouting) — so choosing a route
@@ -278,7 +282,14 @@ private struct PlayerSurface: View {
         // force-quit lost the whole session and nothing synced mid-playback (owner 2026-06-29).
         // Live captions when the film carries no subtitle track of its own:
         // transcribe the audio that is ALREADY streaming (no download).
-        if subtitleHLS == nil { startLiveCaptions(on: p) }
+        if subtitleHLS == nil {
+            startLiveCaptions(on: p)
+        } else if let vtt = publishedVTT {
+            // The film HAS subtitles — but a published file can belong to a
+            // different cut, or be right and land seconds late. Listen briefly
+            // and check it, then stop.
+            reviewPublishedSubtitles(vtt: vtt, on: p)
+        }
 
         timeObserver = p.addPeriodicTimeObserver(
             forInterval: CMTime(seconds: 5, preferredTimescale: 1), queue: .main) { _ in
@@ -380,8 +391,27 @@ private struct PlayerSurface: View {
         startLiveCaptions(on: p)
     }
 
+    /// Check the published track against what is actually being said.
+    private func reviewPublishedSubtitles(vtt: URL, on p: AVPlayer) {
+        startLiveCaptions(on: p, draws: false)
+        Task { @MainActor in
+            guard let captions = liveCaptions,
+                  let outcome = await SubtitleReview.review(vttURL: vtt, captions: captions)
+            else { return }
+            if outcome.replacesNativeTrack {
+                await SubtitleReview.deselectNativeSubtitles(on: p)
+                drawsCaptions = true
+            }
+        }
+    }
+
     /// Transcribe the streaming audio and publish it to `liveLine`.
-    private func startLiveCaptions(on p: AVPlayer) {
+    ///
+    /// `draws` is false while a published track is only being JUDGED: the
+    /// player is already showing its own subtitles, and a second set underneath
+    /// them is the double-caption bug in miniature.
+    private func startLiveCaptions(on p: AVPlayer, draws: Bool = true) {
+        drawsCaptions = draws
         guard liveCaptions == nil, LiveCaptions.isSupported, let src = videoURL else { return }
         Task { @MainActor in
             // From macOS 27 the system captions this film itself; ours would
@@ -395,7 +425,7 @@ private struct PlayerSurface: View {
                 lc.throttle(playhead: now)
                 // Between captions, say why there are none.
                 let line = lc.line(at: now)
-                liveLine = line.isEmpty ? lc.notice : line
+                liveLine = drawsCaptions ? (line.isEmpty ? lc.notice : line) : ""
                 try? await Task.sleep(nanoseconds: 150_000_000)
             }
             liveLine = ""

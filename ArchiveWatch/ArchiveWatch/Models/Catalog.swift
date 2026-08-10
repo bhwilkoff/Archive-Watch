@@ -202,6 +202,23 @@ struct Catalog: Decodable, Sendable {
 
         var id: String { archiveID }
         var subtitleHLSURL: URL? { subtitleHLS.flatMap(URL.init(string:)) }
+
+        /// The published English WebVTT, when we host one.
+        ///
+        /// This is what makes a published track CHECKABLE on device: the HLS
+        /// master is for the player, but judging a file against what is being
+        /// said (SubtitleAgreement) needs the cue text itself.
+        var publishedVTTURL: URL? {
+            let english = captions?.first {
+                $0.lang.lowercased().hasPrefix("en") && $0.vttURL != nil
+            } ?? captions?.first { $0.vttURL != nil }
+            if let s = english?.vttURL, let u = URL(string: s) { return u }
+            // Fall back to the sibling of the HLS master, which is where
+            // build_subtitle_assets.py puts it.
+            return subtitleHLSURL.map {
+                $0.deletingLastPathComponent().appendingPathComponent("en.vtt")
+            }
+        }
         var posterURLParsed: URL? { posterURL.flatMap(URL.init(string:)) }
         var backdropURLParsed: URL? { backdropURL.flatMap(URL.init(string:)) }
         var videoURLParsed: URL? { Catalog.playableURL(downloadURL) }

@@ -630,7 +630,8 @@ struct PlayerScreen: View {
                 failureView(message)
             } else if let player {
                 AVPlayerContainer(player: player, menuItems: autoplayMenu,
-                                  liveCaptionURL: liveCaptionSource)
+                                  liveCaptionURL: liveCaptionSource,
+                                  reviewSource: subtitleReviewSource)
                     .ignoresSafeArea()
                     .onAppear { player.play() }
                     // VHS: analog overlay over channel playback (opt-in, channels only).
@@ -667,6 +668,16 @@ struct PlayerScreen: View {
         let active = current ?? catalogItem
         guard active?.subtitleHLSURL == nil || forceDirectPlayback else { return nil }
         return active?.videoURLParsed ?? url
+    }
+
+    /// When the film HAS published subtitles, what is needed to CHECK them:
+    /// the audio to transcribe and the file to check against.
+    private var subtitleReviewSource: (video: URL, vtt: URL)? {
+        guard liveCaptionSource == nil else { return nil }
+        let active = current ?? catalogItem
+        guard let video = active?.videoURLParsed ?? url as URL?,
+              let vtt = active?.publishedVTTURL else { return nil }
+        return (video, vtt)
     }
 
     // #10/#3 (tvOS-DESIGN §8.5): per-video transport menu — autoplay override + a

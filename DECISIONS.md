@@ -2699,3 +2699,52 @@ whether or not the app is rebuilt. What this build adds is the stand-down, so
 the platforms that DO run our engine hand over cleanly instead of doubling up.
 Below 27 nothing changes: no legible option ever appears for a bare MP4, the
 poll costs one wait, and `LiveCaptions` proceeds exactly as before.
+
+## 062 — A published subtitle track is checked against what is being said, not trusted
+*Date: 2026-08-10*
+
+When a film ships with subtitles, the app now listens to the first ~3 minutes
+with the `LiveCaptions` scout, compares the published cues against its own
+transcript (`SubtitleAgreement`), and acts on one of three verdicts: keep the
+file as published (and stop listening); SHIFT it, showing the same human words
+at corrected times through our overlay; or abandon it and caption live, because
+the file belongs to a different cut or a different film. Wired on iOS, macOS and
+tvOS (`SubtitleReview`).
+
+**Why**: owner report — "many times the automatic captions are far better than
+the subtitles file". A published file goes wrong in two ways that are both
+invisible until somebody watches: it belongs to a DIFFERENT CUT (the failure
+Decision 026 exists for, on the subtitle plane), or it is RIGHT BUT OUT OF SYNC,
+which is by far the commoner fault. Neither is judgeable from the file alone —
+and both are obvious the moment there is an independent estimate of what is
+being said, which the device now produces for free. Measured while building
+this: **The Day the Earth Caught Fire ships with its subtitles 27 seconds
+late.** That is not a subtle defect; it is unwatchable, and it looks like a
+broken app rather than a broken file.
+
+Keeping the two faults distinct is the point. A mismatched file should be
+abandoned; a shifted one must be SHIFTED, because human words with corrected
+timing beat a machine transcript on both text and timing, and discarding it
+would throw away the better source.
+
+**How to apply**: score word PRESENCE near the expected time, swept over
+candidate offsets — never sequence alignment. A machine transcript mishears
+individual words constantly, and demanding order scores a good match as a bad
+one. Drop words under four characters: an unrelated file scores well on "the"
+and "a" alone, which is the exact false match this exists to catch. Calibrate
+thresholds against real files and re-measure when the recognizer changes — a
+true match scores ~44% and a mismatch ~3%, so the separation is wide but the
+absolute numbers are LOW, and the first thresholds (guessed at 0.55) rejected a
+genuinely matching file. State the correction as "seconds to ADD", never "how
+late it is": the second phrasing is what produced a sign error that moved a
+27s-late file further out of sync. Returning NO VERDICT is a valid answer and
+must stay distinct from disagreement — silence, an intertitle stretch or a
+sparse transcript are not evidence against a file.
+
+**Consequences**: a captioned film now costs a bounded second stream (~3 minutes
+at the scout's 2x) to be checked, and nothing after that — the scout stops on a
+verdict. `Catalog.Item.publishedVTTURL` exposes the cue text the check needs.
+The same judge could run in the PIPELINE to find mistimed files catalogue-wide
+rather than per-viewer, on a machine that has speech models (Decision 060 rules
+out hosted runners) — the 27-second file above is unlikely to be alone, and
+fixing them at the source would help web and Android too.

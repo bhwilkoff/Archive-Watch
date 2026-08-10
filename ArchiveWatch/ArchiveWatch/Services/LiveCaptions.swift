@@ -113,6 +113,32 @@ final class LiveCaptions {
     }
     private static let holdAfterEnd: Double = 0.5
 
+    /// Show these cues instead of our own transcript.
+    ///
+    /// Used when a published subtitle track turns out to be GOOD BUT MISTIMED
+    /// (`SubtitleAgreement`): the viewer then gets the human words at corrected
+    /// times, which beats a machine transcript on both counts. Transcription
+    /// stops — the scout has done its job, which was to judge the file, and
+    /// there is no reason to keep paying for a second stream.
+    func adopt(_ replacement: [(start: Double, end: Double, text: String)]) {
+        guard !replacement.isEmpty else { return }
+        cues = replacement.sorted { $0.start < $1.start }
+        everProducedCue = true
+        failure = nil
+        task?.cancel(); task = nil
+        sink.finish()
+        scoutPlayer?.rate = 0
+        scoutPlayer = nil
+    }
+
+    /// Stop transcribing but keep showing what we have.
+    func stopListening() {
+        task?.cancel(); task = nil
+        sink.finish()
+        scoutPlayer?.rate = 0
+        scoutPlayer = nil
+    }
+
     /// Everything transcribed so far.
     ///
     /// This is the app's own independent estimate of what is being said, which

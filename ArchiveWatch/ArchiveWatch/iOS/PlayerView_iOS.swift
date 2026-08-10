@@ -37,6 +37,9 @@ struct PlayerView: UIViewControllerRepresentable {
     // When present, the player loads this HLS playlist (MP4 + WebVTT) instead of
     // the bare MP4, so AVPlayerViewController shows native subtitles (Decision 039).
     var subtitleHLSURL: URL? = nil
+    /// The published WebVTT, so the track can be CHECKED against what is
+    /// actually said rather than trusted (SubtitleReview).
+    var publishedVTTURL: URL? = nil
     /// Called when the title will never play, so the host can close the player
     /// and say so instead of leaving a spinner up indefinitely.
     var onUnplayable: ((String) -> Void)? = nil
@@ -50,6 +53,7 @@ struct PlayerView: UIViewControllerRepresentable {
         archiveID = item.archiveID
         videoURL = item.videoURLParsed
         subtitleHLSURL = item.subtitleHLSURL
+        publishedVTTURL = item.publishedVTTURL
         self.onUnplayable = onUnplayable
         queue = store.map { MovieAutoplayQueue(start: item, store: $0) }
         overlayTitle = item.title
@@ -179,9 +183,15 @@ struct PlayerView: UIViewControllerRepresentable {
         // Live captions for a film with NO subtitle track: tap the audio that is
         // already streaming and transcribe it on device. Costs no extra bytes —
         // the player is decoding this audio regardless.
-        if liveCaptionsEnabled, subtitleHLSURL == nil, LiveCaptions.isSupported,
-           let src = videoURL {
-            context.coordinator.startLiveCaptions(url: src, in: vc)
+        if liveCaptionsEnabled, LiveCaptions.isSupported, let src = videoURL {
+            if subtitleHLSURL == nil {
+                context.coordinator.startLiveCaptions(url: src, in: vc)
+            } else if let vtt = publishedVTTURL {
+                // The film HAS subtitles — but a published file can belong to a
+                // different cut, or be right and land seconds late. Listen
+                // briefly and check it (SubtitleReview), then stop.
+                context.coordinator.reviewPublishedSubtitles(vtt: vtt, source: src, in: vc)
+            }
         }
         return vc
     }
@@ -242,6 +252,10 @@ struct PlayerView: UIViewControllerRepresentable {
         var liveCaptions: LiveCaptions?
         var captionLabel: UILabel?
         var liveCaptionsAllowed = true
+        /// False while a published track is only being JUDGED — the
+        /// player is already drawing its own subtitles, and a second
+        /// set underneath them is the double-caption bug in miniature.
+        var showsCaptionOverlay = true
         private let captionStall = CaptionStallMonitor()   // Part (c): stutter → resilient MP4
 
         init(archiveID: String, ctx: ModelContext, queue: PlaybackQueue?,
@@ -443,7 +457,9 @@ struct PlayerView: UIViewControllerRepresentable {
         /// the one that gets tapped — so a caption is ready before the viewer
         /// reaches it and can be shown whole, the way a captioned film reads.
         /// Tapping the PLAYING item can only ever trail the speech.
-        func startLiveCaptions(url: URL, in vc: AVPlayerViewController) {
+        func startLiveCaptions(url: URL, in vc: AVPlayerViewController,
+                               showsImmediately: Bool = true) {
+            showsCaptionOverlay = showsImmediately
             let captions = LiveCaptions()
             liveCaptions = captions
             let label = PaddedLabel()
@@ -483,12 +499,37 @@ struct PlayerView: UIViewControllerRepresentable {
                     let line = captions.line(at: now)
                     // Between captions, say why there are none — silence and a
                     // failed recognizer are otherwise indistinguishable.
-                    let text = line.isEmpty ? captions.notice : line
+                    let text = self.showsCaptionOverlay
+                        ? (line.isEmpty ? captions.notice : line) : ""
                     // A caption is two lines; an explanation may need more.
                     self.captionLabel?.numberOfLines = line.isEmpty ? 4 : 2
                     self.captionLabel?.text = text.isEmpty ? nil : "  \(text)  "
                     self.captionLabel?.isHidden = text.isEmpty
                     try? await Task.sleep(nanoseconds: 150_000_000)
+                }
+            }
+        }
+
+        /// Check a published subtitle track against what is being said.
+        ///
+        /// Runs the same scout the uncaptioned path uses, but only long enough
+        /// to form a verdict. If the file is good it is left alone and the
+        /// scout stops; if it is mistimed or belongs to another film, the
+        /// player's own track is switched off and our overlay takes over —
+        /// carrying the corrected HUMAN words where we have them.
+        func reviewPublishedSubtitles(vtt: URL, source: URL, in vc: AVPlayerViewController) {
+            startLiveCaptions(url: source, in: vc, showsImmediately: false)
+            guard let captions = liveCaptions else { return }
+            Task { @MainActor [weak self] in
+                guard let self else { return }
+                guard let outcome = await SubtitleReview.review(vttURL: vtt, captions: captions)
+                else { return }
+                if outcome.replacesNativeTrack {
+                    await SubtitleReview.deselectNativeSubtitles(on: self.player)
+                    self.showsCaptionOverlay = true
+                } else {
+                    self.captionLabel?.removeFromSuperview()
+                    self.captionLabel = nil
                 }
             }
         }

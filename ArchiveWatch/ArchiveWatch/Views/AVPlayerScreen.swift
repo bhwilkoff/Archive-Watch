@@ -23,8 +23,16 @@ final class CaptionCoordinator {
     /// next film restarts the engine instead of captioning the previous one
     /// forever (the container is reused; only its player is swapped).
     private var sourceURL: URL?
+    /// False while a published track is only being JUDGED — the player already
+    /// draws its own subtitles, and a second set underneath is the
+    /// double-caption bug in miniature.
+    private var draws = true
 
-    func startCaptions(url: URL, player: AVPlayer?, in vc: AVPlayerViewController) {
+    /// `reviewing` is the published WebVTT when the film already HAS subtitles:
+    /// the engine then runs only long enough to judge that file, and draws
+    /// nothing unless it turns out to be wrong.
+    func startCaptions(url: URL, player: AVPlayer?, in vc: AVPlayerViewController,
+                       reviewing vtt: URL? = nil) {
         guard sourceURL != url else { return }
         stop()
         sourceURL = url
@@ -50,6 +58,7 @@ final class CaptionCoordinator {
         }
         label = l
 
+        draws = vtt == nil
         loop = Task { @MainActor [weak self] in
             // Let the system speak first. On tvOS 27 it captions this film
             // itself; ours would be a second, differently timed copy over the
@@ -64,13 +73,25 @@ final class CaptionCoordinator {
             guard !Task.isCancelled else { return }
             let from = player?.currentTime() ?? .zero
             await lc.start(url: url, from: from)
+            if let vtt {
+                Task { @MainActor [weak self] in
+                    guard let outcome = await SubtitleReview.review(vttURL: vtt,
+                                                                    captions: lc) else { return }
+                    if outcome.replacesNativeTrack {
+                        await SubtitleReview.deselectNativeSubtitles(on: player)
+                        self?.draws = true
+                    } else {
+                        self?.label?.isHidden = true
+                    }
+                }
+            }
             while !Task.isCancelled, lc.isRunning {
                 let now = player?.currentTime() ?? .zero
                 lc.throttle(playhead: now)
                 // Between captions, say why there are none — a blank screen and
                 // a failed recognizer look identical from the sofa.
                 let line = lc.line(at: now)
-                let text = line.isEmpty ? lc.notice : line
+                let text = (self?.draws ?? true) ? (line.isEmpty ? lc.notice : line) : ""
                 // A caption is two lines; an explanation may need more.
                 self?.label?.numberOfLines = line.isEmpty ? 4 : 2
                 self?.label?.text = text.isEmpty ? nil : "  \(text)  "
@@ -101,6 +122,9 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
     /// picture — the same engine iOS and macOS use, wired here so the living
     /// room is not the one platform without it.
     var liveCaptionURL: URL? = nil
+    /// Set when the film HAS published subtitles: they are CHECKED against what
+    /// is actually said rather than trusted (SubtitleReview).
+    var reviewSource: (video: URL, vtt: URL)? = nil
 
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let vc = AVPlayerViewController()
@@ -112,6 +136,9 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
         vc.allowsPictureInPicturePlayback = true
         if let src = liveCaptionURL, LiveCaptions.isSupported {
             context.coordinator.startCaptions(url: src, player: player, in: vc)
+        } else if let review = reviewSource, LiveCaptions.isSupported {
+            context.coordinator.startCaptions(url: review.video, player: player,
+                                              in: vc, reviewing: review.vtt)
         }
         return vc
     }
@@ -131,6 +158,9 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
         // and neither goes through makeUIViewController.
         if let src = liveCaptionURL, LiveCaptions.isSupported {
             context.coordinator.startCaptions(url: src, player: player, in: vc)
+        } else if let review = reviewSource, LiveCaptions.isSupported {
+            context.coordinator.startCaptions(url: review.video, player: player,
+                                              in: vc, reviewing: review.vtt)
         } else {
             context.coordinator.stop()
         }
