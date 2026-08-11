@@ -46,12 +46,6 @@ on:
         required: false
         default: 'false'
 
-concurrency:
-  # Shared with every catalog-mutating workflow so two runs never push to the
-  # catalog release / main at the same time.
-  group: catalog-writers
-  cancel-in-progress: false
-
 jobs:
   resource-posters-secondary:
     runs-on: ubuntu-latest
@@ -72,6 +66,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py fetch
+
+
+      - name: Record the catalog before we touch it
+
+        run: python tools/catalog_delta.py snapshot --out /tmp/aw-before.json
 
       - name: Re-source posters from secondary sources
         # Backstop for when the budget cannot stop it — one hung request
@@ -107,6 +106,69 @@ jobs:
           # checks by default (Decision 044) — demotes only a 404/410 poster to
           # the archive.org thumbnail; a throttle is left for the next run.
           python tools/validate_posters.py --limit 6000 --workers 16 || true
+
+      - name: Extract what changed
+
+        if: always()
+
+        run: python tools/catalog_delta.py extract --snapshot /tmp/aw-before.json --out aw-deltas.json
+
+
+      - name: Keep the deltas
+
+        if: always()
+
+        uses: actions/upload-artifact@v4
+
+        with:
+
+          name: posters-secondary-deltas
+
+          path: aw-deltas.json
+
+          if-no-files-found: ignore
+
+  # Holds catalog-writers for ~2 minutes instead of the ~166 this workflow
+  # averaged. Merging onto a freshly fetched catalog also preserves whatever
+  # another writer published while we were re-sourcing.
+  apply:
+    needs: resource-posters-secondary
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    concurrency:
+      group: catalog-writers
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install --quiet requests
+      - uses: actions/download-artifact@v4
+        with:
+          name: posters-secondary-deltas
+        continue-on-error: true
+      - name: Stop if nothing changed
+        id: gate
+        run: |
+          if [ ! -s aw-deltas.json ]; then
+            echo "nothing to apply"; echo "go=no" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=yes" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Fetch catalog
+        if: steps.gate.outputs.go == 'yes'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+      - name: Apply the deltas
+        if: steps.gate.outputs.go == 'yes'
+        run: python tools/catalog_delta.py apply --deltas aw-deltas.json
+
 
       - name: Publish catalog to release
         if: github.event.inputs.dry_run != 'true'
