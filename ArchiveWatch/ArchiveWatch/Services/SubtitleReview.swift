@@ -24,9 +24,16 @@ import Foundation
 @MainActor
 enum SubtitleReview {
 
-    /// How long to listen before judging. Long enough for a verdict on a film
-    /// that opens quietly; at the scout's 2x that is ~90s of wall clock.
-    static let sampleSeconds: Double = 180
+    /// Give up if nothing conclusive has emerged by here. Not a wait — the
+    /// verdict lands as soon as the evidence supports it, usually far sooner.
+    static let giveUpAfter: Double = 300
+    /// How often to re-ask, while the film plays.
+    static let checkEvery: UInt64 = 3_000_000_000
+    /// The same answer twice before acting. A verdict from the first snatch of
+    /// dialogue can be a fluke — two consecutive agreeing ones, on a growing
+    /// transcript, is cheap insurance against switching a viewer's subtitles off
+    /// on the strength of one mumbled line.
+    static let confirmations = 2
 
     struct Outcome: Sendable {
         let verdict: SubtitleAgreement.Verdict
@@ -42,19 +49,40 @@ enum SubtitleReview {
     static func review(vttURL: URL, captions: LiveCaptions) async -> Outcome? {
         guard let published = await fetchCues(vttURL), !published.isEmpty else { return nil }
 
-        // Wait for the scout to cover the sample window, or to give up.
-        let deadline = Date().addingTimeInterval(sampleSeconds * 1.5 + 60)
+        // JUDGE AS THE FILM PLAYS, not after a fixed sampling pass. The scout
+        // transcribes AHEAD of the viewer, so a verdict reached now is in place
+        // before they arrive at the part it was reached from — which is the
+        // point: the right subtitles are showing by the time they are needed,
+        // rather than three minutes of a broken file first.
+        //
+        // The earlier version waited out a flat 180s window whatever the film
+        // was doing. On a talky opening the answer is available in well under a
+        // minute, and on a quiet one no amount of waiting produces evidence.
+        var verdict: SubtitleAgreement.Verdict?
+        var agreed = 0
+        let deadline = Date().addingTimeInterval(giveUpAfter)
         while Date() < deadline {
-            if !captions.isRunning { break }
-            if captions.leadSeconds(over: .zero) > sampleSeconds { break }
-            try? await Task.sleep(nanoseconds: 2_000_000_000)
+            let transcript = captions.transcript().map {
+                SubtitleAgreement.Cue(start: $0.start, end: $0.end, text: $0.text)
+            }
+            if let current = SubtitleAgreement.judge(published: published,
+                                                     transcript: transcript) {
+                if let previous = verdict, previous.choice.matches(current.choice) {
+                    agreed += 1
+                } else {
+                    agreed = 1
+                }
+                verdict = current
+                if agreed >= confirmations { break }
+            }
+            // The scout stopping is the end of the evidence, not a reason to
+            // keep waiting.
+            if !captions.isRunning, verdict != nil { break }
+            if !captions.isRunning, captions.transcript().isEmpty { break }
+            try? await Task.sleep(nanoseconds: checkEvery)
         }
 
-        let transcript = captions.transcript().map {
-            SubtitleAgreement.Cue(start: $0.start, end: $0.end, text: $0.text)
-        }
-        guard let verdict = SubtitleAgreement.judge(published: published,
-                                                    transcript: transcript) else {
+        guard let verdict, agreed >= confirmations else {
             // No opinion is not the same as disagreement: leave the published
             // track alone and stop spending bandwidth on a second stream.
             captions.stopListening()

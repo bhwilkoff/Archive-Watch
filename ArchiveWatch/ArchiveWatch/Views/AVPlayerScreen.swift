@@ -186,6 +186,11 @@ struct EpisodeAVPlayerContainer: UIViewControllerRepresentable {
     let player: AVPlayer
     var hasPrev: Bool
     var hasNext: Bool
+    /// Source for live captions. Episodes had NONE — the movie container has
+    /// carried them since Decision 058 and this one was simply never given
+    /// them, so a viewer watching Classic TV on an Apple TV got captions on
+    /// films and silence on episodes of the same catalogue.
+    var liveCaptionURL: URL? = nil
     // #1: the auto-surfacing "Next Episode" prompt should only appear briefly at
     // the start and near the end — not persist the whole episode. The transport-
     // bar menu items (below) stay available the entire time.
@@ -199,19 +204,33 @@ struct EpisodeAVPlayerContainer: UIViewControllerRepresentable {
         vc.speeds = AVPlaybackSpeed.systemDefaultSpeeds   // #5: native speed menu
         vc.allowsPictureInPicturePlayback = true          // tvOS PiP
         context.coordinator.apply(to: vc)
+        if let src = liveCaptionURL, LiveCaptions.isSupported {
+            context.coordinator.captions.startCaptions(url: src, player: player, in: vc)
+        }
         return vc
+    }
+
+    static func dismantleUIViewController(_ vc: AVPlayerViewController,
+                                          coordinator: Coordinator) {
+        coordinator.captions.stop()
     }
 
     func updateUIViewController(_ vc: AVPlayerViewController, context: Context) {
         if vc.player !== player { vc.player = player }
         context.coordinator.parent = self
         context.coordinator.apply(to: vc)
+        // Binge-advance swaps the player in place, so the next episode needs
+        // its own engine — same reason the movie container does this.
+        if let src = liveCaptionURL, LiveCaptions.isSupported {
+            context.coordinator.captions.startCaptions(url: src, player: player, in: vc)
+        }
     }
 
     func makeCoordinator() -> Coordinator { Coordinator(self) }
 
     @MainActor final class Coordinator {
         var parent: EpisodeAVPlayerContainer
+        let captions = CaptionCoordinator()
         init(_ parent: EpisodeAVPlayerContainer) { self.parent = parent }
 
         func apply(to vc: AVPlayerViewController) {

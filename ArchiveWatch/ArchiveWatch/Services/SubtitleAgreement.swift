@@ -46,7 +46,26 @@ enum SubtitleAgreement {
         case shiftPublished(by: Double)
         /// The file does not describe this film; transcribe instead.
         case preferLive
+
+        /// Same decision, allowing for the shift being re-measured slightly
+        /// differently as the transcript grows.
+        func matches(_ other: Choice) -> Bool {
+            switch (self, other) {
+            case (.keepPublished, .keepPublished), (.preferLive, .preferLive):
+                return true
+            case (.shiftPublished(let a), .shiftPublished(let b)):
+                return abs(a - b) <= SubtitleAgreement.sameShiftWithin
+            default:
+                return false
+            }
+        }
     }
+
+    /// Two verdicts that mean the same thing, ignoring how many decimal places
+    /// the measured shift landed on. `.shiftPublished(-25.0)` and
+    /// `.shiftPublished(-25.4)` are the same decision confirmed twice, not two
+    /// different ones — and requiring exact equality would never confirm.
+    static let sameShiftWithin: Double = 1.5
 
     struct Verdict: Sendable {
         let choice: Choice

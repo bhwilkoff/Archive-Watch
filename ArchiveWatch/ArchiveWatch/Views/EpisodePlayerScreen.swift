@@ -65,6 +65,7 @@ struct EpisodePlayerScreen: View {
                     player: player,
                     hasPrev: series.episode(before: currentEpisode) != nil,
                     hasNext: series.episode(after: currentEpisode) != nil,
+                    liveCaptionURL: currentEpisode.videoURLParsed,
                     showNextPrompt: showNextPrompt,
                     onPrev: { if let p = series.episode(before: currentEpisode) { currentEpisode = p } },
                     onNext: { if let n = series.episode(after: currentEpisode) { currentEpisode = n } }
