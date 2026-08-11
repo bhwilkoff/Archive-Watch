@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-08-10T04:31:52Z",
+  "updated_at": "2026-08-11T03:56:42Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-08-10T04:31:52Z"
+      "last_tried": "2026-08-11T03:56:42Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-08-10T04:31:52Z"
+      "last_tried": "2026-08-11T03:56:42Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -322135,6 +322135,220 @@
         "Drama"
       ],
       "fetched_at": "2026-08-08T03:44:25Z",
+      "schema": 3
+    },
+    "tt0032319": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZjQ5OTllYTYtYTlhZS00MzMzLTg2ZjEtNGU3ZGMyZTQ0NGZjXkEyXkFqcGdeQXVyNjYyODY4NDU@._V1_SX300.jpg",
+      "imdb_rating": 6.4,
+      "imdb_votes": 115,
+      "content_rating": null,
+      "plot": "A series of blackout gags parodying aviation and aviation films. Gags include a parchutist whose parachute reads \"Good to the last drop\", jokes about LA's expanding city limits, and a satire of test pilot and their bravery.",
+      "runtime_min": 6,
+      "director": "Tex Avery",
+      "actors": [
+        "Mel Blanc",
+        "Robert C. Bruce"
+      ],
+      "genres": [
+        "Family",
+        "Animation",
+        "Short"
+      ],
+      "fetched_at": "2026-08-11T03:56:42Z",
+      "schema": 3
+    },
+    "tt0101700": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMGM3ZjE4ZjMtOGIxNi00ODc3LWI2OGQtY2E5MDlkMjAwZWZjXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.5,
+      "imdb_votes": 92347,
+      "content_rating": "R",
+      "plot": "Centered on a post-apocalyptic society where food is scarce and used as currency. In an apartment building with a delicatessen on the ground floor. The owner of the eatery also owns the apartment building and is in need of a new maintenance man since the prior one \"mysteriously\" disappeared. A former clown applies for the job and the butcher's intent is to have him work for as little as possible. The clown and butcher's daughter fall in love and she tries to foil her father's plans by contacting the \"troglodytes\", a grain eating sub-group of society who live entirely underground.",
+      "runtime_min": 99,
+      "director": "Marc Caro, Jean-Pierre Jeunet",
+      "actors": [
+        "Marie-Laure Dougnac",
+        "Dominique Pinon",
+        "Pascal Benezech"
+      ],
+      "genres": [
+        "Comedy",
+        "Crime"
+      ],
+      "fetched_at": "2026-08-11T03:56:42Z",
+      "schema": 3
+    },
+    "tt0903014": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYjIxNzc1ZmQtNWY0Ni00YzNlLTk2OGEtYjI5NTYwOWUzZWU3XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.6,
+      "imdb_votes": 393,
+      "content_rating": null,
+      "plot": "The facts: journalist Zenia Arden is missing, her abandoned car is found with three pints of her blood splattered inside, and one of her fingers severed from her body is found close to the car. From these facts, the authorities be...",
+      "runtime_min": 89,
+      "director": "David Evans",
+      "actors": [
+        "Mary-Louise Parker",
+        "Shawn Doyle",
+        "Susan Lynch"
+      ],
+      "genres": [
+        "Drama",
+        "Mystery"
+      ],
+      "fetched_at": "2026-08-11T03:56:42Z",
+      "schema": 3
+    },
+    "tt0960066": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTk5MTExMDM3NV5BMl5BanBnXkFtZTcwMjg2NDUyMw@@._V1_SX300.jpg",
+      "imdb_rating": 4.4,
+      "imdb_votes": 1414,
+      "content_rating": "R",
+      "plot": "Nine friends take a holiday at a Victorian home on a private island and uncover a game that when played brings out the worst in each of them. Jealously, greed, hatred, lust, all of the things they keep buried deep inside themselves rise to the surface and come to a boil. The Black Waters of Echo's Pond shows those who look into it what they want to see... but what you want to see isn't always the truth.",
+      "runtime_min": 89,
+      "director": "Gabriel Bologna",
+      "actors": [
+        "Danielle Harris",
+        "James Duval",
+        "Robert Patrick"
+      ],
+      "genres": [
+        "Fantasy",
+        "Horror",
+        "Thriller"
+      ],
+      "fetched_at": "2026-08-11T03:56:42Z",
+      "schema": 3
+    },
+    "tt1144809": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNWMxYzgwMDQtY2FjNC00ZDg1LWI1MDctOTMzOGM5YTA2MzA1XkEyXkFqcGdeQXVyMjExMzEyNTM@._V1_SX300.jpg",
+      "imdb_rating": 6.2,
+      "imdb_votes": 263,
+      "content_rating": null,
+      "plot": "The story of Orochi revolves around the life of the Monzen family. Aoi Monzen, a famous, but aging, movie star and Kazusa and Lisa Monzen her two daughters. Aoi hopes for them both to take over her legacy as a star, but Kazusa does not live up to her expectations. The mother is always pitting the girls against one another competitively. As a result, as the years pass, the love the sisters shared grows to a hidden hatred.When another girl named Orochi saves the girl's mother from a terrible accident a bizarre chain of events is set in motion spanning many years. The atmosphere in their estate builds up until Orochi reveals a terrible truth that the family must keep hidden from the world. Orochi serves as the narrator of the story. The movie is based on a Kazuo Umezu manga series which ran from 1969 to 1970.",
+      "runtime_min": 107,
+      "director": "Norio Tsuruta",
+      "actors": [
+        "Yoshino Kimura",
+        "Noriko Nakagoshi",
+        "Mitsuki Tanimura"
+      ],
+      "genres": [
+        "Drama",
+        "Fantasy",
+        "Horror"
+      ],
+      "fetched_at": "2026-08-11T03:56:42Z",
+      "schema": 3
+    },
+    "tt11464826": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNGQyY2E1M2EtZTkzNy00YjYyLWFjMGQtNTI1OGE4Yjc4MTZiXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.6,
+      "imdb_votes": 93757,
+      "content_rating": "PG-13",
+      "plot": "Set in the dark underbelly of Silicon Valley, The Social Dilemma fuses investigative documentary with enlightening narrative drama. Expert testimony from tech whistle-blowers exposes our disturbing predicament: the services Big Tech provides-search engines, networks, instant information, etc.-are merely the candy that lures us to bite. Once we're hooked and coming back for more, the real commodity they sell is their prowess to influence and manipulate us.",
+      "runtime_min": 94,
+      "director": "Jeff Orlowski-Yang",
+      "actors": [
+        "Tristan Harris",
+        "Jeff Seibert",
+        "Bailey Richardson"
+      ],
+      "genres": [
+        "Documentary",
+        "Drama"
+      ],
+      "fetched_at": "2026-08-11T03:56:42Z",
+      "schema": 3
+    },
+    "tt1368126": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMDkxN2M3NzYtNTFlMy00OGM2LTliYzUtOWI3NzdlNmNjMGJmXkEyXkFqcGdeQXVyNjc5MzM1MzM@._V1_SX300.jpg",
+      "imdb_rating": 8.6,
+      "imdb_votes": 27,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 96,
+      "director": "Heinz Marecek, Karl Stanzl",
+      "actors": [
+        "Maxi Böhm",
+        "Helli Servi",
+        "Birgit Machalissa"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "fetched_at": "2026-08-11T03:56:42Z",
+      "schema": 3
+    },
+    "tt1871038": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYjA5NGFkNDgtM2MxMi00ZGMzLWE1ZTctOTMxYjU5NWIwZDE4XkEyXkFqcGdeQXVyMDM3ODU0Nw@@._V1_SX300.jpg",
+      "imdb_rating": 8.2,
+      "imdb_votes": 34,
+      "content_rating": null,
+      "plot": "The documentary outlines the sensational and controversial career of AFL superstar player Ben Cousins who from the earliest days seemed bound for glory. A prodigy of sorts - considered a star after his first game, he soon redefined how the game would be played. He was appointed captain of the mightily powerful West Coast Eagles at the uncommonly young age of 21, eventually becoming a Brownlow Medalist and a Premiership player. From the outset he was a natural leader blessed with boyish movie star good looks and charisma. Well groomed and articulate, he quickly became the AFL's poster boy, the first \"rock star\" football player. Everyone wanted a piece of him",
+      "runtime_min": null,
+      "director": null,
+      "actors": [
+        "Ben Cousins"
+      ],
+      "genres": [
+        "Documentary"
+      ],
+      "fetched_at": "2026-08-11T03:56:42Z",
+      "schema": 3
+    },
+    "tt7059752": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNjdmZGUwNGMtZWNlMi00MGFmLTg5Y2MtMDAyZTliOWRhZTM4XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.9,
+      "imdb_votes": 32,
+      "content_rating": null,
+      "plot": "A rapper is trying in every way possible to make contact with his dead mother. In this rather unreasonable request he meets with fictional characters, who nevertheless are immortal.",
+      "runtime_min": 85,
+      "director": "Giorgos Efthimiou",
+      "actors": [
+        "Giannis Efthimiou",
+        "Yannis Deliveis",
+        "Mary Tsoni"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-08-11T03:56:42Z",
+      "schema": 3
+    },
+    "tt8228172": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZmI3ZmVmNGEtZDk2Yy00ZTc4LTgwMjctNjQzNjYxMzUxNWU0XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.4,
+      "imdb_votes": 6474,
+      "content_rating": "Not Rated",
+      "plot": "A woman is kidnapped and finds herself an unwilling participant in a deadly game where women are hunted by masked men.",
+      "runtime_min": 82,
+      "director": "Tony D'Aquino",
+      "actors": [
+        "Danielle Horvat",
+        "Leo Stripp",
+        "Dean Gould"
+      ],
+      "genres": [
+        "Action",
+        "Horror",
+        "Thriller"
+      ],
+      "fetched_at": "2026-08-11T03:56:42Z",
+      "schema": 3
+    },
+    "tt8936826": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzdjNmVmZjktNWQzOC00OTU1LTljMzktNjE3ZWUxY2U4NzgzXkEyXkFqcGdeQXVyNDA4Mjk4MA@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "1860 Oregon. The Drifter is the fastest gun in the west, prompting others to challenge him to prove they are faster. After the Drifter kills one such challenger, his brother, Doug Dekker; a corrupt railroad tycoon, vows revenge. H...",
+      "runtime_min": 30,
+      "director": "Brian Cucek",
+      "actors": [],
+      "genres": [
+        "Short",
+        "Western"
+      ],
+      "fetched_at": "2026-08-11T03:56:42Z",
       "schema": 3
     }
   },
