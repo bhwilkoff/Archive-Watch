@@ -94,6 +94,15 @@ def main() -> int:
     ap.add_argument("--workers", type=int, default=10)
     ap.add_argument("--threshold", type=float, default=8.0)
     ap.add_argument("--refresh", action="store_true", help="reclassify even if colorMode is set")
+    # SPLIT COMPUTE FROM COMMIT. Classifying takes ~an hour; applying the result
+    # takes seconds. Holding the `catalog-writers` lock for the whole hour is
+    # what starves 28 workflows of a single lock and gets runs destroyed in the
+    # queue (Decision 057). With --deltas-out the long half needs no lock at
+    # all, and --apply-deltas takes it only to merge onto a FRESH catalog —
+    # which is also safer, because a run no longer republishes a whole catalog
+    # it read hours ago.
+    ap.add_argument("--deltas-out", help="append results here as JSONL; do not touch the catalog")
+    ap.add_argument("--apply-deltas", help="merge a deltas file into the catalog and exit")
     args = ap.parse_args()
 
     if not CATALOG.exists():
@@ -101,6 +110,9 @@ def main() -> int:
 
     cat = json.load(open(CATALOG))
     items = cat["items"] if isinstance(cat, dict) else cat
+
+    if args.apply_deltas:
+        return apply_deltas(cat, items, Path(args.apply_deltas))
 
     targets = [it for it in items
                if video_url(it) and (args.refresh or not it.get("colorMode"))]
@@ -110,7 +122,15 @@ def main() -> int:
     print(f"[color] {len(targets)} items to classify "
           f"(workers {args.workers}, threshold {args.threshold})")
 
+    deltas = open(args.deltas_out, "a", encoding="utf-8") if args.deltas_out else None
+
     def flush():
+        # In deltas mode the catalog is never rewritten — results are appended
+        # as they arrive, so a kill keeps everything up to that moment instead
+        # of relying on a publish step being rescued afterwards.
+        if deltas:
+            deltas.flush()
+            return
         tmp = CATALOG.with_suffix(".json.tmp")
         json.dump(cat, open(tmp, "w"), ensure_ascii=False, separators=(",", ":"))
         tmp.replace(CATALOG)
@@ -122,7 +142,11 @@ def main() -> int:
             it = futs[fut]
             mode, _avg = fut.result()
             if mode:
-                it["colorMode"] = mode
+                if deltas:
+                    deltas.write(json.dumps({"archiveID": it.get("archiveID"),
+                                             "colorMode": mode}) + "\n")
+                else:
+                    it["colorMode"] = mode
                 color += (mode == "color"); bw += (mode == "bw")
             else:
                 fail += 1
@@ -131,7 +155,37 @@ def main() -> int:
                 flush()
                 print(f"[{done}/{len(targets)}] color {color} | bw {bw} | unreadable {fail}")
     flush()
-    print(f"[color] done: color {color}, bw {bw}, unreadable {fail}")
+    if deltas: deltas.close()
+    print(f"[color] done: color {color}, bw {bw}, unreadable {fail}"
+          + (f" -> {args.deltas_out}" if args.deltas_out else ""))
+    return 0
+
+
+def apply_deltas(cat, items, path: Path) -> int:
+    """Merge a deltas file into the catalog just fetched.
+
+    The merge is onto a FRESH catalog, so whatever other writers published while
+    this was computing is preserved — where republishing a whole catalog read
+    hours earlier would silently revert it.
+    """
+    if not path.exists():
+        print(f"[color] no deltas at {path} — nothing to apply"); return 0
+    by_id = {it.get("archiveID"): it for it in items}
+    applied = missing = 0
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line: continue
+        d = json.loads(line)
+        it = by_id.get(d.get("archiveID"))
+        if it is None:
+            missing += 1
+            continue
+        it["colorMode"] = d["colorMode"]
+        applied += 1
+    tmp = CATALOG.with_suffix(".json.tmp")
+    json.dump(cat, open(tmp, "w"), ensure_ascii=False, separators=(",", ":"))
+    tmp.replace(CATALOG)
+    print(f"[color] applied {applied} deltas ({missing} ids no longer in the catalog)")
     return 0
 
 

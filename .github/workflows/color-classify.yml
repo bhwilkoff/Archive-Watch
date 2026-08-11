@@ -1,68 +1,129 @@
 name: Color / B&W classification
 
-# Tags catalog items as color or black-and-white from their actual frames
-# (tools/classify_color.py, ffmpeg signalstats saturation). Resumable — only
-# items without a colorMode are processed — and bounded per run so it fits the
-# job time limit; the daily schedule chips away at the backlog and covers newly
-# ingested titles. The full first pass is faster run locally under caffeinate.
-# Catalog lives on the release (Decision 018): fetch -> classify -> publish.
+# Classify each playable item's video as colour or black-and-white by sampling
+# frames (Decision 025). ffmpeg signalstats saturation; threshold 8.
+#
+# SPLIT INTO COMPUTE AND COMMIT. This used to be one job that fetched the
+# catalog, classified for the best part of an hour, and published — holding the
+# `catalog-writers` lock the whole time. Twenty-eight workflows share that one
+# lock, and GitHub keeps only ONE pending run per group, so a newer arrival
+# DESTROYS the older (Decision 057). Five workflows alone were demanding ~10.7
+# hours of exclusive lock per day to perform about ten minutes of mutation.
+#
+# Now the long half runs with NO lock and writes its results to a deltas file as
+# they arrive; a second, short job takes the lock only to merge and publish.
+# Three things fall out of that:
+#
+#   * The lock is held for ~2 minutes instead of ~52, so supersession becomes
+#     rare rather than routine.
+#   * A killed compute job loses only what it had not yet written, because the
+#     deltas are appended as it goes — not rescued afterwards by `if: always()`.
+#   * The merge lands on a FRESHLY fetched catalog, so anything another writer
+#     published meanwhile survives. The old shape republished a whole catalog
+#     read an hour earlier, which could only be safe BECAUSE it held the lock.
 
 on:
   schedule:
-    - cron: '0 */8 * * *'   # every 8h (the cover fast-path made each item cheap)
+    - cron: '0 */8 * * *'
   workflow_dispatch:
     inputs:
       limit:
-        description: 'Max items to classify this run'
+        description: 'Items to classify this run'
         required: false
-        default: '10000'
+        default: '1200'
       workers:
-        description: 'Concurrent ffmpeg workers'
+        description: 'Parallel ffmpeg probes'
         required: false
-        default: '24'
-
-concurrency:
-  group: catalog-writers
-  cancel-in-progress: false
+        default: '10'
 
 jobs:
   classify:
     runs-on: ubuntu-latest
-    timeout-minutes: 330
+    # No catalog-writers group: this job never mutates shared state.
+    timeout-minutes: 200
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install --quiet requests
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      # Read-only: this is a download, and needs no lock.
+      - name: Fetch catalog (read-only)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Classify color / B&W
+        timeout-minutes: 170
+        run: |
+          python tools/classify_color.py \
+            --limit ${{ github.event.inputs.limit || '1200' }} \
+            --workers ${{ github.event.inputs.workers || '10' }} \
+            --deltas-out color-deltas.jsonl | tee color.log
+          echo '## Colour classification' >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"; tail -3 color.log >> "$GITHUB_STEP_SUMMARY"; echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      # Upload whatever was written, including after a timeout — the point of
+      # appending as we go is that a partial run is still worth keeping.
+      - name: Keep the results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: color-deltas
+          path: color-deltas.jsonl
+          if-no-files-found: ignore
+
+  apply:
+    needs: classify
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    # The ONLY job that touches the catalog, and it is short.
+    concurrency:
+      group: catalog-writers
+      cancel-in-progress: false
     permissions:
-      contents: write   # catalog_release.py publish uploads a release asset
+      contents: write
       actions: write
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
-      - name: Install ffmpeg
-        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: pip install --quiet requests
+      - uses: actions/download-artifact@v4
+        with:
+          name: color-deltas
+        continue-on-error: true
 
       - name: Fetch catalog
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py fetch
 
-      - name: Classify color / B&W
+      - name: Apply the classifications
         run: |
-          python tools/classify_color.py \
-            --limit ${{ github.event.inputs.limit || '10000' }} \
-            --workers ${{ github.event.inputs.workers || '24' }} | tee color.log
-          echo "## Color classification" >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 color.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+          if [ ! -s color-deltas.jsonl ]; then
+            echo "no deltas to apply"; exit 0
+          fi
+          python tools/classify_color.py --apply-deltas color-deltas.jsonl
 
       - name: Publish catalog to release
-        # Publish what finished. A killed compute step above must not
-        # discard the run's work, which is how faststart-derivatives lost
-        # two monthly passes in a row.
+        # Publish what finished; a killed compute job must not discard it.
         if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python tools/catalog_release.py publish
+        run: |
+          [ -s color-deltas.jsonl ] || { echo "nothing applied; not republishing"; exit 0; }
+          python tools/catalog_release.py publish
 
       - name: Rebuild app DB
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: bash tools/gh_dispatch.sh publish-db.yml
+        run: |
+          [ -s color-deltas.jsonl ] || { echo "nothing applied; not rebuilding"; exit 0; }
+          bash tools/gh_dispatch.sh publish-db.yml
