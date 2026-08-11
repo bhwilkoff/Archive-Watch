@@ -32,6 +32,22 @@ def norm_words(text: str) -> list[str]:
     return [w for w in re.sub(r"[^a-z' ]", " ", text.lower()).split() if w]
 
 
+
+def read_wav16k(path):
+    """Load ffmpeg's 16 kHz mono wav as a torch tensor.
+
+    NOT `torchaudio.load`. Recent torchaudio dispatches that call to
+    `load_with_torchcodec`, which raises ImportError unless the separate
+    `torchcodec` package is installed — and it is not here, so EVERY film failed
+    at this line while the log blamed the download. soundfile is already a
+    dependency, reads exactly this file, and adds no version coupling to torch.
+    """
+    import torch
+    import soundfile
+    data, _ = soundfile.read(path, dtype="float32", always_2d=True)
+    return torch.from_numpy(data.T.copy())
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=800, help="films to align this run")
@@ -50,6 +66,7 @@ def main() -> int:
 
     import torch
     import torchaudio
+    import numpy as np
 
     db = sqlite3.connect(args.db)
     db.execute("""CREATE TABLE IF NOT EXISTS words(
@@ -104,7 +121,7 @@ def main() -> int:
                          "-i", url, "-ac", "1", "-ar", "16000", "-vn", tf.name],
                         capture_output=True, timeout=900, check=True)
                     _ = r
-                    wav, _ = torchaudio.load(tf.name)
+                    wav = read_wav16k(tf.name)
                 break
             except subprocess.CalledProcessError as e:
                 # KEEP the reason. Discarding stderr is why "31 of 31 failed" sat
@@ -122,8 +139,15 @@ def main() -> int:
             # SILENT before this: three films failed here and the run reported
             # "+0 films" with no indication why, which is indistinguishable from
             # having nothing to do.
+            #
+            # And then it lied. Everything in this block was reported as an
+            # "audio download failed", including the ImportError raised by
+            # torchaudio.load() AFTER the download succeeded — which sent a whole
+            # session chasing ffmpeg and archive.org while the real fault was a
+            # missing Python package. Say which half failed.
             failed_dl += 1
-            print(f"[words] {aid[:44]}: audio download failed after 3 tries — "
+            stage = "decode" if last_err.startswith(("ImportError", "RuntimeError")) else "download"
+            print(f"[words] {aid[:44]}: audio {stage} failed after 3 tries — "
                   f"{last_err or 'no error captured'}", flush=True)
             continue   # transient — leave unaligned so a later run retries
 

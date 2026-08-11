@@ -195,13 +195,25 @@ def busy_groups(repo: str, groups: dict[str, str], ignore_run_id: int | None = N
 
 
 def superseded_by_concurrency(repo: str, run_id: int) -> bool:
-    """True when a cancelled run never had a job created — it was displaced in the
-    pending queue, so no step of ours ran and nothing was interrupted."""
+    """True when a cancelled run never executed a step — it was displaced in the
+    pending queue, so nothing of ours ran and nothing was interrupted.
+
+    Zero JOBS is the cleanest form of that, and was the only case this tested.
+    But GitHub also records a displaced run as ONE job with ZERO STEPS, and that
+    is the same fact: the job was created and never started. Testing only for an
+    empty job list therefore missed real supersessions — `rebuild-catalog` sat
+    cancelled at 0 minutes with one step-less job and was never recovered,
+    despite the sweeper running hourly for a day and a half.
+
+    A job that ran has steps. So "no job has any steps" carries exactly the
+    no-side-effect guarantee this needs, and a human cancelling a RUNNING job —
+    which this must never retry — always leaves steps behind.
+    """
     try:
         jobs = gh_json("api", f"repos/{repo}/actions/runs/{run_id}/jobs?per_page=100")["jobs"]
     except (RuntimeError, KeyError):
         return False
-    return not jobs
+    return not any(job.get("steps") for job in jobs)
 
 
 def healed_since(repo: str, workflow_id: int, created_at: datetime) -> bool:
