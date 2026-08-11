@@ -47,6 +47,55 @@ enum SystemCaptions {
     }
     private struct GroupBox: @unchecked Sendable { let group: AVMediaSelectionGroup? }
 
+    /// Does the system's track actually SAY anything on this film?
+    ///
+    /// Offering a track and producing captions are different claims, and on this
+    /// catalogue they come apart. Measured on macOS 27 across three films: the
+    /// system offered "English (US) Transcribed" on all three and emitted cues on
+    /// ONE — a clear 1975 narration. On The Day the Earth Caught Fire (1961) and
+    /// Meet John Doe (1941) it produced nothing at all across five minutes, while
+    /// our own engine transcribed both at ~55% word error. It appears to decline
+    /// rather than guess on poor archival optical sound, which is most of what
+    /// this app holds.
+    ///
+    /// So standing down on the mere PRESENCE of a track would leave a viewer
+    /// with no captions at all on exactly the films that need them most. This
+    /// waits for real text before handing over.
+    @MainActor
+    static func emitsCaptions(on player: AVPlayer?, within seconds: Double = 75) async -> Bool {
+        guard let item = player?.currentItem else { return false }
+        let sink = EmissionSink()
+        let output = AVPlayerItemLegibleOutput(mediaSubtypesForNativeRepresentation: [])
+        // Observe only — the player must go on drawing its own subtitles.
+        output.suppressesPlayerRendering = false
+        output.setDelegate(sink, queue: .main)
+        item.add(output)
+        defer { item.remove(output) }
+
+        let deadline = Date().addingTimeInterval(seconds)
+        while Date() < deadline {
+            if sink.sawText { return true }
+            if Task.isCancelled { return false }
+            try? await Task.sleep(nanoseconds: 1_000_000_000)
+        }
+        return sink.sawText
+    }
+
+    private final class EmissionSink: NSObject, AVPlayerItemLegibleOutputPushDelegate,
+                                      @unchecked Sendable {
+        private let lock = NSLock()
+        private var _sawText = false
+        var sawText: Bool { lock.lock(); defer { lock.unlock() }; return _sawText }
+        func legibleOutput(_ output: AVPlayerItemLegibleOutput,
+                           didOutputAttributedStrings strings: [NSAttributedString],
+                           nativeSampleBuffers: [Any], forItemTime itemTime: CMTime) {
+            guard strings.contains(where: {
+                !$0.string.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            }) else { return }
+            lock.lock(); _sawText = true; lock.unlock()
+        }
+    }
+
     /// True once the player offers a subtitle track of its own.
     ///
     /// Polled rather than checked once: a generated track appears a moment after

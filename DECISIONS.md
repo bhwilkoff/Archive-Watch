@@ -2748,3 +2748,48 @@ The same judge could run in the PIPELINE to find mistimed files catalogue-wide
 rather than per-viewer, on a machine that has speech models (Decision 060 rules
 out hosted runners) — the 27-second file above is unlikely to be alone, and
 fixing them at the source would help web and Android too.
+
+## 063 — Hand captioning to the system only when it actually captions THIS film
+*Date: 2026-08-10*
+
+Decision 061 stood our engine down whenever the player offered a legible option.
+That is amended: it stands down only after the system's track has been observed
+to EMIT TEXT (`SystemCaptions.emitsCaptions`, via `AVPlayerItemLegibleOutput`
+attached observe-only). Offering a track and producing captions are different
+claims, and on this catalogue they come apart.
+
+**Why**: measured on macOS 27 across three films. The system offered "English
+(US) Transcribed" on all three and produced cues on ONE — *The Incredible
+Machine* (1975), a clear narration. On *The Day the Earth Caught Fire* (1961) and
+*Meet John Doe* (1941) it emitted **nothing at all** across five minutes each,
+including with nothing else running in the process, while our own engine
+transcribed both — 57.4% and 55.3% word error against their aligned published
+human tracks. It appears to decline rather than guess on poor archival optical
+sound, which is most of what this app holds. Standing down on the mere presence
+of a track would therefore have left viewers with NO captions on exactly the
+films that need them most, while the app quietly held an engine that would have
+produced something.
+
+Which of the two is more ACCURATE remains unmeasured: no film yet tested both
+produced system captions AND had a human reference to score against. The
+comparison harness is `tools/compare_caption_sources.swift` and it aligns the
+reference before scoring — the first version did not, and reported 67.7% for a
+transcript that scores 57.4% once the reference's own 27-second sync error is
+removed (Decision 062). A benchmark that measures the reference's sync error and
+calls it the engine's word error is worse than no benchmark.
+
+**How to apply**: never treat an available caption track as a working one — for
+the system's generated track, for a published file (Decision 062), or for a
+future source. Attach the legible output observe-only
+(`suppressesPlayerRendering = false`); suppressing rendering to inspect a track
+would blank the very captions being checked. Keep the wait bounded (~75s): the
+system's cues arrive in late batches, measured ~75s behind the playhead, so a
+short check would wrongly conclude silence. If a later OS starts captioning
+these soundtracks, this needs no change — it observes rather than assumes.
+
+**Consequences**: on a film the system declines, the viewer gets our captions
+instead of nothing, at the cost of one bounded extra stream. ~55% word error on
+1940s–60s optical sound is the honest number for what an on-device recognizer
+achieves here; it is not good, and it is a great deal better than a blank
+screen. The two engines' relative accuracy is still an open question and needs a
+film where both produce output.

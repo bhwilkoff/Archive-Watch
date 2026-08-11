@@ -416,7 +416,8 @@ private struct PlayerSurface: View {
         Task { @MainActor in
             // From macOS 27 the system captions this film itself; ours would
             // double up on it.
-            if await SystemCaptions.waitForLegibleOption(on: p) { return }
+            if await SystemCaptions.waitForLegibleOption(on: p),
+               await SystemCaptions.emitsCaptions(on: p) { return }
             let lc = LiveCaptions()
             liveCaptions = lc
             await lc.start(url: src, from: p.currentTime())
