@@ -94,6 +94,10 @@ jobs:
         run: python tools/catalog_release.py fetch
 
       - name: Verify shard ${{ matrix.shard }}
+        # Backstop for when the budget cannot stop it — one hung request
+        # inside a single item is how a 180-minute budget ran 360.
+        # Fails the STEP, so the publish steps below still run.
+        timeout-minutes: 210
         run: |
           # Guard: only run this shard if it's within the requested shard_count
           # (the matrix is fixed at 4; a smaller shard_count no-ops the extras).
@@ -113,6 +117,10 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 shard-${{ matrix.shard }}.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Upload shard delta
+        # Publish what finished. A killed compute step above must not
+        # discard the run's work, which is how faststart-derivatives lost
+        # two monthly passes in a row.
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: strict-delta-${{ matrix.shard }}

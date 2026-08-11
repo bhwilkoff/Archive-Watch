@@ -88,6 +88,10 @@ jobs:
       # No PR — the catalog isn't in git. Publish straight to the release;
       # publish-db rebuilds the app's SQLite from it on its schedule.
       - name: Publish catalog to release
+        # Publish what finished. A killed compute step above must not
+        # discard the run's work, which is how faststart-derivatives lost
+        # two monthly passes in a row.
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py publish

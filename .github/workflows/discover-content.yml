@@ -219,6 +219,10 @@ jobs:
             | tee episode_audit.log
 
       - name: Upload episode-audit manifest
+        # Publish what finished. A killed compute step above must not
+        # discard the run's work, which is how faststart-derivatives lost
+        # two monthly passes in a row.
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: episode-audit
@@ -275,6 +279,10 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Commit if changed
+        # Publish what finished. A killed compute step above must not
+        # discard the run's work, which is how faststart-derivatives lost
+        # two monthly passes in a row.
+        if: always()
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -315,6 +323,10 @@ jobs:
         run: python tools/remediate_catalog.py
 
       - name: Publish catalog to release
+        # Publish what finished. A killed compute step above must not
+        # discard the run's work, which is how faststart-derivatives lost
+        # two monthly passes in a row.
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py publish

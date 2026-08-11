@@ -132,6 +132,10 @@ jobs:
           echo "## Faststart re-verify" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY; tail -4 verify.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
       - name: Upload verify delta
+        # Publish what finished. A killed compute step above must not
+        # discard the run's work, which is how faststart-derivatives lost
+        # two monthly passes in a row.
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: faststart-verify-delta

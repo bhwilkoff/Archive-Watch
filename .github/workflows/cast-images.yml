@@ -48,11 +48,19 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY; tail -4 castimg.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Publish catalog to release
+        # Publish what finished. A killed compute step above must not
+        # discard the run's work, which is how faststart-derivatives lost
+        # two monthly passes in a row.
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py publish
 
       - name: Persist name->photo cache
+        # Publish what finished. A killed compute step above must not
+        # discard the run's work, which is how faststart-derivatives lost
+        # two monthly passes in a row.
+        if: always()
         run: |
           if [ -n "$(git status --porcelain tools/cast_image_cache.json)" ]; then
             git config user.name "github-actions[bot]"

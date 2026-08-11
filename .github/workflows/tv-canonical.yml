@@ -70,6 +70,10 @@ jobs:
         run: python tools/dedupe_orphan_episodes.py --apply | tee dedupe.log
 
       - name: Build canonical TV (TVmaze spine + Archive map + MP4 re-pick)
+        # Backstop for when the budget cannot stop it — one hung request
+        # inside a single item is how a 180-minute budget ran 360.
+        # Fails the STEP, so the publish steps below still run.
+        timeout-minutes: 180
         run: |
           # A BUDGET. This step ran 5h59m on 2026-08-09 and consumed the whole
           # 360-minute default job timeout, so every step after it — the TVDB
@@ -114,6 +118,10 @@ jobs:
       # of the giant-diff PR-creation 500s that used to fail this job. Series
       # JSON ships to Pages; deletions (mismaps) are committed via `git add -A`.
       - name: Commit TV series to main
+        # Publish what finished. A killed compute step above must not
+        # discard the run's work, which is how faststart-derivatives lost
+        # two monthly passes in a row.
+        if: always()
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -138,6 +146,10 @@ jobs:
         run: python tools/remediate_catalog.py
 
       - name: Publish catalog to release
+        # Publish what finished. A killed compute step above must not
+        # discard the run's work, which is how faststart-derivatives lost
+        # two monthly passes in a row.
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py publish

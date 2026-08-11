@@ -52,6 +52,10 @@ jobs:
         run: python tools/catalog_release.py fetch
 
       - name: Harvest community signals
+        # Backstop for when the budget cannot stop it — one hung request
+        # inside a single item is how a 180-minute budget ran 360.
+        # Fails the STEP, so the publish steps below still run.
+        timeout-minutes: 270
         run: |
           # A BUDGET: a prior run hit the 330-minute job timeout and was killed
           # with nothing written. Harvesting flushes as it goes, so stopping
@@ -70,6 +74,10 @@ jobs:
           echo '```' >> "$GITHUB_STEP_SUMMARY"; tail -2 reviews.log >> "$GITHUB_STEP_SUMMARY"; echo '```' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Publish catalog to release
+        # Publish what finished. A killed compute step above must not
+        # discard the run's work, which is how faststart-derivatives lost
+        # two monthly passes in a row.
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py publish

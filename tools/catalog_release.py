@@ -25,6 +25,7 @@ Requires the `gh` CLI authenticated (GH_TOKEN in CI).
 
 import argparse
 import gzip
+import json
 import shutil
 import subprocess
 import sys
@@ -121,6 +122,31 @@ def fetch():
     return 0
 
 
+
+# A published catalog only ever grows, slowly. Anything much smaller than what
+# is already there is truncation, not curation.
+SHRINK_FLOOR = 0.85
+
+
+def _asset_size() -> int:
+    """Bytes of the currently published asset, or 0 if it cannot be read.
+
+    Unknown means unknown: if the size cannot be established this does NOT
+    block the upload, because refusing on a network hiccup would strand every
+    run behind a check that is meant to catch corruption, not connectivity.
+    """
+    c = _gh_net("release", "view", TAG, "--json", "assets")
+    if c.returncode != 0:
+        return 0
+    try:
+        for a in json.loads(c.stdout).get("assets", []):
+            if a.get("name") == ASSET:
+                return int(a.get("size") or 0)
+    except Exception:
+        return 0
+    return 0
+
+
 def publish():
     if not CATALOG.exists():
         print(f"[catalog] no {CATALOG} to publish", file=sys.stderr)
@@ -128,6 +154,22 @@ def publish():
     with open(CATALOG, "rb") as fi, gzip.open(GZ, "wb", compresslevel=9) as fo:
         shutil.copyfileobj(fi, fo)
     print(f"[catalog] {CATALOG.stat().st_size/1e6:.1f} MB -> {GZ.stat().st_size/1e6:.1f} MB gzipped")
+
+    # REFUSE A SHRUNKEN CATALOG. The publish steps now run even when a compute
+    # step above them was killed (so a timeout stops discarding a whole run's
+    # work) — which means this can be reached with a catalog that was being
+    # written when the kill landed, and uploading that would clobber the real
+    # one. Decision 020's lesson, applied at the last gate rather than only at
+    # the merge: a catalog that suddenly halves is a bug, not a result.
+    existing = _asset_size()
+    if existing and GZ.stat().st_size < existing * SHRINK_FLOOR:
+        print(f"[catalog] REFUSING to publish: {GZ.stat().st_size/1e6:.1f} MB is under "
+              f"{SHRINK_FLOOR:.0%} of the {existing/1e6:.1f} MB already published. "
+              f"A catalog does not shrink like that; something upstream was "
+              f"interrupted mid-write.", file=sys.stderr)
+        GZ.unlink()
+        return 1
+
     state = _release_state()
     if state == "absent":
         c = _gh_net("release", "create", TAG, "--title", TITLE, "--notes",

@@ -51,6 +51,10 @@ jobs:
         run: gh release download stock-index -p clips.sqlite -O clips.sqlite
 
       - name: Tag shots
+        # Backstop for when the budget cannot stop it — one hung request
+        # inside a single item is how a 180-minute budget ran 360.
+        # Fails the STEP, so the publish steps below still run.
+        timeout-minutes: 270
         run: |
           # A BUDGET, not just a timeout: this job hit its wall (281m, 330m) and
           # was reported as "cancelled", losing the whole run. Tagging commits
@@ -63,6 +67,10 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY; tail -2 tag.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Publish updated index
+        # Publish what finished. A killed compute step above must not
+        # discard the run's work, which is how faststart-derivatives lost
+        # two monthly passes in a row.
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

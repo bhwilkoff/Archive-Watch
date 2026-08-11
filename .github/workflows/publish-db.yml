@@ -90,6 +90,10 @@ jobs:
       # to abort the job before this ran, leaving a STALE shipping DB on the
       # release (e.g. a concurrent writer/local push landed first).
       - name: Upload to rolling release
+        # Publish what finished. A killed compute step above must not
+        # discard the run's work, which is how faststart-derivatives lost
+        # two monthly passes in a row.
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -109,6 +113,10 @@ jobs:
       # which races other writers / local pushes, so retry with rebase and NEVER
       # fail the job (the DB already shipped above).
       - name: Build + commit catalog search index
+        # Publish what finished. A killed compute step above must not
+        # discard the run's work, which is how faststart-derivatives lost
+        # two monthly passes in a row.
+        if: always()
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

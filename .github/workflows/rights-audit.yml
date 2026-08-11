@@ -71,12 +71,20 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY; sed -n '1,30p' audit.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Upload rejected manifest for review
+        # Publish what finished. A killed compute step above must not
+        # discard the run's work, which is how faststart-derivatives lost
+        # two monthly passes in a row.
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: rejected_audit
           path: tools/rejected_audit.csv
 
       - name: Publish annotated catalog to release
+        # Publish what finished. A killed compute step above must not
+        # discard the run's work, which is how faststart-derivatives lost
+        # two monthly passes in a row.
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py publish

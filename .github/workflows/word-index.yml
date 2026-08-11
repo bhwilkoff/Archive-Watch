@@ -56,6 +56,10 @@ jobs:
       # being killed threw away every day's work. Stopping early lets the publish
       # step run and the next day resume from the `aligned` marker.
       - name: Align words
+        # Backstop for when the budget cannot stop it — one hung request
+        # inside a single item is how a 180-minute budget ran 360.
+        # Fails the STEP, so the publish steps below still run.
+        timeout-minutes: 270
         run: |
           python tools/build_word_index.py \
             --limit ${{ github.event.inputs.limit || '400' }} \
@@ -64,6 +68,10 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY; tail -2 words.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Publish updated index
+        # Publish what finished. A killed compute step above must not
+        # discard the run's work, which is how faststart-derivatives lost
+        # two monthly passes in a row.
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

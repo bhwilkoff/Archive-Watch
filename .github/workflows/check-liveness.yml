@@ -92,6 +92,10 @@ jobs:
       # two titles the owner actually reported sat in the 11,528 it never reached.
       # A specific reported title must be fixable now, not in three days' drain.
       - name: Check liveness
+        # Backstop for when the budget cannot stop it — one hung request
+        # inside a single item is how a 180-minute budget ran 360.
+        # Fails the STEP, so the publish steps below still run.
+        timeout-minutes: 150
         run: |
           IDS="${{ github.event.inputs.ids }}"
           if [ -n "$IDS" ]; then
@@ -116,6 +120,10 @@ jobs:
         run: python tools/remediate_catalog.py
 
       - name: Publish catalog to release
+        # Publish what finished. A killed compute step above must not
+        # discard the run's work, which is how faststart-derivatives lost
+        # two monthly passes in a row.
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py publish
