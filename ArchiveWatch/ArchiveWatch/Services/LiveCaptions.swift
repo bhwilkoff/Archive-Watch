@@ -156,6 +156,9 @@ final class LiveCaptions {
 
     private var tap: MTAudioProcessingTap?
     private var scoutPlayer: AVPlayer?
+    /// Retained for the scout asset's lifetime — the resource-loader delegate
+    /// is held weakly, so dropping this silently stops the stream.
+    private var streamLoader: ResilientStreamLoader?
     private var task: Task<Void, Never>?
     private let sink = BufferSink()
 
@@ -197,7 +200,21 @@ final class LiveCaptions {
         }
         self.tap = tap
 
-        let asset = AVURLAsset(url: url)
+        // THE SAME PATH PLAYBACK USES. A bare `AVURLAsset` has none of the
+        // resilience the player has had since Decisions 021/031/034 — no
+        // resume-on-reset, no storage-node failover, no retry — so a transient
+        // archive.org condition that playback rides straight through kills
+        // captions outright, and silently: `loadTracks` fails and the engine
+        // reports "this title has no audio to transcribe" about a film that
+        // plainly has audio and is playing at that moment.
+        //
+        // Measured: The Night Stalker fails that way in 3 seconds under load
+        // while the identical URL loads audio + video fine when asked alone.
+        // The owner's report — correct subtitles never appearing on a film with
+        // a mistimed file — is that failure, because no transcript means no
+        // verdict and the published file plays uncorrected.
+        let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
+        streamLoader = loader          // the resource-loader delegate is weak
         let item = AVPlayerItem(asset: asset)
         let scout = AVPlayer(playerItem: item)
         // volume 0, but NOT isMuted: muting can take the audio out of the render
