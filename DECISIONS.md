@@ -2793,3 +2793,51 @@ instead of nothing, at the cost of one bounded extra stream. ~55% word error on
 achieves here; it is not good, and it is a great deal better than a blank
 screen. The two engines' relative accuracy is still an open question and needs a
 film where both produce output.
+
+## 064 — Mistimed subtitle files are corrected at the SOURCE, which is the only way most platforms get them right
+*Date: 2026-08-10*
+
+`tools/subtitle_sync_main.swift` (transcribe + judge) and
+`tools/fix_subtitle_sync.py` (work / apply / publish) sweep the published
+subtitle set, measure each file against a transcript of its own film using the
+SHIPPED `SubtitleAgreement`, and rewrite the cue times of the ones that are out
+of sync. Corrections go into `subs.tar.gz` on the `subtitle-assets` release,
+which `deploy-pages` restores into the site — so one fix reaches web, Android
+and every Apple platform at once, with no app build.
+
+**Why**: Decision 062 checks a published file per viewer, per playback, but only
+where the device can transcribe. That excludes **web** and **Android**, which
+have no on-device transcription available to them at all, and **tvOS 26**, which
+has no speech models (Decision 060). Those three platforms cannot help
+themselves, and they are most of the audience. A file corrected at the source is
+the only route by which they ever show the right subtitles — and it also spares
+the platforms that CAN self-correct from doing the same work on every playback.
+
+First real sweep, popularity-first: *Impact* (1949) ran **22 seconds late**
+(agreement 6% → 60% once corrected) and *The Vampire Bat* **31 seconds late**
+(5% → 37%). Both are now correct on every platform; verified live on
+archivewatch.org after deploy.
+
+**How to apply**: this cannot run in CI — a hosted runner has no speech models
+and cannot install them (Decision 060), which is exactly what killed the central
+auto-caption pipeline. Run it on a machine that has them. It is resumable
+(verdicts append to JSONL, decided films are never re-listened to) and ordered by
+popularity, because a mistimed file on a film nobody opens matters less than one
+on the front page.
+
+`apply` rewrites SHIFTS by default and only REPORTS mismatches. Deleting a
+subtitle set is destructive and irreversible from a local snapshot, and the
+mismatch threshold is not validated at this scale — the same precision-over-
+recall rule that governs hiding items (Decisions 027/035/044). The first batch
+justified that caution immediately: *Carnival of Souls* was judged a mismatch at
+12%, and its audio is the known-bad case already on record in
+`CaptionQuality`'s calibration (49 wpm) — a poor transcript, not necessarily a
+wrong file. `--drop-mismatched` exists for when the evidence is reviewed.
+Silence is never evidence: `unheard` and `no-verdict` change nothing.
+
+**Consequences**: `publish` refuses to upload a set smaller than 7,000 files,
+because republishing a shrunken snapshot would delete subtitles wholesale — the
+failure that once served `404.html` as VTT with HTTP 200 (Decision 043 era). The
+sweep runs at roughly one film every 2–3 minutes, so 7,391 films is a long
+background job rather than a session; it is built to chip away, and the
+popularity ordering means the value lands first.
