@@ -50,8 +50,18 @@ def _cap_memory():
             pass
 
 
-def scene_cuts(url: str, max_seconds: int, fps: float) -> list[float]:
-    """Scene-change timestamps (seconds) via ffmpeg `scdet`, bounded for speed AND memory."""
+def scene_cuts(url: str, max_seconds: int, fps: float) -> tuple[list[float], str]:
+    """Scene-change timestamps (seconds) via ffmpeg `scdet`, bounded for speed AND memory.
+
+    Returns (cuts, problem). `problem` is empty when ffmpeg succeeded; otherwise it
+    carries the reason, because a film ffmpeg could not OPEN and a film with no
+    cuts are the same empty list — and telling them apart is the whole difference
+    between "drained" and "broken". This ran four times a day producing 0 shots
+    while scanning real films, and the log could not say why: the exit code was
+    discarded and stderr went to a temp file that was only scanned for matches.
+    Word-index hid for months behind exactly this (a mislabelled error), so the
+    rule is the same one: keep the reason.
+    """
     # Downscale to <=360p BEFORE scene detection. Shot boundaries don't need full resolution,
     # and decoding HD/1080i frames at full res under --concurrency blew the CI runner's RAM (the
     # kernel OOM-killer SIGTERM'd whole shards right after HD items — run 28262168655). The comma
@@ -63,22 +73,30 @@ def scene_cuts(url: str, max_seconds: int, fps: float) -> list[float]:
     # file is read back line-by-line so the parse stays bounded too. preexec caps ffmpeg's own
     # memory (see FFMPEG_MEM_CAP). Both guard the deterministic single-shard OOM the owner hit.
     cuts: list[float] = []
+    problem = ""
     try:
         with tempfile.TemporaryFile(mode="w+", encoding="utf-8", errors="replace") as errf:
+            rc = None
             try:
-                subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=errf,
-                               timeout=max_seconds * 4 + 90,
-                               preexec_fn=(_cap_memory if sys.platform != "win32" else None))
+                rc = subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=errf,
+                                    timeout=max_seconds * 4 + 90,
+                                    preexec_fn=(_cap_memory if sys.platform != "win32" else None)
+                                    ).returncode
             except subprocess.TimeoutExpired:
-                pass                      # parse whatever cuts were found before the timeout
+                problem = "ffmpeg timed out"   # still parse the cuts found before it
             errf.seek(0)
+            tail = ""
             for line in errf:             # bounded: one line at a time, never the whole buffer
                 m = re.search(r"lavfi\.scd\.time:\s*([\d.]+)", line)
                 if m:
                     cuts.append(float(m.group(1)))
-    except Exception:
-        return sorted(cuts)
-    return sorted(cuts)
+                elif line.strip() and not line.startswith("frame="):
+                    tail = line.strip()[:160]
+            if rc not in (0, None) and not problem:
+                problem = f"ffmpeg exit {rc}: {tail}" if tail else f"ffmpeg exit {rc}"
+    except Exception as e:
+        problem = f"{type(e).__name__}: {e}"[:160]
+    return sorted(cuts), problem
 
 
 def shots_from_cuts(cuts: list[float], total: float,
@@ -143,8 +161,12 @@ def main() -> int:
         # Log BEFORE the scan so a runner that's OOM-killed mid-film still names the culprit in
         # its log (a successful scan logs again, with the shot count, in the main loop below).
         print(f"[stock] scanning {it['archiveID']} (rt={it.get('runtimeSeconds')})", flush=True)
-        cuts = scene_cuts(it["downloadURL"], args.max_seconds, args.fps)
+        cuts, problem = scene_cuts(it["downloadURL"], args.max_seconds, args.fps)
         if not cuts:
+            # SAY WHY. "no cuts" from a film that played and "no cuts" from a
+            # film ffmpeg never opened look identical, and only one is a result.
+            print(f"[stock] {it['archiveID']}: no shots — "
+                  f"{problem or 'ffmpeg read it but found no scene changes'}", flush=True)
             return None
         rt = it.get("runtimeSeconds") or 0
         total = min(rt, args.max_seconds) if rt else args.max_seconds
@@ -186,6 +208,10 @@ def main() -> int:
 
     n = db.execute("SELECT count(*) FROM shots").fetchone()[0]
     print(f"[stock] +{done} films this run; {n} shots total in {args.out}")
+    if done == 0 and candidates:
+        print(f"[stock] WARNING: scanned films and indexed NONE. If every line above "
+              f"names an ffmpeg error, this is a fetch problem, not an empty backlog.",
+              flush=True)
     return 0
 
 
