@@ -34,10 +34,6 @@ on:
         required: false
         default: 'false'
 
-concurrency:
-  group: catalog-writers
-  cancel-in-progress: false
-
 jobs:
   free-subs:
     runs-on: ubuntu-latest
@@ -59,6 +55,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py fetch
+
+
+      - name: Record the catalog before we touch it
+
+        run: python tools/catalog_delta.py snapshot --out /tmp/aw-before.json
 
       # A FAILED restore used to be swallowed by `|| true`, leaving subs/ empty —
       # and the publish step below re-tars whatever is on disk, so one bad
@@ -133,19 +134,86 @@ jobs:
               --notes "VTT + HLS subtitle assets served to Pages at /subs (Decision 039)."
           bash tools/gh_retry.sh gh release upload subtitle-assets subs.tar.gz --clobber
 
+      - name: Extract what changed
+
+        if: always()
+
+        run: python tools/catalog_delta.py extract --snapshot /tmp/aw-before.json --out aw-deltas.json
+
+
+      # Upload even after a timeout — a partial run is still worth keeping.
+
+      - name: Keep the deltas
+
+        if: always()
+
+        uses: actions/upload-artifact@v4
+
+        with:
+
+          name: free-subs-deltas
+
+          path: aw-deltas.json
+
+          if-no-files-found: ignore
+
+  # The ONLY job holding catalog-writers, for ~2 minutes rather than the whole
+  # compute. Merging onto a FRESHLY fetched catalog also preserves whatever
+  # another writer published meanwhile.
+  apply:
+    needs: free-subs
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    concurrency:
+      group: catalog-writers
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install --quiet requests
+      - uses: actions/download-artifact@v4
+        with:
+          name: free-subs-deltas
+        continue-on-error: true
+      - name: Stop if nothing changed
+        id: gate
+        run: |
+          if [ ! -s aw-deltas.json ]; then
+            echo "nothing to apply"; echo "go=no" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=yes" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Fetch catalog
+        if: steps.gate.outputs.go == 'yes'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+      - name: Apply the deltas
+        if: steps.gate.outputs.go == 'yes'
+        run: python tools/catalog_delta.py apply --deltas aw-deltas.json
+
+
       - name: Remediate catalog data quality
+        if: steps.gate.outputs.go == 'yes'
         run: python tools/remediate_catalog.py
 
       - name: Publish catalog to release
         # Publish what finished. A killed compute step above must not
         # discard the run's work, which is how faststart-derivatives lost
         # two monthly passes in a row.
-        if: always()
+        if: steps.gate.outputs.go == 'yes'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py publish
 
       - name: Deploy Pages (/subs) + rebuild app DB
+        if: steps.gate.outputs.go == 'yes'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -161,6 +229,7 @@ jobs:
       # cron (above) is the sustainable driver — it picks up the next batch tomorrow.
       # (Manual override: dispatch again by hand to burn a fresh day's quota.)
       - name: Report backlog
+        if: steps.gate.outputs.go == 'yes'
         run: |
           LIMIT="${{ github.event.inputs.limit || '2000' }}"
           # One line PER PROVIDER now — the backlog is drained only when every
