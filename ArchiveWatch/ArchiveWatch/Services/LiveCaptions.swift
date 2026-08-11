@@ -91,6 +91,10 @@ final class LiveCaptions {
     /// Where the scout began, in film time; the analyzer clocks from zero.
     private var contentOffset: Double = 0
     private var pendingWords: [(start: Double, end: Double, text: String)] = []
+    /// The recognizer's own timings, before any display pacing (Decision 059).
+    private var rawCues: [(start: Double, end: Double, text: String)] = []
+    /// Where the viewer is, so a caption already on screen is never re-timed.
+    private var lastPlayhead: Double = 0
 
     /// The caption to show at `playhead`, or "" between lines.
     ///
@@ -123,6 +127,7 @@ final class LiveCaptions {
     func adopt(_ replacement: [(start: Double, end: Double, text: String)]) {
         guard !replacement.isEmpty else { return }
         cues = replacement.sorted { $0.start < $1.start }
+        rawCues.removeAll()
         everProducedCue = true
         failure = nil
         task?.cancel(); task = nil
@@ -139,12 +144,18 @@ final class LiveCaptions {
         scoutPlayer = nil
     }
 
-    /// Everything transcribed so far.
+    /// Everything transcribed so far, at the times the recognizer reported.
     ///
     /// This is the app's own independent estimate of what is being said, which
     /// makes it the only thing on hand that can judge whether a PUBLISHED
     /// subtitle track actually matches the film (`SubtitleAgreement`).
-    func transcript() -> [(start: Double, end: Double, text: String)] { cues }
+    ///
+    /// Deliberately the RAW times, not the displayed ones: `cues` has been
+    /// re-timed to be readable, and that re-timing only moves cues later, so
+    /// measuring against it biases every correction in one direction.
+    func transcript() -> [(start: Double, end: Double, text: String)] {
+        rawCues.isEmpty ? cues : rawCues
+    }
 
     /// How far ahead of `playhead` the transcript currently reaches.
     func leadSeconds(over playhead: CMTime) -> Double {
@@ -249,6 +260,7 @@ final class LiveCaptions {
     /// Keep the scout a comfortable distance ahead — far enough that cues are
     /// always ready, close enough that we are not downloading the whole film.
     func throttle(playhead: CMTime) {
+        if playhead.seconds.isFinite { lastPlayhead = playhead.seconds }
         guard let scout = scoutPlayer else { return }
         let lead = leadSeconds(over: playhead)
         if lead > Self.maxLead, scout.rate != 0 {
@@ -268,6 +280,17 @@ final class LiveCaptions {
         guard !chunks.isEmpty else { return }
         everProducedCue = true
         let span = max(end - start, 0.4)
+
+        // KEEP THE RECOGNIZER'S OWN TIMES. Everything below re-times these cues
+        // for DISPLAY — floored at reading time, pushed apart so none overlaps —
+        // which is right for a viewer and wrong for a measurement. The pacing
+        // only ever moves a cue LATER, so judging a subtitle file against the
+        // paced transcript makes the file look early and under-corrects it. That
+        // is the residual the owner felt after The Night Stalker was corrected:
+        // still ~1s behind, because the correction was measured against a
+        // transcript that had itself been nudged forward.
+        rawCues.append((start: start, end: end, text: text))
+        if rawCues.count > 2000 { rawCues.removeFirst(rawCues.count - 2000) }
 
         // Divide the span by CHARACTER COUNT, not evenly by chunk.
         //
@@ -294,6 +317,13 @@ final class LiveCaptions {
         // spans overlap, the later cue is pushed back rather than cutting the
         // earlier one short.
         for i in 1..<max(cues.count, 1) where cues[i].start < cues[i - 1].end {
+            // NEVER RE-TIME A CAPTION THAT IS ALREADY ON SCREEN. The recognizer
+            // can finalize a result whose span starts before one already being
+            // displayed; pushing cues apart then moved the visible caption out
+            // from under the playhead, and `line(at:)` switched to a different
+            // one mid-read. Measured: a 13-word line shown for 0.2 seconds —
+            // paced correctly on paper, unreadable in fact.
+            guard cues[i].start > lastPlayhead else { continue }
             let shift = cues[i - 1].end - cues[i].start
             cues[i].start += shift
             cues[i].end += shift
@@ -330,6 +360,7 @@ final class LiveCaptions {
         isRunning = false
         cues.removeAll()
         pendingWords.removeAll()
+        rawCues.removeAll()
         startedAt = nil
         everProducedCue = false
     }

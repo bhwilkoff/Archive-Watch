@@ -20,6 +20,8 @@
 //   xcrun swiftc -parse-as-library \
 //     ArchiveWatch/ArchiveWatch/Services/AutoCaptions.swift \
 //     ArchiveWatch/ArchiveWatch/Services/LiveCaptions.swift \
+//     ArchiveWatch/ArchiveWatch/Networking/ResilientStreamLoader.swift \
+//     ArchiveWatch/ArchiveWatch/Networking/AirPlayRouting.swift \
 //     ArchiveWatch/ArchiveWatch/Services/SubtitleAgreement.swift \
 //     tools/test_subtitle_agreement.swift -o /tmp/awagree && /tmp/awagree
 

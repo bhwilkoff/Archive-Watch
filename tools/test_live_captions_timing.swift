@@ -20,6 +20,8 @@
 //   DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer xcrun swiftc \
 //     -parse-as-library ArchiveWatch/ArchiveWatch/Services/AutoCaptions.swift \
 //     ArchiveWatch/ArchiveWatch/Services/LiveCaptions.swift \
+//     ArchiveWatch/ArchiveWatch/Networking/ResilientStreamLoader.swift \
+//     ArchiveWatch/ArchiveWatch/Networking/AirPlayRouting.swift \
 //     tools/test_live_captions_timing.swift -o /tmp/awlive && /tmp/awlive [url] [seconds]
 
 import AVFoundation

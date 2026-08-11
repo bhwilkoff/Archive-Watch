@@ -109,8 +109,12 @@ enum SubtitleAgreement {
     static let mismatchBelow = 0.18
     /// Above this, it plainly is.
     static let matchAbove = 0.30
-    /// A shift worth correcting. Under a second is within cue-boundary noise.
-    static let worthShifting: Double = 1.0
+    /// A shift worth correcting. Under half a second is inside cue-boundary
+    /// noise; above it, a viewer notices.
+    static let worthShifting: Double = 0.5
+    /// Offsets at or under this are treated as REFINEMENT of a file we already
+    /// believe, and do not have to prove themselves against the unshifted score.
+    static let refinementRange: Double = 5.0
     /// Fewer published words than this and the sample cannot settle anything.
     static let minPublishedWords = 60
 
@@ -162,14 +166,45 @@ enum SubtitleAgreement {
             if s > best.score { best = (s, fine) }
             fine += fineStep
         }
+
+        // THE GRID CANNOT LAND THE OFFSET PRECISELY, and after correction the
+        // residual is what a viewer feels as captions running slightly behind.
+        // Matching allows +/-2.5s so that a transcript with different cue
+        // boundaries still scores, which makes the peak BROAD — every offset
+        // within a second or so of the truth scores about the same, and the
+        // argmax lands anywhere in that plateau. Measured on The Night Stalker:
+        // corrected by the grid's answer, a re-measure still showed -1.0s.
+        //
+        // So ask a different question. For the words that DO match, how far
+        // apart are they, actually? The median of those distances is a direct
+        // measurement rather than a search, it is robust to the mismatches that
+        // would wreck a mean, and it is precise to a fraction of a second.
+        let refinement = medianDelta(window, heard: heard, around: best.offset)
+        if abs(refinement) > 0.01 {
+            let refined = best.offset + refinement
+            let refinedScore = score(window, heard: heard, offset: refined)
+            // Only adopt it if it does not make agreement worse — a median over
+            // few matches can be noisy.
+            if refinedScore >= best.score - 0.02 { best = (refinedScore, refined) }
+        }
         if abs(best.offset) < fineStep { atZero = best.score }
 
         let choice: Choice
         if best.score < mismatchBelow {
             choice = .preferLive
         } else if abs(best.offset) >= worthShifting, best.score >= matchAbove,
-                  best.score - atZero > 0.15 {
-            // Only claim a shift when correcting it is what made it agree.
+                  abs(best.offset) <= refinementRange || best.score - atZero > 0.15 {
+            // The "it only agrees once shifted" test guards against a file that
+            // matches by coincidence at some far-off offset, and it must keep
+            // doing that for LARGE shifts. But it also suppressed SMALL ones,
+            // and that is what a viewer actually feels: The Night Stalker, after
+            // its 8.9s correction, still ran 2.0s late and was reported as a
+            // match, because a file already agreeing at 65% cannot improve by
+            // the required 15 points from a two-second nudge.
+            //
+            // A small offset on a file that already agrees is not a rival
+            // interpretation of the film — it is a measurement of the remaining
+            // error, and two seconds is plainly visible. Trust it.
             choice = .shiftPublished(by: best.offset)
         } else {
             choice = .keepPublished
@@ -201,6 +236,37 @@ enum SubtitleAgreement {
             }
         }
         return total == 0 ? 0 : Double(hits) / Double(total)
+    }
+
+    /// How far the matched words actually sit from where the file says they do.
+    ///
+    /// Returns the MEDIAN signed distance, in seconds, over every published word
+    /// heard near its expected time at `offset`. Median rather than mean because
+    /// a handful of words matched to the wrong occurrence — a "there" heard
+    /// three seconds away — would drag an average off by more than the error
+    /// being measured.
+    private static func medianDelta(_ cues: [Cue], heard: [String: [Double]],
+                                    around offset: Double) -> Double {
+        var deltas: [Double] = []
+        for cue in cues {
+            let ws = tokens(cue.text)
+            guard !ws.isEmpty else { continue }
+            let span = max(cue.end - cue.start, 0.5)
+            for (i, w) in ws.enumerated() {
+                // Where this word is spoken, if the cue's own timing is right.
+                let expected = cue.start + offset + span * (Double(i) + 0.5) / Double(ws.count)
+                guard let times = heard[w] else { continue }
+                // The nearest occurrence, and only if it is near enough to be
+                // the same utterance rather than a coincidence.
+                guard let nearest = times.min(by: {
+                    abs($0 - expected) < abs($1 - expected)
+                }), abs(nearest - expected) <= 2.5 else { continue }
+                deltas.append(nearest - expected)
+            }
+        }
+        guard deltas.count >= 12 else { return 0 }
+        deltas.sort()
+        return deltas[deltas.count / 2]
     }
 
     /// Words worth matching on.

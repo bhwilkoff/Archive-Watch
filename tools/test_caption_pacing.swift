@@ -15,6 +15,8 @@
 // Build:
 //   xcrun swiftc -parse-as-library ArchiveWatch/ArchiveWatch/Services/AutoCaptions.swift \
 //     ArchiveWatch/ArchiveWatch/Services/LiveCaptions.swift \
+//     ArchiveWatch/ArchiveWatch/Networking/ResilientStreamLoader.swift \
+//     ArchiveWatch/ArchiveWatch/Networking/AirPlayRouting.swift \
 //     tools/test_caption_pacing.swift -o /tmp/awpace && /tmp/awpace <url> [seconds]
 
 import AVFoundation
