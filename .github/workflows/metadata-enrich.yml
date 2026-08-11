@@ -5,9 +5,13 @@ name: Backfill film metadata
 # catalog so search/filter/discovery need no runtime API call. One TMDb detail call per matched
 # film; resumable (metaSource marker). After the first full pass, daily runs only touch new items.
 
+# CADENCE: measured 1 item to enrich; 19,527 done (2026-08-11), so this runs
+# weekly rather than daily — it was fetching a 140 MB catalog and taking
+# the catalog-writers lock to find nothing. Raise it again if the backlog
+# grows; the yield line in its own log is the signal.
 on:
   schedule:
-    - cron: '47 3 * * *'      # clear of the cron wave (omdb 02:17, tmdb 03:43, language 03:37)
+    - cron: '0 5 */3 * *'      # clear of the cron wave (omdb 02:17, tmdb 03:43, language 03:37)
   workflow_dispatch:
     inputs:
       limit:

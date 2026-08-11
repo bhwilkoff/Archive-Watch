@@ -15,9 +15,13 @@ name: Re-source durable posters (TMDb)
 # 00-08 color/rights/posters/cover/free-subs, publish-db 04:30, strict-verify 10:20,
 # check-liveness 13:00, and the evening verify/subtitle/match weeklies).
 
+# CADENCE: measured 1 poster to verify across 40,671 items (2026-08-11), so this runs
+# weekly rather than daily — it was fetching a 140 MB catalog and taking
+# the catalog-writers lock to find nothing. Raise it again if the backlog
+# grows; the yield line in its own log is the signal.
 on:
   schedule:
-    - cron: '30 11 * * *'   # daily 11:30 UTC (quiet catalog-writers slot)
+    - cron: '0 4 * * 3'   # daily 11:30 UTC (quiet catalog-writers slot)
   workflow_dispatch:
     inputs:
       limit:

@@ -7,9 +7,13 @@ name: Backfill film language
 # newly-ingested items, so daily runs are quick. OMDb's daily cap drains the IMDb-only tail
 # over several runs.
 
+# CADENCE: measured 0 items to backfill; 22,403 already stamped (2026-08-11), so this runs
+# weekly rather than daily — it was fetching a 140 MB catalog and taking
+# the catalog-writers lock to find nothing. Raise it again if the backlog
+# grows; the yield line in its own log is the signal.
 on:
   schedule:
-    - cron: '37 3 * * *'      # odd minute, clear of the cron wave (omdb 02:17, tmdb 03:43)
+    - cron: '0 6 * * 1'      # odd minute, clear of the cron wave (omdb 02:17, tmdb 03:43)
   workflow_dispatch:
     inputs:
       limit:
