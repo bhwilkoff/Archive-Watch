@@ -66,7 +66,21 @@ def scene_cuts(url: str, max_seconds: int, fps: float) -> tuple[list[float], str
     # and decoding HD/1080i frames at full res under --concurrency blew the CI runner's RAM (the
     # kernel OOM-killer SIGTERM'd whole shards right after HD items — run 28262168655). The comma
     # inside min() is single-quoted so the filtergraph parser doesn't read it as a filter break.
-    cmd = ["ffmpeg", "-nostats", "-threads", "2", "-t", str(max_seconds), "-i", url,
+    # IDENTIFY OURSELVES, AND RECONNECT. Without a User-Agent this indexed
+    # nothing at all: archive.org answers datacenter clients differently, and
+    # ffmpeg's default identifies nobody, so a diagnostic run came back
+    # 403 Forbidden / 401 Unauthorized / 5XX / timed out on nearly every film.
+    # word-index sets exactly this UA and reports zero download failures — the
+    # difference between the two tools was one flag. The reconnect options are
+    # the ffmpeg-level echo of Decisions 021/031: archive.org drops idle
+    # connections, and a drop mid-scan should resume rather than end the film.
+    # These are HTTP-protocol options and ffmpeg rejects them outright for a
+    # local path ("Option not found"), so they are applied only to a real URL.
+    net = (["-user_agent", "ArchiveWatch/1.0 (+https://archivewatch.org)",
+            "-reconnect", "1", "-reconnect_streamed", "1", "-reconnect_delay_max", "10"]
+           if url.startswith("http") else [])
+    cmd = ["ffmpeg", "-nostats", "-threads", "2", *net,
+           "-t", str(max_seconds), "-i", url,
            "-vf", f"fps={fps},scale=-2:'min(360,ih)',scdet=threshold=10", "-f", "null", "-"]
     # stderr → a TEMP FILE, not capture_output (which holds ALL of ffmpeg's stderr in RAM — a
     # corrupt stream spamming per-frame decode errors could balloon it and OOM the runner). The
