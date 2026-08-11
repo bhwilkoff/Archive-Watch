@@ -486,8 +486,7 @@ struct PlayerView: UIViewControllerRepresentable {
                 // Let the system speak first: from iOS 27 it captions this film
                 // itself, and ours would be a second, differently timed copy
                 // over the top of it.
-                if await SystemCaptions.waitForLegibleOption(on: self.player),
-                   await SystemCaptions.emitsCaptions(on: self.player) {
+                if await SystemCaptions.handOver(to: self.player, directURL: url) {
                     self.captionLabel?.removeFromSuperview()
                     self.captionLabel = nil
                     return

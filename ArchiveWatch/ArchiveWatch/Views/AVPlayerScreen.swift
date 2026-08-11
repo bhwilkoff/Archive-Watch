@@ -64,8 +64,7 @@ final class CaptionCoordinator {
             // itself; ours would be a second, differently timed copy over the
             // top of it. On tvOS 26 nothing legible ever appears, so this costs
             // one poll and then proceeds exactly as before.
-            if await SystemCaptions.waitForLegibleOption(on: player),
-               await SystemCaptions.emitsCaptions(on: player) {
+            if await SystemCaptions.handOver(to: player, directURL: url) {
                 print("[AWCAP] system provides subtitles — standing down")
                 self?.label?.removeFromSuperview()
                 self?.label = nil

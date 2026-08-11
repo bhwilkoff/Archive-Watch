@@ -2841,3 +2841,55 @@ failure that once served `404.html` as VTT with HTTP 200 (Decision 043 era). The
 sweep runs at roughly one film every 2–3 minutes, so 7,391 films is a long
 background job rather than a session; it is built to chip away, and the
 popularity ordering means the value lands first.
+
+## 065 — Generated subtitles need a track SELECTED and an asset without our resource loader
+*Date: 2026-08-11*
+
+Amends Decision 061, which was wrong on the load-bearing point. Handing captions
+to the system now runs a full sequence (`SystemCaptions.handOver`): wait for an
+offered option, SELECT it, confirm text actually flows, and — if it does not —
+replace the player item with the DIRECT https URL, select again, and confirm
+again. Our own engine stands down only when that ends in real text.
+
+**Why**: an Apple TV on tvOS 27 showed file-based captions perfectly and never
+an automatic one. Two independent causes, both measured on macOS 27 against a
+live film:
+
+1. **Nothing selected the generated track.** A published track rides a master
+   playlist we generate, which declares `AUTOSELECT=YES,DEFAULT=YES`, so
+   AVPlayer switches it on. A generated track is merely offered; the system
+   lists it in the subtitle menu and leaves it off. That difference is entirely
+   ours, and it is exactly the asymmetry the owner saw.
+2. **Generated subtitles do not work through a custom `AVAssetResourceLoader`.**
+   Same film, same moment:
+
+       plain URL      option offered · first text at 34s
+       aw-stream://   option offered · NEVER any text
+
+   The system advertises the track either way and silently produces nothing
+   through the loader — the same disqualification that rules out video AirPlay
+   (Decision 051).
+
+Decision 061 recorded that this DID work through the loader. That test only
+checked an option was OFFERED, never that text was produced — the precise
+distinction Decision 063 was written about two decisions later, applied to
+everything except the measurement that started it.
+
+**How to apply**: never treat an offered caption track as a working one, in any
+direction — this is the third time that mistake has cost something (the poster
+liveness gate, the system-declines case, and now this). Select before judging:
+an unselected track emits nothing, so an emission check run first measures the
+selection, not the recognizer. Keep the resilient loader as the DEFAULT and swap
+only after the system has been given a fair chance and failed — films the system
+was never going to caption keep Decisions 021/031/034 intact, and only the films
+that gain captions pay for them. Never override a selection the viewer has made.
+On swap, carry `externalMetadata` across on iOS/tvOS and NOT on macOS, whose
+`AVPlayerItem` has no such property at all.
+
+**Consequences**: a film the system captions loses resume-on-reset and node
+failover for the rest of that playback. That is a real cost, accepted knowingly
+because the alternative on an Apple TV is no captions at all — tvOS has no
+speech models of its own (Decision 060), so the system's generated track is the
+only captioning that platform will ever do.
+`tools/test_system_caption_selection.swift` drives the shipped sequence and
+fails if it ends without text.
