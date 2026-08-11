@@ -1,186 +1,189 @@
 {
- "version": 2,
- "seriesID": "gamecenter-cx-2003",
- "tvmazeID": 12968,
- "title": "GameCenter CX",
- "yearStart": 2003,
- "yearEnd": null,
- "overview": "GameCenter CX is a Japanese gaming-variety show starring Shinya Arino, who plays home console video games from previous decades and usually attempts to get the game's ending within a single day. He is supported by the show's assistant directors and sometimes other staff, both via moral support and actual gameplay. He also is featured in segments interspersed throughout the episodes where he goes to local arcade centers, as well as segments where he does a variety of things, such as interviews with game designers, showcasing classic console hardware or games, or a made up game show where the staff participate.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/44/111417.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "Fuji TV"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 4,
-   "episodes": [
+  "version": 2,
+  "seriesID": "gamecenter-cx-2003",
+  "tvmazeID": 12968,
+  "title": "GameCenter CX",
+  "yearStart": 2003,
+  "yearEnd": null,
+  "overview": "GameCenter CX is a Japanese gaming-variety show starring Shinya Arino, who plays home console video games from previous decades and usually attempts to get the game's ending within a single day. He is supported by the show's assistant directors and sometimes other staff, both via moral support and actual gameplay. He also is featured in segments interspersed throughout the episodes where he goes to local arcade centers, as well as segments where he does a variety of things, such as interviews with game designers, showcasing classic console hardware or games, or a made up game show where the staff participate.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/44/111417.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "Fuji TV"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "b526f13710ceb178d7de973c35b4bafd",
-     "seasonNumber": 4,
-     "episodeNumber": 4,
-     "title": "ActRaiser",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/b526f13710ceb178d7de973c35b4bafd",
-     "airDate": "2005-11-30",
-     "year": 2005,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "GameCenter_CX_S04E04_-_ActRaiser__SomethingAwfulGCCX_.mp4",
-      "format": "h.264",
-      "sizeBytes": 358800223,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/b526f13710ceb178d7de973c35b4bafd/GameCenter_CX_S04E04_-_ActRaiser__SomethingAwfulGCCX_.mp4"
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "b526f13710ceb178d7de973c35b4bafd",
+          "seasonNumber": 4,
+          "episodeNumber": 4,
+          "title": "ActRaiser",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/b526f13710ceb178d7de973c35b4bafd",
+          "airDate": "2005-11-30",
+          "year": 2005,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "GameCenter_CX_S04E04_-_ActRaiser__SomethingAwfulGCCX_.mp4",
+            "format": "h.264",
+            "sizeBytes": 358800223,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/b526f13710ceb178d7de973c35b4bafd/GameCenter_CX_S04E04_-_ActRaiser__SomethingAwfulGCCX_.mp4"
+        },
+        {
+          "archiveID": "4fb26ab55182d6d5c52f9f58eaf8c1e3",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "Super Mario 64 (1)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/4fb26ab55182d6d5c52f9f58eaf8c1e3",
+          "airDate": "2006-01-25",
+          "year": 2006,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "GameCenter_CX_S04E07_-_Super_Mario_64_Part_1__SomethingAwfulGCCX_.mp4",
+            "format": "h.264",
+            "sizeBytes": 358953843,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4fb26ab55182d6d5c52f9f58eaf8c1e3/GameCenter_CX_S04E07_-_Super_Mario_64_Part_1__SomethingAwfulGCCX_.mp4"
+        },
+        {
+          "archiveID": "9eb9b8e15d2ed10768dbad521851f7cb",
+          "seasonNumber": 4,
+          "episodeNumber": 8,
+          "title": "Super Mario 64 (2)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/9eb9b8e15d2ed10768dbad521851f7cb",
+          "airDate": "2006-02-08",
+          "year": 2006,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "GameCenter_CX_S04E08_-_Super_Mario_64_Part_2__SomethingAwfulGCCX_.mp4",
+            "format": "h.264",
+            "sizeBytes": 358449728,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/9eb9b8e15d2ed10768dbad521851f7cb/GameCenter_CX_S04E08_-_Super_Mario_64_Part_2__SomethingAwfulGCCX_.mp4"
+        },
+        {
+          "archiveID": "b4a458293d1e61d09f23e0bcf8aed4f6",
+          "seasonNumber": 4,
+          "episodeNumber": 9,
+          "title": "Ninja Ryukenden (Ninja Gaiden)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/b4a458293d1e61d09f23e0bcf8aed4f6",
+          "airDate": "2006-02-22",
+          "year": 2006,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "GameCenter CX S04E09 - Ninja Gaiden (Directors Cut) [Kotaku].mp4",
+            "format": "h.264",
+            "sizeBytes": 363167625,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/b4a458293d1e61d09f23e0bcf8aed4f6/GameCenter%20CX%20S04E09%20-%20Ninja%20Gaiden%20%28Directors%20Cut%29%20%5BKotaku%5D.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "4fb26ab55182d6d5c52f9f58eaf8c1e3",
-     "seasonNumber": 4,
-     "episodeNumber": 7,
-     "title": "Super Mario 64 (1)",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/4fb26ab55182d6d5c52f9f58eaf8c1e3",
-     "airDate": "2006-01-25",
-     "year": 2006,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "GameCenter_CX_S04E07_-_Super_Mario_64_Part_1__SomethingAwfulGCCX_.mp4",
-      "format": "h.264",
-      "sizeBytes": 358953843,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/4fb26ab55182d6d5c52f9f58eaf8c1e3/GameCenter_CX_S04E07_-_Super_Mario_64_Part_1__SomethingAwfulGCCX_.mp4"
+      "seasonNumber": 6,
+      "episodes": [
+        {
+          "archiveID": "e4c96f04fafac6f2a88b986369bfae50",
+          "seasonNumber": 6,
+          "episodeNumber": 7,
+          "title": "Septentrion (SOS)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/archivewatch-covers/e4c96f04fafac6f2a88b986369bfae50.b31d9426.jpg",
+          "airDate": "2007-02-07",
+          "year": 2007,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "GameCenter_CX_S06E07_-S.O.S.__SomethingAwfulGCCX_.mp4",
+            "format": "h.264",
+            "sizeBytes": 361060281,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/e4c96f04fafac6f2a88b986369bfae50/GameCenter_CX_S06E07_-S.O.S.__SomethingAwfulGCCX_.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "9eb9b8e15d2ed10768dbad521851f7cb",
-     "seasonNumber": 4,
-     "episodeNumber": 8,
-     "title": "Super Mario 64 (2)",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/9eb9b8e15d2ed10768dbad521851f7cb",
-     "airDate": "2006-02-08",
-     "year": 2006,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "GameCenter_CX_S04E08_-_Super_Mario_64_Part_2__SomethingAwfulGCCX_.mp4",
-      "format": "h.264",
-      "sizeBytes": 358449728,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/9eb9b8e15d2ed10768dbad521851f7cb/GameCenter_CX_S04E08_-_Super_Mario_64_Part_2__SomethingAwfulGCCX_.mp4"
+      "seasonNumber": 7,
+      "episodes": [
+        {
+          "archiveID": "4dcf2e9e2df62be35a25701053fa4937",
+          "seasonNumber": 7,
+          "episodeNumber": 2,
+          "title": "Rockman (Mega Man)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/4dcf2e9e2df62be35a25701053fa4937",
+          "airDate": "2007-05-16",
+          "year": 2007,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "GameCenter_CX_S07E02_-_Megaman__SomethingAwful_GCCX_.mp4",
+            "format": "h.264",
+            "sizeBytes": 362190305,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4dcf2e9e2df62be35a25701053fa4937/GameCenter_CX_S07E02_-_Megaman__SomethingAwful_GCCX_.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "b4a458293d1e61d09f23e0bcf8aed4f6",
-     "seasonNumber": 4,
-     "episodeNumber": 9,
-     "title": "Ninja Ryukenden (Ninja Gaiden)",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/b4a458293d1e61d09f23e0bcf8aed4f6",
-     "airDate": "2006-02-22",
-     "year": 2006,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "GameCenter CX S04E09 - Ninja Gaiden (Directors Cut) [Kotaku].mp4",
-      "format": "h.264",
-      "sizeBytes": 363167625,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/b4a458293d1e61d09f23e0bcf8aed4f6/GameCenter%20CX%20S04E09%20-%20Ninja%20Gaiden%20%28Directors%20Cut%29%20%5BKotaku%5D.mp4"
+      "seasonNumber": 9,
+      "episodes": [
+        {
+          "archiveID": "5564c1bd58a51f6a536cf96b90bd99ea",
+          "seasonNumber": 9,
+          "episodeNumber": 2,
+          "title": "The Kacho Goes to the Cannes Film Festival",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/5564c1bd58a51f6a536cf96b90bd99ea",
+          "airDate": "2008-07-02",
+          "year": 2008,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "GameCenter_CX_S09E02_-_Cannes_Trip__SomethingAwfulGCCX_.mp4",
+            "format": "h.264",
+            "sizeBytes": 362582748,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/5564c1bd58a51f6a536cf96b90bd99ea/GameCenter_CX_S09E02_-_Cannes_Trip__SomethingAwfulGCCX_.mp4"
+        },
+        {
+          "archiveID": "f7d82364f4f9baac3d0e2aafc7e18b6d",
+          "seasonNumber": 9,
+          "episodeNumber": 4,
+          "title": "Abarenbou Tengu (Zombie Nation)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/f7d82364f4f9baac3d0e2aafc7e18b6d",
+          "airDate": "2008-07-30",
+          "year": 2008,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "GameCenter_CX_S09E04_-_Zombie_Nation__SomethingAwfulGCCX_.mp4",
+            "format": "h.264",
+            "sizeBytes": 361643474,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/f7d82364f4f9baac3d0e2aafc7e18b6d/GameCenter_CX_S09E04_-_Zombie_Nation__SomethingAwfulGCCX_.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": 6,
-   "episodes": [
-    {
-     "archiveID": "e4c96f04fafac6f2a88b986369bfae50",
-     "seasonNumber": 6,
-     "episodeNumber": 7,
-     "title": "Septentrion (SOS)",
-     "overview": null,
-     "stillURL": "https://archive.org/download/archivewatch-covers/e4c96f04fafac6f2a88b986369bfae50.b31d9426.jpg",
-     "airDate": "2007-02-07",
-     "year": 2007,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "GameCenter_CX_S06E07_-S.O.S.__SomethingAwfulGCCX_.mp4",
-      "format": "h.264",
-      "sizeBytes": 361060281,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/e4c96f04fafac6f2a88b986369bfae50/GameCenter_CX_S06E07_-S.O.S.__SomethingAwfulGCCX_.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 7,
-   "episodes": [
-    {
-     "archiveID": "4dcf2e9e2df62be35a25701053fa4937",
-     "seasonNumber": 7,
-     "episodeNumber": 2,
-     "title": "Rockman (Mega Man)",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/4dcf2e9e2df62be35a25701053fa4937",
-     "airDate": "2007-05-16",
-     "year": 2007,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "GameCenter_CX_S07E02_-_Megaman__SomethingAwful_GCCX_.mp4",
-      "format": "h.264",
-      "sizeBytes": 362190305,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/4dcf2e9e2df62be35a25701053fa4937/GameCenter_CX_S07E02_-_Megaman__SomethingAwful_GCCX_.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 9,
-   "episodes": [
-    {
-     "archiveID": "5564c1bd58a51f6a536cf96b90bd99ea",
-     "seasonNumber": 9,
-     "episodeNumber": 2,
-     "title": "The Kacho Goes to the Cannes Film Festival",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/5564c1bd58a51f6a536cf96b90bd99ea",
-     "airDate": "2008-07-02",
-     "year": 2008,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "GameCenter_CX_S09E02_-_Cannes_Trip__SomethingAwfulGCCX_.mp4",
-      "format": "h.264",
-      "sizeBytes": 362582748,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/5564c1bd58a51f6a536cf96b90bd99ea/GameCenter_CX_S09E02_-_Cannes_Trip__SomethingAwfulGCCX_.mp4"
-    },
-    {
-     "archiveID": "f7d82364f4f9baac3d0e2aafc7e18b6d",
-     "seasonNumber": 9,
-     "episodeNumber": 4,
-     "title": "Abarenbou Tengu (Zombie Nation)",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/f7d82364f4f9baac3d0e2aafc7e18b6d",
-     "airDate": "2008-07-30",
-     "year": 2008,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "GameCenter_CX_S09E04_-_Zombie_Nation__SomethingAwfulGCCX_.mp4",
-      "format": "h.264",
-      "sizeBytes": 361643474,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/f7d82364f4f9baac3d0e2aafc7e18b6d/GameCenter_CX_S09E04_-_Zombie_Nation__SomethingAwfulGCCX_.mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 8,
- "canonicalEpisodesCount": 431
+  ],
+  "episodesCount": 8,
+  "canonicalEpisodesCount": 431,
+  "seriesImdbID": "tt0969664",
+  "canonicalEpisodeCount": 58,
+  "canonicalSeasons": 18
 }
