@@ -171,13 +171,13 @@ jobs:
 
 
       - name: Publish catalog to release
-        if: github.event.inputs.dry_run != 'true'
+        if: github.event.inputs.dry_run != 'true' && steps.gate.outputs.go == 'yes'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py publish
 
       - name: Rebuild app DB
-        if: github.event.inputs.dry_run != 'true'
+        if: github.event.inputs.dry_run != 'true' && steps.gate.outputs.go == 'yes'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bash tools/gh_dispatch.sh publish-db.yml
