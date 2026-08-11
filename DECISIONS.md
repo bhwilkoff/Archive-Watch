@@ -2893,3 +2893,50 @@ speech models of its own (Decision 060), so the system's generated track is the
 only captioning that platform will ever do.
 `tools/test_system_caption_selection.swift` drives the shipped sequence and
 fails if it ends without text.
+
+## 066 — Catalog writers compute without the lock and take it only to merge a delta
+*Date: 2026-08-11*
+
+A workflow that mutates the catalog now runs as TWO jobs: a compute job holding
+no lock, which snapshots the catalog, does its work, and emits a field-level
+delta; and a short `apply` job holding `catalog-writers`, which fetches a FRESH
+catalog, merges the delta, and publishes. `tools/catalog_delta.py` provides
+`snapshot` / `extract` / `apply` generically, so an existing tool needs no
+changes — the delta is derived by observing what the tool did.
+
+**Why**: measured 2026-08-11 — 27 workflows held the single `catalog-writers`
+lock for their ENTIRE run, and their average demand summed to **24.2 hours per
+cycle** against a lock with 24 hours a day to give. Oversubscribed, which is the
+root of most of what the preceding decisions patched: runs destroyed in the
+queue as a matter of course (057), budgets measured in hours, killed runs
+discarding work, and the clobber risk that 020 and the publish shrink-guard
+exist for. The compute never needed the lock; only the mutation does, and the
+mutation takes about two minutes.
+
+    color-classify   lock held 52m  ->  21 SECONDS   (measured, real run)
+    check-liveness   compute 1m unlocked, apply 1m locked, delta 0.0 MB
+
+The merge is the load-bearing part, not the speed. Republishing a whole catalog
+read hours earlier silently REVERTS whatever another writer published meanwhile
+— the lock was compensating for the data model rather than protecting a real
+invariant. A field-level merge does not: two workflows touching different fields
+of the same item both survive.
+
+**How to apply**: the lock is declared at WORKFLOW level in this repo, so it
+covers every job in the run — splitting into two jobs changes nothing unless the
+top-level `concurrency:` is REMOVED and re-declared on the apply job alone. Gate
+every step after the "nothing changed" check on it: an empty-delta run skips the
+fetch, and an ungated remediate step then runs against a catalog that is not
+there. Emit the delta with `if: always()` and upload it the same way, so a run
+killed mid-compute still contributes what it finished. Do NOT convert a workflow
+whose tool ingests or deletes ITEMS wholesale without checking the delta shape
+first — `extract` carries a new item whole, but a tool that rewrites the entire
+item list is better left alone.
+
+**Consequences**: a converted workflow's compute can be given a generous budget
+without starving anything, and can be sharded, because it competes for nothing.
+Decision 057's sweeper returns to being a backstop rather than load-bearing.
+Converted so far: color-classify, check-liveness, free-subtitles; ~24 catalog
+writers remain, and each is a mechanical change of the same shape. Measured cost
+on the real catalog (140.6 MB, 40,671 items): snapshot 2.9s at 737 MB RSS, and a
+661-item change produced a 0.0 MB delta.
