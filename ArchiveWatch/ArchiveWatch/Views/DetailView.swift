@@ -1003,6 +1003,13 @@ struct PlayerScreen: View {
     }
 
     private func persistProgress(at position: Double, duration: Double?) {
+        // A fixed lineup IS a channel/party/cartoon session (#1/#3/#2), and
+        // those never persist WatchProgress — the invariant since the Channels
+        // EPG shipped, lost somewhere since: tuning into a channel was writing
+        // progress every 5 seconds, so half-watched channel programs polluted
+        // Continue Watching on every device the account syncs to. Autoplay of
+        // SINGLE films (lineup == nil) still persists — that is normal viewing.
+        guard lineup == nil else { return }
         guard position.isFinite, position > 0 else { return }
         let aid = activeArchiveID
         let descriptor = FetchDescriptor<WatchProgress>(

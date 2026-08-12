@@ -85,6 +85,15 @@ struct RootView: View {
             try? await Task.sleep(nanoseconds: 1_000_000_000)   // let the cover land
             await CaptionDiagnostics.shared.run()
         }
+        // Dev affordance: `AW_UI_AUDIT=1` exercises every tab's data spine,
+        // every Browse facet/sort, and every Settings toggle's consumption,
+        // printing PASS/FAIL per check — the T1 tier of docs/TVOS-AUDIT.md,
+        // read from the dev Mac via `devicectl launch --console`. Unset in
+        // production (no-op).
+        .task {
+            guard FunctionalAudit.enabled else { return }
+            await FunctionalAudit.run(store: store)
+        }
         .fullScreenCover(isPresented: $showCaptionDiag) { CaptionDiagnosticsView() }
         // Screenshot/dev affordance: `AW_START_MODE=kids|party|saver` lands on that
         // immersive tab once the catalog is ready (`saver` also opens the running

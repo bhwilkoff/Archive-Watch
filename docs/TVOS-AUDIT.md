@@ -83,8 +83,8 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 | "Back" button | returns | T2 | PENDING |
 | Create Channel form | creates; persists; appears in rail | T1 | PENDING |
 | Delete user channel | removes + tombstone sync | T2 | PENDING |
-| Channel playback never pollutes Continue Watching | persistProgress=false | T2 | PENDING |
-| Commercial break length cap (Settings) | honored | T2 | PENDING |
+| Channel playback never pollutes Continue Watching | persistProgress=false | T2 | **FIXED** (#2 — the gate had been lost; lineups persisted every 5s) |
+| Commercial break length cap (Settings) | honored | T2 | VERIFIED (forwardPlaybackEndTime in setupPlayer) |
 
 ### 5. Cartoons / Kids mode (`KidsModeView`)
 | Element | Behaviour | Tier | Status |
@@ -102,7 +102,7 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 ### 7. Screensaver (`ScreensaverView`)
 | Element | Behaviour | Tier | Status |
 |---|---|---|---|
-| Opt-in; idle trigger; never over playback | | T2+T3 | PENDING |
+| Opt-in; idle trigger; never over playback | | T2+T3 | VERIFIED T2 (screensaverIdleEnabled + !isPlayingVideo + scenePhase gate; reset on tab/playback) |
 | Exit on any press | | T3 | PENDING |
 
 ### 8. Collections (`CollectionsView`)
@@ -146,8 +146,8 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 | Visibility toggles (per-category) | hide everywhere; Home reacts | T1 | PENDING |
 | Hide-watched toggle | Home excludes completed | T2 | PENDING |
 | Mature toggle (D012) | default off; flips visibleItems | T1 | PENDING |
-| Autoplay mode default | consumed by player | T2 | PENDING |
-| Commercial break cap | consumed by Channels | T2 | PENDING |
+| Autoplay mode default | consumed by player | T2 | VERIFIED (sessionMode ?? store.autoplayMode at menu + end-observer) |
+| Commercial break cap | consumed by Channels | T2 | VERIFIED (commercialBreakMaxSeconds → forwardPlaybackEndTime) |
 | Screensaver opt-in | consumed by idle timer | T2 | PENDING |
 | Attribution (TMDb verbatim, D007) + About + version | present | T2 | PENDING |
 | Donate QR (D010) | renders; bottom scroll anchor works | T3 | PENDING |
@@ -160,7 +160,7 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 | Player: resume, watchdog (60s), stall fallback, captions tiers | | T1 | **VERIFIED** (this session) |
 | Deep links: archivewatch://item /play /random/* | route (incl. play → resume, D049) | T1 | PENDING |
 | Top Shelf: rotation + Continue Watching + play action | | T2 | VERIFIED (D049 harness) |
-| Sidebar: tab switch resets NavigationPath | | T2 | PENDING |
+| Sidebar: tab switch resets NavigationPath | | T2 | VERIFIED (tabSelection binding resets outgoing AND incoming paths) |
 | Universal empty/error/loading states per screen | user-visible, not console-only | T2 | PENDING |
 
 ## Fix log
@@ -168,6 +168,7 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 | # | Screen | Issue | Class | Fix | Build |
 |---|---|---|---|---|---|
 | 1 | Settings | OpenSubtitles "Create a free account" was a SwiftUI `Link` — on tvOS it renders as a focusable button that does nothing (no browser). Owner-reported. | Design/dead control | Replaced with a sign-up QR + instruction on tvOS (donate-QR precedent, D010); `Link` kept on iOS/macOS. Repo-wide sweep found no other `Link`/`openURL` on tvOS. | 891 |
+| 2 | Channels/Party/Cartoons | Lineup playback persisted WatchProgress every 5s — the "channels never pollute Continue Watching" invariant (Channels EPG design) had been silently lost. Half-watched channel programs entered Continue Watching and SYNCED across devices. | Functionality regression | `persistProgress` now gates on `lineup == nil`; autoplay of single films still persists (normal viewing). | 891 |
 
 ## Owner-visual checklist (T3, collected — not blocking)
 
@@ -180,8 +181,17 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 
 ## Loop state
 
-- Iteration 1 (this): document created; fix #1 (OpenSubtitles QR); `Link` sweep
-  clean; builds pending.
-- Next: functional audit harness (`AW_UI_AUDIT=1`) — exercises each tab's data
-  spine + each Browse facet/sort + Settings toggle consumption on the device,
-  console-verified; then screen-by-screen disposition, fixing as found.
+- Iteration 1: document created; fix #1 (OpenSubtitles QR); `Link` sweep clean.
+- Iteration 2: **functional audit harness shipped** (`FunctionalAudit.swift`,
+  `AW_UI_AUDIT=1` — ~40 checks: every Home shelf gate, every Browse facet +
+  all 5 sorts + paging + TV-leak guard, TV/search/collections/surprise spines,
+  Settings toggle CONSUMPTION with restore, deep-link parsing incl. the
+  id-less-URL regression). Device run blocked once: the Apple TV was ASLEEP
+  ("foreground app launch forbidden") and devicectl has no wake verb — retry
+  next iteration. Discovered `devicectl device capture screenshot` works
+  (3840×2160) — visual T1 evidence is now available to the audit. Fix #2
+  (lineup progress pollution). T2 rows dispositioned: nav-path reset,
+  screensaver gating, autoplay + commercial-cap consumption.
+- Next: run AW_UI_AUDIT on the device (needs the TV awake), disposition the
+  T1 rows from its output, fix failures; then Detail/SeriesDetail button
+  audit + remaining T2 rows.
