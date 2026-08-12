@@ -56,6 +56,7 @@ enum SystemCaptions {
         case waitingForTrack  = "waiting for the system's subtitle track"
         case noTrackOffered   = "the system offered no subtitle track"
         case selected         = "subtitle track selected, waiting for text"
+        case notSelected      = "a track exists but was not selected — check caption settings"
         case captioning       = "the system is captioning this film"
         case declined         = "the system offered a track but produced no text"
     }
@@ -126,7 +127,14 @@ enum SystemCaptions {
             stage = .noTrackOffered
             return false
         }
-        await selectIfWanted(on: player)
+        // An unselected track emits nothing, so listening for text after a
+        // failed selection would report ".declined" 75 seconds later when the
+        // truth was known immediately — and on a device set to forced-only
+        // subtitles the wait is guaranteed to be wasted. Say why, and stop.
+        guard await selectIfWanted(on: player) else {
+            stage = .notSelected
+            return false
+        }
         stage = .selected
         if await emitsCaptions(on: player) { stage = .captioning; return true }
         stage = .declined

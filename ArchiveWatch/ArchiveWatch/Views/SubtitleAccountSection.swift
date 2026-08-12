@@ -104,11 +104,29 @@ struct SubtitleAccountSection: View {
 /// consent. What Settings owes the viewer here is an accurate account of what
 /// exists and where the button is.
 struct AutoCaptionsSettingsSection: View {
+    @State private var showDiagnostics = false
+
     var body: some View {
         if AutoCaptions.isSupported {
             Section {
                 Label("Open a film, then choose Subtitles.", systemImage: "captions.bubble")
                     .foregroundStyle(.secondary)
+                // The device reports its own caption behaviour, on screen —
+                // an Apple TV's console cannot be read from a development
+                // machine, and this is how the tvOS 27 generated-subtitles
+                // question finally gets answered on the device it concerns
+                // (Decision 067) instead of inferred from a Mac.
+                Button {
+                    showDiagnostics = true
+                } label: {
+                    Label("Caption Diagnostics", systemImage: "stethoscope")
+                }
+                .sheet(isPresented: $showDiagnostics) {
+                    CaptionDiagnosticsView()
+                        #if os(macOS)
+                        .frame(minWidth: 560, minHeight: 420)
+                        #endif
+                }
             } header: {
                 Text("Automatic Captions")
             } footer: {

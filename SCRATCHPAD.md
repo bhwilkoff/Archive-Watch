@@ -233,6 +233,20 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-08-12 (latest) — Caption Diagnostics on-device; tier matrix bound; 1.3.364/886
+The Apple TV becomes SELF-REPORTING: Settings → Automatic Captions → **Caption
+Diagnostics** runs the full tier probe on screen (tier availability, option
+offered → selected → first cue text, loader negative control) — the decisive
+experiment `tvos27_captions_open` called for, since the device's console cannot
+be read from here. `handOver` stage imprecision fixed (`.notSelected`, and no
+75s wait on an unselected track). **docs/CAPTIONS.md** now binds the tier
+model; `tools/audit_caption_tiers.py` measures it: 32,742 visible films =
+5,718 published (22.9% of sound-era) / 19,200 bare sound-era (the generated
+population) / 7,824 silent (correctly none). Harnesses re-verified green after
+the stage change. NOTE: the prior "still broken" report was filed 8 minutes
+after 885 finished uploading — confirm the build number reads 1.3.364 (886)
+before diagnosing anything.
+
 ### 2026-08-12 (later) — tvOS 27 generated subtitles ROOT-CAUSED; Decision 067; 1.3.363/885
 App **1.3.363 / b885** uploaded to ASC (mac+iOS+tvOS). Memories:
 `tvos27_captions_open` (READ FIRST), `session_handoff_2026_08_12_captions`.
