@@ -3010,3 +3010,63 @@ translated renditions can carry `public.machine-generated` / `public.translation
 and be labelled "English Generated" / "Spanish Translated" by AVKit itself
 ("What's new in HTTP Live Streaming", WWDC26) — nothing carries it today, because
 every published track is human.
+
+## 068 — On tvOS our caption engine LEADS; the system's generated track is opportunistic
+*Date: 2026-08-12*
+
+For a film with no subtitle track on tvOS 27, `LiveCaptions` (the SpeechAnalyzer
+scout that captions iOS and macOS) starts IMMEDIATELY, and the watch for the
+system's generated track runs CONCURRENTLY with 300s patience — standing our
+engine down only if the system's track ever actually emits text. Both automatic
+paths are gated on the viewer's caption preference (`viewerWantsCaptions`); a
+forced-only viewer gets neither engine nor note.
+
+**Why**: measured on the owner's own Apple TV 4K (tvOS 27.0, 24J5346a), driven
+directly from the dev Mac — the device is PAIRED, and
+`devicectl device process launch --console` with an `AW_CAPTION_DIAG=1` hook
+made it a readable oracle for the first time. Two findings, opposite in sign:
+
+    system generated track   offered + selected on EVERY shape
+                             (local file, plain remote MP4, HLS wrapper)
+                             — NO TEXT in 10+ minutes of playback
+    our SpeechAnalyzer scout ENGINE CUE after 14s on the same clip
+
+tvOS 27 ships working speech models — `supported 45`, and installs completed on
+demand (0 → 9 locales during the probes). **Decision 060 ("tvOS has no speech
+models and never will") was true of tvOS 26 and is obsolete on 27.** Meanwhile
+the system's generated track on this beta is a menu entry that never speaks in
+a third-party app: blocking playback captions for 300s behind it was the delay
+the owner kept reporting as "no captions". A real film then captioned end to
+end through the real player on the device (`AW_START_ITEM` + `AW_AUTOPLAY`),
+resuming at the viewer's watch position with cues flowing on the console.
+
+Also measured on the way here, each worth keeping: the offer itself can arrive
+MINUTES in (cold engine: local file offered nothing in 180s; same file offered
+at 0s once warm) — so `handOver` is now ONE loop that polls, selects and
+listens across its whole patience, never an offer-first gate a silent opening
+can defeat. And an "offered" reading contaminates across probes in one process,
+but EMITTED TEXT through an item's own legible output cannot — which is what
+makes a multi-shape on-device probe valid where the macOS harness needed one
+shape per process.
+
+**How to apply**: never gate captions on the system track EMITTING before our
+engine may start on tvOS — lead with ours, stand down if the system speaks.
+Keep the stand-down: if a later beta (or a device where "Generated Subtitles"
+genuinely works) starts emitting, the system's track wins on every count
+(native menu, viewer style, no second stream). Films WITH published tracks
+still skip the watch entirely — the judge (062) owns that path. Test tvOS ON
+tvOS: the paired-device loop (build Debug → `devicectl install` → `launch
+--console` with `AW_CAPTION_DIAG=1`) costs minutes; every prior fix here
+shipped through ASC on Mac-only evidence and three of them were wrong. Keep
+`caption-probe.mp4` (60s narration, captions in 14s on macOS AND on the ATV)
+as the reference clip — probing with a random film conflates "device cannot
+caption" with "film was declined" (063).
+
+**Consequences**: Apple TV viewers get live captions on the ~19,200 bare
+sound-era films (audit `tools/audit_caption_tiers.py`) at iOS/macOS quality,
+starting ~15-30s into playback. Decision 067's plain-URL path stays: it costs
+nothing, keeps the film eligible for the system's track the moment Apple fixes
+emission, and the system-watch needs it. The Caption Diagnostics screen stays
+in Settings as the standing experiment kit. tvOS 26 remains published-files
+only. If a future tvOS beta makes the generated track emit, nothing needs to
+ship — the stand-down is already listening.

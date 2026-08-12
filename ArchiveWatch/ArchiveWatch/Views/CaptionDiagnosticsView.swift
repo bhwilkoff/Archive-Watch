@@ -3,37 +3,34 @@ import AVFoundation
 import AVKit
 import MediaAccessibility
 
-// Caption Diagnostics — the app reports its own caption behaviour, on screen.
+// Caption Diagnostics — the app reports its own caption behaviour, on screen
+// AND on stdout, so a paired Apple TV can be read from a development machine
+// (`devicectl device process launch --console`, env AW_CAPTION_DIAG=1).
 //
 // This exists because of how the tvOS 27 generated-subtitles bug survived three
-// shipped fixes: an Apple TV is the only device that can answer whether tvOS
-// captions a film, and its console cannot be read from a development machine,
-// so every fix was verified on macOS and shipped on faith (Decision 067). This
-// screen removes the faith: one run answers which tiers this DEVICE has,
-// whether the system offers a track for the exact asset shape the app ships,
-// whether selecting it takes, and whether text actually arrives.
+// shipped fixes: everything was verified on macOS and shipped on faith
+// (Decision 067). The first run on the real Apple TV then contradicted the Mac
+// twice over — tvOS offered NO track for a plain remote MP4 that macOS captions
+// in 33s — which is why this screen now probes THREE shapes rather than
+// asserting one:
 //
-// Two lessons from this screen's own first build (886) are load-bearing:
+//   1. LOCAL FILE — a bundled 60s narration clip (verified to caption in 14s
+//      on macOS). Apple's own words are "HLS and file-based content"; a local
+//      file is the canonical file-based case. If THIS produces nothing, the
+//      device does not generate subtitles for this app at all, and no asset
+//      shape will fix it.
+//   2. PLAIN REMOTE MP4 — what uncaptioned films actually play (Decision 067).
+//   3. HLS WRAPPER — a playlist synthesized around the same MP4. Offered-but-
+//      silent on macOS; tvOS has already proven the platforms differ.
 //
-//   * State lives in a SINGLETON, not in the view. The first version kept it
-//     in @State; on the owner's Apple TV the finished run showed an EMPTY log
-//     and an idle Run button — any view recreation resets @State, and the one
-//     device this screen was built for is where that happened. A singleton
-//     also means reopening the sheet shows the LAST run instead of nothing.
-//
-//   * The probe player is VISIBLE, and the emission window is generous on
-//     tvOS. The 75/90s windows were calibrated on an M-series Mac that emits
-//     text in ~33s; an Apple TV's chip is far slower and first use may need a
-//     model download, so a short window reports "declined" for a system that
-//     is merely still working. And a probe that renders nothing is not the
-//     shape real playback has — if generation is tied to active rendering
-//     anywhere, a headless probe would be a false negative.
-//
-// The test film is fixed: a 1975 documentary with clear narration the system
-// is KNOWN to caption on macOS 27. The recognizer declines rough archival
-// audio by design (Decision 063) — probing with a random film would conflate
-// "this device cannot caption" with "this film was declined", the exact
-// confusion this screen exists to end.
+// Each probe LISTENS AND POLLS CONCURRENTLY for its whole window. The 887
+// probe waited 15s for a track to be OFFERED before doing anything else — but
+// the test film's opening is silent, and if the system only offers a track
+// once it has HEARD something, a fixed offer-first gate can never survive a
+// quiet opening. Emission is judged per-item (text through an item's own
+// legible output cannot come from another probe), which is what makes running
+// three shapes in one process tolerable — "offered" readings can contaminate
+// across shapes (measured on macOS), emitted text cannot.
 
 @MainActor
 @Observable
@@ -56,23 +53,27 @@ final class CaptionDiagnostics {
     private var retainedLoader: AnyObject?
     private var startedAt = Date()
 
-    static let testFilm = URL(string: "https://archive.org/download/"
+    static let remoteFilm = URL(string: "https://archive.org/download/"
         + "mantheincrediblemachine/mantheincrediblemachine.mp4")!
 
-    /// How long to give the system before concluding it will not caption.
-    /// tvOS gets much longer: slower silicon, a possible first-use model
-    /// download, and no fallback engine that is waiting to start instead.
-    static var emissionPatience: Double {
+    /// Per-shape observation window. tvOS gets much longer: slower silicon, a
+    /// possible first-use model download, and no fallback engine waiting.
+    static var patience: Double {
         #if os(tvOS)
-        return 300
+        return 240
         #else
-        return 90
+        return 100
         #endif
     }
 
     private func log(_ text: String, emphasis: Bool = false) {
         let t = Int(Date().timeIntervalSince(startedAt))
         lines.append(Line(text: "t=\(t)s  \(text)", emphasis: emphasis))
+        // stdout as well: with the app launched via
+        //   xcrun devicectl device process launch --console
+        // these lines land on the development Mac, which is what finally makes
+        // the Apple TV a readable oracle instead of a photographed one.
+        print("[AWDIAG] t=\(t)s \(text)")
     }
 
     func stop() {
@@ -116,82 +117,210 @@ final class CaptionDiagnostics {
             ? "On-device transcription: this device has speech models"
             : "On-device transcription: NO speech models on this device"
               + (CaptionCapability.shared.report.map { " (\($0))" } ?? ""))
-        if !device && !SystemCaptions.isAvailable {
-            log("So this device can only show PUBLISHED subtitle files.", emphasis: true)
-        }
 
         guard SystemCaptions.isAvailable else {
             log("Nothing further to test — the generated-subtitle probe needs 27.")
             return
         }
 
-        // ── Probe 1: the exact shape the app ships for uncaptioned films ─────
-        log("PROBE 1 — plain direct URL (what uncaptioned films play since "
+        // ── Shape 1: LOCAL FILE — the canonical "file-based content" case ────
+        var results: [(String, Bool)] = []
+        if let clip = Bundle.main.url(forResource: "caption-probe", withExtension: "mp4") {
+            log("SHAPE 1 — LOCAL FILE: bundled 60s narration clip (captions in "
+                + "14s on macOS)", emphasis: true)
+            let ok = await probe(item: AVPlayerItem(url: clip),
+                                 window: min(Self.patience, 180))
+            results.append(("local file", ok))
+            if !ok {
+                log("The local file did not caption. That is Apple's own "
+                    + "canonical case — if this fails, no asset shape will "
+                    + "succeed, and the cause is the device/OS, not the app.",
+                    emphasis: true)
+            }
+        } else {
+            log("Bundled probe clip missing — skipping the local-file shape.",
+                emphasis: true)
+        }
+
+        // ── Shape 2: PLAIN REMOTE MP4 — what uncaptioned films play ──────────
+        log("SHAPE 2 — PLAIN REMOTE MP4 (what uncaptioned films play since "
             + "build 885)", emphasis: true)
-        log("Film: The Incredible Machine (1975) — clear narration, known to "
-            + "caption in ~33s on macOS 27")
-        let item = AVPlayerItem(url: Self.testFilm)
+        let plain = await probe(item: AVPlayerItem(url: Self.remoteFilm),
+                                window: Self.patience)
+        results.append(("plain remote MP4", plain))
+
+        // ── Shape 3: HLS WRAPPER — offered-but-silent on macOS; tvOS differs ─
+        log("SHAPE 3 — HLS WRAPPER around the same MP4", emphasis: true)
+        let (asset, loader) = DiagnosticHLSWrapper.makeAsset(
+            mp4: Self.remoteFilm, durationSeconds: 1715)
+        retainedLoader = loader
+        let wrapped = await probe(item: AVPlayerItem(asset: asset),
+                                  window: min(Self.patience, 180))
+        results.append(("HLS wrapper", wrapped))
+        retainedLoader = nil
+
+        // ── Shape 4: OUR OWN ENGINE — because this device just changed ──────
+        // Decision 060 recorded that tvOS has no speech models, measured on
+        // tvOS 26. The first on-device 27 run reported 45 SUPPORTED locales
+        // (0 installed) — so the question is no longer "does the API exist"
+        // but "does the install actually complete and produce cues here".
+        // If it does, the iOS/macOS live-transcription engine lights up on
+        // Apple TV too, under our control, independent of the system track.
+        if LiveCaptions.isSupported,
+           let clip = Bundle.main.url(forResource: "caption-probe", withExtension: "mp4") {
+            log("SHAPE 4 — OUR ENGINE: SpeechAnalyzer scout on the bundled clip",
+                emphasis: true)
+            let lc = LiveCaptions()
+            await lc.start(url: clip, from: .zero)
+            let engineStart = Date()
+            var lastNotice = ""
+            var engineGot = false
+            while Date().timeIntervalSince(engineStart) < 180, !Task.isCancelled {
+                let n = lc.notice
+                if !n.isEmpty, n != lastNotice {
+                    lastNotice = n
+                    log("  engine: \(n)")
+                }
+                if let first = lc.transcript().first {
+                    log("  ENGINE CUE after \(Int(Date().timeIntervalSince(engineStart)))s: "
+                        + "\u{201C}\(first.text.prefix(60))\u{201D}", emphasis: true)
+                    engineGot = true
+                    break
+                }
+                if !lc.isRunning {
+                    log("  engine stopped without cues"
+                        + (lastNotice.isEmpty ? "" : " — last notice: \(lastNotice)"),
+                        emphasis: true)
+                    break
+                }
+                try? await Task.sleep(nanoseconds: 2_000_000_000)
+            }
+            lc.stop()
+            results.append(("our engine (SpeechAnalyzer)", engineGot))
+        }
+
+        // ── The verdict table ────────────────────────────────────────────────
+        log("RESULTS:", emphasis: true)
+        for (name, ok) in results {
+            log("  \(ok ? "CAPTIONED " : "no text   ")  \(name)", emphasis: ok)
+        }
+        if let best = results.first(where: { $0.1 }) {
+            log("VERDICT: the system generates subtitles here via \(best.0).",
+                emphasis: true)
+        } else {
+            log("VERDICT: no shape produced text on this device. Generated "
+                + "subtitles are not reaching this app at all — report this "
+                + "whole screen.", emphasis: true)
+        }
+    }
+
+    /// One shape: play it, and for the whole window LISTEN for text while
+    /// POLLING for a legible option to appear and selecting it the moment it
+    /// does. No offer-first gate — a film with a silent opening must not be
+    /// able to defeat detection (the 887 probe gave up at 15s for exactly
+    /// that reason).
+    private func probe(item: AVPlayerItem, window: Double) async -> Bool {
         let p = AVPlayer(playerItem: item)
         // Volume, not `isMuted`: muting can remove audio from the render
         // pipeline entirely, and a probe that silences the thing it measures
         // would report false negatives (the LiveCaptions tap lesson).
         p.volume = 0
-        player = p      // the view renders this, so the probe matches playback
+        player = p
         p.play()
 
-        guard await SystemCaptions.waitForLegibleOption(on: p) else {
-            log("NO subtitle track was offered within 15s.", emphasis: true)
-            log("VERDICT: this OS does not offer generated subtitles for a "
-                + "remote progressive MP4 — the shape archive.org serves. "
-                + "Report this line.", emphasis: true)
-            return
-        }
-        log("Subtitle track offered: \(await optionNames(of: item).joined(separator: ", "))")
+        let sink = CueSink()
+        let output = AVPlayerItemLegibleOutput(mediaSubtypesForNativeRepresentation: [])
+        output.suppressesPlayerRendering = false      // observe only
+        output.setDelegate(sink, queue: .main)
+        item.add(output)
+        defer { item.remove(output); p.pause(); player = nil }
 
-        guard await SystemCaptions.selectIfWanted(on: p) else {
-            log("The track could NOT be switched on (stage: "
-                + "\(SystemCaptions.Stage.notSelected.rawValue)).", emphasis: true)
-            log("If the caption preference above says FORCED ONLY, that is why.")
-            return
-        }
-        log("Track selected: \(await selectedName(of: item) ?? "?")")
+        let start = Date()
+        let deadline = start.addingTimeInterval(window)
+        var offeredLogged = false
+        var selectedLogged = false
+        var statusLogged = false
+        var nextTick = 30.0
+        while Date() < deadline {
+            let elapsed = Date().timeIntervalSince(start)
+            if let cue = sink.first {
+                log("TEXT after \(Int(elapsed))s: \u{201C}\(cue.prefix(60))\u{201D}",
+                    emphasis: true)
+                return true
+            }
+            if Task.isCancelled { return false }
 
-        let window = Int(Self.emissionPatience)
-        log("Listening for caption text — the system transcribes ahead before "
-            + "showing anything, and first use may download a model. Allowing "
-            + "up to \(window)s…")
-        if let (cue, at) = await firstCue(on: item, within: Self.emissionPatience) {
-            log("TEXT ARRIVED after \(at)s: \u{201C}\(cue.prefix(70))\u{201D}", emphasis: true)
-            log("VERDICT: generated subtitles WORK on this device. A film with "
-                + "no subtitles will offer them in the player's subtitle menu.",
-                emphasis: true)
-        } else {
-            log("No text within \(window)s, on a film the system captions in "
-                + "~33s on macOS 27.", emphasis: true)
-            log("VERDICT: the track is offered and selected but produced "
-                + "nothing here. Report this line.", emphasis: true)
+            if !statusLogged, item.status != .unknown {
+                statusLogged = true
+                log(item.status == .readyToPlay
+                    ? "  playing (item ready at \(Int(elapsed))s)"
+                    : "  item FAILED: \(item.error?.localizedDescription ?? "?")",
+                    emphasis: item.status == .failed)
+                if item.status == .failed { return false }
+            }
+            // Track detection runs alongside listening, never in front of it.
+            let box = await LegibleProbe(asset: item.asset).group()
+            if let group = box.g, !group.options.isEmpty {
+                if !offeredLogged {
+                    offeredLogged = true
+                    log("  track offered at \(Int(elapsed))s: "
+                        + group.options.map(\.displayName).joined(separator: ", "))
+                }
+                if !selectedLogged {
+                    if item.currentMediaSelection.selectedMediaOption(in: group) != nil {
+                        selectedLogged = true
+                        log("  track is already selected")
+                    } else if let opt = AVMediaSelectionGroup.mediaSelectionOptions(
+                                from: group.options, with: Locale.current).first
+                                ?? group.options.first {
+                        // Selected UNCONDITIONALLY here, unlike real playback:
+                        // this is a test of whether the system CAN caption, and
+                        // the first on-device run silently skipped selection
+                        // because the device was in forced-only mode — turning
+                        // a viewer preference into a false "stayed silent".
+                        item.select(opt, in: group)
+                        selectedLogged = true
+                        let respectful = MACaptionAppearanceGetDisplayType(.user) != .forcedOnly
+                        log("  selected: \(opt.displayName)"
+                            + (respectful ? "" : " (display preference is forced-only —"
+                               + " real playback would NOT auto-show this)"))
+                    }
+                }
+            } else if !offeredLogged, Int(elapsed) % 30 == 1 {
+                // What the asset DOES claim, while nothing legible is offered —
+                // nil group vs empty group vs other characteristics is exactly
+                // the structural detail a remote log can act on.
+                let chars = (try? await item.asset.load(
+                    .availableMediaCharacteristicsWithMediaSelectionOptions)) ?? []
+                log("  asset legible group: \(box.g == nil ? "nil" : "empty"); "
+                    + "selection characteristics: "
+                    + (chars.isEmpty ? "none" : chars.map(\.rawValue).joined(separator: ",")))
+            }
+            #if compiler(>=6.4)
+            // Built with the beta toolchain (dev-loop installs only — the App
+            // Store archive uses the released Xcode and never compiles this):
+            // also ask the 27-only ITEM-level API, in case tvOS surfaces the
+            // generated track there rather than in the asset's group.
+            if #available(tvOS 27, iOS 27, macOS 27, *), !offeredLogged, let group = box.g {
+                let itemLevel = item.selectableMediaSelectionOptions(in: group)
+                if !itemLevel.isEmpty {
+                    log("  ITEM-level options at \(Int(elapsed))s (asset group empty): "
+                        + itemLevel.map(\.displayName).joined(separator: ", "),
+                        emphasis: true)
+                }
+            }
+            #endif
+            if elapsed >= nextTick {
+                log("  …listening (\(Int(elapsed))s"
+                    + (offeredLogged ? ", track offered" : ", no track yet") + ")")
+                nextTick += 30
+            }
+            try? await Task.sleep(nanoseconds: 2_000_000_000)
         }
-        player?.pause()
-
-        // ── Probe 2: the control — the resilient loader must NOT be offered ──
-        // If this ever reports a track, the loader has become captionable and
-        // Decision 067's plain-URL trade should be revisited.
-        log("PROBE 2 (control) — through the resilient loader", emphasis: true)
-        let (asset, loader) = ResilientStreamLoader.makeAsset(for: Self.testFilm)
-        retainedLoader = loader
-        let controlItem = AVPlayerItem(asset: asset)
-        let control = AVPlayer(playerItem: controlItem)
-        control.volume = 0
-        player = control
-        control.play()
-        if await SystemCaptions.waitForLegibleOption(on: control) {
-            log("UNEXPECTED: the loader path was offered a track "
-                + "(\(await optionNames(of: controlItem).joined(separator: ", "))). "
-                + "Decision 067 assumed it never is — report this.", emphasis: true)
-        } else {
-            log("As expected: no track through the loader. This is why "
-                + "uncaptioned films play the plain URL.")
-        }
+        log("  no text within \(Int(window))s"
+            + (offeredLogged ? " (track was offered but stayed silent)"
+                             : " (no track was ever offered)"), emphasis: true)
+        return false
     }
 
     private var osName: String {
@@ -206,48 +335,10 @@ final class CaptionDiagnostics {
 
     // `AVAsset` / `AVMediaSelectionGroup` are not Sendable; both are read-only
     // here, so the same narrow box SystemCaptions uses is the honest bridge.
-    private struct GroupProbe: @unchecked Sendable {
+    private struct LegibleProbe: @unchecked Sendable {
         let asset: AVAsset
         func group() async -> Box { Box(g: try? await asset.loadMediaSelectionGroup(for: .legible)) }
         struct Box: @unchecked Sendable { let g: AVMediaSelectionGroup? }
-    }
-
-    private func optionNames(of item: AVPlayerItem) async -> [String] {
-        let box = await GroupProbe(asset: item.asset).group()
-        return box.g?.options.map(\.displayName) ?? []
-    }
-
-    private func selectedName(of item: AVPlayerItem) async -> String? {
-        let box = await GroupProbe(asset: item.asset).group()
-        guard let g = box.g else { return nil }
-        return item.currentMediaSelection.selectedMediaOption(in: g)?.displayName
-    }
-
-    /// The first non-empty cue and how many seconds it took, or nil.
-    /// Logs a heartbeat every 30s so a long window reads as "still working",
-    /// not as the screen having died — the difference matters on the sofa.
-    private func firstCue(on item: AVPlayerItem,
-                          within seconds: Double) async -> (String, Int)? {
-        let sink = CueSink()
-        let output = AVPlayerItemLegibleOutput(mediaSubtypesForNativeRepresentation: [])
-        output.suppressesPlayerRendering = false      // observe only
-        output.setDelegate(sink, queue: .main)
-        item.add(output)
-        defer { item.remove(output) }
-        let start = Date()
-        let deadline = start.addingTimeInterval(seconds)
-        var nextTick = 30.0
-        while Date() < deadline {
-            let elapsed = Date().timeIntervalSince(start)
-            if let cue = sink.first { return (cue, Int(elapsed)) }
-            if Task.isCancelled { return nil }
-            if elapsed >= nextTick {
-                log("…still listening (\(Int(elapsed))s, no text yet)")
-                nextTick += 30
-            }
-            try? await Task.sleep(nanoseconds: 1_000_000_000)
-        }
-        return sink.first.map { ($0, Int(seconds)) }
     }
 
     private final class CueSink: NSObject, AVPlayerItemLegibleOutputPushDelegate,
@@ -263,6 +354,55 @@ final class CaptionDiagnostics {
             guard !text.isEmpty else { return }
             lock.lock(); if _first == nil { _first = text }; lock.unlock()
         }
+    }
+}
+
+/// The Config-C shape in miniature: master + media playlist served through a
+/// custom scheme, media segment left as a direct https URL AVFoundation owns.
+/// Kept app-side (not a harness copy) so the diagnostics can exercise it on a
+/// real Apple TV — it failed on macOS (offered but silent), and tvOS has
+/// already proven the platforms differ.
+private final class DiagnosticHLSWrapper: NSObject, AVAssetResourceLoaderDelegate,
+                                          @unchecked Sendable {
+    static let scheme = "aw-diag-hls"
+    private let queue = DispatchQueue(label: "aw.diag.hls")
+    private let mp4: URL
+    private let duration: Int
+
+    private init(mp4: URL, duration: Int) {
+        self.mp4 = mp4
+        self.duration = duration
+    }
+
+    static func makeAsset(mp4: URL, durationSeconds: Int) -> (AVURLAsset, DiagnosticHLSWrapper) {
+        let loader = DiagnosticHLSWrapper(mp4: mp4, duration: durationSeconds)
+        let asset = AVURLAsset(url: URL(string: "\(scheme)://local/master.m3u8")!)
+        asset.resourceLoader.setDelegate(loader, queue: loader.queue)
+        return (asset, loader)
+    }
+
+    func resourceLoader(_ rl: AVAssetResourceLoader,
+                        shouldWaitForLoadingOfRequestedResource
+                        req: AVAssetResourceLoadingRequest) -> Bool {
+        guard let url = req.request.url else { return false }
+        let body: String
+        if url.path.hasSuffix("master.m3u8") {
+            body = "#EXTM3U\n#EXT-X-VERSION:6\n"
+                + "#EXT-X-STREAM-INF:BANDWIDTH=2000000\nvideo.m3u8\n"
+        } else if url.path.hasSuffix("video.m3u8") {
+            body = "#EXTM3U\n#EXT-X-VERSION:6\n#EXT-X-TARGETDURATION:\(duration)\n"
+                + "#EXT-X-PLAYLIST-TYPE:VOD\n#EXTINF:\(duration).0,\n"
+                + "\(mp4.absoluteString)\n#EXT-X-ENDLIST\n"
+        } else {
+            return false
+        }
+        let data = Data(body.utf8)
+        req.contentInformationRequest?.contentType = "application/vnd.apple.mpegurl"
+        req.contentInformationRequest?.contentLength = Int64(data.count)
+        req.contentInformationRequest?.isByteRangeAccessSupported = false
+        req.dataRequest?.respond(with: data)
+        req.finishLoading()
+        return true
     }
 }
 
@@ -288,12 +428,11 @@ struct CaptionDiagnosticsView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 6) {
                         if diag.lines.isEmpty {
-                            Text("Runs a test of every caption tier this device "
-                                 + "supports, against a film the system is known "
-                                 + "to caption. On Apple TV allow up to ~6 "
-                                 + "minutes; nothing is uploaded. Results appear "
-                                 + "here as they happen and stay until the next "
-                                 + "run.")
+                            Text("Probes three ways of playing a film to find "
+                                 + "which one this device generates subtitles "
+                                 + "for. On Apple TV allow up to ~10 minutes; "
+                                 + "nothing is uploaded. Results appear here as "
+                                 + "they happen and stay until the next run.")
                                 .foregroundStyle(.secondary)
                         }
                         ForEach(diag.lines) { line in

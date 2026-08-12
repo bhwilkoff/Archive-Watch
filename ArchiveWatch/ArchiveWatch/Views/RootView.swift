@@ -32,6 +32,7 @@ struct RootView: View {
     // player to verify the VHS overlay over live video. No-op in production.
     @State private var devChannelItems: [Catalog.Item] = []
     @State private var showDevChannel = false
+    @State private var showCaptionDiag = false
     private let idleThreshold = 300   // 5 minutes
 
     var body: some View {
@@ -68,6 +69,23 @@ struct RootView: View {
             openDeepLinkedItem(
                 id, autoplay: ProcessInfo.processInfo.environment["AW_AUTOPLAY"] == "1")
         }
+        // Dev affordance: `AW_CAPTION_DIAG=1` runs the caption probe at launch
+        // with every line printed to stdout — which, with the app launched via
+        // `devicectl device process launch --console`, makes a paired Apple TV
+        // readable from the development Mac. That closes the gap this bug
+        // lived in: three caption fixes shipped on Mac-only evidence because
+        // the one device that could falsify them had no readable console.
+        // The diagnostics UI is PRESENTED, not just run: the first headless
+        // run couldn't rule out generation being gated on active rendering,
+        // and the visible player makes the probe match real playback anyway.
+        // Unset in production (no-op).
+        .task {
+            guard ProcessInfo.processInfo.environment["AW_CAPTION_DIAG"] == "1" else { return }
+            showCaptionDiag = true
+            try? await Task.sleep(nanoseconds: 1_000_000_000)   // let the cover land
+            await CaptionDiagnostics.shared.run()
+        }
+        .fullScreenCover(isPresented: $showCaptionDiag) { CaptionDiagnosticsView() }
         // Screenshot/dev affordance: `AW_START_MODE=kids|party|saver` lands on that
         // immersive tab once the catalog is ready (`saver` also opens the running
         // screensaver directly). Unset in production (no-op).

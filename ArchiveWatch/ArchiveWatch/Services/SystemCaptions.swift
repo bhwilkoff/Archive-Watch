@@ -134,25 +134,55 @@ enum SystemCaptions {
     static func handOver(to player: AVPlayer?, directURL: URL? = nil,
                          patience: Double = 75) async -> Bool {
         guard isAvailable else { stage = .unavailable; return false }
+        guard let item = player?.currentItem else { return false }
         stage = .waitingForTrack
-        guard await waitForLegibleOption(on: player) else {
-            stage = .noTrackOffered
-            return false
+
+        // ONE loop over the whole patience — poll for the track, select it the
+        // moment it appears, listen for text throughout. The earlier staged
+        // flow (wait 15s for an offer, THEN select, THEN listen) was built on
+        // macOS, where the offer arrives at t≈1s. On the real Apple TV the
+        // offer arrived MINUTES in — after the system's caption engine warmed
+        // up — so a fixed offer-first gate concluded "no track offered" while
+        // the track was on its way. Listening from the start also means a film
+        // whose opening is silent cannot defeat detection.
+        let sink = EmissionSink()
+        let output = AVPlayerItemLegibleOutput(mediaSubtypesForNativeRepresentation: [])
+        output.suppressesPlayerRendering = false      // observe only
+        output.setDelegate(sink, queue: .main)
+        item.add(output)
+        defer { item.remove(output) }
+
+        var offered = false
+        var selected = false
+        let deadline = Date().addingTimeInterval(patience)
+        while Date() < deadline {
+            if sink.sawText { stage = .captioning; return true }
+            if Task.isCancelled { return false }
+            if !selected {
+                let box = await LegibleProbe(asset: item.asset).group()
+                if let group = box.group, !group.options.isEmpty {
+                    offered = true
+                    if item.currentMediaSelection.selectedMediaOption(in: group) != nil {
+                        selected = true
+                    } else if MACaptionAppearanceGetDisplayType(.user) != .forcedOnly,
+                              let opt = AVMediaSelectionGroup.mediaSelectionOptions(
+                                from: group.options, with: Locale.current).first
+                                ?? group.options.first {
+                        item.select(opt, in: group)
+                        selected = true
+                    } else {
+                        // The viewer asked for forced subtitles only. Waiting
+                        // for text from a track nobody will switch on is a
+                        // guaranteed-wasted patience — say why, and stop.
+                        stage = .notSelected
+                        return false
+                    }
+                    stage = .selected
+                }
+            }
+            try? await Task.sleep(nanoseconds: 1_000_000_000)
         }
-        // An unselected track emits nothing, so listening for text after a
-        // failed selection would report ".declined" 75 seconds later when the
-        // truth was known immediately — and on a device set to forced-only
-        // subtitles the wait is guaranteed to be wasted. Say why, and stop.
-        guard await selectIfWanted(on: player) else {
-            stage = .notSelected
-            return false
-        }
-        stage = .selected
-        if await emitsCaptions(on: player, within: patience) {
-            stage = .captioning
-            return true
-        }
-        stage = .declined
+        stage = offered ? .declined : .noTrackOffered
         return false
     }
 

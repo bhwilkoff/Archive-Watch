@@ -16,7 +16,7 @@ path for generated subtitles).
 | # | Tier | Source | Where it appears |
 |---|------|--------|------------------|
 | 1 | **Published subtitle file** | uploader files, SubDL, SubSource, viewer's own OpenSubtitles account, on-device transcription saved by "Get subtitles" | The player's native subtitle menu, all platforms, all OS versions |
-| 2 | **Live on-device transcription** | `LiveCaptions` — muted scout player at 2× ahead of playback → `SpeechAnalyzer` (26+) | An overlay styled by the viewer's system caption settings; **iOS/iPadOS/macOS only** |
+| 2 | **Live on-device transcription** | `LiveCaptions` — muted scout player at 2× ahead of playback → `SpeechAnalyzer` (26+) | An overlay styled by the viewer's system caption settings; **iOS/iPadOS/macOS, and tvOS 27** (tvOS 26 has no speech models — D060; 27 ships them, measured on device — D068) |
 | 3 | **System-generated subtitles** | The OS itself, 27+ ("Generated Subtitles" accessibility feature) | The player's native subtitle menu, labelled "English (US) Transcribed" |
 
 ## The matrix — what a sound-era film shows
@@ -30,7 +30,7 @@ fabricating dialogue over a silent film is the worst outcome available (039b).
 | Viewer on | Film has a published file (5,718) | Film has none (19,200) |
 |---|---|---|
 | tvOS 26 | native menu | **nothing** — no speech models (D060) and no OS generation |
-| tvOS 27 | native menu | system-generated, via the plain-url path (D067) |
+| tvOS 27 | native menu | **our live-transcription engine** (D068 — the system's generated track is offered but never emits on this beta; a concurrent watch stands our engine down if it ever does) |
 | iOS/iPadOS 26 | native menu | live transcription overlay |
 | iOS/iPadOS 27 | native menu | system-generated; live transcription if the system declines |
 | macOS 26 | native menu | live transcription overlay |
@@ -40,9 +40,10 @@ Two qualifiers apply everywhere:
 
 - **The system declines audio it cannot hear well (D063).** On rough archival
   optical sound it produces *nothing* rather than guessing. Where our own
-  engine exists (iOS/macOS) it takes over; on tvOS there is no fallback — a
-  declined film on an Apple TV is captionless, and that is the OS's judgment,
-  not a bug.
+  engine exists (iOS/macOS, tvOS 27) it takes over; on tvOS 26 there is no
+  fallback — a declined film there is captionless, and that is the OS's
+  judgment, not a bug. Our engine attempts what the system declines and
+  discards its own output when the audio defeats it too (`CaptionQuality`).
 - **A published file is judged, not trusted (D062).** The first minutes are
   checked against a transcript of the actual audio; a mistimed file is shifted,
   a wrong-cut file replaced by live transcription (iOS/macOS). Files are also

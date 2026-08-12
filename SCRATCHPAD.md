@@ -233,6 +233,24 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-08-12 (breakthrough) — LIVE CAPTIONS WORKING ON APPLE TV; Decision 068; 1.3.366/888
+The Bedroom Apple TV is PAIRED to the dev Mac — `devicectl device process
+launch --console` + an `AW_CAPTION_DIAG=1` hook made it a readable oracle, and
+the whole mystery fell in one afternoon of minute-long iterations instead of
+ASC round-trips. Measured ON THE DEVICE: the system's generated track is
+offered + selected on every asset shape (local file / plain remote MP4 / HLS
+wrapper) and NEVER EMITS on this beta — while OUR SpeechAnalyzer engine cued
+the reference clip in 14s. **tvOS 27 ships working speech models (supported
+45, installs on demand) — Decision 060 is obsolete on 27.** Production now:
+engine LEADS on tvOS, system track on a concurrent 300s watch (stands down if
+it ever speaks), both gated on viewerWantsCaptions. Verified end to end: a
+real film through the real player captioned on the Apple TV, resuming at the
+owner's watch position. handOver is now ONE poll+select+listen loop across its
+patience (the OFFER itself can arrive minutes in — cold engine 180s of
+nothing, warm engine offers at 0s). NOTE: probes ran on the BEDROOM unit; the
+owner tests on the FIREPLACE unit (not paired) — settings differ per device.
+`caption-probe.mp4` (bundled 60s narration) is the reference clip.
+
 ### 2026-08-12 (latest) — Caption Diagnostics on-device; tier matrix bound; 1.3.364/886
 The Apple TV becomes SELF-REPORTING: Settings → Automatic Captions → **Caption
 Diagnostics** runs the full tier probe on screen (tier availability, option

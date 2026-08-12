@@ -19,6 +19,10 @@ final class CaptionCoordinator {
     private var captions: LiveCaptions?
     private var label: UILabel?
     private var loop: Task<Void, Never>?
+    /// The concurrent watch for the system's generated track — held so
+    /// teardown can cancel it; otherwise it would poll a paused player for
+    /// the rest of its 300s patience after the viewer has left.
+    private var systemWatch: Task<Void, Never>?
     /// The source currently being transcribed, so an autoplay advance to the
     /// next film restarts the engine instead of captioning the previous one
     /// forever (the container is reused; only its player is swapped).
@@ -70,35 +74,52 @@ final class CaptionCoordinator {
 
         draws = vtt == nil
         loop = Task { @MainActor [weak self] in
-            // Let the system speak first — but ONLY for a film with no
-            // subtitle track of its own. When `vtt` is set the job here is to
-            // JUDGE a published track (Decision 062), and running the handover
-            // first killed that judge on every 27 device: the published track
-            // emits text, handOver reports "captioning", and the engine stood
-            // down without ever checking whether the file was mistimed.
+            // OUR ENGINE LEADS on tvOS; the system's generated track is
+            // opportunistic. Measured on the real Apple TV (tvOS 27.0
+            // 24J5346a, probe v3): the system's track was offered and selected
+            // on every asset shape — local file, plain remote MP4, HLS wrapper
+            // — and produced NO TEXT in over ten minutes of playback, while
+            // our SpeechAnalyzer scout cued the same clip in 14 seconds. tvOS
+            // 27 ships working speech models (Decision 060 was true of 26
+            // only), so the engine that captions iOS and macOS captions the
+            // living room too. Blocking it for 300s behind a system track that
+            // has never once spoken was the delay the owner kept reporting as
+            // "no captions".
             //
-            // Five minutes of patience, not the default 75s: on this platform
-            // there is NO fallback engine racing to start (Decision 060), the
-            // silicon transcribes far slower than the Mac the default was
-            // calibrated on, and first use may download a model. Build 886
-            // waited 75s and told the owner the system "produced no text" for
-            // what was plausibly a system still working — a verdict worse than
-            // waiting, because the track stays selected and captions that
-            // arrive after it still display, directly under the wrong notice.
-            if vtt == nil,
-               await SystemCaptions.handOver(to: player, directURL: url, patience: 300) {
-                print("[AWCAP] system provides subtitles — standing down")
-                self?.label?.removeFromSuperview()
-                self?.label = nil
-                return
+            // The system-watch still runs, CONCURRENTLY: if a track ever emits
+            // — this beta, a later one, or a device where it genuinely works —
+            // ours stops and stands down, because the system's is better on
+            // every count (native menu, viewer's style, no second stream).
+            //
+            // Films WITH a published track (`vtt != nil`) skip the watch: the
+            // job there is to JUDGE the file (Decision 062), and a handover
+            // that stands down on the published track's own emission killed
+            // that judge once already.
+            if vtt == nil {
+                // A viewer whose caption preference is forced-only has asked
+                // NOT to see captions. Respect it for the automatic path: no
+                // engine, no second stream, no note. (Published tracks and the
+                // manual subtitle menu remain theirs to switch on.)
+                guard SystemCaptionStyle.viewerWantsCaptions else {
+                    self?.label?.removeFromSuperview()
+                    self?.label = nil
+                    return
+                }
+                self?.systemWatch = Task { @MainActor [weak self] in
+                    if await SystemCaptions.handOver(to: player, directURL: url,
+                                                     patience: 300) {
+                        print("[AWCAP] system captions arrived — standing down")
+                        self?.captions?.stop()
+                        self?.label?.removeFromSuperview()
+                        self?.label = nil
+                    }
+                }
             }
             guard !Task.isCancelled else { return }
-            // The system did not caption this film. On an Apple TV our own
-            // engine cannot either — tvOS carries no speech models and cannot
-            // install them (Decision 060) — so without this the screen simply
-            // stays blank and the reason is unknowable from the room it happens
-            // in. Say which stage the handover reached. Only for a film with no
-            // track: a review film's subtitles are on screen and need no note.
+            // Nothing to say and no way to say it: without models the screen
+            // stays blank, and the reason must be visible from the sofa. Only
+            // for a film with no track — a review film's subtitles are on
+            // screen and need no note.
             if vtt == nil, await CaptionCapability.shared.resolved() == false {
                 self?.systemNote = SystemCaptions.stage == .declined
                     ? "No subtitles: the system couldn't transcribe this film's audio."
@@ -150,6 +171,7 @@ final class CaptionCoordinator {
 
     func stop() {
         loop?.cancel(); loop = nil
+        systemWatch?.cancel(); systemWatch = nil
         captions?.stop(); captions = nil
         label?.removeFromSuperview(); label = nil
         sourceURL = nil

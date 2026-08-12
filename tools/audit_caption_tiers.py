@@ -5,8 +5,9 @@ The app has three caption tiers and they are NOT equally available:
 
     1. PUBLISHED subtitle files (uploader/SubDL/SubSource/OpenSubtitles) —
        every platform, every OS version, via the native subtitle menu.
-    2. On-device live transcription (SpeechAnalyzer, 26+) — iOS/macOS ONLY;
-       tvOS ships the API but no speech models (Decision 060).
+    2. On-device live transcription (SpeechAnalyzer, 26+) — iOS/macOS, and
+       tvOS 27 (tvOS 26 ships the API but no speech models, Decision 060;
+       27 ships working models, measured on device — Decision 068).
     3. System-generated subtitles (27+) — all four platforms, but only for a
        film played on a PLAIN url (Decision 067) and only when the system does
        not decline the audio (Decision 063).
@@ -102,7 +103,7 @@ What a sound-era film shows, by platform and OS ({sound:,} films):
 
   platform / OS        published({published:,})   bare({bare:,})
   tvOS 26              native menu       NOTHING (no speech models, D060)
-  tvOS 27              native menu       generated* (plain-url path, D067)
+  tvOS 27              native menu       live transcription (D068; system track on watch)
   iOS/iPadOS 26        native menu       live transcription overlay
   iOS/iPadOS 27        native menu       generated*, else live transcription
   macOS 26             native menu       live transcription overlay
