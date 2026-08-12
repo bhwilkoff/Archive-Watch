@@ -37,6 +37,8 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
+      # check_workflow_gates parses the workflow YAML; a runner has no pyyaml.
+      - run: pip install --quiet pyyaml
 
       - name: Judge what every workflow last produced
         id: audit
