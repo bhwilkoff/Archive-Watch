@@ -423,8 +423,12 @@ private struct PlayerSurface: View {
         guard liveCaptions == nil, LiveCaptions.isSupported, let src = videoURL else { return }
         Task { @MainActor in
             // From macOS 27 the system captions this film itself; ours would
-            // double up on it.
-            if await SystemCaptions.handOver(to: p, directURL: src) { return }
+            // double up on it. But ONLY when the film has no track of its own:
+            // `draws == false` means the job is to JUDGE a published track
+            // (Decision 062), and running the handover first killed that judge
+            // on every 27 device — the published track emits text, handOver
+            // reports "captioning", and the review never ran.
+            if draws, await SystemCaptions.handOver(to: p, directURL: src) { return }
             let lc = LiveCaptions()
             liveCaptions = lc
             await lc.start(url: src, from: p.currentTime())

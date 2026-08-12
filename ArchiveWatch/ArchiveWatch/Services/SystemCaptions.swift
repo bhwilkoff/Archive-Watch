@@ -119,8 +119,20 @@ enum SystemCaptions {
     /// emitted cues on ONE, declining on poor archival optical sound rather
     /// than guessing at it. Standing down on the mere presence of a track would
     /// leave a viewer with nothing on exactly the films that need help most.
+    ///
+    /// `patience` is how long to wait for that text, and it is a PLATFORM
+    /// question, not a constant. The 75s default was calibrated on an M-series
+    /// Mac that emits in ~33s, and it is right where our own engine is waiting
+    /// to start instead (iOS/macOS — every second of patience delays the
+    /// fallback). On tvOS there is no fallback (Decision 060), the silicon is
+    /// far slower, and first use may download a model — so a tvOS caller
+    /// should wait minutes, because the owner's Apple TV reported "declined"
+    /// on build 886 for what was plausibly a system still working. The track
+    /// stays selected either way, so captions that arrive after the verdict
+    /// still display.
     @MainActor
-    static func handOver(to player: AVPlayer?, directURL: URL? = nil) async -> Bool {
+    static func handOver(to player: AVPlayer?, directURL: URL? = nil,
+                         patience: Double = 75) async -> Bool {
         guard isAvailable else { stage = .unavailable; return false }
         stage = .waitingForTrack
         guard await waitForLegibleOption(on: player) else {
@@ -136,7 +148,10 @@ enum SystemCaptions {
             return false
         }
         stage = .selected
-        if await emitsCaptions(on: player) { stage = .captioning; return true }
+        if await emitsCaptions(on: player, within: patience) {
+            stage = .captioning
+            return true
+        }
         stage = .declined
         return false
     }

@@ -247,6 +247,17 @@ the stage change. NOTE: the prior "still broken" report was filed 8 minutes
 after 885 finished uploading — confirm the build number reads 1.3.364 (886)
 before diagnosing anything.
 
+**887 (owner tested 886 on the Apple TV):** the diagnostics screen blanked its
+own results — @State was lost to view recreation ON THE ONE DEVICE it was built
+for → state moved to a SINGLETON, log auto-follows, the probe player is now
+VISIBLE. And the player's "produced no text" verdict came at 75s, calibrated on
+a Mac that emits in 33s — tvOS now waits 300s (no fallback engine there; first
+use may download a model; the track stays selected so late captions still
+display). Also fixed a D062 regression the handOver era introduced on ALL
+three platforms: for films WITH subtitles the published track's own emission
+made handOver report "captioning" and the mistimed-file judge NEVER RAN —
+handOver is now gated to films with no track.
+
 ### 2026-08-12 (later) — tvOS 27 generated subtitles ROOT-CAUSED; Decision 067; 1.3.363/885
 App **1.3.363 / b885** uploaded to ASC (mac+iOS+tvOS). Memories:
 `tvos27_captions_open` (READ FIRST), `session_handoff_2026_08_12_captions`.

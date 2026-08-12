@@ -494,8 +494,14 @@ struct PlayerView: UIViewControllerRepresentable {
                 guard let self else { return }
                 // Let the system speak first: from iOS 27 it captions this film
                 // itself, and ours would be a second, differently timed copy
-                // over the top of it.
-                if await SystemCaptions.handOver(to: self.player, directURL: url) {
+                // over the top of it. ONLY for a film with no track of its own —
+                // `showsImmediately == false` means the job is to JUDGE a
+                // published track (Decision 062), and running the handover
+                // first killed that judge on every 27 device: the published
+                // track emits text, handOver reports "captioning", and the
+                // review never ran.
+                if showsImmediately,
+                   await SystemCaptions.handOver(to: self.player, directURL: url) {
                     self.captionLabel?.removeFromSuperview()
                     self.captionLabel = nil
                     return

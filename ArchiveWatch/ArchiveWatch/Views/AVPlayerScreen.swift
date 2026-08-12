@@ -70,11 +70,23 @@ final class CaptionCoordinator {
 
         draws = vtt == nil
         loop = Task { @MainActor [weak self] in
-            // Let the system speak first. On tvOS 27 it captions this film
-            // itself; ours would be a second, differently timed copy over the
-            // top of it. On tvOS 26 nothing legible ever appears, so this costs
-            // one poll and then proceeds exactly as before.
-            if await SystemCaptions.handOver(to: player, directURL: url) {
+            // Let the system speak first — but ONLY for a film with no
+            // subtitle track of its own. When `vtt` is set the job here is to
+            // JUDGE a published track (Decision 062), and running the handover
+            // first killed that judge on every 27 device: the published track
+            // emits text, handOver reports "captioning", and the engine stood
+            // down without ever checking whether the file was mistimed.
+            //
+            // Five minutes of patience, not the default 75s: on this platform
+            // there is NO fallback engine racing to start (Decision 060), the
+            // silicon transcribes far slower than the Mac the default was
+            // calibrated on, and first use may download a model. Build 886
+            // waited 75s and told the owner the system "produced no text" for
+            // what was plausibly a system still working — a verdict worse than
+            // waiting, because the track stays selected and captions that
+            // arrive after it still display, directly under the wrong notice.
+            if vtt == nil,
+               await SystemCaptions.handOver(to: player, directURL: url, patience: 300) {
                 print("[AWCAP] system provides subtitles — standing down")
                 self?.label?.removeFromSuperview()
                 self?.label = nil
@@ -85,9 +97,12 @@ final class CaptionCoordinator {
             // engine cannot either — tvOS carries no speech models and cannot
             // install them (Decision 060) — so without this the screen simply
             // stays blank and the reason is unknowable from the room it happens
-            // in. Say which stage the handover reached.
-            if await CaptionCapability.shared.resolved() == false {
-                self?.systemNote = "Subtitles unavailable — \(SystemCaptions.stage.rawValue)."
+            // in. Say which stage the handover reached. Only for a film with no
+            // track: a review film's subtitles are on screen and need no note.
+            if vtt == nil, await CaptionCapability.shared.resolved() == false {
+                self?.systemNote = SystemCaptions.stage == .declined
+                    ? "No subtitles: the system couldn't transcribe this film's audio."
+                    : "Subtitles unavailable — \(SystemCaptions.stage.rawValue)."
                 // Shown HERE rather than in the loop below, because on this
                 // device the engine never starts, so that loop exits at once
                 // and would never draw anything. Time-boxed: an explanation
