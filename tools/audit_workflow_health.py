@@ -43,6 +43,9 @@ NOT_PRODUCERS = {
     "App Store build (cloud)", "Deploy Pages", "pages-build-deployment",
     "Retry infrastructure failures", "Probe speech assets (diagnostic)",
     "Probe candidate sources", "Publish catalog DB", "Faststart remux (generate + host)",
+    # Itself. Judging its own last run makes one failure permanent: it fails,
+    # then reports that failure as a finding, which fails it again.
+    "Workflow health",
 }
 LOOKBACK_HOURS = int(os.environ.get("LOOKBACK_HOURS", "36"))
 # A run that took longer than this and produced nothing is not "no work to do".
