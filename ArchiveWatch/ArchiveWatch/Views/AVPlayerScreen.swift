@@ -27,6 +27,18 @@ final class CaptionCoordinator {
     /// next film restarts the engine instead of captioning the previous one
     /// forever (the container is reused; only its player is swapped).
     private var sourceURL: URL?
+    /// The player whose clock drives the display — held HERE, not captured by
+    /// the loop. On tvOS a persistent stall REBUILDS the AVPlayer for the same
+    /// url (`forceResilientFallback`), and a loop that captured the original
+    /// kept reading a torn-down player whose `currentTime()` never moves: the
+    /// caption at the resume position stayed on screen for the rest of the
+    /// film. iOS and macOS swap the ITEM on one player, which is why only the
+    /// living room froze.
+    private weak var observedPlayer: AVPlayer?
+    /// `AW_CAPTION_TRACE=1`: print the playhead and every displayed-line
+    /// change, so caption progression on a paired Apple TV is verifiable from
+    /// the dev Mac's console instead of by watching the bedroom TV.
+    private let trace = ProcessInfo.processInfo.environment["AW_CAPTION_TRACE"] == "1"
     /// False while a published track is only being JUDGED — the player already
     /// draws its own subtitles, and a second set underneath is the
     /// double-caption bug in miniature.
@@ -47,9 +59,19 @@ final class CaptionCoordinator {
     /// nothing unless it turns out to be wrong.
     func startCaptions(url: URL, player: AVPlayer?, in vc: AVPlayerViewController,
                        reviewing vtt: URL? = nil) {
-        guard sourceURL != url else { return }
+        guard sourceURL != url else {
+            // Same film, new player: the stall fallback rebuilt it. The engine
+            // keeps its transcript (the scout is an independent stream) — only
+            // the clock the display follows must move to the new player.
+            if let player, player !== observedPlayer {
+                observedPlayer = player
+                if trace { print("[AWCAP] trace: rebound display to a rebuilt player") }
+            }
+            return
+        }
         stop()
         sourceURL = url
+        observedPlayer = player
         let lc = LiveCaptions()
         captions = lc
 
@@ -106,12 +128,43 @@ final class CaptionCoordinator {
                     return
                 }
                 self?.systemWatch = Task { @MainActor [weak self] in
-                    if await SystemCaptions.handOver(to: player, directURL: url,
-                                                     patience: 300) {
-                        print("[AWCAP] system captions arrived — standing down")
-                        self?.captions?.stop()
-                        self?.label?.removeFromSuperview()
-                        self?.label = nil
+                    guard await SystemCaptions.handOver(to: player, directURL: url,
+                                                        patience: 300) else { return }
+                    // The system's track spoke — hide ours, but DON'T kill the
+                    // engine. On this tvOS beta the generated track refused to
+                    // emit through ten minutes of probing and then emitted
+                    // mid-film in real playback: it is flaky in both
+                    // directions, and a permanent stand-down would strand the
+                    // viewer captionless the moment it goes quiet again. So
+                    // the overlay yields, the scout keeps transcribing, and if
+                    // the system falls silent for 45s ours comes straight back.
+                    print("[AWCAP] system captions arrived — yielding to them")
+                    self?.draws = false
+                    var window = 0
+                    while !Task.isCancelled {
+                        window += 1
+                        let began = Date()
+                        let p = self?.observedPlayer
+                        if await SystemCaptions.emitsCaptions(on: p, within: 45) {
+                            if self?.trace == true {
+                                print("[AWCAP] trace system still captioning (window \(window))")
+                            }
+                            // `emitsCaptions` returns the moment it sees text,
+                            // which on a continuously-captioning system is ~1s
+                            // in — re-checking immediately spun this loop once
+                            // a second. Sleep out the window: the question is
+                            // "did it go quiet", and that only needs asking
+                            // every 45s.
+                            let left = 45 - Date().timeIntervalSince(began)
+                            if left > 0 {
+                                try? await Task.sleep(nanoseconds: UInt64(left * 1_000_000_000))
+                            }
+                            continue
+                        }
+                        guard !Task.isCancelled else { return }
+                        print("[AWCAP] system captions went quiet — ours resume")
+                        self?.draws = true
+                        return
                     }
                 }
             }
@@ -153,8 +206,16 @@ final class CaptionCoordinator {
                     }
                 }
             }
-            while !Task.isCancelled, lc.isRunning {
-                let now = player?.currentTime() ?? .zero
+            // Until CANCELLED, not while the engine runs: a loop conditioned on
+            // `lc.isRunning` exits the moment the engine stops and leaves
+            // whatever the label last said on screen for the rest of the film —
+            // the second way a caption freezes. Display outlives transcription
+            // (a finished transcript is still worth showing); only `stop()`
+            // ends it.
+            var shown = ""
+            var lastTrace = Date.distantPast
+            while !Task.isCancelled {
+                let now = self?.observedPlayer?.currentTime() ?? .zero
                 lc.throttle(playhead: now)
                 // Between captions, say why there are none — a blank screen and
                 // a failed recognizer look identical from the sofa.
@@ -164,8 +225,23 @@ final class CaptionCoordinator {
                 self?.label?.numberOfLines = line.isEmpty ? 4 : 2
                 self?.label?.text = text.isEmpty ? nil : "  \(text)  "
                 self?.label?.isHidden = text.isEmpty
+                if self?.trace == true {
+                    if text != shown {
+                        print("[AWCAP] trace t=\(String(format: "%.1f", now.seconds)) "
+                              + (text.isEmpty ? "(blank)" : "show: \(text.prefix(50))"))
+                    } else if Date().timeIntervalSince(lastTrace) > 10 {
+                        print("[AWCAP] trace t=\(String(format: "%.1f", now.seconds)) "
+                              + "steady (\(lc.isRunning ? "engine running" : "engine stopped"), "
+                              + "lead \(Int(lc.leadSeconds(over: now)))s)")
+                        lastTrace = Date()
+                    }
+                }
+                shown = text
+                // Engine gone and nothing left to say: hide and stop polling.
+                if !lc.isRunning, text.isEmpty { break }
                 try? await Task.sleep(nanoseconds: 150_000_000)
             }
+            self?.label?.isHidden = true
         }
     }
 
@@ -175,6 +251,7 @@ final class CaptionCoordinator {
         captions?.stop(); captions = nil
         label?.removeFromSuperview(); label = nil
         sourceURL = nil
+        observedPlayer = nil
     }
 }
 

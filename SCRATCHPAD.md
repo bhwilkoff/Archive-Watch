@@ -233,6 +233,24 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-08-12 (final) — Captions PROGRESS on the Apple TV, ground-truth-exact; Decision 069; 1.3.367/889
+Owner: first line showed at resume then froze. Traced on the paired Bedroom ATV
+in five build-install-trace loops (minutes each): (1) the FREEZE = tvOS's stall
+fallback REBUILDS the AVPlayer and the display loop had captured the old one —
+now follows `observedPlayer` and runs until cancelled; (2) the same minute of
+narration transcribed 3x = the DEFAULT pitch algorithm re-delivering tapped
+audio around rate transitions AND delivering ~1x audio against a 2x position
+clock — `.timeDomain` pinned explicitly + a highWater replay guard in the tap;
+(3) an anchor-based time mapping was built and REVERTED same day: macOS stamps
+tap buffers in FILM time, tvOS in the COMPRESSED timeline, so anchors halved
+every tvOS cue — the `offset + raw × scoutRate` formula is the only mapping
+that holds on both, proven against a locally transcribed GROUND-TRUTH region
+("Temple of the Soul" at 1108.0 = 805 + 151.6×2 exactly). Final on-device run:
+our engine leads with exact sync ("From cave wall to billboard" shown t=28.5,
+spoken 28.2–28.4), Apple's generated track came alive ~30s in, ours yielded
+(REVERSIBLY — 45s-quiet watchdog brings ours back), 260 windows of system
+captions followed. macOS timing harness green after every change.
+
 ### 2026-08-12 (breakthrough) — LIVE CAPTIONS WORKING ON APPLE TV; Decision 068; 1.3.366/888
 The Bedroom Apple TV is PAIRED to the dev Mac — `devicectl device process
 launch --console` + an `AW_CAPTION_DIAG=1` hook made it a readable oracle, and

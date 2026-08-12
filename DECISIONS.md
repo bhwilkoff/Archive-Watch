@@ -3070,3 +3070,64 @@ emission, and the system-watch needs it. The Caption Diagnostics screen stays
 in Settings as the standing experiment kit. tvOS 26 remains published-files
 only. If a future tvOS beta makes the generated track emit, nothing needs to
 ship — the stand-down is already listening.
+
+## 069 — The scout's two clocks are platform traps: pin the pitch algorithm, map by rate, guard replays, follow the current player
+*Date: 2026-08-12*
+
+Four rules now bind the live-caption scout, each the corpse of a bug found by
+tracing real playback on the paired Apple TV and convicted against GROUND TRUTH
+(a locally transcribed copy of the same film region — the only arbiter when two
+mappings disagree; scout `currentTime()` is NOT one, since the tap runs ahead of
+the position clock by the audio queue's depth):
+
+1. **`audioTimePitchAlgorithm = .timeDomain`, explicitly.** Under the platform
+   default an Apple TV at 2x raced its position clock while delivering tapped
+   audio at ~1x — half the film's audio would never have been transcribed, the
+   lookahead never grew, and what audio arrived was mangled enough to garble
+   the transcript. It also re-delivered already-tapped audio around rate
+   transitions, which is where the "same minute of narration three times over"
+   came from.
+
+2. **Map analyzer time to film time by `offset + t × scoutRate` — never by the
+   tap's presentation timestamps.** The anchoring "improvement" was built and
+   reverted the same afternoon: macOS stamps the tap callback in FILM time, so
+   anchors agree with the rate formula there — but tvOS stamps it in the
+   COMPRESSED timeline, identical to the analyzer's own clock, so anchoring
+   silently halved every cue and captions ran minutes early. Ground truth:
+   "Temple of the Soul" is spoken at 1108.0; `805 + 151.6 × 2 = 1108.0` exactly,
+   on both platforms. The rate formula is the only mapping that never reads the
+   stamps, which is why it is the only one that holds everywhere.
+
+3. **Drop tap buffers whose presentation stamp rewinds** (`highWater` in
+   `BufferSink.append`). The scout never seeks backward, so an older stamp is a
+   re-delivery; feeding it to the analyzer both duplicates the words and
+   advances the clock, shifting every later cue.
+
+4. **The display loop follows `observedPlayer`, not the player it was started
+   with, and runs until CANCELLED, not while the engine runs.** tvOS's stall
+   fallback REBUILDS the AVPlayer for the same URL (iOS/macOS swap the item on
+   one player, which is why only the living room froze): the loop that captured
+   the original player read a torn-down clock forever, and the caption at the
+   resume position stayed on screen for the rest of the film — the owner's
+   exact report. A loop conditioned on `isRunning` was the second freeze: it
+   exited when the engine stopped and left the last label text standing.
+
+Also in this wave: the stand-down for the system's generated track is
+REVERSIBLE (`draws=false`, engine keeps running; a 45s-quiet watchdog brings
+ours back), because on this tvOS beta that track refused to emit through ten
+minutes of probing and then emitted mid-film in real playback — flaky in both
+directions. Verified end to end on the device: our engine leads with
+ground-truth-exact sync ("From cave wall to billboard" shown at t=28.5, spoken
+at 28.2–28.4), the system's track took over ~30s in, and 260 consecutive
+watchdog windows confirmed it kept speaking.
+
+**How to apply**: `AW_CAPTION_TRACE=1` prints the playhead, every displayed-line
+change, throttle transitions, and per-cue raw→film mappings — with the paired-
+device loop it turns caption sync into a console read. When two clocks disagree,
+cut the disputed film region with ffmpeg and transcribe it locally
+(`/tmp/awlive "file:///tmp/region.mp4"`); that transcript is the ground truth,
+nothing else is. Cold start is inherent: the scout begins AT the playhead, so
+the first ~1–2 minutes after (re)start have sparse captions while the lead
+builds — do not "fix" that by showing late-finalized cues (trailing captions
+are the failure Decision 058 exists to prevent).
+

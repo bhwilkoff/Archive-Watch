@@ -227,6 +227,14 @@ final class LiveCaptions {
         let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
         streamLoader = loader          // the resource-loader delegate is weak
         let item = AVPlayerItem(asset: asset)
+        // Ask for the CHEAP time-stretch explicitly. Under the platform default
+        // an Apple TV playing at 2x raced its POSITION clock at 2x while the
+        // tap received audio at ~1x — half the film's audio was never delivered
+        // (the scout would have hit "film end" halfway through), the lookahead
+        // never grew past ~30s, and what audio did arrive was mangled enough to
+        // garble the transcript. `.timeDomain` is pitch-preserving, rated for
+        // 2x, and light enough for the A15.
+        item.audioTimePitchAlgorithm = .timeDomain
         let scout = AVPlayer(playerItem: item)
         // volume 0, but NOT isMuted: muting can take the audio out of the render
         // pipeline altogether, and then the processing tap never fires.
@@ -265,10 +273,21 @@ final class LiveCaptions {
         let lead = leadSeconds(over: playhead)
         if lead > Self.maxLead, scout.rate != 0 {
             scout.rate = 0
+            if trace {
+                print("[AWCAP] trace scout PAUSED at \(fmt(scout.currentTime().seconds)) "
+                      + "(lead \(Int(lead))s)")
+            }
         } else if lead < Self.minLead, scout.rate == 0 {
             scout.rate = Self.scoutRate
+            if trace {
+                print("[AWCAP] trace scout RESUMED at \(fmt(scout.currentTime().seconds)) "
+                      + "(lead \(Int(lead))s)")
+            }
         }
     }
+
+    private let trace = ProcessInfo.processInfo.environment["AW_CAPTION_TRACE"] == "1"
+    private func fmt(_ v: Double) -> String { String(format: "%.1f", v) }
 
     /// Split a finalized span into caption-sized lines, filed by time.
     ///
@@ -424,19 +443,38 @@ final class LiveCaptions {
                 // exactly what we no longer need, because the scout runs ahead
                 // of the viewer and a caption can be shown whole.
                 guard result.isFinal else { continue }
-                // SCALE BY THE SCOUT RATE. The analyzer clocks by samples it has
-                // consumed, and playing at 2x time-compresses the audio — so the
-                // same speech yields half as many samples and every cue landed at
-                // half its true time ("From cave wall to billboard" at 14.2s when
-                // it is spoken at 28.4s). Multiplying by the rate puts cues back
-                // on the film's own timeline.
+                // SCALE BY THE SCOUT RATE — the one mapping verified against
+                // ground truth on BOTH platforms. The analyzer clocks by
+                // samples consumed, and at 2x the audio is time-compressed, so
+                // film time = offset + analyzer × 2 ("From cave wall to
+                // billboard" at raw 6.7 → 13.4 in-clip on the Apple TV AND on
+                // macOS; "Temple of the Soul" at raw 151.6 → 1108.0, matching
+                // the film exactly).
+                //
+                // DO NOT "improve" this by anchoring to the tap's presentation
+                // timestamps. That was tried: on macOS those stamps are FILM
+                // time (anchors agree with ×2), but on tvOS they are the
+                // COMPRESSED timeline — identical to the analyzer's own clock —
+                // so anchoring silently halved every cue there and captions ran
+                // minutes early. The two platforms stamp the same callback in
+                // different timelines; the rate formula is the only mapping
+                // that holds on both, because it never reads those stamps.
                 let rate = Double(Self.scoutRate)
                 let s0 = contentOffset + result.range.start.seconds * rate
                 let e0 = contentOffset + result.range.end.seconds * rate
-                guard s0.isFinite, e0.isFinite else { continue }
+                guard s0.isFinite, e0.isFinite, e0 > s0 else { continue }
                 await MainActor.run {
                     if self.cues.count < 3 {
                         print("[AWCAP] cue \(String(format: "%.1f", s0))-\(String(format: "%.1f", e0))s: \(text.prefix(40))")
+                    } else if self.trace {
+                        // The full mapping, every cue: the analyzer's own range
+                        // AND the film time it became, plus where the scout
+                        // actually is — so a replay, a clock jump, or a bad
+                        // scaling shows itself in one console read.
+                        print("[AWCAP] trace cue raw \(fmt(result.range.start.seconds))-"
+                              + "\(fmt(result.range.end.seconds)) -> film \(fmt(s0))-\(fmt(e0)) "
+                              + "(scout at \(fmt(self.scoutPlayer?.currentTime().seconds ?? -1))): "
+                              + "\(text.prefix(34))")
                     }
                     self.appendCue(start: s0, end: e0, text: text)
                 }
@@ -473,6 +511,9 @@ final class BufferSink: @unchecked Sendable {
     private var elapsedFrames: Int64 = 0
     private var baseFrames: Int64 = 0
     private var anchored = false
+    /// High-water mark of the tap's presentation clock, for the replay guard
+    /// in `append` — see the comment there.
+    private var highWater = -Double.infinity
     #if canImport(Speech)
     private var continuation: AsyncStream<AnalyzerInput>.Continuation?
     #endif
@@ -562,6 +603,7 @@ final class BufferSink: @unchecked Sendable {
         #endif
     }
 
+
     func append(_ bufferList: UnsafeMutablePointer<AudioBufferList>,
                 frames: CMItemCount, at start: CMTime) {
         #if canImport(Speech)
@@ -614,6 +656,19 @@ final class BufferSink: @unchecked Sendable {
         if !anchored, start.isValid, start.isNumeric {
             baseFrames = Int64(start.seconds * dst.sampleRate)
             anchored = true
+        }
+        // REPLAY GUARD. Under the platform-default time-pitch algorithm, an
+        // Apple TV re-delivered already-tapped audio around the throttle's
+        // rate transitions — the analyzer then transcribed the same minute of
+        // narration three times over, each copy stamped later than the last,
+        // and the viewer read the film's dialogue in triplicate. The tap's
+        // presentation clock only ever moves forward in legitimate playback
+        // (the scout never seeks backward), so audio that arrives with an
+        // older stamp is a re-delivery and must not reach the analyzer — nor
+        // advance its clock, which would shift every later cue.
+        if start.isValid, start.isNumeric {
+            if start.seconds < highWater - 0.05 { return }
+            highWater = max(highWater, start.seconds)
         }
         // Counted in FRAMES at the target rate, not seconds at timescale 600.
         // A 1024-frame step at 16 kHz is 0.064s = 38.4 ticks of a 600 timescale,
