@@ -81,7 +81,15 @@ def scene_cuts(url: str, max_seconds: int, fps: float) -> tuple[list[float], str
            if url.startswith("http") else [])
     cmd = ["ffmpeg", "-nostats", "-threads", "2", *net,
            "-t", str(max_seconds), "-i", url,
-           "-vf", f"fps={fps},scale=-2:'min(360,ih)',scdet=threshold=10", "-f", "null", "-"]
+           # `metadata=print` IS LOAD-BEARING. scdet SETS frame metadata; it does not
+           # print it. Recent ffmpeg happens to log some of it at info level, which is
+           # why this detected cuts on a dev Mac (7.1.1) and NOTHING on the runner's
+           # older build — 147 of 179 films came back "read it but found no scene
+           # changes" while the same films yield cuts locally. With the filter the same
+           # local film goes 7 -> 14 cuts, so it was under-detecting by half even where
+           # it appeared to work.
+           "-vf", f"fps={fps},scale=-2:'min(360,ih)',scdet=threshold=10,metadata=print",
+           "-f", "null", "-"]
     # stderr → a TEMP FILE, not capture_output (which holds ALL of ffmpeg's stderr in RAM — a
     # corrupt stream spamming per-frame decode errors could balloon it and OOM the runner). The
     # file is read back line-by-line so the parse stays bounded too. preexec caps ffmpeg's own
@@ -101,7 +109,11 @@ def scene_cuts(url: str, max_seconds: int, fps: float) -> tuple[list[float], str
             errf.seek(0)
             tail = ""
             for line in errf:             # bounded: one line at a time, never the whole buffer
-                m = re.search(r"lavfi\.scd\.time:\s*([\d.]+)", line)
+                # BOTH SEPARATORS. ffmpeg's info log writes "lavfi.scd.time: 1.23";
+                # the `metadata` filter writes "lavfi.scd.time=1.23". Matching only
+                # the colon meant adding the filter that finally emits the values on
+                # the runner would still have parsed none of them.
+                m = re.search(r"lavfi\.scd\.time[:=]\s*([\d.]+)", line)
                 if m:
                     cuts.append(float(m.group(1)))
                 elif line.strip() and not line.startswith("frame="):
