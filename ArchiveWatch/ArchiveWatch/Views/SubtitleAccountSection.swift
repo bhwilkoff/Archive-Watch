@@ -85,8 +85,26 @@ struct SubtitleAccountSection: View {
             if let err = account.lastError {
                 Text(err).font(.footnote).foregroundStyle(.red)
             }
+            #if os(tvOS)
+            // A `Link` on tvOS renders as a focusable button that does NOTHING
+            // when pressed — there is no browser to hand the URL to. The QR is
+            // the mechanism here (the donate section's precedent, Decision
+            // 010): the account gets created on the phone, the credentials get
+            // typed here.
+            HStack(alignment: .center, spacing: 20) {
+                QRCode(string: "https://www.opensubtitles.com/en/users/sign_up")
+                    .frame(width: 120, height: 120)
+                    .background(.white, in: RoundedRectangle(cornerRadius: 8))
+                Text("No account yet? Scan to create a free one on your phone, "
+                     + "then sign in here.")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            #else
             Link("Create a free account", destination: URL(string: "https://www.opensubtitles.com/en/users/sign_up")!)
                 .font(.footnote)
+            #endif
         }
     }
 }
