@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-08-11T03:56:42Z",
+  "updated_at": "2026-08-12T04:18:16Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-08-11T03:56:42Z"
+      "last_tried": "2026-08-12T04:18:16Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-08-11T03:56:42Z"
+      "last_tried": "2026-08-12T04:18:16Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -322349,6 +322349,26 @@
         "Western"
       ],
       "fetched_at": "2026-08-11T03:56:42Z",
+      "schema": 3
+    },
+    "tt0276209": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNjY0ZjhhZWMtOWRjZi00OTlkLTgxZmEtYzNkNTAwY2FhZmIzXkEyXkFqcGdeQXVyMzI2MDEwNA@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": 18,
+      "content_rating": null,
+      "plot": "Professor Mors has made a name for himself as a hypnotist. He shows great interest in the very young Claire Raven, a daughter of a good family. Mors puts Claire under hypnosis.",
+      "runtime_min": 96,
+      "director": "Richard Eichberg",
+      "actors": [
+        "Lee Parry",
+        "Gertrud de Lalsky",
+        "Karl Halden"
+      ],
+      "genres": [
+        "Drama",
+        "Mystery"
+      ],
+      "fetched_at": "2026-08-12T04:18:16Z",
       "schema": 3
     }
   },

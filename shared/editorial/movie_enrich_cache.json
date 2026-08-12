@@ -130570,5 +130570,15 @@
     "imdb_id": "tt0032319",
     "tmdb_id": 236468,
     "fetched_at": "2026-08-10T04:32:00Z"
+  },
+  "turner_video_104220": {
+    "imdb_id": "tt1070781",
+    "tmdb_id": 34417,
+    "fetched_at": "2026-08-12T04:18:25Z"
+  },
+  "superman_mechanical_monsters": {
+    "imdb_id": "tt0033888",
+    "tmdb_id": 71129,
+    "fetched_at": "2026-08-12T04:18:25Z"
   }
 }
