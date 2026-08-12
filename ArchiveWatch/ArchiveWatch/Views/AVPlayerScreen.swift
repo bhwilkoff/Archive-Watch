@@ -27,6 +27,16 @@ final class CaptionCoordinator {
     /// draws its own subtitles, and a second set underneath is the
     /// double-caption bug in miniature.
     private var draws = true
+    /// Why there are no subtitles, when the answer came from the SYSTEM rather
+    /// than from our own engine.
+    ///
+    /// An Apple TV is the only device that can answer whether tvOS captioned a
+    /// film, and its console cannot be read from a development machine — so
+    /// three fixes shipped on evidence gathered entirely on a Mac. This is the
+    /// state made visible where it can actually be observed. It is also the
+    /// honest thing to tell a viewer: a blank screen and a recognizer that
+    /// declined look identical from a sofa.
+    private var systemNote = ""
 
     /// `reviewing` is the published WebVTT when the film already HAS subtitles:
     /// the engine then runs only long enough to judge that file, and draws
@@ -71,6 +81,28 @@ final class CaptionCoordinator {
                 return
             }
             guard !Task.isCancelled else { return }
+            // The system did not caption this film. On an Apple TV our own
+            // engine cannot either — tvOS carries no speech models and cannot
+            // install them (Decision 060) — so without this the screen simply
+            // stays blank and the reason is unknowable from the room it happens
+            // in. Say which stage the handover reached.
+            if await CaptionCapability.shared.resolved() == false {
+                self?.systemNote = "Subtitles unavailable — \(SystemCaptions.stage.rawValue)."
+                // Shown HERE rather than in the loop below, because on this
+                // device the engine never starts, so that loop exits at once
+                // and would never draw anything. Time-boxed: an explanation
+                // earns a few seconds over a film, not the whole running time.
+                if let l = self?.label, let note = self?.systemNote, !note.isEmpty {
+                    l.numberOfLines = 4
+                    l.text = "  \(note)  "
+                    l.isHidden = false
+                    Task { @MainActor [weak self] in
+                        try? await Task.sleep(nanoseconds: 8_000_000_000)
+                        guard self?.systemNote == note else { return }
+                        self?.label?.isHidden = true
+                    }
+                }
+            }
             let from = player?.currentTime() ?? .zero
             await lc.start(url: url, from: from)
             if let vtt {

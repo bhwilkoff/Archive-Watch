@@ -2940,3 +2940,73 @@ Converted so far: color-classify, check-liveness, free-subtitles; ~24 catalog
 writers remain, and each is a mechanical change of the same shape. Measured cost
 on the real catalog (140.6 MB, 40,671 items): snapshot 2.9s at 737 MB RSS, and a
 661-item change produced a 0.0 MB delta.
+
+## 067 — A film with no subtitles plays on the PLAIN url, because the resilient loader is never offered a generated track
+*Date: 2026-08-12*
+
+From 27 the system generates subtitles on device for video that carries none, and
+Apple's position is that no app implementation is required. For an app that hands
+AVPlayer an ordinary URL that is true. This app hands it a custom
+`AVAssetResourceLoaderDelegate` (Decisions 021/031/034), so the asset shape is now
+chosen UP FRONT: a film with no published subtitle track plays on the plain
+`https` URL (`SystemCaptions.prefersDirectPlayback`), on tvOS, iOS and macOS, with
+`CaptionStallMonitor` rebuilding on the resilient loader if that path stutters
+persistently. A film that HAS published subtitles is untouched — its captioned-HLS
+path works, and its subtitles are human.
+
+**Why**: measured on macOS 27.0 (26A5388g), one shape per process, against a film
+the system is known to caption:
+
+    plain direct MP4 (/download URL)   option offered · TEXT in 33s
+    node-resolved direct node URL      option offered · TEXT in 30s
+    HLS master wrapping the same MP4   option offered · NEVER any text
+    aw-stream:// resilient loader      NO OPTION EVER OFFERED
+
+Both halves of that overturn what was recorded here. Decision 065 said the loader
+path was "offered but silent" and built a four-stage handover on it — wait for the
+track, select it, listen, and only then swap to the direct URL. **The swap was
+gated behind a track that never arrives**, so on an Apple TV it could never run,
+which is precisely the reported symptom: file-based captions working, generated
+ones never appearing, across three shipped builds. And wrapping the MP4 in HLS —
+the obvious reading of Apple's "HLS and file-based content" — does NOT qualify us
+either; a single-segment playlist pointing at a remote MP4 is offered a track that
+stays silent forever, exactly like the loader.
+
+That "offered" reading came from a harness that probed several shapes in ONE
+process, where a track left over from the previous player was counted as the
+current one's. A shape IDENTICAL to the passing one failed later in the same run,
+which is what exposed it. **One shape per process, or a result cannot be
+attributed to a shape at all.**
+
+**How to apply**: never assert that a caption track works because one was
+OFFERED — this is the fourth time that exact conflation has cost something here
+(poster liveness, the system declining, Decision 065, and now the measurement
+065 itself rested on). Assert emitted TEXT. Do not gate the direct path on the
+viewer's caption preference: "Generated Subtitles" is its own Settings toggle,
+separate from the captions display type, so a viewer can have generated subtitles
+on while the display type is still `.automatic` — gating there would leave the
+menu empty for exactly the person who went looking for it. Keep referencing no 27
+symbol: the App Store archive builds with the RELEASED Xcode (26.6) to clear
+ITMS-90111, and reaching for `selectableMediaSelectionOptions(in:)` is what broke
+build 876; a plain `#available` version check compiles fine and the generated
+track appears in the asset's own legible group anyway. A film the system DECLINES
+is a statement about that film's audio, not a failure of this path — it declines
+on much of this catalogue's optical sound (Decision 063).
+
+**Consequences**: films without subtitles give up resume-on-reset and node
+failover on 27, in exchange for being captioned at all — the same trade already
+made for captioned films ("smooth-without-CC beats stutter-with-CC"), with the
+same stall fallback. The cost is bounded: AVFoundation pays the `/download` 302
+once for a progressive read, not per chunk, which is what made it expensive under
+the loader. `SystemCaptions.stage` is surfaced on tvOS when neither the system nor
+our engine can caption, because an Apple TV is the only device that can answer
+this and its console cannot be read from a development machine — three fixes
+shipped on evidence gathered entirely on a Mac. `tools/test_system_caption_selection.swift`
+drives the SHIPPED code in both modes and asserts the negative control too, so a
+future change that makes the loader captionable is visible rather than silent;
+`test_system_generated_subtitles.swift` is deleted, having asserted the disproven
+claim. `hls_manifests` gained optional CHARACTERISTICS so machine-made and
+translated renditions can carry `public.machine-generated` / `public.translation`
+and be labelled "English Generated" / "Spanish Translated" by AVKit itself
+("What's new in HTTP Live Streaming", WWDC26) — nothing carries it today, because
+every published track is human.

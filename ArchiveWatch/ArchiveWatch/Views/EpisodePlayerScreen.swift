@@ -137,9 +137,18 @@ struct EpisodePlayerScreen: View {
             return
         }
         playback = .loading
-        let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
-        streamLoader = loader
-        let item = AVPlayerItem(asset: asset)
+        let item: AVPlayerItem
+        if SystemCaptions.prefersDirectPlayback(hasPublishedSubtitles: false) {
+            // Episodes are first-class films (Decision 045) and carry no
+            // subtitle track of their own, so they take the same plain-URL path
+            // that lets the system caption them from 27. Through `aw-stream://`
+            // no subtitle track is ever offered at all.
+            item = AVPlayerItem(url: url)
+        } else {
+            let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
+            streamLoader = loader
+            item = AVPlayerItem(asset: asset)
+        }
         // Show the episode title in the transport, and suppress the MP4's bogus
         // embedded creation year (epoch-0 -> "1969") the same way the movie
         // player does (see suppressedDateMetadata).

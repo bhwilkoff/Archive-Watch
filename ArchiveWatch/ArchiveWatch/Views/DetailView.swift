@@ -569,6 +569,13 @@ struct PlayerScreen: View {
     // (SCRATCHPAD: "play every single time"); losing the subtitle track beats a
     // dead "resource unavailable". A broken HLS segment URI is the known cause.
     @State private var forceDirectPlayback = false
+    // The mirror of the above for the generated-subtitle path: a film with no
+    // subtitles of its own plays on the PLAIN url from 27 so the system can
+    // caption it (SystemCaptions — the resilient loader is never even offered a
+    // track). If that plain path then stalls persistently, come back to
+    // ResilientStreamLoader and give up the generated captions — the same
+    // "smooth-without-CC beats stutter-with-CC" trade already made above.
+    @State private var forceResilientPlayback = false
     @State private var endObserver: NSObjectProtocol?
     @State private var playback: PlaybackState = .loading
     // #10: the item currently playing. Autoplay swaps this on end-of-item; the
@@ -803,6 +810,17 @@ struct PlayerScreen: View {
         setupPlayer()
     }
 
+    // The twin of the above for the generated-subtitle path: a persistent stall
+    // on the plain-URL playback that lets the system caption gives the resilient
+    // loader back, at the cost of those captions.
+    private func forceResilientFallback() {
+        guard !forceResilientPlayback else { return }
+        forceResilientPlayback = true
+        teardownPlayer(persist: true)
+        playback = .loading
+        setupPlayer()
+    }
+
     private func setupPlayer() {
         playback = .loading
         let active = current ?? catalogItem
@@ -827,6 +845,27 @@ struct PlayerScreen: View {
             // Config C shape, playlists read off disk instead of the network.
             localSubsLoader = subsLoader
             playerItem = AVPlayerItem(asset: asset)
+        } else if !forceResilientPlayback,
+                  SystemCaptions.prefersDirectPlayback(hasPublishedSubtitles: false) {
+            // From 27 the system generates subtitles on device for video that
+            // carries none — but ONLY for an ordinary asset. Measured on
+            // macOS 27, one shape per process: a direct https MP4 produces text
+            // in ~33s, while through our `aw-stream://` loader no subtitle track
+            // is ever offered at all, and an HLS playlist wrapping the same MP4
+            // is offered one that stays silent forever.
+            //
+            // So the resilient loader is what has to give way, and it gives way
+            // HERE rather than by swapping mid-playback: the previous design
+            // waited for a track, selected it, listened, and only then moved to
+            // the direct URL — a sequence gated behind a track that never
+            // arrives, which is why an Apple TV showed file-based captions and
+            // never a generated one.
+            //
+            // The cost is Decisions 021/031/034's resume-on-reset and node
+            // failover, for films with no subtitles, on 27 only. `captionStall`
+            // below is the safety net: a persistent stall rebuilds on the
+            // resilient loader.
+            playerItem = AVPlayerItem(url: playURL)
         } else {
             let (asset, loader) = ResilientStreamLoader.makeAsset(for: playURL)
             streamLoader = loader
@@ -854,6 +893,12 @@ struct PlayerScreen: View {
         // fallback (handleLoadFailure) stays as the startup safety net.
         if active?.subtitleHLSURL != nil, !forceDirectPlayback {
             captionStall.attach(player: p, item: playerItem) { forceDirectFallback() }
+        } else if !forceResilientPlayback,
+                  SystemCaptions.prefersDirectPlayback(hasPublishedSubtitles: false) {
+            // The generated-subtitle path gave up the resilient loader to get
+            // captioned at all. Same trade, same safety net: if it stutters
+            // persistently, come back to the loader and lose the captions.
+            captionStall.attach(player: p, item: playerItem) { forceResilientFallback() }
         }
 
         // Watch the item ready or fail so a broken stream becomes a visible,

@@ -216,6 +216,14 @@ private struct PlayerSurface: View {
             // Subtitles fetched or transcribed on this device (SubtitleFinder).
             localSubsLoader = l
             playerItem = AVPlayerItem(asset: asset)
+        } else if let url = videoURL,
+                  SystemCaptions.prefersDirectPlayback(hasPublishedSubtitles: false) {
+            // From 27 the system captions video that carries none — but only for
+            // an ordinary asset. Through `aw-stream://` no subtitle track is
+            // ever offered (measured on macOS 27, one shape per process), so the
+            // resilient loader gives way for films with no subtitles of their
+            // own. `makeLocalItem` still rebuilds on the loader after a stall.
+            playerItem = AVPlayerItem(url: url)
         } else if let url = videoURL {
             let (asset, l) = ResilientStreamLoader.makeAsset(for: url)
             loader = l

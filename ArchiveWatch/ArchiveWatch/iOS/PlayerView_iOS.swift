@@ -152,6 +152,15 @@ struct PlayerView: UIViewControllerRepresentable {
             context.coordinator.localSubsLoader = subsLoader   // retain (weak delegate)
             pItem = AVPlayerItem(asset: asset)
             context.coordinator.fallbackVideoURL = mp4
+        } else if let url = videoURL,
+                  SystemCaptions.prefersDirectPlayback(hasPublishedSubtitles: false) {
+            // From 27 the system captions video that carries none — but only for
+            // an ordinary asset. Through `aw-stream://` no subtitle track is
+            // ever offered (measured on macOS 27, one shape per process), so the
+            // resilient loader gives way here for films with no subtitles of
+            // their own. `fallbackVideoURL` keeps the loader one stall away.
+            pItem = AVPlayerItem(url: url)
+            context.coordinator.fallbackVideoURL = url
         } else if let url = videoURL {
             let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
             context.coordinator.loader = loader   // retain (delegate is held weakly)

@@ -230,22 +230,43 @@ def encode_segment_url(url: str) -> str:
 
 def hls_manifests(mp4_url: str, runtime: int, langs):
     """(master.m3u8, video.m3u8, {lang: subs.<lang>.m3u8}). `langs` = list of
-    (lang, label, vtt_filename). Single-segment VOD video playlist."""
+    (lang, label, vtt_filename) or (lang, label, vtt_filename, characteristics).
+    Single-segment VOD video playlist.
+
+    The optional 4th element carries HLS media CHARACTERISTICS. Two of them are
+    now understood by AVKit itself ("What's new in HTTP Live Streaming", WWDC26):
+    `public.machine-generated` marks a rendition that was authored or translated
+    programmatically, and `public.translation` marks one translated from another
+    subtitle track. AVKit then labels them in its own subtitle menu — an English
+    machine track shows as "English Generated", a Spanish translation of it as
+    "Spanish Translated" — so a viewer can tell at a glance whether they are
+    reading someone's work or a machine's.
+
+    Every track we publish today is HUMAN (uploader files, SubDL, SubSource);
+    archive.org's auto-ASR was dropped for hallucinating (Decision 043). So
+    nothing gets this characteristic by default — claiming otherwise would be
+    the same dishonesty in reverse. It exists for the machine-made and
+    translated tracks that would otherwise be indistinguishable from human ones.
+    """
     dur = max(int(runtime or 0), 1)
     mp4_url = encode_segment_url(mp4_url)
     media = []
-    for i, (lang, label, _vtt) in enumerate(langs):
+    for i, entry in enumerate(langs):
+        lang, label, _vtt = entry[0], entry[1], entry[2]
+        characteristics = entry[3] if len(entry) > 3 else ""
         default = "YES" if (lang == "en" or i == 0) else "NO"
+        chars = f'CHARACTERISTICS="{characteristics}",' if characteristics else ""
         media.append(
             f'#EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID="subs",NAME="{label}",'
             f'LANGUAGE="{lang}",AUTOSELECT=YES,DEFAULT={default},FORCED=NO,'
-            f'URI="subs.{lang}.m3u8"')
+            f'{chars}URI="subs.{lang}.m3u8"')
     master = ("#EXTM3U\n#EXT-X-VERSION:6\n" + "\n".join(media) +
               '\n#EXT-X-STREAM-INF:BANDWIDTH=2000000,SUBTITLES="subs"\nvideo.m3u8\n')
     video = (f"#EXTM3U\n#EXT-X-VERSION:6\n#EXT-X-TARGETDURATION:{dur}\n"
              f"#EXT-X-PLAYLIST-TYPE:VOD\n#EXTINF:{dur}.0,\n{mp4_url}\n#EXT-X-ENDLIST\n")
     subs = {}
-    for lang, _label, vtt in langs:
+    for entry in langs:
+        lang, vtt = entry[0], entry[2]
         subs[lang] = (f"#EXTM3U\n#EXT-X-VERSION:6\n#EXT-X-TARGETDURATION:{dur}\n"
                       f"#EXT-X-PLAYLIST-TYPE:VOD\n#EXTINF:{dur}.0,\n{vtt}\n#EXT-X-ENDLIST\n")
     return master, video, subs

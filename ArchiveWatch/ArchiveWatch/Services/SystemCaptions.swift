@@ -1,41 +1,100 @@
 import AVFoundation
+import MediaAccessibility
 #if canImport(AVKit)
 import AVKit
 #endif
 
-// Does the SYSTEM already offer subtitles for what is playing?
+// Does the SYSTEM caption this film, and what must we do to let it?
 //
-// From 27, Apple generates subtitles for video that has none — on device, live,
-// in the player's own subtitle menu, styled by the viewer's caption settings, on
-// iOS, macOS, tvOS and visionOS. Apple's position is explicit: "you don't need to
-// implement anything to turn on generated subtitles. They're available
-// automatically during video playback" (WWDC26 session 256), for any app using
-// AVPlayerViewController / AVPlayerView — which all three of ours do.
+// From 27, Apple generates subtitles on device for video that carries none — in
+// the player's own subtitle menu, styled by the viewer's caption settings, on
+// iOS, macOS, tvOS and visionOS. Apple's position is that no app implementation
+// is required (WWDC26 session 256), and for an app that hands AVPlayer an
+// ordinary URL that is true.
 //
-// So the work is not to ADD anything. It is to not fight it. The failure that
-// would otherwise arrive with 27 is DOUBLE captions: the system drawing its own
-// subtitles while `LiveCaptions` draws a second, differently timed copy over the
-// top. On iOS and macOS, where our engine genuinely works today, that would be a
-// visible regression on upgrade day.
+// This app does not hand AVPlayer an ordinary URL. Every playback path wraps
+// archive.org's progressive MP4 in a custom `AVAssetResourceLoaderDelegate`
+// (Decisions 021/031/034), and THAT is what has to give way. Measured on
+// macOS 27.0 (26A5388g), one shape per process so no result could contaminate
+// the next, against a film the system is known to caption:
 //
-// The system's are better on every count — they live in the native menu, obey
-// the viewer's chosen style, survive scrubbing, and cost no second stream — so
-// ours stands down whenever the system has anything legible to offer.
+//     plain direct MP4 (/download URL)     option offered · TEXT in 33s
+//     node-resolved direct node URL        option offered · TEXT in 30s
+//     HLS master wrapping the same MP4     option offered · NEVER any text
+//     aw-stream:// resilient loader        NO OPTION EVER OFFERED
 //
-// There is no "are these generated?" API, and none is needed: the question that
-// decides our behaviour is whether ANY legible option exists. A published WebVTT
-// track and a generated one both answer yes, and in both cases our overlay is
-// redundant.
+// Two things follow, and both contradict what was previously recorded here.
 //
-// The asset's OWN legible group is what we read, deliberately. There is also
-// `AVPlayerItem.selectableMediaSelectionOptions(in:)`, new in 27 and the obvious
-// place to look for a track that is not in the file — but the App Store archive
-// is built with the RELEASED Xcode (the workflow requires it, to clear
-// ITMS-90111), whose SDK has no 27 symbols, so referencing it compiles here on
-// the beta and fails the only build that ships. It is also unnecessary:
-// measured on macOS 27 against a live archive.org film, the generated track
-// appears in the asset group too — `assetOptions=1` at t=1s.
+// FIRST: wrapping the MP4 in HLS does not help. The obvious reading of Apple's
+// "HLS and file-based content" is that a playlist would qualify us, and it does
+// not — a single-segment playlist pointing at a remote MP4 is offered a track
+// that stays silent forever, exactly like the loader.
+//
+// SECOND: through the resilient loader the option is not offered AT ALL.
+// Decision 065 recorded "offered but silent" and built a four-stage handover on
+// top of that: wait for the option, select it, listen for text, and only then
+// swap to the direct URL. But the swap was gated behind an option that never
+// arrives, so on tvOS it could never run. That "offered" reading came from a
+// harness that probed four shapes in ONE process, where a track left over from
+// the previous player was counted as this one's — a shape identical to the
+// passing one failed later in the same run, which is what exposed it.
+//
+// So the asset shape is decided UP FRONT instead: a film with no published
+// subtitle track plays on the direct URL where the system can caption it, and
+// there is no dance to get wrong. What is left here is small — select the
+// track if the viewer wants captions, and report whether the system is
+// genuinely captioning so our own engine knows to stand down.
 enum SystemCaptions {
+
+    /// Where the handover got to, for a UI that has to explain itself to
+    /// someone on a sofa. The Apple TV is the only device that can answer this
+    /// question and its console cannot be read from a development machine, so
+    /// the state has to be visible in the app or it is not observable at all.
+    enum Stage: String {
+        case notAttempted     = "not attempted"
+        case unavailable      = "system does not generate subtitles here"
+        case waitingForTrack  = "waiting for the system's subtitle track"
+        case noTrackOffered   = "the system offered no subtitle track"
+        case selected         = "subtitle track selected, waiting for text"
+        case captioning       = "the system is captioning this film"
+        case declined         = "the system offered a track but produced no text"
+    }
+
+    /// Last handover outcome, for the on-screen notice. Main-actor confined.
+    @MainActor private(set) static var stage: Stage = .notAttempted
+    @MainActor static func resetStage() { stage = .notAttempted }
+
+    /// True where the system generates subtitles at all.
+    ///
+    /// A version check only — it references no 27 symbol, deliberately. The App
+    /// Store archive is built with the RELEASED Xcode (the workflow requires it
+    /// to clear ITMS-90111), whose SDK has none, and reaching for
+    /// `AVPlayerItem.selectableMediaSelectionOptions(in:)` is what broke build
+    /// 876. Nothing here needs it: the generated track appears in the asset's
+    /// own legible group, measured at t=1s.
+    static var isAvailable: Bool {
+        if #available(iOS 27, tvOS 27, macOS 27, visionOS 27, *) { return true }
+        return false
+    }
+
+    /// Should this film play on the DIRECT url rather than through the
+    /// resilient loader, so the system can caption it?
+    ///
+    /// Only for a film with no subtitle track of its own — a film that already
+    /// has one keeps the captioned-HLS path, which works today and whose
+    /// subtitles are human rather than machine-made.
+    ///
+    /// This is deliberately NOT gated on the viewer's caption preference. The
+    /// tempting version — play direct only when captions are switched on —
+    /// keeps maximum resilience for everyone else, but "Generated Subtitles" is
+    /// its own Settings toggle, separate from the captions display preference,
+    /// so a viewer can have generated subtitles on while the display type is
+    /// still `.automatic`. Gating on the preference would then leave the menu
+    /// empty for exactly the person who went looking for it, which is the bug
+    /// this is fixing. A track nobody can find is not a feature.
+    static func prefersDirectPlayback(hasPublishedSubtitles: Bool) -> Bool {
+        isAvailable && !hasPublishedSubtitles
+    }
 
     /// `AVAsset` and `AVMediaSelectionGroup` are not Sendable, so loading the
     /// group from a main-actor context is a concurrency error. Both are
@@ -50,120 +109,56 @@ enum SystemCaptions {
     }
     private struct GroupBox: @unchecked Sendable { let group: AVMediaSelectionGroup? }
 
-
-    /// The full hand-over: offer, switch on, and if nothing comes through the
-    /// resilient loader, move to the direct URL and try once more.
+    /// Let the system caption this film if it will, and say whether it did.
     ///
-    /// Returns true when the system is genuinely captioning this film, which is
-    /// the only condition under which our own engine should stand down.
+    /// Returns true only when text was actually seen — the one condition under
+    /// which our own engine should stand down. Offering a track and producing
+    /// captions are different claims, and on this catalogue they come apart:
+    /// measured across three films, the system offered a track on all three and
+    /// emitted cues on ONE, declining on poor archival optical sound rather
+    /// than guessing at it. Standing down on the mere presence of a track would
+    /// leave a viewer with nothing on exactly the films that need help most.
     @MainActor
-    static func handOver(to player: AVPlayer?, directURL: URL?) async -> Bool {
-        guard await waitForLegibleOption(on: player) else { return false }
-        guard await enableSystemCaptions(on: player) else { return false }
-        if await emitsCaptions(on: player) { return true }
-        // Offered but mute: the loader is disqualifying it. Give it the one
-        // thing it needs, then judge again — and if it still says nothing, this
-        // film is not one the system will caption and we keep our own engine.
-        guard let directURL else { return false }
-        guard await swapToCaptionableAsset(on: player, url: directURL) else { return false }
-        guard await enableSystemCaptions(on: player) else { return false }
-        return await emitsCaptions(on: player)
+    static func handOver(to player: AVPlayer?, directURL: URL? = nil) async -> Bool {
+        guard isAvailable else { stage = .unavailable; return false }
+        stage = .waitingForTrack
+        guard await waitForLegibleOption(on: player) else {
+            stage = .noTrackOffered
+            return false
+        }
+        await selectIfWanted(on: player)
+        stage = .selected
+        if await emitsCaptions(on: player) { stage = .captioning; return true }
+        stage = .declined
+        return false
     }
 
-    /// Swap to an asset the system can actually caption, keeping the position.
+    /// Switch the system's track on, unless the viewer has already chosen.
     ///
-    /// Generated subtitles do NOT work through a custom `AVAssetResourceLoader`.
-    /// Measured on macOS 27, same film, same moment:
+    /// A PUBLISHED track is declared `AUTOSELECT=YES,DEFAULT=YES` in the master
+    /// playlist we generate, so AVPlayer switches it on by itself. A GENERATED
+    /// track carries no such declaration — the system lists it and leaves it
+    /// off — and an unselected track emits nothing, so a check that listens for
+    /// text before selecting is measuring the selection, not the recognizer.
     ///
-    ///     plain URL        option offered · first text at 34s
-    ///     aw-stream://     option offered · NEVER any text
-    ///
-    /// The system advertises the track either way and silently produces nothing
-    /// through the loader — the same disqualification that rules out video
-    /// AirPlay (Decision 051), which is why an Apple TV on tvOS 27 showed
-    /// file-based captions and never an automatic one.
-    ///
-    /// Decision 061 recorded that this DID work through the loader. That test
-    /// only checked an option was OFFERED, never that text was produced — the
-    /// exact distinction Decision 063 was later written about.
-    ///
-    /// So the loader is kept for every film until the system has been given a
-    /// fair chance and failed; only then is playback moved onto the direct URL,
-    /// paying Decisions 021/031/034's resilience for captions that would
-    /// otherwise never appear. Films the system was never going to caption keep
-    /// the resilient path.
-    @MainActor
-    static func swapToCaptionableAsset(on player: AVPlayer?, url: URL) async -> Bool {
-        guard let player, let current = player.currentItem else { return false }
-        let position = current.currentTime()
-        let replacement = AVPlayerItem(url: url)
-        replacement.preferredForwardBufferDuration = 300
-        #if os(iOS) || os(tvOS) || os(visionOS)
-        // Carry the Info-panel metadata across, or the swap blanks the title.
-        // macOS AVPlayerItem has no `externalMetadata` at all — verified against
-        // the macOS 27 SDK; its player carries the title in the window bar.
-        replacement.externalMetadata = current.externalMetadata
-        #endif
-        player.replaceCurrentItem(with: replacement)
-        // A seek issued before the new item is ready is DROPPED — the lesson
-        // that cost AirPlay its resume position (Decision 051).
-        for _ in 0..<40 {
-            if replacement.status == .readyToPlay { break }
-            try? await Task.sleep(nanoseconds: 250_000_000)
-        }
-        if position.isNumeric, position.seconds > 1 {
-            await replacement.seek(to: position, toleranceBefore: .zero, toleranceAfter: .zero)
-        }
-        player.play()
-        print("[AWCAP] moved to the direct URL so the system can caption this film")
-        return true
-    }
-
-    /// Turn the system's subtitle track ON.
-    ///
-    /// Offering a track and showing it are different things, and this app was
-    /// inconsistent about which it did. A PUBLISHED track is declared
-    /// `AUTOSELECT=YES,DEFAULT=YES` in the master playlist we generate, so
-    /// AVPlayer switches it on by itself. A GENERATED track has no such
-    /// declaration — the system lists it in the subtitle menu and leaves it off
-    /// — and nothing here ever selected it. On tvOS 27 that is exactly what the
-    /// owner saw: file-based captions working, automatic ones never appearing.
-    ///
-    /// It also broke the check below, which listens for emitted text: a track
-    /// that is switched off emits nothing, so the app concluded the system had
-    /// declined and fell back to an engine that, on an Apple TV, has no models
-    /// (Decision 060). Select first, then judge.
-    ///
-    /// A selection the VIEWER has already made is never overridden.
+    /// A selection the VIEWER has made is never overridden, and nothing is
+    /// selected for someone who has asked to see forced subtitles only.
     @MainActor
     @discardableResult
-    static func enableSystemCaptions(on player: AVPlayer?) async -> Bool {
+    static func selectIfWanted(on player: AVPlayer?) async -> Bool {
         guard let item = player?.currentItem else { return false }
         let box = await LegibleProbe(asset: item.asset).group()
         guard let group = box.group, !group.options.isEmpty else { return false }
         if item.currentMediaSelection.selectedMediaOption(in: group) != nil { return true }
+        guard MACaptionAppearanceGetDisplayType(.user) != .forcedOnly else { return false }
         let preferred = AVMediaSelectionGroup.mediaSelectionOptions(
             from: group.options, with: Locale.current)
         guard let option = preferred.first ?? group.options.first else { return false }
         item.select(option, in: group)
-        print("[AWCAP] system captions on: \(option.displayName)")
         return true
     }
 
     /// Does the system's track actually SAY anything on this film?
-    ///
-    /// Offering a track and producing captions are different claims, and on this
-    /// catalogue they come apart. Measured on macOS 27 across three films: the
-    /// system offered "English (US) Transcribed" on all three and emitted cues on
-    /// ONE — a clear 1975 narration. On The Day the Earth Caught Fire (1961) and
-    /// Meet John Doe (1941) it produced nothing at all across five minutes, while
-    /// our own engine transcribed both at ~55% word error. It appears to decline
-    /// rather than guess on poor archival optical sound, which is most of what
-    /// this app holds.
-    ///
-    /// So standing down on the mere PRESENCE of a track would leave a viewer
-    /// with no captions at all on exactly the films that need them most. This
-    /// waits for real text before handing over.
     @MainActor
     static func emitsCaptions(on player: AVPlayer?, within seconds: Double = 75) async -> Bool {
         guard let item = player?.currentItem else { return false }
@@ -201,13 +196,13 @@ enum SystemCaptions {
 
     /// True once the player offers a subtitle track of its own.
     ///
-    /// Polled rather than checked once: a generated track appears a moment after
-    /// playback begins, not at item creation. On a system with no such feature
-    /// this simply costs one wait before our own engine starts — and on those
-    /// systems our engine is usually the only thing that will ever caption.
+    /// Polled rather than checked once: a generated track appears a moment
+    /// after playback begins, not at item creation. Measured at t=1s on a
+    /// direct URL, so 15s is generous; on a system with no such feature this
+    /// costs one wait before our own engine starts.
     @MainActor
     static func waitForLegibleOption(on player: AVPlayer?,
-                                     within seconds: Double = 8) async -> Bool {
+                                     within seconds: Double = 15) async -> Bool {
         let deadline = Date().addingTimeInterval(seconds)
         repeat {
             if let item = player?.currentItem {
