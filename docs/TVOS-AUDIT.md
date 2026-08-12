@@ -68,11 +68,11 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 | Series grid (poster-gated) | populated; SNL demoted last (D: deprioritizedSeries) | T1 | PENDING |
 | TV Specials entry | grid populated, only explicit tv-special | T1 | PENDING |
 | Series sort | rating + episode-depth order | T2 | PENDING |
-| Season picker | switches seasons | T1+T3 | PENDING |
-| Episode row Select | plays episode | T1 | PENDING |
+| Season picker | switches seasons | T1+T3 | VERIFIED T2 (seasonPicker → episode list; feel = T3) |
+| Episode row Select | plays episode | T1 | VERIFIED T2 (fullScreenCover → EpisodePlayerScreen(series:initialEpisode:)) |
 | Prev/Next episode in player | advances; binge auto-advance | T1 | PENDING |
-| Episode context menu (favorite/playlist/share) | actions fire (D045 episodes-as-items) | T2 | PENDING |
-| Series/episode Share | archivewatch.org/series/{slug} QR | T2 | PENDING |
+| Episode context menu (favorite/playlist/share) | actions fire (D045 episodes-as-items) | T2 | VERIFIED (contextMenu → toggleFavorite / AddToPlaylistSheet / ShareSheet, all by episode archiveID) |
+| Series/episode Share | archivewatch.org/series/{slug} QR | T2 | VERIFIED (ShareSheet sheets wired; URL contract verified 2026-06-10 session) |
 
 ### 4. Channels (`ChannelsView`)
 | Element | Behaviour | Tier | Status |
@@ -97,7 +97,7 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 | Element | Behaviour | Tier | Status |
 |---|---|---|---|
 | Party pool starts; mute toggle persists across advances | | T1+T3 | PENDING |
-| No B&W in party pool (D025) | | T2 | PENDING |
+| No B&W in party pool (D025) | | T2 | VERIFIED (partyLineup drops isSilentFilm + isBlackAndWhite; ≤15min; visual-scored) |
 
 ### 7. Screensaver (`ScreensaverView`)
 | Element | Behaviour | Tier | Status |
@@ -132,14 +132,14 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 | 11 re-rollable tiles | each re-rolls; each routes correctly | T1 | PENDING |
 | Random Film | playable item only, ≤3 re-rolls on failure (D014) | T1 | PENDING |
 | Random Category / Collection | land on filtered views | T1 | PENDING |
-| Siri App Intents (SurpriseMe / RandomCategory / RandomCollection) | IntentInbox routes | T2 | PENDING |
+| Siri App Intents | IntentInbox routes | T2 | VERIFIED — shipped set is SurpriseMe / RandomFilm / RandomCategory (RandomCollection was the D014-era plan, superseded; the Surprise grid carries collection randomness) |
 
 ### 12. Settings (`SettingsView` + `SubtitleAccountSection` + `CaptionDiagnosticsView`)
 | Element | Behaviour | Tier | Status |
 |---|---|---|---|
 | Sign in with Apple | flow works; sync status shows | T3 | PENDING |
-| Sync Now | fires; Last sync updates | T2 | PENDING |
-| Sign Out / Delete Account (+ Cancel) | confirm flow; tombstones | T2 | PENDING |
+| Sync Now | fires; Last sync updates | T2 | VERIFIED (Button → CloudKitSyncService.sync; status @Observable) |
+| Sign Out / Delete Account (+ Cancel) | confirm flow; tombstones | T2 | VERIFIED (signOut(); Delete behind destructive confirm) |
 | OpenSubtitles username/password + Connect | validates; quota shown; errors visible | T2 | PENDING |
 | OpenSubtitles "Create a free account" | **was a no-op Link (no browser)** | T1 | **FIXED → QR** (this audit, #1) |
 | Caption Diagnostics | runs; results persist; hardware line | T1 | **VERIFIED** (889/890 work) |
@@ -155,13 +155,13 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 ### Cross-cutting surfaces
 | Element | Behaviour | Tier | Status |
 |---|---|---|---|
-| Detail: Play / Favorite / Share / Get subtitles / More Like This / cast chips / "Part of series" | each fires | T1+T2 | PENDING |
+| Detail: Play / Favorite / Share / Get subtitles / More Like This / cast chips / "Part of series" | each fires | T1+T2 | VERIFIED T2 (favorite→SwiftData+tombstone sync; cast chips→BrowseFilter(person:); MoreLikeThis→dbRelated; Part-of-series link; Share/GetSubtitles sheets; Play exercised T1 this session) |
 | Detail: autoplay menu / Play Next / mute toggle in transport | | T2 | PENDING |
 | Player: resume, watchdog (60s), stall fallback, captions tiers | | T1 | **VERIFIED** (this session) |
 | Deep links: archivewatch://item /play /random/* | route (incl. play → resume, D049) | T1 | PENDING |
 | Top Shelf: rotation + Continue Watching + play action | | T2 | VERIFIED (D049 harness) |
 | Sidebar: tab switch resets NavigationPath | | T2 | VERIFIED (tabSelection binding resets outgoing AND incoming paths) |
-| Universal empty/error/loading states per screen | user-visible, not console-only | T2 | PENDING |
+| Universal empty/error/loading states per screen | user-visible, not console-only | T2 | VERIFIED (sampled: root LoadErrorView + loading; Browse EmptyState; Search placeholder+EmptyState; Favorites emptyState w/ focusable CTA; SeriesDetail loadError view) |
 
 ## Fix log
 
@@ -192,6 +192,13 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
   (3840×2160) — visual T1 evidence is now available to the audit. Fix #2
   (lineup progress pollution). T2 rows dispositioned: nav-path reset,
   screensaver gating, autoplay + commercial-cap consumption.
-- Next: run AW_UI_AUDIT on the device (needs the TV awake), disposition the
-  T1 rows from its output, fix failures; then Detail/SeriesDetail button
-  audit + remaining T2 rows.
+- Iteration 3: TV still asleep (launch probes denied) — T2 sweep instead.
+  Dispositioned 10 rows: Detail buttons, SeriesDetail (picker/episodes/context
+  menu/share), Siri intents (shipped set = SurpriseMe/RandomFilm/
+  RandomCategory — RandomCollection superseded), Party B&W rule, Sync/Sign-out
+  wiring, and the universal-states sample (root/Browse/Search/Favorites/
+  SeriesDetail all have real empty/error surfaces — the old "loadError never
+  surfaced" v1 gap is long closed by LoadErrorView).
+- Next: the AW_UI_AUDIT device run (first launch attempt each iteration),
+  T1 disposition of Home/Browse/facet rows from its output; remaining T2:
+  series sort, TV Specials entry, Channels create/delete, kids pool.
