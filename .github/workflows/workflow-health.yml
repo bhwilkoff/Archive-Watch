@@ -1,0 +1,67 @@
+name: Workflow health
+
+# Catch the ways a workflow can be broken while reporting success — which is
+# every way this repo's CI has actually broken. word-index was green for months
+# with 0 films; stock-index was green four times a day with 0 shots;
+# omdb-backfill was green with an empty secret; faststart-derivatives fixed
+# items and then skipped every publish step at GitHub's 360-minute cap.
+#
+# A red X gets noticed. None of those produced one. So this reads what each
+# workflow's last completed run actually PRODUCED and says when the answer is
+# "nothing" — and it runs on a schedule so nobody has to remember to look.
+#
+# It is deliberately a REPO artifact rather than a habit: the session that wrote
+# it will end, and the checking should not end with it.
+
+on:
+  schedule:
+    - cron: '13 7 * * *'      # daily, off the hour so it does not pile onto :00
+  workflow_dispatch:
+    inputs:
+      lookback_hours:
+        description: 'How far back to judge'
+        required: false
+        default: '36'
+
+# Reads only. Never touches the catalog, so it takes no lock.
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Judge what every workflow last produced
+        id: audit
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LOOKBACK_HOURS: ${{ github.event.inputs.lookback_hours || '36' }}
+        run: |
+          set +e
+          python3 tools/audit_workflow_health.py | tee health.log
+          echo "rc=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+          {
+            echo '## Workflow health'
+            echo '```'
+            cat health.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Check every split workflow is fully gated
+        run: python3 tools/check_workflow_gates.py
+
+      # Fail LOUDLY on the findings that need action, so this workflow's own red
+      # X is the signal — the whole point being that green ticks stopped meaning
+      # anything.
+      - name: Fail if something is broken
+        if: steps.audit.outputs.rc != '0'
+        run: |
+          echo "::error::A workflow ran and produced nothing, or died with its publish steps skipped. See the summary."
+          exit 1

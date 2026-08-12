@@ -1,0 +1,184 @@
+#!/usr/bin/env python3
+"""Catch the ways a workflow can be broken while reporting success.
+
+Every failure found in this repo's CI has been of that kind, not a red X:
+
+  * `word-index` logged "audio download failed" for months. The download was
+    fine; a Python import was missing, AFTER it. Green, 260 minutes, 0 films.
+  * `stock-index` scanned real films and indexed 0 shots, four times a day, for
+    ~95 minutes a run. Green. The scene detector was never printing its results.
+  * `validate-posters` was green while a spoofed User-Agent drew 429s from
+    Wikimedia for 53% of what it checked.
+  * `omdb-backfill` was green with an EMPTY repo secret.
+  * `faststart-derivatives` fixed items, wrote the catalog, then hit GitHub's
+    360-minute cap and SKIPPED every publish step. Reported as "cancelled".
+  * `auto-captions` rejected every film nightly because a hosted runner has no
+    speech models and never can.
+
+A human reading a green tick learns none of that. So this reads what each
+workflow's last run actually PRODUCED and flags the patterns:
+
+  BROKEN     ran, took real time, produced nothing
+  DROPPED    cancelled before any step ran (displaced in the queue)
+  KILLED     died at a timeout with publish steps skipped
+  DRAINED    genuinely finished its backlog but still running at full cadence
+  SILENT     no yield line at all — cannot be judged, which is its own problem
+
+Exit code is non-zero when anything needs attention, so it can gate a workflow.
+"""
+
+from __future__ import annotations
+
+import json
+import os
+import re
+import subprocess
+import sys
+from datetime import datetime, timedelta, timezone
+
+REPO = os.environ.get("GITHUB_REPOSITORY", "bhwilkoff/Archive-Watch")
+# These do not produce catalog yield and never will: they build, deploy, probe
+# or sweep. Flagging them as SILENT is noise that trains a reader to skim.
+NOT_PRODUCERS = {
+    "App Store build (cloud)", "Deploy Pages", "pages-build-deployment",
+    "Retry infrastructure failures", "Probe speech assets (diagnostic)",
+    "Probe candidate sources", "Publish catalog DB", "Faststart remux (generate + host)",
+}
+LOOKBACK_HOURS = int(os.environ.get("LOOKBACK_HOURS", "36"))
+# A run that took longer than this and produced nothing is not "no work to do".
+REAL_WORK_MINUTES = float(os.environ.get("REAL_WORK_MINUTES", "10"))
+
+# "+0 films", "0 shots total", "passed=0", "candidates=0" — the shapes a tool
+# uses to say it did nothing. Kept broad deliberately; a false flag costs a
+# glance, a missed one costs months.
+ZERO = re.compile(
+    r"(\+0\s+\w+|\b0\s+(shots?|films?|items?|cues?|posters?|timings?|covers?)\b"
+    r"|passed=0|candidates=0|\bnothing to (do|apply)\b)", re.I)
+# Search the RAW line rather than anchoring after stripping a timestamp: the
+# `gh run view --log` prefix is "job<TAB>step<TAB>2026-...Z", and stripping it
+# by pattern dropped real summaries — stock-tags reported "tagged 2876 shots"
+# and this called it silent.
+YIELD_LINE = re.compile(r"\[[a-z0-9_-]{2,}\]\s+\S", re.I)
+
+
+def gh(*args: str) -> str:
+    r = subprocess.run(["gh", *args], capture_output=True, text=True)
+    return r.stdout
+
+
+def api(path: str):
+    try:
+        return json.loads(gh("api", f"repos/{REPO}/{path}"))
+    except json.JSONDecodeError:
+        return {}
+
+
+def minutes(run: dict) -> float:
+    try:
+        a = datetime.fromisoformat(run["run_started_at"].replace("Z", "+00:00"))
+        b = datetime.fromisoformat(run["updated_at"].replace("Z", "+00:00"))
+        return (b - a).total_seconds() / 60
+    except Exception:
+        return 0.0
+
+
+def judge(name: str, run: dict) -> tuple[str, str] | None:
+    """Return (severity, explanation) when this run deserves a human's attention."""
+    concl = run.get("conclusion")
+    mins = minutes(run)
+
+    if concl == "cancelled":
+        jobs = api(f"actions/runs/{run['id']}/jobs").get("jobs", [])
+        if not any(j.get("steps") for j in jobs):
+            return ("DROPPED", "displaced in the concurrency queue before any step ran")
+        skipped = [s["name"] for j in jobs for s in j.get("steps", [])
+                   if s.get("conclusion") == "skipped"]
+        publishy = [s for s in skipped if re.search(r"publish|commit|upload|rebuild", s, re.I)]
+        if publishy:
+            return ("KILLED", f"died at {mins:.0f}m and SKIPPED {len(publishy)} publish "
+                              f"step(s): {publishy[0]}")
+        return ("KILLED", f"cancelled after {mins:.0f}m")
+
+    if concl != "success":
+        return ("FAILED", f"conclusion={concl}")
+
+    # Green. Did it do anything?
+    log = gh("run", "view", str(run["id"]), "--log")
+    yields = []
+    for line in log.split("\n"):
+        m = YIELD_LINE.search(line)
+        if m and "[command]" not in line and "[36;1m" not in line:
+            yields.append(line[m.start():].strip())
+    if not yields:
+        return ("SILENT", f"{mins:.0f}m, no yield line — cannot tell what it did")
+    # A SHARDED workflow prints one summary per shard, and the last line in a
+    # concatenated log may come from a merge job that says nothing about yield.
+    # So judge every summary-shaped line, not the final one: it is only broken
+    # if NONE of them produced anything.
+    summaries = [y for y in yields
+                 if re.search(r"(\+\d+\s+\w+|\btotal\b|passed=|done:|candidates=|"
+                              r"\b(tagged|wrote|applied|upgraded|indexed|published|"
+                              r"harvested|fixed|classified)\b)", y, re.I)]
+    if not summaries:
+        # No line announced a total. Fall back to the last line carrying a
+        # number rather than calling the run silent — "tagged 2876 shots" is a
+        # perfectly good report that simply does not use the word "total", and
+        # flagging it trains a reader to skim the ones that matter.
+        summaries = [y for y in yields if re.search(r"\d", y)][-1:]
+    if not summaries:
+        return ("SILENT", f"{mins:.0f}m, nothing reported — cannot tell what it did")
+    if all(ZERO.search(s) for s in summaries):
+        last = summaries[-1][:110]
+        if mins >= REAL_WORK_MINUTES:
+            return ("BROKEN", f"ran {mins:.0f}m and produced nothing — {last}")
+        return ("DRAINED", f"nothing to do in {mins:.0f}m — {last}")
+    return None
+
+
+def main() -> int:
+    workflows = [w for w in api("actions/workflows?per_page=100").get("workflows", [])
+                 if w.get("state") == "active" and w.get("path", "").startswith(".github")]
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=LOOKBACK_HOURS)
+
+    findings: list[tuple[str, str, str]] = []
+    checked = 0
+    for w in sorted(workflows, key=lambda x: x["name"]):
+        # The most recent COMPLETED run, not simply the most recent. A workflow
+        # whose newest run is still in flight was otherwise invisible to this —
+        # which is how the first version reported "nothing needs attention"
+        # while stock-index sat on a zero-yield run from the night before.
+        runs = [r for r in api(f"actions/workflows/{w['id']}/runs?per_page=5")
+                .get("workflow_runs", []) if r.get("status") == "completed"]
+        if not runs:
+            continue
+        run = runs[0]
+        try:
+            started = datetime.fromisoformat(run["run_started_at"].replace("Z", "+00:00"))
+        except Exception:
+            continue
+        if started < cutoff:
+            continue
+        if w["name"] in NOT_PRODUCERS:
+            continue
+        checked += 1
+        verdict = judge(w["name"], run)
+        if verdict:
+            findings.append((verdict[0], w["name"], verdict[1]))
+
+    order = {"BROKEN": 0, "KILLED": 1, "FAILED": 2, "DROPPED": 3, "SILENT": 4, "DRAINED": 5}
+    findings.sort(key=lambda f: (order.get(f[0], 9), f[1]))
+
+    print(f"Checked {checked} workflows that finished in the last {LOOKBACK_HOURS}h.\n")
+    if not findings:
+        print("Nothing needs attention: every recent run produced something.")
+        return 0
+    for sev, name, why in findings:
+        print(f"  {sev:8} {name[:38]:40} {why}")
+
+    urgent = [f for f in findings if f[0] in ("BROKEN", "KILLED", "FAILED")]
+    print(f"\n{len(findings)} finding(s); {len(urgent)} need action rather than a decision.")
+    return 1 if urgent else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
