@@ -127,6 +127,14 @@ final class CaptionCapability {
     private(set) var canAutoCaption: Bool?
     /// What the device reported, for the failure notice.
     private(set) var report: String?
+    /// Why this device can't, in words a viewer can act on. "This device
+    /// can't caption films by itself" was shown for every cause alike — a
+    /// household with two Apple TVs on the same OS saw one caption fine and
+    /// one show that line, and the message gave no way to tell a permanent
+    /// hardware floor (older chip → `AssetInventory` says `.unsupported`,
+    /// nothing will ever fix it on that unit) from a transient one (model
+    /// catalog unreachable → try again later). Nil while the device CAN.
+    private(set) var unavailableMessage: String?
     private var probing = false
 
     /// The answer, waiting for the probe if it is still in flight.
@@ -161,6 +169,14 @@ final class CaptionCapability {
                 guard let locale = await AutoCaptions.resolvedLocale() else {
                     canAutoCaption = false
                     report = "no transcription locale"
+                    // supportedLocales empty can mean EITHER an unsupported
+                    // device or an unreachable model catalog; without a locale
+                    // there is no transcriber to ask `status(forModules:)`
+                    // about, so this stays honestly ambiguous — and retryable.
+                    unavailableMessage = "Automatic captions aren't available right "
+                        + "now — this Apple TV may not support them, or Apple's "
+                        + "model catalog couldn't be reached. Films that include "
+                        + "subtitles still show them."
                     return
                 }
                 let transcriber = SpeechTranscriber(
@@ -169,12 +185,27 @@ final class CaptionCapability {
                 let supported = await SpeechTranscriber.supportedLocales
                 canAutoCaption = status != .unsupported && !supported.isEmpty
                 report = await AutoCaptions.availabilityReport(for: transcriber)
+                if status == .unsupported {
+                    // The one PERMANENT answer: the chip is below Apple's floor
+                    // for these models (a 3rd-gen 4K transcribes; older units
+                    // report `.unsupported` on the same OS). Say so, and say
+                    // what still works, instead of a blanket "can't".
+                    unavailableMessage = "This Apple TV's hardware doesn't support "
+                        + "automatic captions. Films that include subtitles still "
+                        + "show them."
+                } else if canAutoCaption == false {
+                    unavailableMessage = "Apple's speech models couldn't be reached. "
+                        + "Check the network connection and try again later."
+                } else {
+                    unavailableMessage = nil
+                }
                 print("[AWCAP] device capability: \(canAutoCaption == true) — \(report ?? "")")
                 return
             }
             #endif
             canAutoCaption = false
             report = "system too old"
+            unavailableMessage = "Automatic captions need a newer system version."
         }
     }
 }

@@ -99,6 +99,12 @@ final class CaptionDiagnostics {
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?"
         let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "?"
         log("Archive Watch \(version) (\(build)) — \(osName) \(os)")
+        // The HARDWARE, because two Apple TVs on the same OS answered the
+        // capability probe differently — Apple gates the speech models by chip
+        // (a 3rd-gen 4K transcribes; older units report `.unsupported`).
+        // Without this line, "same beta software" hides the one field that
+        // decides everything.
+        log("Hardware: \(hardwareModel)")
 
         switch MACaptionAppearanceGetDisplayType(.user) {
         case .alwaysOn:   log("Caption preference: always on")
@@ -117,6 +123,9 @@ final class CaptionDiagnostics {
             ? "On-device transcription: this device has speech models"
             : "On-device transcription: NO speech models on this device"
               + (CaptionCapability.shared.report.map { " (\($0))" } ?? ""))
+        if !device, let why = CaptionCapability.shared.unavailableMessage {
+            log(why, emphasis: true)
+        }
 
         guard SystemCaptions.isAvailable else {
             log("Nothing further to test — the generated-subtitle probe needs 27.")
@@ -331,6 +340,17 @@ final class CaptionDiagnostics {
         #else
         return "iOS/iPadOS"
         #endif
+    }
+
+    /// "AppleTV14,1" (3rd-gen 4K, A15) vs "AppleTV11,1" (2nd-gen, A12) vs
+    /// "AppleTV5,3" (HD, A8) — the field that separates two "identical" Apple
+    /// TVs on the same OS.
+    private var hardwareModel: String {
+        var info = utsname()
+        uname(&info)
+        return withUnsafeBytes(of: &info.machine) { raw in
+            String(decoding: raw.prefix(while: { $0 != 0 }), as: UTF8.self)
+        }
     }
 
     // `AVAsset` / `AVMediaSelectionGroup` are not Sendable; both are read-only

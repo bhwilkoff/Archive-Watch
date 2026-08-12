@@ -193,7 +193,12 @@ final class LiveCaptions {
         // fire-and-forget probe was still running and the scout started anyway.
         guard await CaptionCapability.shared.resolved() else {
             if CaptionCapability.shared.shouldAnnounceUnavailable {
-                failure = "This device can't caption films by itself."
+                // The capability probe knows WHY (hardware floor vs unreachable
+                // model catalog); a blanket "can't" left a two-Apple-TV
+                // household with no way to tell a permanent limit on one unit
+                // from a transient failure.
+                failure = CaptionCapability.shared.unavailableMessage
+                    ?? "This device can't caption films by itself."
             }
             return
         }
