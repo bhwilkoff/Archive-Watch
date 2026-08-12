@@ -275,6 +275,48 @@ NOWHERE — a dead control whose wording implied the app was captioning films.
 Removed; the action moved out of the share menu to a visible button next to Play on
 iOS/macOS. Honest number: **15.9%** of visible titles carry `subtitleHLS`.
 
+### 2026-08-11/12 — Subtitle timing exact + fixed at source; CI root-caused; tvOS 27 captions STILL OPEN
+App **1.3.362 / b884** uploaded to ASC (mac+iOS+tvOS). Decisions **064-066**.
+Handoffs: `session_handoff_2026_08_12`, `tvos27_captions_open`,
+`workflow_lock_architecture`, `subtitle_quality_judging`.
+
+**STILL BROKEN — the next session's job.** tvOS 27 automatic captions do not
+appear on the owner's Apple TV, after three fixes each PROVEN on macOS 27
+(select the track; generated subs do not work through our resource loader;
+handOver swaps to the direct URL). Nothing has ever been verified on tvOS 27
+itself — no simulator runtime installed, and the Apple TV's console cannot be
+read from here. **Start with on-device observability**: ranked hypotheses in
+the memory, latency first (handOver can take ~3 minutes before anything shows).
+
+**Subtitle timing is now exact.** Three faults, each measured on The Night
+Stalker: the transcript used as a RULER had been re-timed for display (pacing
+only moves cues LATER, so every correction under-shot); a guard meant for large
+shifts suppressed small ones; the offset search could not land precisely (added
+a median-of-matched-words refinement). Iterated to a **0.0s residual**.
+
+**Fixed at SOURCE (064)** — the only route by which web, Android and tvOS 26 get
+correct subtitles at all; none of them can transcribe. Live: Night Stalker
+-10.9s, Impact -22.0s, Vampire Bat -31.0s, Horror Hotel -5.0s. Sweep resumable,
+popularity-first, 7,391 to go, LOCAL ONLY (CI has no speech models).
+
+**The scout now uses ResilientStreamLoader** — it was a bare AVURLAsset with
+none of 021/031/034's resilience, so a transient archive.org condition killed
+captioning silently and the per-viewer correction never ran.
+
+**CI root cause (066):** 27 workflows held ONE `catalog-writers` lock for their
+whole run — **24.2h of demand against a 24h day**. Generic `catalog_delta.py`
+splits compute (unlocked) from a short apply; color-classify **52m -> 21s**.
+Also: step timeouts + guarded publish on 27 workflows, a publish shrink guard,
+cadence matched to work on 4 drained workflows, `word-index` 0 -> 15,013 word
+timings, `stock-index` 0 -> producing (`metadata=print`; scdet SETS metadata,
+it does not PRINT it). New **`workflow-health.yml`** audits daily for
+BROKEN/KILLED/DROPPED/DRAINED/SILENT, because every failure here has been a
+GREEN tick.
+
+**The lesson, four times in two days:** every fault hid behind a discarded or
+mislabelled error, and twice the diagnostic was already in hand and walked past.
+Make it say WHY before fixing it.
+
 ### 2026-08-10 — Live captions on every Apple platform; cron audit; Decisions 056-059
 App **1.3.350 / b872** on `main`. Handoff: `session_handoff_2026_08_10` +
 `live_captions_apple`.
