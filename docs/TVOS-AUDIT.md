@@ -56,7 +56,7 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 | Grid + infinite scroll | pages at 300/page; real total shown | T1 | PENDING |
 | Facet chips: Type | each value filters; count updates | T1 | PENDING |
 | Facet chips: Decade | each value filters | T1 | PENDING |
-| Facet chips: Length | each value filters | T1 | PENDING |
+| Facet chips: Length | each value filters | T1 | N/A — a Length facet never shipped on ANY platform (M2-plan language). Shipped facets: Type + Era chips, plus genre/keyword/studio routes (D046). Optional future enhancement, owner's call. |
 | Sort menu (Popular / Top Rated / …) | each sort reorders; rating sort votes-floored | T1 | PENDING |
 | Color/B&W filter (if surfaced) | filters by colorMode | T2 | PENDING |
 | "Shuffle again" button | re-rolls | T2 | PENDING |
@@ -66,8 +66,8 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 | Element | Behaviour | Tier | Status |
 |---|---|---|---|
 | Series grid (poster-gated) | populated; SNL demoted last (D: deprioritizedSeries) | T1 | PENDING |
-| TV Specials entry | grid populated, only explicit tv-special | T1 | PENDING |
-| Series sort | rating + episode-depth order | T2 | PENDING |
+| TV Specials entry | grid populated, only explicit tv-special | T1 | VERIFIED T2 (TVShowsView row → BrowseFilter(category:"tv-special"), titled "TV Specials"); population = harness |
+| Series sort | rating + episode-depth order | T2 | VERIFIED (rated-first + episodesCount tiebreak; alpha; newest) |
 | Season picker | switches seasons | T1+T3 | VERIFIED T2 (seasonPicker → episode list; feel = T3) |
 | Episode row Select | plays episode | T1 | VERIFIED T2 (fullScreenCover → EpisodePlayerScreen(series:initialEpisode:)) |
 | Prev/Next episode in player | advances; binge auto-advance | T1 | PENDING |
@@ -81,15 +81,15 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 | Channel rail Select | full-day schedule | T1+T3 | PENDING |
 | Tune-in | joins in progress (startAt), commercials woven | T1 | PENDING |
 | "Back" button | returns | T2 | PENDING |
-| Create Channel form | creates; persists; appears in rail | T1 | PENDING |
-| Delete user channel | removes + tombstone sync | T2 | PENDING |
+| Create Channel form | creates; persists; appears in rail | T1 | VERIFIED T2 (CreateChannelSheet → UserChannel insert → rebuild; rail renders user-*) |
+| Delete user channel | removes + tombstone sync | T2 | **FIXED** (#3 — tvOS had NO delete affordance at all; now long-press a user channel's program block → Delete, with the same `ch:` tombstone as iOS) |
 | Channel playback never pollutes Continue Watching | persistProgress=false | T2 | **FIXED** (#2 — the gate had been lost; lineups persisted every 5s) |
 | Commercial break length cap (Settings) | honored | T2 | VERIFIED (forwardPlaybackEndTime in setupPlayer) |
 
 ### 5. Cartoons / Kids mode (`KidsModeView`)
 | Element | Behaviour | Tier | Status |
 |---|---|---|---|
-| Character/theme shelves | populated, kid-safe pool, color-leaning | T1 | PENDING |
+| Character/theme shelves | populated, kid-safe pool, color-leaning | T1 | VERIFIED T2 (KidsContent.cartoonPool: colorEmphasized caps B&W at 15%, shared with iOS); population = harness |
 | Marathon | lineup plays, advances | T1 | PENDING |
 | Group NavigationLinks | route | T1 | PENDING |
 
@@ -169,6 +169,7 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 |---|---|---|---|---|---|
 | 1 | Settings | OpenSubtitles "Create a free account" was a SwiftUI `Link` — on tvOS it renders as a focusable button that does nothing (no browser). Owner-reported. | Design/dead control | Replaced with a sign-up QR + instruction on tvOS (donate-QR precedent, D010); `Link` kept on iOS/macOS. Repo-wide sweep found no other `Link`/`openURL` on tvOS. | 891 |
 | 2 | Channels/Party/Cartoons | Lineup playback persisted WatchProgress every 5s — the "channels never pollute Continue Watching" invariant (Channels EPG design) had been silently lost. Half-watched channel programs entered Continue Watching and SYNCED across devices. | Functionality regression | `persistProgress` now gates on `lineup == nil`; autoplay of single films still persists (normal viewing). | 891 |
+| 3 | Channels | User channels could be CREATED on tvOS but never DELETED — no affordance existed (iOS swipes, Android long-presses, web taps; the platform that pioneered the feature had nothing). | Functionality/parity gap | Long-press any program block of a user channel → "Delete Channel" (destructive), mirroring iOS: SwiftData delete + `ch:` tombstone so removal syncs instead of resurrecting. | 891 |
 
 ## Owner-visual checklist (T3, collected — not blocking)
 
@@ -199,6 +200,12 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
   wiring, and the universal-states sample (root/Browse/Search/Favorites/
   SeriesDetail all have real empty/error surfaces — the old "loadError never
   surfaced" v1 gap is long closed by LoadErrorView).
-- Next: the AW_UI_AUDIT device run (first launch attempt each iteration),
-  T1 disposition of Home/Browse/facet rows from its output; remaining T2:
-  series sort, TV Specials entry, Channels create/delete, kids pool.
+- Iteration 4: TV asleep (3rd consecutive) — T2 sweep continued. Fix #3:
+  user-channel deletion did not exist on tvOS (create-only since the EPG
+  shipped) — added long-press → Delete with the iOS-parity `ch:` tombstone.
+  Dispositioned: series sort, TV Specials entry, Create Channel, kids pool.
+  Corrected the ledger itself: the "Length" facet row was M2-plan language
+  that never shipped anywhere — N/A, noted as optional enhancement.
+- Next: device harness run (each iteration retries), then T1 disposition;
+  remaining T2: Surprise tile wiring, Search filter chips, playlists CRUD,
+  OpenSubtitles Connect path, hero/shuffle routing, Collections rows.

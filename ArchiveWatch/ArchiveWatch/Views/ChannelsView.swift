@@ -37,9 +37,9 @@ struct ChannelsView: View {
                     .frame(maxWidth: .infinity)
                 Spacer()
             } else {
-                ChannelGuide(channels: guide, now: builtAt) { ch, slot in
-                    tune(ch, from: slot)
-                }
+                ChannelGuide(channels: guide, now: builtAt,
+                             onTune: { ch, slot in tune(ch, from: slot) },
+                             onDeleteChannel: { ch in deleteUserChannel(ch) })
             }
         }
         .background(Color.black.ignoresSafeArea())
@@ -147,6 +147,19 @@ struct ChannelsView: View {
 
     // MARK: - Tune in
 
+    /// Delete a user-created channel — the affordance tvOS never had: channels
+    /// could be CREATED here since the EPG shipped, but only iOS (swipe),
+    /// Android (long-press) and web (rail tap) could remove one. Mirrors the
+    /// iOS deletion exactly: SwiftData delete + the `ch:` tombstone so the
+    /// removal propagates to every synced device instead of resurrecting.
+    private func deleteUserChannel(_ channel: GuideChannel) {
+        let gid = channel.id.replacingOccurrences(of: "user-", with: "")
+        guard let uc = userChannels.first(where: { $0.id == gid }) else { return }
+        modelContext.delete(uc)
+        SyncNudge.recordDeletion("ch:\(uc.id)", in: modelContext)
+        rebuild()
+    }
+
     private func tune(_ channel: GuideChannel, from slot: ScheduledProgram) {
         let programs = channel.slots.drop { $0.id != slot.id }.map(\.item)
         // #92: if the tapped slot is the one airing NOW, join it in progress.
@@ -245,6 +258,11 @@ private struct ChannelGuide: View {
     let channels: [GuideChannel]
     let now: Date
     let onTune: (GuideChannel, ScheduledProgram) -> Void
+    /// Non-nil for USER channels only: long-press any of the channel's program
+    /// blocks → "Delete Channel". tvOS could CREATE channels but never delete
+    /// them — the rail label isn't focusable, so the context menu rides the
+    /// blocks, which are.
+    var onDeleteChannel: ((GuideChannel) -> Void)? = nil
 
     private let railW: CGFloat = 220
     private let rowH: CGFloat = 92
@@ -261,7 +279,10 @@ private struct ChannelGuide: View {
                     ForEach(channels) { ch in
                         ChannelRow(channel: ch, now: now, windowEnd: windowEnd,
                                    railW: railW, rowH: rowH, ppm: ppm, timelineW: timelineW,
-                                   onTune: onTune)
+                                   onTune: onTune,
+                                   onDeleteChannel: ch.id.hasPrefix("user-")
+                                       ? onDeleteChannel.map { del in { del(ch) } }
+                                       : nil)
                     }
                 }
                 .padding(.horizontal, 60)
@@ -299,6 +320,7 @@ private struct ChannelRow: View {
     let ppm: CGFloat
     let timelineW: CGFloat
     let onTune: (GuideChannel, ScheduledProgram) -> Void
+    var onDeleteChannel: (() -> Void)? = nil
 
     private var visible: [ScheduledProgram] {
         channel.slots.filter { $0.end > now && $0.start < windowEnd }
@@ -316,6 +338,18 @@ private struct ChannelRow: View {
                                  isNow: slot.start <= now && slot.end > now,
                                  accent: channel.accent, width: w, height: rowH) {
                         onTune(channel, slot)
+                    }
+                    // User channels only: long-press → delete. The mirror of
+                    // iOS's swipe-delete; same SwiftData delete + tombstone.
+                    .contextMenu {
+                        if let onDeleteChannel {
+                            Button(role: .destructive) {
+                                onDeleteChannel()
+                            } label: {
+                                Label("Delete \u{201C}\(channel.title)\u{201D} Channel",
+                                      systemImage: "trash")
+                            }
+                        }
                     }
                 }
                 Spacer(minLength: 0)
