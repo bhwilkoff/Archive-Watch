@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-08-11T05:15:21Z",
+  "updated_at": "2026-08-12T05:30:10Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 17947,
-    "wanted": 17725,
+    "total": 18006,
+    "wanted": 17784,
     "fulfilled": 222,
-    "series_with_gaps": 357
+    "series_with_gaps": 358
   },
   "wants": [
     {
@@ -15225,6 +15225,16 @@
       "seriesID": "bill-nye-the-science-guy-1993",
       "seriesTitle": "Bill Nye: The Science Guy",
       "season": 5,
+      "episode": 8,
+      "title": "Atoms and Molecules",
+      "episodeImdbID": "tt1913337",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 5,
       "episode": 9,
       "title": "Ocean Exploration",
       "episodeImdbID": "tt1913338",
@@ -21752,6 +21762,16 @@
       "episodeImdbID": "tt1490101",
       "status": "wanted",
       "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 5,
+      "episode": 10,
+      "title": "No Tradebacks!/Shoe Story/Rollie Racers",
+      "episodeImdbID": "tt1490103",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
     },
     {
       "seriesID": "caillou-1998",
@@ -80843,6 +80863,576 @@
       "episodeImdbID": "tt10306344",
       "status": "wanted",
       "added_at": "2026-06-13T07:56:51Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 1,
+      "episode": 4,
+      "title": "The Wedding: Part 2",
+      "episodeImdbID": "tt0793142",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 1,
+      "episode": 11,
+      "title": "Alien Marriage",
+      "episodeImdbID": "tt0640538",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 2,
+      "episode": 12,
+      "title": "Black Belt Mama",
+      "episodeImdbID": "tt0640546",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 2,
+      "episode": 15,
+      "title": "No Room at the Inn",
+      "episodeImdbID": "tt0918786",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 2,
+      "episode": 22,
+      "title": "A Grave Mistake",
+      "episodeImdbID": "tt0640535",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 3,
+      "episode": 1,
+      "title": "Farewell, Frannie",
+      "episodeImdbID": "tt0640558",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 3,
+      "episode": 3,
+      "title": "Best Medicine",
+      "episodeImdbID": "tt0640544",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 3,
+      "episode": 6,
+      "title": "Mama and Dr. Brothers",
+      "episodeImdbID": "tt0640583",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 3,
+      "episode": 7,
+      "title": "Cat's Meow",
+      "episodeImdbID": "tt0824046",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 3,
+      "episode": 8,
+      "title": "The Love Letter",
+      "episodeImdbID": "tt0640611",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 3,
+      "episode": 9,
+      "title": "An Ill Wind",
+      "episodeImdbID": "tt0824045",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 3,
+      "episode": 10,
+      "title": "Steal One Pearl Two",
+      "episodeImdbID": "tt0640604",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 3,
+      "episode": 11,
+      "title": "Where's There's Smoke",
+      "episodeImdbID": "tt0640623",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 3,
+      "episode": 12,
+      "title": "Fly Naomi",
+      "episodeImdbID": "tt0824047",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 3,
+      "episode": 13,
+      "title": "Santa Mama",
+      "episodeImdbID": "tt0640603",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 3,
+      "episode": 14,
+      "title": "Desperately Seeking Anyone",
+      "episodeImdbID": "tt0640553",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 3,
+      "episode": 15,
+      "title": "Porn Again",
+      "episodeImdbID": "tt0824731",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 3,
+      "episode": 16,
+      "title": "Have It Mama's Way",
+      "episodeImdbID": "tt0640567",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 3,
+      "episode": 19,
+      "title": "Buck Private Bubba",
+      "episodeImdbID": "tt0640549",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 3,
+      "episode": 20,
+      "title": "Mama's Cousin",
+      "episodeImdbID": "tt0918784",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 4,
+      "episode": 1,
+      "title": "Educating Mama",
+      "episodeImdbID": "tt0640554",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 4,
+      "episode": 3,
+      "title": "The Key to the Crime",
+      "episodeImdbID": "tt0640610",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 4,
+      "episode": 4,
+      "title": "Breaking Up Is Hard to Do",
+      "episodeImdbID": "tt1089344",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 4,
+      "episode": 5,
+      "title": "A Big Hand for Mama",
+      "episodeImdbID": "tt0830023",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 4,
+      "episode": 6,
+      "title": "Flounder's Day",
+      "episodeImdbID": "tt0640559",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 4,
+      "episode": 8,
+      "title": "Child's Play",
+      "episodeImdbID": "tt0640551",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 4,
+      "episode": 19,
+      "title": "Mama on Jeopardy!",
+      "episodeImdbID": "tt0640586",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 4,
+      "episode": 21,
+      "title": "Mama Goes Hawaiian: Part 2",
+      "episodeImdbID": "tt0796122",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 4,
+      "episode": 24,
+      "title": "Naomi's Identity Crisis",
+      "episodeImdbID": "tt0794911",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 4,
+      "episode": 25,
+      "title": "Pomp and Circumstance",
+      "episodeImdbID": "tt0640599",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 5,
+      "episode": 1,
+      "title": "Ladies Choice",
+      "episodeImdbID": "tt0640570",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 5,
+      "episode": 3,
+      "title": "Naomi's New Position",
+      "episodeImdbID": "tt0799211",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 5,
+      "episode": 5,
+      "title": "Many Unhappy Returns",
+      "episodeImdbID": "tt0640593",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 5,
+      "episode": 7,
+      "title": "My Mama, Myself",
+      "episodeImdbID": "tt0798753",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 5,
+      "episode": 8,
+      "title": "Full House",
+      "episodeImdbID": "tt0640561",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 5,
+      "episode": 10,
+      "title": "What a Dump",
+      "episodeImdbID": "tt0640621",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 5,
+      "episode": 17,
+      "title": "Mama in One",
+      "episodeImdbID": "tt0839179",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 5,
+      "episode": 19,
+      "title": "April Fools",
+      "episodeImdbID": "tt0839178",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 5,
+      "episode": 23,
+      "title": "Hate Thy Neighbor",
+      "episodeImdbID": "tt0640566",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 5,
+      "episode": 24,
+      "title": "Dependence Day",
+      "episodeImdbID": "tt0840617",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 5,
+      "episode": 25,
+      "title": "And Mama Makes Three",
+      "episodeImdbID": "tt0640540",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 6,
+      "episode": 2,
+      "title": "An Affair to Forget",
+      "episodeImdbID": "tt0640539",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 6,
+      "episode": 3,
+      "title": "Mr. Wrong",
+      "episodeImdbID": "tt0640595",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 6,
+      "episode": 4,
+      "title": "Now Hear This",
+      "episodeImdbID": "tt0842404",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 6,
+      "episode": 6,
+      "title": "Mama Fights Back",
+      "episodeImdbID": "tt0640575",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 6,
+      "episode": 8,
+      "title": "Psychic Pheno-Mama",
+      "episodeImdbID": "tt0640601",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 6,
+      "episode": 10,
+      "title": "Bubba's House Band",
+      "episodeImdbID": "tt0640548",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 6,
+      "episode": 11,
+      "title": "Mama Takes Stock",
+      "episodeImdbID": "tt0640581",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 6,
+      "episode": 12,
+      "title": "War of the Roses",
+      "episodeImdbID": "tt0640620",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 6,
+      "episode": 13,
+      "title": "Mama Takes a Dive",
+      "episodeImdbID": "tt0640582",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 6,
+      "episode": 14,
+      "title": "Mama Gets Goosed",
+      "episodeImdbID": "tt0918783",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 6,
+      "episode": 15,
+      "title": "The Big Nap",
+      "episodeImdbID": "tt1089345",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 6,
+      "episode": 16,
+      "title": "Pinup Mama",
+      "episodeImdbID": "tt0640598",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 6,
+      "episode": 17,
+      "title": "Guess Who's Going to Dinner",
+      "episodeImdbID": "tt0640564",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 6,
+      "episode": 18,
+      "title": "Look Who's Breathing",
+      "episodeImdbID": "tt0640571",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 6,
+      "episode": 19,
+      "title": "There Is Nothing Like the Dames",
+      "episodeImdbID": "tt0640616",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
+    },
+    {
+      "seriesID": "mama-s-family-1983",
+      "seriesTitle": "Mama's Family",
+      "season": 6,
+      "episode": 20,
+      "title": "Bye Bye Baby",
+      "episodeImdbID": "tt0790191",
+      "status": "wanted",
+      "added_at": "2026-08-12T05:30:10Z"
     },
     {
       "seriesID": "man-against-crime-1949",

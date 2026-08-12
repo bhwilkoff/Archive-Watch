@@ -1,285 +1,288 @@
 {
- "version": 2,
- "seriesID": "silver-spoon-sterling-shackles-2012",
- "tvmazeID": 49889,
- "title": "Silver Spoon, Sterling Shackles",
- "yearStart": 2012,
- "yearEnd": 2012,
- "overview": "The 1930s Hong Kong is the time of the East and West cultural shock. Women started fighting for their rights and status, changing the 'men superior to women' image. Famous barrister Sir Arthur Chung studied in England and lives a British lifestyle, but inside he's actually a traditional Chinese man. He married several wives to show off his power and upper-class status. First wife Koo Sam-lan was a rich girl; second wife is former Qing dynasty princess Aisin Gioro Yee-yin; third wife came from a family that owned banks Yvonne Yik; fourth wife is a famous Peking opera singer Hong Tsz-kwan; and the fifth wife Chui Dan-dan, a vanity admiring woman. Because Sir Arthur Chung is a strict and authoritarian father, his two sons Charles Chung and Jimmy Chung eventually start going against him. This wealthy and prominent family may seem warm on the surface, but in reality they are scattered and disunited.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/269/674276.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "History"
- ],
- "networks": [
-  "TVB Jade"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "silver-spoon-sterling-shackles-2012",
+  "tvmazeID": 49889,
+  "title": "Silver Spoon, Sterling Shackles",
+  "yearStart": 2012,
+  "yearEnd": 2012,
+  "overview": "The 1930s Hong Kong is the time of the East and West cultural shock. Women started fighting for their rights and status, changing the 'men superior to women' image. Famous barrister Sir Arthur Chung studied in England and lives a British lifestyle, but inside he's actually a traditional Chinese man. He married several wives to show off his power and upper-class status. First wife Koo Sam-lan was a rich girl; second wife is former Qing dynasty princess Aisin Gioro Yee-yin; third wife came from a family that owned banks Yvonne Yik; fourth wife is a famous Peking opera singer Hong Tsz-kwan; and the fifth wife Chui Dan-dan, a vanity admiring woman. Because Sir Arthur Chung is a strict and authoritarian father, his two sons Charles Chung and Jimmy Chung eventually start going against him. This wealthy and prominent family may seem warm on the surface, but in reality they are scattered and disunited.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/269/674276.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "History"
+  ],
+  "networks": [
+    "TVB Jade"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "SilverSpoonsSeason5Episode1TheBeachHousePart2",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "第1集 - 廷亨揭穿　子君身分",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
-     "airDate": "2012-10-22",
-     "year": 2012,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Silver Spoons Season 5 Episode 1 The Beach House part 2.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 27639456,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode1TheBeachHousePart2/Silver%20Spoons%20Season%205%20Episode%201%20The%20Beach%20House%20part%202.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "SilverSpoonsSeason5Episode1TheBeachHousePart2",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "第1集 - 廷亨揭穿　子君身分",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
+          "airDate": "2012-10-22",
+          "year": 2012,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Silver Spoons Season 5 Episode 1 The Beach House part 2.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 27639456,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode1TheBeachHousePart2/Silver%20Spoons%20Season%205%20Episode%201%20The%20Beach%20House%20part%202.mp4"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason5Episode7RickyMovesOutPart2",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "第7集 - 懿芳追問　卓萬緋聞",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
+          "airDate": "2012-10-29",
+          "year": 2012,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Silver Spoons Season 5 Episode 7 Ricky Moves Out Part 2.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 33387765,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode7RickyMovesOutPart2/Silver%20Spoons%20Season%205%20Episode%207%20Ricky%20Moves%20Out%20Part%202.mp4"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason5Episode10TheTrianglePart1",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "第10集 - 卓萬求婚　作出承諾",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
+          "airDate": "2012-11-01",
+          "year": 2012,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Silver Spoons Season 5 Episode 10 The Triangle Part 1.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 40137453,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode10TheTrianglePart1/Silver%20Spoons%20Season%205%20Episode%2010%20The%20Triangle%20Part%201.mp4"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason5Episode13RumorsAreFlyingPart1",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "第13集 - 子君正式　嫁入鍾家",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
+          "airDate": "2012-11-07",
+          "year": 2012,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Silver Spoons Season 5 Episode 13 Rumors are Flying Part 1.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 35861568,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode13RumorsAreFlyingPart1/Silver%20Spoons%20Season%205%20Episode%2013%20Rumors%20are%20Flying%20Part%201.mp4"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason4Episode20RickySingsPart16",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "第20集 - 小由決定嫁往金山",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
+          "airDate": "2012-11-16",
+          "year": 2012,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Silver Spoons Season 4 Episode 20 Ricky Sings Part 1[6].mp4",
+            "format": "h.264",
+            "sizeBytes": 80129132,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason4Episode20RickySingsPart16/Silver Spoons Season 4 Episode 20 Ricky Sings Part 1[6].mp4"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason4Episode23RickAt16Part1",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "第23集 - 痛失愛兒　誓要報復",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
+          "airDate": "2012-11-22",
+          "year": 2012,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Silver Spoons Season 4 Episode 23 Rick at 16 Part 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 91117056,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason4Episode23RickAt16Part1/Silver Spoons Season 4 Episode 23 Rick at 16 Part 1.mp4"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason4Episode24SecondBestPart1",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "第24集 - 木水誓要　搶回小由",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
+          "airDate": "2012-11-23",
+          "year": 2012,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Silver Spoons Season 4 Episode 24 Second Best Part 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 85772799,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason4Episode24SecondBestPart1/Silver Spoons Season 4 Episode 24 Second Best Part 1.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "SilverSpoonsSeason5Episode7RickyMovesOutPart2",
-     "seasonNumber": 1,
-     "episodeNumber": 7,
-     "title": "第7集 - 懿芳追問　卓萬緋聞",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
-     "airDate": "2012-10-29",
-     "year": 2012,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Silver Spoons Season 5 Episode 7 Ricky Moves Out Part 2.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 33387765,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode7RickyMovesOutPart2/Silver%20Spoons%20Season%205%20Episode%207%20Ricky%20Moves%20Out%20Part%202.mp4"
-    },
-    {
-     "archiveID": "SilverSpoonsSeason5Episode10TheTrianglePart1",
-     "seasonNumber": 1,
-     "episodeNumber": 10,
-     "title": "第10集 - 卓萬求婚　作出承諾",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
-     "airDate": "2012-11-01",
-     "year": 2012,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Silver Spoons Season 5 Episode 10 The Triangle Part 1.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 40137453,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode10TheTrianglePart1/Silver%20Spoons%20Season%205%20Episode%2010%20The%20Triangle%20Part%201.mp4"
-    },
-    {
-     "archiveID": "SilverSpoonsSeason5Episode13RumorsAreFlyingPart1",
-     "seasonNumber": 1,
-     "episodeNumber": 13,
-     "title": "第13集 - 子君正式　嫁入鍾家",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
-     "airDate": "2012-11-07",
-     "year": 2012,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Silver Spoons Season 5 Episode 13 Rumors are Flying Part 1.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 35861568,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode13RumorsAreFlyingPart1/Silver%20Spoons%20Season%205%20Episode%2013%20Rumors%20are%20Flying%20Part%201.mp4"
-    },
-    {
-     "archiveID": "SilverSpoonsSeason4Episode20RickySingsPart16",
-     "seasonNumber": 1,
-     "episodeNumber": 20,
-     "title": "第20集 - 小由決定嫁往金山",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
-     "airDate": "2012-11-16",
-     "year": 2012,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Silver Spoons Season 4 Episode 20 Ricky Sings Part 1[6].mp4",
-      "format": "h.264",
-      "sizeBytes": 80129132,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/SilverSpoonsSeason4Episode20RickySingsPart16/Silver Spoons Season 4 Episode 20 Ricky Sings Part 1[6].mp4"
-    },
-    {
-     "archiveID": "SilverSpoonsSeason4Episode23RickAt16Part1",
-     "seasonNumber": 1,
-     "episodeNumber": 23,
-     "title": "第23集 - 痛失愛兒　誓要報復",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
-     "airDate": "2012-11-22",
-     "year": 2012,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Silver Spoons Season 4 Episode 23 Rick at 16 Part 1.mp4",
-      "format": "h.264",
-      "sizeBytes": 91117056,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/SilverSpoonsSeason4Episode23RickAt16Part1/Silver Spoons Season 4 Episode 23 Rick at 16 Part 1.mp4"
-    },
-    {
-     "archiveID": "SilverSpoonsSeason4Episode24SecondBestPart1",
-     "seasonNumber": 1,
-     "episodeNumber": 24,
-     "title": "第24集 - 木水誓要　搶回小由",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
-     "airDate": "2012-11-23",
-     "year": 2012,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Silver Spoons Season 4 Episode 24 Second Best Part 1.mp4",
-      "format": "h.264",
-      "sizeBytes": 85772799,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/SilverSpoonsSeason4Episode24SecondBestPart1/Silver Spoons Season 4 Episode 24 Second Best Part 1.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SilverSpoonsSeason5Episode1TheBeachHousePart1",
+          "seasonNumber": null,
+          "episodeNumber": 1,
+          "title": "Pilot",
+          "overview": "Edward Stratton III is the epitome of the overgrown child. His lawyer Leonard Rollins has just informed him that his business manager Lou says he is broke and Edward is more interested in playing a game of PacMan. The Stratton mansion looks more like an arcade with video games lining the walls and a scale model train in the middle of the room that actually goes all over the property. Edward is totally taken by surprise when a blonde 12 year old boy arrives and introduces himself as Edward's son Ricky. Edward had been married to Ricky's mother Evelyn for seven days and until that moment he had no clue that he was a father. We meet Edward's assistant Kate Summers during a thoughtful moment of her mentioning that perhaps Edward should hold off on a charity donation until his finances were back in shape. After discovering and proving that Lou had really embezzled Edward's money, Ricky tries to convince his father to let him move in with him instead of making him return to military school.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/5Ghmv1l3zluy67iUSIgbMTc0ESv.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 5 Episode 1 The Beach House Part 1.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 48265845,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode1TheBeachHousePart1/Silver%20Spoons%20Season%205%20Episode%201%20The%20Beach%20House%20Part%201.mp4"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason5Episode7RickyMovesOutPart1",
+          "seasonNumber": null,
+          "episodeNumber": 7,
+          "title": "The Great Computer Caper",
+          "overview": "Ricky is interviewed by a school reporter and goes on the run after hacking into a top secret government file.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/xacC9E9mNDLvRU4ejWLhsyTwFz0.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 5 Episode 7 Ricky Moves Out Part 1 -.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 37879566,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode7RickyMovesOutPart1/Silver%20Spoons%20Season%205%20Episode%207%20Ricky%20Moves%20Out%20Part%201%20-.mp4"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason5Episode10TheTrianglePart2",
+          "seasonNumber": null,
+          "episodeNumber": 10,
+          "title": "Father Nature",
+          "overview": "Ricky convinces Edward to take him camping so he can earn his badger paws.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/jQiR7cYJIFl4wOvB5ctMYDUwzdv.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 5 Episode 10 The Triangle Part 2.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 27979935,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode10TheTrianglePart2/Silver%20Spoons%20Season%205%20Episode%2010%20The%20Triangle%20Part%202.mp4"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason5Episode13RumorAreFlyingPart21",
+          "seasonNumber": null,
+          "episodeNumber": 13,
+          "title": "The Best Christmas Ever",
+          "overview": "Edward and Ricky play Santa to a family living in a cave on their property.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/l7MRPo2AuvboeTn7c1jNAqvNIcd.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 5 Episode 13 Rumor are Flying Part 2[1].mp4",
+            "format": "MPEG4",
+            "sizeBytes": 35657917,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode13RumorAreFlyingPart21/Silver%20Spoons%20Season%205%20Episode%2013%20Rumor%20are%20Flying%20Part%202%5B1%5D.mp4"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason4Episode20RickySingsPart2",
+          "seasonNumber": null,
+          "episodeNumber": 20,
+          "title": "The Empire Strikes Out",
+          "overview": "Edward II tries to get Kate to move to California so Edward will marry someone to expand the family fortune.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/6R0ePTxvNXKUmrOeIjhrIeoWADV.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 4 Episode 20 Ricky Sings Part 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 67098274,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason4Episode20RickySingsPart2/Silver Spoons Season 4 Episode 20 Ricky Sings Part 2.mp4"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason4Episode23RickAt16Part2",
+          "seasonNumber": null,
+          "episodeNumber": 23,
+          "title": "Silver Spoons Season 4 Episode 23 Rick At 16 Part 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 4 Episode 23 Rick at 16 Part 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 56596331,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason4Episode23RickAt16Part2/Silver Spoons Season 4 Episode 23 Rick at 16 Part 2.mp4"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason4Episode24SecondBestPart2",
+          "seasonNumber": null,
+          "episodeNumber": 24,
+          "title": "Silver Spoons Season 4 Episode 24 Second Best Part 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 4 Episode 24 Second Best Part 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 61882415,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason4Episode24SecondBestPart2/Silver Spoons Season 4 Episode 24 Second Best Part 2.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
-    {
-     "archiveID": "SilverSpoonsSeason5Episode1TheBeachHousePart1",
-     "seasonNumber": null,
-     "episodeNumber": 1,
-     "title": "Pilot",
-     "overview": "Edward Stratton III is the epitome of the overgrown child. His lawyer Leonard Rollins has just informed him that his business manager Lou says he is broke and Edward is more interested in playing a game of PacMan. The Stratton mansion looks more like an arcade with video games lining the walls and a scale model train in the middle of the room that actually goes all over the property. Edward is totally taken by surprise when a blonde 12 year old boy arrives and introduces himself as Edward's son Ricky. Edward had been married to Ricky's mother Evelyn for seven days and until that moment he had no clue that he was a father. We meet Edward's assistant Kate Summers during a thoughtful moment of her mentioning that perhaps Edward should hold off on a charity donation until his finances were back in shape. After discovering and proving that Lou had really embezzled Edward's money, Ricky tries to convince his father to let him move in with him instead of making him return to military school.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/5Ghmv1l3zluy67iUSIgbMTc0ESv.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Silver Spoons Season 5 Episode 1 The Beach House Part 1.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 48265845,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode1TheBeachHousePart1/Silver%20Spoons%20Season%205%20Episode%201%20The%20Beach%20House%20Part%201.mp4"
-    },
-    {
-     "archiveID": "SilverSpoonsSeason5Episode7RickyMovesOutPart1",
-     "seasonNumber": null,
-     "episodeNumber": 7,
-     "title": "The Great Computer Caper",
-     "overview": "Ricky is interviewed by a school reporter and goes on the run after hacking into a top secret government file.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/xacC9E9mNDLvRU4ejWLhsyTwFz0.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Silver Spoons Season 5 Episode 7 Ricky Moves Out Part 1 -.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 37879566,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode7RickyMovesOutPart1/Silver%20Spoons%20Season%205%20Episode%207%20Ricky%20Moves%20Out%20Part%201%20-.mp4"
-    },
-    {
-     "archiveID": "SilverSpoonsSeason5Episode10TheTrianglePart2",
-     "seasonNumber": null,
-     "episodeNumber": 10,
-     "title": "Father Nature",
-     "overview": "Ricky convinces Edward to take him camping so he can earn his badger paws.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/jQiR7cYJIFl4wOvB5ctMYDUwzdv.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Silver Spoons Season 5 Episode 10 The Triangle Part 2.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 27979935,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode10TheTrianglePart2/Silver%20Spoons%20Season%205%20Episode%2010%20The%20Triangle%20Part%202.mp4"
-    },
-    {
-     "archiveID": "SilverSpoonsSeason5Episode13RumorAreFlyingPart21",
-     "seasonNumber": null,
-     "episodeNumber": 13,
-     "title": "The Best Christmas Ever",
-     "overview": "Edward and Ricky play Santa to a family living in a cave on their property.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/l7MRPo2AuvboeTn7c1jNAqvNIcd.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Silver Spoons Season 5 Episode 13 Rumor are Flying Part 2[1].mp4",
-      "format": "MPEG4",
-      "sizeBytes": 35657917,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode13RumorAreFlyingPart21/Silver%20Spoons%20Season%205%20Episode%2013%20Rumor%20are%20Flying%20Part%202%5B1%5D.mp4"
-    },
-    {
-     "archiveID": "SilverSpoonsSeason4Episode20RickySingsPart2",
-     "seasonNumber": null,
-     "episodeNumber": 20,
-     "title": "The Empire Strikes Out",
-     "overview": "Edward II tries to get Kate to move to California so Edward will marry someone to expand the family fortune.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/6R0ePTxvNXKUmrOeIjhrIeoWADV.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Silver Spoons Season 4 Episode 20 Ricky Sings Part 2.mp4",
-      "format": "h.264",
-      "sizeBytes": 67098274,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/SilverSpoonsSeason4Episode20RickySingsPart2/Silver Spoons Season 4 Episode 20 Ricky Sings Part 2.mp4"
-    },
-    {
-     "archiveID": "SilverSpoonsSeason4Episode23RickAt16Part2",
-     "seasonNumber": null,
-     "episodeNumber": 23,
-     "title": "Silver Spoons Season 4 Episode 23 Rick At 16 Part 2",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Silver Spoons Season 4 Episode 23 Rick at 16 Part 2.mp4",
-      "format": "h.264",
-      "sizeBytes": 56596331,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/SilverSpoonsSeason4Episode23RickAt16Part2/Silver Spoons Season 4 Episode 23 Rick at 16 Part 2.mp4"
-    },
-    {
-     "archiveID": "SilverSpoonsSeason4Episode24SecondBestPart2",
-     "seasonNumber": null,
-     "episodeNumber": 24,
-     "title": "Silver Spoons Season 4 Episode 24 Second Best Part 2",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Silver Spoons Season 4 Episode 24 Second Best Part 2.mp4",
-      "format": "h.264",
-      "sizeBytes": 61882415,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/SilverSpoonsSeason4Episode24SecondBestPart2/Silver Spoons Season 4 Episode 24 Second Best Part 2.mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 14,
- "canonicalEpisodesCount": 40
+  ],
+  "episodesCount": 14,
+  "canonicalEpisodesCount": 40,
+  "seriesImdbID": "tt9889344",
+  "canonicalEpisodeCount": 6,
+  "canonicalSeasons": 1
 }
