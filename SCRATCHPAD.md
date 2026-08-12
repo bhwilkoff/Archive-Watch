@@ -233,6 +233,47 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-08-12 (later) — tvOS 27 generated subtitles ROOT-CAUSED; Decision 067; 1.3.363/885
+App **1.3.363 / b885** uploaded to ASC (mac+iOS+tvOS). Memories:
+`tvos27_captions_open` (READ FIRST), `session_handoff_2026_08_12_captions`.
+
+**The bug was a mis-measurement, not a hard problem.** Measured on macOS 27, ONE
+SHAPE PER PROCESS: a plain direct MP4 is captioned by the system (text in 33s),
+while through our `aw-stream://` resilient loader **no subtitle track is ever
+OFFERED at all**. Decision 065 had recorded "offered but silent" and built a
+four-stage handover on it — wait for a track, select, listen, and only then swap
+to the direct URL — so **the swap was gated behind a track that never arrives**
+and on tvOS could never run. That "offered" reading came from a harness probing
+four shapes in ONE process, counting a previous player's leftover track as the
+current one's; the tell was a shape IDENTICAL to the passing one failing later
+in the same run.
+
+Also disproven, and it was the design expected to ship: **wrapping the MP4 in
+HLS does not qualify us**, despite Apple naming "HLS and file-based content".
+
+**Fix (067):** the asset shape is chosen UP FRONT. A film with no published
+subtitles plays the plain URL on tvOS/iOS/macOS; films WITH subtitles are
+untouched. `CaptionStallMonitor` rebuilds on the resilient loader if the plain
+path stutters — the same trade already made for captioned films. Cost is
+bounded: AVFoundation pays the /download 302 once for a progressive read, not
+per chunk, which is what made it expensive under the loader.
+
+**Observability**, because the Apple TV is the only oracle and its console
+cannot be read here: `SystemCaptions.stage` renders on screen for 8s when
+neither the system nor our engine can caption.
+
+**Research:** WWDC26 §256 + "What's new in HLS 2026" — `CHARACTERISTICS`
+`public.machine-generated` / `public.translation` now plumbed through
+`hls_manifests` (nothing carries it; every published track is human);
+`AVPlayerItemSampleBufferOutput` is Apple's own scan-ahead API for what
+LiveCaptions hand-rolls; `MTAudioProcessingTap` gained HLS support only in 27,
+so any future HLS wrapper must be gated to 27+.
+
+**NOT verified: anything on tvOS.** No tvOS runtime is installed. 885 finished
+uploading 8 minutes before the owner's "still broken" report, so that report is
+against 884, which lacks the fix. **Confirm the build number before diagnosing
+further.**
+
 ### 2026-08-09 (latest) — Dead sources on Home; CI was destroying queued runs; builds were blocked
 App **1.3.331 / b853** on `main`; **1.3.330 (852) uploaded to ASC** (mac+iOS+tvOS).
 Decisions **056** + **057**. Memories: `dead_sources_freshness`,
