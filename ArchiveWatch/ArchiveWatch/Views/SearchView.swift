@@ -6,6 +6,12 @@ struct SearchView: View {
     @Environment(Router.self) private var router
     @State private var query: String = ""
     @State private var results: [Catalog.Item] = []
+    // Result filters — iOS and Android have had type/decade filters over FTS
+    // results since the 2026-06 waves; the platform the feature started on
+    // never got them. Only facets PRESENT in the current results are offered
+    // (the iOS rule), and both reset when the query changes.
+    @State private var typeFilter: String? = nil
+    @State private var decadeFilter: Int? = nil
 
     /// FTS5 search over the on-disk catalog (Decision 017) — title, cast, crew,
     /// genre, series, country, and synopsis (the broadened FTS `extra` column).
@@ -17,8 +23,36 @@ struct SearchView: View {
         results = db.search(q)
     }
 
-    private var episodeResults: [Catalog.Item] { results.filter(\.isEpisode) }
-    private var filmResults: [Catalog.Item] { results.filter { !$0.isEpisode } }
+    private var filtered: [Catalog.Item] {
+        results.filter { item in
+            if let t = typeFilter, item.contentType != t { return false }
+            if let d = decadeFilter, item.decade != d { return false }
+            return true
+        }
+    }
+    private var episodeResults: [Catalog.Item] { filtered.filter(\.isEpisode) }
+    private var filmResults: [Catalog.Item] { filtered.filter { !$0.isEpisode } }
+
+    /// Facet values actually present in the unfiltered results, largest first —
+    /// a chip for a type with no hits is a dead control.
+    private var presentTypes: [(type: String, count: Int)] {
+        Dictionary(grouping: results, by: \.contentType)
+            .map { ($0.key, $0.value.count) }
+            .sorted { $0.1 > $1.1 }
+    }
+    private var presentDecades: [Int] {
+        Set(results.compactMap(\.decade)).sorted()
+    }
+
+    private func typeLabel(_ type: String) -> String {
+        if type == "tv-special" { return "TV Specials" }
+        if type == "tv-episode" { return "Episodes" }
+        if type == "tv-series" { return "TV Series" }
+        if let cat = store.featured?.category(id: type) {
+            return cat.shortName ?? cat.displayName
+        }
+        return type.split(separator: "-").map(\.capitalized).joined(separator: " ")
+    }
 
     private let cols = Array(repeating: GridItem(.fixed(210), spacing: 24), count: 6)
 
@@ -32,6 +66,14 @@ struct SearchView: View {
                         .frame(maxWidth: .infinity)
                         .padding(.top, 60)
                 } else {
+                    filterChips
+                    if filtered.isEmpty {
+                        // The filters can empty a non-empty result set; the
+                        // chips must stay visible so the viewer can back out.
+                        EmptyState()
+                            .frame(maxWidth: .infinity)
+                            .padding(.top, 40)
+                    }
                     if !episodeResults.isEmpty {
                         Text("Episodes").font(.title2.bold()).foregroundStyle(.white)
                         ScrollView(.horizontal, showsIndicators: false) {
@@ -62,8 +104,50 @@ struct SearchView: View {
         // Black must be the OUTERMOST layer so it fills behind the top padding
         // too — otherwise that 60pt strip shows the system's grey nav material.
         .background(Color.black.ignoresSafeArea())
-        .onChange(of: query) { _, _ in runSearch() }
+        .onChange(of: query) { _, _ in
+            typeFilter = nil
+            decadeFilter = nil
+            runSearch()
+        }
         .onChange(of: store.dbGeneration) { _, _ in runSearch() }
+    }
+
+    /// Type + era chips over the results (Browse's own chip control). Offered
+    /// only when a facet could narrow anything; the active chip clears itself.
+    @ViewBuilder
+    private var filterChips: some View {
+        let types = presentTypes
+        let decades = presentDecades
+        if types.count > 1 || decades.count > 1 {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 14) {
+                    if types.count > 1 {
+                        Chip(label: "All", isOn: typeFilter == nil, accent: .accentColor) {
+                            typeFilter = nil
+                        }
+                        ForEach(types, id: \.type) { entry in
+                            let accent = store.featured?.category(id: entry.type)
+                                .flatMap { Color(hex: $0.accent) } ?? .accentColor
+                            Chip(label: "\(typeLabel(entry.type)) (\(entry.count))",
+                                 isOn: typeFilter == entry.type, accent: accent) {
+                                typeFilter = typeFilter == entry.type ? nil : entry.type
+                            }
+                        }
+                    }
+                    if decades.count > 1 {
+                        Chip(label: "All Eras", isOn: decadeFilter == nil, accent: .accentColor) {
+                            decadeFilter = nil
+                        }
+                        ForEach(decades, id: \.self) { d in
+                            Chip(label: "\(d)s", isOn: decadeFilter == d, accent: .accentColor) {
+                                decadeFilter = decadeFilter == d ? nil : d
+                            }
+                        }
+                    }
+                }
+                .padding(.vertical, 6)
+            }
+        }
     }
 
     private var placeholder: some View {

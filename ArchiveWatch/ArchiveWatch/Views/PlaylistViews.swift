@@ -132,6 +132,15 @@ struct PlaylistDetailView: View {
     private var items: [Catalog.Item] { (playlist?.archiveIDs ?? []).compactMap { store.dbItem($0) } }
     private let cols = Array(repeating: GridItem(.fixed(210), spacing: 24), count: 6)
 
+    private func remove(_ archiveID: String) {
+        guard let pl = playlist,
+              let i = pl.archiveIDs.firstIndex(of: archiveID) else { return }
+        pl.archiveIDs.remove(at: i)
+        pl.touch()                 // #11b: stamp so the removal wins on sync
+        try? ctx.save()
+        SyncNudge.nudge(ctx)
+    }
+
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 24) {
@@ -156,6 +165,16 @@ struct PlaylistDetailView: View {
                     LazyVGrid(columns: cols, spacing: 36) {
                         ForEach(items) { item in
                             PosterTile(item: item) { router.push(item) }
+                                // Long-press → remove. The only remove path was
+                                // re-opening the add-sheet from the film's own
+                                // Detail and un-ticking — functional, invisible.
+                                .contextMenu {
+                                    Button(role: .destructive) {
+                                        remove(item.archiveID)
+                                    } label: {
+                                        Label("Remove from Playlist", systemImage: "minus.circle")
+                                    }
+                                }
                         }
                     }
                 }
@@ -166,7 +185,9 @@ struct PlaylistDetailView: View {
         .background(Color.black.ignoresSafeArea())
         .fullScreenCover(item: Binding(get: { playing.map { LineupBox(items: $0) } },
                                        set: { playing = $0?.items })) { box in
-            if let screen = PlayerScreen(lineup: box.items) { screen }
+            // A playlist is DELIBERATE viewing — it keeps WatchProgress/resume,
+            // unlike the ephemeral channel/party/cartoon lineups (audit fix #2).
+            if let screen = PlayerScreen(lineup: box.items, ephemeralLineup: false) { screen }
         }
     }
 }
@@ -226,6 +247,18 @@ struct PlaylistsSection: View {
                     LazyHStack(alignment: .top, spacing: 40) {
                         ForEach(playlists) { pl in
                             PlaylistTile(playlist: pl) { router.push(PlaylistRoute(id: pl.id)) }
+                                // tvOS could CREATE and PLAY playlists but never
+                                // delete one — iOS swipe-deletes with the same
+                                // tombstone. Long-press is the tvOS idiom.
+                                .contextMenu {
+                                    Button(role: .destructive) {
+                                        ctx.delete(pl)
+                                        SyncNudge.recordDeletion("pl:\(pl.id)", in: ctx)
+                                    } label: {
+                                        Label("Delete \u{201C}\(pl.name)\u{201D}",
+                                              systemImage: "trash")
+                                    }
+                                }
                         }
                     }
                     .padding(.horizontal, 80)

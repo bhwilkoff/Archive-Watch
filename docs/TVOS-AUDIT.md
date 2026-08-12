@@ -115,7 +115,7 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 | Element | Behaviour | Tier | Status |
 |---|---|---|---|
 | FTS results (keyboard + dictation) | relevant, includes episodes, excludes tv-special | T1 | PENDING |
-| Type/decade filters over results | only present facets offered; ✕ clears | T1 | PENDING |
+| Type/decade filters over results | only present facets offered; ✕ clears | T1 | **FIXED** (#4 — tvOS never had them; iOS/Android did since 2026-06. Type+Era chips, present-facets-only, reset on new query) |
 | Result Select → Detail / SeriesDetail | routes by type | T1 | PENDING |
 
 ### 10. Library (`FavoritesView` + `PlaylistViews`)
@@ -123,13 +123,13 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 |---|---|---|---|
 | Favorites grid | add/remove reflects; syncs (AWSync) | T1 | PENDING |
 | Watched list | populated from completions | T1 | PENDING |
-| Playlists: create / add / remove / delete | persist; tile spacing (no focus overlap) | T1+T3 | PENDING |
+| Playlists: create / add / remove / delete | persist; tile spacing (no focus overlap) | T1+T3 | **FIXED** (#5 — create/add existed; DELETE playlist + REMOVE item did not exist on tvOS. Long-press menus added, iOS-parity `pl:` tombstone + modifiedAt stamp) |
 | Playlist playback | plays sequence | T1 | PENDING |
 
 ### 11. Surprise (`SurpriseView`)
 | Element | Behaviour | Tier | Status |
 |---|---|---|---|
-| 11 re-rollable tiles | each re-rolls; each routes correctly | T1 | PENDING |
+| 11 re-rollable tiles | each re-rolls; each routes correctly | T1 | VERIFIED T2 (per-kind random pulls, all router.push; population = harness) |
 | Random Film | playable item only, ≤3 re-rolls on failure (D014) | T1 | PENDING |
 | Random Category / Collection | land on filtered views | T1 | PENDING |
 | Siri App Intents | IntentInbox routes | T2 | VERIFIED — shipped set is SurpriseMe / RandomFilm / RandomCategory (RandomCollection was the D014-era plan, superseded; the Surprise grid carries collection randomness) |
@@ -170,6 +170,9 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 | 1 | Settings | OpenSubtitles "Create a free account" was a SwiftUI `Link` — on tvOS it renders as a focusable button that does nothing (no browser). Owner-reported. | Design/dead control | Replaced with a sign-up QR + instruction on tvOS (donate-QR precedent, D010); `Link` kept on iOS/macOS. Repo-wide sweep found no other `Link`/`openURL` on tvOS. | 891 |
 | 2 | Channels/Party/Cartoons | Lineup playback persisted WatchProgress every 5s — the "channels never pollute Continue Watching" invariant (Channels EPG design) had been silently lost. Half-watched channel programs entered Continue Watching and SYNCED across devices. | Functionality regression | `persistProgress` now gates on `lineup == nil`; autoplay of single films still persists (normal viewing). | 891 |
 | 3 | Channels | User channels could be CREATED on tvOS but never DELETED — no affordance existed (iOS swipes, Android long-presses, web taps; the platform that pioneered the feature had nothing). | Functionality/parity gap | Long-press any program block of a user channel → "Delete Channel" (destructive), mirroring iOS: SwiftData delete + `ch:` tombstone so removal syncs instead of resurrecting. | 891 |
+| 4 | Search | tvOS search had NO result filters — iOS and Android gained type/decade filters over FTS results in the 2026-06 waves; the flagship never did. | Parity gap | Type + Era chips over results (Browse's own Chip control): only facets PRESENT in results offered, counts shown, active chip clears itself, filters reset on new query, chips stay visible when a filter empties the set. | 891 |
+| 5 | Library | Playlists could be created and played on tvOS but never DELETED, and items could not be REMOVED (the only path was re-opening the add-sheet from the film's Detail and un-ticking). | Functionality/parity gap | Long-press a playlist tile → Delete (with iOS-parity `pl:` tombstone); long-press an item in the playlist grid → Remove (modifiedAt stamped so the removal wins on sync). | 891 |
+| 2b | Playlists | Refinement of fix #2: gating persistence on `lineup == nil` also stripped RESUME from playlist Play All — deliberate viewing, unlike ephemeral channel/party/cartoon sessions. | Fix refinement | Explicit `ephemeralLineup` flag: channels/party/cartoons pass true (default for lineups), playlist Play All passes false and keeps WatchProgress. | 891 |
 
 ## Owner-visual checklist (T3, collected — not blocking)
 
@@ -206,6 +209,9 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
   Dispositioned: series sort, TV Specials entry, Create Channel, kids pool.
   Corrected the ledger itself: the "Length" facet row was M2-plan language
   that never shipped anywhere — N/A, noted as optional enhancement.
-- Next: device harness run (each iteration retries), then T1 disposition;
-  remaining T2: Surprise tile wiring, Search filter chips, playlists CRUD,
-  OpenSubtitles Connect path, hero/shuffle routing, Collections rows.
+- Iteration 5: TV asleep (4th). Fixes #4 (tvOS search filters — parity) and
+  #5 (playlist delete + item remove — the create-only pattern AGAIN, same as
+  channels), plus 2b (playlist Play All keeps resume via an explicit
+  `ephemeralLineup` flag). Surprise tiles dispositioned T2.
+- Next: device harness (retry each pass); remaining T2: OpenSubtitles Connect,
+  hero/shuffle routing, Collections rows, Continue Watching resume path.

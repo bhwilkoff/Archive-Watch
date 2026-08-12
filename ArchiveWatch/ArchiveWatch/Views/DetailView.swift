@@ -550,6 +550,11 @@ struct PlayerScreen: View {
     var startMuted: Bool = false        // #3 party play: video-only by default
     var startOffset: TimeInterval = 0   // #92 channels: join the live program in progress
     var channelContext: Bool = false    // VHS: channels opt into the analog overlay
+    /// True for EPHEMERAL lineups (channel tune-ins, party walls, cartoon
+    /// marathons): they never write WatchProgress. A playlist's Play All is a
+    /// DELIBERATE lineup and keeps resume — the distinction fix #2 needed and
+    /// "lineup == nil" was too blunt to draw.
+    var ephemeralLineup: Bool = false
     @Environment(\.modelContext) private var modelContext
     @Environment(AppStore.self) private var store
     @State private var player: AVPlayer?
@@ -593,7 +598,7 @@ struct PlayerScreen: View {
 
     init(url: URL, archiveID: String, catalogItem: Catalog.Item? = nil,
          lineup: [Catalog.Item]? = nil, startMuted: Bool = false, startOffset: TimeInterval = 0,
-         channelContext: Bool = false) {
+         channelContext: Bool = false, ephemeralLineup: Bool = false) {
         self.url = url
         self.archiveID = archiveID
         self.catalogItem = catalogItem
@@ -601,6 +606,7 @@ struct PlayerScreen: View {
         self.startMuted = startMuted
         self.startOffset = startOffset
         self.channelContext = channelContext
+        self.ephemeralLineup = ephemeralLineup
         _current = State(initialValue: catalogItem)
         _muted = State(initialValue: startMuted)
         _joinOffset = State(initialValue: startOffset)
@@ -614,11 +620,11 @@ struct PlayerScreen: View {
     /// #1 channels / #3 party / #2 cartoon: start a continuous lineup at item 0.
     /// `startOffset` joins the first program in progress (#92 channels live tune-in).
     init?(lineup: [Catalog.Item], startMuted: Bool = false, startOffset: TimeInterval = 0,
-          channelContext: Bool = false) {
+          channelContext: Bool = false, ephemeralLineup: Bool = true) {
         guard let first = lineup.first, let url = first.videoURLParsed else { return nil }
         self.init(url: url, archiveID: first.archiveID, catalogItem: first,
                   lineup: lineup, startMuted: startMuted, startOffset: startOffset,
-                  channelContext: channelContext)
+                  channelContext: channelContext, ephemeralLineup: ephemeralLineup)
     }
 
     // #19: a broken item (dead URL, stale non-MP4 derivative, decode reject, or a
@@ -1003,13 +1009,13 @@ struct PlayerScreen: View {
     }
 
     private func persistProgress(at position: Double, duration: Double?) {
-        // A fixed lineup IS a channel/party/cartoon session (#1/#3/#2), and
-        // those never persist WatchProgress — the invariant since the Channels
-        // EPG shipped, lost somewhere since: tuning into a channel was writing
+        // Ephemeral lineups (channel tune-ins, party walls, cartoon marathons)
+        // never persist WatchProgress — the invariant since the Channels EPG
+        // shipped, lost somewhere since: tuning into a channel was writing
         // progress every 5 seconds, so half-watched channel programs polluted
-        // Continue Watching on every device the account syncs to. Autoplay of
-        // SINGLE films (lineup == nil) still persists — that is normal viewing.
-        guard lineup == nil else { return }
+        // Continue Watching on every device the account syncs to. Deliberate
+        // viewing — single films, autoplay, a playlist's Play All — persists.
+        guard !ephemeralLineup else { return }
         guard position.isFinite, position > 0 else { return }
         let aid = activeArchiveID
         let descriptor = FetchDescriptor<WatchProgress>(
