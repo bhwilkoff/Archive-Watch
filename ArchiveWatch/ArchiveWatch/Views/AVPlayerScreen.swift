@@ -328,7 +328,7 @@ final class CaptionCoordinator {
                 // (Decision 070: the overlay is the subtitle track now).
                 let line: String
                 if self?.showFile == true, let cues = self?.fileCues, !cues.isEmpty {
-                    line = LiveCaptions.stackedDisplay(cues: cues, at: now.seconds)
+                    line = LiveCaptions.display(cues: cues, at: now.seconds)
                 } else {
                     line = lc.line(at: now)
                 }

@@ -318,7 +318,11 @@ enum SubtitleAgreement {
             } else if line.isEmpty {
                 flush()
             } else if start != nil, Int(line) == nil, !line.hasPrefix("WEBVTT") {
-                text += (text.isEmpty ? "" : " ") + line
+                // Keep the file's own line structure: a two-speaker cue is
+                // AUTHORED as two lines, and the overlay should render it that
+                // way. Word-level matching tokenizes on non-alphanumerics, so
+                // the judge reads "\n" and " " identically.
+                text += (text.isEmpty ? "" : "\n") + line
             }
         }
         flush()

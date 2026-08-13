@@ -100,35 +100,27 @@ final class LiveCaptions {
     func line(at playhead: CMTime) -> String {
         let t = playhead.seconds
         guard t.isFinite else { return "" }
-        return Self.stackedDisplay(cues: cues, at: t)
+        return Self.display(cues: cues, at: t)
     }
 
-    /// Up to TWO chronological cues, stacked, each held until it has been
-    /// READABLE — the broadcast-subtitle answer to rapid dialogue.
+    /// The cue covering `t`, exactly as authored: shown from its start, held
+    /// to its end plus a blink guard. Shared by the engine (whose cues were
+    /// paced at creation, Decision 059) and the tvOS file overlay (whose cues
+    /// were paced at publish, pace_vtt) — in both cases the CUE TIMES are the
+    /// display schedule, and this function adds nothing to them.
     ///
-    /// One cue at a time, dropped at its own end, loses words in fast speech:
-    /// His Girl Friday runs ~240 wpm, its cues span ~a second each, and the
-    /// owner watched captions "not quick enough to put all of the words on
-    /// the screen". So a cue now stays up until `max(its end, its reading
-    /// time)`, and when the next cue starts before the previous one has been
-    /// read, BOTH show — previous on top, current below — exactly as
-    /// broadcast captions roll. A cue is still never shown before its start
-    /// (that is what keeps captions synced, Decision 062's whole subject),
-    /// and the stack is capped at two: in dialogue rapid enough to need
-    /// three, the oldest yields — every cue still gets roughly double the
-    /// screen time it had alone.
-    static func stackedDisplay(
+    /// A build that "improved" on this is why it carries a warning: extending
+    /// each cue to its reading time and stacking two of them showed old lines
+    /// into new dialogue, let an expired short cue leave its PREDECESSOR
+    /// alone on screen, and churned in fast runs — the owner saw captions
+    /// "almost entirely wrong", on a file whose timing was measured correct.
+    /// The display's only job is fidelity to the cue times; pacing problems
+    /// are fixed in the cues (at publish or at creation), never here.
+    static func display(
         cues: [(start: Double, end: Double, text: String)], at t: Double
     ) -> String {
         guard let i = cues.lastIndex(where: { $0.start <= t }) else { return "" }
-        func visible(_ c: (start: Double, end: Double, text: String)) -> Bool {
-            t <= max(c.end, c.start + readingTime(c.text)) + holdAfterEnd
-        }
-        let current = cues[i]
-        var parts: [String] = []
-        if i > 0, visible(cues[i - 1]) { parts.append(cues[i - 1].text) }
-        if visible(current) { parts.append(current.text) }
-        return parts.joined(separator: "\n")
+        return t <= cues[i].end + holdAfterEnd ? cues[i].text : ""
     }
 
     /// How long a line needs to be readable. ~2.5 words/second is a common
