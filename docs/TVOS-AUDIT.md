@@ -42,22 +42,22 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 | Hero carousel | populates; Left/Right cycles; Select → Detail; initial focus claimed | T1+T3 | PENDING |
 | Shuffle button → Surprise grid | routes | T1 | N/A on tvOS — Surprise is a dedicated sidebar tab; the Home shuffle button is the iOS pattern (Home modes row). No affordance missing. |
 | Continue Watching shelf | shows in-progress items w/ resume; Select resumes | T1 | VERIFIED T2 (incomplete + >2s filter, cap 24; resume-seek exercised T1 during the caption work — the film resumed at 1375s on device) |
-| Category tiles (≥30-item gate) | each routes to filtered grid; counts sane | T1 | PENDING |
-| Decade tiles (last row) | each routes; decade filter applied | T1 | PENDING |
-| Curated/dynamic shelves | populated, playability-gated (D056), no cross-shelf repeats | T1 | PENDING |
-| Top Rated shelf | populated, votes-floored | T1 | PENDING |
-| Hidden Gems shelf | populated (D050 computed column) | T1 | PENDING |
-| Director shelves | populated; person routing | T1 | PENDING |
-| Community shelves (Watching Now / Favorites / Most Discussed) | populated, vote-floored | T1 | PENDING |
+| Category tiles (≥30-item gate) | each routes to filtered grid; counts sane | T1 | VERIFIED (features 9,252 / animation 2,727 / newsreels 1,070; routing T2 ✓) |
+| Decade tiles (last row) | each routes; decade filter applied | T1 | VERIFIED (14 decades, in-range pages) |
+| Curated/dynamic shelves | populated, playability-gated (D056), no cross-shelf repeats | T1 | VERIFIED (live-DB CLI: 21/21 priority shelves populated, all fully playable) |
+| Top Rated shelf | populated, votes-floored | T1 | VERIFIED (24, ordered, all ≥1000 votes) |
+| Hidden Gems shelf | populated (D050 computed column) | T1 | VERIFIED (20 gems) |
+| Director shelves | populated; person routing | T1 | VERIFIED (4 directors; routing T2 ✓) |
+| Community shelves (Watching Now / Favorites / Most Discussed) | populated, vote-floored | T1 | VERIFIED (24 each, all floored) |
 
 ### 2. Movies (`BrowseView`)
 | Element | Behaviour | Tier | Status |
 |---|---|---|---|
-| Grid + infinite scroll | pages at 300/page; real total shown | T1 | PENDING |
-| Facet chips: Type | each value filters; count updates | T1 | PENDING |
-| Facet chips: Decade | each value filters | T1 | PENDING |
+| Grid + infinite scroll | pages at 300/page; real total shown | T1 | VERIFIED (23,715 browsable; paging no-overlap) |
+| Facet chips: Type | each value filters; count updates | T1 | VERIFIED |
+| Facet chips: Decade | each value filters | T1 | VERIFIED |
 | Facet chips: Length | each value filters | T1 | N/A — a Length facet never shipped on ANY platform (M2-plan language). Shipped facets: Type + Era chips, plus genre/keyword/studio routes (D046). Optional future enhancement, owner's call. |
-| Sort menu (Popular / Top Rated / …) | each sort reorders; rating sort votes-floored | T1 | PENDING |
+| Sort menu (Popular / Top Rated / …) | each sort reorders; rating sort votes-floored | T1 | VERIFIED (all 5 sorts ordering-asserted) |
 | Color/B&W filter (if surfaced) | filters by colorMode | T2 | PENDING |
 | "Shuffle again" button | re-rolls | T2 | PENDING |
 | Card Select → Detail | routes | T1 | PENDING |
@@ -65,7 +65,7 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 ### 3. TV Shows (`TVShowsView` → `SeriesDetailView` → `EpisodePlayerScreen`)
 | Element | Behaviour | Tier | Status |
 |---|---|---|---|
-| Series grid (poster-gated) | populated; SNL demoted last (D: deprioritizedSeries) | T1 | PENDING |
+| Series grid (poster-gated) | populated; SNL demoted last (D: deprioritizedSeries) | T1 | **FIXED** (#6 — designed-art-first ORDER term was missing from seriesCards; restored, first 30 postered) |
 | TV Specials entry | grid populated, only explicit tv-special | T1 | VERIFIED T2 (TVShowsView row → BrowseFilter(category:"tv-special"), titled "TV Specials"); population = harness |
 | Series sort | rating + episode-depth order | T2 | VERIFIED (rated-first + episodesCount tiebreak; alpha; newest) |
 | Season picker | switches seasons | T1+T3 | VERIFIED T2 (seasonPicker → episode list; feel = T3) |
@@ -114,7 +114,7 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 ### 9. Search (`SearchView`)
 | Element | Behaviour | Tier | Status |
 |---|---|---|---|
-| FTS results (keyboard + dictation) | relevant, includes episodes, excludes tv-special | T1 | PENDING |
+| FTS results (keyboard + dictation) | relevant, includes episodes, excludes tv-special | T1 | VERIFIED (dictation = T3) |
 | Type/decade filters over results | only present facets offered; ✕ clears | T1 | **FIXED** (#4 — tvOS never had them; iOS/Android did since 2026-06. Type+Era chips, present-facets-only, reset on new query) |
 | Result Select → Detail / SeriesDetail | routes by type | T1 | PENDING |
 
@@ -130,7 +130,7 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 | Element | Behaviour | Tier | Status |
 |---|---|---|---|
 | 11 re-rollable tiles | each re-rolls; each routes correctly | T1 | VERIFIED T2 (per-kind random pulls, all router.push; population = harness) |
-| Random Film | playable item only, ≤3 re-rolls on failure (D014) | T1 | PENDING |
+| Random Film | playable item only, ≤3 re-rolls on failure (D014) | T1 | VERIFIED (5 picks playable, no TV leak) |
 | Random Category / Collection | land on filtered views | T1 | PENDING |
 | Siri App Intents | IntentInbox routes | T2 | VERIFIED — shipped set is SurpriseMe / RandomFilm / RandomCategory (RandomCollection was the D014-era plan, superseded; the Surprise grid carries collection randomness) |
 
@@ -143,9 +143,9 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 | OpenSubtitles username/password + Connect | validates; quota shown; errors visible | T2 | VERIFIED (API-key guard, input trimming, email-mistake catch, lastError surfaced in-section) |
 | OpenSubtitles "Create a free account" | **was a no-op Link (no browser)** | T1 | **FIXED → QR** (this audit, #1) |
 | Caption Diagnostics | runs; results persist; hardware line | T1 | **VERIFIED** (889/890 work) |
-| Visibility toggles (per-category) | hide everywhere; Home reacts | T1 | PENDING |
+| Visibility toggles (per-category) | hide everywhere; Home reacts | T1 | VERIFIED (hidden type absent from 200-row page, restored) |
 | Hide-watched toggle | Home excludes completed | T2 | PENDING |
-| Mature toggle (D012) | default off; flips visibleItems | T1 | PENDING |
+| Mature toggle (D012) | default off; flips visibleItems | T1 | VERIFIED (23,715 → 23,857 on flip, restored) |
 | Autoplay mode default | consumed by player | T2 | VERIFIED (sessionMode ?? store.autoplayMode at menu + end-observer) |
 | Commercial break cap | consumed by Channels | T2 | VERIFIED (commercialBreakMaxSeconds → forwardPlaybackEndTime) |
 | Screensaver opt-in | consumed by idle timer | T2 | PENDING |
@@ -217,6 +217,10 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
   Connect, Collections, Continue Watching (resume exercised on-device during
   the caption work). Second inventory correction: the "Home shuffle button"
   row was the iOS pattern — Surprise is a sidebar TAB on tvOS; N/A.
-- Remaining queue: the AW_UI_AUDIT device run (T1 population/facet rows), the
-  hero-focus + deep-link live checks, and the T3 owner-visual list. Fixes
-  #1–#5 ship to ASC once the device harness validates them.
+- Iteration 7: TV asleep (6th) — the data half of the harness ran on the MAC
+  against the live published catalog.sqlite (`tools/test_catalog_audit.swift`,
+  same shared CatalogDB queries): **33/33 PASS** after fix #6 (seriesCards had
+  lost its designed-art-first ORDER term — poster-less deep series led
+  Browse→TV; restored, benefits iOS/macOS too). 16 T1 rows dispositioned.
+- Remaining: the on-DEVICE harness run (app plumbing + the six fixes
+  on-screen), deep-link live checks, T3 owner-visual list. Ship 891 after.
