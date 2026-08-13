@@ -581,6 +581,12 @@ struct PlayerScreen: View {
     // ResilientStreamLoader and give up the generated captions — the same
     // "smooth-without-CC beats stutter-with-CC" trade already made above.
     @State private var forceResilientPlayback = false
+    // The resume/join seek, HELD until the item is .readyToPlay. Issuing it in
+    // setupPlayer — as this did — drops it on any slow-loading item (Decision
+    // 051's own lesson, unapplied here): His Girl Friday showed "Resume",
+    // started at 0:00, and the progress writer then OVERWROTE the viewer's
+    // real position within five seconds. Nothing persists while this is set.
+    @State private var pendingSeekSeconds: Double?
     @State private var endObserver: NSObjectProtocol?
     @State private var playback: PlaybackState = .loading
     // #10: the item currently playing. Autoplay swaps this on end-of-item; the
@@ -917,6 +923,13 @@ struct PlayerScreen: View {
                     playback = .ready
                     skipCount = 0          // #7: a good item resets the skip budget
                     timeoutTask?.cancel()
+                    // NOW the held resume/join seek can land (before play, so
+                    // the viewer never sees the opening frames flash by).
+                    if let s = pendingSeekSeconds {
+                        pendingSeekSeconds = nil
+                        await observed.seek(to: CMTime(seconds: s, preferredTimescale: 600),
+                                            toleranceBefore: .zero, toleranceAfter: .positiveInfinity)
+                    }
                     // Start playback on ready — covers BOTH the first item and
                     // every lineup/autoplay advance. The AVPlayerContainer's
                     // .onAppear { play() } only fires for the first item; when
@@ -946,17 +959,15 @@ struct PlayerScreen: View {
         let descriptor = FetchDescriptor<WatchProgress>(
             predicate: #Predicate<WatchProgress> { $0.archiveID == aid }
         )
-        var didSeek = false
+        pendingSeekSeconds = nil
         if let existing = try? modelContext.fetch(descriptor).first,
            existing.positionSeconds > 10,
            !existing.isComplete {
-            p.seek(to: CMTime(seconds: existing.positionSeconds, preferredTimescale: 600))
-            didSeek = true
-        }
-        // #92: join the channel's current program in progress (only when there's
-        // no resume position to honor). Consumed once so lineup advances start at 0.
-        if !didSeek, joinOffset > 5 {
-            p.seek(to: CMTime(seconds: joinOffset, preferredTimescale: 600))
+            pendingSeekSeconds = existing.positionSeconds
+        } else if joinOffset > 5 {
+            // #92: join the channel's current program in progress (only when
+            // there's no resume position to honor).
+            pendingSeekSeconds = joinOffset
         }
         joinOffset = 0
 
@@ -1009,6 +1020,10 @@ struct PlayerScreen: View {
     }
 
     private func persistProgress(at position: Double, duration: Double?) {
+        // A held resume seek means the CURRENT position is not the viewer's
+        // position — persisting it is how "Resume" destroyed the very place
+        // it promised to return to.
+        guard pendingSeekSeconds == nil else { return }
         // Ephemeral lineups (channel tune-ins, party walls, cartoon marathons)
         // never persist WatchProgress — the invariant since the Channels EPG
         // shipped, lost somewhere since: tuning into a channel was writing

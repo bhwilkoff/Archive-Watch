@@ -60,12 +60,21 @@ final class CaptionCoordinator {
     func startCaptions(url: URL, player: AVPlayer?, in vc: AVPlayerViewController,
                        reviewing vtt: URL? = nil) {
         guard sourceURL != url else {
-            // Same film, new player: the stall fallback rebuilt it. The engine
-            // keeps its transcript (the scout is an independent stream) — only
-            // the clock the display follows must move to the new player.
+            // Same film, new player: the stall fallback rebuilt it. The clock
+            // the display follows moves to the new player — and the SCOUT
+            // STOPS FOR THE SESSION. A rebuild is the player telling us this
+            // film's stream could not survive contention; a second 2x stream
+            // of the same film from the same node is the contention. Captions
+            // continue as far as they were transcribed, and playback — which
+            // the owner watched stutter through two rounds of gentler
+            // remedies (yield-on-unhealthy, background QoS) — wins outright.
             if let player, player !== observedPlayer {
                 observedPlayer = player
-                if trace { print("[AWCAP] trace: rebound display to a rebuilt player") }
+                captions?.stopListening()
+                if trace {
+                    print("[AWCAP] trace: rebuilt player — scout STOPPED for this "
+                          + "session (marginal stream; playback wins)")
+                }
             }
             return
         }
@@ -84,17 +93,22 @@ final class CaptionCoordinator {
         SystemCaptionStyle.apply(to: l, baseSize: 34)   // ten-foot size
         if let overlay = vc.contentOverlayView {
             overlay.addSubview(l)
+            // Anchored to the CONTROLLER'S VIEW, not the overlay's own frame.
+            // Two constraint schemes against contentOverlayView both rendered
+            // the caption at the vertical center on tvOS 27 (its
+            // safeAreaLayoutGuide excludes the transport zone, and its frame
+            // itself is not the full screen) — the owner saw mid-screen
+            // captions on two builds that each "fixed" this. vc.view is the
+            // one view guaranteed to span the screen; the label stays a child
+            // of the overlay (the sanctioned layer between video and
+            // controls), the overlay does not clip, and cross-hierarchy
+            // constraints to an ancestor are legal.
+            overlay.clipsToBounds = false
             NSLayoutConstraint.activate([
-                l.centerXAnchor.constraint(equalTo: overlay.centerXAnchor),
-                // The overlay's REAL bottom, not its safeAreaLayoutGuide: on
-                // tvOS 27 the player reserves its transport/info zone as
-                // bottom safe-inset, so "safe bottom − 90" rendered captions
-                // at the vertical CENTER of the picture (screenshot-confirmed
-                // on His Girl Friday). Captions belong in the lower third,
-                // where the system draws its own.
-                l.bottomAnchor.constraint(equalTo: overlay.bottomAnchor,
+                l.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor),
+                l.bottomAnchor.constraint(equalTo: vc.view.bottomAnchor,
                                           constant: -100),
-                l.widthAnchor.constraint(lessThanOrEqualTo: overlay.widthAnchor,
+                l.widthAnchor.constraint(lessThanOrEqualTo: vc.view.widthAnchor,
                                          multiplier: 0.8),
             ])
         }
@@ -232,6 +246,8 @@ final class CaptionCoordinator {
             var shown = ""
             var lastTrace = Date.distantPast
             var resyncTicks = 0
+            var deselectTick = 0
+            var geometryPrinted = false
             while !Task.isCancelled {
                 let now = self?.observedPlayer?.currentTime() ?? .zero
                 // The scout yields whenever the MAIN stream's buffer struggles
@@ -256,6 +272,18 @@ final class CaptionCoordinator {
                     if text != shown {
                         print("[AWCAP] trace t=\(String(format: "%.1f", now.seconds)) "
                               + (text.isEmpty ? "(blank)" : "show: \(text.prefix(50))"))
+                        // The caption's ACTUAL geometry, once: two rounds of
+                        // constraint fixes were shipped against an assumed
+                        // overlay frame and the label still rendered at the
+                        // vertical center — measure the thing itself.
+                        if !geometryPrinted, !text.isEmpty, let l = self?.label,
+                           let sv = l.superview {
+                            geometryPrinted = true
+                            print("[AWCAP] trace geometry label=\(l.frame) "
+                                  + "overlay=\(sv.bounds) "
+                                  + "screen=\(sv.window?.bounds ?? .zero) "
+                                  + "safeBottomInset=\(sv.safeAreaInsets.bottom)")
+                        }
                     } else if Date().timeIntervalSince(lastTrace) > 10 {
                         print("[AWCAP] trace t=\(String(format: "%.1f", now.seconds)) "
                               + "steady (\(lc.isRunning ? "engine running" : "engine stopped"), "
@@ -264,6 +292,23 @@ final class CaptionCoordinator {
                     }
                 }
                 shown = text
+                // While OURS are the captions, the film's own track stays OFF —
+                // continuously, not once: a stall-rebuild recreates the
+                // captioned asset and its AUTOSELECT=YES re-selects the very
+                // track the verdict condemned. The owner watched both sets
+                // render at once, twice, each time after a rebuild.
+                deselectTick += 1
+                if self?.draws == true, deselectTick >= 13 {   // ~2s at 150ms ticks
+                    deselectTick = 0
+                    let current = self?.observedPlayer
+                    if await !SubtitleReview.nativeSubtitlesOff(on: current) {
+                        await SubtitleReview.deselectNativeSubtitles(on: current)
+                        if self?.trace == true {
+                            print("[AWCAP] trace re-deselected the native track "
+                                  + "(a rebuild had re-selected it)")
+                        }
+                    }
+                }
                 // The session is hopeless for where the viewer is (seek behind
                 // it, or the scout fell irrecoverably behind — both observed
                 // live): start fresh from the playhead. NOT gated on `draws`:
