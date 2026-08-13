@@ -40,8 +40,8 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 | Element | Behaviour to verify | Tier | Status |
 |---|---|---|---|
 | Hero carousel | populates; Left/Right cycles; Select → Detail; initial focus claimed | T1+T3 | PENDING |
-| Shuffle button → Surprise grid | routes | T1 | PENDING |
-| Continue Watching shelf | shows in-progress items w/ resume; Select resumes | T1 | PENDING |
+| Shuffle button → Surprise grid | routes | T1 | N/A on tvOS — Surprise is a dedicated sidebar tab; the Home shuffle button is the iOS pattern (Home modes row). No affordance missing. |
+| Continue Watching shelf | shows in-progress items w/ resume; Select resumes | T1 | VERIFIED T2 (incomplete + >2s filter, cap 24; resume-seek exercised T1 during the caption work — the film resumed at 1375s on device) |
 | Category tiles (≥30-item gate) | each routes to filtered grid; counts sane | T1 | PENDING |
 | Decade tiles (last row) | each routes; decade filter applied | T1 | PENDING |
 | Curated/dynamic shelves | populated, playability-gated (D056), no cross-shelf repeats | T1 | PENDING |
@@ -108,8 +108,8 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 ### 8. Collections (`CollectionsView`)
 | Element | Behaviour | Tier | Status |
 |---|---|---|---|
-| Curated collections only (no fav-*) | | T1 | PENDING |
-| Collection Select → shelf/grid | populated | T1 | PENDING |
+| Curated collections only (no fav-*) | | T1 | VERIFIED T2 (CollectionMetadata.all only; population = harness) |
+| Collection Select → shelf/grid | populated | T1 | VERIFIED T2 (row → BrowseFilter(collection:)) |
 
 ### 9. Search (`SearchView`)
 | Element | Behaviour | Tier | Status |
@@ -140,7 +140,7 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
 | Sign in with Apple | flow works; sync status shows | T3 | PENDING |
 | Sync Now | fires; Last sync updates | T2 | VERIFIED (Button → CloudKitSyncService.sync; status @Observable) |
 | Sign Out / Delete Account (+ Cancel) | confirm flow; tombstones | T2 | VERIFIED (signOut(); Delete behind destructive confirm) |
-| OpenSubtitles username/password + Connect | validates; quota shown; errors visible | T2 | PENDING |
+| OpenSubtitles username/password + Connect | validates; quota shown; errors visible | T2 | VERIFIED (API-key guard, input trimming, email-mistake catch, lastError surfaced in-section) |
 | OpenSubtitles "Create a free account" | **was a no-op Link (no browser)** | T1 | **FIXED → QR** (this audit, #1) |
 | Caption Diagnostics | runs; results persist; hardware line | T1 | **VERIFIED** (889/890 work) |
 | Visibility toggles (per-category) | hide everywhere; Home reacts | T1 | PENDING |
@@ -213,5 +213,10 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
   #5 (playlist delete + item remove — the create-only pattern AGAIN, same as
   channels), plus 2b (playlist Play All keeps resume via an explicit
   `ephemeralLineup` flag). Surprise tiles dispositioned T2.
-- Next: device harness (retry each pass); remaining T2: OpenSubtitles Connect,
-  hero/shuffle routing, Collections rows, Continue Watching resume path.
+- Iteration 6: TV asleep (5th). Final T2 batch dispositioned: OpenSubtitles
+  Connect, Collections, Continue Watching (resume exercised on-device during
+  the caption work). Second inventory correction: the "Home shuffle button"
+  row was the iOS pattern — Surprise is a sidebar TAB on tvOS; N/A.
+- Remaining queue: the AW_UI_AUDIT device run (T1 population/facet rows), the
+  hero-focus + deep-link live checks, and the T3 owner-visual list. Fixes
+  #1–#5 ship to ASC once the device harness validates them.
