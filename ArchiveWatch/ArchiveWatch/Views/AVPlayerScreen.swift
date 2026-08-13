@@ -216,22 +216,19 @@ final class CaptionCoordinator {
             await lc.start(url: url, from: from)
             if let vtt {
                 Task { @MainActor [weak self] in
+                    // Dev: AW_FORCE_REPLACE=1 arms the takeover without waiting
+                    // for (or trusting) the judge — the verdict varies run to
+                    // run, and the double-caption/position/stutter class only
+                    // exists on this path. Reproduction must be deterministic.
+                    if ProcessInfo.processInfo.environment["AW_FORCE_REPLACE"] == "1" {
+                        print("[AWCAP] FORCED replace — arming caption takeover")
+                        self?.takeOverFromNativeTrack(initial: player)
+                        return
+                    }
                     guard let outcome = await SubtitleReview.review(vttURL: vtt,
                                                                     captions: lc) else { return }
                     if outcome.replacesNativeTrack {
-                        // Deselect on the CURRENT player and CONFIRM it took
-                        // before drawing ours. The captured `player` can be a
-                        // rebuilt-away corpse (the stall fallback replaces the
-                        // player for the same film), and a deselect on a dead
-                        // item silently no-ops — His Girl Friday then showed
-                        // the bad published track AND our replacement at once.
-                        for _ in 0..<5 {
-                            let current = self?.observedPlayer ?? player
-                            await SubtitleReview.deselectNativeSubtitles(on: current)
-                            if await SubtitleReview.nativeSubtitlesOff(on: current) { break }
-                            try? await Task.sleep(nanoseconds: 1_000_000_000)
-                        }
-                        self?.draws = true
+                        self?.takeOverFromNativeTrack(initial: player)
                     } else {
                         self?.label?.isHidden = true
                     }
@@ -302,6 +299,10 @@ final class CaptionCoordinator {
                     deselectTick = 0
                     let current = self?.observedPlayer
                     if await !SubtitleReview.nativeSubtitlesOff(on: current) {
+                        // A REBUILD brought a fresh player with automatic
+                        // selection back on — disable it first, or this
+                        // deselect starts the 2s fight all over again.
+                        current?.appliesMediaSelectionCriteriaAutomatically = false
                         await SubtitleReview.deselectNativeSubtitles(on: current)
                         if self?.trace == true {
                             print("[AWCAP] trace re-deselected the native track "
@@ -343,6 +344,29 @@ final class CaptionCoordinator {
                 try? await Task.sleep(nanoseconds: 150_000_000)
             }
             self?.label?.isHidden = true
+        }
+    }
+
+    /// Ours become the captions: silence the film's own track WITHOUT starting
+    /// a war. The player re-applies the viewer's accessibility criteria
+    /// ("always on" captions) after any deselect — so the standing 2s deselect
+    /// loop shipped last night was fighting AVFoundation every two seconds,
+    /// and each selection change flushes the decoder: the owner's "stuttering
+    /// and sometimes repeating lines every few seconds", manufactured by the
+    /// very fix meant to stop double captions. Automatic selection is turned
+    /// OFF first; then one deselect sticks.
+    private func takeOverFromNativeTrack(initial player: AVPlayer?) {
+        Task { @MainActor [weak self] in
+            let current = self?.observedPlayer ?? player
+            current?.appliesMediaSelectionCriteriaAutomatically = false
+            for _ in 0..<5 {
+                let p = self?.observedPlayer ?? player
+                p?.appliesMediaSelectionCriteriaAutomatically = false
+                await SubtitleReview.deselectNativeSubtitles(on: p)
+                if await SubtitleReview.nativeSubtitlesOff(on: p) { break }
+                try? await Task.sleep(nanoseconds: 1_000_000_000)
+            }
+            self?.draws = true
         }
     }
 
