@@ -64,6 +64,29 @@ final class CaptionCoordinator {
     /// keep/shift the engine is DONE, and the resync rescue must not restart a
     /// second stream under a film whose captions are already on screen.
     private var verdictReached = false
+    /// True while this session is judging/showing a subtitle FILE (vtt != nil).
+    private var reviewMode = false
+    /// The judge condemned the file (preferLive) — the transcript shows instead.
+    private var fileDiscarded = false
+    /// The viewer's per-film transport-menu choice; nil = system preference.
+    private var fileWanted: Bool?
+
+    /// One place decides whether the file's cues (and, in review mode, anything
+    /// at all) draw: the viewer's choice wins, then the system preference; a
+    /// judge-discarded file never shows regardless.
+    private func updateShowFile() {
+        let want = fileWanted ?? SystemCaptionStyle.viewerWantsCaptions
+        showFile = want && !fileDiscarded && !fileCues.isEmpty
+        if reviewMode { draws = want }
+    }
+
+    /// The transport-menu subtitles toggle (Decision 070's replacement for the
+    /// native CC menu that went with the HLS wrapper).
+    func setFileSubtitles(wanted: Bool?) {
+        guard fileWanted != wanted else { return }
+        fileWanted = wanted
+        updateShowFile()
+    }
 
     /// `reviewing` is the published WebVTT when the film already HAS subtitles:
     /// the engine then runs only long enough to judge that file, and draws
@@ -134,7 +157,10 @@ final class CaptionCoordinator {
         // With a file to show (Decision 070) the overlay draws from the start —
         // it IS the subtitle track now. Without one, it draws the engine's text.
         draws = true
+        reviewMode = vtt != nil
+        fileDiscarded = false
         if let vtt {
+            updateShowFile()
             Task { @MainActor [weak self] in
                 guard let (data, _) = try? await URLSession.shared.data(from: vtt),
                       let body = String(data: data, encoding: .utf8) else { return }
@@ -143,7 +169,7 @@ final class CaptionCoordinator {
                 self?.fileCues = cues
                 // Mirrors the retired native track's behavior: AUTOSELECT/DEFAULT
                 // showed it when the viewer's system caption preference is on.
-                self?.showFile = SystemCaptionStyle.viewerWantsCaptions
+                self?.updateShowFile()
                 if self?.trace == true {
                     print("[AWCAP] trace file subtitles loaded: \(cues.count) cues, "
                           + "showing=\(self?.showFile == true)")
@@ -269,7 +295,8 @@ final class CaptionCoordinator {
                     case .preferLive:
                         // The file belongs to a different cut or film; the
                         // engine's transcript is the captions from here.
-                        self?.showFile = false
+                        self?.fileDiscarded = true
+                        self?.updateShowFile()
                     }
                 }
             }
@@ -395,6 +422,9 @@ final class CaptionCoordinator {
         fileCues = []
         showFile = false
         verdictReached = false
+        reviewMode = false
+        fileDiscarded = false
+        fileWanted = nil
     }
 }
 
@@ -414,6 +444,9 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
     /// Set when the film HAS published subtitles: they are CHECKED against what
     /// is actually said rather than trusted (SubtitleReview).
     var reviewSource: (video: URL, vtt: URL)? = nil
+    /// The viewer's per-film subtitles choice from the transport menu; nil =
+    /// follow the system caption preference (Decision 070).
+    var subtitlesWanted: Bool? = nil
 
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let vc = AVPlayerViewController()
@@ -429,6 +462,7 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
             context.coordinator.startCaptions(url: review.video, player: player,
                                               in: vc, reviewing: review.vtt)
         }
+        context.coordinator.setFileSubtitles(wanted: subtitlesWanted)
         return vc
     }
 
@@ -453,6 +487,7 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
         } else {
             context.coordinator.stop()
         }
+        context.coordinator.setFileSubtitles(wanted: subtitlesWanted)
     }
 }
 

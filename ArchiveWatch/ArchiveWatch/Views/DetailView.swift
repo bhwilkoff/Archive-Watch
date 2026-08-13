@@ -602,6 +602,11 @@ struct PlayerScreen: View {
     @State private var sessionMode: AutoplayMode?
     @State private var lineupIndex = 0
     @State private var muted = false
+    // Per-film subtitles toggle (transport menu). nil = follow the viewer's
+    // system caption preference — the default the retired native track's
+    // AUTOSELECT gave. The native CC menu went with the HLS wrapper
+    // (Decision 070); this is its replacement.
+    @State private var subtitlesOverride: Bool?
     // #92: seconds to seek into the FIRST program when joining a channel live.
     // Consumed once (zeroed after the first setup) so lineup advances start at 0.
     @State private var joinOffset: TimeInterval = 0
@@ -655,7 +660,8 @@ struct PlayerScreen: View {
             } else if let player {
                 AVPlayerContainer(player: player, menuItems: autoplayMenu,
                                   liveCaptionURL: liveCaptionSource,
-                                  reviewSource: subtitleReviewSource)
+                                  reviewSource: subtitleReviewSource,
+                                  subtitlesWanted: subtitlesOverride)
                     .ignoresSafeArea()
                     .onAppear { player.play() }
                     // VHS: analog overlay over channel playback (opt-in, channels only).
@@ -745,9 +751,22 @@ struct PlayerScreen: View {
             muted.toggle()
             player?.isMuted = muted
         }
-        return [playNext, muteToggle,
-                UIMenu(title: "Autoplay Next",
-                       image: UIImage(systemName: "play.circle"), children: actions)]
+        var items: [UIMenuElement] = [playNext, muteToggle]
+        // Films with a subtitle file get an on/off toggle here — the native CC
+        // menu went with the single-segment HLS wrapper (Decision 070), and a
+        // viewer must still be able to turn a film's subtitles on or off.
+        if hasFileSubtitles {
+            let on = subtitlesOverride ?? SystemCaptionStyle.viewerWantsCaptions
+            items.append(UIAction(
+                title: on ? "Subtitles Off" : "Subtitles On",
+                image: UIImage(systemName: on ? "captions.bubble.fill" : "captions.bubble")
+            ) { _ in
+                subtitlesOverride = !on
+            })
+        }
+        items.append(UIMenu(title: "Autoplay Next",
+                            image: UIImage(systemName: "play.circle"), children: actions))
+        return items
     }
 
     /// Advance to the next title now: the next lineup item if any, otherwise the
