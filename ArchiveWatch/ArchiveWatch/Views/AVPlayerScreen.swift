@@ -264,20 +264,31 @@ final class CaptionCoordinator {
                     }
                 }
                 shown = text
-                // The viewer left the region this session covers (big backward
-                // seek, or a restart from the beginning — observed live): the
-                // transcript can never reach them, so start a fresh session
-                // from where they are. ~3s of steady evidence first: a player
-                // rebuild passes through t=0 for a moment, and one glimpse of
-                // that must not throw away a good session.
-                if self?.draws == true, lc.needsResync(at: now) {
+                // The session is hopeless for where the viewer is (seek behind
+                // it, or the scout fell irrecoverably behind — both observed
+                // live): start fresh from the playhead. NOT gated on `draws`:
+                // that gate left a review film whose scout died at 330s
+                // grinding through 700s of watched film with no captions and
+                // no way out — the review path needs a living engine more
+                // than anyone, because without a transcript it can never
+                // reach a verdict at all. ~3s of steady evidence first: a
+                // player rebuild passes through t=0 for a moment, and one
+                // glimpse must not throw away a good session.
+                if lc.needsResync(at: now) {
                     resyncTicks += 1
                     if resyncTicks >= 20 {
                         resyncTicks = 0
-                        print("[AWCAP] playhead left the transcribed region — "
+                        print("[AWCAP] session hopeless for playhead — "
                               + "restarting captions from \(Int(now.seconds))s")
                         lc.stop()
                         await lc.start(url: url, from: now)
+                        // If the film's own subtitle track is no longer
+                        // showing (deselected by a verdict, or lost to the
+                        // stall fallback's rebuild), the viewer has NOTHING —
+                        // ours must draw, verdict or no verdict.
+                        if await SubtitleReview.nativeSubtitlesOff(on: self?.observedPlayer) {
+                            self?.draws = true
+                        }
                     }
                 } else {
                     resyncTicks = 0

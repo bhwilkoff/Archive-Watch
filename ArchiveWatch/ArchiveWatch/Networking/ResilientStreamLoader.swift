@@ -112,10 +112,23 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
         cfg.waitsForConnectivity = true
         cfg.requestCachePolicy = .reloadIgnoringLocalCacheData
         cfg.httpMaximumConnectionsPerHost = 6
+        // A SUBORDINATE loader (the caption scout) is marked background at the
+        // socket level, so when it shares a constrained link with the viewer's
+        // own stream the OS starves the SCOUT, not the film. App-level yielding
+        // reacts only after a stall is already visible; QoS prevents the
+        // contention underneath it.
+        if subordinate { cfg.networkServiceType = .background }
         return URLSession(configuration: cfg)
     }()
 
-    private init(url: URL) { self.realURL = url }
+    /// True for streams whose bytes serve something OTHER than what the viewer
+    /// is watching right now — they must lose every bandwidth contest.
+    private let subordinate: Bool
+
+    private init(url: URL, subordinate: Bool = false) {
+        self.realURL = url
+        self.subordinate = subordinate
+    }
 
     /// Resolve an archive.org `/download/{id}/{file}` URL to a healthy node-DIRECT URL,
     /// bypassing the `/download` load-balancer (which transiently 503s an item while the
@@ -185,14 +198,15 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
     /// Build an AVURLAsset whose loads route through this delegate. Returns a
     /// plain asset (no interception) for non-HTTP URLs so callers can use it
     /// unconditionally. The returned loader is `nil` when not intercepting.
-    static func makeAsset(for url: URL) -> (asset: AVURLAsset, loader: ResilientStreamLoader?) {
+    static func makeAsset(for url: URL,
+                          subordinate: Bool = false) -> (asset: AVURLAsset, loader: ResilientStreamLoader?) {
         guard let s = url.scheme?.lowercased(), s == "http" || s == "https",
               var comps = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             return (AVURLAsset(url: url), nil)
         }
         comps.scheme = scheme
         guard let customURL = comps.url else { return (AVURLAsset(url: url), nil) }
-        let loader = ResilientStreamLoader(url: url)
+        let loader = ResilientStreamLoader(url: url, subordinate: subordinate)
         let asset = AVURLAsset(url: customURL)
         asset.resourceLoader.setDelegate(loader, queue: loader.queue)
         return (asset, loader)

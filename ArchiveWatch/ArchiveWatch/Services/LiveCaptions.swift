@@ -230,7 +230,12 @@ final class LiveCaptions {
         // The owner's report — correct subtitles never appearing on a film with
         // a mistimed file — is that failure, because no transcript means no
         // verdict and the published file plays uncorrected.
-        let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
+        // subordinate: the scout's bytes caption the film; the VIEWER'S bytes
+        // play it. On a link that cannot carry both, the OS now starves the
+        // scout at the socket level (.background service type) instead of the
+        // playback — the stutter the owner watched was this contest going the
+        // wrong way.
+        let (asset, loader) = ResilientStreamLoader.makeAsset(for: url, subordinate: true)
         streamLoader = loader          // the resource-loader delegate is weak
         let item = AVPlayerItem(asset: asset)
         // Ask for the CHEAP time-stretch explicitly. Under the platform default
@@ -319,22 +324,32 @@ final class LiveCaptions {
     private static let healthCooldown: TimeInterval = 5
     private var lastUnhealthyAt: Date?
 
-    /// Has the viewer moved OUTSIDE the region this session covers?
+    /// Is this session HOPELESS for where the viewer actually is?
     ///
-    /// The scout transcribes forward from where it started. A big backward
-    /// seek — or a restart from the beginning, which is how this surfaced
-    /// live: His Girl Friday resumed at 560s, playback restarted at 0, and
-    /// the engine sat on cues for 560+ with nothing to show for nine
-    /// minutes — leaves the playhead in territory the transcript never
-    /// covered and never will. The caller restarts the engine from the new
-    /// position when this holds STEADILY (a rebuild passes through t=0 for a
-    /// moment; one glimpse must not trigger a resync).
+    /// Two ways it happens, both observed live on His Girl Friday:
+    /// - A backward seek/restart puts the playhead BEFORE the session began
+    ///   (resumed at 560, playback restarted at 0 — nothing to show for nine
+    ///   minutes).
+    /// - The scout falls BEHIND the viewer (its stream stalled around film
+    ///   time 330 while playback sailed on; the engine then ground at 2x
+    ///   through 700s of already-watched film — never catching up, burning
+    ///   the very bandwidth playback needed, which WAS the stutter).
+    ///
+    /// The reference is the SCOUT'S OWN POSITION, not the last cue: during a
+    /// silent or musical passage the scout advances without producing cues,
+    /// and that must not read as "behind". The caller restarts the engine
+    /// from the playhead when this holds STEADILY (a rebuild passes through
+    /// t=0 for a moment; one glimpse must not trigger a resync).
     func needsResync(at playhead: CMTime) -> Bool {
         let t = playhead.seconds
         guard isRunning, t.isFinite, t >= 0 else { return false }
         if t < contentOffset - 30 { return true }              // seeked behind the session
-        let coveredEnd = max(cues.last?.end ?? contentOffset, contentOffset)
-        return t > coveredEnd + 600                             // leapt far past it
+        let scoutAt = scoutPlayer?.currentTime().seconds
+        let reached = max(cues.last?.end ?? contentOffset,
+                          (scoutAt?.isFinite == true ? scoutAt! : contentOffset))
+        // The viewer is 45s past everything the scout has even REACHED: it can
+        // close a gap it is ahead of, never one it is behind.
+        return t > reached + 45
     }
 
     private let trace = ProcessInfo.processInfo.environment["AW_CAPTION_TRACE"] == "1"
