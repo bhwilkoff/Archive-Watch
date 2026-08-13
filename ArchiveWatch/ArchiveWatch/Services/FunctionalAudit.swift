@@ -1,3 +1,9 @@
+#if os(tvOS)
+// tvOS-only: the harness drives tvOS surfaces (RootView is its only
+// caller) and references tvOS-scoped types (IntentInbox). iOS/macOS get the
+// same data checks via tools/test_catalog_audit.swift, which compiles the
+// shared CatalogDB directly. The macOS ARCHIVE failed on this file's first
+// shipping build because only tvOS had been rebuilt after adding it.
 import Foundation
 
 // FunctionalAudit — every tab's data spine, every Browse facet and sort, and
@@ -320,3 +326,5 @@ enum FunctionalAudit {
         }
     }
 }
+
+#endif
