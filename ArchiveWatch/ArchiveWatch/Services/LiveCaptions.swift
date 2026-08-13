@@ -208,6 +208,7 @@ final class LiveCaptions {
         everProducedCue = false
         startedAt = Date()
         contentOffset = max(0, startTime.seconds.isFinite ? startTime.seconds : 0)
+        sink.reset()   // a restarted session must not inherit the old replay high-water
 
         guard let tap = sink.makeTap() else {
             failure = "Couldn't attach to the audio."
@@ -272,9 +273,32 @@ final class LiveCaptions {
 
     /// Keep the scout a comfortable distance ahead — far enough that cues are
     /// always ready, close enough that we are not downloading the whole film.
-    func throttle(playhead: CMTime) {
+    ///
+    /// `playbackHealthy` is the MAIN player's buffer state, and it outranks the
+    /// lead entirely: the scout is a second stream of the same film, and on a
+    /// constrained link it can starve the playback it exists to caption — the
+    /// owner watched His Girl Friday stutter while its captions generated. The
+    /// captioned-HLS path is the most exposed (its segment is
+    /// AVFoundation-owned, Decision 054 — no resilience to starve into), so
+    /// when the viewer's stream struggles the scout STOPS, and it stays
+    /// stopped until playback has been healthy for a while. Captions can run
+    /// up to two minutes ahead; playback cannot run behind at all.
+    func throttle(playhead: CMTime, playbackHealthy: Bool = true) {
         if playhead.seconds.isFinite { lastPlayhead = playhead.seconds }
         guard let scout = scoutPlayer else { return }
+        if !playbackHealthy {
+            lastUnhealthyAt = Date()
+            if scout.rate != 0 {
+                scout.rate = 0
+                if trace { print("[AWCAP] trace scout YIELDS — playback buffer struggling") }
+            }
+            return
+        }
+        if let u = lastUnhealthyAt {
+            guard Date().timeIntervalSince(u) >= Self.healthCooldown else { return }
+            lastUnhealthyAt = nil
+            if trace { print("[AWCAP] trace playback healthy again — scout may resume") }
+        }
         let lead = leadSeconds(over: playhead)
         if lead > Self.maxLead, scout.rate != 0 {
             scout.rate = 0
@@ -289,6 +313,28 @@ final class LiveCaptions {
                       + "(lead \(Int(lead))s)")
             }
         }
+    }
+
+    /// How long playback must be continuously healthy before the scout resumes.
+    private static let healthCooldown: TimeInterval = 5
+    private var lastUnhealthyAt: Date?
+
+    /// Has the viewer moved OUTSIDE the region this session covers?
+    ///
+    /// The scout transcribes forward from where it started. A big backward
+    /// seek — or a restart from the beginning, which is how this surfaced
+    /// live: His Girl Friday resumed at 560s, playback restarted at 0, and
+    /// the engine sat on cues for 560+ with nothing to show for nine
+    /// minutes — leaves the playhead in territory the transcript never
+    /// covered and never will. The caller restarts the engine from the new
+    /// position when this holds STEADILY (a rebuild passes through t=0 for a
+    /// moment; one glimpse must not trigger a resync).
+    func needsResync(at playhead: CMTime) -> Bool {
+        let t = playhead.seconds
+        guard isRunning, t.isFinite, t >= 0 else { return false }
+        if t < contentOffset - 30 { return true }              // seeked behind the session
+        let coveredEnd = max(cues.last?.end ?? contentOffset, contentOffset)
+        return t > coveredEnd + 600                             // leapt far past it
     }
 
     private let trace = ProcessInfo.processInfo.environment["AW_CAPTION_TRACE"] == "1"
@@ -606,6 +652,20 @@ final class BufferSink: @unchecked Sendable {
         continuation?.finish()
         continuation = nil
         #endif
+    }
+
+    /// Fresh-session state. WITHOUT this, a backward resync is silently dead:
+    /// `highWater` carries the OLD session's film position, so every buffer of
+    /// the new session (earlier in the film by definition) is dropped as a
+    /// "replay" and the engine produces nothing at all — the exact shape of
+    /// silent failure the replay guard was built to prevent, inverted.
+    func reset() {
+        lock.lock(); defer { lock.unlock() }
+        highWater = -Double.infinity
+        anchored = false
+        baseFrames = 0
+        elapsedFrames = 0
+        converter = nil
     }
 
 

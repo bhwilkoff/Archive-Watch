@@ -115,6 +115,20 @@ enum SubtitleReview {
         item.select(nil, in: group)
     }
 
+    /// Did the deselect actually TAKE? A silent early return here is how His
+    /// Girl Friday showed BOTH caption sets at once: the review's deselect
+    /// targeted the player it started with, the stall fallback had rebuilt
+    /// the player underneath it, the call returned without doing anything,
+    /// and the published track kept rendering under our replacement. Offered
+    /// ≠ selected ≠ deselected — confirm, never assume (the caption saga's
+    /// one recurring lesson, now on its way back down).
+    static func nativeSubtitlesOff(on player: AVPlayer?) async -> Bool {
+        guard let item = player?.currentItem else { return true }
+        let box = await LegibleGroup(asset: item.asset).load()
+        guard let group = box.group else { return true }
+        return item.currentMediaSelection.selectedMediaOption(in: group) == nil
+    }
+
     private struct LegibleGroup: @unchecked Sendable {
         let asset: AVAsset
         func load() async -> Box {

@@ -86,8 +86,14 @@ final class CaptionCoordinator {
             overlay.addSubview(l)
             NSLayoutConstraint.activate([
                 l.centerXAnchor.constraint(equalTo: overlay.centerXAnchor),
-                l.bottomAnchor.constraint(equalTo: overlay.safeAreaLayoutGuide.bottomAnchor,
-                                          constant: -90),
+                // The overlay's REAL bottom, not its safeAreaLayoutGuide: on
+                // tvOS 27 the player reserves its transport/info zone as
+                // bottom safe-inset, so "safe bottom − 90" rendered captions
+                // at the vertical CENTER of the picture (screenshot-confirmed
+                // on His Girl Friday). Captions belong in the lower third,
+                // where the system draws its own.
+                l.bottomAnchor.constraint(equalTo: overlay.bottomAnchor,
+                                          constant: -100),
                 l.widthAnchor.constraint(lessThanOrEqualTo: overlay.widthAnchor,
                                          multiplier: 0.8),
             ])
@@ -199,7 +205,18 @@ final class CaptionCoordinator {
                     guard let outcome = await SubtitleReview.review(vttURL: vtt,
                                                                     captions: lc) else { return }
                     if outcome.replacesNativeTrack {
-                        await SubtitleReview.deselectNativeSubtitles(on: player)
+                        // Deselect on the CURRENT player and CONFIRM it took
+                        // before drawing ours. The captured `player` can be a
+                        // rebuilt-away corpse (the stall fallback replaces the
+                        // player for the same film), and a deselect on a dead
+                        // item silently no-ops — His Girl Friday then showed
+                        // the bad published track AND our replacement at once.
+                        for _ in 0..<5 {
+                            let current = self?.observedPlayer ?? player
+                            await SubtitleReview.deselectNativeSubtitles(on: current)
+                            if await SubtitleReview.nativeSubtitlesOff(on: current) { break }
+                            try? await Task.sleep(nanoseconds: 1_000_000_000)
+                        }
                         self?.draws = true
                     } else {
                         self?.label?.isHidden = true
@@ -214,9 +231,19 @@ final class CaptionCoordinator {
             // ends it.
             var shown = ""
             var lastTrace = Date.distantPast
+            var resyncTicks = 0
             while !Task.isCancelled {
                 let now = self?.observedPlayer?.currentTime() ?? .zero
-                lc.throttle(playhead: now)
+                // The scout yields whenever the MAIN stream's buffer struggles
+                // — a second 2x stream of the same film can starve the very
+                // playback it captions, and the captioned-HLS path has no
+                // resilience to starve into (D054's AVFoundation-owned
+                // segment). His Girl Friday stuttered exactly this way.
+                let item = self?.observedPlayer?.currentItem
+                let healthy = item.map {
+                    $0.isPlaybackLikelyToKeepUp && !$0.isPlaybackBufferEmpty
+                } ?? true
+                lc.throttle(playhead: now, playbackHealthy: healthy)
                 // Between captions, say why there are none — a blank screen and
                 // a failed recognizer look identical from the sofa.
                 let line = lc.line(at: now)
@@ -237,6 +264,24 @@ final class CaptionCoordinator {
                     }
                 }
                 shown = text
+                // The viewer left the region this session covers (big backward
+                // seek, or a restart from the beginning — observed live): the
+                // transcript can never reach them, so start a fresh session
+                // from where they are. ~3s of steady evidence first: a player
+                // rebuild passes through t=0 for a moment, and one glimpse of
+                // that must not throw away a good session.
+                if self?.draws == true, lc.needsResync(at: now) {
+                    resyncTicks += 1
+                    if resyncTicks >= 20 {
+                        resyncTicks = 0
+                        print("[AWCAP] playhead left the transcribed region — "
+                              + "restarting captions from \(Int(now.seconds))s")
+                        lc.stop()
+                        await lc.start(url: url, from: now)
+                    }
+                } else {
+                    resyncTicks = 0
+                }
                 // Engine gone and nothing left to say: hide and stop polling.
                 if !lc.isRunning, text.isEmpty { break }
                 try? await Task.sleep(nanoseconds: 150_000_000)
