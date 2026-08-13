@@ -233,6 +233,32 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-08-12 (audit) — Full tvOS feature/element audit: 6 fixes, 44/44 on-device; 1.3.369/891
+Owner /loop: "fully test each feature and screen … all buttons and filters."
+Product: **docs/TVOS-AUDIT.md** (living ledger, now CLOSED — every T1/T2 row
+dispositioned, T3 owner-visual list collected), the on-device functional
+harness (`FunctionalAudit.swift`, AW_UI_AUDIT=1 → 44/44 PASS on the Bedroom
+ATV), and its Mac twin (`tools/test_catalog_audit.swift`, same shared-CatalogDB
+checks against the live published DB — how the audit progressed through six
+iterations of the TV being asleep). Six fixes, a pattern in them: CREATE paths
+shipped on tvOS whose inverse never did, and parity that landed on iOS/Android
+without returning to the platform it started on.
+1. OpenSubtitles "Create a free account" was a no-op Link (no browser) → QR.
+2. Channel/party/cartoon lineups persisted WatchProgress every 5s (invariant
+   lost) → explicit `ephemeralLineup` gate; playlist Play All keeps resume.
+3. User channels: create-only on tvOS → long-press Delete + `ch:` tombstone.
+4. tvOS search had NO result filters (iOS/Android did since 06) → Type/Era
+   chips, present-facets-only.
+5. Playlists: no delete, no item-remove on tvOS → long-press menus, `pl:`
+   tombstone.
+6. `seriesCards()` had lost its designed-art-first ORDER term — poster-less
+   deep series led Browse→TV (caught by the harness; shared query, all
+   platforms benefit).
+Ledger corrections along the way: "Length" facet + "Home shuffle button" rows
+were iOS-isms/plan-language, N/A on tvOS. Device loop notes: installs work
+while the ATV sleeps, launches don't ("System is asleep"), no wake verb;
+`devicectl device capture screenshot` works (3840×2160).
+
 ### 2026-08-12 (final) — Captions PROGRESS on the Apple TV, ground-truth-exact; Decision 069; 1.3.367/889
 Owner: first line showed at resume then froze. Traced on the paired Bedroom ATV
 in five build-install-trace loops (minutes each): (1) the FREEZE = tvOS's stall

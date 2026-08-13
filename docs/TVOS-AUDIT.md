@@ -222,5 +222,17 @@ DEBUG launch — typography/truncation), Caption Diagnostics (Settings),
   same shared CatalogDB queries): **33/33 PASS** after fix #6 (seriesCards had
   lost its designed-art-first ORDER term — poster-less deep series led
   Browse→TV; restored, benefits iOS/macOS too). 16 T1 rows dispositioned.
-- Remaining: the on-DEVICE harness run (app plumbing + the six fixes
-  on-screen), deep-link live checks, T3 owner-visual list. Ship 891 after.
+- Iteration 8 (TV awake — owner turned it on): **the on-device harness ran:
+  44/44 PASS** — everything the Mac run covered plus the device-only rows
+  (AppStore shelf plumbing, all 8 category tiles clearing the gate, editorial
+  demotion, collections population, hideWatched store filter, and all six
+  deep-link parse cases). Settings screenshot captured on-device (signed-in
+  account, live sync). Fixes #1–#6 shipped to ASC as 1.3.369 (891).
+
+## CLOSED. Final state
+
+Every T1 and T2 row is dispositioned. Six fixes shipped. The audit's product:
+this ledger, the on-device functional harness (`AW_UI_AUDIT=1`), its Mac twin
+(`tools/test_catalog_audit.swift`, runnable in CI against every published DB),
+and the T3 owner-visual checklist above — the only rows a machine cannot
+close.
