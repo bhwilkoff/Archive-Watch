@@ -132,16 +132,28 @@ final class LiveCaptions {
         failure = nil
         task?.cancel(); task = nil
         sink.finish()
-        scoutPlayer?.rate = 0
-        scoutPlayer = nil
+        silenceScout()
     }
 
     /// Stop transcribing but keep showing what we have.
     func stopListening() {
         task?.cancel(); task = nil
         sink.finish()
-        scoutPlayer?.rate = 0
+        silenceScout()
+    }
+
+    /// Fully stop the scout: pause AND detach its item. Setting rate to 0 and
+    /// dropping the reference is not enough — the MAIN player was measured
+    /// UNDEAD after exactly that (clock advancing for minutes, Decision 070),
+    /// and a leaked scout is worse: a muted 2x stream is invisible and
+    /// inaudible while it eats bandwidth and decode, and one can stack up per
+    /// resume. No item, no pipeline.
+    private func silenceScout() {
+        guard let scout = scoutPlayer else { return }
+        scout.pause()
+        scout.replaceCurrentItem(with: nil)
         scoutPlayer = nil
+        if trace { print("[AWCAP] trace scout silenced (item detached)") }
     }
 
     /// Everything transcribed so far, at the times the recognizer reported.
@@ -439,8 +451,7 @@ final class LiveCaptions {
     func stop() {
         task?.cancel(); task = nil
         sink.finish()
-        scoutPlayer?.rate = 0
-        scoutPlayer = nil
+        silenceScout()
         tap = nil
         isRunning = false
         cues.removeAll()
@@ -556,7 +567,7 @@ final class LiveCaptions {
             await MainActor.run {
                 self.failure = Self.viewerMessage(for: error) + "  (\(report))"
                 // Nothing will consume this audio now — stop paying for it.
-                self.scoutPlayer?.rate = 0
+                self.silenceScout()
             }
         }
     }
