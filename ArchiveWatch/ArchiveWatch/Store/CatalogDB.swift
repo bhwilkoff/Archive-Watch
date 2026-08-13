@@ -417,10 +417,17 @@ final class CatalogDB {
 
     /// All TV series cards (small set — ~hundreds).
     func seriesCards() -> [Catalog.Item] {
+        // Demoted last, DESIGNED ART FIRST, then episode depth — the ordering
+        // the 2026-06-11 poster-gate work specified. The designed-first term
+        // had gone missing, so poster-less series with deep episode counts led
+        // Browse→TV over postered ones (caught by the audit harness: the first
+        // 30 cards were not all postered against a catalog where they can be).
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
             WHERE i.contentType = 'tv-series' \(adultAnd) \(typeAnd)
-            ORDER BY \(demoteOrder) i.episodesCount DESC
+            ORDER BY \(demoteOrder) \
+                (i.hasRealArtwork = 1 AND COALESCE(i.artworkSource,'') != 'generated') DESC, \
+                i.episodesCount DESC
         """)
     }
 
