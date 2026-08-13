@@ -516,9 +516,13 @@ struct PlayerView: UIViewControllerRepresentable {
                     // failed recognizer are otherwise indistinguishable.
                     let text = self.showsCaptionOverlay
                         ? (line.isEmpty ? captions.notice : line) : ""
-                    // A caption is two lines; an explanation may need more.
-                    self.captionLabel?.numberOfLines = line.isEmpty ? 4 : 2
-                    self.captionLabel?.text = text.isEmpty ? nil : "  \(text)  "
+                    // Stacked rapid-dialogue captions are two cues, either of
+                    // which may wrap once.
+                    self.captionLabel?.numberOfLines = 4
+                    self.captionLabel?.text = text.isEmpty ? nil : text
+                        .components(separatedBy: "\n")
+                        .map { "  \($0)  " }
+                        .joined(separator: "\n")
                     self.captionLabel?.isHidden = text.isEmpty
                     try? await Task.sleep(nanoseconds: 150_000_000)
                 }

@@ -97,17 +97,38 @@ final class LiveCaptions {
     private var lastPlayhead: Double = 0
 
     /// The caption to show at `playhead`, or "" between lines.
-    ///
-    /// A cue is shown from its start and held until its END — never earlier.
-    /// The previous version allowed a 0.25s lead-in, which let the NEXT caption
-    /// replace one whose words were still being spoken.
     func line(at playhead: CMTime) -> String {
         let t = playhead.seconds
         guard t.isFinite else { return "" }
+        return Self.stackedDisplay(cues: cues, at: t)
+    }
+
+    /// Up to TWO chronological cues, stacked, each held until it has been
+    /// READABLE — the broadcast-subtitle answer to rapid dialogue.
+    ///
+    /// One cue at a time, dropped at its own end, loses words in fast speech:
+    /// His Girl Friday runs ~240 wpm, its cues span ~a second each, and the
+    /// owner watched captions "not quick enough to put all of the words on
+    /// the screen". So a cue now stays up until `max(its end, its reading
+    /// time)`, and when the next cue starts before the previous one has been
+    /// read, BOTH show — previous on top, current below — exactly as
+    /// broadcast captions roll. A cue is still never shown before its start
+    /// (that is what keeps captions synced, Decision 062's whole subject),
+    /// and the stack is capped at two: in dialogue rapid enough to need
+    /// three, the oldest yields — every cue still gets roughly double the
+    /// screen time it had alone.
+    static func stackedDisplay(
+        cues: [(start: Double, end: Double, text: String)], at t: Double
+    ) -> String {
         guard let i = cues.lastIndex(where: { $0.start <= t }) else { return "" }
-        // Hold briefly past the end so a caption does not blink out in the gap
-        // before the next one begins.
-        return t <= cues[i].end + Self.holdAfterEnd ? cues[i].text : ""
+        func visible(_ c: (start: Double, end: Double, text: String)) -> Bool {
+            t <= max(c.end, c.start + readingTime(c.text)) + holdAfterEnd
+        }
+        let current = cues[i]
+        var parts: [String] = []
+        if i > 0, visible(cues[i - 1]) { parts.append(cues[i - 1].text) }
+        if visible(current) { parts.append(current.text) }
+        return parts.joined(separator: "\n")
     }
 
     /// How long a line needs to be readable. ~2.5 words/second is a common

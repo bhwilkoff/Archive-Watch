@@ -58,7 +58,7 @@ final class CaptionCoordinator {
     /// carried one was a memory bomb on 3 GB Apple TVs). The parsed cues live
     /// here; `showFile` mirrors what the old track's AUTOSELECT/DEFAULT +
     /// viewer preference produced: on when the viewer's caption preference is.
-    private var fileCues: [SubtitleAgreement.Cue] = []
+    private var fileCues: [(start: Double, end: Double, text: String)] = []
     private var showFile = false
     /// Set once SubtitleReview has returned (any answer): after a deliberate
     /// keep/shift the engine is DONE, and the resync rescue must not restart a
@@ -166,7 +166,7 @@ final class CaptionCoordinator {
                       let body = String(data: data, encoding: .utf8) else { return }
                 let cues = SubtitleAgreement.parseVTT(body)
                 guard !cues.isEmpty else { return }
-                self?.fileCues = cues
+                self?.fileCues = cues.map { ($0.start, $0.end, $0.text) }
                 // Mirrors the retired native track's behavior: AUTOSELECT/DEFAULT
                 // showed it when the viewer's system caption preference is on.
                 self?.updateShowFile()
@@ -288,8 +288,7 @@ final class CaptionCoordinator {
                     case .shiftPublished(let by):
                         if let cues = self?.fileCues {
                             self?.fileCues = cues.map {
-                                SubtitleAgreement.Cue(start: $0.start + by,
-                                                      end: $0.end + by, text: $0.text)
+                                ($0.start + by, $0.end + by, $0.text)
                             }
                         }
                     case .preferLive:
@@ -329,14 +328,18 @@ final class CaptionCoordinator {
                 // (Decision 070: the overlay is the subtitle track now).
                 let line: String
                 if self?.showFile == true, let cues = self?.fileCues, !cues.isEmpty {
-                    line = Self.fileLine(cues, at: now.seconds)
+                    line = LiveCaptions.stackedDisplay(cues: cues, at: now.seconds)
                 } else {
                     line = lc.line(at: now)
                 }
                 let text = (self?.draws ?? true) ? (line.isEmpty ? lc.notice : line) : ""
-                // A caption is two lines; an explanation may need more.
-                self?.label?.numberOfLines = line.isEmpty ? 4 : 2
-                self?.label?.text = text.isEmpty ? nil : "  \(text)  "
+                // Stacked rapid-dialogue captions are two cues, either of which
+                // may wrap once at ten-foot size.
+                self?.label?.numberOfLines = 4
+                self?.label?.text = text.isEmpty ? nil : text
+                    .components(separatedBy: "\n")
+                    .map { "  \($0)  " }
+                    .joined(separator: "\n")
                 self?.label?.isHidden = text.isEmpty
                 if self?.trace == true {
                     if text != shown {
@@ -399,17 +402,6 @@ final class CaptionCoordinator {
             }
             self?.label?.isHidden = true
         }
-    }
-
-    /// The file cue covering `t`, if any. Small linear scan — display runs at
-    /// ~7 Hz over at most a few thousand cues, and the common case exits on the
-    /// first cue past the playhead.
-    private static func fileLine(_ cues: [SubtitleAgreement.Cue], at t: Double) -> String {
-        for cue in cues {
-            if cue.start > t + 0.2 { break }
-            if t >= cue.start - 0.2 && t <= cue.end + 0.3 { return cue.text }
-        }
-        return ""
     }
 
     func stop() {

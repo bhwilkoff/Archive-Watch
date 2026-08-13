@@ -177,7 +177,7 @@ private struct PlayerSurface: View {
                         if !liveLine.isEmpty {
                             Text(liveLine)
                                 .font(.system(size: 18, weight: .medium))
-                                .lineLimit(2)
+                                .lineLimit(4)   // two stacked cues, each may wrap
                                 .foregroundStyle(.white)
                                 .multilineTextAlignment(.center)
                                 .padding(.horizontal, 12).padding(.vertical, 7)
