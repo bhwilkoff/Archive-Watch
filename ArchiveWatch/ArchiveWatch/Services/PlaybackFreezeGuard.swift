@@ -86,6 +86,10 @@ final class PlaybackFreezeGuard {
             lastNudgeHostTime = host
             lastFrameHostTime = host
             let now = player.currentTime()
+            // A zero-distance seek is a decoder flush — if these fire in a rhythm
+            // during normal viewing they ARE the "stutter with repeated lines",
+            // so a nudge must never be silent under diagnostics.
+            if PlaybackDiag.enabled { NSLog("AWNUDGE freeze-guard seek at t=%.0f", now.seconds) }
             player.seek(to: now, toleranceBefore: .zero, toleranceAfter: .zero)
         }
     }

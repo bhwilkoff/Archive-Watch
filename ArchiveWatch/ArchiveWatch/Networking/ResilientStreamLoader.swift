@@ -34,19 +34,25 @@ enum PlaybackDiag {
     @MainActor
     static func attach(item: AVPlayerItem, player: AVPlayer) {
         guard enabled else { return }
+        // Tag every line with the PLAYER's identity: the baseline run that broke
+        // the His Girl Friday case open showed two interleaved AWBUF timelines —
+        // a leaked player advancing for the whole session next to the visible
+        // one — and without an id per line that took forensics to notice.
+        let pid = String(UInt(bitPattern: ObjectIdentifier(player).hashValue) % 0xFFFF, radix: 16)
+        NSLog("AWLIFE tune player=%@", pid)
         NotificationCenter.default.addObserver(
             forName: AVPlayerItem.playbackStalledNotification,
             object: item, queue: .main) { _ in
-            NSLog("AWSTALL playback stalled")
+            NSLog("AWSTALL playback stalled player=%@", pid)
         }
         _ = player.addPeriodicTimeObserver(
-            forInterval: CMTime(seconds: 5, preferredTimescale: 1), queue: .main) { t in
+            forInterval: CMTime(seconds: 5, preferredTimescale: 1), queue: .main) { [weak player] t in
             let ahead = item.loadedTimeRanges
                 .map { $0.timeRangeValue }
                 .filter { $0.containsTime(t) || $0.start >= t }
                 .map { $0.end.seconds - max(t.seconds, $0.start.seconds) }
                 .reduce(0, +)
-            NSLog("AWBUF t=%.0f ahead=%.0f rate=%.2f", t.seconds, ahead, player.rate)
+            NSLog("AWBUF p=%@ t=%.0f ahead=%.0f rate=%.2f", pid, t.seconds, ahead, player?.rate ?? -1)
         }
     }
 }

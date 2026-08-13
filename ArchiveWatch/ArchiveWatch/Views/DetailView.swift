@@ -557,6 +557,11 @@ struct PlayerScreen: View {
     var ephemeralLineup: Bool = false
     @Environment(\.modelContext) private var modelContext
     @Environment(AppStore.self) private var store
+    // Diagnostics identity (AW_PLAYBACK_DIAG): a fresh @State UUID means a fresh
+    // SwiftUI identity — if two AWLIFE screen ids appear in one session, SwiftUI
+    // built a SECOND PlayerScreen while the first was still alive, which is the
+    // double-player bug the His Girl Friday baseline exposed.
+    @State private var screenID = String(UUID().uuidString.prefix(8))
     @State private var player: AVPlayer?
     @State private var timeObserver: Any?
     @State private var freezeGuard = PlaybackFreezeGuard()
@@ -664,10 +669,17 @@ struct PlayerScreen: View {
                 ProgressView().controlSize(.large).tint(.white)
             }
         }
-        .onAppear { store.isPlayingVideo = true; setupPlayer() }
-        .onDisappear { store.isPlayingVideo = false; teardownPlayer() }
+        .onAppear {
+            if PlaybackDiag.enabled { NSLog("AWLIFE screen=%@ onAppear", screenID) }
+            store.isPlayingVideo = true; setupPlayer()
+        }
+        .onDisappear {
+            if PlaybackDiag.enabled { NSLog("AWLIFE screen=%@ onDisappear", screenID) }
+            store.isPlayingVideo = false; teardownPlayer()
+        }
         // #10: autoplay swapped `current` -> rebuild the player for the next film.
         .onChange(of: current?.archiveID) { _, _ in
+            if PlaybackDiag.enabled { NSLog("AWLIFE screen=%@ currentChanged", screenID) }
             autoRetried = false          // #10: fresh retry budget per item
             forceDirectPlayback = false  // new item tries the HLS-subtitle path fresh
             teardownPlayer()
@@ -788,13 +800,22 @@ struct PlayerScreen: View {
     // (exactly what hitting "Try Again" did manually). Only a second failure
     // shows the recoverable error screen.
     private func handleLoadFailure(_ message: String) {
+        if PlaybackDiag.enabled {
+            NSLog("AWLIFE screen=%@ handleLoadFailure autoRetried=%d msg=%@",
+                  screenID, autoRetried ? 1 : 0, message)
+        }
         if !autoRetried {
             autoRetried = true
             // If this item used the HLS-subtitle path, the retry drops it and
             // plays the MP4 directly — a broken HLS playlist must never make an
             // otherwise-playable film unplayable.
             if (current ?? catalogItem)?.subtitleHLSURL != nil { forceDirectPlayback = true }
-            teardownPlayer(persist: false)
+            // A failure DURING playback (the captioned-HLS item can die
+            // mid-film) must resume where the viewer was, not where the 5s
+            // progress writer last got to. Startup failures keep persist:false —
+            // there is no position worth keeping at t=0.
+            let played = player?.currentTime().seconds ?? 0
+            teardownPlayer(persist: played.isFinite && played > 30)
             playback = .loading
             setupPlayer()
         } else if lineup != nil && skipCount < 10 {
@@ -816,6 +837,7 @@ struct PlayerScreen: View {
     // current position first so setupPlayer resumes at (within ~5s of) the stall.
     private func forceDirectFallback() {
         guard !forceDirectPlayback, (current ?? catalogItem)?.subtitleHLSURL != nil else { return }
+        if PlaybackDiag.enabled { NSLog("AWLIFE screen=%@ forceDirectFallback", screenID) }
         forceDirectPlayback = true
         teardownPlayer(persist: true)
         playback = .loading
@@ -827,6 +849,7 @@ struct PlayerScreen: View {
     // loader back, at the cost of those captions.
     private func forceResilientFallback() {
         guard !forceResilientPlayback else { return }
+        if PlaybackDiag.enabled { NSLog("AWLIFE screen=%@ forceResilientFallback", screenID) }
         forceResilientPlayback = true
         teardownPlayer(persist: true)
         playback = .loading
@@ -834,6 +857,10 @@ struct PlayerScreen: View {
     }
 
     private func setupPlayer() {
+        if PlaybackDiag.enabled {
+            NSLog("AWLIFE screen=%@ setupPlayer item=%@ hadPlayer=%d",
+                  screenID, activeArchiveID, player != nil ? 1 : 0)
+        }
         playback = .loading
         let active = current ?? catalogItem
         let playURL = active?.videoURLParsed ?? url
@@ -920,6 +947,7 @@ struct PlayerScreen: View {
             Task { @MainActor in
                 switch observed.status {
                 case .readyToPlay:
+                    if PlaybackDiag.enabled { NSLog("AWLIFE screen=%@ itemReady", screenID) }
                     playback = .ready
                     skipCount = 0          // #7: a good item resets the skip budget
                     timeoutTask?.cancel()
@@ -938,6 +966,11 @@ struct PlayerScreen: View {
                     // its resume position but never starts (#5 Play Next bug).
                     p.play()
                 case .failed:
+                    if PlaybackDiag.enabled {
+                        NSLog("AWLIFE screen=%@ itemFailed t=%.0f error=%@", screenID,
+                              observed.currentTime().seconds,
+                              String(describing: observed.error))
+                    }
                     timeoutTask?.cancel()
                     handleLoadFailure(observed.error?.localizedDescription
                                       ?? "The video couldn't be loaded.")
@@ -951,6 +984,7 @@ struct PlayerScreen: View {
             try? await Task.sleep(for: loadTimeout)
             guard !Task.isCancelled else { return }
             if playback == .loading {
+                if PlaybackDiag.enabled { NSLog("AWLIFE screen=%@ loadTimeoutFired", screenID) }
                 handleLoadFailure("This title is taking too long to load. The source may be temporarily unavailable.")
             }
         }
@@ -999,6 +1033,9 @@ struct PlayerScreen: View {
     }
 
     private func teardownPlayer(persist: Bool = true) {
+        if PlaybackDiag.enabled {
+            NSLog("AWLIFE screen=%@ teardownPlayer hadPlayer=%d", screenID, player != nil ? 1 : 0)
+        }
         if let obs = timeObserver { player?.removeTimeObserver(obs) }
         if let e = endObserver { NotificationCenter.default.removeObserver(e); endObserver = nil }
         freezeGuard.detach()
@@ -1008,6 +1045,13 @@ struct PlayerScreen: View {
             persistProgress(at: p.currentTime().seconds, duration: p.currentItem?.duration.seconds)
         }
         player?.pause()
+        // Detach the item as well: pause() alone left a torn-down player UNDEAD
+        // on tvOS — clock advancing, pipeline active, rate reading NaN — for the
+        // rest of the session (measured on device, His Girl Friday baseline:
+        // the orphan ran 7+ minutes alongside its replacement). Two live
+        // pipelines is the "stutter with repeating lines" the owner reported:
+        // the film plays twice, offset by the rebuild gap. No item, no pipeline.
+        player?.replaceCurrentItem(with: nil)
         player = nil
         timeObserver = nil
         streamLoader = nil

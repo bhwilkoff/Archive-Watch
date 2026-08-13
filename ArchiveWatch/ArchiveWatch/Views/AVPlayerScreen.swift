@@ -59,6 +59,12 @@ final class CaptionCoordinator {
     /// nothing unless it turns out to be wrong.
     func startCaptions(url: URL, player: AVPlayer?, in vc: AVPlayerViewController,
                        reviewing vtt: URL? = nil) {
+        // AW_NO_CAPTIONS=1: the entire caption system stands down — no scout,
+        // no judge, no overlay, no deselects. The BASELINE the last four fix
+        // rounds never established: whether this film stutters with nothing
+        // of ours running at all. Without that control, every stutter theory
+        // was attribution, not measurement.
+        guard ProcessInfo.processInfo.environment["AW_NO_CAPTIONS"] != "1" else { return }
         guard sourceURL != url else {
             // Same film, new player: the stall fallback rebuilt it. The clock
             // the display follows moves to the new player — and the SCOUT
