@@ -26,10 +26,17 @@ final class PlaybackFreezeGuard {
 
     private let freezeThreshold: CFTimeInterval = 3.5  // no frames this long → frozen
     private let nudgeCooldown: CFTimeInterval = 6.0    // don't re-nudge immediately
+    // Before the FIRST frame, wait much longer: a resume seek legitimately takes
+    // several seconds to produce frames while the clock already reads .playing,
+    // and the guard was measured nudging twice at the resume point — each nudge
+    // itself a decoder flush. A real freeze mid-film still trips at 3.5s.
+    private let firstFrameGrace: CFTimeInterval = 15
+    private var sawFrame = false
 
     func attach(to player: AVPlayer, item: AVPlayerItem) {
         self.player = player
         item.add(output)
+        sawFrame = false
         lastFrameHostTime = CACurrentMediaTime()
         let t = Timer(timeInterval: 1.0, repeats: true) { [weak self] _ in
             MainActor.assumeIsolated { self?.tick() }
@@ -67,6 +74,7 @@ final class PlaybackFreezeGuard {
             #else
             _ = output.copyPixelBuffer(forItemTime: itemTime, itemTimeForDisplay: nil)
             #endif
+            sawFrame = true
             lastFrameHostTime = host
             return
         }
@@ -81,7 +89,7 @@ final class PlaybackFreezeGuard {
             return
         }
 
-        if host - lastFrameHostTime > freezeThreshold,
+        if host - lastFrameHostTime > (sawFrame ? freezeThreshold : firstFrameGrace),
            host - lastNudgeHostTime > nudgeCooldown {
             lastNudgeHostTime = host
             lastFrameHostTime = host

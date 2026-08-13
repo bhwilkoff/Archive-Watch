@@ -688,26 +688,37 @@ struct PlayerScreen: View {
         }
     }
 
-    /// What live captions should transcribe, or nil when the film carries a real
-    /// subtitle track.
-    ///
-    /// `forceDirectPlayback` matters here: when the captioned-HLS path fails to
-    /// load or stalls, playback drops to the plain MP4 and the subtitle track
-    /// goes with it. Keying only on `subtitleHLSURL` left exactly those films —
-    /// the ones whose subtitles just failed — with no captions at all.
-    private var liveCaptionSource: URL? {
+    /// Does this title have a subtitle FILE — published in the catalog, or
+    /// fetched/transcribed on this device? Decision 070: these no longer imply
+    /// an HLS wrapper; the file is rendered by the caption overlay.
+    private var hasFileSubtitles: Bool {
         let active = current ?? catalogItem
-        guard active?.subtitleHLSURL == nil || forceDirectPlayback else { return nil }
+        return active?.subtitleHLSURL != nil
+            || SubtitleStore.cachedDir(for: activeArchiveID) != nil
+    }
+
+    /// What live captions should transcribe, or nil when the film carries a real
+    /// subtitle file (those go through `subtitleReviewSource` instead).
+    private var liveCaptionSource: URL? {
+        guard !hasFileSubtitles else { return nil }
+        let active = current ?? catalogItem
         return active?.videoURLParsed ?? url
     }
 
-    /// When the film HAS published subtitles, what is needed to CHECK them:
-    /// the audio to transcribe and the file to check against.
+    /// When the film HAS a subtitle file: the audio to transcribe and the file
+    /// to check against — and, since Decision 070, to DISPLAY. A file the
+    /// viewer fetched on this device wins over the published one.
     private var subtitleReviewSource: (video: URL, vtt: URL)? {
-        guard liveCaptionSource == nil else { return nil }
+        guard hasFileSubtitles else { return nil }
         let active = current ?? catalogItem
-        guard let video = active?.videoURLParsed ?? url as URL?,
-              let vtt = active?.publishedVTTURL else { return nil }
+        guard let video = active?.videoURLParsed ?? url as URL? else { return nil }
+        if let dir = SubtitleStore.cachedDir(for: activeArchiveID) {
+            let local = dir.appendingPathComponent("en.vtt")
+            if FileManager.default.fileExists(atPath: local.path) {
+                return (video, local)
+            }
+        }
+        guard let vtt = active?.publishedVTTURL else { return nil }
         return (video, vtt)
     }
 
@@ -865,27 +876,22 @@ struct PlayerScreen: View {
         let active = current ?? catalogItem
         let playURL = active?.videoURLParsed ?? url
         let playerItem: AVPlayerItem
-        if let hls = active?.subtitleHLSURL, !forceDirectPlayback {
-            // Part (a) Config C: keep the native CC menu but START on a known-live
-            // storage node — a resource-loader delegate serves the HLS playlists
-            // with the video segment rewritten to a freshly node-resolved direct
-            // https URL (skips the /download 302 + node-rotation-at-start). The
-            // segment stays AVFoundation-owned (no mid-stream failover — that's
-            // Part c's stall fallback). streamLoader stays nil.
-            let (asset, hlsLoader) = CaptionedHLSLoader.makeAsset(hls: hls, downloadURL: playURL)
-            captionedLoader = hlsLoader
-            playerItem = AVPlayerItem(asset: asset)
-        } else if !forceDirectPlayback,
-                  let dir = SubtitleStore.cachedDir(for: activeArchiveID),
-                  let (asset, subsLoader) = LocalSubtitleHLSLoader.makeAsset(
-                    dir: dir, downloadURL: playURL,
-                    resolveNode: { await ResilientStreamLoader.resolvedNodeURL(for: $0) }) {
-            // Subtitles the viewer fetched or transcribed on this device. Same
-            // Config C shape, playlists read off disk instead of the network.
-            localSubsLoader = subsLoader
-            playerItem = AVPlayerItem(asset: asset)
-        } else if !forceResilientPlayback,
-                  SystemCaptions.prefersDirectPlayback(hasPublishedSubtitles: false) {
+        // Decision 070: the captioned-HLS wrapper (Config C) is RETIRED on tvOS.
+        // Its single MP4 "segment" made AVFoundation buffer the ENTIRE film —
+        // measured on device: loadedTimeRanges reached 5,300s (575 MB) while
+        // preferredForwardBufferDuration asked for 300, because a segment is the
+        // atomic buffering unit — and mediaserverd does not survive that on a
+        // 3 GB Apple TV: AVError -11819 (media services reset) killed the item
+        // ~2 minutes in, every run, on every build since the path shipped. It
+        // never failed on a Mac, which is why weeks of Mac-side verification
+        // kept passing. Captioned films now play through ResilientStreamLoader
+        // (memory-bounded range requests, Decisions 021/031/034 resilience) and
+        // their published/local VTT is rendered by the caption overlay
+        // (CaptionCoordinator file-cues mode), judged by SubtitleReview as
+        // before.
+        let plainForSystemCaptions = !forceResilientPlayback && !hasFileSubtitles
+            && SystemCaptions.prefersDirectPlayback(hasPublishedSubtitles: false)
+        if plainForSystemCaptions {
             // From 27 the system generates subtitles on device for video that
             // carries none — but ONLY for an ordinary asset. Measured on
             // macOS 27, one shape per process: a direct https MP4 produces text
@@ -926,14 +932,7 @@ struct PlayerScreen: View {
         player = p
         freezeGuard.attach(to: p, item: playerItem)
         nowPlaying.begin(posterURL: active?.posterURLParsed, item: playerItem)
-        // Part (c): captioned items play native HLS (bypassing ResilientStreamLoader).
-        // If that path STUTTERS persistently, drop CC and rebuild on the resilient
-        // MP4 — smooth-without-CC beats stutter-with-CC. The existing hard-failure
-        // fallback (handleLoadFailure) stays as the startup safety net.
-        if active?.subtitleHLSURL != nil, !forceDirectPlayback {
-            captionStall.attach(player: p, item: playerItem) { forceDirectFallback() }
-        } else if !forceResilientPlayback,
-                  SystemCaptions.prefersDirectPlayback(hasPublishedSubtitles: false) {
+        if plainForSystemCaptions {
             // The generated-subtitle path gave up the resilient loader to get
             // captioned at all. Same trade, same safety net: if it stutters
             // persistently, come back to the loader and lose the captions.

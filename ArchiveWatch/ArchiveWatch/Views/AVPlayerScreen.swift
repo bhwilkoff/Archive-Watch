@@ -53,6 +53,17 @@ final class CaptionCoordinator {
     /// honest thing to tell a viewer: a blank screen and a recognizer that
     /// declined look identical from a sofa.
     private var systemNote = ""
+    /// Decision 070: on tvOS the subtitle FILE is rendered by this overlay —
+    /// there is no native track any more (the single-segment HLS wrapper that
+    /// carried one was a memory bomb on 3 GB Apple TVs). The parsed cues live
+    /// here; `showFile` mirrors what the old track's AUTOSELECT/DEFAULT +
+    /// viewer preference produced: on when the viewer's caption preference is.
+    private var fileCues: [SubtitleAgreement.Cue] = []
+    private var showFile = false
+    /// Set once SubtitleReview has returned (any answer): after a deliberate
+    /// keep/shift the engine is DONE, and the resync rescue must not restart a
+    /// second stream under a film whose captions are already on screen.
+    private var verdictReached = false
 
     /// `reviewing` is the published WebVTT when the film already HAS subtitles:
     /// the engine then runs only long enough to judge that file, and draws
@@ -120,7 +131,25 @@ final class CaptionCoordinator {
         }
         label = l
 
-        draws = vtt == nil
+        // With a file to show (Decision 070) the overlay draws from the start —
+        // it IS the subtitle track now. Without one, it draws the engine's text.
+        draws = true
+        if let vtt {
+            Task { @MainActor [weak self] in
+                guard let (data, _) = try? await URLSession.shared.data(from: vtt),
+                      let body = String(data: data, encoding: .utf8) else { return }
+                let cues = SubtitleAgreement.parseVTT(body)
+                guard !cues.isEmpty else { return }
+                self?.fileCues = cues
+                // Mirrors the retired native track's behavior: AUTOSELECT/DEFAULT
+                // showed it when the viewer's system caption preference is on.
+                self?.showFile = SystemCaptionStyle.viewerWantsCaptions
+                if self?.trace == true {
+                    print("[AWCAP] trace file subtitles loaded: \(cues.count) cues, "
+                          + "showing=\(self?.showFile == true)")
+                }
+            }
+        }
         loop = Task { @MainActor [weak self] in
             // OUR ENGINE LEADS on tvOS; the system's generated track is
             // opportunistic. Measured on the real Apple TV (tvOS 27.0
@@ -222,21 +251,25 @@ final class CaptionCoordinator {
             await lc.start(url: url, from: from)
             if let vtt {
                 Task { @MainActor [weak self] in
-                    // Dev: AW_FORCE_REPLACE=1 arms the takeover without waiting
-                    // for (or trusting) the judge — the verdict varies run to
-                    // run, and the double-caption/position/stutter class only
-                    // exists on this path. Reproduction must be deterministic.
-                    if ProcessInfo.processInfo.environment["AW_FORCE_REPLACE"] == "1" {
-                        print("[AWCAP] FORCED replace — arming caption takeover")
-                        self?.takeOverFromNativeTrack(initial: player)
-                        return
-                    }
+                    defer { self?.verdictReached = true }
                     guard let outcome = await SubtitleReview.review(vttURL: vtt,
                                                                     captions: lc) else { return }
-                    if outcome.replacesNativeTrack {
-                        self?.takeOverFromNativeTrack(initial: player)
-                    } else {
-                        self?.label?.isHidden = true
+                    // Decision 070: there is no native track to take over from —
+                    // the file's cues are OURS to correct or discard directly.
+                    switch outcome.verdict.choice {
+                    case .keepPublished:
+                        break
+                    case .shiftPublished(let by):
+                        if let cues = self?.fileCues {
+                            self?.fileCues = cues.map {
+                                SubtitleAgreement.Cue(start: $0.start + by,
+                                                      end: $0.end + by, text: $0.text)
+                            }
+                        }
+                    case .preferLive:
+                        // The file belongs to a different cut or film; the
+                        // engine's transcript is the captions from here.
+                        self?.showFile = false
                     }
                 }
             }
@@ -265,7 +298,14 @@ final class CaptionCoordinator {
                 lc.throttle(playhead: now, playbackHealthy: healthy)
                 // Between captions, say why there are none — a blank screen and
                 // a failed recognizer look identical from the sofa.
-                let line = lc.line(at: now)
+                // The subtitle FILE, when one is showing, outranks the engine
+                // (Decision 070: the overlay is the subtitle track now).
+                let line: String
+                if self?.showFile == true, let cues = self?.fileCues, !cues.isEmpty {
+                    line = Self.fileLine(cues, at: now.seconds)
+                } else {
+                    line = lc.line(at: now)
+                }
                 let text = (self?.draws ?? true) ? (line.isEmpty ? lc.notice : line) : ""
                 // A caption is two lines; an explanation may need more.
                 self?.label?.numberOfLines = line.isEmpty ? 4 : 2
@@ -295,27 +335,9 @@ final class CaptionCoordinator {
                     }
                 }
                 shown = text
-                // While OURS are the captions, the film's own track stays OFF —
-                // continuously, not once: a stall-rebuild recreates the
-                // captioned asset and its AUTOSELECT=YES re-selects the very
-                // track the verdict condemned. The owner watched both sets
-                // render at once, twice, each time after a rebuild.
-                deselectTick += 1
-                if self?.draws == true, deselectTick >= 13 {   // ~2s at 150ms ticks
-                    deselectTick = 0
-                    let current = self?.observedPlayer
-                    if await !SubtitleReview.nativeSubtitlesOff(on: current) {
-                        // A REBUILD brought a fresh player with automatic
-                        // selection back on — disable it first, or this
-                        // deselect starts the 2s fight all over again.
-                        current?.appliesMediaSelectionCriteriaAutomatically = false
-                        await SubtitleReview.deselectNativeSubtitles(on: current)
-                        if self?.trace == true {
-                            print("[AWCAP] trace re-deselected the native track "
-                                  + "(a rebuild had re-selected it)")
-                        }
-                    }
-                }
+                // Decision 070 retired the deselect loop that used to live here:
+                // with the captioned-HLS wrapper gone there is no native
+                // subtitle track to fight — the overlay is the only renderer.
                 // The session is hopeless for where the viewer is (seek behind
                 // it, or the scout fell irrecoverably behind — both observed
                 // live): start fresh from the playhead. NOT gated on `draws`:
@@ -326,7 +348,11 @@ final class CaptionCoordinator {
                 // reach a verdict at all. ~3s of steady evidence first: a
                 // player rebuild passes through t=0 for a moment, and one
                 // glimpse must not throw away a good session.
-                if lc.needsResync(at: now) {
+                // While the FILE's cues are on screen after a deliberate verdict,
+                // the engine is done — restarting it here would put a second 2x
+                // stream under a film whose captions are already right.
+                let engineIsTheCaptions = !(self?.showFile == true && self?.verdictReached == true)
+                if engineIsTheCaptions, lc.needsResync(at: now) {
                     resyncTicks += 1
                     if resyncTicks >= 20 {
                         resyncTicks = 0
@@ -334,46 +360,29 @@ final class CaptionCoordinator {
                               + "restarting captions from \(Int(now.seconds))s")
                         lc.stop()
                         await lc.start(url: url, from: now)
-                        // If the film's own subtitle track is no longer
-                        // showing (deselected by a verdict, or lost to the
-                        // stall fallback's rebuild), the viewer has NOTHING —
-                        // ours must draw, verdict or no verdict.
-                        if await SubtitleReview.nativeSubtitlesOff(on: self?.observedPlayer) {
-                            self?.draws = true
-                        }
                     }
                 } else {
                     resyncTicks = 0
                 }
-                // Engine gone and nothing left to say: hide and stop polling.
-                if !lc.isRunning, text.isEmpty { break }
+                // Engine gone and nothing left to say: hide and stop polling —
+                // unless a subtitle FILE is on screen, whose quiet stretches
+                // between cues are normal, not the end of captioning.
+                if !lc.isRunning, text.isEmpty, self?.showFile != true { break }
                 try? await Task.sleep(nanoseconds: 150_000_000)
             }
             self?.label?.isHidden = true
         }
     }
 
-    /// Ours become the captions: silence the film's own track WITHOUT starting
-    /// a war. The player re-applies the viewer's accessibility criteria
-    /// ("always on" captions) after any deselect — so the standing 2s deselect
-    /// loop shipped last night was fighting AVFoundation every two seconds,
-    /// and each selection change flushes the decoder: the owner's "stuttering
-    /// and sometimes repeating lines every few seconds", manufactured by the
-    /// very fix meant to stop double captions. Automatic selection is turned
-    /// OFF first; then one deselect sticks.
-    private func takeOverFromNativeTrack(initial player: AVPlayer?) {
-        Task { @MainActor [weak self] in
-            let current = self?.observedPlayer ?? player
-            current?.appliesMediaSelectionCriteriaAutomatically = false
-            for _ in 0..<5 {
-                let p = self?.observedPlayer ?? player
-                p?.appliesMediaSelectionCriteriaAutomatically = false
-                await SubtitleReview.deselectNativeSubtitles(on: p)
-                if await SubtitleReview.nativeSubtitlesOff(on: p) { break }
-                try? await Task.sleep(nanoseconds: 1_000_000_000)
-            }
-            self?.draws = true
+    /// The file cue covering `t`, if any. Small linear scan — display runs at
+    /// ~7 Hz over at most a few thousand cues, and the common case exits on the
+    /// first cue past the playhead.
+    private static func fileLine(_ cues: [SubtitleAgreement.Cue], at t: Double) -> String {
+        for cue in cues {
+            if cue.start > t + 0.2 { break }
+            if t >= cue.start - 0.2 && t <= cue.end + 0.3 { return cue.text }
         }
+        return ""
     }
 
     func stop() {
@@ -383,6 +392,9 @@ final class CaptionCoordinator {
         label?.removeFromSuperview(); label = nil
         sourceURL = nil
         observedPlayer = nil
+        fileCues = []
+        showFile = false
+        verdictReached = false
     }
 }
 

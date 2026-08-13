@@ -3131,3 +3131,59 @@ the first ~1–2 minutes after (re)start have sparse captions while the lead
 builds — do not "fix" that by showing late-finalized cues (trailing captions
 are the failure Decision 058 exists to prevent).
 
+
+## 070 — The captioned-HLS wrapper is retired on tvOS; the overlay renders the subtitle file
+*Date: 2026-08-13*
+
+On tvOS, films with a subtitle file — published in the catalog or fetched on
+the device — now play through `ResilientStreamLoader` like everything else,
+and the FILE is rendered by the caption overlay (`CaptionCoordinator` file-cues
+mode): the VTT is fetched and parsed at start, displayed at the viewer's system
+caption preference exactly as the old track's `AUTOSELECT/DEFAULT` did, and
+`SubtitleReview` judges it as before — a shift verdict now moves OUR cue times
+directly, and preferLive discards the file for the transcript. The
+single-segment HLS wrapper (`CaptionedHLSLoader` / `LocalSubtitleHLSLoader`
+paths, Decision 039 Config C / 054) is no longer used for playback on tvOS.
+
+**Why**: the wrapper's single MP4 "segment" made AVFoundation treat the ENTIRE
+film as its atomic buffering unit. Measured on the Bedroom Apple TV with all
+caption machinery disabled: `loadedTimeRanges` climbed to 5,300 seconds — the
+whole 575 MB of His Girl Friday — while `preferredForwardBufferDuration` asked
+for 300, and the item then died with AVError **-11819 (media services reset)**
+at t≈100–117s in three consecutive runs: mediaserverd does not survive
+swallowing a feature film on a 3 GB Apple TV. The death was invisible for
+weeks because (a) it never happens on a Mac, where every prior verification
+ran — the Mac has the memory — and (b) `handleLoadFailure` silently rebuilt
+the player, so the visible symptom was only a mid-film "refresh". Worse, the
+rebuild left the old player UNDEAD (pause() without detaching the item left
+its pipeline running — clock advancing, rate=NaN, for the rest of the
+session), and two live pipelines a rebuild-gap apart is exactly the owner's
+"stuttering and sometimes repeating lines". The stutter, the refresh, the
+restart-from-zero, the double captions and the mistimed captions were all
+downstream of this one path.
+
+**How to apply**: never hand AVFoundation a single-segment HLS wrapper around
+a feature-length MP4 on a memory-constrained device — a "segment" is the unit
+of buffering, and no preference caps it. `teardownPlayer` must
+`replaceCurrentItem(with: nil)`, not just pause — measured: pause alone left
+the pipeline live. A mid-playback item failure resumes from the exact current
+position (persist-then-teardown), not from the periodic writer's last save.
+The judge's shift gate accepts a decisive peak-over-zero margin (>0.12) even
+under `matchAbove` — His Girl Friday's true offset scored 27% on a sparse
+transcript and a "match" verdict showed the file 16s out of sync; the
+four-control harness (`tools/test_subtitle_agreement.swift`) still passes.
+The freeze guard waits 15s for the FIRST frame (a resume seek legitimately
+takes seconds; its 3.5s threshold was nudging — a decoder flush — twice at
+every resume point).
+
+**Consequences**: captioned films on tvOS regain Decisions 021/031/034
+resilience (they had NONE — the one path with no loader was carrying 16% of
+the catalog, including nearly every popular film), scrubbing works (the
+single-segment wrapper never could), and memory stays bounded. The native CC
+menu no longer lists the file's track on tvOS — the overlay is the renderer;
+a transport-menu subtitles toggle is the parity follow-up for viewers whose
+system caption preference is off. iOS/macOS keep the wrapper for now (more
+RAM, AirPlay handoff uses the published HLS per Decision 051) — but the same
+bomb plausibly exists on low-RAM iPhones and the published HLS handed to an
+AirPlay RECEIVER (an Apple TV) is still the single-segment shape; both are
+open questions this decision deliberately leaves scoped out.

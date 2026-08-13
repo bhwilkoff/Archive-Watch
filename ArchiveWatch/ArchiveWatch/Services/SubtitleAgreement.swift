@@ -192,8 +192,18 @@ enum SubtitleAgreement {
         let choice: Choice
         if best.score < mismatchBelow {
             choice = .preferLive
-        } else if abs(best.offset) >= worthShifting, best.score >= matchAbove,
+        } else if abs(best.offset) >= worthShifting,
+                  best.score >= matchAbove || best.score - atZero > 0.12,
                   abs(best.offset) <= refinementRange || best.score - atZero > 0.15 {
+            // The second disjunct matters on sparse transcripts: His Girl
+            // Friday's published file runs ~16s late (measured against 18
+            // transcribed windows), and the judge scored the true offset at
+            // 27% — under matchAbove — so a "match" verdict showed the file
+            // 16 seconds out of sync. A peak that beats the unshifted score
+            // decisively IS the file agreeing, at the corrected time; demanding
+            // 30% absolute agreement on top of that margin rejected a real
+            // correction. (Coincidence at a far offset is still excluded: the
+            // margin test compares against the same transcript.)
             // The "it only agrees once shifted" test guards against a file that
             // matches by coincidence at some far-off offset, and it must keep
             // doing that for LARGE shifts. But it also suppressed SMALL ones,
