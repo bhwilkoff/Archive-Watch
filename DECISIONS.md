@@ -3187,3 +3187,48 @@ RAM, AirPlay handoff uses the published HLS per Decision 051) — but the same
 bomb plausibly exists on low-RAM iPhones and the published HLS handed to an
 AirPlay RECEIVER (an Apple TV) is still the single-segment shape; both are
 open questions this decision deliberately leaves scoped out.
+
+## 071 — The caption scout is MUTED on tvOS; a volume-0 second player races the main audio render
+*Date: 2026-08-13*
+
+On tvOS the live-caption scout (`LiveCaptions`, Decision 058) sets `isMuted =
+true` instead of `volume = 0`. The audio processing tap still fires under
+`isMuted` on tvOS 27 — measured: 23 correctly-mapped transcript cues from a
+fully muted scout — so Decision 058's rule ("volume 0, but NOT isMuted:
+muting can take the audio out of the render pipeline and the tap never
+fires") is a platform fact about iOS/macOS, not tvOS, and those platforms
+keep volume-0.
+
+**Why**: the owner reported, across two builds, that "the audio often gets
+swallowed by the captioning process" — picture running, captions synced,
+soundtrack gone. Every existing diagnostic watches the clock or the buffer,
+so a dead audio render with healthy video was invisible from the dev Mac;
+an RMS meter tap on the MAIN player (`AW_AUDIO_DIAG=1`, AWAUD lines) made
+it measurable. Measured on the Bedroom Apple TV: the main player's audio
+render died for 33-34 seconds — video advancing, buffer full at ~200s —
+with the dropout bracketed exactly by a volume-0 scout's active life, in
+roughly half of the runs. A muted player does not contend for the audio
+output; a volume-0 player is a full participant whose start/resume can race
+another player's render and silently win.
+
+**How to apply**: never run a second audible-pipeline AVPlayer alongside
+playback on tvOS — mute it outright, and verify the tap still feeds (the
+AWAUD meter plus cue-mapping traces answer both in one run). Two red
+herrings cost hours and are worth remembering. First, `.timeDomain` looked
+causal — dropping it "fixed" the race — until a self-identifying print
+showed TimeDomain is the tvOS 27 platform DEFAULT, so the bisect arm had
+changed nothing and both arms were coin-flips of a ~50% race; a bisect of a
+nondeterministic fault needs repeated trials per arm, not one run each.
+Second, a verification run measured the OLD binary after an unchecked
+install; the scout now prints its pitch algorithm and mute mode so a run
+identifies its own configuration. `AVPlayerItemSampleBufferOutput` (the
+27 API built for scan-ahead decode without a second render) was evaluated
+and rejected: HLS items only, and the scout plays progressive MP4s —
+revisit if that restriction lifts.
+
+**Consequences**: the owner's last unexplained symptom on build 899 falls.
+tvOS scout behavior is otherwise unchanged (2x, subordinate socket,
+throttle/yield, silenceScout detach). Related: 058 (the scout), 069 (the
+pitch pin, restored after the herring), 070 (the undead-player mechanism
+that taught the detach), and the AWAUD meter joins the permanent
+env-gated diagnostics.

@@ -605,6 +605,7 @@ func tunePlaybackBuffering(item: AVPlayerItem, player: AVPlayer) {
     item.preferredForwardBufferDuration = archivePreferredForwardBufferDuration
     player.automaticallyWaitsToMinimizeStalling = true
     PlaybackDiag.attach(item: item, player: player)   // no-op unless AW_PLAYBACK_DIAG=1
+    PlaybackDiag.attachAudioMeter(item: item, label: "main")  // no-op unless AW_AUDIO_DIAG=1
 }
 
 // Publishes Now Playing poster artwork the way AVPlayerViewController actually

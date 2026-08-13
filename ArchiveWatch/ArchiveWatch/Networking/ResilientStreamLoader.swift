@@ -1,4 +1,5 @@
 import AVFoundation
+import MediaToolbox
 import UniformTypeIdentifiers
 
 // Streams a remote progressive MP4 through our OWN URLSession instead of letting
@@ -31,6 +32,90 @@ import UniformTypeIdentifiers
 enum PlaybackDiag {
     static let enabled = ProcessInfo.processInfo.environment["AW_PLAYBACK_DIAG"] == "1"
 
+    // AW_AUDIO_DIAG=1: an RMS meter tap on the MAIN player's audio. Every other
+    // diagnostic here watches the CLOCK and the BUFFER — an audio dropout with
+    // video running is invisible to all of them, which is why "the audio gets
+    // swallowed" could only ever be reported from a sofa. AWAUD lines make
+    // silence readable from the dev Mac: rms ~0.0x during speech = swallowed.
+    static let audioMeter = ProcessInfo.processInfo.environment["AW_AUDIO_DIAG"] == "1"
+
+    @MainActor
+    static func attachAudioMeter(item: AVPlayerItem, label: String) {
+        guard audioMeter else { return }
+        Task {
+            guard let track = try? await item.asset.loadTracks(withMediaType: .audio).first else {
+                NSLog("AWAUD %@ no audio track found", label)
+                return
+            }
+            guard let tap = AudioMeter.shared.makeTap() else {
+                NSLog("AWAUD %@ tap creation failed", label)
+                return
+            }
+            let params = AVMutableAudioMixInputParameters(track: track)
+            params.audioTapProcessor = tap
+            let mix = AVMutableAudioMix()
+            mix.inputParameters = [params]
+            await MainActor.run {
+                item.audioMix = mix
+                NSLog("AWAUD %@ meter attached", label)
+            }
+        }
+    }
+}
+
+// Plain final class, NO actor isolation — the tap callbacks run on the
+// realtime audio thread (the exact trap LiveCaptions.BufferSink documents).
+final class AudioMeter: @unchecked Sendable {
+    static let shared = AudioMeter()
+    private var accum: Float = 0
+    private var samples: Int = 0
+    private var lastPrint = CFAbsoluteTimeGetCurrent()
+
+    func report(_ bufferList: UnsafeMutablePointer<AudioBufferList>, frames: CMItemCount) {
+        let abl = UnsafeMutableAudioBufferListPointer(bufferList)
+        var sum: Float = 0
+        var n = 0
+        for buf in abl {
+            guard let data = buf.mData else { continue }
+            let count = Int(buf.mDataByteSize) / MemoryLayout<Float>.size
+            let ptr = data.bindMemory(to: Float.self, capacity: count)
+            var i = 0
+            while i < count { sum += ptr[i] * ptr[i]; n += 1; i += 16 }
+        }
+        accum += sum
+        samples += n
+        let now = CFAbsoluteTimeGetCurrent()
+        if now - lastPrint >= 2, samples > 0 {
+            let rms = (accum / Float(samples)).squareRoot()
+            NSLog("AWAUD rms=%.4f", rms)
+            accum = 0; samples = 0; lastPrint = now
+        }
+    }
+
+    func makeTap() -> MTAudioProcessingTap? {
+        var callbacks = MTAudioProcessingTapCallbacks(
+            version: kMTAudioProcessingTapCallbacksVersion_0,
+            clientInfo: UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque()),
+            init: { _, clientInfo, storageOut in storageOut.pointee = clientInfo },
+            finalize: nil,
+            prepare: nil,
+            unprepare: nil,
+            process: { tap, frames, _, bufferList, framesOut, flagsOut in
+                let status = MTAudioProcessingTapGetSourceAudio(tap, frames, bufferList,
+                                                                flagsOut, nil, framesOut)
+                guard status == noErr else { return }
+                let m = Unmanaged<AudioMeter>.fromOpaque(MTAudioProcessingTapGetStorage(tap))
+                    .takeUnretainedValue()
+                m.report(bufferList, frames: framesOut.pointee)
+            })
+        var out: MTAudioProcessingTap?
+        let err = MTAudioProcessingTapCreate(kCFAllocatorDefault, &callbacks,
+                                             kMTAudioProcessingTapCreationFlag_PostEffects, &out)
+        return err == noErr ? out : nil
+    }
+}
+
+extension PlaybackDiag {
     @MainActor
     static func attach(item: AVPlayerItem, player: AVPlayer) {
         guard enabled else { return }

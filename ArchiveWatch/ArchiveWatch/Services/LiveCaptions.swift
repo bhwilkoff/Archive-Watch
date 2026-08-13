@@ -257,11 +257,38 @@ final class LiveCaptions {
         // never grew past ~30s, and what audio did arrive was mangled enough to
         // garble the transcript. `.timeDomain` is pitch-preserving, rated for
         // 2x, and light enough for the A15.
-        item.audioTimePitchAlgorithm = .timeDomain
+        // Dev bisect knob (AW_SCOUT_EXP): notap / rate1 / nopitch / volume0 —
+        // one scout property per run, judged by the AWAUD meter's continuity.
+        let exp = ProcessInfo.processInfo.environment["AW_SCOUT_EXP"] ?? ""
+        // D069's explicit pin stands. (An audio-race bisect briefly implicated
+        // this and removed it per-platform — then the self-identifying print
+        // showed TimeDomain is the tvOS 27 platform DEFAULT, so the "nopitch"
+        // arm had never changed anything and the race was elsewhere: the
+        // scout's presence in the audio OUTPUT graph, Decision 071.)
+        if exp != "nopitch" { item.audioTimePitchAlgorithm = .timeDomain }
+        // Self-identifying, because one verification run measured the OLD
+        // binary after an unchecked install and nearly overturned a correct
+        // bisect result.
+        print("[AWCAP] scout pitch algorithm: \(item.audioTimePitchAlgorithm.rawValue)")
         let scout = AVPlayer(playerItem: item)
+        #if os(tvOS)
+        // Decision 071: the scout is MUTED on tvOS, not volume-0. A volume-0
+        // scout stays in the audio OUTPUT graph, and its start/resume can race
+        // the main player's render — measured with an RMS meter on the main
+        // item: video advancing, buffer full, audio dead for the scout's whole
+        // active life in ~half of the runs ("the audio gets swallowed by the
+        // captioning process"). Under isMuted the tap still fires on tvOS 27
+        // (23 correctly-mapped cues, measured) — D058's "muting can remove
+        // audio from the render pipeline" does not hold here — and a muted
+        // player cannot contend for the output. AW_SCOUT_EXP=volume0 restores
+        // the old behavior for comparison runs.
+        if exp == "volume0" { scout.volume = 0 } else { scout.isMuted = true }
+        #else
         // volume 0, but NOT isMuted: muting can take the audio out of the render
-        // pipeline altogether, and then the processing tap never fires.
-        scout.volume = 0
+        // pipeline altogether, and then the processing tap never fires (D058 —
+        // measured on the platforms this branch covers; tvOS proved different).
+        if exp == "muted" { scout.isMuted = true } else { scout.volume = 0 }
+        #endif
         scoutPlayer = scout
 
         Task { @MainActor [weak self] in
@@ -271,14 +298,17 @@ final class LiveCaptions {
                 self.isRunning = false
                 return
             }
-            let params = AVMutableAudioMixInputParameters(track: track)
-            params.audioTapProcessor = tap
-            let mix = AVMutableAudioMix()
-            mix.inputParameters = [params]
-            item.audioMix = mix
+            if exp != "notap" {
+                let params = AVMutableAudioMixInputParameters(track: track)
+                params.audioTapProcessor = tap
+                let mix = AVMutableAudioMix()
+                mix.inputParameters = [params]
+                item.audioMix = mix
+            }
             await scout.seek(to: CMTime(seconds: self.contentOffset, preferredTimescale: 600))
-            scout.rate = Self.scoutRate
-            print("[AWCAP] scout playing at \(scout.rate)x from \(self.contentOffset)s")
+            scout.rate = exp == "rate1" ? 1.0 : Self.scoutRate
+            print("[AWCAP] scout playing at \(scout.rate)x from \(self.contentOffset)s"
+                  + (exp.isEmpty ? "" : " [exp=\(exp)]"))
         }
 
         #if canImport(Speech)
