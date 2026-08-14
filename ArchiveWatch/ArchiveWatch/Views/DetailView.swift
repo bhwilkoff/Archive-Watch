@@ -939,6 +939,27 @@ struct PlayerScreen: View {
         freezeGuard.attach(to: p, item: playerItem)
         nowPlaying.begin(posterURL: active?.posterURLParsed, item: playerItem)
 
+        // No Apple TV has an AV1 decoder, and AVFoundation does not FAIL on
+        // an AV1 track — it plays the audio and silently drops the video, so
+        // the viewer gets sound and captions over a black screen (The Oregon
+        // Trail, build 915; the pipeline's verifier runs on a Mac, which CAN
+        // decode AV1, so the catalog never caught it). Say the true thing.
+        Task { @MainActor in
+            guard let track = try? await playerItem.asset
+                .loadTracks(withMediaType: .video).first,
+                  let descs = try? await track.load(.formatDescriptions) else { return }
+            for d in descs {
+                let sub = CMFormatDescriptionGetMediaSubType(d)
+                let name = sub == 0x6176_3031 ? "AV1" : sub == 0x7670_3039 ? "VP9" : nil
+                if let name {
+                    awdiag("AWLIFE screen=%@ unsupportedCodec %@", screenID, name)
+                    timeoutTask?.cancel()
+                    handleLoadFailure("This copy's video is \(name), which Apple TV can't decode. The picture would stay black.")
+                    return
+                }
+            }
+        }
+
         // Watch the item ready or fail so a broken stream becomes a visible,
         // recoverable error instead of the dead "no-entry" circle (#19). KVO can
         // fire off-main; hop to the main actor before touching view state.

@@ -380,7 +380,16 @@ enum SubtitleAgreement {
                 // AUTHORED as two lines, and the overlay should render it that
                 // way. Word-level matching tokenizes on non-alphanumerics, so
                 // the judge reads "\n" and " " identically.
-                text += (text.isEmpty ? "" : "\n") + line
+                //
+                // STRIP the markup: WebVTT allows <i>/<b>/<c.class>/voice
+                // tags, and the tvOS overlay renders cue TEXT verbatim — the
+                // owner saw "<i>♪ When pioneers of old</i>" on the glass.
+                // AVKit's own renderer eats these; ours must too.
+                let clean = line.replacingOccurrences(
+                    of: "<[^>]*>", with: "", options: .regularExpression)
+                    .trimmingCharacters(in: .whitespaces)
+                guard !clean.isEmpty else { continue }
+                text += (text.isEmpty ? "" : "\n") + clean
             }
         }
         flush()
