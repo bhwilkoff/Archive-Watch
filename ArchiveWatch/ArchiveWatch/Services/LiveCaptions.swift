@@ -235,6 +235,10 @@ final class LiveCaptions {
         contentOffset = max(0, startTime.seconds.isFinite ? startTime.seconds : 0)
         sink.reset()   // a restarted session must not inherit the old replay high-water
         driftSamples.removeAll()   // nor the old session's drift envelope
+        scoutProgress.removeAll()
+        surrendered = false        // a fresh playback earns a fresh chance
+        troubleEpisodes = 0
+        lastEpisodeAt = nil
 
         guard let tap = sink.makeTap() else {
             failure = "Couldn't attach to the audio."
@@ -376,6 +380,12 @@ final class LiveCaptions {
                Date().timeIntervalSince(s) > 120 {
                 failure = "Captions are waiting for smoother playback."
             }
+            scoutProgress.removeAll()
+            troubleEpisodes += (lastEpisodeAt.map { Date().timeIntervalSince($0) > 30 } ?? true) ? 1 : 0
+            lastEpisodeAt = Date()
+            if troubleEpisodes >= 3 {
+                surrender("playback trouble episode #\(troubleEpisodes)")
+            }
             return
         }
         // DEPTH gate, when the caller can measure it: the viewer's buffer
@@ -421,7 +431,31 @@ final class LiveCaptions {
             lastUnhealthyAt = nil
             if trace { awdiag("[AWCAP] trace playback healthy again — scout may resume") }
         }
-        if scout.rate != 0 { driftCheck(scout) }
+        if scout.rate != 0 {
+            driftCheck(scout)
+            // CAN THE PATH AFFORD A SECOND STREAM AT ALL? A scout that cannot
+            // sustain ~2x is in a race it mathematically loses — it runs
+            // behind the viewer forever, burning half the request budget of a
+            // constrained path until playback starves (TtCRB-4K on a degraded
+            // node: chunks at 9-11 Mbps, scout 30-45s behind and falling for
+            // minutes before playback finally stalled). Its own progress rate
+            // is the preemptive signal: measure it over a window and give the
+            // whole stream back to the viewer before any harm shows.
+            let pos = scout.currentTime().seconds
+            if pos.isFinite {
+                let now = Date().timeIntervalSince1970
+                scoutProgress.append((wall: now, pos: pos))
+                scoutProgress.removeAll { now - $0.wall > 35 }
+                if let first = scoutProgress.first, now - first.wall >= 25,
+                   (pos - first.pos) / (now - first.wall) < 1.4 {
+                    surrender(String(format: "scout sustains only %.1fx",
+                                     (pos - first.pos) / (now - first.wall)))
+                    return
+                }
+            }
+        } else {
+            scoutProgress.removeAll()   // a paused scout's stillness is not evidence
+        }
         let lead = leadSeconds(over: playhead)
         if lead > Self.maxLead, scout.rate != 0 {
             scout.rate = 0
@@ -448,6 +482,31 @@ final class LiveCaptions {
     /// How long playback must be continuously healthy before the scout resumes.
     private static let healthCooldown: TimeInterval = 5
     private var lastUnhealthyAt: Date?
+    /// Rolling (wall, position) samples of a RUNNING scout, for the
+    /// sustain-rate check above.
+    private var scoutProgress: [(wall: Double, pos: Double)] = []
+    private var troubleEpisodes = 0
+    private var lastEpisodeAt: Date?
+    private(set) var surrendered = false
+
+    /// Give the viewer the whole stream back, for the rest of this playback.
+    ///
+    /// Not a yield: the item is DETACHED (a paused item still buffers toward
+    /// its preference), the analyzer stops, and nothing restarts it. Cues
+    /// already produced keep displaying. The engine reports itself stopped,
+    /// so the coordinator's resync path and the review loop both wind down.
+    private func surrender(_ reason: String) {
+        guard !surrendered else { return }
+        surrendered = true
+        awdiag("[AWCAP] scout SURRENDERS — %@", reason)
+        if !everProducedCue, failure == nil {
+            failure = "Captions are paused so playback stays smooth."
+        }
+        task?.cancel(); task = nil
+        sink.finish()
+        silenceScout()
+        isRunning = false
+    }
     /// Like `lastUnhealthyAt` but never cleared — the depth gate's 30s
     /// trouble window must outlive the 5s resume cooldown that nils it.
     private var lastTroubleAt: Date?
