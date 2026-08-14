@@ -902,7 +902,17 @@ struct PlayerScreen: View {
         }
         playback = .loading
         let active = current ?? catalogItem
-        let playURL = active?.videoURLParsed ?? url
+        // Diagnostic-only: AW_URL_OVERRIDE swaps the source for the AW_START_ITEM
+        // film, so a harness can play the SAME film from a controlled server —
+        // the decisive mux-vs-delivery experiment (a LAN-served faststart remux
+        // against the badly-interleaved archive.org original).
+        var playURL = active?.videoURLParsed ?? url
+        if let ov = ProcessInfo.processInfo.environment["AW_URL_OVERRIDE"],
+           let ovURL = URL(string: ov),
+           ProcessInfo.processInfo.environment["AW_START_ITEM"] == activeArchiveID {
+            playURL = ovURL
+            awdiag("AWLIFE URL OVERRIDE -> %@", ov)
+        }
         let playerItem: AVPlayerItem
         // Decision 070: the captioned-HLS wrapper (Config C) is RETIRED on tvOS.
         // Its single MP4 "segment" made AVFoundation buffer the ENTIRE film —
