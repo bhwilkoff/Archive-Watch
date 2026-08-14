@@ -3388,3 +3388,49 @@ The launch-window app death under 4K screenshot capture is a HARNESS artifact
 (observer-induced memory pressure; no crash report, no app jetsam) — the
 runner retries once; do not chase it as an app bug without a report naming the
 app. Scenario cards resolve by TITLE from the live index, never hardcoded ids.
+
+## 075 — Controlled experiments over correlation: the LAN remux control, and the instrument that manufactured its own disease
+*Date: 2026-08-14*
+
+The harness gained CONTROL-EXPERIMENT hooks — `AW_URL_OVERRIDE` (play the
+AW_START_ITEM film from any server) and `AW_NO_RESUME` — and their first use
+settled a day of contradictory correlations in one run: the same 4K film,
+stream-copy remuxed with faststart and served from the dev Mac over LAN
+(range-capable server; python's http.server ignores Range and serves
+byte-zero garbage that AVFoundation reports as "media damaged"), still
+showed 16 metronomic ~10.4s audio gaps. That exonerated the file, the mux,
+archive.org, node weather, and the scout (surrendered at 67s) in a single
+stroke — and left exactly one rhythmic actor: the audio-meter watchdog,
+which revived its dead tap by REPLACING the playing item's audioMix, then
+detected the ~10s outage its own replacement caused, forever. Single-attach
+control: zero gaps. The meter now attaches once, logs "tap died — no audio
+evidence past this point", and never touches a playing item again.
+
+**Why**: three loader interventions (audio-region prefetch, trailing-request
+cap at two geometries) were built on correlations — each reshaped the
+numbers, none removed the rhythm, because the causal story was wrong twice
+over. The "41% wasted re-download" that motivated the runaway cap conflated
+BOTH loaders' AWSTREAM lines: the scout's second stream is legitimate reads,
+not AVFoundation re-requests. And the "audio dropouts" being chased were
+manufactured by the chasing. A controlled experiment that removes variables
+wholesale beats a week of correlation on live traffic.
+
+**How to apply**: when a symptom survives three targeted fixes, stop fixing
+and build the control that splits the hypothesis space in half. The
+harness's audio evidence is now honestly bounded: tvOS tears the audioMix
+tap down on heavy-decode items (17s lifetime on the 4K film, six clean
+minutes on His Girl Friday) and the assertion grades only the tap's
+lifetime — an instrument must say when it is blind, and must never perturb
+what it measures (the same observer-effect class as the 4K-screenshot
+launch-window deaths in 074). Tag or segregate per-loader diagnostics
+before summing them. Keep AWERR/drop counters: zero decode errors across
+every run is what kept "corrupt bytes" honestly excluded.
+
+Also this session, from the owner's sofa reports: build 915's slow-chunk
+watchdog cancelled at a 5.6 Mbps floor — a normal living-room speed — and
+was the real "no video at all" / static / smeared-picture regression (now
+0.2 Mbps/10s, a dead trickle only); The Oregon Trail's only file is AV1 in
+an MP4 labelled "MPEG4" (no Apple TV can decode it; the Mac-side verifier
+can) and now fails with an honest terminal error instead of audio over a
+black screen — the codec-aware pipeline audit is queued; and the caption
+overlay strips WebVTT markup it was rendering literally.
