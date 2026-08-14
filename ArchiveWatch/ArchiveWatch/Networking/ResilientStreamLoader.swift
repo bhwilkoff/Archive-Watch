@@ -39,7 +39,11 @@ enum DiagFile {
     private static let q = DispatchQueue(label: "awdiag-file")
     private static let handle: FileHandle? = {
         guard enabled else { return nil }
-        let url = FileManager.default.urls(for: .documentDirectory,
+        // Caches, not Documents: tvOS apps cannot write to Documents at all —
+        // the first harness runs copied "Documents/awdiag.log" out of the
+        // container and found no file node, because the write itself had
+        // silently failed.
+        let url = FileManager.default.urls(for: .cachesDirectory,
                                            in: .userDomainMask)[0]
             .appendingPathComponent("awdiag.log")
         try? "".write(to: url, atomically: true, encoding: .utf8)

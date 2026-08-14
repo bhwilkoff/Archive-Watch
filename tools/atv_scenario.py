@@ -64,7 +64,7 @@ def pull_diag(outdir):
     log = outdir / "awdiag.log"
     r = sh(["xcrun", "devicectl", "device", "copy", "from", "--device", DEVICE,
             "--domain-type", "appDataContainer", "--domain-identifier", BUNDLE,
-            "--source", "Documents/awdiag.log", "--destination", str(log)],
+            "--source", "Library/Caches/awdiag.log", "--destination", str(log)],
            timeout=120)
     if not log.exists():
         print(f"[scenario] diag copy failed: {r.stdout[-300:]} {r.stderr[-300:]}")
