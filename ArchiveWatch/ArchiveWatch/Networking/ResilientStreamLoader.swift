@@ -77,6 +77,8 @@ enum PlaybackDiag {
     // swallowed" could only ever be reported from a sofa. AWAUD lines make
     // silence readable from the dev Mac: rms ~0.0x during speech = swallowed.
     static let audioMeter = ProcessInfo.processInfo.environment["AW_AUDIO_DIAG"] == "1"
+    /// Watchdog bookkeeping for the meter re-attach; main-queue only.
+    nonisolated(unsafe) static var lastMeterReattach: CFAbsoluteTime = 0
 
     @MainActor
     static func attachAudioMeter(item: AVPlayerItem, label: String) {
@@ -109,6 +111,13 @@ final class AudioMeter: @unchecked Sendable {
     private var accum: Float = 0
     private var samples: Int = 0
     private var lastPrint = CFAbsoluteTimeGetCurrent()
+    /// When the meter last EMITTED. The tap fires on every buffer regardless
+    /// of loudness (a silent film still emits rms~0 every 2s), so a stale
+    /// emit while the player runs means the tap itself died — which happens
+    /// across seeks/pipeline rebuilds and thins the harness's audio evidence
+    /// (measured: 20 rms samples over a 304s run). Racy read from main of an
+    /// RT-thread write; diagnostic-only, staleness tolerates it.
+    private(set) var lastEmit = CFAbsoluteTimeGetCurrent()
 
     func report(_ bufferList: UnsafeMutablePointer<AudioBufferList>, frames: CMItemCount) {
         let abl = UnsafeMutableAudioBufferListPointer(bufferList)
@@ -127,7 +136,7 @@ final class AudioMeter: @unchecked Sendable {
         if now - lastPrint >= 2, samples > 0 {
             let rms = (accum / Float(samples)).squareRoot()
             awdiag("AWAUD rms=%.4f", rms)
-            accum = 0; samples = 0; lastPrint = now
+            accum = 0; samples = 0; lastPrint = now; lastEmit = now
         }
     }
 
@@ -177,6 +186,17 @@ extension PlaybackDiag {
                 .map { $0.end.seconds - max(t.seconds, $0.start.seconds) }
                 .reduce(0, +)
             awdiag("AWBUF p=%@ t=%.0f ahead=%.0f rate=%.2f", pid, t.seconds, ahead, player?.rate ?? -1)
+            // Meter watchdog: the tap dies across seeks/pipeline rebuilds and
+            // never comes back on its own — re-attach a fresh tap so the
+            // harness's audio-continuity evidence covers the whole run.
+            if audioMeter, let pl = player, pl.rate > 0,
+               let cur = pl.currentItem,
+               CFAbsoluteTimeGetCurrent() - AudioMeter.shared.lastEmit > 8,
+               CFAbsoluteTimeGetCurrent() - lastMeterReattach > 10 {
+                lastMeterReattach = CFAbsoluteTimeGetCurrent()
+                awdiag("AWAUD meter stale — re-attaching")
+                MainActor.assumeIsolated { attachAudioMeter(item: cur, label: "reattach") }
+            }
         }
     }
 }
