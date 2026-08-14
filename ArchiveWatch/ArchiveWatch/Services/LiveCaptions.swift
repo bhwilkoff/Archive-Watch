@@ -430,6 +430,13 @@ final class LiveCaptions {
                       + "(lead \(Int(lead))s)")
             }
         } else if lead < Self.minLead, scout.rate == 0 {
+            // Never resume a scout that is far BEHIND the viewer — 2x never
+            // catches 1x from minutes back, so it would transcribe film
+            // already watched while burning the bandwidth playback needs
+            // (observed: a scout resumed at 0.0 against a playhead of 3746).
+            // needsResync retargets it with a seek instead.
+            let scoutAt = scout.currentTime().seconds
+            if scoutAt.isFinite, playhead.seconds - scoutAt > 45 { return }
             scout.rate = Self.scoutRate
             if trace {
                 awdiag("[AWCAP] trace scout RESUMED at \(fmt(scout.currentTime().seconds)) "
@@ -512,20 +519,49 @@ final class LiveCaptions {
         let t = playhead.seconds
         guard isRunning, t.isFinite, t >= 0 else { return false }
         if t < contentOffset - 30 { return true }              // seeked behind the session
-        // A scout the throttle has PAUSED is behind by design, and a fresh
-        // session would be paused the same way — but each restart builds a
-        // new player item whose startup fetch (moov + preload) collides with
-        // exactly the struggling playback that paused the scout. Measured on
-        // TtCRB-4K: restart churn every ~48s, with playback stalls clustered
-        // 10-32s after each one. The restart happens the moment the scout is
-        // allowed to run again and is genuinely behind (rate != 0 below).
-        if scoutPlayer?.rate == 0 { return false }
         let scoutAt = scoutPlayer?.currentTime().seconds
         let reached = max(cues.last?.end ?? contentOffset,
                           (scoutAt?.isFinite == true ? scoutAt! : contentOffset))
         // The viewer is 45s past everything the scout has even REACHED: it can
         // close a gap it is ahead of, never one it is behind.
-        return t > reached + 45
+        guard t > reached + 45 else { return false }
+        // Far behind — but while the throttle holds the scout down for
+        // playback health, a resync buys nothing: the fresh session would be
+        // paused the same way. Measured on TtCRB-4K: restart churn every
+        // ~48s, with playback stalls clustered 10-32s after each rebuild.
+        // Once trouble has been quiet for 30s a resync is worth it (and
+        // cheap — `resync(to:)` seeks the existing scout, no new asset).
+        if scoutPlayer?.rate == 0, let trouble = lastTroubleAt,
+           Date().timeIntervalSince(trouble) < 30 { return false }
+        return true
+    }
+
+    /// Move the LIVE session to a new position: seek the existing scout and
+    /// restart the analyzer from there. This replaces the stop()+start()
+    /// resync, whose fresh player item cost a moov + preload fetch storm
+    /// through the badly-muxed file — the collision behind every stall in
+    /// scenario runs ttcrb2/ttcrb3. One asset per playback, however many
+    /// resyncs. Returns false when there is no live scout to move (caller
+    /// falls back to a full start).
+    func resync(to playhead: CMTime) async -> Bool {
+        guard let scout = scoutPlayer, playhead.seconds.isFinite,
+              playhead.seconds >= 0 else { return false }
+        task?.cancel(); task = nil
+        sink.finish()
+        sink.reset()
+        driftSamples.removeAll()
+        contentOffset = max(0, playhead.seconds)
+        scout.pause()
+        await scout.seek(to: CMTime(seconds: contentOffset, preferredTimescale: 600),
+                         toleranceBefore: .zero, toleranceAfter: .zero)
+        scout.rate = Self.scoutRate
+        awdiag("[AWCAP] scout resynced by seek to \(fmt(contentOffset))s")
+        #if canImport(Speech)
+        if #available(iOS 26, tvOS 26, macOS 26, visionOS 26, *) {
+            task = Task { [weak self] in await self?.consume() }
+        }
+        #endif
+        return true
     }
 
     private let trace = ProcessInfo.processInfo.environment["AW_CAPTION_TRACE"] == "1"

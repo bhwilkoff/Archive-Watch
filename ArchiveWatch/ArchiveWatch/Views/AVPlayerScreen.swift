@@ -364,9 +364,15 @@ final class CaptionCoordinator {
                     if resyncTicks >= 20 {
                         resyncTicks = 0
                         awdiag("[AWCAP] session hopeless for playhead — "
-                              + "restarting captions from \(Int(now.seconds))s")
-                        lc.stop()
-                        await lc.start(url: url, from: now)
+                              + "resyncing captions to \(Int(now.seconds))s")
+                        // Seek the live scout when there is one — a full
+                        // stop/start builds a new player item whose moov +
+                        // preload fetch collides with playback (the stall
+                        // cluster in ttcrb2/ttcrb3).
+                        if await lc.resync(to: now) == false {
+                            lc.stop()
+                            await lc.start(url: url, from: now)
+                        }
                     }
                 } else {
                     resyncTicks = 0
