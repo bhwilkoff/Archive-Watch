@@ -784,11 +784,15 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
         // finishLoading(): a partially-fulfilled request is legal, and
         // AVFoundation simply asks again for exactly what it still needs.
         let frontier = queue.sync { sequentialFrontier }
-        if dataRequest.requestsAllDataToEndOfResource,
-           frontier > 0, offset < frontier - 100_000_000 {
+        // Trailing distance varies with the mux: ~490MB late-film, 24-78MB
+        // early-film (measured). Any LONG request behind the frontier is the
+        // audio track and gets the cap — bounded requests included, since
+        // AVFoundation also issues 70MB+ bounded reads it then abandons.
+        if frontier > 0, offset < frontier - 20_000_000,
+           (upperBound ?? .max) - offset > 16_777_216 {
             let capped = offset + 16_777_216
             upperBound = upperBound.map { min($0, capped) } ?? capped
-            if Self.diag { awdiag("AWSTREAM trailing open-ended req off=%lld capped to 16MB", offset) }
+            if Self.diag { awdiag("AWSTREAM trailing req off=%lld capped to 16MB", offset) }
         }
         var retries = 0
 
