@@ -202,7 +202,7 @@ def main():
     # after the retry still fails app_alive_to_end honestly.
     probe = sh(["xcrun", "devicectl", "device", "info", "processes",
                 "--device", DEVICE], timeout=60)
-    if BUNDLE.split(".")[-1] not in probe.stdout and "ArchiveWatch.app/ArchiveWatch" not in probe.stdout:
+    if "ArchiveWatch.app/ArchiveWatch" not in probe.stdout:
         print("[scenario] app died in launch window — one retry")
         launch(item, outdir)
         time.sleep(8)
