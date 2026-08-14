@@ -1033,7 +1033,10 @@ struct PlayerScreen: View {
             predicate: #Predicate<WatchProgress> { $0.archiveID == aid }
         )
         pendingSeekSeconds = nil
-        if let existing = try? modelContext.fetch(descriptor).first,
+        // Diagnostic-only: a harness control experiment plays a TRUNCATED
+        // remux of a film whose stored resume position exceeds it.
+        let noResume = ProcessInfo.processInfo.environment["AW_NO_RESUME"] == "1"
+        if !noResume, let existing = try? modelContext.fetch(descriptor).first,
            existing.positionSeconds > 10,
            !existing.isComplete {
             pendingSeekSeconds = existing.positionSeconds

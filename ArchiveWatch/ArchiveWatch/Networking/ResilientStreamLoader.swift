@@ -79,6 +79,7 @@ enum PlaybackDiag {
     static let audioMeter = ProcessInfo.processInfo.environment["AW_AUDIO_DIAG"] == "1"
     /// Watchdog bookkeeping for the meter re-attach; main-queue only.
     nonisolated(unsafe) static var lastMeterReattach: CFAbsoluteTime = 0
+    nonisolated(unsafe) static var meterDeathLogged = false
     /// Error-log high-water mark so AWERR prints each entry once; main-queue only.
     nonisolated(unsafe) static var lastErrorLogCount = 0
 
@@ -219,18 +220,21 @@ extension PlaybackDiag {
             }
             if audioMeter, let rms = AudioMeter.shared.drain() {
                 awdiag("AWAUD rms=%.4f", rms)
+            } else if audioMeter, !meterDeathLogged,
+                      CFAbsoluteTimeGetCurrent() - AudioMeter.shared.lastEmit > 8 {
+                meterDeathLogged = true
+                awdiag("AWAUD tap died — no audio evidence past this point (tap lifecycle, not a dropout)")
             }
-            // Meter watchdog: the tap dies across seeks/pipeline rebuilds and
-            // never comes back on its own — re-attach a fresh tap so the
-            // harness's audio-continuity evidence covers the whole run.
-            if audioMeter, let pl = player, pl.rate > 0,
-               let cur = pl.currentItem,
-               CFAbsoluteTimeGetCurrent() - AudioMeter.shared.lastEmit > 8,
-               CFAbsoluteTimeGetCurrent() - lastMeterReattach > 10 {
-                lastMeterReattach = CFAbsoluteTimeGetCurrent()
-                awdiag("AWAUD meter stale — re-attaching")
-                MainActor.assumeIsolated { attachAudioMeter(item: cur, label: "reattach") }
-            }
+            // NO RE-ATTACH, EVER. The watchdog that revived a dead tap by
+            // replacing item.audioMix on the playing item WAS the rhythmic
+            // "audio dropout": attach -> tap lives ~10s -> dies -> 8s stale
+            // detection -> re-attach, a metronome of 16 fake 10.4s gaps in a
+            // 6-minute LAN control run — and with a single attach the same
+            // run shows ZERO gaps. tvOS tears the tap down on heavy-decode
+            // items regardless (17s lifetime on the 4K film, six minutes on
+            // His Girl Friday); the instrument reports what it can and says
+            // when it went blind, and it must never again perturb the render
+            // it observes.
         }
     }
 }
