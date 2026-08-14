@@ -166,7 +166,7 @@ final class LiveCaptions {
         scout.pause()
         scout.replaceCurrentItem(with: nil)
         scoutPlayer = nil
-        if trace { print("[AWCAP] trace scout silenced (item detached)") }
+        if trace { awdiag("[AWCAP] trace scout silenced (item detached)") }
     }
 
     /// Everything transcribed so far, at the times the recognizer reported.
@@ -282,7 +282,7 @@ final class LiveCaptions {
         // Self-identifying, because one verification run measured the OLD
         // binary after an unchecked install and nearly overturned a correct
         // bisect result.
-        print("[AWCAP] scout pitch algorithm: \(item.audioTimePitchAlgorithm.rawValue)")
+        awdiag("[AWCAP] scout pitch algorithm: \(item.audioTimePitchAlgorithm.rawValue)")
         let scout = AVPlayer(playerItem: item)
         #if os(tvOS)
         // Decision 071: the scout is MUTED on tvOS, not volume-0. A volume-0
@@ -320,7 +320,7 @@ final class LiveCaptions {
             }
             await scout.seek(to: CMTime(seconds: self.contentOffset, preferredTimescale: 600))
             scout.rate = exp == "rate1" ? 1.0 : Self.scoutRate
-            print("[AWCAP] scout playing at \(scout.rate)x from \(self.contentOffset)s"
+            awdiag("[AWCAP] scout playing at \(scout.rate)x from \(self.contentOffset)s"
                   + (exp.isEmpty ? "" : " [exp=\(exp)]"))
         }
 
@@ -351,7 +351,7 @@ final class LiveCaptions {
             lastUnhealthyAt = Date()
             if scout.rate != 0 {
                 scout.rate = 0
-                if trace { print("[AWCAP] trace scout YIELDS — playback buffer struggling") }
+                if trace { awdiag("[AWCAP] trace scout YIELDS — playback buffer struggling") }
             }
             return
         }
@@ -368,7 +368,7 @@ final class LiveCaptions {
             if depth < 45, scout.rate != 0 {
                 scout.rate = 0
                 lastDepthYieldAt = Date()
-                if trace { print("[AWCAP] trace scout YIELDS — main buffer \(Int(depth))s < 45s") }
+                if trace { awdiag("[AWCAP] trace scout YIELDS — main buffer \(Int(depth))s < 45s") }
                 return
             }
             if scout.rate == 0, depth < 60 {
@@ -382,19 +382,19 @@ final class LiveCaptions {
         if let u = lastUnhealthyAt {
             guard Date().timeIntervalSince(u) >= Self.healthCooldown else { return }
             lastUnhealthyAt = nil
-            if trace { print("[AWCAP] trace playback healthy again — scout may resume") }
+            if trace { awdiag("[AWCAP] trace playback healthy again — scout may resume") }
         }
         let lead = leadSeconds(over: playhead)
         if lead > Self.maxLead, scout.rate != 0 {
             scout.rate = 0
             if trace {
-                print("[AWCAP] trace scout PAUSED at \(fmt(scout.currentTime().seconds)) "
+                awdiag("[AWCAP] trace scout PAUSED at \(fmt(scout.currentTime().seconds)) "
                       + "(lead \(Int(lead))s)")
             }
         } else if lead < Self.minLead, scout.rate == 0 {
             scout.rate = Self.scoutRate
             if trace {
-                print("[AWCAP] trace scout RESUMED at \(fmt(scout.currentTime().seconds)) "
+                awdiag("[AWCAP] trace scout RESUMED at \(fmt(scout.currentTime().seconds)) "
                       + "(lead \(Int(lead))s)")
             }
         }
@@ -550,13 +550,13 @@ final class LiveCaptions {
         // one (an Apple TV; nothing else on tvOS asks) has no second chance to
         // paper over the mismatch, which is why this bit first there.
         guard let locale = await AutoCaptions.resolvedLocale() else {
-            print("[AWCAP] no supported transcription locale on this device")
+            awdiag("[AWCAP] no supported transcription locale on this device")
             await MainActor.run {
                 self.failure = "Automatic captions aren't available on this device."
             }
             return
         }
-        print("[AWCAP] locale \(locale.identifier(.bcp47))")
+        awdiag("[AWCAP] locale \(locale.identifier(.bcp47))")
         let transcriber = SpeechTranscriber(locale: locale,
                                             preset: .timeIndexedProgressiveTranscription)
         do {
@@ -570,11 +570,11 @@ final class LiveCaptions {
             await MainActor.run { self.modelProgress = nil }
             guard let want = await SpeechAnalyzer
                 .bestAvailableAudioFormat(compatibleWith: [transcriber]) else {
-                print("[AWCAP] NO speech model available — cannot transcribe")
+                awdiag("[AWCAP] NO speech model available — cannot transcribe")
                 await MainActor.run { self.failure = "No speech model is available." }
                 return
             }
-            print("[AWCAP] analyzer format \(want.sampleRate)Hz ch=\(want.channelCount)")
+            awdiag("[AWCAP] analyzer format \(want.sampleRate)Hz ch=\(want.channelCount)")
             sink.setTargetFormat(want)
 
             let analyzer = SpeechAnalyzer(modules: [transcriber])
@@ -611,13 +611,13 @@ final class LiveCaptions {
                 guard s0.isFinite, e0.isFinite, e0 > s0 else { continue }
                 await MainActor.run {
                     if self.cues.count < 3 {
-                        print("[AWCAP] cue \(String(format: "%.1f", s0))-\(String(format: "%.1f", e0))s: \(text.prefix(40))")
+                        awdiag("[AWCAP] cue \(String(format: "%.1f", s0))-\(String(format: "%.1f", e0))s: \(text.prefix(40))")
                     } else if self.trace {
                         // The full mapping, every cue: the analyzer's own range
                         // AND the film time it became, plus where the scout
                         // actually is — so a replay, a clock jump, or a bad
                         // scaling shows itself in one console read.
-                        print("[AWCAP] trace cue raw \(fmt(result.range.start.seconds))-"
+                        awdiag("[AWCAP] trace cue raw \(fmt(result.range.start.seconds))-"
                               + "\(fmt(result.range.end.seconds)) -> film \(fmt(s0))-\(fmt(e0)) "
                               + "(scout at \(fmt(self.scoutPlayer?.currentTime().seconds ?? -1))): "
                               + "\(text.prefix(34))")
@@ -630,9 +630,9 @@ final class LiveCaptions {
             // gets a sentence about their situation, not our API's — plus what
             // the device itself reports, because on an Apple TV that line is
             // the only way this ever gets diagnosed.
-            print("[AWCAP] FAILED: \(error)")
+            awdiag("[AWCAP] FAILED: \(error)")
             let report = await AutoCaptions.availabilityReport(for: transcriber)
-            print("[AWCAP] \(report)")
+            awdiag("[AWCAP] \(report)")
             await MainActor.run {
                 self.failure = Self.viewerMessage(for: error) + "  (\(report))"
                 // Nothing will consume this audio now — stop paying for it.
@@ -714,7 +714,7 @@ final class BufferSink: @unchecked Sendable {
         sourceFormat = AVAudioFormat(streamDescription: &d)
         converter = nil
         if Self.diag {
-            print("[AWCAP] tap prepared: \(d.mSampleRate)Hz ch=\(d.mChannelsPerFrame)")
+            awdiag("[AWCAP] tap prepared: \(d.mSampleRate)Hz ch=\(d.mChannelsPerFrame)")
         }
     }
 
@@ -780,7 +780,7 @@ final class BufferSink: @unchecked Sendable {
         if Self.diag {
             tapCalls += 1
             if tapCalls == 1 || tapCalls % 200 == 0 {
-                print("[AWCAP] tap callback #\(tapCalls) frames=\(frames) "
+                awdiag("[AWCAP] tap callback #\(tapCalls) frames=\(frames) "
                       + "src=\(sourceFormat != nil) dst=\(targetFormat != nil) "
                       + "sink=\(continuation != nil)")
             }

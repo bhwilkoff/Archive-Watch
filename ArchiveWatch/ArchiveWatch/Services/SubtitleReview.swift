@@ -103,7 +103,7 @@ enum SubtitleReview {
             captions.stopListening()
             return nil
         }
-        print("[AWCAP] subtitle review: \(verdict.summary)")
+        awdiag("[AWCAP] subtitle review: \(verdict.summary)")
 
         switch verdict.choice {
         case .keepPublished:

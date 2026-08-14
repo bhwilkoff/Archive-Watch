@@ -26,6 +26,41 @@ import UniformTypeIdentifiers
 // @unchecked Sendable: all mutable state (`tasks`, `contentLength`) is confined to
 // the serial `queue` — the delegate callbacks run on it, and the per-request Tasks
 // reach it via queue.sync/async. The URLSession and immutable lets are safe.
+// FILE-BACKED diagnostics for the external-observation harness (AW_DIAG_FILE=1).
+// `devicectl` cannot hold a console stream open while the harness takes
+// screenshots — two concurrent device sessions kill the console (measured: the
+// stream died at the first capture, leaving a 6-minute scenario with one
+// buffer sample). Diagnostics therefore write to Documents/awdiag.log,
+// epoch-stamped, and the harness copies the file out afterwards
+// (`devicectl device copy from --domain-type appDataContainer`). Truncated at
+// launch; each write is a syscall, so a terminated app loses nothing.
+enum DiagFile {
+    static let enabled = ProcessInfo.processInfo.environment["AW_DIAG_FILE"] == "1"
+    private static let q = DispatchQueue(label: "awdiag-file")
+    private static let handle: FileHandle? = {
+        guard enabled else { return nil }
+        let url = FileManager.default.urls(for: .documentDirectory,
+                                           in: .userDomainMask)[0]
+            .appendingPathComponent("awdiag.log")
+        try? "".write(to: url, atomically: true, encoding: .utf8)
+        return try? FileHandle(forWritingTo: url)
+    }()
+    static func log(_ s: String) {
+        guard enabled, let h = handle else { return }
+        let line = String(format: "%.3f %@\n", Date().timeIntervalSince1970, s)
+        q.async { h.write(line.data(using: .utf8) ?? Data()) }
+    }
+}
+
+/// Diagnostic line to console AND the harness file — NSLog-compatible
+/// signature so call sites convert by name alone. Every AW* metric and every
+/// [AWCAP] trace goes through here; the external harness reads the file.
+func awdiag(_ format: String, _ args: CVarArg...) {
+    let s = String(format: format, arguments: args)
+    NSLog("%@", s)
+    DiagFile.log(s)
+}
+
 // Playback diagnostics, gated by AW_PLAYBACK_DIAG=1 (no-op in production).
 // Logs stall events + buffer depth so loader changes can be judged by observed
 // evidence (the Decision 021 discipline): count AWSTALL lines, watch AWBUF.
@@ -44,11 +79,11 @@ enum PlaybackDiag {
         guard audioMeter else { return }
         Task {
             guard let track = try? await item.asset.loadTracks(withMediaType: .audio).first else {
-                NSLog("AWAUD %@ no audio track found", label)
+                awdiag("AWAUD %@ no audio track found", label)
                 return
             }
             guard let tap = AudioMeter.shared.makeTap() else {
-                NSLog("AWAUD %@ tap creation failed", label)
+                awdiag("AWAUD %@ tap creation failed", label)
                 return
             }
             let params = AVMutableAudioMixInputParameters(track: track)
@@ -57,7 +92,7 @@ enum PlaybackDiag {
             mix.inputParameters = [params]
             await MainActor.run {
                 item.audioMix = mix
-                NSLog("AWAUD %@ meter attached", label)
+                awdiag("AWAUD %@ meter attached", label)
             }
         }
     }
@@ -87,7 +122,7 @@ final class AudioMeter: @unchecked Sendable {
         let now = CFAbsoluteTimeGetCurrent()
         if now - lastPrint >= 2, samples > 0 {
             let rms = (accum / Float(samples)).squareRoot()
-            NSLog("AWAUD rms=%.4f", rms)
+            awdiag("AWAUD rms=%.4f", rms)
             accum = 0; samples = 0; lastPrint = now
         }
     }
@@ -124,11 +159,11 @@ extension PlaybackDiag {
         // a leaked player advancing for the whole session next to the visible
         // one — and without an id per line that took forensics to notice.
         let pid = String(UInt(bitPattern: ObjectIdentifier(player).hashValue) % 0xFFFF, radix: 16)
-        NSLog("AWLIFE tune player=%@", pid)
+        awdiag("AWLIFE tune player=%@", pid)
         NotificationCenter.default.addObserver(
             forName: AVPlayerItem.playbackStalledNotification,
             object: item, queue: .main) { _ in
-            NSLog("AWSTALL playback stalled player=%@", pid)
+            awdiag("AWSTALL playback stalled player=%@", pid)
         }
         _ = player.addPeriodicTimeObserver(
             forInterval: CMTime(seconds: 5, preferredTimescale: 1), queue: .main) { [weak player] t in
@@ -137,7 +172,7 @@ extension PlaybackDiag {
                 .filter { $0.containsTime(t) || $0.start >= t }
                 .map { $0.end.seconds - max(t.seconds, $0.start.seconds) }
                 .reduce(0, +)
-            NSLog("AWBUF p=%@ t=%.0f ahead=%.0f rate=%.2f", pid, t.seconds, ahead, player?.rate ?? -1)
+            awdiag("AWBUF p=%@ t=%.0f ahead=%.0f rate=%.2f", pid, t.seconds, ahead, player?.rate ?? -1)
         }
     }
 }
@@ -427,7 +462,7 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
         }
         guard !bases.isEmpty else { return }
         queue.sync { self.alternateBases = bases }
-        if Self.diag { NSLog("AWSTREAM alternates: %d node(s) for %@", bases.count, metaID) }
+        if Self.diag { awdiag("AWSTREAM alternates: %d node(s) for %@", bases.count, metaID) }
     }
 
     private func fillContentInfo(_ info: AVAssetResourceLoadingContentInformationRequest,
@@ -462,7 +497,7 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
                 let st = http.statusCode
                 if (500...599).contains(st) || st == 403 || st == 404 {
                     queue.sync { markNodeFailed(target) }
-                    if Self.diag { NSLog("AWSTREAM probe node %@ failed (status %d) -> rotating", target.host ?? "?", st) }
+                    if Self.diag { awdiag("AWSTREAM probe node %@ failed (status %d) -> rotating", target.host ?? "?", st) }
                     throw URLError(.badServerResponse)
                 }
                 guard (200...299).contains(st) else {
@@ -472,7 +507,7 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
                 // the origin's 302 round trip (~0.5-1.0s saved per request).
                 if let final = response.url, final != realURL {
                     queue.sync { if !self.failedHosts.contains(final.host ?? "") { self.pinnedURL = final } }
-                    if Self.diag { NSLog("AWSTREAM pinned node %@ (probe)", final.host ?? "?") }
+                    if Self.diag { awdiag("AWSTREAM pinned node %@ (probe)", final.host ?? "?") }
                 }
 
                 let mime = http.mimeType ?? "video/mp4"
@@ -624,7 +659,7 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
                 }
                 if Self.diag {
                     let ms = Date().timeIntervalSince(started) * 1000
-                    NSLog("AWSTREAM block idx=%lld bytes=%d ms=%.0f", index, data.count, ms)
+                    awdiag("AWSTREAM block idx=%lld bytes=%d ms=%.0f", index, data.count, ms)
                 }
                 return data
             } catch {
@@ -679,14 +714,14 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
                 }
                 if let final = stream.finalURL, final != target {
                     queue.sync { if !failedHosts.contains(final.host ?? "") { pinnedURL = final } }
-                    if Self.diag { NSLog("AWSTREAM pinned node %@", final.host ?? "?") }
+                    if Self.diag { awdiag("AWSTREAM pinned node %@", final.host ?? "?") }
                 }
                 if stream.delivered == 0 {
                     request.finishLoading(); return        // clean EOF
                 }
                 if Self.diag {
                     let ms = Date().timeIntervalSince(started) * 1000
-                    NSLog("AWSTREAM chunk off=%lld bytes=%d ms=%.0f mbps=%.1f pinned=%d",
+                    awdiag("AWSTREAM chunk off=%lld bytes=%d ms=%.0f mbps=%.1f pinned=%d",
                           offset - Int64(stream.delivered), stream.delivered, ms,
                           Double(stream.delivered) * 8 / max(ms / 1000, 0.001) / 1_000_000,
                           target != realURL ? 1 : 0)
@@ -715,7 +750,7 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
                     if (500...599).contains(st) || st == 403 || st == 404 {
                         markNodeFailed(target)
                         transportFailsByHost[host] = 0
-                        if Self.diag { NSLog("AWSTREAM node %@ failed (status %d) -> rotating", host, st) }
+                        if Self.diag { awdiag("AWSTREAM node %@ failed (status %d) -> rotating", host, st) }
                     } else {
                         if stream.delivered > 0 {
                             transportFailsByHost[host] = 0     // progress → host is alive
@@ -725,14 +760,14 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
                             if n >= transportFailThreshold {
                                 markNodeFailed(target)
                                 transportFailsByHost[host] = 0
-                                if Self.diag { NSLog("AWSTREAM node %@ failed (transport x%d) -> rotating", host, n) }
+                                if Self.diag { awdiag("AWSTREAM node %@ failed (transport x%d) -> rotating", host, n) }
                             }
                         }
                         if target != realURL { pinnedURL = nil }
                     }
                 }
                 retries += 1
-                if Self.diag { NSLog("AWSTREAM retry#%d off=%lld err=%@", retries, offset, "\(error)") }
+                if Self.diag { awdiag("AWSTREAM retry#%d off=%lld err=%@", retries, offset, "\(error)") }
                 if retries > maxRetries { request.finishLoading(with: error as NSError); return }
                 // Brief backoff, then re-request from the SAME offset (resume).
                 let delay = min(2.0, 0.25 * Double(retries))

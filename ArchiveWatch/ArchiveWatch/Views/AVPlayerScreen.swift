@@ -112,7 +112,7 @@ final class CaptionCoordinator {
                 observedPlayer = player
                 captions?.stopListening()
                 if trace {
-                    print("[AWCAP] trace: rebuilt player — scout STOPPED for this "
+                    awdiag("[AWCAP] trace: rebuilt player — scout STOPPED for this "
                           + "session (marginal stream; playback wins)")
                 }
             }
@@ -171,7 +171,7 @@ final class CaptionCoordinator {
                 // showed it when the viewer's system caption preference is on.
                 self?.updateShowFile()
                 if self?.trace == true {
-                    print("[AWCAP] trace file subtitles loaded: \(cues.count) cues, "
+                    awdiag("[AWCAP] trace file subtitles loaded: \(cues.count) cues, "
                           + "showing=\(self?.showFile == true)")
                 }
             }
@@ -320,7 +320,7 @@ final class CaptionCoordinator {
                 self?.label?.isHidden = text.isEmpty
                 if self?.trace == true {
                     if text != shown {
-                        print("[AWCAP] trace t=\(String(format: "%.1f", now.seconds)) "
+                        awdiag("[AWCAP] trace t=\(String(format: "%.1f", now.seconds)) "
                               + (text.isEmpty ? "(blank)" : "show: \(text.prefix(50))"))
                         // The caption's ACTUAL geometry, once: two rounds of
                         // constraint fixes were shipped against an assumed
@@ -329,13 +329,13 @@ final class CaptionCoordinator {
                         if !geometryPrinted, !text.isEmpty, let l = self?.label,
                            let sv = l.superview {
                             geometryPrinted = true
-                            print("[AWCAP] trace geometry label=\(l.frame) "
+                            awdiag("[AWCAP] trace geometry label=\(l.frame) "
                                   + "overlay=\(sv.bounds) "
                                   + "screen=\(sv.window?.bounds ?? .zero) "
                                   + "safeBottomInset=\(sv.safeAreaInsets.bottom)")
                         }
                     } else if Date().timeIntervalSince(lastTrace) > 10 {
-                        print("[AWCAP] trace t=\(String(format: "%.1f", now.seconds)) "
+                        awdiag("[AWCAP] trace t=\(String(format: "%.1f", now.seconds)) "
                               + "steady (\(lc.isRunning ? "engine running" : "engine stopped"), "
                               + "lead \(Int(lc.leadSeconds(over: now)))s)")
                         lastTrace = Date()
@@ -363,7 +363,7 @@ final class CaptionCoordinator {
                     resyncTicks += 1
                     if resyncTicks >= 20 {
                         resyncTicks = 0
-                        print("[AWCAP] session hopeless for playhead — "
+                        awdiag("[AWCAP] session hopeless for playhead — "
                               + "restarting captions from \(Int(now.seconds))s")
                         lc.stop()
                         await lc.start(url: url, from: now)

@@ -676,16 +676,16 @@ struct PlayerScreen: View {
             }
         }
         .onAppear {
-            if PlaybackDiag.enabled { NSLog("AWLIFE screen=%@ onAppear", screenID) }
+            if PlaybackDiag.enabled { awdiag("AWLIFE screen=%@ onAppear", screenID) }
             store.isPlayingVideo = true; setupPlayer()
         }
         .onDisappear {
-            if PlaybackDiag.enabled { NSLog("AWLIFE screen=%@ onDisappear", screenID) }
+            if PlaybackDiag.enabled { awdiag("AWLIFE screen=%@ onDisappear", screenID) }
             store.isPlayingVideo = false; teardownPlayer()
         }
         // #10: autoplay swapped `current` -> rebuild the player for the next film.
         .onChange(of: current?.archiveID) { _, _ in
-            if PlaybackDiag.enabled { NSLog("AWLIFE screen=%@ currentChanged", screenID) }
+            if PlaybackDiag.enabled { awdiag("AWLIFE screen=%@ currentChanged", screenID) }
             autoRetried = false          // #10: fresh retry budget per item
             forceDirectPlayback = false  // new item tries the HLS-subtitle path fresh
             teardownPlayer()
@@ -831,7 +831,7 @@ struct PlayerScreen: View {
     // shows the recoverable error screen.
     private func handleLoadFailure(_ message: String) {
         if PlaybackDiag.enabled {
-            NSLog("AWLIFE screen=%@ handleLoadFailure autoRetried=%d msg=%@",
+            awdiag("AWLIFE screen=%@ handleLoadFailure autoRetried=%d msg=%@",
                   screenID, autoRetried ? 1 : 0, message)
         }
         if !autoRetried {
@@ -867,7 +867,7 @@ struct PlayerScreen: View {
     // current position first so setupPlayer resumes at (within ~5s of) the stall.
     private func forceDirectFallback() {
         guard !forceDirectPlayback, (current ?? catalogItem)?.subtitleHLSURL != nil else { return }
-        if PlaybackDiag.enabled { NSLog("AWLIFE screen=%@ forceDirectFallback", screenID) }
+        if PlaybackDiag.enabled { awdiag("AWLIFE screen=%@ forceDirectFallback", screenID) }
         forceDirectPlayback = true
         teardownPlayer(persist: true)
         playback = .loading
@@ -879,7 +879,7 @@ struct PlayerScreen: View {
     // loader back, at the cost of those captions.
     private func forceResilientFallback() {
         guard !forceResilientPlayback else { return }
-        if PlaybackDiag.enabled { NSLog("AWLIFE screen=%@ forceResilientFallback", screenID) }
+        if PlaybackDiag.enabled { awdiag("AWLIFE screen=%@ forceResilientFallback", screenID) }
         forceResilientPlayback = true
         teardownPlayer(persist: true)
         playback = .loading
@@ -888,7 +888,7 @@ struct PlayerScreen: View {
 
     private func setupPlayer() {
         if PlaybackDiag.enabled {
-            NSLog("AWLIFE screen=%@ setupPlayer item=%@ hadPlayer=%d",
+            awdiag("AWLIFE screen=%@ setupPlayer item=%@ hadPlayer=%d",
                   screenID, activeArchiveID, player != nil ? 1 : 0)
         }
         playback = .loading
@@ -946,7 +946,7 @@ struct PlayerScreen: View {
             Task { @MainActor in
                 switch observed.status {
                 case .readyToPlay:
-                    if PlaybackDiag.enabled { NSLog("AWLIFE screen=%@ itemReady", screenID) }
+                    if PlaybackDiag.enabled { awdiag("AWLIFE screen=%@ itemReady", screenID) }
                     playback = .ready
                     skipCount = 0          // #7: a good item resets the skip budget
                     timeoutTask?.cancel()
@@ -966,7 +966,7 @@ struct PlayerScreen: View {
                     p.play()
                 case .failed:
                     if PlaybackDiag.enabled {
-                        NSLog("AWLIFE screen=%@ itemFailed t=%.0f error=%@", screenID,
+                        awdiag("AWLIFE screen=%@ itemFailed t=%.0f error=%@", screenID,
                               observed.currentTime().seconds,
                               String(describing: observed.error))
                     }
@@ -983,7 +983,7 @@ struct PlayerScreen: View {
             try? await Task.sleep(for: loadTimeout)
             guard !Task.isCancelled else { return }
             if playback == .loading {
-                if PlaybackDiag.enabled { NSLog("AWLIFE screen=%@ loadTimeoutFired", screenID) }
+                if PlaybackDiag.enabled { awdiag("AWLIFE screen=%@ loadTimeoutFired", screenID) }
                 handleLoadFailure("This title is taking too long to load. The source may be temporarily unavailable.")
             }
         }
@@ -1033,7 +1033,7 @@ struct PlayerScreen: View {
 
     private func teardownPlayer(persist: Bool = true) {
         if PlaybackDiag.enabled {
-            NSLog("AWLIFE screen=%@ teardownPlayer hadPlayer=%d", screenID, player != nil ? 1 : 0)
+            awdiag("AWLIFE screen=%@ teardownPlayer hadPlayer=%d", screenID, player != nil ? 1 : 0)
         }
         if let obs = timeObserver { player?.removeTimeObserver(obs) }
         if let e = endObserver { NotificationCenter.default.removeObserver(e); endObserver = nil }
