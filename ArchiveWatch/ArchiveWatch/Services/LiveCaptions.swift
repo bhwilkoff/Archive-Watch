@@ -284,6 +284,13 @@ final class LiveCaptions {
         // binary after an unchecked install and nearly overturned a correct
         // bisect result.
         awdiag("[AWCAP] scout pitch algorithm: \(item.audioTimePitchAlgorithm.rawValue)")
+        // A small preload budget. A fresh item buffers toward its preference
+        // even at rate 0, and on a badly-muxed file that startup fetch is a
+        // storm of large random reads — the collision that stalled playback
+        // after every restart on TtCRB-4K. Ten seconds keeps a RUNNING scout
+        // fed (the tap consumes as delivered) without letting a paused one
+        // compete with the viewer's stream.
+        item.preferredForwardBufferDuration = 10
         let scout = AVPlayer(playerItem: item)
         #if os(tvOS)
         // Decision 071: the scout is MUTED on tvOS, not volume-0. A volume-0
@@ -359,6 +366,15 @@ final class LiveCaptions {
             if scout.rate != 0 {
                 scout.rate = 0
                 if trace { awdiag("[AWCAP] trace scout YIELDS — playback buffer struggling") }
+            }
+            // Two minutes yielded with nothing produced: playback on this
+            // title cannot spare a second stream, and "Preparing automatic
+            // captions…" would otherwise stand for the whole film. Say the
+            // true thing once (the notice shows briefly and clears); the
+            // engine keeps waiting and springs to life if the stream eases.
+            if !everProducedCue, failure == nil, let s = startedAt,
+               Date().timeIntervalSince(s) > 120 {
+                failure = "Captions are waiting for smoother playback."
             }
             return
         }
@@ -496,6 +512,14 @@ final class LiveCaptions {
         let t = playhead.seconds
         guard isRunning, t.isFinite, t >= 0 else { return false }
         if t < contentOffset - 30 { return true }              // seeked behind the session
+        // A scout the throttle has PAUSED is behind by design, and a fresh
+        // session would be paused the same way — but each restart builds a
+        // new player item whose startup fetch (moov + preload) collides with
+        // exactly the struggling playback that paused the scout. Measured on
+        // TtCRB-4K: restart churn every ~48s, with playback stalls clustered
+        // 10-32s after each one. The restart happens the moment the scout is
+        // allowed to run again and is genuinely behind (rate != 0 below).
+        if scoutPlayer?.rate == 0 { return false }
         let scoutAt = scoutPlayer?.currentTime().seconds
         let reached = max(cues.last?.end ?? contentOffset,
                           (scoutAt?.isFinite == true ? scoutAt! : contentOffset))
