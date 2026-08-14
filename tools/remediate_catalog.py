@@ -897,6 +897,33 @@ def _is_human_caption(c):
     return c.get("source") != "archive-asr" and "(auto)" not in (c.get("label") or "")
 
 
+_SUBTITLE_DENYLIST = REPO / "shared" / "editorial" / "subtitle_denylist.json"
+
+
+def drop_denylisted_subtitles(items):
+    """Strip subtitle claims from ids whose published track was measured to be
+    LAUNDERED ASR — the archive item's own hallucinated .asr.srt re-uploaded to
+    a subtitle site under a human label (>=85% word-identical both directions;
+    Till the Clouds Roll By was 100%). Provenance says human, content is junk,
+    so neither the source-keyed ASR drop below nor the harvest filters catch
+    it. Runs EVERY build so a concurrent writer that clobbers a manual purge
+    heals on the next publish; `subtitlesMismatched` keeps free_subtitles from
+    re-harvesting the same file."""
+    try:
+        deny = set(json.loads(_SUBTITLE_DENYLIST.read_text()).get("ids", []))
+    except Exception:  # noqa: BLE001
+        return 0
+    n = 0
+    for it in items:
+        if it.get("archiveID") in deny:
+            had = bool(it.get("captions") or it.get("subtitleHLS"))
+            it.pop("captions", None)
+            it.pop("subtitleHLS", None)
+            it["subtitlesMismatched"] = True
+            n += had
+    return n
+
+
 def drop_asr_captions(items):
     """archive.org auto-ASR captions (label 'English (auto)', source 'archive-asr')
     are hallucinated word-salad on the catalog's old-film audio — the SAME failure
@@ -1694,6 +1721,9 @@ def main():
         stats["asr_captions_dropped"] = asr
     if hls:
         stats["orphan_subtitleHLS_cleared"] = hls
+    denied = drop_denylisted_subtitles(cat["items"])   # laundered-ASR provider tracks
+    if denied:
+        stats["denylisted_subtitles_dropped"] = denied
     stats["junk_removed"] = junk_removed
     print("[remediate] " + (", ".join(f"{k}={v}" for k, v in sorted(stats.items())) or "no changes"))
     if not args.dry_run:

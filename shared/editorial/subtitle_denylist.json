@@ -1,0 +1,24 @@
+{
+ "comment": "Published subtitle tracks measured CONTENT-IDENTICAL to the archive item's own hallucinated .asr.srt (laundered ASR re-uploaded to subtitle sites under a human label). remediate_catalog strips captions/subtitleHLS for these ids EVERY build \u2014 self-healing against writer races \u2014 and free_subtitles skips subtitlesMismatched so they are never re-harvested. Sweep: scratchpad asr_junk_sweep.py, 2026-08-13, >=85% word overlap both directions.",
+ "ids": [
+  "AfricaScreams",
+  "Mr.WongDetective720p1938",
+  "Mr._Wong_Detective",
+  "Mr_Wong_in_Chinatown",
+  "MurderAtTheBaskervilles720p1937",
+  "Murder_At_The_Baskervilles",
+  "Rembrandt",
+  "SinTakesAHoliday",
+  "TheKennelMurderCase720p1933",
+  "TheLittlePrincess1939",
+  "The_Kennel_Murder_Case_1933",
+  "Waltzes_from_Vienna",
+  "brideless_groom",
+  "dick_tracy_detctive",
+  "great_commandment",
+  "manos_the_hands_of_fate",
+  "royal_wedding",
+  "till_the_clouds_roll_by",
+  "west_of_the_divide"
+ ]
+}
