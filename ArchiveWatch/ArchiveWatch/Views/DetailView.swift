@@ -829,10 +829,19 @@ struct PlayerScreen: View {
     // common case is a cold Archive node that succeeds on the second attempt
     // (exactly what hitting "Try Again" did manually). Only a second failure
     // shows the recoverable error screen.
-    private func handleLoadFailure(_ message: String) {
+    private func handleLoadFailure(_ message: String, retryable: Bool = true) {
         if PlaybackDiag.enabled {
             awdiag("AWLIFE screen=%@ handleLoadFailure autoRetried=%d msg=%@",
                   screenID, autoRetried ? 1 : 0, message)
+        }
+        // A codec the hardware cannot decode does not heal on retry: the
+        // rebuilt player detected AV1 again, ITS failure auto-retried again,
+        // and a third player streamed audio-only over a black screen — the
+        // exact symptom the detection exists to prevent.
+        if !retryable {
+            teardownPlayer(persist: false)
+            playback = .failed(message)
+            return
         }
         if !autoRetried {
             autoRetried = true
@@ -954,7 +963,7 @@ struct PlayerScreen: View {
                 if let name {
                     awdiag("AWLIFE screen=%@ unsupportedCodec %@", screenID, name)
                     timeoutTask?.cancel()
-                    handleLoadFailure("This copy's video is \(name), which Apple TV can't decode. The picture would stay black.")
+                    handleLoadFailure("This copy's video is \(name), which Apple TV can't decode. The picture would stay black.", retryable: false)
                     return
                 }
             }
