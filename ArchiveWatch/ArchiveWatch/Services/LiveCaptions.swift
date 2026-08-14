@@ -318,7 +318,12 @@ final class LiveCaptions {
                 mix.inputParameters = [params]
                 item.audioMix = mix
             }
-            await scout.seek(to: CMTime(seconds: self.contentOffset, preferredTimescale: 600))
+            // Exact, because on a badly-muxed file a tolerant seek is what let
+            // the tap receive a burst of pre-target audio from the start of a
+            // huge interleaved audio chunk (see driftCheck). Zero tolerance
+            // narrows the burst; the drift bound below catches whatever remains.
+            await scout.seek(to: CMTime(seconds: self.contentOffset, preferredTimescale: 600),
+                             toleranceBefore: .zero, toleranceAfter: .zero)
             scout.rate = exp == "rate1" ? 1.0 : Self.scoutRate
             awdiag("[AWCAP] scout playing at \(scout.rate)x from \(self.contentOffset)s"
                   + (exp.isEmpty ? "" : " [exp=\(exp)]"))
@@ -384,6 +389,7 @@ final class LiveCaptions {
             lastUnhealthyAt = nil
             if trace { awdiag("[AWCAP] trace playback healthy again — scout may resume") }
         }
+        if scout.rate != 0 { driftCheck(scout) }
         let lead = leadSeconds(over: playhead)
         if lead > Self.maxLead, scout.rate != 0 {
             scout.rate = 0
@@ -404,6 +410,44 @@ final class LiveCaptions {
     private static let healthCooldown: TimeInterval = 5
     private var lastUnhealthyAt: Date?
     private var lastDepthYieldAt: Date?
+
+    /// Times the mapping was re-anchored against the scout's own position.
+    /// The judge reads this: evidence gathered across a correction was
+    /// measured with the wrong ruler and must not carry a verdict.
+    private(set) var driftCorrections = 0
+
+    /// DRIFT BOUND. The mapping `film = offset + raw × rate` trusts the tap
+    /// to deliver exactly rate-compressed audio from the session's start
+    /// point. A SEEKED session start on a badly-muxed file breaks that trust:
+    /// the tap receives a burst of pre-target audio from the start of the
+    /// file's huge interleaved audio chunk — measured on His Girl Friday's
+    /// resume, +39s of raw clock the scout never played — and every cue
+    /// thereafter maps ~39s late. The engine's captions trailed the dialogue
+    /// by 40s, and the judge, reading the same broken ruler, condemned the
+    /// CORRECT published file at 7% agreement (scenario run atvrun-hgf5).
+    ///
+    /// The scout's own position clock is the bound: the tap sits in the
+    /// render chain, so tapped audio tracks currentTime() within a small
+    /// queue depth — a double-digit divergence is unambiguous. Re-anchor the
+    /// offset, retime this session's existing cues by the same delta (the
+    /// error is a constant injected at session start, not gradual), and
+    /// count it so the judge restarts its confirmation window.
+    private func driftCheck(_ scout: AVPlayer) {
+        let delivered = sink.deliveredSeconds()
+        guard delivered > 8 else { return }
+        let pos = scout.currentTime().seconds
+        guard pos.isFinite, pos > 0 else { return }
+        let predicted = contentOffset + delivered * Double(Self.scoutRate)
+        let err = predicted - pos
+        guard err > 10 || err < -6 else { return }
+        let delta = -(err - 2)      // leave the newest audio ~2s ahead
+        contentOffset += delta
+        for i in cues.indices { cues[i].start += delta; cues[i].end += delta }
+        for i in rawCues.indices { rawCues[i].start += delta; rawCues[i].end += delta }
+        driftCorrections += 1
+        awdiag("[AWCAP] drift correction #\(driftCorrections): mapping ran "
+              + "\(fmt(err))s ahead of the scout at \(fmt(pos)) — re-anchored by \(fmt(delta))s")
+    }
 
     /// Is this session HOPELESS for where the viewer actually is?
     ///
@@ -747,6 +791,16 @@ final class BufferSink: @unchecked Sendable {
         continuation?.finish()
         continuation = nil
         #endif
+    }
+
+    /// Seconds of converted audio handed to the analyzer so far — the
+    /// analyzer's raw clock, readable from outside. `LiveCaptions.driftCheck`
+    /// compares it against the scout's own position to catch a mapping that
+    /// has come unmoored from the film.
+    func deliveredSeconds() -> Double {
+        lock.lock(); defer { lock.unlock() }
+        guard let dst = targetFormat, dst.sampleRate > 0 else { return 0 }
+        return Double(elapsedFrames) / dst.sampleRate
     }
 
     /// Fresh-session state. WITHOUT this, a backward resync is silently dead:

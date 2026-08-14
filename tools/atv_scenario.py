@@ -22,6 +22,9 @@ DEVICE = "C3FBA9DE-4A60-555B-A65F-80D6809A275B"
 BUNDLE = "app.archivewatch.tvos"
 OCR = "/tmp/awocr"
 SHOT_EVERY = 2.5
+PYATV = "/tmp/pyatv-venv/bin/atvremote"
+PYATV_ARGS = ["--address", "10.0.0.223", "--id", "7A:3F:0C:4E:20:1E",
+              "--protocol", "companion"]
 
 
 def sh(cmd, timeout=90, **kw):
@@ -43,6 +46,21 @@ def resolve_card(title):
     if not hits:
         sys.exit(f"no card found for {title!r}")
     return hits[0][0]
+
+
+def wake_tv():
+    """The TV sleeps between runs; installs work asleep but launches and
+    screenshots do NOT, and devicectl has no wake verb. pyatv's Companion
+    protocol does (one-time PIN pairing, credentials in ~/.pyatv.conf)."""
+    try:
+        r = sh([PYATV] + PYATV_ARGS + ["power_state"], timeout=30)
+        if "PowerState.On" in r.stdout:
+            return
+        print("[scenario] TV asleep — waking it")
+        sh([PYATV] + PYATV_ARGS + ["turn_on"], timeout=30)
+        time.sleep(6)
+    except Exception as e:
+        print(f"[scenario] wake attempt failed (continuing): {e}")
 
 
 def launch(item, outdir):
@@ -170,6 +188,7 @@ def main():
     outdir.mkdir(parents=True, exist_ok=True)
     print(f"[scenario] card: {item}  ->  {outdir}")
 
+    wake_tv()
     launch(item, outdir)
     time.sleep(8)                      # let playback begin
     shots = capture_loop(outdir, args.minutes)

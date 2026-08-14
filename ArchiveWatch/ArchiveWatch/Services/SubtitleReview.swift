@@ -75,8 +75,19 @@ enum SubtitleReview {
         // minute, and on a quiet one no amount of waiting produces evidence.
         var verdict: SubtitleAgreement.Verdict?
         var agreed = 0
+        var driftMark = captions.driftCorrections
         let deadline = Date().addingTimeInterval(giveUpAfter)
         while Date() < deadline {
+            // A drift correction re-anchored the transcript's clock, which
+            // means everything judged so far was measured with the wrong
+            // ruler — the exact mechanism that condemned His Girl Friday's
+            // CORRECT file at 7% agreement. The confirmation window starts
+            // over on the retimed transcript.
+            if captions.driftCorrections != driftMark {
+                driftMark = captions.driftCorrections
+                verdict = nil
+                agreed = 0
+            }
             let transcript = captions.transcript().map {
                 SubtitleAgreement.Cue(start: $0.start, end: $0.end, text: $0.text)
             }
