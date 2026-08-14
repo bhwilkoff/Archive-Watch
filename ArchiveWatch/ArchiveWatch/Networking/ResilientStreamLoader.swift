@@ -121,6 +121,15 @@ final class AudioMeter: @unchecked Sendable {
     /// RT-thread write; diagnostic-only, staleness tolerates it.
     private(set) var lastEmit = CFAbsoluteTimeGetCurrent()
 
+    // The tap thread does MATH ONLY. The first version called awdiag (NSLog +
+    // a queue dispatch) from here every 2s — a priority inversion on the
+    // REALTIME audio thread. On a light decode the system tolerated it; under
+    // the 4K file's load the RT thread missed deadlines and CoreAudio tore
+    // the tap down every ~10-20s (ten "meter deaths" per run, gaps with no
+    // I/O activity anywhere near them) — the instrument was perturbing the
+    // very render it was built to observe, and plausibly audibly. Logging
+    // moved to the main-thread AWBUF tick (`drain()`); these vars are read
+    // racily there, which a diagnostic tolerates.
     func report(_ bufferList: UnsafeMutablePointer<AudioBufferList>, frames: CMItemCount) {
         let abl = UnsafeMutableAudioBufferListPointer(bufferList)
         var sum: Float = 0
@@ -134,12 +143,17 @@ final class AudioMeter: @unchecked Sendable {
         }
         accum += sum
         samples += n
-        let now = CFAbsoluteTimeGetCurrent()
-        if now - lastPrint >= 2, samples > 0 {
-            let rms = (accum / Float(samples)).squareRoot()
-            awdiag("AWAUD rms=%.4f", rms)
-            accum = 0; samples = 0; lastPrint = now; lastEmit = now
-        }
+        lastEmit = CFAbsoluteTimeGetCurrent()   // liveness = tap firing, not logging
+    }
+
+    /// Called from the MAIN-side diagnostics tick: read + reset the
+    /// accumulator and return the rms since last drain, or nil if the tap
+    /// delivered nothing.
+    func drain() -> Float? {
+        guard samples > 0 else { return nil }
+        let rms = (accum / Float(samples)).squareRoot()
+        accum = 0; samples = 0
+        return rms
     }
 
     func makeTap() -> MTAudioProcessingTap? {
@@ -202,6 +216,9 @@ extension PlaybackDiag {
                            e.errorComment ?? "")
                 }
                 lastErrorLogCount = errs.count
+            }
+            if audioMeter, let rms = AudioMeter.shared.drain() {
+                awdiag("AWAUD rms=%.4f", rms)
             }
             // Meter watchdog: the tap dies across seeks/pipeline rebuilds and
             // never comes back on its own — re-attach a fresh tap so the
