@@ -47,7 +47,22 @@ enum SubtitleReview {
     /// The caller supplies the deselect, because turning off a native subtitle
     /// track is per-platform and belongs with the player.
     static func review(vttURL: URL, captions: LiveCaptions) async -> Outcome? {
-        guard let published = await fetchCues(vttURL), !published.isEmpty else { return nil }
+        guard let published = await fetchCues(vttURL), !published.isEmpty else {
+            // The claimed file does not exist or is empty — a purged junk track
+            // met a client whose catalog still carries yesterday's claim
+            // (measured live: Till the Clouds Roll By's laundered-ASR subtitles
+            // were removed server-side and the iOS app then showed NO captions
+            // at all: the scout ran forever, the overlay was never enabled, and
+            // this returned nil, which callers read as "leave things alone").
+            // An unreachable file is not "no opinion" — there is nothing to
+            // show from it, so the engine takes over exactly as it does for a
+            // file that belongs to another film.
+            return Outcome(
+                verdict: SubtitleAgreement.Verdict(
+                    choice: .preferLive, agreement: 0, agreementAtZero: 0,
+                    offset: 0, comparedCues: 0),
+                replacesNativeTrack: true)
+        }
 
         // JUDGE AS THE FILM PLAYS, not after a fixed sampling pass. The scout
         // transcribes AHEAD of the viewer, so a verdict reached now is in place
@@ -138,9 +153,18 @@ enum SubtitleReview {
     }
 
     private static func fetchCues(_ url: URL) async -> [SubtitleAgreement.Cue]? {
-        guard let (data, _) = try? await URLSession.shared.data(from: url),
-              let body = String(data: data, encoding: .utf8) else { return nil }
-        let cues = SubtitleAgreement.parseVTT(body)
-        return cues.isEmpty ? nil : cues
+        // One retry: a transient fetch failure must not condemn a good file to
+        // preferLive for the whole session. A REAL 404 (purged track, stale
+        // client claim) fails both attempts and correctly falls through.
+        for attempt in 0..<2 {
+            if attempt > 0 { try? await Task.sleep(nanoseconds: 2_000_000_000) }
+            if let (data, resp) = try? await URLSession.shared.data(from: url),
+               (resp as? HTTPURLResponse).map({ (200..<300).contains($0.statusCode) }) ?? true,
+               let body = String(data: data, encoding: .utf8) {
+                let cues = SubtitleAgreement.parseVTT(body)
+                if !cues.isEmpty { return cues }
+            }
+        }
+        return nil
     }
 }
