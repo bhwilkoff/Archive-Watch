@@ -360,6 +360,13 @@ def main() -> int:
             return False
         if it.get("contentType") in ("tv-series", "silent-film"):
             return False
+        # A film whose published track was judged junk/mismatched and REMOVED
+        # must not have the same file re-harvested next run. Till the Clouds
+        # Roll By: SubDL served the archive item's own hallucinated ASR
+        # re-uploaded under a human label — content-identical, 100% word
+        # overlap — and without this guard the purge would last one day.
+        if it.get("subtitlesMismatched"):
+            return False
         if (it.get("popularityScore") or 0) < args.min_pop:
             return False
         if args.provider == "subdl" and not it.get("imdbID"):
