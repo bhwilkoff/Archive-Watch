@@ -355,6 +355,7 @@ final class LiveCaptions {
         guard let scout = scoutPlayer else { return }
         if !playbackHealthy {
             lastUnhealthyAt = Date()
+            lastTroubleAt = Date()
             if scout.rate != 0 {
                 scout.rate = 0
                 if trace { awdiag("[AWCAP] trace scout YIELDS — playback buffer struggling") }
@@ -370,15 +371,29 @@ final class LiveCaptions {
         // captions" for minutes; the soak had been declared green from a few
         // DISPLAYED leftover cues while the engine was already locked out —
         // liveness, not display, is what a soak must assert.
+        // The depth thresholds only bind while playback has RECENTLY been in
+        // trouble. A badly-muxed 4K file (Till the Clouds Roll By) sustains
+        // only a 2-15s buffer for whole sections — its random-read pattern is
+        // the ceiling, not bandwidth — while playing at rate 1.0 with zero
+        // stalls. An unconditional depth gate locked the scout out of exactly
+        // those sections forever: "Preparing automatic captions…" stood for
+        // minutes over a film that was playing perfectly, and the scout fell
+        // behind into resync churn (each resync a fresh seek-burst). Gate on
+        // OBSERVED harm: after a real unhealthy event the depth floor rules
+        // for 30s; stall-free playback licenses the scout at any depth.
         if let depth = mainBufferSeconds {
-            if depth < 45, scout.rate != 0 {
-                scout.rate = 0
-                lastDepthYieldAt = Date()
-                if trace { awdiag("[AWCAP] trace scout YIELDS — main buffer \(Int(depth))s < 45s") }
-                return
-            }
-            if scout.rate == 0, depth < 60 {
-                return                      // not enough banked to share yet
+            let sinceUnhealthy = lastTroubleAt.map { Date().timeIntervalSince($0) }
+                ?? .infinity
+            if sinceUnhealthy < 30 {
+                if depth < 45, scout.rate != 0 {
+                    scout.rate = 0
+                    lastDepthYieldAt = Date()
+                    if trace { awdiag("[AWCAP] trace scout YIELDS — main buffer \(Int(depth))s < 45s after trouble") }
+                    return
+                }
+                if scout.rate == 0, depth < 60 {
+                    return                  // not enough banked to share yet
+                }
             }
             if scout.rate == 0, let y = lastDepthYieldAt,
                Date().timeIntervalSince(y) < 10 {
@@ -410,6 +425,9 @@ final class LiveCaptions {
     /// How long playback must be continuously healthy before the scout resumes.
     private static let healthCooldown: TimeInterval = 5
     private var lastUnhealthyAt: Date?
+    /// Like `lastUnhealthyAt` but never cleared — the depth gate's 30s
+    /// trouble window must outlive the 5s resume cooldown that nils it.
+    private var lastTroubleAt: Date?
     private var lastDepthYieldAt: Date?
 
     /// Times the mapping was re-anchored against the scout's own position.

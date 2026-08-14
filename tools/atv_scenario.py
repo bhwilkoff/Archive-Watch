@@ -121,9 +121,9 @@ def ocr(shots):
 def parse_console(log):
     """wall-time -> playhead map (AWBUF), audio samples, stalls, verdicts.
     The diag file's lines are `<epoch.millis> <message>`."""
-    buf, aud, events = [], [], []
+    buf, aud, events, shown = [], [], [], []
     if not log.exists():
-        return buf, aud, events
+        return buf, aud, events, shown
     for line in open(log, errors="ignore"):
         m = re.match(r"^(\d{10}\.\d{3}) (.*)", line)
         if not m:
@@ -135,11 +135,13 @@ def parse_console(log):
                 buf.append((wall, int(bm.group(1)), int(bm.group(2))))
         elif "AWAUD rms" in msg:
             aud.append(wall)
+        elif " show: " in msg:
+            shown.append((wall, msg.split(" show: ", 1)[1]))
         elif any(k in msg for k in ("AWSTALL", "itemFailed", "subtitle review",
                                     "scout playing", "scout silenced", "AWNUDGE",
                                     "AWLIFE")):
             events.append(f"{wall:.1f} {msg}")
-    return buf, aud, events
+    return buf, aud, events, shown
 
 
 def playhead_at(buf, wall):
@@ -196,7 +198,7 @@ def main():
 
     log = pull_diag(outdir)
     texts = ocr(shots)
-    buf, aud, events = parse_console(log)
+    buf, aud, events, shown = parse_console(log)
     vtt = fetch_vtt(item)
 
     # ── Assertions ─────────────────────────────────────────────────────────
@@ -205,6 +207,23 @@ def main():
     def grade(name, ok, evidence):
         report["assertions"][name] = {"pass": bool(ok), "evidence": evidence}
         print(f"  [{'PASS' if ok else 'FAIL'}] {name}: {evidence}")
+
+    # A0. The app must be ALIVE for the whole run. Scenario ttcrb1 graded
+    # "captions on 45/52 frames" while the app had crashed 10s in — the OCR
+    # was reading home-screen app labels in the caption region. The diag
+    # file's last heartbeat is the evidence: the app writes AWBUF every 5s
+    # while playing, so a last line more than 45s before capture ended means
+    # the process died (or playback ended) mid-scenario.
+    last_diag = 0.0
+    if log.exists():
+        for line in open(log, errors="ignore"):
+            m = re.match(r"^(\d{10}\.\d{3}) ", line)
+            if m:
+                last_diag = max(last_diag, float(m.group(1)))
+    capture_end = shots[-1][0] if shots else time.time()
+    grade("app_alive_to_end", last_diag > 0 and capture_end - last_diag < 45,
+          f"last diag heartbeat {capture_end - last_diag:.0f}s before capture end"
+          if last_diag else "no diag heartbeats at all")
 
     # A. Stuck notice: "Preparing"/"unavailable" visible on many frames.
     notice_frames = [p.name for _, p in shots
@@ -261,6 +280,27 @@ def main():
     if vtt:
         grade("glass_matches_file", checks >= 5 and matches / max(1, checks) >= 0.7,
               f"{matches}/{checks} on-glass captions match the published cue at the playhead")
+    elif shown:
+        # ENGINE captions (no published file): the glass must show what the
+        # engine says it displayed, close in wall time. This proves the pipe
+        # end-to-end (engine -> overlay -> pixels) and rejects the ttcrb1
+        # failure mode where "captions" were home-screen labels. Timing vs
+        # the AUDIO is the drift-bound's job; this asserts display fidelity.
+        em = ec = 0
+        for wall, p in shots:
+            region = texts.get(p.name, {}).get("captionRegion", [])
+            if not region:
+                continue
+            near = [s for w, s in shown if abs(w - wall) <= 8]
+            if not near:
+                continue
+            ec += 1
+            glass = norm(" ".join(region))
+            if any(norm(s)[:20] in glass or glass[:20] in norm(s)
+                   for s in near if len(norm(s)) >= 8):
+                em += 1
+        grade("glass_matches_engine", ec >= 5 and em / max(1, ec) >= 0.6,
+              f"{em}/{ec} on-glass captions match an engine-displayed line nearby in time")
 
     (outdir / "report.json").write_text(json.dumps(report, indent=1))
     failed = [k for k, v in report["assertions"].items() if not v["pass"]]

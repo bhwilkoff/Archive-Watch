@@ -115,7 +115,10 @@ enum SubtitleReview {
             captions.stopListening()
             return nil
         }
-        awdiag("[AWCAP] subtitle review: \(verdict.summary)")
+        // As an ARGUMENT, not interpolated into the format string: the summary
+        // contains a literal % ("23% agreement"), which String(format:) then
+        // eats as a specifier — one live verdict logged as "(23 0x0p+0greement)".
+        awdiag("[AWCAP] subtitle review: %@", verdict.summary)
 
         switch verdict.choice {
         case .keepPublished:
