@@ -157,6 +157,24 @@ def _t(v):
 def dedupe_by_imdb(items):
     """Keep the best single item per IMDb id (mirrors AppStore.dedupedByIMDb);
     items without an imdb id are all kept."""
+    # The film's CANONICAL presentation first: within one imdb id, most copies
+    # are the original print and colorized re-releases are the odd ones out —
+    # so a copy matching the group's majority colorMode outranks everything
+    # below. Without this, quality-first crowned a colorized "4K" print as His
+    # Girl Friday's card, displacing the B&W original that carries the film's
+    # corrected subtitles (frame-measured colorMode, Decision 025, is what
+    # makes the vote trustworthy).
+    majority = {}
+    counts = {}
+    for it in items:
+        k = it.get("imdbID")
+        cm = it.get("colorMode")
+        if k and cm and not it.get("excluded"):
+            counts.setdefault(k, {}).setdefault(cm, 0)
+            counts[k][cm] += 1
+    for k, c in counts.items():
+        majority[k] = max(c, key=c.get)
+
     def score(i):
         r = 0
         if i.get("hasRealArtwork") or (i.get("artworkSource") not in (None, "archive")):
@@ -176,7 +194,9 @@ def dedupe_by_imdb(items):
         # _video_quality before votes: same-imdb copies tied on the coarse `r`
         # and fell through to votes (identical per title) and then LEXICOGRAPHIC
         # archiveID — which is how a 4K .ia.mp4 lost to whatever id sorted last.
-        return (1 if i.get("subtitleHLS") else 0, r, _video_quality(i),
+        maj = majority.get(i.get("imdbID"))
+        canonical = 1 if (maj is None or i.get("colorMode") in (None, maj)) else 0
+        return (canonical, 1 if i.get("subtitleHLS") else 0, r, _video_quality(i),
                 i.get("imdbVotes") or 0, i.get("archiveID") or "")
     best = {}
     for it in items:
@@ -211,6 +231,10 @@ _DUPE_QUALIFIERS = [
     "quality print", "widescreen print", " print", "telecine", " scan",
     "complete uncut", "uncut", "feature film",
     "1080p", "720p", "480p", "2160p", "4k", "hd ", " hd",
+    # Bare device qualifiers: "His Girl Friday iPod" is the same 1940 film as
+    # its siblings, and with no imdb id on the upload the title key was the
+    # only way it could ever merge — the owner saw it as its own card.
+    " ipod", " iphone", " mobile",
 ]
 
 _FILM_TYPES = {"feature-film", "short-film", "silent-film", "animation",
