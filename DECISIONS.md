@@ -3296,3 +3296,27 @@ block prefetches so the pattern's misses stay off the decode path). The
 sequential 8 MB streaming path and every 021/031/034 invariant are
 untouched — measured after: buffer sustained 63-103s where it had pinned at
 0-4, stalls 5 -> 0, block re-fetches 6-7x -> at most 2x.
+
+## 073 — The judge may not condemn a human subtitle file on a sparse transcript, nor nudge one inside its own noise
+*Date: 2026-08-14*
+
+Two asymmetric-caution gates in `SubtitleAgreement.judge`, both paid for by
+His Girl Friday's RETIMED (correct) track in build 905: a `preferLive`
+condemnation now requires the transcript to have actually heard at least 100
+usable words — a session that resumes into music or mumble zero-scores a
+perfect file, and one such window discarded the human track mid-film and
+replaced it with machine captions ("no longer synced correctly... a huge
+step backward"). And a shift smaller than 2.5s is adopted only when
+agreement is dense (>=0.45): the judge's own offset noise on a sparse
+transcript is ~1.5s, so noise-sized "corrections" were un-syncing a file
+that was already right. Big shifts and dense-evidence small shifts still
+correct; the 4-control harness holds; on-device re-proof: verdict "match",
+10/10 displayed cues byte-matching the published VTT at the playhead.
+
+**How to apply**: every verdict that makes a viewer's captions WORSE if
+wrong (condemn, replace, shift) must clear an evidence floor scaled to its
+cost, and "no opinion" must remain reachable from every code path — the
+absence of proof that a file matches is not proof that it doesn't. When a
+verdict varies run-to-run on the same film (match 41% / match 24% / shift
+1.3 / preferLive 12% were all observed), that variance IS the measurement of
+the judge's noise, and thresholds must sit outside it.

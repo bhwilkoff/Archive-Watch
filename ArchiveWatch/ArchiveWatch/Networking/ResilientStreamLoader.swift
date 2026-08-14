@@ -570,6 +570,27 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
         return try await task.value
     }
 
+    /// TEST-ONLY: read a byte range through the exact block-cache code the
+    /// player's small reads use, so a harness can compare it byte-for-byte
+    /// with a direct fetch (tools/test_loader_block_integrity.swift).
+    func debugReadRange(offset: Int64, length: Int) async throws -> Data {
+        var out = Data()
+        var cursor = offset
+        let to = offset + Int64(length)
+        while cursor < to {
+            let index = cursor / blockSize
+            let block = try await blockData(index)
+            let blockStart = index * blockSize
+            let lo = Int(cursor - blockStart)
+            guard lo < block.count else { break }
+            let hi = Int(min(Int64(block.count), to - blockStart))
+            out.append(block.subdata(in: lo..<hi))
+            cursor = blockStart + Int64(hi)
+            if Int64(block.count) < blockSize { break }
+        }
+        return out
+    }
+
     private func fetchBlock(_ index: Int64) async throws -> Data {
         let lo = index * blockSize
         let hi = lo + blockSize - 1
@@ -584,10 +605,20 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
                 let (data, resp) = try await session.data(for: req)
                 let status = (resp as? HTTPURLResponse)?.statusCode ?? 0
                 if status == 416 { return Data() }           // past EOF
-                guard (200..<300).contains(status) else {
+                // 206 ONLY. A node that answers a Range request with 200 sends
+                // the WHOLE FILE from byte zero — slicing that as if it were
+                // the requested block would hand the demuxer garbage, which a
+                // viewer perceives as degraded picture and broken sync.
+                guard status == 206 else {
                     if (500...599).contains(status) || status == 403 || status == 404 {
                         queue.sync { markNodeFailed(target) }
                     }
+                    lastError = URLError(.badServerResponse)
+                    continue
+                }
+                // Belt and braces: a 206 whose payload exceeds the asked range
+                // is equally poisonous.
+                guard Int64(data.count) <= blockSize else {
                     lastError = URLError(.badServerResponse)
                     continue
                 }

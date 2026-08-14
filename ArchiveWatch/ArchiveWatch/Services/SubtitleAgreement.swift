@@ -112,6 +112,14 @@ enum SubtitleAgreement {
     /// A shift worth correcting. Under half a second is inside cue-boundary
     /// noise; above it, a viewer notices.
     static let worthShifting: Double = 0.5
+    /// On a SPARSE transcript the measured offset itself carries ~1.5s of
+    /// noise — adopting a noise-sized "correction" to an already-correct file
+    /// makes it wrong (His Girl Friday's retimed track was nudged 1.3s by one
+    /// session's judge and the owner saw it as "no longer synced"). A small
+    /// shift is only adopted when the transcript is dense enough to trust it;
+    /// bigger shifts clear the noise floor on their own.
+    static let smallShiftNeedsAgreement = 0.45
+    static let smallShiftBelow: Double = 2.5
     /// Offsets at or under this are treated as REFINEMENT of a file we already
     /// believe, and do not have to prove themselves against the unshifted score.
     static let refinementRange: Double = 5.0
@@ -191,8 +199,20 @@ enum SubtitleAgreement {
 
         let choice: Choice
         if best.score < mismatchBelow {
+            // CONDEMNING A HUMAN FILE NEEDS STRONG EVIDENCE. A session that
+            // resumed into music or mumbled dialogue produces a sparse, noisy
+            // transcript that zero-scores a PERFECT file — measured live: His
+            // Girl Friday's corrected track was verdicted "don't match (12%)"
+            // and discarded mid-film, and the viewer got machine captions in
+            // place of correct human ones. If the engine heard too little to
+            // judge, the answer is NO OPINION, never condemnation — the same
+            // silence-is-not-evidence rule Decision 062 wrote for single
+            // stretches, now applied to the verdict itself.
+            let heardWordCount = heard.values.reduce(0) { $0 + $1.count }
+            guard heardWordCount >= 100 else { return nil }
             choice = .preferLive
         } else if abs(best.offset) >= worthShifting,
+                  abs(best.offset) >= smallShiftBelow || best.score >= smallShiftNeedsAgreement,
                   best.score >= matchAbove || best.score - atZero > 0.12,
                   abs(best.offset) <= refinementRange || best.score - atZero > 0.15 {
             // The second disjunct matters on sparse transcripts: His Girl

@@ -355,23 +355,28 @@ final class LiveCaptions {
             }
             return
         }
-        // DEPTH hysteresis, when the caller can measure it. The binary healthy
-        // flag reacts only when the buffer is already gone, and its 5s cooldown
-        // resumed the scout straight back into the starvation: on a slow
-        // storage node (measured ~6-9 Mbps total for a 1.9 Mbps film) the main
-        // buffer pinned at 1-15s for MINUTES while the scout thrashed
-        // yield/resync/restart — the owner's "captions come in and out" and
-        // the micro-stutters both. The viewer banks two minutes before the
-        // scout may draw bandwidth at all, and the scout stands down the
-        // moment the bank dips below one.
+        // DEPTH gate, when the caller can measure it: the viewer's buffer
+        // outranks captions. ONE threshold with a cooldown — the first version
+        // was a 60/120 band, and a film whose steady-state buffer sits BETWEEN
+        // the two (Till the Clouds Roll By idles at 63-103s on its node)
+        // locked the scout out permanently: it yielded once at a dip and could
+        // never legally resume. The owner watched "Preparing automatic
+        // captions" for minutes; the soak had been declared green from a few
+        // DISPLAYED leftover cues while the engine was already locked out —
+        // liveness, not display, is what a soak must assert.
         if let depth = mainBufferSeconds {
-            if depth < 60, scout.rate != 0 {
+            if depth < 45, scout.rate != 0 {
                 scout.rate = 0
-                if trace { print("[AWCAP] trace scout YIELDS — main buffer \(Int(depth))s < 60s") }
+                lastDepthYieldAt = Date()
+                if trace { print("[AWCAP] trace scout YIELDS — main buffer \(Int(depth))s < 45s") }
                 return
             }
-            if depth < 120, scout.rate == 0 {
-                return   // stay down until the viewer has two minutes banked
+            if scout.rate == 0, depth < 60 {
+                return                      // not enough banked to share yet
+            }
+            if scout.rate == 0, let y = lastDepthYieldAt,
+               Date().timeIntervalSince(y) < 10 {
+                return                      // brief cooldown so a dip can't flap
             }
         }
         if let u = lastUnhealthyAt {
@@ -398,6 +403,7 @@ final class LiveCaptions {
     /// How long playback must be continuously healthy before the scout resumes.
     private static let healthCooldown: TimeInterval = 5
     private var lastUnhealthyAt: Date?
+    private var lastDepthYieldAt: Date?
 
     /// Is this session HOPELESS for where the viewer actually is?
     ///

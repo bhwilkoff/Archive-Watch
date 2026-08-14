@@ -173,7 +173,10 @@ def dedupe_by_imdb(items):
         # the deduped copy with no CC button even though captions exist. Top
         # priority (ahead of artwork/votes) since the subs+video are a matched
         # pair on that exact archiveID; can't be grafted onto another copy.
-        return (1 if i.get("subtitleHLS") else 0, r,
+        # _video_quality before votes: same-imdb copies tied on the coarse `r`
+        # and fell through to votes (identical per title) and then LEXICOGRAPHIC
+        # archiveID — which is how a 4K .ia.mp4 lost to whatever id sorted last.
+        return (1 if i.get("subtitleHLS") else 0, r, _video_quality(i),
                 i.get("imdbVotes") or 0, i.get("archiveID") or "")
     best = {}
     for it in items:
@@ -259,18 +262,28 @@ def _color_match(a, b):
 
 
 def _video_quality(i):
-    """Higher = better playable copy. qualityScore + resolution hints from the
-    filename, demoting tiny mobile derivatives (512kb/ipod/64kb)."""
-    q = i.get("qualityScore") or 0
+    """Higher = better playable copy, from what the URL actually says about the
+    VIDEO. The legacy qualityScore is damped to a tiebreak: its 50-70 spread
+    (a murky registry metric, Decision 050's caveat) used to dwarf the +5
+    resolution hint, so a 2 Mbps 720p re-upload with a high legacy score beat
+    a real 4K copy — the owner called the result "a significant downgrade".
+    Archive's own `.ia.mp4` derivatives get a bonus: they are normalized,
+    faststart, cleanly-muxed encodes — the upload class that does NOT force
+    AVFoundation into the tiny-random-read pattern (Decision 072)."""
     url = (i.get("downloadURL") or "").lower()
-    if any(x in url for x in ("1080", "1920", "2160", "4k")):
-        q += 5
+    q = (i.get("qualityScore") or 0) / 10.0
+    if any(x in url for x in ("2160", "4k")):
+        q += 12
+    elif any(x in url for x in ("1080", "1920")):
+        q += 10
     elif "720" in url:
-        q += 3
+        q += 6
     elif "480" in url:
-        q += 1
+        q += 2
+    if ".ia.mp4" in url:
+        q += 4
     if any(x in url for x in ("512kb", "256kb", "64kb", "ipod", "_ipod", "mobile")):
-        q -= 6
+        q -= 12
     return q
 
 
@@ -590,8 +603,14 @@ def merge_film_duplicates(items):
         for group in comps.values():
             if len(group) < 2 or not _consistent(group):
                 continue
+            # VIDEO QUALITY OUTRANKS POPULARITY. Summing them let a well-
+            # downloaded 2 Mbps re-upload beat a 4K copy (community 10.3 vs
+            # 3.7 swamped a 5-point quality edge); the community signal is the
+            # tiebreak between comparable videos, never the reason to serve a
+            # worse one.
             winner = max(group, key=lambda i: (1 if i.get("subtitleHLS") else 0,
-                                               _community_copy_score(i) + _video_quality(i),
+                                               _video_quality(i),
+                                               _community_copy_score(i),
                                                _real_art_rank(i), i.get("imdbVotes") or 0))
             donor = next((m for m in group if m.get("imdbID")), None)  # canonical metadata
             for f in GRAFT:
