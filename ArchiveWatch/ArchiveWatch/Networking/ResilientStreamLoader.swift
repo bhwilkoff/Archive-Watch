@@ -770,9 +770,26 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
     private func fulfillData(_ dataRequest: AVAssetResourceLoadingDataRequest,
                              _ request: AVAssetResourceLoadingRequest) async {
         var offset = dataRequest.currentOffset
-        let upperBound: Int64? = dataRequest.requestsAllDataToEndOfResource
+        var upperBound: Int64? = dataRequest.requestsAllDataToEndOfResource
             ? queue.sync { contentLength }
             : dataRequest.requestedOffset + Int64(dataRequest.requestedLength)
+        // AUDIO-REGION RUNAWAY CAP. On a badly-muxed file AVFoundation asks
+        // for the audio track — hundreds of MB BEHIND the video frontier —
+        // with an OPEN-ENDED request, and this loop then streams forward
+        // through video bytes it does not want until the lazy cancellation
+        // lands (measured: 72 MB per runaway, 38 of them in one 6-minute
+        // run, 41%% of all delivered bytes wasted — which starved the buffer
+        // to a 13s knife edge and silenced the audio every ~20s). A request
+        // that begins far behind the frontier gets 16 MB and an early
+        // finishLoading(): a partially-fulfilled request is legal, and
+        // AVFoundation simply asks again for exactly what it still needs.
+        let frontier = queue.sync { sequentialFrontier }
+        if dataRequest.requestsAllDataToEndOfResource,
+           frontier > 0, offset < frontier - 100_000_000 {
+            let capped = offset + 16_777_216
+            upperBound = upperBound.map { min($0, capped) } ?? capped
+            if Self.diag { awdiag("AWSTREAM trailing open-ended req off=%lld capped to 16MB", offset) }
+        }
         var retries = 0
 
         // Small bounded reads (sample-table paging) go through the block cache.
