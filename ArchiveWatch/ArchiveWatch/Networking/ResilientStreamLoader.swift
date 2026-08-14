@@ -79,6 +79,8 @@ enum PlaybackDiag {
     static let audioMeter = ProcessInfo.processInfo.environment["AW_AUDIO_DIAG"] == "1"
     /// Watchdog bookkeeping for the meter re-attach; main-queue only.
     nonisolated(unsafe) static var lastMeterReattach: CFAbsoluteTime = 0
+    /// Error-log high-water mark so AWERR prints each entry once; main-queue only.
+    nonisolated(unsafe) static var lastErrorLogCount = 0
 
     @MainActor
     static func attachAudioMeter(item: AVPlayerItem, label: String) {
@@ -185,7 +187,22 @@ extension PlaybackDiag {
                 .filter { $0.containsTime(t) || $0.start >= t }
                 .map { $0.end.seconds - max(t.seconds, $0.start.seconds) }
                 .reduce(0, +)
-            awdiag("AWBUF p=%@ t=%.0f ahead=%.0f rate=%.2f", pid, t.seconds, ahead, player?.rate ?? -1)
+            // Dropped frames + decode errors, because "the picture looks like
+            // 240p" and "the audio has static" are invisible to every other
+            // metric here: corrupt bytes surface as ERROR-LOG entries, a
+            // starved decoder as DROPPED frames — opposite fixes.
+            let acc = item.accessLog()?.events.last
+            let dropped = acc?.numberOfDroppedVideoFrames ?? -1
+            let stallCt = acc?.numberOfStalls ?? -1
+            awdiag("AWBUF p=%@ t=%.0f ahead=%.0f rate=%.2f drop=%ld stalls=%ld",
+                   pid, t.seconds, ahead, player?.rate ?? -1, dropped, stallCt)
+            if let errs = item.errorLog()?.events, errs.count > lastErrorLogCount {
+                for e in errs.suffix(errs.count - lastErrorLogCount) {
+                    awdiag("AWERR domain=%@ code=%ld %@", e.errorDomain, e.errorStatusCode,
+                           e.errorComment ?? "")
+                }
+                lastErrorLogCount = errs.count
+            }
             // Meter watchdog: the tap dies across seeks/pipeline rebuilds and
             // never comes back on its own — re-attach a fresh tap so the
             // harness's audio-continuity evidence covers the whole run.
@@ -754,12 +771,18 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
             // TRICKLE (bytes keep arriving), so one glacial request can drain
             // the whole forward buffer — measured: an 8 MB chunk at 3.6 Mbps
             // held the stream for 18.7s while playback ran dry and stalled.
-            // Six seconds in with under half the chunk delivered, give up on
-            // this node for this chunk: the resume is byte-exact (Decision
-            // 031) and the retry lands on a demoted-away-from node.
+            //
+            // The first version fired at <4 MB in 6s (~5.6 Mbps) — which is a
+            // NORMAL living-room connection, not a glacial one. It cancelled a
+            // measured 5.2 Mbps chunk, killed every TCP ramp at six seconds,
+            // marked healthy nodes slow, and on the owner's wifi left titles
+            // with no video at all (build 915). Only a genuinely DEAD trickle
+            // justifies abandoning a connection: under 256 KB after ten full
+            // seconds (~0.2 Mbps). Everything faster is left to finish — the
+            // 18.7s outlier still trips this; a modest link never does.
             let watchdog = Task {
-                try? await Task.sleep(nanoseconds: 6_000_000_000)
-                if stream.delivered < 4_000_000 { stream.cancelSlow() }
+                try? await Task.sleep(nanoseconds: 10_000_000_000)
+                if stream.delivered < 262_144 { stream.cancelSlow() }
             }
             defer { watchdog.cancel() }
             do {
