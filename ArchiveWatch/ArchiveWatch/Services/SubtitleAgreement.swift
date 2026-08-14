@@ -125,13 +125,28 @@ enum SubtitleAgreement {
     static let refinementRange: Double = 5.0
     /// Fewer published words than this and the sample cannot settle anything.
     static let minPublishedWords = 60
+    /// How far out the EXONERATION sweep looks before a condemnation is
+    /// allowed. Unrelated content scores ~3% at EVERY offset (the shifted
+    /// controls), so a strong match found even this far out is fingerprint
+    /// evidence the file describes this film — and that the fault is in OUR
+    /// ruler, not the file. His Girl Friday's scout session started with +39s
+    /// of pre-target burst audio in its clock (atvrun-hgf5): the correct file
+    /// then scored 7% inside ±30s and was condemned, when a ±75s sweep would
+    /// have found it matching at -39 and kept it.
+    static let exonerationOffset: Double = 75
 
     /// Compare a published track against our own transcript of the same film.
     ///
     /// Returns nil when there is not enough evidence — silence, a sparse
     /// transcript, an intertitle-only stretch. NO OPINION is a valid answer and
     /// is very different from "they disagree": the caller keeps what it has.
-    static func judge(published: [Cue], transcript: [Cue]) -> Verdict? {
+    ///
+    /// `rulerSuspect`: the transcript's own clock needed re-anchoring this
+    /// session (`LiveCaptions.driftCorrections`). Words may be right while
+    /// every time is wrong, so the file can be KEPT on such evidence but
+    /// never shifted, and condemning it needs a double evidence floor.
+    static func judge(published: [Cue], transcript: [Cue],
+                      rulerSuspect: Bool = false) -> Verdict? {
         guard !published.isEmpty, !transcript.isEmpty else { return nil }
 
         // Only compare where we actually listened. The scout covers the opening
@@ -209,9 +224,32 @@ enum SubtitleAgreement {
             // silence-is-not-evidence rule Decision 062 wrote for single
             // stretches, now applied to the verdict itself.
             let heardWordCount = heard.values.reduce(0) { $0 + $1.count }
-            guard heardWordCount >= 100 else { return nil }
+            guard heardWordCount >= (rulerSuspect ? 200 : 100) else { return nil }
+            // EXONERATION SWEEP before any condemnation: if the file matches
+            // the transcript at ANY offset out to ±exonerationOffset, the
+            // words describe this film and the fault is in our clock. Keep
+            // the file as published — never shift by a far offset (beyond
+            // ±maxOffset the likelier wrong party is the ruler, and shifting
+            // a correct file by our own error is the worst outcome of all).
+            let wideWindow = published.filter {
+                $0.start >= heardFrom - exonerationOffset
+                    && $0.start <= heardTo + exonerationOffset
+            }
+            var far = -exonerationOffset
+            var farBest = (score: -1.0, offset: 0.0)
+            while far <= exonerationOffset {
+                let s = score(wideWindow, heard: heard, offset: far)
+                if s > farBest.score { farBest = (s, far) }
+                far += coarseStep
+            }
+            if farBest.score >= matchAbove {
+                return Verdict(choice: .keepPublished, agreement: farBest.score,
+                               agreementAtZero: atZero, offset: farBest.offset,
+                               comparedCues: wideWindow.count)
+            }
             choice = .preferLive
-        } else if abs(best.offset) >= worthShifting,
+        } else if !rulerSuspect,
+                  abs(best.offset) >= worthShifting,
                   abs(best.offset) >= smallShiftBelow || best.score >= smallShiftNeedsAgreement,
                   best.score >= matchAbove || best.score - atZero > 0.12,
                   abs(best.offset) <= refinementRange || best.score - atZero > 0.15 {

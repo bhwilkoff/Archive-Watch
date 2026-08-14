@@ -234,6 +234,7 @@ final class LiveCaptions {
         startedAt = Date()
         contentOffset = max(0, startTime.seconds.isFinite ? startTime.seconds : 0)
         sink.reset()   // a restarted session must not inherit the old replay high-water
+        driftSamples.removeAll()   // nor the old session's drift envelope
 
         guard let tap = sink.makeTap() else {
             failure = "Couldn't attach to the audio."
@@ -412,9 +413,10 @@ final class LiveCaptions {
     private var lastDepthYieldAt: Date?
 
     /// Times the mapping was re-anchored against the scout's own position.
-    /// The judge reads this: evidence gathered across a correction was
-    /// measured with the wrong ruler and must not carry a verdict.
+    /// The judge reads this: a session whose ruler needed correcting must
+    /// never condemn or shift a published file on that evidence.
     private(set) var driftCorrections = 0
+    private var driftSamples: [(wall: Double, err: Double)] = []
 
     /// DRIFT BOUND. The mapping `film = offset + raw × rate` trusts the tap
     /// to deliver exactly rate-compressed audio from the session's start
@@ -426,27 +428,34 @@ final class LiveCaptions {
     /// by 40s, and the judge, reading the same broken ruler, condemned the
     /// CORRECT published file at 7% agreement (scenario run atvrun-hgf5).
     ///
-    /// The scout's own position clock is the bound: the tap sits in the
-    /// render chain, so tapped audio tracks currentTime() within a small
-    /// queue depth — a double-digit divergence is unambiguous. Re-anchor the
-    /// offset, retime this session's existing cues by the same delta (the
-    /// error is a constant injected at session start, not gradual), and
-    /// count it so the judge restarts its confirmation window.
+    /// Judge by the LOWER ENVELOPE over a window, never the instantaneous
+    /// error: the tap delivers in decode-ahead BURSTS, so the instantaneous
+    /// error legitimately swings by double digits and an instant-threshold
+    /// corrector FLAPPED — fifteen corrections in one run, overcorrecting at
+    /// each burst top and then "correcting" back, leaving the ruler piecewise
+    /// wrong in both directions (scenario run atvrun-hgf6). The minimum over
+    /// 25s is where render has caught decode; healthy it touches ~0. Only a
+    /// persistent POSITIVE floor is the injection — a negative error means
+    /// the tap has stalled while the clock runs, which no offset can fix.
     private func driftCheck(_ scout: AVPlayer) {
         let delivered = sink.deliveredSeconds()
         guard delivered > 8 else { return }
         let pos = scout.currentTime().seconds
         guard pos.isFinite, pos > 0 else { return }
-        let predicted = contentOffset + delivered * Double(Self.scoutRate)
-        let err = predicted - pos
-        guard err > 10 || err < -6 else { return }
-        let delta = -(err - 2)      // leave the newest audio ~2s ahead
+        let err = contentOffset + delivered * Double(Self.scoutRate) - pos
+        let now = Date().timeIntervalSince1970
+        driftSamples.append((wall: now, err: err))
+        driftSamples.removeAll { now - $0.wall > 30 }
+        guard let oldest = driftSamples.first, now - oldest.wall >= 25,
+              let floorErr = driftSamples.map(\.err).min(), floorErr > 15 else { return }
+        let delta = -(floorErr - 8)   // stay conservatively LATE, never early
         contentOffset += delta
         for i in cues.indices { cues[i].start += delta; cues[i].end += delta }
         for i in rawCues.indices { rawCues[i].start += delta; rawCues[i].end += delta }
         driftCorrections += 1
-        awdiag("[AWCAP] drift correction #\(driftCorrections): mapping ran "
-              + "\(fmt(err))s ahead of the scout at \(fmt(pos)) — re-anchored by \(fmt(delta))s")
+        driftSamples.removeAll()
+        awdiag("[AWCAP] drift correction #\(driftCorrections): mapping floor ran "
+              + "\(fmt(floorErr))s ahead of the scout at \(fmt(pos)) — re-anchored by \(fmt(delta))s")
     }
 
     /// Is this session HOPELESS for where the viewer actually is?

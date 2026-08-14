@@ -91,8 +91,9 @@ enum SubtitleReview {
             let transcript = captions.transcript().map {
                 SubtitleAgreement.Cue(start: $0.start, end: $0.end, text: $0.text)
             }
-            if let current = SubtitleAgreement.judge(published: published,
-                                                     transcript: transcript) {
+            if let current = SubtitleAgreement.judge(
+                published: published, transcript: transcript,
+                rulerSuspect: captions.driftCorrections > 0) {
                 if let previous = verdict, previous.choice.matches(current.choice) {
                     agreed += 1
                 } else {
