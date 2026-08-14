@@ -137,18 +137,15 @@ struct EpisodePlayerScreen: View {
             return
         }
         playback = .loading
-        let item: AVPlayerItem
-        if SystemCaptions.prefersDirectPlayback(hasPublishedSubtitles: false) {
-            // Episodes are first-class films (Decision 045) and carry no
-            // subtitle track of their own, so they take the same plain-URL path
-            // that lets the system caption them from 27. Through `aw-stream://`
-            // no subtitle track is ever offered at all.
-            item = AVPlayerItem(url: url)
-        } else {
-            let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
-            streamLoader = loader
-            item = AVPlayerItem(asset: asset)
-        }
+        // Decision 072: ONE pipeline. The plain-URL branch (Decision 067's
+        // trade for the system's generated captions) gave up every bit of
+        // Decisions 021/031/034 resilience for a track that, measured on this
+        // tvOS 27 beta, is offered and almost never emits — while archive.org's
+        // idle resets made the plain path stall and "refresh". Our own engine
+        // captions these titles (Decision 068); the loader carries them all.
+        let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
+        streamLoader = loader
+        let item = AVPlayerItem(asset: asset)
         // Show the episode title in the transport, and suppress the MP4's bogus
         // embedded creation year (epoch-0 -> "1969") the same way the movie
         // player does (see suppressedDateMetadata).

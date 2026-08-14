@@ -343,7 +343,8 @@ final class LiveCaptions {
     /// when the viewer's stream struggles the scout STOPS, and it stays
     /// stopped until playback has been healthy for a while. Captions can run
     /// up to two minutes ahead; playback cannot run behind at all.
-    func throttle(playhead: CMTime, playbackHealthy: Bool = true) {
+    func throttle(playhead: CMTime, playbackHealthy: Bool = true,
+                  mainBufferSeconds: Double? = nil) {
         if playhead.seconds.isFinite { lastPlayhead = playhead.seconds }
         guard let scout = scoutPlayer else { return }
         if !playbackHealthy {
@@ -353,6 +354,25 @@ final class LiveCaptions {
                 if trace { print("[AWCAP] trace scout YIELDS — playback buffer struggling") }
             }
             return
+        }
+        // DEPTH hysteresis, when the caller can measure it. The binary healthy
+        // flag reacts only when the buffer is already gone, and its 5s cooldown
+        // resumed the scout straight back into the starvation: on a slow
+        // storage node (measured ~6-9 Mbps total for a 1.9 Mbps film) the main
+        // buffer pinned at 1-15s for MINUTES while the scout thrashed
+        // yield/resync/restart — the owner's "captions come in and out" and
+        // the micro-stutters both. The viewer banks two minutes before the
+        // scout may draw bandwidth at all, and the scout stands down the
+        // moment the bank dips below one.
+        if let depth = mainBufferSeconds {
+            if depth < 60, scout.rate != 0 {
+                scout.rate = 0
+                if trace { print("[AWCAP] trace scout YIELDS — main buffer \(Int(depth))s < 60s") }
+                return
+            }
+            if depth < 120, scout.rate == 0 {
+                return   // stay down until the viewer has two minutes banked
+            }
         }
         if let u = lastUnhealthyAt {
             guard Date().timeIntervalSince(u) >= Self.healthCooldown else { return }

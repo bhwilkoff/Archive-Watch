@@ -208,46 +208,12 @@ final class CaptionCoordinator {
                     self?.label = nil
                     return
                 }
-                self?.systemWatch = Task { @MainActor [weak self] in
-                    guard await SystemCaptions.handOver(to: player, directURL: url,
-                                                        patience: 300) else { return }
-                    // The system's track spoke — hide ours, but DON'T kill the
-                    // engine. On this tvOS beta the generated track refused to
-                    // emit through ten minutes of probing and then emitted
-                    // mid-film in real playback: it is flaky in both
-                    // directions, and a permanent stand-down would strand the
-                    // viewer captionless the moment it goes quiet again. So
-                    // the overlay yields, the scout keeps transcribing, and if
-                    // the system falls silent for 45s ours comes straight back.
-                    print("[AWCAP] system captions arrived — yielding to them")
-                    self?.draws = false
-                    var window = 0
-                    while !Task.isCancelled {
-                        window += 1
-                        let began = Date()
-                        let p = self?.observedPlayer
-                        if await SystemCaptions.emitsCaptions(on: p, within: 45) {
-                            if self?.trace == true {
-                                print("[AWCAP] trace system still captioning (window \(window))")
-                            }
-                            // `emitsCaptions` returns the moment it sees text,
-                            // which on a continuously-captioning system is ~1s
-                            // in — re-checking immediately spun this loop once
-                            // a second. Sleep out the window: the question is
-                            // "did it go quiet", and that only needs asking
-                            // every 45s.
-                            let left = 45 - Date().timeIntervalSince(began)
-                            if left > 0 {
-                                try? await Task.sleep(nanoseconds: UInt64(left * 1_000_000_000))
-                            }
-                            continue
-                        }
-                        guard !Task.isCancelled else { return }
-                        print("[AWCAP] system captions went quiet — ours resume")
-                        self?.draws = true
-                        return
-                    }
-                }
+                // Decision 072: no system-caption watch. Through the resilient
+                // loader — now the ONLY tvOS path — the system never offers a
+                // generated track at all (measured, Decision 067), and the
+                // watch's yield/resume against a track that flickered on this
+                // beta was the owner's "automatic captions come in and out".
+                // Our engine is THE captioner for uncaptioned titles here.
             }
             guard !Task.isCancelled else { return }
             // Nothing to say and no way to say it: without models the screen
@@ -321,7 +287,18 @@ final class CaptionCoordinator {
                 let healthy = item.map {
                     $0.isPlaybackLikelyToKeepUp && !$0.isPlaybackBufferEmpty
                 } ?? true
-                lc.throttle(playhead: now, playbackHealthy: healthy)
+                // Buffer DEPTH for the scout's hysteresis (Decision 072): on a
+                // slow node the binary healthy flag thrashes; the viewer banks
+                // two minutes before the scout is allowed any bandwidth.
+                let depth = item.map { it -> Double in
+                    it.loadedTimeRanges
+                        .map(\.timeRangeValue)
+                        .filter { $0.containsTime(now) || $0.start >= now }
+                        .map { $0.end.seconds - max(now.seconds, $0.start.seconds) }
+                        .reduce(0, +)
+                }
+                lc.throttle(playhead: now, playbackHealthy: healthy,
+                            mainBufferSeconds: depth)
                 // Between captions, say why there are none — a blank screen and
                 // a failed recognizer look identical from the sofa.
                 // The subtitle FILE, when one is showing, outranks the engine

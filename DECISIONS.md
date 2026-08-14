@@ -3232,3 +3232,67 @@ throttle/yield, silenceScout detach). Related: 058 (the scout), 069 (the
 pitch pin, restored after the herring), 070 (the undead-player mechanism
 that taught the detach), and the AWAUD meter joins the permanent
 env-gated diagnostics.
+
+## 072 — One tvOS pipeline: every title plays through the resilient loader; the engine is the captioner
+*Date: 2026-08-14*
+
+On tvOS, every playback — captioned or not, film or episode — goes through
+`ResilientStreamLoader`, and live captioning for uncaptioned titles comes from
+OUR engine alone (Decision 068). Retired together: the plain-URL branch
+(Decision 067's trade, movie player and episode player both), its
+`CaptionStallMonitor`→`forceResilientFallback` safety net, and the
+system-caption watch (`SystemCaptions.handOver` + the 45s emission watchdog).
+Captioned files render through the overlay (Decision 070) as before.
+
+**Why**: the owner's report on Till the Clouds Roll By named the seams, not a
+bug: "drops frames even though it continues to play… captions come in and out
+and sometimes make the video pause for a while as it refreshes the stream…
+can we stop fixing them one at a time and solve for them as a fully working
+system." The film's file is blameless — probed h.264 Main 720p at 1.9 Mbps —
+but as an uncaptioned title it took the plain-URL path, which has NONE of
+Decisions 021/031/034's resilience: archive.org's idle resets flush
+AVFoundation's buffer (the original Decision-021 disease, reintroduced by
+067's trade), the stall monitor answers by tearing down and rebuilding the
+player mid-film ("pauses while it refreshes"), and the system-caption
+watchdog yielded our captions to a generated track that this beta flickers on
+and off ("captions come in and out"). Each piece was a rational patch; the
+matrix of paths was the disease. What the trade bought — the system's
+generated track — was measured on the owner's own Apple TV to be offered and
+almost never emitting (Decision 068), while our engine captions the same
+films in ~15s.
+
+**How to apply**: on tvOS, do not add a playback path that bypasses
+`ResilientStreamLoader` — if a future OS makes the system's generated track
+actually emit through a loader-backed asset, revisit 067's trade THEN, with
+the emission measured on a device first (offered ≠ selected ≠ emitting — the
+lesson is now four decisions old). iOS and macOS keep their current paths:
+the system's generated captions genuinely work there (measured text in ~33s
+on macOS; the owner rates iOS "extremely well"), so the plain-URL trade still
+buys something real on those platforms.
+
+**Consequences**: `forceResilientPlayback` and the plain-path stall wiring in
+the tvOS players are inert; the coordinator's engine-vs-system arbitration
+on tvOS reduces to "engine leads, nothing else draws". Uncaptioned titles on
+tvOS regain resume-on-reset, node pinning, and node failover. The
+capability note (a device with no speech models says so once) stays.
+
+Two companions shipped with it, both found chasing the same film on-device:
+
+*Scout depth-hysteresis.* The scout's yield keyed on a binary buffer-health
+flag that fires only when the buffer is already gone, and a 5s cooldown
+resumed it straight back into the starvation — yield/resync/restart churn.
+`throttle` now takes the MAIN buffer's depth in seconds: the viewer banks
+120s before the scout may draw bandwidth at all, and it stands down the
+moment the bank dips under 60.
+
+*Loader block cache.* A long, oddly-muxed upload (Till the Clouds Roll By's
+2 GB card) makes AVFoundation fetch its interleaved sample chunks in TINY
+random dataRequests — 669 reads of 64 KB in one soak, each paying 60-180 ms
+of request latency: an effective ~3-4 Mbps ceiling on a node that sustains
+~100, decoder starving, buffer pinned at 0-4s for minutes. Small bounded
+reads are now served from aligned 2 MB cached blocks (24-block LRU = 48 MB —
+an 8-block cap THRASHED, the playhead's working set is ~50 MB; the next
+block prefetches so the pattern's misses stay off the decode path). The
+sequential 8 MB streaming path and every 021/031/034 invariant are
+untouched — measured after: buffer sustained 63-103s where it had pinned at
+0-4, stalls 5 -> 0, block re-fetches 6-7x -> at most 2x.

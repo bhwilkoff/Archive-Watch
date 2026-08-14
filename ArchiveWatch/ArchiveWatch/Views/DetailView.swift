@@ -908,33 +908,20 @@ struct PlayerScreen: View {
         // their published/local VTT is rendered by the caption overlay
         // (CaptionCoordinator file-cues mode), judged by SubtitleReview as
         // before.
-        let plainForSystemCaptions = !forceResilientPlayback && !hasFileSubtitles
-            && SystemCaptions.prefersDirectPlayback(hasPublishedSubtitles: false)
-        if plainForSystemCaptions {
-            // From 27 the system generates subtitles on device for video that
-            // carries none — but ONLY for an ordinary asset. Measured on
-            // macOS 27, one shape per process: a direct https MP4 produces text
-            // in ~33s, while through our `aw-stream://` loader no subtitle track
-            // is ever offered at all, and an HLS playlist wrapping the same MP4
-            // is offered one that stays silent forever.
-            //
-            // So the resilient loader is what has to give way, and it gives way
-            // HERE rather than by swapping mid-playback: the previous design
-            // waited for a track, selected it, listened, and only then moved to
-            // the direct URL — a sequence gated behind a track that never
-            // arrives, which is why an Apple TV showed file-based captions and
-            // never a generated one.
-            //
-            // The cost is Decisions 021/031/034's resume-on-reset and node
-            // failover, for films with no subtitles, on 27 only. `captionStall`
-            // below is the safety net: a persistent stall rebuilds on the
-            // resilient loader.
-            playerItem = AVPlayerItem(url: playURL)
-        } else {
-            let (asset, loader) = ResilientStreamLoader.makeAsset(for: playURL)
-            streamLoader = loader
-            playerItem = AVPlayerItem(asset: asset)
-        }
+        // Decision 072: ONE pipeline on tvOS — every title plays through
+        // ResilientStreamLoader. The plain-URL branch that lived here (Decision
+        // 067's trade: give up resilience so the system could offer generated
+        // captions) is retired: measured on this tvOS 27 beta the system's
+        // track is offered and almost never emits, while the plain path
+        // reintroduced the Decision-021 disease — archive.org idle resets
+        // flushing the buffer, seen from the sofa as frame drops and "pausing
+        // while it refreshes the stream" — and its stall fallback rebuilt the
+        // player mid-film. Our own engine captions uncaptioned titles
+        // (Decision 068); captioned files render through the overlay (070).
+        // One path, one resilience story, no mid-film swaps.
+        let (asset, loader) = ResilientStreamLoader.makeAsset(for: playURL)
+        streamLoader = loader
+        playerItem = AVPlayerItem(asset: asset)
         if let active {
             playerItem.externalMetadata = makeExternalMetadata(for: active)
         }
@@ -951,12 +938,6 @@ struct PlayerScreen: View {
         player = p
         freezeGuard.attach(to: p, item: playerItem)
         nowPlaying.begin(posterURL: active?.posterURLParsed, item: playerItem)
-        if plainForSystemCaptions {
-            // The generated-subtitle path gave up the resilient loader to get
-            // captioned at all. Same trade, same safety net: if it stutters
-            // persistently, come back to the loader and lose the captions.
-            captionStall.attach(player: p, item: playerItem) { forceResilientFallback() }
-        }
 
         // Watch the item ready or fail so a broken stream becomes a visible,
         // recoverable error instead of the dead "no-entry" circle (#19). KVO can

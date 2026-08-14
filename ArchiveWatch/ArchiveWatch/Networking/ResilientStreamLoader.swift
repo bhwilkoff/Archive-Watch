@@ -188,6 +188,27 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
     // arrive, not at chunk completion) a large chunk has no latency downside,
     // and it quarters how often we pay per-request time-to-first-byte.
     private let chunkSize: Int64 = 8 * 1024 * 1024
+
+    // BLOCK CACHE for small random reads (2026-08-14). A long, oddly-muxed MP4
+    // makes AVFoundation page its sample tables in tiny random dataRequests —
+    // measured on a 2 GB / 136 min upload: 669 requests of 64 KB across three
+    // file regions at once, each paying 60-180 ms of request latency, an
+    // effective ~3-4 Mbps ceiling on a node that sustains ~100. The decoder
+    // starves (visible frame drops), and the forward buffer can never build.
+    // Small reads are served from aligned 2 MB blocks instead: one ranged GET
+    // per block, LRU-capped, in-flight-deduped (concurrent 64 KB reads of one
+    // region await a single fetch). Sequential media requests keep the
+    // streaming path and every Decision 021/031/034 invariant untouched.
+    private let blockSize: Int64 = 2 * 1024 * 1024
+    private let smallReadLimit = 512 * 1024
+    // The working set is the ~50 MB of interleaved media around the playhead
+    // (this mux makes AVFoundation fetch each tiny sample chunk separately):
+    // an 8-block cap thrashed — blocks 438-462 re-fetched 6-7x each, every
+    // miss a 0.5-1.5s buffered fetch blocking the decode feed. 24 blocks
+    // (48 MB) covers the set; still bounded on a 3 GB Apple TV.
+    private let blockCacheCap = 24
+    private var blockTasks: [Int64: Task<Data, Error>] = [:]   // queue-confined
+    private var blockLRU: [Int64] = []                          // queue-confined
     private let maxRetries = 12                         // #6: ride out long, flaky films
     // #10: the FIRST handshake to a cold Archive storage node can be slow (302 to
     // a node that then spins up). Give it a generous per-request timeout so the
@@ -481,6 +502,108 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
         }
     }
 
+    /// Serve `[from, to)` from aligned cached blocks, fetching missing ones.
+    private func serveFromBlocks(_ dataRequest: AVAssetResourceLoadingDataRequest,
+                                 _ request: AVAssetResourceLoadingRequest,
+                                 from: Int64, to: Int64) async {
+        var cursor = from
+        while cursor < to && !request.isCancelled && !request.isFinished {
+            let index = cursor / blockSize
+            do {
+                // The small-read pattern advances forward with the playhead;
+                // warming the NEXT block turns each upcoming miss into a hit
+                // and keeps a 0.5-1.5s fetch out of the decode path.
+                _ = queue.sync { () -> Bool in
+                    if blockTasks[index + 1] == nil {
+                        let next = index + 1
+                        let t = Task { [weak self] () throws -> Data in
+                            guard let self else { throw URLError(.cancelled) }
+                            return try await self.fetchBlock(next)
+                        }
+                        blockTasks[next] = t
+                        blockLRU.append(next)
+                    }
+                    return true
+                }
+                let block = try await blockData(index)
+                let blockStart = index * blockSize
+                let lo = Int(cursor - blockStart)
+                guard lo < block.count else { request.finishLoading(); return }  // past EOF
+                let hi = Int(min(Int64(block.count), to - blockStart))
+                dataRequest.respond(with: block.subdata(in: lo..<hi))
+                cursor = blockStart + Int64(hi)
+                if Int64(block.count) < blockSize && cursor < to {
+                    request.finishLoading(); return          // short block == EOF
+                }
+            } catch {
+                if !request.isCancelled && !request.isFinished {
+                    request.finishLoading(with: error)
+                }
+                return
+            }
+        }
+        if !request.isCancelled && !request.isFinished { request.finishLoading() }
+    }
+
+    /// The block's bytes, from cache or a single shared fetch (queue-confined
+    /// task map dedupes concurrent readers of the same region).
+    private func blockData(_ index: Int64) async throws -> Data {
+        let task: Task<Data, Error> = queue.sync {
+            if let existing = blockTasks[index] {
+                blockLRU.removeAll { $0 == index }
+                blockLRU.append(index)
+                return existing
+            }
+            let t = Task { [weak self] () throws -> Data in
+                guard let self else { throw URLError(.cancelled) }
+                return try await self.fetchBlock(index)
+            }
+            blockTasks[index] = t
+            blockLRU.append(index)
+            while blockLRU.count > blockCacheCap {
+                let evict = blockLRU.removeFirst()
+                blockTasks[evict]?.cancel()
+                blockTasks.removeValue(forKey: evict)
+            }
+            return t
+        }
+        return try await task.value
+    }
+
+    private func fetchBlock(_ index: Int64) async throws -> Data {
+        let lo = index * blockSize
+        let hi = lo + blockSize - 1
+        var lastError: Error = URLError(.unknown)
+        for attempt in 0..<3 {
+            let target = queue.sync { attempt == 0 ? currentTarget() : realURL }
+            var req = URLRequest(url: target)
+            req.setValue("bytes=\(lo)-\(hi)", forHTTPHeaderField: "Range")
+            req.networkServiceType = .video
+            do {
+                let started = Date()
+                let (data, resp) = try await session.data(for: req)
+                let status = (resp as? HTTPURLResponse)?.statusCode ?? 0
+                if status == 416 { return Data() }           // past EOF
+                guard (200..<300).contains(status) else {
+                    if (500...599).contains(status) || status == 403 || status == 404 {
+                        queue.sync { markNodeFailed(target) }
+                    }
+                    lastError = URLError(.badServerResponse)
+                    continue
+                }
+                if Self.diag {
+                    let ms = Date().timeIntervalSince(started) * 1000
+                    NSLog("AWSTREAM block idx=%lld bytes=%d ms=%.0f", index, data.count, ms)
+                }
+                return data
+            } catch {
+                lastError = error
+                queue.sync { pinnedURL = nil }               // node may have rotated
+            }
+        }
+        throw lastError
+    }
+
     private func fulfillData(_ dataRequest: AVAssetResourceLoadingDataRequest,
                              _ request: AVAssetResourceLoadingRequest) async {
         var offset = dataRequest.currentOffset
@@ -488,6 +611,14 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
             ? queue.sync { contentLength }
             : dataRequest.requestedOffset + Int64(dataRequest.requestedLength)
         var retries = 0
+
+        // Small bounded reads (sample-table paging) go through the block cache.
+        if !dataRequest.requestsAllDataToEndOfResource,
+           dataRequest.requestedLength <= smallReadLimit,
+           let upper = upperBound {
+            await serveFromBlocks(dataRequest, request, from: offset, to: upper)
+            return
+        }
 
         while !request.isCancelled && !request.isFinished {
             if let upperBound, offset >= upperBound { request.finishLoading(); return }
