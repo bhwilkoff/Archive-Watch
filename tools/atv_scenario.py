@@ -200,12 +200,15 @@ def main():
     # runs: the observer perturbs the system. One retry keeps a scenario
     # about the APP, not about capture-induced memory pressure; a death
     # after the retry still fails app_alive_to_end honestly.
-    probe = sh(["xcrun", "devicectl", "device", "info", "processes",
-                "--device", DEVICE], timeout=60)
-    if "ArchiveWatch.app/ArchiveWatch" not in probe.stdout:
-        print("[scenario] app died in launch window — one retry")
-        launch(item, outdir)
-        time.sleep(8)
+    for probe_at in (0, 15):          # deaths observed at 4-15s post-launch
+        if probe_at: time.sleep(probe_at)
+        probe = sh(["xcrun", "devicectl", "device", "info", "processes",
+                    "--device", DEVICE], timeout=60)
+        if "ArchiveWatch.app/ArchiveWatch" not in probe.stdout:
+            print("[scenario] app died in launch window — one retry")
+            launch(item, outdir)
+            time.sleep(8)
+            break
     shots = capture_loop(outdir, args.minutes)
     print(f"[scenario] {len(shots)} screenshots")
 
