@@ -282,7 +282,15 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
     // an 8-block cap thrashed — blocks 438-462 re-fetched 6-7x each, every
     // miss a 0.5-1.5s buffered fetch blocking the decode feed. 24 blocks
     // (48 MB) covers the set; still bounded on a 3 GB Apple TV.
-    private let blockCacheCap = 24
+    private let blockCacheCap = 40
+    /// Highest byte offset the SEQUENTIAL chunk path has delivered — the
+    /// video frontier. Small reads far BEHIND it are the audio track of a
+    /// badly-muxed file (audio chunks trail the video by ~200 MB on
+    /// TtCRB-4K), and they must never wait on a cold fetch: an audio-queue
+    /// underrun silences the soundtrack for 8-13s while CoreAudio re-primes
+    /// (measured: 15 dropouts in one run, rms gaps bracketed by meter
+    /// deaths). Updated on `queue`.
+    private var sequentialFrontier: Int64 = 0
     private var blockTasks: [Int64: Task<Data, Error>] = [:]   // queue-confined
     private var blockLRU: [Int64] = []                          // queue-confined
     private let maxRetries = 12                         // #6: ride out long, flaky films
@@ -610,10 +618,19 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
             do {
                 // The small-read pattern advances forward with the playhead;
                 // warming the NEXT block turns each upcoming miss into a hit
-                // and keeps a 0.5-1.5s fetch out of the decode path.
+                // and keeps a 0.5-1.5s fetch out of the decode path. And when
+                // the read sits far BEHIND the video frontier it is the AUDIO
+                // track of a badly-muxed file, whose next chunk lands 12-28 MB
+                // ahead (measured strides 8 and 14 blocks) — warm a whole
+                // stride window so no audio chunk is ever a cold 1-2s fetch.
+                // Bandwidth is the cheap resource here (the same run banked
+                // 377s of video); audio-queue LATENCY is what silences the
+                // soundtrack.
                 _ = queue.sync { () -> Bool in
-                    if blockTasks[index + 1] == nil {
-                        let next = index + 1
+                    let trailing = index < (sequentialFrontier / blockSize) - 50
+                    let ahead: ClosedRange<Int64> = trailing ? 1...13 : 1...1
+                    for d in ahead where blockTasks[index + d] == nil {
+                        let next = index + d
                         let t = Task { [weak self] () throws -> Data in
                             guard let self else { throw URLError(.cancelled) }
                             return try await self.fetchBlock(next)
@@ -791,7 +808,10 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
                 if stream.delivered > 0 {
                     retries = 0                             // progress → reset backoff
                     let host = target.host ?? ""           // ...and the host is alive
-                    queue.sync { transportFailsByHost[host] = 0 }
+                    queue.sync {
+                        transportFailsByHost[host] = 0
+                        sequentialFrontier = max(sequentialFrontier, offset)
+                    }
                 }
                 if let final = stream.finalURL, final != target {
                     queue.sync { if !failedHosts.contains(final.host ?? "") { pinnedURL = final } }
