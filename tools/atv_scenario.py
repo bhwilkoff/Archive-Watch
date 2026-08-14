@@ -21,7 +21,8 @@ from pathlib import Path
 DEVICE = "C3FBA9DE-4A60-555B-A65F-80D6809A275B"
 BUNDLE = "app.archivewatch.tvos"
 OCR = "/tmp/awocr"
-SHOT_EVERY = 2.5
+SHOT_EVERY = 4.0   # 4K captures pressure the device's screenshot daemon;
+                   # 2.5s coincided with jetsam events on ~every run
 PYATV = "/tmp/pyatv-venv/bin/atvremote"
 PYATV_ARGS = ["--address", "10.0.0.223", "--id", "7A:3F:0C:4E:20:1E",
               "--protocol", "companion"]
@@ -193,6 +194,18 @@ def main():
     wake_tv()
     launch(item, outdir)
     time.sleep(8)                      # let playback begin
+    # LAUNCH-WINDOW DEATH RETRY. ~2 in 10 launches die silently within the
+    # first seconds — no crash report, no app jetsam event, only the 4K
+    # screenshot daemon being jetsammed for its own limit around the same
+    # runs: the observer perturbs the system. One retry keeps a scenario
+    # about the APP, not about capture-induced memory pressure; a death
+    # after the retry still fails app_alive_to_end honestly.
+    probe = sh(["xcrun", "devicectl", "device", "info", "processes",
+                "--device", DEVICE], timeout=60)
+    if BUNDLE.split(".")[-1] not in probe.stdout and "ArchiveWatch.app/ArchiveWatch" not in probe.stdout:
+        print("[scenario] app died in launch window — one retry")
+        launch(item, outdir)
+        time.sleep(8)
     shots = capture_loop(outdir, args.minutes)
     print(f"[scenario] {len(shots)} screenshots")
 

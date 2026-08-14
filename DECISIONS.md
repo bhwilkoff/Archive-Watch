@@ -3320,3 +3320,71 @@ absence of proof that a file matches is not proof that it doesn't. When a
 verdict varies run-to-run on the same film (match 41% / match 24% / shift
 1.3 / preferLive 12% were all observed), that variance IS the measurement of
 the judge's noise, and thresholds must sit outside it.
+
+## 074 — Captions are an ECONOMY: every layer yields to playback on measured evidence, and the glass is the test
+*Date: 2026-08-14*
+
+The external-observation suite (`tools/atv_scenario.py` + `tools/ScreenOCR` +
+the on-device diag file) is now the shipping gate for tvOS caption/playback
+work: a scenario launches a film on the paired Apple TV, screenshots the GLASS,
+OCRs the caption region, pulls `Library/Caches/awdiag.log`, and grades eight
+assertions (app alive to end, no stuck notice, playhead advances, no stalls,
+audio continuity, captions on glass, glass-matches-file for published VTTs,
+glass-matches-engine otherwise). Six scenario rounds against it produced five
+coordinated fixes, each one a layer of the same principle — a second stream
+must EARN its bytes, and every claim is measured, never assumed:
+
+1. **Drift bound (lower envelope)**: a seeked scout session on a badly-muxed
+   file receives a burst of pre-target audio (+39s of raw clock measured), so
+   `film = offset + raw×rate` maps every cue late — and the judge, reading the
+   same ruler, condemned His Girl Friday's CORRECT file at 7%. The mapping is
+   re-anchored when the 25s lower envelope of (predicted − scoutPosition)
+   exceeds 15s. NEVER correct on the instantaneous error: the tap delivers in
+   decode-ahead bursts and an instant-threshold corrector flapped 15 times in
+   one run, corrupting the ruler in both directions.
+
+2. **Exoneration sweep**: before any preferLive verdict the judge scores the
+   file at every offset to ±75s. Unrelated content scores ~3% at EVERY offset,
+   so a strong far-out match is fingerprint evidence the file describes this
+   film and the fault is OUR clock — keep as published, never shift by a far
+   offset. A rulerSuspect session (any drift correction) may keep a file but
+   never shift or condemn without a doubled word floor.
+
+3. **Resync = seek, never rebuild**: every stop/start resync built a fresh
+   player item whose moov + preload fetch collided with struggling playback —
+   stalls clustered 10-32s after each rebuild. `LiveCaptions.resync(to:)`
+   seeks the existing scout; one asset per playback. The throttle never
+   resumes a scout >45s behind the viewer (2x cannot catch 1x from behind).
+
+4. **Surrender**: a running scout that cannot sustain 1.4x over 25s is in a
+   race it mathematically loses — it detaches its item entirely (a paused
+   item still buffers), keeps the cues it made, says the true thing once, and
+   nothing restarts it that playback. Three playback-trouble episodes are the
+   backstop. Gate on OBSERVED harm; a depth threshold alone locked captions
+   out of files whose healthy steady-state buffer is structurally low.
+
+5. **Slow-node rotation**: both remaining stalls came with NO second stream —
+   single glacial requests (8 MB at 3.6 Mbps for 18.7s) on the pinned node.
+   The idle timeout never fires on a trickle and Decision 034 rotates only on
+   hard errors, so a slow-chunk watchdog cancels a chunk 6s in with under
+   half its bytes and DEMOTES the node (slowHosts, forgiven when all are
+   slow) — not blacklisted; 034's timeout rule stands. Resume is byte-exact.
+
+**Why**: ten builds of caption fixes had shipped on self-reported evidence
+while the owner kept seeing failures at the glass. The suite inverted that:
+every one of these five faults was found by a failing scenario, three of them
+in causal chains no console reading would have ordered correctly (condemnation
+← drift ← seek-burst; stalls ← restart churn ← a resume that ignored scout
+position). His Girl Friday now passes 7/7 repeatedly (108/112 on-glass
+captions matching the published cue at the playhead); TtCRB-4K retains
+weather-bound stalls on degraded archive.org afternoons even with playback
+alone — that residual is a node/derivative question, not a caption one.
+
+**How to apply**: no tvOS caption or playback change ships without a passing
+scenario report — the app's own logs are diagnosis, never verdict. When a
+scenario fails, read the diag around the failure times before theorizing; every
+wrong fix this session came from a plausible mechanism the timeline disproved.
+The launch-window app death under 4K screenshot capture is a HARNESS artifact
+(observer-induced memory pressure; no crash report, no app jetsam) — the
+runner retries once; do not chase it as an app bug without a report naming the
+app. Scenario cards resolve by TITLE from the live index, never hardcoded ids.
