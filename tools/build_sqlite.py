@@ -512,6 +512,12 @@ def _title_quality(t):
         s -= 4
     if t.isupper():
         s -= 1
+    # Mostly-shouting titles ("TILL THE CLOUDS ROLL BY Film") dodge isupper()
+    # via one lowercase word and tied with the clean title, so the tie kept the
+    # uploader string. Judge the ratio, not the flag.
+    alpha = [c for c in t if c.isalpha()]
+    if alpha and sum(c.isupper() for c in alpha) / len(alpha) > 0.7:
+        s -= 2
     s -= max(0, len(t) - 64) // 16
     return s
 
