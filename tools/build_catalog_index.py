@@ -49,6 +49,16 @@ def main():
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
     items = catalog.get("items", catalog if isinstance(catalog, list) else [])
 
+    # The SAME dedup the app DB gets (build_sqlite: best copy per IMDb id, then
+    # same-film re-upload merge). The web read catalog.json raw and showed every
+    # duplicate upload as its own card — five visible copies of Till the Clouds
+    # Roll By while the apps showed one (Decision 040's merge never applied
+    # here). Import rather than reimplement so the two surfaces cannot drift.
+    from build_sqlite import dedupe_by_imdb, merge_film_duplicates
+    before = len(items)
+    items = merge_film_duplicates(dedupe_by_imdb(items))
+    print(f"[index] dedup: {before:,} -> {len(items):,} items", flush=True)
+
     # Curated collection ids (collection_metadata.json) → membership map, so
     # the web viewer can render the Collections surface (schema 5, additive).
     curated_collections = []

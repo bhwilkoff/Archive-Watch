@@ -221,6 +221,12 @@ def _dupe_title_key(title):
     t = re.sub(r"(?<!\d)(19|20)\d\d(?!\d)", " ", t)   # strip 4-digit years (even glued)
     t = re.sub(r"[^a-z0-9]+", " ", t).strip()
     t = re.sub(r"^(the|a|an) ", "", t)            # strip a leading article
+    # A trailing bare "film" is an uploader qualifier ("TILL THE CLOUDS ROLL BY
+    # Film" vs "Till the Clouds Roll By" — same 1946 musical, separate cards).
+    # Only when something remains: a real title that IS the word can survive.
+    stripped = re.sub(r" film$", "", t).strip()
+    if stripped:
+        t = stripped
     return t.replace(" ", "")
 
 
