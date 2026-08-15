@@ -55,6 +55,14 @@ jobs:
       - name: Dedupe orphan episodes
         run: python tools/dedupe_orphan_episodes.py --apply | tee dedupe.log
 
+      # Bake lower-quality fallback copies for heavy films (owner decision
+      # 2026-08-15: a film must start within ~30s; when the best copy can't
+      # stream, the app switches to a vetted same-film copy). Idempotent —
+      # items already carrying fallbackVideoURL are skipped, so the daily
+      # cost is only NEW heavy ingests. Never fails the build.
+      - name: Bake playback fallbacks
+        run: python tools/bake_fallbacks.py --limit 300 || true
+
       # ENFORCE the copyright gate on every DB build (Decision 027). This is the
       # PURE-DATA apply only — it hides items already CONFIRMED-copyright by the
       # network confirm phase (rights-audit.yml, scheduled) and reconciles stale

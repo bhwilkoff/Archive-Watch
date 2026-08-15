@@ -122,8 +122,40 @@ def main():
         heavy = heavy[: args.limit]
     print(f"heavy items needing a fallback: {len(heavy)}")
 
+    # Parallel workers, capped LOW: metadata + download probes hit
+    # archive.org's MAIN host, and storming it rate-limits the whole IP
+    # (the Creation Studio -1004 lesson). 6 concurrent probes is well under
+    # the storm threshold and turns a multi-hour serial pass into ~20 min.
+    from concurrent.futures import ThreadPoolExecutor
+    def resolve(pair):
+        size, it = pair
+        for sib_size, sib in sorted(
+                by_imdb.get(it.get("imdbID") or "", []),
+                key=lambda t: -(t[0] or 0)):
+            if sib is it or not sib_size or sib_size >= size // 2:
+                continue
+            cand = sib["downloadURL"]
+            if head_size(cand) is not None:
+                return (it, cand, "sibling")
+        name = urllib.parse.unquote(it["downloadURL"].rsplit("/", 1)[-1])
+        cand = same_item_derivative(it["archiveID"], name, size)
+        if cand and head_size(cand) is not None:
+            return (it, cand, "derivative")
+        return (it, None, None)
+
     baked = sibling = derivative = 0
-    for n, (size, it) in enumerate(heavy):
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        for n, (it, fb, kind) in enumerate(pool.map(resolve, heavy)):
+            if fb:
+                if kind == "sibling": sibling += 1
+                else: derivative += 1
+                if not args.dry_run:
+                    it["fallbackVideoURL"] = fb
+                baked += 1
+            if n % 50 == 49:
+                print(f"  ... {n+1}/{len(heavy)} scanned, {baked} baked", flush=True)
+    if False:
+      for n, (size, it) in enumerate(heavy):
         fb = None
         # Tier 1: same-imdb sibling copies, meaningfully lighter, biggest
         # first (best quality that still undercuts the heavy copy by half).

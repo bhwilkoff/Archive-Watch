@@ -3486,3 +3486,48 @@ under 4K screenshot capture get the app SUSPENDED (no crash report, the
 capture daemon jetsams for its own limit) — verify app behavior with
 console-attached launches, use capture scenarios for glass evidence;
 reboot the device between long harness sessions.
+
+## 077 — A film starts within 30 seconds, or falls back to a copy that can (amends 021's no-downgrade rule)
+*Date: 2026-08-15*
+
+Owner decision, verbatim intent: "Fallback is only appropriate when the full
+version isn't feasible. Please implement that change. Films should start
+within 30 seconds. Waiting longer than that will lose users almost every
+time." The player's load budget is now 25 seconds, and a startup failure
+with a vetted fallback in hand switches to it IMMEDIATELY — never a retry of
+the URL that just proved unservable. The chain: catalog-baked
+`fallbackVideoURL` → a smaller archive-generated derivative on the same item
+(prefetched during the load attempt by `ArchiveFallback`) → one retry of the
+primary → an honest error naming the Archive's servers. Mid-film failures
+never switch copies; resume stays seamless on the copy the viewer started.
+
+**Why**: Decision 021 rejected bitrate ceilings so quality would never be
+silently degraded — but it never considered a source that cannot serve the
+file's bitrate AT ALL. Measured 2026-08-15: archive.org's US datacenter
+served Till the Clouds Roll By's 5.7 Mbps 4K file at 2 Mbps with 25-second
+first bytes, and the film's 720p sibling upload at 1.7 Mbps from the same
+datacenter — no player on earth streams that. The old behavior (60s timeout,
+same-URL retry, generic "request timed out" after two minutes) was honest
+about nothing and lost the viewer every time. A watchable 845 MB copy of the
+same film existed in the catalog the whole time.
+
+**How to apply**: identity vetting happens in the PIPELINE, never at runtime
+(Decision 026): `tools/bake_fallbacks.py` pairs each heavy item (>1.5 GB,
+1,685 of them) with a meaningfully-lighter same-imdbID sibling copy — the
+duplicate uploads Decision 040's merge collapses at DB-build time remain in
+catalog.json with their URLs — else a same-item archive-generated derivative
+(those are h.264 by construction; an uploader original labeled "MPEG4" can
+hide AV1, which no Apple TV decodes — The Oregon Trail). Every candidate is
+liveness-probed before baking (Decision 056). The field rides `item_json`,
+additive per Decision 020. Runs in publish-db daily (new ingests only —
+idempotent). Never fall back for a mid-film failure, and never fall back to
+a copy that is not the SAME film by pipeline-vetted identity. tvOS shipped
+first (1.3.407/929); iOS/macOS/Android/web parity is open work, as is a
+small on-screen note when a fallback is playing.
+
+**Consequences**: the app's honest terminal error ("The Internet Archive's
+servers are struggling with this title right now...") appears only when the
+best copy AND its fallback both fail to start — roughly 50 seconds worst
+case, inside the owner's tolerance for a genuine outage. The 4K copy remains
+the default every time; the fallback costs nothing until the moment nothing
+else would have played.
