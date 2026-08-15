@@ -185,6 +185,24 @@ class UserStateStore(context: Context) {
         }.firstOrNull()
     }
 
+    /** Raw upsert for the Drive-sync merge: writes exactly what the merge
+     *  decided, no session semantics re-applied. */
+    suspend fun putProgressRaw(
+        id: String, positionMs: Long, durationMs: Long,
+        at: Long, firstAt: Long, plays: Int, everDone: Boolean,
+    ) {
+        dbCall {
+            exec(
+                "INSERT OR REPLACE INTO progress " +
+                    "(id, position, duration, at, firstAt, plays, everDone) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?)",
+                listOf(id, positionMs, durationMs, at, firstAt, plays.toLong(),
+                       if (everDone) 1L else 0L),
+            )
+        }
+        _changes.value += 1
+    }
+
     /** The complete watch record, newest first (Decision 078 parity). */
     suspend fun history(limit: Int = 500): List<WatchProgress> = dbCall {
         query(

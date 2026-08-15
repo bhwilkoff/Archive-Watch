@@ -161,7 +161,8 @@ macOS) since they share the Swift Core.
 | Playlists | ✅ | ✅ | ✅ `PlaylistSheet` + Library | ✅ | ✅ | |
 | Watched / hide-watched | ✅ | ✅ | ✅ `hideWatchedOnHome` filter | ⏳ | ✅ | |
 | Continue Watching progress | ✅ | ✅ | ✅ | ✅ | ✅ | |
-| Watch history (full ever-watched record, D078) | ✅ Library History | ✅ Library tab | ✅ Library shelves | ✅ Library grid | ✅ Library tab | durable everCompleted + playCount + firstWatchedAt; Apple synced via CloudKit; Android/web local until Drive sync |
+| Watch history (full ever-watched record, D078) | ✅ Library History | ✅ Library tab | ✅ Library shelves | ✅ Library grid | ✅ Library tab | durable everCompleted + playCount + firstWatchedAt; Apple synced via CloudKit |
+| Cross-ecosystem history sync (Drive App Data, D028) | n/a (CloudKit) | n/a (CloudKit) | n/a (CloudKit) | ✅ built, one paste away (`AW_GOOGLE_CLIENT_ID` in index.html) | ✅ staged, one gradle property away (google flavor only) | OWNER: create the OAuth client — docs/google-oauth-setup.md |
 | Local persistence (offline-first) | ✅ SwiftData | ✅ SwiftData | ✅ SwiftData | ✅ IndexedDB | ✅ user.sqlite | |
 | Per-ecosystem sync (own cloud) | ✅ CloudKit | ✅ CloudKit | ✅ CloudKit (SAME container; Settings → Account; `CloudKitSyncService`) | ⏳ Google Drive App Data | ⏳ Google Drive App Data | Apple islands converge on one iCloud private DB |
 | Cross-ecosystem sync (all platforms) | 🚫 | 🚫 | 🚫 | 🚫 | 🚫 | Out of scope by owner choice |

@@ -165,6 +165,38 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
 
             HorizontalDivider(Modifier.padding(vertical = 16.dp))
 
+            // Cross-device sync (Decision 028): user's own Google Drive
+            // appDataFolder, sharing awsync.json with the web viewer. HIDDEN
+            // until the OAuth client is configured (BuildConfig field —
+            // docs/google-oauth-setup.md); absent entirely on the amazon
+            // flavor (DriveSync twin, same pattern as CastSupport).
+            if (app.archivewatch.android.sync.DriveSync.IS_SUPPORTED &&
+                app.archivewatch.android.sync.DriveSync.isConfigured
+            ) {
+                SectionLabel("Sync")
+                val activity = androidx.compose.ui.platform.LocalContext.current
+                    as? android.app.Activity
+                Text(
+                    if (app.archivewatch.android.sync.DriveSync.isSignedIn)
+                        "Syncing your watch history and library through your Google Drive."
+                    else "Sign in with Google to sync your watch history and library across devices.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                androidx.compose.material3.TextButton(onClick = {
+                    val act = activity ?: return@TextButton
+                    if (app.archivewatch.android.sync.DriveSync.isSignedIn) {
+                        app.archivewatch.android.sync.DriveSync.signOut()
+                    } else {
+                        app.archivewatch.android.sync.DriveSync.signIn(act, container.userState) {}
+                    }
+                }) {
+                    Text(if (app.archivewatch.android.sync.DriveSync.isSignedIn)
+                        "Sign out" else "Sign in with Google")
+                }
+                HorizontalDivider(Modifier.padding(vertical = 16.dp))
+            }
+
             SectionLabel("About")
             Text(
                 TMDB_NOTICE,

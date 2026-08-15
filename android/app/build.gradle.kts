@@ -71,6 +71,16 @@ android {
     // into the Fire build would crash it at runtime — not at build time, which
     // is exactly why this is a hard structural split rather than a code guard.
     // tools/audit_fire_tv_gms.py gates the amazon variant in CI.
+    // Drive-sync activation (Decision 028): set awGoogleServerClientId in
+    // ~/.gradle/gradle.properties (or CI env) once the owner creates the
+    // OAuth client — docs/google-oauth-setup.md. Empty = feature hidden.
+    defaultConfig {
+        buildConfigField(
+            "String", "AW_GOOGLE_SERVER_CLIENT_ID",
+            "\"${providers.gradleProperty("awGoogleServerClientId").orNull ?: ""}\"",
+        )
+    }
+
     flavorDimensions += "store"
     productFlavors {
         create("google") {
@@ -183,6 +193,9 @@ dependencies {
     // of the amazon variant; a plain `implementation` here would silently
     // break Fire TV (docs/TV-DESIGN.md §6.6).
     "googleImplementation"(libs.play.services.cast.framework)
+    // Drive App Data sync (google flavor only — Decision 028/047): the
+    // authorization API for the appdata scope. Fire stays GMS-free.
+    "googleImplementation"("com.google.android.gms:play-services-auth:21.2.0")
     "googleImplementation"(libs.media3.cast)
 
     implementation(libs.splashscreen)
