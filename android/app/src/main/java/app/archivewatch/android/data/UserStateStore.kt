@@ -16,10 +16,20 @@ data class WatchProgress(
     val positionMs: Long,
     val durationMs: Long,
     val updatedAt: Long,
+    // Watch history (Decision 078 parity): durable, survives rewatches.
+    val firstWatchedAt: Long = 0,
+    val playCount: Int = 1,
+    val everCompleted: Boolean = false,
 ) {
     /** Resumable window: 10s < position < 95% of duration. */
     val isResumable: Boolean
         get() = positionMs > 2_000 && durationMs > 0 && positionMs < durationMs * 95 / 100
+
+    val isComplete: Boolean
+        get() = durationMs > 0 && positionMs >= durationMs * 95 / 100
+
+    /** "Have I watched this?" — durable: a rewatch never removes it. */
+    val isWatched: Boolean get() = everCompleted || isComplete
 }
 
 data class UserChannelRec(
@@ -81,6 +91,15 @@ class UserStateStore(context: Context) {
             "CREATE TABLE IF NOT EXISTS progress (" +
                 "id TEXT PRIMARY KEY, position INTEGER, duration INTEGER, at INTEGER)",
         )
+        // Watch-history columns (Decision 078 parity), additive migration:
+        // ALTER TABLE throws when the column exists — swallowed on purpose.
+        for (col in listOf(
+            "ALTER TABLE progress ADD COLUMN firstAt INTEGER DEFAULT 0",
+            "ALTER TABLE progress ADD COLUMN plays INTEGER DEFAULT 1",
+            "ALTER TABLE progress ADD COLUMN everDone INTEGER DEFAULT 0",
+        )) {
+            try { connection.execSQL(col) } catch (_: Exception) {}
+        }
         // Playlists (personalization wave): archiveIDs newline-joined — no JSON
         // dependency in this store, ids never contain newlines.
         connection.execSQL(
@@ -131,21 +150,50 @@ class UserStateStore(context: Context) {
 
     // --- watch progress ---
 
+    // ONE write path with history semantics (Decision 078): first-watch
+    // date, session counting (>6h gap = new session), durable everCompleted.
     suspend fun saveProgress(id: String, positionMs: Long, durationMs: Long) {
         if (durationMs <= 0) return
+        val now = System.currentTimeMillis()
         dbCall {
+            val prior = query(
+                "SELECT at, firstAt, plays, everDone FROM progress WHERE id = ?", listOf(id),
+            ) { Triple(it.getLong(0), it.getLong(1) to it.getLong(2), it.getLong(3)) }.firstOrNull()
+            val lastAt = prior?.first ?: 0L
+            val firstAt = prior?.second?.first?.takeIf { it > 0 } ?: (prior?.first ?: now)
+            var plays = (prior?.second?.second ?: 1L).coerceAtLeast(1)
+            if (prior != null && now - lastAt > 6 * 3600_000L) plays += 1
+            val done = if ((prior?.third ?: 0L) != 0L ||
+                positionMs >= durationMs * 95 / 100) 1L else 0L
             exec(
-                "INSERT OR REPLACE INTO progress (id, position, duration, at) VALUES (?, ?, ?, ?)",
-                listOf(id, positionMs, durationMs, System.currentTimeMillis()),
+                "INSERT OR REPLACE INTO progress " +
+                    "(id, position, duration, at, firstAt, plays, everDone) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?)",
+                listOf(id, positionMs, durationMs, now, firstAt, plays, done),
             )
         }
         _changes.value += 1
     }
 
     suspend fun progressFor(id: String): WatchProgress? = dbCall {
-        query("SELECT id, position, duration, at FROM progress WHERE id = ?", listOf(id)) {
-            WatchProgress(it.getText(0), it.getLong(1), it.getLong(2), it.getLong(3))
+        query(
+            "SELECT id, position, duration, at, firstAt, plays, everDone " +
+                "FROM progress WHERE id = ?", listOf(id),
+        ) {
+            WatchProgress(it.getText(0), it.getLong(1), it.getLong(2), it.getLong(3),
+                          it.getLong(4), it.getLong(5).toInt(), it.getLong(6) != 0L)
         }.firstOrNull()
+    }
+
+    /** The complete watch record, newest first (Decision 078 parity). */
+    suspend fun history(limit: Int = 500): List<WatchProgress> = dbCall {
+        query(
+            "SELECT id, position, duration, at, firstAt, plays, everDone " +
+                "FROM progress ORDER BY at DESC LIMIT ?", listOf(limit),
+        ) {
+            WatchProgress(it.getText(0), it.getLong(1), it.getLong(2), it.getLong(3),
+                          it.getLong(4), it.getLong(5).toInt(), it.getLong(6) != 0L)
+        }
     }
 
     /** Resumable items, most recent first — the Continue Watching source. */
@@ -209,7 +257,8 @@ class UserStateStore(context: Context) {
     /** Completed (>=95%) archiveIDs — the hide-watched source. */
     suspend fun completedIDs(): Set<String> = dbCall {
         query(
-            "SELECT id FROM progress WHERE duration > 0 AND position >= duration * 95 / 100",
+            "SELECT id FROM progress WHERE everDone = 1 " +
+                "OR (duration > 0 AND position >= duration * 95 / 100)",
         ) { it.getText(0) }.toSet()
     }
 

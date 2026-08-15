@@ -73,6 +73,12 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
     val clips by produceState<List<VideoClip>>(emptyList(), userChanges) {
         value = container.userState.clips()
     }
+    // The complete watch record (Decision 078 parity): everything ever
+    // played, newest first — finished or not.
+    val history by produceState<List<CatalogItem>>(emptyList(), dbVersion, userChanges) {
+        val db = container.catalog.db ?: return@produceState
+        value = db.itemsByIDs(container.userState.history().map { it.archiveID })
+    }
 
     Scaffold(
         topBar = {
@@ -90,9 +96,10 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
                 Tab(selected = tabIndex == 0, onClick = { tabIndex = 0 }, text = { Text("Favorites") })
                 Tab(selected = tabIndex == 1, onClick = { tabIndex = 1 }, text = { Text("Continue") })
                 Tab(selected = tabIndex == 2, onClick = { tabIndex = 2 }, text = { Text("Playlists") })
-                Tab(selected = tabIndex == 3, onClick = { tabIndex = 3 }, text = { Text("Clips") })
+                Tab(selected = tabIndex == 3, onClick = { tabIndex = 3 }, text = { Text("History") })
+                Tab(selected = tabIndex == 4, onClick = { tabIndex = 4 }, text = { Text("Clips") })
             }
-            if (tabIndex == 3) {
+            if (tabIndex == 4) {
                 ClipsTab(container, clips)
                 return@Column
             }
@@ -121,11 +128,18 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
                 }
                 return@Column
             }
-            val items = if (tabIndex == 0) favorites else continueWatching
+            val items = when (tabIndex) {
+                0 -> favorites
+                1 -> continueWatching
+                else -> history
+            }
             if (items.isEmpty()) {
                 EmptyState(
-                    if (tabIndex == 0) "No favorites yet — tap the heart on any title."
-                    else "Nothing in progress — start watching something.",
+                    when (tabIndex) {
+                        0 -> "No favorites yet — tap the heart on any title."
+                        1 -> "Nothing in progress — start watching something."
+                        else -> "Everything you watch shows up here."
+                    },
                 )
             } else {
                 LazyVerticalGrid(

@@ -94,9 +94,20 @@
       progressFor: async id => (await getAll('progress')).find(p => p.id === id) || null,
       // title rides along so Continue Watching can render episodes, whose
       // ids aren't rows in the catalog index.
-      saveProgress: (id, position, duration, title) =>
-        tx('progress', 'readwrite',
-          s => s.put({ id, position, duration, title, at: Date.now() })),
+      // History semantics (Decision 078 parity): first-watch date, session
+      // count (>6h gap = new session), durable everDone — a rewatch resets
+      // the position but never removes "you have watched this".
+      saveProgress: async (id, position, duration, title) => {
+        const prior = (await getAll('progress')).find(p => p.id === id);
+        const now = Date.now();
+        const plays = (prior?.plays || 1) + (prior && now - prior.at > 6 * 3600_000 ? 1 : 0);
+        const everDone = !!(prior?.everDone
+          || (duration > 0 && position / duration >= 0.95));
+        return tx('progress', 'readwrite',
+          s => s.put({ id, position, duration, title, at: now,
+                       firstAt: prior?.firstAt || prior?.at || now,
+                       plays, everDone }));
+      },
       playlists: () => getAll('playlists'),
       userChannels: () => getAll('channels'),
       saveUserChannel: ch => tx('channels', 'readwrite', s => s.put(ch)),
@@ -965,6 +976,14 @@
         return a;
       }));
       $('library-playlists-empty').hidden = playlists.length > 0;
+
+      // The complete watch record (Decision 078): everything ever played,
+      // newest first — finished or not, resumable or not.
+      const all = (await DB.progress()).sort((a, b) => b.at - a.at);
+      const hist = all.map(p => Data.byID.get(p.id)
+        || [p.id, p.title || p.id, null, '', null]);
+      fillGrid($('library-history'), hist);
+      $('library-history-empty').hidden = hist.length > 0;
     },
   };
 
