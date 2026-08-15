@@ -200,8 +200,19 @@ struct Catalog: Decodable, Sendable {
         let releaseDate: String?
         let awards: String?
 
+        // Owner decision 2026-08-15: when the best copy cannot stream
+        // (degraded archive.org node, bitrate above what the source can
+        // serve), the app falls back to a vetted lower-quality copy rather
+        // than showing an error — "fallback is only appropriate when the
+        // full version isn't feasible." Baked by tools/bake_fallbacks.py
+        // from same-imdb duplicate copies and same-item derivatives; the
+        // identity is pipeline-vetted (Decision 026), never a runtime title
+        // match. Optional + additive so old catalogs decode unchanged.
+        let fallbackVideoURL: String?
+
         var id: String { archiveID }
         var subtitleHLSURL: URL? { subtitleHLS.flatMap(URL.init(string:)) }
+        var fallbackVideoURLParsed: URL? { Catalog.playableURL(fallbackVideoURL) }
 
         /// The published English WebVTT, when we host one.
         ///

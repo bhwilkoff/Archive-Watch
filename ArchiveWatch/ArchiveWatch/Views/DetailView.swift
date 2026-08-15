@@ -573,6 +573,14 @@ struct PlayerScreen: View {
     @State private var statusObserver: NSKeyValueObservation?
     @State private var timeoutTask: Task<Void, Never>?
     @State private var autoRetried = false   // #10: silently retry once before failing
+    // Owner-approved fallback (2026-08-15): when the best copy can't stream,
+    // play a vetted lower-quality copy instead of erroring. Chain:
+    // catalog-baked fallbackVideoURL -> same-item smaller derivative
+    // (ArchiveFallback, prefetched during the load attempt) -> one retry of
+    // the primary -> an honest error naming the Archive's servers.
+    @State private var fallbackCandidate: URL?
+    @State private var usingFallbackURL: URL?
+    @State private var fallbackProbe: Task<Void, Never>?
     @State private var skipCount = 0         // #7: bound auto-skips in a broken lineup
     // If the native HLS-subtitle path fails to load, fall back to the direct MP4
     // through ResilientStreamLoader (proven reliable). Playback is the priority
@@ -648,9 +656,12 @@ struct PlayerScreen: View {
     // Surface a visible, recoverable failure state — same contract as the episode
     // player.
     private enum PlaybackState: Equatable { case loading, ready, failed(String) }
-    // #10: give the now-retrying ResilientStreamLoader room to warm a cold node
-    // (its first-byte handshake alone allows 30s) before the player-level backstop.
-    private let loadTimeout: Duration = .seconds(60)
+    // Owner requirement 2026-08-15: a film must START within ~30 seconds —
+    // "waiting longer than that will lose users almost every time." 25s here
+    // leaves room for the fallback swap to still land inside a tolerable
+    // total. (The old 60s budget, plus a same-URL retry, meant two minutes
+    // to an error on a dead node.)
+    private let loadTimeout: Duration = .seconds(25)
 
     var body: some View {
         ZStack {
@@ -688,6 +699,9 @@ struct PlayerScreen: View {
             if PlaybackDiag.enabled { awdiag("AWLIFE screen=%@ currentChanged", screenID) }
             autoRetried = false          // #10: fresh retry budget per item
             forceDirectPlayback = false  // new item tries the HLS-subtitle path fresh
+            usingFallbackURL = nil       // each item starts on its best copy
+            fallbackCandidate = nil
+            fallbackProbe?.cancel(); fallbackProbe = nil
             teardownPlayer()
             playback = .loading
             setupPlayer()
@@ -843,6 +857,23 @@ struct PlayerScreen: View {
             playback = .failed(message)
             return
         }
+        // FALLBACK FIRST (owner decision 2026-08-15): a startup failure with a
+        // vetted lower-quality copy in hand switches to it immediately —
+        // retrying the same URL against a node that just proved unable to
+        // serve it wastes the viewer's start budget. Only startup failures
+        // fall back (played < 30s); a mid-film failure keeps the same copy so
+        // resume is seamless.
+        let played = player?.currentTime().seconds ?? 0
+        let startupFailure = !(played.isFinite && played > 30)
+        if startupFailure, usingFallbackURL == nil,
+           let fb = (current ?? catalogItem)?.fallbackVideoURLParsed ?? fallbackCandidate {
+            usingFallbackURL = fb
+            awdiag("AWLIFE screen=%@ FALLBACK to lower-quality copy %@", screenID, fb.absoluteString)
+            teardownPlayer(persist: false)
+            playback = .loading
+            setupPlayer()
+            return
+        }
         if !autoRetried {
             autoRetried = true
             // If this item used the HLS-subtitle path, the retry drops it and
@@ -853,7 +884,6 @@ struct PlayerScreen: View {
             // mid-film) must resume where the viewer was, not where the 5s
             // progress writer last got to. Startup failures keep persist:false —
             // there is no position worth keeping at t=0.
-            let played = player?.currentTime().seconds ?? 0
             teardownPlayer(persist: played.isFinite && played > 30)
             playback = .loading
             setupPlayer()
@@ -865,7 +895,15 @@ struct PlayerScreen: View {
             skipCount += 1
             advanceNow()
         } else {
-            playback = .failed(message)
+            // Both the best copy and any fallback have failed to START. The
+            // generic "request timed out" blames nobody; the true condition
+            // is nearly always the source (measured 2026-08-15: archive.org
+            // nodes serving 2 Mbps with 25s first bytes — no player can
+            // stream a 5.7 Mbps film from that).
+            let honest = usingFallbackURL != nil || fallbackCandidate == nil
+                ? "The Internet Archive's servers are struggling with this title right now. It usually recovers within a few hours — please try again later."
+                : message
+            playback = .failed(honest)
         }
     }
 
@@ -906,7 +944,7 @@ struct PlayerScreen: View {
         // film, so a harness can play the SAME film from a controlled server —
         // the decisive mux-vs-delivery experiment (a LAN-served faststart remux
         // against the badly-interleaved archive.org original).
-        var playURL = active?.videoURLParsed ?? url
+        var playURL = usingFallbackURL ?? active?.videoURLParsed ?? url
         if let ov = ProcessInfo.processInfo.environment["AW_URL_OVERRIDE"],
            let ovURL = URL(string: ov),
            ProcessInfo.processInfo.environment["AW_START_ITEM"] == activeArchiveID {
@@ -941,6 +979,23 @@ struct PlayerScreen: View {
         let (asset, loader) = ResilientStreamLoader.makeAsset(for: playURL)
         streamLoader = loader
         playerItem = AVPlayerItem(asset: asset)
+        // Prefetch a same-item smaller derivative WHILE the primary loads, so
+        // a 25s-budget failure can switch instantly instead of paying a
+        // metadata round-trip on top. Catalog-baked fallbacks need no fetch.
+        if usingFallbackURL == nil, fallbackCandidate == nil,
+           (current ?? catalogItem)?.fallbackVideoURLParsed == nil,
+           let primary = (current ?? catalogItem)?.videoURLParsed {
+            let itemID = activeArchiveID
+            fallbackProbe?.cancel()
+            fallbackProbe = Task { @MainActor in
+                let found = await ArchiveFallback.smallerCopy(itemID: itemID, than: primary)
+                guard !Task.isCancelled else { return }
+                fallbackCandidate = found
+                if let found, PlaybackDiag.enabled {
+                    awdiag("AWLIFE screen=%@ fallback candidate ready %@", screenID, found.lastPathComponent)
+                }
+            }
+        }
         if let active {
             playerItem.externalMetadata = makeExternalMetadata(for: active)
         }
