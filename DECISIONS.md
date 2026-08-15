@@ -3434,3 +3434,55 @@ an MP4 labelled "MPEG4" (no Apple TV can decode it; the Mac-side verifier
 can) and now fails with an honest terminal error instead of audio over a
 black screen — the codec-aware pipeline audit is queued; and the caption
 overlay strips WebVTT markup it was rendering literally.
+
+## 076 — Ship gates run under ADVERSE conditions: Release builds, throttled bandwidth, and playback owes the caption engine nothing
+*Date: 2026-08-15*
+
+Three standing rules born from the owner's report that build 925 made every
+title without a subtitle file unplayable — a regression that passed every
+harness gate, because every gate ran under conditions the failure needed
+absent:
+
+1. **The caption engine is a passenger, never a driver.** For a film with
+   no subtitle file the engine ARMS at play-start but IGNITES only after
+   playback has proven the link can afford a second stream (60s banked or
+   30s healthy). On a link that can never afford it, captions are simply
+   absent — no spinner, no notice, playback identical to a captioned
+   title. Measured why: at ~10 Mbps the scout's startup probe + the AV1
+   check's moov fetch + the player's own startup collided and the item
+   load TIMED OUT — "unable to play," on every uncaptioned title, while
+   captioned titles worked. That asymmetry was the owner's exact report
+   and the diagnosis in one line.
+
+2. **Ship gates run under the conditions viewers actually have.** Every
+   fix through 925 was validated on Debug builds at whatever bandwidth
+   archive.org happened to offer — usually 40-240 Mbps. The failures all
+   needed ~10 Mbps to appear. `tools/throttled_range_server.py` (token-
+   bucket range server; python's stock http.server ignores Range and
+   feeds AVFoundation garbage) + `AW_URL_OVERRIDE`/`AW_NO_RESUME` make a
+   bad morning reproducible ON DEMAND. A tvOS playback/caption change now
+   ships only after a RELEASE-configuration scenario AND a 10 Mbps
+   throttled run. The gate earned its keep the first day: it caught the
+   loader fetching every byte 2-3x (AVFoundation walks an interleaved
+   file with separate audio and video cursors over the same bytes, each
+   served a private copy), which no fast-network run ever showed.
+
+3. **Streaming delivery for the leading request is load-bearing** (the
+   Decision 031 invariant, re-proven from the other side). Routing ALL
+   requests through the shared block cache fixed the 2x duplication but
+   held startup bytes hostage in whole 2MB blocks — 29s first-block
+   fetches under slow-TTFB contention, item timeout, "unable to play"
+   again. The follow-up that gets both (share bytes across cursors AND
+   stream them as they arrive) is streaming block fills; it ships only
+   through the throttled gate.
+
+Also in the record: the slow-chunk watchdog is DELETED (regressed twice —
+a 5.6 Mbps floor killed normal wifi; a 0.2 Mbps floor killed legitimately
+slow startup probes; the 12s idle timeout already covers dead
+connections). Failure notices are honest and bounded: "no audio to
+transcribe" only when the track load SUCCEEDS and finds none, and
+"Preparing automatic captions" expires at 45s. Harness caveats: launches
+under 4K screenshot capture get the app SUSPENDED (no crash report, the
+capture daemon jetsams for its own limit) — verify app behavior with
+console-attached launches, use capture scenarios for glass evidence;
+reboot the device between long harness sessions.
