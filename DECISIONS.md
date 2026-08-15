@@ -3531,3 +3531,41 @@ best copy AND its fallback both fail to start — roughly 50 seconds worst
 case, inside the owner's tolerance for a genuine outage. The 4K copy remains
 the default every time; the fallback costs nothing until the moment nothing
 else would have played.
+
+## 078 — Watch history is a durable, union-merged record; progress is merely its most recent line
+*Date: 2026-08-15*
+
+Every playback on every Apple platform records through ONE write path,
+`WatchProgress.record(in:)`: resume position (as before), plus firstWatchedAt,
+playCount (a new session = a >6h gap between writes), and everCompleted /
+completedAt. everCompleted is durable — once a title has been finished it is
+"watched" forever, because before it existed a REWATCH reset the position and
+silently erased the title's watched status on every synced device. Channel /
+lineup tune-ins (ephemeral) now enter the history after 60 seconds of viewing
+— dates and session count only, never position — so the record is complete
+while Continue Watching keeps its no-channel-pollution invariant. The tvOS
+Library gains a History section: every title ever played, most recent first.
+CloudKit's merge treats history as a UNION (earliest first-watch, highest
+play count, completed-anywhere = completed-everywhere) while position stays
+last-writer-wins by lastWatchedAt.
+
+**Why**: owner, 2026-08-15 — "a full record of every movie/video you have
+ever watched and the ability to resume them from wherever you last stopped...
+easy to see... no matter where you are or which device... the same across all
+Apple devices." The store already synced positions; what it lacked was
+durability (rewatches erased history), completeness (channels recorded
+nothing), and a surface (nothing listed the full record).
+
+**How to apply**: never persist progress with hand-rolled fetch/update code —
+call `WatchProgress.record`; three platforms had three divergent persist
+bodies and any future semantic lives in the helper once. History fields merge
+as a union, NEVER last-writer-wins — two devices each know something true and
+the merge must lose neither. All fields are optional so old stores migrate
+lightweight and old sync payloads decode unchanged (the additive rule,
+Decision 020, applied to SwiftData + the AWSync blobs). Proven on-device on
+the Release build: record → relaunch → resume at the exact position.
+
+**Consequences**: iOS/macOS Library History surfaces, Android/web local
+history, and PARITY rows are open work. Cross-ecosystem sync (Android/web
+seeing the same record) rides Decision 028's Google Drive App Data plan and
+remains blocked on the owner creating the Google OAuth client.
