@@ -24,6 +24,14 @@ struct LibraryView: View {
                     ShelfRow(title: pl.name, items: store.itemsByIDs(pl.archiveIDs))
                 }
 
+                // The complete watch record (Decision 078): everything ever
+                // played on any synced device, finished or not, newest first.
+                // Watched = durable (a rewatch never removes a title).
+                let watchedItems = store.itemsByIDs(progress.filter(\.isWatched).map(\.archiveID))
+                ShelfRow(title: "Watched", items: watchedItems)
+                let historyItems = store.itemsByIDs(progress.map(\.archiveID))
+                ShelfRow(title: "History", items: historyItems)
+
                 if continueItems.isEmpty && favItems.isEmpty && playlists.isEmpty {
                     ContentUnavailableView("Your library is empty",
                                            systemImage: "books.vertical",

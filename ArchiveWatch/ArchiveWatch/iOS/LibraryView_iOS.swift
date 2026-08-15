@@ -14,7 +14,7 @@ struct LibraryView: View {
     @Query(sort: \VideoClip.createdAt, order: .reverse) private var clips: [VideoClip]
     @State private var section: Section = .favorites
 
-    enum Section: String, CaseIterable, Identifiable { case favorites, watched, playlists, clips
+    enum Section: String, CaseIterable, Identifiable { case favorites, watched, history, playlists, clips
         var id: String { rawValue }; var title: String { rawValue.capitalized } }
 
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
@@ -28,8 +28,9 @@ struct LibraryView: View {
             switch section {
             case .favorites: grid(store.itemsByIDs(favorites.map(\.archiveID)),
                                   empty: "No favorites yet", icon: "heart")
-            case .watched: grid(store.itemsByIDs(progress.filter(\.isComplete).map(\.archiveID)),
+            case .watched: grid(store.itemsByIDs(progress.filter(\.isWatched).map(\.archiveID)),
                                 empty: "Nothing watched yet", icon: "checkmark.circle")
+            case .history: historyList
             case .playlists: playlistList
             case .clips: clipsList
             }
@@ -51,6 +52,57 @@ struct LibraryView: View {
                 }.padding()
             }
         }
+    }
+
+    // The complete watch record (Decision 078): every title ever played on any
+    // synced device — finished or not — most recent first, with when and how far.
+    @ViewBuilder private var historyList: some View {
+        let rows = progress.sorted { $0.lastWatchedAt > $1.lastWatchedAt }
+        if rows.isEmpty {
+            ContentUnavailableView("No history yet", systemImage: "clock.arrow.circlepath",
+                description: Text("Everything you watch, on any device, shows up here."))
+        } else {
+            List {
+                ForEach(rows, id: \.archiveID) { w in
+                    if let item = store.item(w.archiveID) {
+                        Button { router.openDetail(item) } label: {
+                            HStack(spacing: 12) {
+                                PosterThumb(item: item)
+                                VStack(alignment: .leading, spacing: 3) {
+                                    Text(item.title).font(.headline).lineLimit(1)
+                                        .foregroundStyle(.primary)
+                                    Text(historyLine(w)).font(.caption)
+                                        .foregroundStyle(.secondary)
+                                    if w.positionSeconds > 10, !w.isComplete, w.durationSeconds > 0 {
+                                        ProgressView(value: w.fraction).tint(.orange)
+                                    }
+                                }
+                            }
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+                .onDelete { offsets in
+                    for i in offsets {
+                        let w = rows[i]
+                        SyncNudge.recordDeletion("wp:\(w.archiveID)", in: ctx)
+                        ctx.delete(w)
+                    }
+                }
+            }
+            .listStyle(.plain)
+        }
+    }
+
+    private func historyLine(_ w: WatchProgress) -> String {
+        let date = w.lastWatchedAt.formatted(date: .abbreviated, time: .omitted)
+        var parts: [String] = []
+        if w.isWatched { parts.append("Watched \(date)") }
+        else if w.positionSeconds > 10, w.durationSeconds > 0 {
+            parts.append("\(Int(w.fraction * 100))% · \(date)")
+        } else { parts.append(date) }
+        if let n = w.playCount, n > 1 { parts.append("\(n) sessions") }
+        return parts.joined(separator: " · ")
     }
 
     @ViewBuilder private var playlistList: some View {
@@ -122,6 +174,22 @@ struct LibraryView: View {
                 }
             }
         }
+    }
+}
+
+// Small poster thumbnail for list rows (Library History).
+private struct PosterThumb: View {
+    let item: Catalog.Item
+    var body: some View {
+        AsyncImage(url: item.posterURLParsed) { phase in
+            if let img = phase.image {
+                img.resizable().aspectRatio(contentMode: .fill)
+            } else {
+                Rectangle().fill(.quaternary)
+            }
+        }
+        .frame(width: 44, height: 66)
+        .clipShape(RoundedRectangle(cornerRadius: 6))
     }
 }
 
