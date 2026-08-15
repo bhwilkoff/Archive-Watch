@@ -83,6 +83,10 @@
     }
     return {
       favorites: () => getAll('favorites'),
+      // Raw puts for the Drive sync merge (js/drivesync.js): write a record
+      // exactly as merged, no semantics re-applied.
+      putProgressRaw: rec => tx('progress', 'readwrite', s => s.put(rec)),
+      saveFavorite: f => tx('favorites', 'readwrite', s => s.put(f)),
       isFavorite: async id => (await getAll('favorites')).some(f => f.id === id),
       toggleFavorite: async id => {
         const has = await DB.isFavorite(id);
@@ -945,6 +949,10 @@
   /* ---------------------------------------------------------------- *
    * Library — favorites + continue watching (IndexedDB, this browser) *
    * ---------------------------------------------------------------- */
+  // Cross-device sync (js/drivesync.js): a no-op until the owner sets
+  // AW_GOOGLE_CLIENT_ID in index.html. Init after DB exists.
+  setTimeout(() => window.AWDriveSync?.init(DB, document.getElementById('library-sync')), 0);
+
   const Library = {
     async render() {
       const progress = (await DB.progress())
@@ -2087,6 +2095,7 @@
       if (!this.ctx || this.ctx.persist === false) return;
       if (!video.duration || !isFinite(video.duration)) return;
       DB.saveProgress(this.ctx.id, video.currentTime, video.duration, this.ctx.title);
+      window.AWDriveSync?.nudge();
     },
 
     /** Show the title/description overlay and mirror the native controls'

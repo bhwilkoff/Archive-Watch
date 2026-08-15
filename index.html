@@ -85,6 +85,7 @@
 
     <section id="view-library" hidden>
       <h1>Library</h1>
+      <p id="library-sync" class="muted" hidden></p>
       <h2>Continue Watching</h2>
       <div id="library-continue" class="grid"></div>
       <p id="library-continue-empty" class="muted" hidden>Nothing in progress — playback picks up where you left off, on this browser.</p>
@@ -304,7 +305,14 @@
   </dialog>
 
   <script src="js/api.js"></script>
-  <script src="watch.js"></script>
+  <script>
+      /* Cross-device sync activation (Decision 028): paste the Google OAuth
+         WEB client ID here once created — docs/google-oauth-setup.md. Until
+         then sync stays off and no Google script loads. */
+      window.AW_GOOGLE_CLIENT_ID = '';
+    </script>
+    <script src="js/drivesync.js"></script>
+    <script src="watch.js"></script>
   <script src="tv.js"></script>
   <!-- Google Cast sender. cast-sender.js self-disables when the framework is
        absent (non-Chromium, or gstatic blocked), so this is safe everywhere.
