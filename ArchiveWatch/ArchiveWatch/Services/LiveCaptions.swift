@@ -51,10 +51,19 @@ final class LiveCaptions {
         if let modelProgress, failure == nil, isRunning {
             return "Downloading the speech model\u{2026} \(Int(modelProgress * 100))%"
         }
+        // Silent while ARMED (scout not yet ignited): a viewer on a link
+        // that can never afford the second stream just watches their film,
+        // instead of being taunted by a promise that cannot be kept.
+        guard pendingIgnition == nil else { return "" }
+        // And BOUNDED once ignited: "Preparing automatic captions…" stood on
+        // screen permanently when the engine got stuck — a notice that
+        // cannot expire is a lie waiting to happen.
         guard failure == nil, isRunning, !everProducedCue, let startedAt,
-              Date().timeIntervalSince(startedAt) > Self.noticeDelay else { return "" }
+              Date().timeIntervalSince(startedAt) > Self.noticeDelay,
+              Date().timeIntervalSince(startedAt) < Self.noticeMaxLifetime else { return "" }
         return "Preparing automatic captions\u{2026}"
     }
+    private static let noticeMaxLifetime: TimeInterval = 45
 
     /// Turn a recognizer error into something a viewer can act on.
     ///
@@ -240,6 +249,26 @@ final class LiveCaptions {
         troubleEpisodes = 0
         lastEpisodeAt = nil
 
+        // ARMED, NOT IGNITED. The scout is a second stream of the same film,
+        // and starting it at launch made it compete with playback's own
+        // startup — measured on a ~10 Mbps morning: probe + moov + scout
+        // probe collided, the first item load TIMED OUT (-1001), and every
+        // uncaptioned title on the build read as "unable to play" while
+        // captioned titles (no scout) were fine. The engine now arms here
+        // and throttle() ignites it only once playback has proven the link
+        // can afford a passenger: 60s banked, or 30s of healthy play.
+        pendingIgnition = (url, contentOffset)
+        armedAt = Date()
+        return
+    }
+
+    private var pendingIgnition: (url: URL, from: Double)?
+    private var armedAt: Date?
+
+    /// Actually start the scout. Called by `throttle()` when playback can
+    /// afford it — never directly at play-start.
+    private func ignite(url: URL) async {
+        pendingIgnition = nil
         guard let tap = sink.makeTap() else {
             failure = "Couldn't attach to the audio."
             isRunning = false
@@ -318,9 +347,25 @@ final class LiveCaptions {
 
         Task { @MainActor [weak self] in
             guard let self else { return }
-            guard let track = try? await asset.loadTracks(withMediaType: .audio).first else {
-                self.failure = "This title has no audio to transcribe."
+            let track: AVAssetTrack?
+            do {
+                // Distinguish "this film has no audio track" (a fact about
+                // the film) from "the load failed/timed out" (a fact about
+                // the moment). The owner watched "no audio to transcribe"
+                // on films that were audibly playing — the load had timed
+                // out on a starved link, and the engine blamed the film.
+                track = try await asset.loadTracks(withMediaType: .audio).first
+                if track == nil {
+                    self.failure = "This title has no audio to transcribe."
+                }
+            } catch {
+                awdiag("[AWCAP] scout track load failed (transient): %@",
+                       error.localizedDescription)
+                track = nil
+            }
+            guard let track else {
                 self.isRunning = false
+                self.silenceScout()
                 return
             }
             if exp != "notap" {
@@ -363,6 +408,17 @@ final class LiveCaptions {
     func throttle(playhead: CMTime, playbackHealthy: Bool = true,
                   mainBufferSeconds: Double? = nil) {
         if playhead.seconds.isFinite { lastPlayhead = playhead.seconds }
+        if let pending = pendingIgnition {
+            guard playbackHealthy else { armedAt = Date(); return }
+            let banked = mainBufferSeconds ?? 0
+            let healthyFor = armedAt.map { Date().timeIntervalSince($0) } ?? 0
+            if banked >= 60 || healthyFor >= 30 {
+                pendingIgnition = nil          // synchronously — one ignition
+                let url = pending.url
+                Task { await self.ignite(url: url) }
+            }
+            return
+        }
         guard let scout = scoutPlayer else { return }
         if !playbackHealthy {
             lastUnhealthyAt = Date()
@@ -577,6 +633,7 @@ final class LiveCaptions {
     func needsResync(at playhead: CMTime) -> Bool {
         let t = playhead.seconds
         guard isRunning, t.isFinite, t >= 0 else { return false }
+        if pendingIgnition != nil { return false }   // armed, not yet running
         if t < contentOffset - 30 { return true }              // seeked behind the session
         let scoutAt = scoutPlayer?.currentTime().seconds
         let reached = max(cues.last?.end ?? contentOffset,
@@ -708,6 +765,8 @@ final class LiveCaptions {
     private static let minLead: Double = 45
 
     func stop() {
+        pendingIgnition = nil
+        armedAt = nil
         task?.cancel(); task = nil
         sink.finish()
         silenceScout()

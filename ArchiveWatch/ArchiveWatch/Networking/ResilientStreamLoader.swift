@@ -467,35 +467,13 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
     /// 031 win too), else the origin (which 302-redirects to whatever node it
     /// picks). MUST be called on `queue`.
     private func currentTarget() -> URL {
-        let usable = { (h: String?) in
-            !self.failedHosts.contains(h ?? "") && !self.slowHosts.contains(h ?? "")
-        }
-        if let p = pinnedURL, usable(p.host) { return p }
-        if let alts = alternateBases {
-            if let fresh = alts.first(where: { usable($0.host) }) { return fresh }
-            // Every node is failed or slow: a slow node still serves bytes,
-            // which beats the origin coin-flip — forgive slowness rather
-            // than deadlock (mirror of markNodeFailed's forgiveness).
-            slowHosts.removeAll()
-            if let healthy = alts.first(where: { !failedHosts.contains($0.host ?? "") }) {
-                return healthy
-            }
+        if let p = pinnedURL, !failedHosts.contains(p.host ?? "") { return p }
+        if let alts = alternateBases,
+           let healthy = alts.first(where: { !failedHosts.contains($0.host ?? "") }) {
+            return healthy
         }
         return realURL
     }
-
-    /// Demote a node whose completed-or-cancelled chunks are TRICKLING — a
-    /// different signal from a hard failure. Decision 034 rightly forbids
-    /// blacklisting on a timeout (the expected idle drop), but a chunk that
-    /// spends 18.7 seconds delivering 8 MB at 3.6 Mbps is measured
-    /// throughput, and it starved playback to a stall twice in scenario
-    /// atvrun-ttcrb5 — with no second stream running at all. Demoted, not
-    /// failed: `currentTarget` prefers others and forgives when all are slow.
-    private func markNodeSlow(_ url: URL) {
-        if let h = url.host { slowHosts.insert(h) }
-        pinnedURL = nil
-    }
-    private var slowHosts: Set<String> = []
 
     /// Blacklist a node's host after a HARD failure (5xx/403/404 — node-health
     /// signals, NOT the expected idle-connection resets) and drop the pin. If
@@ -826,24 +804,15 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
             // chunk completion and re-downloaded the whole chunk on failure —
             // each such event was a multi-second hole in buffer feed.)
             let stream = ChunkStream(dataRequest: dataRequest, request: request)
-            // SLOW-CHUNK WATCHDOG. The 12s idle timeout never fires on a slow
-            // TRICKLE (bytes keep arriving), so one glacial request can drain
-            // the whole forward buffer — measured: an 8 MB chunk at 3.6 Mbps
-            // held the stream for 18.7s while playback ran dry and stalled.
-            //
-            // The first version fired at <4 MB in 6s (~5.6 Mbps) — which is a
-            // NORMAL living-room connection, not a glacial one. It cancelled a
-            // measured 5.2 Mbps chunk, killed every TCP ramp at six seconds,
-            // marked healthy nodes slow, and on the owner's wifi left titles
-            // with no video at all (build 915). Only a genuinely DEAD trickle
-            // justifies abandoning a connection: under 256 KB after ten full
-            // seconds (~0.2 Mbps). Everything faster is left to finish — the
-            // 18.7s outlier still trips this; a modest link never does.
-            let watchdog = Task {
-                try? await Task.sleep(nanoseconds: 10_000_000_000)
-                if stream.delivered < 262_144 { stream.cancelSlow() }
-            }
-            defer { watchdog.cancel() }
+            // NO slow-chunk watchdog. It shipped twice and regressed twice:
+            // at a 5.6 Mbps floor it killed normal living-room connections
+            // (build 915, "no video at all"), and even at a 0.2 Mbps floor it
+            // cancelled STARTUP requests whose first byte was legitimately
+            // slow (a 10 Mbps archive.org morning: three cancelled probes,
+            // then -1001, then "unable to play" — the owner's report). The
+            // 12s idle timeout already abandons a dead connection; a slow one
+            // is better finished than re-begun. Decision 034's rule stands:
+            // rotate on hard errors only.
             do {
                 try await stream.run(session, req)
                 offset += Int64(stream.delivered)
@@ -894,10 +863,6 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
                         markNodeFailed(target)
                         transportFailsByHost[host] = 0
                         if Self.diag { awdiag("AWSTREAM node %@ failed (status %d) -> rotating", host, st) }
-                    } else if stream.slowCancelled {
-                        markNodeSlow(target)
-                        transportFailsByHost[host] = 0
-                        if Self.diag { awdiag("AWSTREAM node %@ slow (%d bytes in 6s) -> rotating", host, stream.delivered) }
                     } else {
                         if stream.delivered > 0 {
                             transportFailsByHost[host] = 0     // progress → host is alive
@@ -940,21 +905,10 @@ private final class ChunkStream: NSObject, URLSessionDataDelegate, @unchecked Se
     private(set) var delivered = 0
     private(set) var finalURL: URL?
     private(set) var status = 0
-    private(set) var slowCancelled = false
-
     init(dataRequest: AVAssetResourceLoadingDataRequest,
          request: AVAssetResourceLoadingRequest) {
         self.dataRequest = dataRequest
         self.request = request
-    }
-
-    /// Abort a chunk that is TRICKLING, so the caller resumes byte-exactly on
-    /// another node. A distinct flag, because the resulting URLError is the
-    /// same .cancelled the player's own teardown produces — the retry loop
-    /// must be able to tell "we gave up on this node" from "the request died".
-    func cancelSlow() {
-        lock.lock(); slowCancelled = true; let t = task; lock.unlock()
-        t?.cancel()
     }
 
     func run(_ session: URLSession, _ req: URLRequest) async throws {

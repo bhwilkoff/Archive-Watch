@@ -958,26 +958,6 @@ struct PlayerScreen: View {
         freezeGuard.attach(to: p, item: playerItem)
         nowPlaying.begin(posterURL: active?.posterURLParsed, item: playerItem)
 
-        // No Apple TV has an AV1 decoder, and AVFoundation does not FAIL on
-        // an AV1 track — it plays the audio and silently drops the video, so
-        // the viewer gets sound and captions over a black screen (The Oregon
-        // Trail, build 915; the pipeline's verifier runs on a Mac, which CAN
-        // decode AV1, so the catalog never caught it). Say the true thing.
-        Task { @MainActor in
-            guard let track = try? await playerItem.asset
-                .loadTracks(withMediaType: .video).first,
-                  let descs = try? await track.load(.formatDescriptions) else { return }
-            for d in descs {
-                let sub = CMFormatDescriptionGetMediaSubType(d)
-                let name = sub == 0x6176_3031 ? "AV1" : sub == 0x7670_3039 ? "VP9" : nil
-                if let name {
-                    awdiag("AWLIFE screen=%@ unsupportedCodec %@", screenID, name)
-                    timeoutTask?.cancel()
-                    handleLoadFailure("This copy's video is \(name), which Apple TV can't decode. The picture would stay black.", retryable: false)
-                    return
-                }
-            }
-        }
 
         // Watch the item ready or fail so a broken stream becomes a visible,
         // recoverable error instead of the dead "no-entry" circle (#19). KVO can
@@ -987,6 +967,30 @@ struct PlayerScreen: View {
                 switch observed.status {
                 case .readyToPlay:
                     if PlaybackDiag.enabled { awdiag("AWLIFE screen=%@ itemReady", screenID) }
+                    // No Apple TV has an AV1 decoder, and AVFoundation does
+                    // not FAIL on an AV1 track — it reports ready, plays the
+                    // audio, and silently drops the video (The Oregon Trail:
+                    // sound and captions over black; the pipeline's verifier
+                    // runs on a Mac, which CAN decode AV1). Checked HERE, at
+                    // ready — running loadTracks at setupPlayer added a moov
+                    // fetch to the startup window and helped time out slow-
+                    // morning loads. By ready the track info is already
+                    // parsed, so this costs nothing.
+                    Task { @MainActor in
+                        guard let track = try? await observed.asset
+                            .loadTracks(withMediaType: .video).first,
+                              let descs = try? await track.load(.formatDescriptions) else { return }
+                        for d in descs {
+                            let sub = CMFormatDescriptionGetMediaSubType(d)
+                            let name = sub == 0x6176_3031 ? "AV1" : sub == 0x7670_3039 ? "VP9" : nil
+                            if let name {
+                                awdiag("AWLIFE screen=%@ unsupportedCodec %@", screenID, name)
+                                timeoutTask?.cancel()
+                                handleLoadFailure("This copy's video is \(name), which Apple TV can't decode. The picture would stay black.", retryable: false)
+                                return
+                            }
+                        }
+                    }
                     playback = .ready
                     skipCount = 0          // #7: a good item resets the skip budget
                     timeoutTask?.cancel()
