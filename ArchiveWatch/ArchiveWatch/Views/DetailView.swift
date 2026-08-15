@@ -1170,37 +1170,16 @@ struct PlayerScreen: View {
         // it promised to return to.
         guard pendingSeekSeconds == nil else { return }
         // Ephemeral lineups (channel tune-ins, party walls, cartoon marathons)
-        // never persist WatchProgress — the invariant since the Channels EPG
-        // shipped, lost somewhere since: tuning into a channel was writing
-        // progress every 5 seconds, so half-watched channel programs polluted
-        // Continue Watching on every device the account syncs to. Deliberate
-        // viewing — single films, autoplay, a playlist's Play All — persists.
-        guard !ephemeralLineup else { return }
+        // never persist a RESUME POSITION — the invariant since the Channels
+        // EPG shipped: channel positions polluted Continue Watching on every
+        // synced device. But they DO now enter the watch HISTORY (owner,
+        // 2026-08-15: a full record of everything ever watched): the record
+        // gets its dates and play count while position/duration stay
+        // untouched, so Continue Watching (position > 10) never sees it.
         guard position.isFinite, position > 0 else { return }
-        let aid = activeArchiveID
-        let descriptor = FetchDescriptor<WatchProgress>(
-            predicate: #Predicate<WatchProgress> { $0.archiveID == aid }
-        )
-        do {
-            if let existing = try modelContext.fetch(descriptor).first {
-                existing.positionSeconds = position
-                if let d = duration, d.isFinite, d > 0 { existing.durationSeconds = d }
-                existing.lastWatchedAt = Date()
-            } else {
-                let record = WatchProgress(
-                    archiveID: aid,
-                    positionSeconds: position,
-                    durationSeconds: (duration?.isFinite == true) ? (duration ?? 0) : 0,
-                    seriesID: nil,
-                    episodeTitle: nil,
-                )
-                modelContext.insert(record)
-            }
-            try modelContext.save()
-            SyncNudge.nudge(modelContext)   // push progress promptly (debounced) for cross-device resume
-        } catch {
-            // Best-effort save; never interrupt playback.
-        }
+        WatchProgress.record(in: modelContext, archiveID: activeArchiveID,
+                             position: position, duration: duration,
+                             historyOnly: ephemeralLineup)
     }
 }
 

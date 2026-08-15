@@ -474,14 +474,8 @@ private struct PlayerSurface: View {
         guard pos.isFinite, pos > 1 else { return }
         let d0 = cur.duration.seconds
         let dur = (d0.isFinite && d0 > 0) ? d0 : 0
-        let id = archiveID
-        let d = FetchDescriptor<WatchProgress>(predicate: #Predicate { $0.archiveID == id })
-        if let wp = try? ctx.fetch(d).first {
-            wp.positionSeconds = pos; if dur > 0 { wp.durationSeconds = dur }; wp.lastWatchedAt = .now
-        } else {
-            ctx.insert(WatchProgress(archiveID: id, positionSeconds: pos, durationSeconds: dur))
-        }
-        try? ctx.save()
+        // Shared write path — watch-history semantics live in ONE place.
+        WatchProgress.record(in: ctx, archiveID: archiveID, position: pos, duration: dur)
         SyncNudge.nudge(ctx)   // push progress promptly (debounced) so other devices converge fast
     }
 }

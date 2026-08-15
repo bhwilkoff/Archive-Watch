@@ -202,7 +202,9 @@ struct WatchedSection: View {
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var progress: [WatchProgress]
 
     private var items: [Catalog.Item] {
-        store.dbItemsByIDs(progress.filter { $0.isComplete }.map { $0.archiveID })
+        // isWatched, not isComplete: a rewatch resets the position but must
+        // never remove a title from Watched (everCompleted is durable).
+        store.dbItemsByIDs(progress.filter { $0.isWatched }.map { $0.archiveID })
     }
 
     var body: some View {
@@ -227,6 +229,59 @@ struct WatchedSection: View {
             }
             .focusSection()
         }
+    }
+}
+
+// The complete watch record (owner, 2026-08-15): every title ever played on
+// any synced device — finished or not, deliberate or a channel tune-in —
+// most recent first, with when and how far. Continue Watching answers "what
+// was I in the middle of?"; this answers "what have I watched?".
+struct HistorySection: View {
+    @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
+    @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var progress: [WatchProgress]
+
+    private var rows: [(item: Catalog.Item, record: WatchProgress)] {
+        let byID = Dictionary(uniqueKeysWithValues: progress.map { ($0.archiveID, $0) })
+        return store.dbItemsByIDs(progress.map { $0.archiveID }).compactMap { item in
+            byID[item.archiveID].map { (item, $0) }
+        }
+    }
+
+    var body: some View {
+        if !rows.isEmpty {
+            VStack(alignment: .leading, spacing: 16) {
+                Text("History")
+                    .font(.title2.bold()).foregroundStyle(.white)
+                    .padding(.horizontal, 80)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(alignment: .top, spacing: 40) {
+                        ForEach(rows, id: \.item.archiveID) { row in
+                            VStack(alignment: .leading, spacing: 6) {
+                                PosterTile(item: row.item) { router.push(row.item) }
+                                Text(historyLine(row.record))
+                                    .font(.caption2)
+                                    .foregroundStyle(.white.opacity(0.55))
+                                    .frame(width: 240, alignment: .leading)
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 80)
+                    .padding(.vertical, 8)
+                }
+                .scrollClipDisabled()
+            }
+            .focusSection()
+        }
+    }
+
+    private func historyLine(_ w: WatchProgress) -> String {
+        let date = w.lastWatchedAt.formatted(date: .abbreviated, time: .omitted)
+        if w.isWatched { return "Watched \(date)" }
+        if w.positionSeconds > 10, w.durationSeconds > 0 {
+            return "\(Int(w.fraction * 100))% · \(date)"
+        }
+        return date
     }
 }
 

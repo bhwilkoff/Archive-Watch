@@ -703,18 +703,10 @@ struct PlayerView: UIViewControllerRepresentable {
             let pos = player.currentTime().seconds
             let dur = cur.duration.seconds
             guard pos.isFinite, pos > 0 else { return }
-            let id = archiveID
-            let existing = (try? ctx.fetch(FetchDescriptor<WatchProgress>(
-                predicate: #Predicate { $0.archiveID == id })))?.first
-            if let wp = existing {
-                wp.positionSeconds = pos
-                if dur.isFinite, dur > 0 { wp.durationSeconds = dur }
-                wp.lastWatchedAt = Date()
-            } else {
-                ctx.insert(WatchProgress(archiveID: id, positionSeconds: pos,
-                                         durationSeconds: dur.isFinite ? dur : 0))
-            }
-            try? ctx.save()
+            // Shared write path — watch-history semantics (first-watch,
+            // session count, durable everCompleted) live in ONE place.
+            WatchProgress.record(in: ctx, archiveID: archiveID,
+                                 position: pos, duration: dur)
             SyncNudge.nudge(ctx)   // push progress promptly (debounced) for cross-device resume
         }
 

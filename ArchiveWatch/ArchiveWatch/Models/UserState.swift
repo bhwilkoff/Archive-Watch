@@ -17,6 +17,19 @@ final class WatchProgress {
     var seriesID: String?
     var episodeTitle: String?
 
+    // WATCH HISTORY (owner, 2026-08-15: "a full record of every movie/video
+    // you have ever watched"). All optional so existing stores migrate
+    // lightweight and older sync payloads decode unchanged.
+    /// When this title was FIRST watched on any device (min across devices).
+    var firstWatchedAt: Date?
+    /// Distinct viewing sessions (a new session = >6h since the last write;
+    /// max across devices).
+    var playCount: Int?
+    /// Once true, always true — a rewatch resets positionSeconds but must
+    /// never take away "you have watched this" (OR across devices).
+    var everCompleted: Bool?
+    var completedAt: Date?
+
     init(archiveID: String, positionSeconds: Double = 0, durationSeconds: Double = 0,
          seriesID: String? = nil, episodeTitle: String? = nil) {
         self.archiveID = archiveID
@@ -37,6 +50,63 @@ final class WatchProgress {
     var isComplete: Bool {
         guard durationSeconds > 0 else { return false }
         return positionSeconds / durationSeconds >= 0.95
+    }
+
+    /// "Have I watched this?" — durable across rewatches. The Watched shelf
+    /// and per-title badges read THIS, not isComplete: before everCompleted
+    /// existed, resuming a finished film from the start silently erased its
+    /// watched status everywhere.
+    var isWatched: Bool { everCompleted == true || isComplete }
+
+    /// THE one write path for playback progress + watch history, shared by
+    /// every platform's player (tvOS DetailView, iOS PlayerView, macOS
+    /// PlayerWindow). History semantics live here once: first-watch date,
+    /// session counting (>6h gap = new session), and the durable
+    /// everCompleted flag. `historyOnly` records THAT a title was watched
+    /// (channel tune-ins) without touching the resume position, so Continue
+    /// Watching never sees channel programs — the invariant that predates
+    /// this history work.
+    @MainActor
+    static func record(in ctx: ModelContext, archiveID: String,
+                       position: Double, duration: Double?,
+                       historyOnly: Bool = false) {
+        guard position.isFinite, position > 0 else { return }
+        if historyOnly, position < 60 { return }   // a channel-surf is not "watched"
+        let descriptor = FetchDescriptor<WatchProgress>(
+            predicate: #Predicate<WatchProgress> { $0.archiveID == archiveID })
+        let now = Date()
+        do {
+            if let w = try ctx.fetch(descriptor).first {
+                if now.timeIntervalSince(w.lastWatchedAt) > 6 * 3600 {
+                    w.playCount = (w.playCount ?? 1) + 1
+                }
+                if w.firstWatchedAt == nil {
+                    w.firstWatchedAt = min(w.lastWatchedAt, now)
+                }
+                if !historyOnly {
+                    w.positionSeconds = position
+                    if let d = duration, d.isFinite, d > 0 { w.durationSeconds = d }
+                    if w.isComplete, w.everCompleted != true {
+                        w.everCompleted = true
+                        w.completedAt = now
+                    }
+                }
+                w.lastWatchedAt = now
+            } else {
+                let w = WatchProgress(
+                    archiveID: archiveID,
+                    positionSeconds: historyOnly ? 0 : position,
+                    durationSeconds: historyOnly ? 0
+                        : ((duration?.isFinite == true) ? (duration ?? 0) : 0))
+                w.firstWatchedAt = now
+                w.playCount = 1
+                if w.isComplete { w.everCompleted = true; w.completedAt = now }
+                ctx.insert(w)
+            }
+            try ctx.save()
+        } catch {
+            // Progress persistence must never take down playback.
+        }
     }
 }
 

@@ -83,6 +83,7 @@ struct FavoritesView: View {
 
                 PlaylistsSection()   // #12: user playlists
                 WatchedSection()     // #12b: completed titles
+                HistorySection()     // the full ever-watched record (2026-08-15)
             }
             .padding(.bottom, 80)
         }

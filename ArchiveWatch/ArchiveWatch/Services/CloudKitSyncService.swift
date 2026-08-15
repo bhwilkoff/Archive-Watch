@@ -73,6 +73,10 @@ final class CloudKitSyncService {
     private struct ProgressEntry: Codable {
         var archiveID: String; var positionSeconds: Double; var durationSeconds: Double
         var lastWatchedAt: Date; var seriesID: String?; var episodeTitle: String?
+        // Watch-history fields (2026-08-15). Optional so payloads written by
+        // older builds decode unchanged — and vice versa.
+        var firstWatchedAt: Date?; var playCount: Int?
+        var everCompleted: Bool?; var completedAt: Date?
     }
     private struct TombstoneEntry: Codable { var key: String; var deletedAt: Date }
     private struct ChannelEntry: Codable {
@@ -348,7 +352,9 @@ final class CloudKitSyncService {
             merged[w.archiveID] = ProgressEntry(
                 archiveID: w.archiveID, positionSeconds: w.positionSeconds,
                 durationSeconds: w.durationSeconds, lastWatchedAt: w.lastWatchedAt,
-                seriesID: w.seriesID, episodeTitle: w.episodeTitle)
+                seriesID: w.seriesID, episodeTitle: w.episodeTitle,
+                firstWatchedAt: w.firstWatchedAt, playCount: w.playCount,
+                everCompleted: w.everCompleted, completedAt: w.completedAt)
         }
         for e in cloud {
             if let dead = tombByKey["wp:\(e.archiveID)"], dead >= e.lastWatchedAt { continue }
@@ -357,14 +363,39 @@ final class CloudKitSyncService {
                     existing.positionSeconds = e.positionSeconds
                     if e.durationSeconds > 0 { existing.durationSeconds = e.durationSeconds }
                     existing.lastWatchedAt = e.lastWatchedAt
-                    merged[e.archiveID] = e
                 }
+                // HISTORY is a union, never last-writer-wins: two devices
+                // each know something true about the viewing record, and a
+                // merge must lose neither. Earliest first-watch, highest
+                // play count, completed-anywhere = completed-everywhere.
+                if let cf = e.firstWatchedAt {
+                    existing.firstWatchedAt = existing.firstWatchedAt.map { min($0, cf) } ?? cf
+                }
+                if let cp = e.playCount {
+                    existing.playCount = max(existing.playCount ?? 0, cp)
+                }
+                if e.everCompleted == true, existing.everCompleted != true {
+                    existing.everCompleted = true
+                    existing.completedAt = e.completedAt ?? existing.completedAt
+                }
+                merged[e.archiveID] = ProgressEntry(
+                    archiveID: existing.archiveID, positionSeconds: existing.positionSeconds,
+                    durationSeconds: existing.durationSeconds, lastWatchedAt: existing.lastWatchedAt,
+                    seriesID: existing.seriesID, episodeTitle: existing.episodeTitle,
+                    firstWatchedAt: existing.firstWatchedAt, playCount: existing.playCount,
+                    everCompleted: existing.everCompleted, completedAt: existing.completedAt)
             } else {
-                ctx.insert(WatchProgress(archiveID: e.archiveID,
-                                         positionSeconds: e.positionSeconds,
-                                         durationSeconds: e.durationSeconds,
-                                         seriesID: e.seriesID,
-                                         episodeTitle: e.episodeTitle))
+                let w = WatchProgress(archiveID: e.archiveID,
+                                      positionSeconds: e.positionSeconds,
+                                      durationSeconds: e.durationSeconds,
+                                      seriesID: e.seriesID,
+                                      episodeTitle: e.episodeTitle)
+                w.lastWatchedAt = e.lastWatchedAt
+                w.firstWatchedAt = e.firstWatchedAt
+                w.playCount = e.playCount
+                w.everCompleted = e.everCompleted
+                w.completedAt = e.completedAt
+                ctx.insert(w)
                 merged[e.archiveID] = e
             }
         }
