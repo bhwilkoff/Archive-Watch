@@ -755,18 +755,21 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
         // AVFoundation simply asks again for exactly what it still needs.
         var retries = 0
 
-        // EVERY request is served from the shared block cache — one fetch per
-        // byte, however many requests want it. The per-request chunk path
-        // below fetched a PRIVATE copy per dataRequest, and AVFoundation
-        // walks an interleaved file with SEPARATE sequential requests for the
-        // audio and video tracks over the same byte region — so the same
-        // bytes downloaded twice by construction. Invisible at 100 Mbps;
-        // measured fatal at 10 (throttled-LAN gate: 516 MB delivered, 285 MB
-        // unique, 9 stalls on a link with 2x the file's bitrate to spare).
-        // The chunk path remains only for the unknown-length case (no probe
-        // yet), which the content-info request resolves before real reads.
-        let knownLength = queue.sync { contentLength }
-        if let upper = upperBound ?? knownLength {
+        // Small bounded reads (sample-table paging) go through the block cache.
+        // Large/open-ended requests stay on the STREAMING chunk path below.
+        // A one-day experiment routed EVERYTHING through the cache to stop
+        // audio/video cursor duplication (each fetching a private copy of the
+        // same interleaved bytes — measured 2x at 10 Mbps), and it promptly
+        // reproduced the Decision-031 disease from the other side: whole-2MB-
+        // block delivery holds startup bytes hostage, and on a slow-TTFB
+        // archive.org morning the first blocks took 29s under parallel-fetch
+        // contention — item load timed out, "unable to play". Streaming
+        // delivery for the leading request is load-bearing; sharing bytes
+        // with the trailing cursor needs streaming block fills (follow-up,
+        // validated by the throttled gate), not whole-block routing.
+        if !dataRequest.requestsAllDataToEndOfResource,
+           dataRequest.requestedLength <= smallReadLimit,
+           let upper = upperBound {
             await serveFromBlocks(dataRequest, request, from: offset, to: upper)
             return
         }
