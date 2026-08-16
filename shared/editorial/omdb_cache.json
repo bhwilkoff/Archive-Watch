@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-08-15T03:06:21Z",
+  "updated_at": "2026-08-16T03:14:22Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-08-15T03:06:21Z"
+      "last_tried": "2026-08-16T03:14:22Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-08-15T03:06:21Z"
+      "last_tried": "2026-08-16T03:14:22Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -322369,6 +322369,25 @@
         "Mystery"
       ],
       "fetched_at": "2026-08-12T04:18:16Z",
+      "schema": 3
+    },
+    "tt0008321": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzAwNzg3NTAtYmY4OS00ZjRlLTg2ZDMtOTNmZTU4Mjk1OWQ2XkEyXkFqcGdeQXVyNjA5MTAzODY@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Heiress Lucy Gillam, young and spoiled, knows only a life filled with parties and flirtations until she falls in love with a man who loves only her money. Lucy marries him, and after the birth of their child, finds herself confronted with the harsh realities of life as her husband demands more and more money with which to support his mistress. Tiring of his lover, Lucy's husband discards the woman, who then kills herself. Suspicion for the death points to her ex-lover, and after much misfortune, Lucy is freed from the burden of her husband, and faces life as a responsible adult.",
+      "runtime_min": 72,
+      "director": "Edward José",
+      "actors": [
+        "Norma Talmadge",
+        "Hassard Short",
+        "Eugene O'Brien"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-08-16T03:14:22Z",
       "schema": 3
     }
   },
