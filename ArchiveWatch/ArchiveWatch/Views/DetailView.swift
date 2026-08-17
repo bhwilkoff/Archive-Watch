@@ -653,6 +653,10 @@ struct PlayerScreen: View {
     // the primary -> an honest error naming the Archive's servers.
     @State private var fallbackCandidate: URL?
     @State private var usingFallbackURL: URL?
+    /// Copies of this film available on its archive.org item, for the transport
+    /// menu. Loaded AFTER playback is under way — the list is a network call and
+    /// must never sit between the viewer and the first frame.
+    @State private var playerVersions: [ArchiveVersions.Version] = []
     @State private var fallbackProbe: Task<Void, Never>?
     @State private var sysCapProbe = SystemCaptionProbe()   // AW_SYSCAP_PROBE=1 only
     @State private var skipCount = 0         // #7: bound auto-skips in a broken lineup
@@ -780,6 +784,7 @@ struct PlayerScreen: View {
             autoRetried = false          // #10: fresh retry budget per item
             forceDirectPlayback = false  // new item tries the HLS-subtitle path fresh
             usingFallbackURL = nil       // each item starts on its best copy
+            playerVersions = []          // and offers ITS copies, not the last film's
             fallbackCandidate = nil
             fallbackProbe?.cancel(); fallbackProbe = nil
             teardownPlayer()
@@ -858,9 +863,43 @@ struct PlayerScreen: View {
                 subtitlesOverride = !on
             })
         }
+        // Switch copy WITHOUT leaving the film (owner, 2026-08-17). Detail's
+        // picker only helps before you start; the moment that matters is three
+        // minutes in when the picture is stuttering, and backing out to change
+        // it costs the viewer their place.
+        if playerVersions.count > 1 {
+            let chosen = ArchiveVersions.chosenName(for: activeArchiveID)
+            let pipelineName = (current ?? catalogItem)?.videoURLParsed?
+                .lastPathComponent.removingPercentEncoding
+            let versionActions = playerVersions.map { version in
+                UIAction(title: version.label,
+                         state: (chosen ?? pipelineName) == version.name ? .on : .off) { _ in
+                    switchToVersion(version)
+                }
+            }
+            items.append(UIMenu(title: "Version",
+                                image: UIImage(systemName: "rectangle.stack"),
+                                children: versionActions))
+        }
         items.append(UIMenu(title: "Autoplay Next",
                             image: UIImage(systemName: "play.circle"), children: actions))
         return items
+    }
+
+    /// Rebuild playback on a different copy of the same film, at the same spot.
+    ///
+    /// Position is PERSISTED before teardown and the reload resumes from it —
+    /// the same shape the fallback swap uses (Decision 077). A switch that
+    /// restarted the film would be a worse outcome than the stutter someone is
+    /// trying to escape.
+    private func switchToVersion(_ version: ArchiveVersions.Version) {
+        ArchiveVersions.choose(version, for: activeArchiveID)
+        awdiag("AWLIFE screen=%@ VERSION SWITCH -> %@", screenID, version.name)
+        // A manual choice supersedes any fallback the player fell back to.
+        usingFallbackURL = nil
+        teardownPlayer(persist: true)
+        playback = .loading
+        setupPlayer()
     }
 
     /// Advance to the next title now: the next lineup item if any, otherwise the
@@ -1166,6 +1205,17 @@ struct PlayerScreen: View {
                     // re-appear), so without this the next video loads + seeks to
                     // its resume position but never starts (#5 Play Next bug).
                     p.play()
+                    // Now that the picture is up, find out what other copies
+                    // exist so the transport menu can offer them. Deliberately
+                    // after play(): this is a network round trip and nothing
+                    // about it should delay the first frame.
+                    if playerVersions.isEmpty {
+                        let id = activeArchiveID
+                        Task { @MainActor in
+                            let found = await ArchiveVersions.list(itemID: id)
+                            if activeArchiveID == id { playerVersions = found }
+                        }
+                    }
                 case .failed:
                     if PlaybackDiag.enabled {
                         awdiag("AWLIFE screen=%@ itemFailed t=%.0f error=%@", screenID,

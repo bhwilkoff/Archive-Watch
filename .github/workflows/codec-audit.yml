@@ -1,0 +1,67 @@
+name: Codec audit (ffprobe the uploader originals)
+
+# Stamps the ACTUAL video codec on every catalog item whose format label does
+# not already guarantee h.264, and fixes the undecodables: AV1/VP9 swap to a
+# same-item h.264 derivative, else a reversible `excluded`.
+#
+# This runs in CI and NOT on a developer Mac, for a reason worth keeping: a
+# local run probes archive.org from the household's public IP, and archive.org
+# rate-limits per IP. A sweep of ~9,000 files saturated that allowance for
+# hours, which degraded playback on the Apple TV in the same house — the
+# quality gate was breaking the thing it was meant to protect.
+#
+# Follows Decision 066: the probing holds no lock, and only the short apply
+# takes `catalog-writers`.
+
+on:
+  schedule:
+    - cron: '35 3 * * *'
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max items to probe this run (0 = all remaining)'
+        required: false
+        default: '3000'
+      workers:
+        description: 'Concurrent ffprobes'
+        required: false
+        default: '6'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    concurrency:
+      group: catalog-writers
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Fetch the full catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Probe codecs
+        # The tool checkpoints every 100 items, so a timeout keeps its work
+        # and the next run resumes from the videoCodec stamps.
+        run: |
+          python tools/audit_codecs.py \
+            --limit ${{ github.event.inputs.limit || 3000 }} \
+            --workers ${{ github.event.inputs.workers || 6 }}
+
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py publish
+
+      - name: Rebuild the served DB
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run publish-db.yml

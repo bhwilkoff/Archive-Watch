@@ -142,6 +142,14 @@ def main():
             if n % 100 == 99:
                 print(f"  ... {n+1}/{len(targets)} probed, {bad} bad "
                       f"({swapped} swapped, {excluded} excluded)", flush=True)
+                # CHECKPOINT. This wrote only at the very end once, and a run
+                # stopped at 4,700 of 9,101 items lost every probe it had
+                # made — on a sweep whose whole design is "resumable via the
+                # videoCodec stamp". A long sweep that cannot be interrupted
+                # is not resumable, it just looks it.
+                if not args.dry_run:
+                    with open(CATALOG, "w") as f:
+                        json.dump(catalog, f, separators=(",", ":"))
 
     print(f"stamped {stamped} | undecodable {bad} | swapped {swapped} | excluded {excluded}")
     if not args.dry_run and stamped:
