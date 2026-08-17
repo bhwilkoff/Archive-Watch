@@ -126,7 +126,8 @@ struct HomeView: View {
     private func rebuild() {
         // Feed the store's watched set (the iOS WatchedHomeSync — HomeView already
         // owns the WatchProgress @Query) so hide-watched (#17) works on iOS.
-        store.completedArchiveIDs = Set(progress.filter(\.isComplete).map(\.archiveID))
+        // isWatched (durable), not isComplete — a rewatch must not un-mark it.
+        store.completedArchiveIDs = Set(progress.filter(\.isWatched).map(\.archiveID))
         heroItems = loadHero()
 
         // ONE ordered seen-set across EVERY home shelf so no title repeats anywhere

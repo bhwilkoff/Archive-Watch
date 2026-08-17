@@ -21,10 +21,20 @@ struct PosterTile: View {
     private let cardWidth: CGFloat  = 240
     private let cardHeight: CGFloat = 360
 
+    // Watched is a BADGE, not a second list (owner, 2026-08-17: "There is a
+    // Watched section and a History section which do not display the same
+    // titles. There should only be one of these"). The state stays visible
+    // everywhere a title appears, instead of duplicating finished films into
+    // their own shelf that History already contained.
+    private var isWatched: Bool { store.completedArchiveIDs.contains(item.archiveID) }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 28) {
             Button(action: action) {
                 PosterArt(item: item, width: cardWidth, height: cardHeight)
+                    .overlay(alignment: .topTrailing) {
+                        if isWatched { WatchedBadge() }
+                    }
             }
             .buttonStyle(.card)
             .focused($isFocused)
@@ -57,6 +67,20 @@ struct PosterTile: View {
     private func formatRuntime(_ seconds: Int) -> String {
         let m = seconds / 60
         return m >= 60 ? "\(m / 60)h \(m % 60)m" : "\(m)m"
+    }
+}
+
+// The "you have seen this" mark. Deliberately quiet: on tvOS the focused card
+// is the chrome (CLAUDE.md density rule), so a badge that competed with focus
+// would make every shelf noisier to buy one bit of state.
+struct WatchedBadge: View {
+    var body: some View {
+        Image(systemName: "checkmark.circle.fill")
+            .font(.system(size: 30))
+            .symbolRenderingMode(.palette)
+            .foregroundStyle(.white, .black.opacity(0.65))
+            .padding(10)
+            .accessibilityLabel("Watched")
     }
 }
 

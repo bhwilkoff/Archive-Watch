@@ -194,48 +194,16 @@ struct PlaylistDetailView: View {
 
 private struct LineupBox: Identifiable { let id = UUID(); let items: [Catalog.Item] }
 
-// MARK: - Library Watched section (#12b, tvOS-DESIGN §10.1)
-
-struct WatchedSection: View {
-    @Environment(AppStore.self) private var store
-    @Environment(Router.self) private var router
-    @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var progress: [WatchProgress]
-
-    private var items: [Catalog.Item] {
-        // isWatched, not isComplete: a rewatch resets the position but must
-        // never remove a title from Watched (everCompleted is durable).
-        store.dbItemsByIDs(progress.filter { $0.isWatched }.map { $0.archiveID })
-    }
-
-    var body: some View {
-        if !items.isEmpty {
-            VStack(alignment: .leading, spacing: 16) {
-                Text("Watched")
-                    .font(.title2.bold()).foregroundStyle(.white)
-                    .padding(.horizontal, 80)
-                ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack(alignment: .top, spacing: 40) {
-                        ForEach(items) { item in
-                            // PosterTile self-sizes to 240 wide (poster + title);
-                            // an outer .frame(width: 200) was clipping it narrower
-                            // than its content, so adjacent titles overlapped.
-                            PosterTile(item: item) { router.push(item) }
-                        }
-                    }
-                    .padding(.horizontal, 80)
-                    .padding(.vertical, 8)
-                }
-                .scrollClipDisabled()
-            }
-            .focusSection()
-        }
-    }
-}
-
-// The complete watch record (owner, 2026-08-15): every title ever played on
-// any synced device — finished or not, deliberate or a channel tune-in —
-// most recent first, with when and how far. Continue Watching answers "what
-// was I in the middle of?"; this answers "what have I watched?".
+// The ONE watch surface (owner, 2026-08-15 and 2026-08-17): every title ever
+// played on any synced device — finished or not, deliberate or a channel
+// tune-in — most recent first, with when and how far. Continue Watching
+// answers "what was I in the middle of?"; this answers "what have I watched?".
+//
+// There is deliberately no second "Watched" list. One existed and held the
+// completed subset of exactly this data, so a finished film appeared twice and
+// the two rows could disagree — the owner's report. Completion is a BADGE on
+// the tile and a toggle on Detail, derived from this record, so there is one
+// direction of derivation and nothing to fall out of step.
 struct HistorySection: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router

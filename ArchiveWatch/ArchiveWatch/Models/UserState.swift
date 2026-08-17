@@ -108,6 +108,42 @@ final class WatchProgress {
             // Progress persistence must never take down playback.
         }
     }
+
+    /// Mark a title watched, or un-mark it, by the viewer's own choice.
+    ///
+    /// Playback infers completion, but inference is not always right — a film
+    /// abandoned at 92% reads as finished, and one seen elsewhere never
+    /// registers at all. Since "watched" is now shown as a badge rather than a
+    /// separate list (owner, 2026-08-17), the viewer needs a way to correct it,
+    /// so this is the same durable `everCompleted` flag the sync merges as a
+    /// union — never a second source of truth.
+    @discardableResult
+    static func setWatched(_ watched: Bool, in ctx: ModelContext,
+                           archiveID: String) -> Bool {
+        let descriptor = FetchDescriptor<WatchProgress>(
+            predicate: #Predicate<WatchProgress> { $0.archiveID == archiveID })
+        do {
+            let now = Date()
+            let record = try ctx.fetch(descriptor).first ?? {
+                let w = WatchProgress(archiveID: archiveID,
+                                      positionSeconds: 0, durationSeconds: 0)
+                w.firstWatchedAt = now
+                w.playCount = 1
+                ctx.insert(w)
+                return w
+            }()
+            record.everCompleted = watched
+            record.completedAt = watched ? (record.completedAt ?? now) : nil
+            // Un-marking must also clear a position that would otherwise put the
+            // title straight back into Continue Watching at 99%.
+            if !watched, record.isComplete { record.positionSeconds = 0 }
+            record.lastWatchedAt = now
+            try ctx.save()
+            return true
+        } catch {
+            return false
+        }
+    }
 }
 
 @Model

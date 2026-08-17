@@ -82,8 +82,11 @@ struct FavoritesView: View {
                 }
 
                 PlaylistsSection()   // #12: user playlists
-                WatchedSection()     // #12b: completed titles
-                HistorySection()     // the full ever-watched record (2026-08-15)
+                // ONE watch surface (owner, 2026-08-17). WatchedSection used to
+                // sit here showing completed titles — a strict subset of this
+                // list, so every finished film appeared twice and the two rows
+                // disagreed about what "watched" meant. Watched is a badge now.
+                HistorySection()
             }
             .padding(.bottom, 80)
         }

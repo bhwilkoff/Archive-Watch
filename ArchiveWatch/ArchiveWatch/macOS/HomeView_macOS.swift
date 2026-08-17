@@ -49,7 +49,8 @@ struct HomeView: View {
     /// ones below `minPerShelf` and they HIDE → "only one community shelf shows" (owner). Every
     /// shelf is professional-art only (no missing posters / generated covers, like tvOS).
     private func reload() {
-        store.completedArchiveIDs = Set(progress.filter(\.isComplete).map(\.archiveID))
+        // isWatched (durable), not isComplete — a rewatch must not un-mark it.
+        store.completedArchiveIDs = Set(progress.filter(\.isWatched).map(\.archiveID))
 
         var used = Set<String>()
         // Hero POOL (parity: the hero ROTATES on every other platform — was a single static banner

@@ -14,7 +14,10 @@ struct LibraryView: View {
     @Query(sort: \VideoClip.createdAt, order: .reverse) private var clips: [VideoClip]
     @State private var section: Section = .favorites
 
-    enum Section: String, CaseIterable, Identifiable { case favorites, watched, history, playlists, clips
+    // No `watched` case (owner, 2026-08-17): it listed the completed subset
+    // of `history`, so a finished film appeared under both and the two
+    // could disagree. Completion is a badge on the poster instead.
+    enum Section: String, CaseIterable, Identifiable { case favorites, history, playlists, clips
         var id: String { rawValue }; var title: String { rawValue.capitalized } }
 
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
@@ -28,8 +31,6 @@ struct LibraryView: View {
             switch section {
             case .favorites: grid(store.itemsByIDs(favorites.map(\.archiveID)),
                                   empty: "No favorites yet", icon: "heart")
-            case .watched: grid(store.itemsByIDs(progress.filter(\.isWatched).map(\.archiveID)),
-                                empty: "Nothing watched yet", icon: "checkmark.circle")
             case .history: historyList
             case .playlists: playlistList
             case .clips: clipsList

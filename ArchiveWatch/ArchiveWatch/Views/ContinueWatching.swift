@@ -26,7 +26,9 @@ struct WatchedHomeSync: View {
     }
 
     private var completedIDs: Set<String> {
-        Set(progressRecords.filter { $0.isComplete }.map { $0.archiveID })
+        // isWatched, not isComplete: everCompleted is durable, so a rewatch
+        // cannot un-mark a title the viewer already finished (Decision 078).
+        Set(progressRecords.filter { $0.isWatched }.map { $0.archiveID })
     }
 
     /// In-progress titles (the Continue Watching row), so Home can keep them from

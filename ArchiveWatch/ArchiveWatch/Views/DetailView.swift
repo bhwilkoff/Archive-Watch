@@ -10,7 +10,7 @@ import SwiftData
 // screen.
 
 enum DetailFocusTarget: Hashable {
-    case play, favorite, related
+    case play, favorite, watched, related
 }
 
 struct DetailView: View {
@@ -30,6 +30,10 @@ struct DetailView: View {
 
     private var accent: Color {
         store.accentColor(forCategory: categoryID)
+    }
+
+    private var isWatched: Bool {
+        store.completedArchiveIDs.contains(item.archiveID)
     }
 
     private var isFavorited: Bool {
@@ -194,6 +198,7 @@ struct DetailView: View {
             HStack(spacing: 20) {
                 playButton
                 favoriteButton
+                watchedButton
                 shareButton
                 playlistButton
                 if SubtitleFinder.shouldOffer(for: item) { subtitlesButton }
@@ -243,6 +248,24 @@ struct DetailView: View {
         .buttonStyle(CircleIconStyle())
         .focusEffectDisabled()
         .focused($focusTarget, equals: .favorite)
+    }
+
+    // Watched is a badge on tiles, so this is where the viewer corrects it —
+    // a film abandoned near the end reads as finished, one seen elsewhere never
+    // registers at all (owner, 2026-08-17: one accurate record, everywhere).
+    private var watchedButton: some View {
+        Button { WatchProgress.setWatched(!isWatched, in: modelContext,
+                                          archiveID: item.archiveID)
+                 SyncNudge.nudge(modelContext) } label: {
+            Image(systemName: isWatched ? "checkmark.circle.fill" : "checkmark.circle")
+                .font(.title2)
+                .foregroundStyle(isWatched ? accent : .white)
+                .padding(18)
+        }
+        .buttonStyle(CircleIconStyle())
+        .focusEffectDisabled()
+        .focused($focusTarget, equals: .watched)
+        .accessibilityLabel(isWatched ? "Mark as not watched" : "Mark as watched")
     }
 
     // #16 (tvOS-DESIGN §8.6): tvOS has no share sheet — hand off to a phone via a
