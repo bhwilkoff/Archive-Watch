@@ -3609,3 +3609,56 @@ iPhone, Android for Android — Decision 028's doctrine governs every phase.
 **How to apply**: no playback/caption/sync architecture change ships outside
 this plan without a new research pass (memory: feedback_research_before_fixes).
 The phase gates are Decision 076's Release-build + throttled-gate scenarios.
+
+## 080 — A subtitle file that ends after its film is provably mistimed; that one fact carries the whole detector
+*Date: 2026-08-17*
+
+Subtitle timing gains a second, independent fault class alongside Decision
+062/064's constant offset: **drift**. `tools/audit_subtitle_rate.py` flags a
+published file when its last cue ENDS after the film does — physically
+impossible, so mistimed regardless of cause — and `tools/fix_subtitle_rate.py`
+repairs the telecine subset by rescaling every cue by 23.976/25, gated on the
+result landing inside the runtime, monotonic, cue-count unchanged. 44 files
+repaired and published this pass; the corrections reach web, Android and every
+Apple platform through the existing `subs.tar.gz` path with no app build.
+
+**Why**: the owner reported Earth vs. the Flying Saucers' subtitles as
+"incredibly poor". Measured — the file's last cue ends at 4994.8s on a
+4818.7s film, 176 seconds past the end. Against speech transcribed locally at
+two points 50 minutes apart it ran +51s late at the quarter mark and +184s
+late near the end. It has no offset; it DRIFTS, because it was authored at
+25fps and laid over a 23.976fps transfer. Decisions 062/064 search for one
+constant offset and are structurally blind to that — no constant is right for
+a file that is 0s off at the start and 200s off at the end, which is exactly
+why every prior sweep left this film broken.
+
+The repair is arithmetic, and that is measured rather than assumed: rescaling
+by 23.976/25 matched the answer ffsubsync derived from the real audio to
+within 0.4s at four points spanning the film. So this class needs no
+download, no audio and no speech models, and runs in CI — lifting the
+local-only constraint that has throttled Decision 064's sweep.
+
+**How to apply**: detect on PHYSICS, never on pattern. The inference "ends
+early at a telecine ratio" was built, measured, and DELETED: across 3,726
+published files the distribution of (last cue end / runtime) is smooth and
+rises monotonically toward 1.0 with NO spike at 0.9590, so a film with ~2:45
+of end credits lands on that ratio by coincidence — the inference would have
+rewritten 95 files with no evidence they were wrong (reefer_madness1938 is
+one). Precision over recall, as in Decisions 035/064: leaving a bad file
+alone costs captions on one film; rewriting a good one breaks a film that
+worked. Read the cue END, not its start — reading the start mis-flags a
+correct file whose final cue ends right at the runtime. Choose the tool by
+fault class: alass models drift as splice shifts and pushed this same film's
+last cue to 5176s, 344s WORSE than doing nothing; ffsubsync detects a
+framerate scale and is the right tool when audio is available.
+
+**Consequences**: the ratio gate is deliberately conservative and MISSES
+films with end credits — Earth vs. the Flying Saucers itself reads 1.0366
+rather than 1.0427 and had to be repaired from its audio-verified ffsubsync
+output. 379 files are proven mistimed, 44 arithmetically repairable; the
+remaining ~335 need the audio sweep (ffsubsync is VAD-based, so unlike
+Decision 064 it needs no speech models and CAN run in CI — the cost is the
+film download, popularity-first and resumable like every other sweep here).
+A separate finding, not addressed: ~3% of popular captioned films advertise a
+subtitle track whose VTT 404s — a dead promise the app currently makes.
+`subtitleRateAudit` is an additive key older clients ignore.
