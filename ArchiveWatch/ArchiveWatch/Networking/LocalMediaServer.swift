@@ -1,3 +1,4 @@
+import AVFoundation
 import Foundation
 import Network
 
@@ -49,6 +50,11 @@ final class LocalMediaServer: @unchecked Sendable {
     private let token = UUID().uuidString.replacingOccurrences(of: "-", with: "")
     /// key (stable hash of origin URL) -> origin resource
     private var resources: [String: MediaResource] = [:]
+    /// Live connections. The handler must be RETAINED for the connection's
+    /// life — NWConnection callbacks hold it weakly, and an unretained
+    /// handler deallocates the instant `handle()` returns, leaving every
+    /// request unanswered (measured: 8/8 harness failures, all silent).
+    private var handlers: [ObjectIdentifier: ConnectionHandler] = [:]
 
     // MARK: Public
 
@@ -126,7 +132,12 @@ final class LocalMediaServer: @unchecked Sendable {
 
     private func handle(_ conn: NWConnection) {
         let handler = ConnectionHandler(conn: conn, server: self)
+        handlers[ObjectIdentifier(handler)] = handler
         handler.start()
+    }
+
+    fileprivate func connectionEnded(_ handler: ConnectionHandler) {
+        queue.async { self.handlers[ObjectIdentifier(handler)] = nil }
     }
 
     fileprivate func resource(forKey key: String) -> MediaResource? {
@@ -191,6 +202,7 @@ private final class ConnectionHandler: @unchecked Sendable {
                 // Peer gone — AVFoundation abandons sockets on seeks; this
                 // is cancellation, not error (Decision 079 research).
                 self?.pump?.cancel()
+                if let self { self.server.connectionEnded(self) }
             default: break
             }
         }
@@ -572,5 +584,61 @@ private final class AsyncSerialQueue: @unchecked Sendable {
             await op()
         }
         lock.unlock()
+    }
+}
+
+// MARK: - System-captions probe (diagnostic)
+
+/// AW_SYSCAP_PROBE=1: the D079 verification instrument. Observe-only — lists
+/// the item's legible options and reports whether the system's generated
+/// track is OFFERED, and whether it ever EMITS text (offered ≠ selected ≠
+/// emitting: the distinction that cost four decisions to learn, D063/065/
+/// 067). Run with AW_NO_CAPTIONS=1 so nothing of ours is in the process.
+@MainActor
+final class SystemCaptionProbe {
+    static let enabled = ProcessInfo.processInfo.environment["AW_SYSCAP_PROBE"] == "1"
+    private var output: AVPlayerItemLegibleOutput?
+    private var delegate: ProbeDelegate?
+
+    func attach(to item: AVPlayerItem) {
+        guard Self.enabled else { return }
+        Task { @MainActor in
+            let asset = item.asset
+            let group = try? await asset.loadMediaSelectionGroup(for: .legible)
+            let names = group?.options.map { $0.displayName } ?? []
+            awdiag("AWSYSCAP legible options: %@", names.isEmpty ? "(none)" : names.joined(separator: " | "))
+            if let group {
+                let selected = item.currentMediaSelection.selectedMediaOption(in: group)
+                awdiag("AWSYSCAP selected: %@", selected?.displayName ?? "(none)")
+                // Select the first option so an offered-but-unselected track
+                // gets its fair chance to emit (the D065 lesson).
+                if selected == nil, let first = group.options.first {
+                    item.select(first, in: group)
+                    awdiag("AWSYSCAP selected option: %@", first.displayName)
+                }
+            }
+            let out = AVPlayerItemLegibleOutput()
+            out.suppressesPlayerRendering = false
+            let d = ProbeDelegate()
+            out.setDelegate(d, queue: .main)
+            item.add(out)
+            self.output = out
+            self.delegate = d
+        }
+    }
+
+    private final class ProbeDelegate: NSObject, AVPlayerItemLegibleOutputPushDelegate {
+        private var emitted = 0
+        func legibleOutput(_ output: AVPlayerItemLegibleOutput,
+                           didOutputAttributedStrings strings: [NSAttributedString],
+                           nativeSampleBuffers nativeSamples: [Any],
+                           forItemTime itemTime: CMTime) {
+            let text = strings.map(\.string).joined(separator: " ").trimmingCharacters(in: .whitespacesAndNewlines)
+            guard !text.isEmpty else { return }
+            emitted += 1
+            if emitted <= 10 || emitted % 25 == 0 {
+                awdiag("AWSYSCAP EMIT #%d t=%.1f: %@", emitted, itemTime.seconds, String(text.prefix(60)))
+            }
+        }
     }
 }

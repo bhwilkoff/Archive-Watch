@@ -581,6 +581,7 @@ struct PlayerScreen: View {
     @State private var fallbackCandidate: URL?
     @State private var usingFallbackURL: URL?
     @State private var fallbackProbe: Task<Void, Never>?
+    @State private var sysCapProbe = SystemCaptionProbe()   // AW_SYSCAP_PROBE=1 only
     @State private var skipCount = 0         // #7: bound auto-skips in a broken lineup
     // If the native HLS-subtitle path fails to load, fall back to the direct MP4
     // through ResilientStreamLoader (proven reliable). Playback is the priority
@@ -951,6 +952,15 @@ struct PlayerScreen: View {
         // the decisive mux-vs-delivery experiment (a LAN-served faststart remux
         // against the badly-interleaved archive.org original).
         var playURL = usingFallbackURL ?? active?.videoURLParsed ?? url
+        // D079 Phase-1 experiment gate: route playback through the
+        // LocalMediaServer instead of the custom-scheme loader. Diagnostic
+        // until the cutover gates pass (byte-diff green Mac-side; this env
+        // exists for the on-device generated-captions verification).
+        if ProcessInfo.processInfo.environment["AW_PROXY_EXP"] == "1",
+           let proxied = LocalMediaServer.shared.proxyURL(for: playURL) {
+            awdiag("AWLIFE PROXY EXPERIMENT %@ -> %@", playURL.absoluteString, proxied.absoluteString)
+            playURL = proxied
+        }
         if let ov = ProcessInfo.processInfo.environment["AW_URL_OVERRIDE"],
            let ovURL = URL(string: ov),
            ProcessInfo.processInfo.environment["AW_START_ITEM"] == activeArchiveID {
@@ -982,9 +992,16 @@ struct PlayerScreen: View {
         // player mid-film. Our own engine captions uncaptioned titles
         // (Decision 068); captioned files render through the overlay (070).
         // One path, one resilience story, no mid-film swaps.
-        let (asset, loader) = ResilientStreamLoader.makeAsset(for: playURL)
-        streamLoader = loader
-        playerItem = AVPlayerItem(asset: asset)
+        // A loopback (proxy) URL must stay a PLAIN asset — wrapping it in the
+        // custom scheme would re-disqualify it from everything the proxy
+        // exists to restore (D079). The resilience lives server-side.
+        if playURL.host == "127.0.0.1" {
+            playerItem = AVPlayerItem(asset: AVURLAsset(url: playURL))
+        } else {
+            let (asset, loader) = ResilientStreamLoader.makeAsset(for: playURL)
+            streamLoader = loader
+            playerItem = AVPlayerItem(asset: asset)
+        }
         // Prefetch a same-item smaller derivative WHILE the primary loads, so
         // a 25s-budget failure can switch instantly instead of paying a
         // metadata round-trip on top. Catalog-baked fallbacks need no fetch.
@@ -1028,6 +1045,7 @@ struct PlayerScreen: View {
                 switch observed.status {
                 case .readyToPlay:
                     if PlaybackDiag.enabled { awdiag("AWLIFE screen=%@ itemReady", screenID) }
+                    if SystemCaptionProbe.enabled { sysCapProbe.attach(to: observed) }
                     // No Apple TV has an AV1 decoder, and AVFoundation does
                     // not FAIL on an AV1 track — it reports ready, plays the
                     // audio, and silently drops the video (The Oregon Trail:

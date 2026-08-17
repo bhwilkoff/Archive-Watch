@@ -10,6 +10,11 @@ struct ArchiveWatchApp: App {
     private let modelContainer: ModelContainer
 
     init() {
+        // Session separator for the diag file: multiple launches append when
+        // pulls race truncation, and unattributed sessions cost a proof.
+        awdiag("AWLIFE LAUNCH %@ pid=%d",
+               Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "?",
+               ProcessInfo.processInfo.processIdentifier)
         URLCache.shared = URLCache(
             memoryCapacity: 100_000_000,
             diskCapacity: 500_000_000
