@@ -656,12 +656,18 @@ struct PlayerScreen: View {
     // Surface a visible, recoverable failure state — same contract as the episode
     // player.
     private enum PlaybackState: Equatable { case loading, ready, failed(String) }
-    // Owner requirement 2026-08-15: a film must START within ~30 seconds —
-    // "waiting longer than that will lose users almost every time." 25s here
-    // leaves room for the fallback swap to still land inside a tolerable
-    // total. (The old 60s budget, plus a same-URL retry, meant two minutes
-    // to an error on a dead node.)
-    private let loadTimeout: Duration = .seconds(25)
+    // Owner requirement 2026-08-15: a film must START within ~30 seconds.
+    // The budget is therefore ADAPTIVE (2026-08-17 regression fix): 25s when
+    // a fallback copy is IN HAND — switching fast is what the 30s promise is
+    // for — but the FULL old patience when there is nothing to switch to.
+    // A flat 25s cut showed "Can't play this title" on cold-but-viable loads
+    // the old player always won (measured: archive.org first bytes of
+    // 24-31s on bad mornings, with playback fine after), which is exactly
+    // the never-used-to-happen error the owner reported. An error is only
+    // honest when patience is exhausted, and patience costs nothing when
+    // there is no faster alternative to offer.
+    private let fallbackAt: Duration = .seconds(25)
+    private let giveUpAt: Duration = .seconds(60)
 
     var body: some View {
         ZStack {
@@ -1079,7 +1085,23 @@ struct PlayerScreen: View {
         // Backstop: if the item never readies (silent stall), fail visibly.
         timeoutTask?.cancel()
         timeoutTask = Task { @MainActor in
-            try? await Task.sleep(for: loadTimeout)
+            // TWO-STAGE patience. At 25s: if a fallback copy is in hand
+            // (catalog-baked, or the runtime probe has answered by now),
+            // switch to it — that is what the 30-second start promise is
+            // for. With nothing to switch to, patience costs nothing:
+            // keep loading to 60s like the old never-errors player, and
+            // only then fail. A flat 25s cut was showing "Can't play this
+            // title" on cold-but-viable loads (24-31s first bytes) the
+            // old player always won.
+            try? await Task.sleep(for: fallbackAt)
+            guard !Task.isCancelled else { return }
+            if playback == .loading, usingFallbackURL == nil,
+               ((current ?? catalogItem)?.fallbackVideoURLParsed != nil || fallbackCandidate != nil) {
+                if PlaybackDiag.enabled { awdiag("AWLIFE screen=%@ loadTimeoutFired (fallback in hand)", screenID) }
+                handleLoadFailure("This title is taking too long to load. The source may be temporarily unavailable.")
+                return
+            }
+            try? await Task.sleep(for: giveUpAt - fallbackAt)
             guard !Task.isCancelled else { return }
             if playback == .loading {
                 if PlaybackDiag.enabled { awdiag("AWLIFE screen=%@ loadTimeoutFired", screenID) }
