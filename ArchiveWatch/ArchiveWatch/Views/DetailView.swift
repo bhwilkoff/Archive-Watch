@@ -10,7 +10,7 @@ import SwiftData
 // screen.
 
 enum DetailFocusTarget: Hashable {
-    case play, favorite, watched, related
+    case play, favorite, watched, versions, related
 }
 
 struct DetailView: View {
@@ -31,6 +31,11 @@ struct DetailView: View {
     private var accent: Color {
         store.accentColor(forCategory: categoryID)
     }
+
+    @State private var showVersions = false
+    @State private var versions: [ArchiveVersions.Version] = []
+    @State private var loadingVersions = false
+    @State private var chosenVersionName: String?
 
     private var isWatched: Bool {
         store.completedArchiveIDs.contains(item.archiveID)
@@ -201,6 +206,7 @@ struct DetailView: View {
                 watchedButton
                 shareButton
                 playlistButton
+                versionsButton
                 if SubtitleFinder.shouldOffer(for: item) { subtitlesButton }
             }
             .padding(.top, 8)
@@ -266,6 +272,50 @@ struct DetailView: View {
         .focusEffectDisabled()
         .focused($focusTarget, equals: .watched)
         .accessibilityLabel(isWatched ? "Mark as not watched" : "Mark as watched")
+    }
+
+    // The viewer picks which copy of the film to play (owner, 2026-08-17).
+    // An archive.org item often holds several transfers, and until now only
+    // the pipeline had a say — so a bad evening on one copy had no remedy.
+    // Loaded on demand: the list is a network call, and Detail should not pay
+    // for it unless it is asked for.
+    private var versionsButton: some View {
+        Button {
+            showVersions = true
+            Task { await loadVersions() }
+        } label: {
+            Image(systemName: "rectangle.stack")
+                .font(.title2)
+                .foregroundStyle(chosenVersionName == nil ? .white : accent)
+                .padding(18)
+        }
+        .buttonStyle(CircleIconStyle())
+        .focusEffectDisabled()
+        .focused($focusTarget, equals: .versions)
+        .accessibilityLabel("Choose version")
+        // One sheet per BUTTON, which is the pattern every other action here
+        // follows for a reason: SwiftUI honours a single .sheet per view, so a
+        // second one stacked on the same view silently never presents.
+        .sheet(isPresented: $showVersions) {
+            VersionPickerView(
+                archiveID: item.archiveID,
+                versions: versions,
+                isLoading: loadingVersions,
+                pipelineChoiceName: item.videoURLParsed?
+                    .lastPathComponent.removingPercentEncoding
+            ) { choice in
+                ArchiveVersions.choose(choice, for: item.archiveID)
+                chosenVersionName = choice?.name
+            }
+        }
+        .onAppear { chosenVersionName = ArchiveVersions.chosenName(for: item.archiveID) }
+    }
+
+    private func loadVersions() async {
+        guard versions.isEmpty else { return }
+        loadingVersions = true
+        versions = await ArchiveVersions.list(itemID: item.archiveID)
+        loadingVersions = false
     }
 
     // #16 (tvOS-DESIGN §8.6): tvOS has no share sheet — hand off to a phone via a
@@ -975,6 +1025,12 @@ struct PlayerScreen: View {
         // the decisive mux-vs-delivery experiment (a LAN-served faststart remux
         // against the badly-interleaved archive.org original).
         var playURL = usingFallbackURL ?? active?.videoURLParsed ?? url
+        // The viewer's own choice of copy wins over the pipeline's pick — but
+        // never over a FALLBACK already in play, which only exists because the
+        // preferred copy could not stream (Decision 077).
+        if usingFallbackURL == nil {
+            playURL = ArchiveVersions.preferredURL(for: activeArchiveID, default: playURL)
+        }
         // D079 Phase-1 experiment gate: route playback through the
         // LocalMediaServer instead of the custom-scheme loader. Diagnostic
         // until the cutover gates pass (byte-diff green Mac-side; this env
