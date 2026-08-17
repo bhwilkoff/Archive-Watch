@@ -115,7 +115,6 @@ struct HomeView: View {
             .padding(.bottom, 80)
         }
         .background(Color.black.ignoresSafeArea())
-        .overlay { WatchedHomeSync() }   // #17: feeds completed + in-progress IDs into the store
         .task(id: "\(heroSeed)-\(store.dbGeneration)-\(store.hideWatchedOnHome)-\(store.completedArchiveIDs.count)-\(store.continueArchiveIDs.count)") {
             rebuild()
         }

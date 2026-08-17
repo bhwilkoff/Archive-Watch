@@ -38,6 +38,12 @@ struct RootView: View {
     var body: some View {
         // Tabs are split into builder groups; one 12-tab TabView closure trips the
         // SwiftUI type-checker's "unable to type-check in reasonable time" limit.
+        // #17: feeds completed + in-progress IDs into the store. Mounted at the
+        // ROOT, not inside Home — watched state is a badge on every poster now
+        // (owner, 2026-08-17), so a launch that lands on any other tab must
+        // still have it. It used to live in HomeView, where it only had to be
+        // right for Home's hide-watched filter; opening Library directly left
+        // the set empty and every finished film looked unwatched.
         TabView(selection: tabSelection) {
             browseTabs
             modeTabs
@@ -45,6 +51,7 @@ struct RootView: View {
         }
         .tabViewStyle(.sidebarAdaptable)
         .preferredColorScheme(.dark)
+        .overlay { WatchedHomeSync() }
         // Keeps the Top Shelf snapshot (App Group) in sync with the
         // catalog + watch progress. No-ops until the App Group exists.
         .background { TopShelfUpdater() }
@@ -65,6 +72,15 @@ struct RootView: View {
         // simulator (`simctl openurl` raises a system "Open in…?" prompt that
         // needs a Simulator GUI to dismiss). Both unset in production (no-op).
         .task {
+            // `AW_START_TAB=<tab>` lands directly on a tab, the tvOS twin of the
+            // macOS hook. Verifying a Library change otherwise means driving the
+            // sidebar blind over the remote, and the standing rule here is that
+            // the glass is the test — so the harness needs to reach a surface
+            // without depending on focus luck. Unset in production (no-op).
+            if let raw = ProcessInfo.processInfo.environment["AW_START_TAB"],
+               let tab = Router.Tab(rawValue: raw) {
+                router.tab = tab
+            }
             guard let id = ProcessInfo.processInfo.environment["AW_START_ITEM"] else { return }
             openDeepLinkedItem(
                 id, autoplay: ProcessInfo.processInfo.environment["AW_AUTOPLAY"] == "1")
