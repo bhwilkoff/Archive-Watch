@@ -3569,3 +3569,43 @@ the Release build: record → relaunch → resume at the exact position.
 history, and PARITY rows are open work. Cross-ecosystem sync (Android/web
 seeing the same record) rides Decision 028's Google Drive App Data plan and
 remains blocked on the owner creating the Google OAuth client.
+
+## 079 — The Quality Program: research-first rebuild of playback, captions, sync, and choice
+*Date: 2026-08-17*
+
+Four commissioned research reports (docs/research/*.md, sources cited,
+verified-vs-inferred marked) and their synthesis
+(docs/PLAYBACK-ARCHITECTURE-RESEARCH.md) become the binding plan, with the
+owner's approvals and one binding condition:
+
+1. **LocalMediaServer** (loopback NWListener HTTP server fronting the ported
+   ResilientStreamLoader engine) is approved UNDER THE NATIVE-FIRST
+   CONDITION, owner verbatim: "if it in any way replaces the native APIs or
+   makes it harder to take advantage of the native tools that Apple
+   provides for its video apps, please research better/native solutions."
+   The research's answer, recorded as the design rule: the proxy EXISTS to
+   restore native-tool compatibility (a localhost URL is a plain HTTP asset;
+   the custom scheme is what disqualified AirPlay, generated captions, and
+   AVAssetReader), and the design must prefer DIRECT native playback for
+   files verified compliant and well-served — the proxy is the resilience
+   layer, not a replacement for native playback. Cutover gates: on-device
+   proof that generated captions emit through the proxy; byte-diff vs
+   origin over a full film; scenario suite green at full speed AND through
+   the 10 Mbps throttled gate.
+2. **History UX approved**: ONE History list (chronological dated plays);
+   Watched becomes a derived badge on posters + a Detail toggle, never a
+   second content list. Continue Watching stays. (The Trakt model.)
+3. **Repair-and-rehost approved**: `archivewatch-fix-<slug>` items under
+   the owner's archive.org account, only for the popular tail with no
+   playable copy, clearly labeled as repairs linking the source item.
+4. **alass + ffsubsync approved** as the catalog-wide subtitle-timing
+   fixers (VAD-based, CI-runnable, applied only on ≤0.5s agreement); the
+   on-device SpeechAnalyzer judge remains the runtime safety net and the
+   only tool that can condemn a wrong-film file.
+
+Per-platform nativeness reaffirmed (owner): tvOS built for tvOS, iOS for
+iPhone, Android for Android — Decision 028's doctrine governs every phase.
+
+**How to apply**: no playback/caption/sync architecture change ships outside
+this plan without a new research pass (memory: feedback_research_before_fixes).
+The phase gates are Decision 076's Release-build + throttled-gate scenarios.
