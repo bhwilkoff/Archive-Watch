@@ -657,6 +657,8 @@ struct PlayerScreen: View {
     /// menu. Loaded AFTER playback is under way — the list is a network call and
     /// must never sit between the viewer and the first frame.
     @State private var playerVersions: [ArchiveVersions.Version] = []
+    /// Where to resume when a version switch rebuilds the player in place.
+    @State private var switchResumeSeconds: Double?
     @State private var fallbackProbe: Task<Void, Never>?
     @State private var sysCapProbe = SystemCaptionProbe()   // AW_SYSCAP_PROBE=1 only
     @State private var skipCount = 0         // #7: bound auto-skips in a broken lineup
@@ -894,7 +896,18 @@ struct PlayerScreen: View {
     /// trying to escape.
     private func switchToVersion(_ version: ArchiveVersions.Version) {
         ArchiveVersions.choose(version, for: activeArchiveID)
-        awdiag("AWLIFE screen=%@ VERSION SWITCH -> %@", screenID, version.name)
+        // Carry the position ACROSS the switch explicitly rather than trusting
+        // the persisted record to round-trip. Measured on the Apple TV: the
+        // first version of this restarted Utopia at 00:34 from 1:16, because
+        // setupPlayer resolves resume from WatchProgress and that path is
+        // written for a fresh open, not for a rebuild happening inside one.
+        // A switch that loses your place is worse than the stutter you were
+        // trying to escape.
+        let resumeAt = player?.currentTime().seconds
+        switchResumeSeconds = (resumeAt?.isFinite == true && (resumeAt ?? 0) > 5)
+            ? resumeAt : nil
+        awdiag("AWLIFE screen=%@ VERSION SWITCH -> %@ resumeAt=%.0f", screenID,
+               version.name, switchResumeSeconds ?? -1)
         // A manual choice supersedes any fallback the player fell back to.
         usingFallbackURL = nil
         teardownPlayer(persist: true)
@@ -1264,7 +1277,13 @@ struct PlayerScreen: View {
         // Diagnostic-only: a harness control experiment plays a TRUNCATED
         // remux of a film whose stored resume position exceeds it.
         let noResume = ProcessInfo.processInfo.environment["AW_NO_RESUME"] == "1"
-        if !noResume, let existing = try? modelContext.fetch(descriptor).first,
+        // An in-place version switch carries its own position and it WINS: it
+        // is where the viewer actually is, one moment ago, on the same film.
+        if !noResume, let carried = switchResumeSeconds {
+            switchResumeSeconds = nil
+            pendingSeekSeconds = carried
+            awdiag("AWLIFE screen=%@ resume from version switch t=%.0f", screenID, carried)
+        } else if !noResume, let existing = try? modelContext.fetch(descriptor).first,
            existing.positionSeconds > 10,
            !existing.isComplete {
             pendingSeekSeconds = existing.positionSeconds
