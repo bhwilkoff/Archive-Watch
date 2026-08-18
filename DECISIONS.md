@@ -3860,3 +3860,29 @@ an additive JSON key the clients ignore. The other consumers of `colorMode` —
 Cartoon Mode's colour preference and Party Play's B&W exclusion — are unchanged
 and want no confidence gate: preferring colour on a weak reading costs a viewer
 nothing, where clearing a film's artwork on one is destructive.
+
+**Amendment (same day, found by relaxing the above)**: two further faults, both
+of which the colour flag had been hiding.
+
+*The guard is TWO gates, not one.* `_color_compatible` tests an edge between two
+copies; `_consistent` tests the component they form, and it rejected any mixed
+colour group outright. Relaxing only the edge changed nothing — the pair passed
+and the component was thrown away. Both gates now abstain on the same evidence.
+Whenever a rule exists at two levels, a change to one is a no-op until the other
+agrees, and a no-op that looks like a fix is worse than no fix at all.
+
+*An item a series spine owns must NEVER merge as a film.* `merge_film_duplicates`
+clustered on `contentType in _FILM_TYPES`, and an episode is still typed as film
+in `catalog.json` until the DB materializes it (Decision 045) — so spine-owned
+episodes were in scope the whole time. Three seasons of "It Takes a Worried Man"
+share a title, share a 1,800s runtime, and sit inside the year span every film
+test allows, so every test says one work: `tools/test_color_guard.py` measures
+that unguarded they collapse to ONE card, deleting two seasons. The only thing
+that had ever kept them apart was an accident — their colour readings happened
+to disagree. `_playable_episode_aids()` is now resolved BEFORE the merge and
+passed in as an exclusion set.
+
+**How to apply**: never let a film-level rule run over items the TV spines own —
+cluster on ownership, not on the contentType the catalog happens to carry at
+that moment. And when relaxing a guard, look for what else that guard was
+accidentally protecting: it had two jobs and only one of them was written down.

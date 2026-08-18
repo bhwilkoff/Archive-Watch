@@ -12,7 +12,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from build_sqlite import _color_compatible  # noqa: E402
+from build_sqlite import (_color_compatible, _consistent,   # noqa: E402
+                          merge_film_duplicates)
 
 
 def item(sat, mode, aid="x", title="t"):
@@ -32,8 +33,50 @@ CASES = [
 ]
 
 
+# The component gate is the edge gate's twin. Relaxing only one changes
+# nothing: the edge lets a pair through and the component test rejects it.
+COMPONENTS = [
+    ("clean B&W + clean color component REJECTED",
+     [item(0.0, "bw"), item(22.0, "color")], False),
+    ("marginal mix is accepted",
+     [item(7.1, "bw"), item(9.0, "color")], True),
+    ("unmeasured mix still rejected (unchanged)",
+     [item(None, "bw"), item(None, "color")], False),
+    ("stated colorization rejected even when marginal",
+     [item(7.0, "bw"), item(9.0, "color", aid="x-1939-colorized")], False),
+]
+
+
+def episodes():
+    """Three seasons of one show: same title, same runtime, years within the
+    span every film test allows. They must NOT merge."""
+    return [{"archiveID": f"show-198{y}-season-{n}", "title": "It Takes a Worried Man",
+             "contentType": "feature-film", "year": 1981 + y, "runtimeSeconds": 1800,
+             "colorMode": None, "downloadURL": f"http://x/{n}.mp4"}
+            for n, y in ((1, 0), (2, 2), (3, 2))]
+
+
 def main():
     failures = 0
+    for name, group, want in COMPONENTS:
+        got = _consistent(group)
+        if got != want:
+            failures += 1
+            print(f"  FAIL {name}: consistent={got}, expected {want}")
+        else:
+            print(f"  ok   {name}")
+
+    eps = episodes()
+    spine = {e["archiveID"] for e in eps}
+    kept_guarded = len(merge_film_duplicates(list(eps), spine_aids=spine))
+    kept_bare = len(merge_film_duplicates(list(eps)))
+    if kept_guarded != 3:
+        failures += 1
+        print(f"  FAIL spine-owned episodes must never merge: {kept_guarded}/3 survived")
+    else:
+        print(f"  ok   spine-owned episodes never merge (3/3 survive; "
+              f"unguarded would leave {kept_bare})")
+
     for name, a, b, want in CASES:
         got = _color_compatible(a, b)
         if got != want:
@@ -41,7 +84,8 @@ def main():
             print(f"  FAIL {name}: compatible={got}, expected {want}")
         else:
             print(f"  ok   {name}")
-    print(f"\n{len(CASES) - failures}/{len(CASES)} passed")
+    total = len(CASES) + len(COMPONENTS) + 1
+    print(f"\n{total - failures}/{total} passed")
     return 1 if failures else 0
 
 

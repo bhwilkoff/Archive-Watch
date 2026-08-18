@@ -610,9 +610,15 @@ def _consistent(group):
     imdbs = {m.get("imdbID") for m in group if m.get("imdbID")}
     if len(imdbs) > 1:
         return False
+    # The component-level twin of `_color_compatible`. Both gates have to agree
+    # to abstain, or relaxing only the edge test changes nothing: the edge lets
+    # the pair through and this rejects the component it forms.
     colors = {m.get("colorMode") for m in group if m.get("colorMode")}
     if len(colors) > 1:
-        return False
+        if any(_colorized_upload(m) for m in group):
+            return False                              # a stated colorization
+        if all(color_confident(m) for m in group if m.get("colorMode")):
+            return False
     rts = [m["runtimeSeconds"] for m in group if m.get("runtimeSeconds")]
     tight = len(rts) >= 2 and (max(rts) - min(rts)) <= max(0.10 * max(rts), 90)
     if not imdbs and rts and max(rts) - min(rts) > max(0.12 * max(rts), 150):
@@ -623,7 +629,7 @@ def _consistent(group):
     return True
 
 
-def merge_film_duplicates(items):
+def merge_film_duplicates(items, spine_aids=frozenset()):
     """Collapse re-uploads of the SAME film — across single-imdb, multi-imdb, AND
     no-imdb cases — into ONE best card, grafting best-of-everything onto it.
 
@@ -639,6 +645,15 @@ def merge_film_duplicates(items):
     Precision over recall (Decision 035). Runs AFTER dedupe_by_imdb."""
     clusters = {}
     for it in items:
+        # Items a series spine owns are EPISODES (Decision 045), even though the
+        # catalog still types them as film until the DB materializes them. They
+        # must never merge as films: three seasons of "It Takes a Worried Man"
+        # share a title, a runtime and a year span, so every film test says one
+        # work and merging them would DELETE two seasons. Until now the only
+        # thing keeping them apart was an accident — their colour flags happened
+        # to disagree.
+        if it.get("archiveID") in spine_aids:
+            continue
         if it.get("contentType") in _FILM_TYPES and not it.get("excluded"):
             k = _dupe_title_key(it.get("title"))
             if len(k) >= 4:
@@ -1122,13 +1137,15 @@ def build_db_obj(cat, out_db, rotate_seed="0", materialize_episodes=True):
     (cat, n_items, n_series, n_eps). materialize_episodes=False for the lean
     bundled seed (episodes-as-items live only in the full DB — Decision 045)."""
     deduped = dedupe_by_imdb(cat["items"])
-    deduped = merge_film_duplicates(deduped)
+    # Resolve spine ownership BEFORE merging, so episodes are never treated as
+    # duplicate films (the set was previously computed after the merge).
+    spine_aids = _playable_episode_aids() if materialize_episodes else frozenset()
+    deduped = merge_film_duplicates(deduped, spine_aids=spine_aids)
     if out_db.exists():
         out_db.unlink()
     db = sqlite3.connect(out_db)
     create_schema(db)
-    episode_aids = _playable_episode_aids() if materialize_episodes else frozenset()
-    n_items = populate_items(db, deduped, rotate_seed=rotate_seed, skip_aids=episode_aids)
+    n_items = populate_items(db, deduped, rotate_seed=rotate_seed, skip_aids=spine_aids)
     n_series, n_eps = populate_series(db, materialize_episode_items=materialize_episodes)
     create_indexes(db)
     db.execute("INSERT OR REPLACE INTO meta VALUES ('schemaVersion', ?)", (str(SCHEMA_VERSION),))
