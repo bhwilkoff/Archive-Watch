@@ -12,6 +12,9 @@ struct DetailView: View {
     @Environment(\.modelContext) private var ctx
     @Query private var favorites: [Favorite]
     @State private var playing = false
+    @State private var versions: [ArchiveVersions.Version] = []
+    @State private var loadingVersions = false
+    @State private var chosenVersionName: String?
     @State private var addingToPlaylist = false
     @State private var clipping = false
     @State private var gettingSubtitles = false
@@ -78,6 +81,44 @@ struct DetailView: View {
                                     .accessibilityLabel("Create a clip or GIF")
                             }
                             .buttonStyle(.bordered)
+                        }
+
+                        // Choose which copy of the film to play — the same
+                        // control tvOS has, since a phone on cellular has even
+                        // more reason to want a lighter transfer than a TV on
+                        // wifi does (owner, 2026-08-17).
+                        if item.videoURLParsed != nil {
+                            Menu {
+                                if versions.isEmpty {
+                                    Text(loadingVersions ? "Loading…" : "No other copies")
+                                } else {
+                                    ForEach(versions) { v in
+                                        Button {
+                                            ArchiveVersions.choose(v, for: item.archiveID)
+                                            chosenVersionName = v.name
+                                        } label: {
+                                            Label(v.label, systemImage:
+                                                chosenVersionName == v.name
+                                                    ? "checkmark.circle.fill" : "circle")
+                                        }
+                                    }
+                                    Button(role: .destructive) {
+                                        ArchiveVersions.choose(nil, for: item.archiveID)
+                                        chosenVersionName = nil
+                                    } label: { Label("Use the default copy", systemImage: "arrow.uturn.backward") }
+                                }
+                            } label: {
+                                Image(systemName: "rectangle.stack")
+                            }
+                            .buttonStyle(.bordered)
+                            .tint(chosenVersionName == nil ? nil : .accentColor)
+                            .task {
+                                chosenVersionName = ArchiveVersions.chosenName(for: item.archiveID)
+                                guard versions.isEmpty else { return }
+                                loadingVersions = true
+                                versions = await ArchiveVersions.list(itemID: item.archiveID)
+                                loadingVersions = false
+                            }
                         }
 
                         Menu {

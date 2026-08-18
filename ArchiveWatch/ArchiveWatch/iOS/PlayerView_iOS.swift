@@ -51,7 +51,11 @@ struct PlayerView: UIViewControllerRepresentable {
     init(item: Catalog.Item, autoplayIn store: AppStore? = nil,
          onUnplayable: ((String) -> Void)? = nil) {
         archiveID = item.archiveID
-        videoURL = item.videoURLParsed
+        // Honour the viewer's chosen copy (ArchiveVersions). Rebuilt from the
+        // stored file name, so this needs no network and cannot delay playback.
+        videoURL = item.videoURLParsed.map {
+            ArchiveVersions.preferredURL(for: item.archiveID, default: $0)
+        }
         subtitleHLSURL = item.subtitleHLSURL
         publishedVTTURL = item.publishedVTTURL
         self.onUnplayable = onUnplayable

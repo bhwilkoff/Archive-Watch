@@ -42,10 +42,22 @@ enum ArchiveVersions {
             return parts.joined(separator: " · ") + " — " + origin
         }
 
-        // Built per call rather than cached: ByteCountFormatter is not
-        // Sendable, and a formatter shared across concurrency domains is the
-        // kind of shared mutable state Swift 6 is right to reject. Formatting
-        // a handful of rows costs nothing.
+        /// Same facts, no origin clause. The transport-bar menu is narrow and
+        /// truncated the full label mid-phrase on the Apple TV — "H.264 -
+        /// 563.2 MB — Archive" with the rest cut — which defeats a menu whose
+        /// only job is to show what you are choosing. Where the copy CAME from
+        /// matters when browsing on Detail; mid-film, resolution and size are
+        /// what the viewer is deciding between.
+        var compactLabel: String {
+            var parts: [String] = []
+            if let h = heightPixels, h > 0 { parts.append("\(h)p") }
+            let codec = format
+                .replacingOccurrences(of: "h.264", with: "H.264", options: .caseInsensitive)
+            if !codec.isEmpty { parts.append(codec) }
+            parts.append(Self.sizeText(sizeBytes))
+            return parts.joined(separator: " · ")
+        }
+
         private static func sizeText(_ bytes: Int64) -> String {
             let f = ByteCountFormatter()
             f.allowedUnits = [.useMB, .useGB]
