@@ -14,6 +14,9 @@ struct DetailView: View {
     @Environment(\.modelContext) private var ctx
     @Query private var favorites: [Favorite]
     @State private var showPlaylistSheet = false
+    @State private var versions: [ArchiveVersions.Version] = []
+    @State private var loadingVersions = false
+    @State private var chosenVersionName: String?
     @State private var showGetSubtitles = false
 
     private var isFav: Bool { favorites.contains { $0.archiveID == item.archiveID } }
@@ -124,6 +127,44 @@ struct DetailView: View {
                         }
                         .controlSize(.large)
                         .help("Find or generate subtitles for this film")
+                    }
+                    // Choose which copy plays — parity with tvOS and iOS. A Mac
+                    // is where someone is most likely to care about the
+                    // difference between transfers, and least likely to accept
+                    // the app deciding for them.
+                    if item.videoURLParsed != nil {
+                        Menu {
+                            if versions.isEmpty {
+                                Text(loadingVersions ? "Loading…" : "No other copies")
+                            } else {
+                                ForEach(versions) { v in
+                                    Button {
+                                        ArchiveVersions.choose(v, for: item.archiveID)
+                                        chosenVersionName = v.name
+                                    } label: {
+                                        Label(v.label, systemImage:
+                                            chosenVersionName == v.name
+                                                ? "checkmark.circle.fill" : "circle")
+                                    }
+                                }
+                                Divider()
+                                Button {
+                                    ArchiveVersions.choose(nil, for: item.archiveID)
+                                    chosenVersionName = nil
+                                } label: { Label("Use the default copy", systemImage: "arrow.uturn.backward") }
+                            }
+                        } label: {
+                            Label("Version", systemImage: "rectangle.stack")
+                        }
+                        .controlSize(.large)
+                        .help("Choose which copy of this film to play")
+                        .task(id: item.archiveID) {
+                            chosenVersionName = ArchiveVersions.chosenName(for: item.archiveID)
+                            guard versions.isEmpty else { return }
+                            loadingVersions = true
+                            versions = await ArchiveVersions.list(itemID: item.archiveID)
+                            loadingVersions = false
+                        }
                     }
                     // One consolidated Share menu (parity with iOS) — Callsheet + share link +
                     // archive.org, instead of three separate toolbar-ish buttons.

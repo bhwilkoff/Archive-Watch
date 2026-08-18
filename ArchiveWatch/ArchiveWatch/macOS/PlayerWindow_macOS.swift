@@ -22,7 +22,12 @@ struct PlayerWindow: View {
         // hand-drawn controls.
         NavigationStack {
             PlayerSurface(archiveID: item.archiveID,
-                          videoURL: item.videoURLParsed,
+                          // Honour the viewer's chosen copy (ArchiveVersions).
+                          // Rebuilt from the stored file name, so it costs no
+                          // network and cannot delay playback.
+                          videoURL: item.videoURLParsed.map {
+                              ArchiveVersions.preferredURL(for: item.archiveID, default: $0)
+                          },
                           subtitleHLS: item.subtitleHLSURL,
                           publishedVTT: item.publishedVTTURL,
                           onEnded: autoplayNext)
