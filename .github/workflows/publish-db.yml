@@ -68,6 +68,15 @@ jobs:
         # unstartable; the node is.
         run: python tools/bake_fallbacks.py --limit 300 --min-bytes 300000000 || true
 
+      # A film carrying subtitleHLS PROMISES captions — tvOS fetches the VTT and
+      # renders it, web and Android side-load it — and 1.7% of the advertised
+      # tracks 404, so the promise fails silently on titles whose Detail screen
+      # says they have subtitles. Costs nothing: the VTTs are on Pages, so this
+      # touches archive.org not at all. Clears only on 404/410, never on a
+      # transient. Never fails the build.
+      - name: Clear subtitle tracks that 404
+        run: python tools/audit_dead_subtitles.py --apply || true
+
       # ENFORCE the copyright gate on every DB build (Decision 027). This is the
       # PURE-DATA apply only — it hides items already CONFIRMED-copyright by the
       # network confirm phase (rights-audit.yml, scheduled) and reconciles stale
