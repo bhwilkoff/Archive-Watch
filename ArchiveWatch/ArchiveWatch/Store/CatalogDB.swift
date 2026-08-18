@@ -109,6 +109,24 @@ final class CatalogDB {
         return out
     }
 
+    /// Two TEXT columns. `scalarRows` reads (text, integer), which cannot carry
+    /// a pair of ids.
+    private func pairRows(_ sql: String, _ binds: [String] = []) -> [(String, String)] {
+        var stmt: OpaquePointer?
+        guard sqlite3_prepare_v2(handle, sql, -1, &stmt, nil) == SQLITE_OK else { return [] }
+        defer { sqlite3_finalize(stmt) }
+        for (i, b) in binds.enumerated() {
+            sqlite3_bind_text(stmt, Int32(i + 1), b, -1, SQLITE_TRANSIENT)
+        }
+        var out: [(String, String)] = []
+        while sqlite3_step(stmt) == SQLITE_ROW {
+            let a = sqlite3_column_text(stmt, 0).map { String(cString: $0) } ?? ""
+            let b = sqlite3_column_text(stmt, 1).map { String(cString: $0) } ?? ""
+            out.append((a, b))
+        }
+        return out
+    }
+
     // MARK: - Meta
 
     func metaInt(_ key: String) -> Int? {
@@ -214,8 +232,35 @@ final class CatalogDB {
         let placeholders = ids.map { _ in "?" }.joined(separator: ",")
         let rows = items("SELECT json FROM item_json WHERE archiveID IN (\(placeholders))", ids)
         // Preserve the requested order.
-        let byID = Dictionary(rows.map { ($0.archiveID, $0) }, uniquingKeysWith: { a, _ in a })
+        var byID = Dictionary(rows.map { ($0.archiveID, $0) }, uniquingKeysWith: { a, _ in a })
+        // A saved id that no longer resolves is usually not gone — its copy was
+        // merged into a better one (Decision 040), and the film is still here
+        // under the survivor's id. Without this the favorite simply disappears.
+        let missing = ids.filter { byID[$0] == nil }
+        if !missing.isEmpty {
+            for (old, item) in resolveAliases(missing) { byID[old] = item }
+        }
         return ids.compactMap { byID[$0] }
+    }
+
+    /// Follow merged-away ids to the card that replaced them.
+    private func resolveAliases(_ ids: [String]) -> [(String, Catalog.Item)] {
+        guard !ids.isEmpty else { return [] }
+        let placeholders = ids.map { _ in "?" }.joined(separator: ",")
+        let pairs = pairRows(
+            "SELECT oldID, newID FROM item_aliases WHERE oldID IN (\(placeholders))", ids)
+        guard !pairs.isEmpty else { return [] }
+        let survivors = itemsByIDsDirect(pairs.map { $0.1 })
+        let byNew = Dictionary(survivors.map { ($0.archiveID, $0) },
+                               uniquingKeysWith: { a, _ in a })
+        return pairs.compactMap { old, new in byNew[new].map { (old, $0) } }
+    }
+
+    /// The un-aliased lookup, so alias resolution cannot recurse.
+    private func itemsByIDsDirect(_ ids: [String]) -> [Catalog.Item] {
+        guard !ids.isEmpty else { return [] }
+        let placeholders = ids.map { _ in "?" }.joined(separator: ",")
+        return items("SELECT json FROM item_json WHERE archiveID IN (\(placeholders))", ids)
     }
 
     /// Shared WHERE/ORDER builder so browse() and the off-main paging path
@@ -465,7 +510,12 @@ final class CatalogDB {
 
     /// Full item by id (Detail screen).
     func item(_ archiveID: String) -> Catalog.Item? {
-        items("SELECT json FROM item_json WHERE archiveID = ?", [archiveID]).first
+        if let hit = items("SELECT json FROM item_json WHERE archiveID = ?", [archiveID]).first {
+            return hit
+        }
+        // Merged away — follow it to the card that replaced it rather than
+        // reporting the film missing (Decision 040 drops the losing copy).
+        return resolveAliases([archiveID]).first?.1
     }
 
     /// Items related to one item, for "More Like This". Ranks by SAME category (contentType,

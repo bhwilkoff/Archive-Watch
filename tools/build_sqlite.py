@@ -662,6 +662,7 @@ def merge_film_duplicates(items, spine_aids=frozenset()):
     GRAFT = ("imdbID", "tmdbID", "year", "director", "imdbRating", "imdbVotes",
              "contentRating", "language")
     drop_ids, merged = set(), 0
+    aliases = {}
     for members in clusters.values():
         if len(members) < 2:
             continue
@@ -712,11 +713,21 @@ def merge_film_duplicates(items, spine_aids=frozenset()):
             for m in group:
                 if m["archiveID"] != winner["archiveID"]:
                     drop_ids.add(m["archiveID"])
+                    aliases[m["archiveID"]] = winner["archiveID"]
             merged += 1
 
     if drop_ids:
         print(f"[dedup] merged {len(drop_ids)} film re-uploads into "
               f"{merged} best cards (title + imdb/year/runtime corroboration)")
+    # Chase transitively: an id merged into a copy that was itself merged must
+    # forward to the FINAL survivor, or the second hop dead-ends exactly as the
+    # first one did.
+    for old in list(aliases):
+        seen = {old}
+        while aliases.get(aliases[old]) and aliases[old] not in seen:
+            seen.add(aliases[old])
+            aliases[old] = aliases[aliases[old]]
+    merge_film_duplicates.aliases = aliases
     return [it for it in items if it["archiveID"] not in drop_ids]
 
 
@@ -735,6 +746,15 @@ def create_schema(db):
     db.executescript("""
     PRAGMA journal_mode = OFF;
     PRAGMA synchronous = OFF;
+
+    -- Where a merged-away copy went. Decision 040 collapses re-uploads of one
+    -- film into a single best card and DROPS the losers, so a viewer who
+    -- favorited or was part-way through a losing copy holds an id that resolves
+    -- to nothing — the film silently vanishes from their Library while still
+    -- being in the app under the survivor's id. This is the forwarding address.
+    CREATE TABLE item_aliases (
+      oldID TEXT PRIMARY KEY, newID TEXT NOT NULL
+    );
 
     CREATE TABLE items (
       archiveID TEXT PRIMARY KEY, title TEXT, year INTEGER, decade INTEGER,
@@ -1146,6 +1166,12 @@ def build_db_obj(cat, out_db, rotate_seed="0", materialize_episodes=True):
     db = sqlite3.connect(out_db)
     create_schema(db)
     n_items = populate_items(db, deduped, rotate_seed=rotate_seed, skip_aids=spine_aids)
+    aliases = getattr(merge_film_duplicates, "aliases", {}) or {}
+    live = {it["archiveID"] for it in deduped}
+    rows = [(o, n) for o, n in aliases.items() if n in live]
+    _insert_many(db, "item_aliases", rows)
+    if rows:
+        print(f"[dedup] {len(rows)} merged ids forward to their survivor")
     n_series, n_eps = populate_series(db, materialize_episode_items=materialize_episodes)
     create_indexes(db)
     db.execute("INSERT OR REPLACE INTO meta VALUES ('schemaVersion', ?)", (str(SCHEMA_VERSION),))

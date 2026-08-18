@@ -3886,3 +3886,45 @@ passed in as an exclusion set.
 cluster on ownership, not on the contentType the catalog happens to carry at
 that moment. And when relaxing a guard, look for what else that guard was
 accidentally protecting: it had two jobs and only one of them was written down.
+
+## 085 — A merged-away id forwards to its survivor; a favorite must not vanish because a duplicate was collapsed
+*Date: 2026-08-18*
+
+`build_sqlite` now emits an `item_aliases(oldID, newID)` table recording where
+every copy collapsed by Decision 040's duplicate merge went, and `CatalogDB`
+consults it whenever a saved id fails to resolve — in `item(_:)` (Detail, deep
+links, Top Shelf resume) and `itemsByIDs(_:)` (Favorites, Continue Watching,
+playlists, history). Aliases are chased transitively, so a copy merged into a
+copy that was itself merged still forwards to the final survivor.
+
+**Why**: Decision 040 collapses re-uploads of one film into a single best card
+and DROPS the losers from the item list. Nothing recorded where they went —
+`duplicateMergedInto` appears in `audit_rights.py`'s FOREIGN list but is never
+written by anything. Both library surfaces resolve strictly by id
+(`dbItemsByIDs`, `dbItem`), and an unresolvable id is silently filtered out. So
+a viewer who favorited or was part-way through a losing copy loses it: the
+favorite disappears and the watch position is gone, while the film is still in
+the app, one row away, under the survivor's id. Nineteen ids were merged in the
+2026-08-18 colour pass alone, on top of ~208 (Decision 040) and ~360 (040a)
+earlier — every one a potential silent deletion from somebody's library.
+
+Nothing about this is visible from the playback or library code, because
+nothing is broken there: the query is correct, the row is genuinely absent, and
+the disappearance looks like the viewer never saved it.
+
+**How to apply**: any pipeline step that DROPS an item a viewer could have
+saved must leave a forwarding address — favorites, playlists, watch progress
+and Top Shelf resume are all keyed by `archiveID`, and dropping one is a
+deletion from the user's data, not just the catalog. Filter aliases to
+survivors that actually exist in the built DB before inserting, so a forwarding
+row can never point at another hole. Keep the un-aliased lookup
+(`itemsByIDsDirect`) for resolving the survivor itself, or resolution recurses.
+This does NOT apply to `excluded` items (Decisions 027/044/083): those are
+hidden deliberately — a rights or playability judgement — and forwarding a
+viewer to a different film would be worse than the item being gone.
+
+**Consequences**: `item_aliases` is a new table older clients simply never
+query, so it is additive per Decision 020. It is small (hundreds of rows) and
+rebuilt from scratch every publish, so it stays consistent with whatever the
+current merge decided. Cross-device sync is unaffected — the saved id is still
+the old one, and each device forwards it locally at read time.
