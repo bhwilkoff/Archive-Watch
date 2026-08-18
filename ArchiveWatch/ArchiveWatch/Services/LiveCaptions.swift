@@ -105,6 +105,17 @@ final class LiveCaptions {
     /// Where the viewer is, so a caption already on screen is never re-timed.
     private var lastPlayhead: Double = 0
 
+    /// Why the display is blank at `t`: how many cues currently bracket it.
+    ///
+    /// Reconstructing this from the trace does not work — a drift correction
+    /// moves every cue AFTER the mapping lines were logged, so a blank tick
+    /// cannot be attributed to a gap or a drop after the fact. On The
+    /// Incredible Machine 12 of 19 blanks LOOKED like drops by that method and
+    /// none of them could be trusted. The display knows; let it say so.
+    func bracketingCueCount(at t: Double) -> Int {
+        cues.filter { $0.start <= t && t <= $0.end }.count
+    }
+
     /// The caption to show at `playhead`, or "" between lines.
     func line(at playhead: CMTime) -> String {
         let t = playhead.seconds

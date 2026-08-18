@@ -320,8 +320,10 @@ final class CaptionCoordinator {
                 self?.label?.isHidden = text.isEmpty
                 if self?.trace == true {
                     if text != shown {
-                        awdiag("[AWCAP] trace t=\(String(format: "%.1f", now.seconds)) "
-                              + (text.isEmpty ? "(blank)" : "show: \(text.prefix(50))"))
+                        let why = text.isEmpty
+                            ? "(blank, cues bracketing=\(lc.bracketingCueCount(at: now.seconds)))"
+                            : "show: \(text.prefix(50))"
+                        awdiag("[AWCAP] trace t=\(String(format: "%.1f", now.seconds)) " + why)
                         // The caption's ACTUAL geometry, once: two rounds of
                         // constraint fixes were shipped against an assumed
                         // overlay frame and the label still rendered at the
