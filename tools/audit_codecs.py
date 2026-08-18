@@ -89,6 +89,27 @@ def h264_derivative(item_id, current_name):
             "sizeBytes": best[1], "url": url}
 
 
+def apply_deltas(catalog, path):
+    """Merge a deltas JSONL into the fetched catalog — the SHORT, locked half."""
+    by_id = {i.get("archiveID"): i for i in catalog["items"]}
+    applied = 0
+    with open(path) as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            rec = json.loads(line)
+            item = by_id.get(rec.pop("archiveID", None))
+            if item is None:
+                continue
+            item.update(rec)
+            applied += 1
+    with open(CATALOG, "w") as f:
+        json.dump(catalog, f, separators=(",", ":"))
+    print(f"applied {applied} codec deltas")
+    return
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0)
@@ -99,17 +120,30 @@ def main():
                          "reaches its publish step, so its work is lost outright "
                          "— which is exactly what happened to the 5.5-hour run "
                          "on 2026-08-17 (Decision 057's rule, applied to myself).")
+    ap.add_argument("--deltas-out",
+                    help="append results here as JSONL and never touch the "
+                         "catalog, so the long half needs no catalog-writers "
+                         "lock (Decision 066). A 5.5-hour run of this holding "
+                         "the lock starved the whole nightly pipeline on "
+                         "2026-08-17: colour, rights-audit and validate-posters "
+                         "were each superseded in the queue behind it.")
+    ap.add_argument("--apply-deltas", help="apply a JSONL produced by --deltas-out")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
     with open(CATALOG) as f:
         catalog = json.load(f)
+
+    if args.apply_deltas:
+        return apply_deltas(catalog, args.apply_deltas)
+
     targets = [i for i in catalog["items"] if needs_probe(i)]
     targets.sort(key=lambda i: -(i.get("popularityScore") or 0))
     if args.limit:
         targets = targets[: args.limit]
     print(f"probing {len(targets)} items", flush=True)
 
+    deltas = open(args.deltas_out, "a", encoding="utf-8") if args.deltas_out else None
     stamped = bad = swapped = excluded = 0
     started = time.monotonic()
     budget = args.max_minutes * 60 if args.max_minutes else None
@@ -128,6 +162,8 @@ def main():
                 continue           # transient — never condemn on a failed probe
             stamped += 1
             item["videoCodec"] = codec
+            if deltas:
+                rec = {"archiveID": item["archiveID"], "videoCodec": codec}
             if codec in APPLE_OK:
                 pass
             else:
@@ -146,13 +182,23 @@ def main():
                                              "tier": 2}
                         item["videoCodec"] = "h264"
                         item["codecSwapped"] = codec
+                        if deltas:
+                            rec.update({"downloadURL": fix["url"],
+                                        "videoFile": item["videoFile"],
+                                        "videoCodec": "h264",
+                                        "codecSwapped": codec})
                     swapped += 1
                 else:
                     print(f"  EXCLUDE {item['archiveID']}: {codec}, no h264 derivative", flush=True)
                     if not args.dry_run:
                         item["excluded"] = True
                         item["codecUnsupported"] = codec
+                        if deltas:
+                            rec.update({"excluded": True, "codecUnsupported": codec})
                     excluded += 1
+            if deltas:
+                deltas.write(json.dumps(rec) + "\n")
+                deltas.flush()
             if n % 100 == 99:
                 print(f"  ... {n+1}/{len(targets)} probed, {bad} bad "
                       f"({swapped} swapped, {excluded} excluded)", flush=True)
@@ -161,12 +207,16 @@ def main():
                 # made — on a sweep whose whole design is "resumable via the
                 # videoCodec stamp". A long sweep that cannot be interrupted
                 # is not resumable, it just looks it.
-                if not args.dry_run:
+                if not args.dry_run and not deltas:
                     with open(CATALOG, "w") as f:
                         json.dump(catalog, f, separators=(",", ":"))
 
     print(f"stamped {stamped} | undecodable {bad} | swapped {swapped} | excluded {excluded}"
           + (" | STOPPED EARLY (budget)" if stopped_early else ""))
+    if deltas:
+        deltas.close()
+        print("deltas written; the catalog was not touched")
+        return
     if not args.dry_run and stamped:
         with open(CATALOG, "w") as f:
             json.dump(catalog, f, separators=(",", ":"))

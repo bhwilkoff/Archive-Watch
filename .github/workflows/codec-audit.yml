@@ -4,14 +4,17 @@ name: Codec audit (ffprobe the uploader originals)
 # not already guarantee h.264, and fixes the undecodables: AV1/VP9 swap to a
 # same-item h.264 derivative, else a reversible `excluded`.
 #
-# This runs in CI and NOT on a developer Mac, for a reason worth keeping: a
-# local run probes archive.org from the household's public IP, and archive.org
-# rate-limits per IP. A sweep of ~9,000 files saturated that allowance for
-# hours, which degraded playback on the Apple TV in the same house — the
-# quality gate was breaking the thing it was meant to protect.
+# Runs here and NOT on a developer Mac: a local run probes archive.org from the
+# household's public IP, archive.org rate-limits per IP, and a sweep of ~9,000
+# files saturated that allowance for hours — degrading playback on the Apple TV
+# in the same house.
 #
-# Follows Decision 066: the probing holds no lock, and only the short apply
-# takes `catalog-writers`.
+# Split per Decision 066: the PROBING holds no lock and writes deltas as it
+# goes; only a short apply takes `catalog-writers`. The first version of this
+# held the lock for its whole 5.5-hour run and starved the nightly pipeline —
+# colour classification, the rights audit and poster validation were each
+# superseded in the queue behind it, which is Decision 057's failure caused by
+# the very workflow written to respect it.
 
 on:
   schedule:
@@ -28,12 +31,10 @@ on:
         default: '6'
 
 jobs:
-  audit:
+  probe:
     runs-on: ubuntu-latest
+    # No catalog-writers group: this job never mutates shared state.
     timeout-minutes: 330
-    concurrency:
-      group: catalog-writers
-      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -43,31 +44,76 @@ jobs:
       - name: Install ffmpeg
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
 
-      - name: Fetch the full catalog
+      - name: Fetch the catalog (read-only snapshot for the target list)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py fetch
 
       - name: Probe codecs
-        # Checkpointing keeps the work IN THE RUNNER's catalog.json; only the
-        # publish step below gets it off the machine. So the budget matters
-        # more than the checkpoint.
+        # A BUDGET, not a kill: a job ended by timeout-minutes never reaches
+        # its later steps, and the 5.5-hour run lost everything that way.
+        # Deltas are flushed per item, so even a hard kill keeps the work.
         run: |
-          # A BUDGET, not a kill. timeout-minutes ends the job outright and the
-          # publish step never runs, so the whole pass is lost — which is what
-          # happened to the 5.5h run on 2026-08-17. Stop with 40 minutes to
-          # spare and let the publish land what was probed.
           python tools/audit_codecs.py \
             --limit ${{ github.event.inputs.limit || 3000 }} \
             --workers ${{ github.event.inputs.workers || 6 }} \
-            --max-minutes 280
+            --max-minutes 280 \
+            --deltas-out codec-deltas.jsonl
+
+      - name: Keep the results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: codec-deltas
+          path: codec-deltas.jsonl
+          if-no-files-found: ignore
+
+  apply:
+    needs: probe
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    # The ONLY job that touches the catalog, and it is short.
+    concurrency:
+      group: catalog-writers
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: codec-deltas
+        continue-on-error: true
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          [ -s codec-deltas.jsonl ] || { echo "no deltas; nothing to do"; exit 0; }
+          python tools/catalog_release.py fetch
+
+      - name: Apply the codec findings
+        run: |
+          [ -s codec-deltas.jsonl ] || exit 0
+          python tools/audit_codecs.py --apply-deltas codec-deltas.jsonl
 
       - name: Publish
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python tools/catalog_release.py publish
+        run: |
+          [ -s codec-deltas.jsonl ] || { echo "nothing applied; not republishing"; exit 0; }
+          python tools/catalog_release.py publish
 
       - name: Rebuild the served DB
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh workflow run publish-db.yml
+        run: |
+          [ -s codec-deltas.jsonl ] || exit 0
+          gh workflow run publish-db.yml
