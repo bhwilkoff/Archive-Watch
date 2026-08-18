@@ -115,6 +115,48 @@ struct Harness {
             }
         }
 
+        // 2c. FULL-FILM byte-diff (D079 cutover gate): walk the ENTIRE file
+        //     sequentially through the proxy and compare against origin. Spot
+        //     ranges prove the shape; only a full pass proves that no offset
+        //     bookkeeping error hides in the middle of a two-hour film.
+        //
+        //     Run it against a LOCAL server (tools/throttled_range_server.py),
+        //     not archive.org: a full pass is twice the film in transfer, and
+        //     probing archive.org at that volume rate-limits the household's
+        //     IP and stalls the Apple TV — which happened, twice.
+        if CommandLine.arguments.contains("--full"), total > 0 {
+            print("\nfull-film diff: \(total) bytes")
+            var off: Int64 = 0
+            let span: Int64 = 8_388_608
+            var mismatches = 0
+            let started = Date()
+            while off < total {
+                let hi = min(off + span - 1, total - 1)
+                async let a = fetchRange(origin, off, hi)
+                async let b = fetchRange(proxy, off, hi)
+                let (o, p) = await (a, b)
+                guard let o, let p else {
+                    mismatches += 1
+                    print("  FAIL fetch \(off)-\(hi)")
+                    off = hi + 1
+                    continue
+                }
+                if o != p {
+                    mismatches += 1
+                    let d = zip(o, p).enumerated().first { $1.0 != $1.1 }?.offset ?? -1
+                    print("  FAIL bytes differ \(off)-\(hi) at +\(d)")
+                }
+                off = hi + 1
+                if off % (span * 8) == 0 {
+                    let pct = Double(off) / Double(total) * 100
+                    print("  \(Int(pct))% (\(mismatches) mismatches)")
+                }
+            }
+            let secs = Date().timeIntervalSince(started)
+            print("  full-film: \(mismatches) mismatches in \(Int(secs))s")
+            failures += mismatches
+        }
+
         // 3. AVPlayer reaches readyToPlay through the proxy and plays.
         let item = AVPlayerItem(url: proxy)
         let player = AVPlayer(playerItem: item)
