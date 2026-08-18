@@ -467,6 +467,60 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
         return realURL
     }
 
+    /// Ask several nodes for the first byte at once and take whichever answers.
+    ///
+    /// OFF unless `AW_HEDGE_PROBE=1`. This exists to be MEASURED, not shipped
+    /// on a hunch: the previous attempt passed the byte-diff and the 10 Mbps
+    /// throttled gate, then read nominally worse on device — and that reading
+    /// was worthless, because the two arms were sequential blocks an hour
+    /// apart and archive.org node health varies on exactly that timescale
+    /// (Yojimbo: no frame in 75s, then 5.8s an hour later; 32.7s to first byte
+    /// against 0.7s for a healthy film). Comparing block to block measured the
+    /// hour. A runtime flag lets ONE install alternate arms title by title so
+    /// both share the same weather, which is stronger than Decision 075's
+    /// repeated-trials rule and is what this question actually needs.
+    static let hedgeProbe = ProcessInfo.processInfo.environment["AW_HEDGE_PROBE"] == "1"
+
+    /// Every node worth asking, best guess first. MUST be called on `queue`.
+    private func probeCandidates() -> [URL] {
+        var out: [URL] = []
+        if let p = pinnedURL, !failedHosts.contains(p.host ?? "") { out.append(p) }
+        for a in alternateBases ?? [] where !failedHosts.contains(a.host ?? "") {
+            if !out.contains(a) { out.append(a) }
+        }
+        if !out.contains(realURL) { out.append(realURL) }
+        return Array(out.prefix(3))
+    }
+
+    /// First HTTP answer wins; the rest are cancelled. Throws only when EVERY
+    /// candidate failed, so hedging can never turn a working node into a
+    /// failure.
+    private static func raceFirstByte(_ urls: [URL], session: URLSession,
+                                      timeout: TimeInterval)
+        async throws -> (URL, URLResponse) {
+        try await withThrowingTaskGroup(of: (URL, URLResponse).self) { group in
+            for url in urls {
+                group.addTask {
+                    var req = URLRequest(url: url)
+                    req.setValue("bytes=0-1", forHTTPHeaderField: "Range")
+                    req.timeoutInterval = timeout
+                    let (_, response) = try await session.data(for: req)
+                    return (url, response)
+                }
+            }
+            var lastError: Error = URLError(.badServerResponse)
+            while !group.isEmpty {
+                do {
+                    if let first = try await group.next() {
+                        group.cancelAll()
+                        return first
+                    }
+                } catch { lastError = error }
+            }
+            throw lastError
+        }
+    }
+
     /// Blacklist a node's host after a HARD failure (5xx/403/404 — node-health
     /// signals, NOT the expected idle-connection resets) and drop the pin. If
     /// every known node has failed, forgive them all so we never deadlock with
@@ -545,11 +599,22 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
             // WITHOUT ever trying the healthy alternate node — so the content-info load
             // (loadTracks) failed before any byte-range request could fail over.
             let target = queue.sync { currentTarget() }
-            var req = URLRequest(url: target)
-            req.setValue("bytes=0-1", forHTTPHeaderField: "Range")
-            req.timeoutInterval = firstByteTimeout
             do {
-                let (_, response) = try await session.data(for: req)
+                let response: URLResponse
+                if Self.hedgeProbe {
+                    let candidates = queue.sync { probeCandidates() }
+                    let (winner, resp) = try await Self.raceFirstByte(
+                        candidates, session: session, timeout: firstByteTimeout)
+                    if Self.diag, winner != target {
+                        awdiag("AWSTREAM probe raced: %@ answered first", winner.host ?? "?")
+                    }
+                    response = resp
+                } else {
+                    var req = URLRequest(url: target)
+                    req.setValue("bytes=0-1", forHTTPHeaderField: "Range")
+                    req.timeoutInterval = firstByteTimeout
+                    (_, response) = try await session.data(for: req)
+                }
                 guard let http = response as? HTTPURLResponse else {
                     throw URLError(.badServerResponse)
                 }
