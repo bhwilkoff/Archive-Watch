@@ -136,10 +136,16 @@ def main() -> int:
     if args.ids_file:
         only = {l.strip() for l in open(args.ids_file) if l.strip()}
         print(f"[color] re-probing {len(only)} named items")
+    # With --ids-file, re-probe a named item unless it ALREADY carries a
+    # measurement: 111 of 248 came back unreadable on the first pass (archive.org
+    # declining a hosted runner mid-sweep), so a retry should cost only the ones
+    # that failed, not re-measure the ones that succeeded. --refresh overrides.
     targets = [it for it in items
                if video_url(it)
                and (only is None or it.get("archiveID") in only)
-               and (args.refresh or only is not None or not it.get("colorMode"))]
+               and (args.refresh
+                    or (only is not None and it.get("colorSat") is None)
+                    or (only is None and not it.get("colorMode")))]
     targets.sort(key=lambda it: it.get("popularityScore") or 0, reverse=True)
     if args.limit:
         targets = targets[:args.limit]
