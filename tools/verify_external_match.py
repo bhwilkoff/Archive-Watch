@@ -59,6 +59,11 @@ YEAR_RE = re.compile(r"\b(18\d\d|19\d\d|20[0-2]\d)\b")
 _SAT_CONFIDENT_BW, _SAT_CONFIDENT_COLOR = 4.0, 14.0
 
 
+def _today() -> str:
+    from datetime import date
+    return date.today().isoformat()
+
+
 def _color_confident(it) -> bool:
     sat = it.get("colorSat")
     if sat is None:
@@ -222,6 +227,14 @@ def main() -> int:
         v = verify(it, omdb_key, session)
         if not args.dry_run and v not in ("omdb_error",):
             it["matchVerified"] = True
+            # WHICH tier fired, not merely that one did. `matchVerified = True`
+            # alone made this tool's blast radius uncountable: `cleared_bw`
+            # deletes a match's artwork AND year on a colour reading, and a
+            # colour reading is a coin-flip near the threshold (Decision 084),
+            # yet nothing in the catalog said which items it had touched. A
+            # verdict without its evidence cannot be audited or undone.
+            it["matchVerdict"] = v
+            it["matchCheckedAt"] = _today()
         return v
 
     done = 0
