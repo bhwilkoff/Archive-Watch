@@ -821,10 +821,6 @@ final class LiveCaptions {
             // from the analyzer thread.
             cues.append((start: cursor, end: end0, text: chunk))
             cursor = end0
-                continue
-            }
-            cues.append((start: max(cursor, lastPlayhead), end: end0, text: chunk))
-            cursor = end0
         }
         cues.sort { $0.start < $1.start }
 
