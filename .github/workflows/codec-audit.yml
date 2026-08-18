@@ -49,12 +49,18 @@ jobs:
         run: python tools/catalog_release.py fetch
 
       - name: Probe codecs
-        # The tool checkpoints every 100 items, so a timeout keeps its work
-        # and the next run resumes from the videoCodec stamps.
+        # Checkpointing keeps the work IN THE RUNNER's catalog.json; only the
+        # publish step below gets it off the machine. So the budget matters
+        # more than the checkpoint.
         run: |
+          # A BUDGET, not a kill. timeout-minutes ends the job outright and the
+          # publish step never runs, so the whole pass is lost — which is what
+          # happened to the 5.5h run on 2026-08-17. Stop with 40 minutes to
+          # spare and let the publish land what was probed.
           python tools/audit_codecs.py \
             --limit ${{ github.event.inputs.limit || 3000 }} \
-            --workers ${{ github.event.inputs.workers || 6 }}
+            --workers ${{ github.event.inputs.workers || 6 }} \
+            --max-minutes 280
 
       - name: Publish
         env:

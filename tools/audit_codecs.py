@@ -26,7 +26,7 @@ Usage (inside the fetch/publish wrap):
   python tools/audit_codecs.py [--limit N] [--workers 6] [--dry-run]
   python tools/catalog_release.py publish
 """
-import argparse, json, subprocess, urllib.parse, urllib.request
+import argparse, json, subprocess, time, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 CATALOG = "catalog.json"
@@ -93,6 +93,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--workers", type=int, default=6)
+    ap.add_argument("--max-minutes", type=float, default=0,
+                    help="stop probing after N minutes and RETURN so the caller "
+                         "still publishes. A job killed by timeout-minutes never "
+                         "reaches its publish step, so its work is lost outright "
+                         "— which is exactly what happened to the 5.5-hour run "
+                         "on 2026-08-17 (Decision 057's rule, applied to myself).")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
@@ -105,11 +111,19 @@ def main():
     print(f"probing {len(targets)} items", flush=True)
 
     stamped = bad = swapped = excluded = 0
+    started = time.monotonic()
+    budget = args.max_minutes * 60 if args.max_minutes else None
+    stopped_early = False
     def work(item):
         return item, probe(item["downloadURL"])
 
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
         for n, (item, codec) in enumerate(pool.map(work, targets)):
+            if budget and time.monotonic() - started > budget:
+                stopped_early = True
+                print(f"  budget reached at {n}/{len(targets)} — stopping so the "
+                      f"caller can publish", flush=True)
+                break
             if codec is None:
                 continue           # transient — never condemn on a failed probe
             stamped += 1
@@ -151,7 +165,8 @@ def main():
                     with open(CATALOG, "w") as f:
                         json.dump(catalog, f, separators=(",", ":"))
 
-    print(f"stamped {stamped} | undecodable {bad} | swapped {swapped} | excluded {excluded}")
+    print(f"stamped {stamped} | undecodable {bad} | swapped {swapped} | excluded {excluded}"
+          + (" | STOPPED EARLY (budget)" if stopped_early else ""))
     if not args.dry_run and stamped:
         with open(CATALOG, "w") as f:
             json.dump(catalog, f, separators=(",", ":"))
