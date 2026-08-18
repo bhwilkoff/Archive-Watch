@@ -808,6 +808,12 @@ struct PlayerScreen: View {
     /// subtitle file (those go through `subtitleReviewSource` instead).
     private var liveCaptionSource: URL? {
         guard !hasFileSubtitles else { return nil }
+        // The Settings toggle GATES the engine — it does not merely describe
+        // it. Decision 056 removed a caption toggle that controlled nothing;
+        // this one must actually stop the second stream, both because that is
+        // what the words promise and because it is the A/B that localizes the
+        // audio-static report.
+        guard LiveCaptions.transcribeWhenMissing else { return nil }
         let active = current ?? catalogItem
         return active?.videoURLParsed ?? url
     }

@@ -122,6 +122,8 @@ struct SubtitleAccountSection: View {
 /// consent. What Settings owes the viewer here is an accurate account of what
 /// exists and where the button is.
 struct AutoCaptionsSettingsSection: View {
+    // Mirrored so the Toggle re-renders; the value itself lives in UserDefaults.
+    @State private var transcribeOn = LiveCaptions.transcribeWhenMissing
     @State private var showDiagnostics = false
 
     var body: some View {
@@ -145,13 +147,23 @@ struct AutoCaptionsSettingsSection: View {
                         .frame(minWidth: 560, minHeight: 420)
                         #endif
                 }
+                Toggle(isOn: Binding(get: { LiveCaptions.transcribeWhenMissing },
+                                     set: { LiveCaptions.transcribeWhenMissing = $0
+                                            transcribeOn = $0 })) {
+                    Text("Transcribe films with no subtitles")
+                }
             } header: {
                 Text("Automatic Captions")
             } footer: {
                 // A machine transcript of eighty-year-old audio is sometimes
                 // wrong, and the viewer deserves to know that before relying on
                 // it — the reason these were withdrawn once (Decision 039b).
-                Text("When a film has no subtitles, this device can transcribe it. The film is downloaded first and nothing is uploaded. Automatic captions are labelled as such, are never offered for silent films, and are discarded when the audio is too poor to transcribe well.")
+                // "The film is downloaded first" was true of the retired
+                // offline path and has been false since Decision 058: the
+                // scout STREAMS the same film ahead of playback. Describing a
+                // download that no longer happens misleads a viewer deciding
+                // whether to leave this on.
+                Text("When a film has no subtitles, this device can transcribe it while you watch — a second, silent stream runs ahead of playback so complete lines appear on time. Nothing is uploaded. Automatic captions are labelled as such, are never offered for silent films, and are discarded when the audio is too poor to transcribe well. Turning this off leaves published subtitle files untouched.")
             }
         }
     }

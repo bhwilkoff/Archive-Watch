@@ -197,6 +197,25 @@ final class LiveCaptions {
     }
 
     /// True where the on-device recognizer exists at all.
+    /// Whether this device should transcribe films that ship with no subtitle
+    /// file. Default ON.
+    ///
+    /// A REAL control, unlike the dead "Offer automatic captions" toggle that
+    /// Decision 056 removed for gating nothing. Generating captions runs a
+    /// second muted stream over the same film, which is the remaining suspect
+    /// for the owner's audio-static report now that the delivery path measures
+    /// byte-identical under concurrency — so turning it off is both a
+    /// preference someone may want and the A/B that localizes the fault.
+    ///
+    /// Not on AppStore: this section is shared by three platforms whose stores
+    /// are different types, and a device-local preference belongs in
+    /// UserDefaults regardless.
+    static var transcribeWhenMissing: Bool {
+        get { UserDefaults.standard.object(forKey: transcribeKey) as? Bool ?? true }
+        set { UserDefaults.standard.set(newValue, forKey: transcribeKey) }
+    }
+    private static let transcribeKey = "autoCaptionsEnabled"
+
     static var isSupported: Bool { AutoCaptions.isSupported }
 
     private var tap: MTAudioProcessingTap?
