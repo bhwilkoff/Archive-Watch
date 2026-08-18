@@ -220,6 +220,8 @@ def main():
     # ── Assertions ─────────────────────────────────────────────────────────
     report = {"item": item, "shots": len(shots), "assertions": {}}
 
+    diag_text = log.read_text(errors="ignore") if log.exists() else ""
+
     def grade(name, ok, evidence):
         report["assertions"][name] = {"pass": bool(ok), "evidence": evidence}
         print(f"  [{'PASS' if ok else 'FAIL'}] {name}: {evidence}")
@@ -321,6 +323,35 @@ def main():
                 em += 1
         grade("glass_matches_engine", ec >= 5 and em / max(1, ec) >= 0.6,
               f"{em}/{ec} on-glass captions match an engine-displayed line nearby in time")
+
+    # F. The caption SCHEDULE never runs backwards. Decision 081: a drift
+    #    correction shifts every cue, and an unbounded one re-anchored The
+    #    Incredible Machine by -12.4s so LATER audio mapped EARLIER than what
+    #    was already on screen — fragments out of order, which is precisely
+    #    what "undependable captions" looked like from the sofa while the
+    #    engine's own text was fine. Needs AW_CAPTION_TRACE=1.
+    # What was actually SHOWN, in the order it was shown — not the creation-time
+    # mapping lines, whose values go stale the moment a correction shifts the
+    # cues they described.
+    mapped = [float(m.group(1)) for m in
+              re.finditer(r"show\[cue=([\d.]+)\]", diag_text)]
+    regressions = [(a, b) for a, b in zip(mapped, mapped[1:]) if b < a - 0.5]
+    if mapped:
+        grade("caption_schedule_monotonic", not regressions,
+              f"{len(mapped)} displayed cues, {len(regressions)} ran backwards"
+              + (f" (worst {min(b - a for a, b in regressions):.1f}s)" if regressions else ""))
+
+    # G. A blank caption means SILENCE, not a dropped line. Reconstructing this
+    #    from the trace does not work — a drift correction moves the cue list
+    #    after the mapping lines were written — so the display SELF-REPORTS how
+    #    many cues bracket the playhead. Reconstruction claimed 12 of 19 blanks
+    #    were drops; the self-report said 0 of 20.
+    blanks = [int(m.group(1)) for m in
+              re.finditer(r"blank, cues bracketing=(\d+)", diag_text)]
+    if blanks:
+        drops = [b for b in blanks if b > 0]
+        grade("blank_captions_are_gaps", not drops,
+              f"{len(blanks)} blank ticks, {len(drops)} had a cue that should have shown")
 
     (outdir / "report.json").write_text(json.dumps(report, indent=1))
     failed = [k for k, v in report["assertions"].items() if not v["pass"]]

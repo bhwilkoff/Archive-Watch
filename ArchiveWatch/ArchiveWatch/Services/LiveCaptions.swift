@@ -116,6 +116,26 @@ final class LiveCaptions {
         cues.filter { $0.start <= t && t <= $0.end }.count
     }
 
+    /// The film-time start of the cue being shown at `t`, for the monotonicity
+    /// gate. Asserting on the CREATION-time trace lines does not work: a drift
+    /// correction shifts cues that were already logged, so an older line's
+    /// value is stale and comparing it to a newer one invents regressions that
+    /// never reached the screen. Only what the display actually showed, in the
+    /// order it showed it, is evidence.
+    func shownCueStart(at t: Double) -> Double? {
+        let start = cues.first { $0.start <= t && t <= $0.end }?.start
+        if let start, start > lastShownCueStart { lastShownCueStart = start }
+        return start
+    }
+
+    /// The furthest cue start the viewer has actually seen. Recorded for the
+    /// gate; NOT used as the clamp floor. Flooring the clamp on it was tried
+    /// and measured WORSE (3 displayed cues stepped back against 1), and with
+    /// runs of the same film giving 0, 1 and 3 regressions the effect is
+    /// nondeterministic — characterising it needs repeated trials per arm, not
+    /// one run each (the lesson of Decision 075's bisect).
+    private var lastShownCueStart: Double = 0
+
     /// The caption to show at `playhead`, or "" between lines.
     func line(at playhead: CMTime) -> String {
         let t = playhead.seconds
@@ -648,12 +668,13 @@ final class LiveCaptions {
         // The mapping being 20s ahead is real and worth fixing; dragging cues
         // behind the playhead to fix it is not. Clamp so the earliest
         // not-yet-shown cue still lands at or after where the viewer is.
-        if let nextUnshown = cues.first(where: { $0.start > lastPlayhead })?.start {
-            let floorDelta = lastPlayhead - nextUnshown        // <= 0
+        let floor = lastPlayhead
+        if let nextUnshown = cues.first(where: { $0.start > floor })?.start {
+            let floorDelta = floor - nextUnshown               // <= 0
             if delta < floorDelta {
                 awdiag("[AWCAP] drift correction clamped \(fmt(delta))s -> "
                       + "\(fmt(floorDelta))s (would have rewound past the viewer at "
-                      + "\(fmt(lastPlayhead)))")
+                      + "\(fmt(floor)))")
                 delta = floorDelta
             }
         }

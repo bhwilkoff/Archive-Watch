@@ -320,9 +320,11 @@ final class CaptionCoordinator {
                 self?.label?.isHidden = text.isEmpty
                 if self?.trace == true {
                     if text != shown {
+                        let cueAt = lc.shownCueStart(at: now.seconds)
                         let why = text.isEmpty
                             ? "(blank, cues bracketing=\(lc.bracketingCueCount(at: now.seconds)))"
-                            : "show: \(text.prefix(50))"
+                            : "show[cue=\(cueAt.map { String(format: "%.1f", $0) } ?? "?")]: "
+                              + "\(text.prefix(50))"
                         awdiag("[AWCAP] trace t=\(String(format: "%.1f", now.seconds)) " + why)
                         // The caption's ACTUAL geometry, once: two rounds of
                         // constraint fixes were shipped against an assumed
