@@ -104,6 +104,22 @@ def apply_deltas(catalog, path):
                 continue
             item.update(rec)
             applied += 1
+    # SELF-HEAL. `excluded` is shared state and another tool can strip it —
+    # audit_rights.py's reconcile did exactly that to all 137 undecodable films
+    # on 2026-08-18, leaving `codecUnsupported` behind while the hide vanished.
+    # That is fixed at the source (the marker is registered as foreign now), but
+    # this pass costs nothing and means a stripped flag is restored on the next
+    # run instead of needing the whole probe repeated — the probe SKIPS items
+    # that already carry a videoCodec stamp, so without this they would never
+    # be hidden again.
+    restored = 0
+    for item in catalog["items"]:
+        if item.get("codecUnsupported") and not item.get("excluded"):
+            item["excluded"] = True
+            restored += 1
+    if restored:
+        print(f"restored {restored} codec exclusions that had been stripped")
+
     with open(CATALOG, "w") as f:
         json.dump(catalog, f, separators=(",", ":"))
     print(f"applied {applied} codec deltas")
