@@ -3748,3 +3748,48 @@ measured the system's generated track as offered but never emitting on this
 beta, and run 1 above reproduced exactly that through the proxy. The stress
 harness earned its keep regardless — it is what exonerated the delivery path
 for the owner's audio-static report.
+
+## 083 — `excluded` is shared state: a tool that hides items must register its marker, and the reconcile must say when one hasn't
+*Date: 2026-08-18*
+
+`audit_rights.py`'s FOREIGN list now includes the playback verifiers'
+markers — `playbackDead` (check_liveness: the video is gone) and
+`playbackReason` / `strictFail` / `needsReSource` (verify_playback_strict: no
+moov atom, mdat past EOF) — plus `codecUnsupported` (audit_codecs: AV1/VP9 no
+Apple device decodes). The reconcile also PRINTS any unregistered
+exclusion-looking marker it un-hides.
+
+**Why**: `excluded` is written by six tools and reconciled by one. On every
+publish `audit_rights --apply` restores anything that is no longer a rights
+hide, skipping markers other tools own — and three tools had never been added
+to that list. Measured on a normal build:
+
+    un-hid items carrying UNREGISTERED exclusion markers:
+      playbackDead x253  playbackReason x636  strictReason x384  posterDead x3
+    [apply] excluded=7369 un-hidden=676
+
+So films MEASURED unplayable — dead video, truncated files, codecs no Apple
+device can decode — were being restored to every surface on every build, for
+as long as those verifiers have existed. Both workflows reported success
+throughout. This is the owner's oldest complaint ("all titles visible in the
+app should play") with a mechanism behind it, and it was invisible from the
+playback code because nothing in the app was wrong.
+
+After registering: un-hidden 676 -> 40, served DB 31,652 -> 31,138 items, and
+zero visible films carry any of the four markers.
+
+**How to apply**: a new tool that sets `excluded` MUST add its marker to
+FOREIGN in the same change, or its work lasts exactly until the next publish.
+Judge a candidate by its VALUE DISTRIBUTION, never its name: `strictReason`
+looks like a failure marker and was in the first draft of this fix, but 20,629
+of the 26,163 items carrying it say `decoded` — it records the verifier's
+outcome, and registering it would have frozen most of the catalog against
+legitimate rights un-hides, a worse bug than the one being fixed. `posterDead`
+is excluded for the same reason: it demotes a poster, it never hides a film.
+The printed warning finds candidates by name because that is cheap and catches
+the omission; deciding which are real is a judgement the warning cannot make.
+
+**Consequences**: the warning is the durable part — the next tool to forget
+gets named on the next build instead of silently losing its work. Two markers
+remain unregistered ON PURPOSE and will keep appearing in that line; that is
+correct, not a leak.
