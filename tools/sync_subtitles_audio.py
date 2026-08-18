@@ -53,6 +53,26 @@ def cue_bounds(text):
     return starts, ends
 
 
+def wav_duration(path):
+    """The film's REAL length, measured from the audio we just pulled.
+
+    The catalog's `runtimeSeconds` is usually exact but not always: measured
+    against five rejected films, abraham_lincoln matched to within a second
+    while amazing_adventure was 3660 against a true 3713 — 1.4% short. A file
+    validated against a short runtime looks like it overruns when it fits,
+    which rejected a correct correction. The WAV is already on disk, so the
+    authoritative number is free.
+    """
+    try:
+        out = subprocess.run(
+            ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+             "-of", "csv=p=0", str(path)],
+            capture_output=True, text=True, timeout=60)
+        return float(out.stdout.strip()) if out.stdout.strip() else None
+    except Exception:
+        return None
+
+
 def extract_audio(url, wav_path, timeout):
     """Pull ONLY the audio, decoded to the 8kHz mono WAV ffsubsync wants.
 
@@ -94,6 +114,10 @@ def main():
                     help="published catalog DB, for each film's downloadURL")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--audio-timeout", type=int, default=900)
+    ap.add_argument("--retry-rejected", action="store_true",
+                    help="re-decide films previously rejected — use after the "
+                         "validation gate changes, as it did when it started "
+                         "judging against the MEASURED duration")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
@@ -102,7 +126,10 @@ def main():
     if os.path.exists(args.verdicts):
         for line in open(args.verdicts):
             try:
-                done.add(json.loads(line)["id"])
+                v = json.loads(line)
+                if args.retry_rejected and v.get("result") == "rejected":
+                    continue
+                done.add(v["id"])
             except Exception:
                 pass
 
@@ -151,9 +178,16 @@ def main():
                 failed += 1
                 continue
             new_text = out.read_text(encoding="utf-8", errors="replace")
+            measured = wav_duration(wav)
 
-        problem = validate(original, new_text, runtime)
-        verdict = {"id": aid, "runtime": runtime,
+        # Judge against the film's REAL length when we have it. A catalog
+        # runtime that is short makes a fitting file look like it overruns.
+        effective = runtime
+        if measured and measured > 60 and abs(measured - runtime) / runtime > 0.005:
+            print(f"  runtime {runtime}s -> measured {measured:.0f}s for {aid}", flush=True)
+            effective = measured
+        problem = validate(original, new_text, effective)
+        verdict = {"id": aid, "runtime": runtime, "measuredRuntime": measured,
                    "before": float(r["lastCue"]),
                    "after": max(cue_bounds(new_text)[1] or [0])}
         if problem:

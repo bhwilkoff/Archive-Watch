@@ -26,6 +26,10 @@ on:
         description: 'Max films to sync this run (0 = all remaining)'
         required: false
         default: '60'
+      retry_rejected:
+        description: 'Re-decide previously rejected films (after a gate change)'
+        required: false
+        default: 'false'
 
 jobs:
   sync:
@@ -63,7 +67,8 @@ jobs:
             --findings tools/subtitle_rate_findings.csv \
             --verdicts verdicts.jsonl \
             --db catalog.sqlite \
-            --limit ${{ github.event.inputs.limit || 60 }}
+            --limit ${{ github.event.inputs.limit || 60 }} \
+            ${{ github.event.inputs.retry_rejected == 'true' && '--retry-rejected' || '' }}
 
       - name: Publish the corrections
         env:
