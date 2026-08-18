@@ -238,8 +238,8 @@ final class AppStore {
     }
 
     /// Items assigned to the given shelf id (SQLite, Decision 017).
-    func items(forShelf shelfID: String) -> [Catalog.Item] {
-        db?.shelf(shelfID) ?? []
+    func items(forShelf shelfID: String, allowStandaloneTV: Bool = false) -> [Catalog.Item] {
+        db?.shelf(shelfID, allowStandaloneTV: allowStandaloneTV) ?? []
     }
 
     // MARK: - SQLite-backed queries (Decision 017)

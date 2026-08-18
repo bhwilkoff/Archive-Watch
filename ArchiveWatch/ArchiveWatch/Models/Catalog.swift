@@ -487,6 +487,11 @@ struct Featured: Decodable, Sendable {
         let query: String?
         let sort: [String]?
         let limit: Int?
+
+        /// A shelf that is ABOUT television, declared in featured.json. Its
+        /// members are standalone programmes (`tv-special`), which every other
+        /// Home shelf deliberately excludes.
+        var isTV: Bool { category == "tv-series" }
     }
 
     struct CuratedItem: Decodable, Sendable {

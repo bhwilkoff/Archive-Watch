@@ -86,7 +86,8 @@ struct HomeView: View {
         }
 
         // Curated shelves in the CANONICAL Apple-TV order (Featured.homeShelfPriority), not file order.
-        for shelf in (store.featured?.orderedHomeShelves ?? []) { add(shelf.id, shelf.title, store.items(forShelf: shelf.id)) }
+        for shelf in (store.featured?.orderedHomeShelves ?? []) { add(shelf.id, shelf.title, store.items(forShelf: shelf.id,
+                                                   allowStandaloneTV: shelf.isTV)) }
         // Then the dynamic shelves, in tvOS order.
         add("public-domain-day", "Public Domain Day", store.browse(year: pdYear, sort: .popular, limit: 120))
         add("top-rated", "Top Rated", store.topRated(), accent: .orange)

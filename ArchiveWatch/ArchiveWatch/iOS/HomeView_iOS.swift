@@ -157,7 +157,8 @@ struct HomeView: View {
         }
 
         func featuredPayload(_ shelf: Featured.Shelf) -> ShelfPayload? {
-            var raw = store.filteringWatched(store.items(forShelf: shelf.id))
+            var raw = store.filteringWatched(store.items(forShelf: shelf.id,
+                                                         allowStandaloneTV: shelf.isTV))
                 .filter(\.hasProfessionalArtwork)
             var rng = SplitMix(seed: shelfSeed &+ UInt64(bitPattern: Int64(shelf.id.hashValue)))
             raw.shuffle(using: &rng)

@@ -227,7 +227,9 @@ final class AppStore {
     /// its real Archive-collection / curated members. The old path browsed by
     /// `contentType`, which made every "feature-film" shelf return the SAME
     /// popular list (the duplicate-shelf bug on iOS Home).
-    func items(forShelf shelfID: String) -> [Catalog.Item] { db?.shelf(shelfID) ?? [] }
+    func items(forShelf shelfID: String, allowStandaloneTV: Bool = false) -> [Catalog.Item] {
+        db?.shelf(shelfID, allowStandaloneTV: allowStandaloneTV) ?? []
+    }
 
     /// Drop already-completed titles from a Home list (#17). No-op until a view
     /// populates `completedArchiveIDs` from SwiftData WatchProgress, or when the

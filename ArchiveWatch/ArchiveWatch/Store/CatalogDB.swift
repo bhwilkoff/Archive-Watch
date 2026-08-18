@@ -215,12 +215,30 @@ final class CatalogDB {
     /// uncertain-rights film. The gate is the year/rights one (1888–1977 OR
     /// PD/CC), NOT the old rights-required cap that starved NASA — measured to
     /// drop zero items from every current shelf while blocking modern strays.
-    func shelf(_ shelfID: String, limit: Int = 80) -> [Catalog.Item] {
-        items("""
+    /// `allowStandaloneTV` is set by a shelf whose declared category IS
+    /// television (featured.json `"category": "tv-series"`), mirroring the rule
+    /// browseSQL already follows: a caller that explicitly asks for TV should
+    /// get TV, not an empty result. Without it, `notStandaloneTV` excluded
+    /// `tv-special` from EVERY shelf — including the three Classic TV decade
+    /// shelves, whose entire membership is tv-special. The pipeline filled them
+    /// daily (463 / 279 / 253 items, all playable, all with designed artwork)
+    /// and Home rendered zero, so the shelves fell under `minPerShelf` and were
+    /// hidden. Nothing failed: the query was valid and returned nothing, which
+    /// is the same shape as the Classic TV browse bug and Decision 050's empty
+    /// Hidden Gems.
+    ///
+    /// `tv-episode` stays excluded either way — a loose episode on Home belongs
+    /// to a series and should be reached through it (Decision 045).
+    func shelf(_ shelfID: String, limit: Int = 80,
+               allowStandaloneTV: Bool = false) -> [Catalog.Item] {
+        let tvClause = allowStandaloneTV
+            ? "AND i.contentType != 'tv-episode'"
+            : notStandaloneTV
+        return items("""
             SELECT j.json FROM item_shelves s
             JOIN item_json j USING(archiveID)
             JOIN items i USING(archiveID)
-            WHERE s.shelfID = ?1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd)
+            WHERE s.shelfID = ?1 \(adultAnd) \(homeAnd) \(notCommercial) \(tvClause) \(typeAnd) \(verifiedAnd)
             ORDER BY i.hasRealArtwork DESC, s.position
             LIMIT \(limit)
         """, [shelfID])

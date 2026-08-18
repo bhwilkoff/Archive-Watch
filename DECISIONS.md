@@ -3928,3 +3928,43 @@ query, so it is additive per Decision 020. It is small (hundreds of rows) and
 rebuilt from scratch every publish, so it stays consistent with whatever the
 current merge decided. Cross-device sync is unaffected — the saved id is still
 the old one, and each device forwards it locally at read time.
+
+## 086 — A shelf that declares itself television may contain television
+*Date: 2026-08-18*
+
+`CatalogDB.shelf()` takes `allowStandaloneTV`, set by any shelf whose
+featured.json declaration says `"category": "tv-series"`, and for those shelves
+it drops `tv-special` from the exclusion list. `tv-episode` stays excluded
+everywhere on Home — a loose episode belongs to a series and should be reached
+through it (Decision 045). Film shelves are untouched.
+
+**Why**: four Classic TV shelves have never rendered a single tile. `1950s
+Television`, `1960s Television`, `1970s Television` and `Classic Television` are
+declared in featured.json, filled by the pipeline every day — 463, 279 and 253
+members, all playable, all carrying designed artwork — and `notStandaloneTV`
+excluded `tv-special` from EVERY shelf, which is their entire membership. The
+queries returned zero, the shelves fell under `minPerShelf = 9`, and Home simply
+omitted them. Measured after the change: 381, 246, 227 and 950 eligible tiles.
+
+Nothing failed. The SQL was valid, the rows were really excluded, and a hidden
+shelf looks exactly like a shelf that was never configured. This is the third
+appearance of one shape — a WHERE clause that contradicts the surface's own
+purpose. The Classic TV browse tile returned zero for weeks the same way
+(2026-06-11), and Decision 050's Hidden Gems was empty on four platforms for
+five weeks. `browseSQL` already carries the fix for its half: "when the caller
+EXPLICITLY asks for tv-series, they ARE the result set." `shelf()` never got it.
+
+**How to apply**: an exclusion written to keep a content type OUT of the wrong
+surface must not apply to a surface that exists FOR that type — check whether
+the caller asked for it before filtering it away. The declaration is the signal
+here and it was already in the data: featured.json states each shelf's category,
+so the shelf itself says what belongs in it. Do not extend this to `tv-episode`
+to make a shelf look fuller. When a shelf is hidden by `minPerShelf`, ask
+whether it is genuinely thin or whether something upstream is emptying it —
+hiding is a presentation rule, not a diagnosis.
+
+**Consequences**: four shelves appear on Home for the first time, on tvOS, iOS
+and macOS (all three share `CatalogDB`). Android and web query the same DB and
+need the same conditional to match — a parity follow-up. `editors-picks` remains
+hidden with 5 eligible items against the 9-tile minimum: that one really is thin,
+and the fix is editorial — more curated picks in featured.json — not code.

@@ -184,7 +184,8 @@ struct HomeView: View {
 
         // Featured.json shelves, in priority order (per-shelf seeded shuffle).
         featuredPayloads = homeShelves.compactMap { shelf in
-            var raw = store.filteringWatched(store.items(forShelf: shelf.id))
+            var raw = store.filteringWatched(store.items(forShelf: shelf.id,
+                                                         allowStandaloneTV: shelf.isTV))
                 .filter { $0.hasProfessionalArtwork }   // #2: professional posters only
             var rng = SplitMix(seed: shelfSeed &+ UInt64(bitPattern: Int64(shelf.id.hashValue)))
             raw.shuffle(using: &rng)
