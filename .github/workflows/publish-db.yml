@@ -113,6 +113,18 @@ jobs:
           head -6 search.log >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
 
+      # A chip the grid will not serve. The facet queries and the grid do not
+      # share a WHERE clause, so a filter can be offered on rows browse then
+      # drops — which is how the Classic TV tile came to return zero for weeks.
+      # Report-only, like the ranking check above.
+      - name: Browse facet check
+        run: |
+          python3 tools/audit_browse_facets.py --db catalog.sqlite | tee facets.log || true
+          echo "## Browse facets" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          tail -6 facets.log >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
       - name: Summary
         run: |
           echo "## Catalog DB" >> $GITHUB_STEP_SUMMARY
