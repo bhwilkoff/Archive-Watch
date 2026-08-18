@@ -172,3 +172,36 @@ different hours so the weather varies WITHIN the dataset rather than defining
 it, and a summary that reports the failure rate per arm as well as the times —
 a change that converts "no frame" into "52.8s" matters even if it never
 improves a median.
+
+## Duplicate cards surviving on a colour disagreement (2026-08-18)
+
+The owner has reported duplicate cards twice (His Girl Friday, task #41).
+Auditing shelf composition in the served DB found 4 of 25 shelves carrying
+near-duplicate titles; three are legitimate (generic titles like "Public
+Domain Animation" that Decision 040 deliberately refuses to merge, and
+newsreel issues a year apart). One was real — Cathy's Curse (1977) twice — and
+its cause generalises.
+
+Decision 040's `_same_film` requires colour compatibility, because a B&W
+original and a colour remake of the same title are different works. Cathy's
+Curse is a colour film, but one copy is classified `bw`, so the merge was
+correctly refused on incorrect data. The real fault is upstream, in Decision
+025's saturation classifier: a washed-out or night-heavy transfer can average
+below the threshold of 8.
+
+Measured across the catalog: **20 same-title pairs are blocked ONLY by a colour
+disagreement** — same title key, years within 2, runtimes within 15%. Some are
+plainly one film (Life with Father 1947, Scared to Death 1947, Lonely Wives
+1931), and in several the low-quality copy is the one misread.
+
+NOT fixed here, deliberately. Two options and both need care:
+  * Re-classify the disputed copies (sample more frames, or weight by the
+    brightest frames rather than the mean) — the safer fix, and it improves
+    Cartoon Mode and Party Play which also read `colorMode`.
+  * Relax `_color_compatible` to ignore a disagreement when imdb+year+runtime
+    all corroborate — cheaper, but it weakens the guard that keeps a B&W
+    original apart from its colour remake, which is exactly what Decision 040
+    was written to protect.
+
+20 pairs is small enough that precision should win: fix the classification,
+not the guard.
