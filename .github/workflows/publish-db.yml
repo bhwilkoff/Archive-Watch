@@ -61,7 +61,12 @@ jobs:
       # items already carrying fallbackVideoURL are skipped, so the daily
       # cost is only NEW heavy ingests. Never fails the build.
       - name: Bake playback fallbacks
-        run: python tools/bake_fallbacks.py --limit 300 || true
+        # --min-bytes lowered from the 1.5 GB default: Yojimbo is 639 MB and
+        # was never considered, yet its archive.org node measured 32.7s to
+        # first byte against 0.7s for a healthy film, and the player reported
+        # `fallbackInHand=0` at the 25s mark. Size is not what makes a film
+        # unstartable; the node is.
+        run: python tools/bake_fallbacks.py --limit 300 --min-bytes 300000000 || true
 
       # ENFORCE the copyright gate on every DB build (Decision 027). This is the
       # PURE-DATA apply only — it hides items already CONFIRMED-copyright by the

@@ -1260,7 +1260,20 @@ struct PlayerScreen: View {
             // title" on cold-but-viable loads (24-31s first bytes) the
             // old player always won.
             try? await Task.sleep(for: fallbackAt)
-            guard !Task.isCancelled else { return }
+            guard !Task.isCancelled else {
+                awdiag("AWLIFE screen=%@ loadTimeout CANCELLED before 25s", screenID)
+                return
+            }
+            // Report the DECISION, not just the firing. Measured on the device:
+            // Yojimbo's archive.org node took 32.7s to first byte (against 0.7s
+            // for a healthy film) and the player sat silent for 130 seconds —
+            // neither the 25s fallback nor the 60s give-up produced a line, so
+            // there was no way to tell whether they had fired, been cancelled,
+            // or found a state they did not expect.
+            awdiag("AWLIFE screen=%@ loadTimeout@25s playback=%@ fallbackInHand=%d",
+                   screenID, String(describing: playback),
+                   ((current ?? catalogItem)?.fallbackVideoURLParsed != nil
+                    || fallbackCandidate != nil) ? 1 : 0)
             if playback == .loading, usingFallbackURL == nil,
                ((current ?? catalogItem)?.fallbackVideoURLParsed != nil || fallbackCandidate != nil) {
                 if PlaybackDiag.enabled { awdiag("AWLIFE screen=%@ loadTimeoutFired (fallback in hand)", screenID) }
@@ -1268,7 +1281,12 @@ struct PlayerScreen: View {
                 return
             }
             try? await Task.sleep(for: giveUpAt - fallbackAt)
-            guard !Task.isCancelled else { return }
+            guard !Task.isCancelled else {
+                awdiag("AWLIFE screen=%@ loadTimeout CANCELLED before 60s", screenID)
+                return
+            }
+            awdiag("AWLIFE screen=%@ loadTimeout@60s playback=%@",
+                   screenID, String(describing: playback))
             if playback == .loading {
                 if PlaybackDiag.enabled { awdiag("AWLIFE screen=%@ loadTimeoutFired", screenID) }
                 handleLoadFailure("This title is taking too long to load. The source may be temporarily unavailable.")
