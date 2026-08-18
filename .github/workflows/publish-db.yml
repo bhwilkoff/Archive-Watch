@@ -100,6 +100,19 @@ jobs:
       - name: Build SQLite catalog
         run: python tools/build_sqlite.py | tee db.log
 
+      # A ranking regression is SILENT: search still returns results, only their
+      # order is wrong, so nothing fails and nobody notices. Measured before the
+      # fix, only 15 of the 25 most popular films came first when you searched
+      # their exact title. Report-only — a bad ranking must not block shipping
+      # the DB, but it must not pass unremarked either.
+      - name: Search ranking check
+        run: |
+          python3 tools/audit_search_quality.py catalog.sqlite | tee search.log || true
+          echo "## Search ranking" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          head -6 search.log >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
       - name: Summary
         run: |
           echo "## Catalog DB" >> $GITHUB_STEP_SUMMARY
