@@ -59,14 +59,23 @@ def cover_url(it: dict):
     return None
 
 
-def _sat(args_in) -> float | None:
-    """Run signalstats on one input (a URL + optional -ss seek) and read SATAVG."""
+def _sat(args_in, frame_timeout: int = 90) -> float | None:
+    """Run signalstats on one input (a URL + optional -ss seek) and read SATAVG.
+
+    `frame_timeout` is a real measurement, not a formality. A targeted re-probe
+    reported 72 of 76 items "unreadable"; the first one tried by hand answered
+    SATAVG=0.53 perfectly well — after **106 seconds** to open. The 90s budget
+    was killing live items and recording the verdict as a property of the film.
+    A broad sweep still wants a short budget (it has thousands to get through);
+    a targeted re-probe of a handful can afford to wait.
+    """
     try:
         err = subprocess.run(
-            ["ffmpeg", "-nostdin", "-rw_timeout", "30000000", *args_in,
+            ["ffmpeg", "-nostdin", "-rw_timeout", str(frame_timeout * 1_000_000),
+             *args_in,
              "-vf", "signalstats,metadata=print", "-frames:v", "1", "-an",
              "-f", "null", "-"],
-            capture_output=True, text=True, timeout=90).stderr
+            capture_output=True, text=True, timeout=frame_timeout + 30).stderr
         m = SAT_RE.search(err)
         return float(m.group(1)) if m else None
     except Exception:
@@ -79,7 +88,7 @@ def _sat(args_in) -> float | None:
 VIDEO_OFFSETS = (20, 120, 420)
 
 
-def classify(it: dict, threshold: float):
+def classify(it: dict, threshold: float, frame_timeout: int = 90):
     """Return ("color"|"bw", mean_saturation) or (None, None) if unreadable.
 
     FAST PATH: if the item has a hosted cover frame, read its saturation in one
@@ -87,7 +96,7 @@ def classify(it: dict, threshold: float):
     ambiguous single frame falls through to multi-frame video sampling."""
     cu = cover_url(it)
     if cu:
-        s = _sat([*("-i", cu)])
+        s = _sat([*("-i", cu)], frame_timeout)
         if s is not None and (s < threshold - 3 or s > threshold + 4):
             return ("bw" if s < threshold else "color"), round(s, 2)
         # ambiguous single frame -> verify against the video below
@@ -95,7 +104,8 @@ def classify(it: dict, threshold: float):
     vu = video_url(it)
     if not vu:
         return None, None
-    sats = [s for s in (_sat(["-ss", str(t), "-i", vu]) for t in VIDEO_OFFSETS)
+    sats = [s for s in (_sat(["-ss", str(t), "-i", vu], frame_timeout)
+                        for t in VIDEO_OFFSETS)
             if s is not None]
     if not sats:
         return None, None
@@ -108,6 +118,11 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--workers", type=int, default=10)
     ap.add_argument("--threshold", type=float, default=8.0)
+    ap.add_argument("--frame-timeout", type=int, default=90,
+                    help="seconds ffmpeg may spend opening+reading ONE frame. "
+                         "archive.org can take 100s+ to open a cold item; a "
+                         "targeted re-probe should be patient, a full sweep "
+                         "should not.")
     ap.add_argument("--refresh", action="store_true", help="reclassify even if colorMode is set")
     ap.add_argument("--ids-file", help="re-probe ONLY these archiveIDs (one per line), "
                                        "implies --refresh. Lets a disputed set be "
@@ -167,7 +182,8 @@ def main() -> int:
 
     done = color = bw = fail = 0
     with ThreadPoolExecutor(max_workers=args.workers) as ex:
-        futs = {ex.submit(classify, it, args.threshold): it for it in targets}
+        futs = {ex.submit(classify, it, args.threshold, args.frame_timeout): it
+                for it in targets}
         for fut in as_completed(futs):
             it = futs[fut]
             mode, avg = fut.result()
