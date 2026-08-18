@@ -144,3 +144,31 @@ requirement than Decision 075's "repeated trials per arm" and is what any
 future attempt at this needs.
 
 Nothing shipped. The measurement instrument and this record did.
+
+### The paired A/B ran, and hedging is still not supported (2026-08-18, later)
+
+With the harness corrected to measure each film under BOTH arms back to back
+(`AW_PAIRED=1`), three pairs completed before the run stalled:
+
+    his_girl_friday   single: no frame      hedged: 3.0s
+    reefer_madness    single: failed 44s    hedged: failed 51s
+    yojimbo           single: 52.8s         hedged: no frame
+
+One win each and one film that failed on both arms. No signal.
+
+The useful part is the SECOND source of noise, which the earlier attempts hid:
+at this hour films were failing on BOTH arms, and His Girl Friday — 3.7s and
+6.8s in earlier sessions — produced no frame at all on the single arm. When
+the failure rate is that high, three pairs cannot separate a real effect from
+archive.org having a bad hour. Pairing fixed the confound between arms; it
+does not fix a sample too small for the variance.
+
+So hedging stays OFF behind `AW_HEDGE_PROBE=1`. Shipping it would rest on one
+film's 3.0s, which is exactly the kind of evidence that has already produced
+two wrong conclusions here.
+
+What a real answer needs: many more pairs (tens, not three), gathered over
+different hours so the weather varies WITHIN the dataset rather than defining
+it, and a summary that reports the failure rate per arm as well as the times —
+a change that converts "no frame" into "52.8s" matters even if it never
+improves a median.
