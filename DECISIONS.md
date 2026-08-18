@@ -3662,3 +3662,45 @@ film download, popularity-first and resumable like every other sweep here).
 A separate finding, not addressed: ~3% of popular captioned films advertise a
 subtitle track whose VTT 404s — a dead promise the app currently makes.
 `subtitleRateAudit` is an additive key older clients ignore.
+
+## 081 — A drift correction may not rewind the captions past the viewer
+*Date: 2026-08-17*
+
+`LiveCaptions.driftCheck` clamps its re-anchor so the earliest not-yet-shown
+cue still lands at or after the furthest playhead the display has reached, and
+skips a correction that clamps to nothing. `line(at:)` tracks that playhead.
+
+**Why**: the owner reported The Incredible Machine's generated captions as
+undependable — a film with no subtitle file, so this is our engine's own
+output. Traced on the Apple TV (`AW_CAPTION_TRACE=1`), the engine looked
+healthy: lead built to 121s, no surrender, coherent text. But it corrected
+drift THREE times in four minutes, and correction #3 re-anchored by -12.4s,
+after which LATER audio mapped EARLIER than what had already been shown:
+
+    cue raw 190.8-191.9 -> film 349.5-351.8   "Basically visual creatures."
+    drift correction #3: re-anchored by -12.4s
+    cue raw 192.0-194.3 -> film 339.5-344.2   "of all our information through our"
+
+Ten seconds backwards. The schedule then re-crossed ground the playhead had
+left, so fragments displayed out of order and lines went missing — which is
+exactly what "undependable" looks like from the sofa, on an engine whose text
+was fine.
+
+Decision 074 added the correction for a real fault (a seeked scout receives a
+burst of pre-target audio and every cue maps late) and was right to. What it
+did not bound is the direction: subtracting from `contentOffset` shifts EVERY
+cue, including ones already on screen, and nothing stopped the result landing
+behind the viewer.
+
+**How to apply**: the mapping running ahead is worth fixing; dragging cues
+behind the playhead to fix it is not — a caption that arrives late can still
+be read, one that arrives for a moment already passed cannot. Measure the
+property, not the symptom: the assertion is "no mapped cue time regresses",
+computed from the trace, which is what separated this from the blank ticks
+that sit beside it (~32% of ticks, unchanged before and after, and inherent —
+silence and music produce no cues). Never judge a correction by whether it
+fired; judge it by whether the schedule stayed monotonic.
+
+**Consequences**: measured on the same film, same conditions — 2 backwards
+jumps (worst -15.0s) before, 0 after, with 5 clamps firing. Corrections still
+happen (4 in the after-run); they are simply bounded now.

@@ -109,6 +109,7 @@ final class LiveCaptions {
     func line(at playhead: CMTime) -> String {
         let t = playhead.seconds
         guard t.isFinite else { return "" }
+        if t > lastPlayhead { lastPlayhead = t }
         return Self.display(cues: cues, at: t)
     }
 
@@ -623,7 +624,29 @@ final class LiveCaptions {
         driftSamples.removeAll { now - $0.wall > 30 }
         guard let oldest = driftSamples.first, now - oldest.wall >= 25,
               let floorErr = driftSamples.map(\.err).min(), floorErr > 15 else { return }
-        let delta = -(floorErr - 8)   // stay conservatively LATE, never early
+        var delta = -(floorErr - 8)   // stay conservatively LATE, never early
+        // A correction may not rewind the CAPTIONS PAST THE VIEWER. Measured on
+        // The Incredible Machine (a film with no subtitle file, the owner's
+        // "undependable generated captions"): correction #3 re-anchored by
+        // -12.4s, and the very next cue — LATER audio, raw 192.0 against the
+        // previous 190.8 — mapped to film 339.5 where its predecessor had
+        // mapped to 349.5. Ten seconds backwards, so fragments displayed out
+        // of order and a third of the ticks went blank while the schedule
+        // re-crossed ground the playhead had left.
+        //
+        // The mapping being 20s ahead is real and worth fixing; dragging cues
+        // behind the playhead to fix it is not. Clamp so the earliest
+        // not-yet-shown cue still lands at or after where the viewer is.
+        if let nextUnshown = cues.first(where: { $0.start > lastPlayhead })?.start {
+            let floorDelta = lastPlayhead - nextUnshown        // <= 0
+            if delta < floorDelta {
+                awdiag("[AWCAP] drift correction clamped \(fmt(delta))s -> "
+                      + "\(fmt(floorDelta))s (would have rewound past the viewer at "
+                      + "\(fmt(lastPlayhead)))")
+                delta = floorDelta
+            }
+        }
+        guard delta < -0.05 else { driftSamples.removeAll(); return }
         contentOffset += delta
         for i in cues.indices { cues[i].start += delta; cues[i].end += delta }
         for i in rawCues.indices { rawCues[i].start += delta; rawCues[i].end += delta }
