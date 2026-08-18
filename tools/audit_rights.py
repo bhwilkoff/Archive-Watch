@@ -639,7 +639,25 @@ def main():
     # hides items MUST register its marker here, or its work lasts exactly
     # until the next publish.
     FOREIGN = ("livenessReason", "livenessDead", "episodeDuplicate", "duplicateOf",
-               "duplicateMergedInto", "excludedReason", "codecUnsupported")
+               "duplicateMergedInto", "excludedReason", "codecUnsupported",
+               # The playback verifiers hide files that PROVABLY do not play —
+               # check_liveness.py (dead video -> playbackDead) and
+               # verify_playback_strict.py (no moov, mdat past EOF ->
+               # strictReason/playbackReason/strictFail/needsReSource). None of
+               # these was registered, so 676 items per build were being
+               # un-hidden and shown again: films measured broken, restored to
+               # the app on every publish. That is the owner's first complaint
+               # with a mechanism behind it.
+               #
+               # Two markers are deliberately NOT here. `posterDead` DEMOTES a
+               # poster, it never hides a film. And `strictReason` records the
+               # verifier's OUTCOME, not a failure: 26,163 items carry it and
+               # 20,629 of those say `decoded` — registering it would have
+               # frozen most of the catalog against legitimate rights un-hides.
+               # The warning below flags markers by NAME, which is a heuristic
+               # that finds candidates; deciding which are real needs the value
+               # distribution, not the suffix.
+               "playbackDead", "playbackReason", "strictFail", "needsReSource")
     hidden = 0
     unhid = 0
     for it in items:
