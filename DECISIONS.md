@@ -3704,3 +3704,47 @@ fired; judge it by whether the schedule stayed monotonic.
 **Consequences**: measured on the same film, same conditions — 2 backwards
 jumps (worst -15.0s) before, 0 after, with 5 clamps firing. Corrections still
 happen (4 in the after-run); they are simply bounded now.
+
+## 082 — The LocalMediaServer passes every Mac gate and FAILS on the device; Phase 1 does not cut over
+*Date: 2026-08-17*
+
+Decision 079's Phase-1 keystone — a loopback HTTP server fronting the
+resilience engine, so AVPlayer sees a plain `http://127.0.0.1` asset and every
+native media feature becomes eligible again — is **not** promoted to the
+default path. It stays behind `AW_PROXY_EXP=1`. The Mac gates all pass; the
+Apple TV does not.
+
+**Why**: measured. Mac-side, against a local range server so archive.org is
+never storrmed, the proxy is byte-identical to origin across a FULL
+472,697,906-byte film (0 mismatches), across 72 concurrent interleaved reads
+in the two-cursor pattern AVFoundation issues on a badly muxed file, and
+through the Decision-076 10 Mbps throttled gate — where the player still
+advances 5.9s in 6s. On the device, three runs of the same film gave three
+different outcomes:
+
+    run 1   played 5 minutes, 0 stalls, buffer 200s+, system caption
+            track OFFERED and SELECTED through the proxy
+    run 2   itemFailed x2 at t=0, NSURLError -1008 "resource unavailable"
+            (OSStatus -16848); the film never started
+    run 3   proxy listening, item created, then NOTHING for 3.5 minutes —
+            no ready, no failure, no buffer telemetry
+
+**How to apply**: the harness validates the SERVER, in-process, where the same
+process both serves and plays. On tvOS the consumer is `mediaserverd`, a
+SEPARATE process reaching the app's loopback listener, and that hop is what
+the Mac never exercises — a byte-perfect server proves nothing about it. Do
+not read a green harness as readiness for a path whose defining hop it cannot
+test. If this is picked up again, the first question is not the server's
+correctness (settled) but whether a third-party tvOS app's loopback listener
+is reliably reachable by mediaserverd at all, measured over many runs — one
+success proves nothing when the failure is intermittent.
+
+**Consequences**: tvOS keeps Decision 072's single pipeline —
+`ResilientStreamLoader` for every title, our own engine captioning the
+uncaptioned. That path is what the owner is running and what the last several
+verified fixes were measured against. What the proxy would have bought (native
+generated-caption eligibility) is worth little here anyway: Decision 068
+measured the system's generated track as offered but never emitting on this
+beta, and run 1 above reproduced exactly that through the proxy. The stress
+harness earned its keep regardless — it is what exonerated the delivery path
+for the owner's audio-static report.
