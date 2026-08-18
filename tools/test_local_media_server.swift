@@ -57,6 +57,64 @@ struct Harness {
             }
         }
 
+        // 2b. STRESS: the same bytes, fetched CONCURRENTLY and repeatedly, in
+        //     the interleaved pattern AVFoundation actually uses on a badly
+        //     muxed file — separate audio and video cursors walking the same
+        //     region, plus small random reads between big sequential ones.
+        //
+        //     This is the instrument for the owner's audio-static report. The
+        //     loader serves small reads from aligned cached blocks, and a
+        //     stale or misaligned block would corrupt a sample without failing
+        //     any request — silent, and exactly what static sounds like. If
+        //     every byte matches origin under concurrency, the loader is
+        //     EXONERATED and the static comes from somewhere else (the caption
+        //     scout has produced audio artifacts twice: Decisions 071 and 075).
+        if total > 12_000_000 {
+            print("\nstress: 24 concurrent interleaved reads x 3 rounds")
+            var stressFail = 0
+            for round in 1...3 {
+                var probes: [(Int64, Int64)] = []
+                // Two cursors walking the same region, as A/V demux does.
+                for i in 0..<8 {
+                    let base = total / 4 + Int64(i) * 262_144
+                    probes.append((base, base + 65_535))              // "video" cursor
+                    probes.append((base + 131_072, base + 147_455))   // "audio" cursor, interleaved
+                }
+                // Small odd-offset reads between them — the pattern that made
+                // the block cache thrash on Till the Clouds Roll By.
+                for i in 0..<8 {
+                    let off = total / 3 + Int64(i) * 7_919
+                    probes.append((off, off + 4_095))
+                }
+                let results = await withTaskGroup(of: (Int64, Int64, Data?, Data?).self) { group in
+                    for (lo, hi) in probes {
+                        group.addTask {
+                            async let o = fetchRange(origin, lo, hi)
+                            async let p = fetchRange(proxy, lo, hi)
+                            return await (lo, hi, o, p)
+                        }
+                    }
+                    var acc: [(Int64, Int64, Data?, Data?)] = []
+                    for await r in group { acc.append(r) }
+                    return acc
+                }
+                for (lo, hi, o, p) in results {
+                    guard let o, let p else { stressFail += 1
+                        print("  FAIL fetch \(lo)-\(hi)"); continue }
+                    if o != p {
+                        stressFail += 1
+                        let d = zip(o, p).enumerated().first { $1.0 != $1.1 }?.offset ?? -1
+                        print("  FAIL round \(round) bytes differ \(lo)-\(hi) at +\(d)")
+                    }
+                }
+                print("  round \(round): \(probes.count) reads, \(stressFail) mismatches so far")
+            }
+            failures += stressFail
+            if stressFail == 0 {
+                print("  stress OK — byte-identical under concurrency")
+            }
+        }
+
         // 3. AVPlayer reaches readyToPlay through the proxy and plays.
         let item = AVPlayerItem(url: proxy)
         let player = AVPlayer(playerItem: item)
