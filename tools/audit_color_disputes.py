@@ -13,6 +13,25 @@ nothing else. Re-probing a whole 30k catalog to settle 70 items would be the
 kind of local archive.org sweep that has stalled the owner's Apple TV before.
 
   python3 tools/audit_color_disputes.py --db catalog.sqlite --ids-out disputed.txt
+
+MEASURED LIMIT, 2026-08-18 — do not keep raising the probe budget. Three passes
+over the disputed set from a hosted runner:
+
+    frame budget 90s   ->  137 of 248 measured, then 4 of 76 on retry
+    frame budget 240s  ->   14 of 72
+
+The 90s failures were OUR budget (one item answered SATAVG=0.53 after 106s to
+open), and raising it recovered a fifth of the rest. The ~58 that still fail are
+NOT dead: every one is `playbackVerified`, so the film plays. They are slow to
+open from a GitHub runner, which shares its address with a great many others
+that archive.org is also rate-limiting.
+
+So the residue is a limit of the venue, not of the catalog, and the cost of
+leaving it is small and safe: an unmeasured reading counts as confident, so
+those pairs stay separate exactly as they always have. Probing them locally is
+not the answer either — an archive.org sweep from the household address is what
+stalled the owner's Apple TV. If this is ever worth closing, the lever is a
+different venue (a self-hosted runner), not a bigger number.
 """
 import argparse, json, sqlite3, sys
 from pathlib import Path
