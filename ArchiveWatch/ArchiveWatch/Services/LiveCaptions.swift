@@ -741,6 +741,22 @@ final class LiveCaptions {
         sink.reset()
         driftSamples.removeAll()
         contentOffset = max(0, playhead.seconds)
+        // Drop cues at or beyond the new anchor. A resync re-bases the mapping
+        // on the playhead and restarts the transcriber, so everything from here
+        // is about to be produced again — and leaving the old ones in place
+        // makes the array UNSORTED, since fresh cues map earlier than stale
+        // ones still sitting further down the list. The display picks the first
+        // cue bracketing the playhead, so an unsorted list is how a line
+        // already read gets followed by an earlier one. That is the residual
+        // reordering the shown-cue gate measured after Decision 081's clamp:
+        // small (~2s), intermittent, and NOT the clamp's doing.
+        let dropped = cues.filter { $0.end > contentOffset }.count
+        cues.removeAll { $0.end > contentOffset }
+        rawCues.removeAll { $0.end > contentOffset }
+        if dropped > 0 {
+            awdiag("[AWCAP] resync dropped \(dropped) cue(s) at/after \(fmt(contentOffset))s "
+                  + "— they will be re-transcribed from the new anchor")
+        }
         scout.pause()
         await scout.seek(to: CMTime(seconds: contentOffset, preferredTimescale: 600),
                          toleranceBefore: .zero, toleranceAfter: .zero)
