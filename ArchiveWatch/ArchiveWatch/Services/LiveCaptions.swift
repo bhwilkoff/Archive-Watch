@@ -810,7 +810,20 @@ final class LiveCaptions {
             // read — one 13-word line was on screen for 1.7s — and a caption you
             // cannot finish is the same as no caption.
             let end0 = cursor + max(share, Self.readingTime(chunk))
+            // TESTED AND REJECTED: clamping a cue's start to the playhead
+            // (dropping ones whose moment had passed) to stop late-finalized
+            // results from landing behind a line already shown. It measured the
+            // WORST result yet — 3 backwards steps at -9.9s against -2.2s
+            // without it — most likely because `lastPlayhead` is written by the
+            // display timer and reading it here couples the append path to that
+            // race. The mechanism is still the best explanation for the
+            // residual; the fix has to be one that does not read display state
+            // from the analyzer thread.
             cues.append((start: cursor, end: end0, text: chunk))
+            cursor = end0
+                continue
+            }
+            cues.append((start: max(cursor, lastPlayhead), end: end0, text: chunk))
             cursor = end0
         }
         cues.sort { $0.start < $1.start }
