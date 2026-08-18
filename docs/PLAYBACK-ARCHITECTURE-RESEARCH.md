@@ -106,3 +106,41 @@ ships through the external-observation suite + the 10 Mbps throttled gate
    (Phase 0 later rung).
 4. alass/ffsubsync adoption in the pipeline (new tools, replacing the
    bespoke source-level judge).
+
+## Start times: measured, and why the obvious fix was not shipped (2026-08-18)
+
+Decision 077 promised "films should start within 30 seconds". Measured for the
+first time across eight popular titles on the Apple TV
+(`tools/measure_start_times.sh`, setupPlayer -> itemReady):
+
+    TheNakedWitch  1.3s   yojimbo  5.8s   his_girl_friday  6.8s   suddenly  9.6s
+    reefer_madness 21.0s  grapes_of_wrath 40.3s
+    Voyage...PrehistoricWomen and JungleBook: no frame in 80s
+
+Five of eight inside the promise, one over, two not starting.
+
+**It is node weather, not slow films.** Yojimbo took 5.8s here after failing to
+produce a frame twice within 75s an hour earlier, when its storage node
+measured 32.7s to first byte against 0.7s for a healthy film on the same
+network in the same minute. `firstByteTimeout` is 30s, so the probe sat through
+the whole thing and retried, often onto the same node.
+
+**A hedged first-byte probe was built, gated, measured and REVERTED.** Racing
+every known node and taking the first answer is attractive because it has no
+threshold to tune — and a threshold is what regressed twice (Decision 076
+deleted a slow-chunk watchdog at 5.6 Mbps for killing normal wifi, then at
+0.2 Mbps for killing legitimate slow starts). It passed both gates: byte
+identical to origin under concurrent interleaved reads, and playing in real
+time through the 10 Mbps throttled server. But the device numbers came back
+nominally WORSE (his_girl_friday 6.8 -> 22.4s, yojimbo 5.8 -> 21.9s, reefer
+madness 21.0 -> no frame), and that cannot be attributed to the change either.
+
+**The methodological finding is the durable one.** Both runs were SEQUENTIAL
+BLOCKS an hour apart, and the variable under test — archive.org node health —
+varies on exactly that timescale. Comparing block A to block B measures the
+hour, not the change. An honest A/B here has to INTERLEAVE the arms (alternate
+per title, or per trial) so weather is shared between them, which is a stronger
+requirement than Decision 075's "repeated trials per arm" and is what any
+future attempt at this needs.
+
+Nothing shipped. The measurement instrument and this record did.
