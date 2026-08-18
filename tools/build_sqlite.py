@@ -272,12 +272,55 @@ def _year_compatible(a, b):
     return ya is None or yb is None or abs(ya - yb) <= 2
 
 
+# Chroma readings in this band are not evidence either way: measured on films
+# whose real color is a matter of record, a genuine Cinecolor feature read 7.10
+# and a genuine B&W feature read 9.00 — the B&W one MORE saturated. Outside the
+# band the statistic is clean (a B&W scan reads 0.0, a color print 15-25).
+_SAT_CONFIDENT_BW, _SAT_CONFIDENT_COLOR = 4.0, 14.0
+
+# An uploader who says "colorized" is telling us this IS a different version,
+# and that beats any chroma reading.
+_COLORIZED = re.compile(r"coloriz|colouriz|in\s*colou?r\b", re.I)
+
+
+def _colorized_upload(i):
+    return bool(_COLORIZED.search((i.get("archiveID") or "") + " " + (i.get("title") or "")))
+
+
+def color_confident(i):
+    """Whether this item's color reading is strong enough to VETO a merge.
+
+    A missing `colorSat` counts as confident, which keeps every pre-measurement
+    item behaving exactly as before — the relaxation arrives only where a
+    re-probe has shown the reading to be marginal (Decision 020's additive
+    rule). `classify_color.py --ids-file` is how a disputed set gets measured.
+    """
+    sat = i.get("colorSat")
+    if sat is None:
+        return True
+    return sat < _SAT_CONFIDENT_BW or sat > _SAT_CONFIDENT_COLOR
+
+
 def _color_compatible(a, b):
     """B&W vs color is a hard version distinction — a B&W original and a color
     remake/colorization of the same title are different works. Unknown on either
-    side does not contradict."""
+    side does not contradict.
+
+    But the distinction only binds on real evidence. A disagreement where either
+    reading sits in the ambiguous band is a coin-flip, and a coin-flip must not
+    split one film into two cards on the shelves — which is what the owner kept
+    seeing. imdb, year and runtime still have to agree for a merge; this only
+    stops a weak color reading from vetoing them.
+    """
     ca, cb = a.get("colorMode"), b.get("colorMode")
-    return not (ca and cb and ca != cb)
+    if not (ca and cb and ca != cb):
+        return True
+    if _colorized_upload(a) or _colorized_upload(b):
+        return False                                  # a stated colorization
+    # Incompatible only when BOTH readings are strong enough to be believed.
+    # If either is a coin-flip the color signal abstains, and imdb/year/runtime
+    # decide the merge on their own.
+    return not (color_confident(a) and color_confident(b))
 
 
 def _color_match(a, b):

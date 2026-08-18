@@ -35,6 +35,10 @@ on:
         description: 'Parallel ffmpeg probes'
         required: false
         default: '10'
+      recheck_disputed:
+        description: 'Re-measure only the films split into two cards by a colour disagreement'
+        required: false
+        default: 'false'
 
 jobs:
   classify:
@@ -56,7 +60,21 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py fetch
 
+      # A film whose two copies disagree on colour shows up TWICE on the
+      # shelves (Decision 084). Those are the readings worth spending a probe
+      # on, and there are ~70 of them — so this re-measures exactly those
+      # rather than sweeping 30,000 items to settle 70.
+      - name: Re-measure the disputed readings
+        if: github.event.inputs.recheck_disputed == 'true'
+        run: |
+          python tools/audit_color_disputes.py --catalog catalog.json \
+            --ids-out disputed.txt | tail -5
+          [ -s disputed.txt ] || { echo "no disputes"; exit 0; }
+          python tools/classify_color.py --ids-file disputed.txt --workers 4 \
+            --deltas-out color-deltas.jsonl | tail -3
+
       - name: Classify color / B&W
+        if: github.event.inputs.recheck_disputed != 'true'
         timeout-minutes: 170
         run: |
           python tools/classify_color.py \

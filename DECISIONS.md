@@ -3793,3 +3793,70 @@ the omission; deciding which are real is a judgement the warning cannot make.
 gets named on the next build instead of silently losing its work. Two markers
 remain unregistered ON PURPOSE and will keep appearing in that line; that is
 correct, not a leak.
+
+## 084 — Record the EVIDENCE, not just the verdict; a colour reading vetoes a merge only when it is confident
+*Date: 2026-08-18*
+
+`classify_color.py` now stores `colorSat` — the measured saturation — beside
+`colorMode`, and the two consumers that act on a B&W reading require it to be
+CONFIDENT before they do anything destructive: `build_sqlite._color_compatible`
+(Decision 040's guard, which refuses to merge two same-titled copies whose
+colour disagrees) and `verify_external_match.py`'s Tier 3 (Decision 026, which
+CLEARS a match's artwork and year when a B&W film is matched to a modern
+release). Confident means outside 4.0–14.0; a missing `colorSat` counts as
+confident, so every item measured before today behaves exactly as it did.
+An upload that says "colorized" in its title or id still blocks a merge
+whatever its chroma reads — a stated version difference beats a statistic.
+
+**Why**: the owner has reported duplicate cards twice. Auditing the shelves
+found 36 films split into two cards purely by a colour disagreement, and the
+merge rule was behaving correctly on incorrect data. Decision 025 called the
+saturation split "decisive" on a calibration set where it is — a clean B&W scan
+reads 0.0 and a healthy colour print 15–25. It is not decisive everywhere.
+Measured against films whose real colour is a matter of record:
+
+    Lonely Wives (1931)        B&W     SATAVG 0.00   <- the clean case
+    Not of This Earth (1957)   B&W     SATAVG 9.00   -> read as COLOR
+    Scared to Death (1947)     COLOR   SATAVG 7.10   -> read as BW (Cinecolor)
+    Eagle in a Cage (1972)     COLOR   SATAVG 7.65   -> read as BW
+    Death Rides a Horse (1967) COLOR   SATAVG 8.49   (frames spanned 2.1-15.8)
+
+A B&W film reading HIGHER than a colour one is not a threshold wanting a nudge;
+it is two populations that overlap in this statistic, and no amount of extra
+frames separates them — one film's frames alone spanned 2.1 to 15.8. Chroma
+percentiles were tried and overlap too (SATHIGH: colour 11.0–23.3, B&W 0.0–10.0).
+So the fix is not a better threshold, it is admitting when the measurement does
+not know: a guard should abstain on weak evidence rather than veto on it.
+
+The reason this was invisible is the part worth generalising. `colorMode` stored
+the verdict and discarded the number, so a coin-flip at 8.1 was indistinguishable
+downstream from a certainty at 0.0. The same shape sits next to it: `matchVerified`
+stores `True` and not which tier fired, so the blast radius of Tier 3 cannot be
+counted from the catalog at all — 781 items are `bw` with a year ≥1970 and
+therefore eligible to have had their artwork and year cleared on a reading that
+may have been a coin-flip, and there is no way to tell which. Decision 056 was
+the same lesson in a different field: `playbackVerified` recorded THAT a title
+played and not WHEN, so a check three months stale looked identical to one made
+yesterday.
+
+**How to apply**: when a pipeline step makes a judgement from a measurement,
+persist the measurement. A downstream consumer cannot weigh a verdict it cannot
+see the evidence for, and a threshold that is right for most of a population is
+a coin-flip for the part of it that lands near the line — which is exactly the
+part that surfaces as a user-visible defect, because that is what a disputed
+case IS. Do not widen the confidence band to "fix" more duplicates: the guard's
+real job (keeping a B&W original apart from a colour remake) is asserted by
+`tools/test_color_guard.py`, whose first row is the negative control — a clean
+B&W reading against a clean colour one must STILL block. Re-measure a disputed
+set with `classify_color.py --ids-file` (ids from `audit_color_disputes.py`),
+never a full re-sweep: probing 30,000 items to settle 70 is the kind of local
+archive.org sweep that has stalled the owner's Apple TV.
+
+**Consequences**: nothing changes until the disputed readings are re-measured —
+the relaxation is keyed on evidence that does not exist yet for any item, which
+is what makes it additive (Decision 020). `color-classify.yml` gained a
+`recheck_disputed` input that measures exactly the disputed ids. `colorSat` is
+an additive JSON key the clients ignore. The other consumers of `colorMode` —
+Cartoon Mode's colour preference and Party Play's B&W exclusion — are unchanged
+and want no confidence gate: preferring colour on a weak reading costs a viewer
+nothing, where clearing a film's artwork on one is destructive.

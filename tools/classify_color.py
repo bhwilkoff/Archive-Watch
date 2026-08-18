@@ -3,9 +3,24 @@
 classify_color.py — tag every catalog item as color or black-and-white.
 
 Samples a few frames from the item's OWN video with ffmpeg and averages the
-`signalstats` SATAVG (mean chroma saturation). The split is decisive: B&W
-footage (silent OR sound) reads ~0; color reads ~15-25. Default threshold 8.
-Writes `colorMode` ("color" | "bw") into ./catalog.json.
+`signalstats` SATAVG (mean chroma saturation) into `colorMode` + `colorSat`.
+
+For most transfers the split IS decisive — a clean B&W scan reads 0.0 and a
+healthy color print reads 15-25. But it is not decisive everywhere, and the
+measurement that showed this is worth keeping: on faded or chroma-noisy prints
+the two classes OVERLAP around the threshold. Measured 2026-08-18, all against
+films whose real color is a matter of record:
+
+    Lonely Wives (1931)        B&W     SATAVG 0.00   <- the clean case
+    Not of This Earth (1957)   B&W     SATAVG 9.00   -> read as COLOR
+    Scared to Death (1947)     COLOR   SATAVG 7.10   -> read as BW (Cinecolor)
+    Eagle in a Cage (1972)     COLOR   SATAVG 7.65   -> read as BW
+    Death Rides a Horse (1967) COLOR   SATAVG 8.49   (frames spanned 2.1-15.8)
+
+A B&W film reading HIGHER than a color one is not a threshold that needs
+tuning — it is two populations that overlap in this statistic. Hence `colorSat`
+is now stored: consumers can tell a confident reading from a coin-flip, and
+`build_sqlite.color_confident()` is where that judgement lives.
 
 Resumable (skips already-classified items), popularity-first, concurrent.
 Catalog lives on the release (Decision 018): fetch -> this -> publish.
@@ -94,6 +109,9 @@ def main() -> int:
     ap.add_argument("--workers", type=int, default=10)
     ap.add_argument("--threshold", type=float, default=8.0)
     ap.add_argument("--refresh", action="store_true", help="reclassify even if colorMode is set")
+    ap.add_argument("--ids-file", help="re-probe ONLY these archiveIDs (one per line), "
+                                       "implies --refresh. Lets a disputed set be "
+                                       "re-measured without sweeping the catalog.")
     # SPLIT COMPUTE FROM COMMIT. Classifying takes ~an hour; applying the result
     # takes seconds. Holding the `catalog-writers` lock for the whole hour is
     # what starves 28 workflows of a single lock and gets runs destroyed in the
@@ -114,8 +132,14 @@ def main() -> int:
     if args.apply_deltas:
         return apply_deltas(cat, items, Path(args.apply_deltas))
 
+    only = None
+    if args.ids_file:
+        only = {l.strip() for l in open(args.ids_file) if l.strip()}
+        print(f"[color] re-probing {len(only)} named items")
     targets = [it for it in items
-               if video_url(it) and (args.refresh or not it.get("colorMode"))]
+               if video_url(it)
+               and (only is None or it.get("archiveID") in only)
+               and (args.refresh or only is not None or not it.get("colorMode"))]
     targets.sort(key=lambda it: it.get("popularityScore") or 0, reverse=True)
     if args.limit:
         targets = targets[:args.limit]
@@ -140,13 +164,16 @@ def main() -> int:
         futs = {ex.submit(classify, it, args.threshold): it for it in targets}
         for fut in as_completed(futs):
             it = futs[fut]
-            mode, _avg = fut.result()
+            mode, avg = fut.result()
             if mode:
                 if deltas:
                     deltas.write(json.dumps({"archiveID": it.get("archiveID"),
-                                             "colorMode": mode}) + "\n")
+                                             "colorMode": mode,
+                                             "colorSat": avg}) + "\n")
                 else:
                     it["colorMode"] = mode
+                    if avg is not None:
+                        it["colorSat"] = avg
                 color += (mode == "color"); bw += (mode == "bw")
             else:
                 fail += 1
@@ -181,6 +208,8 @@ def apply_deltas(cat, items, path: Path) -> int:
             missing += 1
             continue
         it["colorMode"] = d["colorMode"]
+        if d.get("colorSat") is not None:
+            it["colorSat"] = d["colorSat"]
         applied += 1
     tmp = CATALOG.with_suffix(".json.tmp")
     json.dump(cat, open(tmp, "w"), ensure_ascii=False, separators=(",", ":"))

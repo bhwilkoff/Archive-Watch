@@ -52,6 +52,19 @@ IMDB_RE = re.compile(r"(tt\d{6,9})")
 YEAR_RE = re.compile(r"\b(18\d\d|19\d\d|20[0-2]\d)\b")
 
 
+
+# Mirrors build_sqlite.color_confident — the band where a chroma reading is a
+# coin-flip rather than evidence. Duplicated deliberately: this tool runs in a
+# workflow that does not build the DB.
+_SAT_CONFIDENT_BW, _SAT_CONFIDENT_COLOR = 4.0, 14.0
+
+
+def _color_confident(it) -> bool:
+    sat = it.get("colorSat")
+    if sat is None:
+        return True
+    return sat < _SAT_CONFIDENT_BW or sat > _SAT_CONFIDENT_COLOR
+
 def is_candidate(it: dict) -> bool:
     if it.get("contentType") == "tv-series":
         return False
@@ -152,7 +165,16 @@ def verify(it: dict, omdb_key, session) -> str:
         return "cleared_year"
 
     # Tier 3 — color era-gate (no reliable year to re-resolve to).
-    if it.get("colorMode") == "bw" and isinstance(y, int) and y >= 1970:
+    #
+    # Only on a CONFIDENT B&W reading. The chroma statistic overlaps between
+    # classes on faded prints — a genuine Cinecolor feature measured 7.10 and a
+    # genuine B&W feature 9.00 (2026-08-18) — so a marginal `bw` is not evidence
+    # that a modern match is wrong, and clearing on it would throw away a
+    # correct match plus its artwork and year. 781 items are bw + year>=1970,
+    # so this is not a hypothetical. `colorSat` is absent on items measured
+    # before it was recorded; those keep the previous behaviour.
+    if (it.get("colorMode") == "bw" and _color_confident(it)
+            and isinstance(y, int) and y >= 1970):
         R._clear_wrong_artwork(it, None)
         it["year"] = None
         it["decade"] = None
