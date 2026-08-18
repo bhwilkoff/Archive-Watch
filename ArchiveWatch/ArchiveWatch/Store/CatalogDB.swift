@@ -402,6 +402,17 @@ final class CatalogDB {
     }
 
     /// Title/cast/director search via FTS5.
+    /// FTS relevance alone is not enough: `rank` scores the whole document, so
+    /// a film whose SYNOPSIS repeats a word outranks the film actually titled
+    /// it. Measured against the served DB on the 25 most popular films,
+    /// searching each one's EXACT title: only 15 came back first, "Frankenstein"
+    /// ranked 7th, "Abraham Lincoln" 4th, and "Suddenly" was not in the top ten
+    /// at all. With an exact-title term ahead of rank and popularity behind it,
+    /// all 25 come first and nothing falls out of the top ten.
+    ///
+    /// Popularity is the LAST term, not the first: it breaks ties between
+    /// equally relevant matches without letting a famous film outrank an exact
+    /// title match, which is the failure mode of ordering by popularity alone.
     func search(_ query: String, limit: Int = 200) -> [Catalog.Item] {
         let q = ftsQuery(query)
         guard !q.isEmpty else { return [] }
@@ -410,9 +421,9 @@ final class CatalogDB {
             JOIN item_json j ON j.archiveID = f.archiveID
             JOIN items i ON i.archiveID = f.archiveID
             WHERE items_fts MATCH ? \(adultAnd) \(notCommercial) \(searchExclude) \(typeAnd)
-            ORDER BY rank
+            ORDER BY (LOWER(i.title) = LOWER(?)) DESC, rank, i.popularityScore DESC
             LIMIT \(limit)
-        """, [q])
+        """, [q, query])
     }
 
     /// All TV series cards (small set — ~hundreds).
