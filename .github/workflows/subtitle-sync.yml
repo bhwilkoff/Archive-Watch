@@ -1,0 +1,76 @@
+name: Subtitle sync (re-time the provably mistimed files)
+
+# Decision 080's second half. `audit_subtitle_rate.py` proves a published file
+# is mistimed — its last cue ENDS after the film does, which is physically
+# impossible — and the telecine subset is repaired arithmetically. Everything
+# else needs the film's own audio, and that is what this does: ffsubsync
+# aligns the cue timeline against voice activity, recovering BOTH a constant
+# offset and a framerate scale in one pass.
+#
+# It runs here and NOT on a developer Mac. Decision 064 put the earlier sweep
+# local because it needed speech models; ffsubsync needs none (it is VAD, not
+# recognition), and running it locally pulls film audio from archive.org over
+# the household's public IP — archive.org rate-limits per IP, and that stalls
+# playback on the Apple TV in the same house. Same reason codec-audit.yml
+# moved here.
+#
+# Resumable: verdicts.jsonl is carried on the subtitle-assets release, so a
+# timeout keeps its work and the next run skips what it already decided.
+
+on:
+  schedule:
+    - cron: '15 5 * * *'
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max films to sync this run (0 = all remaining)'
+        required: false
+        default: '60'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install ffmpeg + ffsubsync
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          pip install --quiet ffsubsync
+
+      - name: Fetch the published subtitles and the catalog DB
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p work
+          gh release download subtitle-assets -p subs.tar.gz -O subs.tar.gz
+          tar xzf subs.tar.gz -C work
+          # The findings carry each film's runtime; the DB carries its URL.
+          gh release download catalog-db -p catalog.sqlite.zz -O catalog.sqlite.zz
+          python -c "import zlib;open('catalog.sqlite','wb').write(zlib.decompress(open('catalog.sqlite.zz','rb').read(),-15))"
+          # Carry the resume ledger forward when one exists.
+          gh release download subtitle-assets -p subtitle_audio_verdicts.jsonl \
+            -O verdicts.jsonl || touch verdicts.jsonl
+
+      - name: Sync against each film's audio
+        run: |
+          python3 tools/sync_subtitles_audio.py \
+            --subs work/subs \
+            --findings tools/subtitle_rate_findings.csv \
+            --verdicts verdicts.jsonl \
+            --db catalog.sqlite \
+            --limit ${{ github.event.inputs.limit || 60 }}
+
+      - name: Publish the corrections
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # The shrink guard in fix_subtitle_sync.py refuses to republish a
+          # smaller set — republishing a partial snapshot would DELETE
+          # subtitles wholesale, which has happened before (Decision 043 era).
+          python3 tools/fix_subtitle_sync.py publish --subs work/subs
+          gh release upload subtitle-assets verdicts.jsonl --clobber
