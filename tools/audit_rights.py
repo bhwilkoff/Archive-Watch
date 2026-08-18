@@ -631,8 +631,15 @@ def main():
     # merge_film_duplicates -> episodeDuplicate/duplicateOf/duplicateMergedInto). The
     # rights reconcile must touch ONLY exclusions the rights audit itself created, or
     # running --apply every build would UN-HIDE dead/duplicate items those tools hid.
+    # `codecUnsupported` joins this list the same way and for the same reason:
+    # audit_codecs.py hides AV1/VP9 files no Apple device can decode, and on
+    # 2026-08-18 all 137 of them were UN-HIDDEN by this reconcile on the very
+    # next build — the codec stamps and `codecUnsupported` survived in the
+    # served DB while `excluded` was stripped from every one. A new tool that
+    # hides items MUST register its marker here, or its work lasts exactly
+    # until the next publish.
     FOREIGN = ("livenessReason", "livenessDead", "episodeDuplicate", "duplicateOf",
-               "duplicateMergedInto", "excludedReason")
+               "duplicateMergedInto", "excludedReason", "codecUnsupported")
     hidden = 0
     unhid = 0
     for it in items:
@@ -645,6 +652,24 @@ def main():
             it.pop("excluded", None)          # no longer a rights hide -> restore
             it["rightsAudit"] = "unhidden_" + b
             unhid += 1
+    # A tool that hid items and did NOT register its marker above is invisible
+    # otherwise: its exclusions simply vanish on the next publish and the run
+    # still reports success. Name the suspects instead of silently un-hiding
+    # them — every key seen on an item this reconcile just un-hid, that looks
+    # like another tool's reason.
+    if unhid:
+        suspects = {}
+        for it in items:
+            if it.get("rightsAudit", "").startswith("unhidden_"):
+                for k in it:
+                    if k.endswith(("Reason", "Unsupported", "Dead", "Duplicate")) \
+                       and k not in FOREIGN:
+                        suspects[k] = suspects.get(k, 0) + 1
+        if suspects:
+            print("[!] un-hid items carrying UNREGISTERED exclusion markers — "
+                  "another tool's work is being erased every build: "
+                  + ", ".join(f"{k}x{v}" for k, v in sorted(suspects.items())))
+
     cat["items"] = items
     CATALOG.write_text(json.dumps(cat, ensure_ascii=False), encoding="utf-8")
     # Always emit the final rejection manifest alongside an apply.
