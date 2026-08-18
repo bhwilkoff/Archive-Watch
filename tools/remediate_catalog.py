@@ -1652,8 +1652,17 @@ def retype_seriesless_series(items, stats):
     separation is total, so the test needs nothing cleverer than the
     contradiction itself.
 
-    They become `tv-special`, which Decision 036 puts on the TV tab's TV
-    Specials grid and keeps out of Movies. Reversible via `contentTypeWas`.
+    They are retyped to `tv-special`, which Decision 036 puts on the TV tab's
+    TV Specials grid and keeps out of Movies. Reversible via `contentTypeWas`.
+
+    VERIFIED OUTCOME, better than the intent: once they stop claiming to be
+    series, the spines claim them — all three landed as `tv-episode` (26 Men
+    S1E8, Checkmate S1E15, Ironside S7E4), each playable, each with a Detail
+    page linking back to a browsable series card. Being typed `tv-series` was
+    what kept them OUT of the episode path in the first place, so the rule
+    returns them to the spine that already owned them rather than stranding
+    them as one-offs. `tv-special` remains the landing place for a stray with
+    no spine.
     """
     fixed = 0
     for it in items:
