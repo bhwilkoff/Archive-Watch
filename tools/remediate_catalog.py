@@ -1629,7 +1629,44 @@ def remediate(items):
     # ...then give a real type back to whatever it did NOT judge a trailer.
     restore_mistyped_trailers(items, stats)
     encode_download_urls(items, stats)
+    retype_seriesless_series(items, stats)
     return stats
+
+
+# --- A series card never owns a video --------------------------------------
+def retype_seriesless_series(items, stats):
+    """A `tv-series` item that carries its OWN downloadURL is a contradiction.
+
+    Real series cards are SYNTHESIZED from a spine (Decision 016): their id is
+    `series:<slug>` and they hold no video, because the video lives on their
+    episodes. An item typed `tv-series` that does have a video is therefore a
+    single programme the old filename-clustering mislabelled — and the app routes
+    a `tv-series` card to SeriesDetail, which finds no episodes and shows an
+    empty page. The film plays perfectly and cannot be reached: exactly the
+    "everything visible should play" complaint, arriving as a dead end rather
+    than an error.
+
+    Measured on the live catalog: 291 spine cards, none with a video; 3 items
+    with one — 26 Men "Dead Man in Tucson", Checkmate "The Human Touch",
+    Ironside Season 7, all 26-49 minutes and all verified playable. The
+    separation is total, so the test needs nothing cleverer than the
+    contradiction itself.
+
+    They become `tv-special`, which Decision 036 puts on the TV tab's TV
+    Specials grid and keeps out of Movies. Reversible via `contentTypeWas`.
+    """
+    fixed = 0
+    for it in items:
+        if it.get("contentType") != "tv-series" or not it.get("downloadURL"):
+            continue
+        if it.get("seriesID"):
+            continue                      # belongs to a spine; not a stray card
+        it["contentTypeWas"] = it.get("contentType")
+        it["contentType"] = "tv-special"
+        fixed += 1
+    if fixed:
+        stats["seriesless_series_retyped"] = fixed
+    return fixed
 
 
 # --- Percent-encode downloadURLs ------------------------------------------
