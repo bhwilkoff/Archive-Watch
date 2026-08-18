@@ -131,6 +131,21 @@ jobs:
           set -a; . tools/asc-credentials.env; set +a
           python3 tools/asc_prune_certs.py --apply --keep 2
 
+      # A build number already on App Store Connect cannot be uploaded again,
+      # and the archive is the EXPENSIVE step — signing, three platforms, tens
+      # of minutes — so finding out at the end wastes all of it. This run
+      # failed exactly that way: the dispatch went out alongside a push that
+      # had been rejected (the remote had moved), CI checked out a tree without
+      # the version bump, and rebuilt an already-uploaded 946.
+      - name: Refuse to rebuild an already-uploaded build number
+        working-directory: tools
+        run: |
+          BUILD=$(grep -oE 'CURRENT_PROJECT_VERSION = [0-9]+' ../AppVersion.xcconfig | grep -oE '[0-9]+')
+          VER=$(grep -oE 'MARKETING_VERSION = [0-9.]+' ../AppVersion.xcconfig | grep -oE '[0-9.]+')
+          echo "## Building $VER ($BUILD) — $(git -C .. log --oneline -1)" >> "$GITHUB_STEP_SUMMARY"
+          set -a; . ./asc-credentials.env; set +a
+          python3 asc_build_exists.py "$VER" "$BUILD"
+
       - name: Archive + sign + upload to App Store Connect
         env:
           ASC_DIST_CERT_ID: ${{ secrets.APPLE_DIST_CERT_ID }}
