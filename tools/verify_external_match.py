@@ -310,8 +310,13 @@ def main() -> int:
                     help="target ONLY the TV items the era tier can judge (a "
                          "decade-stating collection + a tmdbID + no series spine), "
                          "ignoring matchVerified. A blanket --refresh would re-judge "
-                         "the whole catalog under every tier to reach ~200 items; "
-                         "this reaches exactly them.")
+                         "the WHOLE catalog under every tier to reach ~200 items; "
+                         "this narrows the TARGET SET, not the tiers — those items "
+                         "are still judged by every tier, so expect cleared_year and "
+                         "cleared_bw alongside cleared_era (measured on the first "
+                         "run: 46 era, 22 year, 6 bw of 447). That is D026 doing its "
+                         "designed job on items the marker had been hiding from it, "
+                         "but it is a wider effect than the flag name suggests.")
     args = ap.parse_args()
 
     if not CATALOG.exists():
