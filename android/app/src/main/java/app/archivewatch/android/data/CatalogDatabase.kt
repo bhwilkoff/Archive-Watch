@@ -105,14 +105,33 @@ class CatalogDatabase private constructor(
 
     // --- verbs ---
 
-    suspend fun shelf(shelfID: String, limit: Int = 80): List<CatalogItem> = items(
-        """SELECT j.json FROM item_shelves s
-           JOIN items i ON i.archiveID = s.archiveID
-           JOIN item_json j ON j.archiveID = s.archiveID
-           WHERE s.shelfID = ?$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd$verifiedAnd
-           ORDER BY i.hasRealArtwork DESC, s.position LIMIT ?""",
-        listOf(shelfID, limit),
-    )
+    /**
+     * `allowStandaloneTV` comes from a shelf whose featured.json category IS
+     * television (Decision 086). Without it `notStandaloneTV` excluded
+     * `tv-special` from EVERY shelf — including the four Classic TV shelves,
+     * whose entire membership is tv-special, so they returned nothing and were
+     * dropped for being too short. tvOS/iOS/macOS shipped the fix first; this
+     * is the same conditional on the same shared DB.
+     *
+     * `tv-episode` stays excluded either way: a loose episode belongs to its
+     * series and should be reached through it (Decision 045).
+     */
+    suspend fun shelf(
+        shelfID: String,
+        limit: Int = 80,
+        allowStandaloneTV: Boolean = false,
+    ): List<CatalogItem> {
+        val tvClause =
+            if (allowStandaloneTV) " AND i.contentType != 'tv-episode'" else notStandaloneTV
+        return items(
+            """SELECT j.json FROM item_shelves s
+               JOIN items i ON i.archiveID = s.archiveID
+               JOIN item_json j ON j.archiveID = s.archiveID
+               WHERE s.shelfID = ?$adultAnd$homeAnd$notCommercial$tvClause$typeAnd$verifiedAnd
+               ORDER BY i.hasRealArtwork DESC, s.position LIMIT ?""",
+            listOf(shelfID, limit),
+        )
+    }
 
     /** Curated lists bypass filters; result reordered to the requested order. */
     suspend fun itemsByIDs(ids: List<String>): List<CatalogItem> {

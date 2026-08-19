@@ -142,7 +142,7 @@ internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
             val resolved = if (shelf.type == "curated" && shelf.items.isNotEmpty()) {
                 db.itemsByIDs(shelf.items.map { it.archiveID })
             } else {
-                db.shelf(shelf.id, 32)
+                db.shelf(shelf.id, 32, allowStandaloneTV = shelf.category == "tv-series")
             }
             val taken = claim(resolved, min = 6)
             if (taken.isNotEmpty()) shelves.add(shelf.title.ifEmpty { shelf.id } to taken)
