@@ -24,6 +24,10 @@ on:
         description: 'Max items to check this run (0 = all)'
         required: false
         default: '8000'
+      era_only:
+        description: 'Target ONLY the TV items the era tier can judge'
+        required: false
+        default: 'false'
       refresh:
         description: 'Re-check already-verified items (true/false)'
         required: false
@@ -59,7 +63,8 @@ jobs:
         run: |
           python tools/verify_external_match.py \
             --limit ${{ github.event.inputs.limit || '8000' }} \
-            ${{ github.event.inputs.refresh == 'true' && '--refresh' || '' }} | tee verify.log
+            ${{ github.event.inputs.refresh == 'true' && '--refresh' || '' }} \
+            ${{ github.event.inputs.era_only == 'true' && '--era-only' || '' }} | tee verify.log
           echo "## Verify external matches" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 verify.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 

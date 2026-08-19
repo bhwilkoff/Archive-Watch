@@ -306,6 +306,12 @@ def main() -> int:
     ap.add_argument("--workers", type=int, default=12)
     ap.add_argument("--refresh", action="store_true", help="re-check already-verified items")
     ap.add_argument("--dry-run", action="store_true", help="report verdicts; write nothing")
+    ap.add_argument("--era-only", action="store_true",
+                    help="target ONLY the TV items the era tier can judge (a "
+                         "decade-stating collection + a tmdbID + no series spine), "
+                         "ignoring matchVerified. A blanket --refresh would re-judge "
+                         "the whole catalog under every tier to reach ~200 items; "
+                         "this reaches exactly them.")
     args = ap.parse_args()
 
     if not CATALOG.exists():
@@ -322,6 +328,12 @@ def main() -> int:
     items = cat["items"] if isinstance(cat, dict) else cat
     targets = [it for it in items
                if is_candidate(it) and (args.refresh or not it.get("matchVerified"))]
+    if args.era_only:
+        targets = [it for it in items
+                   if it.get("contentType") in _TV_KINDS
+                   and it.get("tmdbID") and not it.get("seriesID")
+                   and collection_decade(it) is not None]
+        print(f"[verify] era-only: {len(targets)} TV items with a decade collection")
     targets.sort(key=lambda it: it.get("popularityScore") or 0, reverse=True)
     if args.limit:
         targets = targets[:args.limit]
