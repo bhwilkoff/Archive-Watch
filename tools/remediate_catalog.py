@@ -1658,7 +1658,7 @@ def clear_impossible_tv_years(items, stats):
     NOT extended to films: a film CAN be from 1899. The rule holds only because
     a television programme cannot be.
     """
-    fixed = 0
+    fixed = cleared_art = 0
     for it in items:
         if it.get("contentType") not in _TV_TYPES:
             continue
@@ -1666,11 +1666,26 @@ def clear_impossible_tv_years(items, stats):
         if not isinstance(y, int) or y >= _FIRST_TELEVISION_YEAR:
             continue
         it["yearWas"] = y
+        # The POSTER came from the same match as the impossible year, so it is
+        # no more trustworthy — seen on the device: a 1950s game show wearing
+        # the poster of the 2012 anime "Another", and "Hey Duggee Series 1"
+        # carrying a 1923 imdb id. Decision 026's helper already clears the
+        # artwork AND the external ids together, and it must be used here: the
+        # ids alone would let the next enrichment run re-fetch the same wrong
+        # poster. Only where an external match actually supplied the art —
+        # an Archive thumbnail or a generated cover is the item's own frame and
+        # is innocent of the match.
+        if (it.get("artworkSource") or "") in ("tmdb", "tvdb", "omdb", "external",
+                                               "tvmaze", "fanart"):
+            _clear_wrong_artwork(it, None)
+            cleared_art += 1
         it["year"] = None
         it["decade"] = None
         fixed += 1
     if fixed:
         stats["impossible_tv_years_cleared"] = fixed
+    if cleared_art:
+        stats["impossible_tv_artwork_cleared"] = cleared_art
     return fixed
 
 
