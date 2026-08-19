@@ -3975,3 +3975,51 @@ and macOS (all three share `CatalogDB`). Android and web query the same DB and
 need the same conditional to match — a parity follow-up. `editors-picks` remains
 hidden with 5 eligible items against the 9-tile minimum: that one really is thin,
 and the fix is editorial — more curated picks in featured.json — not code.
+
+## 087 — A TV match whose era contradicts the item's OWN collection is cleared
+*Date: 2026-08-19*
+
+`verify_external_match.py` gains Tier 0b: for a standalone TV item (no series
+spine) whose archive.org collection states a decade — `classic_tv_1950s` and
+friends — ask TMDb what the matched work actually is, and if its first-air year
+falls more than 15 years outside that decade, clear the artwork and the external
+ids. `--era-only` targets exactly the judgeable set; `TMDB_BEARER_TOKEN` is wired
+into `verify-matches.yml`, and without it the tier abstains and says so.
+
+**Why**: a 1950s game show was on the owner's Apple TV wearing the poster of the
+2012 anime *Another*. The item's year had already been cleared for being
+impossible, but the poster came from the same match and stayed. Every existing
+tier abstained on it correctly — no Archive imdb id, no Archive date, no year for
+the colour gate — so the tool held no evidence at all. The evidence it was never
+asked for is what the match POINTS AT.
+
+The signal has to come from the item, not the match: the collection dates it,
+independently, and 194 of the 211 suspicious items carry one. Measured over the
+full set before shipping — 29 of 203 contradicted, and reading the list settled
+it: "Howdy Doody's Christmas" matched to a 2026 title, the Nixon–Khrushchev
+Moscow debate to "Nixone" (2018), "The Big Lift" to *Dash Kappei* (1981), "Secret
+Mission" to a 1990 Arabic series. One pattern throughout — a short or generic
+title fragment matched to a modern series with a similar name.
+
+**How to apply**: query **/tv only**. A first draft tried `/movie` then `/tv` and
+produced five false positives out of twelve, because a TMDb id is namespaced by
+type — movie 3002 and tv 3002 are unrelated works, so The Benny Hill Show
+"contradicted" its 1950s collection with 1999. Asked of `/tv` it answers 1969 and
+agrees. Never widen the endpoint for coverage: an id that 404s on `/tv` is one we
+cannot interpret, and abstaining is the answer. Clear artwork and ids only, never
+guess a replacement — a bad match must degrade to the item's own Archive frame,
+not to a different wrong poster. And note the marker trap: `is_candidate` skips
+anything already `matchVerified`, so a NEW tier judges nothing until the marker
+is bypassed (the first run reported zero for exactly this reason). `--era-only`
+narrows the target SET, not the tiers — those items are re-judged by all of them.
+
+**VERIFIED ON THE DEVICE** (Bedroom Apple TV): the 1950s Television row now reads
+I Love Lucy 1953, Morey Amsterdam Show 1950, Robert Montgomery Presents 1956,
+Captain Video, The Eve Arden Show 1957, The Roy Rogers Show — every item
+era-appropriate, every poster its own show, no anime.
+
+**Consequences**: 46 cleared of 447 on the first run, alongside 22 `cleared_year`
+and 6 `cleared_bw` from the pre-existing tiers finally reaching items the marker
+had hidden. Two judgement calls sit at the 15-year line and are the rows to
+revisit if it is ever tuned: Doctor Who matched to the 2005 revival rather than
+the 1963 original, and Betty White Show, where 1954 and 1977 series share a name.
