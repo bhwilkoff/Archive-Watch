@@ -119,6 +119,54 @@ def is_candidate(it: dict) -> bool:
             or (it.get("synopsisSource") or "").lower() in EXTERNAL)
 
 
+# --- Tier 0b: a TV item whose collection states its decade -------------------
+_TV_KINDS = ("tv-special", "tv-episode")
+_DECADE_COL = re.compile(r"classic_tv_(19\d0)s?", re.I)
+_ERA_TOLERANCE = 15          # years; a decade collection is a 10-year window
+
+
+def collection_decade(it):
+    """The decade the ARCHIVE ITSELF files this item under, e.g. classic_tv_1950s.
+
+    Evidence about the item that does not come from the match — which is what
+    Decision 026 requires before a match may be contradicted. 194 of the 211
+    suspicious TV items carry one.
+    """
+    for c in (it.get("collections") or []):
+        m = _DECADE_COL.search(str(c))
+        if m:
+            return int(m.group(1))
+    return None
+
+
+def matched_tv_release_year(it, tmdb_token, session):
+    """First-air year of the TV work this item was matched to, or None.
+
+    ONLY the /tv endpoint, and that is the whole correctness of this function. A
+    TMDb id is namespaced BY TYPE: movie 3002 and tv 3002 are unrelated works.
+    A first draft tried /movie then /tv and produced garbage that looked like
+    signal — The Benny Hill Show "contradicted" its 1950s collection with 1999,
+    which was some unrelated film sharing the id number. Asked of /tv it answers
+    1969 and agrees. Measured across 45 items, that draft flagged 12 and this
+    one flags 7; the five it invented were all id collisions.
+
+    So: never widen this to a second endpoint to "get more coverage". An id that
+    404s on /tv is an id we cannot interpret, and abstaining is the answer.
+    """
+    tmdb = it.get("tmdbID")
+    if not (tmdb and tmdb_token):
+        return None
+    hdr = {"Authorization": f"Bearer {tmdb_token}", "accept": "application/json"}
+    try:
+        r = session.get(f"https://api.themoviedb.org/3/tv/{tmdb}", headers=hdr, timeout=20)
+        if r.status_code != 200:
+            return None
+        d = (r.json().get("first_air_date") or "")[:4]
+        return int(d) if d.isdigit() else None
+    except Exception:
+        return None
+
+
 def archive_meta(aid: str):
     """Return (archive_imdb, archive_year) from the Archive item's own metadata,
     or (None, None) on any failure."""
