@@ -3963,6 +3963,13 @@ to make a shelf look fuller. When a shelf is hidden by `minPerShelf`, ask
 whether it is genuinely thin or whether something upstream is emptying it —
 hiding is a presentation rule, not a diagnosis.
 
+**VERIFIED ON THE DEVICE** (2026-08-18, Bedroom Apple TV, Debug build of
+1.3.433): an OCR sweep of Home found "1950s Television", "1960s Television",
+"1970s Television" and "Classic Television" on the glass, each with a full row
+of tiles carrying designed artwork — Captain Video and His Video Rangers, Date
+with the Angels, The Eve Arden Show, Stingray, T.H.E. Cat, Ozzie and Harriet.
+Screenshot evidence, not the app's own report (the standing rule for tvOS).
+
 **Consequences**: four shelves appear on Home for the first time, on tvOS, iOS
 and macOS (all three share `CatalogDB`). Android and web query the same DB and
 need the same conditional to match — a parity follow-up. `editors-picks` remains
