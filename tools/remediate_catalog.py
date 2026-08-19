@@ -1631,7 +1631,43 @@ def remediate(items):
     encode_download_urls(items, stats)
     retype_seriesless_series(items, stats)
     clear_impossible_tv_years(items, stats)
+    fix_artwork_flag(items, stats)
     return stats
+
+
+# --- The artwork flag must describe the POSTER, not the attempt --------------
+def fix_artwork_flag(items, stats):
+    """`hasRealArtwork` claims designed art while the poster is an Archive
+    auto-thumbnail.
+
+    Home and Browse sort designed-art-first, and the Classic TV grid GATES on
+    this flag, so an item that claims designed art jumps ahead of items that
+    actually have it. Measured: 43 series cards whose TVmaze lookup found no
+    poster still carry `artworkSource="tvmaze"` and `hasRealArtwork=1` over an
+    `archive.org/services/img/` thumbnail — and 1,230 of their episodes inherit
+    it, so the whole TV tab is ordered by a claim rather than by the art.
+
+    The flag should describe what the poster IS. A `services/img` URL is the
+    Archive's generated thumbnail by definition, whatever source was attempted.
+
+    Generated frame covers (Decision 023) are DESIGNED and must keep the flag:
+    they live on `archive.org/download/archivewatch-covers/`, a different path,
+    so this test cannot reach them. Verified on the live catalog — 11,508
+    generated covers, all flagged, none matching `services/img`.
+    """
+    fixed = 0
+    for it in items:
+        p = it.get("posterURL") or ""
+        if "services/img" not in p:
+            continue
+        if not it.get("hasRealArtwork") and (it.get("artworkSource") or "") == "archive":
+            continue
+        it["hasRealArtwork"] = False
+        it["artworkSource"] = "archive"
+        fixed += 1
+    if fixed:
+        stats["artwork_flag_corrected"] = fixed
+    return fixed
 
 
 # --- A television programme cannot predate television -----------------------
