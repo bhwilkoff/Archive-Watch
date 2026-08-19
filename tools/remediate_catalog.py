@@ -1630,7 +1630,48 @@ def remediate(items):
     restore_mistyped_trailers(items, stats)
     encode_download_urls(items, stats)
     retype_seriesless_series(items, stats)
+    clear_impossible_tv_years(items, stats)
     return stats
+
+
+# --- A television programme cannot predate television -----------------------
+_TV_TYPES = ("tv-special", "tv-episode", "tv-series")
+_FIRST_TELEVISION_YEAR = 1928        # first experimental broadcasts; regular service 1936
+
+
+def clear_impossible_tv_years(items, stats):
+    """Clear a year that television had not been invented for yet.
+
+    Seen on the owner's Apple TV: the 1950s Television shelf displayed "The
+    Highlander 1899". It is an episode of The Adventures of Robin Hood (1955)
+    whose episode title collided with an old film, so the matcher took the film
+    and its year — Decision 026's wrong-match class, arriving on a TV shelf.
+    Others in the same shelf are simply garbage defaults (a run of 1924s on
+    items whose own titles say 1994 and 2016).
+
+    The year is CLEARED, not corrected. What the evidence supports is that 1899
+    is wrong, not what the right year is, and a card showing no year reads as
+    unknown while a card showing 1899 reads as a fact. Guessing would be the
+    wrong-match failure repeated in the opposite direction. `yearWas` keeps the
+    original so a later pass with real evidence can re-resolve it.
+
+    NOT extended to films: a film CAN be from 1899. The rule holds only because
+    a television programme cannot be.
+    """
+    fixed = 0
+    for it in items:
+        if it.get("contentType") not in _TV_TYPES:
+            continue
+        y = it.get("year")
+        if not isinstance(y, int) or y >= _FIRST_TELEVISION_YEAR:
+            continue
+        it["yearWas"] = y
+        it["year"] = None
+        it["decade"] = None
+        fixed += 1
+    if fixed:
+        stats["impossible_tv_years_cleared"] = fixed
+    return fixed
 
 
 # --- A series card never owns a video --------------------------------------
