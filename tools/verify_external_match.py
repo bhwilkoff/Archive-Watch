@@ -80,14 +80,34 @@ def _color_confident(it) -> bool:
 # it simply holds no evidence about this item.
 #
 # The signal that WOULD catch it is the one nothing currently asks for: what the
-# matched id actually IS. A tv-special matched to a tmdbID whose canonical type
-# is a MOVIE, or whose release year is decades from the item's own era, is a
-# contradiction on the same footing as Tier 1's imdb disagreement.
+# matched id actually IS. A tv-special matched to an id whose canonical type is a
+# MOVIE, or whose release year is decades from the item's era, contradicts the
+# match on the same footing as Tier 1's imdb disagreement.
 #
-# Do NOT reach for a cheaper proxy first. "External artwork but no year" was
-# measured across 6,136 TV items — 601 match it, and the sample is dominated by
-# CORRECT matches (The Benny Hill Show, Newhart, The Honeymooners), whose items
-# simply carry no year of their own. It is not a wrong-match signal.
+# SCOPE, measured rather than assumed (2026-08-18). Of 4,377 TV items carrying
+# external-match artwork:
+#
+#     4,159  are EPISODES inheriting their SERIES spine's art (they carry a
+#            seriesID and no film id) — correct by design, not a match at all
+#       165  carry a tmdbID only   <- needs a TMDb key; the anime case is here
+#                                     ("Beat The Clock" -> tmdb 42589)
+#        46  carry an imdbID       <- OMDb can answer TODAY via its `Type` field
+#         7  carry neither and no seriesID
+#
+# So the suspicious population is ~211, not thousands, and the majority of it
+# needs TMDb — which this workflow does not currently receive. TMDB_BEARER_TOKEN
+# exists as a repo secret (appstore-build.yml consumes it); wiring it here is the
+# prerequisite for the tmdb half.
+#
+# One caution for whoever builds it: `Type == "movie"` alone is NOT decisive. A
+# tv-special can legitimately be a TV movie, which OMDb also types as "movie"
+# (Kolchak: The Night Stalker, 1972). Pair the type with an era disagreement, or
+# restrict to items whose own collection places them decades from the match.
+#
+# Do NOT reach for a cheaper proxy. "External artwork but no year" was measured
+# across 6,136 TV items — 601 match it, and the sample is dominated by CORRECT
+# matches (The Benny Hill Show, Newhart, The Honeymooners) whose items simply
+# carry no year of their own. It is not a wrong-match signal.
 
 
 def is_candidate(it: dict) -> bool:
