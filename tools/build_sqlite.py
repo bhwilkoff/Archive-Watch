@@ -1015,8 +1015,16 @@ def _episode_item(ep, sid, series_title, series_poster, series_backdrop):
         "contentType": "tv-episode",
         "posterURL": poster,
         "backdropURL": series_backdrop,
-        "hasRealArtwork": bool(poster),
-        "artworkSource": "external" if still else ("series" if series_poster else None),
+        # bool(poster) was true for ANY poster, including a series thumbnail
+        # inherited from archive.org's auto-generated image. Episodes are
+        # materialized here, AFTER remediate_catalog has run over catalog.json,
+        # so the offline pass cannot reach them — 1,230 kept the wrong flag
+        # after the series cards themselves were corrected. Designed art is what
+        # the URL IS, not whether one exists.
+        "hasRealArtwork": bool(poster) and "services/img" not in (poster or ""),
+        "artworkSource": ("archive" if "services/img" in (poster or "")
+                          else "external" if still
+                          else "series" if series_poster else None),
         "downloadURL": ep.get("downloadURL"),
         "synopsis": ep.get("overview"),
         "rightsStatus": "public_domain",   # the visible catalog is PD/CC-only (Decision 027)
