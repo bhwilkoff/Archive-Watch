@@ -70,6 +70,26 @@ def _color_confident(it) -> bool:
         return True
     return sat < _SAT_CONFIDENT_BW or sat > _SAT_CONFIDENT_COLOR
 
+# OPEN GAP, measured 2026-08-18 — a wrong match this tool cannot currently see.
+#
+# Seen on the owner's Apple TV: a 1950s game show ("Another episode of the 50's
+# Game Show 'Beat The Clock'") wearing the poster of the 2012 anime "Another".
+# It IS a candidate here — only tv-series is excluded — but every tier abstains:
+# no Archive imdb id (Tier 1), no Archive date and no stored year (Tier 2), and
+# Tier 3 needs a year >= 1970 it does not have. The tool is behaving correctly;
+# it simply holds no evidence about this item.
+#
+# The signal that WOULD catch it is the one nothing currently asks for: what the
+# matched id actually IS. A tv-special matched to a tmdbID whose canonical type
+# is a MOVIE, or whose release year is decades from the item's own era, is a
+# contradiction on the same footing as Tier 1's imdb disagreement.
+#
+# Do NOT reach for a cheaper proxy first. "External artwork but no year" was
+# measured across 6,136 TV items — 601 match it, and the sample is dominated by
+# CORRECT matches (The Benny Hill Show, Newhart, The Honeymooners), whose items
+# simply carry no year of their own. It is not a wrong-match signal.
+
+
 def is_candidate(it: dict) -> bool:
     if it.get("contentType") == "tv-series":
         return False
