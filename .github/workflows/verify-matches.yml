@@ -55,6 +55,7 @@ jobs:
       - name: Verify external matches
         env:
           OMDB_KEY: ${{ secrets.OMDB_KEY }}
+          TMDB_BEARER_TOKEN: ${{ secrets.TMDB_BEARER_TOKEN }}
         run: |
           python tools/verify_external_match.py \
             --limit ${{ github.event.inputs.limit || '8000' }} \

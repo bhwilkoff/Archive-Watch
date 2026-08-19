@@ -31,6 +31,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 import threading
@@ -57,6 +58,19 @@ YEAR_RE = re.compile(r"\b(18\d\d|19\d\d|20[0-2]\d)\b")
 # coin-flip rather than evidence. Duplicated deliberately: this tool runs in a
 # workflow that does not build the DB.
 _SAT_CONFIDENT_BW, _SAT_CONFIDENT_COLOR = 4.0, 14.0
+
+
+def _load_tmdb_token():
+    """GH Actions secret -> Secrets.xcconfig, mirroring load_omdb_key."""
+    v = os.environ.get("TMDB_BEARER_TOKEN")
+    if v:
+        return v.strip()
+    sp = REPO / "Secrets.xcconfig"
+    if sp.exists():
+        for line in sp.read_text().splitlines():
+            if line.strip().startswith("TMDB_BEARER_TOKEN"):
+                return line.partition("=")[2].strip()
+    return None
 
 
 def _today() -> str:
@@ -216,7 +230,7 @@ def adopt(item: dict, rec: dict):
                         for i, n in enumerate(rec["actors"])]
 
 
-def verify(it: dict, omdb_key, session) -> str:
+def verify(it: dict, omdb_key, session, tmdb_token=None) -> str:
     """Inspect one item; mutate in place when wrong. Return a verdict string."""
     aid = it.get("archiveID") or ""
     a_imdb, a_year = archive_meta(aid)
@@ -257,6 +271,16 @@ def verify(it: dict, omdb_key, session) -> str:
         R._clear_wrong_artwork(it, evidence_year)   # keep the trustworthy Archive year
         return "cleared_year"
 
+    # Tier 0b — a TV item whose OWN collection dates it, matched to a work from
+    # a different era. Runs for tmdb-only items, which no other tier can touch.
+    if it.get("contentType") in _TV_KINDS and not it.get("seriesID"):
+        dec = collection_decade(it)
+        if dec is not None:
+            my = matched_tv_release_year(it, tmdb_token, session)
+            if my is not None and min(abs(my - dec), abs(my - (dec + 9))) > _ERA_TOLERANCE:
+                R._clear_wrong_artwork(it, None)
+                return "cleared_era"
+
     # Tier 3 — color era-gate (no reliable year to re-resolve to).
     #
     # Only on a CONFIDENT B&W reading. The chroma statistic overlaps between
@@ -287,6 +311,9 @@ def main() -> int:
     if not CATALOG.exists():
         print("[verify] no catalog.json (run catalog_release.py fetch first)"); return 2
 
+    tmdb_token = _load_tmdb_token()
+    if not tmdb_token:
+        print("[verify] no TMDB token — the TV era tier will abstain")
     omdb_key = O.load_omdb_key(REPO / "Secrets.xcconfig")
     if not omdb_key:
         print("[verify] no OMDB key — set OMDB_KEY"); return 0
@@ -312,7 +339,7 @@ def main() -> int:
         tmp.replace(CATALOG)
 
     def work(it):
-        v = verify(it, omdb_key, session)
+        v = verify(it, omdb_key, session, tmdb_token)
         if not args.dry_run and v not in ("omdb_error",):
             it["matchVerified"] = True
             # WHICH tier fired, not merely that one did. `matchVerified = True`
