@@ -1658,7 +1658,7 @@ def clear_impossible_tv_years(items, stats):
     NOT extended to films: a film CAN be from 1899. The rule holds only because
     a television programme cannot be.
     """
-    fixed = cleared_art = 0
+    fixed = cleared_art = cleared_ids = 0
     for it in items:
         if it.get("contentType") not in _TV_TYPES:
             continue
@@ -1679,6 +1679,15 @@ def clear_impossible_tv_years(items, stats):
                                                "tvmaze", "fanart"):
             _clear_wrong_artwork(it, None)
             cleared_art += 1
+        elif it.get("imdbID") or it.get("tmdbID"):
+            # No external ARTWORK, but still the wrong IDENTITY. Leaving the id
+            # is not harmless: the next enrichment cron re-fetches from it and
+            # the wrong poster arrives tomorrow. 152 items were in exactly this
+            # state after the first pass, which only cleared items whose art had
+            # already come from the match.
+            it["imdbID"] = None
+            it["tmdbID"] = None
+            cleared_ids += 1
         it["year"] = None
         it["decade"] = None
         fixed += 1
@@ -1686,6 +1695,8 @@ def clear_impossible_tv_years(items, stats):
         stats["impossible_tv_years_cleared"] = fixed
     if cleared_art:
         stats["impossible_tv_artwork_cleared"] = cleared_art
+    if cleared_ids:
+        stats["impossible_tv_ids_cleared"] = cleared_ids
     return fixed
 
 
