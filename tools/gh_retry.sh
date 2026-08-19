@@ -16,18 +16,31 @@ if [ "$#" -lt 1 ]; then
   exit 2
 fi
 
+# A DETERMINISTIC failure must not be retried. `gh release upload` answers
+# HTTP 422 "size must be less than 2147483648" when an asset exceeds GitHub's
+# 2 GiB limit, and that answer will not change on attempt five — the subtitle
+# index burned its whole budget on it nightly while publishing nothing. Retry
+# is for blips; a validation error is a fact.
+PERMANENT='HTTP 422|Validation Failed|size must be less than|already_exists'
+
 n=0
 max=5
 while :; do
   n=$(( n + 1 ))
-  if "$@"; then
+  out=$("$@" 2>&1); rc_run=$?
+  printf '%s\n' "$out"
+  if [ "$rc_run" -ne 0 ] && printf '%s' "$out" | grep -qE "$PERMANENT"; then
+    echo "permanent failure (not retrying): $*" >&2
+    exit "$rc_run"
+  fi
+  if [ "$rc_run" -eq 0 ]; then
     [ "$n" -gt 1 ] && echo "succeeded on attempt $n: $*"
     exit 0
   else
-    # Capture the command's real exit status HERE, inside the else branch. After
-    # `fi`, `$?` would be the compound if's status (0 when the branch isn't taken),
-    # not the command's — which would make this exit 0 and mask a stuck upload.
-    rc=$?
+    # The command's real status now comes from rc_run, captured at the call
+    # itself. Reading `$?` here would read the `if` test, not the command —
+    # which is why it was captured inside this branch before the restructure.
+    rc=$rc_run
   fi
   if [ "$n" -ge "$max" ]; then
     echo "::error::command failed after $max attempts (rc=$rc): $*" >&2

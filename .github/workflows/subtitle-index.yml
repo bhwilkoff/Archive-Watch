@@ -43,7 +43,13 @@ jobs:
       - name: Restore existing index (resumable)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release download subtitle-index -p subtitle.sqlite -O subtitle.sqlite || echo "first run — no existing index"
+        run: |
+          # Only the COMPRESSED index is published — the raw file passed GitHub's
+          # 2 GiB asset limit and every upload 422'd, so nothing was published at
+          # all from 2026-06 until this was found.
+          gh release download subtitle-index -p subtitle.sqlite.zz -O subtitle.sqlite.zz \
+            && python3 -c "import zlib; open('subtitle.sqlite','wb').write(zlib.decompress(open('subtitle.sqlite.zz','rb').read(),-15))" \
+            || echo "first run — no existing index"
 
       - name: Build cue index
         run: |
@@ -63,4 +69,4 @@ jobs:
           python3 -c "import zlib; d=open('subtitle.sqlite','rb').read(); c=zlib.compressobj(9,zlib.DEFLATED,-15); open('subtitle.sqlite.zz','wb').write(c.compress(d)+c.flush())"
           gh release view subtitle-index >/dev/null 2>&1 || \
             gh release create subtitle-index --title "Subtitle cue index" --notes "subtitle.sqlite for Creation Studio Supercut (#9)"
-          bash tools/gh_retry.sh gh release upload subtitle-index subtitle.sqlite subtitle.sqlite.zz --clobber
+          bash tools/gh_retry.sh gh release upload subtitle-index subtitle.sqlite.zz --clobber

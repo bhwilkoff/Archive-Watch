@@ -47,7 +47,9 @@ jobs:
       - name: Get the subtitle index
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release download subtitle-index -p subtitle.sqlite -O subtitle.sqlite
+        run: |
+          gh release download subtitle-index -p subtitle.sqlite.zz -O subtitle.sqlite.zz
+          python3 -c "import zlib; open('subtitle.sqlite','wb').write(zlib.decompress(open('subtitle.sqlite.zz','rb').read(),-15))"
 
       # A BUDGET, not just a timeout. This job hit its 330-minute wall on every
       # one of its 15 runs — GitHub reports a timeout as "cancelled", so the run
@@ -76,4 +78,4 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python3 -c "import zlib; d=open('subtitle.sqlite','rb').read(); c=zlib.compressobj(9,zlib.DEFLATED,-15); open('subtitle.sqlite.zz','wb').write(c.compress(d)+c.flush())"
-          bash tools/gh_retry.sh gh release upload subtitle-index subtitle.sqlite subtitle.sqlite.zz --clobber
+          bash tools/gh_retry.sh gh release upload subtitle-index subtitle.sqlite.zz --clobber
