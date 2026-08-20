@@ -491,6 +491,16 @@ struct Featured: Decodable, Sendable {
         /// A shelf that is ABOUT television, declared in featured.json. Its
         /// members are standalone programmes (`tv-special`), which every other
         /// Home shelf deliberately excludes.
+        ///
+        /// `category` is otherwise PRESENTATIONAL — it picks the shelf's accent
+        /// colour (Decision 013's content-meaning palette), not its membership.
+        /// Seven shelves declare a category no member's contentType matches, and
+        /// that is correct rather than broken: NASA is filed `documentary` for a
+        /// teal accent while its items are typed `short-film`, which is exactly
+        /// the form-vs-meaning split D013 draws. Measured 2026-08-19 across all
+        /// 25 shelves; the ONLY shelves declaring `tv-series` are the four
+        /// Classic TV ones plus popular-classic-tv, so reading membership off
+        /// this field here cannot capture a shelf that meant it as a colour.
         var isTV: Bool { category == "tv-series" }
     }
 
