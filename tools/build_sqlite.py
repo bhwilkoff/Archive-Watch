@@ -212,11 +212,22 @@ def dedupe_by_imdb(items):
         if k not in best or score(it) > score(best[k]):
             best[k] = it
     winners = {b["archiveID"] for b in best.values()}
+    # Where each dropped copy went. Favorites, playlists, watch progress and
+    # Top Shelf resume are all keyed by archiveID, so dropping one without a
+    # forwarding address is a silent deletion from somebody's library —
+    # Decision 085 built that forwarding for merge_film_duplicates and this
+    # path, which drops an order of magnitude MORE ids, never had it.
+    aliases = {}
     out = []
     for it in items:
         k = it.get("imdbID")
         if not k or it["archiveID"] in winners:
             out.append(it)
+        elif k in best:
+            aliases[it["archiveID"]] = best[k]["archiveID"]
+    dedupe_by_imdb.aliases = aliases
+    if aliases:
+        print(f"[dedup] {len(aliases)} imdb-duplicate ids forward to their winner")
     return out
 
 
@@ -722,13 +733,24 @@ def merge_film_duplicates(items, spine_aids=frozenset()):
     # Chase transitively: an id merged into a copy that was itself merged must
     # forward to the FINAL survivor, or the second hop dead-ends exactly as the
     # first one did.
+    _chase_aliases(aliases)
+    merge_film_duplicates.aliases = aliases
+    return [it for it in items if it["archiveID"] not in drop_ids]
+
+
+def _chase_aliases(aliases):
+    """Resolve each id to its FINAL survivor, in place.
+
+    An id dropped by the imdb dedup forwards to a winner that a later film
+    merge may itself drop, so the two maps have to be chased as one union or
+    the second hop dead-ends exactly as the first one did.
+    """
     for old in list(aliases):
         seen = {old}
         while aliases.get(aliases[old]) and aliases[old] not in seen:
             seen.add(aliases[old])
             aliases[old] = aliases[aliases[old]]
-    merge_film_duplicates.aliases = aliases
-    return [it for it in items if it["archiveID"] not in drop_ids]
+    return aliases
 
 
 def _insert_many(db, table, rows, mode="INSERT OR IGNORE"):
@@ -1174,7 +1196,10 @@ def build_db_obj(cat, out_db, rotate_seed="0", materialize_episodes=True):
     db = sqlite3.connect(out_db)
     create_schema(db)
     n_items = populate_items(db, deduped, rotate_seed=rotate_seed, skip_aids=spine_aids)
-    aliases = getattr(merge_film_duplicates, "aliases", {}) or {}
+    # BOTH dedup paths, chased as one union so a cross-path hop resolves.
+    aliases = dict(getattr(dedupe_by_imdb, "aliases", {}) or {})
+    aliases.update(getattr(merge_film_duplicates, "aliases", {}) or {})
+    _chase_aliases(aliases)
     live = {it["archiveID"] for it in deduped}
     rows = [(o, n) for o, n in aliases.items() if n in live]
     _insert_many(db, "item_aliases", rows)

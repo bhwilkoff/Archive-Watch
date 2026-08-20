@@ -3923,6 +3923,24 @@ This does NOT apply to `excluded` items (Decisions 027/044/083): those are
 hidden deliberately — a rights or playability judgement — and forwarding a
 viewer to a different film would be worse than the item being gone.
 
+**Amendment 2026-08-20 — the OTHER dedup path had no forwarding at all.**
+`item_aliases` was populated only by `merge_film_duplicates`. `dedupe_by_imdb`
+runs BEFORE it, drops every non-winning copy that shares an IMDb id, and
+recorded nothing — **6,158 ids on the live catalog against the 551 the alias
+table covered**, an order of magnitude more silent deletions than the path this
+decision was written for. Found by asserting that a restored film was reachable
+by its own archiveID and getting a FAIL: the film was visible, under a better
+id, and the id I asked about had been dropped with no forwarding address.
+
+Both maps are now unioned and chased as ONE, because the paths compose — an id
+dropped by the imdb dedup forwards to a winner a later film merge may itself
+drop, and chasing each map separately dead-ends on exactly that hop. Measured:
+551 -> 5,395 alias rows, 0 pointing at a dead id, 0 self-referential, and every
+one of the 1,325 ids still without a forwarding address is an `excluded` item
+whose whole IMDb group is hidden — nowhere to forward, and forwarding a hidden
+item to a different film is what this decision already forbids. Zero VISIBLE
+items are stranded.
+
 **Consequences**: `item_aliases` is a new table older clients simply never
 query, so it is additive per Decision 020. It is small (hundreds of rows) and
 rebuilt from scratch every publish, so it stays consistent with whatever the
