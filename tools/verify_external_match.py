@@ -153,7 +153,7 @@ def collection_decade(it):
     return None
 
 
-def matched_tv_release_year(it, tmdb_token, session):
+def matched_tv_release_year(it, tmdb_token, session, omdb_key=None):
     """First-air year of the TV work this item was matched to, or None.
 
     ONLY the /tv endpoint, and that is the whole correctness of this function. A
@@ -168,15 +168,32 @@ def matched_tv_release_year(it, tmdb_token, session):
     404s on /tv is an id we cannot interpret, and abstaining is the answer.
     """
     tmdb = it.get("tmdbID")
-    if not (tmdb and tmdb_token):
+    if tmdb and tmdb_token:
+        hdr = {"Authorization": f"Bearer {tmdb_token}", "accept": "application/json"}
+        try:
+            r = session.get(f"https://api.themoviedb.org/3/tv/{tmdb}", headers=hdr, timeout=20)
+            if r.status_code == 200:
+                d = (r.json().get("first_air_date") or "")[:4]
+                if d.isdigit():
+                    return int(d)
+        except Exception:
+            pass
+    # No tmdb id (or no token): OMDb answers by imdb id, and it needs no extra
+    # secret because this tool already holds an OMDb key. 32 TV items carry an
+    # imdb id and a decade collection; 5 contradict, and every one of the five
+    # is Type=movie — a TV programme matched to a FILM, which is the shape D087
+    # predicted. There is no cross-type id collision here: an imdb id names one
+    # work, unlike a tmdb id, which is namespaced per type.
+    imdb = it.get("imdbID")
+    if not (imdb and omdb_key):
         return None
-    hdr = {"Authorization": f"Bearer {tmdb_token}", "accept": "application/json"}
     try:
-        r = session.get(f"https://api.themoviedb.org/3/tv/{tmdb}", headers=hdr, timeout=20)
-        if r.status_code != 200:
+        r = session.get("https://www.omdbapi.com/",
+                        params={"apikey": omdb_key, "i": imdb}, timeout=20).json()
+        if r.get("Response") != "True":
             return None
-        d = (r.json().get("first_air_date") or "")[:4]
-        return int(d) if d.isdigit() else None
+        m = re.search(r"(\d{4})", r.get("Year") or "")
+        return int(m.group(1)) if m else None
     except Exception:
         return None
 
@@ -276,7 +293,7 @@ def verify(it: dict, omdb_key, session, tmdb_token=None) -> str:
     if it.get("contentType") in _TV_KINDS and not it.get("seriesID"):
         dec = collection_decade(it)
         if dec is not None:
-            my = matched_tv_release_year(it, tmdb_token, session)
+            my = matched_tv_release_year(it, tmdb_token, session, omdb_key)
             if my is not None and min(abs(my - dec), abs(my - (dec + 9))) > _ERA_TOLERANCE:
                 R._clear_wrong_artwork(it, None)
                 return "cleared_era"
