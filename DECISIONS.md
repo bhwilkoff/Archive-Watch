@@ -4205,3 +4205,41 @@ own verdict.
 first time. Related: Decision 088 (a check against data that can rot needs a TTL
 proportional to how visible the claim is — the same reasoning applied to
 freshness rather than to coverage), and 089 (a green run that did nothing).
+
+## 091 — A time budget measures the whole tool, not the phase that happens to carry it
+*Date: 2026-08-20*
+
+`build_canonical_tv.py --max-minutes` is now measured from process start, not
+from the start of the rebuild loop, and the tool says so loudly when resolution
+alone consumes the whole budget.
+
+**Why**: the weekly TV rebuild died on its 180-minute step timeout on
+2026-08-16, and the budget meant to prevent exactly that was real and working.
+It was simply counting the wrong interval. Measured on run 32373160578:
+
+    13:15:11  4124 raw targets; resolving + pooling…
+    14:09:33  758 unique canonical shows, 2839 unmatched     <- 54m22s, UNBOUNDED
+    14:14:52  build complete                                  <- 5m19s, budget honoured exactly
+
+`resolve_and_pool` is network bound (every raw target against TVmaze at a 0.3s
+throttle) and runs BEFORE the deadline was computed, so the production default
+gave 54m + 150m = **204 minutes against a 180-minute timeout**. The arithmetic
+was the whole bug.
+
+**How to apply**: when a tool has two expensive phases, a deadline computed
+between them bounds only the second — start the clock at process start. Do NOT
+"fix" this by bounding `resolve_and_pool` naively: it returns `(shows,
+unmatched)`, and `unmatched` feeds reconcile, which RECLASSIFIES those items OUT
+of tv-series. A deadline there must distinguish "tried and did not match" from
+"never tried", or it strips TV classification from shows it never looked at.
+Deferring shows is safe and needs no such care — verified on the same run:
+757 shows deferred, series files 485 -> 485, reconcile deleted 0 superseded and
+0 orphan files.
+
+**Consequences**: a run whose resolution outlasts the budget now rebuilds
+nothing and says so, instead of timing out and losing the step. That is the
+right trade — Decision 057's rule that a budget must PUBLISH rather than be
+killed, applied one level up. The per-episode half of this (the deadline
+reaching inside `rebuild_show`, degrading to --no-repick rather than dropping
+episodes) is proven in the same run: "budget reached mid-show: 218 episode(s)
+kept their existing video URL".

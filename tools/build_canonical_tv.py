@@ -756,6 +756,16 @@ def main():
                          "and the catalog publish. The workflow produced nothing.")
     args = ap.parse_args()
 
+    # The budget is TOTAL WALL CLOCK for this tool, measured from here — not
+    # from the start of the rebuild loop. resolve_and_pool below is network
+    # bound and unbounded: measured on 2026-08-20 it spent 54m22s resolving
+    # 4,124 raw targets against TVmaze at the 0.3s throttle, while the loop
+    # itself honoured its 5-minute budget exactly. With the production default
+    # that is 54m + 150m = 204m against the workflow's 180-minute step timeout,
+    # which is precisely why the weekly rebuild died on 2026-08-16 — the budget
+    # was real, it just started counting after the expensive half was over.
+    started = time.monotonic()
+
     raw = gather_raw_targets(args.titles)
     print(f"[tv] {len(raw)} raw targets; resolving + pooling by canonical show…",
           flush=True)
@@ -768,7 +778,18 @@ def main():
     reclassify = []     # archiveIDs to drop from tv-series (singles w/ no map)
     orphan_series = []  # existing series-file slugs whose show was rejected
     seen_slugs = set()
-    deadline = (time.monotonic() + args.max_minutes * 60) if args.max_minutes else None
+    deadline = (started + args.max_minutes * 60) if args.max_minutes else None
+    if deadline is not None and time.monotonic() > deadline:
+        # Resolution alone outlasted the whole budget. Every show defers, which
+        # is SAFE (deferred spines are never deleted — reconcile globs series/
+        # and consumed_old covers only PROCESSED shows; verified 485 -> 485 on
+        # run 32373160578) but means this run rebuilds nothing. Say so loudly
+        # rather than reporting a quiet success.
+        print(f"[tv] WARNING: resolve+pool alone used the entire "
+              f"{args.max_minutes:g}-minute budget "
+              f"({(time.monotonic() - started) / 60:.0f}m). No show will be "
+              f"rebuilt this run. Raise --max-minutes or lower --limit.",
+              flush=True)
     stopped_early = 0
     for sid, slot in sorted(shows.items(), key=lambda kv: -len(kv[1]["items"])):
         if deadline and time.monotonic() > deadline:
