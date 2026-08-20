@@ -16,7 +16,14 @@ DEVELOPER_DIR="${DEVELOPER_DIR:-/Applications/Xcode-beta.app/Contents/Developer}
   xcrun devicectl device capture screenshot --device "$DEV" --destination "$OUT" >/dev/null 2>&1
 sz=$(stat -f%z "$OUT" 2>/dev/null || echo 0)
 if [ "$sz" -lt "$MIN" ]; then
-  echo "BLIND: $OUT is ${sz}B (<${MIN}B) — screen asleep or app not foreground" >&2
+  # 108824 bytes EXACTLY, repeatedly, while `devicectl ... process launch`
+  # reports "Launched", means the Apple TV is awake and rendering to a display
+  # that is OFF — i.e. the TELEVISION is off or on another input. The Apple TV
+  # cannot fix that: pyatv turn_on only sends CEC, which the set may ignore.
+  # Distinguish it from a sleeping Apple TV, where the LAUNCH itself fails with
+  # CoreDeviceError 10002. Launch works + capture black = go turn the TV on.
+  echo "BLIND: $OUT is ${sz}B (<${MIN}B)" >&2
+  echo "  if launch SUCCEEDS but capture is black, the television is off/on another input" >&2
   exit 1
 fi
 if [ -x /tmp/awocr ]; then
