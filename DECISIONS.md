@@ -4161,10 +4161,17 @@ the table and both numbers — verified against the real index, including a
 faithful replay of the 08-19 rebuild.
 
 **Consequences**: the cue index rebuilt itself, but the `aligned` resume markers
-are gone, so ~700k word timings must be re-derived at the 7-9 films/day the
-alignment job sustains against archive.org's refusal of ubuntu runners. That
-rate — not a budget — is the real constraint on this index, and it is why
-losing the history costs months rather than a night. Complements Decision 057
+are gone, so ~700k word timings must be re-derived against archive.org's refusal
+of ubuntu runners. That failure rate — not a budget — is the real constraint on
+this index.
+
+**Correction 2026-08-20**: "months rather than a night" was too pessimistic, and
+the error was reasoning in FILMS when the unit that matters is WORDS. The first
+scheduled run after the guard landed did 13 films (30 of 43 audio downloads
+still failed) and took the index from 90,084 to **262,436** — 37% of the loss
+recovered in ONE run, because word count per film varies enormously and a
+feature carries ~13k. Recovery is days, not months. The films/day figure was
+right; using it to estimate word recovery was not. Complements Decision 057
 (a budget that PUBLISHES, never a timeout that kills) and 083 (shared state
 needs a registered guard, not a careful author).
 
