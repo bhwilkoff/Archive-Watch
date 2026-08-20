@@ -6,7 +6,7 @@
   "yearStart": 1988,
   "yearEnd": 2018,
   "overview": "Murphy Brown is the star reporter on a news magazine show called FYI. She lives in a townhouse that she is having repainted; Eldin the painter may never finish the job. Jim Dial is the uptight senior anchor, a seasoned veteran. Frank is a single guy and constantly looking for a girlfriend, he is also Murphy's best friend. Corky is a former Miss America turned newsperson, she covers all the \"hard\" news.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/169/423518.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/5b7fb9661fa76.jpg",
   "backdropURL": null,
   "genres": [
     "Drama",
@@ -4516,7 +4516,74 @@
   ],
   "episodesCount": 247,
   "canonicalEpisodesCount": 260,
-  "seriesImdbID": "tt0094514",
-  "canonicalEpisodeCount": 260,
-  "canonicalSeasons": 11
+  "tvdbID": "78166",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Candice Bergen",
+      "character": "Murphy Brown",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/253854/primary.jpg"
+    },
+    {
+      "name": "Joe Regalbuto",
+      "character": "Frank Fontana",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/277471/5ee3f8d97bb5d.jpg"
+    },
+    {
+      "name": "Faith Ford",
+      "character": "Corky Sherwood",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253903/photo/64ed5bc311a34.jpg"
+    },
+    {
+      "name": "Grant Shaud",
+      "character": "Miles Silverberg",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/291579/5ee3f8ffa2e79.jpg"
+    },
+    {
+      "name": "Charles Kimbrough",
+      "character": "Jim Dial",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/254272/photo/649c0b923bfd9.jpg"
+    },
+    {
+      "name": "Pat Corley",
+      "character": "Phil",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/255261/5ee3f92581166.jpg"
+    },
+    {
+      "name": "Robert Pastorelli",
+      "character": "Eldin Bernecky",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/269748/photo/622f94acd3416.jpg"
+    },
+    {
+      "name": "Lily Tomlin",
+      "character": "Kay Carter-Shepley",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/253975/primary.jpg"
+    },
+    {
+      "name": "Jake McDorman",
+      "character": "Avery Brown",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/302893/photo/6066d64470ca1.jpg"
+    },
+    {
+      "name": "Nik Dodani",
+      "character": "Pat Patel",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/457854/photo/64022ce458f80.jpg"
+    },
+    {
+      "name": "Tyne Daly",
+      "character": "Phyllis",
+      "order": 10,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/253543/primary.jpg"
+    }
+  ]
 }

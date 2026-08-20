@@ -6,7 +6,7 @@
   "yearStart": 1975,
   "yearEnd": null,
   "overview": "Saturday Night Live is an Emmy Award-winning late-night comedy showcase.Since its inception in 1975, \"SNL\" has launched the careers of many of the brightest comedy performers of their generation. As The New York Times noted on the occasion of the show's Emmy-winning 25th Anniversary special in 1999, \"in defiance of both time and show business convention, 'SNL' is still the most pervasive influence on the art of comedy in contemporary culture.\" At the close of the century, \"Saturday Night Live\" placed seventh on Entertainment Weekly's list of the Top 100 Entertainers of the past fifty years.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/589/1474771.jpg",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76177-4.jpg",
   "backdropURL": null,
   "genres": [
     "Comedy",
@@ -2973,5 +2973,117 @@
   "canonicalEpisodesCount": 1017,
   "seriesImdbID": "tt0072562",
   "canonicalEpisodeCount": 571,
-  "canonicalSeasons": 51
+  "canonicalSeasons": 51,
+  "tvdbID": "76177",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Michael Che",
+      "character": "Michael Che",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/310248/5f384a4a08e4e.jpg"
+    },
+    {
+      "name": "Mikey Day",
+      "character": "Mikey Day",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/404814.jpg"
+    },
+    {
+      "name": "Andrew Dismukes",
+      "character": "Andrew Dismukes",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8289873/photo/6a2ac20483d25.jpg"
+    },
+    {
+      "name": "Marcello Hernandez",
+      "character": "Marcello Hernandez",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9102625/photo/6a0726cbe4a4c.jpg"
+    },
+    {
+      "name": "James Austin Johnson",
+      "character": "James Austin Johnson",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/532005/photo/66dcf14d7db2f.jpg"
+    },
+    {
+      "name": "Colin Jost",
+      "character": "Colin Jost",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/404900/photo/673f983d86183.jpg"
+    },
+    {
+      "name": "Ashley Padilla",
+      "character": "Ashley Padillia",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9131187/photo/66f977f42ca0c.jpg"
+    },
+    {
+      "name": "Sarah Sherman",
+      "character": "Sarah Sherman",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8083955/photo/673f6606cd26d.jpg"
+    },
+    {
+      "name": "Kenan Thompson",
+      "character": "Kenan Thompson",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/267225/primary.jpg"
+    },
+    {
+      "name": "Jane Wickline",
+      "character": "Jane Wickline",
+      "order": 9,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9131188/photo/66f978177e6e8.jpg"
+    },
+    {
+      "name": "Tommy Brennan",
+      "character": "Tommy Brennan",
+      "order": 10,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8873391/photo/69aed568031b9.jpg"
+    },
+    {
+      "name": "Jeremy Culhane",
+      "character": "Jeremy Culhane",
+      "order": 11,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/596087/photo/65a1a96c8b919.jpg"
+    },
+    {
+      "name": "Kam Patterson",
+      "character": "Kam Patterson",
+      "order": 12,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9146029/photo/69df21cd60aae.jpg"
+    },
+    {
+      "name": "Veronika Slowikowska",
+      "character": "Veronika Slowikowska",
+      "order": 13,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8166610/photo/6608637bf23c1.jpg"
+    },
+    {
+      "name": "(duplicate)",
+      "character": "Ben Marshall",
+      "order": 14,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9095384/photo/624094dc564a0.jpg"
+    },
+    {
+      "name": "Chloe Fineman",
+      "character": "Chloe Fineman",
+      "order": 15,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/8116813/5ef870cc5542c.jpg"
+    },
+    {
+      "name": "Bowen Yang",
+      "character": "Bowen Yang",
+      "order": 16,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8116811/photo/62a664ccd7b90.jpg"
+    },
+    {
+      "name": "Ego Nwodim",
+      "character": "Ego Nwodim",
+      "order": 17,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/404911/photo/63272514a74de.jpg"
+    }
+  ]
 }
