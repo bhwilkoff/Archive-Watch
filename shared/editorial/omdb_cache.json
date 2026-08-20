@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-08-19T03:12:15Z",
+  "updated_at": "2026-08-20T03:11:13Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-08-19T03:12:15Z"
+      "last_tried": "2026-08-20T03:11:13Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-08-19T03:12:15Z"
+      "last_tried": "2026-08-20T03:11:13Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -322388,6 +322388,93 @@
         "Drama"
       ],
       "fetched_at": "2026-08-16T03:14:22Z",
+      "schema": 3
+    },
+    "tt0337147": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "This is a great great short-film and I wish its director, Santi Trullenque, will make more stuff as good as this short-film. Saturday Morning consist in a one single shot (a 360? traveling) that starts inside a house and comes outside to show us an unexpected event. Everything seems great but (as David Lynch movies) Santi Trullenque show us that that's not the way thing are. Everything is so calm and at the same time so tense. You can't stop watching it until the end when you see the great ending.The way of practicing the language of the moving image contributes to the impact on the spectator's interest and attention. It is heightened in relation to the movement itself; one pays more attention to the edges of the frame or the limits of its visible field and to what might appear from one second to the next. Trullenque creates a suspense effect using this play and interaction with the spectator's perception. What is appearing now from the right? What was it we saw, and what is now disappearing out of the frame to the left? To me, the main characters are the sound and the camera itself.Great exercise of film-making and I just can wish a lot of luck to its director! Two thumps up!!!Julien Picot",
+      "runtime_min": 9,
+      "director": "Santi Trullenque",
+      "actors": [
+        "Dani Codina",
+        "Robert Forcadell"
+      ],
+      "genres": [
+        "Short"
+      ],
+      "fetched_at": "2026-08-20T03:11:13Z",
+      "schema": 3
+    },
+    "tt1065093": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTU0MDIwMjIxMl5BMl5BanBnXkFtZTcwMDU0Mjc1MQ@@._V1_SX300.jpg",
+      "imdb_rating": 5.5,
+      "imdb_votes": 13,
+      "content_rating": null,
+      "plot": "Brian Young and Nate Beckman star in this 97 min. drama of friendship and trust, or lack thereof. Having been friends their whole lives, they risk everything by getting into a fight that may never bring them back to see each other again. Envious of each other, they can't help but argue to whatever end. Set in St. Louis, it makes for a scenic drama that turns into somewhat of a nightmare. The loss that the two encounter may never be forgotten, but there is one turnaround that they didn't expect. Maybe a lost friendship can be re-found and perhaps piece their lives back together.",
+      "runtime_min": 97,
+      "director": "Brent Madison",
+      "actors": [
+        "Joe Hammerstone",
+        "Devlin Wilder",
+        "Danielle Taraschi"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-08-20T03:11:13Z",
+      "schema": 3
+    },
+    "tt14540164": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BN2IyZGQxODQtM2QxMC00NTk0LTgzMDItNmE2NmE4ZjNiODQxXkEyXkFqcGdeQXVyMTMxODA5ODYx._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Huw Edwards presents the Royal British Legion's annual Festival of Remembrance, with the Prince of Wales and the Duchess of Cornwall in attendance.",
+      "runtime_min": 94,
+      "director": "Bridget Caldwell",
+      "actors": [
+        "Huw Edwards"
+      ],
+      "genres": [],
+      "fetched_at": "2026-08-20T03:11:13Z",
+      "schema": 3
+    },
+    "tt2575890": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNmQ0M2VlOTItNjc1Yi00OTY3LTg1YzgtNDliOWIyZTlkNzJmXkEyXkFqcGdeQXVyNDYzMDMxOTc@._V1_SX300.jpg",
+      "imdb_rating": 6.3,
+      "imdb_votes": 80,
+      "content_rating": "TV-MA",
+      "plot": "Couples therapy takes an unexpected erotic detour for a group of sexy mates in this adults-only tale.",
+      "runtime_min": 82,
+      "director": "David Barber",
+      "actors": [
+        "Kelli McCarty",
+        "Jayden Cole",
+        "Victoria White"
+      ],
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "fetched_at": "2026-08-20T03:11:13Z",
+      "schema": 3
+    },
+    "tt9627050": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYjE3NWJhMzEtZTk1Ni00ZTBhLWEwMDktYWZmYWVkYmZiMjM2XkEyXkFqcGdeQXVyMjg0MTI5NzQ@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "It has been eight years since Typhoon Morakot, the deadliest typhoon to impact Taiwan in recorded history, swept through Siaolin Village. It left 462 inhabitants dead, including Mr WENG Jui-chi's beloved family. Like the other 46 survivors, WENG struggled to face the recurrent nightmare after losing his family, tackling the regret and guilt of being left alone.",
+      "runtime_min": 84,
+      "director": "Akira Chen",
+      "actors": [],
+      "genres": [
+        "Documentary"
+      ],
+      "fetched_at": "2026-08-20T03:11:13Z",
       "schema": 3
     }
   },
