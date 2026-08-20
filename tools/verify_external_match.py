@@ -139,6 +139,25 @@ _DECADE_COL = re.compile(r"classic_tv_(19\d0)s?", re.I)
 _ERA_TOLERANCE = 15          # years; a decade collection is a 10-year window
 
 
+# WHY THE TIER STOPS AT THE DECADE COLLECTION, measured 2026-08-20.
+#
+# 68 TV items carry an external id and no decade-stating collection, so this
+# tier abstains on them. 65 DO have a stored `year`, which looks like the
+# obvious substitute and is not: using it would be circular. A match's own year
+# cannot test that match — D026's whole premise is corroboration from a signal
+# the matcher did not supply.
+#
+# Provenance would settle it, and the catalog does not record it FOR YEAR. It
+# records `runtimeSource`, `synopsisSource`, `languageSource`, `metaSource` and
+# `contentTypeSource`; `yearSource` exists on 11 items out of 6,001 sampled, and
+# `archiveDate` on 8. So for these 68 there is no way to tell an Archive-derived
+# year from a TMDb-derived one, and no independent era signal survives.
+#
+# The unlock is not a cleverer rule here — it is stamping `yearSource` where the
+# year is set, the same way the other fields already do. Until then, abstaining
+# is correct.
+
+
 def collection_decade(it):
     """The decade the ARCHIVE ITSELF files this item under, e.g. classic_tv_1950s.
 
