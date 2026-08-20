@@ -4085,3 +4085,53 @@ re-sourced after demotion: 447 generated frame covers (Decision 023), 17 Commons
 8 TVDb/TMDb. `posterDead` is a durable wants-marker and the re-covering pass
 consumed it exactly as intended, so the whole chain — die, demote, mark,
 re-source, re-flag — is observably working.
+
+## 089 — A shared index publishes only what it can prove it did not shrink; a missing asset is an emergency, not a first run
+*Date: 2026-08-20*
+
+`subtitle.sqlite` is appended to by two workflows — `subtitle-index.yml` (cues)
+and `word-index.yml` (word timings) — through one release asset. Both now
+snapshot the index's row counts immediately after restoring it
+(`tools/sqlite_publish_guard.py snapshot`) and refuse to upload if any table
+came out smaller (`check`). Their restore treats only a NON-EXISTENT release as
+a first run: a release whose asset has vanished fails the step. And publish is
+no longer plain `always()` — it still runs when the COMPUTE step is killed,
+which is why `always()` is there, but never when the RESTORE failed.
+
+**Why**: measured in the published artifact — `words=90,084`, `aligned=7`, one
+run's output. Two days earlier it held **702,148**. The chain contains its own
+control:
+
+    08-18 03:42  subtitle-index uploaded the raw 1.17 GB subtitle.sqlite beside
+                 the .zz. `--clobber` DELETES before replacing; the raw upload
+                 422'd; BOTH assets were left deleted.
+    08-18/19     word-index restore hit "no assets to download" and FAILED,
+                 twice, publishing nothing. It has no `|| true`.
+    08-19 22:36  subtitle-index hit the IDENTICAL condition, its
+                 `|| echo "first run — no existing index"` swallowed it, and it
+                 rebuilt 4,000 films from zero and republished over the index.
+
+The workflow without the swallow refused to proceed; the one with it destroyed
+the data. Nothing failed — the destroying run is green. This is the same
+clobber pattern fixed in `subtitles.yml` on 2026-08-09 and missed here, which
+is the argument for a guard rather than a third careful reading: the pattern
+has now been found three times by noticing the damage.
+
+**How to apply**: `--clobber` is a DELETE followed by an upload, so any upload
+that can fail leaves the asset gone — never pass it a file that might be
+rejected (the raw 1.17 GB member is what 422'd), and never let a workflow
+publish a rebuilt artifact without comparing it to what it restored. An
+`|| true` / `|| echo` on a restore is only ever correct when the *absence
+itself* is proven benign; "the asset is missing" is not that, and the way to
+tell a genuine first run is that the RELEASE does not exist. The guard passes
+on growth, equality, a missing baseline and an empty baseline, and fails naming
+the table and both numbers — verified against the real index, including a
+faithful replay of the 08-19 rebuild.
+
+**Consequences**: the cue index rebuilt itself, but the `aligned` resume markers
+are gone, so ~700k word timings must be re-derived at the 7-9 films/day the
+alignment job sustains against archive.org's refusal of ubuntu runners. That
+rate — not a budget — is the real constraint on this index, and it is why
+losing the history costs months rather than a night. Complements Decision 057
+(a budget that PUBLISHES, never a timeout that kills) and 083 (shared state
+needs a registered guard, not a careful author).
