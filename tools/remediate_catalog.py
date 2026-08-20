@@ -1210,6 +1210,49 @@ TRAILER_MAX_FRACTION = 0.25     # ...and the file must be a small piece of it
 TRAILER_SOUND_ERA = 1930
 
 
+# Markers owned by the playback/codec/duplicate verifiers. An item carrying one
+# was hidden for a reason this rule cannot see, so restoring it would silently
+# overrule that tool — and Decision 083's FOREIGN list means the rights
+# reconcile SKIPS such items rather than re-hiding them, so nothing downstream
+# would catch it. Speedy_940 is the live case: a 50-second stub of an 86-minute
+# feature, spared by the silent-era guard and `persistently_unavailable`.
+_FOREIGN_EXCLUSION = ("playbackDead", "playbackReason", "strictFail",
+                      "needsReSource", "codecUnsupported", "livenessDead",
+                      "livenessReason", "episodeDuplicate", "duplicateOf",
+                      "duplicateMergedInto")
+
+
+def _foreign_exclusion(it) -> bool:
+    """Is this item ALSO held excluded by a tool other than the trailer rule?"""
+    return any(it.get(m) for m in _FOREIGN_EXCLUSION)
+
+
+def _trailer_test(it) -> bool:
+    """Would the CURRENT rule judge this item a trailer? Pure, no mutation.
+
+    Extracted so an already-excluded item can be re-judged by exactly the same
+    evidence as a fresh one, rather than inheriting a verdict from a detector
+    that no longer exists.
+    """
+    ct = it.get("contentType") or ""
+    if ct in ("tv-episode", "tv-series", "commercial"):
+        return False
+    canonical = max(it.get("runtimeWasSeconds") or 0,
+                    it.get("runtimeSeconds") or 0 if it.get("trueRuntimeSeconds") else 0)
+    actual = (it.get("trueRuntimeSeconds") or it.get("fileRuntimeSeconds")
+              or it.get("runtimeSeconds") or 0)
+    year = it.get("year") or 0
+    if not actual or actual > TRAILER_MAX_ACTUAL:
+        return False
+    if it.get("isSilentFilm") or (year and year < TRAILER_SOUND_ERA):
+        return False
+    if ct == "trailer":
+        return True
+    if not year or canonical < TRAILER_MIN_CANONICAL:
+        return False
+    return actual < TRAILER_MAX_FRACTION * canonical
+
+
 def flag_trailers(items, stats):
     """Reclassify + reversibly exclude trailers/clips posing as the feature."""
     for it in items:
@@ -1226,6 +1269,25 @@ def flag_trailers(items, stats):
                     and not it.get("excludedReason"):
                 it["excludedReason"] = "trailer"
                 stats["trailer_reason_stamped"] += 1
+            # RE-JUDGE an old exclusion instead of only labelling it. Stamping
+            # the reason made these stick, which was the point — but it also
+            # froze the OLD detector's verdicts forever, and that detector ran
+            # before the silent-era guard existed. Measured on the live catalog:
+            # 227 items hidden as trailers, 140 of which the CURRENT test would
+            # NOT hide, almost all silent — Chaplin's "Police", Keaton's "The
+            # Cameraman", "The Golem", Méliès' "À La Conquête Du Pôle". Decision
+            # 052's own rule says a short silent is likelier a surviving
+            # FRAGMENT than a trailer, and that the test decides "for every item
+            # alike"; an exclusion nobody re-examines is the one population
+            # exempt from that.
+            if (it.get("excludedReason") == "trailer" and not _trailer_test(it)
+                    and not _foreign_exclusion(it)):
+                it["excluded"] = False
+                it.pop("excludedReason", None)
+                it["isTrailer"] = False
+                if it.get("contentTypeWas"):
+                    it["contentType"] = it["contentTypeWas"]
+                stats["trailer_exclusion_restored"] += 1
             continue
         ct = it.get("contentType") or ""
         if ct in ("tv-episode", "tv-series", "commercial"):
