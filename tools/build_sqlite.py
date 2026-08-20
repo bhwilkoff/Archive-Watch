@@ -1047,6 +1047,20 @@ def _episode_item(ep, sid, series_title, series_poster, series_backdrop):
         "artworkSource": ("archive" if "services/img" in (poster or "")
                           else "external" if still
                           else "series" if series_poster else None),
+        # NOTE: `playable` is deliberately NOT set here, so every materialized
+        # episode carries the column default 0. That is HONEST — these rows are
+        # built from a series spine and have never been through the strict
+        # playback verifier, and claiming verification we do not have is the
+        # exact fault Decision 056 exists to prevent.
+        #
+        # It is inert TODAY only because every query carrying `verifiedAnd`
+        # (Decision 056) also carries `notStandaloneTV`, which excludes
+        # tv-episode by type; search applies no playable gate at all, so
+        # episodes remain searchable (Decision 045). Adding `verifiedAnd` to
+        # any surface that DOES include episodes would silently empty it of all
+        # 4,653 — the Hidden Gems / Classic TV failure (Decisions 050, 086) with
+        # the pieces already in place. Verify the episodes first; do not flip
+        # this flag to make a query look right.
         "downloadURL": ep.get("downloadURL"),
         "synopsis": ep.get("overview"),
         "rightsStatus": "public_domain",   # the visible catalog is PD/CC-only (Decision 027)
