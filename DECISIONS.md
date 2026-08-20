@@ -3941,6 +3941,20 @@ whose whole IMDb group is hidden — nowhere to forward, and forwarding a hidden
 item to a different film is what this decision already forbids. Zero VISIBLE
 items are stranded.
 
+Forwarding now exists on EVERY platform, which it did not before: the Apple
+`CatalogDB` had it, **Android downloaded the same SQLite and never queried the
+table**, and web could not — its data plane is `catalog-index.json` plus detail
+shards, so `build_sqlite --aliases-out` emits `aliases.json` beside the index
+and `watch.js` fetches it LAZILY, only when a saved id actually misses (~300 KB
+against a 6.2 MB index; a miss is rare, so paying it on every page load would be
+the wrong trade). Web's detail route REDIRECTS to the survivor rather than
+patching the row, so Details, playback and the favourite toggle all land on the
+canonical id. Two traps worth keeping: Android's alias query is wrapped in
+`runCatching` because a device holding a cached DB from before the table existed
+has no aliases — an older catalog, not an error (the Apple twin gets this free,
+since `pairRows` returns `[]` on a failed prepare) — and its queries run
+SEQUENTIALLY, never nested, because the `Mutex` in `dbCall` is not reentrant.
+
 **Consequences**: `item_aliases` is a new table older clients simply never
 query, so it is additive per Decision 020. It is small (hundreds of rows) and
 rebuilt from scratch every publish, so it stays consistent with whatever the
