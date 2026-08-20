@@ -4018,6 +4018,26 @@ I Love Lucy 1953, Morey Amsterdam Show 1950, Robert Montgomery Presents 1956,
 Captain Video, The Eve Arden Show 1957, The Roy Rogers Show — every item
 era-appropriate, every poster its own show, no anime.
 
+**Amendment 2026-08-20 — the imdb half, and two ways it did nothing first.**
+The tier now also resolves an `imdbID` through OMDb, which needs no new secret
+because this tool already holds an OMDb key. Verified in the served DB: Siskel &
+Ebert's *Man Trouble* episode (matched to a 1930 film), *The Long Trail* from
+Schlitz Playhouse (a 1917 short), a Paul Revere segment (a 1930 German feature)
+and the 1975 sitcom *Two's Company* (a 1936 film) all lost their artwork and
+ids, while The Johnny Carson Show (1953), The Sound of Jazz (1957), The Benny
+Hill Show (1969) and Newhart (1982) kept theirs. Every one of the cleared five
+was OMDb `Type=movie` — a television programme matched to a FILM.
+
+Unlike the tmdb path there is no cross-type collision to guard against: an imdb
+id names one work, where a tmdb id is namespaced per type.
+
+It reported almost nothing TWICE before it worked, both times because a
+selection step upstream never handed it the population — `is_candidate` skipping
+anything already `matchVerified`, then `--era-only` still requiring a `tmdbID`
+after the lookup had been widened. Neither failed; both returned a small number
+that looked like a finding. When a new rule reports a suspiciously low count,
+check what was actually offered to it before believing the count.
+
 **Consequences**: 46 cleared of 447 on the first run, alongside 22 `cleared_year`
 and 6 `cleared_bw` from the pre-existing tiers finally reaching items the marker
 had hidden. Two judgement calls sit at the 15-year line and are the rows to
