@@ -188,11 +188,20 @@ def main() -> int:
         # whose newest run is still in flight was otherwise invisible to this —
         # which is how the first version reported "nothing needs attention"
         # while stock-index sat on a zero-yield run from the night before.
-        runs = [r for r in api(f"actions/workflows/{w['id']}/runs?per_page=5")
+        runs = [r for r in api(f"actions/workflows/{w['id']}/runs?per_page=10")
                 .get("workflow_runs", []) if r.get("status") == "completed"]
         if not runs:
             continue
-        run = runs[0]
+        # Judge the CADENCE, not whatever ran last. A manual workflow_dispatch
+        # is an experiment — someone testing a fix with a tiny --limit — and
+        # taking it as the verdict cuts both ways: it raised a false BROKEN for
+        # a deliberate 3-film word-index probe, and far worse, a SUCCESSFUL
+        # dispatch sitting on top of a failed scheduled run would report the
+        # workflow healthy while its schedule was broken. word-index had two
+        # consecutive scheduled failures (2026-08-18, 08-19) hidden behind
+        # exactly that on 08-20.
+        sched = [r for r in runs if r.get("event") == "schedule"]
+        run = sched[0] if sched else runs[0]
         try:
             started = datetime.fromisoformat(run["run_started_at"].replace("Z", "+00:00"))
         except Exception:
