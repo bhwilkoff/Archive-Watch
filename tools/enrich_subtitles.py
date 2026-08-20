@@ -168,6 +168,41 @@ def captions_for(iaid, files):
     return sorted(found.values(), key=lambda c: (c["lang"] != "en", c["lang"]))
 
 
+# --- Which SOURCE has looked, not merely that someone looked -----------------
+def _caption_sources(item) -> set:
+    """Sources that have already searched this item for captions.
+
+    `captionsChecked` is a single boolean set by THREE different tools —
+    enrich_subtitles (archive.org's own caption files), free_subtitles
+    (SubSource/SubDL) and opensubtitles. So whichever ran first retired the
+    item from the other two, permanently. Decision 055 found and fixed exactly
+    this shape one field over: `freeSubsChecked` was provider-blind, SubSource
+    swept the catalog, and SubDL could never see a target again.
+
+    Measured 2026-08-20: 26,060 items carry `captionsChecked`; 22,275 of them
+    have NO captions, 17,128 of those are sound-era. How many were ever checked
+    against ARCHIVE's own files is unknowable from the marker itself, which is
+    the point — a shared verdict with no source is not evidence about any
+    particular source.
+
+    A legacy bare boolean is credited to `archive` alone, mirroring D055's
+    treatment: this tool is the one that has always been scheduled, so crediting
+    it is the conservative reading. It costs at most a re-check.
+    """
+    tried = item.get("captionsTried")
+    if isinstance(tried, list):
+        return set(tried)
+    return {"archive"} if item.get("captionsChecked") else set()
+
+
+def _mark_caption_source(item, source: str) -> None:
+    tried = _caption_sources(item)
+    tried.add(source)
+    item["captionsTried"] = sorted(tried)
+    item["captionsChecked"] = True      # kept so older tooling still reads it
+
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0)
@@ -190,7 +225,7 @@ def main() -> int:
             return False
         if it.get("contentType") in ("tv-series",):     # series cards aren't items
             return False
-        return args.refresh or not it.get("captionsChecked")
+        return args.refresh or "archive" not in _caption_sources(it)
 
     targets = [it for it in items if candidate(it)]
     targets.sort(key=lambda it: it.get("popularityScore") or 0, reverse=True)
@@ -217,7 +252,7 @@ def main() -> int:
         skipped = [it for it in targets if verdict.get(it["archiveID"]) == "none"]
         for it in skipped:
             if not args.dry_run:
-                it["captionsChecked"] = True
+                _mark_caption_source(it, "archive")
                 it.pop("captions", None)
             tally["none"] += 1
         if not args.dry_run and skipped:
@@ -234,7 +269,7 @@ def main() -> int:
         caps = captions_for(it["archiveID"], meta.get("files") or [])
         if args.dry_run:
             return f"found_{len(caps)}" if caps else "none"
-        it["captionsChecked"] = True
+        _mark_caption_source(it, "archive")
         if caps:
             it["captions"] = caps
             return "captioned"

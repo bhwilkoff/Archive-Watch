@@ -150,6 +150,13 @@ def write_assets(item, srt_text):
     item["captions"] = [{"lang": "en", "label": "English", "format": "vtt",
                          "url": url, "vttURL": url, "source": "opensubtitles"}]
     item["subtitleHLS"] = f"{base}/master.m3u8"
+    # Record WHICH source looked. A bare captionsChecked retires the item
+    # from enrich_subtitles too, which searches archive.org's OWN caption
+    # files — a different question entirely (see _caption_sources there).
+    tried = item.get("captionsTried")
+    tried = set(tried) if isinstance(tried, list) else set()
+    tried.add("opensubtitles")
+    item["captionsTried"] = sorted(tried)
     item["captionsChecked"] = True
     item.pop("whisperGenerated", None)
 
