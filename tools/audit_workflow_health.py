@@ -230,7 +230,23 @@ def main() -> int:
         checked += 1
         verdict = judge(w["name"], run)
         if verdict:
-            findings.append((verdict[0], w["name"], verdict[1]))
+            why = verdict[1]
+            # A monthly workflow cannot confirm a fix for up to a month, so a
+            # true finding can outlive the repair by weeks — faststart's budget
+            # landed 2026-08-09, eight days after the Aug 1 run this reports.
+            # The VERDICT still comes from the schedule (a dispatch must never
+            # be able to mask a broken one); a later successful dispatch is
+            # appended only as CONTEXT, so nobody re-investigates a fix that
+            # already shipped.
+            newer_ok = [r for r in runs
+                        if r.get("event") != "schedule"
+                        and r.get("conclusion") == "success"
+                        and (r.get("run_started_at") or "") > (run.get("run_started_at") or "")]
+            if newer_ok:
+                why += (f" — but a manual run on "
+                        f"{newer_ok[0]['run_started_at'][:10]} SUCCEEDED, so this "
+                        f"may already be fixed and awaiting its next scheduled run")
+            findings.append((verdict[0], w["name"], why))
 
     order = {"BROKEN": 0, "KILLED": 1, "FAILED": 2, "DROPPED": 3, "STALE": 4, "SILENT": 5, "DRAINED": 6}
     findings.sort(key=lambda f: (order.get(f[0], 9), f[1]))
