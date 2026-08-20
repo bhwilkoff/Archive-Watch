@@ -253,6 +253,7 @@ def adopt(item: dict, rec: dict):
     if rec.get("year"):
         item["year"] = rec["year"]
         item["decade"] = rec["year"] // 10 * 10
+        item["yearSource"] = "omdb"   # re-resolved FROM the match; see omdb_lib
         item["isSilentFilm"] = bool(rec["year"] < R.SILENT_CUTOFF)
     if rec.get("plot"):
         item["synopsis"] = rec["plot"]

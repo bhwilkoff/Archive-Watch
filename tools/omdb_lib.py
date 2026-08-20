@@ -257,6 +257,12 @@ def apply_identity(item, rec):
     if rec.get("year") and not item.get("year"):
         item["year"] = rec["year"]
         item["decade"] = rec["year"] // 10 * 10
+        # WHERE the year came from, not just what it is. A year taken from the
+        # MATCH cannot later be used to test that match — the circularity that
+        # stops the D087 era tier covering 68 TV items. The catalog already
+        # stamps runtimeSource, synopsisSource, languageSource and
+        # contentTypeSource; year was the one field with no provenance.
+        item["yearSource"] = "omdb"
         changed = True
     if rec.get("actors") and not item.get("cast"):
         item["cast"] = [{"name": n, "character": None, "order": i,
