@@ -41,15 +41,27 @@ jobs:
         run: python tools/catalog_release.py fetch
 
       - name: Restore existing index (resumable)
+        id: restore
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Only the COMPRESSED index is published — the raw file passed GitHub's
           # 2 GiB asset limit and every upload 422'd, so nothing was published at
           # all from 2026-06 until this was found.
-          gh release download subtitle-index -p subtitle.sqlite.zz -O subtitle.sqlite.zz \
-            && python3 -c "import zlib; open('subtitle.sqlite','wb').write(zlib.decompress(open('subtitle.sqlite.zz','rb').read(),-15))" \
-            || echo "first run — no existing index"
+          # The asset going MISSING is an emergency, not a fresh start. The
+          # previous `|| echo "first run"` swallowed exactly that on 2026-08-19:
+          # a 422 on an earlier upload had deleted both assets (--clobber deletes
+          # before it replaces), the restore printed "no assets to download", and
+          # this workflow rebuilt from zero and republished — destroying 702,148
+          # word timings and the whole `aligned` resume history. Only a release
+          # that does not EXIST is a first run.
+          if gh release view subtitle-index >/dev/null 2>&1; then
+            gh release download subtitle-index -p subtitle.sqlite.zz -O subtitle.sqlite.zz
+            python3 -c "import zlib; open('subtitle.sqlite','wb').write(zlib.decompress(open('subtitle.sqlite.zz','rb').read(),-15))"
+          else
+            echo "release does not exist — genuine first run"
+          fi
+          python tools/sqlite_publish_guard.py snapshot subtitle.sqlite --out .index_baseline.json
 
       - name: Build cue index
         run: |
@@ -61,10 +73,16 @@ jobs:
         # Publish what finished. A killed compute step above must not
         # discard the run's work, which is how faststart-derivatives lost
         # two monthly passes in a row.
-        if: always()
+        # always() so a killed compute step still publishes its work — but
+        # NOT when the restore failed, or we would publish over a good index
+        # with whatever happens to be on disk.
+        if: always() && steps.restore.outcome == 'success'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # Never upload an index smaller than the one we restored. Checked
+          # BEFORE the 1.17 GB compress, so a refusal costs nothing.
+          python tools/sqlite_publish_guard.py check subtitle.sqlite --baseline .index_baseline.json
           # Raw DEFLATE (wbits=-15), matching the catalog convention so the app reuses inflate.
           python3 -c "import zlib; d=open('subtitle.sqlite','rb').read(); c=zlib.compressobj(9,zlib.DEFLATED,-15); open('subtitle.sqlite.zz','wb').write(c.compress(d)+c.flush())"
           gh release view subtitle-index >/dev/null 2>&1 || \

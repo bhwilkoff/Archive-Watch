@@ -45,11 +45,17 @@ jobs:
         run: pip install torch torchaudio soundfile
 
       - name: Get the subtitle index
+        id: restore
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release download subtitle-index -p subtitle.sqlite.zz -O subtitle.sqlite.zz
           python3 -c "import zlib; open('subtitle.sqlite','wb').write(zlib.decompress(open('subtitle.sqlite.zz','rb').read(),-15))"
+          # This step has no `|| true`, which is why it FAILED SAFELY twice while
+          # the asset was missing and subtitle-index.yml rebuilt over it. The
+          # baseline additionally guards the publish below against any other
+          # cause of shrinkage.
+          python tools/sqlite_publish_guard.py snapshot subtitle.sqlite --out .index_baseline.json
 
       # A BUDGET, not just a timeout. This job hit its 330-minute wall on every
       # one of its 15 runs — GitHub reports a timeout as "cancelled", so the run
@@ -73,9 +79,13 @@ jobs:
         # Publish what finished. A killed compute step above must not
         # discard the run's work, which is how faststart-derivatives lost
         # two monthly passes in a row.
-        if: always()
+        # always() so a killed compute step still publishes its work — but
+        # NOT when the restore failed, or we would publish over a good index
+        # with whatever happens to be on disk.
+        if: always() && steps.restore.outcome == 'success'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          python tools/sqlite_publish_guard.py check subtitle.sqlite --baseline .index_baseline.json
           python3 -c "import zlib; d=open('subtitle.sqlite','rb').read(); c=zlib.compressobj(9,zlib.DEFLATED,-15); open('subtitle.sqlite.zz','wb').write(c.compress(d)+c.flush())"
           bash tools/gh_retry.sh gh release upload subtitle-index subtitle.sqlite.zz --clobber
