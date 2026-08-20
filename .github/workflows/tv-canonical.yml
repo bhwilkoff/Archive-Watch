@@ -133,12 +133,19 @@ jobs:
             exit 0
           fi
           git commit -m "Canonical TV rebuild (${{ github.run_id }})"
+          # `pushed` is load-bearing: without it, exhausting all five attempts
+          # simply ends the loop and the step exits 0 on the last `sleep`, so a
+          # spine that never reached main would report success. The series JSON
+          # only takes effect after a push (Decision 016), so a silent loss here
+          # is invisible until someone notices TV going stale.
+          pushed=""
           for attempt in 1 2 3 4 5; do
-            if git push; then echo "pushed (attempt $attempt)"; break; fi
+            if git push; then echo "pushed (attempt $attempt)"; pushed=yes; break; fi
             echo "push rejected; rebasing onto latest main (attempt $attempt)…"
             git pull --rebase --autostash origin main || { git rebase --abort 2>/dev/null; exit 1; }
             sleep $((RANDOM % 5 + 2))
           done
+          [ -n "$pushed" ] || { echo "::error::series commit never reached main after 5 attempts"; exit 1; }
 
       # Republish the mutated catalog to the catalog-source release; publish-db
       # rebuilds the app's SQLite from it (series push above also triggers it).

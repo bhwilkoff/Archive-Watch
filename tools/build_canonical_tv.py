@@ -415,7 +415,7 @@ def collect_our_episodes_from_series(series_json):
     return out
 
 
-def rebuild_show(show, our_eps, *, repick):
+def rebuild_show(show, our_eps, *, repick, deadline=None):
     """Build one canonical series from a pre-resolved TVmaze show + the pooled
     Archive items. Returns (series_dict|None, report_row)."""
     our_eps = dedup_items(our_eps)
@@ -425,9 +425,31 @@ def rebuild_show(show, our_eps, *, repick):
     row = {"slug": slug, "tvmazeID": show.get("id"),
            "title": show.get("name"), "matched": True,
            "canonEps": len(canon), "ourItems": len(our_eps),
-           "mappedEps": 0, "extras": 0, "repicked": 0, "deadItems": 0}
+           "mappedEps": 0, "extras": 0, "repicked": 0, "deadItems": 0,
+           "repickSkipped": 0}
     if not canon:
         return None, row
+
+    def _may_repick() -> bool:
+        """Whether to spend a network round trip verifying this episode's MP4.
+
+        The budget used to be checked only BETWEEN shows, so a single large
+        show ran unbounded and blew the job's 180-minute step timeout — the
+        exact failure the workflow comment warns about, and the reason the
+        weekly rebuild has been red since 2026-08-16.
+
+        Past the deadline we degrade to --no-repick for the REMAINING episodes:
+        each one keeps the downloadURL it already had. That costs freshness for
+        the tail of one show. Stopping mid-show instead would cost EPISODES,
+        and this spine is what every client reads for TV — a partial rebuild
+        would silently delete content (Decisions 016/036).
+        """
+        if not repick:
+            return False
+        if deadline is not None and time.monotonic() > deadline:
+            row["repickSkipped"] += 1
+            return False
+        return True
 
     prem_i = int(prem0) if prem0.isdigit() else None
     ended0 = (show.get("ended") or "")[:4]
@@ -457,7 +479,7 @@ def rebuild_show(show, our_eps, *, repick):
         dl = item.get("downloadURL")
         vf = item.get("videoFile")
         ok = True
-        if repick:
+        if _may_repick():
             dl, vf, changed, ok = ensure_playable(item.get("archiveID"), dl, vf)
             if changed:
                 row["repicked"] += 1
@@ -488,7 +510,7 @@ def rebuild_show(show, our_eps, *, repick):
             dl = item.get("downloadURL")
             vf = item.get("videoFile")
             ok = True
-            if repick:
+            if _may_repick():
                 dl, vf, changed, ok = ensure_playable(item.get("archiveID"), dl, vf)
                 if changed:
                     row["repicked"] += 1
@@ -753,7 +775,7 @@ def main():
             stopped_early += 1
             continue
         series, row = rebuild_show(slot["show"], slot["items"],
-                                   repick=not args.no_repick)
+                                   repick=not args.no_repick, deadline=deadline)
         row["kinds"] = sorted(slot["kinds"])
         row["mergedFrom"] = len(slot["sourceTitles"])
         row["consumedRefs"] = slot["refs"]   # old slugs / single archiveIDs folded in
@@ -802,6 +824,11 @@ def main():
                           for t, y, n, k, r in unmatched],
         }, ensure_ascii=False, indent=1))
         print(f"[tv] report -> {REPORT}")
+    skipped_repicks = sum(r.get("repickSkipped", 0) for r in rows)
+    if skipped_repicks:
+        print(f"[tv] budget reached mid-show: {skipped_repicks} episode(s) kept their "
+              f"existing video URL instead of being re-verified. Episodes are NEVER "
+              f"dropped for the budget — only the re-pick is skipped.")
     if stopped_early:
         print(f"[tv] STOPPED EARLY at the {args.max_minutes:g}-minute budget: "
               f"{stopped_early} shows deferred to the next run. Everything built "
