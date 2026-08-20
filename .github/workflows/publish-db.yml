@@ -98,7 +98,7 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY; head -28 audit.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Build SQLite catalog
-        run: python tools/build_sqlite.py | tee db.log
+        run: python tools/build_sqlite.py --aliases-out aliases.json | tee db.log
 
       # A ranking regression is SILENT: search still returns results, only their
       # order is wrong, so nothing fails and nobody notices. Measured before the
@@ -172,12 +172,12 @@ jobs:
           python tools/build_web_details.py
           python tools/build_channel_pools.py
           python tools/build_episode_index.py
-          if git diff --quiet -- catalog-index.json topshelf.json details/ channel-pools.json episodes-index.json; then
+          if git diff --quiet -- catalog-index.json topshelf.json details/ channel-pools.json episodes-index.json aliases.json; then
             echo "web index + details + channel pools + episodes unchanged"; exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add catalog-index.json topshelf.json details/ channel-pools.json episodes-index.json
+          git add catalog-index.json topshelf.json details/ channel-pools.json episodes-index.json aliases.json
           git commit -m "Refresh web catalog index + detail shards [skip ci]"
           for i in 1 2 3 4 5; do
             if git pull --rebase --autostash origin main && git push; then

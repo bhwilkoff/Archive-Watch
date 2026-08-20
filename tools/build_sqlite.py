@@ -1182,7 +1182,8 @@ def select_seed_items(items):
     return list(chosen.values())
 
 
-def build_db_obj(cat, out_db, rotate_seed="0", materialize_episodes=True):
+def build_db_obj(cat, out_db, rotate_seed="0", materialize_episodes=True,
+                 aliases_out=None):
     """Compile an in-memory catalog dict into a SQLite DB at out_db. Returns
     (cat, n_items, n_series, n_eps). materialize_episodes=False for the lean
     bundled seed (episodes-as-items live only in the full DB — Decision 045)."""
@@ -1205,6 +1206,13 @@ def build_db_obj(cat, out_db, rotate_seed="0", materialize_episodes=True):
     _insert_many(db, "item_aliases", rows)
     if rows:
         print(f"[dedup] {len(rows)} merged ids forward to their survivor")
+    if aliases_out:
+        # Fetched LAZILY by the web viewer, only when a saved id misses — a
+        # ~300 KB map on every page load to serve a rare miss is the wrong
+        # trade, so it is a sidecar and not a column in catalog-index.json.
+        Path(aliases_out).write_text(
+            json.dumps(dict(rows), separators=(",", ":")), encoding="utf-8")
+        print(f"[dedup] wrote {aliases_out} ({len(rows)} pairs) for the web viewer")
     n_series, n_eps = populate_series(db, materialize_episode_items=materialize_episodes)
     create_indexes(db)
     db.execute("INSERT OR REPLACE INTO meta VALUES ('schemaVersion', ?)", (str(SCHEMA_VERSION),))
@@ -1220,10 +1228,10 @@ def build_db_obj(cat, out_db, rotate_seed="0", materialize_episodes=True):
     return cat, n_items, n_series, n_eps
 
 
-def build_db(catalog_path, out_db, rotate_seed="0"):
+def build_db(catalog_path, out_db, rotate_seed="0", aliases_out=None):
     """Compile a catalog.json file into a SQLite DB at out_db."""
     return build_db_obj(json.loads(catalog_path.read_text(encoding="utf-8")),
-                        out_db, rotate_seed=rotate_seed)
+                        out_db, rotate_seed=rotate_seed, aliases_out=aliases_out)
 
 
 def build_seed_db(full_catalog_path, out_db, rotate_seed="0"):
@@ -1238,6 +1246,12 @@ def build_seed_db(full_catalog_path, out_db, rotate_seed="0"):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--no-gzip", action="store_true")
+    ap.add_argument("--aliases-out", default=None,
+                    help="also write the id->survivor map as JSON, for the WEB "
+                         "viewer: its data plane is catalog-index.json plus "
+                         "detail shards, not this SQLite, so it cannot query "
+                         "item_aliases and would otherwise drop a saved id "
+                         "silently (Decision 085).")
     ap.add_argument("--seed-only", action="store_true",
                     help="Build only the bundled seed.sqlite (fast, for app dev).")
     ap.add_argument("--rotate-seed", default=None,
@@ -1263,7 +1277,9 @@ def main():
         return 0
 
     # Full DB — hosted on the catalog-db release, downloaded at runtime.
-    cat, n_items, n_series, n_eps = build_db(FULL_CATALOG, OUT_DB, rotate_seed=rotate_seed)
+    cat, n_items, n_series, n_eps = build_db(FULL_CATALOG, OUT_DB,
+                                             rotate_seed=rotate_seed,
+                                             aliases_out=args.aliases_out)
 
     zz_mb = None
     if not args.no_gzip:
