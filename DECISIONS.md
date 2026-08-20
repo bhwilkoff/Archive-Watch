@@ -4167,3 +4167,41 @@ rate — not a budget — is the real constraint on this index, and it is why
 losing the history costs months rather than a night. Complements Decision 057
 (a budget that PUBLISHES, never a timeout that kills) and 083 (shared state
 needs a registered guard, not a careful author).
+
+## 090 — An auditor judges each workflow against its OWN cadence, never a fixed window
+*Date: 2026-08-20*
+
+`audit_workflow_health.py` sizes its lookback per workflow from that workflow's
+own cron (`cron_period_hours`, ~2.5 periods) instead of a flat
+`LOOKBACK_HOURS=36`, and reports **STALE** when a schedule has not produced a
+completed run in over two of its own periods. Dispatch-only workflows keep the
+fixed window, since they have no cadence to measure against.
+
+**Why**: the daily report said "Nothing needs attention: every recent run
+produced something" while **Canonical TV rebuild sat FAILED for four days**.
+Nothing was wrong with `judge()` — the run never reached it. The loop skipped
+any workflow whose newest completed run started before the cutoff
+(`if started < cutoff: continue`), and a weekly job's newest run is ALWAYS
+older than 36 hours. Measured across the fleet: 35 scheduled workflows, of
+which **7 are weekly or monthly and were therefore structurally unauditable** —
+faststart-derivatives (monthly), tvdb-movies, tv-canonical, community-signals,
+rebuild-catalog, backfill-language, match-unmatched. The auditor built to catch
+BROKEN/KILLED/DROPPED/SILENT could not see the slowest seven, which are exactly
+the ones a human is least likely to notice unaided. Re-run after the change, it
+named the tv-canonical failure immediately.
+
+**How to apply**: an auditor's window is a property of the SUBJECT, not of the
+auditor's own schedule — whenever the things being checked have different
+periods, a single window is wrong for all but one of them. Judging an older run
+is safe here because `judge()` returns None for a healthy run, so a monthly
+workflow that succeeded produces no finding; only real faults are re-reported
+each day, which is what an auditor is for. Do NOT respond to a stale finding by
+widening the flat lookback — that reintroduces the same class of blindness one
+cadence further out. STALE is deliberately distinct from FAILED: a schedule
+that stopped firing produces no failing run to notice, so absence has to be its
+own verdict.
+
+**Consequences**: the fleet's slowest seven workflows become auditable for the
+first time. Related: Decision 088 (a check against data that can rot needs a TTL
+proportional to how visible the claim is — the same reasoning applied to
+freshness rather than to coverage), and 089 (a green run that did nothing).

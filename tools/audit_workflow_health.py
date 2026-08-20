@@ -31,12 +31,14 @@ from __future__ import annotations
 
 import json
 import os
+import pathlib
 import re
 import subprocess
 import sys
 from datetime import datetime, timedelta, timezone
 
 REPO = os.environ.get("GITHUB_REPOSITORY", "bhwilkoff/Archive-Watch")
+_REPO_DIR = pathlib.Path(__file__).resolve().parents[1]
 # These do not produce catalog yield and never will: they build, deploy, probe
 # or sweep. Flagging them as SILENT is noise that trains a reader to skim.
 NOT_PRODUCERS = {
@@ -83,6 +85,42 @@ def minutes(run: dict) -> float:
         return (b - a).total_seconds() / 60
     except Exception:
         return 0.0
+
+
+def cron_period_hours(path: str) -> float | None:
+    """Roughly how often this workflow is SUPPOSED to run, from its own cron.
+
+    A fixed lookback cannot audit a fleet whose cadences span hourly to monthly:
+    with LOOKBACK_HOURS=36, seven weekly/monthly workflows were skipped outright,
+    and tv-canonical sat FAILED for four days while the daily report said
+    "Nothing needs attention". Judge each workflow against its own period
+    instead. Returns None when the workflow has no schedule (dispatch-only).
+    """
+    try:
+        text = (_REPO_DIR / path).read_text(encoding="utf-8")
+    except OSError:
+        return None
+    crons = re.findall(r"cron:\s*['\"]([^'\"]+)['\"]", text)
+    best = None
+    for c in crons:
+        f = c.split()
+        if len(f) != 5:
+            continue
+        minute, hour, dom, _mon, dow = f
+        if dom != "*" and not dom.startswith("*/"):
+            hrs = 720.0                       # a day-of-month cron is monthly
+        elif dow != "*":
+            hrs = 168.0                       # a day-of-week cron is weekly
+        elif dom.startswith("*/"):
+            hrs = 24.0 * int(dom[2:] or 1)
+        elif hour.startswith("*/"):
+            hrs = float(int(hour[2:] or 1))
+        elif hour == "*":
+            hrs = float(int(minute[2:] or 1)) / 60 if minute.startswith("*/") else 1.0
+        else:
+            hrs = 24.0                        # a fixed hour every day
+        best = hrs if best is None else min(best, hrs)
+    return best
 
 
 def judge(name: str, run: dict) -> tuple[str, str] | None:
@@ -159,19 +197,37 @@ def main() -> int:
             started = datetime.fromisoformat(run["run_started_at"].replace("Z", "+00:00"))
         except Exception:
             continue
-        if started < cutoff:
-            continue
         if w["name"] in NOT_PRODUCERS:
+            continue
+        # Window sized to THIS workflow's cadence, not a fixed 36h. A weekly
+        # job's newest run is always older than 36h, so the old fixed cutoff
+        # skipped it forever — which is how tv-canonical stayed FAILED for four
+        # days under a green "Nothing needs attention".
+        period = cron_period_hours(w.get("path", ""))
+        window = timedelta(hours=max(LOOKBACK_HOURS, 2.5 * period)) if period else None
+        age = datetime.now(timezone.utc) - started
+        if window is None:
+            if started < cutoff:
+                continue                      # dispatch-only: keep the old rule
+        elif age > window:
+            # It has not run in over two of its own periods. That is itself the
+            # finding — a schedule that stopped firing produces no failing run
+            # to notice.
+            checked += 1
+            findings.append(("STALE", w["name"],
+                             f"last completed run was {age.total_seconds() / 3600:.0f}h ago; "
+                             f"cadence is ~{period:.0f}h"))
             continue
         checked += 1
         verdict = judge(w["name"], run)
         if verdict:
             findings.append((verdict[0], w["name"], verdict[1]))
 
-    order = {"BROKEN": 0, "KILLED": 1, "FAILED": 2, "DROPPED": 3, "SILENT": 4, "DRAINED": 5}
+    order = {"BROKEN": 0, "KILLED": 1, "FAILED": 2, "DROPPED": 3, "STALE": 4, "SILENT": 5, "DRAINED": 6}
     findings.sort(key=lambda f: (order.get(f[0], 9), f[1]))
 
-    print(f"Checked {checked} workflows that finished in the last {LOOKBACK_HOURS}h.\n")
+    print(f"Checked {checked} workflows, each against its OWN cadence "
+          f"(dispatch-only ones against {LOOKBACK_HOURS}h).\n")
     if not findings:
         print("Nothing needs attention: every recent run produced something.")
         return 0
