@@ -269,6 +269,41 @@
    * (downloadURL, synopsis, director, cast, genres, runtime, backdrop), *
    * sharded by FNV-1a low byte (keep in sync with build_web_details.py).*
    * ---------------------------------------------------------------- */
+  // Ids the build's dedup dropped forward to the card that replaced them
+  // (Decision 085). Fetched LAZILY — only when a saved id actually misses —
+  // because the map is ~300 KB against a 6.2 MB index and a miss is rare. A
+  // 404 means an older publish that predates the file, not an error.
+  const Aliases = {
+    map: null,
+    async all() {
+      if (!this.map) {
+        this.map = fetch(new URL('aliases.json', PAGES_ROOT),
+          { signal: AbortSignal.timeout(10000) })
+          .then(r => (r.ok ? r.json() : {}))
+          .catch(() => ({}));
+      }
+      return this.map;
+    },
+    /** Survivor row for each id the index does NOT hold. Map(oldID -> row). */
+    async rows(ids) {
+      const out = new Map();
+      const missing = ids.filter(id => !Data.byID.get(id));
+      if (!missing.length) return out;          // the common case costs nothing
+      const map = await this.all();
+      for (const id of missing) {
+        const row = map[id] && Data.byID.get(map[id]);
+        if (row) out.set(id, row);
+      }
+      return out;
+    },
+    /** The id a dropped id forwards to, or null. */
+    async survivor(id) {
+      const map = await this.all();
+      const n = map[id];
+      return (n && Data.byID.get(n)) ? n : null;
+    },
+  };
+
   const Details = {
     cache: new Map(),
     shardOf(id) {
@@ -959,13 +994,17 @@
         .filter(p => p.duration > 0 && p.position > 10 && p.position / p.duration < 0.95)
         .sort((a, b) => b.at - a.at);
       // Episodes aren't index rows — synthesize a card from the saved title.
-      const cont = progress.map(p => Data.byID.get(p.id)
+      const contAlias = await Aliases.rows(progress.map(p => p.id));
+      const cont = progress.map(p => Data.byID.get(p.id) || contAlias.get(p.id)
         || [p.id, p.title || p.id, null, '', null]);
       fillGrid($('library-continue'), cont);
       $('library-continue-empty').hidden = cont.length > 0;
 
-      const favs = (await DB.favorites()).sort((a, b) => b.addedAt - a.addedAt)
-        .map(f => Data.byID.get(f.id)).filter(Boolean);
+      const favIDs = (await DB.favorites()).sort((a, b) => b.addedAt - a.addedAt)
+        .map(f => f.id);
+      const favAlias = await Aliases.rows(favIDs);
+      const favs = favIDs.map(id => Data.byID.get(id) || favAlias.get(id))
+        .filter(Boolean);
       fillGrid($('library-favs'), favs);
       $('library-favs-empty').hidden = favs.length > 0;
 
@@ -988,7 +1027,8 @@
       // The complete watch record (Decision 078): everything ever played,
       // newest first — finished or not, resumable or not.
       const all = (await DB.progress()).sort((a, b) => b.at - a.at);
-      const hist = all.map(p => Data.byID.get(p.id)
+      const histAlias = await Aliases.rows(all.map(p => p.id));
+      const hist = all.map(p => Data.byID.get(p.id) || histAlias.get(p.id)
         || [p.id, p.title || p.id, null, '', null]);
       fillGrid($('library-history'), hist);
       $('library-history-empty').hidden = hist.length > 0;
@@ -1039,7 +1079,9 @@
       const pl = (await DB.playlists().catch(() => [])).find(p => p.id === id);
       if (!pl) { location.hash = '#/library'; return; }
       $('playlist-title').textContent = pl.name;
-      const rows = pl.archiveIDs.map(aid => Data.byID.get(aid)).filter(Boolean);
+      const plAlias = await Aliases.rows(pl.archiveIDs);
+      const rows = pl.archiveIDs.map(aid => Data.byID.get(aid) || plAlias.get(aid))
+        .filter(Boolean);
       fillGrid($('playlist-grid'), rows);
       $('playlist-empty').hidden = rows.length > 0;
       $('playlist-delete').onclick = async () => {
@@ -1416,6 +1458,15 @@
       if (id.startsWith('series:')) {   // shared/old links to a series card
         location.replace(`#/series/${encodeURIComponent(id.slice(7))}`);
         return;
+      }
+      if (!Data.byID.get(id)) {
+        // A shared or saved link to a copy the build merged away: send it to
+        // the card that replaced it, so playback and Details resolve too.
+        const survivor = await Aliases.survivor(id);
+        if (survivor) {
+          location.replace(`#/item/${encodeURIComponent(survivor)}`);
+          return;
+        }
       }
       const row = Data.byID.get(id) || [id, id, null, '', null];
       this.current = { id, row, summary: null, detail: null };
