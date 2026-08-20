@@ -110,7 +110,22 @@ def main() -> int:
         # is NOT marked aligned, so it retries on a later run (not silently skipped forever).
         wav = None
         last_err = ""
+        # A PER-FILM TIME CAP, not a smaller retry count. Retrying is right —
+        # archive.org rotates storage nodes, so a fresh request often lands on a
+        # healthy one (Decision 034) — but three attempts at a 900s ffmpeg
+        # timeout is up to 45 minutes spent on ONE film that may never arrive,
+        # out of a 240-minute budget. Measured on the 2026-08-19 run: 7 films
+        # aligned, 14 downloads failed, budget exhausted at 7 of 400 selected.
+        #
+        # The in-run retries are also partly redundant: a film that never
+        # downloads is left unaligned and picked up by a LATER run anyway. So
+        # cap the total time any single film may consume and move on; the fast
+        # failures (5xx answers in seconds) still get their three tries.
+        film_deadline = time.monotonic() + 420
         for attempt in range(3):
+            if attempt and time.monotonic() > film_deadline:
+                last_err = last_err or "abandoned at the 420s per-film cap"
+                break
             try:
                 with tempfile.NamedTemporaryFile(suffix=".wav") as tf:
                     # A UA: archive.org answers some datacenter clients differently,
@@ -147,7 +162,7 @@ def main() -> int:
             # missing Python package. Say which half failed.
             failed_dl += 1
             stage = "decode" if last_err.startswith(("ImportError", "RuntimeError")) else "download"
-            print(f"[words] {aid[:44]}: audio {stage} failed after 3 tries — "
+            print(f"[words] {aid[:44]}: audio {stage} failed — "
                   f"{last_err or 'no error captured'}", flush=True)
             continue   # transient — leave unaligned so a later run retries
 
