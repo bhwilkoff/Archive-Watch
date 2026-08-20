@@ -41,6 +41,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import datetime as _dt
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -142,17 +143,44 @@ def main() -> int:
     if args.source:
         sources = {args.source}
 
+    # A CHECK GOES STALE. `posterChecked` was a permanent boolean, so once an
+    # item had been verified it was never looked at again — and the run reported
+    # "0 posters to verify" against a 40,715-item catalog while ~3% of the
+    # posters on Home were already 404. m.media-amazon.com rotates its image
+    # hashes continuously (Decision 044 measured ~62% of omdb posters dead), so
+    # a poster that was alive in June is not evidence about today.
+    #
+    # Same fix as Decision 056 for playback: a TTL tiered by VISIBILITY. An item
+    # eligible to lead Home is re-checked every 14 days; the long tail every 90.
+    # Items checked before the timestamp existed are re-checked once, oldest
+    # first, and the --limit budget keeps that catch-up bounded.
+    today = _dt.date.today()
+
+    def stale(it) -> bool:
+        when = it.get("posterCheckedAt")
+        if not when:
+            return True                      # checked before we recorded when
+        try:
+            age = (today - _dt.date.fromisoformat(str(when)[:10])).days
+        except Exception:
+            return True
+        hot = bool(it.get("hasRealArtwork")) and bool(it.get("playable", 1))
+        return age >= (14 if hot else 90)
+
     def needs(it) -> bool:
         if not it.get("posterURL"):
             return False
         if (it.get("artworkSource") or "") not in sources:
             return False
-        if it.get("posterChecked") and not args.refresh:
+        if it.get("posterChecked") and not args.refresh and not stale(it):
             return False
         return True
 
     targets = [it for it in items if needs(it)]
-    targets.sort(key=lambda it: -(it.get("popularity") or 0))   # homepage-leading first
+    # Oldest check first WITHIN the popularity order, so the catch-up drains the
+    # least-recently-verified rather than re-walking the same head every night.
+    targets.sort(key=lambda it: (str(it.get("posterCheckedAt") or ""),
+                                 -(it.get("popularity") or 0)))
     if args.limit:
         targets = targets[: args.limit]
     print(f"[posters] {len(targets)} posters to verify "
@@ -171,6 +199,7 @@ def main() -> int:
             if code == 200 or code == 206:
                 if not args.dry_run:
                     it["posterChecked"] = True
+                    it["posterCheckedAt"] = today.isoformat()
                 stats["alive"] += 1
             elif code in DEAD_CODES:
                 stats["dead"] += 1
@@ -181,6 +210,7 @@ def main() -> int:
                     it["artworkSource"] = "archive"
                     it["hasRealArtwork"] = False
                     it["posterChecked"] = True
+                    it["posterCheckedAt"] = today.isoformat()
             else:
                 stats["transient"] += 1            # leave unchanged + unmarked -> retry
             if stats["done"] % 500 == 0:
