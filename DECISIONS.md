@@ -4043,3 +4043,45 @@ and 6 `cleared_bw` from the pre-existing tiers finally reaching items the marker
 had hidden. Two judgement calls sit at the 15-year line and are the rows to
 revisit if it is ever tuned: Doctor Who matched to the 2005 revival rather than
 the 1963 original, and Betty White Show, where 1954 and 1977 series share a name.
+
+## 088 — A liveness check expires; `posterChecked` gets a visibility-tiered TTL
+*Date: 2026-08-20*
+
+`validate_posters.py` records `posterCheckedAt` and re-checks an item once its
+check goes stale: 14 days for anything eligible to lead Home (designed art,
+playable), 90 days for the tail. Targets sort oldest-check-first within
+popularity, so the catch-up drains the least-recently-verified rather than
+re-walking the same head nightly, and the existing `--limit` bounds it.
+
+**Why**: `posterChecked` was a permanent boolean, so the nightly guard reported
+**"0 posters to verify"** against a 40,715-item catalog — it had verified
+everything once and could never look again. Meanwhile a probe of 60 Home-eligible
+posters found 2 already 404, both `m.media-amazon.com`, which rotates its image
+hashes continuously (Decision 044 measured ~62% of omdb posters dead). A poster
+alive in June is not evidence about today, and the guard built to catch that had
+quietly switched itself off.
+
+This is Decision 056 one field over — there `playbackVerified` recorded THAT a
+title played and not WHEN, so a three-month-old check looked identical to
+yesterday's. Fourth instance of the same class in two days, alongside `colorMode`
+without its saturation (084) and `matchVerified` without its tier (087's
+amendment).
+
+**How to apply**: any check against data that can rot needs a timestamp and a TTL
+proportional to how visible the claim is — a boolean "checked" is a claim about
+the past pretending to be a claim about now. Keep the transient/dead split: a
+429 or 5xx must leave the item UNMARKED for retry, never demote it (679 of this
+run's failures were transient, and marking them dead would have stripped good
+artwork from hundreds of items).
+
+**VERIFIED end to end**: the first run checked 5,820 posters and demoted 137 to
+the Archive thumbnail with `hasRealArtwork=False`. Re-probing the same 60-poster
+sample after publishing: **0 dead, down from 2**, with the Home-eligible pool
+falling 19,058 -> 18,944.
+
+**Consequences**: 727 items now carry `posterDead`, and 472 of them are flagged
+`hasRealArtwork=1` again — which is correct, not a contradiction. Those were
+re-sourced after demotion: 447 generated frame covers (Decision 023), 17 Commons,
+8 TVDb/TMDb. `posterDead` is a durable wants-marker and the re-covering pass
+consumed it exactly as intended, so the whole chain — die, demote, mark,
+re-source, re-flag — is observably working.
