@@ -136,16 +136,53 @@ class CatalogDatabase private constructor(
     /** Curated lists bypass filters; result reordered to the requested order. */
     suspend fun itemsByIDs(ids: List<String>): List<CatalogItem> {
         if (ids.isEmpty()) return emptyList()
-        val marks = ids.joinToString(",") { "?" }
-        val found = items(
-            "SELECT json FROM item_json WHERE archiveID IN ($marks)",
-            ids,
-        ).associateBy { it.archiveID }
+        val found = itemsByIDsDirect(ids).associateBy { it.archiveID }.toMutableMap()
+        val missing = ids.filter { !found.containsKey(it) }
+        if (missing.isNotEmpty()) {
+            for ((old, item) in resolveAliases(missing)) found[old] = item
+        }
         return ids.mapNotNull { found[it] }
     }
 
     suspend fun item(archiveID: String): CatalogItem? =
-        items("SELECT json FROM item_json WHERE archiveID = ?", listOf(archiveID)).firstOrNull()
+        itemsByIDs(listOf(archiveID)).firstOrNull()
+
+    /**
+     * Follow merged-away ids to the card that replaced them (Decision 085).
+     *
+     * Favorites, playlists and watch progress are keyed by archiveID, and the
+     * build drops thousands of duplicate copies every publish — 5,363 rows in
+     * the current DB. Android downloaded that table but never queried it, so a
+     * saved id that lost dedup simply disappeared from the library while the
+     * film sat one row away under the survivor's id.
+     *
+     * Each call is its own dbCall and they run SEQUENTIALLY: the mutex in
+     * dbCall is not reentrant, so nesting these would deadlock.
+     */
+    private suspend fun resolveAliases(ids: List<String>): List<Pair<String, CatalogItem>> {
+        if (ids.isEmpty()) return emptyList()
+        val marks = ids.joinToString(",") { "?" }
+        // A cached DB published before the table existed simply has no aliases;
+        // that is not an error, it is an older catalog.
+        val pairs = dbCall {
+            runCatching {
+                queryRaw(
+                    "SELECT oldID, newID FROM item_aliases WHERE oldID IN ($marks)",
+                    ids,
+                ) { it.getText(0) to it.getText(1) }
+            }.getOrDefault(emptyList())
+        }
+        if (pairs.isEmpty()) return emptyList()
+        val byNew = itemsByIDsDirect(pairs.map { it.second }).associateBy { it.archiveID }
+        return pairs.mapNotNull { (old, new) -> byNew[new]?.let { old to it } }
+    }
+
+    /** The un-aliased lookup, so alias resolution cannot recurse. */
+    private suspend fun itemsByIDsDirect(ids: List<String>): List<CatalogItem> {
+        if (ids.isEmpty()) return emptyList()
+        val marks = ids.joinToString(",") { "?" }
+        return items("SELECT json FROM item_json WHERE archiveID IN ($marks)", ids)
+    }
 
     suspend fun browse(
         contentType: String? = null,
