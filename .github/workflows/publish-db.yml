@@ -172,12 +172,17 @@ jobs:
           python tools/build_web_details.py
           python tools/build_channel_pools.py
           python tools/build_episode_index.py
-          if git diff --quiet -- catalog-index.json topshelf.json details/ channel-pools.json episodes-index.json aliases.json; then
-            echo "web index + details + channel pools + episodes unchanged"; exit 0
-          fi
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Stage FIRST, then ask the index. `git diff --quiet` is blind to
+          # UNTRACKED files, so the day aliases.json was added this step
+          # reported "unchanged" and committed nothing — the artifact was
+          # built correctly every run and never reached the repo. Any new
+          # artifact added to this list would have failed the same silent way.
           git add catalog-index.json topshelf.json details/ channel-pools.json episodes-index.json aliases.json
+          if git diff --cached --quiet -- catalog-index.json topshelf.json details/ channel-pools.json episodes-index.json aliases.json; then
+            echo "web index + details + channel pools + episodes unchanged"; exit 0
+          fi
           git commit -m "Refresh web catalog index + detail shards [skip ci]"
           for i in 1 2 3 4 5; do
             if git pull --rebase --autostash origin main && git push; then
