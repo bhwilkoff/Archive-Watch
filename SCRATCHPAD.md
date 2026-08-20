@@ -233,6 +233,56 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-08-20 — Pipeline integrity: D089-091, alias forwarding, and an auditor that lied
+Autonomous /loop. **No app-source changes, so no version bump** — pipeline, CI
+and web only. Full detail: `session_handoff_2026_08_20` memory.
+
+**The theme was a check whose "nothing to do" is a bug.** Ten payouts, ten
+candidates measured and CLEARED (a clearing is a result — each is a change not
+shipped into working code).
+
+- **D089** — `--clobber` DELETES before uploading; a raw 1.17 GB member 422'd and
+  took BOTH `subtitle-index` assets with it, then a `|| echo "first run"` restore
+  swallowed "no assets to download" and republished from zero: **702,148 word
+  timings destroyed by a GREEN run**. The incident carried its own control —
+  `word-index`, lacking the swallow, hit the same condition and failed safely.
+  Guard = `tools/sqlite_publish_guard.py`. Proven on a scheduled run; the index
+  is recovering (90,084 -> **262,436**, verified in the published artifact).
+- **publish-db** — `git diff --quiet` is blind to UNTRACKED files, so
+  `aliases.json` was built every run and never committed. Stage first, ask the
+  INDEX.
+- **D085 amendment** — `dedupe_by_imdb` dropped **6,158 ids with no forwarding
+  address** against the 551 the film merge covered. Both maps unioned and chased
+  as one (551 -> 5,363). Android never queried the table; web could not. Both
+  closed — web via a lazily-fetched `aliases.json` sidecar, 9/9 tested.
+- **D090** — the health auditor's flat 36h lookback made **7 weekly/monthly
+  workflows structurally unauditable**; tv-canonical sat FAILED four days under
+  a green "Nothing needs attention". Now per-cadence, plus STALE. A follow-up
+  fixed it judging manual dispatches instead of schedules — the dangerous
+  direction, since a green dispatch MASKS a broken schedule.
+- **D091** — tv-canonical's budget was computed AFTER `resolve_and_pool`, which
+  ran a measured **54m22s** unbounded: 54 + 150 = 204m against a 180m timeout.
+  Budget now starts at process start; the deadline also reaches per-EPISODE
+  inside `rebuild_show`, degrading to `--no-repick` rather than dropping
+  episodes. Proven in CI (218 episodes degraded, 757 shows deferred, series
+  files 485 -> 485, reconcile deleted 0/0).
+- Trailer re-judge: **127 stale exclusions restored** — Chaplin's *Police*,
+  *The Golem*, Keaton's *The Cameraman* — with 100 real trailers still hidden.
+
+**Four times my own tooling lied**: `head -N` truncation; grepping a run log
+matching the SCRIPT TEXT in the `##[group]Run` header (step CONCLUSIONS are
+unfakeable); calling a push failed when it was attempt 1 of a retry that
+succeeded on attempt 2; and a TAUTOLOGICAL check (excluded items are dropped
+from the served DB by construction). Also corrected an over-pessimistic D089
+estimate — "months" came from reasoning in FILMS when the unit is WORDS.
+
+**Awaiting their next scheduled run** (do not re-investigate): tv-canonical
+Sunday, subtitle-index Tuesday, faststart-derivatives Sep 1 (already fixed
+2026-08-09 — its budget postdates the Aug 1 run being reported).
+
+**OWNER**: `editors-picks` has 5 eligible items against `minPerShelf=9`, so
+**Editor's Picks never appears on Home** — needs more picks in `featured.json`.
+
 ### 2026-08-12 (audit) — Full tvOS feature/element audit: 6 fixes, 44/44 on-device; 1.3.369/891
 Owner /loop: "fully test each feature and screen … all buttons and filters."
 Product: **docs/TVOS-AUDIT.md** (living ledger, now CLOSED — every T1/T2 row
