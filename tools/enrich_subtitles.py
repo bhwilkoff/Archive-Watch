@@ -188,6 +188,19 @@ def _caption_sources(item) -> set:
     A legacy bare boolean is credited to `archive` alone, mirroring D055's
     treatment: this tool is the one that has always been scheduled, so crediting
     it is the conservative reading. It costs at most a re-check.
+
+    HOW MUCH THIS ACTUALLY RECOVERS — measured, because the fix is smaller than
+    it looks. Re-checking 800 already-marked items with `--refresh` found 8
+    captioned: **1%**. So the shared marker was NOT a meaningful coverage cap;
+    the overwhelming majority of marked-but-uncaptioned films genuinely have no
+    caption file on archive.org. Draining all 26,060 would yield roughly 260
+    more captioned titles at a cost of 26,060 metadata fetches — real but
+    marginal, and deliberately NOT scheduled as a drain.
+
+    What this change is worth, then, is FORWARD protection: free_subtitles runs
+    daily and opensubtitles on demand, and without per-source marks either of
+    them would keep retiring films from the archive sweep permanently. That is
+    worth preventing even though the historical backlog turned out to be thin.
     """
     tried = item.get("captionsTried")
     if isinstance(tried, list):
