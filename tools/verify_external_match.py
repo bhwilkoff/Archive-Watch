@@ -351,9 +351,14 @@ def main() -> int:
     targets = [it for it in items
                if is_candidate(it) and (args.refresh or not it.get("matchVerified"))]
     if args.era_only:
+        # EITHER id — the era tier resolves a tmdbID through TMDb and an imdbID
+        # through OMDb. Requiring tmdbID here is what made the OMDb half a
+        # no-op on its first run: the lookup had been extended, the SELECTION
+        # had not, so the 32 imdb-only items were never offered to it.
         targets = [it for it in items
                    if it.get("contentType") in _TV_KINDS
-                   and it.get("tmdbID") and not it.get("seriesID")
+                   and (it.get("tmdbID") or it.get("imdbID"))
+                   and not it.get("seriesID")
                    and collection_decade(it) is not None]
         print(f"[verify] era-only: {len(targets)} TV items with a decade collection")
     targets.sort(key=lambda it: it.get("popularityScore") or 0, reverse=True)
