@@ -94,6 +94,21 @@ def _shelf_collection_map():
 SHELF_COLLECTION_MAP = _shelf_collection_map()
 
 
+def _tv_category_shelves():
+    """Shelves that featured.json declares are TELEVISION. Read from the
+    declaration rather than hardcoded, so a new TV row behaves correctly the
+    day it is added (Decision 086 — the shelf already says what belongs in it)."""
+    try:
+        f = json.loads((REPO / "featured.json").read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return frozenset()
+    return frozenset(s.get("id") for s in (f.get("shelves") or [])
+                     if s.get("category") == "tv-series" and s.get("id"))
+
+
+TV_CATEGORY_SHELVES = _tv_category_shelves()
+
+
 def _shelf_ids_for(it):
     """Full Home-shelf membership for an item: its stored `shelves` UNION any
     shelf whose collection: query the item's collections satisfy."""
@@ -874,6 +889,7 @@ def _playable_episode_aids():
 
 def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
     item_rows, json_rows, genre_rows, coll_rows, shelf_rows, fts_rows = [], [], [], [], [], []
+    tv_shelf_series: dict[str, list[str]] = {}
     gem_suppressed = set()      # archive.org asked us not to feature these
     kw_rows, studio_rows = [], []   # metadata-expansion facets (Decision 046)
     shelf_pos = _rotated_shelf_positions(items, rotate_seed)
@@ -922,6 +938,16 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
                 studio_rows.append((aid, str(st)))
         for s in _shelf_ids_for(it):
             shelf_rows.append((s, aid, shelf_pos.get((s, aid), 0)))
+            # A shelf declared `category: tv-series` in featured.json is a row
+            # of SHOWS, but its archive.org query returns individual uploads —
+            # so the row filled with loose episodes that open as movies with no
+            # way to reach the rest of the series (the owner hit this on
+            # iPhone). Put the SERIES CARD on the shelf alongside, so the row
+            # leads with something that opens into seasons and episodes.
+            # Requires the orphan to be linked to its spine first
+            # (link_orphan_episodes.py runs before this in publish-db).
+            if s in TV_CATEGORY_SHELVES and it.get("seriesID"):
+                tv_shelf_series.setdefault(s, []).append(it["seriesID"])
         # `names` = searchable people: director, cast, producer, + the metadata-expansion crew
         # (writer/composer/cinematographer) so searching a writer/composer finds their films.
         names = " ".join([it.get("director") or ""]
@@ -967,6 +993,19 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
     db.executemany("INSERT INTO item_collections VALUES (?,?)", coll_rows)
     db.executemany("INSERT INTO item_keywords VALUES (?,?)", kw_rows)
     db.executemany("INSERT INTO item_studios VALUES (?,?)", studio_rows)
+    # Series cards ahead of the loose uploads: position -1 sorts them first
+    # under the shelf query's `ORDER BY hasRealArtwork DESC, position`.
+    seen_pairs = {(s, a) for s, a, _ in shelf_rows}
+    added = 0
+    for shelf_id, sids in tv_shelf_series.items():
+        for sid in dict.fromkeys(sids):          # de-duped, order preserved
+            card = f"series:{sid}"
+            if (shelf_id, card) not in seen_pairs:
+                shelf_rows.append((shelf_id, card, -1))
+                seen_pairs.add((shelf_id, card))
+                added += 1
+    if added:
+        print(f"[sqlite] {added} series cards added to TV-category shelves", flush=True)
     db.executemany("INSERT INTO item_shelves VALUES (?,?,?)", shelf_rows)
     db.executemany("INSERT INTO items_fts VALUES (?,?,?,?)", fts_rows)
     return len(item_rows)

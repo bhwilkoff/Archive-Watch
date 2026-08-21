@@ -32,6 +32,7 @@ from __future__ import annotations
 
 import argparse
 import glob
+import pathlib
 import json
 import re
 from pathlib import Path
@@ -133,8 +134,14 @@ def load_spines():
                 if e.get("title"):
                     titles[norm(e["title"])] = aid
         if slots or titles:
+            # The slug is the FILE STEM and must travel with the spine: callers
+            # cannot recover it by zipping against a sorted glob, because this
+            # loop skips spines (1-word names, no episodes) and glob order is
+            # not sorted. Doing that silently filed Beverly Hillbillies episodes
+            # under "Fries With That".
             spines.append({"name": name, "slots": slots, "titles": titles,
-                           "raw": d.get("title")})
+                           "raw": d.get("title"),
+                           "slug": pathlib.Path(f).stem})
     return spines
 
 

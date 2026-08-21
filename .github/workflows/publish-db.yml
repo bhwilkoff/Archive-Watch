@@ -59,6 +59,14 @@ jobs:
       - name: Audit title identity (wrong-film matches)
         run: python tools/audit_title_identity.py --apply | tee identity.log
 
+      # An episode or special must be reachable INSIDE its series wherever you
+      # find it. These uploads are episodes typed `tv-special` that were never
+      # attached to a spine, so Home showed them as standalone films with no way
+      # to reach the rest of the show. Must run BEFORE build_sqlite: the series
+      # cards it puts on the TV rows are keyed on the seriesID set here.
+      - name: Link orphan episodes to their spines
+        run: python tools/link_orphan_episodes.py --apply | tee linkeps.log
+
       # Hide orphaned TV-episode DUPLICATES that masquerade as standalone films
       # (deterministic from the series/ spines + catalog; no network; idempotent).
       - name: Dedupe orphan episodes
