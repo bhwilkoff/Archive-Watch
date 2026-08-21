@@ -87,6 +87,26 @@ def minutes(run: dict) -> float:
         return 0.0
 
 
+URGENT_SEVERITIES = ("BROKEN", "KILLED", "FAILED")
+
+
+def urgent_findings(findings):
+    """The findings that should FAIL the job — i.e. send the owner an email.
+
+    A finding whose fix is already in flight (a later manual run succeeded, so
+    the schedule simply has not had its say yet) is REPORTED but not failed.
+    GitHub emails on failure, and faststart-derivatives is monthly: without
+    this the check would sit red for eleven days over a bug fixed on 08-09,
+    which is how a check stops being read.
+
+    This cannot hide a real break. The judged run is by definition the newest
+    SCHEDULED one, so a dispatch newer than it means no schedule has fired
+    since the fix; the moment one does and still fails there is no newer
+    dispatch, fix_in_flight is False, and it goes urgent again.
+    """
+    return [f for f in findings if f[0] in URGENT_SEVERITIES and not f[3]]
+
+
 def cron_period_hours(path: str) -> float | None:
     """Roughly how often this workflow is SUPPOSED to run, from its own cron.
 
@@ -181,7 +201,8 @@ def main() -> int:
                  if w.get("state") == "active" and w.get("path", "").startswith(".github")]
     cutoff = datetime.now(timezone.utc) - timedelta(hours=LOOKBACK_HOURS)
 
-    findings: list[tuple[str, str, str]] = []
+    # (severity, workflow, why, fix_in_flight)
+    findings: list[tuple[str, str, str, bool]] = []
     checked = 0
     for w in sorted(workflows, key=lambda x: x["name"]):
         # The most recent COMPLETED run, not simply the most recent. A workflow
@@ -225,7 +246,7 @@ def main() -> int:
             checked += 1
             findings.append(("STALE", w["name"],
                              f"last completed run was {age.total_seconds() / 3600:.0f}h ago; "
-                             f"cadence is ~{period:.0f}h"))
+                             f"cadence is ~{period:.0f}h", False))
             continue
         checked += 1
         verdict = judge(w["name"], run)
@@ -246,7 +267,15 @@ def main() -> int:
                 why += (f" — but a manual run on "
                         f"{newer_ok[0]['run_started_at'][:10]} SUCCEEDED, so this "
                         f"may already be fixed and awaiting its next scheduled run")
-            findings.append((verdict[0], w["name"], why))
+            # A later successful DISPATCH means a fix has shipped and the
+            # schedule has not had its say yet. Still REPORTED, but it must not
+            # fail the job: GitHub emails on failure, and a check that is red
+            # for the eleven days until faststart's next monthly run is a check
+            # nobody reads. This cannot mask a real break — `run` is by
+            # definition the newest SCHEDULED run, so a dispatch newer than it
+            # means no schedule has fired since the fix. The moment one does and
+            # still fails, there is no newer dispatch and this goes urgent again.
+            findings.append((verdict[0], w["name"], why, bool(newer_ok)))
 
     order = {"BROKEN": 0, "KILLED": 1, "FAILED": 2, "DROPPED": 3, "STALE": 4, "SILENT": 5, "DRAINED": 6}
     findings.sort(key=lambda f: (order.get(f[0], 9), f[1]))
@@ -256,11 +285,16 @@ def main() -> int:
     if not findings:
         print("Nothing needs attention: every recent run produced something.")
         return 0
-    for sev, name, why in findings:
+    for sev, name, why, _ in findings:
         print(f"  {sev:8} {name[:38]:40} {why}")
 
-    urgent = [f for f in findings if f[0] in ("BROKEN", "KILLED", "FAILED")]
+    urgent = urgent_findings(findings)
+    deferred = [f for f in findings if f[3]]
     print(f"\n{len(findings)} finding(s); {len(urgent)} need action rather than a decision.")
+    if deferred:
+        print(f"{len(deferred)} already have a fix in flight (a later manual run "
+              f"succeeded) and are awaiting their next scheduled run — reported, "
+              f"not failed.")
     return 1 if urgent else 0
 
 
