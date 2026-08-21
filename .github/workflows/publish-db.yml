@@ -50,6 +50,15 @@ jobs:
       - name: Remediate catalog data quality
         run: python tools/remediate_catalog.py
 
+      # A film matched to a DIFFERENT film that shares its title poisons the
+      # poster AND the captions (free_subtitles searches by imdbID, so a wrong
+      # id fetches a wrong film's subtitles). The contradiction is already in
+      # the catalog — two copies of one film disagreeing about which film they
+      # are — so this needs no network. Reports every conflict; only CLEARS the
+      # ones the evidence can name.
+      - name: Audit title identity (wrong-film matches)
+        run: python tools/audit_title_identity.py --apply | tee identity.log
+
       # Hide orphaned TV-episode DUPLICATES that masquerade as standalone films
       # (deterministic from the series/ spines + catalog; no network; idempotent).
       - name: Dedupe orphan episodes

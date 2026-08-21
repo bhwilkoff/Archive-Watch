@@ -281,8 +281,17 @@ def write_assets(item, srt_text, source):
     (out / "video.m3u8").write_text(video, encoding="utf-8")
     (out / "subs.en.m3u8").write_text(subs["en"], encoding="utf-8")
     url = f"{base}/en.vtt"
+    # Record the IMDb id this was fetched UNDER, not just the provider. These
+    # providers search BY imdb id, so a wrong external match silently fetches a
+    # different film's subtitles — the owner hit exactly that on "Man on the
+    # Run" (1949), whose copy was matched to a 2025 documentary of the same
+    # name and played its captions. With only `source` recorded, a caption
+    # pulled under a wrong id is indistinguishable afterwards from a correct
+    # one, so nothing downstream can drop it when the match is corrected. Same
+    # lesson as Decisions 084/088: persist the EVIDENCE, not just the verdict.
     item["captions"] = [{"lang": "en", "label": "English", "format": "vtt",
-                         "url": url, "vttURL": url, "source": source}]
+                         "url": url, "vttURL": url, "source": source,
+                         "matchedIMDb": item.get("imdbID")}]
     item["subtitleHLS"] = f"{base}/master.m3u8"
     # Record WHICH source looked. A bare captionsChecked retires the item
     # from enrich_subtitles too, which searches archive.org's OWN caption
