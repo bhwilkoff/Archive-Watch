@@ -167,7 +167,20 @@ def main() -> int:
             continue   # transient — leave unaligned so a later run retries
 
         rows = []
+        # The budget must be able to fire INSIDE a film, not just between
+        # films. The queue is ordered by cue count DESC, so the head is
+        # ~2,500-cue films whose alignment is thousands of CPU inferences —
+        # an hour or more each. A film starting at minute 239 of a
+        # 240-minute budget ran straight through the 270-minute step
+        # timeout (measured 2026-08-22: three hours of silence after the
+        # last log line). On a mid-film trip the film's rows are DISCARDED,
+        # not inserted: partial rows without the `aligned` marker would be
+        # re-inserted in full by the next run and duplicate every word.
+        over_budget = False
         for s, e, text in cues:
+            if deadline and time.monotonic() > deadline:
+                over_budget = True
+                break
             words = norm_words(text)
             if not words:
                 continue
@@ -186,6 +199,12 @@ def main() -> int:
                     rows.append((aid, url, w, off + sp[0].start * ratio, off + sp[-1].end * ratio))
             except Exception:
                 continue
+        if over_budget:
+            stopped_early = True
+            print(f"[words] {aid[:44]}: abandoned mid-alignment at the "
+                  f"{args.max_minutes:g}-minute budget; it retries next run.",
+                  flush=True)
+            break
         if rows:
             db.executemany("INSERT INTO words VALUES(?,?,?,?,?)", rows)
         db.execute("INSERT OR IGNORE INTO aligned VALUES(?)", (aid,))

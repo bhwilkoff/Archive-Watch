@@ -56,12 +56,21 @@ UA = "ArchiveWatch/1.0 (https://archivewatch.org)"
 NODE = shutil.which("node") or "/opt/homebrew/bin/node"
 HELPER = Path(__file__).resolve().parent / "_http_fetch.mjs"
 
+# Set by main() from --max-minutes. The harvest loop only checks its budget
+# BETWEEN items, and one adversarial item is up to 14 bounded calls with 429
+# backoffs — ~56 minutes — which is how the 2026-08-22 run blew through its
+# 110-minute budget into the 140-minute step timeout with no STOPPED EARLY.
+# Past the deadline every call fails fast, so the loop-top check can fire.
+HARD_DEADLINE = None
+
 
 def http(method, url, headers=None, timeout=60, retries=2):
     """GET/POST via Node (modern TLS). Returns (status:int, body:bytes). Retries on
     429 (rate limit) with backoff so long sweeps survive SubSource's 60/min cap."""
     spec = {"method": method, "url": url, "headers": {"User-Agent": UA, **(headers or {})}}
     for attempt in range(retries + 1):
+        if HARD_DEADLINE and time.monotonic() > HARD_DEADLINE:
+            return 0, b""
         try:
             p = subprocess.run([NODE, str(HELPER)], input=json.dumps(spec),
                                capture_output=True, text=True, timeout=timeout)
@@ -425,6 +434,8 @@ def main() -> int:
 
     tally = Counter()
     deadline = (time.monotonic() + args.max_minutes * 60) if args.max_minutes else None
+    global HARD_DEADLINE
+    HARD_DEADLINE = deadline
     stopped_early = False
     for n, it in enumerate(targets, 1):
         if deadline and time.monotonic() > deadline:
