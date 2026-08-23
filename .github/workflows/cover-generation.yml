@@ -101,7 +101,17 @@ jobs:
 
       - name: Wire generated covers into the local catalog
         if: always()
-        run: python tools/apply_covers.py
+        # apply_covers.py exits 1 when no covers were uploaded, and a run can
+        # legitimately produce zero: the head of the popularity-sorted artless
+        # queue accumulates permanently-unfetchable items (each fails no_frame
+        # in under a second), so a small --limit can spend itself entirely on
+        # them. Nothing to wire is not broken (Decision 093).
+        run: |
+          if [ ! -s tools/covers_out/uploaded.jsonl ]; then
+            echo "no covers uploaded this run — nothing to wire"
+          else
+            python tools/apply_covers.py
+          fi
 
       - name: Extract what changed
         if: always()
