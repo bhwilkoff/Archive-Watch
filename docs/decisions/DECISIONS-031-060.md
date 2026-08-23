@@ -1,0 +1,1593 @@
+# Archive Watch — Architecture Decisions 031-060 (archive)
+
+Verbatim archive of DECISIONS.md entries 031-060, moved here 2026-08-23 to
+keep the always-in-context DECISIONS.md small (Decision 092). The
+append-only rule still binds: never edit or remove these entries.
+The index of every decision lives in /DECISIONS.md.
+
+---
+
+## 031 — Stream loader delivers bytes as they arrive and pins the storage node
+*Date: 2026-06-11*
+
+`ResilientStreamLoader` (Decision 021) now (a) delivers every arriving Data
+slice straight to AVFoundation via a per-task `URLSessionDataDelegate`
+(`ChunkStream`) instead of buffering whole chunks with `session.data(for:)`,
+(b) pins the post-redirect archive.org storage-node URL after the first
+response and requests it directly, dropping the pin on failure so the next
+attempt re-resolves through the origin, and (c) uses 8 MB ranges instead of
+2 MB.
+
+**Why**: the owner reported 1–2 stalls per film (sometimes a dozen) even with
+the Decision-021 loader. Measured 2026-06-10: every chunk paid the
+`archive.org/download` 302 round trip (~0.5–1.0 s extra time-to-first-byte vs
+the node directly), the player received ZERO bytes until each 2 MB chunk
+completed (so the buffer grew in steps with multi-second gaps), and a mid-chunk
+timeout discarded the partial chunk and re-downloaded it — each such event a
+multi-second hole in buffer feed. Same title, same network, before → after:
+in-chunk throughput 8.7 → 34.9 Mbps, per-chunk turnaround 2.6 s/2 MB →
+0.9 s/8 MB, 100% of requests on the pinned node, and the 300 s forward buffer
+fills in seconds instead of plateauing. Streaming delivery also makes failure
+recovery byte-exact: `offset` advances with each delivered slice, so a retry
+resumes at the exact byte and AVFoundation never sees a gap.
+
+**How to apply**: keep delivery STREAMING — never go back to whole-chunk
+`session.data(for:)` (it holds bytes hostage for the chunk duration and makes
+every failure cost the whole chunk). Keep the pin-and-fallback shape: nodes
+rotate/expire, so a failed pinned request must clear the pin and retry via the
+origin before burning the retry budget (416 means ranged-past-EOF → clean
+finish, not an error). All Decision-021 invariants still bind: short idle
+timeout, resume-from-offset, queue-confined state, no bitrate ceiling.
+Diagnostics are permanent but env-gated (`AW_PLAYBACK_DIAG=1` logs AWSTREAM
+chunk/retry/pin lines, AWSTALL stall events, AWBUF buffer depth; `AW_AUTOPLAY=1`
++ `AW_START_ITEM` drive unattended playback runs on the simulator).
+
+**Consequences**: requests per film drop ~4× (fewer chances to hit an idle
+reset); startup metadata reads go from ~1.5 s to ~50 ms once pinned. The
+pinned URL lives only for the loader's lifetime (one playback session), so
+node rotation between sessions is harmless.
+
+---
+
+## 032 — Title-first PD discovery: a metadata-sourced wants list hunted on archive.org
+*Date: 2026-06-12*
+
+Discovery gains an INVERTED direction: `tools/discover_pd_wants.py` enumerates
+films the metadata world says are public domain or lost-copyright — Wikipedia's
+curated "List of films in the public domain in the United States" (each row
+carries the year AND the lapse reason: not renewed / no notice / dedicated),
+TMDb `/discover` for everything released before the rolling US PD-by-age cutoff
+(`current year − 95`, popularity-first), and Wikidata films published before the
+cutoff that have an IMDb id but no P6216 flag — and queues each title we don't
+already hold as an `iaid`-less candidate in `shared/editorial/
+discovery_candidates.json`. The EXISTING ingest step then hunts archive.org for
+each want by title+year (`archive_lib.resolve_title`), confirms a playable
+derivative, and ingests through the same enrichment / match-verify / rights
+gates as every other item. Wired into `discover-content.yml` ahead of ingest;
+per-run report at `shared/editorial/wants_report.csv`.
+
+**Why**: every prior feed walks archive.org-first (collections, scrape, Wikidata
+P724) and so can only find what Archive's own metadata surfaces — obscure or
+badly-labelled PD uploads stay invisible. Going metadata-first flips the search:
+a curated/derivable list of titles KNOWN to be free (the renewal-failure canon,
+PD-by-age) hunts the Archive for copies, and every want arrives with identity
+attached (IMDb/Wikidata/TMDb ids), so the match is corroborated per Decision 026
+and enrichment is instant — "impeccable metadata" from the moment of ingest.
+First full run validated the approach AND the back catalog: 125 of the 126
+curated Wikipedia US-PD films were already held.
+
+**How to apply**: new wants sources (other curated PD lists, registries,
+national-archive catalogs) belong in this tool as feeds, not as new pipelines —
+emit into the same candidate queue and let ingest/audit do the rest. A want must
+carry at least title+year and ideally an external id; never queue a bare title.
+`PD_YEAR_CUTOFF` is computed, not hardcoded — don't pin it. The Wikipedia list
+parse keys on table rows that lead with a wikilink and carry a year column; if
+the page's table format changes, fix the parser rather than switching to a
+category crawl (the "films in the public domain" CATEGORY does not exist —
+verified 2026-06-12).
+
+**Consequences**: the candidate queue can now contain wants whose Archive copy
+doesn't exist yet — `status="unresolved"` marks a miss and is never retried
+daily; a periodic `--retry-unresolved` sweep (future) could re-hunt as new
+uploads appear. The rights gate stays Decision 027's audit — a want's
+`pdEvidence` documents the nomination reason but never bypasses confirmation.
+
+---
+
+## 033 — Clip Studio: native on-device clip/GIF/fan-edit creation differentiates the phone apps
+*Date: 2026-06-16*
+
+The native iPhone/iPad app gains **Clip Studio** — a rights-gated editor,
+launched from a scissors "Create" button on Detail, that trims a public-domain
+archive.org film, reframes it for social (1:1 / 9:16 / 16:9), burns in a
+user caption plus an always-on `archivewatch.org · Public Domain` provenance
+credit, and exports an MP4 or looping GIF to Photos / the share sheet. The
+processing engine is **100% native frameworks** — AVFoundation
+(`AVMutableComposition` + `AVMutableVideoComposition` + `AVAssetExportSession`),
+ImageIO (`CGImageDestination` for GIF), PhotoKit, `AVAssetImageGenerator` — with
+the Android port on Media3 `Transformer`. The shared engine lives in
+`Services/ClipExporter.swift` guarded `#if os(iOS)`; the editor UI is
+`iOS/ClipStudioView_iOS.swift`. **tvOS and web stay lean-back viewers** — no
+editing affordance (no text entry / direct-manipulation timeline at ten feet or
+in a viewer-only PWA). Full plan: `docs/CREATE-STUDIO-PLAN.md`.
+
+**Why**: phones are creation devices, not just consumption screens — the owner's
+brief is to differentiate the native phone apps from the tvOS/web viewers by
+turning the public-domain catalog into raw material for "fan edits." This passes
+the learning-orientation test (CLAUDE.md) — it invites participation and
+deepens engagement with archival film — **on one condition: do not ship a
+one-tap "auto fan-edit" generator.** The editorial cut is the meaningful human
+act; automating it strips the learning. So the rule is *automate the mechanical
+(frame extraction, encoding, reframe math, attribution generation), preserve
+the meaningful (which moment, what caption, where to cut)*. The distinctive
+wedge is auto-generated provenance credits — turning the Internet Archive's
+attribution norm into a culturally-native feature.
+
+**How to apply**: clipping is offered ONLY for `Catalog.Item.isClippable`
+(playable video + PD/CC/absent rightsStatus; explicit copyright/`unknown` is
+not clippable) — defense in depth over Decision 027's upstream exclusion. The
+affordance is HIDDEN, not disabled, when not clippable. Editing operates on a
+LOCAL file (download to `Caches` first — the editor needs a complete
+`moov`-bearing file, not the play-as-you-go `ResilientStreamLoader` range
+stream); v2 should range-download just the clip window keyed on the moov index
+instead of the whole film. Every export burns the provenance credit and embeds
+the `archive.org/details/{id}` source in `AVMetadataItem`s — never remove that.
+New craft tools (stitch, transitions, speed ramps, LUT grade, `SpeechAnalyzer`
+auto-captions) are ADDITIVE on the same `AVMutableComposition` /
+`AVMutableVideoComposition` spine — do not rebuild the engine for them.
+
+**Native-first note** (`native-platform-first`): the engine and every UI
+surface use native primitives (AVKit `VideoPlayer`, `Picker(.segmented)`,
+`TextField`, `ShareLink`, PhotoKit, `.sheet`/`.toolbar`/`ProgressView`). The
+ONE custom element is the trim timeline (filmstrip + drag handles), because
+neither Apple nor Google ships a reusable timeline-trimmer:
+`UIVideoEditorController` is trim-only / quality-preset-only / UIKit-modal and
+can't host reframe+caption+GIF, and Media3 ships only a demo editor UI. Apple's
+own editor sample code builds the timeline custom on AVFoundation — so custom
+here is the platform-endorsed path, kept thin (it only positions handles over
+native thumbnails and seeks a native player). Re-evaluate on each major OS
+release in case a reusable trimmer ships. `UIVideoEditorController`-for-trim
+remains a one-screen swap if a strictly-native trim bar is ever preferred.
+
+---
+
+## 034 — Stream loader fails over across Archive storage nodes
+*Date: 2026-06-18*
+
+`ResilientStreamLoader` now fetches an item's storage-node list from
+`archive.org/metadata/{id}` (the chosen `server` + `alternate_locations.workable`
+nodes), and on a HARD node failure (5xx/403/404) it blacklists that node's host
+and switches its range requests to a healthy known node directly, instead of
+re-resolving through the origin's `/download/` 302 (which load-balances and can
+re-pin the same bad node). The metadata fetch is best-effort and one-time per
+loader; if it fails, `alternateBases` stays nil and behavior is byte-identical to
+Decision 031 (origin 302 + pin-from-redirect). When every known node has been
+blacklisted, the set is cleared so playback never deadlocks. All new state
+(`failedHosts`, `alternateBases`) is confined to the loader's serial `queue`.
+
+**Why**: owner report "Niagara Falls (1941) doesn't play at all." Measured
+2026-06-18: archive.org was actively rotating that item across storage nodes and
+load-balancing `/download/` between them — one node (`dn720409.ca`) returned 500
+on ~3/5 byte-range requests while the primary (`dn600303.us`) served 5/5. The
+Decision-031 loader pins whatever node the first 302 lands on and, on failure,
+drops the pin and re-resolves through the origin — but the origin can re-pick the
+degraded node, so recovery was a coin-flip per retry (and a full failed stream
+attempt each time). Archive publishes the healthy alternates in its own metadata,
+so switching to them deterministically is strictly better than re-rolling.
+
+**How to apply**: a timeout/connection-reset is the EXPECTED Decision-021 idle
+drop — do NOT blacklist a node for it (that would rotate away from a healthy node
+on normal resets); only a 5xx/403/404 is a node-health signal. Keep the metadata
+fetch best-effort and OFF the first-byte critical path (it's kicked off async from
+the content-info probe; the probe itself still uses the origin so first-play
+latency is unchanged). Preserve every Decision 021/031 invariant: short idle
+timeout, resume-from-offset, streaming delivery, no bitrate ceiling,
+queue-confined state. Diagnostics stay env-gated (`AW_PLAYBACK_DIAG=1` →
+`AWSTREAM alternates:` / `AWSTREAM node … failed … rotating`). Needs on-device
+validation (living-room Wi-Fi, real node weather) before it's considered proven —
+the dev box can't reproduce archive.org's load-balancer.
+
+**Consequences**: playback issues one extra `/metadata` GET per play session
+(cheap, parallel to the probe). The loader is now resilient to a single bad node
+without waiting out the retry budget; the remaining failure mode is ALL nodes
+degraded (rare, mid-rotation), which clears the blacklist and falls back to the
+origin coin-flip as before.
+
+---
+
+## 035 — Hide orphaned TV-episode duplicates; clear unanchored episode posters
+*Date: 2026-06-18*
+
+`tools/dedupe_orphan_episodes.py` (wired into publish-db, idempotent, no network)
+hides standalone items that are DUPLICATES of an episode already mapped onto a
+series spine: it sets a reversible `excluded=true` (+ `episodeDuplicate`,
+`duplicateOf`) when an orphan (`tv-special`/`feature-film`, `seriesID` null) has
+BOTH (a) a series identity drawn from its OWN naming — the multi-word series name
+appears as a CONTIGUOUS phrase in the title prefix, the synopsis prefix (before
+the first colon, near the start), or the archiveID slug — AND (b) a parsed
+`(season,episode)` that is a FILLED slot in that same spine (held by a different
+archiveID). The matched spine must be unambiguous. Separately, `remediate_catalog`
+rule 0d now also clears `tvmaze`/`external`-sourced posters (not just
+tvdb/tmdb/omdb) on unanchored items (no imdbID/tmdbID/year) — POSTER ONLY.
+
+**Why**: owner report — "The Devil's Laughter" showed as a film with a foreign
+film's poster. It's One Step Beyond S1E11, already correctly in the spine as
+`S1E11THEDEVILSLAUGHTER`; the item shown was a SECOND upload
+(`OSB-11_The_Devils_Laughter`) the canonical TV pipeline (Decision 016) never
+mapped, so it floated as a `tv-special` (which `browseSQL` still surfaces in
+Movies — it only excludes `tv-series`) carrying a title-matched TVmaze poster
+(`artworkSource="external"` = "host we don't label", treated as real art). 412
+orphan episode-like items exist. Matching them is a minefield: descriptions
+cross-reference OTHER shows (a *Thriller* episode's synopsis mentions "One Step
+Beyond"), generic "Pilot"/"Episode 1" titles collide across series, and
+same-named FILMS vs SHOWS are different works ("The Lone Star Ranger" film vs
+"The Lone Ranger"; "Man with a Movie Camera" vs "Man with a Camera"; "C-Man" vs
+"The Man from U.N.C.L.E"). Token-subset series matching + title-only episode
+matching produced 173+ matches riddled with false positives that would hide real
+films. Requiring BOTH a contiguous-phrase series name from the item's own naming
+AND a filled (S,E) slot collapses it to 7 confirmed, zero false positives.
+
+**How to apply**: precision over recall — it is better to leave a duplicate
+visible than to hide a real film. Do NOT loosen to token-subset series matching
+or title-only episode matching (both conflate distinct works). Keep the
+`_NOT_SINGLE` guard (promos/trailers/whole-season/multi-episode bundles parse a
+spurious (S,E) and mis-map). Never hard-delete — `excluded` is reversible, and
+the canonical episode stays in its spine so no content is lost. The deeper,
+unsolved problem (orphan episodes whose series has NO spine, or whose (S,E) slot
+is empty) belongs in the canonical TV pipeline (build/reconcile), not a blanket
+exclude. Whether `tv-special` should appear in Movies browse at all is an open
+IA question (binding-design-doc-discipline) — left to the owner.
+
+**Consequences**: 7 confirmed duplicates hidden now; the step re-derives them
+every build from `series/` + catalog, so new ingests are covered without a
+persisted Release mutation. Complements Decision 016 (canonical TV), 026 (match
+correctness), 027 (rights exclusion) — same reversible-`excluded` mechanism.
+
+---
+
+## 036 — TV never appears in Movies; orphan episodes fold into series spines
+*Date: 2026-06-18*
+
+Two coordinated changes make TV organize itself correctly instead of leaking
+into Movies as standalone "films":
+
+1. **Browse taxonomy (app):** `CatalogDB` now excludes BOTH `tv-series` AND
+   `tv-special` from every film surface — Movies/Browse grid (`browseSQL`/
+   `browseCount`), Home discovery shelves + director/quality rows (new shared
+   `notStandaloneTV` clause), and Random Film (`randomPlayable`). `tv-special`
+   is requestable ONLY explicitly, surfaced by a new "TV Specials" entry on the
+   TV tab (`tvSpecials()` query → `BrowseFilter(category:"tv-special")`).
+
+2. **Orphan fold-in (pipeline):** `build_canonical_tv.gather_raw_targets` now
+   also pools episode-marked `tv-special`/`feature-film` orphans (no seriesID) —
+   previously INVISIBLE to the builder, so they floated as standalone films.
+   Each is pooled under its extracted SERIES name (for TVmaze resolution) while
+   keeping its EPISODE title (for the mapper's SxE/fuzzy slotting), so it folds
+   into a new or existing spine — creating a spine even for a show where we hold
+   ONE episode. `dedupe_orphan_episodes` runs FIRST (tv-canonical) to exclude
+   already-mapped duplicates so they don't pool as spine "extras"; reconcile now
+   drops a folded item REGARDLESS of its old contentType (the episode_ids check
+   moved out of the `tv-series`-only branch — a tv-special folded into a spine
+   used to survive as a duplicate card).
+
+**Why**: owner directive — "TV shows should never appear in Movies … every
+single tv show that we have data for should organize into its correct
+season/episode (even if it is only one) … rather than haphazardly," plus "look
+for the other episodes in our regular wants scripts." Research found 2,306
+`tv-special` orphans leaking into Movies; 269 are episode-marked (152 belong to
+shows with no spine, 117 to existing spines). Identification is reliable: 11/13
+sampled no-spine series resolved correctly to TVmaze. Crucially, the
+episode-level wants engine ALREADY runs daily (`build_episode_wants.py` →
+`episode_wants.json`, 14.6k wants, hunted by `backfill_tv_episodes.py`) but only
+for shows that HAVE a spine — so folding orphans in automatically enrolls their
+shows in episode-hunting (validated: Fu Manchu's 3 orphans → a new spine with
+`canonicalEpisodesCount=13`, so wants generate for the missing 10). No new wants
+engine was needed — the spine was the missing link.
+
+**How to apply**: fold-in is CONSERVATIVE by owner decision — episode-marked
+orphans only (`_orphan_is_episode`: SxE/NxNN/"Season N Episode M"); do not mine
+unmarked tv-specials (many are genuine one-off specials, not episodes). Extract
+the series name from the item's OWN naming (synopsis-prefix-before-colon, then
+title-before-marker, then archiveID slug) — never a buried cross-reference. The
+existing mismap guard (name-plausibility floor + identity-token overlap) and
+`audit_series_episodes` still gate inclusion. Always run `dedupe_orphan_episodes`
+before `build_canonical_tv` so duplicates are excluded, not folded as extras.
+tv-specials that don't resolve stay `tv-special` and live in the TV Specials
+grid — never Movies.
+
+**Consequences**: the standalone `tv-special` set shrinks as orphans fold into
+spines each weekly TV run; the residual genuine specials surface on the TV tab.
+iOS/Android/web get the data-layer exclusion via shared CatalogDB-equivalents
+but still need their own TV Specials surface (parity follow-up). Complements
+Decision 016 (canonical TV) and 035 (duplicate exclusion).
+
+---
+
+## 037 — Player title+description overlay that fades with the transport controls
+*Date: 2026-06-18*
+
+The mobile + web players gain a title+description overlay (top scrim) that
+appears and disappears IN SYNC with the playback controls. Each platform uses
+its best native hook; tvOS is intentionally untouched (its native Info tab +
+externalMetadata already satisfy the owner). Per platform:
+
+- **Android** (`PlayerScreen.kt`): Media3 `PlayerView.setControllerVisibilityListener`
+  — a public, exact controls-visibility callback drives a Compose
+  `AnimatedVisibility` overlay. Text tracks the CURRENT item via a
+  `Player.Listener.onMediaItemTransition` (binge updates on advance). Synopsis
+  rides `MediaMetadata.setDescription`; `PlaySpec` gained a `description` field.
+- **Web** (`watch.js`/`index.html`/`watch.css`): a `.player-overlay` over the
+  `<video>`; HTML5 `<video controls>` exposes no visibility event, so
+  `syncOverlay()` mirrors the SAME user-activity signal the browser uses
+  (pointer/touch + a 3.2s timer; stays up while paused). Synopsis from
+  `Details.get(id)`.
+- **iOS** (`PlayerView_iOS.swift`): set `externalMetadata` on the AVPlayerItem
+  (`commonIdentifierTitle` + `commonIdentifierDescription` + the empty
+  creation-date overrides) — AVPlayerViewController then renders the title in
+  its OWN chrome, shown/hidden WITH the transport controls, surviving load and
+  recallable on tap. This is the Apple TV app's behavior and mirrors the tvOS
+  player verbatim. A FIRST attempt used a custom `contentOverlayView` overlay
+  with a tap recognizer + timer; it was WRONG (showed before load, faded on its
+  own timer, and AVKit's gestures swallowed the tap so it couldn't be recalled)
+  and was removed. `PlaybackQueue.next` returns title+description so the next
+  episode's metadata is set on binge-advance.
+
+**Why**: a title/description visible alongside the controls is a standard player
+affordance the mobile + web apps lacked (the web title sat in a static header
+bar; iOS showed nothing). Owner request 2026-06-18, scoped to "the mobile app
+and the web app" — tvOS already does this natively and the owner likes it.
+
+**How to apply**: NEVER replace the native transport. On iOS, do NOT build a
+custom synced overlay (a `contentOverlayView` overlay + tap/timer was tried and
+failed — see above); use the player's OWN chrome via `externalMetadata`, which
+AVKit syncs to its controls for free (no private API, no KVO of control views).
+On Android + web (which DO own a custom overlay over the surface), keep it
+non-interactive (`pointer-events:none` / non-touchable) so it never blocks the
+controls; Android has a true `setControllerVisibilityListener` event (prefer it),
+web mirrors the browser's user-activity timer. Description text is clamped.
+NOTE: `simctl` screenshots do NOT capture AVPlayerViewController's chrome — the
+iOS title overlay can only be verified on a real device / Simulator UI, not via
+automated screenshots.
+
+**Consequences**: `PlaySpec` (Android) + `PlaybackQueue.next` (iOS) signatures
+changed (additive/internal). Other Android `PlaySpec(` call sites (channels,
+explore, series) pass no description yet — the overlay shows title-only there
+until they're wired (follow-up). Per-platform binding docs to note the new
+overlay surface.
+
+---
+
+## 038 — "Open in Callsheet" via the callsheet:// URL scheme (iOS only)
+*Date: 2026-06-19*
+
+The iOS/iPadOS app deep-links a title into **Callsheet** (the cast/crew
+companion app) from an actions menu on the share button — Detail and
+SeriesDetail (series + per-episode context menu). Uses Callsheet's public URL
+scheme (callsheetapp.com/url-schemes): `callsheet://open/movie/{tmdbID}` /
+`callsheet://open/tv/{tmdbID}` when we hold a `tmdbID` (47% of titles), else the
+title-search fallback `callsheet://search/{movie|tv}?q={title}` (Callsheet
+ignores the media type on search, so any nameable title resolves; episodes add
+`&season=&episode=`). If Callsheet isn't installed, `UIApplication.open`'s
+completion fires `false` and we open its App Store page (id1672356376) — the
+native "get the app" fallback. Logic lives in `Callsheet` (CallsheetLink_iOS.swift).
+
+**Why**: owner request + Callsheet's author (Casey Liss) endorsing the URL-scheme
+approach over Shortcuts. Callsheet is iPhone/iPad ONLY, so this is an iOS feature
+— tvOS/Android can't open it (no app), and a browser can't detect install or
+fall back cleanly, so web is out. TMDB ids are required by Callsheet (no IMDb);
+we already store `tmdbID`, and search covers the rest.
+
+**How to apply**: keep it to films + TV (`Callsheet.supports` — newsreel/
+ephemeral/home-movie/commercial have no Callsheet entry). We detect installation
+with `canOpenURL("callsheet://")` to label the action "Open in Callsheet" vs "Get
+Callsheet" and route accordingly — which REQUIRES `callsheet` in the Info.plist
+`LSApplicationQueriesSchemes` array (added). Opening a scheme alone would need no
+declaration; only the canOpenURL probe does. No App-Review/entitlement/portal
+change is needed either way. Do not scrape or use undocumented
+endpoints — only the published open/search scheme. Person deep-links
+(`callsheet://open/person/{id}`) are possible but BLOCKED until the catalog's
+`CastMember` carries a TMDB person id (today it stores only name + profilePath) —
+a pipeline enhancement, not done here.
+
+**Amendment 2026-06-23 (owner: "all apple platforms"):** the title "(iOS only)" is
+superseded — Callsheet ships a Mac app, so the integration now ALSO lives in the
+**macOS** target (`macOS/CallsheetLink_macOS.swift`, wired on Detail + SeriesDetail +
+per-episode context menu). The macOS twin uses **`NSWorkspace`** instead of
+`UIApplication`: `NSWorkspace.urlForApplication(toOpen: callsheet://)` is the
+install probe (the AppKit analog of `canOpenURL`) and needs NO `LSApplicationQueriesSchemes`
+entry on macOS (that array is an iOS privacy restriction); `NSWorkspace.open` routes the
+deep link, falling back to the App Store page. The URL-building / supported-types /
+search-vs-open logic is identical to iOS. Still excluded: tvOS (no Callsheet app) and web
+(can't probe install or fall back cleanly).
+
+---
+
+## 039 — Subtitles: layered sources, side-loaded as tracks; archive.org ASR first
+*Date: 2026-06-19*
+
+Subtitles are delivered as a new additive `captions` field on each catalog item
+(`[{lang, label, format, url, source}]`) that every client SIDE-LOADS onto the
+progressive MP4 — never re-encoded into the video. Coverage is layered across
+sources, cheapest/cleanest first:
+1. **archive.org's own caption files** (`tools/enrich_subtitles.py`, Phase 1):
+   most Archive video items ship auto-generated ASR captions (`<name>.asr.srt`)
+   or uploader subs (`.srt`/`.vtt`, sometimes `Film.es.srt`). FREE, already
+   hosted on the same item we stream, zero ToS/redistribution issue. Measured
+   ~33% of films overall, ~73% of the most popular — the backbone.
+2. **OpenSubtitles** by imdb/tmdb id (Phase 3): human-made, multi-language, for
+   titles Archive didn't caption. Non-commercial use + a back-link are their ToS
+   conditions — Archive Watch is free/non-commercial (Decision 010), so it fits;
+   fetch on-demand (download caps) and attribute.
+3. **Whisper-generated VTT** (Phase 4): fills the remaining gaps. We own the
+   output (the films are public domain), so it's freely hostable like covers.
+
+**Why**: owner wants robust coverage across all titles, multi-language, even via
+multiple sources. No single community DB covers obscure PD films, but archive.org
+already ASR-captions a large share for free, so it's the backbone; the others
+layer on. Side-loading (not burning into video) keeps the highest-quality
+derivative (Decision 021) untouched and lets the user pick a language.
+
+**How to apply (per-platform mechanics — they differ a LOT)**:
+- **Android** (Media3): EASY — `MediaItem.SubtitleConfiguration` side-loads SRT
+  or VTT directly. Native.
+- **Web** (`<video>`): EASY — a `<track kind="subtitles">`, but the element
+  requires **VTT**, so convert SRT→VTT client-side (trivial: WEBVTT header +
+  `,`→`.` in timestamps) into a blob URL.
+- **Apple** (iOS/tvOS, AVPlayer): HARD — AVPlayer cannot side-load a sidecar
+  `.vtt`/`.srt` onto a progressive MP4. The native path is to synthesize an HLS
+  master playlist (MP4 variant + `EXT-X-MEDIA:TYPE=SUBTITLES` → a VTT subtitle
+  playlist) via an `AVAssetResourceLoaderDelegate`. This COLLIDES with
+  `ResilientStreamLoader` (Decision 021/031): going HLS hands the connection back
+  to AVFoundation and loses the resume-on-reset resilience. So Apple subtitles
+  need a careful design (e.g. a subtitle-only HLS layer that still streams the
+  MP4 bytes through our loader) and on-device validation — deferred, NOT done in
+  Phase 1. Don't naively swap the progressive MP4 for HLS.
+
+Phase 1 (this entry): the pipeline + the `captions` schema on the Swift + Kotlin
+models + the weekly `subtitles.yml`. The per-platform players (web `<track>`,
+Android `SubtitleConfiguration`, the Apple HLS layer) are the next phases.
+
+---
+
+## 039a — Whisper auto-captioning runs in CI (sharded macOS), not on the owner's Mac
+*Date: 2026-06-20*
+
+Phase 4 of Decision 039 (whisper.cpp auto-captioning of uncaptioned PD films) is
+amended to run as its PRIMARY venue in GitHub Actions
+(`.github/workflows/whisper-subtitles.yml`) across N free **macOS (Apple-Silicon)**
+runners, instead of as an unattended batch on the owner's Mac. The target list
+(popularity-sorted, already-captioned-filtered) is split with `--shard-index/
+--shard-count` across a matrix of `macos-15` runners; each shard runs `--workers 1`
+under a `--max-minutes` budget (under the 6 h job cap) and uploads `subs/` + a
+compact `--deltas-out` file as artifacts; a single dependent publish job merges them
+and applies additively via `whisper_publish.py --apply-deltas` (so parallel shards
+never clobber the shared `catalog-source` release). Head-first falls out of the
+popularity sort; the long tail is drained by the weekly schedule. The script also
+got gentle defaults for any LOCAL run: `--workers 1` (was 3), `--max-minutes`,
+`--threads`, and docs to wrap it in `taskpolicy -b` with `ggml-base.en.bin`.
+
+**Why**: Decision 039 specified "Mac-first, not in CI," reasoning whisper.cpp+Metal
+is Apple-Silicon-only and the audio pull is bandwidth-heavy. But the owner's machine
+is a **fanless 8 GB M3 MacBook Air**, and a `--workers 4` run (4 concurrent
+whisper-cli + 4 ffmpeg + the 74 MB catalog held in-process) drove it into memory
+pressure + sustained thermal load until it became unusable and **shut down** — only
+29 of 22,835 films done. Two facts overturn the original reasoning: (1) this repo is
+**PUBLIC**, so GitHub's macOS runners (Apple Silicon, Metal-if-available, else CPU)
+are **free** within fair-use — the cost objection is gone; (2) the work is
+embarrassingly parallel and bandwidth/heat is the runner's problem, not the Air's.
+Offloading removes the resource event entirely while keeping the same additive,
+resumable, head-first design. 22,835 films is also not finishable on the Air at any
+gentleness, so a free fleet of runners draining it over weeks is the only realistic
+path to broad coverage.
+
+**How to apply**: scale whisper transcription by adding SHARDS (separate runners),
+never by raising `--workers` on one machine — a single Metal GPU gains nothing from
+concurrent jobs but pays multiplied RAM + heat (this is what crashed the Air). Keep
+the publish single + additive (`--apply-deltas` from the merged shard delta files);
+do NOT have each shard run `whisper_publish.py` independently (5 concurrent
+fetch→clobber publishes race and drop deltas). If a LOCAL run is ever needed on a
+small/fanless Mac, use `--workers 1`, a `--max-minutes` budget, `ggml-base.en.bin`,
+and wrap the process in `taskpolicy -b` (background QoS → efficiency cores, machine
+stays responsive). Validate any runner-side change with a tiny dispatch
+(`-f limit=3 -f shard_count=1`) before a big batch — the job summary prints whether
+Metal initialized vs CPU fallback.
+
+**Consequences**: whisper Phase 4 joins the other catalog-writer crons; its publish
+job uses `concurrency: catalog-writers` so the release apply serializes with them.
+The bundled per-platform players (Decision 039) consume the resulting `captions`/
+`subtitleHLS` unchanged. If GitHub's macOS runners turn out to lack Metal, the same
+job still runs on CPU (slower, still free, still zero-load on the Air) — the workflow
+does not hard-require GPU.
+
+---
+
+## 040 — Collapse same-film re-uploads into one best card (title + single-imdb anchor + runtime), grafting metadata
+*Date: 2026-06-20*
+
+`build_sqlite.merge_film_duplicates()` collapses multiple archive.org uploads of
+the SAME film into ONE card and grafts the film-level metadata onto the survivor,
+running after `dedupe_by_imdb`. It acts ONLY on normalized-title clusters that
+contain EXACTLY ONE imdb id (the imdb anchors the film's identity); a no-imdb copy
+joins the anchor only when year-compatible (|Δ|≤2) AND runtime-compatible (within
+15% / 2.5 min). The survivor is the best **video + captions** copy (`_video_quality`
+= qualityScore + filename resolution, demoting 512kb/ipod derivatives; captions are
+the top tiebreak so the CC copy wins); the anchor's imdb / tmdb / year / director /
+rating and the cluster's best artwork are grafted onto it. Multi-imdb clusters
+(distinct films — Cleopatra, Oliver Twist adaptations) and all-no-imdb clusters
+(generic titles — "Public Domain Animation" ×31) are LEFT UNTOUCHED. Replaces
+`drop_noimdb_dupes_of_captioned`.
+
+**Why**: the catalog holds many duplicate uploads of one film, and the imdb-only
+dedup couldn't see them as the same film because re-uploads usually carry NO imdb
+id — so the user saw, e.g., FOUR "House on Haunted Hill" cards. Worse, the strengths
+were split across copies: one copy had the imdb + 1959 + a TMDb poster but was a
+low-res iPod derivative, while the good 720p video sat on a no-imdb card. Tapping
+the nice-looking card gave bad video; tapping the good-video card gave a thumb-art
+card with no metadata — "the app serves the wrong thing." The recent caption-wins
+dedup (the subtitle fix) made it worse: the whisper batch captions EVERY uncaptioned
+copy independently, so a film got captioned 4× and `drop_noimdb_dupes_of_captioned`
+(which only dropped a no-imdb copy that had NO captions) stopped firing entirely.
+Measured: 700 title-clusters with >1 film copy (~858 redundant cards); 179 are the
+safe single-imdb-anchor case (~195 cards). Validated end-to-end: 208 re-uploads
+merged into 189 best cards, **0 imdb ids lost, 0 duplicated, 0 captions lost**; House
+collapses to one 720p card stamped with tt0051744 + 1959 + TMDb poster + William
+Castle, and the 1999 remake (William Malone, +18 min runtime, no imdb) correctly
+stays a separate card.
+
+**How to apply**: precision over recall (Decision 035) — NEVER merge a multi-imdb
+cluster (distinct films) or an all-no-imdb cluster (generic-title collisions). The
+runtime guard is load-bearing: it is the only thing separating the 1959 House on
+Haunted Hill from the 1999 remake that shares its exact title and has no imdb/year.
+Grafting copies only film-level (copy-independent) fields — imdb/tmdb/year/director/
+rating/artwork — NEVER video URL or captions (those are a matched pair on one exact
+archiveID; the winner keeps its own). The fix is PURE DATA in the shared DB, so all
+four platforms (tvOS/iOS/Android/web query the same `catalog.sqlite`) get it with no
+app build; republish via `publish-db`. The still-open, riskier class is all-no-imdb
+duplicate clusters that ARE one film (e.g. "Werewolf of Washington" ×4) — needs
+stronger corroboration (same year + runtime + a non-generic title guard) before it
+can be merged safely; deferred.
+
+**Consequences**: the served DB shrinks by the merged count (~200 now; grows as the
+whisper batch captions more copies — re-running publish-db re-derives the merge each
+build, so it self-maintains). `dedupe_by_imdb` still runs first. The Swift in-memory
+`AppStore.dedupedByIMDb` mirror is now a subset of the DB-level policy; browse/search/
+detail read the DB so they get the full merge, but the mirror could be aligned later.
+
+---
+
+## 040a — Extend the dup-merge to multi-imdb attach + no-imdb runtime-corroborated sets
+*Date: 2026-06-20*
+
+`merge_film_duplicates` (Decision 040) was generalized from "single-imdb anchor
+only" to a per-title-cluster **union-find** over a `_same_film` edge test, with a
+`_consistent` gate before any component merges. `_same_film` requires positive
+corroboration (shared imdb, matching year, or tight runtime agreement) AND no
+contradiction (different imdb, year apart >2, runtime apart beyond tol); a bare
+no-imdb copy (no year, no runtime) attaches ONLY to an imdb-bearing copy, never to
+another bare copy. This now also (a) attaches a no-imdb copy to the RIGHT film in a
+multi-imdb cluster (by runtime/year), and (b) merges no-imdb-only duplicate sets when
+runtimes corroborate (Werewolf of Washington ×4, Messiah of Evil ×4, Moon of the Wolf
+×3). The survivor additionally grafts the cleanest title (`_title_quality` demotes
+uploader/filename strings like `y2mate.is-…`).
+
+**Why**: the owner pushed — "there have to be hundreds or thousands of these." The
+single-imdb-only pass left the no-imdb duplicate sets (the largest visible-clutter
+class) untouched. Measured: of 170 no-imdb clusters, 82+ are confidently one film by
+runtime agreement; total confident merges rose from 208 → **360 re-uploads into 315
+cards**, still with 0 imdb lost / 0 duplicated / 0 captions lost.
+
+**How to apply**: the `_consistent` gate is the safety net for union-find's
+transitivity — if a component ends up naming two imdb ids or spanning >2 years /
+mismatched runtimes, it is NOT merged (left fully separate). Keep the bare-copy rule
+(attach only to an imdb anchor) — it is what stops generic-title collisions ("Public
+Domain Animation" ×31 distinct cartoons) from chain-merging. STILL deferred: no-imdb
+clusters with NO runtime on the copies (can't corroborate) — these need enrichment to
+add imdb/runtime first, then they merge automatically on the next build.
+
+---
+
+## 041 — archive.org community signals: harvested, used for sort/best-copy, surfaced as vote-floored shelves + pipeline-filtered reviews
+*Date: 2026-06-22*
+
+Archive Watch consumes archive.org's built-in usage/community data — views (all-
+time / 30-day), favorites (`num_favorites`), ratings (`avg_rating`), and reviews —
+harvested onto every catalog item by `tools/harvest_community_signals.py` (batched
+advancedsearch + the be-api views bulk endpoint) and used four ways: (1) a
+recency+quality **popularity sort** (`build_sqlite._pop_score`: 30-day views +
+recent/all-time downloads + vote-floored rating + favorites); (2) **best-UPLOAD
+selection** (`_community_copy_score` feeds the Decision-040 dedup winner — a film's
+trailer can out-download the film, so weight rated+reviewed+favorited copies and
+penalise trailers); (3) **community Home shelves** (Watching Now / Community
+Favorites / Most Discussed) on all four platforms; (4) **reviews on Detail**, but
+ONLY genuine reviews of the title. Reviews are filtered in the PIPELINE
+(`tools/comment_fit.py`, run by `tools/harvest_reviews.py`) and the surviving ones
+BAKED into the catalog `reviews` field; every client just displays them.
+
+**Why**: (a) the signals make popularity reflect what people actually watch now and
+make best-copy reflect what a real audience vetted — far better than the legacy
+all-time-downloads proxy. (b) The community shelves are **vote-floored to
+imdbVotes≥1000** because raw community counts are dominated by obscure un-IMDb'd
+foreign edge cases (softcore, "The Child Molester") that the metadata adult filter
+CANNOT catch — but those have no IMDb votes, so the same floor as Top Rated keeps
+the curated shelves clean. (c) Reviews are filtered in the pipeline, not at runtime:
+archive.org "reviews" are a comment box mixing genuine reviews with file/upload
+talk ("what format is the audio?", "request a re-rip", even 5★ "I downloaded the
+DVD-5 version, the picture is cleaner") and inappropriate/spam. Owner rule: Detail
+shows genuine reviews of the FILM only — never about the video file, never
+inappropriate. A pipeline scorer is deterministic, reviewable, needs no runtime LLM,
+and means one implementation instead of four. Validated 12/12 on real reviews + 0
+false-keeps on fresh data; of 10,531 items scanned, ~5,500 had ALL reviews dropped.
+
+**How to apply**: new community surfaces read the harvested fields
+(numFavorites/numReviews/avgRating/views30d are DB COLUMNS; full `reviews` ride in
+item_json / detail-shard `rec[8]`). NEVER judge review fit at runtime — extend
+`comment_fit.py` (the file/inappropriate lexicons) and re-harvest. Keep the
+imdbVotes floor on any community-ranked shelf. The harvest is weekly
+(`community-signals.yml`, catalog-writers concurrency) + resumable; the metadata
+review API is slow/flaky, so harvest_reviews retries and is best run with a long
+budget. Reviews are baked (not live-fetched) — fast, offline, already filtered.
+
+**Consequences**: additive catalog fields + 4 new DB columns + 3 computed web-index
+shelves + a detail-shard element. The better popularity sort EXPOSED pre-existing
+curation gaps (educational courseware, mega-compilations, un-flagged foreign adult)
+that the old compressed sort buried — addressed by `build_sqlite` exclusions
+(`mit_ocw`, `_is_compilation`) + a tightened adult-title marker; subtle foreign
+softcore remains a fuzzy residual handled by the shelf vote-floor.
+
+---
+
+## 039b — Whisper auto-captioning ABANDONED; subtitles come from archive.org ASR + OpenSubtitles only
+*Date: 2026-06-22*
+
+Reverses Decision 039 Phase 4 and Decision 039a. Whisper.cpp transcription of films'
+own audio is REMOVED entirely: the workflow (`whisper-subtitles.yml`), the tools
+(`whisper_subtitles.py`, `whisper_publish.py`), the runbook + accuracy checklist are
+deleted, and all 44 whisper-generated `captions`/`subtitleHLS` were un-wired from the
+catalog. Subtitles now come ONLY from (1) archive.org's own ASR/uploader captions
+(`enrich_subtitles.py`, the backbone, ~4,800 films) and (2) OpenSubtitles by imdb/tmdb
+id (human-made, `opensubtitles_subtitles.py`, gated on the owner's API key).
+
+**Why**: owner tested the whisper output on-device and it was unusable — on old films
+with poor or music-heavy audio whisper HALLUCINATES coherent-sounding but wrong text
+(White Zombie's track bore no resemblance to the dialogue; silent films like Steamboat
+Willie got fabricated cues). Quality is too variable to ship, and a wrong subtitle is
+worse than none. Human-made OpenSubtitles is the quality path on the same side-load
+plumbing. Detecting good-vs-hallucinated whisper output at scale proved unreliable
+(period-density/short-cue heuristics caught the worst but not the borderline).
+
+**How to apply**: do NOT reintroduce on-device/auto speech-to-text for subtitles. New
+subtitle coverage goes through OpenSubtitles (human) or archive.org's own files. The
+`captions[]` side-load schema + the per-platform readers (Android SubtitleConfiguration,
+web `<track>`, Apple HLS) are unchanged and stay — only the whisper SOURCE is gone.
+
+**Note (separate, unresolved)**: the Apple HLS-subtitle path is single-segment, which
+breaks scrubbing + non-faststart start on captioned films — this affects ALL captioned
+films on iOS/tvOS (archive-ASR + future OpenSubtitles), not just whisper, and is a
+distinct problem from this decision.
+
+---
+
+## 042 — macOS "Creation Studio": a Mac-exclusive multi-clip editor, not the iOS app resized
+*Date: 2026-06-22*
+
+Archive Watch gets a native **macOS** app that is two things at once: a parity
+browse/play/library face on the shared Swift Core, AND a **Mac-EXCLUSIVE "Creation
+Studio"** — a multi-clip timeline editor that composes clips across different archive.org
+titles into one exported film. The binding spec is `docs/macOS-DESIGN.md`; the API/UX
+research is `docs/research/creation-studio-README.md` + seven briefs. The architecture is
+fixed on four load-bearing decisions: (1) **one Timeline model compiles to one
+`(AVMutableComposition, AVVideoComposition.Configuration, AVMutableAudioMix)` triple that
+serves BOTH preview and export** (`AVComposition` is an `AVAsset`); (2) clips are
+**non-destructive proxy references** to remote archive.org ranges (OTIO-shaped Codable, we
+own the annotation layer / archive.org owns the bytes), and export is **cache-then-export**
+— pre-fetch only each clip's moov-snapped in/out byte range via `ResilientStreamLoader` to
+a local faststart MP4, NEVER stream remote into `AVAssetExportSession` (which fails on
+remote URLs); (3) **no backend, three data planes** — shared read-only SQLite on a
+Release/Pages (catalog + a new stock `clips.sqlite` and `subtitle.sqlite`, query-on-disk +
+WASM-Range on web), a user annotation layer (proxy-clip library + `.archiveproj` projects
+in SwiftData + iCloud, references only), and disposable device-local caches; (4) the
+flagship **text→supercut (#9)** gets word-level timing from macOS-26 SpeechTranscriber
+**validated against the held caption text** (token-diff: the caption is ground truth for
+*what was said*, the recognizer supplies *when*) — the Decision-039b hallucination fix
+applied to timing, with MFA for the rough-audio tail.
+
+**Why**: phones create ONE clip (iOS Clip Studio, Decision 033); the Mac assembles a film.
+The owner's brief is explicit — make a first-class Mac app that ENABLES new capabilities,
+"not just a retread of old iOS/iPadOS/tvOS ways of doing things." Creation Studio belongs
+ONLY on macOS because its features structurally require four things the touch/TV/web
+platforms cannot host: a full filesystem + document model, subprocess CLI tools
+(ffmpeg/PySceneDetect/MFA), heavy/long-running/background compute, and a
+pointer+keyboard+menu+multi-window editor. The shared Swift Core (already extracted for
+iOS — `CatalogDB`, `ResilientStreamLoader`, models, `CloudKitSyncService`) means the
+parity face is ~free and the Mac joins the same CloudKit container; the genuinely new work
+is the editor, the stock-archive miner, and the supercut.
+
+**How to apply**: quote `docs/macOS-DESIGN.md` before adding any window/scene/view/engine
+path/index/feature. The non-negotiables: **Library ≠ Project** (proxy library is app-
+global SwiftData+iCloud; project is the `.archiveproj` document); **cache-then-export,
+never stream-into-export**; the **two-pass grade→overlay render** (CI filter + CALayer tool
+can't share one `AVVideoComposition` — inherited Decision-033 constraint); **the
+no-auto-edit learning gate** — #9 (supercut) and #6 (auto-tagged stock) MUST yield an
+EDITABLE timeline of candidates, never a one-tap finished cut (automate the mechanical,
+preserve the meaningful); **provenance burned + sources embedded on every export**;
+**rights-gated `isClippable` only**. Reuse the Core verbatim; rebuild only the Mac-native
+shell (SwiftUI scenes + AppKit for the timeline `NSView`+`CALayer` and the browser
+`NSCollectionView`). `sqlite-vec` (a SQLite extension that links into the SQLite the app
+already uses) + **MobileCLIP** (a Core ML model) are permitted as "Apple frameworks + an
+extension + a model," NOT third-party Swift packages; heavy tools stay subprocess/CI.
+De-risk with three spikes before Phase 1 ships: the `NSDocument`/security-scoped-bookmark
+seam, the AppKit timeline scroll/zoom/hit-test, and one real cache-then-export round trip.
+
+**Consequences**: two new CI-built shared indices (`clips.sqlite` stock = PySceneDetect →
+Vision classify → MobileCLIP embeddings; `subtitle.sqlite` = FTS5 cues + a word-timing
+table) join the publish pipeline, additive and popularity-first like the cover/subtitle
+pipelines. Two new project skills (`macos-creation-studio-engine`,
+`macos-native-app-shell`) and the binding `docs/macOS-DESIGN.md` are the authoring
+backlog. Phasing: 0 shell+parity → 1 editor spine (proxy library + timeline +
+cache-export) → 2 text/audio layers + multi-format export → 3 stock archive (#6) → 4
+search + supercut (#8,#9) → 5 publish (#7, archive.org IAS3 first, YouTube
+Private/Unlisted until Google verification). YouTube uploads from an unverified OAuth app
+are forced Private + 100-user-capped, so public sharing leads with archive.org.
+
+---
+
+## 043 — Drop archive.org auto-ASR captions; broaden title artifact cleaning
+*Date: 2026-06-24*
+
+Two data-quality fixes in `remediate_catalog.py` (the per-build self-healing pass,
+so they reach every platform via the shared catalog DB / web index / detail shards).
+(a) **Subtitles:** archive.org auto-ASR captions (`source == "archive-asr"`, label
+"English (auto)") are DROPPED from every item's `captions`, and `enrich_subtitles.py`
+no longer ingests `.asr.*` files. Only human/uploader captions (uploader `.srt`,
+SubDL, SubSource) remain. (b) **Titles:** `sanitize_title` gains strips for the
+trailing parenthesised year `(1962)`, the leading `YYYY - ` scene-rip prefix, foreign
+sub/dub tails (`- VOSE` / `- Legendado`), a trailing ` - Director` that matches the
+item's own director field, bracketed/full `H:MM:SS` runtime stamps, file-size/fps
+parens, rip/scan words (`DVD Rip`, `DVD ISO`), more scene groups (RARBG/YIFY/…), and
+`_The` / `_<uploader note>` underscore suffixes. Measured on the live 40k catalog:
+7,976 titles cleaned, 2,859 ASR captions dropped, 0 empty/junk results.
+
+**Why**: (a) reverses Decision 039b's "subtitles come from archive.org ASR +
+OpenSubtitles" — the owner found *Child Bride*'s subtitles were nonsense that synced to
+nothing. Investigation: archive.org's own ASR hallucinates into word-salad on the
+catalog's poor old-film audio exactly like the whisper output 039b retired — *Child
+Bride* mid-film reads "all the world war one will run all the world all. Black" and
+"ALRIGHT ALRIGHT ALRIGHT"; sampled auto captions were ~uniformly garbage (compression
+ratio ~2.5, the 3-gram "why why why" ×19), while human ("English") captions were
+coherent. A wrong subtitle is worse than none (039b's own principle), and the reliable
+signal is the SOURCE (auto vs human), not a content score (which over-flagged real
+dialogue). (b) the owner found "MANY titles" carrying years and file artifacts; an
+audit showed 6,439 trailing `(year)`, 886 leading-`YYYY -`, plus DVD-rip/runtime/
+site-tag/underscore cruft slipping past the older, narrower rules. The year belongs in
+the title's OWN field (shown on Detail + lists), so it's redundant noise in the title.
+
+**How to apply**: never re-ingest auto speech-to-text for subtitles (039b + this) —
+new coverage is human only (uploader files, SubDL/SubSource). When broadening title
+strips, keep the precision discipline: every strip must keep letters in the result
+(never empty a title), only fire when it changed something, and be dry-run-checked for
+false positives against the live catalog (the runtime-stamp strip was tightened to
+brackets-or-`H:MM:SS` after it wrongly hit "At 3:25"; one/two-letter real titles like
+"It"/"M"/"Go" and year-titles like "1917"/"Blade Runner 2049" must survive). Both are
+self-healing (re-run every build) and reversible (re-running enrich refills human subs;
+titles re-derive from the source each build).
+
+**Consequences**: ~2,859 items lose their (garbage) caption and show no subtitle until a
+human source covers them — correct, per 039b. The published subtitle-assets `.vtt` files
+for dropped ASR captions become orphaned (harmless). Title cleaning is visible on every
+surface at once (shared data plane). The Phase-3 free-subtitle harvest (SubSource/SubDL)
+remains the path to real coverage.
+
+
+---
+
+## 044 — Enforce the QC gates EVERY build: auto-apply rights, footprint-gate bogus CC, validate poster liveness, clear orphan auto-subtitle HLS
+*Date: 2026-06-24*
+
+The three catalog quality gates (copyright, posters, subtitles) are now ENFORCED on
+every published build instead of being report-only or one-shot, after the owner found
+all three leaking on the Apple TV homepage (copyrighted "Throw Momma From The Train"
+visible, a few missing posters, auto-generated subtitles still playing). Four changes:
+
+1. **Rights apply runs every `publish-db`** (`audit_rights.py --apply` after dedupe).
+   `rights-audit.yml` deliberately only ran `--confirm` (annotate) and left the
+   `excluded=true` apply "for later review" — so confirmed-copyright items drifted back
+   onto every surface (373 un-excluded confirmed-copyright items found live, incl.
+   famous studio films). The apply is pure-data + idempotent + reconciling, so it is
+   safe every build; its reconcile now SKIPS foreign exclusions
+   (`livenessReason`/`livenessDead`/`episodeDuplicate`/`duplicateOf`/`duplicateMergedInto`)
+   so it can never un-hide a dead/duplicate item another tool owns. `rights-audit.yml`
+   (network confirm) is now also nightly-scheduled so new ingests get confirmed before
+   the apply.
+
+2. **Bogus-CC footprint gate** (`license_rescues`). The licenseurl is uploader-controlled,
+   and uploaders routinely re-upload copyrighted STUDIO films with a bogus CC0/CC tag
+   (Throw Momma 1987 CC-BY-NC-ND; Nayakan 1987 CC0 27k votes; Virus 1980 CC0 3173 votes;
+   Black Cobra 1987 CC-BY 686 votes; Kagemusha 1980 CC-BY-NC-ND). For MODERN works (>=1978)
+   a license now rescues ONLY if it is a FREE-CULTURE variant (CC0, CC-BY, CC-BY-SA — never
+   the NonCommercial/NoDerivatives variants, which are both non-free AND the studio-piracy
+   tell) AND the item has NO commercial footprint (`imdbVotes < COMMERCIAL_VOTES=100`). A real
+   theatrical release with thousands of IMDb votes is never a creator CC dedication. The
+   bogus `rightsStatus=="creative_commons"` LABEL is likewise trusted only pre-1978. Genuine
+   modern free-culture works with no footprint (Sita Sings the Blues, CC0, 0 votes) are KEPT.
+
+3. **Poster liveness gate** (`validate_posters.py` + `validate-posters.yml`, new). The
+   pipeline had NO poster liveness check (`scrub_poster_urls.py`/`enrich_artwork.py` are
+   orphaned tools on the retired SQLite plane). Measured ~62% of `omdb` posters
+   (m.media-amazon.com — IMDb rotates the image hash) now 404, surfacing as missing posters
+   on Home. The nightly workflow ranged-GETs decay-prone posters (omdb/commons/wikidata/
+   external/fanart/aapb/tvdb/tvmaze) and demotes a DEAD (404/410) one to the always-available
+   `archive.org/services/img/{id}` thumbnail with `hasRealArtwork=False` + `posterDead=True`
+   — so a broken image never LEADS Home (build_sqlite's designed-art gate drops it) yet every
+   surface still shows a real frame. A TRANSIENT 403/429/5xx (e.g. Commons throttle) is left
+   unmarked and retried — never demoted (the "never wrongly hide" discipline).
+
+4. **Orphan auto-subtitle HLS cleared** (`remediate_catalog.drop_asr_captions`). Decision 043
+   dropped the hallucinated archive-ASR `captions[]` but left the `subtitleHLS` rendition
+   (the Apple HLS subtitle track) behind on 2,465 items, which the Apple apps still played.
+   `drop_asr_captions` now also drops `subtitleHLS` when no HUMAN caption survives. Runs every
+   build (it is part of remediate), so it self-heals.
+
+**Why**: report-only / one-shot gates DRIFT — new ingests and license/host decay re-introduce
+copyrighted titles, dead posters, and stale auto-subtitles between manual passes, and the owner
+hit all three at once. The cost asymmetry favors enforcing every build: a wrongly-hidden item is
+reversible (the `excluded` flag) and a demoted poster still renders a frame, whereas a
+copyrighted studio film on the homepage is a legal/trust failure and a broken poster is a visible
+quality failure. Enforcing in `publish-db` (the single chokepoint that builds the app DB + web
+index) means every platform — tvOS, iOS, macOS, Android, web — gets the clean gate from one place.
+
+**How to apply**: keep the apply in `publish-db` (do NOT revert to confirm-only "for review" —
+that is the drift that caused this). The `--confirm`/`--apply` split stays: confirm is the network
+phase (annotate `archiveLicense`/`rightsConfirmed`), apply is the pure-data hide of CONFIRMED
+buckets only (an unconfirmed modern item is never hidden). Never raise `COMMERCIAL_VOTES` to
+"rescue" a popular title — a high vote count is the signal the CC tag is bogus. For posters, only
+404/410 demotes; never demote on a throttle. The residual class (unmatched foreign studio films
+with 0 votes carrying a bogus CC0 — Lady Vengeance, Haider) has no footprint to gate on and is
+left to the curated `is_renewed_classic` denylist; they have 0 votes so they never reach a
+vote-floored shelf. Complements Decision 027 (rights buckets), 026 (match correctness), 043
+(subtitle source), 023 (generated covers).
+
+**Consequences**: nightly order is rights-audit confirm (01:10) → validate-posters (02:15) →
+publish-db apply+build (04:30). `posterDead`/`posterDeadURL`/`posterChecked` are additive JSON keys
+the clients ignore; `posterDead=True` is a durable wants-marker for a future fresh-poster /
+cover-generation pass (the demoted items currently show the Archive thumbnail). `catalog.json` on
+the source release carries the annotations but not the build-time apply/remediate mutations (those
+are re-derived every build, idempotently) — consistent with Decisions 027/043.
+
+---
+
+## 045 — Playable TV episodes are first-class catalog items (materialized in the DB)
+*Date: 2026-06-25*
+
+Every playable episode in a series spine is materialized as a first-class catalog
+item with `contentType: "tv-episode"` — so episodes get the SAME machinery as
+films for favoriting, playlists, sharing (`/item/{id}`), Clip Studio, Detail, and
+search, with NO episode-specific interactions to learn. The items are DERIVED at
+DB-build time in `build_sqlite.populate_series` from `series/*.json` (catalog.json +
+the spines stay the canonical sources per Decisions 016/018 — the DB is the
+materialized view); they carry `seriesID` + `seasonNumber`/`episodeNumber` +
+`seriesTitle` for the byline and the "Part of <series>" Detail link. They are
+materialized ONLY in the full DB, never the lean bundled seed (favorites resolve
+once the full DB loads, seconds after first paint). The standalone-duplicate of an
+episode (a tv-special/feature-film upload of the same archive item) is DROPPED so
+the canonical episode is the single card (`populate_items` skips an archiveID that
+the spines own — Decision 036's "organize into season/episode, never haphazardly").
+The redundant `episodes_fts` index (and the `EpisodeHit`/`searchEpisodes` machinery
+that fronted it) is removed — episodes are in `items_fts` now.
+
+**Why**: favorites/playlists/watch-progress are already keyed by `archiveID`, and an
+episode already HAS an `archiveID`, so the ONLY thing blocking "favorite/share/clip
+an episode" was RESOLUTION — turning a saved id back into a card needs it in the
+`items` table. Owner ask 2026-06-25: "share individual episodes and favorite them
+and add them to playlists … use all the same mechanics … instead of creating new
+interactions users have to learn." Making episodes items closes every gap at once
+through the existing item machinery; the alternative (an "episode resolver" special-
+casing each consumer) is exactly the per-feature divergence the owner rejected.
+Passes the learning-orientation gate — more navigable/actionable, no new interaction
+to learn.
+
+**How to apply**: episodes are excluded from FILM surfaces — Home shelves, Browse/
+Movies, Random Film, director/quality rows — via the `notStandaloneTV` clause (now
+`NOT IN ('tv-special','tv-episode')`) and the browse/count/random `NOT IN` lists;
+but they ARE in SEARCH (a separate `searchExclude` drops only tv-special). Tapping an
+episode opens its OWN Detail (play/favorite/share/clip), which carries a "Part of
+<series>" link back to the spine. Episode items are PD (the visible catalog is PD/CC
+only) so `isClippable` is true — Clip Studio works on them with no extra wiring. Keep
+the seed episode-free (`materialize_episodes=False`). New ingests are covered by the
+nightly publish-db (the materialization re-derives from the spines every build —
+self-maintaining, no persisted Release mutation). Web is the divergent plane
+(catalog-index.json, no FTS): it loads a small `episodes-index.json` into its id map
+so episodes resolve there too.
+
+**Consequences**: the full DB gains ~4,600 tv-episode items (+ drops ~900 standalone
+duplicates). `seasonNumber`/`episodeNumber`/`seriesTitle` are additive JSON keys the
+older clients ignore. The published DB schema drops `episodes_fts` (no client queries
+it after this). Complements Decision 016 (canonical spine), 033/042 (Clip/Creation
+Studio), 035/036 (duplicate exclusion + TV taxonomy).
+
+---
+
+## 046 — Backfill rich API metadata into the DB, tiered by use (blob / FTS / join table)
+*Date: 2026-06-27*
+
+Pull the metadata our APIs already expose — TMDb keywords, alternative/original titles, full crew
+(writer/composer/cinematographer), cast person IDs, production studios, franchise, awards (OMDb),
+tagline, full release date, and Wikidata extras — INTO `catalog.sqlite` so users can search, filter,
+and learn more WITHOUT a runtime API call. Each field is routed to the cheapest storage layer that
+serves its use: **detail-only fields → the `item_json` blob** (decoded only on Detail open, ~0 query
+cost), **searched text (keywords/AKA/writer) → the FTS5 index**, **filtered values (keyword/studio)
+→ small normalized join tables** like the existing genre/collection tables. NO new hot-path/sort
+columns on `items`. Full plan: `docs/METADATA-EXPANSION.md`.
+
+**Why**: today this data is one API call away, so search/filter/discovery can't use it (you can't
+FTS-search a TMDb keyword you don't store, or filter by a studio that lives in an API). The
+constraint is the shipped DB: it's downloaded (~24 MB `.zz`) and queried on-disk on a 3 GB Apple TV
+(Decision 017), so naively adding columns would bloat the download and slow the hot queries. The
+tiering avoids both — the blob compresses well and isn't read except on Detail, FTS is an inverted
+index built for search, and join tables are only hit by their filter. One TMDb
+`/movie/{id}?append_to_response=keywords,alternative_titles,credits` call feeds most of it, so the
+backfill is cheap (same call enrichment already makes).
+
+**How to apply**: a new metadata field goes in the LOWEST layer that supports its use — the blob
+unless it is actually searched or filtered; never an `items` column for a detail-only field. Batch
+fields through one `append_to_response` call, never a per-field API pass. The download budget is
+binding: keep `catalog.sqlite.zz` ≤ ~35 MB and MEASURE (Phase 0) before shipping — demote a
+budget-busting field to web-only or drop it. Additive per Decision 020 (new JSON keys / FTS terms /
+tables are backward-safe; older clients ignore them).
+
+**Consequences**: a `backfill_metadata.py` enrichment pass + `metadata-enrich.yml` (daily,
+catalog-writers concurrency) join the pipeline alongside `backfill_language.py` (Decision 045-era).
+`build_sqlite` gains keyword/studio join tables + FTS terms; `CATALOG-CONTRACT.md` and each
+platform's DESIGN doc are updated as the per-platform search/filter/Detail surfaces land
+(tvOS/iOS/macOS `CatalogDB`, Android Room, web index). Complements Decision 007 (TMDb primary) and
+the cast/person gap noted in Decision 038.
+
+---
+
+## 047 — Expand to smart TVs via TWO builds, not six; Cast/AirPlay for the closed platforms; Roku deferred
+*Date: 2026-08-03*
+
+Archive Watch expands to the non-Apple living room through exactly **two reuse
+vehicles plus two zero-app routes**, not a per-platform app: (1) the existing
+**Kotlin/Compose/Media3 Android app gains a TV form factor** — the SAME
+`applicationId` and AAB, with `leanback`/`touchscreen` declared `required="false"` —
+which ships to **both Google TV/Android TV and Amazon Fire TV**; (2) the existing
+**vanilla no-build web PWA gains a TV input/focus layer**, which ships to **both LG
+webOS and Samsung Tizen** (and technically VIDAA / Titan OS / Zeasn, whose doors are
+partnership-gated); (3) **Google Cast** (one $5 registration + one hosted HTML
+receiver) reaches Chromecast, Google TV, and Chromecast-built-in TVs — **the only
+realistic Vizio path**; (4) **AirPlay** already works via `AVPlayer` at zero cost.
+**Roku is explicitly deferred** to its own funded decision. The binding UI rules are
+`docs/TV-DESIGN.md`; the ordered work is `docs/TV-PLATFORM-BACKLOG.md`; the viability
+research is `docs/TV-PLATFORM-EXPANSION.md`.
+
+**Why**: the brand names (Roku, Tizen, webOS, Fire, Google TV, SmartCast) hide the
+fact that there are only **four runtime families**, and Archive Watch already owns a
+codebase for two of them. Treating each brand as a separate app would mean six ports
+of a data plane that Decision 028 deliberately made platform-agnostic; treating them
+as two runtime families means the engine (downloaded SQLite catalog, HTTPS
+progressive H.264 MP4, captions side-load) carries over at ~100% on Android and
+~70–80% on web, and the genuine work is a 10-foot D-pad UI in each — which is a
+UI/navigation pass, not an engine port. Two facts measured on 2026-08-03 make this
+concrete: our Android dependency set has **zero Google Play Services** (so Fire TV
+needs no GMS removal at all), and progressive H.264 MP4 over HTTPS plays natively on
+every one of these platforms with no DRM and no transcode. Roku is the sole exception
+and is deferred precisely because it breaks the thesis: BrightScript/SceneGraph is a
+proprietary stack with 0% reuse (~2–4 months), and its `Video` node owns networking,
+so Decisions 021/031/034's byte-range resume and node failover **cannot be
+reproduced** — a real quality regression that must be priced and accepted, not
+absorbed silently. Vizio is not deferred but *closed*: no self-serve program exists,
+and post-Walmart it is an ad-monetization vehicle with no interest in a free no-ads
+app — so Cast is the answer, not a partnership chase.
+
+**How to apply**: **never fork the Android app or the web app for TV.** TV is a
+runtime branch (`UiModeManager` type on Android; a CSS breakpoint + focus layer on
+web), sharing the data layer, player engine, and routes verbatim — a fork
+re-introduces exactly the divergence Decision 028 forbids. **Never add a framework to
+the web-TV build** (it is vanilla, no build step — which is why React-based focus
+libraries like Norigin are out and the ~200-line spatial-navigation engine is ours).
+**Cast is GMS-dependent and must be excluded from the Fire TV variant** — this is the
+one cross-cutting constraint between the two Android targets. Every new TV surface
+traces to a rule in `docs/TV-DESIGN.md` and inherits its information architecture
+from `docs/tvOS-DESIGN.md §2` — a TV build never invents a top-level surface. Three
+platform rules bind and are easy to miss: **TV-G6** (64-bit + **16 KB page sizes**,
+live since 2026-08-01) must be verified against every bundled native library, not
+assumed; **TV-NP** forbids a *video* app from surfacing background/Now-Playing media
+controls, so the phone build's `media3-session` `MediaSession` **must be gated off on
+TV**; and `TvLazyRow`/`tv-foundation` no longer exist (depend on `androidx.tv:tv-material`
+only and use standard `LazyRow`/`LazyColumn`).
+
+**Consequences**: total cash outlay to reach five new stores is **$5** (Cast) plus
+test hardware — Play TV is a form factor of the existing $25 account, and Amazon, LG
+and Samsung charge nothing to register or submit. Two owner-gated business decisions
+remain: Samsung's default **Public Seller tier is US-only** (global needs a signed
+offline contract with Samsung HQ, i.e. a business entity), and Roku needs a budget.
+`PARITY.md` gains **Android TV** and **Web-TV** columns, and two project skills
+(`androidtv-compose-focus`, `smarttv-web-app`) are authored since no existing skill
+covers Compose-for-TV focus or Tizen/webOS packaging. The rights-audit exclusions
+(Decisions 027/044) become load-bearing on five more storefronts — a copyrighted
+title on the home screen is a rejection and takedown risk on every one of them.
+
+## 048 — A run that never started is not a failure to read; it is a failure to retry
+*Date: 2026-08-06*
+
+When a scheduled run fails and **not one of our steps ever executed**, that is
+GitHub's hosted-runner fleet declining to start the job, not our code breaking.
+`.github/workflows/retry-infra-failures.yml` sweeps for exactly those runs every 30
+minutes and re-runs their failed jobs. Every other failure is left alone, loudly.
+
+**Why**: on 2026-08-06 an Actions **major outage** (githubstatus incident opened
+15:22 UTC) took out three scheduled runs — `Color / B&W classification`, `Re-source
+posters (secondary)`, and four shards of `Stock shot index`. Each sat ~15 minutes and
+died with a single annotation:
+
+    The job was not acquired by Runner of type hosted even after multiple attempts
+
+The API shape is unambiguous: the job carries `"steps": []` and an empty
+`runner_name`, or a lone failed `Set up job`. Nothing of ours ran, so nothing of ours
+was at fault. That fact is also what makes the retry safe **for a catalog writer**:
+a job that never started never ran `catalog_release.py fetch`, so there is no stale
+snapshot in flight and no publish to repeat — the re-run fetches the catalog fresh at
+re-run time and takes `catalog-writers` in the normal way. The cost of not retrying
+scales with the cron period, which is the whole argument here: these are 8-hourly and
+daily jobs, so one dropped run is 8–24 hours of backlog on a pipeline whose entire
+design is "chip away at the backlog every tick" (Decision 018).
+
+**How to apply**: the gate is "did any step of ours reach a conclusion", never a
+match on the annotation text — GitHub rewords those. Keep the four conditions in
+`tools/retry_infra_failures.py` conservative, and in particular keep these two:
+**never retry a `cancelled` run** — this repo cancels long jobs routinely and several
+workflows share the `catalog-writers` concurrency group, so retrying would fight
+whoever cancelled it — and **never retry when a later run of the same workflow already
+succeeded**. Use `rerun-failed-jobs`, never a whole-run re-run: the sharded workflows
+(`stock-index`, `verify-playback-strict`) must re-run only the shards that never
+started. Verify changes with `DRY_RUN=1` against real history before pushing — swept
+across six weeks it flags only the genuine never-started runs and ignores every real
+code failure. A sweeper cron is itself dropped during an outage, so the lookback is 12
+hours, not one tick: it must heal a backlog after the incident ends, not only while it
+is happening.
+
+That lookback is only half the mechanism, and the other half is the non-obvious part:
+the sweeper **checks githubstatus and sits out a declared Actions outage entirely**.
+Retrying INTO an outage is how the retry budget gets destroyed — at a 30-minute
+cadence, three attempts are spent in 90 minutes, every one failing for the same
+reason, and the run is then abandoned permanently. Today's outage was already 3.5
+hours old when this shipped, so a sweeper without the gate would have exhausted every
+retry and healed nothing. Degraded performance still gets retried; only a declared
+outage is worth waiting out, and an unreachable status API means proceed — a status
+page we cannot read must never block healing.
+
+**Consequences**: failures that survive the sweep are now signal — if a run failed and
+was not re-run, our code failed. The `MAX_RERUNS` cap (10 per sweep) exists because
+this repo has 35 workflows and a long outage could otherwise queue a re-run storm into
+a single `catalog-writers` group.
+
+## 049 — The Top Shelf rotates over published pools; personal and editorial rows MERGE
+*Date: 2026-08-07*
+
+The tvOS Top Shelf publishes **pools, not a playlist**: `topshelf.json` (schema 2)
+carries ~15 named rows of ~30 rights-gated, playable, designed-art candidates each,
+and the extension picks which rows and which titles to show from a **6-hour time
+bucket** — the row start advances one per window and the picks stride across the
+priority list, while each row's own offset walks its pool. The extension now MERGES
+the App Group snapshot's personal rows (Continue Watching, leading, with
+`playbackProgress`) with the live feed's editorial rows instead of returning early
+on either. The snapshot is rebuilt on a **position signature** and on backgrounding,
+not on the count of watched titles. `archivewatch://play/{id}` is routed for the
+first time, to Detail with autoplay armed, so the Play button resumes.
+
+**Why**: the owner reported the Top Shelf "serves the exact same videos every single
+time" and "doesn't work to resume movies you haven't finished." Four independent
+causes, each verified: (1) the feed was `ORDER BY imdbRating DESC LIMIT 12` — byte
+identical across three weeks of publishes; (2) the extension short-circuited on the
+snapshot (`if !local.isEmpty { return }`), and since the app always wrote editorial
+rows into it, the network feed was dead code for anyone who had launched the app;
+(3) `TopShelfUpdater` keyed on `progress.count`, which does not change when you watch
+more of a film you already started or when you finish one — so resume positions went
+stale and completed films never left; (4) the extension emitted
+`archivewatch://play/{id}` as its `playAction` but `IntentInbox.request(for:)` had no
+`play` case, so Press-Play launched the app and did nothing. Only #1 is a content
+problem; the other three are the surface being wired to sources it could never read.
+
+**How to apply**: publish MORE than is shown and rotate client-side — a feed of
+exactly what to display, ordered deterministically, is static by construction no
+matter how often the pipeline runs. Rotation must be **arithmetic on a time bucket**,
+never `String.hashValue` (Swift seeds string hashing per process, so a hashValue-derived
+offset reshuffles on every query instead of holding still) and never `Math.random`
+(a shelf that reshuffles under the viewer is its own bug). Pick rows by **striding**
+across the priority-ordered list, not by taking a contiguous slice: rows are published
+strongest-first, so a sliding window of 4 eventually lands wholly in the tail and
+renders a shelf with no recognizable cinema on it — every assertion passed while that
+happened, which is why `tools/test_topshelf_rotation.swift` now asserts that each
+window contains a marquee row. Any URL either Top Shelf action can emit must have an
+`IntentInbox` case; an unrouted deep link is indistinguishable from a broken app.
+
+**Consequences**: the feed grew 15 rows / 394 items / 66 KB (from 15 items), still
+trivial for a ~16 MB extension that only handles URLs. `topshelf.json` keeps a v1-shaped
+`sections` digest so already-shipped builds keep working. The pure selection logic lives
+in `ArchiveWatchTopShelf/TopShelfRotation.swift` — Foundation-only precisely so the
+harness can compile and exercise the SHIPPED file, since the Top Shelf is invisible to a
+simulator screenshot and its provider runs out-of-process. Binding rules: tvOS-DESIGN
+§15. Related: Decision 015 (the original surface), 023/044 (the art + playability gates
+a tile must pass), 027 (rights).
+
+## 050 — Shelf membership that depends on an internal score is COMPUTED in the pipeline, never restated in a client
+*Date: 2026-08-07*
+
+"Hidden Gems" membership is a `hiddenGem` column computed by
+`tools/build_sqlite.py::_mark_hidden_gems` and queried as a boolean by every
+platform (tvOS/iOS/macOS `CatalogDB`, Android `CatalogDatabase`, and the web via
+a `hidden-gems` shelf in `catalog-index.json`). The rule: external, semantic
+signals stay literal (`imdbRating >= 7.0`, `imdbVotes` in `[100, 5000]` — IMDb's
+scale means the same thing next year); our internal `popularityScore` is
+thresholded by **percentile of the live distribution, recomputed every build**
+(published as `meta.hiddenGemPopCut`). The build prints the count and warns below
+`GEM_MIN_EXPECTED`.
+
+**Why**: the shelf shipped 2026-06-01 as the client predicate `qualityScore >= 60
+AND popularityScore <= 40`, correct against the popularityScore of that day, a
+0-89 band. On 2026-06-29 Decision-041 work rescaled `_pop_score` to a single
+scale where every scored item is `100 + s*1000` (~100-4500), so `<= 40` could
+thereafter match only un-harvested items — which carry no craft signal either.
+Intersection: **zero rows, on tvOS, iOS, macOS and Android simultaneously, for
+five weeks.** Nothing failed: the SQL was valid, the columns existed, the query
+returned an empty set and each Home just omitted the row. A constant in a client
+that is only meaningful relative to a scale the PIPELINE owns is a
+silently-breaking coupling; the pipeline is the only place that can see the
+distribution, so it is the only place the threshold can live. (The web had the
+opposite failure — a *different* homegrown definition, shuffling the bottom 60%
+of the popularity list, which is "random obscure", not "high craft".)
+
+**How to apply**: a shelf whose membership depends on an internal score gets a
+computed column, not a client predicate — clients query the flag. Clients keep
+only per-USER filters (the adult toggle, hidden content types), which the
+pipeline cannot know. Keep a scale-free fallback for a DB predating the column
+(a client updated before its catalog refresh lands): express it as a percentile
+subquery, never as a fresh constant. Items with no IMDb rating cannot qualify —
+a "gem" is a claim about craft, and without a rating we would be guessing.
+`qualityScore` is deliberately NOT used: a legacy registry field on ~53% of the
+catalog with a murky definition.
+
+**Consequences**: 170 gems on the full DB, 66 in the bundled seed (so first paint
+has the row before the full DB downloads). Two data findings surfaced by the fix
+and acted on — archive.org's OWN `deemphasize` / `loggedin` collection markers
+were never read anywhere in the pipeline (442 visible items carry one; the
+`deemphasize` set is heavily adult/exploitation content the metadata filter
+misses), now honored for this curated shelf as demote-not-delete; and
+`remediate_catalog` gained a narrow `^video\d+:` title strip for g4tv scrape ids
+(15 hits, dry-run-verified to leave "2001: A Space Odyssey" and "1896: Director
+Unknown" alone). STILL OPEN, reported not fixed: honoring `deemphasize` /
+`loggedin` catalog-wide is an owner curation call (`geo_restricted` must NOT be
+swept in — it includes real Chaplin), and a wrong external match can still put a
+non-film on a film shelf (Decision 026's domain).
+
+## 051 — AirPlay hands the RECEIVER a published URL; the resilient loader is a local-only path
+*Date: 2026-08-08*
+
+When an AirPlay route engages, the Apple players replace the current item with a
+**published, receiver-fetchable URL** (`AirPlayRouting.receiverURL` — the HLS
+first so WebVTT captions survive the handoff, else the progressive MP4), and
+restore the loader-backed local item when the route disengages. `AirPlayRouting`
+is Foundation-only and owns the custom-scheme vocabulary (`aw-stream`,
+`aw-hls`), which the loaders now read from, so a new loader cannot be added
+without the AirPlay check learning about it.
+
+**Why**: Apple's position, confirmed via TSI on the developer forums, is that
+**"Video AirPlay is not supported when using a custom resource loader."** Every
+playback path in this app is loader-backed — `aw-stream://` for the resilient
+MP4 stream (Decisions 021/031/034) and `aw-hls://` for the captioned HLS layer
+(Decision 039 Config C) — because the delegate that serves those schemes lives
+on the SENDING device, so a receiver has no way to fetch the media. Selecting a
+route showed an error on the Apple TV instead of playing, on *every title*. iOS
+got a swap on 2026-08-05; **macOS never did**, while its `.floating` HUD
+advertised an AirPlay button the whole time.
+
+**How to apply**: never hand a receiver a URL straight from the player's current
+asset — route it through `AirPlayRouting`, which CHECKS the scheme rather than
+assuming. `directHLSURL ?? directVideoURL` was the old iOS expression and would
+pass a custom-scheme URL through unexamined if either ever came from a loader
+path. When nothing fetchable exists, leave playback alone rather than replacing
+it with something that cannot play. Accept that Decision 021/031/034 resilience
+(resume-on-reset, node failover) is **structurally unavailable over AirPlay** —
+the receiver owns the connection, the same trade Decision 047 records for Roku;
+an archive.org 5xx mid-stream is unrecoverable there in a way it never is
+locally. tvOS is deliberately untouched: an Apple TV is a receiver, not a sender.
+
+**Consequences**: two harnesses, because AirPlay itself cannot be exercised on a
+simulator (no routes exist) — `tools/test_airplay_routing.swift` compiles the
+SHIPPED `AirPlayRouting` and asserts the decisions (21/21, including "a
+custom-scheme URL is never handed to a receiver"), and
+`tools/verify_airplay_receiver_path.py` walks master.m3u8 → rendition → media
+segment exactly as a receiver would. The latter taught its own lesson: it first
+reported two failures that were an SSL timeout and an archive.org 5xx, both of
+which answered 200/302 on retry — so transient and 5xx (rotating storage nodes)
+are retried and reported, never counted as unfetchable, the same
+never-condemn-on-a-throttle rule as the poster validator (Decision 044). The
+handoff on real hardware remains owner-verified: iPhone/Mac → Apple TV.
+
+## 052 — Trailers are removed as DATA, judged on runtime evidence the catalog already holds
+*Date: 2026-08-09*
+
+Trailers and clips posing as the feature are reversibly `excluded` by a
+no-network rule in `remediate_catalog.flag_trailers`, which runs on every build.
+The test is evidence the catalog already stores: `trueRuntimeSeconds` /
+`fileRuntimeSeconds` (what the file actually is) against `runtimeWasSeconds` /
+`runtimeSeconds` (the matched title's canonical length). A sound-era item that
+runs ≤ 300 s against a ≥ 40-minute canonical runtime, at under a quarter of it,
+is a trailer. 74 removed on the live catalog — Serpico, Star Wars, Taxi Driver,
+The Sting, Close Encounters, Doctor Zhivago, Bicycle Thieves.
+
+**Why**: the owner found the **Serpico trailer** in the app carrying the full
+film's synopsis, so it read as the feature — and Serpico (1973) is still under
+copyright. A `detect_trailers.py` and a weekly workflow already existed and
+could never have caught it, for two independent reasons: its `FILM_TYPES` was
+`{feature-film, tv-special, feature}`, and a trailer for a feature is classified
+**`short-film` precisely because it is short**, so the detector skipped exactly
+the class it was built to find; and it gates on `runtimeSeconds >= 1800`, but by
+then the runtime had been corrected to the file's 237 s, erasing the very
+discrepancy it looks for. Worse, its only action was `contentType="trailer"` —
+and **no client filters that type** (the app surfaces use deny-lists), so 19
+already-detected trailers, including a 70-second *Star Wars*, were still
+shipping. Removing them as DATA reaches tvOS, iOS, macOS, Android and web on the
+next publish with no app release.
+
+**How to apply**: judge on runtime evidence, never on the label. Three bounds
+each prevent a MEASURED false positive and must not be loosened casually:
+`actual <= 300 s` (a real 736 s Popeye cartoon wrongly matched to Altman's 1980
+feature is a WRONG MATCH, not a trailer); **sound era only** (a 4-minute silent
+is far likelier a surviving FRAGMENT of a lost film — *The Case of Lena Smith*
+(1929) and Lubitsch's *So This Is Paris* (1926) survive only as fragments, and
+those are archival treasures); and a feature-length canonical runtime (a short
+matched to a short is just a short). Do NOT trust an existing
+`contentType="trailer"`: the old detector mislabelled Ozu's *Tokkan kozô* (the
+surviving 13-minute fragment), a 13-minute *King of the Rocket Men* SERIAL
+CHAPTER measured against the whole 12-chapter serial, and *Häxan* — blanket-
+excluding that bucket would have hidden all three. They run the same measured
+test as everything else and stay visible. Do NOT add a client-side
+`contentType='trailer'` filter for the same reason: it would hide those films.
+
+**Consequences**: `detect_trailers.py`'s two blind spots are fixed (FILM_TYPES
+widened; the runtime gate now reads whichever field holds the canonical length),
+and it now excludes rather than merely relabels. ~29 real films still carry a
+wrong `contentType="trailer"` from the old detector — visible and playable, but
+mistyped; restoring them from `contentTypeWas` is a follow-up. Complements
+Decision 027 (the reversible `excluded` mechanism) and 026 (match correctness,
+which owns the wrong-match half of this population).
+
+## 053 — First paint comes from the CACHED catalog; the bundled seed is for first launch only
+*Date: 2026-08-09*
+
+Both Apple stores (`AppStore` for tvOS, `AppStore_iOS` for iOS + macOS) now open
+the **cached full catalog** at launch and fall back to the bundled `seed.sqlite`
+only when no cache exists. The launch refresh uses
+`downloadDatabase(onlyIfChanged: true)`, and `swapDB`/`swap` take the file path
+and no-op when asked to swap in the file already open.
+
+**Why**: the owner reported that "the initial loading of the hero row movies and
+continue watching all load a certain set of movies first and then after about 5
+seconds, a new set of movies load, including the movies I was just most recently
+watching." That was three DB swaps on a normal launch, each bumping
+`dbGeneration`/`dbVersion` and re-querying every view: the bundled seed (~2.6k
+items) → the cached full DB (~27k) → and then the SAME cached file again,
+because `downloadDatabase()` without `onlyIfChanged` returns the cached path on a
+**304**. Recently-watched titles are usually absent from the seed's 2.6k items,
+which is exactly why Continue Watching looked wrong until the second pass.
+
+The seed-first ordering was written for "instant first paint", but that premise
+does not hold: opening either file is `sqlite3_open_v2` plus one `itemCount`
+query, and SQLite pages the 165 MB in on demand rather than reading it — so the
+cached DB is no slower to open than the 25 MB seed. Measured on the iPhone 17 Pro
+simulator: a relaunch with the cache present now logs exactly ONE paint,
+`first paint from cached full DB: 27051 items`, where it previously painted 2,619
+seed items first.
+
+**How to apply**: the seed is a cold-start fallback, not the first-paint path —
+do not reorder it back. Any new swap site must pass its `path` so the identical-
+file guard can work; a `dbGeneration` bump is a full re-query of every shelf, so
+bumping it for unchanged content is a visible reshuffle that shows the user
+nothing. Use `onlyIfChanged: true` for any refresh whose result you have already
+opened. First launch still paints the seed then swaps once — that is unavoidable
+and correct, and it is the only launch that should ever swap twice.
+
+## 054 — On-device subtitles are served by a resource loader; a `file://` HLS master never plays
+*Date: 2026-08-09*
+
+Subtitles obtained on the device — pulled from the viewer's own OpenSubtitles
+account, or transcribed locally — are played by `LocalSubtitleHLSLoader`, an
+`AVAssetResourceLoaderDelegate` that serves the master, video and subtitle
+playlists AND the WebVTT itself from `Caches` through the `aw-hls://` scheme,
+while the media segment stays a direct https URL. `SubtitleStore` still writes
+those files; what changed is that the player is handed the DIRECTORY and a
+loader, never the local master file. The action that produces them lives on
+Detail (`GetSubtitlesView` + `SubtitleFinder`), on all three Apple platforms.
+
+**Why**: the original design handed `AVPlayer` the `file://` master directly and
+was never executed. It does not work.
+`tools/test_local_master_playback.swift` runs both shapes against the same film:
+the already-published REMOTE master reaches `.readyToPlay` with a legible group
+of `["English"]` and advances, while the LOCAL master sits at `.unknown`
+indefinitely with an **empty error log and zero access-log events** —
+AVFoundation does not reject it, it never attempts the load at all. It will not
+follow a remote reference out of a local playlist, and a local subtitle
+rendition referenced from a custom-scheme playlist hits the same wall, which is
+why the VTT must be served too. The shape that works was already in the tree:
+Config C (`CaptionedHLSLoader`, Decision 039), playlists through a loader and
+the segment left to AVFoundation.
+
+Two other constraints were measured rather than assumed, and they shape the UI:
+`AVAssetReader` refuses a remote asset outright ("Cannot initialize an instance
+of AVAssetReader with an asset at non-local URL") and `AVAssetExportSession`
+fails -11838. There is no way to read a film's audio without downloading the
+film. So transcription is a SEPARATE, explicitly-confirmed action that states
+the real size — measured with a HEAD request, not estimated — while searching
+OpenSubtitles stays one tap.
+
+**How to apply**: never hand AVPlayer a `file://` HLS playlist that references
+anything remote; route it through a loader. Anything the playlists reference and
+we hold locally must be served by that loader too, WebVTT included. Keep the
+segment a direct https URL — a custom-scheme segment fails CoreMediaError
+-12881 (harness-proven), so there is no mid-stream failover on this path. Never
+add a "transcribe" affordance that starts without stating its cost: it spends a
+viewer's data plan, and the whole film is the unavoidable unit. Verify changes
+with `tools/test_local_subtitle_loader.swift`, which compiles the SHIPPED files
+and asserts the path end to end including seek.
+
+**Consequences**: `SubtitleStore.cachedDir` is what the three players consult
+when the catalog has no `subtitleHLS`, so a fetched or transcribed track appears
+in the native CC menu with no further wiring. Partially reverses Decision 039b
+for the on-device case only, under `CaptionQuality` and an opt-in toggle;
+central auto-captioning stays retired. Complements 039 (the seam) and 021/031
+(the segment stays AVFoundation-owned).
+
+## 055 — "Already attempted" markers are per-source, or a second source can never run
+*Date: 2026-08-09*
+
+`free_subtitles.py` records which PROVIDER has attempted a film
+(`freeSubsTried: [...]`) instead of a single `freeSubsChecked` boolean, and a
+scheduled run sweeps every configured provider. A film carrying only the legacy
+boolean is credited to SubSource alone, since it was the only provider ever
+scheduled.
+
+**Why**: subtitle coverage sat at 16.6% while the daily harvest reported
+"Backlog drained" and finished in 94 seconds. It was correct about the wrong
+thing: the marker recorded THAT a film had been attempted, not BY WHOM, so once
+SubSource had swept the catalog every film looked attempted to every provider.
+SubDL — configured, keyed, and selectable via a workflow input — had never had a
+single target and never would have. The plateau was a flag, not a ceiling on
+what is findable. This is the same shape as Decision 050: a value whose meaning
+depends on context the flag does not record, failing silently and looking like
+completion.
+
+**How to apply**: any "we already tried this" marker on a multi-source pipeline
+records the SOURCE. A bare boolean is only safe when there will never be a
+second source, which is a bet that keeps losing here. Distinguish attempted from
+FAILED-TRANSIENTLY as well: an exception must not mark the film (it already does
+not), because a 429 is not evidence that a subtitle does not exist — the same
+never-condemn-on-a-throttle rule as the poster validator (Decision 044). When a
+drain reports "drained", check the wall-clock: a sweep that finishes in seconds
+has found nothing to do, and that is a claim worth verifying rather than
+trusting.
+
+**Consequences**: SubDL gets a fresh pass over the ~83% SubSource has nothing
+for. The same audit that found this measured the live set properly for the first
+time (`tools/audit_published_subtitles.py`): 95.1% of published tracks work, not
+the ~70% on record — the earlier figure came from a classifier that required
+`HH:MM:SS` timestamps when WebVTT also permits `MM:SS`, so it reported healthy
+files as empty. Integrity was not the problem; sourcing is.
+
+## 056 — Verification freshness is tiered by visibility; a stale "verified" is invisible
+*Date: 2026-08-09*
+
+`check_liveness.py` re-probes items eligible to be RECOMMENDED (designed artwork
+— the Home/browse gate) every **14 days**, while the long tail keeps the 90-day
+TTL (`--hot-reprobe-days`, default 14). The clients close the matching hole:
+`verifiedAnd` (`i.playable = 1`) now applies to `shelf()` and the Home director
+rows on tvOS/iOS/macOS and Android, and the web applies a `Data.plays()` gate to
+its Home shelves — all three previously gated only their hero and discovery rows,
+so a CURATED shelf bypassed playability entirely.
+
+**Why**: the owner reported two recommended titles — *City That Never Sleeps* and
+*The Missing Juror* — that never play. Nothing was wrong with any gate: every copy
+carried `playbackVerified: true`. They were probed on 2026-07-18/19, PASSED, and
+their archive.org items were removed afterwards (two now return `files: []` with
+no server and 503; a third 404s because its file was renamed). `playbackVerified`
+records that a title played ONCE; the app cannot distinguish a check made
+yesterday from one made three months ago, so a flat 90-day TTL means a dead title
+can headline the front page for a quarter. The daily run was meanwhile using
+**314 of its 8,000-item budget** — the constraint was never throughput, it was
+that the staleness gate had nothing to offer it.
+
+**How to apply**: any "we verified this" marker on data that can rot needs a TTL
+proportional to how visible the claim is, and the budget should be spent where
+the claim is loudest. Measure the tier before choosing it: 18,408 designed-art
+items at 14 days is ~1,300/day against an 8,000/day budget, which is affordable;
+7 days would not have been meaningfully better and 30 barely helps. Do NOT rely
+on a client-side gate alone — `playable = 1` was already correct here and still
+shipped a dead link, because the DATA was stale, not the query. And keep the
+client backstop regardless: a source can always die between the last probe and
+the next launch.
+
+**Consequences**: iOS and macOS gained the load watchdog they never had — both
+armed a status observer and timeout ONLY on the captioned-HLS path, so a plain
+MP4 that could never load had no error surface at all and simply span forever
+(tvOS has had a 60s backstop since Decision 021's era). A dead title now says so
+in 60s instead of never. Applying `verifiedAnd` to curated shelves was measured
+first: 1,453 curated-shelf items, 100% already verified, so it hides nothing
+today and cannot regress tomorrow. Complements Decision 044 (enforce the gates
+every build) and 034 (node failover, which cannot help when the item is gone).
+
+## 057 — A run destroyed in the concurrency queue is retried; a long job may not hold the lock for hours
+*Date: 2026-08-09*
+
+`tools/retry_infra_failures.py` gains a second pass that re-runs workflow runs
+**cancelled before any job was created** — the signature of being displaced in a
+concurrency queue — and only when that run's group is idle, one per group per
+sweep. Separately, `resource_posters_secondary.py` gains `--max-minutes`
+(default 75): it stops starting new items at the budget, publishes what it has,
+and reports how many it left.
+
+**Why**: 27 workflows share the `catalog-writers` group, several with 5.5-hour
+budgets, and GitHub keeps only ONE pending run per group — a newer arrival
+CANCELS the older pending one. So while a long job holds the lock, scheduled
+catalog work is not queued behind it, it is **destroyed**, and nothing retried
+it: Decision 048's sweeper explicitly refused to touch `cancelled` on the
+reasoning that a cancel is usually a human or a concurrency group. Measured over
+one 12-hour window on 2026-08-09: **seven runs lost** — liveness ×2, colour ×2,
+free-subtitles ×2, community signals — including both attempts at that day's
+dead-link remediation, while a poster job held the lock for over four hours. The
+workflows' own comments already recorded 25–75% cancellation rates; what was
+missing was recovery.
+
+The distinction Decision 048 wanted is available and exact: a superseded run has
+**zero jobs**, because it never left the pending queue and GitHub never created
+one. A human (or a timeout) cancels a run that is RUNNING, which always has jobs
+with steps. Zero jobs therefore carries the same no-side-effect guarantee as
+"not one step of ours ran" — nothing was interrupted, nothing partially applied,
+so a re-run cannot repeat anything.
+
+**How to apply**: keep the zero-jobs test as the gate — never widen it to
+`cancelled` generally, which would fight whoever cancelled a running job (this
+repo cancels long jobs deliberately, including once in this very session). Only
+re-run into an IDLE group: re-running into a busy one is immediately superseded
+again and burns an attempt against `MAX_ATTEMPTS`, and the group is read from
+the workflow files on disk rather than guessed. One re-run per group per sweep,
+so seven recovered runs cannot re-enact the pile-up that lost them. Verify with
+`DRY_RUN=1` against real history before changing the gate. For the lock itself:
+any catalog writer that can run long needs a time budget that PUBLISHES rather
+than a `timeout-minutes` that kills — a killed job never publishes, so its work
+is lost outright, and a bounded one that says what it skipped keeps a backlog
+from reading as coverage.
+
+**Consequences**: dropped scheduled work now heals within ~30 minutes of the
+lock clearing instead of waiting for the next cron tick, or forever. The deeper
+fix — computing without the lock and taking it only to fetch→apply→publish, the
+shape `--deltas-out` already enables in several tools — remains open, and would
+make the group contention largely moot rather than merely survivable.
+
+## 058 — Live captions are transcribed AHEAD of playback by a muted scout, never tapped from playback
+*Date: 2026-08-10*
+
+A film with no subtitle track is captioned on device by `LiveCaptions`: a SECOND,
+MUTED `AVPlayer` plays the same URL at 2x with an `MTAudioProcessingTap` on its
+audio mix, feeding `SpeechAnalyzer`. Because that scout runs ahead of the viewer,
+complete cues exist before they are needed and the display is **pop-on** — a whole
+caption appears when its line begins and is replaced by the next. Wired on iOS,
+macOS and tvOS; styled from the viewer's own `MediaAccessibility` preferences.
+
+**Why**: two claims I made were wrong and both cost days. First, that
+transcription requires downloading the film — `AVAssetReader` refuses a remote
+URL and `AVAssetExportSession` fails -11838, but those only rule out reading the
+asset AS A FILE; a player decodes remote audio continuously and a processing tap
+hands those buffers back (measured: 9.1s of PCM in 8.8s of wall clock from a
+remote asset). Second, that tapping the PLAYING item was good enough — it is not,
+because playback yields audio at 1x, so the transcript can only ever TRAIL the
+speech. Roll-up, rolling word windows and every other presentation are just
+different ways of showing text arrive late; the owner's question — can we listen
+ahead so complete lines appear like a professionally captioned film — is the only
+thing that actually fixes it.
+
+**How to apply**: never caption from the playing item's tap. Keep the scout MUTED
+but NOT `isMuted` (muting can remove audio from the render pipeline, and then the
+tap never fires). SCALE cue times by the scout rate: at 2x the audio is
+time-compressed, so the same speech yields half the samples and every cue lands
+at half its true time. Tap callbacks must NOT be declared inside a `@MainActor`
+type — Swift infers the closure's isolation from its enclosing type and the
+runtime traps from the audio thread. Pass NO explicit `bufferStartTime`: the
+tap's time is sometimes invalid (a trap in `checkIsValidCMTime`) and every derived
+clock was rejected as overlapping (`SFSpeechError 17`); the analyzer's own clock
+is correct. Use `.timeIndexedProgressiveTranscription`, not the offline preset.
+And reserve the locale (`AssetInventory.reserve`) — without it the error is "not
+subscribed to transcription.en", or, on a machine with no model, the utterly
+misleading "No common audio format among modules".
+
+**Consequences**: `SubtitleFinder`'s download-and-transcribe path is removed —
+it downloaded a whole film to do offline what now happens during playback for
+free. Central macOS-runner generation keeps its value only for platforms with no
+on-device recognizer. The Simulator CANNOT verify any of this (no speech model),
+so `AW_START_ITEM`/`AW_AUTOPLAY` were added to macOS and the harnesses
+(`test_live_audio_tap`, `test_live_captions_timing`, `test_caption_pacing`) drive
+the SHIPPED code against a real film.
+
+## 059 — A caption is never replaced before its words are spoken, or before it can be read
+*Date: 2026-08-10*
+
+Caption timing obeys two rules everywhere captions are produced or published:
+cues may not OVERLAP (the later one is pushed back, never the earlier one cut
+short), and every cue is held for at least its READING time (~2.5 words/second,
+the usual subtitle guideline). In `LiveCaptions` a transcriber result's span is
+divided among its lines by CHARACTER COUNT rather than evenly, and `line(at:)`
+has no lead-in. In the pipeline, `build_subtitle_assets.pace_vtt` applies the
+same two rules to every published WebVTT — clamping overlap and extending a
+too-brief cue INTO EMPTY SPACE only, never shortening one and never pushing past
+the next.
+
+**Why**: the owner reported constantly racing the screen — the next sentence
+appearing while the speaker was still finishing the last. Dividing a span evenly
+by line count gave a short trailing sentence as much time as a long leading one,
+so it surfaced early; and a 0.25s lead-in in the display is literally a licence
+for the next caption to preempt the current one. A flat one-second floor was also
+too crude: one 13-word line sat on screen for 1.7s, and a caption you cannot
+finish reading is the same as no caption. The fault is not specific to machine
+transcripts — human subtitles carry both, which is why the rules live in the
+publisher as well and therefore reach web and Android.
+
+**How to apply**: assert the PACING property, not merely that captions appear —
+`tools/test_caption_pacing.swift` measures dwell against reading time and checks
+for overlap and out-of-order display (median on screen 3.6s → 4.2s, too-fast
+2/17 → 1/17). When adjusting, do not trade one complaint for the other: forcing
+every line to full reading time drifts the captions behind the audio, and pauses
+in speech are what absorb that drift.
+
+## 060 — The Speech API shipping on a platform is not the model shipping; ask `AssetInventory.status`
+*Date: 2026-08-10*
+
+`CaptionCapability` probes once per launch whether THIS device can actually
+transcribe — `AssetInventory.status(forModules:) != .unsupported` and a
+non-empty `SpeechTranscriber.supportedLocales` — and every caption surface reads
+it. When it is false the app does not start the scout player, does not claim a
+film is being captioned, and says so once. `auto-captions.yml`'s nightly
+schedule is disabled for the same reason.
+
+**Why**: live captions worked on the owner's Mac and iPhone and produced nothing
+on their Apple TV. Apple's documentation lists SpeechTranscriber on tvOS 26, the
+tvOS SDK ships `Speech.tbd` and the full Swift interface, and every layer we
+could measure on tvOS worked — the scout ran at 2x, the audio tap delivered
+44.1kHz stereo PCM, the caption label drew over the picture. The recognizer was
+the one link no simulator can exercise, so it stayed a hypothesis until the
+GitHub macos-26 runner turned out to reproduce it EXACTLY: the same
+"not subscribed to transcription.en", `passed=0 rejected=4`, on every nightly
+run for weeks. `tools/probe_speech_assets.swift` (run 31433486714) then asked the
+framework each question in order:
+
+    supportedLocales: 0 · installedLocales: 0 · status(forModules): unsupported
+    supportedLocale(en-US): en-US        <- answers with NO models present
+    reserve(locale): granted=true        <- grants a locale it cannot serve
+    assetInstallationRequest: THREW "… is not subscribed to transcription.en"
+    bestAvailableAudioFormat: nil
+
+There is nothing to download. Two APIs actively mislead — `supportedLocale(
+equivalentTo:)` is locale equivalence and says nothing about availability, and
+`reserve` grants a reservation for a locale the device cannot serve — so a
+model-less machine looks like a misconfigured app right up until the fourth
+call. The machines where this worked are the ones that already had the models;
+the pipeline's own "66x realtime" benchmark was measured on one of them, which
+is how a workflow that has never captioned a single film looked healthy.
+
+**How to apply**: gate on `status(forModules:)` before doing any work — it is
+the only honest signal, and it was the one call the code never made. Never infer
+availability from documented platform support, from `supportedLocale(
+equivalentTo:)`, or from a `reserve` that returns true. Do not "fix" a
+`not subscribed` error by retrying the install; on a model-less device it is a
+statement about the device. A feature that cannot run must not be advertised —
+the Get Subtitles sheet told a living room its film was being captioned while
+nothing appeared, and the player streamed a second muted copy of every film at
+2x to feed a recognizer that did not exist. Benchmark a pipeline on a machine
+that represents where it will RUN, not the one it was written on.
+
+**Consequences**: automatic captions are an iOS/iPadOS/macOS/visionOS feature;
+tvOS gets subtitles only from human sources (the OpenSubtitles/SubDL program,
+Decisions 039/055), which is now what the tvOS UI says. Central generation is
+still possible on a machine that has the models — a self-hosted Mac — so
+`auto-captions.yml` stays dispatchable rather than deleted. Complements
+Decision 039b (a wrong caption is worse than none) and 058 (the scout-ahead
+engine, unchanged and still correct where models exist).
+
