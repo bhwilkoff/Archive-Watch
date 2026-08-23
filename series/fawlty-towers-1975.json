@@ -61,6 +61,24 @@
           "downloadURL": "https://archive.org/download/LDFT7579/Fawlty Towers.ia.mp4"
         },
         {
+          "archiveID": "fawlty_towers_202604",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fawlty Towers",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Fawlty Towers/Season 02/S02E04 - The Kipper and the Corpse.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 715259608,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/fawlty_towers_202604/Fawlty%20Towers/Season%2002/S02E04%20-%20The%20Kipper%20and%20the%20Corpse.ia.mp4"
+        },
+        {
           "archiveID": "fawlty-towers-basil-the-rat-1984-uk-vhs",
           "seasonNumber": null,
           "episodeNumber": null,
@@ -153,7 +171,7 @@
       ]
     }
   ],
-  "episodesCount": 7,
+  "episodesCount": 8,
   "canonicalEpisodesCount": 12,
   "tvdbID": "75932",
   "artworkSource": "tvdb",
@@ -206,8 +224,5 @@
       "order": 7,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/42073.jpg"
     }
-  ],
-  "seriesImdbID": "tt0072500",
-  "canonicalEpisodeCount": 12,
-  "canonicalSeasons": 2
+  ]
 }

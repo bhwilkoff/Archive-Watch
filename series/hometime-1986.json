@@ -1,9 +1,9 @@
 {
   "version": 2,
-  "seriesID": "hometime-1992",
+  "seriesID": "hometime-1986",
   "tvmazeID": 10219,
   "title": "Hometime",
-  "yearStart": 1992,
+  "yearStart": 1986,
   "yearEnd": null,
   "overview": "Hosted by Dean Johnson, Hometime's aim is to help homeowners achieve professional-looking results from their home improvement projects. The \"Hometime\" crew tackles everything from landscaping, painting, and kitchen facelifts to managing new construction and major additions to older houses.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/82287-1.jpg",
@@ -347,7 +347,7 @@
     }
   ],
   "episodesCount": 18,
-  "canonicalEpisodesCount": 264,
+  "canonicalEpisodesCount": 280,
   "tvdbID": "82287",
   "artworkSource": "tvdb",
   "cast": [
@@ -405,8 +405,5 @@
       "order": 8,
       "profilePath": "https://artworks.thetvdb.com/banners/person/8281611/604594d2d33f3.jpg"
     }
-  ],
-  "seriesImdbID": "tt0127999",
-  "canonicalEpisodeCount": 0,
-  "canonicalSeasons": null
+  ]
 }

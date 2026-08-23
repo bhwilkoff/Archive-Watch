@@ -108,24 +108,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-01-episodes-19-20-i-do-i-do...-for-nowyoung-master-carlson/WKRP In Cincinnati S01E19-20 I Do, I Do... For Now-Young Master Carlson.mp4"
-        },
-        {
-          "archiveID": "wkrp-s-1-e-20-young-master-carlson",
-          "seasonNumber": 1,
-          "episodeNumber": 20,
-          "title": "Young Master Carlson",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/wkrp-s-1-e-20-young-master-carlson",
-          "airDate": null,
-          "year": 1981,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "WKRP S3E13+E14 Dr. Fever and Mr. Tide.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 138205961,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/wkrp-s-1-e-20-young-master-carlson/WKRP S3E13+E14 Dr. Fever and Mr. Tide.mp4"
         }
       ]
     },
@@ -370,6 +352,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episodes-13-14-dr.-fever-mr.-tide/WKRP In Cincinnati S03E13-14 Dr. Fever & Mr. Tide.mp4"
+        },
+        {
+          "archiveID": "wkrp-s-1-e-20-young-master-carlson",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "Dr. Fever and Mr. Tide (1)",
+          "overview": "Johnny takes a job as a TV disco-show host.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/427957.jpg",
+          "airDate": "1981-02-07",
+          "year": 1981,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "WKRP S3E13+E14 Dr. Fever and Mr. Tide.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 138205961,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-s-1-e-20-young-master-carlson/WKRP S3E13+E14 Dr. Fever and Mr. Tide.mp4"
         },
         {
           "archiveID": "wkrp-in-cincinnati-season-03-episodes-15-16-ask-jenniferi-am-woman",
@@ -648,8 +648,5 @@
       "order": 7,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/58513.jpg"
     }
-  ],
-  "seriesImdbID": "tt0077097",
-  "canonicalEpisodeCount": 82,
-  "canonicalSeasons": 4
+  ]
 }

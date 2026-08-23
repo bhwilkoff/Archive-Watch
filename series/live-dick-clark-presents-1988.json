@@ -1,102 +1,99 @@
 {
-  "version": 2,
-  "seriesID": "live-dick-clark-presents-1988",
-  "tvmazeID": 23800,
-  "title": "Live! Dick Clark Presents",
-  "yearStart": 1988,
-  "yearEnd": 1988,
-  "overview": "Live! Dick Clark Presents which was produced and hosted by Dick Clark was a live weekly musical variety show that aired on CBS from 14 September 1988 to 22 October 1988.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/89/224523.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Music"
-  ],
-  "networks": [
-    "CBS"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "live-dick-clark-presents-1988",
+ "tvmazeID": 23800,
+ "title": "Live! Dick Clark Presents",
+ "yearStart": 1988,
+ "yearEnd": 1988,
+ "overview": "Live! Dick Clark Presents which was produced and hosted by Dick Clark was a live weekly musical variety show that aired on CBS from 14 September 1988 to 22 October 1988.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/89/224523.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Music"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "dick-clarks-live-wednesday-october-19-1978",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Dick Clark's Live Wednesday",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/dick-clarks-live-wednesday-october-19-1978",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Dick Clark's Live Wednesday (October 19, 1978).mp4",
-            "format": "h.264",
-            "sizeBytes": 283986013,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/dick-clarks-live-wednesday-october-19-1978/Dick Clark's Live Wednesday (October 19, 1978).mp4"
-        },
-        {
-          "archiveID": "dick-clarks-live-wednesday-october-25-1978",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Dick Clark's Live Wednesday",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/dick-clarks-live-wednesday-october-25-1978",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Dick Clark's Live Wednesday (October 25, 1978).mp4",
-            "format": "h.264",
-            "sizeBytes": 283204250,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/dick-clarks-live-wednesday-october-25-1978/Dick Clark's Live Wednesday (October 25, 1978).mp4"
-        },
-        {
-          "archiveID": "dick-clarks-live-wednesday-october-4-1978",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Dick Clark's Live Wednesday",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/dick-clarks-live-wednesday-october-4-1978",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Dick Clark's Live Wednesday (October 4, 1978).mp4",
-            "format": "h.264",
-            "sizeBytes": 282153088,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/dick-clarks-live-wednesday-october-4-1978/Dick Clark's Live Wednesday (October 4, 1978).mp4"
-        },
-        {
-          "archiveID": "dickclarksrockinnewyearseve1983convertvideoonline.com",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Dick Clark's Rockin' New Year's Eve 1983-84",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/dickclarksrockinnewyearseve1983convertvideoonline.com",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Dick Clark's Rockin' New Year's Eve 1983 (convert-video-online.com).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 1847966711,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/dickclarksrockinnewyearseve1983convertvideoonline.com/Dick%20Clark%27s%20Rockin%27%20New%20Year%27s%20Eve%201983%20%28convert-video-online.com%29.mp4"
-        }
-      ]
+     "archiveID": "dick-clarks-live-wednesday-october-19-1978",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Dick Clark's Live Wednesday",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/dick-clarks-live-wednesday-october-19-1978",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Dick Clark's Live Wednesday (October 19, 1978).mp4",
+      "format": "h.264",
+      "sizeBytes": 283986013,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/dick-clarks-live-wednesday-october-19-1978/Dick Clark's Live Wednesday (October 19, 1978).mp4"
+    },
+    {
+     "archiveID": "dick-clarks-live-wednesday-october-25-1978",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Dick Clark's Live Wednesday",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/dick-clarks-live-wednesday-october-25-1978",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Dick Clark's Live Wednesday (October 25, 1978).mp4",
+      "format": "h.264",
+      "sizeBytes": 283204250,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/dick-clarks-live-wednesday-october-25-1978/Dick Clark's Live Wednesday (October 25, 1978).mp4"
+    },
+    {
+     "archiveID": "dick-clarks-live-wednesday-october-4-1978",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Dick Clark's Live Wednesday",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/dick-clarks-live-wednesday-october-4-1978",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Dick Clark's Live Wednesday (October 4, 1978).mp4",
+      "format": "h.264",
+      "sizeBytes": 282153088,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/dick-clarks-live-wednesday-october-4-1978/Dick Clark's Live Wednesday (October 4, 1978).mp4"
+    },
+    {
+     "archiveID": "dickclarksrockinnewyearseve1983convertvideoonline.com",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Dick Clark's Rockin' New Year's Eve 1983-84",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/dickclarksrockinnewyearseve1983convertvideoonline.com",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Dick Clark's Rockin' New Year's Eve 1983 (convert-video-online.com).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 1847966711,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/dickclarksrockinnewyearseve1983convertvideoonline.com/Dick%20Clark%27s%20Rockin%27%20New%20Year%27s%20Eve%201983%20%28convert-video-online.com%29.mp4"
     }
-  ],
-  "episodesCount": 4,
-  "canonicalEpisodesCount": 6,
-  "seriesImdbID": "tt1727678",
-  "canonicalEpisodeCount": 2,
-  "canonicalSeasons": 1
+   ]
+  }
+ ],
+ "episodesCount": 4,
+ "canonicalEpisodesCount": 6
 }

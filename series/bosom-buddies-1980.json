@@ -38,9 +38,32 @@
           "downloadURL": "https://archive.org/download/bosom-buddies_202601/Bosom%20Buddies%20S2%20E03%20-%20Reunion.ia.mp4"
         }
       ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bosom-buddies-complete",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bosom Buddies",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bosom Buddies S1 E14 - Only the Lonelyg.mp4",
+            "format": "h.264",
+            "sizeBytes": 138608463,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bosom-buddies-complete/Bosom%20Buddies%20S1%20E14%20-%20Only%20the%20Lonelyg.mp4"
+        }
+      ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 2,
   "canonicalEpisodesCount": 37,
   "tvdbID": "77683",
   "artworkSource": "tvdb",
@@ -87,8 +110,5 @@
       "order": 6,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/287701/photo/63436bbf6354d.jpg"
     }
-  ],
-  "seriesImdbID": "tt0080202",
-  "canonicalEpisodeCount": 11,
-  "canonicalSeasons": 2
+  ]
 }

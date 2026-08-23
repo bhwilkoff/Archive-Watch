@@ -149,7 +149,7 @@
     }
   ],
   "episodesCount": 7,
-  "canonicalEpisodesCount": 7289,
+  "canonicalEpisodesCount": 7297,
   "tvdbID": "71753",
   "artworkSource": "tvdb",
   "cast": [
@@ -163,7 +163,7 @@
       "name": "Ellie Dadd",
       "character": "Amy Mitchell",
       "order": 1,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9105198/photo/63906a4ed302c.jpg"
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9105198/photo/6a875fcc33f9e.jpg"
     },
     {
       "name": "Aaliyah James",
@@ -232,22 +232,22 @@
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/320066/photo/619bd232213c5.jpg"
     },
     {
+      "name": "Patricia Potter",
+      "character": "Gemma Hawkins",
+      "order": 13,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/433762/photo/68692edd8f50f.jpg"
+    },
+    {
       "name": "Colin Salmon",
       "character": "George Knight",
-      "order": 13,
+      "order": 14,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/278489/photo/6097e4a2c8d53.jpg"
     },
     {
       "name": "Francesca Henry",
       "character": "Gina Knight",
-      "order": 14,
-      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9097796/photo/64b97167343f5.jpg"
-    },
-    {
-      "name": "Toby-Alexander Smith",
-      "character": "Gray Atkins",
       "order": 15,
-      "profilePath": "https://artworks.thetvdb.com/banners/actors/535860.jpg"
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/9097796/photo/64b97167343f5.jpg"
     },
     {
       "name": "Elijah Holloway",
@@ -261,8 +261,5 @@
       "order": 17,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/281033/photo/63893451a6a3b.jpg"
     }
-  ],
-  "seriesImdbID": "tt0088512",
-  "canonicalEpisodeCount": 100,
-  "canonicalSeasons": 1
+  ]
 }

@@ -1,0 +1,89 @@
+{
+  "version": 2,
+  "seriesID": "kratts-creatures-1996",
+  "tvmazeID": 54948,
+  "title": "Kratts' Creatures",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": "Kratts' Creatures is a half-hour children's television series that originally ran on PBS Kids during the summer of 1996",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/71102/posters/6755fcb553b74.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "PBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "KrattsCreatures",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Kratts' Creatures",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "EP25 - Who's Who.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 276190912,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/KrattsCreatures/EP25%20-%20Who%27s%20Who.mp4"
+        },
+        {
+          "archiveID": "kratts-creatures-complete-series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Kratts' Creatures",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Episode 34 - Why.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 170409703,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/kratts-creatures-complete-series/Episode%2034%20-%20Why.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 50,
+  "tvdbID": "71102",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Shannon Duff",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Chris Kratt",
+      "character": "",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8036755/photo/61589d805a728.jpg"
+    },
+    {
+      "name": "Martin Kratt",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Ron Rubin",
+      "character": "",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261448/photo/650f3984485f8.jpg"
+    }
+  ]
+}
