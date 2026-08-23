@@ -66,7 +66,13 @@ jobs:
       - name: Align words
         # Backstop for when the budget cannot stop it — one hung request
         # inside a single item is how a 180-minute budget ran 360.
-        # Fails the STEP, so the publish steps below still run.
+        # continue-on-error: the timeout is a BACKSTOP, not the verdict. The
+        # publish below still ships whatever aligned, so the run's verdict is
+        # the last step: red is reserved for a run with nothing to show —
+        # a timeout that still published is not broken, and its failure email
+        # was pure noise (Decision 093).
+        id: align
+        continue-on-error: true
         timeout-minutes: 270
         run: |
           python tools/build_word_index.py \
@@ -89,3 +95,16 @@ jobs:
           python tools/sqlite_publish_guard.py check subtitle.sqlite --baseline .index_baseline.json
           python3 -c "import zlib; d=open('subtitle.sqlite','rb').read(); c=zlib.compressobj(9,zlib.DEFLATED,-15); open('subtitle.sqlite.zz','wb').write(c.compress(d)+c.flush())"
           bash tools/gh_retry.sh gh release upload subtitle-index subtitle.sqlite.zz --clobber
+
+      - name: Fail only if the backstop fired AND nothing was produced
+        # "changed: none" means the index the run published is identical to
+        # the one it restored — a killed run with nothing to show, which IS
+        # broken. A killed run whose index grew did its job; a warning
+        # annotation records the backstop firing without an alert email.
+        if: always() && steps.align.outcome == 'failure' && steps.restore.outcome == 'success'
+        run: |
+          if python tools/sqlite_publish_guard.py check subtitle.sqlite --baseline .index_baseline.json | grep -q 'changed: none'; then
+            echo "::error::Align words was killed by its backstop timeout and produced NOTHING."
+            exit 1
+          fi
+          echo "::warning::Align words hit its backstop timeout, but its work grew the index and was published — not failing the run (Decision 093)."

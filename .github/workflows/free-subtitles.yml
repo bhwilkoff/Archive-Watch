@@ -86,7 +86,13 @@ jobs:
       - name: Harvest subtitles
         # Backstop for when the budget cannot stop it — one hung request
         # inside a single item is how a 180-minute budget ran 360.
-        # Fails the STEP, so the publish steps below still run.
+        # continue-on-error: the timeout is a BACKSTOP, not the verdict. The
+        # publish below still ships whatever was built, so the run's verdict
+        # is the step after it: red is reserved for a run with nothing to
+        # show — a timeout that still published is not broken, and its
+        # failure email was pure noise (Decision 093).
+        id: harvest
+        continue-on-error: true
         timeout-minutes: 140
         env:
           SUBSOURCE_API_KEY: ${{ secrets.SUBSOURCE_API_KEY }}
@@ -133,6 +139,19 @@ jobs:
             gh release create subtitle-assets --title "Subtitle assets (rolling)" \
               --notes "VTT + HLS subtitle assets served to Pages at /subs (Decision 039)."
           bash tools/gh_retry.sh gh release upload subtitle-assets subs.tar.gz --clobber
+
+      - name: Fail only if the backstop fired AND nothing was produced
+        # A killed harvest that built nothing new IS broken. One that grew
+        # the asset set did its job; a warning annotation records the
+        # backstop firing without an alert email.
+        if: always() && steps.harvest.outcome == 'failure'
+        run: |
+          AFTER=$(find subs -type f | wc -l | tr -d ' ')
+          if [ "$AFTER" -le "${SUBS_BEFORE:-0}" ]; then
+            echo "::error::Harvest was killed by its backstop timeout and built NOTHING new."
+            exit 1
+          fi
+          echo "::warning::Harvest hit its backstop timeout, but $((AFTER - SUBS_BEFORE)) new subtitle file(s) were built and published — not failing the run (Decision 093)."
 
       - name: Extract what changed
 

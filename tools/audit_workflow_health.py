@@ -87,11 +87,19 @@ def minutes(run: dict) -> float:
         return 0.0
 
 
-URGENT_SEVERITIES = ("BROKEN", "KILLED", "FAILED")
+URGENT_SEVERITIES = ("BROKEN", "KILLED")
 
 
 def urgent_findings(findings):
     """The findings that should FAIL the job — i.e. send the owner an email.
+
+    Only the failures NOTHING ELSE alerts for. A FAILED run already sent the
+    owner its own failure email from GitHub, so failing this job over it is a
+    second alert for the same event, repeated daily until the fix lands —
+    which is how the owner came to ask for the alerts to stop. BROKEN (green
+    but produced nothing) and KILLED (cancelled, which GitHub never emails
+    about) have no other voice; those still fail the job. FAILED and STALE
+    stay in the report, where a reader of the summary sees them.
 
     A finding whose fix is already in flight (a later manual run succeeded, so
     the schedule simply has not had its say yet) is REPORTED but not failed.
@@ -290,11 +298,16 @@ def main() -> int:
 
     urgent = urgent_findings(findings)
     deferred = [f for f in findings if f[3]]
+    already_alerted = [f for f in findings if f[0] == "FAILED" and not f[3]]
     print(f"\n{len(findings)} finding(s); {len(urgent)} need action rather than a decision.")
     if deferred:
         print(f"{len(deferred)} already have a fix in flight (a later manual run "
               f"succeeded) and are awaiting their next scheduled run — reported, "
               f"not failed.")
+    if already_alerted:
+        print(f"{len(already_alerted)} FAILED finding(s) already sent their own "
+              f"alert (GitHub emails on a failed run) — reported here, not "
+              f"re-failed (Decision 093).")
     return 1 if urgent else 0
 
 

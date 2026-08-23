@@ -161,6 +161,7 @@ an entry in place.
 - 090 — An auditor judges each workflow against its OWN cadence, never a fixed window
 - 091 — A time budget measures the whole tool, not the phase that happens to carry it
 - 092 — DECISIONS.md holds the index + recent entries; older entries archive verbatim
+- 093 — A red X is reserved for broken: backstops that published warn, and the auditor never re-alerts a failure that already emailed
 
 ---
 
@@ -776,3 +777,46 @@ bottom, and adds one index line. Citations of "Decision NNN" anywhere in
 the repo stay correct — the index says which file holds NNN. Never edit
 an archive file except to append a rolled-over entry block, and never
 let a summary stand in for the entry itself.
+
+## 093 — A red X is reserved for broken: backstops that published warn, and the auditor never re-alerts a failure that already emailed
+*Date: 2026-08-23*
+
+A workflow run fails ONLY when it has nothing to show. Two mechanisms
+were failing runs that had done their job, and each red X emailed the
+owner. (1) The step-timeout BACKSTOPS on `word-index` and
+`free-subtitles` are now `continue-on-error`; a final verdict step fails
+the run only when the backstop fired AND the published output did not
+grow (the guard's row counts / the asset-file count are the evidence).
+A backstop that fired on a run whose work still published leaves a
+`::warning::` annotation instead. (2) `audit_workflow_health.py` no
+longer exits 1 over a FAILED finding — that run's own red X already
+emailed the owner, so the auditor's daily re-fail was a duplicate alert
+repeated until the fix landed. Its urgent set is now exactly the
+failures NOTHING ELSE alerts for: BROKEN (green but produced nothing)
+and KILLED (cancelled with publish skipped — GitHub never emails about
+cancelled runs). FAILED and STALE stay in the report.
+
+**Why**: the owner asked to stop getting alerts for failed actions —
+"if it isn't broken, it doesn't fail." Last week's failure emails were
+Workflow health daily since 08-17, word-index three times, free-subs
+once; every one was either a duplicate of an alert already sent or a
+backstop timeout on a run that published its work (the 08-22 word-index
+"failure" grew the index 373,516 → 484,848 words). An alert channel
+that cries wolf daily is an alert channel the owner mutes — and then a
+real break goes unread. Fewer, truer alerts protect the signal.
+
+**How to apply**: when adding a compute step with a timeout backstop
+ahead of an `always()` publish, pair it with a verdict step: backstop
+fired + output grew → warn; backstop fired + nothing grew → fail. Never
+let the verdict pass on a publish-step failure (a guard refusal or
+upload error still fails the run through the publish step itself). In
+the auditor, never add a severity to URGENT_SEVERITIES if the
+underlying event already produces its own GitHub email — report it, and
+let the one alert be the alert. The summary is still written on every
+run for the findings that do not fail it.
+
+**Consequences**: a genuinely hung-from-the-start run still goes red
+(nothing grew). A backstop that fires repeatedly while publishing shows
+up as warnings and in the health summary, not the inbox — if that
+pattern needs escalation later, the verdict step is where a
+consecutive-firing counter would go.
