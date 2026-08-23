@@ -181,9 +181,12 @@ jobs:
         # also skips cleanly on 403 if it ever does run here.
         if: github.event_name == 'workflow_dispatch' && github.event.inputs.run_loc == 'true'
         run: |
-          python tools/discover_loc.py \
+          set -o pipefail
+          if ! python tools/discover_loc.py \
             --max-items ${{ github.event.inputs.loc_max_items || '30' }} \
-            | tee loc.log || true
+            | tee loc.log; then
+            echo "::warning::discover_loc.py exited non-zero — best-effort step, continuing (Decision 094). Read the log above."
+          fi
 
       - name: Build episode-wants queue (canonical lists from OMDb)
         env:

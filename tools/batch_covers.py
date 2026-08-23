@@ -43,7 +43,7 @@ import sys
 import tempfile
 import threading
 import time
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import CancelledError, ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -246,6 +246,11 @@ def main() -> int:
                     help="reattempt items that previously failed")
     ap.add_argument("--dry-run", action="store_true",
                     help="report the work-list size and exit")
+    ap.add_argument("--max-minutes", type=float, default=0,
+                    help="stop starting new items after this long and return "
+                         "cleanly, so a CI caller still reaches its publish "
+                         "steps instead of being killed at a timeout with the "
+                         "run's work discarded (Decisions 057/091)")
     args = ap.parse_args()
 
     if not args.catalog.exists():
@@ -281,6 +286,12 @@ def main() -> int:
     lock = threading.Lock()
     counts = {"ok": 0, "fail": 0}
     started = time.time()
+    # Budget measured from the batch start (Decision 091). All items are
+    # submitted up front, so the budget fires by CANCELLING the not-yet-started
+    # futures; the few already running finish and are kept. Overshoot is
+    # bounded by workers x one item, not by the whole queue.
+    deadline = (started + args.max_minutes * 60) if args.max_minutes else None
+    stopped_early = False
 
     with open(manifest, "a") as mf, \
             ThreadPoolExecutor(max_workers=args.workers) as ex:
@@ -288,7 +299,16 @@ def main() -> int:
                           args.keep_top, not args.no_vision): it
                 for it in work}
         for i, fut in enumerate(as_completed(futs), 1):
-            rec = fut.result()
+            if deadline and not stopped_early and time.time() > deadline:
+                stopped_early = True
+                n_cancelled = sum(1 for f in futs if f.cancel())
+                print(f"[batch] STOPPED EARLY at the {args.max_minutes:g}-minute "
+                      f"budget — {n_cancelled} pending items cancelled; they "
+                      f"retry next run", flush=True)
+            try:
+                rec = fut.result()
+            except CancelledError:
+                continue
             with lock:
                 mf.write(json.dumps(rec) + "\n")
                 mf.flush()

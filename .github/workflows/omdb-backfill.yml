@@ -91,10 +91,16 @@ jobs:
           # recover full metadata. Prefers TMDb (no daily cap, better art) when
           # TMDB_BEARER_TOKEN is set; falls back to OMDb otherwise. Runs even if
           # the OMDb backfill step skipped (TMDb path is independent of OMDb).
-          python tools/enrich_movies.py \
+          # Best-effort, but never SILENT: a bare `|| true` is how this exact
+          # workflow sat green with an EMPTY repo secret for weeks. A failure
+          # is annotated so it is visible without failing the run.
+          set -o pipefail
+          if ! python tools/enrich_movies.py \
             --max-calls ${{ github.event.inputs.enrich_calls || '4000' }} \
             ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} \
-            | tee enrich.log || true
+            | tee enrich.log; then
+            echo "::warning::enrich_movies.py exited non-zero — best-effort step, continuing (Decision 094). Read the log above."
+          fi
 
       - name: Stats summary
         if: steps.backfill.outputs.skipped != 'true' && hashFiles('backfill.log') != ''

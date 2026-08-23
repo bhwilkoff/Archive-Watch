@@ -162,6 +162,7 @@ an entry in place.
 - 091 — A time budget measures the whole tool, not the phase that happens to carry it
 - 092 — DECISIONS.md holds the index + recent entries; older entries archive verbatim
 - 093 — A red X is reserved for broken: backstops that published warn, and the auditor never re-alerts a failure that already emailed
+- 094 — Fleet hardening: stock index guarded and .zz-only, no unguarded restores, budgets everywhere, the big lock holder split
 
 ---
 
@@ -820,3 +821,80 @@ run for the findings that do not fail it.
 up as warnings and in the health summary, not the inbox — if that
 pattern needs escalation later, the verdict step is where a
 consecutive-firing counter would go.
+
+## 094 — Fleet hardening: stock index guarded and .zz-only, no unguarded restores, budgets everywhere, the big lock holder split
+*Date: 2026-08-23*
+
+A fleet-wide pass applying this repo's own decisions to every workflow
+that had not yet received them, driven by a full audit of failure modes
+and timing headroom. Five coordinated changes:
+
+1. **The stock index gets the Decision-089 treatment it was missing.**
+   `stock-index.yml` and `stock-tags.yml` restored `clips.sqlite` with
+   `|| echo "first run"` — the EXACT swallow that let subtitle-index
+   rebuild over a missing asset and destroy 702k word timings — and had
+   no `sqlite_publish_guard` anywhere. Both now treat only a
+   NON-EXISTENT release as a first run, snapshot row counts after
+   restore, and refuse a shrunken publish. They also upload **only the
+   .zz**: the raw 265 MB `clips.sqlite` member had no consumer (the
+   Creation Studio downloads the .zz — verified in `StockIndex.swift`),
+   and re-uploading a large raw member after `--clobber`'s delete is
+   the exact failure that vanished the subtitle-index assets. The
+   publish step retires the stale raw member once, self-healing.
+
+2. **No restore is swallowed anywhere.** `deploy-pages.yml`'s
+   `|| true` on the subs tarball meant one transient failure shipped a
+   site with ZERO subtitle files — Pages then serves 404.html as VTT
+   with HTTP 200 (measured 2026-08-09) until the next deploy. It now
+   refuses: an old site beats a subtitle-less one, and deploys run many
+   times a day so a refusal self-heals.
+
+3. **Budgets that publish, wired where only timeouts stood** (Decisions
+   057/091/093). `batch_covers.py` and `sync_subtitles_audio.py` gained
+   `--max-minutes`; `cover-generation`, `subtitle-sync` and
+   `stock-tags` gained the backstop-plus-verdict shape: budget stops
+   the tool cleanly, the step timeout is a continue-on-error backstop,
+   and a verdict step fails the run only when nothing was produced.
+   `subtitle-sync`'s verdicts upload is retry-wrapped — it was the one
+   un-retried `--clobber` in the fleet, on the resume ledger of all
+   things.
+
+4. **The biggest lock holder is split** (Decision 066).
+   `cover-generation` held `catalog-writers` ~51 minutes DAILY — the
+   largest steady hold, and the reason TMDb enrich measured a
+   673-minute queue wait for a one-minute job. It now computes with no
+   lock and applies a field-level delta in ~2 minutes. The Sunday
+   pile-up (tv-canonical's 113m hold + community-signals at 09:00) is
+   staggered: community-signals moved to Saturday.
+
+5. **Best-effort steps are never silent.** The four `|| true` tool
+   swallows (omdb-backfill — the workflow that once sat green with an
+   EMPTY secret because of this exact pattern — discover-content's LoC
+   feed, both resource-posters validators) now annotate a `::warning::`
+   on failure instead of discarding the exit code.
+
+**Why**: the owner asked for workflows "best engineered and least
+likely to fail or take longer than their timeouts." The audit found the
+patterns this repo has already paid for — the 089 swallow, the 057
+timeout-kill, the 066 lock hold — each alive in workflows the original
+fixes never reached. A rule that lives only in the workflow where its
+incident happened is a rule the next workflow re-learns the expensive
+way.
+
+**How to apply**: a new workflow that appends to a shared SQLite index
+MUST snapshot-and-check with `sqlite_publish_guard` and restore from
+the .zz; never upload a raw multi-hundred-MB member. A new restore step
+treats only release-nonexistence as first-run. A new long compute gets
+a `--max-minutes` budget measured from process start, a backstop step
+timeout with `continue-on-error`, and a produced-nothing verdict. A new
+catalog writer starts life split (Decision 066) — compute unlocked,
+apply short. `check_workflow_gates.py` validates the split shape; run
+it after touching any apply job.
+
+**Consequences**: remaining known holders of `catalog-writers` for
+whole runs are small (rights-audit ~5m daily, match-unmatched ~4m
+weekly, detect-trailers ~21m weekly, tv-canonical ~113m weekly — the
+one Decision 066 flags as needing care, deliberately not converted
+here). The stale raw `clips.sqlite` disappears on the next stock
+publish; verified no in-flight or sweeper-eligible old-code stock runs
+existed at merge time, so no old restore can meet the deleted asset.

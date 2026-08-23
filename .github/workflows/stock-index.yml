@@ -49,7 +49,20 @@ jobs:
       - name: Restore existing index (for skip)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release download stock-index -p clips.sqlite -O existing.sqlite || echo "first run — no existing index"
+        # Only a NON-EXISTENT release is a first run. A release whose asset
+        # cannot be fetched must FAIL: an `|| echo "first run"` here is the
+        # exact swallow that let subtitle-index rebuild over a missing asset
+        # and destroy 702k word timings (Decision 089). Restores from the .zz
+        # — the raw clips.sqlite asset is retired (nothing consumes it, and a
+        # failed re-upload of a large raw member after --clobber's delete is
+        # how the subtitle-index assets vanished).
+        run: |
+          if gh release view stock-index >/dev/null 2>&1; then
+            bash tools/gh_retry.sh gh release download stock-index -p clips.sqlite.zz -O existing.sqlite.zz
+            python3 -c "import zlib; open('existing.sqlite','wb').write(zlib.decompress(open('existing.sqlite.zz','rb').read(),-15))"
+          else
+            echo "first run — no existing index"
+          fi
       - name: Detect shots (shard ${{ matrix.shard }} of 8)
         run: |
           python tools/build_stock_index.py \
@@ -83,9 +96,24 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - name: Restore existing index
+        id: restore
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release download stock-index -p clips.sqlite -O clips.sqlite || echo "first run — fresh index"
+        # Only a NON-EXISTENT release is a first run (Decision 089). The old
+        # `|| echo "first run — fresh index"` swallow meant one failed download
+        # would rebuild the index from THIS run's shards alone and republish —
+        # destroying every accumulated shard scan, exactly how the word index
+        # lost 702k rows. The baseline snapshot guards the publish below
+        # against every other cause of shrinkage.
+        run: |
+          if gh release view stock-index >/dev/null 2>&1; then
+            bash tools/gh_retry.sh gh release download stock-index -p clips.sqlite.zz -O clips.sqlite.zz
+            python3 -c "import zlib; open('clips.sqlite','wb').write(zlib.decompress(open('clips.sqlite.zz','rb').read(),-15))"
+            rm -f clips.sqlite.zz
+          else
+            echo "first run — fresh index"
+          fi
+          python3 tools/sqlite_publish_guard.py snapshot clips.sqlite --out .stock_baseline.json
       - uses: actions/download-artifact@v4
         with:
           path: shards
@@ -116,14 +144,22 @@ jobs:
       - name: Publish index
         # Publish what finished. A killed compute step above must not
         # discard the run's work, which is how faststart-derivatives lost
-        # two monthly passes in a row.
-        if: always()
+        # two monthly passes in a row — but never when the RESTORE failed,
+        # or a partial rebuild would publish over the accumulated index.
+        if: always() && steps.restore.outcome == 'success'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          python3 tools/sqlite_publish_guard.py check clips.sqlite --baseline .stock_baseline.json
           # Raw DEFLATE (wbits=-15), matching the catalog convention so the app reuses
           # CatalogRefreshService.inflate (Decision 019) — NOT gzip.
           python3 -c "import zlib; d=open('clips.sqlite','rb').read(); c=zlib.compressobj(9,zlib.DEFLATED,-15); open('clips.sqlite.zz','wb').write(c.compress(d)+c.flush())"
           gh release view stock-index >/dev/null 2>&1 || \
             gh release create stock-index --title "Stock shot index" --notes "clips.sqlite for Creation Studio (#6/#7)"
-          bash tools/gh_retry.sh gh release upload stock-index clips.sqlite clips.sqlite.zz --clobber
+          # ONLY the .zz. The Creation Studio downloads clips.sqlite.zz; the raw
+          # 265 MB member had no consumer, and a failed re-upload of a large raw
+          # member after --clobber's delete is how the subtitle-index assets
+          # vanished (Decision 089). The delete-asset line retires the stale raw
+          # left by pre-094 publishes; once gone it is a no-op.
+          bash tools/gh_retry.sh gh release upload stock-index clips.sqlite.zz --clobber
+          gh release delete-asset stock-index clips.sqlite -y 2>/dev/null || true

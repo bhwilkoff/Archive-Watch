@@ -60,8 +60,14 @@ jobs:
         run: |
           mkdir -p subs
           if gh release view subtitle-assets >/dev/null 2>&1; then
-            gh release download subtitle-assets -p 'subs.tar.gz' -O subs.tar.gz || true
-            [ -f subs.tar.gz ] && tar xzf subs.tar.gz && rm -f subs.tar.gz
+            # The release exists, so its tarball MUST restore. Deploying
+            # without it ships a site with ZERO subtitle files, and Pages then
+            # serves 404.html as VTT with HTTP 200 — the app sees "subtitles"
+            # that are an HTML page (measured 2026-08-09). An old site beats a
+            # subtitle-less one, and deploys run many times a day, so a
+            # refusal self-heals on the next trigger.
+            bash tools/gh_retry.sh gh release download subtitle-assets -p 'subs.tar.gz' -O subs.tar.gz
+            tar xzf subs.tar.gz && rm -f subs.tar.gz
           fi
           echo "subs files: $(find subs -type f | wc -l)"
 

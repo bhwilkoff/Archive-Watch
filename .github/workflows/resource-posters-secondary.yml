@@ -105,7 +105,9 @@ jobs:
           # tvdb + commons are decay-prone designed sources validate_posters
           # checks by default (Decision 044) — demotes only a 404/410 poster to
           # the archive.org thumbnail; a throttle is left for the next run.
-          python tools/validate_posters.py --limit 6000 --workers 16 || true
+          if ! python tools/validate_posters.py --limit 6000 --workers 16; then
+            echo "::warning::validate_posters.py exited non-zero — best-effort step, continuing (Decision 094)."
+          fi
 
       - name: Extract what changed
 

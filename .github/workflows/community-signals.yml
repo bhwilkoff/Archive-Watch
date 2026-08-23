@@ -12,7 +12,11 @@ name: Community signals harvest
 
 on:
   schedule:
-    - cron: '0 9 * * 0'    # weekly, Sun 09:00 UTC
+    # Saturday, not Sunday: tv-canonical holds catalog-writers ~113m from
+    # Sunday 06:00, and starting this 34m writer at Sunday 09:00 queued it
+    # behind that hold every week — where a pending writer can be destroyed
+    # by the next arrival (Decision 057).
+    - cron: '0 9 * * 6'    # weekly, Sun 09:00 UTC
   workflow_dispatch:
     inputs:
       limit:

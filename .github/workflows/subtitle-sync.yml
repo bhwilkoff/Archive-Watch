@@ -47,6 +47,7 @@ jobs:
           pip install --quiet ffsubsync
 
       - name: Fetch the published subtitles and the catalog DB
+        id: restore
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -61,16 +62,30 @@ jobs:
             -O verdicts.jsonl || touch verdicts.jsonl
 
       - name: Sync against each film's audio
+        # The budget stops the tool cleanly so the publish below always runs;
+        # the step timeout is a BACKSTOP for a hang the budget cannot reach,
+        # and continue-on-error keeps it from failing a run whose work still
+        # published — the verdict step decides (Decision 093). Without a
+        # budget this job's only bound was the 330m job cap, which kills the
+        # publish with it (the faststart failure, Decision 057).
+        id: sync
+        continue-on-error: true
+        timeout-minutes: 290
         run: |
+          echo "VERDICTS_BEFORE=$(wc -l < verdicts.jsonl | tr -d ' ')" >> "$GITHUB_ENV"
           python3 tools/sync_subtitles_audio.py \
             --subs work/subs \
             --findings tools/subtitle_rate_findings.csv \
             --verdicts verdicts.jsonl \
             --db catalog.sqlite \
             --limit ${{ github.event.inputs.limit || 60 }} \
+            --max-minutes 240 \
             ${{ github.event.inputs.retry_rejected == 'true' && '--retry-rejected' || '' }}
 
       - name: Publish the corrections
+        # Never after a failed restore — publishing whatever is on disk over
+        # the accumulated set is the Decision 089 failure.
+        if: always() && steps.restore.outcome == 'success'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -78,4 +93,17 @@ jobs:
           # smaller set — republishing a partial snapshot would DELETE
           # subtitles wholesale, which has happened before (Decision 043 era).
           python3 tools/fix_subtitle_sync.py publish --subs work/subs
-          gh release upload subtitle-assets verdicts.jsonl --clobber
+          # Retried: --clobber DELETES before uploading, so an unretried
+          # transient failure here erases the resume ledger and every decided
+          # film gets re-listened to (Decision 089's delete-then-fail shape).
+          bash tools/gh_retry.sh gh release upload subtitle-assets verdicts.jsonl --clobber
+
+      - name: Fail only if the backstop fired AND nothing was decided
+        if: always() && steps.sync.outcome == 'failure'
+        run: |
+          AFTER=$(wc -l < verdicts.jsonl | tr -d ' ')
+          if [ "$AFTER" -le "${VERDICTS_BEFORE:-0}" ]; then
+            echo "::error::Sync was killed by its backstop timeout and decided NOTHING."
+            exit 1
+          fi
+          echo "::warning::Sync hit its backstop timeout, but $((AFTER - VERDICTS_BEFORE)) new verdict(s) were published — not failing the run (Decision 093)."

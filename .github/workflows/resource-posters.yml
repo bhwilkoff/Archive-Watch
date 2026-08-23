@@ -94,8 +94,10 @@ jobs:
           # image.tmdb.org is skipped by validate_posters by default, so probe it
           # explicitly to confirm the freshly-sourced TMDb posters resolve. Only
           # 404/410 demotes; a throttle is left for the next run.
-          python tools/validate_posters.py --include-tmdb --source tmdb \
-            --limit 3000 --workers 16 || true
+          if ! python tools/validate_posters.py --include-tmdb --source tmdb \
+            --limit 3000 --workers 16; then
+            echo "::warning::validate_posters.py exited non-zero — best-effort step, continuing (Decision 094)."
+          fi
 
       - name: Publish catalog to release
         if: github.event.inputs.dry_run != 'true'

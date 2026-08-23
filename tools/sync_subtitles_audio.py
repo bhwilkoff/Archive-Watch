@@ -32,7 +32,7 @@ Usage:
       --findings tools/subtitle_rate_findings.csv --verdicts verdicts.jsonl [--limit N]
   python3 tools/fix_subtitle_sync.py publish --subs work/subs
 """
-import argparse, csv, json, os, re, shutil, subprocess, sqlite3, tempfile
+import argparse, csv, json, os, re, shutil, subprocess, sqlite3, tempfile, time
 from pathlib import Path
 
 CUE_END = re.compile(r"-->\s*(\d+):(\d\d):(\d\d)[.,](\d\d\d)")
@@ -119,6 +119,11 @@ def main():
                          "validation gate changes, as it did when it started "
                          "judging against the MEASURED duration")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--max-minutes", type=float, default=0,
+                    help="stop starting new films after this long and return "
+                         "cleanly, so the caller still publishes the verdicts "
+                         "written so far instead of losing them to a job "
+                         "timeout (Decisions 057/091)")
     args = ap.parse_args()
 
     subs = Path(args.subs)
@@ -145,8 +150,13 @@ def main():
 
     print(f"{len(rows)} to sync ({len(done)} already decided)", flush=True)
     fixed = failed = rejected = 0
+    deadline = (time.monotonic() + args.max_minutes * 60) if args.max_minutes else None
 
     for r in rows:
+        if deadline and time.monotonic() > deadline:
+            print(f"STOPPED EARLY at the {args.max_minutes:g}-minute budget; "
+                  f"the rest wait for the next run", flush=True)
+            break
         aid, runtime = r["archiveID"], int(r["runtime"])
         vtt = subs / aid / "en.vtt"
         url = urls.get(aid)

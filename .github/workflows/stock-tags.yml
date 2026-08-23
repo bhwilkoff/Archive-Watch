@@ -46,14 +46,27 @@ jobs:
         run: pip install open-clip-torch
 
       - name: Get the shot index
+        id: restore
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release download stock-index -p clips.sqlite -O clips.sqlite
+        # From the .zz — the raw clips.sqlite asset is retired (Decision 089:
+        # nothing consumes it, and re-uploading a large raw member is the
+        # failure that vanished the subtitle-index assets). A missing release
+        # is a hard fail here, not a first run: tags need an existing index.
+        run: |
+          bash tools/gh_retry.sh gh release download stock-index -p clips.sqlite.zz -O clips.sqlite.zz
+          python3 -c "import zlib; open('clips.sqlite','wb').write(zlib.decompress(open('clips.sqlite.zz','rb').read(),-15))"
+          rm -f clips.sqlite.zz
+          python3 tools/sqlite_publish_guard.py snapshot clips.sqlite --out .stock_baseline.json
 
       - name: Tag shots
         # Backstop for when the budget cannot stop it — one hung request
         # inside a single item is how a 180-minute budget ran 360.
-        # Fails the STEP, so the publish steps below still run.
+        # continue-on-error: the timeout is a BACKSTOP, not the verdict. The
+        # publish below still ships whatever was tagged; red is reserved for a
+        # run with nothing to show — the verdict step decides (Decision 093).
+        id: tag
+        continue-on-error: true
         timeout-minutes: 270
         run: |
           # A BUDGET, not just a timeout: this job hit its wall (281m, 330m) and
@@ -69,10 +82,29 @@ jobs:
       - name: Publish updated index
         # Publish what finished. A killed compute step above must not
         # discard the run's work, which is how faststart-derivatives lost
-        # two monthly passes in a row.
-        if: always()
+        # two monthly passes in a row — but never when the RESTORE failed
+        # (Decision 089: publishing over a good index with whatever is on
+        # disk is how the word index was destroyed).
+        if: always() && steps.restore.outcome == 'success'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          python3 tools/sqlite_publish_guard.py check clips.sqlite --baseline .stock_baseline.json
           python3 -c "import zlib; d=open('clips.sqlite','rb').read(); c=zlib.compressobj(9,zlib.DEFLATED,-15); open('clips.sqlite.zz','wb').write(c.compress(d)+c.flush())"
-          bash tools/gh_retry.sh gh release upload stock-index clips.sqlite clips.sqlite.zz --clobber
+          # ONLY the .zz (Decision 089) — and retire the stale raw member left
+          # by pre-094 publishes; once gone the delete is a no-op.
+          bash tools/gh_retry.sh gh release upload stock-index clips.sqlite.zz --clobber
+          gh release delete-asset stock-index clips.sqlite -y 2>/dev/null || true
+
+      - name: Fail only if the backstop fired AND nothing was produced
+        # "changed: none" means the index is identical to what was restored —
+        # a killed run with nothing to show, which IS broken. A killed run
+        # that tagged shots did its job; a warning records the backstop
+        # firing without an alert email (Decision 093).
+        if: always() && steps.tag.outcome == 'failure' && steps.restore.outcome == 'success'
+        run: |
+          if python3 tools/sqlite_publish_guard.py check clips.sqlite --baseline .stock_baseline.json | grep -q 'changed: none'; then
+            echo "::error::Tag shots was killed by its backstop timeout and produced NOTHING."
+            exit 1
+          fi
+          echo "::warning::Tag shots hit its backstop timeout, but its work was published — not failing the run (Decision 093)."
