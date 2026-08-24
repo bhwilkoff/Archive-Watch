@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-08-23T03:16:44Z",
+  "updated_at": "2026-08-24T03:18:04Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -31910,11 +31910,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-08-23T03:16:44Z"
+      "last_tried": "2026-08-24T03:18:04Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-08-23T03:16:44Z"
+      "last_tried": "2026-08-24T03:18:04Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -322495,6 +322495,63 @@
         "Romance"
       ],
       "fetched_at": "2026-08-21T03:17:31Z",
+      "schema": 3
+    },
+    "tt0008444": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTc1ZmY1MGMtNzMwNy00MjExLThkMDItYTNmZWMwMzgyMmQxXkEyXkFqcGdeQXVyNDY1NzU5NjY@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "The story of \"Poppy\" tells of how a young girl converted by a cruel aunt into a drudge on a South African farm runs away and finally finds herself in the home of an affinity of one of the three bad men of South Africa. This man takes her to his beautiful home under pretense of philanthropy, and previous to leaving on a visit to Europe he calls in a French priest who marries him to the girl, who is led to suppose that she is merely being adopted. She stays within the bounds of his home and garden without mingling with a living creature other than the servants, until one night the third of the three bad men, a bachelor, in a delirium from an attack of fever, enters the grounds by a gate that has accidentally been left unlocked. The girl happening there also a love scene is enacted which we are startled to learn near the close of the picture resulted in the birth of a child, which falls from a window in London, where his mother has become famous in the literary world, and is killed. The story is given happy ending by having the husband renounce Poppy in favor of the other man. - Moving Picture World, June 9, 1917.",
+      "runtime_min": 92,
+      "director": "Edward José",
+      "actors": [
+        "Norma Talmadge",
+        "Eugene O'Brien",
+        "Frederick Perry"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-08-24T03:18:04Z",
+      "schema": 3
+    },
+    "tt0009168": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": "Lucille Westbrook in vain tries to solve her problem, but when Jo Marshall bitterly tells her that the love of luxury stands between them, she tells him that she will marry Paul Belmont, the wealthy man. After the wedding Lucille is the neglected wife and finally her husband declares his intention of divorcing her for the sake of a society vampire, Mrs. Randolph, whose name has long been connected with his. Disgusted with life, Lucille decides to end it all, and after killing Belmont, shoots herself. When Belmont arrives for his answer, his ring awakens the girl, who has fallen asleep in her chair and has dreamed the story. Awake at last, Lucille tells Jo that he has always been the one.",
+      "runtime_min": 72,
+      "director": "Sidney Franklin",
+      "actors": [
+        "Norma Talmadge",
+        "Eugene O'Brien",
+        "Ramsey Wallace"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-08-24T03:18:04Z",
+      "schema": 3
+    },
+    "tt0012864": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTY2ZWM5MTctOTJjOS00ODNjLWFlODItMDUwZTI4ZDA5YzEyXkEyXkFqcGdeQXVyNjA5MTAzODY@._V1_SX300.jpg",
+      "imdb_rating": 7.2,
+      "imdb_votes": 16,
+      "content_rating": null,
+      "plot": "Jacqueline Laurentine Boggs, the daughter of an American hog farmer, is schooled in France and comes to stay with an English family. There she brings a dose of reality to her snobby hosts.",
+      "runtime_min": 84,
+      "director": "Herbert Brenon",
+      "actors": [
+        "Norma Talmadge",
+        "Harrison Ford",
+        "Julia Hoyt"
+      ],
+      "genres": [
+        "Drama"
+      ],
+      "fetched_at": "2026-08-24T03:18:04Z",
       "schema": 3
     }
   },
