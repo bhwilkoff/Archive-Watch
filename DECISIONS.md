@@ -163,6 +163,7 @@ an entry in place.
 - 092 — DECISIONS.md holds the index + recent entries; older entries archive verbatim
 - 093 — A red X is reserved for broken: backstops that published warn, and the auditor never re-alerts a failure that already emailed
 - 094 — Fleet hardening: stock index guarded and .zz-only, no unguarded restores, budgets everywhere, the big lock holder split
+- 095 — Queue displacement happens at JOB granularity too; the sweeper re-runs only zero-step jobs
 
 ---
 
@@ -898,3 +899,39 @@ one Decision 066 flags as needing care, deliberately not converted
 here). The stale raw `clips.sqlite` disappears on the next stock
 publish; verified no in-flight or sweeper-eligible old-code stock runs
 existed at merge time, so no old restore can meet the deleted asset.
+
+## 095 — Queue displacement happens at JOB granularity too; the sweeper re-runs only zero-step jobs
+*Date: 2026-08-24*
+
+Amends Decision 057. The Decision-066 split created a new displacement
+shape: a run's compute job succeeds and banks its deltas as an
+artifact, and only its short `apply` job — pending on `catalog-writers`
+— is destroyed when a newer arrival joins the queue (GitHub keeps ONE
+pending job per group). `retry_infra_failures.py` now classifies a
+cancelled run by SHAPE: no job ever ran a step → full `rerun`; some
+jobs succeeded and every non-successful job has ZERO steps →
+`rerun-failed-jobs`, which re-runs only the displaced jobs against the
+banked artifact. A cancelled job that ran any step is still never
+touched.
+
+**Why**: measured 2026-08-24 — codec-audit's probe succeeded in 4
+minutes, its 2-minute apply sat 70 minutes pending behind
+discover-content's whole-run lock hold, and at the second the lock
+freed, Monday's rebuild-catalog arrival displaced it. TMDb enrich was
+displaced the same morning as a WHOLE run and healed automatically; the
+codec run did not, because the sweeper's gate ("no job has any steps")
+read the successful probe as a human-cancelled running job. Workflow
+health then correctly failed over it — a KILLED run is the class
+nothing else alerts — which is the email this fixes at the source.
+Verified live: the dry run flagged exactly the stranded run and nothing
+else; the real run re-ran only the apply job (probe untouched,
+artifact consumed) to green.
+
+**How to apply**: the no-side-effect guarantee is per-JOB: a job with
+zero steps never did anything, whatever the run around it did. Never
+widen the gate to re-run a cancelled job that has steps. This heals
+displaced applies within a sweep tick; it does not reduce displacement
+itself — that pressure drops as the remaining whole-run holders
+(discover-content and omdb-backfill are the long ones left, ~1-2h
+each; they also push to main, so their split needs care) convert per
+Decision 066.

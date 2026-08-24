@@ -36,6 +36,12 @@ RUNNING, which always has jobs with steps. Zero jobs therefore means nothing was
 interrupted and nothing partially applied — the same "no side effect" property the
 first pass relies on.
 
+The same displacement also happens at JOB granularity to the Decision-066 split
+workflows: a run's compute succeeds, and only its short pending `apply` job is
+destroyed in the queue. Every non-successful job having ZERO steps carries the
+identical no-side-effect guarantee, and such a run gets `rerun-failed-jobs` —
+only the displaced jobs re-run, fed by the artifact the compute banked.
+
 Such a run is re-run only when its concurrency group is IDLE. Re-running into a busy
 group would simply be superseded again and burn an attempt, so the group is read from
 the workflow files on disk and checked against what is currently active. If the group
@@ -194,26 +200,39 @@ def busy_groups(repo: str, groups: dict[str, str], ignore_run_id: int | None = N
     return busy
 
 
-def superseded_by_concurrency(repo: str, run_id: int) -> bool:
-    """True when a cancelled run never executed a step — it was displaced in the
-    pending queue, so nothing of ours ran and nothing was interrupted.
+def supersession_shape(repo: str, run_id: int) -> str | None:
+    """How a cancelled run was displaced in the pending queue, if it was.
 
-    Zero JOBS is the cleanest form of that, and was the only case this tested.
-    But GitHub also records a displaced run as ONE job with ZERO STEPS, and that
-    is the same fact: the job was created and never started. Testing only for an
-    empty job list therefore missed real supersessions — `rebuild-catalog` sat
-    cancelled at 0 minutes with one step-less job and was never recovered,
-    despite the sweeper running hourly for a day and a half.
+    Returns "whole" when NO job ever executed a step — the run was displaced
+    before anything started, so a full re-run repeats nothing. Zero JOBS is the
+    cleanest form; GitHub also records this as one job with ZERO STEPS
+    (`rebuild-catalog` sat cancelled at 0 minutes that way for a day and a half
+    before the check learned it).
 
-    A job that ran has steps. So "no job has any steps" carries exactly the
-    no-side-effect guarantee this needs, and a human cancelling a RUNNING job —
-    which this must never retry — always leaves steps behind.
+    Returns "jobs" when SOME jobs succeeded and every non-successful job has
+    zero steps. This is the Decision-066 split's failure mode, measured
+    2026-08-24 on codec-audit: the probe job succeeded in 4 minutes and banked
+    its deltas as an artifact, its 2-minute apply job then sat 70 minutes
+    pending on `catalog-writers` behind a whole-run holder, and the moment the
+    lock freed a newer arrival displaced it — GitHub keeps ONE pending job per
+    group (Decision 057, at job granularity). The old all-jobs test read the
+    probe's steps as "a running job was stopped" and left the work stranded.
+    Re-running ONLY the displaced jobs repeats nothing: they never ran a step,
+    the succeeded jobs are not re-run, and the artifact they banked persists.
+
+    Returns None otherwise — a human or a timeout cancelling a RUNNING job
+    always leaves steps behind, and that is never retried here.
     """
     try:
         jobs = gh_json("api", f"repos/{repo}/actions/runs/{run_id}/jobs?per_page=100")["jobs"]
     except (RuntimeError, KeyError):
-        return False
-    return not any(job.get("steps") for job in jobs)
+        return None
+    if not any(job.get("steps") for job in jobs):
+        return "whole"
+    bad = [j for j in jobs if j.get("conclusion") not in ("success", "skipped", "neutral")]
+    if bad and not any(j.get("steps") for j in bad):
+        return "jobs"
+    return None
 
 
 def healed_since(repo: str, workflow_id: int, created_at: datetime) -> bool:
@@ -294,7 +313,8 @@ def main() -> int:
         if run.get("run_attempt", 1) >= MAX_ATTEMPTS:
             skipped.append((run, f"already at attempt {run['run_attempt']}"))
             continue
-        if not superseded_by_concurrency(repo, run["id"]):
+        shape = supersession_shape(repo, run["id"])
+        if shape is None:
             continue  # a real cancel — a running job was stopped. Leave it.
         group = groups.get(os.path.basename(run.get("path") or ""))
         if group and group in busy:
@@ -308,9 +328,12 @@ def main() -> int:
             continue
         if not DRY_RUN:
             try:
-                # `rerun`, not `rerun-failed-jobs`: a superseded run has no jobs
-                # at all, so there is nothing "failed" to re-run.
-                gh("api", "-X", "POST", f"repos/{repo}/actions/runs/{run['id']}/rerun")
+                # A wholly-displaced run has no failed jobs to target, so it
+                # takes a full `rerun`; a run whose APPLY job alone was
+                # displaced re-runs only that job, keeping the succeeded
+                # compute and its artifact.
+                endpoint = "rerun" if shape == "whole" else "rerun-failed-jobs"
+                gh("api", "-X", "POST", f"repos/{repo}/actions/runs/{run['id']}/{endpoint}")
             except RuntimeError as exc:
                 skipped.append((run, f"re-run rejected: {exc}"))
                 continue
