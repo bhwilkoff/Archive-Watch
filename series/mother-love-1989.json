@@ -39,9 +39,32 @@
           "downloadURL": "https://archive.org/download/mother-love.-s-01-e-01/Mother%20Love.S01E02.mp4"
         }
       ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "TheSingleGuyMotherLoveS2E16",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "The Single Guy- Mother Love (S2E16)",
+          "overview": "<p class=\"MsoNormal\">This episode of the '90s sitcom The Single Guy is named for\nJonathan's mother dating his boss. Also look for Russell and Marie rehearsing\nfor Rome and Juliet.</p><p></p>",
+          "stillURL": "https://archive.org/services/img/TheSingleGuyMotherLoveS2E16",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1328,
+          "videoFile": {
+            "name": "The-Single-Guy-Mother-Love-_S2E16_.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 232230552,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheSingleGuyMotherLoveS2E16/The-Single-Guy-Mother-Love-_S2E16_.mp4"
+        }
+      ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 2,
   "canonicalEpisodesCount": 4,
   "tvdbID": "78696",
   "artworkSource": "tvdb",
@@ -82,5 +105,8 @@
       "order": 5,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/283331/photo/68727d5e099fa.jpg"
     }
-  ]
+  ],
+  "seriesImdbID": "tt0096656",
+  "canonicalEpisodeCount": 0,
+  "canonicalSeasons": null
 }
