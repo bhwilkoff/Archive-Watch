@@ -34,6 +34,17 @@ class CastOptionsProvider : OptionsProvider {
             .setResumeSavedSession(false)
             .setEnableReconnectionService(true)
             .setStopReceiverApplicationWhenEndingSession(true)
+            // Android 13+: the Cast icon opens the SYSTEM output switcher
+            // instead of mediarouter's in-app chooser/controller dialogs
+            // (cast-framework 22.3.0+). Those dialogs are what every finding
+            // on the 1.3.434 Play release dashboard traced to — their
+            // FetchArtTask hand-decodes artwork bitmaps and uses the
+            // Android-15-deprecated window color APIs. The system dialog is
+            // inset-correct and art-safe by construction; the session still
+            // launches OUR receiver (RECEIVER_APP_ID) either way, so
+            // subtitles + provenance are unaffected. Older devices keep the
+            // in-app dialog.
+            .setShowSystemOutputSwitcherOnCastIconClick(true)
             .build()
 
     override fun getAdditionalSessionProviders(context: Context): MutableList<SessionProvider>? = null
