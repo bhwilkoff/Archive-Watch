@@ -76,6 +76,19 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 42 — **W3 COMPLETE MATRIX, on the glass and archived**
+  (build/qa/atv-2026-08-26/w3-diagnostics/): CAPTIONED local file /
+  CAPTIONED plain remote MP4 / CAPTIONED HLS wrapper; probe verdict
+  "the system generates subtitles here". Shape 4 (our engine on the
+  bundled clip) read "no text" in the probe window — NOT a regression:
+  the engine captioned 13 Demon Street on this same device 30 minutes
+  earlier (30/39 frames) and the offline harness is green; cold-start
+  latency vs the probe window explains it (D068 measured 180s cold).
+  The decision proposal stands strengthened: on THIS OS build the
+  system captions every shape it is offered. Also this tick: Android
+  vc34 LIVE on Play production; probe keep-alive watcher pattern worked
+  (doze killed two earlier probe rounds).
+
 - 2026-08-26 tick 41 — **Play production release BUILDING** (owner
   approved in chat — versionCode 34, versionName 1.3.447, gradle+upload
   in flight). W3: the TV dozed after the first probe and the results
