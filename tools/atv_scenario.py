@@ -237,6 +237,31 @@ def card_has_subtitle_claim(item):
     return True    # no local DB to consult: keep the old behavior
 
 
+def _parse_vtt_body(body):
+    cues, block = [], []
+    for line in body.splitlines():
+        m = re.match(r"(\d+):(\d+):(\d+)\.(\d+) --> (\d+):(\d+):(\d+)\.(\d+)", line)
+        if m:
+            g = list(map(int, m.groups()))
+            block = [g[0]*3600+g[1]*60+g[2]+g[3]/1000,
+                     g[4]*3600+g[5]*60+g[6]+g[7]/1000]
+        elif block and line.strip() and not line.strip().isdigit() \
+                and not line.startswith(("WEBVTT", "X-TIMESTAMP")):
+            block.append(line.strip())
+        elif not line.strip() and len(block) > 2:
+            cues.append((block[0], block[1], " ".join(block[2:]))); block = []
+    if len(block) > 2:
+        cues.append((block[0], block[1], " ".join(block[2:])))
+    return cues or None
+
+
+def fetch_vtt_local(path):
+    try:
+        return _parse_vtt_body(Path(path).read_text(errors="replace"))
+    except OSError:
+        return None
+
+
 def fetch_vtt(item):
     if not card_has_subtitle_claim(item):
         return None
@@ -547,6 +572,48 @@ def main():
                 em += 1
         grade("glass_matches_engine", ec >= 5 and em / max(1, ec) >= 0.6,
               f"{em}/{ec} on-glass captions match an engine-displayed line nearby in time")
+
+    # F2. TIMING vs GROUND TRUTH (owner 2026-08-26: "you haven't really
+    #     been working on making sure that the timing continues to work for
+    #     generated captions"). Display fidelity is not timing: a caption can
+    #     match the engine's line and still land seconds from the words. The
+    #     ruler is a locally-transcribed film-time transcript of the SAME
+    #     card (tools/caption_gen_main.swift — D069: macOS stamps are film
+    #     time). Each engine-displayed line is matched to its transcript cue
+    #     by text; the playhead delta at display is the timing error.
+    truth = None
+    for d in ("/tmp/wrongfilm-out", "/tmp/orphan-out", "/tmp/truth-out"):
+        p = Path(d) / item / "en.vtt"
+        if p.is_file():
+            truth = fetch_vtt_local(p)
+            break
+    if truth and shown and args.expect_captions != "no":
+        deltas = []
+        for wall, text in shown:
+            t = playhead_at(buf, wall)
+            nt = norm(text)
+            if t is None or len(nt) < 12:
+                continue
+            best = None
+            for cs, ce, ct in truth:
+                nc = norm(ct)
+                if len(nc) >= 12 and (nt[:24] in nc or nc[:24] in nt):
+                    d = t - cs
+                    if best is None or abs(d) < abs(best):
+                        best = d
+            if best is not None and abs(best) < 60:
+                deltas.append(best)
+        if len(deltas) >= 5:
+            deltas.sort()
+            med = deltas[len(deltas) // 2]
+            worst = max(deltas, key=abs)
+            grade("caption_timing_vs_truth",
+                  abs(med) <= 3.0 and abs(worst) <= 10.0,
+                  f"{len(deltas)} lines matched to the transcript; median "
+                  f"{med:+.1f}s, worst {worst:+.1f}s (+ = shown late)")
+        else:
+            print(f"[scenario] timing-vs-truth: only {len(deltas)} matchable "
+                  "lines — not graded")
 
     # F. The caption SCHEDULE never runs backwards. Decision 081: a drift
     #    correction shifts every cue, and an unbounded one re-anchored The
