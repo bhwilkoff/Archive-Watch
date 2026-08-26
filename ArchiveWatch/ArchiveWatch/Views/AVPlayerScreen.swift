@@ -89,8 +89,16 @@ final class CaptionCoordinator {
     enum CaptionChoice: String { case off, automatic, file }
     private var captionChoice: CaptionChoice?
 
+    /// How to restart the engine after captions Off tears it down. vc/player
+    /// weak — the coordinator can outlive a dismissed player screen.
+    private var lastStartURL: URL?
+    private var lastStartVTT: URL?
+    private weak var lastStartVC: AVPlayerViewController?
+    private weak var lastStartPlayer: AVPlayer?
+
     func setCaptionChoice(_ choice: CaptionChoice?) {
         guard captionChoice != choice else { return }
+        let wasOff = captionChoice == .off
         captionChoice = choice
         switch choice {
         case .off:       fileWanted = false; draws = false
@@ -106,6 +114,24 @@ final class CaptionCoordinator {
         }
         updateShowFile()
         awdiag("[AWCAP] caption choice -> %@", choice?.rawValue ?? "system")
+        // Off means NOTHING caption-shaped runs — not a muted engine
+        // transcribing a film nobody asked it to (a second stream + a
+        // recognizer, against D074's economy). Tear it down; startCaptions
+        // refuses to start while the choice is Off, and choosing any other
+        // mode restarts from the remembered source.
+        if choice == .off {
+            let url = lastStartURL, vtt = lastStartVTT
+            let vc = lastStartVC, player = lastStartPlayer
+            stop()
+            captionChoice = .off
+            fileWanted = false; draws = false
+            lastStartURL = url; lastStartVTT = vtt
+            lastStartVC = vc; lastStartPlayer = player
+            awdiag("[AWCAP] captions Off — engine stopped")
+        } else if wasOff, let url = lastStartURL, let vc = lastStartVC {
+            startCaptions(url: url, player: lastStartPlayer, in: vc,
+                          reviewing: lastStartVTT)
+        }
     }
 
     /// The transport-menu subtitles toggle (legacy binary form; the menu now
@@ -127,6 +153,14 @@ final class CaptionCoordinator {
         // of ours running at all. Without that control, every stutter theory
         // was attribution, not measurement.
         guard ProcessInfo.processInfo.environment["AW_NO_CAPTIONS"] != "1" else { return }
+        // Remember how to restart BEFORE the Off refusal, so toggling the
+        // choice back can revive the engine for this same film.
+        lastStartURL = url; lastStartVTT = vtt
+        lastStartVC = vc; lastStartPlayer = player
+        if captionChoice == .off {
+            awdiag("[AWCAP] captions Off — engine not started")
+            return
+        }
         guard sourceURL != url else {
             // Same film, new player: the stall fallback rebuilt it. The clock
             // the display follows moves to the new player — and the SCOUT
@@ -480,13 +514,13 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
         // tvOS PiP (swipe up / TV button while playing → corner window). Needs
         // the `audio` UIBackgroundModes entry, added alongside this.
         vc.allowsPictureInPicturePlayback = true
+        context.coordinator.setCaptionChoice(captionChoice)
         if let src = liveCaptionURL, LiveCaptions.isSupported {
             context.coordinator.startCaptions(url: src, player: player, in: vc)
         } else if let review = reviewSource, LiveCaptions.isSupported {
             context.coordinator.startCaptions(url: review.video, player: player,
                                               in: vc, reviewing: review.vtt)
         }
-        context.coordinator.setCaptionChoice(captionChoice)
         return vc
     }
 
@@ -503,6 +537,7 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
         // Autoplay swaps the player in place, and the HLS-subtitle path can fall
         // back to the plain MP4 mid-film — both change what should be captioned,
         // and neither goes through makeUIViewController.
+        context.coordinator.setCaptionChoice(captionChoice)
         if let src = liveCaptionURL, LiveCaptions.isSupported {
             context.coordinator.startCaptions(url: src, player: player, in: vc)
         } else if let review = reviewSource, LiveCaptions.isSupported {
@@ -511,7 +546,6 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
         } else {
             context.coordinator.stop()
         }
-        context.coordinator.setCaptionChoice(captionChoice)
     }
 }
 

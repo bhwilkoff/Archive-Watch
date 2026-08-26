@@ -312,7 +312,13 @@ private struct PlayerSurface: View {
         // force-quit lost the whole session and nothing synced mid-playback (owner 2026-06-29).
         // Live captions when the film carries no subtitle track of its own:
         // transcribe the audio that is ALREADY streaming (no download).
-        if subtitleHLS == nil, !captionsOff {
+        if captionsOff {
+            // Captions Off means NOTHING caption-shaped runs: not the engine,
+            // and not the subtitle review either — the review starts its own
+            // scout (a second player + tap + recognizer) to judge a file that
+            // will never display. Measured 2026-08-26: with Off, the else-if
+            // below started the scout anyway ("scout playing at 2.0x").
+        } else if subtitleHLS == nil {
             startLiveCaptions(on: p)
         } else if let vtt = publishedVTT {
             // The film HAS subtitles — but a published file can belong to a

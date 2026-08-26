@@ -1457,10 +1457,16 @@ def sibling_anchored_fixes(items, stats):
                    and s.get("runtimeSeconds")
                    and abs(s["runtimeSeconds"] - rt) <= 2
                    and isinstance(s.get("year"), int)]
-        if len({s["year"] for s in anchors}) == 1 and anchors[0]["year"] != year:
-            it["year"] = anchors[0]["year"]
-            it["yearSource"] = "sibling-runtime"
-            stats["year_adopted_from_sibling"] += 1
+        # Anchors may disagree by ONE year (copyright vs release — five D.O.A.
+        # anchors say 1949, a sixth says 1950); a wider spread means the
+        # anchors are not one film and nothing is adopted. Majority wins.
+        yrs = [s["year"] for s in anchors]
+        if yrs and max(yrs) - min(yrs) <= 1:
+            best = Counter(yrs).most_common(1)[0][0]
+            if best != year:
+                it["year"] = best
+                it["yearSource"] = "sibling-runtime"
+                stats["year_adopted_from_sibling"] += 1
 
 
 def remediate(items):
