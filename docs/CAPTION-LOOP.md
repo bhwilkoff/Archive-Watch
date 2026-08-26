@@ -76,6 +76,33 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 41 — **Play production release BUILDING** (owner
+  approved in chat — versionCode 34, versionName 1.3.447, gradle+upload
+  in flight). W3: the TV dozed after the first probe and the results
+  singleton does not survive a PROCESS kill (887's fix covers view
+  recreation only) — probe RE-RUNNING for the complete matrix incl. the
+  loader negative control; the decisive mid-run evidence (all 3 shapes
+  EMIT) is already archived in build/qa/atv-2026-08-26/w3-diagnostics/.
+  Wrong-film audit 11/25, all OK.
+
+## DECISION PROPOSAL (owner-visible, code untouched until agreed)
+
+**On tvOS 27.0 final (24J5358a+), let the SYSTEM caption uncaptioned
+films; our engine becomes the understudy.** Evidence: the on-device
+probe measured Apple's generated track offered, selected, and EMITTING
+text on all three asset shapes (local 14s, plain remote MP4 36s, HLS
+wrapper 30s) — D068's "offered, never emits," the whole reason our
+engine leads today, is cured on this OS build. What this buys: the
+Photos-app simplicity the owner has asked for (native styling, native
+menu integration, less custom work); what it costs: our pacing/merge
+polish and the D062 wrong-file judge run on OUR overlay, so the
+understudy must stay armed (system selected but silent for 45s ->
+engine takes over, the existing watchdog pattern reversed). Gate on an
+OS-version check (27.0 24J5358a+), keep the engine leading on tvOS 26
+and any build where the probe class fails. Wants one more evidence
+round on the FIREPLACE Apple TV (the owner's main unit — settings
+differ per device, D068 note) before shipping.
+
 - 2026-08-26 tick 40 — **W3 HEADLINE: the SYSTEM generated track now
   EMITS TEXT on tvOS 27 build 24J5358a — D068's "offered, never emits"
   is CURED on this OS build.** Probe (on-glass, 1.3.447/969): shape 1
