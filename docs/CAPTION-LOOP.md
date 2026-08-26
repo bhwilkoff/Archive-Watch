@@ -76,6 +76,21 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 28 — **W7 foreign-language negative control (Street
+  Angel, 1937 Shanghai, Mandarin audio): CLEAN — zero engine lines.**
+  The engine displayed NOTHING on Mandarin dialogue (the 6/44 OCR
+  caption-band hits are the print's own burned-in Chinese text); no
+  English hallucination. The two graded FAILs are both explained:
+  captions_on_glass expects captions the film correctly does not get
+  (should have run with --expect-captions no), and the single frozen
+  playhead interval at t=64 aligns exactly with the harness's logged
+  doze/re-wake at frame 13 — device artifact. OWNER FEEDBACK the same
+  tick: choose better films — ENGLISH-DIALOGUE ONLY from here (rule
+  added to the deck + memory; negative-control classes are covered and
+  retired). DATA NOTE for the dedup pipeline: 'Meet John Doe' ships as
+  TWO visible cards (MeetJohnDoe1941GARYCOOPER + meet-john-4k, same
+  title+year) — a pair D040's merge did not collapse.
+
 - 2026-08-26 tick 27 — **Live engine merge VERIFIED on-device: 11/11
   PASS on the same episode** (w7-tv50s-verify, build 967). Bursts 3 -> 0,
   median dwell 2.4s -> 3.6s, changes under 1.2s 7/73 -> 1/61, and
