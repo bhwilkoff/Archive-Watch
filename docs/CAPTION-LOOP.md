@@ -76,6 +76,20 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 7 — **F-3 ROOT-CAUSED + fixed (merely-fixed, re-run
+  queued)**: H1 (pause/resume) REFUTED by the trace — corrections #1-4
+  all predate the first pause, firing every 25s from cold start with a
+  floor (20-39s) that NEVER drained. Mechanism: on a chunky-interleave
+  file the tap runs a permanent audio-chunk ahead of the scout's render,
+  so D074's "healthy floor touches ~0" premise fails and every
+  correction was SPURIOUS — six of them dragged correct cues -23s early
+  and swapped a line mid-read each time. Strongest candidate yet for the
+  owner's "wrongly timed". Fix: the envelope must prove itself on THIS
+  file (floor < 5s once) before any correction on a from-zero session;
+  seeked sessions — the only ones that can carry D074's injected burst —
+  keep first-window correction rights. 1.3.440/962 built + installed;
+  TIM re-run queued.
+
 - 2026-08-26 tick 6 — **W1 engine run: pacing GREEN in engine mode too**
   (median dwell 4.4s, 4/67 fast, 0 bursts; glass_matches_engine 45/45;
   w1-tim-engine-1787753183). **F-3 OPEN**: caption_schedule_monotonic

@@ -290,6 +290,13 @@ final class LiveCaptions {
         contentOffset = max(0, startTime.seconds.isFinite ? startTime.seconds : 0)
         sink.reset()   // a restarted session must not inherit the old replay high-water
         driftSamples.removeAll()   // nor the old session's drift envelope
+        // F-3: a session that began with a SEEK can be carrying the injected
+        // pre-target burst the drift bound exists for and may correct from its
+        // first window; a session from ZERO cannot, so it must first prove the
+        // envelope is a valid instrument for THIS file (see driftCheck).
+        sessionBeganSeeked = contentOffset > 5
+        envelopeValidated = false
+        envelopeWithheldLogged = false
         scoutProgress.removeAll()
         surrendered = false        // a fresh playback earns a fresh chance
         troubleEpisodes = 0
@@ -619,6 +626,9 @@ final class LiveCaptions {
     /// never condemn or shift a published file on that evidence.
     private(set) var driftCorrections = 0
     private var driftSamples: [(wall: Double, err: Double)] = []
+    private var sessionBeganSeeked = false
+    private var envelopeValidated = false
+    private var envelopeWithheldLogged = false
 
     /// DRIFT BOUND. The mapping `film = offset + raw × rate` trusts the tap
     /// to deliver exactly rate-compressed audio from the session's start
@@ -648,8 +658,28 @@ final class LiveCaptions {
         let now = Date().timeIntervalSince1970
         driftSamples.append((wall: now, err: err))
         driftSamples.removeAll { now - $0.wall > 30 }
+        // The envelope's premise — "healthy, the floor touches ~0" — holds only
+        // when tap delivery tracks the scout's RENDER. On a file with huge
+        // interleaved audio chunks the tap runs a permanent chunk-deep ahead,
+        // the floor NEVER drains (w1-tim-engine: 20-39s from the very first
+        // window, every 25s, all film long), and every "correction" dragged
+        // CORRECT cues earlier — six totalling -23s of early shift, each one
+        // swapping the line mid-read (F-3). Seeing the floor drain once is the
+        // proof the envelope is a valid instrument for THIS file.
+        if err < 5 { envelopeValidated = true }
         guard let oldest = driftSamples.first, now - oldest.wall >= 25,
               let floorErr = driftSamples.map(\.err).min(), floorErr > 15 else { return }
+        guard envelopeValidated || sessionBeganSeeked else {
+            if !envelopeWithheldLogged {
+                envelopeWithheldLogged = true
+                awdiag("[AWCAP] drift correction WITHHELD (floor \(fmt(floorErr))s but "
+                      + "the envelope never drained this session — chunk-deep tap "
+                      + "decode-ahead, not an injection; from-zero sessions cannot "
+                      + "carry one)")
+            }
+            driftSamples.removeAll()
+            return
+        }
         var delta = -(floorErr - 8)   // stay conservatively LATE, never early
         // A correction may not rewind the CAPTIONS PAST THE VIEWER. Measured on
         // The Incredible Machine (a film with no subtitle file, the owner's
