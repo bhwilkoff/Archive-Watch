@@ -76,6 +76,20 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 12 — **Caligari negative-control run INVALIDATED, not
+  failed**: the app died ~7s post-launch and the 25/25 "captions" were
+  home-screen labels (A0 caught it). Bisect on the device: with
+  AW_NO_CAPTIONS alive at 40s, WITH captions ALSO alive at 40s + engine
+  running + playback ready — the death does not reproduce without
+  capture pressure, so it lands in the documented observer-artifact
+  class (launch-window jetsam under 4K captures, heavy pre-reboot day).
+  No app bug chargeable on this evidence; clean re-run queued. Harness
+  self-lesson: my own bisect loop retried launches 45x against a
+  SLEEPING TV — raw devicectl launches must wake first, always.
+  (W3 macOS re-measure skipped deliberately: this Mac is still build
+  26A5388g, the exact build D067 measured — re-running is repetition,
+  not measurement. The tvOS-side W3 re-measure remains queued.)
+
 - 2026-08-26 tick 11 — **W4 chooser fully VERIFIED on the glass, all
   three states**: checkmark tracked File→Automatic (menu-check-auto.png,
   with an engine line visible behind the open menu); Off registered
