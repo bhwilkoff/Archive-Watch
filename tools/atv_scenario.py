@@ -105,6 +105,9 @@ def frame_is_home_screen(png):
         return False
 
 
+EXTRA_ENV = {}
+
+
 def launch(item, outdir):
     # NO --console: a console stream cannot coexist with the screenshot
     # captures (two devicectl sessions kill the stream — measured). The app
@@ -112,6 +115,7 @@ def launch(item, outdir):
     # harness copies it out afterwards.
     env = {"AW_START_ITEM": item, "AW_AUTOPLAY": "1", "AW_DIAG_FILE": "1",
            "AW_PLAYBACK_DIAG": "1", "AW_AUDIO_DIAG": "1", "AW_CAPTION_TRACE": "1"}
+    env.update(EXTRA_ENV)
     r = sh(["xcrun", "devicectl", "device", "process", "launch",
             "--terminate-existing", "--device", DEVICE,
             "-e", json.dumps(env), BUNDLE], timeout=60)
@@ -268,12 +272,16 @@ def main():
     ap.add_argument("--outdir", default=None)
     ap.add_argument("--name", default=None,
                     help="run name for the durable build/qa/ tree")
+    ap.add_argument("--caption-choice", choices=["file", "automatic", "off"],
+                    help="seed CaptionChoiceSession via AW_CAPTION_CHOICE")
     ap.add_argument("--expect-captions", choices=["auto", "yes", "no"],
                     default="auto",
                     help="'no' = negative control (a silent film generating "
                          "captions is a FAILURE); 'auto' judges from the "
                          "published-VTT presence")
     args = ap.parse_args()
+    if args.caption_choice:
+        EXTRA_ENV["AW_CAPTION_CHOICE"] = args.caption_choice
     item = args.item or resolve_card(args.title)
     # Durable, never /tmp: background tasks get reaped and a capture you
     # cannot return to is a capture you have to take twice.

@@ -76,6 +76,16 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 36 — **Ship-prep verification pass: captions-Off
+  verified BEHAVIORALLY on both platforms.** macOS (build 968 product,
+  via `open` — direct binary exec doesn't autoplay after the first
+  launch, harness note): playback ran, ZERO scout/engine lines. tvOS
+  (build 969 on the device, new --caption-choice harness flag +
+  DetailView env seed): 7/7 PASS — playback/audio clean, engine
+  displayed 0 lines. The owner asked to wrap the loop and push to all
+  platforms; proceeding to appstore-build (tvOS+iOS+macOS) + Play
+  (Android/Android TV) at 1.3.447.
+
 - 2026-08-26 tick 35 — **Offline pacing harness GREEN on the merged
   engine** (Scared to Death, 180s, real speech models on the Mac):
   median dwell 3.9s, shortest 1.7s, "every line holds long enough to

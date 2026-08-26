@@ -694,7 +694,13 @@ struct PlayerScreen: View {
     // system caption preference — the default the retired native track's
     // AUTOSELECT gave. The native CC menu went with the HLS wrapper
     // (Decision 070); this is its replacement.
-    @State private var captionChoice: CaptionCoordinator.CaptionChoice?
+    // Seeded from AW_CAPTION_CHOICE (CaptionChoiceSession) so the harness can
+    // drive Off/Automatic unattended — the menu itself needs a remote.
+    @State private var captionChoice: CaptionCoordinator.CaptionChoice? = {
+        guard let item = ProcessInfo.processInfo.environment["AW_START_ITEM"],
+              let c = CaptionChoiceSession.byItem[item] else { return nil }
+        return CaptionCoordinator.CaptionChoice(rawValue: c.rawValue)
+    }()
     // #92: seconds to seek into the FIRST program when joining a channel live.
     // Consumed once (zeroed after the first setup) so lineup advances start at 0.
     @State private var joinOffset: TimeInterval = 0
