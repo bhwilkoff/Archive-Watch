@@ -748,16 +748,17 @@ final class LiveCaptions {
         // swapping the line mid-read (F-3). Seeing the floor drain once is the
         // proof the envelope is a valid instrument for THIS file.
         if err < 5 { envelopeValidated = true }
-        // COLD-START RELAXATION: The Bold Caballero showed a consistent
-        // +39.5s level error in the session's first minutes that the steady-
-        // state gate (25s window, 15s floor) never drained before the region
-        // scrolled past. A young session corrects faster and on less error.
-        let sessionAge = startedAt.map { Date().timeIntervalSince($0) } ?? 999
-        let minWindow: Double = sessionAge < 120 ? 15 : 25
-        let minFloor: Double = sessionAge < 120 ? 8 : 15
-        guard let oldest = driftSamples.first, now - oldest.wall >= minWindow,
-              let floorErr = driftSamples.map(\.err).min(), floorErr > minFloor else { return }
-        guard envelopeValidated || sessionBeganSeeked else {
+        guard let oldest = driftSamples.first, now - oldest.wall >= 25,
+              let floorErr = driftSamples.map(\.err).min(), floorErr > 15 else { return }
+        // ENVELOPE-VALIDATED ONLY — the seek-started bypass is retired on the
+        // day's full evidence: level corrections on resumed sessions made
+        // captions EARLY in every measured run (ghosttrain5 median -13.1,
+        // ghosttrain6 -4.2 with corrections; ghosttrain9 GREEN with none;
+        // caballero2 median -30.7 after two young-window corrections),
+        // because err cannot tell decode-ahead depth from display lateness.
+        // The floor draining once is the only proof err means lateness on
+        // THIS file. Genuine sustained rate error is the SLOPE loop's job.
+        guard envelopeValidated else {
             if !envelopeWithheldLogged {
                 envelopeWithheldLogged = true
                 awdiag("[AWCAP] drift correction WITHHELD (floor \(fmt(floorErr))s but "
