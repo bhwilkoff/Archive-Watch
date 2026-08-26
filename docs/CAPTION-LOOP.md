@@ -76,6 +76,16 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 5 — **W4 tvOS chooser BUILT (merely-fixed)**: the
+  transport bar's binary "Subtitles On/Off" is now a "Subtitles" menu —
+  Subtitle File / Automatic / Off with checkmarks, mirroring the Version
+  menu. CaptionCoordinator gained setCaptionChoice (an explicit File
+  choice outranks the judge's discard — viewer agency; Automatic revives
+  the engine via the existing resync path). tvOS builds green
+  (1.3.439/961). NOT yet on-device-verified; install after the W1 run
+  frees the ATV, then drive the menu with warmed presses. iOS/macOS
+  pickers + episode player parity still open.
+
 - 2026-08-26 tick 4 — **F-1 CLOSED, 10/10 green** on the honest re-measure
   (w2b-hgf-honest-1787752837): 21 blank ticks, 0 dropped cues; W2
   re-confirmed 0/41. Second instrument gap found by absence: the diag

@@ -77,11 +77,39 @@ final class CaptionCoordinator {
     private func updateShowFile() {
         let want = fileWanted ?? SystemCaptionStyle.viewerWantsCaptions
         showFile = want && !fileDiscarded && !fileCues.isEmpty
-        if reviewMode { draws = want }
+        // Only the follow-the-system default manages draws here; an explicit
+        // menu choice set it deliberately (Automatic must draw the engine even
+        // in review mode, where `want` is false).
+        if reviewMode, captionChoice == nil { draws = want }
     }
 
-    /// The transport-menu subtitles toggle (Decision 070's replacement for the
-    /// native CC menu that went with the HLS wrapper).
+    /// The caption-TYPE chooser (owner 2026-08-26: "choose between the
+    /// different captions types as you can do with choosing the video
+    /// source"). nil = follow the system caption preference.
+    enum CaptionChoice: String { case off, automatic, file }
+    private var captionChoice: CaptionChoice?
+
+    func setCaptionChoice(_ choice: CaptionChoice?) {
+        guard captionChoice != choice else { return }
+        captionChoice = choice
+        switch choice {
+        case .off:       fileWanted = false; draws = false
+        case .automatic:
+            // The engine revives via the display loop's own resync path once
+            // the file stops showing (engineIsTheCaptions flips true).
+            fileWanted = false; draws = true
+        case .file:
+            // An explicit ask for the file outranks the judge's discard —
+            // the viewer chose it knowing what they want to see.
+            fileWanted = true; fileDiscarded = false; draws = true
+        case nil:        fileWanted = nil; draws = true
+        }
+        updateShowFile()
+        awdiag("[AWCAP] caption choice -> %@", choice?.rawValue ?? "system")
+    }
+
+    /// The transport-menu subtitles toggle (legacy binary form; the menu now
+    /// sets a CaptionChoice, but the container's default path still lands here).
     func setFileSubtitles(wanted: Bool?) {
         guard fileWanted != wanted else { return }
         fileWanted = wanted
@@ -440,9 +468,9 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
     /// Set when the film HAS published subtitles: they are CHECKED against what
     /// is actually said rather than trusted (SubtitleReview).
     var reviewSource: (video: URL, vtt: URL)? = nil
-    /// The viewer's per-film subtitles choice from the transport menu; nil =
-    /// follow the system caption preference (Decision 070).
-    var subtitlesWanted: Bool? = nil
+    /// The viewer's per-film caption-type choice from the transport menu;
+    /// nil = follow the system caption preference (Decision 070).
+    var captionChoice: CaptionCoordinator.CaptionChoice? = nil
 
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let vc = AVPlayerViewController()
@@ -458,7 +486,7 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
             context.coordinator.startCaptions(url: review.video, player: player,
                                               in: vc, reviewing: review.vtt)
         }
-        context.coordinator.setFileSubtitles(wanted: subtitlesWanted)
+        context.coordinator.setCaptionChoice(captionChoice)
         return vc
     }
 
@@ -483,7 +511,7 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
         } else {
             context.coordinator.stop()
         }
-        context.coordinator.setFileSubtitles(wanted: subtitlesWanted)
+        context.coordinator.setCaptionChoice(captionChoice)
     }
 }
 

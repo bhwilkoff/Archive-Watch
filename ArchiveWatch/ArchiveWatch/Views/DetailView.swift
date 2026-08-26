@@ -694,7 +694,7 @@ struct PlayerScreen: View {
     // system caption preference — the default the retired native track's
     // AUTOSELECT gave. The native CC menu went with the HLS wrapper
     // (Decision 070); this is its replacement.
-    @State private var subtitlesOverride: Bool?
+    @State private var captionChoice: CaptionCoordinator.CaptionChoice?
     // #92: seconds to seek into the FIRST program when joining a channel live.
     // Consumed once (zeroed after the first setup) so lineup advances start at 0.
     @State private var joinOffset: TimeInterval = 0
@@ -758,7 +758,7 @@ struct PlayerScreen: View {
                 AVPlayerContainer(player: player, menuItems: autoplayMenu,
                                   liveCaptionURL: liveCaptionSource,
                                   reviewSource: subtitleReviewSource,
-                                  subtitlesWanted: subtitlesOverride)
+                                  captionChoice: captionChoice)
                     .ignoresSafeArea()
                     .onAppear { player.play() }
                     // VHS: analog overlay over channel playback (opt-in, channels only).
@@ -859,17 +859,42 @@ struct PlayerScreen: View {
             player?.isMuted = muted
         }
         var items: [UIMenuElement] = [playNext, muteToggle]
-        // Films with a subtitle file get an on/off toggle here — the native CC
-        // menu went with the single-segment HLS wrapper (Decision 070), and a
-        // viewer must still be able to turn a film's subtitles on or off.
-        if hasFileSubtitles {
-            let on = subtitlesOverride ?? SystemCaptionStyle.viewerWantsCaptions
-            items.append(UIAction(
-                title: on ? "Subtitles Off" : "Subtitles On",
-                image: UIImage(systemName: on ? "captions.bubble.fill" : "captions.bubble")
-            ) { _ in
-                subtitlesOverride = !on
-            })
+        // The caption-TYPE chooser (owner 2026-08-26): pick between the
+        // subtitle FILE and AUTOMATIC captions the way the Version menu picks
+        // a copy — not a bare on/off. The native CC menu went with the
+        // single-segment HLS wrapper (Decision 070); this menu is its
+        // replacement, now with the choice the owner asked for.
+        let autoAvailable = LiveCaptions.isSupported
+        if hasFileSubtitles || autoAvailable {
+            let effective: CaptionCoordinator.CaptionChoice = captionChoice
+                ?? (SystemCaptionStyle.viewerWantsCaptions
+                    ? (hasFileSubtitles ? .file : .automatic) : .off)
+            var subtitleActions: [UIAction] = []
+            if hasFileSubtitles {
+                subtitleActions.append(UIAction(
+                    title: "Subtitle File",
+                    image: UIImage(systemName: "doc.text"),
+                    state: effective == .file ? .on : .off) { _ in
+                        captionChoice = .file
+                    })
+            }
+            if autoAvailable {
+                subtitleActions.append(UIAction(
+                    title: "Automatic",
+                    image: UIImage(systemName: "waveform"),
+                    state: effective == .automatic ? .on : .off) { _ in
+                        captionChoice = .automatic
+                    })
+            }
+            subtitleActions.append(UIAction(
+                title: "Off",
+                image: UIImage(systemName: "captions.bubble"),
+                state: effective == .off ? .on : .off) { _ in
+                    captionChoice = .off
+                })
+            items.append(UIMenu(title: "Subtitles",
+                                image: UIImage(systemName: "captions.bubble"),
+                                children: subtitleActions))
         }
         // Switch copy WITHOUT leaving the film (owner, 2026-08-17). Detail's
         // picker only helps before you start; the moment that matters is three
