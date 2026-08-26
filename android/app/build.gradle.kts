@@ -60,7 +60,7 @@ android {
         versionCode = 33
         // Marketing version tracks the Apple apps (AppVersion.xcconfig) so a
         // user report names one version family across platforms.
-        versionName = "1.3.435"
+        versionName = "1.3.447"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables { useSupportLibrary = true }
