@@ -382,11 +382,16 @@ def main():
     if args.expect_captions == "no":
         # NEGATIVE CONTROL (silent films, music-only): a caption generated
         # where there is no speech is a hallucination shipping to a viewer.
-        # A little OCR noise in the band is tolerated; sustained text is not.
+        # Judge what the APP DREW, not what the film printed: a 1920s film is
+        # full of intertitle cards whose text reaches the OCR band (Caligari's
+        # own "MIRACLES! SIDESHOWS" graded as 6 phantom captions,
+        # w7-silent-rerun). The engine's display trace is the record of what
+        # it drew; OCR text with no engine line behind it is the film's own.
         grade("silent_negative_control",
-              cap_frames <= max(2, int(len(shots) * 0.05)),
-              f"caption-band text on {cap_frames}/{len(shots)} frames of a "
-              "film that should produce none")
+              len(shown) == 0 and not prep_frames and not other_notice,
+              f"engine displayed {len(shown)} lines; caption-band OCR hits on "
+              f"{cap_frames}/{len(shots)} frames (film's own intertitles are "
+              "not counted)")
     else:
         grade("captions_on_glass", cap_frames >= max(3, len(shots) * 0.15),
               f"caption text on {cap_frames}/{len(shots)} frames")

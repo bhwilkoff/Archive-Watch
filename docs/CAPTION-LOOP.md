@@ -76,6 +76,16 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 13 — **W7 silent negative control VERIFIED** (clean
+  re-run w7-silent-rerun-1787756457, app alive throughout): the engine
+  displayed ZERO lines across a 4-minute silent-film run — no
+  hallucinated captions from the musical score, no notices. The 6
+  flagged frames were Caligari's OWN intertitle cards in the OCR band
+  ("MIRACLES! SIDESHOWS — ALL NEW"); the assertion now judges the
+  engine's display trace, not the film's printed text. Owner watched
+  this run live and correctly noted the film has no dialogue — that was
+  the point of the control, and the app behaved exactly right.
+
 - 2026-08-26 tick 12 — **Caligari negative-control run INVALIDATED, not
   failed**: the app died ~7s post-launch and the 25/25 "captions" were
   home-screen labels (A0 caught it). Bisect on the device: with
