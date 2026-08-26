@@ -51,19 +51,15 @@ final class LiveCaptions {
         if let modelProgress, failure == nil, isRunning {
             return "Downloading the speech model\u{2026} \(Int(modelProgress * 100))%"
         }
-        // Silent while ARMED (scout not yet ignited): a viewer on a link
-        // that can never afford the second stream just watches their film,
-        // instead of being taunted by a promise that cannot be kept.
-        guard pendingIgnition == nil else { return "" }
-        // And BOUNDED once ignited: "Preparing automatic captions…" stood on
-        // screen permanently when the engine got stuck — a notice that
-        // cannot expire is a lie waiting to happen.
-        guard failure == nil, isRunning, !everProducedCue, let startedAt,
-              Date().timeIntervalSince(startedAt) > Self.noticeDelay,
-              Date().timeIntervalSince(startedAt) < Self.noticeMaxLifetime else { return "" }
-        return "Preparing automatic captions\u{2026}"
+        // No "Preparing automatic captions…" notice, ever (owner, 2026-08-26:
+        // it "shows for far too long and is almost entirely unneeded"). The
+        // Photos app is the bar: captions simply appear when ready. A film
+        // being uncaptioned for its first half-minute looks exactly like a
+        // film with nothing to say, and that is fine — the two notices that
+        // survive are the ones carrying information the viewer can act on:
+        // a model download in progress, and a real failure with its reason.
+        return ""
     }
-    private static let noticeMaxLifetime: TimeInterval = 45
 
     /// Turn a recognizer error into something a viewer can act on.
     ///
@@ -85,7 +81,6 @@ final class LiveCaptions {
     private var startedAt: Date?
     private var everProducedCue = false
     /// Long enough that a normal few-second warm-up never announces itself.
-    private static let noticeDelay: TimeInterval = 8
     private static let failureNoticeDuration: TimeInterval = 12
 
     /// Complete cues on the FILM's timeline, transcribed AHEAD of playback.

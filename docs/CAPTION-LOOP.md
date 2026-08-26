@@ -1,0 +1,82 @@
+# Caption Loop — the automatic-captions campaign (owner brief 2026-08-26)
+
+Owner's brief, verbatim anchors: captions "generate pretty consistently.
+However, they are often wrongly timed (move too quickly or go in large
+bursts)"; the "Generating Automatic Captions" notice on Apple TV "shows for
+far too long and is almost entirely unneeded"; "Automatic captions happen
+perfectly within the Photos app on my phone for any video that has even a
+little bit of audio. I want it to be this simple and fluid… on any apple
+device that is capable"; "we are still utilizing too much custom work and
+getting in our own way rather than using the default way"; "I also still
+don't see any way to choose between the different captions types… (choosing
+automatic captions vs a transcript/subtitles file)"; the iPhone captions
+info sheet is "cut off on the sides"; "create a comprehensive audit of all
+screens that you can test and go through many different videos (different
+eras, genres, etc.)".
+
+**The bar: the Photos app.** No notices, no ceremony — captions simply
+appear, correctly timed, on any device that can make them.
+
+Method: `docs/AUTONOMOUS-LOOPS` + `DEVICE-HARNESSES` doctrine in the
+Universal template; harness = `tools/atv_scenario.py` + ScreenOCR +
+`AW_CAPTION_TRACE` diag, extended per the Tidbits upgrades. All three
+physical devices are paired: Ben Bedroom (Apple TV 4K, tvOS 27), Ben 15 Pro
+(iPhone), iPad Pro 12.9. Simulators have NO speech models — engine behavior
+is verified on hardware or the Mac harness only.
+
+## Workstreams
+
+- **W1 — Timing correctness** (bursts, too-fast): measure on-glass cue
+  timing against locally transcribed ground truth per era/genre; suspects:
+  display pacing (D059), analyzer batch finalization (bursts = late-final
+  cues arriving together), scout-rate mapping, drift clamps (D081).
+- **W2 — Notice removal**: DONE in code (the "Preparing automatic
+  captions…" branch deleted; model-download + failure notices remain).
+  Verify on the ATV: no notice across warm-up on 3 films.
+- **W3 — Default-first architecture**: re-measure the SYSTEM generated
+  track on CURRENT tvOS/iOS/macOS 27 builds (D068's "offered, never
+  emits" was measured on an early beta; the OS has moved). Wherever the
+  system emits, IT leads and our engine becomes the silent understudy
+  (D063: the system declines poor archival audio, so the fallback stays).
+  Target: delete custom arbitration wherever the OS now does the job.
+- **W4 — Caption-type picker**: a Subtitles chooser in every player —
+  Off / Automatic (engine or system) / Subtitle file (published VTT) /
+  per-language human tracks — mirroring the video-source chooser. tvOS:
+  transport-bar menu (the D070 parity follow-up). iOS/macOS: integrate
+  with the native CC menu where tracks exist; add Automatic as a choice.
+- **W5 — iPhone info sheet clipped**: DONE in code (fixed 460 pt width →
+  cap). Verify on iPhone hardware/sim at portrait widths.
+- **W6 — Screen audit**: every caption-touching surface on every Apple
+  platform — Detail (Get Subtitles sheet), player overlay + notice, player
+  CC/type menu, Settings (Automatic Captions section, Caption Diagnostics
+  screen on tvOS), OpenSubtitles account flow — driven by deep-link env
+  hooks, screenshot/OCR evidence per screen.
+- **W7 — Era/genre video matrix** (each with era-appropriate expectations;
+  a SILENT film generating captions is a FAILURE of the negative control):
+
+| Era/genre probe | Expectation |
+|---|---|
+| Silent (1920s) | no captions generated, no notice, no failure text |
+| Early talkie (1929–33, rough optical audio) | system may decline; engine captions or stays honestly silent |
+| 1940s noir (dialogue-dense) | timed captions, no bursts, reading-pace hold |
+| 1950s TV episode | as noir; episode player path |
+| Narration documentary | long unbroken narration — burst stress case |
+| Music-heavy / cartoon | sparse speech — no phantom cues during music |
+| Published-VTT film | file track leads; judge only shifts on evidence (D073); picker can switch file↔automatic |
+| Mistimed-VTT film | judge corrects or engine takes over; picker shows both |
+
+## Evidence rules (binding)
+
+On-glass OCR or it didn't happen (tvOS scenario runner; devicectl
+screenshots on iPhone/iPad). Ground truth for timing = local transcription
+of the exact film region (D069). Release builds for ship gates; throttled
+runs for anything touching the loader. Every tick logs VERIFIED vs
+MERELY-FIXED below. One experiment per process for platform-behavior
+probes.
+
+## Loop log (newest first)
+
+- 2026-08-26 — Campaign opened. W2 + W5 fixed in code (unverified);
+  architecture mapped: iOS runs BOTH system captions and our engine with
+  hand-over arbitration; tvOS engine-only (D072). Devices confirmed
+  paired. Tidbits harness survey in flight.

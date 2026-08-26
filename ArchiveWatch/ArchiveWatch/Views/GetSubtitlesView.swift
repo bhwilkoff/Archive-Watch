@@ -67,7 +67,15 @@ struct GetSubtitlesView: View {
                 .focused($doneFocused)
             #endif
         }
+        // tvOS: a sheet is a card sized to its content, so the definite width is
+        // what makes Text wrap (see LAYOUT NOTE above). iOS/macOS: the width is
+        // a CAP, never fixed — a fixed 460 is wider than an iPhone portrait
+        // sheet, which clipped every line off both edges.
+        #if os(tvOS)
         .frame(width: contentWidth, alignment: .leading)
+        #else
+        .frame(maxWidth: contentWidth, alignment: .leading)
+        #endif
         .padding(panelPadding)
         #if os(tvOS)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
