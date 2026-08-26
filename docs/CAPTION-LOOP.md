@@ -76,6 +76,23 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 24 — **W7 cartoon cell (Minnie the Moocher, 1932
+  Fleischer): PASS after a grader fix.** The run failed glass_matches_file
+  0/15 — but the app was correctly in ENGINE mode: the site publishes
+  subs/bb_minnie_the_moocher/en.vtt while the CATALOG carries no
+  subtitleHLS (a QC pass dropped the claim; QC cleans the catalog, never
+  the published assets). The grader keyed on site-file existence, so it
+  graded a correct engine display against an orphan file. Fix:
+  fetch_vtt now consults the served DB first (card_has_subtitle_claim);
+  with no claim the grader falls to glass_matches_engine — offline
+  regrade of the same shots: 11/16 -> PASS. Measured the orphan class
+  fleet-wide: **4,741 published subtitle dirs have no catalog claim**
+  (site dead weight, mostly D043/D044 deliberate drops — a sampling
+  re-audit could check none were good human files lost to a transient
+  validation failure) and **0 dead pointers** (claim without files) —
+  the dangerous direction is clean. Engine ASR on the Cab Calloway song
+  was gibberish-ish, as ASR on music always is; pacing still green.
+
 - 2026-08-26 tick 23 — **W7 Day the Earth Caught Fire (1961 British
   sci-fi): captions fully green** — glass matched the UNSHIFTED file
   7/8, judge measured "subtitles match (24% agreement)" (D062's 27s-late

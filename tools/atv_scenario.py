@@ -208,7 +208,34 @@ def playhead_at(buf, wall):
     return best[1] + (wall - best[0])
 
 
+def card_has_subtitle_claim(item):
+    """Does the SERVED CATALOG say this card has a subtitle track?
+
+    A published subs/<id>/en.vtt is not enough: QC passes that drop a
+    caption claim (D043 ASR removal, D044 orphan clearing, validation
+    'empty') clean the CATALOG but never the published assets, so the site
+    holds ORPHAN files the app deliberately ignores. Grading the glass
+    against an orphan scores 0/N on a correct ENGINE display (Minnie the
+    Moocher, w7-cartoon: descriptive orphan file on the site, no
+    subtitleHLS in the DB, app correctly ran the engine). The catalog row
+    is what the app reads, so it is what the grader must read.
+    """
+    for db in ("/tmp/catalog.sqlite",):
+        try:
+            out = subprocess.run(
+                ["sqlite3", db,
+                 f"SELECT json_extract(json,'$.subtitleHLS') FROM item_json "
+                 f"WHERE archiveID='{item}'"],
+                capture_output=True, text=True, timeout=20)
+            return bool(out.stdout.strip())
+        except Exception:
+            continue
+    return True    # no local DB to consult: keep the old behavior
+
+
 def fetch_vtt(item):
+    if not card_has_subtitle_claim(item):
+        return None
     try:
         body = urllib.request.urlopen(
             f"https://archivewatch.org/subs/{item}/en.vtt").read().decode()
