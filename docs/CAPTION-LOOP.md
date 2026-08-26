@@ -76,6 +76,23 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 38 — **Episode-player Subtitles menu VERIFIED ON THE
+  GLASS**: "Subtitles / check Automatic / Off" submenu captured open over
+  13 Demon Street (build 969) — the last unverified chooser surface.
+  Menu-driving lesson repeated: the first blind sequence's select hit
+  Next Episode (spinner on glass); the reliable shape is up+capture to
+  SEE the row, then one short right-right-select. Also this tick: 13
+  Demon Street episode cell 11/11 PASS (all reachable breadth cells now
+  green; Sita Sings the Blues is NOT in the catalog — cell closed as
+  N/A); appstore-build 1.3.447/969 SUCCEEDED to ASC (owner: Submit for
+  Review; Play publish command also waiting on owner); wrong-film audit
+  5/25 scored, all OK (0.89-0.92); **orphan finding upgraded: 1,912
+  orphan subtitle files sit on SERVED cards and ~70% of a 20-file sample
+  are substantial English tracks** — the reclaim gate is the same
+  transcribe-and-compare machinery (an orphan agreeing with the film's
+  own audio at high overlap is measurably correct whatever its origin);
+  queued after the claimed-cards audit.
+
 - 2026-08-26 tick 37 — **OPERATING MODE CHANGE (owner): dense ticks,
   minimum wakeups.** "I need active and fast development... wakeup as
   quick as possible" — every tick now runs device + Mac + pipeline
