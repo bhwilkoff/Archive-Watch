@@ -41,15 +41,35 @@ One meaty unit per tick, highest-risk first:
 Runner: `python3 tools/atv_scenario.py --title "<Title>" --minutes 4
 --name w1-<slug> [--expect-captions no]` → grade line + `report.json`.
 
-## The era deck (resolve by TITLE at runtime, never a hardcoded id)
+## The breadth deck (OWNER RULE 2026-08-26: a wider swath, never the same film twice)
 
-His Girl Friday (1940 dialogue-dense; published VTT) · The Incredible
-Machine (narration; engine) · Meet John Doe (1941) · The Day the Earth
-Caught Fire (1961) · a 1950s TV episode via series drill-in · a silent
-(The Cabinet of Dr. Caligari or any 1920s title; `--expect-captions no`) ·
-a cartoon (music-heavy) · an early talkie (1929–33) · Night of the Living
-Dead (1968). Vary titles across laps — the finds come from VARIATION, not
-lap repetition (Tidbits reshape lesson).
+Every run picks a NEW title. His Girl Friday is RETIRED except as a
+one-run calibration control after an instrument change, or to re-verify
+a fix on the exact film that exposed it. Covered so far: His Girl Friday
+(file mode), The Incredible Machine (engine/narration), Caligari
+(silent negative control). Uncovered cells, work top-down and CHECK OFF
+in the loop log:
+
+- Impact (1949 noir; corrected published VTT — file mode on a non-HGF file)
+- Meet John Doe (1941; engine on 40s optical sound)
+- The Day the Earth Caught Fire (1961; the historically-27s-late VTT, now corrected)
+- Night of the Living Dead (1968; engine)
+- White Zombie (1932 early talkie, poor audio — system-declines class)
+- Carnival of Souls (1962; known-poor audio, judge calibration case)
+- The Vampire Bat (1933; corrected VTT)
+- Horror Hotel (1960; corrected VTT)
+- Scared to Death (1947 colour; engine)
+- D.O.A. (1949; engine)
+- a Popeye or Betty Boop cartoon (music-heavy; near-negative control)
+- Steamboat Willie or another 1920s cartoon (silent negative control #2)
+- a 1950s TV EPISODE via series drill-in (episode player path!)
+- a foreign-language film (what does the engine do with non-English speech?)
+- Sita Sings the Blues (2008 music-heavy colour; modern audio)
+- The General (1926; silent negative control #3)
+
+Titles resolve by TITLE at runtime (resolve_card); if one is missing
+from the catalog, log it and take the next. The finds come from
+VARIATION (Tidbits reshape lesson + owner directive).
 
 ## Harness facts (do not re-learn)
 
