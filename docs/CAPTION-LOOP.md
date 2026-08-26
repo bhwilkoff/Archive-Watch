@@ -76,6 +76,19 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 35 — **Offline pacing harness GREEN on the merged
+  engine** (Scared to Death, 180s, real speech models on the Mac):
+  median dwell 3.9s, shortest 1.7s, "every line holds long enough to
+  read" — the appendCue live merge (tick 26) holds the shipped
+  invariants, and merged two-utterance lines read naturally in the
+  transcript. The five AMBIGUOUS cross-check pairs all resolved BENIGN:
+  every served card's file fits its runtime at 0.97-0.98; the
+  disagreeing partners are merged-away orphan reels of similar-titled
+  Prelinger shorts. publish-db with the six wrong-language claim drops
+  landed clean. No served wrong-film or wrong-language subtitle exposure
+  remains that today's instruments can see. Deck checkoffs written into
+  the resume doc.
+
 - 2026-08-26 tick 34 — **The wrong-film pre-filter WORKED, and it found a
   bigger class: wrong-LANGUAGE files published as English.** Cross-file
   vocabulary agreement across the 742 imdb groups holding 2+ published
