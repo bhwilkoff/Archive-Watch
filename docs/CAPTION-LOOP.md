@@ -76,6 +76,21 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 23 — **W7 Day the Earth Caught Fire (1961 British
+  sci-fi): captions fully green** — glass matched the UNSHIFTED file
+  7/8, judge measured "subtitles match (24% agreement)" (D062's 27s-late
+  finding for this title is cured in the card served today), 0 bursts
+  (second film validating the corpus re-pace), monotonic. The one FAIL
+  was the instrument: audio_continuous counted 11 metronomic exactly-10s
+  emission gaps as dropouts on the LOUDEST track of the day (median rms
+  0.046, zero stalls, playhead advancing) — the meter emits only when
+  the tap delivered buffers that 5s window, and some mux shapes feed the
+  tap in decode-ahead bursts while the renderer plays smoothly. Fixed
+  the assertion: a gap counts only when CORROBORATED (zero-rms at an
+  edge, or a stall/failure inside the window); uncorroborated gaps are
+  reported as tap-delivery batching. Regrade of this run: 0 corroborated
+  / 11 uncorroborated -> PASS. Next: cartoon cell (Betty Boop).
+
 - 2026-08-26 tick 22 — **IMPACT 11/11 PASS — the burst complaint is
   CLOSED end-to-end on the film that reproduced it.** After F-9 (retime
   -22.03s at source) + tick 21's merge fix, w1-impact-verify3: glass

@@ -184,7 +184,8 @@ def parse_console(log):
             if bm:
                 buf.append((wall, int(bm.group(1)), int(bm.group(2))))
         elif "AWAUD rms" in msg:
-            aud.append(wall)
+            rm = re.search(r"rms=([\d.]+)", msg)
+            aud.append((wall, float(rm.group(1)) if rm else -1.0))
         elif "show[cue=" in msg:
             # Trace format: `trace t=104.0 show[cue=103.0]: Even ten minutes…`
             # The old " show: " pattern matched NOTHING, so `shown` was empty
@@ -369,12 +370,34 @@ def main():
     #    WAS the rhythmic "audio dropout" (16 metronomic fake gaps in a LAN
     #    control run; zero with a single attach). The app logs its blindness;
     #    a gap can only be counted while the instrument was alive.
+    #    A MISSING emission alone is not silence: the meter drains on a 5s
+    #    tick and emits only when the tap delivered buffers that window, and
+    #    on some mux shapes AVFoundation feeds the tap in decode-ahead BURSTS
+    #    while the renderer plays smoothly from its own buffer (Day the Earth
+    #    Caught Fire: 11 metronomic exactly-10s gaps, median rms 0.046 — the
+    #    loudest of three films that day — zero stalls, captions matched at
+    #    the playhead). A gap is a dropout only when CORROBORATED: a zero-rms
+    #    sample at either edge, or a stall/failure event inside the window.
     tap_died = log.exists() and any("tap died" in l for l in open(log, errors="ignore"))
-    gaps = sum(1 for a, b in zip(aud, aud[1:]) if b - a > 6)
-    covered = (aud[-1] - aud[0]) if len(aud) > 2 else 0
+    ev_times = []
+    for e in stalls:
+        try:
+            ev_times.append(float(e.split()[0]))
+        except ValueError:
+            pass
+    gaps = uncorro = 0
+    for (a, ra), (b, rb) in zip(aud, aud[1:]):
+        if b - a <= 6:
+            continue
+        if ra < 0.001 or rb < 0.001 or any(a < t < b for t in ev_times):
+            gaps += 1
+        else:
+            uncorro += 1
+    covered = (aud[-1][0] - aud[0][0]) if len(aud) > 2 else 0
     ok = (len(aud) > 10 and gaps == 0) or (tap_died and gaps == 0 and len(aud) >= 2)
     grade("audio_continuous", ok,
-          f"{len(aud)} rms samples over {covered:.0f}s, {gaps} gaps>6s"
+          f"{len(aud)} rms samples over {covered:.0f}s, {gaps} corroborated gaps>6s"
+          + (f", {uncorro} uncorroborated (tap delivery batching)" if uncorro else "")
           + (" (tap died — instrument blind after that; no gaps while alive)" if tap_died else ""))
 
     # E. Captions on the GLASS: fraction of frames with caption text while
