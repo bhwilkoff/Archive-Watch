@@ -76,6 +76,17 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 46-47 — **Orphan batch 1 COMPLETE: 22/25 transcribed,
+  ALL 22 verify at >=0.6 agreement — all reclaimable** (3 rejected by
+  the transcriber's quality gate, correctly conservative). Batch 2 (25
+  more) chained. Timing sweep: The Ghost Train rerun in flight on build
+  970 after the toggle restore (the engine had been silently disabled
+  by a stray settings press; AW_SET_TRANSCRIBE hook restored it,
+  glass-verified On). OPEN QUESTION for later: the tvOS Settings Toggle
+  refused three warmed remote selects on the focused row — if a real
+  viewer's remote also cannot flip it, that is a shipping bug
+  (SubtitleAccountSection.swift:150).
+
 - 2026-08-26 tick 45 — **Orphan reclaim batch 1: 12/12 transcribed so
   far ALL VERIFY (agreement 0.64-0.85)** — every orphan checked is a
   correct English subtitle file its film currently is not serving.
