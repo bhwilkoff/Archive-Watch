@@ -76,6 +76,24 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 37 — **OPERATING MODE CHANGE (owner): dense ticks,
+  minimum wakeups.** "I need active and fast development... wakeup as
+  quick as possible" — every tick now runs device + Mac + pipeline
+  streams in PARALLEL (rule saved to memory). This tick, three streams
+  live at once: (1) device — 13 Demon Street 1959 episode cell (second
+  50s-TV run; Sita Sings the Blues is NOT in the catalog — logged,
+  skipped); (2) Mac — the WRONG-FILM AUDIT is running: /tmp/captiongen
+  (the shipped engine, quality-gated, ~108x realtime) transcribing the
+  TOP-25 most-popular claimed cards, with the new
+  tools/audit_wrong_film_subtitles.py scorer ready (vocabulary overlap,
+  the metric that caught doa_ipod at 0.02); (3) CI — appstore-build
+  1.3.447/969 in flight to ASC. WORK QUEUE (never start a tick without
+  a unit): score transcripts as they land -> adjudicate candidates ->
+  extend the audit to the next 25 by popularity; episode-player
+  Subtitles menu glass pass (warmed-press sequence); W3 Caption
+  Diagnostics re-measure; iOS hardware pass; orphan-subtitle cleanup
+  decision; Play publish (owner command).
+
 - 2026-08-26 tick 36 — **Ship-prep verification pass: captions-Off
   verified BEHAVIORALLY on both platforms.** macOS (build 968 product,
   via `open` — direct binary exec doesn't autoplay after the first
