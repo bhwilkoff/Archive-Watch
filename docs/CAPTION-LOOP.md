@@ -76,6 +76,17 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 15 — **W4 macOS parity BUILT (merely-fixed)**: the
+  shared sheet's picker now feeds macOS through a session store
+  (Detail and the player are different WINDOWS on macOS, so a local
+  @State cannot reach across; CaptionChoiceSession carries it).
+  Automatic/Off drop the captioned-HLS wrapper at the player-window
+  call site; Off also gates startLiveCaptions. All three platforms
+  build green (1.3.443/965). W4 now spans tvOS (glass-verified) + iOS
+  (sheet-verified) + macOS (build-verified). TV left alone again this
+  tick. Remaining W4 tail: macOS on-glass pass, iOS hardware behavior
+  pass, episode-menu glass pass.
+
 - 2026-08-26 tick 14 — **W4 iOS parity: picker UI VERIFIED in the sim,
   plumbing merely-fixed** (build/qa/ios-2026-08-26/w4-ios-picker.png):
   the subtitles sheet gains "Captions for playback" — Subtitle File /

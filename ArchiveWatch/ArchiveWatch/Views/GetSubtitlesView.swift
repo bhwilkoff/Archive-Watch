@@ -9,6 +9,14 @@ enum CaptionPlaybackChoice: String, CaseIterable, Identifiable {
     var id: String { rawValue }
 }
 
+/// Session-scoped per-title choice. macOS needs it because Detail and the
+/// player are DIFFERENT WINDOWS (player-as-window-root, macOS-DESIGN): the
+/// sheet writes here, the player window reads it when it opens.
+@MainActor
+enum CaptionChoiceSession {
+    static var byItem: [String: CaptionPlaybackChoice] = [:]
+}
+
 // The "Get subtitles" sheet — one view for tvOS, iOS and macOS.
 //
 // It offers ONE thing: a search for HUMAN-written subtitles.

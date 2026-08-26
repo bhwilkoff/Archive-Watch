@@ -59,7 +59,10 @@ struct DetailView: View {
             AddToPlaylistSheet(archiveID: item.archiveID)
         }
         .sheet(isPresented: $showGetSubtitles) {
-            GetSubtitlesView(item: item).frame(minWidth: 460, minHeight: 320)
+            GetSubtitlesView(item: item, playbackChoice: Binding(
+                get: { CaptionChoiceSession.byItem[item.archiveID] },
+                set: { CaptionChoiceSession.byItem[item.archiveID] = $0 }))
+                .frame(minWidth: 460, minHeight: 340)
         }
     }
 

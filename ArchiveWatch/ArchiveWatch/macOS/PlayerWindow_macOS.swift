@@ -28,7 +28,14 @@ struct PlayerWindow: View {
                           videoURL: item.videoURLParsed.map {
                               ArchiveVersions.preferredURL(for: item.archiveID, default: $0)
                           },
-                          subtitleHLS: item.subtitleHLSURL,
+                          // The sheet's caption-type choice (owner 2026-08-26):
+                          // Automatic/Off drop the captioned-HLS wrapper so the
+                          // engine (or nothing) captions; File keeps it.
+                          subtitleHLS: {
+                              let c = CaptionChoiceSession.byItem[item.archiveID]
+                              return (c == .automatic || c == .off) ? nil : item.subtitleHLSURL
+                          }(),
+                          captionsOff: CaptionChoiceSession.byItem[item.archiveID] == .off,
                           publishedVTT: item.publishedVTTURL,
                           onEnded: autoplayNext)
                 .navigationTitle(item.year.map { "\(item.title) (\($0))" } ?? item.title)
@@ -125,6 +132,7 @@ private struct PlayerSurface: View {
     let archiveID: String
     let videoURL: URL?
     let subtitleHLS: URL?
+    var captionsOff: Bool = false
     /// The published WebVTT, so the track can be CHECKED rather than trusted.
     var publishedVTT: URL? = nil
     var onEnded: (() -> Void)? = nil
@@ -295,7 +303,7 @@ private struct PlayerSurface: View {
         // force-quit lost the whole session and nothing synced mid-playback (owner 2026-06-29).
         // Live captions when the film carries no subtitle track of its own:
         // transcribe the audio that is ALREADY streaming (no download).
-        if subtitleHLS == nil {
+        if subtitleHLS == nil, !captionsOff {
             startLiveCaptions(on: p)
         } else if let vtt = publishedVTT {
             // The film HAS subtitles — but a published file can belong to a
