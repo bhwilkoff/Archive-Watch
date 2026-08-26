@@ -76,6 +76,19 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 17 — **F-8 symptom VERIFIED FIXED on the Mac glass**
+  (f8-verify.png): playback 3+ minutes in and advancing (both pre-fix
+  runs froze inside the first minute) with an engine caption rendered
+  mid-dialogue ("Right, Billy, he's thinking."). Honest caveat: this
+  run never hit an idle reset, so the RESCUE itself has not been
+  observed firing — the arm-condition fix is the same monitor already
+  proven on the HLS path; a forced-stall pass (throttled server) can
+  prove the fire later if wanted. This was also the W4 macOS behavior
+  pass: Automatic on macOS = engine captions on the glass, VERIFIED.
+  Owner directive landed mid-tick: BREADTH-FIRST deck (16 cells) —
+  His Girl Friday retired to calibration duty; Impact (1949) running
+  on the ATV as the first breadth cell.
+
 - 2026-08-26 tick 16 — **F-8 found + root-caused + fixed (merely-fixed;
   verify run live)**: the macOS on-glass pass froze twice within the
   first minute (38s, 55s — window-scoped screenshots; the scout
