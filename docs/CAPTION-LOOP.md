@@ -76,6 +76,31 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 ticks 48-53 — **THE GENERATED-CAPTION TIMING SWEEP: from
+  +58s worst to a green run, with the full mechanism chain measured.**
+  The new caption_timing_vs_truth assertion (on-glass engine captions
+  vs film-time local transcripts) caught, in order: (1) the scout
+  sustaining ~1.5x against the mapping's assumed 2.0x — cues +58s late
+  by act three (ghosttrain2); (2) the envelope gate withholding a
+  needed 17.4s correction on resumed sessions (fixed: resync marks
+  seek-started); (3) D081-clamped level corrections unable to outrun a
+  CONTINUOUS slope error (-27.8s wanted, -2.1s allowed, error
+  regenerating at ~0.3s/s); (4) a measured-rate mapping TRIED AND
+  REVERTED (two-clock decode-ahead gap oscillates — median swung +58
+  to -38s; the D069 trap in a new coat); (5) the slope loop (closed
+  loop on mapping rate from d(err)/d(delivered), down-only, residual-
+  gated) built through three instrument iterations — corrections
+  poisoned the fit (shift-not-clear), then driftCheck's ~3Hz cadence
+  capped the window at 4s (sparse sampling, one sample per 5
+  delivered-s). Run 9 (build 977): **11/11 PASS, median -0.4s, worst
+  -2.7s** — an honest note: this run had NO shortfall (no corrections,
+  no fits fired), so it validates the instrument and the segment; the
+  slope loop awaits its first live shortfall under 977, which the
+  continuing sweep will meet. Offline pacing harness guards every
+  build. Also: 821-samples-in-280s cadence measurement, and the
+  transcript ground-truth set now covers 23 claimed + 42 orphan + new
+  unclaimed films (truth batch running).
+
 - 2026-08-26 tick 46-47 — **Orphan batch 1 COMPLETE: 22/25 transcribed,
   ALL 22 verify at >=0.6 agreement — all reclaimable** (3 rejected by
   the transcriber's quality gate, correctly conservative). Batch 2 (25
