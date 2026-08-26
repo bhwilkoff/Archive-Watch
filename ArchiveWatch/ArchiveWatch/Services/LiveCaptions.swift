@@ -686,10 +686,16 @@ final class LiveCaptions {
         let now = Date().timeIntervalSince1970
         driftSamples.append((wall: now, err: err))
         driftSamples.removeAll { now - $0.wall > 30 }
-        slopeSamples.append((delivered: delivered, err: err))
-        if slopeSamples.count > 12 { slopeSamples.removeFirst(slopeSamples.count - 12) }
-        if trace {
-            awdiag("[AWCAP] drift sample: err \(fmt(err)) delivered \(fmt(delivered)) n \(slopeSamples.count)")
+        // SPARSE sampling: driftCheck runs ~3x/second (821 calls in a 280s
+        // run — w8-timing-ghosttrain8), so an every-call series capped at 12
+        // spans ~4s and the >=25s window gate can never pass. One sample per
+        // >=5 delivered-seconds makes 12 samples span a minute.
+        if delivered - (slopeSamples.last?.delivered ?? -10) >= 5 {
+            slopeSamples.append((delivered: delivered, err: err))
+            if slopeSamples.count > 12 { slopeSamples.removeFirst(slopeSamples.count - 12) }
+            if trace {
+                awdiag("[AWCAP] drift sample: err \(fmt(err)) delivered \(fmt(delivered)) n \(slopeSamples.count)")
+            }
         }
         // SLOPE loop: err growing ~linearly per delivered-audio second means
         // the assumed rate is wrong, and no level correction can outrun it.
