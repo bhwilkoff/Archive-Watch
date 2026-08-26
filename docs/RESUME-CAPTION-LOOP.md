@@ -98,6 +98,10 @@ VARIATION (Tidbits reshape lesson + owner directive).
   but not wired on ONE platform silently grades the wrong screen. Verify
   a hook fires on the platform under test before trusting a run.
 
+- Background scenario runs: NEVER pipe through `tail` (a killed task then
+  shows zero output — stream raw and read the file); keep runs ≤ ~7 min
+  total (background tasks can be reaped); the durable run dir survives a
+  kill and says how far it got.
 - Transport-menu driving: ONE atvremote invocation, one connection —
   `power_state up delay=1400 right delay=800 ... select` — never
   screenshots between steps (the bar auto-hides in ~5s and stray
