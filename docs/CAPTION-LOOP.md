@@ -76,6 +76,16 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 29 — **W7 Meet John Doe (1941 drama, meet-john-4k, 4K
+  heavy decode, file mode): 11/11 PASS** on the hardened harness after
+  reboot — glass matched the file 20/24, ZERO bursts (third film
+  validating the corpus re-pace), median dwell 4.2s, playhead/stalls
+  clean. The audio tap died at 10s (known heavy-decode teardown; the
+  instrument reports its blindness honestly). The previous attempt was
+  the 4th launch-window death — harness now probes to 30s and a second
+  death auto-reboots (pushed). Deck status: 8 cells covered today, all
+  green after fixes. Next: D.O.A. (1949 noir).
+
 - 2026-08-26 tick 28 — **W7 foreign-language negative control (Street
   Angel, 1937 Shanghai, Mandarin audio): CLEAN — zero engine lines.**
   The engine displayed NOTHING on Mandarin dialogue (the 6/44 OCR
