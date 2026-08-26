@@ -76,6 +76,15 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 27 — **Live engine merge VERIFIED on-device: 11/11
+  PASS on the same episode** (w7-tv50s-verify, build 967). Bursts 3 -> 0,
+  median dwell 2.4s -> 3.6s, changes under 1.2s 7/73 -> 1/61, and
+  display fidelity IMPROVED (44/47 vs 39/43 — fewer, longer lines are
+  also easier for OCR matching). With tick 21 (published files) and this
+  (live engine), BOTH halves of the owner's "move too quickly or go in
+  large bursts" complaint are closed and device-verified. Next:
+  foreign-language breadth cell, then Meet John Doe.
+
 - 2026-08-26 tick 26 — **W7 1950s TV episode cell (Suspense "On a
   Country Road" 1951, EPISODE PLAYER, engine mode): display fidelity
   excellent (glass matched engine 39/43), monotonic, audio clean — and
