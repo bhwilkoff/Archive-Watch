@@ -76,6 +76,18 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 22 — **IMPACT 11/11 PASS — the burst complaint is
+  CLOSED end-to-end on the film that reproduced it.** After F-9 (retime
+  -22.03s at source) + tick 21's merge fix, w1-impact-verify3: glass
+  matches the published file 22/23 (was 0/23), median dwell 3.8s (was
+  2.0s), 1/45 changes under 1.2s (was 13/66), ZERO burst windows (was
+  8-9), no judge shift, schedule monotonic, blanks all real gaps.
+  One intermediate run died in the launch window (4th today) — reboot
+  cured it again; if a 4th-plus death recurs, consider a pre-flight
+  launch+kill warmup in atv_scenario. Next: Day the Earth Caught Fire
+  (1961 breadth cell; its file was D062's 27s-late example, and the
+  corpus re-pace touched most files — good compound check).
+
 - 2026-08-26 tick 21 — **THE BURST FIX (F-10 root cause), fleet-wide.**
   Impact verify run: glass matched the UNSHIFTED corrected file (13/17),
   no judge shift — F-9 closed on the device — but pacing still failed
