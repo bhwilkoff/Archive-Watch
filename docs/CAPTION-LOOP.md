@@ -76,6 +76,26 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 34 — **The wrong-film pre-filter WORKED, and it found a
+  bigger class: wrong-LANGUAGE files published as English.** Cross-file
+  vocabulary agreement across the 742 imdb groups holding 2+ published
+  files (2,778 pairs, all local compute): median overlap 1.00, and a
+  clean pathological tail of 37 pairs under 0.30. Adjudicated by reading
+  the files: six SERVED cards shipped non-English text as their en track
+  — Patterns (Swedish), Manos: The Hands of Fate (Spanish), One-Eyed
+  Jacks + Niagara (Portuguese), Princess Iron Fan (Czech), The General
+  Line (Italian); the rest of the tail is merged-away orphans. Invisible
+  to every physics gate. Fixes: (1) claims dropped at source with
+  subtitleWrongLanguage markers, catalog republished + publish-db
+  dispatched; (2) durable gate in validate_vtt — an en-labeled file with
+  >=200 words and an English-stopword rate under 0.04 is rejected
+  ("labeled en but text is not English"); measured separation is total
+  (English 0.13-0.14, wrong-language <=0.001); wired into the harvest
+  (free_subtitles) and the asset build. The 5 AMBIGUOUS both-English
+  low-agreement pairs (wrong-film candidates needing ASR) are in
+  tools/subtitle_crosscheck_findings.csv. D.O.A. collapse VERIFIED in
+  the served DB (doa-4-k + colorized only; doa_ipod aliased).
+
 - 2026-08-26 tick 33 — **The last visible D.O.A. dup falls.** The
   published DB confirmed Meet John Doe collapsed and five imdb D.O.A.
   copies aliased to doa-4-k — but doa_ipod still stood: its normalized

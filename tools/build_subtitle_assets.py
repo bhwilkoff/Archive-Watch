@@ -292,7 +292,36 @@ _RANGE = re.compile(
 _CUE = re.compile(r"\d{1,2}:\d{2}:\d{2}[.,]\d{1,3}\s*-->\s*\d{1,2}:\d{2}:\d{2}[.,]\d{1,3}")
 
 
-def validate_vtt(vtt: str, runtime: int):
+_EN_STOPWORDS = {"the", "and", "you", "that", "this", "with", "have", "what", "your"}
+
+
+def _english_stopword_rate(vtt: str):
+    """(rate, words). Measured 2026-08-26 over the published corpus: genuine
+    English tracks run 0.13-0.14; Swedish/Portuguese/Czech/Italian/Spanish
+    files mislabeled as en all read <= 0.001. Six SERVED cards were shipping
+    non-English text as their en track (Patterns in Swedish, Manos in
+    Spanish, One-Eyed Jacks + Niagara in Portuguese, Princess Iron Fan in
+    Czech, The General Line in Italian) — found by cross-file vocabulary
+    disagreement between dup siblings, invisible to every physics gate."""
+    stop = total = 0
+    for line in vtt.splitlines():
+        if "-->" in line or line.startswith(("WEBVTT", "X-TIMESTAMP")) or "::cue" in line:
+            continue
+        for w in re.findall(r"[a-zà-öø-ÿ']{2,}", line.lower()):
+            total += 1
+            stop += w in _EN_STOPWORDS
+    return (stop / total if total else 0), total
+
+
+def validate_vtt(vtt: str, runtime: int, lang: str | None = None):
+    if lang == "en":
+        rate, words = _english_stopword_rate(vtt)
+        if words >= 200 and rate < 0.04:
+            return False, f"labeled en but text is not English (stopword rate {rate:.3f})"
+    return _validate_vtt_body(vtt, runtime)
+
+
+def _validate_vtt_body(vtt: str, runtime: int):
     """(ok, why). The guard that was missing: parse what we are about to publish
     and refuse it unless it is really cues that really span the film. Every
     defect above would have been caught here."""
@@ -413,7 +442,7 @@ def build_for(item, session) -> str:
         if paced:
             print(f"  [subs] {item['archiveID'][:38]} {c['lang']}: paced {paced} cues "
                   "(overlap / too brief to read)", flush=True)
-        ok, why = validate_vtt(vtt, item.get("runtimeSeconds") or 0)
+        ok, why = validate_vtt(vtt, item.get("runtimeSeconds") or 0, lang=c["lang"])
         if not ok:
             print(f"  [subs] {item['archiveID'][:38]} {c['lang']}: rejected ({why})",
                   flush=True)

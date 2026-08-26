@@ -1,0 +1,38 @@
+overlap,imdbID,title,fileA,stopA,fileB,stopB,suspect
+0.02,tt0060666,Manos: The Hands of Fate,ManosTheHandsofFate,0.0,manos-the-hand-of-fate-4k,0.145,ManosTheHandsofFate
+0.02,tt0471945,Princess Iron Fan,princess_iron_fan,0.0,Princess_Iron_Fan_1941_divx5_denoised,0.139,princess_iron_fan
+0.03,tt0038107,Sydstataren,TheSoutherner,0.146,Sydstataren,0.0,Sydstataren
+0.03,tt0038107,Sydstataren,the-southerner-1945_202312,0.146,Sydstataren,0.0,Sydstataren
+0.03,tt0038107,Sydstataren,the-southerner-4-k,0.146,Sydstataren,0.0,Sydstataren
+0.03,tt0042367,Cyrano de Bergerac,CyranoMoviePowder,0.15,svtplay-8E4oVbN,0.0,svtplay-8E4oVbN
+0.03,tt0042367,Cyrano de Bergerac,Cyrano_DeBergerac,0.15,svtplay-8E4oVbN,0.0,svtplay-8E4oVbN
+0.03,tt0042367,Cyrano de Bergerac,Cyrano_DeBergerac_ipod,0.15,svtplay-8E4oVbN,0.0,svtplay-8E4oVbN
+0.03,tt0042367,Cyrano de Bergerac,cyrano-4-k,0.15,svtplay-8E4oVbN,0.0,svtplay-8E4oVbN
+0.03,tt0042367,Cyrano de Bergerac,cyrano.-de.-bergerac.-1950,0.15,svtplay-8E4oVbN,0.0,svtplay-8E4oVbN
+0.05,tt0042209,At War with the Army,AtWarWithTheArmy,0.147,ruskiga-rekryter,0.0,ruskiga-rekryter
+0.05,tt0042209,At War with the Army,ruskiga-rekryter,0.0,at-war-with-the-army-1950,0.147,ruskiga-rekryter
+0.05,tt0042209,At War with the Army,ruskiga-rekryter,0.0,war-armies-4-k,0.147,ruskiga-rekryter
+0.05,tt0055257,One-Eyed Jacks,oneeyedjacks1961,0.0,one-eyed-jacks-1961_202310,0.131,oneeyedjacks1961
+0.06,tt0033459,Farväl miss Bishop,cheers-for-miss-bishop-1941,0.124,farval-miss-bishop,0.0,farval-miss-bishop
+0.06,tt0033459,Farväl miss Bishop,cheers-for-miss-bishop-1941,0.124,svtplay-jXbPN9M,0.0,svtplay-jXbPN9M
+0.06,tt0033459,Farväl miss Bishop,cheers_for_miss_bishop,0.124,farval-miss-bishop,0.0,farval-miss-bishop
+0.06,tt0033459,Farväl miss Bishop,cheers_for_miss_bishop,0.124,svtplay-jXbPN9M,0.0,svtplay-jXbPN9M
+0.06,tt0035317,Sherlock Holmes and the Secret Weapon,SherlockHolmesAndTheSecretWeapon,0.139,svtplay-jpz1EWG,0.0,svtplay-jpz1EWG
+0.06,tt0035317,Sherlock Holmes and the Secret Weapon,SherlockHolmesAndTheSecretWeapon1943,0.139,svtplay-jpz1EWG,0.0,svtplay-jpz1EWG
+0.06,tt0035317,Sherlock Holmes and the Secret Weapon,sherlock-holmes-and-the-secret-weapon_202107,0.139,svtplay-jpz1EWG,0.0,svtplay-jpz1EWG
+0.06,tt0035317,Sherlock Holmes and the Secret Weapon,svtplay-jpz1EWG,0.0,secret_weapon,0.139,svtplay-jpz1EWG
+0.06,tt0038494,Dressed to Kill,dressed-to-kill_202107,0.137,svtplay-KQ7Y4dV,0.0,svtplay-KQ7Y4dV
+0.06,tt0038494,Dressed to Kill,dressed_to_kill,0.137,svtplay-KQ7Y4dV,0.0,svtplay-KQ7Y4dV
+0.06,tt0038494,Dressed to Kill,svtplay-KQ7Y4dV,0.0,DressedToKill1946,0.137,svtplay-KQ7Y4dV
+0.06,tt0039566,Life with Father,LifeWithFather,0.138,pappa-och-vi,0.0,pappa-och-vi
+0.06,tt0039566,Life with Father,pappa-och-vi,0.0,life-with-father-1947,0.138,pappa-och-vi
+0.06,tt0039566,Life with Father,pappa-och-vi,0.0,life-with-father-1947-film,0.138,pappa-och-vi
+0.06,tt0046126,Niagara Torrentes de Paixão,1953niagarahhathaway,0.127,niagara-1953-torrentes-de-paixao,0.001,niagara-1953-torrentes-de-paixao
+0.07,tt0020451,La Ligne Générale,Eisenstein-TheGeneralLine,0.0,old-and-new_1930,0.18,Eisenstein-TheGeneralLine
+0.07,tt0049601,Patterns,patterns-film-1956,0.0,patterns-1956-colorized-movie-576p-sd,0.133,patterns-film-1956
+0.2,tt0498986,American Look,American1958,0.149,American1958_2,0.131,AMBIGUOUS
+0.25,tt0025671,Lieutenant Kizhe,LieutenantKizhe_0,0.165,LieutenantKizhe1934Restored,0.133,LieutenantKizhe1934Restored
+0.26,tt0498986,American Look,American1958_2,0.131,American1958_3,0.156,AMBIGUOUS
+0.26,tt6021616,Going Places,GoingPla1948,0.105,GoingPlaces,0.13,AMBIGUOUS
+0.28,tt0498986,American Look,American1958,0.149,American1958_3,0.156,AMBIGUOUS
+0.28,tt5864338,American Harvest,American1955,0.176,American1955_2,0.174,AMBIGUOUS

@@ -278,7 +278,7 @@ def write_assets(item, srt_text, source):
     out = SUBS_DIR / sid
     out.mkdir(parents=True, exist_ok=True)
     vtt = srt_to_vtt(srt_text)
-    ok, why = validate_vtt(vtt, item.get("runtimeSeconds") or 0)
+    ok, why = validate_vtt(vtt, item.get("runtimeSeconds") or 0, lang="en")
     if not ok:
         print(f"  [subs] {item.get('archiveID','?')[:38]}: rejected ({why})", flush=True)
         return "rejected"
