@@ -76,6 +76,17 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 31b — **HAZARD noted for the retime sweep**: doa_ipod's
+  wrong-film file ends at 5045s vs 4980s runtime — ratio 1.013 trips
+  D080's overrun detector, which routes to sync_subtitles_audio. But
+  ffsubsync aligns speech ACTIVITY (VAD), not content: it cannot tell a
+  wrong-film subtitle from a mistimed one, and could "fix" and republish
+  a wrong film's text with confident timing. The physics gate would
+  pass. Source-side content agreement (local ASR transcript vs file, the
+  D062 check run offline) is the only true wrong-film detector — the
+  systematic audit stays on the follow-up list; popularity-first,
+  dup-sibling cross-file disagreement is a cheap pre-filter.
+
 - 2026-08-26 tick 31 — **Device runs PAUSED (the Scared to Death run was
   killed externally — reading that as the owner using the TV). Mac-side:
   the two dup sets root-caused and fixed at the pipeline.** Why D040
