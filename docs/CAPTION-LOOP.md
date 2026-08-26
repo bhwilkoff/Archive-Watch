@@ -76,6 +76,26 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 31 — **Device runs PAUSED (the Scared to Death run was
+  killed externally — reading that as the owner using the TV). Mac-side:
+  the two dup sets root-caused and fixed at the pipeline.** Why D040
+  never collapsed them: (1) "Meet John Doe GARY COOPER" — an ALL-CAPS
+  credit tail the sanitizer had no rule for, so title clustering never
+  saw the pair as one film; measured 59 caps-tail candidates, and the
+  naive strip would mangle real titles (Ida Lupino's NOT WANTED, Do
+  ANKHEN BARA HAATH), so the rule demands corroboration — the stripped
+  title matches a same-year SIBLING, or the tail names the item's own
+  cast/director: 22 strips, zero of the dangerous cases. (2) doa_ipod
+  said year 1955 on a runtime-identical (4980s) copy of the 1949
+  D.O.A. — new rule adopts a year from a matchVerified imdb-anchored
+  sibling at ±2s runtime (same encode lineage): 49 adoptions. The
+  matchVerified guard exists because the FIRST dry run adopted 1917
+  onto the 2004 Fadiman documentary from its "remove2" twin — an
+  UNVERIFIED anchor can itself be the wrong match, and adoption then
+  propagates the error. Both rules live in remediate (run every build);
+  publish-db dispatched so the next merge collapses the pairs. The
+  colorized D.O.A. card stays separate BY DESIGN (D084).
+
 - 2026-08-26 tick 30 — **W7 D.O.A. (1949 noir, card doa_ipod): the app
   did its job, the pipeline had not.** The published file for doa_ipod
   is a translated subtitle for a DIFFERENT FILM entirely (holiday/
