@@ -76,6 +76,22 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 33 — **The last visible D.O.A. dup falls.** The
+  published DB confirmed Meet John Doe collapsed and five imdb D.O.A.
+  copies aliased to doa-4-k — but doa_ipod still stood: its normalized
+  title key "doa" is 3 chars, under merge_film_duplicates' len>=4
+  floor, so the film merge never saw the cluster at all. Floor lowered
+  to 3 with a guard measured first: at 3 chars an edge must have an
+  imdb anchor on one side, because the two bare MGM logo stings (11s
+  and 16s, both 1928) pass the bare-bare tight-runtime test and are
+  different reels. Also: sibling year anchors now vote by MAJORITY
+  within a 1-year span (five 1949 anchors + one 1950 had failed strict
+  unanimity). Verified in pipeline order (dedupe_by_imdb first —
+  testing the merge alone gave a FALSE "still standing" because a
+  mis-colored imdb copy vetoed _consistent before the imdb dedupe
+  removed it): doa_ipod -> doa-4-k, MGM untouched, color-guard 13/13.
+  publish-db re-dispatched.
+
 - 2026-08-26 tick 32 — **Captions-Off LEAKED THE ENGINE on two
   platforms; fixed and compile-verified (1.3.446/968).** Measured on
   macOS by running the app with AW_CAPTION_CHOICE=off: the scout
