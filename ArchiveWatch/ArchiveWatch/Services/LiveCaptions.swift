@@ -690,12 +690,11 @@ final class LiveCaptions {
         // run — w8-timing-ghosttrain8), so an every-call series capped at 12
         // spans ~4s and the >=25s window gate can never pass. One sample per
         // >=5 delivered-seconds makes 12 samples span a minute.
+        var freshSample = false
         if delivered - (slopeSamples.last?.delivered ?? -10) >= 5 {
             slopeSamples.append((delivered: delivered, err: err))
             if slopeSamples.count > 12 { slopeSamples.removeFirst(slopeSamples.count - 12) }
-            if trace {
-                awdiag("[AWCAP] drift sample: err \(fmt(err)) delivered \(fmt(delivered)) n \(slopeSamples.count)")
-            }
+            freshSample = true
         }
         // SLOPE loop: err growing ~linearly per delivered-audio second means
         // the assumed rate is wrong, and no level correction can outrun it.
@@ -724,7 +723,7 @@ final class LiveCaptions {
                 mar += abs((s.err - my) - slope * (s.delivered - mx))
             }
             mar /= n
-            if trace {
+            if trace, freshSample {
                 awdiag("[AWCAP] slope fit: \(String(format: "%+.3f", slope))/s "
                       + "mar \(fmt(mar)) n \(slopeSamples.count) span \(fmt(d1 - d0))s")
             }
@@ -749,8 +748,15 @@ final class LiveCaptions {
         // swapping the line mid-read (F-3). Seeing the floor drain once is the
         // proof the envelope is a valid instrument for THIS file.
         if err < 5 { envelopeValidated = true }
-        guard let oldest = driftSamples.first, now - oldest.wall >= 25,
-              let floorErr = driftSamples.map(\.err).min(), floorErr > 15 else { return }
+        // COLD-START RELAXATION: The Bold Caballero showed a consistent
+        // +39.5s level error in the session's first minutes that the steady-
+        // state gate (25s window, 15s floor) never drained before the region
+        // scrolled past. A young session corrects faster and on less error.
+        let sessionAge = startedAt.map { Date().timeIntervalSince($0) } ?? 999
+        let minWindow: Double = sessionAge < 120 ? 15 : 25
+        let minFloor: Double = sessionAge < 120 ? 8 : 15
+        guard let oldest = driftSamples.first, now - oldest.wall >= minWindow,
+              let floorErr = driftSamples.map(\.err).min(), floorErr > minFloor else { return }
         guard envelopeValidated || sessionBeganSeeked else {
             if !envelopeWithheldLogged {
                 envelopeWithheldLogged = true
