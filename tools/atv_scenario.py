@@ -304,15 +304,36 @@ def main():
     # runs: the observer perturbs the system. One retry keeps a scenario
     # about the APP, not about capture-induced memory pressure; a death
     # after the retry still fails app_alive_to_end honestly.
-    for probe_at in (0, 15):          # deaths observed at 4-15s post-launch
+    # Probes reach 30s: 2026-08-26 deaths landed 20-30s post-launch, past
+    # the old (0, 15) window, so four runs captured a dead app for 4 minutes
+    # each. A SECOND death escalates to a device reboot — the manual recipe
+    # that cured every one of those runs — because a plain relaunch onto a
+    # degraded capture daemon tends to die the same way.
+    deaths = 0
+    for probe_at in (0, 15, 15):      # cumulative 0s, 15s, 30s
         if probe_at: time.sleep(probe_at)
         probe = sh(["xcrun", "devicectl", "device", "info", "processes",
                     "--device", DEVICE], timeout=60)
-        if "ArchiveWatch.app/ArchiveWatch" not in probe.stdout:
+        if "ArchiveWatch.app/ArchiveWatch" in probe.stdout:
+            continue
+        deaths += 1
+        if deaths == 1:
             print("[scenario] app died in launch window — one retry")
-            launch(item, outdir)
-            time.sleep(8)
-            break
+        else:
+            print("[scenario] app died AGAIN — rebooting the device "
+                  "(capture-daemon degradation; the proven cure)")
+            sh(["xcrun", "devicectl", "device", "reboot", "--device", DEVICE],
+               timeout=120)
+            deadline = time.time() + 240
+            while time.time() < deadline:
+                time.sleep(10)
+                r = sh([PYATV] + PYATV_ARGS + ["power_state"], timeout=30)
+                if "PowerState" in r.stdout:
+                    break
+            time.sleep(10)
+            wake_tv()
+        launch(item, outdir)
+        time.sleep(8)
     shots = capture_loop(outdir, args.minutes)
     print(f"[scenario] {len(shots)} screenshots")
 
