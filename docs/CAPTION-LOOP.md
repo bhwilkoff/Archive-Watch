@@ -76,6 +76,28 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 ticks 54-56 — **The envelope-only configuration is the
+  keeper** (build 979): caballero2 proved eager level corrections make
+  captions EARLY (median -30.7s after two young-window corrections —
+  err conflates decode-ahead depth with lateness; every corrected
+  resumed-session run today was early, the one green run had zero
+  corrections). Cold-start relaxation + seek-started bypass both
+  REVERTED; the slope loop (residual-gated) is the only rate-error
+  instrument, and its cold-start transient signature (+0.7-0.9/s
+  decaying, mar ~3) now recurs identically across films — refused
+  correctly every time. Kansas Pacific (fresh 1953 western): config
+  behaved as designed (WITHHELD line, fits computing); timing not
+  gradeable (music-heavy region, 2 matchable lines); one marginal
+  fidelity sample (9/16, bright-sky OCR conditions). Offline pacing
+  guard: 1 marginal line intermittently across 5 runs today (2.1s for
+  10 words) — nondeterministic, device pacing green all day, logged
+  not blocking. KNOWN OPEN: the from-zero cold-start lateness class
+  (Caballero run 1: +39.5s in the first minutes, converged after) —
+  needs a mechanism that is neither level corrections (proven harmful)
+  nor the slope loop (correctly refuses the transient); candidate:
+  don't DISPLAY cues minted while the envelope is undrained AND the
+  session is younger than ~90s, letting the analyzer settle first.
+
 - 2026-08-26 ticks 48-53 — **THE GENERATED-CAPTION TIMING SWEEP: from
   +58s worst to a green run, with the full mechanism chain measured.**
   The new caption_timing_vs_truth assertion (on-glass engine captions
