@@ -76,6 +76,15 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 39 — **W3 re-measure RUNNING on the device**: drove
+  Settings -> Caption Diagnostics -> Run Caption Test via presses with
+  capture checkpoints (Settings has no auto-hide, so capture-between-
+  presses is safe there — unlike the transport bar). Probe header on
+  1.3.447/969, tvOS 27.0 24J5358a: OS reports it CAN generate subtitles,
+  device HAS speech models, shape-1 track offered at 0s and selected.
+  Awaiting emission verdicts per shape (~10 min). Parallel: wrong-film
+  audit 6/25 transcribed, all OK so far.
+
 - 2026-08-26 tick 38 — **Episode-player Subtitles menu VERIFIED ON THE
   GLASS**: "Subtitles / check Automatic / Off" submenu captured open over
   13 Demon Street (build 969) — the last unverified chooser surface.
