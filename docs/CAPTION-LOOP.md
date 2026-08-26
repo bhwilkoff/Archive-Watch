@@ -76,6 +76,15 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 20 — **W7 White Zombie (1932 horror, colorized card,
+  published file): 11/11 PASS** after the device reboot — median dwell
+  4.4s, 0 bursts, 0 sub-1.2s changes, glass matched the published cue
+  14/16, playhead/audio continuous, no notices. The two prior attempts
+  died in the launch window (capture-daemon degradation — reboot is the
+  cure, now twice-proven) and one launch env miss (atv_scenario needs
+  DEVELOPER_DIR exported for devicectl). Impact verify run queued
+  against the now-live corrected VTT (site serves first cue at 74.47s).
+
 - 2026-08-26 tick 19 — **F-9 FIXED AT SOURCE and PUBLISHED**: ffsubsync
   against Impact720p's SERVED copy measured offset -22.03s, scale 1.000
   — exactly the -22.0s the 2026-08-10 sweep recorded for "Impact",
