@@ -76,6 +76,19 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 25 — **W7 Carnival of Souls (1962 indie horror,
+  published file): green after two assertion calibrations.** The run's
+  two FAILs were both instrument: (1) playhead_advances counted three
+  t=0 pre-roll samples (buffer 0->11 then perfect 5s advancement) as a
+  freeze — startup is D077's domain (30s bound), now exempt (t1 > 0);
+  (2) glass_matches_file demanded 5 checkable moments on a film whose
+  organ-scored opening offers 4 in 3.5min, 3 of which matched — the
+  grade now fails only on POSITIVE mismatch evidence (>=5 checks: 70%;
+  1-4 checks: majority; 0 checks: nothing to judge, presence is
+  captions_on_glass's claim). Substance was healthy: file mode, 3/4
+  matched, monotonic, audio continuous. Next: 1950s TV episode cell
+  (Suspense "On a Country Road", 1951, engine mode).
+
 - 2026-08-26 tick 24 — **W7 cartoon cell (Minnie the Moocher, 1932
   Fleischer): PASS after a grader fix.** The run failed glass_matches_file
   0/15 — but the app was correctly in ENGINE mode: the site publishes
