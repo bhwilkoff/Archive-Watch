@@ -692,9 +692,9 @@ final class LiveCaptions {
         // the assumed rate is wrong, and no level correction can outrun it.
         // Least-squares over the window; both terms sampled at the same
         // moments, so the decode-ahead gap cancels out of the slope.
-        if slopeSamples.count >= 5,
+        if slopeSamples.count >= 4,
            let d0 = slopeSamples.first?.delivered,
-           let d1 = slopeSamples.last?.delivered, d1 - d0 >= 20 {
+           let d1 = slopeSamples.last?.delivered, d1 - d0 >= 25 {
             let n = Double(slopeSamples.count)
             let mx = slopeSamples.map(\.delivered).reduce(0, +) / n
             let my = slopeSamples.map(\.err).reduce(0, +) / n
@@ -704,7 +704,22 @@ final class LiveCaptions {
                 sxx += (s.delivered - mx) * (s.delivered - mx)
             }
             let slope = sxx > 0 ? sxy / sxx : 0
-            if abs(slope) > 0.08 {
+            // Mean absolute residual gates NOISE: on a healthy file the
+            // offline harness caught a spurious re-anchor (one 0.4s dwell on
+            // the glass) from a fit over decode-ahead jitter. A genuine
+            // sustained shortfall (Ghost Train: ~0.3/s) fits tightly; jitter
+            // does not. Down-only — a recovering scout just stops adding
+            // error, and the level corrections drain the rest.
+            var mar = 0.0
+            for s in slopeSamples {
+                mar += abs((s.err - my) - slope * (s.delivered - mx))
+            }
+            mar /= n
+            if trace {
+                awdiag("[AWCAP] slope fit: \(String(format: "%+.3f", slope))/s "
+                      + "mar \(fmt(mar)) n \(slopeSamples.count) span \(fmt(d1 - d0))s")
+            }
+            if slope > 0.12, mar < 2.0 {
                 let newRate = min(Double(Self.scoutRate), max(1.0, mappingRate - slope))
                 mappingAnchorFilm = filmTime(delivered)
                 mappingAnchorRaw = delivered
