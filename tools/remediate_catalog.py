@@ -1392,6 +1392,77 @@ def restore_mistyped_trailers(items, stats):
         stats[f"trailer_restored_{new}"] += 1
 
 
+# "Meet John Doe GARY COOPER" — an uploader appends the star's name in caps.
+# The caps alone are NOT evidence: sometimes they ARE the title (Ida Lupino's
+# NOT WANTED, Do ANKHEN BARA HAATH). Two corroborations are accepted, either
+# sufficient: the stripped title matches a SIBLING item of the same year, or
+# the tail names someone in the item's own cast/director. Measured 2026-08-26:
+# 59 caps-tail candidates; the sibling anchor is what lets the duplicate
+# merge finally see "Meet John Doe GARY COOPER" and "Meet John Doe" as one
+# film. Same pass: a no-imdb card whose title AND runtime (±2s) exactly match
+# an imdb-anchored sibling adopts that sibling's year — doa_ipod said 1955
+# on a byte-identical-runtime copy of the 1949 D.O.A., and the wrong year is
+# what kept the merge apart.
+_CAPS_TAIL = re.compile(
+    r"^(.*?[a-z].*?)[\s,–—-]+((?:[A-Z][A-Z.'’]{2,}\s+){1,2}[A-Z][A-Z.'’]{2,})$")
+
+
+def _norm_title_key(t):
+    return " ".join(re.sub(r"[^a-z0-9 ]", " ", (t or "").lower()).split())
+
+
+def sibling_anchored_fixes(items, stats):
+    by_key = {}
+    for it in items:
+        if it.get("excluded") or it.get("contentType") not in MOVIE_TYPES:
+            continue
+        k = _norm_title_key(it.get("title"))
+        if k:
+            by_key.setdefault(k, []).append(it)
+    for it in items:
+        if it.get("excluded") or it.get("contentType") not in MOVIE_TYPES:
+            continue
+        t = (it.get("title") or "").strip()
+        m = _CAPS_TAIL.match(t)
+        if m and "," not in m.group(1):
+            stripped, tail = m.group(1).strip(" ,–—-"), m.group(2)
+            tail_key = " ".join(tail.replace(".", " ").replace("'", " ").lower().split())
+            people = list(it.get("cast") or []) + [it.get("director")]
+            names = {" ".join(str(p.get("name", p) if isinstance(p, dict) else p)
+                              .lower().split()) for p in people if p}
+            cast_hit = any(tail_key == n for n in names)
+            year = it.get("year")
+            sib_hit = any(s is not it and abs((s.get("year") or 0) - (year or -9)) <= 1
+                          for s in by_key.get(_norm_title_key(stripped), []))
+            if cast_hit or sib_hit:
+                it["title"] = stripped
+                stats["title_caps_tail_stripped"] += 1
+    # year adoption: exact-runtime + same-title corroboration from an
+    # imdb-anchored sibling. Runtime equal to within 2 seconds is the same
+    # encode lineage, not a coincidence. The anchor must be matchVerified
+    # (D026) — an UNVERIFIED anchor can itself be the wrong match, and then
+    # adoption propagates the error: motherhood_by_choice_fadiman_2004 would
+    # have adopted 1917 from its "remove2" twin, whose tt0007097 match is
+    # wrong (a 2004 documentary matched to a 1917 film, same encode, same
+    # 1720s runtime).
+    for it in items:
+        if (it.get("excluded") or it.get("imdbID")
+                or it.get("contentType") not in MOVIE_TYPES):
+            continue
+        rt, year = it.get("runtimeSeconds"), it.get("year")
+        if not rt:
+            continue
+        anchors = [s for s in by_key.get(_norm_title_key(it.get("title")), [])
+                   if s is not it and s.get("imdbID") and s.get("matchVerified")
+                   and s.get("runtimeSeconds")
+                   and abs(s["runtimeSeconds"] - rt) <= 2
+                   and isinstance(s.get("year"), int)]
+        if len({s["year"] for s in anchors}) == 1 and anchors[0]["year"] != year:
+            it["year"] = anchors[0]["year"]
+            it["yearSource"] = "sibling-runtime"
+            stats["year_adopted_from_sibling"] += 1
+
+
 def remediate(items):
     stats = Counter()
     # A later rule can null a year this pass filled (e.g. the B&W-vs-modern
@@ -1401,6 +1472,7 @@ def remediate(items):
         for it in items:
             if it.get("yearSource") and not isinstance(it.get("year"), int):
                 it.pop("yearSource", None)
+    sibling_anchored_fixes(items, stats)
     for it in items:
         ct = it.get("contentType")
         if ct == "tv-series" or ct not in MOVIE_TYPES:
