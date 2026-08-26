@@ -682,16 +682,26 @@ def merge_film_duplicates(items, spine_aids=frozenset()):
             continue
         if it.get("contentType") in _FILM_TYPES and not it.get("excluded"):
             k = _dupe_title_key(it.get("title"))
-            if len(k) >= 4:
+            # 3-char keys are real titles too — "doa" kept SIX copies of
+            # D.O.A. (1949) invisible to this merge (only dedupe_by_imdb
+            # collapsed the anchored five; the no-imdb sixth stood as a
+            # visible duplicate). Shorter than 3 stays out.
+            if len(k) >= 3:
                 clusters.setdefault(k, []).append(it)
 
     GRAFT = ("imdbID", "tmdbID", "year", "director", "imdbRating", "imdbVotes",
              "contentRating", "language")
     drop_ids, merged = set(), 0
     aliases = {}
-    for members in clusters.values():
+    for key, members in clusters.items():
         if len(members) < 2:
             continue
+        # A 3-char title is short enough to collide by accident, so edges
+        # there additionally require an imdb ANCHOR on one side: two bare
+        # no-imdb copies never merge at that length. Measured: the two MGM
+        # logo stings (11s and 16s, both 1928, key "mgm") pass the bare-bare
+        # tight-runtime test and are different reels.
+        need_anchor = len(key) == 3
         # union-find over the cluster using _same_film edges
         parent = list(range(len(members)))
 
@@ -703,6 +713,9 @@ def merge_film_duplicates(items, spine_aids=frozenset()):
 
         for i in range(len(members)):
             for j in range(i + 1, len(members)):
+                if need_anchor and not (members[i].get("imdbID")
+                                        or members[j].get("imdbID")):
+                    continue
                 if _same_film(members[i], members[j]):
                     parent[find(i)] = find(j)
         comps = {}
