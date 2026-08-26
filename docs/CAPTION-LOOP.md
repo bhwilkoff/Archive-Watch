@@ -76,6 +76,17 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 6 — **W1 engine run: pacing GREEN in engine mode too**
+  (median dwell 4.4s, 4/67 fast, 0 bursts; glass_matches_engine 45/45;
+  w1-tim-engine-1787753183). **F-3 OPEN**: caption_schedule_monotonic
+  failed — 2 displayed cues ran backwards (worst -2.5s), each at the
+  instant of a CLAMPED drift correction (#3: -19.5→-0.9s, #4:
+  -18.7→-2.5s, "mapping floor ran ~27s ahead of the scout"). The clamp
+  contains the harm to ~2s mid-read line swaps, but FOUR corrections in
+  5 minutes on a healthy stream says the drift ESTIMATOR is over-firing
+  — that is the root to chase (D074 lower-envelope), not the display.
+  1.3.439 (W4 chooser) installed on the ATV for on-glass verification.
+
 - 2026-08-26 tick 5 — **W4 tvOS chooser BUILT (merely-fixed)**: the
   transport bar's binary "Subtitles On/Off" is now a "Subtitles" menu —
   Subtitle File / Automatic / Off with checkmarks, mirroring the Version
