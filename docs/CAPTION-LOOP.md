@@ -76,6 +76,22 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 40 — **W3 HEADLINE: the SYSTEM generated track now
+  EMITS TEXT on tvOS 27 build 24J5358a — D068's "offered, never emits"
+  is CURED on this OS build.** Probe (on-glass, 1.3.447/969): shape 1
+  local file TEXT after 14s; shape 2 plain remote MP4 TEXT after 36s;
+  shape 3 HLS wrapper TEXT after 30s — all three offered, selected, and
+  EMITTING. This reopens the architecture question deliberately closed
+  by D068/072 (our engine leads because Apple's track never spoke). NOT
+  pivoting code on it — that is an owner-visible decision (candidate
+  shape: system leads / engine understudy, which would retire most of
+  the custom caption stack on tvOS 27+, exactly the owner's "too much
+  custom work" push). Probe still finishing (negative control pending).
+  Parallel: wrong-film audit 10/25, all OK; orphan-reclaim batch-1 work
+  list built (top-25 served-card orphans; reclaim = re-stamp captions[]
+  + subtitleHLS with source "reclaimed-verified" + agreement evidence,
+  per free_subtitles' claim shape).
+
 - 2026-08-26 tick 39 — **W3 re-measure RUNNING on the device**: drove
   Settings -> Caption Diagnostics -> Run Caption Test via presses with
   capture checkpoints (Settings has no auto-hide, so capture-between-
