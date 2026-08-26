@@ -14,7 +14,20 @@ enum CaptionPlaybackChoice: String, CaseIterable, Identifiable {
 /// sheet writes here, the player window reads it when it opens.
 @MainActor
 enum CaptionChoiceSession {
-    static var byItem: [String: CaptionPlaybackChoice] = [:]
+    /// AW_CAPTION_CHOICE=<file|automatic|off> (with AW_START_ITEM) seeds the
+    /// choice for harness runs — the picker itself needs a pointer/finger,
+    /// and behavior that cannot be driven unattended cannot be
+    /// regression-tested. No-op in production like every AW_ hook.
+    static var byItem: [String: CaptionPlaybackChoice] = {
+        var d: [String: CaptionPlaybackChoice] = [:]
+        let env = ProcessInfo.processInfo.environment
+        if let raw = env["AW_CAPTION_CHOICE"],
+           let c = CaptionPlaybackChoice(rawValue: raw),
+           let item = env["AW_START_ITEM"] {
+            d[item] = c
+        }
+        return d
+    }()
 }
 
 // The "Get subtitles" sheet — one view for tvOS, iOS and macOS.

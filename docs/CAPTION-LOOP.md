@@ -76,6 +76,22 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 16 — **F-8 found + root-caused + fixed (merely-fixed;
+  verify run live)**: the macOS on-glass pass froze twice within the
+  first minute (38s, 55s — window-scoped screenshots; the scout
+  streamed the same file happily on its own loader, exonerating network
+  + file). Root cause: the stall/failure rescue was armed only for
+  subtitleHLS != nil, written before D067 gave uncaptioned films a
+  plain AVPlayerItem(url:) — so EVERY uncaptioned macOS-27 film has
+  played with no loader and no stall rescue since D067, frozen forever
+  by one archive.org idle reset. Fix: the direct-URL branch arms the
+  same CaptionStallMonitor + failed-status rescue (rebuild on the
+  resilient loader, resume position); the fallback no longer
+  double-starts the engine and honours captions Off. AW_CAPTION_CHOICE
+  env hook added (harness-drivable choice). Verification run playing
+  now. Also: mac captures are WINDOW-SCOPED from here (the first was a
+  full-desktop grab — privacy lesson).
+
 - 2026-08-26 tick 15 — **W4 macOS parity BUILT (merely-fixed)**: the
   shared sheet's picker now feeds macOS through a session store
   (Detail and the player are different WINDOWS on macOS, so a local

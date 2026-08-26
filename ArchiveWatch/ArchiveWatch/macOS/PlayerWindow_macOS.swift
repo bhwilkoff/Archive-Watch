@@ -146,6 +146,8 @@ private struct PlayerSurface: View {
     // On a persistent mid-stream stall — or a hard load failure — drop CC and
     // rebuild on the resilient MP4 (smooth-without-CC beats stutter-with-CC).
     @State private var captionStall = CaptionStallMonitor()
+    /// The Decision-067 plain-URL branch was taken (no loader on the item).
+    @State private var usedDirectURL = false
     @State private var captionedLoader: CaptionedHLSLoader?   // Part (a): Config C HLS
     @State private var localSubsLoader: LocalSubtitleHLSLoader?  // on-device subtitles
     @State private var statusObs: NSKeyValueObservation?
@@ -235,8 +237,9 @@ private struct PlayerSurface: View {
             // an ordinary asset. Through `aw-stream://` no subtitle track is
             // ever offered (measured on macOS 27, one shape per process), so the
             // resilient loader gives way for films with no subtitles of their
-            // own. `makeLocalItem` still rebuilds on the loader after a stall.
+            // own.
             playerItem = AVPlayerItem(url: url)
+            usedDirectURL = true
         } else if let url = videoURL {
             let (asset, l) = ResilientStreamLoader.makeAsset(for: url)
             loader = l
@@ -266,10 +269,16 @@ private struct PlayerSurface: View {
             let active = pl.isExternalPlaybackActive
             MainActor.assumeIsolated { externalPlaybackChanged(active) }
         }
-        // Part (c): captioned (HLS) titles — recover to the resilient MP4 on a hard
-        // load failure OR a persistent stutter. Non-captioned MP4 already streams
-        // through ResilientStreamLoader, so it needs no fallback.
-        if subtitleHLS != nil, videoURL != nil {
+        // Part (c): recover to the resilient MP4 on a hard load failure OR a
+        // persistent stutter — for captioned (HLS) titles AND the Decision-067
+        // direct-URL path. The old premise ("non-captioned MP4 already streams
+        // through ResilientStreamLoader, so it needs no fallback") died the day
+        // D067 gave uncaptioned films a plain AVPlayerItem(url:) so the system
+        // could caption them: that item has NO loader, so one archive.org idle
+        // reset froze it forever (F-8: reproduced twice on macOS 27 within the
+        // first minute — 38s and 55s — while the scout streamed the same file
+        // happily on its own loader).
+        if (subtitleHLS != nil || usedDirectURL), videoURL != nil {
             statusObs = playerItem.observe(\.status, options: [.new]) { item, _ in
                 MainActor.assumeIsolated { if item.status == .failed { fallbackToResilientMP4() } }
             }
@@ -409,7 +418,9 @@ private struct PlayerSurface: View {
         loader = l
         swap(to: AVPlayerItem(asset: asset), resumingAt: pos, on: p)
         // The subtitle track went with the HLS path — caption the audio instead.
-        startLiveCaptions(on: p)
+        // Unless the engine is already running (the direct-URL branch started
+        // it at setup) or the viewer chose captions Off.
+        if liveCaptions == nil, !captionsOff { startLiveCaptions(on: p) }
     }
 
     /// Check the published track against what is actually being said.
