@@ -181,8 +181,12 @@ def parse_console(log):
                 buf.append((wall, int(bm.group(1)), int(bm.group(2))))
         elif "AWAUD rms" in msg:
             aud.append(wall)
-        elif " show: " in msg:
-            shown.append((wall, msg.split(" show: ", 1)[1]))
+        elif "show[cue=" in msg:
+            # Trace format: `trace t=104.0 show[cue=103.0]: Even ten minutes…`
+            # The old " show: " pattern matched NOTHING, so `shown` was empty
+            # and caption_pacing / glass_matches_engine silently never graded
+            # — an assertion that cannot fire is not an assertion.
+            shown.append((wall, msg.split("]: ", 1)[1] if "]: " in msg else msg))
         elif any(k in msg for k in ("AWSTALL", "itemFailed", "subtitle review",
                                     "scout playing", "scout silenced", "AWNUDGE",
                                     "AWLIFE")):

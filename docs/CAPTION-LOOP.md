@@ -76,6 +76,15 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 4 — **F-1 CLOSED, 10/10 green** on the honest re-measure
+  (w2b-hgf-honest-1787752837): 21 blank ticks, 0 dropped cues; W2
+  re-confirmed 0/41. Second instrument gap found by absence: the diag
+  parser matched " show: " while the trace emits "show[cue=…]:" — pacing
+  never graded. Fixed; validated against the real diag: 79 lines
+  recovered, FILE-mode pacing is CLEAN (median dwell 2.94s, 0 fast, 0
+  bursts). The owner's too-fast/burst complaint is therefore expected in
+  ENGINE mode — Incredible Machine run queued.
+
 - 2026-08-26 tick 3 — **W5 VERIFIED**: the subtitles sheet renders fully
   inside the sheet bounds on the iPhone 17 Pro simulator (same film as the
   owner's clipped screenshot; build/qa/ios-2026-08-26/w5-sheet.png). Added
