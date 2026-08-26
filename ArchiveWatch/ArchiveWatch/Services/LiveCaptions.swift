@@ -94,6 +94,9 @@ final class LiveCaptions {
     private var cues: [(start: Double, end: Double, text: String)] = []
     /// Where the scout began, in film time; the analyzer clocks from zero.
     private var contentOffset: Double = 0
+    /// The scout's MEASURED sustained rate (nil until ~20s of evidence).
+    /// Nominal 2.0x is a ceiling the device does not always honor.
+    private var measuredRate: Double?
     private var pendingWords: [(start: Double, end: Double, text: String)] = []
     /// The recognizer's own timings, before any display pacing (Decision 059).
     private var rawCues: [(start: Double, end: Double, text: String)] = []
@@ -654,7 +657,10 @@ final class LiveCaptions {
         guard delivered > 8 else { return }
         let pos = scout.currentTime().seconds
         guard pos.isFinite, pos > 0 else { return }
-        let err = contentOffset + delivered * Double(Self.scoutRate) - pos
+        // Same rate the cue mapping uses — measuring err with the NOMINAL
+        // rate while cues map with the measured one would manufacture a
+        // phantom error exactly as large as the fix.
+        let err = contentOffset + delivered * (measuredRate ?? Double(Self.scoutRate)) - pos
         let now = Date().timeIntervalSince1970
         driftSamples.append((wall: now, err: err))
         driftSamples.removeAll { now - $0.wall > 30 }
@@ -786,6 +792,12 @@ final class LiveCaptions {
         await scout.seek(to: CMTime(seconds: contentOffset, preferredTimescale: 600),
                          toleranceBefore: .zero, toleranceAfter: .zero)
         scout.rate = Self.scoutRate
+        // A resynced session is definitionally seek-started: The Ghost Train
+        // (w8-timing-ghosttrain2) resumed at 345s via THIS path after starting
+        // near zero, and the envelope gate then withheld a sorely-needed 17.4s
+        // drift correction as "from-zero".
+        sessionBeganSeeked = true
+        measuredRate = nil                      // new anchor, re-measure
         awdiag("[AWCAP] scout resynced by seek to \(fmt(contentOffset))s")
         #if canImport(Speech)
         if #available(iOS 26, tvOS 26, macOS 26, visionOS 26, *) {
@@ -1000,9 +1012,31 @@ final class LiveCaptions {
                 // minutes early. The two platforms stamp the same callback in
                 // different timelines; the rate formula is the only mapping
                 // that holds on both, because it never reads those stamps.
-                let rate = Double(Self.scoutRate)
-                let s0 = contentOffset + result.range.start.seconds * rate
-                let e0 = contentOffset + result.range.end.seconds * rate
+                // The nominal rate is a CEILING, not a measurement: on The
+                // Ghost Train the scout set to 2.0x sustained only ~1.54x
+                // (raw 165.2 mapped to film 675.6 while the scout actually
+                // sat at 598.9), so every cue landed progressively later —
+                // +58s by the third act, measured on the glass against a
+                // film-time transcript. The scout's own currentTime is film
+                // time on BOTH platforms (it is the item's timeline, not the
+                // tap's stamps — the D069 trap does not apply), so the
+                // effective rate is measurable directly: (pos - offset)/raw,
+                // smoothed, trusted only past 20s of delivered audio.
+                let raw0 = result.range.start.seconds
+                let raw1 = result.range.end.seconds
+                let (s0, e0): (Double, Double) = await MainActor.run {
+                    if raw0 > 20, let pos = self.scoutPlayer?.currentTime().seconds,
+                       pos.isFinite, pos > self.contentOffset {
+                        let eff = (pos - self.contentOffset) / raw0
+                        if eff >= 1.0, eff <= Double(Self.scoutRate) + 0.05 {
+                            let prev = self.measuredRate ?? eff
+                            self.measuredRate = prev * 0.8 + eff * 0.2
+                        }
+                    }
+                    let rate = self.measuredRate ?? Double(Self.scoutRate)
+                    return (self.contentOffset + raw0 * rate,
+                            self.contentOffset + raw1 * rate)
+                }
                 guard s0.isFinite, e0.isFinite, e0 > s0 else { continue }
                 await MainActor.run {
                     if self.cues.count < 3 {
