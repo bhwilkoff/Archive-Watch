@@ -76,6 +76,18 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 2 — **F-1 root-caused as an INSTRUMENT defect**: in file
+  mode the caption trace diagnosed blanks against the ENGINE's cue list
+  while the display renders fileCues — a normal file-cue gap graded as
+  "5 caption drops" (cross-source evidence). Trace now reads the same list
+  the display renders (1.3.437/959, installed). Honest re-measure of
+  w2-hgf queued. Display loop cadence measured: 150ms (quantization
+  exonerated).
+- 2026-08-26 tick 1 — **W2 VERIFIED on the glass**: 'Preparing…' on 0/52
+  frames through a cold-start warm-up (build 958, w2-hgf-1787752331);
+  9/10 assertions green incl. glass_matches_file 46/49. Upgraded runner's
+  polled wake + durable run dirs worked first try.
+
 - 2026-08-26 — Campaign opened. W2 + W5 fixed in code (unverified);
   architecture mapped: iOS runs BOTH system captions and our engine with
   hand-over arbitration; tvOS engine-only (D072). Devices confirmed

@@ -320,9 +320,26 @@ final class CaptionCoordinator {
                 self?.label?.isHidden = text.isEmpty
                 if self?.trace == true {
                     if text != shown {
-                        let cueAt = lc.shownCueStart(at: now.seconds)
+                        // The diagnosis must read the SAME cue list the display
+                        // renders. In file mode the label shows fileCues, but
+                        // this trace counted the ENGINE's cues — so a normal
+                        // gap between file cues, with an engine cue nearby,
+                        // reported as "blank with a cue that should have shown"
+                        // and the harness graded five phantom caption drops
+                        // (w2-hgf-1787752331). Cross-source evidence is not
+                        // evidence.
+                        let cueAt: Double?
+                        let bracketing: Int
+                        if self?.showFile == true, let fc = self?.fileCues, !fc.isEmpty {
+                            let t = now.seconds
+                            bracketing = fc.filter { $0.start <= t && t <= $0.end }.count
+                            cueAt = fc.first { $0.start <= t && t <= $0.end }?.start
+                        } else {
+                            bracketing = lc.bracketingCueCount(at: now.seconds)
+                            cueAt = lc.shownCueStart(at: now.seconds)
+                        }
                         let why = text.isEmpty
-                            ? "(blank, cues bracketing=\(lc.bracketingCueCount(at: now.seconds)))"
+                            ? "(blank, cues bracketing=\(bracketing))"
                             : "show[cue=\(cueAt.map { String(format: "%.1f", $0) } ?? "?")]: "
                               + "\(text.prefix(50))"
                         awdiag("[AWCAP] trace t=\(String(format: "%.1f", now.seconds)) " + why)
