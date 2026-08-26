@@ -108,7 +108,14 @@ probes.
 
 ## DECISION PROPOSAL (owner-visible, code untouched until agreed)
 
-**On tvOS 27.0 final (24J5358a+), let the SYSTEM caption uncaptioned
+**AMENDED per owner (2026-08-26 15:00): the Fireplace Apple TV is
+HARDWARE-incapable of on-device captions (only 3rd-gen Apple TV 4K
+runs them), so no Fireplace probe — and the engine fallback for
+tvOS 26 and older hardware is PERMANENT, not transitional. The owner
+also wants MORE on-glass timing evidence before trusting either path;
+the caption_timing_vs_truth sweep is that evidence.**
+
+**On tvOS 27.0 final (24J5358a+), on capable hardware, let the SYSTEM caption uncaptioned
 films; our engine becomes the understudy.** Evidence: the on-device
 probe measured Apple's generated track offered, selected, and EMITTING
 text on all three asset shapes (local 14s, plain remote MP4 36s, HLS
