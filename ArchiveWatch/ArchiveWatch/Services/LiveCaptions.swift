@@ -764,6 +764,11 @@ final class LiveCaptions {
         guard delta < -0.05 else { driftSamples.removeAll(); return }
         contentOffset += delta
         mappingAnchorFilm += delta
+        // The correction is a STEP in the err series; a least-squares slope
+        // over a sawtooth reads ~flat, which is why the slope loop never
+        // engaged while corrections were firing (w8-timing-ghosttrain5:
+        // three level corrections, zero rate re-anchors). Fit clean segments.
+        slopeSamples.removeAll()
         for i in cues.indices { cues[i].start += delta; cues[i].end += delta }
         for i in rawCues.indices { rawCues[i].start += delta; rawCues[i].end += delta }
         driftCorrections += 1

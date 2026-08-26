@@ -1,7 +1,9 @@
 archiveID,overlap,verdict,transcriptWords,fileWords
 Back-RoomBoy,0.79,OK,1423,1169
 EternallyYours,0.70,OK,1581,1301
+Lady_Confesses,0.74,OK,841,888
 Phantom_From_Space,0.71,OK,1231,1201
+Please_Murder_Me_movie,0.78,OK,1289,1183
 Seven_Sinners_1936,0.66,OK,1349,1206
 TheGhostTrain,0.85,OK,1521,1425
 TheTerrorOfTinyTown1938_802,0.86,OK,855,837
@@ -11,6 +13,7 @@ arizona_kid,0.71,OK,996,953
 bank_alarm,0.89,OK,1149,1156
 beggars_in_ermine,0.74,OK,1203,1035
 below_the_deadline,0.87,OK,1287,748
+big_bluff,0.73,OK,1175,1117
 breaking_the_ice,0.61,OK,1063,816
 bride_for_henry,0.72,OK,976,890
 crooked_circle,0.64,OK,1041,804
@@ -25,6 +28,8 @@ hoosier_schoolboy,0.71,OK,1152,1144
 irish_luck,0.68,OK,898,902
 lying_lips_ipod,0.73,OK,1205,1098
 murder_on_campus,0.72,OK,1390,1321
+phantom_ship,0.59,OK,847,603
+private_snuffy_smith,0.61,OK,1191,1068
 rhythm_blues_review,0.73,OK,966,726
 ride_ranger_ride,0.74,OK,996,681
 rogue_of_the_range,0.72,OK,853,711
@@ -35,3 +40,4 @@ the_big_show,0.57,OK,907,778
 under_the_big_top,0.69,OK,855,826
 undercover_agent,0.74,OK,1161,1099
 x_marks_the_spot,0.76,OK,1005,976
+youth_on_parole,0.90,OK,893,848
