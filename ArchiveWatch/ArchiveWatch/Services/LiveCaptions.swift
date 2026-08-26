@@ -688,11 +688,14 @@ final class LiveCaptions {
         driftSamples.removeAll { now - $0.wall > 30 }
         slopeSamples.append((delivered: delivered, err: err))
         if slopeSamples.count > 12 { slopeSamples.removeFirst(slopeSamples.count - 12) }
+        if trace {
+            awdiag("[AWCAP] drift sample: err \(fmt(err)) delivered \(fmt(delivered)) n \(slopeSamples.count)")
+        }
         // SLOPE loop: err growing ~linearly per delivered-audio second means
         // the assumed rate is wrong, and no level correction can outrun it.
         // Least-squares over the window; both terms sampled at the same
         // moments, so the decode-ahead gap cancels out of the slope.
-        if slopeSamples.count >= 4,
+        if slopeSamples.count >= 3,
            let d0 = slopeSamples.first?.delivered,
            let d1 = slopeSamples.last?.delivered, d1 - d0 >= 25 {
             let n = Double(slopeSamples.count)
@@ -779,11 +782,13 @@ final class LiveCaptions {
         guard delta < -0.05 else { driftSamples.removeAll(); return }
         contentOffset += delta
         mappingAnchorFilm += delta
-        // The correction is a STEP in the err series; a least-squares slope
-        // over a sawtooth reads ~flat, which is why the slope loop never
-        // engaged while corrections were firing (w8-timing-ghosttrain5:
-        // three level corrections, zero rate re-anchors). Fit clean segments.
-        slopeSamples.removeAll()
+        // The correction is a STEP in the err series and a least-squares
+        // slope over a sawtooth reads ~flat — but CLEARING the window starved
+        // it to 1-2 samples between corrections (driftCheck's cadence is
+        // slower than assumed; w8-timing-ghosttrain7 never printed a single
+        // fit). Shift the retained samples by the correction instead: the
+        // series stays continuous AND populated.
+        for i in slopeSamples.indices { slopeSamples[i].err += delta }
         for i in cues.indices { cues[i].start += delta; cues[i].end += delta }
         for i in rawCues.indices { rawCues[i].start += delta; rawCues[i].end += delta }
         driftCorrections += 1
