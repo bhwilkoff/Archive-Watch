@@ -865,6 +865,28 @@ final class LiveCaptions {
             cues[i].start += shift
             cues[i].end += shift
         }
+
+        // Merge rapid-fire fragments — the corpus pace_vtt fix applied live.
+        // A run of short utterances each at its 1.0s reading floor is legal
+        // under every rule above and still reads as a BURST from the sofa
+        // (Suspense "On a Country Road": 3 windows of 3+ lines in 3s, every
+        // line individually readable). The scout works ahead of playback, so
+        // pending cues can coalesce before they are ever drawn. Only cues not
+        // yet on screen are touched, same guard as the push-apart loop.
+        var i = 0
+        while i < cues.count - 1 {
+            let c = cues[i], n = cues[i + 1]
+            let joined = c.text + " " + n.text
+            if c.start > lastPlayhead,
+               n.start - c.start < Self.readingTime(c.text) + 0.2,
+               n.start - c.end <= 0.75,
+               joined.count <= Self.maxCharsPerLine * Self.visibleLines {
+                cues[i] = (start: c.start, end: max(c.end, n.end), text: joined)
+                cues.remove(at: i + 1)
+            } else {
+                i += 1
+            }
+        }
         if cues.count > 600 { cues.removeFirst(cues.count - 600) }
     }
 

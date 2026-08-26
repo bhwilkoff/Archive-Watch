@@ -76,6 +76,21 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 26 — **W7 1950s TV episode cell (Suspense "On a
+  Country Road" 1951, EPISODE PLAYER, engine mode): display fidelity
+  excellent (glass matched engine 39/43), monotonic, audio clean — and
+  caption_pacing FAILED on the ENGINE's live output: 3 burst windows,
+  7/73 changes under 1.2s. Mechanism: anthology dialogue produces runs
+  of one-word utterances, each floored at its LEGAL 1.0s reading time —
+  every line individually readable, the sequence still a burst from the
+  sofa. Fix: the corpus merge (tick 21) applied LIVE in
+  LiveCaptions.appendCue — pending rapid-fire fragments coalesce before
+  they are drawn (only cues not yet on screen, gap <=0.75s, cue at its
+  floor +0.2s slack, merged text capped at one caption block). The scout
+  works ahead, so the cues exist in time to merge. 1.3.445/967 built +
+  installed to the ATV. Notes: episodes are NOT in catalog-index —
+  resolve_card cannot find them; launch by --item with a DB-sourced id.
+
 - 2026-08-26 tick 25 — **W7 Carnival of Souls (1962 indie horror,
   published file): green after two assertion calibrations.** The run's
   two FAILs were both instrument: (1) playhead_advances counted three
