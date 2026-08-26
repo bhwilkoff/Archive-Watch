@@ -18,6 +18,7 @@ struct DetailView: View {
     @State private var addingToPlaylist = false
     @State private var clipping = false
     @State private var gettingSubtitles = false
+    @State private var captionPlaybackChoice: CaptionPlaybackChoice?
     @State private var playbackError: String?
 
     private var isFav: Bool { favorites.contains { $0.archiveID == item.archiveID } }
@@ -61,10 +62,11 @@ struct DetailView: View {
 
                         // Subtitles. This lived inside the share menu, which is
                         // where nobody looks for subtitles — a viewer who wants
-                        // them looks at the film, not at a share sheet. It shows
-                        // only when the title has none, so it disappears the
-                        // moment it is answered.
-                        if SubtitleFinder.shouldOffer(for: item) {
+                        // them looks at the film, not at a share sheet. Now the
+                        // caption-type hub (owner 2026-08-26), it shows for
+                        // every playable title: a film WITH a subtitle file is
+                        // exactly where choosing File vs Automatic matters.
+                        if item.videoURLParsed != nil {
                             Button { gettingSubtitles = true } label: {
                                 Image(systemName: "captions.bubble")
                                     .accessibilityLabel("Get subtitles")
@@ -171,7 +173,7 @@ struct DetailView: View {
             PlayerView(item: item, autoplayIn: store, onUnplayable: { message in
                 playing = false
                 playbackError = message
-            }).ignoresSafeArea()
+            }, captionChoice: captionPlaybackChoice).ignoresSafeArea()
         }
         .alert("Can't play this title", isPresented: .constant(playbackError != nil)) {
             Button("OK") { playbackError = nil }
@@ -185,7 +187,8 @@ struct DetailView: View {
             ClipStudioView(source: item.clipSource)
         }
         .sheet(isPresented: $gettingSubtitles) {
-            GetSubtitlesView(item: item).presentationDetents([.medium, .large])
+            GetSubtitlesView(item: item, playbackChoice: $captionPlaybackChoice)
+                .presentationDetents([.medium, .large])
         }
         // Dev affordance (with AW_START_ITEM): start playback immediately so
         // playback diagnostics can run unattended on the simulator.

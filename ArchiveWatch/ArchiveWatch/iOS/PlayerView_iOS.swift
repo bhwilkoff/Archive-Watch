@@ -45,11 +45,16 @@ struct PlayerView: UIViewControllerRepresentable {
     var onUnplayable: ((String) -> Void)? = nil
     /// Transcribe the streaming audio when the film carries no subtitle track.
     var liveCaptionsEnabled: Bool = true
+    /// The viewer's caption-type choice from the subtitles sheet; nil = the
+    /// default path (file when published, else automatic).
+    var captionChoice: CaptionPlaybackChoice? = nil
 
     /// Play a movie/standalone item. Pass `store` to enable movie autoplay
     /// (gated by `store.autoplayMode`; .off means play just this one).
     init(item: Catalog.Item, autoplayIn store: AppStore? = nil,
-         onUnplayable: ((String) -> Void)? = nil) {
+         onUnplayable: ((String) -> Void)? = nil,
+         captionChoice: CaptionPlaybackChoice? = nil) {
+        self.captionChoice = captionChoice
         archiveID = item.archiveID
         // Honour the viewer's chosen copy (ArchiveVersions). Rebuilt from the
         // stored file name, so this needs no network and cannot delay playback.
@@ -124,12 +129,18 @@ struct PlayerView: UIViewControllerRepresentable {
         try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .moviePlayback)
         try? AVAudioSession.sharedInstance().setActive(true)
 
+        // The caption-type choice reshapes the ASSET (owner 2026-08-26): the
+        // file rides the captioned-HLS wrapper; Automatic/Off take the plain
+        // paths where the engine (or nothing) captions. Applied at playback
+        // start — the sheet's picker is read here.
+        let effectiveHLS = (captionChoice == .automatic || captionChoice == .off)
+            ? nil : subtitleHLSURL
         // Receiver-fetchable URLs for AirPlay (A0) — see Coordinator.directVideoURL.
         context.coordinator.directVideoURL = videoURL
-        context.coordinator.directHLSURL = subtitleHLSURL
+        context.coordinator.directHLSURL = effectiveHLS
 
         let pItem: AVPlayerItem
-        if let hls = subtitleHLSURL, let mp4 = videoURL {
+        if let hls = effectiveHLS, let mp4 = videoURL {
             // Part (a) Config C (Decision 039): AVPlayerViewController shows the CC
             // menu for the WebVTT tracks. A resource-loader delegate serves the HLS
             // playlists with the video segment rewritten to a freshly node-resolved
@@ -144,9 +155,9 @@ struct PlayerView: UIViewControllerRepresentable {
             // segment. Arm a fallback to the resilient MP4 loader (handles
             // moov-at-EOF via byte-range seeks) so the film still plays (sans CC).
             context.coordinator.fallbackVideoURL = mp4
-        } else if let hls = subtitleHLSURL {
+        } else if let hls = effectiveHLS {
             pItem = AVPlayerItem(url: hls)         // no MP4 to node-resolve; native HLS
-        } else if let mp4 = videoURL,
+        } else if let mp4 = videoURL, captionChoice == nil || captionChoice == .file,
                   let dir = SubtitleStore.cachedDir(for: archiveID),
                   let (asset, subsLoader) = LocalSubtitleHLSLoader.makeAsset(
                     dir: dir, downloadURL: mp4,
@@ -196,8 +207,9 @@ struct PlayerView: UIViewControllerRepresentable {
         // Live captions for a film with NO subtitle track: tap the audio that is
         // already streaming and transcribe it on device. Costs no extra bytes —
         // the player is decoding this audio regardless.
-        if liveCaptionsEnabled, LiveCaptions.isSupported, let src = videoURL {
-            if subtitleHLSURL == nil {
+        if liveCaptionsEnabled, captionChoice != .off, LiveCaptions.isSupported,
+           let src = videoURL {
+            if effectiveHLS == nil {
                 context.coordinator.startLiveCaptions(url: src, in: vc)
             } else if let vtt = publishedVTTURL {
                 // The film HAS subtitles — but a published file can belong to a

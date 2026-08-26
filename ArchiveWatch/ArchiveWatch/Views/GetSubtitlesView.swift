@@ -1,5 +1,14 @@
 import SwiftUI
 
+/// The viewer's caption-TYPE choice for a playback (owner 2026-08-26: "choose
+/// between the different captions types as you can do with choosing the video
+/// source"). tvOS chooses in the player's transport menu; iOS chooses here in
+/// the subtitles sheet, applied when playback starts.
+enum CaptionPlaybackChoice: String, CaseIterable, Identifiable {
+    case file, automatic, off
+    var id: String { rawValue }
+}
+
 // The "Get subtitles" sheet — one view for tvOS, iOS and macOS.
 //
 // It offers ONE thing: a search for HUMAN-written subtitles.
@@ -18,6 +27,10 @@ import SwiftUI
 // inside a definite width, which wraps on all three platforms.
 struct GetSubtitlesView: View {
     let item: Catalog.Item
+    /// When non-nil (iOS), the sheet offers the caption-type picker; the
+    /// choice rides into the next playback. nil elsewhere (tvOS has the
+    /// transport-menu chooser instead).
+    var playbackChoice: Binding<CaptionPlaybackChoice?>? = nil
     @State private var finder = SubtitleFinder()
     @State private var account = SubtitleAccount.shared
     @State private var capability = CaptionCapability.shared
@@ -56,6 +69,26 @@ struct GetSubtitlesView: View {
 
             case .idle:
                 choices
+            }
+            if let sel = playbackChoice {
+                Divider()
+                Text("Captions for playback")
+                    .font(.subheadline.weight(.semibold))
+                Picker("Captions", selection: Binding(
+                    get: { sel.wrappedValue
+                            ?? (item.subtitleHLSURL != nil ? .file : .automatic) },
+                    set: { sel.wrappedValue = $0 })) {
+                    if item.subtitleHLSURL != nil {
+                        Text("Subtitle File").tag(CaptionPlaybackChoice.file)
+                    }
+                    Text("Automatic").tag(CaptionPlaybackChoice.automatic)
+                    Text("Off").tag(CaptionPlaybackChoice.off)
+                }
+                .pickerStyle(.segmented)
+                row("info.circle",
+                    "Applies when playback starts. Automatic uses on-device "
+                    + "captioning; the subtitle file is human-made.",
+                    small: true)
             }
             Spacer(minLength: 0)
             #if os(tvOS)

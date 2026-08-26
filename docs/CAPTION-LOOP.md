@@ -76,6 +76,19 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 14 — **W4 iOS parity: picker UI VERIFIED in the sim,
+  plumbing merely-fixed** (build/qa/ios-2026-08-26/w4-ios-picker.png):
+  the subtitles sheet gains "Captions for playback" — Subtitle File /
+  Automatic / Off segmented, defaulting to File on file films — and the
+  choice reshapes the ASSET at playback start in PlayerView_iOS (File =
+  captioned-HLS; Automatic/Off = plain paths, engine gated off for Off).
+  Also fixed a reachability gap the change exposed: the subtitles
+  button only showed for films WITHOUT subtitles, making the picker
+  unreachable exactly where choosing matters — it is now the caption
+  hub for every playable title. iOS + tvOS build green (1.3.442/964).
+  Behavior half needs hardware with speech models (owner's iPhone) —
+  the TV was deliberately left alone this tick (owner is at it).
+
 - 2026-08-26 tick 13 — **W7 silent negative control VERIFIED** (clean
   re-run w7-silent-rerun-1787756457, app alive throughout): the engine
   displayed ZERO lines across a 4-minute silent-film run — no
