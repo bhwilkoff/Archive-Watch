@@ -76,6 +76,21 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 57 — **DEVICE RESTED (owner: "a whole lot of errors
+  without you doing anything differently").** The launch-window death
+  interval shrank from ~13 runs to 2 after successive reboots — reboot-
+  and-retry stopped being a mitigation and became a loop, so Apple TV
+  runs are STOPPED for the day (the 13th-man run was killed mid-flight).
+  Fifteen films of device evidence stand. Also recommitted, after a
+  third failure, to closing every turn with plain terminal text — the
+  ScheduleWakeup result's "nothing more to do" line kept truncating
+  turns. OPEN QUEUE (owner to prioritize): cold-start caption lateness
+  (measured, two candidate fixes tested-and-reverted today), the
+  undrivable tvOS Settings toggle (possible real remote bug),
+  system-leads captions decision, more timing films when the device is
+  rested, ~1,850 orphan reclaims in future batches, 14 model-contention
+  films to re-audit.
+
 - 2026-08-26 ticks 54-56 — **The envelope-only configuration is the
   keeper** (build 979): caballero2 proved eager level corrections make
   captions EARLY (median -30.7s after two young-window corrections —
