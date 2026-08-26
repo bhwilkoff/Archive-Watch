@@ -578,6 +578,11 @@ struct EpisodeAVPlayerContainer: UIViewControllerRepresentable {
     @MainActor final class Coordinator {
         var parent: EpisodeAVPlayerContainer
         let captions = CaptionCoordinator()
+        /// The viewer's caption-type choice for this episode session (the
+        /// episode container owns its menu, so the choice lives here) and the
+        /// controller whose menu gets rebuilt for checkmark state.
+        private var captionChoice: CaptionCoordinator.CaptionChoice?
+        private weak var lastVC: AVPlayerViewController?
         init(_ parent: EpisodeAVPlayerContainer) { self.parent = parent }
 
         func apply(to vc: AVPlayerViewController) {
@@ -592,6 +597,32 @@ struct EpisodeAVPlayerContainer: UIViewControllerRepresentable {
             var menu: [UIMenuElement] = []
             if parent.hasPrev { menu.append(prev) }
             if parent.hasNext { menu.append(next) }
+            // W4 parity: the same caption-type chooser the movie player has.
+            // Episodes are engine-only (no published per-episode subtitle
+            // files today), so the choices are Automatic / Off.
+            if LiveCaptions.isSupported {
+                let effective: CaptionCoordinator.CaptionChoice = captionChoice
+                    ?? (SystemCaptionStyle.viewerWantsCaptions ? .automatic : .off)
+                menu.append(UIMenu(title: "Subtitles",
+                                   image: UIImage(systemName: "captions.bubble"),
+                                   children: [
+                    UIAction(title: "Automatic",
+                             image: UIImage(systemName: "waveform"),
+                             state: effective == .automatic ? .on : .off) { [weak self] _ in
+                        self?.captionChoice = .automatic
+                        self?.captions.setCaptionChoice(.automatic)
+                        if let vc = self?.lastVC { self?.apply(to: vc) }
+                    },
+                    UIAction(title: "Off",
+                             image: UIImage(systemName: "captions.bubble"),
+                             state: effective == .off ? .on : .off) { [weak self] _ in
+                        self?.captionChoice = .off
+                        self?.captions.setCaptionChoice(.off)
+                        if let vc = self?.lastVC { self?.apply(to: vc) }
+                    },
+                ]))
+            }
+            lastVC = vc
             vc.transportBarCustomMenuItems = menu
             // The auto-surfacing prompt: only "Next Episode", and only inside the
             // start/end windows (#1) so it doesn't linger the whole episode.

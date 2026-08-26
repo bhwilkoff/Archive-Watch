@@ -76,6 +76,15 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 8 — **W4 episode-player parity BUILT (merely-fixed)**:
+  the tvOS episode container gains the same Subtitles chooser
+  (Automatic / Off — episodes are engine-only today) with checkmarks and
+  menu rebuild on selection. Also confirmed episodes DO carry engine
+  captions (the container grew liveCaptionURL in an earlier wave — my
+  first read of the screen file was wrong; the wiring lives in the
+  container). Builds green, 1.3.441/963. On-glass verification of both
+  menus queued behind the F-3 verify run.
+
 - 2026-08-26 tick 7 — **F-3 ROOT-CAUSED + fixed (merely-fixed, re-run
   queued)**: H1 (pause/resume) REFUTED by the trace — corrections #1-4
   all predate the first pause, firing every 25s from cold start with a
