@@ -76,6 +76,19 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 10 — **W4 movie-player VERIFIED on the glass**
+  (build/qa/atv-2026-08-26/w4-menu3): the Subtitles menu renders with
+  the checkmark on Subtitle File (menu-open.png), selecting Automatic
+  registers in the app's own diag ("caption choice -> automatic"), the
+  engine resyncs to the playhead, and the glass shows its line at the
+  playhead (auto-live.png "And a match." == the display trace).
+  Choreography lesson learned the hard way: menu driving must be ONE
+  unbroken warmed connection with inline delays — screenshots between
+  steps outlive the bar's ~5s auto-hide, and stray presses SEEK the
+  film (an earlier attempt silently seeked to 0 and read like a crash;
+  the diag exonerated the app — no "caption choice" line, one LAUNCH).
+  Episode-player menu + Off state still to verify.
+
 - 2026-08-26 tick 9 — **F-3 VERIFIED FIXED on the device**
   (f3-tim-verify-1787753997, 1.3.440): 53 displayed cues, 0 ran
   backwards (was 2); ZERO drift corrections fired (was 6), one loud

@@ -78,6 +78,12 @@ lap repetition (Tidbits reshape lesson).
   but not wired on ONE platform silently grades the wrong screen. Verify
   a hook fires on the platform under test before trusting a run.
 
+- Transport-menu driving: ONE atvremote invocation, one connection —
+  `power_state up delay=1400 right delay=800 ... select` — never
+  screenshots between steps (the bar auto-hides in ~5s and stray
+  presses SEEK the film). Verify a selection by its diag line
+  ("caption choice -> ..."), then the glass.
+
 ## Standing prompt (what each wakeup does)
 
 Work `docs/CAPTION-LOOP.md` top of the backlog; run/verify on the DEVICE;
