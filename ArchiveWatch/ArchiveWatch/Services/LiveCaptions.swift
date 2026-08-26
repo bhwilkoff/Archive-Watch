@@ -657,10 +657,7 @@ final class LiveCaptions {
         guard delivered > 8 else { return }
         let pos = scout.currentTime().seconds
         guard pos.isFinite, pos > 0 else { return }
-        // Same rate the cue mapping uses — measuring err with the NOMINAL
-        // rate while cues map with the measured one would manufacture a
-        // phantom error exactly as large as the fix.
-        let err = contentOffset + delivered * (measuredRate ?? Double(Self.scoutRate)) - pos
+        let err = contentOffset + delivered * Double(Self.scoutRate) - pos
         let now = Date().timeIntervalSince1970
         driftSamples.append((wall: now, err: err))
         driftSamples.removeAll { now - $0.wall > 30 }
@@ -1012,31 +1009,19 @@ final class LiveCaptions {
                 // minutes early. The two platforms stamp the same callback in
                 // different timelines; the rate formula is the only mapping
                 // that holds on both, because it never reads those stamps.
-                // The nominal rate is a CEILING, not a measurement: on The
-                // Ghost Train the scout set to 2.0x sustained only ~1.54x
-                // (raw 165.2 mapped to film 675.6 while the scout actually
-                // sat at 598.9), so every cue landed progressively later —
-                // +58s by the third act, measured on the glass against a
-                // film-time transcript. The scout's own currentTime is film
-                // time on BOTH platforms (it is the item's timeline, not the
-                // tap's stamps — the D069 trap does not apply), so the
-                // effective rate is measurable directly: (pos - offset)/raw,
-                // smoothed, trusted only past 20s of delivered audio.
-                let raw0 = result.range.start.seconds
-                let raw1 = result.range.end.seconds
-                let (s0, e0): (Double, Double) = await MainActor.run {
-                    if raw0 > 20, let pos = self.scoutPlayer?.currentTime().seconds,
-                       pos.isFinite, pos > self.contentOffset {
-                        let eff = (pos - self.contentOffset) / raw0
-                        if eff >= 1.0, eff <= Double(Self.scoutRate) + 0.05 {
-                            let prev = self.measuredRate ?? eff
-                            self.measuredRate = prev * 0.8 + eff * 0.2
-                        }
-                    }
-                    let rate = self.measuredRate ?? Double(Self.scoutRate)
-                    return (self.contentOffset + raw0 * rate,
-                            self.contentOffset + raw1 * rate)
-                }
+                // TRIED AND REVERTED (w8-timing-ghosttrain3): mapping with a
+                // rate measured from (scoutPos - offset)/rawAudio. The two
+                // clocks — tap delivery and render position — are separated
+                // by a decode-ahead gap that VARIES, so the estimate
+                // oscillated and the median swung from +58s late to -38s
+                // early in one run. The D069 trap in a new coat. The nominal
+                // formula stays (ground-truth exact on healthy files); a
+                // sustained rate shortfall is the DRIFT CORRECTION's job,
+                // which the envelope gate had wrongly withheld on resumed
+                // sessions — that is the fix that stands.
+                let rate = Double(Self.scoutRate)
+                let s0 = contentOffset + result.range.start.seconds * rate
+                let e0 = contentOffset + result.range.end.seconds * rate
                 guard s0.isFinite, e0.isFinite, e0 > s0 else { continue }
                 await MainActor.run {
                     if self.cues.count < 3 {
