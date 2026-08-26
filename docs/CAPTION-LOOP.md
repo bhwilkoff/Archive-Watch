@@ -76,6 +76,19 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 19 — **F-9 FIXED AT SOURCE and PUBLISHED**: ffsubsync
+  against Impact720p's SERVED copy measured offset -22.03s, scale 1.000
+  — exactly the -22.0s the 2026-08-10 sweep recorded for "Impact",
+  proving the retime never landed in THIS card's published file (retime
+  landed on a different card / was overwritten). Corrected, physics-
+  validated, and re-paced (1,165 cues under reading time — F-10's scale
+  in one film); published through the guarded path (8,503 files,
+  deploy dispatched). ATV re-verify queued (expect: no judge shift,
+  glass matches unshifted file, pacing green). White Zombie run died in
+  the launch window again (second today post-reboot; capture-daemon
+  degradation) — device rebooted, re-run queued; note the index serves
+  a COLORIZED card for this title.
+
 - 2026-08-26 tick 18 — **Breadth pays off run one: Impact (1949) is the
   first film to REPRODUCE the owner's complaint** (8 real burst
   windows, 13 sub-1.2s changes on the glass; w7-impact-file). Three
