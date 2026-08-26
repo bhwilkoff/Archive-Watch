@@ -461,9 +461,14 @@ def main():
         dwells = [b - a for (a, _), (b, _) in zip(changes, changes[1:])]
         fast = [d for d in dwells if d < 1.2]
         med = sorted(dwells)[len(dwells) // 2]
+        # A burst is pathological only when a line inside it was UNREADABLE.
+        # Three short conversational lines in 3s is rapid dialogue, correctly
+        # timed (f3-tim-verify: "Uh, this is our sister / Oh I see / Oh, just
+        # a minute" flagged as the lone "burst" of a clean run).
         bursts = 0
         for i in range(len(changes) - 2):
-            if changes[i + 2][0] - changes[i][0] < 3.0:
+            if changes[i + 2][0] - changes[i][0] < 3.0 and any(
+                    changes[j + 1][0] - changes[j][0] < 1.0 for j in (i, i + 1)):
                 bursts += 1
         report["pacing"] = {"changes": len(changes),
                            "median_dwell_s": round(med, 2),

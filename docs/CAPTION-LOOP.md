@@ -76,6 +76,15 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 9 — **F-3 VERIFIED FIXED on the device**
+  (f3-tim-verify-1787753997, 1.3.440): 53 displayed cues, 0 ran
+  backwards (was 2); ZERO drift corrections fired (was 6), one loud
+  WITHHELD line naming the mechanism (floor 19.9s, chunk-deep tap
+  decode-ahead). The lone pacing "burst" was legitimate rapid dialogue
+  with readable dwells — grader tuned: a burst counts only when a dwell
+  inside it is <1.0s (unreadable). W1 engine timing is now GREEN across
+  the board on this film.
+
 - 2026-08-26 tick 8 — **W4 episode-player parity BUILT (merely-fixed)**:
   the tvOS episode container gains the same Subtitles chooser
   (Automatic / Off — episodes are engine-only today) with checkmarks and
