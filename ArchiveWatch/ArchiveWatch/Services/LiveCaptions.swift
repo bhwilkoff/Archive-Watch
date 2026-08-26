@@ -94,9 +94,30 @@ final class LiveCaptions {
     private var cues: [(start: Double, end: Double, text: String)] = []
     /// Where the scout began, in film time; the analyzer clocks from zero.
     private var contentOffset: Double = 0
-    /// The scout's MEASURED sustained rate (nil until ~20s of evidence).
-    /// Nominal 2.0x is a ceiling the device does not always honor.
-    private var measuredRate: Double?
+    /// PIECEWISE analyzer->film mapping. The nominal formula
+    /// (offset + raw x scoutRate) is exact only while the renderer honors
+    /// the asked rate; The Ghost Train sustained ~1.5x against 2.0x and the
+    /// error REGENERATED faster than D081-clamped level corrections could
+    /// drain it (floor 16.6 -> 35.8s ahead across two windows, corrections
+    /// clamped to -4.3/-2.1/-0.1s). A continuous shortfall is a SLOPE
+    /// error: the closed loop below measures d(err)/d(delivered) and
+    /// re-anchors the mapping RATE for future cues, with anchor continuity
+    /// so no minted cue moves. Level corrections keep draining what
+    /// accumulated before the switch — and with the slope gone, the clamp
+    /// can finally catch up.
+    private var mappingAnchorRaw: Double = 0
+    private var mappingAnchorFilm: Double = 0
+    private var mappingRate: Double = Double(LiveCaptions.scoutRate)
+
+    private func filmTime(_ raw: Double) -> Double {
+        mappingAnchorFilm + (raw - mappingAnchorRaw) * mappingRate
+    }
+
+    private func resetMapping() {
+        mappingAnchorRaw = 0
+        mappingAnchorFilm = contentOffset
+        mappingRate = Double(Self.scoutRate)
+    }
     private var pendingWords: [(start: Double, end: Double, text: String)] = []
     /// The recognizer's own timings, before any display pacing (Decision 059).
     private var rawCues: [(start: Double, end: Double, text: String)] = []
@@ -291,8 +312,10 @@ final class LiveCaptions {
         everProducedCue = false
         startedAt = Date()
         contentOffset = max(0, startTime.seconds.isFinite ? startTime.seconds : 0)
+        resetMapping()
         sink.reset()   // a restarted session must not inherit the old replay high-water
         driftSamples.removeAll()   // nor the old session's drift envelope
+        slopeSamples.removeAll()
         // F-3: a session that began with a SEEK can be carrying the injected
         // pre-target burst the drift bound exists for and may correct from its
         // first window; a session from ZERO cannot, so it must first prove the
@@ -629,6 +652,8 @@ final class LiveCaptions {
     /// never condemn or shift a published file on that evidence.
     private(set) var driftCorrections = 0
     private var driftSamples: [(wall: Double, err: Double)] = []
+    /// (delivered-audio seconds, mapping error) pairs for the slope fit.
+    private var slopeSamples: [(delivered: Double, err: Double)] = []
     private var sessionBeganSeeked = false
     private var envelopeValidated = false
     private var envelopeWithheldLogged = false
@@ -657,10 +682,40 @@ final class LiveCaptions {
         guard delivered > 8 else { return }
         let pos = scout.currentTime().seconds
         guard pos.isFinite, pos > 0 else { return }
-        let err = contentOffset + delivered * Double(Self.scoutRate) - pos
+        let err = filmTime(delivered) - pos
         let now = Date().timeIntervalSince1970
         driftSamples.append((wall: now, err: err))
         driftSamples.removeAll { now - $0.wall > 30 }
+        slopeSamples.append((delivered: delivered, err: err))
+        if slopeSamples.count > 12 { slopeSamples.removeFirst(slopeSamples.count - 12) }
+        // SLOPE loop: err growing ~linearly per delivered-audio second means
+        // the assumed rate is wrong, and no level correction can outrun it.
+        // Least-squares over the window; both terms sampled at the same
+        // moments, so the decode-ahead gap cancels out of the slope.
+        if slopeSamples.count >= 5,
+           let d0 = slopeSamples.first?.delivered,
+           let d1 = slopeSamples.last?.delivered, d1 - d0 >= 20 {
+            let n = Double(slopeSamples.count)
+            let mx = slopeSamples.map(\.delivered).reduce(0, +) / n
+            let my = slopeSamples.map(\.err).reduce(0, +) / n
+            var sxy = 0.0, sxx = 0.0
+            for s in slopeSamples {
+                sxy += (s.delivered - mx) * (s.err - my)
+                sxx += (s.delivered - mx) * (s.delivered - mx)
+            }
+            let slope = sxx > 0 ? sxy / sxx : 0
+            if abs(slope) > 0.08 {
+                let newRate = min(Double(Self.scoutRate), max(1.0, mappingRate - slope))
+                mappingAnchorFilm = filmTime(delivered)
+                mappingAnchorRaw = delivered
+                let old = mappingRate
+                mappingRate = newRate
+                slopeSamples.removeAll()
+                awdiag("[AWCAP] mapping rate \(fmt(old))x -> \(fmt(newRate))x "
+                      + "(err slope \(String(format: "%+.3f", slope))/s of audio; "
+                      + "future cues re-anchored at raw \(fmt(delivered)))")
+            }
+        }
         // The envelope's premise — "healthy, the floor touches ~0" — holds only
         // when tap delivery tracks the scout's RENDER. On a file with huge
         // interleaved audio chunks the tap runs a permanent chunk-deep ahead,
@@ -708,6 +763,7 @@ final class LiveCaptions {
         }
         guard delta < -0.05 else { driftSamples.removeAll(); return }
         contentOffset += delta
+        mappingAnchorFilm += delta
         for i in cues.indices { cues[i].start += delta; cues[i].end += delta }
         for i in rawCues.indices { rawCues[i].start += delta; rawCues[i].end += delta }
         driftCorrections += 1
@@ -769,6 +825,7 @@ final class LiveCaptions {
         sink.reset()
         driftSamples.removeAll()
         contentOffset = max(0, playhead.seconds)
+        resetMapping()
         // Drop cues at or beyond the new anchor. A resync re-bases the mapping
         // on the playhead and restarts the transcriber, so everything from here
         // is about to be produced again — and leaving the old ones in place
@@ -794,7 +851,7 @@ final class LiveCaptions {
         // near zero, and the envelope gate then withheld a sorely-needed 17.4s
         // drift correction as "from-zero".
         sessionBeganSeeked = true
-        measuredRate = nil                      // new anchor, re-measure
+        slopeSamples.removeAll()                // new anchor, re-measure
         awdiag("[AWCAP] scout resynced by seek to \(fmt(contentOffset))s")
         #if canImport(Speech)
         if #available(iOS 26, tvOS 26, macOS 26, visionOS 26, *) {
@@ -1019,9 +1076,8 @@ final class LiveCaptions {
                 // sustained rate shortfall is the DRIFT CORRECTION's job,
                 // which the envelope gate had wrongly withheld on resumed
                 // sessions — that is the fix that stands.
-                let rate = Double(Self.scoutRate)
-                let s0 = contentOffset + result.range.start.seconds * rate
-                let e0 = contentOffset + result.range.end.seconds * rate
+                let s0 = filmTime(result.range.start.seconds)
+                let e0 = filmTime(result.range.end.seconds)
                 guard s0.isFinite, e0.isFinite, e0 > s0 else { continue }
                 await MainActor.run {
                     if self.cues.count < 3 {
