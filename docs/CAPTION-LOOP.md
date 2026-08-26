@@ -76,6 +76,31 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 32 — **Captions-Off LEAKED THE ENGINE on two
+  platforms; fixed and compile-verified (1.3.446/968).** Measured on
+  macOS by running the app with AW_CAPTION_CHOICE=off: the scout
+  started anyway ("scout playing at 2.0x") — the Off-guarded engine
+  branch fell through to the subtitle-REVIEW branch, which runs its own
+  scout to judge a file that would never display. tvOS had the softer
+  twin: .off set draws=false but left the engine transcribing muted (a
+  second stream + recognizer against D074's economy). Fixes: macOS
+  setup gates the whole branch on captionsOff; CaptionCoordinator
+  .off now STOPS the engine (remembering url/vc/player weakly) and
+  startCaptions refuses while Off, restarting on any other choice —
+  the episode menu sets choice on the coordinator directly, so the
+  teardown lives there, not in the containers. iOS was already gated
+  correctly. VERIFY STATUS: code-level + macOS compile + tvOS compile;
+  the macOS behavioral re-verify is DEFERRED — the owner is actively
+  using the Mac (a fallback screen capture proved it; window-scoped
+  captures only, and no GUI launches while the desktop is theirs).
+  Also: publish-db with the sibling fixes landed — Meet John Doe
+  COLLAPSED (alias row MeetJohnDoe1941GARYCOOPER -> meet-john-4k in the
+  served DB); D.O.A. needed one more remediate fix (six verified
+  anchors split 1949/1950 and strict unanimity rejected the consensus —
+  now majority-vote within a 1-year span; doa_ipod 1955 -> 1949) —
+  publish-db re-dispatched to collapse the set (6 copies -> 1 + the
+  colorized card, which stays separate by D084 design).
+
 - 2026-08-26 tick 31b — **HAZARD noted for the retime sweep**: doa_ipod's
   wrong-film file ends at 5045s vs 4980s runtime — ratio 1.013 trips
   D080's overrun detector, which routes to sync_subtitles_audio. But
