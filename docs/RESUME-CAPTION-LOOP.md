@@ -43,6 +43,17 @@ Runner: `python3 tools/atv_scenario.py --title "<Title>" --minutes 4
 
 ## The breadth deck (OWNER RULE 2026-08-26: a wider swath, never the same film twice)
 
+**Covered 2026-08-26** (all green after fixes): Impact (1949 noir, file,
+F-9+F-10 exposed+fixed), White Zombie (1932 horror, colorized card),
+Day the Earth Caught Fire (1961 sci-fi, D062 cure confirmed), Minnie the
+Moocher (1932 cartoon, engine), Carnival of Souls (1962, sparse-dialogue
+calibrations), Suspense "On a Country Road" (1951 TV episode player,
+live-merge fix verified), Street Angel (Mandarin negative control —
+class retired), Meet John Doe (1941, 4K heavy decode), D.O.A. (wrong-film
+subtitle found; claim dropped; dup set collapsed).
+**Remaining device cells**: Sita Sings the Blues (2008), a second 1950s
+TV episode — owner-gated with the rest of the device queue.
+
 **Second owner rule (2026-08-26): ENGLISH-DIALOGUE films only.** A
 foreign-language film has no English speech to caption, so it tests nothing
 a viewer cares about here. The one language-mismatch negative control
