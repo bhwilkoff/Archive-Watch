@@ -76,6 +76,19 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 11 — **W4 chooser fully VERIFIED on the glass, all
+  three states**: checkmark tracked File→Automatic (menu-check-auto.png,
+  with an engine line visible behind the open menu); Off registered
+  ("caption choice -> off") with an EMPTY caption band on every
+  following frame (w4-off-1787755586). Two harness mechanisms nailed:
+  the mystery "restarts" were stray down+select presses hitting the
+  native "From the Beginning" control after the menu auto-closed; and
+  cumulative Companion press DECAY was eating selections — a device
+  reboot restored 100% delivery (Tidbits' F-009 economy, now proven
+  here). Episode-player menu remains build-verified only (reaching
+  EpisodeAVPlayerContainer needs series drill-in navigation).
+  W7 silent negative control (Caligari) launched.
+
 - 2026-08-26 tick 10 — **W4 movie-player VERIFIED on the glass**
   (build/qa/atv-2026-08-26/w4-menu3): the Subtitles menu renders with
   the checkmark on Subtitle File (menu-open.png), selecting Automatic
