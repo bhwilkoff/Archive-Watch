@@ -76,6 +76,26 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 21 — **THE BURST FIX (F-10 root cause), fleet-wide.**
+  Impact verify run: glass matched the UNSHIFTED corrected file (13/17),
+  no judge shift — F-9 closed on the device — but pacing still failed
+  (9 bursts on glass) and the published file itself measured 187
+  three-in-3s windows, 112 cues under 1.0s, min dwell 0.35s. pace_vtt's
+  1.0s floor was CAPPED BY THE NEXT CUE START: in rapid dialogue there
+  is no empty space to extend into, so the floor was unachievable. Fix
+  = `_merge_rapid_cues` in pace_vtt (build_subtitle_assets): contiguous
+  fragments (gap <=0.75s) whose available span is under reading time
+  merge into one cue (<=3 lines, <=120 chars; two short one-liners
+  join into a 42-char line). Impact: 1,701 -> 1,269 cues, min dwell
+  1.00s, 0 under 1.0s, bursts 187 -> 14, median 2.89s, monotonic, no
+  overlaps. Applied CORPUS-WIDE with per-file safety gates (validate +
+  monotonic + end-drift <=5s): **6,579 of 8,503 files re-paced, 3.22M
+  cue adjustments**, 1,504 left untouched by the gate. Also caught
+  before publish: ffsubsync had dropped Impact's X-TIMESTAMP-MAP header
+  (iOS/macOS HLS caption timing) — restored; the merge pass preserves
+  headers. Published through the guarded path. ATV re-verify of Impact
+  queued against the merged file.
+
 - 2026-08-26 tick 20 — **W7 White Zombie (1932 horror, colorized card,
   published file): 11/11 PASS** after the device reboot — median dwell
   4.4s, 0 bursts, 0 sub-1.2s changes, glass matched the published cue

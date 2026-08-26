@@ -126,6 +126,104 @@ def decode_subtitle(raw: bytes):
     return None, "undecodable"
 
 
+def _reading_need(words: int) -> float:
+    return max(1.0, words / 2.5)
+
+
+def _merge_rapid_cues(vtt: str) -> tuple[str, int]:
+    """Merge rapid-fire fragments that extension alone can never make readable.
+
+    pace_vtt's 1.0s floor is capped by the NEXT cue's start, so in dense
+    dialogue — cues starting 0.3-0.5s apart — the floor is unachievable by
+    extending into empty space: there is no empty space. Measured on Impact
+    (w1-impact-verify): the correctly-timed, paced file still held 112 cues
+    under 1.0s and 187 three-in-3s windows, and the glass faithfully showed
+    every burst. The professional fix is the subtitler's: combine contiguous
+    short fragments into one cue.
+
+    A merge happens only when ALL of:
+      * the cue's available span (next.start - start) is under its reading
+        time — extension cannot fix it,
+      * the gap to the next cue is <= 0.75s — same continuous speech,
+      * the combined body stays modest (<= 3 lines, <= 120 chars).
+
+    Two one-line fragments that fit a standard 42-char line join into one
+    line; anything else stacks. Cue count CHANGES here, deliberately — every
+    caller wants readability, none asserts count after pacing (the sync
+    tools validate before pacing, and the app re-fetches whatever is
+    published).
+    """
+    lines = vtt.splitlines()
+    stamp_idx = [i for i, l in enumerate(lines) if _RANGE.search(l)]
+    if len(stamp_idx) < 2:
+        return vtt, 0
+
+    first = stamp_idx[0]
+    header_end = first
+    if header_end > 0 and lines[header_end - 1].strip():
+        header_end -= 1                    # the cue's identifier line
+    header = lines[:header_end]
+
+    def secs(h, m_, s_, ms):
+        return int(h or 0) * 3600 + int(m_) * 60 + int(s_) + int(ms.ljust(3, "0")) / 1000
+
+    cues = []
+    for li in stamp_idx:
+        m = _RANGE.search(lines[li])
+        g = m.groups()
+        settings = lines[li][m.end():].strip()
+        body = []
+        for nxt in lines[li + 1:]:
+            if not nxt.strip() or _RANGE.search(nxt):
+                break
+            body.append(nxt.rstrip())
+        cues.append({"start": secs(g[0], g[1], g[2], g[3]),
+                     "end": secs(g[4], g[5], g[6], g[7]),
+                     "settings": settings, "body": body})
+
+    merged = 0
+    i = 0
+    while i < len(cues) - 1:
+        c, n = cues[i], cues[i + 1]
+        avail = n["start"] - c["start"]
+        words = len(" ".join(c["body"]).split())
+        gap = n["start"] - c["end"]
+        total_lines = len(c["body"]) + len(n["body"])
+        total_chars = sum(len(l) for l in c["body"] + n["body"])
+        if (avail < _reading_need(words) and gap <= 0.75
+                and total_lines <= 3 and total_chars <= 120):
+            if (len(c["body"]) == 1 and len(n["body"]) == 1
+                    and len(c["body"][0]) + len(n["body"][0]) + 1 <= 42):
+                body = [c["body"][0] + " " + n["body"][0]]
+            else:
+                body = c["body"] + n["body"]
+            cues[i] = {"start": c["start"], "end": max(c["end"], n["end"]),
+                       "settings": c["settings"], "body": body}
+            del cues[i + 1]
+            merged += 1
+            continue                       # the merged cue may still be short
+        i += 1
+
+    if not merged:
+        return vtt, 0
+
+    def stamp(t):
+        ms = int(round((t - int(t)) * 1000))
+        t = int(t)
+        return f"{t // 3600:02d}:{(t % 3600) // 60:02d}:{t % 60:02d}.{ms:03d}"
+
+    out = list(header)
+    if out and out[-1].strip():
+        out.append("")
+    for k, c in enumerate(cues, 1):
+        out.append(str(k))
+        tail = f" {c['settings']}" if c["settings"] else ""
+        out.append(f"{stamp(c['start'])} --> {stamp(c['end'])}{tail}")
+        out.extend(c["body"])
+        out.append("")
+    return "\n".join(out) + "\n", merged
+
+
 def pace_vtt(vtt: str) -> tuple[str, int]:
     """Stop a caption being replaced before it can be read.
 
@@ -137,12 +235,15 @@ def pace_vtt(vtt: str) -> tuple[str, int]:
 
     Fixes, conservatively — a cue is only ever EXTENDED into empty space, never
     shortened, and never pushed past the cue that follows it:
+      * merge rapid-fire fragments no extension could make readable
+        (see _merge_rapid_cues — the burst fix)
       * clamp any end that runs past the next start (kills overlap)
       * extend a too-short cue toward the next start, up to its reading time
         (~2.5 words/second, the usual subtitle guideline)
 
     Returns (vtt, number_of_cues_adjusted).
     """
+    vtt, merged = _merge_rapid_cues(vtt)
     lines = vtt.splitlines()
     stamps = [(i, m) for i, l in enumerate(lines) if (m := _RANGE.search(l))]
     if len(stamps) < 2:
@@ -174,14 +275,14 @@ def pace_vtt(vtt: str) -> tuple[str, int]:
         new_end = c["end"]
         if nxt is not None and new_end > nxt:
             new_end = nxt                              # overlap -> clamp
-        need = max(1.0, c["words"] / 2.5)
+        need = _reading_need(c["words"])
         if new_end - c["start"] < need:                # too brief -> extend
             room = nxt if nxt is not None else c["start"] + need
             new_end = min(c["start"] + need, room)
         if abs(new_end - c["end"]) > 0.01:
             lines[c["line"]] = f"{stamp(c['start'])} --> {stamp(new_end)}"
             changed += 1
-    return "\n".join(lines) + "\n", changed
+    return "\n".join(lines) + "\n", changed + merged
 
 
 _RANGE = re.compile(
