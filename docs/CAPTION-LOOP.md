@@ -76,6 +76,26 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 30 — **W7 D.O.A. (1949 noir, card doa_ipod): the app
+  did its job, the pipeline had not.** The published file for doa_ipod
+  is a translated subtitle for a DIFFERENT FILM entirely (holiday/
+  journey narration; the sibling card doa-4-k carries the real D.O.A.
+  file — "I want to report a murder"). On the glass: file cues for
+  ~175s, then the D062 judge measured "subtitles don't match this film
+  (4%) — captioning instead" and the app recovered to the engine
+  (post-switch fidelity 9/11). Fixes: (1) grader now follows the app's
+  mid-run mode switch (frames after the discard grade against the
+  engine; pre-switch frames keep failing HONESTLY when a wrong file
+  showed); (2) doa_ipod's claim dropped at source (captions +
+  subtitleHLS popped, subtitleWrongFilm marker documents the evidence;
+  catalog republished, publish-db dispatched) — web/Android have no
+  live judge and would ship the wrong file raw (D064 reasoning).
+  DATA NOTES: D.O.A. is a THIRD-visible-card dup set (doa_ipod /
+  doa-4-k / colorized) — with Meet John Doe's pair, two uncollapsed dup
+  sets found today; and the wrong-film subtitle class likely has more
+  instances — a source-side agreement audit (local ASR, popularity-
+  first) is the systematic fix, logged as follow-up.
+
 - 2026-08-26 tick 29 — **W7 Meet John Doe (1941 drama, meet-john-4k, 4K
   heavy decode, file mode): 11/11 PASS** on the hardened harness after
   reboot — glass matched the file 20/24, ZERO bursts (third film

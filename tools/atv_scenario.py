@@ -454,6 +454,18 @@ def main():
     # E. Captions on the GLASS: fraction of frames with caption text while
     #    dialogue should be present (any-caption presence), and — file mode —
     #    the on-glass text must match the published cue at the playhead.
+    # The judge can DISCARD a wrong file mid-run ("subtitles don't match
+    # this film (4%) — captioning instead", D.O.A./doa_ipod) and the app
+    # switches to the engine. Frames after that moment must be graded
+    # against the ENGINE, not the file the app just rejected — grading a
+    # correct recovery against the discarded file scored 9/30.
+    switch_wall = None
+    if log.exists():
+        for line in open(log, errors="ignore"):
+            m = re.match(r"^(\d{10}\.\d{3}) .*captioning instead", line)
+            if m:
+                switch_wall = float(m.group(1))
+                break
     cap_frames = 0
     matches = checks = 0
     for wall, p in shots:
@@ -462,7 +474,8 @@ def main():
             continue
         cap_frames += 1
         t = playhead_at(buf, wall)
-        if vtt and t is not None:
+        in_file_mode = vtt and (switch_wall is None or wall < switch_wall)
+        if in_file_mode and t is not None:
             covering = [c for c in vtt if c[0] - 1.5 <= t <= c[1] + 1.5]
             if covering:
                 checks += 1
@@ -470,6 +483,9 @@ def main():
                 if any(norm(c[2])[:24] in glass or glass[:24] in norm(c[2])
                        for c in covering if len(norm(c[2])) >= 8):
                     matches += 1
+    if switch_wall is not None:
+        print(f"[scenario] judge discarded the file mid-run — frames after "
+              f"{switch_wall:.0f} grade against the engine")
     if args.expect_captions == "no":
         # NEGATIVE CONTROL (silent films, music-only): a caption generated
         # where there is no speech is a hallucination shipping to a viewer.
@@ -497,8 +513,10 @@ def main():
               ratio >= 0.5 if checks >= 1 else True)
         grade("glass_matches_file", ok,
               f"{matches}/{checks} on-glass captions match the published cue at the playhead"
-              + ("" if checks >= 5 else f" (sparse dialogue window — {checks} checkable)"))
-    elif args.expect_captions != "no" and shown:
+              + ("" if checks >= 5 else f" (sparse dialogue window — {checks} checkable)")
+              + (" (file-mode frames only — judge discarded the file mid-run)"
+                 if switch_wall is not None else ""))
+    if args.expect_captions != "no" and shown and (not vtt or switch_wall is not None):
         # ENGINE captions (no published file): the glass must show what the
         # engine says it displayed, close in wall time. This proves the pipe
         # end-to-end (engine -> overlay -> pixels) and rejects the ttcrb1
@@ -506,6 +524,8 @@ def main():
         # the AUDIO is the drift-bound's job; this asserts display fidelity.
         em = ec = 0
         for wall, p in shots:
+            if switch_wall is not None and wall < switch_wall:
+                continue
             region = texts.get(p.name, {}).get("captionRegion", [])
             if not region:
                 continue
