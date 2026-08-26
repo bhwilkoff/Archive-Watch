@@ -76,6 +76,15 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 3 — **W5 VERIFIED**: the subtitles sheet renders fully
+  inside the sheet bounds on the iPhone 17 Pro simulator (same film as the
+  owner's clipped screenshot; build/qa/ios-2026-08-26/w5-sheet.png). Added
+  the AW_SHOW_SUBTITLES screen-audit hook (simctl cannot tap; a sheet
+  nobody can open unattended is a sheet nobody can regression-test). The
+  capability branch also verified: a model-less simulator correctly says
+  "can't caption films by itself". Owner-device confirmation still worth a
+  glance since the 27 branch shows different text.
+
 - 2026-08-26 tick 2 — **F-1 root-caused as an INSTRUMENT defect**: in file
   mode the caption trace diagnosed blanks against the ENGINE's cue list
   while the display renders fileCues — a normal file-cue gap graded as

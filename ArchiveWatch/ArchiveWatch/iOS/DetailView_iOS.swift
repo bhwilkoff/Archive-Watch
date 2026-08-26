@@ -194,6 +194,13 @@ struct DetailView: View {
                item.videoURLParsed != nil {
                 playing = true
             }
+            // Screen-audit hook (caption loop W6): present the subtitles sheet
+            // deterministically — simctl cannot tap, and a sheet nobody can
+            // open unattended is a sheet nobody can regression-test. No-op in
+            // production like every AW_ hook.
+            if ProcessInfo.processInfo.environment["AW_SHOW_SUBTITLES"] == "1" {
+                gettingSubtitles = true
+            }
         }
     }
 
