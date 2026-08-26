@@ -37,6 +37,9 @@ Usage:
 """
 import argparse, csv, re, shutil
 from pathlib import Path
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_subtitle_assets import pace_vtt
 
 TIMESTAMP = re.compile(r"(?P<h>\d+:)?(?P<m>\d{1,2}):(?P<s>\d{2})(?P<frac>[.,]\d{1,3})?")
 
@@ -148,6 +151,7 @@ def main():
               f"last {before:.0f}s -> {times[-1][1]:.0f}s  (runtime {runtime}s)")
         if not args.dry_run:
             shutil.copy2(vtt, vtt.with_suffix(".vtt.orig"))
+            new_body, _paced = pace_vtt(new_body)   # D059 pacing on every mutation
             vtt.write_text(new_body, encoding="utf-8")
         fixed += 1
 

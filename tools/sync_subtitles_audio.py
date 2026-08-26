@@ -34,6 +34,9 @@ Usage:
 """
 import argparse, csv, json, os, re, shutil, subprocess, sqlite3, tempfile, time
 from pathlib import Path
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_subtitle_assets import pace_vtt
 
 CUE_END = re.compile(r"-->\s*(\d+):(\d\d):(\d\d)[.,](\d\d\d)")
 CUE_START = re.compile(r"(?m)^(\d+):(\d\d):(\d\d)[.,](\d\d\d)\s*-->")
@@ -210,6 +213,11 @@ def main():
             print(f"  FIX    {aid[:42]:42} ends {verdict['before']:.0f}s -> "
                   f"{verdict['after']:.0f}s (runtime {runtime}s)", flush=True)
             if not args.dry_run:
+                # Decision 059 applies to every published MUTATION, not only
+                # the original build: a re-timed file that skips re-pacing
+                # ships sub-second dwells (Impact, w7-impact-file: 8 burst
+                # windows, 13 unreadably-fast changes on the glass).
+                new_text, _paced = pace_vtt(new_text)
                 vtt.write_text(new_text, encoding="utf-8")
             fixed += 1
         if not args.dry_run:

@@ -164,6 +164,10 @@ def ocr(shots):
     return out
 
 
+def diag_text_early(log):
+    return log.read_text(errors="ignore") if log.exists() else ""
+
+
 def parse_console(log):
     """wall-time -> playhead map (AWBUF), audio samples, stalls, verdicts.
     The diag file's lines are `<epoch.millis> <message>`."""
@@ -288,6 +292,19 @@ def main():
     texts = ocr(shots)
     buf, aud, events, shown = parse_console(log)
     vtt = fetch_vtt(item)
+    # The judge corrects a mistimed published file LIVE (D062): the glass then
+    # shows the file's words at SHIFTED times, and matching against the
+    # unshifted VTT scores 0/23 on a correct display (Impact, w7-impact-file:
+    # "subtitles ran 18.8s late; corrected"). Apply the same shift here.
+    if vtt and log.exists():
+        m = None
+        for m in re.finditer(r"subtitles ran ([\d.]+)s (late|early); corrected", diag_text_early(log)):
+            pass
+        if m:
+            delta = float(m.group(1)) * (-1 if m.group(2) == "late" else 1)
+            vtt = [(s + delta, e + delta, txt) for s, e, txt in vtt]
+            print(f"[scenario] judge shifted the file {m.group(1)}s {m.group(2)} — "
+                  "matching against the shifted cues")
 
     # ── Assertions ─────────────────────────────────────────────────────────
     report = {"item": item, "shots": len(shots), "assertions": {}}

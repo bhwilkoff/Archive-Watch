@@ -76,6 +76,20 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 18 — **Breadth pays off run one: Impact (1949) is the
+  first film to REPRODUCE the owner's complaint** (8 real burst
+  windows, 13 sub-1.2s changes on the glass; w7-impact-file). Three
+  finds: **F-9** the published VTT runs ~18.8s LATE against the served
+  copy (the judge caught + corrected it live — likely a copy switch
+  since the 2026-08-10 retime; pipeline invariant needed: a copy
+  switch invalidates subtitle retimes); **F-10 FIXED** — none of the
+  three source-level fixers (sync_subtitles_audio, fix_subtitle_sync,
+  fix_subtitle_rate) re-paced after correcting, so D059 pacing never
+  reached corrected files — all three now pace_vtt on write;
+  instrument: glass_matches_file now honours the judge's live shift.
+  Deck: Impact covered (engine of record = shifted file; pacing gap
+  found). Next: Meet John Doe / White Zombie / cartoon / episode.
+
 - 2026-08-26 tick 17 — **F-8 symptom VERIFIED FIXED on the Mac glass**
   (f8-verify.png): playback 3+ minutes in and advancing (both pre-fix
   runs froze inside the first minute) with an engine caption rendered

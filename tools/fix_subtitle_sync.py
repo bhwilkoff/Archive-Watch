@@ -45,6 +45,9 @@ import re
 import sys
 import urllib.request
 from pathlib import Path
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_subtitle_assets import pace_vtt
 
 REPO = Path(__file__).resolve().parent.parent
 PAGES = "https://archivewatch.org"
@@ -191,6 +194,7 @@ def cmd_apply(args: argparse.Namespace) -> int:
                 print(f"  ! {archive_id}: no cue lines parsed — left alone")
                 continue
             if not args.dry_run:
+                body, _paced = pace_vtt(body)   # D059 pacing on every mutation
                 vtt.write_text(body, encoding="utf-8")
             shifted.append((archive_id, by, moved))
             cues_moved += moved
