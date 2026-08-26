@@ -81,6 +81,16 @@ struct RootView: View {
                let tab = Router.Tab(rawValue: raw) {
                 router.tab = tab
             }
+            // `AW_SET_TRANSCRIBE=1|0` sets the transcribe-when-missing default
+            // deterministically. The Settings toggle proved undrivable by
+            // remote presses (three warmed selects on the focused row, fresh
+            // reboot included, never flipped it) and a harness that cannot
+            // restore state it disturbed is a harness that lies. Unset in
+            // production (no-op).
+            if let v = ProcessInfo.processInfo.environment["AW_SET_TRANSCRIBE"] {
+                LiveCaptions.transcribeWhenMissing = (v == "1")
+                awdiag("[AWCAP] transcribeWhenMissing set to %@ via env", v)
+            }
             guard let id = ProcessInfo.processInfo.environment["AW_START_ITEM"] else { return }
             openDeepLinkedItem(
                 id, autoplay: ProcessInfo.processInfo.environment["AW_AUTOPLAY"] == "1")
