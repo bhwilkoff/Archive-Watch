@@ -76,6 +76,14 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 45 — **Orphan reclaim batch 1: 12/12 transcribed so
+  far ALL VERIFY (agreement 0.64-0.85)** — every orphan checked is a
+  correct English subtitle file its film currently is not serving.
+  At the 0.6 threshold all 12 reclaim. 13 films remain in the batch
+  (watching for the speech-model allocation limit that stopped the
+  previous batch at 11). Batch-2 work list built (next 25 by
+  popularity). Top-watched claimed files audit: 11/11 correct, closed.
+
 - 2026-08-26 tick 42 — **W3 COMPLETE MATRIX, on the glass and archived**
   (build/qa/atv-2026-08-26/w3-diagnostics/): CAPTIONED local file /
   CAPTIONED plain remote MP4 / CAPTIONED HLS wrapper; probe verdict
