@@ -374,6 +374,12 @@ def main():
     texts = ocr(shots)
     buf, aud, events, shown = parse_console(log)
     vtt = fetch_vtt(item)
+    truth = None
+    for d in ("/tmp/wrongfilm-out", "/tmp/orphan-out", "/tmp/truth-out"):
+        p = Path(d) / item / "en.vtt"
+        if p.is_file():
+            truth = fetch_vtt_local(p)
+            break
     # The judge corrects a mistimed published file LIVE (D062): the glass then
     # shows the file's words at SHIFTED times, and matching against the
     # unshifted VTT scores 0/23 on a correct display (Impact, w7-impact-file:
@@ -533,8 +539,25 @@ def main():
               f"{cap_frames}/{len(shots)} frames (film's own intertitles are "
               "not counted)")
     else:
-        grade("captions_on_glass", cap_frames >= max(3, len(shots) * 0.15),
-              f"caption text on {cap_frames}/{len(shots)} frames")
+        # Presence graded against what the TRUTH transcript says the watched
+        # window contains, when one exists: Creature From the Haunted Sea's
+        # opening is genuinely sparse (9 cues in 250s, every blank verified a
+        # true gap) and a flat 15%-of-frames floor calls that a failure. With
+        # no transcript the flat floor stands.
+        floor = max(3, len(shots) * 0.15)
+        note = ""
+        if truth and buf:
+            times = [playhead_at(buf, w) for w, _ in shots]
+            times = [x for x in times if x is not None]
+            if times:
+                t0, t1 = min(times), max(times)
+                spoken = sum(min(ce, t1) - max(cs, t0)
+                             for cs, ce, _ in truth if ce > t0 and cs < t1)
+                frac = spoken / max(t1 - t0, 1)
+                floor = max(2, len(shots) * min(0.15, frac * 0.5))
+                note = f" (truth: speech {frac:.0%} of window)"
+        grade("captions_on_glass", cap_frames >= floor,
+              f"caption text on {cap_frames}/{len(shots)} frames{note}")
     if args.expect_captions != "no" and vtt:
         # Fail only on POSITIVE evidence of mismatch. A sparse-dialogue
         # window (Carnival of Souls: organ score, 4 checkable moments in
@@ -581,12 +604,6 @@ def main():
     #     card (tools/caption_gen_main.swift — D069: macOS stamps are film
     #     time). Each engine-displayed line is matched to its transcript cue
     #     by text; the playhead delta at display is the timing error.
-    truth = None
-    for d in ("/tmp/wrongfilm-out", "/tmp/orphan-out", "/tmp/truth-out"):
-        p = Path(d) / item / "en.vtt"
-        if p.is_file():
-            truth = fetch_vtt_local(p)
-            break
     if truth and shown and args.expect_captions != "no":
         deltas = []
         for wall, text in shown:
