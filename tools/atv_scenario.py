@@ -23,7 +23,9 @@ BUNDLE = "app.archivewatch.tvos"
 OCR = "/tmp/awocr"
 SHOT_EVERY = 4.0   # 4K captures pressure the device's screenshot daemon;
                    # 2.5s coincided with jetsam events on ~every run
-PYATV = "/tmp/pyatv-venv/bin/atvremote"
+import os as _os
+# Durable venv (Tidbits: pyatv needs python3.12; /tmp gets cleared).
+PYATV = _os.path.expanduser("~/.pyatv-venv/bin/atvremote")
 PYATV_ARGS = ["--address", "10.0.0.223", "--id", "7A:3F:0C:4E:20:1E",
               "--protocol", "companion"]
 
@@ -52,16 +54,55 @@ def resolve_card(title):
 def wake_tv():
     """The TV sleeps between runs; installs work asleep but launches and
     screenshots do NOT, and devicectl has no wake verb. pyatv's Companion
-    protocol does (one-time PIN pairing, credentials in ~/.pyatv.conf)."""
+    protocol does (one-time PIN pairing, credentials in ~/.pyatv.conf).
+    POLLED, never fire-and-forget (Tidbits harness lesson): turn_on only
+    sends the request, and a launch into the doze window comes up
+    BACKGROUNDED, which mimics an app bug. Gives up loudly."""
+    for attempt in range(3):
+        try:
+            r = sh([PYATV] + PYATV_ARGS + ["power_state"], timeout=30)
+            if "PowerState.On" in r.stdout:
+                return True
+            print(f"[scenario] TV asleep — waking (attempt {attempt + 1})")
+            sh([PYATV] + PYATV_ARGS + ["turn_on"], timeout=30)
+            for _ in range(8):
+                time.sleep(3)
+                r = sh([PYATV] + PYATV_ARGS + ["power_state"], timeout=30)
+                if "PowerState.On" in r.stdout:
+                    time.sleep(2)   # let the home screen settle
+                    return True
+        except Exception as e:
+            print(f"[scenario] wake attempt failed: {e}")
+    print("[scenario] COULD NOT WAKE THE TV — captures will be blind")
+    return False
+
+
+def press(key):
+    """One Siri-remote press over Companion, WARMED: a fresh single-command
+    connection drops its press (measured in Tidbits at up to 100% within a
+    long session), so run power_state first on the same connection. Presses
+    do NOT reset the box's sleep timer — long interactive probes must expect
+    sleep regardless. Companion press decay is cumulative; a
+    `devicectl device reboot` is the reset."""
+    return sh([PYATV] + PYATV_ARGS + ["power_state", key], timeout=30)
+
+
+HOME_SCREEN_RX = re.compile(
+    r"prime video|pluto|fubo|Apple TV\+|Select up for full screen|"
+    r"\d{1,2}:\d{2} [AP]M", re.I)
+
+
+def frame_is_home_screen(png):
+    """Alive is not frontmost: a doze-window launch comes up backgrounded and
+    the captures then grade the tvOS home screen (Tidbits F-004)."""
     try:
-        r = sh([PYATV] + PYATV_ARGS + ["power_state"], timeout=30)
-        if "PowerState.On" in r.stdout:
-            return
-        print("[scenario] TV asleep — waking it")
-        sh([PYATV] + PYATV_ARGS + ["turn_on"], timeout=30)
-        time.sleep(6)
-    except Exception as e:
-        print(f"[scenario] wake attempt failed (continuing): {e}")
+        r = sh([OCR, str(png)], timeout=60)
+        d = json.loads(r.stdout.splitlines()[0])
+        text = " ".join(d.get("allText", []) if isinstance(d.get("allText"), list)
+                        else [t.get("text", "") for t in d.get("allText", [])])
+        return bool(HOME_SCREEN_RX.search(text))
+    except Exception:
+        return False
 
 
 def launch(item, outdir):
@@ -99,6 +140,10 @@ def capture_loop(outdir, minutes):
         r = sh(["xcrun", "devicectl", "device", "capture", "screenshot",
                 "--device", DEVICE, "--destination", str(p)], timeout=30)
         if p.exists():
+            if p.stat().st_size < 300_000:
+                print(f"[scenario] frame {i} is {p.stat().st_size}B — doze "
+                      "signature; re-waking (window logged, frames kept)")
+                wake_tv()
             shots.append((time.time(), p))
         i += 1
         time.sleep(max(0, SHOT_EVERY - 1.0))
@@ -185,15 +230,38 @@ def main():
     ap.add_argument("--item")
     ap.add_argument("--minutes", type=float, default=6)
     ap.add_argument("--outdir", default=None)
+    ap.add_argument("--name", default=None,
+                    help="run name for the durable build/qa/ tree")
+    ap.add_argument("--expect-captions", choices=["auto", "yes", "no"],
+                    default="auto",
+                    help="'no' = negative control (a silent film generating "
+                         "captions is a FAILURE); 'auto' judges from the "
+                         "published-VTT presence")
     args = ap.parse_args()
     item = args.item or resolve_card(args.title)
-    outdir = Path(args.outdir or f"/tmp/atvrun-{item}-{int(time.time())}")
+    # Durable, never /tmp: background tasks get reaped and a capture you
+    # cannot return to is a capture you have to take twice.
+    day = datetime.now().strftime("%Y-%m-%d")
+    run_name = args.name or item[:32]
+    outdir = Path(args.outdir or
+                  f"build/qa/atv-{day}/{run_name}-{int(time.time())}")
     outdir.mkdir(parents=True, exist_ok=True)
     print(f"[scenario] card: {item}  ->  {outdir}")
 
     wake_tv()
     launch(item, outdir)
     time.sleep(8)                      # let playback begin
+    # Foreground guard: a doze-window launch comes up BACKGROUNDED and every
+    # capture then grades the tvOS home screen instead of the app.
+    probe_png = outdir / "probe-foreground.png"
+    sh(["xcrun", "devicectl", "device", "capture", "screenshot",
+        "--device", DEVICE, "--destination", str(probe_png)], timeout=30)
+    if probe_png.exists() and frame_is_home_screen(probe_png):
+        print("[scenario] app launched BACKGROUNDED (home screen on glass) — "
+              "waking + relaunching once")
+        wake_tv()
+        launch(item, outdir)
+        time.sleep(8)
     # LAUNCH-WINDOW DEATH RETRY. ~2 in 10 launches die silently within the
     # first seconds — no crash report, no app jetsam event, only the 4K
     # screenshot daemon being jetsammed for its own limit around the same
@@ -243,13 +311,23 @@ def main():
           f"last diag heartbeat {capture_end - last_diag:.0f}s before capture end"
           if last_diag else "no diag heartbeats at all")
 
-    # A. Stuck notice: "Preparing"/"unavailable" visible on many frames.
-    notice_frames = [p.name for _, p in shots
-                     if any("preparing" in t.lower() or "unavailable" in t.lower()
-                            for t in texts.get(p.name, {}).get("captionRegion", []))]
-    grade("no_stuck_notice", len(notice_frames) * SHOT_EVERY < 30,
-          f"notice visible on {len(notice_frames)}/{len(shots)} frames "
-          f"(~{len(notice_frames)*SHOT_EVERY:.0f}s)")
+    # A. Notices. "Preparing automatic captions" was DELETED outright (owner
+    #    2026-08-26: "shows for far too long and is almost entirely unneeded";
+    #    the Photos app shows nothing) — so its appearance on even ONE frame
+    #    is a regression. Failure/model notices remain legitimate but bounded
+    #    (12s by code; 16s here for capture quantization).
+    prep_frames = [p.name for _, p in shots
+                   if any("preparing" in s.lower()
+                          for s in texts.get(p.name, {}).get("captionRegion", []))]
+    grade("preparing_notice_never_shows", not prep_frames,
+          f"'Preparing…' on {len(prep_frames)}/{len(shots)} frames"
+          + (f" (first: {prep_frames[0]})" if prep_frames else ""))
+    other_notice = [p.name for _, p in shots
+                    if any(k in s.lower() for k in ("unavailable", "downloading the speech")
+                           for s in texts.get(p.name, {}).get("captionRegion", []))]
+    grade("failure_notice_bounded", len(other_notice) * SHOT_EVERY <= 16,
+          f"failure/model notice on {len(other_notice)}/{len(shots)} frames "
+          f"(~{len(other_notice)*SHOT_EVERY:.0f}s)")
 
     # B. Playback advances (no long freeze): playhead strictly increases.
     frozen = 0
@@ -297,12 +375,21 @@ def main():
                 if any(norm(c[2])[:24] in glass or glass[:24] in norm(c[2])
                        for c in covering if len(norm(c[2])) >= 8):
                     matches += 1
-    grade("captions_on_glass", cap_frames >= max(3, len(shots) * 0.15),
-          f"caption text on {cap_frames}/{len(shots)} frames")
-    if vtt:
+    if args.expect_captions == "no":
+        # NEGATIVE CONTROL (silent films, music-only): a caption generated
+        # where there is no speech is a hallucination shipping to a viewer.
+        # A little OCR noise in the band is tolerated; sustained text is not.
+        grade("silent_negative_control",
+              cap_frames <= max(2, int(len(shots) * 0.05)),
+              f"caption-band text on {cap_frames}/{len(shots)} frames of a "
+              "film that should produce none")
+    else:
+        grade("captions_on_glass", cap_frames >= max(3, len(shots) * 0.15),
+              f"caption text on {cap_frames}/{len(shots)} frames")
+    if args.expect_captions != "no" and vtt:
         grade("glass_matches_file", checks >= 5 and matches / max(1, checks) >= 0.7,
               f"{matches}/{checks} on-glass captions match the published cue at the playhead")
-    elif shown:
+    elif args.expect_captions != "no" and shown:
         # ENGINE captions (no published file): the glass must show what the
         # engine says it displayed, close in wall time. This proves the pipe
         # end-to-end (engine -> overlay -> pixels) and rejects the ttcrb1
@@ -352,6 +439,36 @@ def main():
         drops = [b for b in blanks if b > 0]
         grade("blank_captions_are_gaps", not drops,
               f"{len(blanks)} blank ticks, {len(drops)} had a cue that should have shown")
+
+    # H. PACING (owner 2026-08-26: captions "are often wrongly timed (move
+    #    too quickly or go in large bursts)"). Judge the DISPLAY sequence the
+    #    engine reports (wall time of each distinct line change): a caption
+    #    replaced faster than anyone reads is "too fast"; several distinct
+    #    lines inside a 3s window is a "burst" (late-finalized cues arriving
+    #    together). Reading-time floor is ~2.5 words/s (Decision 059).
+    changes = []
+    last_text = None
+    for w, s in shown:
+        ns = norm(s)
+        if ns and ns != last_text:
+            changes.append((w, ns))
+            last_text = ns
+    if len(changes) >= 8:
+        dwells = [b - a for (a, _), (b, _) in zip(changes, changes[1:])]
+        fast = [d for d in dwells if d < 1.2]
+        med = sorted(dwells)[len(dwells) // 2]
+        bursts = 0
+        for i in range(len(changes) - 2):
+            if changes[i + 2][0] - changes[i][0] < 3.0:
+                bursts += 1
+        report["pacing"] = {"changes": len(changes),
+                           "median_dwell_s": round(med, 2),
+                           "fast_fraction": round(len(fast) / len(dwells), 2),
+                           "burst_windows": bursts}
+        grade("caption_pacing", med >= 2.0 and len(fast) <= len(dwells) * 0.2
+              and bursts == 0,
+              f"median dwell {med:.1f}s, {len(fast)}/{len(dwells)} changes "
+              f"<1.2s, {bursts} burst windows (3+ lines in 3s)")
 
     (outdir / "report.json").write_text(json.dumps(report, indent=1))
     failed = [k for k, v in report["assertions"].items() if not v["pass"]]
