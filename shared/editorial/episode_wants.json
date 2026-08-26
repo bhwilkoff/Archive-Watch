@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-08-25T04:32:58Z",
+  "updated_at": "2026-08-26T04:32:07Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18006,
-    "wanted": 17784,
+    "total": 18051,
+    "wanted": 17829,
     "fulfilled": 222,
-    "series_with_gaps": 358
+    "series_with_gaps": 359
   },
   "wants": [
     {
@@ -72141,6 +72141,456 @@
       "episodeImdbID": "tt4541042",
       "status": "wanted",
       "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 1,
+      "title": "Big Five, Little Five",
+      "episodeImdbID": "tt0794842",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 2,
+      "title": "City Critters",
+      "episodeImdbID": "tt0794843",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 3,
+      "title": "Sharks",
+      "episodeImdbID": "tt0794856",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 4,
+      "title": "Running with Wild Dogs",
+      "episodeImdbID": "tt0794855",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 5,
+      "title": "In Search of the Tasmanian Tiger",
+      "episodeImdbID": "tt0794848",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 6,
+      "title": "The Great Defenders",
+      "episodeImdbID": "tt0794861",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 7,
+      "title": "Pan Trogolodytes: An In-Depth Analysis",
+      "episodeImdbID": "tt0794852",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 8,
+      "title": "The Great Canadians",
+      "episodeImdbID": "tt0794860",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 9,
+      "title": "Rain Forests: Under the Canopy",
+      "episodeImdbID": "tt0794854",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 12,
+      "title": "Elephants 2: Wild Elephants Couldn't Drag Me Away",
+      "episodeImdbID": "tt0794846",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 13,
+      "title": "Weird Creatures",
+      "episodeImdbID": "tt0794864",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 14,
+      "title": "Planet of the Dolphin",
+      "episodeImdbID": "tt0794853",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 15,
+      "title": "The Great Bear Show",
+      "episodeImdbID": "tt0794859",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 16,
+      "title": "Mgobo of Baboon Mountain",
+      "episodeImdbID": "tt0794851",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 17,
+      "title": "The How Show",
+      "episodeImdbID": "tt0794862",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 18,
+      "title": "Kickboxing Kangaroos",
+      "episodeImdbID": "tt0794849",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 19,
+      "title": "The Giant Bug Invasion",
+      "episodeImdbID": "tt0794858",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 20,
+      "title": "Heavyweights of Africa",
+      "episodeImdbID": "tt0794847",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 21,
+      "title": "The Redcoats Are Coming!",
+      "episodeImdbID": "tt0794863",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 22,
+      "title": "The Cow Show",
+      "episodeImdbID": "tt0794857",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 23,
+      "title": "Maximum Cheetah Velocity",
+      "episodeImdbID": "tt0794850",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 24,
+      "title": "Wild Ponies",
+      "episodeImdbID": "tt0794868",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 25,
+      "title": "Who's Who?",
+      "episodeImdbID": "tt0794866",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 26,
+      "title": "Arribada 1: The Sea Turtle Invasion",
+      "episodeImdbID": "tt0794841",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 27,
+      "title": "Arribada 2: Running the Gauntlet",
+      "episodeImdbID": "tt0804764",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 28,
+      "title": "Around Australia in Eight Days",
+      "episodeImdbID": "tt0804763",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 29,
+      "title": "Hyenas Are Cool!",
+      "episodeImdbID": "tt0804769",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 31,
+      "title": "Creature Rescue",
+      "episodeImdbID": "tt0804766",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 32,
+      "title": "Lion, King of the Beasts?",
+      "episodeImdbID": "tt0804772",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 33,
+      "title": "Marshmania!",
+      "episodeImdbID": "tt0804773",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 34,
+      "title": "Why?",
+      "episodeImdbID": "tt0794867",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 35,
+      "title": "Koalas and Wombats: The Untold Story",
+      "episodeImdbID": "tt0804770",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 36,
+      "title": "Backyard Bandits",
+      "episodeImdbID": "tt0804765",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 37,
+      "title": "Hanging with the Monkeys",
+      "episodeImdbID": "tt0804768",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 38,
+      "title": "The Best of the Best",
+      "episodeImdbID": "tt0804777",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 39,
+      "title": "Polyp Power!",
+      "episodeImdbID": "tt0805297",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 40,
+      "title": "Wings!",
+      "episodeImdbID": "tt0804779",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 41,
+      "title": "Phantom Wolves",
+      "episodeImdbID": "tt0804776",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 42,
+      "title": "Australia: Land of Mystery and Intrigue",
+      "episodeImdbID": "tt0817721",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 43,
+      "title": "Leopard: Prince of Stealth",
+      "episodeImdbID": "tt0804771",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 44,
+      "title": "When?",
+      "episodeImdbID": "tt0794865",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 45,
+      "title": "Parched and Thirsty in the Outback",
+      "episodeImdbID": "tt0804775",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 46,
+      "title": "Gatorglades",
+      "episodeImdbID": "tt0804767",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 47,
+      "title": "Spots and Stripes Forever",
+      "episodeImdbID": "tt0187215",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
+    },
+    {
+      "seriesID": "kratts-creatures-1996",
+      "seriesTitle": "Kratts' Creatures",
+      "season": 1,
+      "episode": 49,
+      "title": "Where?",
+      "episodeImdbID": "tt0804778",
+      "status": "wanted",
+      "added_at": "2026-08-26T04:32:07Z"
     },
     {
       "seriesID": "la-aventura-del-hombre-1989",
