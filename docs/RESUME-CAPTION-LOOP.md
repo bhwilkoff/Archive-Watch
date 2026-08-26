@@ -43,6 +43,13 @@ Runner: `python3 tools/atv_scenario.py --title "<Title>" --minutes 4
 
 ## The breadth deck (OWNER RULE 2026-08-26: a wider swath, never the same film twice)
 
+**Second owner rule (2026-08-26): ENGLISH-DIALOGUE films only.** A
+foreign-language film has no English speech to caption, so it tests nothing
+a viewer cares about here. The one language-mismatch negative control
+(Street Angel, w7-foreign) is done; never schedule another non-English
+title unless the owner asks for that class specifically. Check the card's
+language in /tmp/catalog.sqlite before picking.
+
 Every run picks a NEW title. His Girl Friday is RETIRED except as a
 one-run calibration control after an instrument change, or to re-verify
 a fix on the exact film that exposed it. Covered so far: His Girl Friday
