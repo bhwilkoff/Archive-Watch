@@ -142,7 +142,20 @@ struct PlayerView: UIViewControllerRepresentable {
         context.coordinator.currentChoice = captionChoice ?? (subtitleHLSURL != nil ? .file : .automatic)
 
         let pItem: AVPlayerItem
-        if let hls = effectiveHLS, let mp4 = videoURL {
+        if let hls = effectiveHLS, SystemCaptions.isAvailable {
+            // iOS 27+: play the PUBLISHED https wrapper directly — ordinary
+            // HLS, which the system will attach its generated track to. The
+            // native subtitle menu then holds the authored file track AND
+            // "English (US) Transcribed" side by side, so switching sources
+            // is just picking a different Language entry (owner 2026-08-27:
+            // "as easy as switching to a different language"). The custom-
+            // scheme loader below disqualifies the asset from generation
+            // (D067), so it is now the iOS 26 path only. Start resilience
+            // trade: this pays the /download 302 once; the non-faststart
+            // fallback still covers a failed start.
+            pItem = AVPlayerItem(url: hls)
+            context.coordinator.fallbackVideoURL = videoURL
+        } else if let hls = effectiveHLS, let mp4 = videoURL {
             // Part (a) Config C (Decision 039): AVPlayerViewController shows the CC
             // menu for the WebVTT tracks. A resource-loader delegate serves the HLS
             // playlists with the video segment rewritten to a freshly node-resolved
