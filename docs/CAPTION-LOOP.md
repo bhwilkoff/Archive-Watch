@@ -76,6 +76,10 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-27 tick 62 (overnight) — Orphan batch 6: 7/25 passed the
+  gate (rate easing 9-10 -> 7 as popularity falls; still above the
+  stop floor of 5), new verified entries reclaimed and published.
+
 - 2026-08-26 tick 61 (quiet) — Orphan batch 5: 9/25 passed the gate,
   new >=0.6 entries reclaimed and published (see reclaim output for the
   count; running total in the next served-DB verify). Pass rate steady
