@@ -76,6 +76,32 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-27 ticks 72-80 — **THE FILM-TIME SAMPLE READER: built, proven
+  on macOS, walled by the tvOS beta, shipped with auto-fallback.** The
+  owner rejected the residual timing lag as structural and was right on
+  every count. AVPlayerItemSampleBufferOutput (27-only, HLS-items-only
+  per its header) delivers decoded audio with FILM-TIME PTS: an
+  in-memory HLS wrapper makes any film readable, the sink anchors to
+  the first PTS, and the mapping becomes identity — no two-clock
+  arithmetic at all. Measured: Mac probe 3.5x realtime (rate 2), 17x
+  (rate 0, NO second render — D071 class dies), pacing leash required
+  (unpaced = 693s buffered in 40s, the D070 bomb). Mac in-app harness:
+  cues end-to-end at the film's own timestamps. THE WALL: on tvOS 27
+  beta 24J5358a the output delivers ZERO buffers — synthesized wrapper
+  AND the real published wrapper the Mac reads at 17x; item loads,
+  reaches readyToPlay, output ends at 0 fed. Beta-ware, same genus as
+  D068's silent generated track. SHIPPED SHAPE: reader-first with a
+  10s no-delivery watchdog that falls back to the verified scout path
+  automatically — macOS gets exact timing TODAY, iOS gets it if its
+  beta delivers (fallback covers it either way), tvOS self-upgrades
+  the day Apple's beta works. Fallback verified on-device (fallback
+  run: engine captioned, pacing clean; timing median +2.4s with the
+  known early-session tail — the scout path's structural ceiling on
+  this beta). Diagnosis rode: loader-request logging, item-status
+  probe, delivery watchdog, format bisect (native-format request
+  CRASHES — "PCM format currently required" is enforced), and the
+  https-wrapper bisect that pinned the platform.
+
 - 2026-08-27 tick 71 — **CAMPAIGN SHIPPED. Every owner priority
   resolved and the release is out everywhere the loop can send it.**
   Apple 1.3.460 (982) uploaded to ASC by appstore-build 33087195366
