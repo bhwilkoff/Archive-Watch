@@ -147,10 +147,17 @@ struct AutoCaptionsSettingsSection: View {
                         .frame(minWidth: 560, minHeight: 420)
                         #endif
                 }
-                Toggle(isOn: Binding(get: { LiveCaptions.transcribeWhenMissing },
-                                     set: { LiveCaptions.transcribeWhenMissing = $0
-                                            transcribeOn = $0 })) {
+                // STATE-BACKED, not a computed Binding straight to
+                // UserDefaults: on the Apple TV the computed form ignored
+                // remote selects entirely — three warmed presses on the
+                // focused row (fresh reboot included) never flipped it
+                // (2026-08-26). SwiftUI needs the state change to drive the
+                // control; the preference mirrors via onChange.
+                Toggle(isOn: $transcribeOn) {
                     Text("Transcribe films with no subtitles")
+                }
+                .onChange(of: transcribeOn) { _, v in
+                    LiveCaptions.transcribeWhenMissing = v
                 }
             } header: {
                 Text("Automatic Captions")

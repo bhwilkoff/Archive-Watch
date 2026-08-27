@@ -92,6 +92,16 @@ final class LiveCaptions {
     /// Here we do: the scout below transcribes ahead of the playhead, so there is
     /// no reason to make the viewer watch a sentence assemble itself.
     private var cues: [(start: Double, end: Double, text: String)] = []
+    /// COLD-START STAGING (the +39.5s class, The Bold Caballero run 1):
+    /// during a session's first minute the scout under-runs its rate while
+    /// buffers fill and the model warms, so early cues map LATE — and once
+    /// shown late they are unfixable. Until the mapping is PROVEN (the err
+    /// envelope touches ~0, or a 45s timeout applies a one-time rescale to
+    /// the scout's actual position), cues wait here instead of `cues`: the
+    /// display and the bracketing count both stay naturally empty, so blanks
+    /// remain honest, and nothing shown ever moves.
+    private var stagedCues: [(start: Double, end: Double, text: String)] = []
+    private var mappingProven = false
     /// Where the scout began, in film time; the analyzer clocks from zero.
     private var contentOffset: Double = 0
     /// PIECEWISE analyzer->film mapping. The nominal formula
@@ -313,6 +323,8 @@ final class LiveCaptions {
         startedAt = Date()
         contentOffset = max(0, startTime.seconds.isFinite ? startTime.seconds : 0)
         resetMapping()
+        mappingProven = false
+        stagedCues.removeAll()
         sink.reset()   // a restarted session must not inherit the old replay high-water
         driftSamples.removeAll()   // nor the old session's drift envelope
         slopeSamples.removeAll()
@@ -686,6 +698,30 @@ final class LiveCaptions {
         let now = Date().timeIntervalSince1970
         driftSamples.append((wall: now, err: err))
         driftSamples.removeAll { now - $0.wall > 30 }
+        // MAPPING PROOF (cold-start class): the envelope touching ~0 proves
+        // the mapping matches reality — flush staged cues untouched. A 45s
+        // timeout instead RESCALES them to the scout's actual position (the
+        // rate under-run is exactly what err measured) — capped so nothing
+        // maps before the session start — and corrects mappingRate forward.
+        if !mappingProven {
+            let age = startedAt.map { Date().timeIntervalSince($0) } ?? 0
+            if err <= 5 {
+                mappingProven = true
+                envelopeValidated = true
+                awdiag("[AWCAP] mapping proven (err \(fmt(err))s at delivered \(fmt(delivered))) — \(stagedCues.count) staged cue(s) flush")
+                flushStagedCues(rescale: nil)
+            } else if age > 45, delivered > 15, pos > contentOffset + 5 {
+                let mappedSpan = filmTime(delivered) - contentOffset
+                let realSpan = pos - contentOffset
+                let factor = mappedSpan > 1 ? max(0.5, min(1.0, realSpan / mappedSpan)) : 1.0
+                mappingProven = true
+                awdiag("[AWCAP] mapping proof TIMEOUT (err \(fmt(err))s) — rescaling \(stagedCues.count) staged cue(s) by \(String(format: "%.3f", factor))")
+                mappingAnchorFilm = pos
+                mappingAnchorRaw = delivered
+                mappingRate = mappingRate * factor
+                flushStagedCues(rescale: factor)
+            }
+        }
         // SPARSE sampling: driftCheck runs ~3x/second (821 calls in a 280s
         // run — w8-timing-ghosttrain8), so an every-call series capped at 12
         // spans ~4s and the >=25s window gate can never pass. One sample per
@@ -864,6 +900,8 @@ final class LiveCaptions {
         driftSamples.removeAll()
         contentOffset = max(0, playhead.seconds)
         resetMapping()
+        mappingProven = false
+        stagedCues.removeAll()
         // Drop cues at or beyond the new anchor. A resync re-bases the mapping
         // on the playhead and restarts the transcriber, so everything from here
         // is about to be produced again — and leaving the old ones in place
@@ -907,7 +945,25 @@ final class LiveCaptions {
     /// A Result can cover a long stretch; a caption should be one or two short
     /// lines (~32 characters is the broadcast convention). Long spans are divided
     /// proportionally so each piece still lands when it is spoken.
+    private func flushStagedCues(rescale factor: Double?) {
+        let staged = stagedCues
+        stagedCues.removeAll()
+        for c in staged {
+            var s = c.start, e = c.end
+            if let f = factor {
+                s = contentOffset + (s - contentOffset) * f
+                e = max(s + 0.4, contentOffset + (e - contentOffset) * f)
+            }
+            appendCue(start: s, end: e, text: c.text)
+        }
+    }
+
     private func appendCue(start: Double, end: Double, text: String) {
+        guard mappingProven else {
+            stagedCues.append((start: start, end: end, text: text))
+            if stagedCues.count > 400 { stagedCues.removeFirst(stagedCues.count - 400) }
+            return
+        }
         let chunks = Self.wrap(text, limit: Self.maxCharsPerLine * Self.visibleLines)
         guard !chunks.isEmpty else { return }
         everProducedCue = true
