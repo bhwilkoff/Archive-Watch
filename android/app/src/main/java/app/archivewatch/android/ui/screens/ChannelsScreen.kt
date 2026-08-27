@@ -99,7 +99,7 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
     var showCreate by remember { mutableStateOf(false) }
 
     val guide by produceState<List<GuideChannel>?>(null, dbVersion, userChanges) {
-        val db = container.catalog.db ?: return@produceState
+        val db = container.catalog.awaitDb()
         val nowMs = System.currentTimeMillis()
         // User channels lead the guide (same as the Apple apps).
         val user = container.userState.userChannels().mapNotNull { uc ->

@@ -159,7 +159,7 @@ fun EraTilesRow(decades: List<Pair<Int, Int>>, onDecade: (Int) -> Unit) {
 fun FilteredGridScreen(container: AppContainer, nav: Nav, route: Route.Filtered) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
     val items by produceState<List<CatalogItem>?>(null, dbVersion) {
-        val db = container.catalog.db ?: return@produceState
+        val db = container.catalog.awaitDb()
         value = db.browse(contentType = route.contentType, decade = route.decade, limit = 240)
     }
     Scaffold(
@@ -208,7 +208,7 @@ fun SurpriseScreen(container: AppContainer, nav: Nav) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
     var roll by remember { mutableIntStateOf(0) }
     val items by produceState<List<CatalogItem>?>(null, dbVersion, roll) {
-        val db = container.catalog.db ?: return@produceState
+        val db = container.catalog.awaitDb()
         // Filler tiles are FEATURE FILMS (not random anything) — the old `null` fillers pulled
         // shorts/cartoons/newsreels. Feature slots use randomFeatureFilm (full-length floor).
         val types = listOf(
@@ -273,7 +273,7 @@ fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
     val scope = rememberCoroutineScope()
 
     val state by produceState<Pair<String, List<CatalogItem>>?>(null, dbVersion, userChanges) {
-        val db = container.catalog.db ?: return@produceState
+        val db = container.catalog.awaitDb()
         val pl = container.userState.playlists().find { it.id == playlistID } ?: return@produceState
         value = pl.name to db.itemsByIDs(pl.archiveIDs)
     }

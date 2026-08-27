@@ -3,6 +3,7 @@ package app.archivewatch.android.data
 import android.content.Context
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
@@ -44,6 +45,19 @@ class CatalogRepository(
 
     @Volatile private var hideAdult = true
     @Volatile private var hiddenTypes: Set<String> = emptySet()
+
+    /**
+     * Suspends until the catalog is open. A screen's data producer must never
+     * bail on a momentarily-null [db]: produceState runs once per key change,
+     * so an early return during startup or the refresh swap leaves that
+     * screen's value null FOREVER — a spinner that never resolves (measured
+     * on the Google TV device, Channels tab, 2026-08-27).
+     */
+    suspend fun awaitDb(): CatalogDatabase {
+        db?.let { return it }
+        dbVersion.first { db != null }
+        return db!!
+    }
 
     /** Seed copy + open. Call once at launch before any query. */
     suspend fun initialize() = withContext(Dispatchers.IO) {

@@ -79,7 +79,7 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
 
     // Facet menus only need loading once per DB (independent of the active filters).
     LaunchedEffect(dbVersion) {
-        val db = container.catalog.db ?: return@LaunchedEffect
+        val db = container.catalog.awaitDb()
         decades = db.decadeCounts()
         keywordChoices = db.topKeywords()
         studioChoices = db.topStudios()
@@ -90,7 +90,7 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
         loading = true
         items.clear()
         endReached = false
-        val db = container.catalog.db ?: return@LaunchedEffect
+        val db = container.catalog.awaitDb()
         if (scope == Scope.TV) {
             val cards = db.seriesCards()
             items.addAll(cards)

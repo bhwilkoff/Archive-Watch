@@ -75,7 +75,7 @@ fun TvSearchScreen(container: AppContainer, nav: Nav) {
     val firstKey = remember { FocusRequester() }
 
     LaunchedEffect(dbVersion) {
-        val db = container.catalog.db ?: return@LaunchedEffect
+        val db = container.catalog.awaitDb()
         decades = db.decadeCounts()
         keywords = db.topKeywords(limit = 18)
     }
@@ -87,7 +87,7 @@ fun TvSearchScreen(container: AppContainer, nav: Nav) {
             return@LaunchedEffect
         }
         delay(180)
-        val db = container.catalog.db ?: return@LaunchedEffect
+        val db = container.catalog.awaitDb()
         results = db.search(query)
     }
 

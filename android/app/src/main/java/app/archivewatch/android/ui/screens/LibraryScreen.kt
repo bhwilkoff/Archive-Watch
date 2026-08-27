@@ -60,11 +60,11 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
     var tabIndex by remember { mutableIntStateOf(0) }
 
     val favorites by produceState<List<CatalogItem>>(emptyList(), dbVersion, userChanges) {
-        val db = container.catalog.db ?: return@produceState
+        val db = container.catalog.awaitDb()
         value = db.itemsByIDs(container.userState.favoriteIDs())
     }
     val continueWatching by produceState<List<CatalogItem>>(emptyList(), dbVersion, userChanges) {
-        val db = container.catalog.db ?: return@produceState
+        val db = container.catalog.awaitDb()
         value = db.itemsByIDs(container.userState.continueWatching().map { it.archiveID })
     }
     val playlists by produceState<List<UserPlaylist>>(emptyList(), userChanges) {
@@ -76,7 +76,7 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
     // The complete watch record (Decision 078 parity): everything ever
     // played, newest first — finished or not.
     val history by produceState<List<CatalogItem>>(emptyList(), dbVersion, userChanges) {
-        val db = container.catalog.db ?: return@produceState
+        val db = container.catalog.awaitDb()
         value = db.itemsByIDs(container.userState.history().map { it.archiveID })
     }
 

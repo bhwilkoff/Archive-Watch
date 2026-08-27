@@ -63,7 +63,7 @@ import app.archivewatch.android.ui.theme.colorFromHex
 fun CollectionsScreen(container: AppContainer, nav: Nav) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
     val collections by produceState<List<Pair<CollectionMeta, Int>>?>(null, dbVersion) {
-        val db = container.catalog.db ?: return@produceState
+        val db = container.catalog.awaitDb()
         value = container.editorial.collections().mapNotNull { meta ->
             val n = db.byCollection(meta.id, limit = 240).size
             if (n >= 6) meta to n else null
@@ -176,7 +176,7 @@ fun CartoonScreen(container: AppContainer, nav: Nav) {
     )
     val state by produceState<Pair<List<CatalogItem>, List<Pair<String, List<CatalogItem>>>>?>(
         null, dbVersion) {
-        val db = container.catalog.db ?: return@produceState
+        val db = container.catalog.awaitDb()
         val pool = db.browse(contentType = "animation", limit = 240)
             .filter { it.downloadURL != null }
         val shelves = characterDefs.mapNotNull { (name, terms) ->

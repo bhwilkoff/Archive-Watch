@@ -75,8 +75,8 @@ reachability, emulator-era).
 |---|---|---|---|
 | Grid + infinite scroll + real total | 6-col grid, paging | T2 | PENDING |
 | Type facet chips | scope chips exist (incl. TV scope) | T2 | PENDING (verify full type vocabulary) |
-| Era/decade facet chips | NOT SEEN in TvBrowseScreen | T2 | GAP |
-| Sort menu (Popular/Top Rated/A-Z/Newest/…) | hardcoded `BrowseSort.POPULAR` | T2 | GAP |
+| Era/decade facet chips | second chip row (All eras + 1890s–2020s), hidden for TV scope | T1 | **FIXED #2** (rendered on device) |
+| Sort menu (Popular/Top Rated/A-Z/Newest/Oldest) | sort chips row — all 5 `BrowseSort` values | T1 | **FIXED #2** (rendered on device) |
 | Color/B&W filter | | | PENDING |
 | Card → Detail routes | | | PENDING |
 
@@ -92,7 +92,7 @@ reachability, emulator-era).
 ### 4. Channels (EPG)
 | tvOS element | Android TV state | Tier | Status |
 |---|---|---|---|
-| EPG guide (proportional blocks, ruler, now-line) | Compose guide exists (focusable blocks) | T1 | PENDING (device verify) |
+| EPG guide (proportional blocks, ruler, now-line) | renders (cold repro: full guide at 30s) | T1 | VERIFIED — after **FIX #1** (see fix log) |
 | Tune-in joins in progress + commercials woven | | | PENDING |
 | Full-day schedule per channel | | | PENDING |
 | Create user channel | phone dialog — reachable/operable by D-pad? | | PENDING |
@@ -178,6 +178,8 @@ Candidate adoptions, each to be dispositioned (adopt / reject with reason):
 
 | # | Screen | Issue | Class | Fix | Version |
 |---|---|---|---|---|---|
+| 1 | ALL data-producing screens (18 sites, 10 files) | `container.catalog.db ?: return@produceState` bails without a value when the db is momentarily null (startup, or the refresh swap window on a fresh install) — produceState never re-runs, so the screen spins FOREVER. Measured on the Google TV: Channels spinner in two captures ~20s apart minutes after a fresh install; cold repro rendered fine, which is what separated race from slowness. | Race / universal-states | `CatalogRepository.awaitDb()` suspends on the dbVersion flow until the db is open; all 18 bail-outs converted. Phone screens carried the same latent bug. | android google-debug 2026-08-27 |
+| 2 | TV Browse | Sort hardcoded to POPULAR; no era facet — tvOS has 5 sorts + Type/Era chips (tvOS audit fix #4 class: parity that never returned to a platform) | Parity gap | `TvRefineChips` row: all 5 BrowseSort chips + All-eras/1890s–2020s decade chips, hidden for the TV-series scope; wired into browse()/browseCount() + focus-driven paging keeps working | android google-debug 2026-08-27 |
 
 ## Loop state
 
@@ -193,3 +195,14 @@ Candidate adoptions, each to be dispositioned (adopt / reject with reason):
   walks mislabel screens — `gtv_scenario.py` must navigate by uiautomator
   focus tree, not step counts. Next: diagnose Channels via logcat; port
   the harness; close Browse sort/era gaps.
+- Tick 2 (2026-08-27): **Fix #1** (awaitDb — the Channels forever-spinner
+  race, latent in all 18 producer sites incl. phone screens) + **Fix #2**
+  (TV Browse sort + era chips), both verified on the glass (12-browse-chips
+  .png: 5 sorts + era row + 23,722 titles + first-tile focus). Channels EPG
+  VERIFIED rendering from cold (08/09-channels-cold). Focus topology decoded:
+  entering the rail lands on the VERTICALLY NEAREST item, not Home — blind
+  step-count walks are structurally unreliable; `input tap` is inert on the
+  TV profile. Harness must read uiautomator focus bounds between presses
+  (press-verify loop proven this tick). New ledger row: hero synopsis leaks
+  "Title: X Summary:" cruft (data or client strip needed). ADB: port 5555
+  (classic) is STABLE across sleeps; the TLS port rotates — prefer 5555.

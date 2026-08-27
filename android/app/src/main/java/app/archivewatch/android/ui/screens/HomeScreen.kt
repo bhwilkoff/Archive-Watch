@@ -96,7 +96,7 @@ internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
     val hideWatched by container.settings.hideWatchedOnHome.collectAsState(initial = false)
 
     return produceState(HomePayload(), dbVersion, userChanges, hideWatched) {
-        val db = container.catalog.db ?: return@produceState
+        val db = container.catalog.awaitDb()
         val featured = container.editorial.featured()
         // #17 parity: completed titles disappear from Home when the toggle is on.
         val watched = if (hideWatched) container.userState.completedIDs() else emptySet()

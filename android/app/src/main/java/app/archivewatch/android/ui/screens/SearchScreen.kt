@@ -86,7 +86,7 @@ fun SearchScreen(container: AppContainer, nav: Nav) {
             return@LaunchedEffect
         }
         delay(180)
-        val db = container.catalog.db ?: return@LaunchedEffect
+        val db = container.catalog.awaitDb()
         results = db.search(query)
         searched = true
     }

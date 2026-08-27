@@ -73,6 +73,8 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
     val scope = rememberCoroutineScope()
 
     var activeScope by remember { mutableStateOf(TvScope.All) }
+    var activeDecade by remember { mutableStateOf<Int?>(null) }
+    var activeSort by remember { mutableStateOf(BrowseSort.POPULAR) }
     var total by remember { mutableIntStateOf(0) }
     var endReached by remember { mutableStateOf(false) }
     var loading by remember { mutableStateOf(true) }
@@ -83,21 +85,22 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
     val gridState = rememberLazyGridState()
     val chipState = rememberLazyListState()
 
-    LaunchedEffect(dbVersion, activeScope) {
+    LaunchedEffect(dbVersion, activeScope, activeDecade, activeSort) {
         loading = true
         items.clear()
         endReached = false
-        val db = container.catalog.db ?: return@LaunchedEffect
+        val db = container.catalog.awaitDb()
         if (activeScope == TvScope.TV) {
             val cards = db.seriesCards()
             items.addAll(cards)
             total = cards.size
             endReached = true
         } else {
-            total = db.browseCount(contentType = activeScope.contentType)
+            total = db.browseCount(contentType = activeScope.contentType, decade = activeDecade)
             val page = db.browse(
                 contentType = activeScope.contentType,
-                sort = BrowseSort.POPULAR,
+                decade = activeDecade,
+                sort = activeSort,
                 limit = PAGE_SIZE,
                 offset = 0,
             )
@@ -112,7 +115,8 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
         val db = container.catalog.db ?: return
         val page = db.browse(
             contentType = activeScope.contentType,
-            sort = BrowseSort.POPULAR,
+            decade = activeDecade,
+            sort = activeSort,
             limit = PAGE_SIZE,
             offset = items.size,
         )
@@ -143,6 +147,18 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
             firstChipFocus = firstChip,
             state = chipState,
         )
+
+        // Sort + era ride a second chip row (tvOS Browse parity: 4 sorts +
+        // Era facet). Hidden for the TV scope — series cards carry their own
+        // rating-then-depth order and eras belong to episodes, not spines.
+        if (activeScope != TvScope.TV) {
+            TvRefineChips(
+                sort = activeSort,
+                onSort = { activeSort = it },
+                decade = activeDecade,
+                onDecade = { activeDecade = it },
+            )
+        }
 
         if (loading && items.isEmpty()) {
             TvMessage("Loading…")
@@ -190,6 +206,67 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
                 )
             }
         }
+    }
+}
+
+@Composable
+private fun TvRefineChips(
+    sort: BrowseSort,
+    onSort: (BrowseSort) -> Unit,
+    decade: Int?,
+    onDecade: (Int?) -> Unit,
+) {
+    LazyRow(
+        contentPadding = PaddingValues(start = TvDims.OverscanH, end = TvDims.OverscanH),
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+        modifier = Modifier.padding(bottom = 18.dp),
+    ) {
+        items(BrowseSort.entries.toList(), key = { "sort-" + it.name }) { s ->
+            TvChip(
+                label = s.label,
+                selected = s == sort,
+                onClick = { onSort(s) },
+            )
+        }
+        item(key = "era-div") {
+            Box(Modifier.padding(horizontal = 6.dp)) {
+                Text("·", fontSize = 24.sp, color = Color(0xFF666666))
+            }
+        }
+        item(key = "era-all") {
+            TvChip(label = "All eras", selected = decade == null, onClick = { onDecade(null) })
+        }
+        items((1890..2020 step 10).toList(), key = { "era-" + it }) { d ->
+            TvChip(
+                label = "${'$'}{d}s",
+                selected = decade == d,
+                onClick = { onDecade(if (decade == d) null else d) },
+            )
+        }
+    }
+}
+
+@Composable
+private fun TvChip(label: String, selected: Boolean, onClick: () -> Unit) {
+    Box(
+        Modifier
+            .tvFocusable(
+                onClick = onClick,
+                shape = RoundedCornerShape(24.dp),
+                scaleWhenFocused = 1.04f,
+            )
+            .background(
+                if (selected) Color(0xFFFF5C35) else Color(0xFF1C1C1C),
+                RoundedCornerShape(24.dp),
+            )
+            .padding(horizontal = 26.dp, vertical = 12.dp),
+    ) {
+        Text(
+            label,
+            fontSize = 24.sp,
+            fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
+            color = if (selected) Color.Black else Color.White,
+        )
     }
 }
 

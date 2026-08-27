@@ -62,11 +62,11 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
     var section by remember { mutableStateOf(LibSection.Favorites) }
 
     val favorites by produceState<List<CatalogItem>>(emptyList(), dbVersion, userChanges) {
-        val db = container.catalog.db ?: return@produceState
+        val db = container.catalog.awaitDb()
         value = db.itemsByIDs(container.userState.favoriteIDs())
     }
     val continueWatching by produceState<List<CatalogItem>>(emptyList(), dbVersion, userChanges) {
-        val db = container.catalog.db ?: return@produceState
+        val db = container.catalog.awaitDb()
         value = db.itemsByIDs(container.userState.continueWatching().map { it.archiveID })
     }
     val playlists by produceState<List<UserPlaylist>>(emptyList(), userChanges) {
