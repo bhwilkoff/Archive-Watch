@@ -266,6 +266,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
     // (setControllerVisibilityListener) — no timer mirroring needed. The text
     // tracks the CURRENT item so a binged episode updates it on advance.
     var controlsVisible by remember { mutableStateOf(true) }
+    var playerViewRef by remember { mutableStateOf<PlayerView?>(null) }
     var nowTitle by remember { mutableStateOf(spec.title) }
     var nowDescription by remember { mutableStateOf(spec.description) }
     DisposableEffect(player) {
@@ -345,6 +346,16 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
         }
     }
 
+    // The ten-foot Back contract (tvOS parity, and what every Android TV app
+    // does): controls visible -> Back dismisses the controls; only a second
+    // Back leaves the film. On the phone the route's own BackHandler still
+    // exits directly — a touch UI dismisses controls by tapping the video.
+    if (isTv) {
+        androidx.activity.compose.BackHandler(enabled = controlsVisible) {
+            playerViewRef?.hideController()
+        }
+    }
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -359,6 +370,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
         AndroidView(
             factory = { ctx ->
                 PlayerView(ctx).apply {
+                    playerViewRef = this
                     useController = true
                     keepScreenOn = true
                     setShowNextButton(spec.queue.size > 1)

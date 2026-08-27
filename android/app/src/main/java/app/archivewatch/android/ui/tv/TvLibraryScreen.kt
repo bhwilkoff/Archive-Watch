@@ -52,6 +52,7 @@ private const val TV_GRID_COLUMNS = 6
 private enum class LibSection(val label: String) {
     Favorites("Favorites"),
     Continue("Continue Watching"),
+    History("Watch History"),
     Playlists("Playlists"),
 }
 
@@ -69,6 +70,11 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
         val db = container.catalog.awaitDb()
         value = db.itemsByIDs(container.userState.continueWatching().map { it.archiveID })
     }
+    // D078 — the durable ever-watched record, not just resumable progress.
+    val history by produceState<List<CatalogItem>>(emptyList(), dbVersion, userChanges) {
+        val db = container.catalog.awaitDb()
+        value = db.itemsByIDs(container.userState.history().map { it.archiveID })
+    }
     val playlists by produceState<List<UserPlaylist>>(emptyList(), userChanges) {
         value = container.userState.playlists()
     }
@@ -79,6 +85,7 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
     val items = when (section) {
         LibSection.Favorites -> favorites
         LibSection.Continue -> continueWatching
+        LibSection.History -> history
         LibSection.Playlists -> emptyList()
     }
 

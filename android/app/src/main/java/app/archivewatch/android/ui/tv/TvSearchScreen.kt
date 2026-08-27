@@ -69,6 +69,10 @@ fun TvSearchScreen(container: AppContainer, nav: Nav) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
     var query by remember { mutableStateOf("") }
     var results by remember { mutableStateOf<List<CatalogItem>>(emptyList()) }
+    // Result filters (tvOS audit fix #4 parity): only facets PRESENT in the
+    // results are offered; the active chip clears itself; reset on new query.
+    var typeFilter by remember { mutableStateOf<String?>(null) }
+    var decadeFilter by remember { mutableStateOf<Int?>(null) }
     var decades by remember { mutableStateOf<List<Pair<Int, Int>>>(emptyList()) }
     var keywords by remember { mutableStateOf<List<String>>(emptyList()) }
 
@@ -89,6 +93,8 @@ fun TvSearchScreen(container: AppContainer, nav: Nav) {
         delay(180)
         val db = container.catalog.awaitDb()
         results = db.search(query)
+        typeFilter = null
+        decadeFilter = null
     }
 
     ClaimInitialFocus(firstKey)
@@ -147,13 +153,48 @@ fun TvSearchScreen(container: AppContainer, nav: Nav) {
             } else if (results.isEmpty()) {
                 TvMessage("No titles match “$query”.")
             } else {
+                val shown = results.filter {
+                    (typeFilter == null || it.contentType == typeFilter) &&
+                        (decadeFilter == null || it.decade == decadeFilter)
+                }
+                val typesPresent = results.mapNotNull { it.contentType.takeIf(String::isNotBlank) }
+                    .groupingBy { it }.eachCount().entries.sortedByDescending { it.value }
+                val decadesPresent = results.mapNotNull { it.decade }
+                    .groupingBy { it }.eachCount().entries.sortedBy { it.key }
                 Column(Modifier.fillMaxSize()) {
                     Text(
-                        "${results.size} result${if (results.size == 1) "" else "s"}",
+                        "${shown.size} result${if (shown.size == 1) "" else "s"}",
                         fontSize = 26.sp,
                         color = Color(0xFFB0B0B0),
-                        modifier = Modifier.padding(top = TvDims.OverscanV, bottom = 14.dp),
+                        modifier = Modifier.padding(top = TvDims.OverscanV, bottom = 10.dp),
                     )
+                    if (typesPresent.size > 1 || decadesPresent.size > 1) {
+                        androidx.compose.foundation.lazy.LazyRow(
+                            contentPadding = PaddingValues(end = TvDims.OverscanH),
+                            horizontalArrangement = Arrangement.spacedBy(10.dp),
+                            modifier = Modifier.padding(bottom = 12.dp),
+                        ) {
+                            if (typesPresent.size > 1) {
+                                items(typesPresent.size, key = { "t" + typesPresent[it].key }) { i ->
+                                    val (ct, n) = typesPresent[i]
+                                    TvFilterChip(
+                                        label = ct.replace('-', ' ')
+                                            .replaceFirstChar { c -> c.uppercase() } + " ($n)",
+                                        selected = typeFilter == ct,
+                                    ) { typeFilter = if (typeFilter == ct) null else ct }
+                                }
+                            }
+                            if (decadesPresent.size > 1) {
+                                items(decadesPresent.size, key = { "d" + decadesPresent[it].key }) { i ->
+                                    val (d, n) = decadesPresent[i]
+                                    TvFilterChip(
+                                        label = "${d}s ($n)",
+                                        selected = decadeFilter == d,
+                                    ) { decadeFilter = if (decadeFilter == d) null else d }
+                                }
+                            }
+                        }
+                    }
                     LazyVerticalGrid(
                         columns = GridCells.Fixed(4),
                         contentPadding = PaddingValues(
@@ -163,7 +204,7 @@ fun TvSearchScreen(container: AppContainer, nav: Nav) {
                         horizontalArrangement = Arrangement.spacedBy(TvDims.PosterSpacing),
                         verticalArrangement = Arrangement.spacedBy(22.dp),
                     ) {
-                        items(results, key = { it.archiveID }) { item ->
+                        items(shown, key = { it.archiveID }) { item ->
                             TvPosterTile(
                                 item = item,
                                 onClick = {
@@ -301,6 +342,30 @@ private fun TvKeyCap(
             fontSize = if (wide) 18.sp else 26.sp,
             fontWeight = FontWeight.Medium,
             color = Color.White,
+        )
+    }
+}
+
+@Composable
+private fun TvFilterChip(label: String, selected: Boolean, onClick: () -> Unit) {
+    Box(
+        Modifier
+            .tvFocusable(
+                onClick = onClick,
+                shape = RoundedCornerShape(20.dp),
+                scaleWhenFocused = 1.04f,
+            )
+            .background(
+                if (selected) Color(0xFFFF5C35) else Color(0xFF1C1C1C),
+                RoundedCornerShape(20.dp),
+            )
+            .padding(horizontal = 20.dp, vertical = 10.dp),
+    ) {
+        Text(
+            label,
+            fontSize = 21.sp,
+            fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
+            color = if (selected) Color.Black else Color.White,
         )
     }
 }

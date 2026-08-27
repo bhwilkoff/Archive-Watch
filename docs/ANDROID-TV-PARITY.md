@@ -119,14 +119,14 @@ reachability, emulator-era).
 | tvOS element | Android TV state | Tier | Status |
 |---|---|---|---|
 | FTS results (keyboard + no-typing browse doors §3.6) | TV-native screen exists | T2 | PENDING |
-| Type/Era filters over results (present-facets-only) | tvOS gained these in audit fix #4 — verify TV twin | T2 | PENDING |
+| Type/Era filters over results (present-facets-only) | **FIXED #7** — TvFilterChip row: present-facets-only w/ counts, active chip self-clears, reset on new query | T2 | SHIPPED (T1 blocked on harness type_text) |
 | Result routes by type (Detail vs SeriesDetail) | | | PENDING |
 
 ### 10. Library (`TvLibraryScreen`)
 | tvOS element | Android TV state | Tier | Status |
 |---|---|---|---|
-| Favorites grid | | | PENDING |
-| Watched / watch history (D078 durable record) | | | PENDING |
+| Favorites grid | section present | T2 | VERIFIED |
+| Watched / watch history (D078 durable record) | **FIXED #6** — Watch History section added (db.itemsByIDs over userState.history()) | T2 | SHIPPED |
 | Playlists: create/add/remove/delete + playback | phone dialogs by D-pad? | | PENDING |
 | Continue Watching | | | PENDING |
 
@@ -157,7 +157,7 @@ reachability, emulator-era).
 | Detail: Share | NOT SHIPPED — tvOS uses a QR ShareSheet; Android has no native QR generator (no third-party deps rule) | T2 | DEFERRED (needs in-repo QR encoder or a decision) |
 | Player: playback + transport + resume | VERIFIED T1 (Girl o' My Dreams): decoder frames 673→1805 @~24fps, AudioTrack started from our pid, transport clock 01:51/1:02:51 matches wall time, title+description overlay (D037), **resume at 02:17 after exit** | T1 | VERIFIED |
 | Player: subtitles render | caption text OCR'd on the glass during playback | T1 | VERIFIED |
-| Player: Back with controls up EXITS the player (tvOS dismisses controls first) | | T2 | GAP-MINOR (contract review) |
+| Player: Back with controls up dismisses controls first, second Back exits | **FIXED #5** — BackHandler gated on controllerVisible (TV only) | T1 | VERIFIED (34/35/36 captures) |
 | Player: D-pad seek, prev/next episode, commercial weave | | | PENDING |
 | Subtitles render + caption choice on TV player | published VTT via Media3; NO engine analogue (no on-device transcription API on Android — recorded platform difference) | T2 | PENDING (verify + record) |
 | Alias forwarding (D085: Android never queried item_aliases — fixed 2026-08-20) | | T2 | PENDING (verify on TV build) |
@@ -240,3 +240,9 @@ Candidate adoptions, each to be dispositioned (adopt / reject with reason):
   Minor gap: Back with controls up exits the player instead of dismissing
   controls first. Device catalog still shows the Title:/Summary: cruft
   until the next publish (expected — remediate is pipeline-side).
+- Tick 6 (2026-08-27): **Fix #5** player two-stage Back (verified on glass:
+  controls hide on first Back, player exits on second); **Fix #6** Library
+  gains Watch History (D078) + stale playlist empty-state message updated;
+  **Fix #7** Search result filters (type/era, present-facets-only, counts).
+  Blind keycap navigation failed AGAIN (landed on a Detail) — harness needs
+  a focus-verified type_text() keycap driver before search T1 closes.
