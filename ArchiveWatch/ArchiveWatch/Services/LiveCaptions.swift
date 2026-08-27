@@ -720,8 +720,12 @@ final class LiveCaptions {
                 // worse than a blank), the rest flush unshifted, and the
                 // slope loop owns ongoing convergence.
                 mappingProven = true
-                let stale = stagedCues.filter { $0.end < pos }.count
-                stagedCues.removeAll { $0.end < pos }
+                // START < pos+5, not end < pos: a cue straddling the scout's
+                // position has already slipped by an unknown amount and shows
+                // immediately-late (+43s worst, buckaroo5). Only clearly-
+                // future cues flush.
+                let stale = stagedCues.filter { $0.start < pos + 5 }.count
+                stagedCues.removeAll { $0.start < pos + 5 }
                 awdiag("[AWCAP] mapping proof TIMEOUT (err \(fmt(err))s) — \(stale) stale staged cue(s) dropped, \(stagedCues.count) flush unshifted")
                 flushStagedCues(rescale: nil)
             }
