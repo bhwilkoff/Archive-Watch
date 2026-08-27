@@ -76,6 +76,13 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 59 (quiet) — **Orphan batch 3: +9 reclaims (49
+  total live).** 10 of 25 passed the transcriber's quality gate (the
+  tail's audio quality drops — 15 rejects is the gate working), 9 of
+  10 verified >=0.6 and were stamped; the 40 prior reclaims correctly
+  skipped. Catalog published, publish-db dispatched. Owner queue
+  unchanged; device still rested.
+
 - 2026-08-26 tick 58 (quiet) — **Top-25 claimed-film audit COMPLETE:
   21 of 25 transcribed and scored, zero wrong-film candidates** (the
   earlier model-contention rejects re-ran clean; 4 rejected by the
