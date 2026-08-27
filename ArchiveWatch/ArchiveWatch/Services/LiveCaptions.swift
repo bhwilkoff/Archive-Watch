@@ -418,10 +418,26 @@ final class LiveCaptions {
         sboTask = Task.detached { [weak self] in
             var fed = 0.0
             var lastPTS = from
+            var announced = false
+            let born = Date()
+            // A no-delivery watchdog: the device run w10-sbo-13thman2 fed
+            // NOTHING after a seek while the Mac (from 0) fed fine — without
+            // this line that difference was invisible.
+            Task.detached {
+                try? await Task.sleep(nanoseconds: 10_000_000_000)
+                if fed == 0 { awdiag("[AWCAP] sample reader: NO DELIVERY after 10s (from \(from))") }
+            }
             while !Task.isCancelled {
                 var s = output.nextAvailableSampleBuffer()
                 if s == nil { s = await output.nextSampleBuffer() }
-                guard let s else { break }
+                guard let s else {
+                    awdiag("[AWCAP] sample reader: stream ENDED after \(String(format: "%.0f", fed))s fed")
+                    break
+                }
+                if !announced {
+                    announced = true
+                    awdiag("[AWCAP] sample reader: first buffer at PTS \(String(format: "%.1f", s.sampleBuffer.presentationTimeStamp.seconds)) (\(String(format: "%.1f", Date().timeIntervalSince(born)))s after ignition)")
+                }
                 if s.sequenceWasRestarted {
                     await MainActor.run { [weak self] in
                         self?.awdiagInstance("[AWCAP] sample reader sequence restarted")
@@ -437,6 +453,9 @@ final class LiveCaptions {
                     lastPTS = pts
                     let head = pts
                     await MainActor.run { [weak self] in self?.sboHead = head }
+                    if Int(fed) % 60 == 0, fed > 0, dur > Double(Int(fed) % 60) - 1 {
+                        awdiag("[AWCAP] sample reader: fed \(String(format: "%.0f", fed))s, head \(String(format: "%.1f", head))")
+                    }
                 }
                 // PACING LEASH (the D070 lesson): stay <=120s ahead of the
                 // viewer or the item buffers the whole film.
