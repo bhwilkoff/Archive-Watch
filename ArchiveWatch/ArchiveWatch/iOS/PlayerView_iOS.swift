@@ -138,6 +138,55 @@ struct PlayerView: UIViewControllerRepresentable {
         // Receiver-fetchable URLs for AirPlay (A0) — see Coordinator.directVideoURL.
         context.coordinator.directVideoURL = videoURL
         context.coordinator.directHLSURL = effectiveHLS
+        context.coordinator.fullSubtitleHLS = subtitleHLSURL
+        context.coordinator.currentChoice = captionChoice ?? (subtitleHLSURL != nil ? .file : .automatic)
+
+        // IN-PLAYER caption-type switcher (tvOS transport-menu parity). A
+        // small translucent button top-trailing over the player; native
+        // UIMenu with checkmarked File / Automatic / Off. Only when there is
+        // a choice to make (a subtitle file, or a supported engine).
+        if subtitleHLSURL != nil || LiveCaptions.isSupported {
+            var cfg = UIButton.Configuration.filled()
+            cfg.image = UIImage(systemName: "captions.bubble")
+            cfg.baseBackgroundColor = UIColor.black.withAlphaComponent(0.45)
+            cfg.baseForegroundColor = .white
+            cfg.cornerStyle = .capsule
+            cfg.buttonSize = .small
+            let btn = UIButton(configuration: cfg)
+            btn.showsMenuAsPrimaryAction = true
+            btn.menu = context.coordinator.captionMenu(for: vc)
+            btn.translatesAutoresizingMaskIntoConstraints = false
+            vc.view.addSubview(btn)
+            NSLayoutConstraint.activate([
+                btn.topAnchor.constraint(equalTo: vc.view.safeAreaLayoutGuide.topAnchor, constant: 10),
+                btn.trailingAnchor.constraint(equalTo: vc.view.safeAreaLayoutGuide.trailingAnchor, constant: -12),
+            ])
+            context.coordinator.captionButton = btn
+            // Harness: AW_SHOW_CAPTION_MENU=1 opens the menu after launch so a
+            // simulator screenshot can verify its contents without UI driving.
+            if ProcessInfo.processInfo.environment["AW_SHOW_CAPTION_MENU"] == "1" {
+                // UIKit asserts (VIEW_IS_NOT_IN_A_WINDOW) if the menu opens
+                // before the presentation settles — wait for a window.
+                func tryOpen(_ attempts: Int) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 6) { [weak btn] in
+                        guard let btn else { return }
+                        if btn.window != nil { btn.performPrimaryAction() }
+                        else if attempts > 0 { tryOpen(attempts - 1) }
+                    }
+                }
+                tryOpen(6)
+            }
+            // Harness: AW_CAPTION_SWITCH_TEST=automatic|off|file performs a
+            // MID-PLAY switch 25s in, so the item-swap path is provable on a
+            // simulator without UI driving.
+            if let want = ProcessInfo.processInfo.environment["AW_CAPTION_SWITCH_TEST"],
+               let choice = CaptionPlaybackChoice(rawValue: want) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 25) { [weak vc, weak coordinator = context.coordinator] in
+                    guard let vc, let coordinator else { return }
+                    coordinator.setCaptionChoice(choice, on: vc)
+                }
+            }
+        }
 
         let pItem: AVPlayerItem
         if let hls = effectiveHLS, let mp4 = videoURL {
@@ -263,6 +312,64 @@ struct PlayerView: UIViewControllerRepresentable {
         // records for Roku.
         var directVideoURL: URL?          // published progressive MP4
         var directHLSURL: URL?            // published HLS — receiver-fetchable AND keeps captions
+        /// The published wrapper regardless of the current choice — the
+        /// in-player switcher needs it to restore File mode mid-play.
+        var fullSubtitleHLS: URL?
+        var currentChoice: CaptionPlaybackChoice?
+
+        /// IN-PLAYER caption-type switching (owner 2026-08-27: tvOS has it in
+        /// the transport menu; iOS only had the pre-play sheet picker). The
+        /// choice reshapes the ASSET, so switching mid-play is an item swap
+        /// at position — the same pattern the AirPlay route change uses.
+        func setCaptionChoice(_ choice: CaptionPlaybackChoice, on vc: AVPlayerViewController) {
+            guard choice != (currentChoice ?? .file) || currentChoice == nil else { return }
+            currentChoice = choice
+            guard let player = vc.player else { return }
+            let pos = player.currentTime()
+            directHLSURL = (choice == .file) ? fullSubtitleHLS : nil
+            switch choice {
+            case .file:
+                liveCaptions?.stop(); liveCaptions = nil
+                if let item = makeLocalItem() { swap(to: item, resumingAt: pos, on: player) }
+            case .automatic:
+                if let item = makeLocalItem() { swap(to: item, resumingAt: pos, on: player) }
+                if let src = directVideoURL { startLiveCaptions(url: src, in: vc) }
+            case .off:
+                liveCaptions?.stop(); liveCaptions = nil
+                if let item = makeLocalItem() { swap(to: item, resumingAt: pos, on: player) }
+            }
+            captionButton?.menu = captionMenu(for: vc)
+        }
+
+        weak var captionButton: UIButton?
+        func captionMenu(for vc: AVPlayerViewController) -> UIMenu {
+            let hasFile = fullSubtitleHLS != nil
+            let current = currentChoice ?? (hasFile ? .file : .automatic)
+            var kids: [UIAction] = []
+            if hasFile {
+                kids.append(UIAction(title: "Subtitle File",
+                                     image: UIImage(systemName: "doc.text"),
+                                     state: current == .file ? .on : .off) { [weak self, weak vc] _ in
+                    guard let vc else { return }
+                    self?.setCaptionChoice(.file, on: vc)
+                })
+            }
+            if LiveCaptions.isSupported {
+                kids.append(UIAction(title: "Automatic",
+                                     image: UIImage(systemName: "waveform"),
+                                     state: current == .automatic ? .on : .off) { [weak self, weak vc] _ in
+                    guard let vc else { return }
+                    self?.setCaptionChoice(.automatic, on: vc)
+                })
+            }
+            kids.append(UIAction(title: "Off",
+                                 image: UIImage(systemName: "captions.bubble"),
+                                 state: current == .off ? .on : .off) { [weak self, weak vc] _ in
+                guard let vc else { return }
+                self?.setCaptionChoice(.off, on: vc)
+            })
+            return UIMenu(title: "Subtitles", children: kids)
+        }
         private var externalObs: NSKeyValueObservation?
         private var isExternalActive = false
         private var didFallback = false
