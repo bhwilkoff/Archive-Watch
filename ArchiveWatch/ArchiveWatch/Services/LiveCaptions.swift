@@ -710,16 +710,20 @@ final class LiveCaptions {
                 envelopeValidated = true
                 awdiag("[AWCAP] mapping proven (err \(fmt(err))s at delivered \(fmt(delivered))) — \(stagedCues.count) staged cue(s) flush")
                 flushStagedCues(rescale: nil)
-            } else if age > 45, delivered > 15, pos > contentOffset + 5 {
-                let mappedSpan = filmTime(delivered) - contentOffset
-                let realSpan = pos - contentOffset
-                let factor = mappedSpan > 1 ? max(0.5, min(1.0, realSpan / mappedSpan)) : 1.0
+            } else if age > 45, delivered > 15 {
+                // NO pos-anchored rescale: the scout's position lags the tap
+                // by the decode-ahead depth, and a rescale anchored to it
+                // swung the flushed cues 45s EARLY (buckaroo4, factor 0.623)
+                // — the same contamination as every pos-anchored level
+                // correction measured this campaign. Instead: cues whose
+                // moment has already passed are DISCARDED (stale late text is
+                // worse than a blank), the rest flush unshifted, and the
+                // slope loop owns ongoing convergence.
                 mappingProven = true
-                awdiag("[AWCAP] mapping proof TIMEOUT (err \(fmt(err))s) — rescaling \(stagedCues.count) staged cue(s) by \(String(format: "%.3f", factor))")
-                mappingAnchorFilm = pos
-                mappingAnchorRaw = delivered
-                mappingRate = mappingRate * factor
-                flushStagedCues(rescale: factor)
+                let stale = stagedCues.filter { $0.end < pos }.count
+                stagedCues.removeAll { $0.end < pos }
+                awdiag("[AWCAP] mapping proof TIMEOUT (err \(fmt(err))s) — \(stale) stale staged cue(s) dropped, \(stagedCues.count) flush unshifted")
+                flushStagedCues(rescale: nil)
             }
         }
         // SPARSE sampling: driftCheck runs ~3x/second (821 calls in a 280s
