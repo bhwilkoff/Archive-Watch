@@ -66,7 +66,7 @@ reachability, emulator-era).
 | Hidden Gems shelf (D050 computed col) | | | PENDING |
 | Director shelves | | | PENDING |
 | Community shelves (Watching Now / Favorites / Most Discussed) | | | PENDING |
-| Classic TV decade shelves (D086: allowStandaloneTV) | Android twin of the D086 conditional was flagged as parity follow-up — likely MISSING | T2 | PENDING |
+| Classic TV decade shelves (D086: allowStandaloneTV) | twin EXISTS and is wired (`HomeScreen.kt:145` passes per-shelf category) | T2 | VERIFIED |
 | Cross-shelf dedup (one ordered seen-set) | | | PENDING |
 | Public Domain Day shelf | | | PENDING |
 
@@ -151,7 +151,10 @@ reachability, emulator-era).
 ### Cross-cutting
 | Element | State | Tier | Status |
 |---|---|---|---|
-| Detail: Play/Favorite/Share/More-Like-This/cast→person/part-of-series | `TvDetailScreen` — verify every action vs tvOS row | T2 | PENDING |
+| Detail: Play/Favorite/More-Like-This | present | T1 | VERIFIED |
+| Detail: Add to Playlist | **FIXED #4** — TV-native right-panel overlay (toggle rows, create via leanback IME, Back dismisses + logs, empty list claims Done focus) | T1 | VERIFIED (overlay + Back on device) |
+| Detail: cast → person chips + part-of-series | **FIXED #4** — director-first chips w/ role captions → Route.Person; episode gets "Part of <series>" | T1 | VERIFIED (chips OCR'd on device; series link T2) |
+| Detail: Share | NOT SHIPPED — tvOS uses a QR ShareSheet; Android has no native QR generator (no third-party deps rule) | T2 | DEFERRED (needs in-repo QR encoder or a decision) |
 | Player: D-pad contract (center/seek), resume, resilient loader analogue, load watchdog | | | PENDING |
 | Subtitles render + caption choice on TV player | published VTT via Media3; NO engine analogue (no on-device transcription API on Android — recorded platform difference) | T2 | PENDING (verify + record) |
 | Alias forwarding (D085: Android never queried item_aliases — fixed 2026-08-20) | | T2 | PENDING (verify on TV build) |
@@ -216,3 +219,12 @@ Candidate adoptions, each to be dispositioned (adopt / reject with reason):
   Summary:" synopses (593 cleaned / 16 nulled, control untouched) — all
   platforms benefit at next publish. Android version is hand-set in
   build.gradle.kts (vc35/1.3.460) — bump at next Android release.
+- Tick 4 (2026-08-27): **Fix #4** — TvDetail parity wave: Add-to-Playlist
+  overlay (three on-device defects found + fixed in-loop: "Done" label wrap,
+  empty-list focus falling through to the dimmed background (§3.1), Back
+  popping the route instead of the overlay — final run logs "playlist
+  overlay dismissed by Back" and stays on Detail), cast→person chips
+  (OCR-verified: Stevenson/Robeson/Hardwicke/Lee with roles), part-of-series
+  button, detail producers moved to awaitDb. Latent bug fixed: decade
+  deep-link titles rendered the LITERAL string "${it}s" (python-patch
+  escaping artifact in TvAppRoot). Share deferred pending a QR decision.

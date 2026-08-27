@@ -14,6 +14,14 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.PlaylistAdd
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Tv
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.PlayArrow
@@ -62,11 +70,12 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
 
     var retry by remember { mutableIntStateOf(0) }
     val item by produceState<CatalogItem?>(null, archiveID, dbVersion, retry) {
-        value = container.catalog.db?.item(archiveID)
+        value = container.catalog.awaitDb().item(archiveID)
     }
     val related by produceState<List<CatalogItem>>(emptyList(), item) {
-        value = item?.let { container.catalog.db?.related(it) } ?: emptyList()
+        value = item?.let { container.catalog.awaitDb().related(it) } ?: emptyList()
     }
+    var showPlaylists by remember { mutableStateOf(false) }
     var favorite by remember { mutableStateOf(false) }
     LaunchedEffect(archiveID) { favorite = container.userState.isFavorite(archiveID) }
 
@@ -92,9 +101,12 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
     }
 
     // §3.1 — Play owns initial focus: it is what the viewer came for, and it
-    // means one press of the remote starts the film.
-    ClaimInitialFocus(playFocus, key = current.archiveID)
+    // means one press of the remote starts the film. Suspended while the
+    // playlist overlay is up, which claims its own.
+    ClaimInitialFocus(playFocus, key = current.archiveID to showPlaylists,
+        enabled = !showPlaylists)
 
+    Box(Modifier.fillMaxSize()) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(bottom = TvDims.OverscanV * 2),
@@ -194,6 +206,19 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 ) {
                     scope.launch { favorite = container.userState.toggleFavorite(current.archiveID) }
                 }
+                TvActionButton(
+                    label = "Add to Playlist",
+                    icon = { Icon(Icons.AutoMirrored.Filled.PlaylistAdd, null, tint = Color.White, modifier = Modifier.size(26.dp)) },
+                    accent = current.accentColor,
+                ) { showPlaylists = true }
+                // Decision 045 — an episode is a door back to its series.
+                if (current.isEpisode && current.seriesID != null) {
+                    TvActionButton(
+                        label = "Part of " + (current.seriesTitle ?: "the series"),
+                        icon = { Icon(Icons.Default.Tv, null, tint = Color.White, modifier = Modifier.size(26.dp)) },
+                        accent = current.accentColor,
+                    ) { nav.push(Route.Series(current.seriesID!!)) }
+                }
             }
         }
 
@@ -211,6 +236,43 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
             }
         }
 
+        // Cast → person filmography (tvOS Detail parity): director leads with a
+        // role caption, then the billed cast, each chip a door to byPerson.
+        val people = buildList {
+            current.director?.takeIf { it.isNotBlank() }?.let { add(Triple(it, "Director", null as Int?)) }
+            current.cast.take(12).forEach { add(Triple(it.name, it.character ?: "Cast", it.tmdbPersonID)) }
+        }
+        if (people.isNotEmpty()) {
+            item(key = "people") {
+                Column(Modifier.padding(bottom = 24.dp)) {
+                    TvSectionTitle("Cast & Crew", Modifier.padding(start = TvDims.OverscanH, bottom = 12.dp))
+                    LazyRow(
+                        contentPadding = PaddingValues(start = TvDims.OverscanH, end = TvDims.OverscanH * 2),
+                        horizontalArrangement = Arrangement.spacedBy(12.dp),
+                    ) {
+                        items(people.size, key = { people[it].first + it }) { i ->
+                            val (name, role, pid) = people[i]
+                            Box(
+                                Modifier
+                                    .tvFocusable(
+                                        onClick = { nav.push(Route.Person(name, pid)) },
+                                        shape = RoundedCornerShape(24.dp),
+                                        scaleWhenFocused = 1.04f,
+                                    )
+                                    .background(Color(0xFF1C1C1C), RoundedCornerShape(24.dp))
+                                    .padding(horizontal = 22.dp, vertical = 10.dp),
+                            ) {
+                                Column {
+                                    Text(name, fontSize = 22.sp, color = Color.White, fontWeight = FontWeight.Medium)
+                                    Text(role, fontSize = 17.sp, color = Color(0xFF9A9A9A))
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         if (related.isNotEmpty()) {
             item(key = "related") {
                 TvShelfRow(
@@ -218,6 +280,132 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     related,
                     onItem = { nav.openItem(it.archiveID, it.seriesID, it.contentType) },
                 )
+            }
+        }
+    }
+
+    if (showPlaylists) {
+        TvPlaylistOverlay(
+            container = container,
+            archiveID = current.archiveID,
+            accent = current.accentColor,
+            onDone = { showPlaylists = false },
+        )
+    }
+    }
+}
+
+/**
+ * TV-native Add to Playlist: a right-side focusable panel (a phone dialog's
+ * touch targets are unusable at ten feet). Rows toggle membership; the last
+ * row creates a playlist from the typed name (the leanback IME opens on the
+ * field). Back or Done dismisses.
+ */
+@Composable
+private fun TvPlaylistOverlay(
+    container: AppContainer,
+    archiveID: String,
+    accent: Color,
+    onDone: () -> Unit,
+) {
+    val scope = rememberCoroutineScope()
+    var version by remember { mutableIntStateOf(0) }
+    val playlists by produceState<List<app.archivewatch.android.data.UserPlaylist>>(emptyList(), version) {
+        value = container.userState.playlists()
+    }
+    var newName by remember { mutableStateOf("") }
+    val firstFocus = remember { FocusRequester() }
+    val doneFocus = remember { FocusRequester() }
+    // §3.1 — the overlay must own focus even when the list is EMPTY, or the
+    // D-pad keeps driving the dimmed detail behind the scrim (measured on
+    // device: zero playlists left the Add button focused under the overlay).
+    ClaimInitialFocus(
+        if (playlists.isEmpty()) doneFocus else firstFocus,
+        key = playlists.isEmpty(),
+    )
+    // Back closes the overlay, never the route behind it.
+    androidx.activity.compose.BackHandler(true) {
+        android.util.Log.i("AWTV", "playlist overlay dismissed by Back")
+        onDone()
+    }
+
+    Box(
+        Modifier
+            .fillMaxSize()
+            .background(Color(0xCC000000)),
+    ) {
+        Column(
+            Modifier
+                .align(Alignment.CenterEnd)
+                .fillMaxHeight()
+                .fillMaxWidth(0.42f)
+                .background(Color(0xFF141414))
+                .padding(horizontal = 36.dp, vertical = TvDims.OverscanV),
+        ) {
+            Text("Add to Playlist", fontSize = 34.sp, fontWeight = FontWeight.SemiBold, color = Color.White,
+                modifier = Modifier.padding(bottom = 20.dp))
+            LazyColumn(Modifier.weight(1f)) {
+                itemsIndexed(playlists, key = { _, pl -> pl.id }) { index, pl ->
+                    val contains = archiveID in pl.archiveIDs
+                    Row(
+                        Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = 6.dp)
+                            .tvFocusable(
+                                onClick = {
+                                    scope.launch {
+                                        container.userState.togglePlaylistItem(pl.id, archiveID)
+                                        version += 1
+                                    }
+                                },
+                                focusRequester = if (index == 0) firstFocus else null,
+                                shape = RoundedCornerShape(12.dp),
+                                scaleWhenFocused = 1.02f,
+                            )
+                            .background(Color(0xFF1F1F1F), RoundedCornerShape(12.dp))
+                            .padding(horizontal = 20.dp, vertical = 14.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Text(pl.name, fontSize = 24.sp, color = Color.White, modifier = Modifier.weight(1f))
+                        Icon(
+                            if (contains) Icons.Default.Check else Icons.AutoMirrored.Filled.PlaylistAdd,
+                            null,
+                            tint = if (contains) accent else Color(0xFF777777),
+                            modifier = Modifier.size(26.dp),
+                        )
+                    }
+                }
+            }
+            OutlinedTextField(
+                value = newName,
+                onValueChange = { newName = it },
+                placeholder = { Text("New playlist name") },
+                singleLine = true,
+                modifier = Modifier.fillMaxWidth().padding(top = 12.dp),
+            )
+            Row(
+                Modifier.padding(top = 14.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+            ) {
+                TvActionButton(
+                    label = "Create",
+                    icon = { Icon(Icons.AutoMirrored.Filled.PlaylistAdd, null, tint = Color.Black, modifier = Modifier.size(24.dp)) },
+                    primary = true,
+                    enabled = newName.isNotBlank(),
+                    accent = accent,
+                ) {
+                    scope.launch {
+                        container.userState.createPlaylist(newName.trim(), archiveID)
+                        newName = ""
+                        version += 1
+                    }
+                }
+                TvActionButton(
+                    label = "Done",
+                    icon = { Icon(Icons.Default.Check, null, tint = Color.White, modifier = Modifier.size(24.dp)) },
+                    accent = accent,
+                    focusRequester = doneFocus,
+                ) { onDone() }
             }
         }
     }

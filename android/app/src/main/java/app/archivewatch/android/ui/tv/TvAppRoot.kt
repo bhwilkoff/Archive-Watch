@@ -125,7 +125,7 @@ fun TvAppRoot(container: AppContainer) {
                 name.startsWith("item:") -> Route.Detail(name.removePrefix("item:"))
                 name.startsWith("decade:") ->
                     name.removePrefix("decade:").toIntOrNull()?.let {
-                        Route.Filtered(title = "${'$'}{it}s", decade = it)
+                        Route.Filtered(title = "" + it + "s", decade = it)
                     }
                 else -> null
             }

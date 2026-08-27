@@ -128,8 +128,9 @@ fun Modifier.tvFocusable(
  * composed its first item on the frame the screen appears.
  */
 @Composable
-fun ClaimInitialFocus(requester: FocusRequester, key: Any? = Unit) {
-    LaunchedEffect(key) {
+fun ClaimInitialFocus(requester: FocusRequester, key: Any? = Unit, enabled: Boolean = true) {
+    LaunchedEffect(key, enabled) {
+        if (!enabled) return@LaunchedEffect
         repeat(12) {
             if (runCatching { requester.requestFocus() }.isSuccess) return@LaunchedEffect
             delay(50)
