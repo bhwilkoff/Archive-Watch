@@ -76,6 +76,27 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-27 tick 71 — **CAMPAIGN SHIPPED. Every owner priority
+  resolved and the release is out everywhere the loop can send it.**
+  Apple 1.3.460 (982) uploaded to ASC by appstore-build 33087195366
+  (tvOS+iOS+macOS; owner clicks Submit for Review). Android/Android TV
+  1.3.460 (vc35) LIVE on Play production. Web live continuously via the
+  pipeline publishes. The release carries: burst fix (both caption
+  modes), notice removal, caption chooser (all players, all platforms),
+  captions-Off that truly stops everything, the timing program
+  (slope loop + envelope-only corrections + cold-start staging — final
+  verification 12/12 with worst +2.0s on a cold film, -0.5s median on
+  a second, file-mode green with a live 2.8s judge shift on a third),
+  the Settings toggle fix, D096 (engine-leads with reopen conditions),
+  Impact retimed at source, corpus re-pace (6,579 files), 7 bad claims
+  pulled + language gate, dup collapses with alias forwarding, and 87
+  reclaimed subtitle films. RESIDUAL OPENS (documented, not blocking):
+  steady-state +1-2s structural transcription lag; a single 4K
+  micro-rebuffer footnote (doa-4-k t=407); the intermittent single
+  marginal pacing line in the offline harness; ~1,770 orphan-tail films
+  awaiting a stronger transcription pass. Loop drops to quiet
+  monitoring.
+
 - 2026-08-27 ticks 66-70 — **COLD-START CLASS FIXED AND VERIFIED
   (build 982, 12/12 green, median +1.1s worst +2.0s on a cold film).**
   The arc: staging gate held cues until the mapping proves (envelope
