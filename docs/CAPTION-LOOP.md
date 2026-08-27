@@ -76,6 +76,20 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-27 (owner correction, iPhone) — **The custom iOS switcher was
+  the WRONG design and is REMOVED.** The owner's screenshot showed the
+  native iOS player's own subtitle menu offering "English (US)
+  Transcribed" — the system already provides source switching in
+  native UI on iOS 27, and my persistent overlay button was chrome
+  degrading the viewing experience, while "Automatic" double-captioned
+  (our engine overlay flashing on top of the system's generated
+  captions). Fixed to the owner's stated principle — native support,
+  native UI, native APIs: button and menu machinery deleted; on iOS
+  27+ our engine NEVER draws (the system captions natively; engine
+  remains only for iOS 26). Sim-verified: clean native player, no
+  overlay. Build 989 (which contains the button) is superseded — the
+  submission build is 1.3.468/990.
+
 - 2026-08-27 (pre-submission finish) — **The Maggie class swept at
   scale.** Runtime-lie audit over all 3,173 claimed films: 608 catalog
   runtimes corrected to measured (published), 328 hidden subtitle
