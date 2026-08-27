@@ -369,7 +369,7 @@ final class LiveCaptions {
     /// cues — each window died before the analyzer's first result).
     private var sboHead: Double = 0
     private var sboPlayer: AVPlayer?
-    private var sboLoader: SampleReaderLoader?
+    private var sboLoader: AnyObject?
     private var sboOutput: AnyObject?
     private var sboTask: Task<Void, Never>?
 
@@ -381,6 +381,19 @@ final class LiveCaptions {
 
     @available(iOS 27, tvOS 27, macOS 27, visionOS 27, *)
     private func igniteSampleReader(url: URL, from: Double) async {
+        #if compiler(>=6.4)
+        await igniteSampleReaderImpl(url: url, from: from)
+        #else
+        // Release-Xcode cloud builds: the 27 SDK types are absent; the scout
+        // path carries captioning (the same auto-fallback shape, just at
+        // compile time instead of the 10s watchdog).
+        await ignite(url: url)
+        #endif
+    }
+
+    #if compiler(>=6.4)
+    @available(iOS 27, tvOS 27, macOS 27, visionOS 27, *)
+    private func igniteSampleReaderImpl(url: URL, from: Double) async {
         pendingIgnition = nil
         let duration = 3600.0 * 4      // generous; the playlist only needs a ceiling
         let item: AVPlayerItem
@@ -534,6 +547,8 @@ final class LiveCaptions {
             _ = fed
         }
     }
+
+    #endif
 
     nonisolated private func awdiagInstance(_ s: String) { awdiag("%@", s) }
 
@@ -1672,6 +1687,7 @@ final class BufferSink: @unchecked Sendable {
 /// all (the D071 class dies too) — with pull pacing REQUIRED, because an
 /// unpaced reader buffers everything it pulls (693s in 40s; the D070 bomb
 /// returns without the leash).
+#if compiler(>=6.4)
 final class FedBox: @unchecked Sendable {
     private let lock = NSLock()
     private var v = 0.0
@@ -1727,3 +1743,4 @@ final class SampleReaderLoader: NSObject, AVAssetResourceLoaderDelegate, @unchec
         return true
     }
 }
+#endif
