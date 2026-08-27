@@ -76,6 +76,26 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-27 (owner spot-check) — **The Maggie: BOTH owner reports
+  reproduced and root-caused.** (1) The published subsource file is
+  -21.3s offset AND 0.960 framerate-scaled (PAL<->film for a British
+  picture) — the error GROWS through the film; the on-device judge's
+  one-shot constant shift corrected +33s to +5s and the residual regrew
+  at ~2.4s/min (the progressive-drift class the constant-shift judge is
+  structurally blind to). Fixed AT SOURCE with ffsubsync offset+scale,
+  validated against the MEASURED runtime, paced, published. (2) The
+  catalog's runtimeSeconds (5520) is itself wrong (measured 5287 — the
+  same 4% PAL lie), which BLINDED audit_subtitle_rate's overrun
+  detector to this file: a file can't "end past the runtime" when the
+  runtime is inflated by the same ratio. FOLLOW-UP CLASS: validate
+  runtimeSeconds against measured durations, then re-run the rate
+  audit — there are likely more Maggies hiding behind wrong runtimes.
+  (3) iPhone: captions confirmed working by the owner; gap = no
+  IN-PLAYER caption-type switching on iOS (only the pre-play sheet
+  picker) — parity item, needs design (the native iOS menu can't show
+  our Automatic option while the file plays through the custom-scheme
+  wrapper). ATV re-verify pending the deploy.
+
 - 2026-08-27 ticks 72-80 — **THE FILM-TIME SAMPLE READER: built, proven
   on macOS, walled by the tvOS beta, shipped with auto-fallback.** The
   owner rejected the residual timing lag as structural and was right on
