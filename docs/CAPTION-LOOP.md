@@ -76,6 +76,15 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 58 (quiet) — **Top-25 claimed-film audit COMPLETE:
+  21 of 25 transcribed and scored, zero wrong-film candidates** (the
+  earlier model-contention rejects re-ran clean; 4 rejected by the
+  quality gate on audio grounds — acceptable). Combined with the
+  cross-file sweep, the D.O.A. wrong-film case appears to be isolated
+  at the top of the catalog; the systematic risk lives in the long
+  tail, coverable by future quiet batches. Device rested; owner
+  priority queue unchanged.
+
 - 2026-08-26 tick 57 — **DEVICE RESTED (owner: "a whole lot of errors
   without you doing anything differently").** The launch-window death
   interval shrank from ~13 runs to 2 after successive reboots — reboot-
