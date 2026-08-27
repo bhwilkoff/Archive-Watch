@@ -965,12 +965,36 @@ def _fix_mojibake(s):
         return s
 
 
+# IMDb-scrape dump shape (609 measured on the live catalog, 2026-08-27 — found
+# on the Google TV's Home hero): "Title: <title> Summary: <plot> Directed by:
+# <names> Actors: <names> Production Company: <name> Release Date: <date>
+# Aspect Ratio: 1.37 : 1 <longer plot…>". Strip the Title/Summary header
+# (609/609 match) and the labeled credit run bounded by Directed by: →
+# the Aspect Ratio VALUE (587/609, always in that order) so the summary and
+# the long plot join. Gated on the header so no other synopsis shape is
+# touched; a result under MIN_SYNOPSIS nulls out below, which beats a dump.
+_TITLE_SUMMARY_HEAD = re.compile(r"^\s*Title:.{0,300}?\bSummary:\s*", re.S)
+_ASPECT_TAIL = re.compile(r"Aspect Ratio:\s*[\d.]+\s*:\s*[\d.]+\s*")
+
+
+def _strip_title_summary_dump(s):
+    if not _TITLE_SUMMARY_HEAD.match(s):
+        return s
+    s = _TITLE_SUMMARY_HEAD.sub("", s)
+    d = s.find("Directed by:")
+    m = _ASPECT_TAIL.search(s)
+    if d >= 0 and m and d < m.start():
+        s = s[:d] + " " + s[m.end():]
+    return s
+
+
 def sanitize_synopsis(it):
     """Returns 'cleaned', 'nulled', or None."""
     raw = _synopsis_text(it)
     if not raw:
         return None
     s = _TAG.sub(" ", _fix_mojibake(_html.unescape(raw)))
+    s = _strip_title_summary_dump(s)   # IMDb-scrape "Title: … Summary: …" dump
     s = _extract_plot_body(s)          # drop taglines/cast/release/source cruft, prefer a labeled plot
     s = _FROM_IMDB_PREFIX.sub("", s)   # "From IMDb : <plot>" -> "<plot>" (B6)
     sents = [x for x in _SENT_SPLIT.split(s)

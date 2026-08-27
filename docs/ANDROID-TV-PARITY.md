@@ -57,7 +57,7 @@ reachability, emulator-era).
 ### 1. Home (`TvHomeScreen`)
 | tvOS element | Android TV state | Tier | Status |
 |---|---|---|---|
-| Hero carousel (multi-item, L/R cycles) | Single `TvHero` (first item only) — no carousel/cycling | T2 | GAP-DESIGN |
+| Hero carousel (multi-item, L/R cycles) | Right cycles forward, Left back until first (then rail) + page dots + crossfade | T1 | **FIXED #3** (dots advanced on device) |
 | Continue Watching shelf (resume) | present in payload? verify order + resume seek | | PENDING |
 | Category tiles (≥30 gate) → filtered grid | | | PENDING |
 | Decade tiles (last row) | | | PENDING |
@@ -165,7 +165,7 @@ Candidate adoptions, each to be dispositioned (adopt / reject with reason):
 
 | Google TV element | Purpose | Status |
 |---|---|---|
-| `tv-material` ImmersiveList idiom — focused card drives a full-bleed backdrop | the Google TV signature look; our Home hero is static | PENDING |
+| `tv-material` ImmersiveList idiom — focused card drives a full-bleed backdrop | ambient layer SHIPPED: focused card's backdrop at 0.30 alpha under scrim, 300ms rest debounce, 600ms crossfade | SHIPPED (T3: intensity = owner taste) |
 | Focus scale + border per §3.2 via `tv-material` CardScale/Border defaults | verify we use the platform's own focus grammar, not hand-rolled | PENDING |
 | Google TV home-screen **channels** (TvProvider: Continue Watching row + editorial channel) | the Top Shelf analogue; §1.4 binds (our editorial + user's own CW only) | PENDING |
 | **Watch Next** integration (WatchNextProgram on pause/finish) | Continue Watching on the platform home | PENDING |
@@ -206,3 +206,13 @@ Candidate adoptions, each to be dispositioned (adopt / reject with reason):
   (press-verify loop proven this tick). New ledger row: hero synopsis leaks
   "Title: X Summary:" cruft (data or client strip needed). ADB: port 5555
   (classic) is STABLE across sleeps; the TLS port rotates — prefer 5555.
+- Tick 3 (2026-08-27): **tools/gtv_scenario.py shipped** — connect-first
+  (5555 + mdns fallback), tree-driven goto_tab, OCR assertions; first full
+  run 7/7 tabs verified (its own first bug: BACK after a tab root exits the
+  app per §1.7 — now BACK only after pushed routes). **Fix #3**: hero is a
+  real carousel (L/R + dots, tvOS contract: Left at index 0 falls to rail).
+  **Immersive ambient backdrop shipped** (Google TV signature). Pipeline:
+  remediate `_strip_title_summary_dump` — 609 IMDb-scrape "Title: X
+  Summary:" synopses (593 cleaned / 16 nulled, control untouched) — all
+  platforms benefit at next publish. Android version is hand-set in
+  build.gradle.kts (vc35/1.3.460) — bump at next Android release.

@@ -107,6 +107,7 @@ fun TvShelfRow(
     subtitle: String? = null,
     firstItemFocusRequester: FocusRequester? = null,
     state: LazyListState = rememberLazyListState(),
+    onItemFocused: ((CatalogItem) -> Unit)? = null,
 ) {
     if (items.isEmpty()) return
     val scope = rememberCoroutineScope()
@@ -148,6 +149,7 @@ fun TvShelfRow(
                     // §3.4 — the leftmost tile is the door back to the nav rail.
                     exitLeftTo = if (index == 0) railFocus else null,
                     onFocused = {
+                        onItemFocused?.invoke(item)
                         scope.launch {
                             // Keep one tile of context visible behind the focused
                             // one rather than snapping it flush to the edge.
