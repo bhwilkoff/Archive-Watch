@@ -400,7 +400,13 @@ final class LiveCaptions {
         sboOutput = output
         let player = AVPlayer(playerItem: item)
         player.isMuted = true
-        player.rate = 0                 // pure pull; no render pipeline
+        // tvOS never LOADS an item that has not been asked to play (status
+        // stayed "unknown" for 5s and the output reported stream-end) — the
+        // Mac loads eagerly and pure rate-0 pull worked there. Kick loading
+        // with muted playback; the pull loop drops the rate to 0 once
+        // delivery starts and restores it if tvOS pull then stalls. PTS is
+        // film time in EVERY mode — the mapping stays identity regardless.
+        player.playImmediately(atRate: 2.0)
         sboPlayer = player
         sink.adoptSourceFormat(dst)
         if from > 1 {
@@ -413,6 +419,16 @@ final class LiveCaptions {
         resetMapping()
         mappingRate = 1.0               // identity: sink clock IS film time
         awdiag("[AWCAP] sample reader ignited from \(fmt(from))s — film-time PTS, mapping identity")
+        Task { @MainActor [weak item] in
+            try? await Task.sleep(nanoseconds: 5_000_000_000)
+            guard let item else { return }
+            let st = ["unknown", "readyToPlay", "failed"][item.status.rawValue]
+            awdiag("[AWCAP] sample reader item status after 5s: \(st)"
+                  + (item.error.map { " error: \($0.localizedDescription)" } ?? ""))
+            if let log = item.errorLog()?.events.last {
+                awdiag("[AWCAP] sample reader errorLog: \(log.errorDomain) \(log.errorStatusCode) \(log.errorComment ?? "")")
+            }
+        }
         task = Task { [weak self] in await self?.consume() }
         let sinkRef = sink
         sboTask = Task.detached { [weak self] in
@@ -438,6 +454,21 @@ final class LiveCaptions {
                 if !announced {
                     announced = true
                     awdiag("[AWCAP] sample reader: first buffer at PTS \(String(format: "%.1f", s.sampleBuffer.presentationTimeStamp.seconds)) (\(String(format: "%.1f", Date().timeIntervalSince(born)))s after ignition)")
+                    await MainActor.run { [weak self] in
+                        self?.sboPlayer?.rate = 0
+                        awdiag("[AWCAP] sample reader: delivery live — trying pure pull (rate 0)")
+                    }
+                    let fedAtDrop = fed
+                    let box = fedBox
+                    Task.detached { [weak self] in
+                        try? await Task.sleep(nanoseconds: 6_000_000_000)
+                        if box.value <= fedAtDrop + 1 {
+                            await MainActor.run { [weak self] in
+                                self?.sboPlayer?.rate = 2.0
+                                awdiag("[AWCAP] sample reader: pull stalled at rate 0 — muted 2x transport restored")
+                            }
+                        }
+                    }
                 }
                 if s.sequenceWasRestarted {
                     await MainActor.run { [weak self] in
