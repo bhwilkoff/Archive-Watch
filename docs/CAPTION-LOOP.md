@@ -76,6 +76,17 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-27 (pre-submission finish) — **The Maggie class swept at
+  scale.** Runtime-lie audit over all 3,173 claimed films: 608 catalog
+  runtimes corrected to measured (published), 328 hidden subtitle
+  overruns found; the 75-min budget retime fixed 47 incl. The Maggie,
+  Horror Hotel, the Sherlock Holmes set, Pimpernel Smith, The Man in
+  the White Suit; 42 rejects + the tail queued in the standing findings
+  for nightly CI. iOS in-player caption switcher shipped and
+  sim-verified. Play billing alert resolved (stale vc12 on internal
+  superseded by clean vc35; current bundle has zero billing traces).
+  Final Apple build 1.3.467/989 dispatched.
+
 - 2026-08-27 (owner spot-check) — **The Maggie: BOTH owner reports
   reproduced and root-caused.** (1) The published subsource file is
   -21.3s offset AND 0.960 framerate-scaled (PAL<->film for a British
