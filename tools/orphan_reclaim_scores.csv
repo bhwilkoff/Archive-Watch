@@ -1,9 +1,11 @@
 archiveID,overlap,verdict,transcriptWords,fileWords
 Back-RoomBoy,0.79,OK,1423,1169
+Crime_Inc_1945,0.70,OK,1510,1416
 DonQuixote,0.60,OK,928,665
 EternallyYours,0.70,OK,1581,1301
 Jamaica_Inn,0.86,OK,1579,1428
 Lady_Confesses,0.74,OK,841,888
+ManhattanTower1932Restored,0.73,OK,963,882
 Million_Dollar_Weekend_1948,0.72,OK,999,949
 MissLondonLtd.,0.82,OK,2046,1947
 ParlorBedroomandBath,0.70,OK,974,898
@@ -20,6 +22,8 @@ ThePhantomCreeps,0.80,OK,1053,866
 TheTerrorOfTinyTown1938_802,0.86,OK,855,837
 The_Monster_Maker,0.73,OK,964,968
 The_Shadow_1933,0.88,OK,1334,1340
+Waltzes_from_Vienna,,SKIP,1056,0
+airborne,0.66,OK,1192,943
 amazing_adventure,0.88,OK,1094,1067
 arizona_kid,0.71,OK,996,953
 bank_alarm,0.89,OK,1149,1156
@@ -30,14 +34,17 @@ breaking_the_ice,0.61,OK,1063,816
 bride_for_henry,0.72,OK,976,890
 captain_calamity,0.70,OK,1116,903
 chasing_trouble,0.74,OK,1034,1129
+chinatown_after_dark,0.74,OK,757,593
 convicts_code,0.78,OK,1067,1047
 crooked_circle,0.64,OK,1041,804
 danger_ahead,0.68,OK,676,647
 danger_flight,0.72,OK,1038,928
 escape_to_paradise,0.72,OK,1018,903
 fit_for_a_king,0.63,OK,1030,826
+flight_to_nowhere,0.66,OK,1269,1271
 girl_from_calgary,0.67,OK,944,786
 girl_o_my_dreams,0.65,OK,947,833
+great_commandment,,SKIP,1231,0
 gunsmoke_ranch,0.71,OK,945,817
 hearts_in_bondage,0.73,OK,1190,1092
 heres_flash_casey,0.68,OK,1214,1112
@@ -46,6 +53,7 @@ irish_luck,0.68,OK,898,902
 long_shot,0.67,OK,1244,1192
 lying_lips_ipod,0.73,OK,1205,1098
 murder_on_campus,0.72,OK,1390,1321
+paradise_express,0.66,OK,1096,986
 phantom_cowboy,0.75,OK,667,499
 phantom_ship,0.59,OK,847,603
 private_snuffy_smith,0.61,OK,1191,1068
@@ -56,6 +64,7 @@ shadows_of_the_orient,0.87,OK,1047,1036
 six-gun_rhythm,0.68,OK,787,750
 star_reporter,0.75,OK,1011,1049
 the_big_show,0.57,OK,907,778
+three_mesquiteers,0.72,OK,842,602
 under_the_big_top,0.69,OK,855,826
 undercover_agent,0.74,OK,1161,1099
 x_marks_the_spot,0.76,OK,1005,976

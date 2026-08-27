@@ -76,6 +76,11 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 61 (quiet) — Orphan batch 5: 9/25 passed the gate,
+  new >=0.6 entries reclaimed and published (see reclaim output for the
+  count; running total in the next served-DB verify). Pass rate steady
+  at ~9-10/25 — batching continues.
+
 - 2026-08-26 tick 60 (quiet) — **Orphan batch 4: +8 reclaims (57 total
   once published).** Pass rate holding at 9-10/25 (quality gate rejects
   the tail's rougher audio — the gate working, not the vein exhausted;
