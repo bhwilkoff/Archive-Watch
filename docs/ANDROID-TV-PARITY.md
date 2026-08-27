@@ -155,7 +155,10 @@ reachability, emulator-era).
 | Detail: Add to Playlist | **FIXED #4** — TV-native right-panel overlay (toggle rows, create via leanback IME, Back dismisses + logs, empty list claims Done focus) | T1 | VERIFIED (overlay + Back on device) |
 | Detail: cast → person chips + part-of-series | **FIXED #4** — director-first chips w/ role captions → Route.Person; episode gets "Part of <series>" | T1 | VERIFIED (chips OCR'd on device; series link T2) |
 | Detail: Share | NOT SHIPPED — tvOS uses a QR ShareSheet; Android has no native QR generator (no third-party deps rule) | T2 | DEFERRED (needs in-repo QR encoder or a decision) |
-| Player: D-pad contract (center/seek), resume, resilient loader analogue, load watchdog | | | PENDING |
+| Player: playback + transport + resume | VERIFIED T1 (Girl o' My Dreams): decoder frames 673→1805 @~24fps, AudioTrack started from our pid, transport clock 01:51/1:02:51 matches wall time, title+description overlay (D037), **resume at 02:17 after exit** | T1 | VERIFIED |
+| Player: subtitles render | caption text OCR'd on the glass during playback | T1 | VERIFIED |
+| Player: Back with controls up EXITS the player (tvOS dismisses controls first) | | T2 | GAP-MINOR (contract review) |
+| Player: D-pad seek, prev/next episode, commercial weave | | | PENDING |
 | Subtitles render + caption choice on TV player | published VTT via Media3; NO engine analogue (no on-device transcription API on Android — recorded platform difference) | T2 | PENDING (verify + record) |
 | Alias forwarding (D085: Android never queried item_aliases — fixed 2026-08-20) | | T2 | PENDING (verify on TV build) |
 | Deep links route on TV (item/series/surprise/channels) | item verified T1 2026-08-27 (Suddenly Detail via adb) | T1 | PARTIAL |
@@ -228,3 +231,12 @@ Candidate adoptions, each to be dispositioned (adopt / reject with reason):
   button, detail producers moved to awaitDb. Latent bug fixed: decade
   deep-link titles rendered the LITERAL string "${it}s" (python-patch
   escaping artifact in TvAppRoot). Share deferred pending a QR decision.
+- Tick 5 (2026-08-27): player contract T1 pass. Instrument lessons: this
+  SoC's video plane never composites into screencap (black frame ≠ no
+  video — use decoder frameIndex progression + transport clock + AudioTrack
+  state); `dumpsys media_session` ERROR belonged to BLUETOOTH, not us (make
+  the instrument say WHOSE error before believing it) — the app correctly
+  registers NO MediaSession on TV (TV-NP). Resume verified end to end.
+  Minor gap: Back with controls up exits the player instead of dismissing
+  controls first. Device catalog still shows the Title:/Summary: cruft
+  until the next publish (expected — remediate is pipeline-side).
