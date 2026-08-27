@@ -76,6 +76,20 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-27 ticks 66-70 — **COLD-START CLASS FIXED AND VERIFIED
+  (build 982, 12/12 green, median +1.1s worst +2.0s on a cold film).**
+  The arc: staging gate held cues until the mapping proves (envelope
+  drains) or 45s timeout; v1 timeout rescaled to scout position and
+  swung -45s EARLY (decode-ahead contamination — the same disease as
+  every pos-anchored correction); v2 flushed unshifted but straddling
+  cues showed +43s late; v3 keys the stale filter on cue START (+5s
+  guard) — only clearly-future cues flush. Owner spot-checked the glass
+  mid-iteration and saw both classes (few-seconds steady-state lag +
+  the longer cold-start/mid-iteration windows) — instruments and eyes
+  agree. Toggle fix verified earlier; Decision 096 logged. Remaining
+  before ship: one file-mode + one engine-mode confirmation run, then
+  bump + appstore-build + Play.
+
 - 2026-08-27 tick 65 (overnight) — **Orphan batch 9 passed 4/25 —
   under the 5 floor: THE VEIN RESTS.** Final reclaims published; the
   campaign's reclaim total lands at ~87 films now serving verified
