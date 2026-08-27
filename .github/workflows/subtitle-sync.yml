@@ -44,7 +44,7 @@ jobs:
       - name: Install ffmpeg + ffsubsync
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
-          pip install --quiet ffsubsync
+          pip install --quiet ffsubsync requests
 
       - name: Fetch the published subtitles and the catalog DB
         id: restore
