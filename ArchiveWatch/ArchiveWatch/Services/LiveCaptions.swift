@@ -356,6 +356,94 @@ final class LiveCaptions {
     private var pendingIgnition: (url: URL, from: Double)?
     private var armedAt: Date?
 
+    /// 27+: the film-time sample reader replaces the scout+tap entirely.
+    /// AW_SBO=0 disables for A/B. When active: mapping is IDENTITY (the sink
+    /// anchors to film-time PTS), and the drift/slope/staging machinery is
+    /// gated off — exactness is structural, and the rate-0 reader player's
+    /// currentTime never advances, so pos-based instruments would misfire.
+    private var usingSampleReader = false
+    private var sboPlayer: AVPlayer?
+    private var sboLoader: SampleReaderLoader?
+    private var sboOutput: AnyObject?
+    private var sboTask: Task<Void, Never>?
+
+    static var sampleReaderSupported: Bool {
+        if ProcessInfo.processInfo.environment["AW_SBO"] == "0" { return false }
+        if #available(iOS 27, tvOS 27, macOS 27, visionOS 27, *) { return true }
+        return false
+    }
+
+    @available(iOS 27, tvOS 27, macOS 27, visionOS 27, *)
+    private func igniteSampleReader(url: URL, from: Double) async {
+        pendingIgnition = nil
+        let duration = 3600.0 * 4      // generous; the playlist only needs a ceiling
+        let (asset, loader) = SampleReaderLoader.makeAsset(filmURL: url, duration: duration)
+        sboLoader = loader
+        let item = AVPlayerItem(asset: asset)
+        guard let dst = AVAudioFormat(commonFormat: .pcmFormatFloat32,
+                                      sampleRate: 16_000, channels: 1, interleaved: true) else { return }
+        var asbd = dst.streamDescription.pointee
+        var fmtDesc: CMFormatDescription?
+        CMAudioFormatDescriptionCreate(allocator: nil, asbd: &asbd, layoutSize: 0,
+                                       layout: nil, magicCookieSize: 0, magicCookie: nil,
+                                       extensions: nil, formatDescriptionOut: &fmtDesc)
+        let cfg = AVPlayerItemSampleBufferOutputAudioConfiguration()
+        cfg.requestedAudioFormat = fmtDesc
+        let output = AVPlayerItemSampleBufferOutput(configuration: cfg)
+        item.add(output)
+        sboOutput = output
+        let player = AVPlayer(playerItem: item)
+        player.isMuted = true
+        player.rate = 0                 // pure pull; no render pipeline
+        sboPlayer = player
+        sink.adoptSourceFormat(dst)
+        if from > 1 {
+            await item.seek(to: CMTime(seconds: from, preferredTimescale: 600),
+                            toleranceBefore: .zero, toleranceAfter: .positiveInfinity)
+        }
+        usingSampleReader = true
+        mappingProven = true            // exact by construction
+        contentOffset = max(0, from)
+        resetMapping()
+        mappingRate = 1.0               // identity: sink clock IS film time
+        awdiag("[AWCAP] sample reader ignited from \(fmt(from))s — film-time PTS, mapping identity")
+        task = Task { [weak self] in await self?.consume() }
+        let sinkRef = sink
+        sboTask = Task.detached { [weak self] in
+            var fed = 0.0
+            var lastPTS = from
+            while !Task.isCancelled {
+                var s = output.nextAvailableSampleBuffer()
+                if s == nil { s = await output.nextSampleBuffer() }
+                guard let s else { break }
+                if s.sequenceWasRestarted {
+                    await MainActor.run { [weak self] in
+                        self?.awdiagInstance("[AWCAP] sample reader sequence restarted")
+                    }
+                }
+                let pts = s.sampleBuffer.presentationTimeStamp.seconds
+                let dur = s.sampleBuffer.duration.seconds
+                if dur > 0 {
+                    s.sampleBuffer.withUnsafeSampleBuffer { raw in
+                        sinkRef.appendSample(raw)
+                    }
+                    fed += dur
+                    lastPTS = pts
+                }
+                // PACING LEASH (the D070 lesson): stay <=120s ahead of the
+                // viewer or the item buffers the whole film.
+                while !Task.isCancelled {
+                    let playhead = await MainActor.run { [weak self] in self?.lastPlayhead ?? 0 }
+                    if lastPTS - playhead < 120 { break }
+                    try? await Task.sleep(nanoseconds: 1_000_000_000)
+                }
+            }
+            _ = fed
+        }
+    }
+
+    nonisolated private func awdiagInstance(_ s: String) { awdiag("%@", s) }
+
     /// Actually start the scout. Called by `throttle()` when playback can
     /// afford it — never directly at play-start.
     private func ignite(url: URL) async {
@@ -506,7 +594,13 @@ final class LiveCaptions {
             if banked >= 60 || healthyFor >= 30 {
                 pendingIgnition = nil          // synchronously — one ignition
                 let url = pending.url
-                Task { await self.ignite(url: url) }
+                let from = pending.from
+                if Self.sampleReaderSupported,
+                   #available(iOS 27, tvOS 27, macOS 27, visionOS 27, *) {
+                    Task { await self.igniteSampleReader(url: url, from: from) }
+                } else {
+                    Task { await self.ignite(url: url) }
+                }
             }
             return
         }
@@ -690,6 +784,7 @@ final class LiveCaptions {
     /// persistent POSITIVE floor is the injection — a negative error means
     /// the tap has stalled while the clock runs, which no offset can fix.
     private func driftCheck(_ scout: AVPlayer) {
+        guard !usingSampleReader else { return }
         let delivered = sink.deliveredSeconds()
         guard delivered > 8 else { return }
         let pos = scout.currentTime().seconds
@@ -1079,6 +1174,10 @@ final class LiveCaptions {
     private static let minLead: Double = 45
 
     func stop() {
+        sboTask?.cancel(); sboTask = nil
+        sboPlayer?.replaceCurrentItem(with: nil); sboPlayer = nil
+        sboOutput = nil; sboLoader = nil
+        usingSampleReader = false
         pendingIgnition = nil
         armedAt = nil
         task?.cancel(); task = nil
@@ -1346,6 +1445,41 @@ final class BufferSink: @unchecked Sendable {
     }
 
 
+    /// SBO path: the reader knows its PCM format up front (we requested it),
+    /// so adopt it once — the tap path learns it in `prepare` instead.
+    func adoptSourceFormat(_ f: AVAudioFormat) {
+        lock.lock(); defer { lock.unlock() }
+        sourceFormat = f
+    }
+
+    /// SBO path: feed one decoded sample buffer. Same locked body as the tap
+    /// callback — monotonic clock, replay guard, conversion — via the ABL.
+    func appendSample(_ sb: CMSampleBuffer) {
+        let pts = CMSampleBufferGetPresentationTimeStamp(sb)
+        let frames = CMSampleBufferGetNumSamples(sb)
+        guard frames > 0 else { return }
+        var ablSize = 0
+        CMSampleBufferGetAudioBufferListWithRetainedBlockBuffer(
+            sb, bufferListSizeNeededOut: &ablSize, bufferListOut: nil,
+            bufferListSize: 0, blockBufferAllocator: nil,
+            blockBufferMemoryAllocator: nil, flags: 0, blockBufferOut: nil)
+        let ablMem = UnsafeMutableRawPointer.allocate(byteCount: ablSize,
+                                                      alignment: MemoryLayout<AudioBufferList>.alignment)
+        defer { ablMem.deallocate() }
+        let abl = ablMem.assumingMemoryBound(to: AudioBufferList.self)
+        var block: CMBlockBuffer?
+        let st = CMSampleBufferGetAudioBufferListWithRetainedBlockBuffer(
+            sb, bufferListSizeNeededOut: nil, bufferListOut: abl,
+            bufferListSize: ablSize, blockBufferAllocator: nil,
+            blockBufferMemoryAllocator: nil,
+            flags: kCMSampleBufferFlag_AudioBufferList_Assure16ByteAlignment,
+            blockBufferOut: &block)
+        guard st == noErr else { return }
+        withExtendedLifetime(block) {
+            append(abl, frames: frames, at: pts)
+        }
+    }
+
     func append(_ bufferList: UnsafeMutablePointer<AudioBufferList>,
                 frames: CMItemCount, at start: CMTime) {
         #if canImport(Speech)
@@ -1429,5 +1563,64 @@ final class BufferSink: @unchecked Sendable {
         // onto the film — which is all the display needs.
         cont.yield(AnalyzerInput(buffer: outBuf))
         #endif
+    }
+}
+
+// MARK: - Film-time sample reader (27+)
+
+/// Synthesizes an in-memory HLS wrapper around ANY film URL so
+/// `AVPlayerItemSampleBufferOutput` (HLS-items-only, per its header) can
+/// deliver the film's decoded audio with PresentationTimeStamps in FILM
+/// TIME. That one property retires the entire two-clock mapping the scout
+/// path needs (offset + raw x rate, drift envelopes, slope loops,
+/// cold-start staging): the analyzer's clock anchors to the first PTS and
+/// every cue lands where the words are. Measured 2026-08-27 on a published
+/// wrapper: 17x realtime delivery at rate 0 — no second render pipeline at
+/// all (the D071 class dies too) — with pull pacing REQUIRED, because an
+/// unpaced reader buffers everything it pulls (693s in 40s; the D070 bomb
+/// returns without the leash).
+final class SampleReaderLoader: NSObject, AVAssetResourceLoaderDelegate, @unchecked Sendable {
+    static let scheme = "aw-sboread"
+    let queue = DispatchQueue(label: "aw.sbo.reader")
+    private let master: String
+    private let video: String
+
+    init(filmURL: URL, duration: Double) {
+        let dur = max(Int(duration.rounded()), 1)
+        // The segment URI must be VALID per AVFoundation's strict parser
+        // (raw spaces/() fail the whole item — the encode_segment_url
+        // lesson): percent-encode the path portion only.
+        var comps = URLComponents(url: filmURL, resolvingAgainstBaseURL: false)
+        if let p = comps?.percentEncodedPath, p == filmURL.path {
+            comps?.path = filmURL.path   // triggers proper re-encoding
+        }
+        let seg = comps?.url?.absoluteString ?? filmURL.absoluteString
+        master = "#EXTM3U\n#EXT-X-VERSION:6\n#EXT-X-STREAM-INF:BANDWIDTH=2000000\nvideo.m3u8\n"
+        video = "#EXTM3U\n#EXT-X-VERSION:6\n#EXT-X-TARGETDURATION:\(dur)\n"
+              + "#EXT-X-PLAYLIST-TYPE:VOD\n#EXTINF:\(dur).0,\n\(seg)\n#EXT-X-ENDLIST\n"
+        super.init()
+    }
+
+    static func makeAsset(filmURL: URL, duration: Double) -> (AVURLAsset, SampleReaderLoader) {
+        let loader = SampleReaderLoader(filmURL: filmURL, duration: duration)
+        let asset = AVURLAsset(url: URL(string: "\(scheme)://reader/master.m3u8")!)
+        asset.resourceLoader.setDelegate(loader, queue: loader.queue)
+        return (asset, loader)
+    }
+
+    func resourceLoader(_ rl: AVAssetResourceLoader,
+                        shouldWaitForLoadingOfRequestedResource req: AVAssetResourceLoadingRequest) -> Bool {
+        guard let url = req.request.url else { return false }
+        let body: String
+        if url.path.hasSuffix("master.m3u8") { body = master }
+        else if url.path.hasSuffix("video.m3u8") { body = video }
+        else { return false }
+        req.contentInformationRequest?.contentType = "application/vnd.apple.mpegurl"
+        let data = Data(body.utf8)
+        req.contentInformationRequest?.contentLength = Int64(data.count)
+        req.contentInformationRequest?.isByteRangeAccessSupported = false
+        req.dataRequest?.respond(with: data)
+        req.finishLoading()
+        return true
     }
 }
