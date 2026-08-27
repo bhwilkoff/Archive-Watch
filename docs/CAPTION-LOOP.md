@@ -76,6 +76,20 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-27 tick 65 (overnight) — **Orphan batch 9 passed 4/25 —
+  under the 5 floor: THE VEIN RESTS.** Final reclaims published; the
+  campaign's reclaim total lands at ~87 films now serving verified
+  subtitles that served none two days ago. Pass-rate trend across nine
+  batches: 11-10-9-9-7-6-6-4 — the quality gate holding firm while the
+  tail's audio roughens, exactly the stop signal the floor was set
+  for. The remaining ~1,770 orphans keep their published files and
+  their place in tools/orphan_reclaim_scores.csv; they wait on a
+  stronger transcription pass (a future model, or a denoising
+  pre-pass) — NOT on more batches of the same. The pipeline
+  (captiongen work list -> audit_wrong_film_subtitles ->
+  reclaim_orphan_subtitles --apply -> publish) is documented, reusable,
+  and proven across 200+ films with zero wrong-film reclaims.
+
 - 2026-08-27 tick 64 (overnight) — Orphan batch 8: 6/25 passed (trend
   9-9-7-6-6, holding just above the stop floor). Reclaimed + published.
   One more batch runs; if it dips under 5 the vein rests.
