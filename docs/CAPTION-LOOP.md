@@ -76,6 +76,10 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-27 tick 64 (overnight) — Orphan batch 8: 6/25 passed (trend
+  9-9-7-6-6, holding just above the stop floor). Reclaimed + published.
+  One more batch runs; if it dips under 5 the vein rests.
+
 - 2026-08-27 tick 63 (overnight) — Orphan batch 7: 6/25 passed
   (easing toward the 5-pass stop floor; one more batch, then rest the
   vein unless it recovers). New verified entries reclaimed + published.
