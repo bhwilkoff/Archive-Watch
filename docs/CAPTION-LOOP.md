@@ -76,6 +76,11 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-26 tick 60 (quiet) — **Orphan batch 4: +8 reclaims (57 total
+  once published).** Pass rate holding at 9-10/25 (quality gate rejects
+  the tail's rougher audio — the gate working, not the vein exhausted;
+  batching continues while passes stay >=5). publish-db dispatched.
+
 - 2026-08-26 tick 59 (quiet) — **Orphan batch 3: +9 reclaims (49
   total live).** 10 of 25 passed the transcriber's quality gate (the
   tail's audio quality drops — 15 rejects is the gate working), 9 of
