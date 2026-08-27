@@ -1,4 +1,7 @@
 archiveID,overlap,verdict,transcriptWords,fileWords
+2_weeks_to_live,0.76,OK,1489,752
+AShotInTheDarkIPOD,0.62,OK,1284,1161
+AssassinOfYouth_423,0.74,OK,1158,980
 Back-RoomBoy,0.79,OK,1423,1169
 Crime_Inc_1945,0.70,OK,1510,1416
 DonQuixote,0.60,OK,928,665
@@ -40,6 +43,7 @@ captain_calamity,0.70,OK,1116,903
 chasing_trouble,0.74,OK,1034,1129
 chinatown_after_dark,0.74,OK,757,593
 convicts_code,0.78,OK,1067,1047
+crime_patrol,0.77,OK,848,688
 crooked_circle,0.64,OK,1041,804
 danger_ahead,0.68,OK,676,647
 danger_flight,0.72,OK,1038,928
@@ -52,12 +56,14 @@ great_commandment,,SKIP,1231,0
 gunsmoke_ranch,0.71,OK,945,817
 hats_off,0.68,OK,1140,967
 hearts_in_bondage,0.73,OK,1190,1092
+held_for_ransom,0.70,OK,805,676
 heres_flash_casey,0.68,OK,1214,1112
 hoosier_schoolboy,0.71,OK,1152,1144
 irish_luck,0.68,OK,898,902
 long_shot,0.67,OK,1244,1192
 lying_lips_ipod,0.73,OK,1205,1098
 murder_on_campus,0.72,OK,1390,1321
+navy_blues,0.72,OK,1365,1264
 oh_susanna,0.70,OK,836,694
 paradise_express,0.66,OK,1096,986
 phantom_cowboy,0.75,OK,667,499

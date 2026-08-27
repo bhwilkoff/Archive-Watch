@@ -76,6 +76,10 @@ probes.
 
 ## Loop log (newest first)
 
+- 2026-08-27 tick 63 (overnight) — Orphan batch 7: 6/25 passed
+  (easing toward the 5-pass stop floor; one more batch, then rest the
+  vein unless it recovers). New verified entries reclaimed + published.
+
 - 2026-08-27 tick 62 (overnight) — Orphan batch 6: 7/25 passed the
   gate (rate easing 9-10 -> 7 as popularity falls; still above the
   stop floor of 5), new verified entries reclaimed and published.
