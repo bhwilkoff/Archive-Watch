@@ -423,9 +423,10 @@ final class LiveCaptions {
             // A no-delivery watchdog: the device run w10-sbo-13thman2 fed
             // NOTHING after a seek while the Mac (from 0) fed fine — without
             // this line that difference was invisible.
-            Task.detached {
+            let fedBox = FedBox()
+            Task.detached { [fedBox] in
                 try? await Task.sleep(nanoseconds: 10_000_000_000)
-                if fed == 0 { awdiag("[AWCAP] sample reader: NO DELIVERY after 10s (from \(from))") }
+                if fedBox.value == 0 { awdiag("[AWCAP] sample reader: NO DELIVERY after 10s (from \(from))") }
             }
             while !Task.isCancelled {
                 var s = output.nextAvailableSampleBuffer()
@@ -450,6 +451,7 @@ final class LiveCaptions {
                         sinkRef.appendSample(raw)
                     }
                     fed += dur
+                    fedBox.value = fed
                     lastPTS = pts
                     let head = pts
                     await MainActor.run { [weak self] in self?.sboHead = head }
@@ -1606,6 +1608,15 @@ final class BufferSink: @unchecked Sendable {
 /// all (the D071 class dies too) — with pull pacing REQUIRED, because an
 /// unpaced reader buffers everything it pulls (693s in 40s; the D070 bomb
 /// returns without the leash).
+final class FedBox: @unchecked Sendable {
+    private let lock = NSLock()
+    private var v = 0.0
+    var value: Double {
+        get { lock.lock(); defer { lock.unlock() }; return v }
+        set { lock.lock(); defer { lock.unlock() }; v = newValue }
+    }
+}
+
 final class SampleReaderLoader: NSObject, AVAssetResourceLoaderDelegate, @unchecked Sendable {
     static let scheme = "aw-sboread"
     let queue = DispatchQueue(label: "aw.sbo.reader")
