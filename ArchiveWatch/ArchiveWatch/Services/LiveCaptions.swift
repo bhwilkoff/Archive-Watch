@@ -383,9 +383,17 @@ final class LiveCaptions {
     private func igniteSampleReader(url: URL, from: Double) async {
         pendingIgnition = nil
         let duration = 3600.0 * 4      // generous; the playlist only needs a ceiling
-        let (asset, loader) = SampleReaderLoader.makeAsset(filmURL: url, duration: duration)
-        sboLoader = loader
-        let item = AVPlayerItem(asset: asset)
+        let item: AVPlayerItem
+        if let override = ProcessInfo.processInfo.environment["AW_SBO_MASTER"],
+           let m = URL(string: override) {
+            // BISECT: a real published https wrapper vs the synthesized
+            // custom-scheme one — the Mac probe that delivered used https.
+            item = AVPlayerItem(url: m)
+        } else {
+            let (asset, loader) = SampleReaderLoader.makeAsset(filmURL: url, duration: duration)
+            sboLoader = loader
+            item = AVPlayerItem(asset: asset)
+        }
         guard let dst = AVAudioFormat(commonFormat: .pcmFormatFloat32,
                                       sampleRate: 16_000, channels: 1, interleaved: true) else { return }
         var asbd = dst.streamDescription.pointee
@@ -394,7 +402,13 @@ final class LiveCaptions {
                                        layout: nil, magicCookieSize: 0, magicCookie: nil,
                                        extensions: nil, formatDescriptionOut: &fmtDesc)
         let cfg = AVPlayerItemSampleBufferOutputAudioConfiguration()
-        cfg.requestedAudioFormat = fmtDesc
+        // BISECT (device): with the 16k-mono request the tvOS output ends at
+        // 0 buffers while the item is readyToPlay; the Mac delivers. Trying
+        // no format request — if native-format buffers flow, it is format
+        // support, and the sink's converter learns the real format per run.
+        if ProcessInfo.processInfo.environment["AW_SBO_FMT"] != "native" {
+            cfg.requestedAudioFormat = fmtDesc
+        }
         let output = AVPlayerItemSampleBufferOutput(configuration: cfg)
         item.add(output)
         sboOutput = output
@@ -440,9 +454,28 @@ final class LiveCaptions {
             // NOTHING after a seek while the Mac (from 0) fed fine — without
             // this line that difference was invisible.
             let fedBox = FedBox()
-            Task.detached { [fedBox] in
+            Task.detached { [fedBox, weak self] in
                 try? await Task.sleep(nanoseconds: 10_000_000_000)
-                if fedBox.value == 0 { awdiag("[AWCAP] sample reader: NO DELIVERY after 10s (from \(from))") }
+                if fedBox.value == 0 {
+                    // The API is declared on this OS and delivers NOTHING —
+                    // measured on tvOS 27 beta 24J5358a against both the
+                    // synthesized wrapper AND a real published one the Mac
+                    // reads at 17x. Same beta-ware genus as D068's silent
+                    // generated track. Fall back to the verified scout path
+                    // automatically; the day the platform delivers, this
+                    // branch simply stops being taken.
+                    awdiag("[AWCAP] sample reader: NO DELIVERY after 10s — falling back to the scout engine")
+                    await MainActor.run { [weak self] in
+                        guard let self else { return }
+                        self.sboTask?.cancel(); self.sboTask = nil
+                        self.sboPlayer?.replaceCurrentItem(with: nil); self.sboPlayer = nil
+                        self.sboOutput = nil; self.sboLoader = nil
+                        self.usingSampleReader = false
+                        self.mappingProven = false
+                        self.resetMapping()
+                        Task { await self.ignite(url: url) }
+                    }
+                }
             }
             while !Task.isCancelled {
                 var s = output.nextAvailableSampleBuffer()
@@ -1680,6 +1713,7 @@ final class SampleReaderLoader: NSObject, AVAssetResourceLoaderDelegate, @unchec
     func resourceLoader(_ rl: AVAssetResourceLoader,
                         shouldWaitForLoadingOfRequestedResource req: AVAssetResourceLoadingRequest) -> Bool {
         guard let url = req.request.url else { return false }
+        awdiag("[AWCAP] sample reader loader request: \(url.absoluteString)")
         let body: String
         if url.path.hasSuffix("master.m3u8") { body = master }
         else if url.path.hasSuffix("video.m3u8") { body = video }
