@@ -362,6 +362,12 @@ final class LiveCaptions {
     /// gated off — exactness is structural, and the rate-0 reader player's
     /// currentTime never advances, so pos-based instruments would misfire.
     private var usingSampleReader = false
+    /// The last film-time PTS the reader has FED — the SBO path's true
+    /// progress. The rate-0 reader player's currentTime is frozen at the
+    /// seek point, and the hopeless watchdog reading it re-ignited the
+    /// session every 48s forever (w10-sbo-13thman: seven ignitions, zero
+    /// cues — each window died before the analyzer's first result).
+    private var sboHead: Double = 0
     private var sboPlayer: AVPlayer?
     private var sboLoader: SampleReaderLoader?
     private var sboOutput: AnyObject?
@@ -429,6 +435,8 @@ final class LiveCaptions {
                     }
                     fed += dur
                     lastPTS = pts
+                    let head = pts
+                    await MainActor.run { [weak self] in self?.sboHead = head }
                 }
                 // PACING LEASH (the D070 lesson): stay <=120s ahead of the
                 // viewer or the item buffers the whole film.
@@ -710,7 +718,7 @@ final class LiveCaptions {
             // already watched while burning the bandwidth playback needs
             // (observed: a scout resumed at 0.0 against a playhead of 3746).
             // needsResync retargets it with a seek instead.
-            let scoutAt = scout.currentTime().seconds
+            let scoutAt = usingSampleReader ? sboHead : scout.currentTime().seconds
             if scoutAt.isFinite, playhead.seconds - scoutAt > 45 { return }
             scout.rate = Self.scoutRate
             if trace {
@@ -970,7 +978,7 @@ final class LiveCaptions {
         guard isRunning, t.isFinite, t >= 0 else { return false }
         if pendingIgnition != nil { return false }   // armed, not yet running
         if t < contentOffset - 30 { return true }              // seeked behind the session
-        let scoutAt = scoutPlayer?.currentTime().seconds
+        let scoutAt = usingSampleReader ? sboHead : scoutPlayer?.currentTime().seconds
         let reached = max(cues.last?.end ?? contentOffset,
                           (scoutAt?.isFinite == true ? scoutAt! : contentOffset))
         // The viewer is 45s past everything the scout has even REACHED: it can
