@@ -164,6 +164,7 @@ an entry in place.
 - 093 — A red X is reserved for broken: backstops that published warn, and the auditor never re-alerts a failure that already emailed
 - 094 — Fleet hardening: stock index guarded and .zz-only, no unguarded restores, budgets everywhere, the big lock holder split
 - 095 — Queue displacement happens at JOB granularity too; the sweeper re-runs only zero-step jobs
+- 096 — tvOS stays ENGINE-led: the system's generated captions are proven only on clean audio, and the plain path they require re-imports a measured disease
 
 ---
 
@@ -935,3 +936,41 @@ itself — that pressure drops as the remaining whole-run holders
 (discover-content and omdb-backfill are the long ones left, ~1-2h
 each; they also push to main, so their split needs care) convert per
 Decision 066.
+
+## 096 — tvOS stays ENGINE-led: the system's generated captions are proven only on clean audio, and the plain path they require re-imports a measured disease
+*Date: 2026-08-27*
+
+The system-leads pivot proposed on 2026-08-26 (after the on-device probe
+showed Apple's generated track EMITTING on all three asset shapes) is
+DECLINED. tvOS keeps Decision 072's single pipeline: every title through
+ResilientStreamLoader, our engine captioning the uncaptioned, the system
+track untouched.
+
+**Why**: three measurements, taken together, decide it. (1) The probe's
+emission evidence comes from the bundled 60-second narration clip — clean,
+modern audio. On REAL archival films the same generation feature, measured
+on macOS 27 (Decision 063), was offered on three films and emitted on ONE,
+declining rough optical sound rather than guessing. A system-led tvOS would
+leave the majority of uncaptioned films captionless behind a watchdog
+delay. (2) The only full-film asset shape the system will caption is the
+plain URL (the HLS wrapper is Decision 070's memory bomb; the loopback
+proxy is Decision 082's intermittent mediaserverd reach), and the plain
+path re-imports the Decision-021 disease the owner personally watched —
+idle resets flushing the buffer, mid-film player rebuilds — which is
+exactly why 072 retired it. (3) The engine it would displace now has
+MEASURED timing: the 2026-08-26 sweep's caption_timing_vs_truth runs
+median within a second on healthy segments, with the envelope-only
+correction configuration proven across nine device iterations.
+
+**How to apply**: do not re-enable `SystemCaptions.prefersDirectPlayback`
+on tvOS while these three facts stand. The machinery stays
+(selectIfWanted / emitsCaptions / handOver are used by the diagnostics
+probe and the iOS/macOS paths, where the system IS the lead per
+docs/CAPTIONS.md). REOPEN CONDITIONS, any one of which reopens the
+question: evidence of system emission on real archival audio (extend
+Caption Diagnostics with a real-film shape to gather it cheaply); a
+resilient asset shape the system will caption (a proxy that passes
+Decision 082's reachability bar, or an OS change accepting
+custom-scheme assets); or the engine's quality materially regressing.
+The Fireplace-class hardware constraint is permanent regardless: engine
+fallback for tvOS 26 and non-generating devices is not transitional.
