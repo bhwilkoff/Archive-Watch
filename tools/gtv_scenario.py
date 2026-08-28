@@ -112,13 +112,24 @@ def rail_tab_at(bounds):
 
 
 def goto_tab(target, max_steps=14):
-    """Walk focus onto the rail, then to the target row, then select it."""
+    """Walk focus onto the rail, then to the target row, then select it.
+
+    The rail is HIDDEN while a route is pushed (Detail/Player/Surprise…), so
+    if LEFT never finds it, press BACK to pop back to a tab root and retry —
+    without this, one accidental Select strands the whole walk (measured on
+    the fresh-install gate run)."""
     target = target.lower()
-    for _ in range(6):                       # reach the rail
-        b = focused_bounds()
-        if rail_tab_at(b):
+    for attempt in range(3):
+        found = False
+        for _ in range(6):                   # reach the rail
+            b = focused_bounds()
+            if rail_tab_at(b):
+                found = True
+                break
+            press("KEYCODE_DPAD_LEFT")
+        if found:
             break
-        press("KEYCODE_DPAD_LEFT")
+        press("KEYCODE_BACK", settle=2.0)    # pop a pushed route hiding the rail
     for _ in range(max_steps):               # walk to the target row
         b = focused_bounds()
         cur = rail_tab_at(b)
@@ -237,6 +248,13 @@ def type_text(text):
 
 def rail_walk():
     launch(force_stop=True)
+    # A fresh install downloads the full catalog — wait for Home CONTENT
+    # before walking, or the loading anchor's focus layout misleads goto_tab.
+    for _ in range(12):
+        text = ocr(screenshot("walk-00-home"))
+        if "Loading" not in text:
+            break
+        time.sleep(10)
     results = []
     shot = screenshot("walk-00-home")
     text = ocr(shot)

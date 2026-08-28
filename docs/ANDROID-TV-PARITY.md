@@ -274,3 +274,27 @@ Candidate adoptions, each to be dispositioned (adopt / reject with reason):
   season 1 lists only 2 playable eps for Four Star Playhouse vs 101 in the
   DB — a SPINE COVERAGE question for the pipeline, flagged (not a client
   bug).
+
+## CLOSED — 2026-08-27. Final state
+
+**7/7 clean-install rail-walk gate PASSED** (fresh install, full-catalog
+download window included — the awaitDb fix proven under the original
+failure conditions). **Android 1.3.469 (versionCode 36) published to the
+Play production track** with all 8 fixes. Two of the fixes were
+cross-platform regressions found from this TV (episode binge dead on every
+Android path; dispose-time progress save a silent no-op).
+
+The audit's product: this ledger, `tools/gtv_scenario.py` (connect-first,
+tree-driven navigation, closed-loop type_text, OCR + logcat + focus-tree
+evidence), the AWTV dispose/watchNext diagnostics left in the app, and the
+recorded deferrals below — the only rows a loop cannot close alone:
+
+- Detail **Share** — needs a QR decision (no native Android QR generator).
+- **Editorial home-screen channel row** (Watch Next's sibling) — next wave.
+- **Ambient backdrop intensity** — owner taste (T3).
+- **Per-category visibility toggles** — missing on Android entirely
+  (cross-platform row, not TV-specific).
+- **Series spine coverage** (e.g. Four Star Playhouse: 2 playable S1
+  episodes in the spine vs 101 in the DB) — pipeline follow-up.
+- **Fire TV** — blocked on the owner's ADB Debugging toggle; takes the
+  amazon (zero-GMS) flavor and the same harness.
