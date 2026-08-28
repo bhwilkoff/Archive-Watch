@@ -30,7 +30,10 @@ import sys
 import time
 
 ADB = os.path.expanduser("~/Library/Android/sdk/platform-tools/adb")
-HOST = "10.0.0.55"
+# Default = the Google TV; AW_TV_HOST=10.0.0.139 targets the Fire TV Stick 4K
+# (AFTKRT, Fire OS). Both use classic port 5555; only the Google TV also has
+# the rotating TLS port, so the mdns fallback simply finds nothing on Fire.
+HOST = os.environ.get("AW_TV_HOST", "10.0.0.55")
 PKG = "com.archivewatch.app.debug"
 QA_DIR = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
@@ -168,8 +171,10 @@ def launch(deep_link=None, force_stop=False):
         adbs("shell", "am", "start", "-a", "android.intent.action.VIEW",
              "-d", deep_link, PKG)
     else:
-        adbs("shell", "monkey", "-p", PKG, "-c",
-             "android.intent.category.LEANBACK_LAUNCHER", "1")
+        # Explicit component, not monkey: Fire OS accepts the monkey launch
+        # but never foregrounds the app (measured 2026-08-28); am start -n
+        # works on both platforms.
+        adbs("shell", "am", "start", "-n", f"{PKG}/app.archivewatch.android.MainActivity")
     time.sleep(15)
 
 
