@@ -315,3 +315,9 @@ recorded deferrals below — the only rows a loop cannot close alone:
   Channels create-dialog era picker x2).
 - Fire TV runs the identical build (amazon flavor) — Browse capture
   matches Google TV pixel-for-pixel in grammar.
+- Final sweep: playlist overlay clean at native scale (no label wrap,
+  focus claimed); all action-button rings now WHITE (the last accent ring);
+  Detail/Library/Surprise/Channels-guide at the new scale. Data blemish
+  measured and noted: 3 of 26,321 synopses are doubled (e.g. Smuggled
+  Cargo) — below the threshold for a pipeline rule. **1.3.470 (vc37)
+  shipped to the Play production track with the full native polish.**

@@ -439,7 +439,7 @@ private fun TvActionButton(
                 onClick = { if (enabled) onClick() },
                 focusRequester = focusRequester,
                 shape = RoundedCornerShape(28.dp),
-                ringColor = if (primary) Color.White else accent,
+                ringColor = Color.White,
                 scaleWhenFocused = 1.05f,
             )
             .background(
