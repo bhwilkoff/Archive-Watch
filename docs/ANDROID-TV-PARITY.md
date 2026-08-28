@@ -365,3 +365,22 @@ Closed this tick (device-verified on Suddenly):
 Remaining queue: Get Subtitles (no OpenSubtitles client on Android —
 decision), Share (QR decision), Screensaver (system-owned on Android —
 N/A), Movies/TV as Browse scopes = accepted idiom.
+
+## CHRONICLE CLOSED — 2026-08-28. Element-level parity state
+
+**10/10 rail-walk gate PASSED** (Home, Browse, Channels, Search, Library,
+Collections, Cartoons, Party Play, Surprise, Settings). Against tvOS's 12
+tabs: Movies + TV Shows live as Browse scopes (recorded idiom);
+Screensaver is system-owned on Google TV (N/A). Detail carries Play,
+Favorite, Mark Watched, Add to Playlist, **Share (scannable QR,
+zxing:core)**, Version, part-of-series — plus IMDb rating, photographed
+cast, community stats and archive.org reviews. The player carries the
+transport-menu set (UP/MENU panel) and the fade contract.
+**1.3.471 (vc38) shipped to the Play production track.**
+
+ONE OPEN DECISION (owner): **Get Subtitles** — tvOS offers per-film
+OpenSubtitles search with a BYO account (QR signup + credentials typed on
+the TV). Porting it to Android means a Kotlin OpenSubtitlesClient +
+account section + download flow. Today Android relies on published tracks
++ system Live Caption (documented in Settings). Say the word and it gets
+built; recorded here rather than guessed at.

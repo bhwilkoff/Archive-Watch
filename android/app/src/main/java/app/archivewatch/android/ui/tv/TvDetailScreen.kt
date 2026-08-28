@@ -18,6 +18,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.PlaylistAdd
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material.icons.filled.Tv
@@ -84,6 +85,7 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
     }
     var showPlaylists by remember { mutableStateOf(false) }
     var showVersions by remember { mutableStateOf(false) }
+    var showShare by remember { mutableStateOf(false) }
     var favorite by remember { mutableStateOf(false) }
     var watched by remember { mutableStateOf(false) }
     LaunchedEffect(archiveID) {
@@ -250,6 +252,11 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     accent = current.accentColor,
                 ) { showPlaylists = true }
                 TvActionButton(
+                    label = "Share",
+                    icon = { Icon(Icons.Default.Share, null, tint = Color.White, modifier = Modifier.size(18.dp)) },
+                    accent = current.accentColor,
+                ) { showShare = true }
+                TvActionButton(
                     label = "Version",
                     icon = { Icon(Icons.Default.Tune, null, tint = Color.White, modifier = Modifier.size(18.dp)) },
                     accent = current.accentColor,
@@ -395,6 +402,15 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
         }
     }
 
+    if (showShare) {
+        TvShareOverlay(
+            title = current.title,
+            url = if (current.contentType == "tv-series")
+                "https://archivewatch.org/series/" + current.archiveID.removePrefix("series:")
+            else "https://archivewatch.org/item/" + current.archiveID,
+            onDone = { showShare = false },
+        )
+    }
     if (showVersions) {
         TvVersionOverlay(
             archiveID = current.archiveID,

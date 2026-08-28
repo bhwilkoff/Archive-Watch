@@ -211,6 +211,9 @@ TAB_EXPECT = {
     "channels": ["Channels"],
     "search": ["Search titles"],
     "library": ["Library"],
+    "collections": ["Collections"],
+    "cartoons": ["Cartoon"],
+    "party": ["Party Play"],
     "surprise": ["Surprise"],
     "settings": ["Settings"],
 }
@@ -295,7 +298,7 @@ def rail_walk():
         # from a TAB ROOT exit the app entirely — the first harness run
         # pressed it after Browse and spent the rest of the walk navigating
         # the launcher.
-        if tab in ("surprise", "settings"):
+        if tab in ("collections", "cartoons", "party", "surprise", "settings"):
             press("KEYCODE_BACK", settle=2.0)
     passed = sum(1 for _, ok, _ in results if ok)
     print(f"RESULT: {passed}/{len(results)} tabs verified — shots in {QA_DIR}")
