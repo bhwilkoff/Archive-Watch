@@ -16,6 +16,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
@@ -66,6 +67,14 @@ import app.archivewatch.android.cast.CastSupport
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.PlaybackPresence
 import app.archivewatch.android.ui.tv.LocalIsTelevision
+import app.archivewatch.android.ui.tv.tvFocusable
+import app.archivewatch.android.ui.tv.ClaimInitialFocus
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.runtime.collectAsState
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.Arrangement
 import app.archivewatch.android.ui.tv.TvDims
 import app.archivewatch.android.ui.tv.tvPlaybackKeys
 import kotlinx.coroutines.delay
@@ -376,6 +385,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
     // overlay never faded, and a Back gated on it became a Back TRAP, §1.7).
     // Any handled key shows the overlay; it fades after 4s of playback.
     var tvInteraction by remember { mutableStateOf(0) }
+    var showTvMenu by remember { mutableStateOf(false) }
     if (isTv) {
         LaunchedEffect(tvInteraction) {
             controlsVisible = true
@@ -387,9 +397,13 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             controlsVisible = false
         }
         // The ten-foot Back contract (tvOS parity): overlay visible -> Back
-        // dismisses it; only a second Back leaves the film.
-        androidx.activity.compose.BackHandler(enabled = controlsVisible) {
+        // dismisses it; only a second Back leaves the film. The options panel
+        // takes precedence (registered later = wins).
+        androidx.activity.compose.BackHandler(enabled = controlsVisible && !showTvMenu) {
             controlsVisible = false
+        }
+        androidx.activity.compose.BackHandler(enabled = showTvMenu) {
+            showTvMenu = false
         }
     }
 
@@ -402,7 +416,15 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             // quality bar is that these ALWAYS work during playback — including
             // while the controller is hidden, which is when a viewer is most
             // likely to press them. Handled explicitly rather than assumed.
-            .then(if (isTv) Modifier.tvPlaybackKeys(player) { tvInteraction += 1 } else Modifier),
+            .then(
+                if (isTv) {
+                    Modifier.tvPlaybackKeys(
+                        player,
+                        onInteraction = { tvInteraction += 1 },
+                        onMenu = { showTvMenu = true },
+                    )
+                } else Modifier,
+            ),
     ) {
         AndroidView(
             factory = { ctx ->
@@ -504,6 +526,166 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                         .padding(horizontal = 20.dp, vertical = 16.dp),
                 )
             }
+        }
+
+        if (isTv && showTvMenu) {
+            TvPlayerOptionsPanel(
+                player = player,
+                spec = spec,
+                container = container,
+                onDismiss = { showTvMenu = false },
+            )
+        }
+    }
+}
+
+/**
+ * The tvOS transport-bar menu, as the native Android TV in-player options
+ * panel (D-pad UP / MENU): Play Next, Mute, Subtitles, Autoplay Next, and
+ * Choose a Copy — mid-film, position-preserving.
+ */
+@Composable
+private fun TvPlayerOptionsPanel(
+    player: androidx.media3.exoplayer.ExoPlayer,
+    spec: PlaySpec,
+    container: AppContainer,
+    onDismiss: () -> Unit,
+) {
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    var muted by remember { mutableStateOf(player.volume == 0f) }
+    val autoplay by container.settings.autoplayNext.collectAsState(initial = false)
+    var versions by remember {
+        mutableStateOf<List<app.archivewatch.android.data.ArchiveVersions.Version>?>(null)
+    }
+    var chosenVersion by remember {
+        mutableStateOf(app.archivewatch.android.data.ArchiveVersions.chosenName(context, spec.id))
+    }
+    var textOff by remember {
+        mutableStateOf(player.trackSelectionParameters.disabledTrackTypes.contains(C.TRACK_TYPE_TEXT))
+    }
+    LaunchedEffect(spec.id) {
+        if (spec.queue.isEmpty()) {
+            versions = app.archivewatch.android.data.ArchiveVersions.list(spec.id)
+        }
+    }
+    val firstFocus = remember { androidx.compose.ui.focus.FocusRequester() }
+    ClaimInitialFocus(firstFocus)
+
+    Box(Modifier.fillMaxSize().background(Color(0x99000000))) {
+        Column(
+            Modifier
+                .align(Alignment.CenterEnd)
+                .fillMaxHeight()
+                .fillMaxWidth(0.42f)
+                .background(Color(0xFF141414))
+                .padding(horizontal = 32.dp, vertical = TvDims.OverscanV),
+        ) {
+            Text(
+                "Player Options",
+                style = MaterialTheme.typography.titleMedium,
+                color = Color.White,
+                modifier = Modifier.padding(bottom = 14.dp),
+            )
+            LazyColumn(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                if (player.hasNextMediaItem()) {
+                    item(key = "next") {
+                        TvMenuRow("Play Next Episode", null, firstFocus) {
+                            player.seekToNextMediaItem(); onDismiss()
+                        }
+                    }
+                }
+                item(key = "mute") {
+                    TvMenuRow(
+                        if (muted) "Unmute" else "Mute",
+                        null,
+                        if (player.hasNextMediaItem()) null else firstFocus,
+                    ) {
+                        muted = !muted
+                        player.volume = if (muted) 0f else 1f
+                    }
+                }
+                item(key = "autoplay") {
+                    TvMenuRow("Autoplay next", if (autoplay) "On" else "Off", null) {
+                        scope.launch { container.settings.setAutoplayNext(!autoplay) }
+                    }
+                }
+                if (spec.captions.isNotEmpty()) {
+                    item(key = "subs-head") {
+                        Text("Subtitles", style = MaterialTheme.typography.labelLarge,
+                            color = Color(0xFF9A9A9A), modifier = Modifier.padding(top = 10.dp))
+                    }
+                    item(key = "subs-off") {
+                        TvMenuRow("Off", if (textOff) "✓" else null, null) {
+                            player.trackSelectionParameters = player.trackSelectionParameters
+                                .buildUpon().setTrackTypeDisabled(C.TRACK_TYPE_TEXT, true).build()
+                            textOff = true
+                        }
+                    }
+                    items(spec.captions.size, key = { "sub" + it }) { i ->
+                        val c = spec.captions[i]
+                        TvMenuRow(c.displayLabel, if (!textOff) "✓" else null, null) {
+                            player.trackSelectionParameters = player.trackSelectionParameters
+                                .buildUpon()
+                                .setTrackTypeDisabled(C.TRACK_TYPE_TEXT, false)
+                                .setPreferredTextLanguage(c.lang)
+                                .build()
+                            textOff = false
+                        }
+                    }
+                }
+                versions?.takeIf { it.isNotEmpty() }?.let { v ->
+                    item(key = "ver-head") {
+                        Text("Copies", style = MaterialTheme.typography.labelLarge,
+                            color = Color(0xFF9A9A9A), modifier = Modifier.padding(top = 10.dp))
+                    }
+                    items(v.size, key = { v[it].name }) { i ->
+                        val ver = v[i]
+                        TvMenuRow(ver.label, if (chosenVersion == ver.name) "✓" else null, null) {
+                            app.archivewatch.android.data.ArchiveVersions.choose(context, spec.id, ver)
+                            chosenVersion = ver.name
+                            // Swap mid-film, keeping the seat: buildUpon keeps
+                            // metadata + subtitle configs; only the uri moves.
+                            val pos = player.currentPosition
+                            player.currentMediaItem?.buildUpon()?.setUri(ver.url)?.build()?.let {
+                                player.setMediaItem(it, pos)
+                                player.prepare()
+                                player.play()
+                            }
+                            onDismiss()
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun TvMenuRow(
+    label: String,
+    trailing: String?,
+    focusRequester: androidx.compose.ui.focus.FocusRequester?,
+    onClick: () -> Unit,
+) {
+    Row(
+        Modifier
+            .fillMaxWidth()
+            .tvFocusable(
+                onClick = onClick,
+                focusRequester = focusRequester,
+                shape = RoundedCornerShape(10.dp),
+                scaleWhenFocused = 1.02f,
+            )
+            .background(Color(0xFF1F1F1F), RoundedCornerShape(10.dp))
+            .padding(horizontal = 16.dp, vertical = 12.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(label, style = MaterialTheme.typography.bodyMedium, color = Color.White,
+            maxLines = 2, overflow = TextOverflow.Ellipsis, modifier = Modifier.weight(1f))
+        trailing?.let {
+            Text(it, style = MaterialTheme.typography.bodyMedium, color = Color(0xFFFF5C35),
+                modifier = Modifier.padding(start = 10.dp))
         }
     }
 }

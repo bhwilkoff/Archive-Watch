@@ -29,7 +29,7 @@ private const val SEEK_STEP_MS = 10_000L
  * controller is hidden, which is exactly when a viewer reaches for these keys.
  */
 @Composable
-fun Modifier.tvPlaybackKeys(player: Player, onInteraction: () -> Unit = {}): Modifier {
+fun Modifier.tvPlaybackKeys(player: Player, onInteraction: () -> Unit = {}, onMenu: () -> Unit = {}): Modifier {
     val requester = remember { FocusRequester() }
 
     // §3.1 — the player surface must hold focus or the keys never arrive.
@@ -78,6 +78,10 @@ fun Modifier.tvPlaybackKeys(player: Player, onInteraction: () -> Unit = {}): Mod
                 Key.MediaPrevious, Key.MediaSkipBackward -> {
                     if (player.hasPreviousMediaItem()) { player.seekToPreviousMediaItem(); true } else false
                 }
+                // The player options panel (the tvOS transport-menu analogue):
+                // UP is the native Android TV gesture for in-player options,
+                // and the remote MENU key means the same thing.
+                Key.DirectionUp, Key.Menu -> { onMenu(); true }
                 // Back is NOT handled here — §1.7 keeps it sacred, so it falls
                 // through to the route's BackHandler and exits the player.
                 else -> false

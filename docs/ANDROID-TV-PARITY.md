@@ -346,7 +346,13 @@ Closed this tick (device-verified on Suddenly):
   by the player for single items AND queue entries; Kotlin port of the
   tvOS ArchiveVersions service).
 
-Remaining queue: Get Subtitles (no OpenSubtitles client on Android —
-decision), Share (QR decision), player transport menu (autoplay/mute/
-subtitles/version), Party Play page, Screensaver (system-owned on
-Android — likely N/A), Movies/TV as Browse scopes = accepted idiom.
+- **Player Options panel SHIPPED + device-verified** (the tvOS transport
+  menu): D-pad UP / MENU during playback → Play Next (queue), Mute,
+  Autoplay-next toggle, Subtitles (Off/tracks), Choose a Copy
+  (position-preserving mid-film swap). OCR-verified on Reefer Madness.
+  Harness note: Compose overlays are ABSENT from uiautomator dumps —
+  OCR is the evidence channel for them.
+
+Remaining queue: Party Play page, Get Subtitles (no OpenSubtitles client
+on Android — decision), Share (QR decision), Screensaver (system-owned
+on Android — likely N/A), Movies/TV as Browse scopes = accepted idiom.
