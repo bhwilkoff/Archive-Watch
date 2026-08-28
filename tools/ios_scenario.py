@@ -131,8 +131,48 @@ def sweep(items=None):
     return results
 
 
+def judge(paths):
+    """T1 verdict over a directory of screenshots: who clips, and where.
+
+    Poster ARTWORK legitimately runs to the edge of a scrolling shelf, so a
+    hit is only reported for text the app itself drew — judged by height,
+    since chrome type is small and poster lettering is large."""
+    verdicts = []
+    for p in sorted(paths):
+        lines = ocr(Path(p))
+        hits, peeks = [], []
+        for ln in lines:
+            t = (ln.get("text") or "").strip()
+            if not t or ln.get("h", 0) > 0.030:      # big = poster art
+                continue
+            x, w = ln.get("x", 0.0), ln.get("w", 0.0)
+            # A LEFT-edge cut is always a defect: no padded layout starts a
+            # line at x=0. A right-edge cut is usually a horizontally
+            # scrolling row's intended peek, so it is reported, not failed.
+            if x <= 0.010:
+                hits.append(t)
+            elif x + w >= 0.990:
+                peeks.append(t)
+        verdicts.append((Path(p).name, hits))
+        mark = "CLIP" if hits else "ok  "
+        note = ' | '.join(h[:30] for h in hits[:3]) or \
+               ("peek: " + ' | '.join(p[:22] for p in peeks[:2]) if peeks else "")
+        print(f"  {mark} {Path(p).name:44s} {note}")
+    bad = [v for v in verdicts if v[1]]
+    print(f"\n{len(verdicts) - len(bad)}/{len(verdicts)} clean; {len(bad)} clipping")
+    return verdicts
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "sweep"
+    if cmd == "judge":
+        args = sys.argv[2:]
+        files = []
+        for a in args:
+            q = Path(a)
+            files += sorted(str(f) for f in q.glob("*.png")) if q.is_dir() else [a]
+        judge(files)
+        sys.exit(0)
     if cmd == "shot":
         tab = sys.argv[2] if len(sys.argv) > 2 else "home"
         launch(env={"AW_START_TAB": tab})

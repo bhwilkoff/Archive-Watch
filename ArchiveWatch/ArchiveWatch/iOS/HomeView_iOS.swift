@@ -103,6 +103,16 @@ struct HomeView: View {
                 }
             }
         }
+        .id(store.dbVersion)   // re-query when the DB swaps (seed → full)
+        .task(id: store.dbVersion) { rebuild() }
+        // The Settings sheet is attached OUTSIDE that .id on purpose. Every
+        // Settings toggle bumps dbVersion (it changes what every query
+        // returns), and while the sheet sat inside the identified subtree
+        // SwiftUI tore the sheet down and rebuilt it on each flip — so turning
+        // off a category threw the viewer back to the top of a long Settings
+        // page mid-edit (measured on the iPhone 12, 2026-08-28: the row was
+        // gone from the tree 30s later because it had scrolled away, while the
+        // app itself stayed responsive throughout).
         .sheet(isPresented: $showSettings) {
             NavigationStack {
                 SettingsView()
@@ -113,8 +123,6 @@ struct HomeView: View {
                     }
             }
         }
-        .id(store.dbVersion)   // re-query when the DB swaps (seed → full)
-        .task(id: store.dbVersion) { rebuild() }
     }
 
     private struct ShelfPayload: Identifiable {

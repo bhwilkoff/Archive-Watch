@@ -29,6 +29,8 @@ struct DetailView: View {
     @ViewBuilder private var actionButtons: some View {
                     Button { toggleFavorite() } label: {
                         Image(systemName: isFav ? "heart.fill" : "heart")
+                            .accessibilityLabel(isFav ? "Remove from favorites"
+                                                      : "Add to favorites")
                     }
                     .buttonStyle(.bordered)
 
@@ -112,6 +114,7 @@ struct DetailView: View {
                             }
                         } label: {
                             Image(systemName: "rectangle.stack")
+                                .accessibilityLabel("Choose another copy")
                         }
                         .buttonStyle(.bordered)
                         .tint(chosenVersionName == nil ? nil : .accentColor)
@@ -138,6 +141,7 @@ struct DetailView: View {
                         }
                     } label: {
                         Image(systemName: "square.and.arrow.up")
+                            .accessibilityLabel("Share and more")
                     }
                     .buttonStyle(.bordered)
     }
