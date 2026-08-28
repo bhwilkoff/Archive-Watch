@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -122,16 +123,40 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
     ClaimInitialFocus(playFocus, key = current.archiveID to showPlaylists,
         enabled = !showPlaylists)
 
+    // Claiming focus on Play makes Compose bring PLAY into view, and it will
+    // scroll the artwork off the top of the screen to do it — which is why a
+    // title with a long description opened with the poster barely visible
+    // (owner, 2026-08-28: "the poster should always be viewable upon looking
+    // at the detail view initially"). Merging the hero and the actions into
+    // one list item is not enough, because the scroll targets the focused
+    // CHILD, not the item. So the list is pinned back to the top once focus
+    // has settled: the viewer arrives looking at the artwork with Play
+    // focused, and scrolling down to the description still works normally.
+    val listState = rememberLazyListState()
+    LaunchedEffect(current.archiveID) {
+        kotlinx.coroutines.delay(300)
+        runCatching { listState.scrollToItem(0) }
+    }
+
     Box(Modifier.fillMaxSize()) {
     LazyColumn(
+        state = listState,
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(bottom = TvDims.OverscanV * 2),
     ) {
+        // The artwork and the action row are ONE list item on purpose. As two,
+        // claiming initial focus on Play made the list scroll Play into view
+        // and pushed the 430dp hero off the top — so on a title with a long
+        // description the poster was "almost unviewable" the moment the screen
+        // opened (owner, 2026-08-28). Focus cannot bring one half of a single
+        // item into view without the other, so the artwork is always on screen
+        // when the viewer arrives; scrolling down to read still works.
         item(key = "hero") {
+          Column {
             Box(
                 Modifier
                     .fillMaxWidth()
-                    .height(430.dp),
+                    .height(400.dp),
             ) {
                 BackdropImage(
                     url = current.backdropURL ?: current.posterURL,
@@ -179,9 +204,7 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     )
                 }
             }
-        }
 
-        item(key = "actions") {
             Row(
                 Modifier.padding(start = TvDims.OverscanH, top = 8.dp, bottom = 20.dp),
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
@@ -272,6 +295,7 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     ) { nav.push(Route.Series(current.seriesID!!)) }
                 }
             }
+          }
         }
 
         current.synopsis?.takeIf { it.isNotBlank() }?.let { synopsis ->

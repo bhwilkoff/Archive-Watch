@@ -10,6 +10,7 @@ import XCTest
 ///
 /// It asserts on FRAMES, because that is where the defect lives. A screenshot
 /// looks fine at either measure; only the numbers say a line ran 115 characters.
+@MainActor
 final class IPadAuditUITests: XCTestCase {
 
     var app: XCUIApplication!
@@ -55,10 +56,22 @@ final class IPadAuditUITests: XCTestCase {
 
     /// The widest run of prose on screen, in one snapshot (see widestControl).
     private func widestProse() -> (CGFloat, String) {
+        // Ask the QUERY for long text rather than filtering 226 elements in
+        // Swift: indices into a big snapshot go stale the moment the tree
+        // shifts (Settings on the real iPad failed exactly that way — "no
+        // matches for element at index 226"), and a narrow query resolves a
+        // handful instead.
+        // XCUIElementQuery predicates allow only a fixed key set — `label.length`
+        // is rejected outright (XCTElementQueryInvalidPredicate) — so filter on
+        // the SNAPSHOT's own values, which are already materialised and cannot
+        // go stale, instead of re-resolving each element by index.
         var widest = CGFloat(0)
         var text = ""
-        for t in app.staticTexts.allElementsBoundByIndex where t.label.count > 60 {
-            if t.frame.width > widest { widest = t.frame.width; text = t.label }
+        for t in app.staticTexts.allElementsBoundByIndex {
+            let snapshot = try? t.snapshot()
+            guard let label = snapshot?.label, label.count > 60 else { continue }
+            let w = snapshot?.frame.width ?? 0
+            if w > widest { widest = w; text = label }
         }
         return (widest, text)
     }
