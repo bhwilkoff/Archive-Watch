@@ -22,6 +22,8 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.LiveTv
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.Collections
+import androidx.compose.material.icons.filled.Palette
 import androidx.compose.material.icons.filled.Shuffle
 import androidx.compose.material.icons.filled.VideoLibrary
 import androidx.compose.material.icons.outlined.GridView
@@ -249,6 +251,8 @@ private fun TvNavRail(nav: Nav, railFocus: FocusRequester) {
         RailItem("Channels", Icons.Default.LiveTv, { nav.stack.clear(); nav.tab = Tab.Channels }, nav.tab == Tab.Channels),
         RailItem("Search", Icons.Default.Search, { nav.stack.clear(); nav.tab = Tab.Search }, nav.tab == Tab.Search),
         RailItem("Library", Icons.Default.VideoLibrary, { nav.stack.clear(); nav.tab = Tab.Library }, nav.tab == Tab.Library),
+        RailItem("Collections", Icons.Default.Collections, { nav.push(Route.Collections) }, false),
+        RailItem("Cartoons", Icons.Default.Palette, { nav.push(Route.Cartoon) }, false),
         RailItem("Surprise", Icons.Default.Shuffle, { nav.push(Route.Surprise) }, false),
         RailItem("Settings", Icons.Default.Settings, { nav.push(Route.Settings) }, false),
     )

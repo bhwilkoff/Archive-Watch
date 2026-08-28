@@ -321,3 +321,27 @@ recorded deferrals below — the only rows a loop cannot close alone:
   measured and noted: 3 of 26,321 synopses are doubled (e.g. Smuggled
   Cargo) — below the threshold for a pipeline rule. **1.3.470 (vc37)
   shipped to the Play production track with the full native polish.**
+
+## Element-level chronicle vs tvOS — 2026-08-28 (owner: "whole pages missing…")
+
+tvOS ground truth: **12 tabs** (Home, Movies, TV Shows, Channels,
+Collections, Search, Surprise, Cartoons, Party Play, Screensaver, Library,
+Settings) · **7 Detail buttons** (Play, Favorite, Watched, Share, Playlist,
+Versions, Get Subtitles) + community stats/reviews + photographed cast +
+IMDb rating · player transport menu (Play Next / Mute / Subtitles /
+Version / Autoplay mode).
+
+Closed this tick (device-verified on Suddenly):
+- Detail: cast/crew AVATARS (AvatarImage + TMDb photos), **Mark Watched**
+  (new `UserStateStore.setWatched`/`isWatched`), **IMDb ★ in the meta**
+  (`imdbRating` was never decoded into the Kotlin model — added), community
+  stats row (views/favorites/viewer rating) + archive.org review cards
+  (data was always in the DB; the TV screen never rendered it).
+- Rail: **Collections** and **Cartoons** pages added (routes existed,
+  unreachable from the TV shell). Harness rail map updated to 9 rows.
+
+Remaining queue: Detail Versions picker (needs an ArchiveVersions
+analogue), Get Subtitles (no OpenSubtitles client on Android — decision),
+Share (QR decision), player transport menu (autoplay/mute/subtitles/
+version), Party Play page, Screensaver (system-owned on Android — likely
+N/A), Movies/TV as Browse scopes = accepted idiom.

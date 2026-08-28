@@ -8,15 +8,19 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.PlaylistAdd
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.Tv
+import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.lazy.LazyRow
@@ -39,6 +43,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -49,6 +54,7 @@ import androidx.compose.ui.unit.sp
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.data.PlaySpec
+import app.archivewatch.android.ui.AvatarImage
 import app.archivewatch.android.ui.BackdropImage
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.Route
@@ -77,7 +83,11 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
     }
     var showPlaylists by remember { mutableStateOf(false) }
     var favorite by remember { mutableStateOf(false) }
-    LaunchedEffect(archiveID) { favorite = container.userState.isFavorite(archiveID) }
+    var watched by remember { mutableStateOf(false) }
+    LaunchedEffect(archiveID) {
+        favorite = container.userState.isFavorite(archiveID)
+        watched = container.userState.isWatched(archiveID)
+    }
 
     val playFocus = remember { FocusRequester() }
     val anchor = remember { FocusRequester() }
@@ -153,6 +163,7 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                         current.year?.toString(),
                         current.runtimeSeconds?.let { "${it / 60} min" },
                         current.contentType.replace('-', ' ').replaceFirstChar { it.uppercase() },
+                        current.imdbRating?.takeIf { it > 0 }?.let { "★ " + it },
                     ).joinToString("  ·  ")
                     Text(
                         meta,
@@ -216,6 +227,22 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     scope.launch { favorite = container.userState.toggleFavorite(current.archiveID) }
                 }
                 TvActionButton(
+                    label = if (watched) "Watched" else "Mark Watched",
+                    icon = {
+                        Icon(
+                            Icons.Default.Visibility, null,
+                            tint = if (watched) current.accentColor else Color.White,
+                            modifier = Modifier.size(18.dp),
+                        )
+                    },
+                    accent = current.accentColor,
+                ) {
+                    scope.launch {
+                        container.userState.setWatched(current.archiveID, !watched)
+                        watched = !watched
+                    }
+                }
+                TvActionButton(
                     label = "Add to Playlist",
                     icon = { Icon(Icons.AutoMirrored.Filled.PlaylistAdd, null, tint = Color.White, modifier = Modifier.size(18.dp)) },
                     accent = current.accentColor,
@@ -248,8 +275,14 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
         // Cast → person filmography (tvOS Detail parity): director leads with a
         // role caption, then the billed cast, each chip a door to byPerson.
         val people = buildList {
-            current.director?.takeIf { it.isNotBlank() }?.let { add(Triple(it, "Director", null as Int?)) }
-            current.cast.take(12).forEach { add(Triple(it.name, it.character ?: "Cast", it.tmdbPersonID)) }
+            current.director?.takeIf { it.isNotBlank() }?.let {
+                add(TvPerson(it, "Director", null, current.directorProfilePath?.let { p ->
+                    if (p.startsWith("http")) p else "https://image.tmdb.org/t/p/w185" + p
+                }))
+            }
+            current.cast.take(12).forEach {
+                add(TvPerson(it.name, it.character ?: "Cast", it.tmdbPersonID, it.profileURL))
+            }
         }
         if (people.isNotEmpty()) {
             item(key = "people") {
@@ -259,21 +292,83 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                         contentPadding = PaddingValues(start = TvDims.OverscanH, end = TvDims.OverscanH * 2),
                         horizontalArrangement = Arrangement.spacedBy(12.dp),
                     ) {
-                        items(people.size, key = { people[it].first + it }) { i ->
-                            val (name, role, pid) = people[i]
-                            Box(
+                        items(people.size, key = { people[it].name + it }) { i ->
+                            val person = people[i]
+                            Row(
                                 Modifier
                                     .tvFocusable(
-                                        onClick = { nav.push(Route.Person(name, pid)) },
+                                        onClick = { nav.push(Route.Person(person.name, person.pid)) },
                                         shape = RoundedCornerShape(24.dp),
                                         scaleWhenFocused = 1.04f,
                                     )
-                                    .background(Color(0xFF1C1C1C), RoundedCornerShape(18.dp))
-                                    .padding(horizontal = 16.dp, vertical = 8.dp),
+                                    .background(Color(0xFF1C1C1C), RoundedCornerShape(24.dp))
+                                    .padding(start = 6.dp, end = 16.dp, top = 6.dp, bottom = 6.dp),
+                                verticalAlignment = Alignment.CenterVertically,
                             ) {
-                                Column {
-                                    Text(name, fontSize = 14.sp, color = Color.White, fontWeight = FontWeight.Medium)
-                                    Text(role, fontSize = 12.sp, color = Color(0xFF9A9A9A))
+                                AvatarImage(
+                                    url = person.photo,
+                                    name = person.name,
+                                    modifier = Modifier.size(40.dp).clip(CircleShape),
+                                )
+                                Column(Modifier.padding(start = 10.dp)) {
+                                    Text(person.name, fontSize = 14.sp, color = Color.White, fontWeight = FontWeight.Medium)
+                                    Text(person.role, fontSize = 12.sp, color = Color(0xFF9A9A9A))
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // archive.org community stats + genuine reviews (pipeline-filtered,
+        // comment_fit.py) — the tvOS CommunityDetailSection, ten-foot.
+        val communityReviews = current.displayReviews
+        val hasStats = current.viewsDisplay != null || current.favoritesDisplay != null ||
+            current.avgRatingDisplay != null
+        if (hasStats || communityReviews.isNotEmpty()) {
+            item(key = "community") {
+                Column(Modifier.padding(start = TvDims.OverscanH, end = TvDims.OverscanH, bottom = 24.dp)) {
+                    if (hasStats) {
+                        Row(horizontalArrangement = Arrangement.spacedBy(28.dp)) {
+                            current.viewsDisplay?.let { TvStat(it, "views") }
+                            current.favoritesDisplay?.let { TvStat(it, "favorites") }
+                            current.avgRatingDisplay?.let { TvStat("★ " + it, "viewer rating") }
+                        }
+                    }
+                    if (communityReviews.isNotEmpty()) {
+                        TvSectionTitle("From archive.org viewers", Modifier.padding(top = 20.dp, bottom = 12.dp))
+                        LazyRow(
+                            contentPadding = PaddingValues(end = TvDims.OverscanH),
+                            horizontalArrangement = Arrangement.spacedBy(14.dp),
+                        ) {
+                            items(communityReviews.take(6).size, key = { "rev" + it }) { i ->
+                                val r = communityReviews[i]
+                                Column(
+                                    Modifier
+                                        .width(360.dp)
+                                        .tvFocusable(onClick = {}, shape = RoundedCornerShape(12.dp), scaleWhenFocused = 1.02f)
+                                        .background(Color(0xFF161616), RoundedCornerShape(12.dp))
+                                        .padding(16.dp),
+                                ) {
+                                    r.stars?.takeIf { it > 0 }?.let { s ->
+                                        Text("★".repeat(s.toInt()), fontSize = 13.sp, color = Color(0xFFE8A317))
+                                    }
+                                    r.title?.takeIf { it.isNotBlank() }?.let {
+                                        Text(it, fontSize = 14.sp, fontWeight = FontWeight.Medium, color = Color.White,
+                                            maxLines = 1, overflow = TextOverflow.Ellipsis,
+                                            modifier = Modifier.padding(top = 4.dp))
+                                    }
+                                    r.body?.takeIf { it.isNotBlank() }?.let {
+                                        Text(it, fontSize = 13.sp, lineHeight = 19.sp, color = Color(0xFFB9B9B9),
+                                            maxLines = 5, overflow = TextOverflow.Ellipsis,
+                                            modifier = Modifier.padding(top = 6.dp))
+                                    }
+                                    Text(
+                                        r.displayName + (r.date?.let { " · " + it } ?: ""),
+                                        fontSize = 11.sp, color = Color(0xFF808080),
+                                        modifier = Modifier.padding(top = 8.dp),
+                                    )
                                 }
                             }
                         }
@@ -465,5 +560,15 @@ private fun TvActionButton(
                 else -> Color.White
             },
         )
+    }
+}
+
+private data class TvPerson(val name: String, val role: String, val pid: Int?, val photo: String?)
+
+@Composable
+private fun TvStat(value: String, caption: String) {
+    Column {
+        Text(value, fontSize = 18.sp, fontWeight = FontWeight.Medium, color = Color.White)
+        Text(caption, fontSize = 12.sp, color = Color(0xFF9A9A9A))
     }
 }

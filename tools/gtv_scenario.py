@@ -43,7 +43,8 @@ OCR = "/tmp/awocr"
 # Rail rows by center-y at 1080p (measured from the device 2026-08-27).
 RAIL = {
     "home": 106, "browse": 222, "channels": 338, "search": 454,
-    "library": 570, "surprise": 686, "settings": 802,
+    "library": 570, "collections": 686, "cartoons": 802,
+    "surprise": 918, "settings": 1034,
 }
 RAIL_BAND = 55       # ± tolerance for "focused row is this tab"
 RAIL_X_MAX = 400     # a focused node left of this is in the rail

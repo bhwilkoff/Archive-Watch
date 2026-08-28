@@ -272,6 +272,34 @@ class UserStateStore(context: Context) {
         _changes.value += 1
     }
 
+    /** tvOS Detail parity: mark a title watched/unwatched without playing it.
+     *  Preserves any existing resume position; clearing also clears everDone. */
+    suspend fun setWatched(archiveID: String, watched: Boolean) {
+        val now = System.currentTimeMillis()
+        dbCall {
+            val existing = query(
+                "SELECT position, duration, at, firstAt, plays FROM progress WHERE id = ?",
+                listOf(archiveID),
+            ) { c -> listOf(c.getLong(0), c.getLong(1), c.getLong(2), c.getLong(3), c.getLong(4)) }
+                .firstOrNull()
+            val (pos, dur, at, firstAt, plays) = existing ?: listOf(0L, 0L, now, now, 0L)
+            exec(
+                "INSERT OR REPLACE INTO progress (id, position, duration, at, firstAt, plays, everDone) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?)",
+                listOf(archiveID, pos, dur, at, firstAt, plays, if (watched) 1 else 0),
+            )
+        }
+        _changes.value += 1
+    }
+
+    suspend fun isWatched(archiveID: String): Boolean = dbCall {
+        query(
+            "SELECT everDone = 1 OR (duration > 0 AND position >= duration * 95 / 100) " +
+                "FROM progress WHERE id = ?",
+            listOf(archiveID),
+        ) { it.getLong(0) == 1L }.firstOrNull() ?: false
+    }
+
     /** Completed (>=95%) archiveIDs — the hide-watched source. */
     suspend fun completedIDs(): Set<String> = dbCall {
         query(
