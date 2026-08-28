@@ -173,8 +173,8 @@ Candidate adoptions, each to be dispositioned (adopt / reject with reason):
 |---|---|---|
 | `tv-material` ImmersiveList idiom — focused card drives a full-bleed backdrop | ambient layer SHIPPED: focused card's backdrop at 0.30 alpha under scrim, 300ms rest debounce, 600ms crossfade | SHIPPED (T3: intensity = owner taste) |
 | Focus scale + border per §3.2 via `tv-material` CardScale/Border defaults | verify we use the platform's own focus grammar, not hand-rolled | PENDING |
-| Google TV home-screen **channels** (TvProvider: Continue Watching row + editorial channel) | the Top Shelf analogue; §1.4 binds (our editorial + user's own CW only) | PENDING |
-| **Watch Next** integration (WatchNextProgram on pause/finish) | Continue Watching on the platform home | PENDING |
+| Google TV home-screen **channels** (TvProvider: Continue Watching row + editorial channel) | **Watch Next SHIPPED + device-verified** (insert logged: watch_next_program/245679250; finished films removed at ≥95%; card deep-links to Detail). Editorial channel row still open | PARTIAL |
+| **Watch Next** integration (WatchNextProgram on pause/finish) | SHIPPED — publish on player dispose via container.scope | VERIFIED T1 |
 | Global search / Assistant integration (searchable provider) | "surprise me" analogue is App Shortcuts; TV global search is separate | PENDING |
 | Ambient/screensaver behavior | system-owned on Google TV — likely N/A | PENDING |
 | Media session on TV (TV-NP forbids background video → verify pause-on-switch-away) | compliance | PENDING |
@@ -246,3 +246,15 @@ Candidate adoptions, each to be dispositioned (adopt / reject with reason):
   **Fix #7** Search result filters (type/era, present-facets-only, counts).
   Blind keycap navigation failed AGAIN (landed on a Detail) — harness needs
   a focus-verified type_text() keycap driver before search T1 closes.
+- Tick 7 (2026-08-27): **type_text keycap driver** (closed-loop, rail-escape
+  handling) — search T1 CLOSED ("199 results" + "Short film (56)" chip on
+  glass). **Watch Next shipped + verified** (row 245679250 inserted). Three
+  latent bugs found by its instrumentation: (a) dispose-time saveProgress
+  launched on the dying composition scope — a silent no-op forever (the 5s
+  ticker masked it); now container.scope. (b) On TV the Media3 controller
+  never shows, so controlsVisible NEVER updated — the title overlay never
+  faded (D037 broken on TV since the port) and my tick-6 Back fix became a
+  Back TRAP; overlay visibility is now the app's own state machine (key
+  interaction shows, fades 4s after real playback, Back dismisses then
+  exits). Verified: overlay-up-on-key, two-stage Back, dispose log, insert
+  log. (c) fade now waits out slow archive starts.

@@ -254,9 +254,30 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             val duration = player.duration
             val position = player.currentPosition
             val id = player.currentMediaItem?.mediaId ?: spec.id
+            val endedTitle = player.currentMediaItem?.mediaMetadata?.title?.toString() ?: spec.title
+            android.util.Log.i("AWTV", "player dispose id=$id pos=$position dur=$duration persist=${spec.persistProgress}")
             player.release()
             if (duration > 0 && spec.persistProgress) {
-                scope.launch { container.userState.saveProgress(id, position, duration) }
+                // container.scope, NOT the composable's rememberCoroutineScope:
+                // this runs in onDispose, when the composition scope is being
+                // cancelled — a launch on it silently never executes (the
+                // Watch Next publish was a no-op until this was measured on
+                // the Google TV, 2026-08-27; the periodic 5s ticker is what
+                // made resume work all along).
+                container.scope.launch {
+                    container.userState.saveProgress(id, position, duration)
+                    // Google TV launcher row (PARITY §8): the viewer's own
+                    // resume state, nothing else (TV-DESIGN §1.4). Finished
+                    // films leave the row.
+                    if (position >= duration * 95 / 100) {
+                        app.archivewatch.android.data.TvWatchNext.remove(context, id)
+                    } else if (position > 10_000) {
+                        val poster = container.catalog.db?.item(id)?.posterURL
+                        app.archivewatch.android.data.TvWatchNext.publishResume(
+                            context, id, endedTitle, poster, position, duration,
+                        )
+                    }
+                }
             }
         }
     }
@@ -346,13 +367,27 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
         }
     }
 
-    // The ten-foot Back contract (tvOS parity, and what every Android TV app
-    // does): controls visible -> Back dismisses the controls; only a second
-    // Back leaves the film. On the phone the route's own BackHandler still
-    // exits directly — a touch UI dismisses controls by tapping the video.
+    // TV overlay visibility is OUR OWN state machine: tvPlaybackKeys consumes
+    // the remote before Media3's controller ever shows, so the controller
+    // visibility listener NEVER fires on TV — controlsVisible sat at its
+    // initial value forever (measured on the Google TV 2026-08-27: the title
+    // overlay never faded, and a Back gated on it became a Back TRAP, §1.7).
+    // Any handled key shows the overlay; it fades after 4s of playback.
+    var tvInteraction by remember { mutableStateOf(0) }
     if (isTv) {
+        LaunchedEffect(tvInteraction) {
+            controlsVisible = true
+            delay(4_000)
+            // A slow archive start must not pin the overlay: wait for real
+            // playback, then fade. A paused film keeps its overlay (the
+            // viewer paused to read it).
+            while (!player.isPlaying) delay(500)
+            controlsVisible = false
+        }
+        // The ten-foot Back contract (tvOS parity): overlay visible -> Back
+        // dismisses it; only a second Back leaves the film.
         androidx.activity.compose.BackHandler(enabled = controlsVisible) {
-            playerViewRef?.hideController()
+            controlsVisible = false
         }
     }
 
@@ -365,7 +400,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             // quality bar is that these ALWAYS work during playback — including
             // while the controller is hidden, which is when a viewer is most
             // likely to press them. Handled explicitly rather than assumed.
-            .then(if (isTv) Modifier.tvPlaybackKeys(player) else Modifier),
+            .then(if (isTv) Modifier.tvPlaybackKeys(player) { tvInteraction += 1 } else Modifier),
     ) {
         AndroidView(
             factory = { ctx ->

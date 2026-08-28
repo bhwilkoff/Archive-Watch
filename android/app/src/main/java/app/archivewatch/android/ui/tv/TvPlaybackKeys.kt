@@ -29,7 +29,7 @@ private const val SEEK_STEP_MS = 10_000L
  * controller is hidden, which is exactly when a viewer reaches for these keys.
  */
 @Composable
-fun Modifier.tvPlaybackKeys(player: Player): Modifier {
+fun Modifier.tvPlaybackKeys(player: Player, onInteraction: () -> Unit = {}): Modifier {
     val requester = remember { FocusRequester() }
 
     // §3.1 — the player surface must hold focus or the keys never arrive.
@@ -40,6 +40,15 @@ fun Modifier.tvPlaybackKeys(player: Player): Modifier {
         .focusable()
         .onKeyEvent { ev ->
             if (ev.type != KeyEventType.KeyUp) return@onKeyEvent false
+            // Every handled key is an interaction — the player screen uses it
+            // to show its overlay (Media3's own controller is never shown on
+            // TV, so its visibility listener never fires here).
+            when (ev.key) {
+                Key.DirectionCenter, Key.Enter, Key.NumPadEnter, Key.MediaPlayPause,
+                Key.MediaPlay, Key.MediaPause, Key.DirectionLeft, Key.MediaRewind,
+                Key.DirectionRight, Key.MediaFastForward -> onInteraction()
+                else -> {}
+            }
             when (ev.key) {
                 Key.DirectionCenter, Key.Enter, Key.NumPadEnter, Key.MediaPlayPause -> {
                     // TV-PP: a single key that TOGGLES, never one that only plays.

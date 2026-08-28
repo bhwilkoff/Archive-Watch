@@ -169,6 +169,8 @@ dependencies {
     // Compose for TV — the 10-foot D-pad surfaces (docs/TV-DESIGN.md §6.1).
     // tv-material ONLY; tv-foundation no longer exists.
     implementation(libs.tv.material)
+    // Google TV Watch Next (home-screen Continue Watching, PARITY §8)
+    implementation("androidx.tvprovider:tvprovider:1.0.0")
 
     implementation(libs.activity.compose)
     implementation(libs.lifecycle.runtime.compose)

@@ -182,6 +182,59 @@ TAB_EXPECT = {
 }
 
 
+def _keycap_map():
+    """label -> bounds for the search keyboard's keycaps, from the live tree."""
+    adbs("shell", "uiautomator", "dump", "/sdcard/ui.xml")
+    xml = adbs("shell", "cat", "/sdcard/ui.xml")
+    keys = {}
+    for m in re.finditer(r'<node[^>]*text="([A-Z0-9]|SPACE|DEL)"[^>]*bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"[^>]*>', xml):
+        label = m.group(1)
+        keys[label] = tuple(int(x) for x in m.group(2, 3, 4, 5))
+    return keys
+
+
+def type_text(text):
+    """Type on the TV search keycap keyboard, CLOSED-LOOP: after every press
+    the focused bounds are re-read and compared to the target key — blind
+    keycap arithmetic has failed every time it was tried (2026-08-27, twice).
+    Focus must already be somewhere on the keyboard (the screen claims the
+    first keycap on entry)."""
+    keys = _keycap_map()
+    for ch in text.upper():
+        label = "SPACE" if ch == " " else ch
+        if label not in keys:
+            print(f"  type_text: no keycap for {label!r}; have {sorted(keys)[:8]}…")
+            return False
+        tl, tt, tr, tb = keys[label]
+        tx, ty = (tl + tr) // 2, (tt + tb) // 2
+        for _ in range(30):
+            b = focused_bounds()
+            if not b:
+                return False
+            cx, cy = (b[0] + b[2]) // 2, (b[1] + b[3]) // 2
+            if tl <= cx <= tr and tt <= cy <= tb:
+                press("KEYCODE_DPAD_CENTER", settle=0.8)
+                break
+            if cx < 440:
+                # Fell out of the keyboard onto the nav rail (the col-0 LEFT
+                # exit, §3.4) — step back in before any other correction.
+                press("KEYCODE_DPAD_RIGHT", settle=0.6)
+                continue
+            dy, dx = ty - cy, tx - cx
+            # Move along the axis with the larger error; never press LEFT
+            # while already in the target column band (col-0 would exit).
+            if abs(dy) > (tb - tt) / 2 and abs(dy) >= abs(dx) / 3:
+                press("KEYCODE_DPAD_DOWN" if dy > 0 else "KEYCODE_DPAD_UP", settle=0.6)
+            elif abs(dx) > (tr - tl) / 2:
+                press("KEYCODE_DPAD_RIGHT" if dx > 0 else "KEYCODE_DPAD_LEFT", settle=0.6)
+            else:
+                press("KEYCODE_DPAD_DOWN" if dy > 0 else "KEYCODE_DPAD_UP", settle=0.6)
+        else:
+            print(f"  type_text: could not reach {label!r}")
+            return False
+    return True
+
+
 def rail_walk():
     launch(force_stop=True)
     results = []
