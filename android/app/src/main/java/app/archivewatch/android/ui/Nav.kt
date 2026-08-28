@@ -19,7 +19,10 @@ sealed interface Route {
     data class Series(val slug: String) : Route
     data class Player(val spec: PlaySpec) : Route
     data class Filtered(val title: String, val contentType: String? = null,
-                        val decade: Int? = null) : Route
+                        val decade: Int? = null, val year: Int? = null,
+                        // Public Domain Day explorer (iOS parity): year CHIPS
+                        // for recent PD-entry years ride the filtered grid.
+                        val pdExplorer: Boolean = false) : Route
     data class Playlist(val playlistID: String) : Route
     data class Collection(val id: String, val title: String, val blurb: String? = null) : Route
     data class Person(val name: String, val tmdbPersonID: Int? = null) : Route
@@ -77,7 +80,7 @@ class Nav {
         private fun encode(r: Route): String? = when (r) {
             is Route.Detail -> "detail$SEP${r.archiveID}"
             is Route.Series -> "series$SEP${r.slug}"
-            is Route.Filtered -> "filtered$SEP${r.title}$SEP${r.contentType ?: ""}$SEP${r.decade ?: ""}"
+            is Route.Filtered -> "filtered$SEP${r.title}$SEP${r.contentType ?: ""}$SEP${r.decade ?: ""}$SEP${r.year ?: ""}$SEP${if (r.pdExplorer) "1" else ""}"
             is Route.Playlist -> "playlist$SEP${r.playlistID}"
             is Route.Collection -> "collection$SEP${r.id}$SEP${r.title}$SEP${r.blurb ?: ""}"
             is Route.Person -> "person$SEP${r.name}$SEP${r.tmdbPersonID ?: ""}"
@@ -93,7 +96,8 @@ class Nav {
         private fun decode(p: List<String>): Route? = when (p[0]) {
             "detail" -> Route.Detail(p[1])
             "series" -> Route.Series(p[1])
-            "filtered" -> Route.Filtered(p[1], p[2].ifEmpty { null }, p[3].toIntOrNull())
+            "filtered" -> Route.Filtered(p[1], p[2].ifEmpty { null }, p[3].toIntOrNull(),
+                p.getOrNull(4)?.toIntOrNull(), p.getOrNull(5) == "1")
             "playlist" -> Route.Playlist(p[1])
             "collection" -> Route.Collection(p[1], p[2], p[3].ifEmpty { null })
             "person" -> Route.Person(p[1], p.getOrNull(2)?.toIntOrNull())

@@ -35,6 +35,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.material3.FilterChip
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -158,9 +160,13 @@ fun EraTilesRow(decades: List<Pair<Int, Int>>, onDecade: (Int) -> Unit) {
 @Composable
 fun FilteredGridScreen(container: AppContainer, nav: Nav, route: Route.Filtered) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
-    val items by produceState<List<CatalogItem>?>(null, dbVersion) {
+    // Public Domain Day explorer (iOS parity): year chips walk BACK through
+    // recent entry years; each chip re-filters the grid to that year's films.
+    var pdYearShown by remember(route) { mutableStateOf(route.year) }
+    val items by produceState<List<CatalogItem>?>(null, dbVersion, pdYearShown) {
         val db = container.catalog.awaitDb()
-        value = db.browse(contentType = route.contentType, decade = route.decade, limit = 240)
+        value = db.browse(contentType = route.contentType, decade = route.decade,
+                          year = pdYearShown ?: route.year, limit = 240)
     }
     Scaffold(
         topBar = {
@@ -184,17 +190,34 @@ fun FilteredGridScreen(container: AppContainer, nav: Nav, route: Route.Filtered)
             list.isEmpty() -> Box(Modifier.padding(padding)) {
                 EmptyState("No titles match this filter in the catalog.")
             }
-            else -> LazyVerticalGrid(
-                columns = GridCells.Adaptive(minSize = 110.dp),
-                contentPadding = PaddingValues(16.dp),
-                horizontalArrangement = Arrangement.spacedBy(10.dp),
-                verticalArrangement = Arrangement.spacedBy(14.dp),
-                modifier = Modifier.fillMaxSize().padding(padding),
-            ) {
-                items(list, key = { it.archiveID }) { item ->
-                    PosterTile(item, onClick = {
-                        nav.openItem(item.archiveID, item.seriesID, item.contentType)
-                    })
+            else -> Column(Modifier.fillMaxSize().padding(padding)) {
+                if (route.pdExplorer && route.year != null) {
+                    LazyRow(
+                        contentPadding = PaddingValues(horizontal = 16.dp),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        modifier = Modifier.padding(top = 4.dp, bottom = 4.dp),
+                    ) {
+                        items((0..9).map { route.year!! - it }, key = { it }) { y ->
+                            FilterChip(
+                                selected = pdYearShown == y,
+                                onClick = { pdYearShown = y },
+                                label = { Text(y.toString()) },
+                            )
+                        }
+                    }
+                }
+                LazyVerticalGrid(
+                    columns = GridCells.Adaptive(minSize = 110.dp),
+                    contentPadding = PaddingValues(16.dp),
+                    horizontalArrangement = Arrangement.spacedBy(10.dp),
+                    verticalArrangement = Arrangement.spacedBy(14.dp),
+                    modifier = Modifier.fillMaxSize(),
+                ) {
+                    items(list, key = { it.archiveID }) { item ->
+                        PosterTile(item, onClick = {
+                            nav.openItem(item.archiveID, item.seriesID, item.contentType)
+                        })
+                    }
                 }
             }
         }

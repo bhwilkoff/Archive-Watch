@@ -39,6 +39,9 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.TextButton
 import app.archivewatch.android.data.UserPlaylist
 import androidx.compose.material.icons.filled.ContentCut
+import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Tv
 import androidx.compose.material3.Button
@@ -100,6 +103,7 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
     var favorite by remember { mutableStateOf(false) }
     var watched by remember { mutableStateOf(false) }
     var showVersions by remember { mutableStateOf(false) }
+    var showOverflow by remember { mutableStateOf(false) }
     var showPlaylists by remember { mutableStateOf(false) }
     LaunchedEffect(archiveID) {
         favorite = container.userState.isFavorite(archiveID)
@@ -296,6 +300,27 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                         contentDescription = "Share",
                         tint = MaterialTheme.colorScheme.primary,
                     )
+                }
+                // iOS parity: the More menu's "View on archive.org" — the
+                // provenance door (every film links back to its source item).
+                Box {
+                    IconButton(onClick = { showOverflow = true }) {
+                        Icon(Icons.Default.MoreVert, contentDescription = "More")
+                    }
+                    DropdownMenu(expanded = showOverflow, onDismissRequest = { showOverflow = false }) {
+                        DropdownMenuItem(
+                            text = { Text("View on archive.org") },
+                            onClick = {
+                                showOverflow = false
+                                context.startActivity(
+                                    Intent(
+                                        Intent.ACTION_VIEW,
+                                        android.net.Uri.parse("https://archive.org/details/" + current.archiveID),
+                                    ),
+                                )
+                            },
+                        )
+                    }
                 }
             }
 

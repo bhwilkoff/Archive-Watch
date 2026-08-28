@@ -289,7 +289,16 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
                     ShelfRow(
                         "Public Domain Day: ${payload.publicDomainYear}",
                         payload.publicDomainDay,
-                        subtitle = "Newly free for everyone this year",
+                        subtitle = "Newly free for everyone this year — tap to explore past years",
+                        onHeader = {
+                            nav.push(
+                                Route.Filtered(
+                                    title = "Public Domain by year",
+                                    year = payload.publicDomainYear,
+                                    pdExplorer = true,
+                                ),
+                            )
+                        },
                         onItem = { nav.openItem(it.archiveID, it.seriesID, it.contentType) },
                     )
                 }

@@ -238,10 +238,15 @@ fun ShelfRow(
     items: List<CatalogItem>,
     onItem: (CatalogItem) -> Unit,
     subtitle: String? = null,
+    onHeader: (() -> Unit)? = null,
 ) {
     if (items.isEmpty()) return
     Column {
-        SectionHeader(title, subtitle)
+        Box(
+            if (onHeader != null) Modifier.clickable(onClick = onHeader) else Modifier,
+        ) {
+            SectionHeader(title, subtitle)
+        }
         LazyRow(
             contentPadding = PaddingValues(horizontal = 16.dp),
             horizontalArrangement = Arrangement.spacedBy(10.dp),

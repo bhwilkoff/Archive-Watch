@@ -384,3 +384,23 @@ the TV). Porting it to Android means a Kotlin OpenSubtitlesClient +
 account section + download flow. Today Android relies on published tracks
 + system Live Caption (documented in Settings). Say the word and it gets
 built; recorded here rather than guessed at.
+
+## Phone parity addendum — 2026-08-28 (target: the iPHONE app, owner-corrected)
+
+Chronicled from the iOS sources and closed on the Pixel 8a (third harness
+device — see google_tv_adb_harness memory for its recipe):
+- **Mark Watched / IMDb ★ / Choose-a-Copy bottom sheet** on Detail (the
+  watched toggle EXCEEDS iOS deliberately); the seven-control action row
+  now scrolls (two icons were clipped on a phone width).
+- **Settings "Show categories"** — the iOS Home & Categories section;
+  hiddenTypes was plumbed since the first build but never set. Browse
+  chips drop hidden categories. Verified with a negative control.
+- **Detail More menu → "View on archive.org"** (iOS More-menu parity;
+  Callsheet stays iOS-only — no Android app to link to).
+- **Public Domain Day year-chip explorer** (Route.Filtered gained
+  year/pdExplorer; Home PD row header opens it). Verified: chips
+  1931→1927 re-filter the grid.
+- **1.3.472 (vc39) shipped to the Play production track.**
+
+Deliberate remaining items: **Get Subtitles** (OpenSubtitles client port —
+owner decision), **Glance widgets** (project-sized; iOS WidgetKit analogue).
