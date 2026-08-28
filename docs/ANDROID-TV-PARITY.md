@@ -404,3 +404,27 @@ device — see google_tv_adb_harness memory for its recipe):
 
 Deliberate remaining items: **Get Subtitles** (OpenSubtitles client port —
 owner decision), **Glance widgets** (project-sized; iOS WidgetKit analogue).
+
+## Final parity close — 2026-08-28 ("Subtitles, Glance widgets, and the iPhone gap")
+
+- **Get Subtitles SHIPPED on Android** (the last deliberate gap):
+  OpenSubtitlesClient ported whole (IMDb-id matching, per-USER quota, 429
+  backoff, byte-decode + SRT→VTT), credentials in
+  EncryptedSharedPreferences, Settings account section, Detail sheet on
+  captionless films (button + connect-prompt verified on the Pixel), and
+  the downloaded track rides Media3 playback natively. `imdbID` decoded
+  into the Kotlin model (present for 14,421 items). API key via
+  ~/.gradle/gradle.properties locally / OPENSUBTITLES_API_KEY in CI.
+- **Glance widgets SHIPPED**: Continue Watching (refreshes on progress
+  save), Pick of the Day (date-seeded), Surprise Me — all three providers
+  verified registered on the Pixel; add from the launcher's widget picker.
+- **The iPhone gap closed in reverse**: iOS Detail gains the watched
+  toggle (Android/tvOS had it; iOS never did) + a WatchProgress.isWatched
+  helper. iOS + tvOS build green; Apple 1.3.470 (992) cloud build
+  dispatched — the owner submits that build.
+- **Android 1.3.473 (vc40) on the Play production track.** All three
+  devices carry the matching debug builds.
+
+Remaining nowhere: the parity ledgers are CLOSED on all five platforms'
+current scope. Owner-verify items: connect an OpenSubtitles account and
+fetch once; add a widget from the launcher picker.
