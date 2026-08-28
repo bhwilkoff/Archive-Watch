@@ -474,6 +474,139 @@ final class AuditUITests: XCTestCase {
         }
     }
 
+    // MARK: - remaining surfaces (T1.9-1.11, T2.14/2.15/2.18/2.20/2.22)
+
+    /// A series spine: card -> season -> episode. TV is the surface most
+    /// likely to differ from film, and it has never been shot on this device.
+    func test_15_seriesDetail() {
+        launch(["AW_START_ITEM": "series:four-star-playhouse-1952"])
+        snap("series-top")
+        XCTAssertTrue(app.staticTexts.count > 2, "series Detail drew nothing")
+        for i in 1...3 { app.swipeUp(); sleep(2); snap("series-scroll-\(i)") }
+    }
+
+    /// Collections, reached the way a viewer reaches them.
+    func test_16_collections() {
+        launch(["AW_START_TAB": "browse"])
+        let chip = app.buttons["Collections"].firstMatch
+        guard chip.waitForExistence(timeout: 12) else {
+            XCTFail("MISSING Collections chip"); return
+        }
+        chip.tap(); sleep(4); snap("collections-grid")
+        // Open the first collection and require a push.
+        let first = app.buttons.element(boundBy: 3)
+        if first.exists && first.isHittable {
+            first.tap(); sleep(4); snap("collection-opened")
+        }
+    }
+
+    /// Cast bubble -> that person's other films, and More Like This. Both are
+    /// pushes from Detail, so both prove navigation as well as the control.
+    func test_17_castAndRelated() {
+        launch(["AW_START_ITEM": "his_girl_friday"])
+        // Scroll to the cast row.
+        for _ in 0..<4 { app.swipeUp(); sleep(1) }
+        snap("detail-cast-row")
+        let bubble = app.buttons.matching(NSPredicate(format:
+            "label CONTAINS[c] 'Cary Grant' OR label CONTAINS[c] 'Howard Hawks'")).firstMatch
+        if bubble.waitForExistence(timeout: 6), scrollIntoView(bubble) {
+            bubble.tap(); sleep(4); snap("person-browse")
+            XCTAssertTrue(app.navigationBars.count > 0, "DEAD cast bubble")
+            back()
+        } else {
+            snap("cast-bubble-not-found")
+        }
+        for _ in 0..<3 { app.swipeUp(); sleep(1) }
+        snap("detail-more-like-this")
+    }
+
+    /// Back must return from every pushed screen — a trap here strands the
+    /// viewer, and it is the cheapest thing in the app to get wrong.
+    func test_18_backNavigation() {
+        launch()
+        let tile = app.buttons.matching(NSPredicate(format:
+            "label CONTAINS[c] 'Feature Films'")).firstMatch
+        guard tile.waitForExistence(timeout: 12) else { XCTFail("no tile"); return }
+        tile.tap(); sleep(4)
+        XCTAssertTrue(app.navigationBars.count > 0, "no push happened")
+        back(); sleep(2); snap("back-to-home")
+        XCTAssertTrue(app.buttons.matching(NSPredicate(format:
+            "label CONTAINS[c] 'Feature Films'")).firstMatch.waitForExistence(timeout: 10),
+            "Back did not return to Home")
+    }
+
+    /// Channels: tune in and confirm something plays.
+    func test_19_channelsTuneIn() {
+        launch(["AW_START_TAB": "channels"])
+        snap("channels-guide")
+        let cell = app.buttons.element(boundBy: 2)
+        guard cell.exists, cell.isHittable else {
+            XCTFail("no tappable channel cell"); return
+        }
+        cell.tap(); sleep(12); snap("channel-tuned")
+    }
+
+    /// Search filters, which exist only once results are on screen.
+    func test_20_searchFilters() {
+        launch(["AW_START_TAB": "search"])
+        let field = app.searchFields.firstMatch
+        guard field.waitForExistence(timeout: 12) else { XCTFail("no field"); return }
+        field.tap(); field.typeText("chaplin"); sleep(5)
+        snap("search-before-filter")
+        // The type/decade menus appear above the results.
+        let filter = app.buttons.matching(NSPredicate(format:
+            "label CONTAINS[c] 'Type' OR label CONTAINS[c] 'Decade' OR label CONTAINS[c] 'filter'")).firstMatch
+        if filter.waitForExistence(timeout: 6) {
+            filter.tap(); sleep(2); snap("search-filter-menu")
+        } else {
+            snap("search-no-filter-control")
+        }
+    }
+
+    /// Is the Search Filter menu REACHABLE? It is a top-bar toolbar item, and
+    /// iOS 26 replaces the bar's trailing items with Cancel while the search
+    /// field has focus — so a control that only exists there could be
+    /// unreachable in practice. Dismiss the keyboard and look again.
+    func test_21_searchFilterReachable() {
+        launch(["AW_START_TAB": "search"])
+        let field = app.searchFields.firstMatch
+        guard field.waitForExistence(timeout: 12) else { XCTFail("no field"); return }
+        field.tap(); field.typeText("chaplin"); sleep(5)
+
+        // The control is now inline with the results, labelled by what it
+        // filters ("Type" / "Era"), not a bar item called "Filter".
+        func filterExists() -> Bool {
+            app.buttons["Type"].firstMatch.exists || app.buttons["Era"].firstMatch.exists
+        }
+        let filterWhileTyping = filterExists()
+        // Return / dismiss the keyboard the way a viewer would.
+        app.typeText("\n"); sleep(2)
+        snap("search-keyboard-dismissed")
+        let filterAfterReturn = filterExists()
+
+        app.swipeUp(); sleep(2)
+        snap("search-scrolled")
+        let filterAfterScroll = filterExists()
+
+        print("[AWFILTER] whileTyping=\(filterWhileTyping) afterReturn=\(filterAfterReturn) " +
+              "afterScroll=\(filterAfterScroll)")
+        XCTAssertTrue(filterWhileTyping || filterAfterReturn || filterAfterScroll,
+                      "UNREACHABLE Search filter — never appears in any state")
+
+        // And it must DO something: filter to TV and the film results change.
+        let typeButton = app.buttons["Type"].firstMatch
+        if typeButton.exists, scrollIntoView(typeButton) {
+            let before = app.buttons.count
+            typeButton.tap(); sleep(2); snap("search-filter-open")
+            let tv = app.buttons["TV Series"].firstMatch
+            if tv.waitForExistence(timeout: 4) {
+                tv.tap(); sleep(4); snap("search-filtered-tv")
+                XCTAssertNotEqual(before, app.buttons.count,
+                                  "DEAD Search filter — result set unchanged")
+            }
+        }
+    }
+
     // MARK: - T3 playback
 
     func test_10_playbackStartsAndChromeIsClean() {

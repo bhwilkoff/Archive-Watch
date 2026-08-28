@@ -35,6 +35,54 @@ struct SearchView: View {
     }
     private var filterActive: Bool { contentType != nil || decade != nil }
 
+    /// The type/decade filters, rendered WITH the results.
+    ///
+    /// They used to live only in `.toolbar(placement: .topBarTrailing)`, and on
+    /// iOS 26 the search tab draws no trailing bar item once the field has
+    /// focus — measured on the device, the Filter button did not exist while
+    /// typing, after Return, or after scrolling, so the filters shipped in June
+    /// were unreachable in every state a viewer could be in. A control that
+    /// scrolls with what it filters cannot be hidden by the chrome.
+    @ViewBuilder private var filterBar: some View {
+        HStack(spacing: 10) {
+            Menu {
+                Picker("Type", selection: $contentType) {
+                    ForEach(types, id: \.1) { Text($0.0).tag($0.1) }
+                }
+            } label: {
+                Label(contentType.flatMap { t in types.first { $0.1 == t }?.0 } ?? "Type",
+                      systemImage: "film")
+                    .font(.subheadline)
+            }
+            .buttonStyle(.bordered)
+            .tint(contentType == nil ? nil : Brand.primary)
+
+            Menu {
+                Picker("Decade", selection: $decade) {
+                    Text("All Decades").tag(Int?.none)
+                    ForEach(decades, id: \.self) { Text(verbatim: "\($0)s").tag(Int?.some($0)) }
+                }
+            } label: {
+                Label(decade.map { "\($0)s" } ?? "Era", systemImage: "calendar")
+                    .font(.subheadline)
+            }
+            .buttonStyle(.bordered)
+            .tint(decade == nil ? nil : Brand.primary)
+
+            if filterActive {
+                Button {
+                    contentType = nil; decade = nil
+                } label: {
+                    Label("Clear", systemImage: "xmark.circle.fill").font(.subheadline)
+                }
+                .buttonStyle(.bordered)
+            }
+            Spacer(minLength: 0)
+        }
+        .padding(.horizontal)
+        .padding(.top, 8)
+    }
+
     var body: some View {
         Group {
             if query.isEmpty {
@@ -43,15 +91,21 @@ struct SearchView: View {
                     description: Text("Title, director, cast, genre, country, or synopsis."))
             } else if filtered.isEmpty && !showEpisodes {
                 if filterActive && !results.isEmpty {
-                    ContentUnavailableView("No matches with these filters",
-                        systemImage: "line.3.horizontal.decrease.circle",
-                        description: Text("\(results.count) results are hidden by the "
-                                          + "type/decade filters. Clear them to see all."))
+                    VStack {
+                        ContentUnavailableView("No matches with these filters",
+                            systemImage: "line.3.horizontal.decrease.circle",
+                            description: Text("\(results.count) results are hidden by the "
+                                              + "type/decade filters. Clear them to see all."))
+                        // The filters that emptied the screen must be reachable
+                        // FROM that screen, or the only way out is a new search.
+                        filterBar
+                    }
                 } else {
                     ContentUnavailableView.search(text: query)
                 }
             } else {
                 ScrollView {
+                    filterBar
                     if showEpisodes {
                         VStack(alignment: .leading, spacing: 6) {
                             Text("Episodes").font(.title3.bold()).padding(.horizontal)

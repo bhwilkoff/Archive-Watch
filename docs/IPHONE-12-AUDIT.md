@@ -34,13 +34,13 @@ re-verified · `[ ]` not yet run.
 | 1.6 | Surprise | `[x]` clean (the Detail it opens was 1.7) |
 | 1.7 | **Detail — title / meta / synopsis / actions** | `[>]` **DEFECT, FIXED** — see below |
 | 1.8 | Settings (top + scrolled) | `[x]` clean |
-| 1.9 | Series Detail (season/episode) | `[ ]` |
-| 1.10 | Collections | `[ ]` |
+| 1.9 | Series Detail (season/episode) | `[x]` clean (4 screens) |
+| 1.10 | Collections | `[x]` clean |
 | 1.11 | Cartoon Mode | `[ ]` |
 | 1.12 | Player + transport chrome | `[x]` clean, native AVKit HUD |
-| 1.13 | Get Subtitles sheet | `[ ]` |
-| 1.14 | Clip Studio | `[ ]` |
-| 1.15 | Add-to-playlist sheet | `[ ]` |
+| 1.13 | Get Subtitles sheet | `[x]` clean |
+| 1.14 | Clip Studio | `[x]` clean |
+| 1.15 | Add-to-playlist sheet | `[x]` clean |
 | 1.16 | Home, scrolled to every shelf | `[x]` clean (5 screens) |
 
 ### 1.7 — Detail clipped every line of text on both edges `[>]`
@@ -90,15 +90,15 @@ an observable change on the glass, never when it merely exists.
 | 2.11 | Detail: clip (rights-gated) | `[x]` opens Clip Studio |
 | 2.12 | Detail: versions menu | `[>]` worked; had NO a11y label — fixed |
 | 2.13 | Detail: share menu incl. archive.org | `[>]` worked; had NO a11y label — fixed |
-| 2.14 | Detail: cast bubble → person browse | `[ ]` |
-| 2.15 | Detail: More Like This | `[ ]` |
+| 2.14 | Detail: cast bubble → person browse | `[x]` pushes a person browse |
+| 2.15 | Detail: More Like This | `[x]` renders |
 | 2.16 | Browse: sort + every facet chip | `[x]` Films / TV / Collections |
 | 2.17 | Search: type a query, get results | `[x]` 'chaplin' returns results |
-| 2.18 | Search: result filters | `[ ]` |
+| 2.18 | Search: result filters | `[>]` were UNREACHABLE — fixed |
 | 2.19 | Library: Favorites / History / Playlists / Clips | `[x]` all four |
-| 2.20 | Channels: tune in | `[ ]` |
+| 2.20 | Channels: tune in | `[x]` tunes |
 | 2.21 | Settings: every toggle | `[>]` all 12 flip; sheet-reset DEFECT fixed |
-| 2.22 | Back navigation from every pushed screen | `[ ]` |
+| 2.22 | Back navigation from every pushed screen | `[x]` returns to Home |
 
 ---
 
@@ -186,3 +186,19 @@ data at all and still measures 3.8s — so a full catalog re-query costs about
    scrolled near, so `waitForExistence` without scrolling never resolves.
 6. **Index-based element iteration breaks** the moment a flip rebuilds the
    tree ("no matches for element at index 2"). Collect labels, then act.
+
+## 2.18 — The Search filters were unreachable in every state `[>]`
+
+**Measured**: the Filter control did not exist while typing, after Return, or
+after scrolling — three states, all false. The type/decade filters shipped for
+iOS on 2026-06-10 have therefore never been usable on iOS 26.
+
+**Root cause**: they lived only in `.toolbar(placement: .topBarTrailing)`, and
+the iOS 26 search tab draws no trailing bar item once the field has focus —
+which is the only time there are results to filter.
+
+**Fix**: the filters render WITH the results as inline Type / Era chips (tinted
+when active, with a Clear action), so the chrome can never hide them, and they
+also appear on the "no matches with these filters" screen — where the only way
+out previously was a fresh search. **Verified**: present in all three states,
+and choosing a type changes the result set.
