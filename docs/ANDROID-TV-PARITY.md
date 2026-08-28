@@ -340,8 +340,13 @@ Closed this tick (device-verified on Suddenly):
 - Rail: **Collections** and **Cartoons** pages added (routes existed,
   unreachable from the TV shell). Harness rail map updated to 9 rows.
 
-Remaining queue: Detail Versions picker (needs an ArchiveVersions
-analogue), Get Subtitles (no OpenSubtitles client on Android — decision),
-Share (QR decision), player transport menu (autoplay/mute/subtitles/
-version), Party Play page, Screensaver (system-owned on Android — likely
-N/A), Movies/TV as Browse scopes = accepted idiom.
+- **Versions picker SHIPPED + device-verified** (Horror Hotel: live
+  /metadata list — "480p · H.264 · 474 MB — Archive derivative" etc.,
+  pipeline-default row, per-title choice persisted by file NAME, honored
+  by the player for single items AND queue entries; Kotlin port of the
+  tvOS ArchiveVersions service).
+
+Remaining queue: Get Subtitles (no OpenSubtitles client on Android —
+decision), Share (QR decision), player transport menu (autoplay/mute/
+subtitles/version), Party Play page, Screensaver (system-owned on
+Android — likely N/A), Movies/TV as Browse scopes = accepted idiom.

@@ -147,10 +147,12 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             .apply {
                 // Binge queue (episodes): all entries load as Media3 items so
                 // end-of-item advance + next/previous are native behavior.
+                // The viewer's per-title copy choice (ArchiveVersions, the
+                // tvOS picker's port) beats the pipeline's pick.
                 val mediaItems = if (spec.queue.isNotEmpty()) {
                     spec.queue.map { e ->
                         MediaItem.Builder()
-                            .setUri(e.url)
+                            .setUri(app.archivewatch.android.data.ArchiveVersions.preferredURL(context, e.id, e.url))
                             .setMediaId(e.id)
                             .setMediaMetadata(
                                 MediaMetadata.Builder()
@@ -163,7 +165,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 } else {
                     listOf(
                         MediaItem.Builder()
-                            .setUri(spec.url)
+                            .setUri(app.archivewatch.android.data.ArchiveVersions.preferredURL(context, spec.id, spec.url))
                             .setMediaId(spec.id)
                             // Side-loaded subtitles (Decision 039): Media3 plays
                             // SRT/VTT natively and lists them in the subtitle

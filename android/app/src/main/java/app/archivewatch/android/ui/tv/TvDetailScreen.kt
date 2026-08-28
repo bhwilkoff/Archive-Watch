@@ -19,6 +19,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.PlaylistAdd
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material.icons.filled.Tv
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material3.OutlinedTextField
@@ -82,6 +83,7 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
         value = item?.let { container.catalog.awaitDb().related(it) } ?: emptyList()
     }
     var showPlaylists by remember { mutableStateOf(false) }
+    var showVersions by remember { mutableStateOf(false) }
     var favorite by remember { mutableStateOf(false) }
     var watched by remember { mutableStateOf(false) }
     LaunchedEffect(archiveID) {
@@ -247,6 +249,11 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     icon = { Icon(Icons.AutoMirrored.Filled.PlaylistAdd, null, tint = Color.White, modifier = Modifier.size(18.dp)) },
                     accent = current.accentColor,
                 ) { showPlaylists = true }
+                TvActionButton(
+                    label = "Version",
+                    icon = { Icon(Icons.Default.Tune, null, tint = Color.White, modifier = Modifier.size(18.dp)) },
+                    accent = current.accentColor,
+                ) { showVersions = true }
                 // Decision 045 — an episode is a door back to its series.
                 if (current.isEpisode && current.seriesID != null) {
                     TvActionButton(
@@ -388,6 +395,13 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
         }
     }
 
+    if (showVersions) {
+        TvVersionOverlay(
+            archiveID = current.archiveID,
+            accent = current.accentColor,
+            onDone = { showVersions = false },
+        )
+    }
     if (showPlaylists) {
         TvPlaylistOverlay(
             container = container,
@@ -570,5 +584,113 @@ private fun TvStat(value: String, caption: String) {
     Column {
         Text(value, fontSize = 18.sp, fontWeight = FontWeight.Medium, color = Color.White)
         Text(caption, fontSize = 12.sp, color = Color(0xFF9A9A9A))
+    }
+}
+
+/**
+ * Every playable copy on the archive.org item, viewer-choosable (the tvOS
+ * VersionPicker, ten-foot). Fetched when opened; the choice persists
+ * per-title and the player honours it via ArchiveVersions.preferredURL.
+ */
+@Composable
+private fun TvVersionOverlay(
+    archiveID: String,
+    accent: Color,
+    onDone: () -> Unit,
+) {
+    val context = androidx.compose.ui.platform.LocalContext.current
+    var versions by remember { mutableStateOf<List<app.archivewatch.android.data.ArchiveVersions.Version>?>(null) }
+    var chosen by remember {
+        mutableStateOf(app.archivewatch.android.data.ArchiveVersions.chosenName(context, archiveID))
+    }
+    LaunchedEffect(archiveID) {
+        versions = app.archivewatch.android.data.ArchiveVersions.list(archiveID)
+    }
+    val firstFocus = remember { FocusRequester() }
+    ClaimInitialFocus(firstFocus, key = versions != null)
+    androidx.activity.compose.BackHandler(true) { onDone() }
+
+    Box(Modifier.fillMaxSize().background(Color(0xCC000000))) {
+        Column(
+            Modifier
+                .align(Alignment.CenterEnd)
+                .fillMaxHeight()
+                .fillMaxWidth(0.46f)
+                .background(Color(0xFF141414))
+                .padding(horizontal = 36.dp, vertical = TvDims.OverscanV),
+        ) {
+            Text("Choose a Copy", fontSize = 22.sp, fontWeight = FontWeight.Medium, color = Color.White)
+            Text(
+                "The Archive often holds several transfers of the same film.",
+                fontSize = 13.sp, color = Color(0xFF9A9A9A),
+                modifier = Modifier.padding(top = 4.dp, bottom = 16.dp),
+            )
+            when (val v = versions) {
+                null -> Text("Loading copies…", fontSize = 14.sp, color = Color(0xFF9A9A9A))
+                else -> LazyColumn(Modifier.weight(1f)) {
+                    item(key = "default") {
+                        TvVersionRow(
+                            label = "Pipeline pick (default)",
+                            selected = chosen == null,
+                            accent = accent,
+                            focusRequester = firstFocus,
+                        ) {
+                            app.archivewatch.android.data.ArchiveVersions.choose(context, archiveID, null)
+                            chosen = null
+                        }
+                    }
+                    items(v.size, key = { v[it].name }) { i ->
+                        val ver = v[i]
+                        TvVersionRow(
+                            label = ver.label,
+                            selected = chosen == ver.name,
+                            accent = accent,
+                        ) {
+                            app.archivewatch.android.data.ArchiveVersions.choose(context, archiveID, ver)
+                            chosen = ver.name
+                        }
+                    }
+                    if (v.isEmpty()) {
+                        item(key = "none") {
+                            Text("Couldn't load this item's file list.", fontSize = 14.sp, color = Color(0xFF9A9A9A))
+                        }
+                    }
+                }
+            }
+            TvActionButton(
+                label = "Done",
+                icon = { Icon(Icons.Default.Check, null, tint = Color.White, modifier = Modifier.size(18.dp)) },
+                accent = accent,
+            ) { onDone() }
+        }
+    }
+}
+
+@Composable
+private fun TvVersionRow(
+    label: String,
+    selected: Boolean,
+    accent: Color,
+    focusRequester: FocusRequester? = null,
+    onClick: () -> Unit,
+) {
+    Row(
+        Modifier
+            .fillMaxWidth()
+            .padding(vertical = 5.dp)
+            .tvFocusable(
+                onClick = onClick,
+                focusRequester = focusRequester,
+                shape = RoundedCornerShape(12.dp),
+                scaleWhenFocused = 1.02f,
+            )
+            .background(Color(0xFF1F1F1F), RoundedCornerShape(12.dp))
+            .padding(horizontal = 18.dp, vertical = 12.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(label, fontSize = 14.sp, color = Color.White, modifier = Modifier.weight(1f))
+        if (selected) {
+            Icon(Icons.Default.Check, null, tint = accent, modifier = Modifier.size(20.dp))
+        }
     }
 }
