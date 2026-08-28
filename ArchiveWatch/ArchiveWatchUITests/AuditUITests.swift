@@ -607,12 +607,125 @@ final class AuditUITests: XCTestCase {
         }
     }
 
+    // MARK: - T3 playback depth (resume, captions, PiP) on A14
+
+    /// Resume: play, leave, come back. Continue Watching is the shelf that
+    /// proves the position was written AND read back.
+    func test_22_resumeAfterLeaving() {
+        launch(["AW_START_ITEM": "his_girl_friday"])
+        let play = app.buttons.matching(NSPredicate(format:
+            "label BEGINSWITH[c] 'Play' OR label BEGINSWITH[c] 'Resume'")).firstMatch
+        guard play.waitForExistence(timeout: 12) else { XCTFail("no Play"); return }
+        play.tap()
+        sleep(45)                       // watch long enough to be worth resuming
+        snap("resume-1-watching")
+        // Leave via the player's close control.
+        app.tap(); sleep(2)
+        let close = app.buttons.matching(NSPredicate(format:
+            "label CONTAINS[c] 'close' OR label CONTAINS[c] 'done'")).firstMatch
+        if close.exists { close.tap() } else { app.swipeDown() }
+        sleep(3); snap("resume-2-back-on-detail")
+
+        // Cold relaunch: the position must survive the process, not just the view.
+        launch()
+        sleep(6)
+        snap("resume-3-home-after-relaunch")
+        let cw = app.staticTexts.matching(NSPredicate(format:
+            "label CONTAINS[c] 'Continue' OR label CONTAINS[c] 'Keep watching'")).firstMatch
+        XCTAssertTrue(cw.waitForExistence(timeout: 20),
+                      "NO Continue Watching shelf after watching 45s of a film")
+
+        // And the Detail must offer to resume rather than restart.
+        launch(["AW_START_ITEM": "his_girl_friday"])
+        let resumeLabel = app.buttons.matching(NSPredicate(format:
+            "label BEGINSWITH[c] 'Play' OR label BEGINSWITH[c] 'Resume'")).firstMatch
+        _ = resumeLabel.waitForExistence(timeout: 12)
+        print("[AWRESUME] play button reads: \(resumeLabel.label)")
+        snap("resume-4-detail")
+    }
+
+    /// Captions on the A14: a film with a published subtitle file must show
+    /// text, and the choice control must offer File / Automatic / Off.
+    func test_23_captionsRender() {
+        launch(["AW_START_ITEM": "his_girl_friday"])
+        let subs = app.buttons["Get subtitles"].firstMatch
+        guard subs.waitForExistence(timeout: 12), scrollIntoView(subs) else {
+            XCTFail("MISSING subtitles control"); return
+        }
+        subs.tap(); sleep(4); snap("captions-sheet")
+        for choice in ["Subtitle File", "Automatic", "Off"] {
+            XCTAssertTrue(app.buttons[choice].firstMatch.exists ||
+                          app.staticTexts[choice].firstMatch.exists,
+                          "caption choice missing: \(choice)")
+        }
+        // Choose Automatic, then play and look for text on the glass.
+        let auto = app.buttons["Automatic"].firstMatch
+        if auto.exists { auto.tap(); sleep(2); snap("captions-automatic-chosen") }
+        // Dismiss and CONFIRM dismissal. This sheet carries a grabber and no
+        // Cancel button (standard iOS), so it must be DRAGGED down from its
+        // own top edge — a swipeDown in the middle just scrolls its content,
+        // leaving Play covered and reading like a broken Play button.
+        for _ in 0..<4 {
+            let cancel = app.buttons["Cancel"].firstMatch
+            if cancel.exists && cancel.isHittable {
+                cancel.tap()
+            } else {
+                app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.52))
+                   .press(forDuration: 0.1,
+                          thenDragTo: app.coordinate(
+                            withNormalizedOffset: CGVector(dx: 0.5, dy: 0.99)))
+            }
+            sleep(2)
+            if app.buttons.matching(NSPredicate(format: "label BEGINSWITH[c] 'Play' " +
+                "OR label BEGINSWITH[c] 'Resume'")).firstMatch.isHittable { break }
+        }
+        let play = app.buttons.matching(NSPredicate(format:
+            "label BEGINSWITH[c] 'Play' OR label BEGINSWITH[c] 'Resume'")).firstMatch
+        guard play.waitForExistence(timeout: 8), play.isHittable else {
+            XCTFail("Play unreachable after the subtitles sheet"); return
+        }
+        play.tap()
+        // The engine transcribes AHEAD of playback (Decision 058) but needs a
+        // warm-up; sample the glass rather than assuming a fixed latency.
+        for t in [40, 70, 100, 130] {
+            sleep(30); snap("captions-t\(t)")
+        }
+    }
+
+    /// PiP: the control must exist in the player chrome and engage.
+    func test_24_pictureInPicture() {
+        launch(["AW_START_ITEM": "his_girl_friday"])
+        let play = app.buttons.matching(NSPredicate(format:
+            "label BEGINSWITH[c] 'Play' OR label BEGINSWITH[c] 'Resume'")).firstMatch
+        guard play.waitForExistence(timeout: 12) else { XCTFail("no Play"); return }
+        play.tap(); sleep(25)
+        app.tap(); sleep(3); snap("pip-controls")
+        // AVKit's transport is its own hierarchy; dump what is actually there
+        // rather than guessing the label.
+        for i in 0..<app.buttons.count {
+            let b = app.buttons.element(boundBy: i)
+            guard b.exists else { continue }
+            print("[AWPLAYER] button \(i): label='\(b.label)' id='\(b.identifier)' " +
+                  "hittable=\(b.isHittable)")
+        }
+        for i in 0..<min(app.otherElements.count, 40) {
+            let e = app.otherElements.element(boundBy: i)
+            guard e.exists, !e.label.isEmpty else { continue }
+            print("[AWPLAYER] other \(i): label='\(e.label)' id='\(e.identifier)'")
+        }
+        let pip = app.buttons.matching(NSPredicate(format:
+            "label CONTAINS[c] 'picture' OR label CONTAINS[c] 'pip' " +
+            "OR identifier CONTAINS[c] 'pip' OR identifier CONTAINS[c] 'picture'")).firstMatch
+        XCTAssertTrue(pip.exists, "MISSING Picture in Picture control")
+        if pip.exists { pip.tap(); sleep(6); snap("pip-engaged") }
+    }
+
     // MARK: - T3 playback
 
     func test_10_playbackStartsAndChromeIsClean() {
         launch(["AW_START_ITEM": "his_girl_friday"])
         let play = app.buttons.matching(NSPredicate(format:
-            "label BEGINSWITH[c] 'Play'")).firstMatch
+            "label BEGINSWITH[c] 'Play' OR label BEGINSWITH[c] 'Resume'")).firstMatch
         guard play.waitForExistence(timeout: 12) else {
             XCTFail("MISSING Play button"); return
         }

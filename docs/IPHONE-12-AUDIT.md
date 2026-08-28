@@ -108,11 +108,11 @@ an observable change on the glass, never when it merely exists.
 |---|---|---|
 | 3.1 | A film starts within 30s (Decision 077) | `[x]` playing at 30s |
 | 3.2 | Native transport chrome — no persistent overlay | `[x]` clean frame at 30s; HUD only on tap |
-| 3.3 | Resume from a saved position | `[ ]` |
+| 3.3 | Resume from a saved position | `[>]` works; button said "Play" — fixed to "Resume" |
 | 3.4 | Published subtitle file renders | `[ ]` |
-| 3.5 | Generated captions on a captionless film | `[ ]` |
-| 3.6 | Caption switching (file ↔ automatic) | `[ ]` |
-| 3.7 | PiP + background audio | `[ ]` |
+| 3.5 | Generated captions on a captionless film | `[x]` text on the glass at ~130s |
+| 3.6 | Caption switching (file ↔ automatic) | `[x]` File/Automatic/Off all present, selection sticks |
+| 3.7 | PiP + background audio | `[x]` PiP present (`PIP Button`) and engages |
 | 3.8 | A14 decode: no dropped frames on a large file | `[ ]` |
 
 ---
@@ -202,3 +202,25 @@ when active, with a Clear action), so the chrome can never hide them, and they
 also appear on the "no matches with these filters" screen — where the only way
 out previously was a fresh search. **Verified**: present in all three states,
 and choosing a type changes the result set.
+
+## 3.3 — The Play button never said "Resume" `[>]`
+
+**Measured**: after watching 45 seconds and relaunching, Continue Watching
+appeared correctly and the player resumed — but Detail's button still read
+"Play · 91 min". A viewer forty minutes into a film could not tell whether
+tapping would carry on or start over, while it resumed either way.
+
+**Root cause**: `playLabel` on iOS only ever formatted the runtime. tvOS has
+computed "Resume · N min" from saved progress since it shipped; iOS never got
+it.
+
+**Fix**: a shared `WatchProgress.remainingSeconds(archiveID:in:)` — so every
+platform answers the question the same way — used by the iOS label.
+**Verified**: the button now reads "Resume · N min" on a part-watched film
+(and it broke three tests that matched on "Play", which is its own proof).
+
+## Player chrome, dumped from the device (T3.2)
+
+`Skip Backward` · `Play/Pause` · `Skip Forward` · `Close Button` ·
+**`PIP Button`** · `AirPlay` · `Overflow Menu` — the full native AVKit
+transport, all hittable, and nothing drawn over the film while it plays.

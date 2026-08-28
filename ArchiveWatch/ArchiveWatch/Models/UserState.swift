@@ -125,6 +125,18 @@ final class WatchProgress {
         return (r.everCompleted ?? false) || r.isComplete
     }
 
+    /// Seconds still to watch, or nil when there is nothing to resume — the
+    /// number behind a "Resume · 34 min" label. Shared so every platform
+    /// answers the question the same way (tvOS computed it inline first).
+    static func remainingSeconds(archiveID: String, in ctx: ModelContext) -> Int? {
+        let d = FetchDescriptor<WatchProgress>(
+            predicate: #Predicate<WatchProgress> { $0.archiveID == archiveID })
+        guard let r = try? ctx.fetch(d).first,
+              !r.isComplete, r.positionSeconds > 10, r.durationSeconds > 0
+        else { return nil }
+        return max(0, Int(r.durationSeconds - r.positionSeconds))
+    }
+
     @discardableResult
     static func setWatched(_ watched: Bool, in ctx: ModelContext,
                            archiveID: String) -> Bool {

@@ -263,8 +263,17 @@ struct DetailView: View {
          item.contentType.replacingOccurrences(of: "-", with: " ").capitalized,
          item.director.map { "Dir. \($0)" }].compactMap { $0 }.joined(separator: " · ")
     }
+    /// "Resume · 34 min" once there is a position worth returning to, matching
+    /// tvOS. It said "Play · 91 min" however far in you were, so a viewer
+    /// forty minutes into a film could not tell whether the button would carry
+    /// on or start over — while the player resumed regardless (iPhone 12
+    /// audit, 2026-08-28).
     private var playLabel: String {
-        item.runtimeSeconds.map { "Play · \($0/60) min" } ?? "Play"
+        if let remaining = WatchProgress.remainingSeconds(
+            archiveID: item.archiveID, in: ctx) {
+            return "Resume · \(remaining / 60) min"
+        }
+        return item.runtimeSeconds.map { "Play · \($0/60) min" } ?? "Play"
     }
     private var shareURL: URL {
         URL(string: "https://archivewatch.org/item/\(item.archiveID)")!
