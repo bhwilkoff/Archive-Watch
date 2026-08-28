@@ -353,6 +353,15 @@ Closed this tick (device-verified on Suddenly):
   Harness note: Compose overlays are ABSENT from uiautomator dumps —
   OCR is the evidence channel for them.
 
-Remaining queue: Party Play page, Get Subtitles (no OpenSubtitles client
-on Android — decision), Share (QR decision), Screensaver (system-owned
-on Android — likely N/A), Movies/TV as Browse scopes = accepted idiom.
+- **Party Play SHIPPED + device-verified**: the tvOS immersive mode
+  ported whole — visual-scored color-short pool (the tvOS keyword list),
+  Start button + "What's in the mix" preview, lineup plays MUTED
+  (options panel reads "Unmute" — the on-glass proof), never persists
+  progress. New rail page; Nav state encode/decode carries it.
+  Debug lesson: a failed compile hid behind a grep that ate the error —
+  and `strings` CANNOT see dex MUTF-8, so two "not in APK" verdicts were
+  false; the glass is the gate.
+
+Remaining queue: Get Subtitles (no OpenSubtitles client on Android —
+decision), Share (QR decision), Screensaver (system-owned on Android —
+N/A), Movies/TV as Browse scopes = accepted idiom.

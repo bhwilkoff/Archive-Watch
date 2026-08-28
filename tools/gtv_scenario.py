@@ -41,13 +41,12 @@ QA_DIR = os.path.join(
 OCR = "/tmp/awocr"
 
 # Rail rows by center-y at 1080p (measured from the device 2026-08-27).
-RAIL = {
-    "home": 106, "browse": 222, "channels": 338, "search": 454,
-    "library": 570, "collections": 686, "cartoons": 802,
-    "surprise": 918, "settings": 1034,
-}
-RAIL_BAND = 55       # ± tolerance for "focused row is this tab"
-RAIL_X_MAX = 400     # a focused node left of this is in the rail
+# The rail SCROLLS once it outgrew the panel (10 rows since Party joined),
+# so fixed y-positions are meaningless — rows are identified by the LABEL
+# text that sits inside the focused bounds instead.
+RAIL_ORDER = ["home", "browse", "channels", "search", "library",
+              "collections", "cartoons", "party", "surprise", "settings"]
+RAIL_X_MAX = 440     # a focused node left of this is in the rail
 
 _serial = None
 
@@ -105,13 +104,25 @@ def focused_bounds():
     return None
 
 
-def rail_tab_at(bounds):
+def _tree():
+    adbs("shell", "uiautomator", "dump", "/sdcard/ui.xml")
+    return adbs("shell", "cat", "/sdcard/ui.xml")
+
+
+def rail_tab_at(bounds, xml=None):
+    """The rail row under `bounds`, identified by the label text inside it."""
     if not bounds or bounds[0] > RAIL_X_MAX:
         return None
-    cy = (bounds[1] + bounds[3]) // 2
-    for name, y in RAIL.items():
-        if abs(cy - y) <= RAIL_BAND:
-            return name
+    xml = xml or _tree()
+    for m in re.finditer(
+            r'<node[^>]*text="(Home|Browse|Channels|Search|Library|Collections|'
+            r'Cartoons|Party|Surprise|Settings)"[^>]*'
+            r'bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"[^>]*>', xml):
+        label = m.group(1).lower()
+        t_, b_ = int(m.group(3)), int(m.group(5))
+        cy = (t_ + b_) // 2
+        if bounds[1] <= cy <= bounds[3]:
+            return label
     return None
 
 
@@ -143,8 +154,7 @@ def goto_tab(target, max_steps=14):
         if cur == target:
             press("KEYCODE_DPAD_CENTER", settle=4.0)
             return True
-        order = list(RAIL)
-        press("KEYCODE_DPAD_DOWN" if order.index(cur) < order.index(target)
+        press("KEYCODE_DPAD_DOWN" if RAIL_ORDER.index(cur) < RAIL_ORDER.index(target)
               else "KEYCODE_DPAD_UP")
     return False
 

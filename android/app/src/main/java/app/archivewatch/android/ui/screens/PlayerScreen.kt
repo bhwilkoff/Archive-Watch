@@ -206,6 +206,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 }
                 setMediaItems(mediaItems, spec.queueIndex.coerceIn(0, mediaItems.size - 1),
                               spec.startPositionMs)
+                if (spec.startMuted) volume = 0f
                 playWhenReady = true
                 prepare()
             }

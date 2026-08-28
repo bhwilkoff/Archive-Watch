@@ -26,6 +26,7 @@ sealed interface Route {
     data class ClipStudio(val archiveID: String) : Route
     data object Collections : Route
     data object Cartoon : Route
+    data object Party : Route
     data object Surprise : Route
     data object Settings : Route
 }
@@ -83,6 +84,7 @@ class Nav {
             is Route.ClipStudio -> "clip$SEP${r.archiveID}"
             Route.Collections -> "collections"
             Route.Cartoon -> "cartoon"
+            Route.Party -> "party"
             Route.Surprise -> "surprise"
             Route.Settings -> "settings"
             is Route.Player -> null
@@ -98,6 +100,7 @@ class Nav {
             "clip" -> Route.ClipStudio(p[1])
             "collections" -> Route.Collections
             "cartoon" -> Route.Cartoon
+            "party" -> Route.Party
             "surprise" -> Route.Surprise
             "settings" -> Route.Settings
             else -> null

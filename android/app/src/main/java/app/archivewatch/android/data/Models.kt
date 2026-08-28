@@ -305,6 +305,9 @@ data class PlaySpec(
     val startPositionMs: Long = 0,
     // Channel/lineup playback never persists resume progress (apps' rule).
     val persistProgress: Boolean = true,
+    // Party Play starts silent (muted background eye-candy); the player
+    // options panel unmutes.
+    val startMuted: Boolean = false,
 )
 
 /** One binge-queue entry (an episode). */

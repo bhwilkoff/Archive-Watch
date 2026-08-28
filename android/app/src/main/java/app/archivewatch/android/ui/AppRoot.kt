@@ -143,6 +143,7 @@ fun AppRoot(container: AppContainer) {
                             is Route.ClipStudio -> ClipStudioScreen(container, nav, route.archiveID)
                             Route.Collections -> CollectionsScreen(container, nav)
                             Route.Cartoon -> CartoonScreen(container, nav)
+                            Route.Party -> CartoonScreen(container, nav) // TV-only mode; unreachable on phone
                             Route.Surprise -> SurpriseScreen(container, nav)
                             Route.Settings -> SettingsScreen(container, nav)
                         }
