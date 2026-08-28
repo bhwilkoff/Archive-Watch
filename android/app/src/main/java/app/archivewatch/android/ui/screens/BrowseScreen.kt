@@ -63,6 +63,7 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
 
     var scope by remember { mutableStateOf(Scope.All) }
+    val hiddenCategories by container.settings.hiddenCategories.collectAsState(initial = emptySet())
     var decade by remember { mutableStateOf<Int?>(null) }
     // Metadata-expansion facets (Decision 046): keyword (thematic) + studio filters.
     var keyword by remember { mutableStateOf<String?>(null) }
@@ -148,7 +149,12 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
                     .padding(horizontal = 16.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
-                Scope.entries.forEach { s ->
+                // A hidden category (Settings > Show categories) leaves the
+                // chip row too — a chip whose results are filtered to zero is
+                // a dead end, not a choice.
+                Scope.entries.filter {
+                    it.contentType == null || it.contentType !in hiddenCategories
+                }.forEach { s ->
                     FilterChip(
                         selected = scope == s,
                         onClick = { scope = s },

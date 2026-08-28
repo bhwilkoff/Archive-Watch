@@ -2,6 +2,7 @@ package app.archivewatch.android.data
 
 import android.content.Context
 import androidx.datastore.preferences.core.booleanPreferencesKey
+import androidx.datastore.preferences.core.stringSetPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
@@ -31,6 +32,20 @@ class SettingsStore(private val context: Context) {
 
     suspend fun setAutoplayNext(value: Boolean) {
         context.settingsDataStore.edit { it[autoplayKey] = value }
+    }
+
+    /** tvOS parity: per-category visibility (Decision 012's sibling switch).
+     *  Stored as the HIDDEN set so the default (empty) shows everything. */
+    private val hiddenCategoriesKey = stringSetPreferencesKey("hiddenCategories")
+
+    val hiddenCategories: Flow<Set<String>> =
+        context.settingsDataStore.data.map { it[hiddenCategoriesKey] ?: emptySet() }
+
+    suspend fun setCategoryHidden(contentType: String, hidden: Boolean) {
+        context.settingsDataStore.edit {
+            val cur = it[hiddenCategoriesKey] ?: emptySet()
+            it[hiddenCategoriesKey] = if (hidden) cur + contentType else cur - contentType
+        }
     }
 
     /** #17 parity: hide completed titles from Home shelves. */

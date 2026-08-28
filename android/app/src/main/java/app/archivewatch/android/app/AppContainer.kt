@@ -61,7 +61,7 @@ class AppContainer(private val application: Application) {
     fun start() {
         scope.launch {
             catalog.initialize()
-            catalog.applyFilters(settings.hideAdultContent.first())
+            catalog.applyFilters(settings.hideAdultContent.first(), settings.hiddenCategories.first())
             catalog.refresh()
         }
         observeForeground()

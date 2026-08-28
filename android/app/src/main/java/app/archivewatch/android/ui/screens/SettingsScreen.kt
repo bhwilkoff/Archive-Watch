@@ -36,6 +36,7 @@ import app.archivewatch.android.BuildConfig
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.tv.LocalIsTelevision
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 private const val DONATE_URL = "https://archive.org/donate"
@@ -55,6 +56,7 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val hideAdult by container.settings.hideAdultContent.collectAsState(initial = true)
+    val hiddenCategories by container.settings.hiddenCategories.collectAsState(initial = emptySet())
     val autoplay by container.settings.autoplayNext.collectAsState(initial = false)
     val hideWatched by container.settings.hideWatchedOnHome.collectAsState(initial = false)
     val isTv = LocalIsTelevision.current
@@ -90,10 +92,42 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
                 onCheckedChange = { show ->
                     scope.launch {
                         container.settings.setHideAdultContent(!show)
-                        container.catalog.applyFilters(!show)
+                        container.catalog.applyFilters(
+                            !show,
+                            container.settings.hiddenCategories.first(),
+                        )
                     }
                 },
             )
+            // tvOS parity: per-category visibility. Hiding a category removes
+            // it from every surface (the filter is applied at the DB layer).
+            SectionLabel("Show categories")
+            listOf(
+                "Feature films" to "feature-film",
+                "Short films" to "short-film",
+                "Silent era" to "silent-film",
+                "Animation" to "animation",
+                "Newsreels" to "newsreel",
+                "Documentaries" to "documentary",
+                "Ephemeral films" to "ephemeral",
+                "Commercials" to "commercial",
+            ).forEach { (label, type) ->
+                ToggleRow(
+                    title = label,
+                    subtitle = null,
+                    checked = type !in hiddenCategories,
+                    onCheckedChange = { show ->
+                        scope.launch {
+                            container.settings.setCategoryHidden(type, !show)
+                            container.catalog.applyFilters(
+                                container.settings.hideAdultContent.first(),
+                                container.settings.hiddenCategories.first(),
+                            )
+                        }
+                    },
+                )
+            }
+
             ToggleRow(
                 title = "Hide watched titles on Home",
                 subtitle = "Completed titles disappear from Home shelves.",
@@ -285,7 +319,7 @@ private fun SectionLabel(text: String) {
 @Composable
 private fun ToggleRow(
     title: String,
-    subtitle: String,
+    subtitle: String?,
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
 ) {
@@ -295,11 +329,13 @@ private fun ToggleRow(
     ) {
         Column(Modifier.weight(1f)) {
             Text(title, style = MaterialTheme.typography.bodyLarge)
-            Text(
-                subtitle,
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
+            subtitle?.let {
+                Text(
+                    it,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
         }
         Switch(checked = checked, onCheckedChange = onCheckedChange)
     }
