@@ -34,6 +34,9 @@ ADB = os.path.expanduser("~/Library/Android/sdk/platform-tools/adb")
 # (AFTKRT, Fire OS). Both use classic port 5555; only the Google TV also has
 # the rotating TLS port, so the mdns fallback simply finds nothing on Fire.
 HOST = os.environ.get("AW_TV_HOST", "10.0.0.55")
+# Devices whose classic port 5555 never opens (the Pixel phone) connect via
+# the rotating TLS port, resolved from mdns by serial prefix.
+MDNS_SERIAL = os.environ.get("AW_TV_MDNS", "GZ25")
 PKG = "com.archivewatch.app.debug"
 QA_DIR = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
@@ -67,7 +70,7 @@ def connect():
             _serial = f"{HOST}:5555"
         else:
             out = sh(ADB, "mdns", "services")
-            m = re.search(r"GZ25\S*\s+_adb-tls-connect\._tcp\.?\s+"
+            m = re.search(rf"{re.escape(MDNS_SERIAL)}\S*\s+_adb-tls-connect\._tcp\.?\s+"
                           rf"{re.escape(HOST)}:(\d+)", out)
             if not m:
                 continue
@@ -92,8 +95,7 @@ def focused_bounds():
     """(l, t, r, b) of the focused node, or None. Never trust one dump — the
     tree is briefly empty during transitions; retry once."""
     for _ in range(2):
-        adbs("shell", "uiautomator", "dump", "/sdcard/ui.xml")
-        xml = adbs("shell", "cat", "/sdcard/ui.xml")
+        xml = _tree()
         for m in re.finditer(r"<node[^>]*>", xml):
             n = m.group(0)
             if 'focused="true"' in n:
@@ -105,7 +107,13 @@ def focused_bounds():
 
 
 def _tree():
-    adbs("shell", "uiautomator", "dump", "/sdcard/ui.xml")
+    # Delete-first: a failed dump otherwise serves a STALE file from some
+    # earlier app's session (measured on the Pixel — the tree showed another
+    # app entirely while ours was foreground).
+    adbs("shell", "rm", "-f", "/sdcard/ui.xml")
+    out = adbs("shell", "uiautomator", "dump", "/sdcard/ui.xml")
+    if "dumped" not in out.lower():
+        return ""
     return adbs("shell", "cat", "/sdcard/ui.xml")
 
 
@@ -180,6 +188,12 @@ def launch(deep_link=None, force_stop=False):
     # screen). Wake + dismiss first.
     adbs("shell", "input", "keyevent", "KEYCODE_WAKEUP")
     time.sleep(1.5)
+    # Insecure keyguards dismiss; a secure one (the Pixel) is prevented from
+    # re-engaging instead: `svc power stayon true` is set on the phone, so
+    # after the owner's ONE unlock the screen never sleeps. Never ask for
+    # repeated unlocks (owner, 2026-08-28).
+    adbs("shell", "wm", "dismiss-keyguard")
+    time.sleep(1.0)
     adbs("shell", "input", "keyevent", "KEYCODE_BACK")
     time.sleep(1.5)
     if force_stop:

@@ -3,6 +3,7 @@ package app.archivewatch.android.ui.screens
 import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -25,6 +26,10 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.Tune
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.PlayArrow
@@ -93,8 +98,13 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
         value = item?.let { container.catalog.db?.related(it) } ?: emptyList()
     }
     var favorite by remember { mutableStateOf(false) }
+    var watched by remember { mutableStateOf(false) }
+    var showVersions by remember { mutableStateOf(false) }
     var showPlaylists by remember { mutableStateOf(false) }
-    LaunchedEffect(archiveID) { favorite = container.userState.isFavorite(archiveID) }
+    LaunchedEffect(archiveID) {
+        favorite = container.userState.isFavorite(archiveID)
+        watched = container.userState.isWatched(archiveID)
+    }
 
     val current = item
     if (current == null) {
@@ -161,6 +171,7 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 current.director,
                 current.runtimeSeconds?.let { "${it / 60} min" },
                 current.genres.firstOrNull(),
+                current.imdbRating?.takeIf { it > 0 }?.let { "★ " + it },
             ).joinToString(" · ")
             if (meta.isNotEmpty()) {
                 Text(
@@ -184,8 +195,16 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
             if (showPlaylists) {
                 AddToPlaylistDialog(container, current.archiveID) { showPlaylists = false }
             }
+            if (showVersions) {
+                VersionSheet(current.archiveID) { showVersions = false }
+            }
             Row(
-                Modifier.padding(vertical = 12.dp),
+                Modifier
+                    .padding(vertical = 12.dp)
+                    // Seven controls outgrow a phone width — the row scrolls
+                    // (the two newest icons were CLIPPED off-screen, measured
+                    // on the Pixel 8a).
+                    .horizontalScroll(rememberScrollState()),
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
@@ -234,6 +253,24 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                         Icons.AutoMirrored.Filled.PlaylistAdd,
                         contentDescription = "Add to playlist",
                     )
+                }
+                // tvOS Detail parity: mark watched without playing.
+                IconButton(onClick = {
+                    scope.launch {
+                        container.userState.setWatched(current.archiveID, !watched)
+                        watched = !watched
+                    }
+                }) {
+                    Icon(
+                        Icons.Default.Visibility,
+                        contentDescription = if (watched) "Mark as not watched" else "Mark as watched",
+                        tint = if (watched) MaterialTheme.colorScheme.primary
+                        else LocalContentColor.current,
+                    )
+                }
+                // tvOS Detail parity: every playable copy, viewer-choosable.
+                IconButton(onClick = { showVersions = true }) {
+                    Icon(Icons.Default.Tune, contentDescription = "Choose a copy")
                 }
                 // Create (Clip Studio) — rights-gated (CREATE-STUDIO-PLAN §2).
                 // Hidden, not disabled, when the item isn't clippable.
@@ -488,4 +525,74 @@ private fun AddToPlaylistDialog(
             }
         },
     )
+}
+
+/**
+ * Every playable copy of the film on its archive.org item (the tvOS
+ * VersionPicker; ArchiveVersions is the shared engine). A Material bottom
+ * sheet — the phone idiom for a single choice among peers.
+ */
+@OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
+@Composable
+private fun VersionSheet(archiveID: String, onDone: () -> Unit) {
+    val context = androidx.compose.ui.platform.LocalContext.current
+    var versions by remember {
+        mutableStateOf<List<app.archivewatch.android.data.ArchiveVersions.Version>?>(null)
+    }
+    var chosen by remember {
+        mutableStateOf(app.archivewatch.android.data.ArchiveVersions.chosenName(context, archiveID))
+    }
+    LaunchedEffect(archiveID) {
+        versions = app.archivewatch.android.data.ArchiveVersions.list(archiveID)
+    }
+    androidx.compose.material3.ModalBottomSheet(onDismissRequest = onDone) {
+        Column(Modifier.padding(horizontal = 20.dp, vertical = 4.dp)) {
+            Text("Choose a copy", style = MaterialTheme.typography.titleMedium)
+            Text(
+                "The Archive often holds several transfers of the same film.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 2.dp, bottom = 8.dp),
+            )
+            when (val v = versions) {
+                null -> Text(
+                    "Loading copies…",
+                    style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier.padding(vertical = 16.dp),
+                )
+                else -> {
+                    androidx.compose.material3.ListItem(
+                        headlineContent = { Text("Pipeline pick (default)") },
+                        trailingContent = {
+                            if (chosen == null) Icon(Icons.Default.Check, null)
+                        },
+                        modifier = Modifier.clickable {
+                            app.archivewatch.android.data.ArchiveVersions.choose(context, archiveID, null)
+                            chosen = null
+                        },
+                    )
+                    v.forEach { ver ->
+                        androidx.compose.material3.ListItem(
+                            headlineContent = { Text(ver.label, style = MaterialTheme.typography.bodyMedium) },
+                            trailingContent = {
+                                if (chosen == ver.name) Icon(Icons.Default.Check, null)
+                            },
+                            modifier = Modifier.clickable {
+                                app.archivewatch.android.data.ArchiveVersions.choose(context, archiveID, ver)
+                                chosen = ver.name
+                            },
+                        )
+                    }
+                    if (v.isEmpty()) {
+                        Text(
+                            "Couldn't load this item's file list.",
+                            style = MaterialTheme.typography.bodyMedium,
+                            modifier = Modifier.padding(vertical = 16.dp),
+                        )
+                    }
+                }
+            }
+            Spacer(Modifier.height(24.dp))
+        }
+    }
 }
