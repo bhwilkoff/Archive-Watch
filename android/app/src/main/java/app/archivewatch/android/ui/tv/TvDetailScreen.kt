@@ -46,6 +46,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.foundation.focusable
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -274,14 +276,24 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
 
         current.synopsis?.takeIf { it.isNotBlank() }?.let { synopsis ->
             item(key = "synopsis") {
+                // FOCUSABLE, so the D-pad can stop on it and the LazyColumn
+                // will scroll it into view. A TV list only scrolls to things
+                // focus can reach, so a long synopsis between Play and the
+                // cast row is skipped entirely and its tail is unreadable
+                // (owner, 2026-08-28: everything on the TV should be viewable,
+                // even without a toggle to flip). Focusing it also brightens
+                // it, so the viewer can see where they are.
+                var focused by remember { mutableStateOf(false) }
                 Text(
                     synopsis,
                     fontSize = 15.sp,
                     lineHeight = 23.sp,
-                    color = Color(0xFFDDDDDD),
+                    color = if (focused) Color.White else Color(0xFFDDDDDD),
                     modifier = Modifier
                         .padding(start = TvDims.OverscanH, end = TvDims.OverscanH, bottom = 24.dp)
-                        .fillMaxWidth(0.72f),
+                        .fillMaxWidth(0.72f)
+                        .onFocusChanged { focused = it.isFocused }
+                        .focusable(),
                 )
             }
         }

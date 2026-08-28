@@ -372,10 +372,16 @@ struct DetailView: View {
             }
 
             if let synopsis = item.displaySynopsis {
-                Text(synopsis)
+                // FOCUSABLE, and that is the point. A tvOS ScrollView only
+                // scrolls to focusable views, so a plain Text between two
+                // buttons is not merely unselectable — the remote SKIPS it and
+                // the scroll never brings it into view. The description was
+                // therefore unreadable past its sixth line on a television
+                // (owner, 2026-08-28: "the individual detail view … skips
+                // right over the description"). Focusing it also expands it,
+                // so the whole synopsis can be read without a control to press.
+                ReadableTextBlock(text: synopsis, collapsedLines: 6)
                     .font(.system(size: 29, weight: .regular))
-                    .foregroundStyle(.white.opacity(0.85))
-                    .lineLimit(6)
                     .frame(maxWidth: 1100, alignment: .leading)
             }
 
@@ -1575,6 +1581,45 @@ struct ShareSheet: View {   // reused by SeriesDetailView (series + episodes)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.black.opacity(0.92).ignoresSafeArea())
         .onAppear { doneFocused = true }
+    }
+}
+
+
+
+/// Long-form text a tvOS viewer can actually READ: focusable so the focus
+/// engine will stop on it (and the ScrollView will scroll to it), expanding to
+/// its full length while focused.
+///
+/// The playbook's rule for a non-interactive view that must participate in
+/// focus is `.focusable(true)` plus a rendered focus state — a focus ring the
+/// viewer can see, since a focused element that looks identical to an
+/// unfocused one is a trap by another name.
+struct ReadableTextBlock: View {
+    let text: String
+    /// nil = never clamp; the block is focusable purely so the viewer can
+    /// SCROLL to it. That is the common case in Settings, where the text is
+    /// short enough to show in full but was unreachable all the same.
+    var collapsedLines: Int? = 6
+    var dimmed: Double = 0.85
+    @FocusState private var focused: Bool
+
+    var body: some View {
+        Text(text)
+            .foregroundStyle(.white.opacity(focused ? 1.0 : dimmed))
+            .lineLimit(focused ? nil : collapsedLines)
+            .multilineTextAlignment(.leading)
+            .padding(focused ? 16 : 0)
+            .background {
+                if focused {
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(.white.opacity(0.10))
+                }
+            }
+            .focusable(true)
+            .focused($focused)
+            // Scoped to the focus change only — the playbook forbids a blanket
+            // .animation on a view that participates in focus.
+            .animation(.easeInOut(duration: 0.18), value: focused)
     }
 }
 

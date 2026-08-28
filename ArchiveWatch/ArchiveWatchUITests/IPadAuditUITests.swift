@@ -174,6 +174,48 @@ final class IPadAuditUITests: XCTestCase {
         }
     }
 
+    /// Settings is the surface most likely to hide a §2.1 violation: its
+    /// footers are the longest prose in the app, and nobody looks at them on
+    /// a 1366pt screen. Scrolled end to end, measuring as it goes.
+    func test_07_settingsProseIsWidthCapped() {
+        launch()
+        let gear = app.buttons["Settings"].firstMatch
+        (gear.exists ? gear : app.images["gearshape"].firstMatch).tap()
+        _ = app.navigationBars["Settings"].waitForExistence(timeout: 12)
+
+        var worst = CGFloat(0)
+        var worstText = ""
+        for pass in 0..<8 {
+            let (w, t) = widestProse()
+            if w > worst { worst = w; worstText = t }
+            snap("ipad-settings-\(pass)")
+            app.swipeUp(); usleep(800_000)
+        }
+        print("[AWIPAD] Settings widest prose: \(Int(worst))pt — \(worstText.prefix(70))")
+        XCTAssertLessThanOrEqual(worst, 720,
+            "IPAD-DESIGN §2.1 — a Settings footer ran \(Int(worst))pt")
+    }
+
+    /// Search and its results grid at regular width.
+    func test_08_searchAtRegularWidth() {
+        launch(["AW_START_TAB": "search"])
+        let field = app.searchFields.firstMatch
+        guard field.waitForExistence(timeout: 12) else { XCTFail("no field"); return }
+        field.tap(); field.typeText("chaplin"); sleep(5)
+        snap("ipad-search-results")
+        let (name, w) = widestControl()
+        print("[AWIPAD] Search: widest control '\(name)' \(Int(w))pt of \(Int(windowWidth))pt")
+        // The filter chips added for the iPhone must not stretch here either.
+        for chip in ["Type", "Era"] {
+            let b = app.buttons[chip].firstMatch
+            if b.exists {
+                print("[AWIPAD] chip \(chip): \(Int(b.frame.width))pt")
+                XCTAssertLessThan(b.frame.width, 300,
+                                  "IPAD-DESIGN §2.2a — the \(chip) chip is stretched")
+            }
+        }
+    }
+
     /// §4.1 — the adaptive grid must actually give a wide screen more columns.
     func test_06_browseGridUsesTheWidth() {
         launch(["AW_START_TAB": "browse"])

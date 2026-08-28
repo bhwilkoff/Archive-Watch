@@ -53,6 +53,28 @@ struct CommunityDetailSection: View {
 
 private struct ReviewCard: View {
     let review: Catalog.Review
+    /// A review was clamped to six lines with no way to read the rest, so a
+    /// long one simply ended mid-sentence (owner, 2026-08-28). Tapping the
+    /// card expands it; the title stays clamped because it is an identifier,
+    /// not the content.
+    @State private var expanded = false
+
+    /// Six lines of `.callout` is roughly this many characters at phone width.
+    /// Only past that can the clamp actually be hiding something, and only
+    /// then is a "More" affordance honest.
+    private var maybeTruncated: Bool { (review.body?.count ?? 0) > 260 }
+
+    /// The review text itself. Selection is iOS/macOS only — tvOS has no text
+    /// selection at all, and reaches the same content by focusing the card.
+    @ViewBuilder private func reviewBody(_ b: String) -> some View {
+        let t = Text(b).font(.callout).foregroundStyle(.secondary)
+            .lineLimit(expanded ? nil : 6)
+        #if os(tvOS)
+        t
+        #else
+        t.textSelection(.enabled)
+        #endif
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
@@ -71,7 +93,23 @@ private struct ReviewCard: View {
                 Spacer(minLength: 0)
             }
             if let b = review.body, !b.isEmpty {
-                Text(b).font(.callout).foregroundStyle(.secondary).lineLimit(6)
+                reviewBody(b)
+                if maybeTruncated {
+                    Button(expanded ? "Show less" : "Show more") {
+                        withAnimation(.easeInOut(duration: 0.2)) { expanded.toggle() }
+                    }
+                    .font(.caption)
+                    // NEVER .plain on tvOS — it destroys focusability, and on
+                    // this screen focusability is the whole point: a card the
+                    // remote can reach is a card the viewer can scroll to and
+                    // read (owner, 2026-08-28).
+                    #if os(tvOS)
+                    .buttonStyle(.borderless)
+                    #else
+                    .buttonStyle(.plain)
+                    .foregroundStyle(Brand.accent)
+                    #endif
+                }
             }
             Text(review.displayName + (review.date.map { " · \($0)" } ?? ""))
                 .font(.caption2).foregroundStyle(.tertiary)
@@ -79,5 +117,17 @@ private struct ReviewCard: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(12)
         .background(.quaternary.opacity(0.4), in: RoundedRectangle(cornerRadius: 10))
+        // The whole card is the target as well as the button — on a phone the
+        // text is what a thumb lands on.
+        #if !os(tvOS)
+        // The whole card is the target as well as the button — on a phone the
+        // text is what a thumb lands on. tvOS has no tap; it uses the button,
+        // which the remote can focus.
+        .contentShape(.rect)
+        .onTapGesture {
+            guard maybeTruncated else { return }
+            withAnimation(.easeInOut(duration: 0.2)) { expanded.toggle() }
+        }
+        #endif
     }
 }

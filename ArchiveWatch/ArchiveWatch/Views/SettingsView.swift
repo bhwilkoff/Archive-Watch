@@ -234,12 +234,22 @@ struct SettingsView: View {
                                                 Color(hex: "#01b4e4") ?? .cyan],
                                        startPoint: .leading, endPoint: .trailing),
                         in: RoundedRectangle(cornerRadius: 8))
-                Text("This product uses the TMDB API but is not endorsed or certified by TMDB.")
+                ReadableTextBlock(
+                    text: "This product uses the TMDB API but is not endorsed or certified by TMDB.",
+                    collapsedLines: nil, dimmed: 1.0)
                     .fixedSize(horizontal: false, vertical: true)
             }
-            Text("Posters, backdrops, cast, and synopses come from The Movie Database (TMDb), with Wikidata, Wikimedia Commons, and the Library of Congress as fallbacks. Films, television, and ephemera are served by the Internet Archive. Every title is public domain or otherwise free to share.")
+            // Focusable so the remote can REACH it. A tvOS ScrollView only
+            // scrolls to focusable views, so attribution sat below the last
+            // focusable row and could not be brought on screen — the donate
+            // row below was added as a "bottom anchor" to compensate, which
+            // is a workaround for text that should simply be reachable
+            // (owner, 2026-08-28: everything should be viewable, even without
+            // a toggle to flip).
+            ReadableTextBlock(
+                text: "Posters, backdrops, cast, and synopses come from The Movie Database (TMDb), with Wikidata, Wikimedia Commons, and the Library of Congress as fallbacks. Films, television, and ephemera are served by the Internet Archive. Every title is public domain or otherwise free to share.",
+                collapsedLines: nil, dimmed: 0.6)
                 .font(.callout)
-                .foregroundStyle(.white.opacity(0.6))
                 .fixedSize(horizontal: false, vertical: true)
         } header: {
             Text("Sources & Attribution")
