@@ -75,6 +75,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.collectAsState
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.Arrangement
+import androidx.glance.appwidget.updateAll
 import app.archivewatch.android.ui.tv.TvDims
 import app.archivewatch.android.ui.tv.tvPlaybackKeys
 import kotlinx.coroutines.delay
@@ -278,6 +279,10 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 // made resume work all along).
                 container.scope.launch {
                     container.userState.saveProgress(id, position, duration)
+                    runCatching {
+                        app.archivewatch.android.widgets.ContinueWatchingWidget()
+                            .updateAll(context)
+                    }
                     // Google TV launcher row (PARITY §8): the viewer's own
                     // resume state, nothing else (TV-DESIGN §1.4). Finished
                     // films leave the row.

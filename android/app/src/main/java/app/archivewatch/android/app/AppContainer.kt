@@ -6,6 +6,7 @@ import app.archivewatch.android.data.CatalogRepository
 import app.archivewatch.android.data.ClipExporter
 import app.archivewatch.android.data.EditorialRepository
 import app.archivewatch.android.data.SettingsStore
+import app.archivewatch.android.data.SubtitleAccountStore
 import app.archivewatch.android.data.UserStateStore
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
@@ -50,6 +51,7 @@ class AppContainer(private val application: Application) {
     }
 
     val settings = SettingsStore(application)
+    val subtitleAccount = SubtitleAccountStore(application)
     val userState = UserStateStore(application)
     val catalog = CatalogRepository(application, okHttp, json)
     val editorial = EditorialRepository(application, okHttp, json)

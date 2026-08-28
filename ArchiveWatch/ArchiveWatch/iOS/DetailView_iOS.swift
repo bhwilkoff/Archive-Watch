@@ -12,6 +12,7 @@ struct DetailView: View {
     @Environment(\.modelContext) private var ctx
     @Query private var favorites: [Favorite]
     @State private var playing = false
+    @State private var isWatchedState = false
     @State private var versions: [ArchiveVersions.Version] = []
     @State private var loadingVersions = false
     @State private var chosenVersionName: String?
@@ -57,6 +58,29 @@ struct DetailView: View {
                         Button { addingToPlaylist = true } label: {
                             Image(systemName: "text.badge.plus")
                                 .accessibilityLabel("Add to playlist")
+                        }
+                        .buttonStyle(.bordered)
+
+                        // Watched is a badge on tiles; this is where the viewer
+                        // corrects it (tvOS parity — a film abandoned near the
+                        // end reads as finished, one seen elsewhere never
+                        // registers at all).
+                        Button {
+                            if WatchProgress.setWatched(
+                                !isWatchedState, in: ctx, archiveID: item.archiveID) {
+                                isWatchedState.toggle()
+                            }
+                            SyncNudge.nudge(ctx)
+                            if isWatchedState {
+                                store.completedArchiveIDs.insert(item.archiveID)
+                            } else {
+                                store.completedArchiveIDs.remove(item.archiveID)
+                            }
+                        } label: {
+                            Image(systemName: isWatchedState
+                                  ? "checkmark.circle.fill" : "checkmark.circle")
+                                .accessibilityLabel(isWatchedState
+                                    ? "Mark as not watched" : "Mark as watched")
                         }
                         .buttonStyle(.bordered)
 
@@ -192,6 +216,10 @@ struct DetailView: View {
         }
         // Dev affordance (with AW_START_ITEM): start playback immediately so
         // playback diagnostics can run unattended on the simulator.
+        .task(id: item.archiveID) {
+            isWatchedState = store.completedArchiveIDs.contains(item.archiveID)
+                || WatchProgress.isWatched(archiveID: item.archiveID, in: ctx)
+        }
         .task {
             if ProcessInfo.processInfo.environment["AW_AUTOPLAY"] == "1",
                item.videoURLParsed != nil {

@@ -14,6 +14,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -26,6 +28,9 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -146,6 +151,8 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
             HorizontalDivider(Modifier.padding(vertical = 16.dp))
 
             SectionLabel("Subtitles")
+            OpenSubtitlesSection(container)
+
             // Android's prong is discoverability, not engineering. There is no
             // public API to transcribe a FILE — createOnDeviceSpeechRecognizer
             // is a microphone pipeline — but the system's Live Caption already
@@ -339,4 +346,86 @@ private fun ToggleRow(
         }
         Switch(checked = checked, onCheckedChange = onCheckedChange)
     }
+}
+
+/**
+ * The viewer's OpenSubtitles account (iOS SubtitleAccountSection parity).
+ * Username + password only — the API key ships in the build, and the
+ * download allowance follows THEIR account, so the number shown is the
+ * API's own answer, never our guess.
+ */
+@Composable
+private fun OpenSubtitlesSection(container: AppContainer) {
+    val scope = rememberCoroutineScope()
+    var connected by remember { mutableStateOf(container.subtitleAccount.isConnected) }
+    var username by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+    var working by remember { mutableStateOf(false) }
+    var error by remember { mutableStateOf<String?>(null) }
+
+    if (!app.archivewatch.android.data.OpenSubtitlesClient.isAvailable) return
+
+    if (connected) {
+        Text(
+            "OpenSubtitles: " + (container.subtitleAccount.username ?: ""),
+            style = MaterialTheme.typography.bodyLarge,
+        )
+        val allowed = container.subtitleAccount.quotaAllowed
+        if (allowed > 0) {
+            Text(
+                "Downloads today: " +
+                    (allowed - container.subtitleAccount.quotaRemaining) + " of " + allowed + " used",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        TextButton(onClick = {
+            container.subtitleAccount.disconnect(); connected = false
+        }) { Text("Disconnect OpenSubtitles") }
+    } else {
+        Text(
+            "Connect a free OpenSubtitles account to find subtitles for films " +
+                "that don't have them. Your daily allowance is your own.",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        OutlinedTextField(
+            value = username, onValueChange = { username = it },
+            label = { Text("OpenSubtitles username (not your email)") },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+        )
+        OutlinedTextField(
+            value = password, onValueChange = { password = it },
+            label = { Text("Password") },
+            singleLine = true,
+            visualTransformation = androidx.compose.ui.text.input.PasswordVisualTransformation(),
+            modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+        )
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            TextButton(
+                enabled = username.isNotBlank() && password.isNotBlank() && !working,
+                onClick = {
+                    working = true; error = null
+                    scope.launch {
+                        try {
+                            container.subtitleAccount.connect(username, password)
+                            connected = true; password = ""
+                        } catch (e: Exception) {
+                            error = e.message
+                        }
+                        working = false
+                    }
+                },
+            ) { Text(if (working) "Connecting…" else "Connect") }
+            TextButton(onClick = {
+                // create-account door, in the browser
+            }) { }
+        }
+        error?.let {
+            Text(it, style = MaterialTheme.typography.bodySmall,
+                 color = MaterialTheme.colorScheme.error)
+        }
+    }
+    HorizontalDivider(Modifier.padding(vertical = 12.dp))
 }

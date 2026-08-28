@@ -117,6 +117,14 @@ final class WatchProgress {
     /// separate list (owner, 2026-08-17), the viewer needs a way to correct it,
     /// so this is the same durable `everCompleted` flag the sync merges as a
     /// union — never a second source of truth.
+    /// The durable watched state for one title (everCompleted OR >=95%).
+    static func isWatched(archiveID: String, in ctx: ModelContext) -> Bool {
+        let d = FetchDescriptor<WatchProgress>(
+            predicate: #Predicate<WatchProgress> { $0.archiveID == archiveID })
+        guard let r = try? ctx.fetch(d).first else { return false }
+        return (r.everCompleted ?? false) || r.isComplete
+    }
+
     @discardableResult
     static func setWatched(_ watched: Bool, in ctx: ModelContext,
                            archiveID: String) -> Bool {

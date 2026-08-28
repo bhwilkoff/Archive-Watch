@@ -50,6 +50,7 @@ data class CatalogItem(
     val numFavorites: Int? = null,
     val avgRating: Double? = null,
     val imdbRating: Double? = null,
+    val imdbID: String? = null,
     val numReviews: Int? = null,
     val viewsAllTime: Int? = null,
     val views30d: Int? = null,

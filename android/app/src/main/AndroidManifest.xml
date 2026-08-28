@@ -97,6 +97,40 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+        <!-- Home-screen widgets (the iOS WidgetKit suite's analogue). -->
+        <receiver
+            android:name="app.archivewatch.android.widgets.ContinueWatchingWidgetReceiver"
+            android:exported="true"
+            android:label="Continue Watching">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_continue" />
+        </receiver>
+        <receiver
+            android:name="app.archivewatch.android.widgets.PickOfDayWidgetReceiver"
+            android:exported="true"
+            android:label="Pick of the Day">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_pick" />
+        </receiver>
+        <receiver
+            android:name="app.archivewatch.android.widgets.SurpriseWidgetReceiver"
+            android:exported="true"
+            android:label="Surprise Me">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_surprise" />
+        </receiver>
     </application>
 
     <queries>

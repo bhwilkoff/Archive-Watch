@@ -57,10 +57,10 @@ android {
         targetSdk = 36
         // Play rejects ANY previously-uploaded versionCode — bump +1 before
         // every Play upload, even if that upload was never released.
-        versionCode = 39
+        versionCode = 40
         // Marketing version tracks the Apple apps (AppVersion.xcconfig) so a
         // user report names one version family across platforms.
-        versionName = "1.3.472"
+        versionName = "1.3.473"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables { useSupportLibrary = true }
@@ -78,6 +78,14 @@ android {
         buildConfigField(
             "String", "AW_GOOGLE_SERVER_CLIENT_ID",
             "\"${providers.gradleProperty("awGoogleServerClientId").orNull ?: ""}\"",
+        )
+        // OpenSubtitles shared API key (the download QUOTA follows the
+        // viewer's own account; this key only carries request rate). Local:
+        // ~/.gradle/gradle.properties; CI: the OPENSUBTITLES_API_KEY secret.
+        buildConfigField(
+            "String", "OPENSUBTITLES_API_KEY",
+            "\"${providers.gradleProperty("awOpenSubtitlesApiKey").orNull
+                ?: System.getenv("OPENSUBTITLES_API_KEY") ?: ""}\"",
         )
     }
 
@@ -172,6 +180,10 @@ dependencies {
     // QR generation for the TV Share overlay (the tvOS ShareSheet QR,
     // PARITY §4). zxing:core is Apache-2, dependency-free, and tiny.
     implementation("com.google.zxing:core:3.5.3")
+    // Keychain analogue for the OpenSubtitles credentials.
+    implementation("androidx.security:security-crypto:1.1.0-alpha06")
+    // Home-screen widgets (the iOS WidgetKit suite's analogue, PARITY §8).
+    implementation("androidx.glance:glance-appwidget:1.1.1")
     // Google TV Watch Next (home-screen Continue Watching, PARITY §8)
     implementation("androidx.tvprovider:tvprovider:1.0.0")
 

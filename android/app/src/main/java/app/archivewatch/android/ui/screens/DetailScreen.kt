@@ -39,6 +39,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.TextButton
 import app.archivewatch.android.data.UserPlaylist
 import androidx.compose.material.icons.filled.ContentCut
+import androidx.compose.material.icons.filled.ClosedCaption
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -104,6 +105,7 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
     var watched by remember { mutableStateOf(false) }
     var showVersions by remember { mutableStateOf(false) }
     var showOverflow by remember { mutableStateOf(false) }
+    var showGetSubs by remember { mutableStateOf(false) }
     var showPlaylists by remember { mutableStateOf(false) }
     LaunchedEffect(archiveID) {
         favorite = container.userState.isFavorite(archiveID)
@@ -202,6 +204,9 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
             if (showVersions) {
                 VersionSheet(current.archiveID) { showVersions = false }
             }
+            if (showGetSubs) {
+                GetSubtitlesSheet(container, current) { showGetSubs = false }
+            }
             Row(
                 Modifier
                     .padding(vertical = 12.dp)
@@ -275,6 +280,17 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 // tvOS Detail parity: every playable copy, viewer-choosable.
                 IconButton(onClick = { showVersions = true }) {
                     Icon(Icons.Default.Tune, contentDescription = "Choose a copy")
+                }
+                // iOS parity: per-film OpenSubtitles search (BYO account) for
+                // films that ship no subtitle track. IMDb-id matched, never
+                // title (Decision 026's failure class).
+                if (current.captions.isNullOrEmpty() && current.imdbID != null &&
+                    current.downloadURL != null &&
+                    app.archivewatch.android.data.OpenSubtitlesClient.isAvailable
+                ) {
+                    IconButton(onClick = { showGetSubs = true }) {
+                        Icon(Icons.Default.ClosedCaption, contentDescription = "Get subtitles")
+                    }
                 }
                 // Create (Clip Studio) — rights-gated (CREATE-STUDIO-PLAN §2).
                 // Hidden, not disabled, when the item isn't clippable.
@@ -618,6 +634,83 @@ private fun VersionSheet(archiveID: String, onDone: () -> Unit) {
                 }
             }
             Spacer(Modifier.height(24.dp))
+        }
+    }
+}
+
+/**
+ * Per-film OpenSubtitles search (the iOS GetSubtitlesView, phone-native).
+ * One tap: search by IMDb id, download the crowd's best English track, and
+ * it rides the next playback as a normal subtitle option.
+ */
+@OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
+@Composable
+private fun GetSubtitlesSheet(
+    container: AppContainer,
+    item: CatalogItem,
+    onDone: () -> Unit,
+) {
+    val context = androidx.compose.ui.platform.LocalContext.current
+    val scope = rememberCoroutineScope()
+    var working by remember { mutableStateOf(false) }
+    var status by remember { mutableStateOf<String?>(null) }
+    var have by remember {
+        mutableStateOf(app.archivewatch.android.data.OpenSubtitlesClient.cachedVTT(context, item.archiveID) != null)
+    }
+    androidx.compose.material3.ModalBottomSheet(onDismissRequest = onDone) {
+        Column(Modifier.padding(horizontal = 20.dp, vertical = 4.dp)) {
+            Text("Get subtitles", style = MaterialTheme.typography.titleMedium)
+            Text(
+                "This film has no subtitle track. Search OpenSubtitles with your " +
+                    "own account — the best English match downloads to this device " +
+                    "and appears as a subtitle option when you play.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 4.dp, bottom = 12.dp),
+            )
+            when {
+                have -> {
+                    Text("Subtitles are ready — they'll appear when you play.",
+                        style = MaterialTheme.typography.bodyMedium)
+                    TextButton(onClick = {
+                        app.archivewatch.android.data.OpenSubtitlesClient
+                            .cachedVTT(context, item.archiveID)?.delete()
+                        have = false
+                    }) { Text("Remove downloaded subtitles") }
+                }
+                !container.subtitleAccount.isConnected -> {
+                    Text(
+                        "Connect your free OpenSubtitles account in Settings first — " +
+                            "the download allowance is your own, not shared.",
+                        style = MaterialTheme.typography.bodyMedium,
+                    )
+                }
+                else -> {
+                    androidx.compose.material3.Button(
+                        enabled = !working,
+                        onClick = {
+                            working = true; status = null
+                            scope.launch {
+                                try {
+                                    val token = container.subtitleAccount.token()
+                                    app.archivewatch.android.data.OpenSubtitlesClient.fetchVTT(
+                                        context, item.imdbID!!, token, item.archiveID)
+                                    have = true
+                                } catch (e: Exception) {
+                                    status = e.message
+                                }
+                                working = false
+                            }
+                        },
+                    ) { Text(if (working) "Searching…" else "Find subtitles") }
+                    status?.let {
+                        Text(it, style = MaterialTheme.typography.bodySmall,
+                             color = MaterialTheme.colorScheme.error,
+                             modifier = Modifier.padding(top = 8.dp))
+                    }
+                }
+            }
+            Spacer(Modifier.height(28.dp))
         }
     }
 }

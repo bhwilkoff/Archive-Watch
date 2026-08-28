@@ -3,4 +3,7 @@
     <string name="app_name">Archive Watch</string>
     <string name="shortcut_surprise">Surprise me</string>
     <string name="shortcut_channels">Channels</string>
+    <string name="widget_continue_desc">Pick up the film you were watching.</string>
+    <string name="widget_surprise_desc">One tap, one random film from the archive.</string>
+    <string name="widget_pick_desc">A new hand-picked film every day.</string>
 </resources>
