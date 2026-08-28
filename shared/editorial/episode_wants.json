@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-08-27T14:49:32Z",
+  "updated_at": "2026-08-28T16:02:44Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18051,
-    "wanted": 17829,
+    "total": 18056,
+    "wanted": 17834,
     "fulfilled": 222,
     "series_with_gaps": 359
   },
@@ -116152,6 +116152,56 @@
       "episodeImdbID": "tt26764475",
       "status": "wanted",
       "added_at": "2026-08-09T05:07:22Z"
+    },
+    {
+      "seriesID": "south-park-1997",
+      "seriesTitle": "South Park",
+      "season": 29,
+      "episode": 2,
+      "title": "Episode #29.2",
+      "episodeImdbID": "tt42834558",
+      "status": "wanted",
+      "added_at": "2026-08-28T16:02:44Z"
+    },
+    {
+      "seriesID": "south-park-1997",
+      "seriesTitle": "South Park",
+      "season": 29,
+      "episode": 3,
+      "title": "Episode #29.3",
+      "episodeImdbID": "tt42834563",
+      "status": "wanted",
+      "added_at": "2026-08-28T16:02:44Z"
+    },
+    {
+      "seriesID": "south-park-1997",
+      "seriesTitle": "South Park",
+      "season": 29,
+      "episode": 4,
+      "title": "Episode #29.4",
+      "episodeImdbID": "tt42834573",
+      "status": "wanted",
+      "added_at": "2026-08-28T16:02:44Z"
+    },
+    {
+      "seriesID": "south-park-1997",
+      "seriesTitle": "South Park",
+      "season": 29,
+      "episode": 5,
+      "title": "Episode #29.5",
+      "episodeImdbID": "tt42834578",
+      "status": "wanted",
+      "added_at": "2026-08-28T16:02:44Z"
+    },
+    {
+      "seriesID": "south-park-1997",
+      "seriesTitle": "South Park",
+      "season": 29,
+      "episode": 6,
+      "title": "Episode #29.6",
+      "episodeImdbID": "tt42834581",
+      "status": "wanted",
+      "added_at": "2026-08-28T16:02:44Z"
     },
     {
       "seriesID": "space-1999-1975",
