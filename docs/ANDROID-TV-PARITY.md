@@ -93,11 +93,11 @@ reachability, emulator-era).
 | tvOS element | Android TV state | Tier | Status |
 |---|---|---|---|
 | EPG guide (proportional blocks, ruler, now-line) | renders (cold repro: full guide at 30s) | T1 | VERIFIED — after **FIX #1** (see fix log) |
-| Tune-in joins in progress + commercials woven | | | PENDING |
+| Tune-in joins in progress + commercials woven | tuned The Manchurian Candidate at 41:52 (startAt honored); commercials weave = T2 (scheduler shared) | T1 | VERIFIED |
 | Full-day schedule per channel | | | PENDING |
 | Create user channel | phone dialog — reachable/operable by D-pad? | | PENDING |
 | Delete user channel (tombstone) | phone long-press — works with remote? | | PENDING |
-| Channel playback never persists progress (ephemeralLineup) | verify PlaySpec.persistProgress=false on TV path | T2 | PENDING |
+| Channel playback never persists progress (ephemeralLineup) | dispose log: `persist=false` on a channel tune-in | T1 | VERIFIED |
 | Commercial break length cap (Settings) | | | PENDING |
 
 ### 5. Cartoons / Kids mode
@@ -133,16 +133,16 @@ reachability, emulator-era).
 ### 11. Surprise
 | tvOS element | Android TV state | Tier | Status |
 |---|---|---|---|
-| Re-rollable tiles grid (11 kinds on tvOS) | Route.Surprise from rail | T2 | PENDING (verify tile SET parity) |
+| Re-rollable tiles grid (11 kinds on tvOS) | shared grid resolves random picks (Sunrise, Don Quixote 1915, …) + Re-roll + Cartoons door; shell focus claim makes it D-pad-operable (recorded as the PARITY §8b idiom) | T1 | VERIFIED |
 | Random Film playable-only guard | | | PENDING |
 
 ### 12. Settings
 | tvOS element | Android TV state | Tier | Status |
 |---|---|---|---|
-| Mature filter (D012) | phone Settings screen via rail push — D-pad operable? | | PENDING |
-| Category visibility toggles | | | PENDING |
-| Hide-watched toggle | | | PENDING |
-| Autoplay mode | phone marked 🚧 in PARITY | | PENDING |
+| Mature filter (D012) | row present, focus-claimed screen | T1 | VERIFIED (presence; toggle flip left untested to avoid catalog flip mid-audit) |
+| Category visibility toggles | NOT on Android Settings (phone parity row also absent) | T2 | GAP (cross-platform, not TV-specific) |
+| Hide-watched toggle | row present | T1 | VERIFIED (presence) |
+| Autoplay mode | "Autoplay next" row present | T1 | VERIFIED (presence) |
 | Commercial break cap | | | PENDING |
 | TMDb attribution (D007) + donate (D010) | | | PENDING |
 | Subtitles: OpenSubtitles account + Get Subtitles | phone has SubtitleAccountSection twin? | | PENDING |
@@ -258,3 +258,8 @@ Candidate adoptions, each to be dispositioned (adopt / reject with reason):
   interaction shows, fades 4s after real playback, Back dismisses then
   exits). Verified: overlay-up-on-key, two-stage Back, dispose log, insert
   log. (c) fade now waits out slow archive starts.
+- Tick 8 (2026-08-27): sweeps — Settings rows on glass (mature/hide-watched/
+  autoplay/Live Caption/attribution), Surprise grid resolves + Re-roll,
+  Channels tune-in VERIFIED (join at 41:52, audio live, `persist=false` in
+  the dispose log — the tvOS-audit-fix-#2 invariant holding on this
+  platform). Episode binge deferred to next tick.
