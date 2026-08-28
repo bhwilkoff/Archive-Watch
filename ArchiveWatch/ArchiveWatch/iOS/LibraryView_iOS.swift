@@ -22,11 +22,19 @@ struct LibraryView: View {
 
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
 
+    // IPAD-DESIGN §1.2: size class, never a device check.
+    @Environment(\.horizontalSizeClass) private var hSize
+
     var body: some View {
         VStack(spacing: 0) {
             Picker("", selection: $section) {
                 ForEach(Section.allCases) { Text($0.title).tag($0) }
-            }.pickerStyle(.segmented).padding()
+            }
+            .pickerStyle(.segmented)
+            // IPAD-DESIGN §2.2a — see BrowseView for the measurement.
+            .frame(maxWidth: hSize == .regular ? 560 : .infinity, alignment: .leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding()
 
             switch section {
             case .favorites: grid(store.itemsByIDs(favorites.map(\.archiveID)),

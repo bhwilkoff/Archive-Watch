@@ -38,12 +38,20 @@ struct BrowseView: View {
         ("Animation", "animation"), ("Shorts", "short-film"),
         ("Newsreels", "newsreel"), ("Documentary", "documentary"), ("Ephemera", "ephemeral")]
 
+    // IPAD-DESIGN §1.2: size class, never a device check.
+    @Environment(\.horizontalSizeClass) private var hSize
+
     var body: some View {
         VStack(spacing: 0) {
             Picker("Scope", selection: $scope) {
                 ForEach(Scope.allCases) { Text($0.rawValue).tag($0) }
             }
             .pickerStyle(.segmented)
+            // IPAD-DESIGN §2.2a: a scope selector is capped at 560pt on a
+            // regular-width screen. Stretched across 1046pt it gave a
+            // one-word label a 260pt segment.
+            .frame(maxWidth: hSize == .regular ? 560 : .infinity, alignment: .leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal).padding(.bottom, 8)
 
             switch scope {

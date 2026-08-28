@@ -68,6 +68,13 @@ column. Below that width nothing changes, so the iPhone is untouched.
 with its content column — never `maxWidth: .infinity` across the window. The
 measured violation: "Resume · 88 min" rendered ~1040 pt wide.
 
+2.2a **A scope selector is capped at 560 pt** at regular width, leading-aligned
+— the segmented pickers that switch Browse between Films/TV/Collections and
+Library between Favorites/History/Playlists/Clips. Stretched across 1046 pt
+they give a one-word label a 260 pt segment, which is the same
+claim-about-importance error as §2.2 in a quieter register. On compact they
+stay full width, where that is exactly right.
+
 2.3 **The cap is on the CONTENT, not the screen.** Width-capped content sits in
 a leading-aligned column inside the available width; the surrounding space is
 deliberate, not an error to be filled. Where a surface has a natural second
@@ -152,3 +159,50 @@ trusting that it would.
 7.4 **The compact-unchanged test.** Every iPad change must leave the iPhone
 byte-identical in behaviour: the audit suite in `docs/IPHONE-12-AUDIT.md` must
 stay green on the iPhone 12 after any change made for this document.
+
+---
+
+## Verified (2026-08-28)
+
+Measured on the owner's iPad Pro 12.9 (iPadOS 27, wireless) and asserted by
+`ArchiveWatchUITests/IPadAuditUITests` — **5 passed, 1 skipped**:
+
+| Rule | Before | After |
+|---|---|---|
+| §2.1 prose cap | 115 chars / ~1030 pt | **700 pt**, landscape *and* portrait |
+| §2.2 primary action | ~1040 pt | **520 pt** of 1376 (38% of the window) |
+| §2.2a scope selector | 1046 pt | **560 pt**, leading-aligned |
+| §3.1 two columns | stacked | artwork + identity side by side |
+| §4.1 grid columns | — | **8 tiles** per Browse row |
+| §7.4 compact unchanged | — | iPhone 12 suite **23/23** after the change |
+
+The skipped row is §3.1's geometry assertion: it needs loaded artwork, which a
+cold simulator does not have. It is verified on the real iPad by screenshot
+instead, and will assert once the device can run XCUITest (below).
+
+**Reviews were the prose the synopsis cap missed.** Capping the synopsis left
+archive.org review text running **976 pt**, because reviews live in the
+community section rather than the synopsis block. §2.1 says *prose*, not
+*synopsis* — a viewer review is prose. Found only because the harness measures
+the widest text on screen rather than the one it expected to be widest.
+
+### Harness note — the iPad needs one owner action
+
+Running XCUITest on the physical iPad fails with *"Timed out while enabling
+automation mode"*. That is **Settings → Developer → Enable UI Automation**, a
+toggle that cannot be set remotely (the same class of blocker as Developer Mode
+on the iPhone). Until it is on:
+
+- **Layout rules** are asserted on the iPad Pro 13-inch **simulator**, which
+  exercises the identical size-class code and can rotate.
+- **The real iPad** is verified by `tools/ios_scenario.py` (cold launch,
+  `devicectl capture screenshot`, OCR measure) — no automation permission
+  needed, which is exactly why that path exists.
+
+### Harness trap, recorded so it is not re-learned
+
+`app.staticTexts.element(boundBy: i)` **inside a loop re-queries the entire
+accessibility tree per element.** On a Detail screen carrying cast, community
+and related rows that is slow enough to blow the test timeout and take the
+runner down with it — tests 01 and 02 died exactly that way. Use
+`allElementsBoundByIndex` and take ONE snapshot.

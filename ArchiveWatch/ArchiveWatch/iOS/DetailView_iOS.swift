@@ -227,7 +227,13 @@ struct DetailView: View {
                     CastRow(cast: item.cast, director: item.director,
                             directorProfilePath: item.directorProfilePath)
                 }
+                // A viewer review is PROSE, so §2.1's measure cap applies to
+                // it exactly as it does to the synopsis — reviews ran 976pt on
+                // a 13-inch screen, which the synopsis cap alone never touched
+                // because they live here rather than in proseBlock.
                 CommunityDetailSection(item: item)
+                    .frame(maxWidth: hSize == .regular ? 700 : .infinity,
+                           alignment: .leading)
                 relatedSection
     }
 
