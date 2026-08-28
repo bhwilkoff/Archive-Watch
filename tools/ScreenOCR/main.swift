@@ -9,7 +9,9 @@ import Foundation
 import Vision
 import AppKit
 
-struct Line: Codable { let text: String; let x: Double; let y: Double; let h: Double }
+// `w` lets a caller judge CLIPPING: a line whose box runs to the frame edge
+// is text the layout could not fit, which no self-report ever reveals.
+struct Line: Codable { let text: String; let x: Double; let y: Double; let h: Double; let w: Double }
 struct Result: Codable {
     let file: String
     let captionRegion: [String]   // bottom 30% of the frame, top-to-bottom
@@ -31,7 +33,7 @@ for path in CommandLine.arguments.dropFirst() {
     for obs in request.results ?? [] {
         guard let top = obs.topCandidates(1).first else { continue }
         let b = obs.boundingBox   // normalized, origin bottom-left
-        lines.append(Line(text: top.string, x: b.origin.x, y: b.origin.y, h: b.height))
+        lines.append(Line(text: top.string, x: b.origin.x, y: b.origin.y, h: b.height, w: b.width))
     }
     // Caption region: bottom 30% of the frame (y < 0.30 in Vision's
     // bottom-origin coordinates), sorted top-to-bottom.

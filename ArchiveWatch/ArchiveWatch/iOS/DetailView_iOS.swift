@@ -24,6 +24,124 @@ struct DetailView: View {
 
     private var isFav: Bool { favorites.contains { $0.archiveID == item.archiveID } }
 
+    /// The Detail action row's buttons, shared by both ViewThatFits branches
+    /// so the plain and scrolling rows can never drift apart.
+    @ViewBuilder private var actionButtons: some View {
+                    Button { toggleFavorite() } label: {
+                        Image(systemName: isFav ? "heart.fill" : "heart")
+                    }
+                    .buttonStyle(.bordered)
+
+                    Button { addingToPlaylist = true } label: {
+                        Image(systemName: "text.badge.plus")
+                            .accessibilityLabel("Add to playlist")
+                    }
+                    .buttonStyle(.bordered)
+
+                    // Watched is a badge on tiles; this is where the viewer
+                    // corrects it (tvOS parity — a film abandoned near the
+                    // end reads as finished, one seen elsewhere never
+                    // registers at all).
+                    Button {
+                        if WatchProgress.setWatched(
+                            !isWatchedState, in: ctx, archiveID: item.archiveID) {
+                            isWatchedState.toggle()
+                        }
+                        SyncNudge.nudge(ctx)
+                        if isWatchedState {
+                            store.completedArchiveIDs.insert(item.archiveID)
+                        } else {
+                            store.completedArchiveIDs.remove(item.archiveID)
+                        }
+                    } label: {
+                        Image(systemName: isWatchedState
+                              ? "checkmark.circle.fill" : "checkmark.circle")
+                            .accessibilityLabel(isWatchedState
+                                ? "Mark as not watched" : "Mark as watched")
+                    }
+                    .buttonStyle(.bordered)
+
+                    // Subtitles. This lived inside the share menu, which is
+                    // where nobody looks for subtitles — a viewer who wants
+                    // them looks at the film, not at a share sheet. Now the
+                    // caption-type hub (owner 2026-08-26), it shows for
+                    // every playable title: a film WITH a subtitle file is
+                    // exactly where choosing File vs Automatic matters.
+                    if item.videoURLParsed != nil {
+                        Button { gettingSubtitles = true } label: {
+                            Image(systemName: "captions.bubble")
+                                .accessibilityLabel("Get subtitles")
+                        }
+                        .buttonStyle(.bordered)
+                    }
+
+                    // Create: clip / GIF / fan-edit this title (Decision 033).
+                    // Rights-gated — only public-domain / CC content (the
+                    // affordance is hidden, not disabled, when not clippable).
+                    if item.isClippable {
+                        Button { clipping = true } label: {
+                            Image(systemName: "scissors")
+                                .accessibilityLabel("Create a clip or GIF")
+                        }
+                        .buttonStyle(.bordered)
+                    }
+
+                    // Choose which copy of the film to play — the same
+                    // control tvOS has, since a phone on cellular has even
+                    // more reason to want a lighter transfer than a TV on
+                    // wifi does (owner, 2026-08-17).
+                    if item.videoURLParsed != nil {
+                        Menu {
+                            if versions.isEmpty {
+                                Text(loadingVersions ? "Loading…" : "No other copies")
+                            } else {
+                                ForEach(versions) { v in
+                                    Button {
+                                        ArchiveVersions.choose(v, for: item.archiveID)
+                                        chosenVersionName = v.name
+                                    } label: {
+                                        Label(v.label, systemImage:
+                                            chosenVersionName == v.name
+                                                ? "checkmark.circle.fill" : "circle")
+                                    }
+                                }
+                                Button(role: .destructive) {
+                                    ArchiveVersions.choose(nil, for: item.archiveID)
+                                    chosenVersionName = nil
+                                } label: { Label("Use the default copy", systemImage: "arrow.uturn.backward") }
+                            }
+                        } label: {
+                            Image(systemName: "rectangle.stack")
+                        }
+                        .buttonStyle(.bordered)
+                        .tint(chosenVersionName == nil ? nil : .accentColor)
+                        .task {
+                            chosenVersionName = ArchiveVersions.chosenName(for: item.archiveID)
+                            guard versions.isEmpty else { return }
+                            loadingVersions = true
+                            versions = await ArchiveVersions.list(itemID: item.archiveID)
+                            loadingVersions = false
+                        }
+                    }
+
+                    Menu {
+                        if Callsheet.supports(item) {
+                            Button { Callsheet.open(Callsheet.url(for: item)) } label: {
+                                Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
+                            }
+                        }
+                        ShareLink(item: shareURL) {
+                            Label("Share link…", systemImage: "square.and.arrow.up")
+                        }
+                        Link(destination: archiveOrgURL) {
+                            Label("View on archive.org", systemImage: "globe")
+                        }
+                    } label: {
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                    .buttonStyle(.bordered)
+    }
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
@@ -49,121 +167,22 @@ struct DetailView: View {
                     .controlSize(.large)
                     .disabled(item.videoURLParsed == nil)
 
-                    HStack(spacing: 12) {
-                        Button { toggleFavorite() } label: {
-                            Image(systemName: isFav ? "heart.fill" : "heart")
+                    // Seven bordered buttons stopped fitting a 390pt phone, and an
+                    // overflowing HStack does not merely clip itself: it makes the
+                    // whole Detail COLUMN wider than the screen, so the ScrollView
+                    // centres an oversized column and every line of text loses its
+                    // first glyph ("His Girl Friday" drew as "-lis", 1940 as 940 —
+                    // measured on the iPhone 12, 2026-08-28). Tightening the spacing
+                    // would buy one more action; ViewThatFits cannot overflow at all.
+                    ViewThatFits(in: .horizontal) {
+                        HStack(spacing: 12) {
+                            actionButtons
+                            Spacer(minLength: 0)
                         }
-                        .buttonStyle(.bordered)
-
-                        Button { addingToPlaylist = true } label: {
-                            Image(systemName: "text.badge.plus")
-                                .accessibilityLabel("Add to playlist")
+                        ScrollView(.horizontal) {
+                            HStack(spacing: 12) { actionButtons }
                         }
-                        .buttonStyle(.bordered)
-
-                        // Watched is a badge on tiles; this is where the viewer
-                        // corrects it (tvOS parity — a film abandoned near the
-                        // end reads as finished, one seen elsewhere never
-                        // registers at all).
-                        Button {
-                            if WatchProgress.setWatched(
-                                !isWatchedState, in: ctx, archiveID: item.archiveID) {
-                                isWatchedState.toggle()
-                            }
-                            SyncNudge.nudge(ctx)
-                            if isWatchedState {
-                                store.completedArchiveIDs.insert(item.archiveID)
-                            } else {
-                                store.completedArchiveIDs.remove(item.archiveID)
-                            }
-                        } label: {
-                            Image(systemName: isWatchedState
-                                  ? "checkmark.circle.fill" : "checkmark.circle")
-                                .accessibilityLabel(isWatchedState
-                                    ? "Mark as not watched" : "Mark as watched")
-                        }
-                        .buttonStyle(.bordered)
-
-                        // Subtitles. This lived inside the share menu, which is
-                        // where nobody looks for subtitles — a viewer who wants
-                        // them looks at the film, not at a share sheet. Now the
-                        // caption-type hub (owner 2026-08-26), it shows for
-                        // every playable title: a film WITH a subtitle file is
-                        // exactly where choosing File vs Automatic matters.
-                        if item.videoURLParsed != nil {
-                            Button { gettingSubtitles = true } label: {
-                                Image(systemName: "captions.bubble")
-                                    .accessibilityLabel("Get subtitles")
-                            }
-                            .buttonStyle(.bordered)
-                        }
-
-                        // Create: clip / GIF / fan-edit this title (Decision 033).
-                        // Rights-gated — only public-domain / CC content (the
-                        // affordance is hidden, not disabled, when not clippable).
-                        if item.isClippable {
-                            Button { clipping = true } label: {
-                                Image(systemName: "scissors")
-                                    .accessibilityLabel("Create a clip or GIF")
-                            }
-                            .buttonStyle(.bordered)
-                        }
-
-                        // Choose which copy of the film to play — the same
-                        // control tvOS has, since a phone on cellular has even
-                        // more reason to want a lighter transfer than a TV on
-                        // wifi does (owner, 2026-08-17).
-                        if item.videoURLParsed != nil {
-                            Menu {
-                                if versions.isEmpty {
-                                    Text(loadingVersions ? "Loading…" : "No other copies")
-                                } else {
-                                    ForEach(versions) { v in
-                                        Button {
-                                            ArchiveVersions.choose(v, for: item.archiveID)
-                                            chosenVersionName = v.name
-                                        } label: {
-                                            Label(v.label, systemImage:
-                                                chosenVersionName == v.name
-                                                    ? "checkmark.circle.fill" : "circle")
-                                        }
-                                    }
-                                    Button(role: .destructive) {
-                                        ArchiveVersions.choose(nil, for: item.archiveID)
-                                        chosenVersionName = nil
-                                    } label: { Label("Use the default copy", systemImage: "arrow.uturn.backward") }
-                                }
-                            } label: {
-                                Image(systemName: "rectangle.stack")
-                            }
-                            .buttonStyle(.bordered)
-                            .tint(chosenVersionName == nil ? nil : .accentColor)
-                            .task {
-                                chosenVersionName = ArchiveVersions.chosenName(for: item.archiveID)
-                                guard versions.isEmpty else { return }
-                                loadingVersions = true
-                                versions = await ArchiveVersions.list(itemID: item.archiveID)
-                                loadingVersions = false
-                            }
-                        }
-
-                        Menu {
-                            if Callsheet.supports(item) {
-                                Button { Callsheet.open(Callsheet.url(for: item)) } label: {
-                                    Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
-                                }
-                            }
-                            ShareLink(item: shareURL) {
-                                Label("Share link…", systemImage: "square.and.arrow.up")
-                            }
-                            Link(destination: archiveOrgURL) {
-                                Label("View on archive.org", systemImage: "globe")
-                            }
-                        } label: {
-                            Image(systemName: "square.and.arrow.up")
-                        }
-                        .buttonStyle(.bordered)
-                        Spacer(minLength: 0)
+                        .scrollIndicators(.hidden)
                     }
 
                     if let tagline = item.tagline, !tagline.isEmpty {
