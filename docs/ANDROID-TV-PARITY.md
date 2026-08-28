@@ -298,3 +298,20 @@ recorded deferrals below — the only rows a loop cannot close alone:
   episodes in the spine vs 101 in the DB) — pipeline follow-up.
 - **Fire TV** — blocked on the owner's ADB Debugging toggle; takes the
   amazon (zero-GMS) flavor and the same harness.
+
+## Polish pass — 2026-08-28 (owner: "large blocky text / huge selection indicator / persistent overlays")
+
+- **Native type ramp** on every TV surface (hero 36 Medium, headers 18,
+  chips 14, detail 36, synopsis 15/22, rail 20dp icons + 14sp) replacing
+  the 56/32/24 Bold/SemiBold hand-rolled scale.
+- **Native focus grammar**: 1.10 scale + 2.5dp WHITE hairline + quiet
+  lift; accent rings retired; the ring frames the ARTWORK only, caption
+  outside (the native card layout). Verified on both devices.
+- **Player overlay cycle PROVEN on-glass**: no overlay during playback,
+  overlay on pause, gone 4s after resume (OCR three-state check). The
+  "persistent overlay" the owner saw is the shipped vc32; vc36 (in Play
+  review) carries the state-machine fix.
+- Three more literal-dollar artifacts fixed (Browse era chip "${d}s";
+  Channels create-dialog era picker x2).
+- Fire TV runs the identical build (amazon flavor) — Browse capture
+  matches Google TV pixel-for-pixel in grammar.

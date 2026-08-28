@@ -51,21 +51,20 @@ fun TvPosterTile(
     exitLeftTo: FocusRequester? = null,
     onFocused: () -> Unit = {},
 ) {
-    Column(
-        modifier = modifier
-            .width(TvDims.PosterWidth)
-            .tvFocusable(
-                onClick = onClick,
-                focusRequester = focusRequester,
-                onFocused = onFocused,
-                exitLeftTo = exitLeftTo,
-                focusTag = "tile:" + item.title.take(28),
-            ),
-    ) {
+    Column(modifier = modifier.width(TvDims.PosterWidth)) {
+        // Focus lives on the ARTWORK only (the native card grammar): the ring
+        // frames the poster, the caption stays quiet beneath it.
         Box(
             Modifier
                 .fillMaxWidth()
                 .aspectRatio(2f / 3f)
+                .tvFocusable(
+                    onClick = onClick,
+                    focusRequester = focusRequester,
+                    onFocused = onFocused,
+                    exitLeftTo = exitLeftTo,
+                    focusTag = "tile:" + item.title.take(28),
+                )
                 .clip(RoundedCornerShape(10.dp))
                 .background(BrandSurface),
         ) {
@@ -73,10 +72,8 @@ fun TvPosterTile(
         }
         Text(
             item.title,
-            // §4.3 — 24sp is the ten-foot body floor. Tile captions sit at the
-            // floor, never below it.
             fontSize = 15.sp,
-            lineHeight = 28.sp,
+            lineHeight = 20.sp,
             color = Color.White,
             maxLines = 2,
             overflow = TextOverflow.Ellipsis,
