@@ -102,6 +102,12 @@ class MainActivity : ComponentActivity() {
             uri.lastPathSegment?.let { DeepLinks.pendingItem.value = it }
             return
         }
+        if (uri.scheme == "archivewatch" && uri.host == "series") {
+            // tvOS scheme parity: archivewatch://series/{slug} — the catalog's
+            // series card id is "series:<slug>".
+            uri.pathSegments.firstOrNull()?.let { DeepLinks.pendingItem.value = "series:" + it }
+            return
+        }
         if (uri.scheme == "archivewatch" && uri.host in setOf("surprise", "channels")) {
             DeepLinks.pendingAction.value = uri.host
             return

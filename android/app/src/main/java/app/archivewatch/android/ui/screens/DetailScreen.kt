@@ -192,18 +192,27 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 Button(
                     onClick = {
                         current.downloadURL?.let { url ->
-                            nav.push(
-                                Route.Player(
-                                    PlaySpec(
-                                        id = current.archiveID,
-                                        title = current.title,
-                                        description = current.synopsis,
-                                        url = url,
-                                        captions = current.captions ?: emptyList(),
-                                        runtimeSeconds = current.runtimeSeconds,
+                            scope.launch {
+                                // Episode binge queue (same seam as the TV
+                                // Detail; see EditorialRepository).
+                                val binge = if (current.isEpisode && current.seriesID != null) {
+                                    container.editorial.episodeBingeQueue(current.seriesID!!, current.archiveID)
+                                } else null
+                                nav.push(
+                                    Route.Player(
+                                        PlaySpec(
+                                            id = current.archiveID,
+                                            title = current.title,
+                                            description = current.synopsis,
+                                            url = url,
+                                            captions = current.captions ?: emptyList(),
+                                            runtimeSeconds = current.runtimeSeconds,
+                                            queue = binge?.first ?: emptyList(),
+                                            queueIndex = binge?.second ?: 0,
+                                        ),
                                     ),
-                                ),
-                            )
+                                )
+                            }
                         }
                     },
                     enabled = current.downloadURL != null,

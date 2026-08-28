@@ -46,7 +46,9 @@ fun Modifier.tvPlaybackKeys(player: Player, onInteraction: () -> Unit = {}): Mod
             when (ev.key) {
                 Key.DirectionCenter, Key.Enter, Key.NumPadEnter, Key.MediaPlayPause,
                 Key.MediaPlay, Key.MediaPause, Key.DirectionLeft, Key.MediaRewind,
-                Key.DirectionRight, Key.MediaFastForward -> onInteraction()
+                Key.DirectionRight, Key.MediaFastForward,
+                Key.MediaNext, Key.MediaPrevious,
+                Key.MediaSkipForward, Key.MediaSkipBackward -> onInteraction()
                 else -> {}
             }
             when (ev.key) {
@@ -66,6 +68,15 @@ fun Modifier.tvPlaybackKeys(player: Player, onInteraction: () -> Unit = {}): Mod
                     val target = player.currentPosition + SEEK_STEP_MS
                     player.seekTo(if (end > 0) target.coerceAtMost(end) else target)
                     true
+                }
+                // Episode binge (queue playback): the Media3 controller never
+                // shows on TV, so its next/previous buttons are unreachable —
+                // the media keys are the only manual advance a remote has.
+                Key.MediaNext, Key.MediaSkipForward -> {
+                    if (player.hasNextMediaItem()) { player.seekToNextMediaItem(); true } else false
+                }
+                Key.MediaPrevious, Key.MediaSkipBackward -> {
+                    if (player.hasPreviousMediaItem()) { player.seekToPreviousMediaItem(); true } else false
                 }
                 // Back is NOT handled here — §1.7 keeps it sacred, so it falls
                 // through to the route's BackHandler and exits the player.

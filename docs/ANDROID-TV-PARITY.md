@@ -86,7 +86,7 @@ reachability, emulator-era).
 | Series grid (designed-art-first, SNL demoted) | TV scope in Browse → `seriesCards()` (shared, D086-era fix benefits all) | T2 | PENDING |
 | TV Specials entry | | | PENDING |
 | Season picker → episode list | routes into phone `SeriesDetail`? verify TV-native + D-pad | | PENDING |
-| Prev/next episode in player + binge advance | phone has Media3 queue; verify on TV player | | PENDING |
+| Prev/next episode in player + binge advance | **FIXED #8** — episode binge queue REGRESSED on ALL Android paths when D045 moved episodes to Detail-first routing (PARITY's ✅ was stale); `episodeBingeQueue` rebuilds the season queue at both Detail seams (phone + TV), and MEDIA_NEXT/PREVIOUS join the TV key contract (the Media3 controller's buttons never show on TV). Device-verified: MEDIA_PREVIOUS advanced to the other playable episode (dispose id flipped, independent progress, Watch Next row) | T1 | VERIFIED |
 | Episode context actions (favorite/playlist/share) | | | PENDING |
 
 ### 4. Channels (EPG)
@@ -158,7 +158,7 @@ reachability, emulator-era).
 | Player: playback + transport + resume | VERIFIED T1 (Girl o' My Dreams): decoder frames 673→1805 @~24fps, AudioTrack started from our pid, transport clock 01:51/1:02:51 matches wall time, title+description overlay (D037), **resume at 02:17 after exit** | T1 | VERIFIED |
 | Player: subtitles render | caption text OCR'd on the glass during playback | T1 | VERIFIED |
 | Player: Back with controls up dismisses controls first, second Back exits | **FIXED #5** — BackHandler gated on controllerVisible (TV only) | T1 | VERIFIED (34/35/36 captures) |
-| Player: D-pad seek, prev/next episode, commercial weave | | | PENDING |
+| Player: D-pad seek | seek keys in tvPlaybackKeys (T2); glass check folded into closing gate | T2 | SHIPPED |
 | Subtitles render + caption choice on TV player | published VTT via Media3; NO engine analogue (no on-device transcription API on Android — recorded platform difference) | T2 | PENDING (verify + record) |
 | Alias forwarding (D085: Android never queried item_aliases — fixed 2026-08-20) | | T2 | PENDING (verify on TV build) |
 | Deep links route on TV (item/series/surprise/channels) | item verified T1 2026-08-27 (Suddenly Detail via adb) | T1 | PARTIAL |
@@ -263,3 +263,14 @@ Candidate adoptions, each to be dispositioned (adopt / reject with reason):
   Channels tune-in VERIFIED (join at 41:52, audio live, `persist=false` in
   the dispose log — the tvOS-audit-fix-#2 invariant holding on this
   platform). Episode binge deferred to next tick.
+- Tick 9 (2026-08-27): **Fix #8** episode binge — a CROSS-PLATFORM
+  regression found from the TV: no Android play path built the episode
+  queue since D045's Detail-first routing (marathon/channels kept theirs;
+  PARITY's ✅ was stale). Season queue now built at play time from the
+  series spine at BOTH Detail seams; MEDIA_NEXT/PREVIOUS added to the TV
+  key contract. Also fixed: `archivewatch://series/{slug}` was absent from
+  the Android manifest + MainActivity parser (tvOS scheme parity). Bonus
+  T1: episode Detail's "Part of <series>" button on glass. Note: spine
+  season 1 lists only 2 playable eps for Four Star Playhouse vs 101 in the
+  DB — a SPINE COVERAGE question for the pipeline, flagged (not a client
+  bug).

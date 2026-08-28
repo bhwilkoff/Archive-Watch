@@ -59,6 +59,43 @@ class EditorialRepository(
      * seriesID slugs can contain non-ASCII — percent-encode the path
      * component or the fetch 404s (contract §6.3, real iOS bug).
      */
+    /**
+     * The season binge queue for an episode (auto-advance + manual next/prev).
+     * Rebuilt from the series spine at play time: the season's playable
+     * episodes in order, with the pressed episode as the start index. Null
+     * when the episode can't anchor a queue (not found, or alone) — the
+     * caller then plays the single item exactly as before. Regression note:
+     * PARITY recorded episode binge as shipped, but the Decision-045 move to
+     * Detail-first episode routing dropped the queue on EVERY Android play
+     * path (measured on the Google TV, 2026-08-27) — this restores it for
+     * phone and TV both.
+     */
+    suspend fun episodeBingeQueue(
+        seriesSlug: String,
+        episodeArchiveID: String,
+    ): Pair<List<QueueEntry>, Int>? {
+        val s = series(seriesSlug) ?: return null
+        val season = s.seasons.find { se ->
+            se.episodes.any { it.archiveID == episodeArchiveID }
+        } ?: return null
+        val entries = season.episodes.filter { it.downloadURL != null }.map { e ->
+            val label = listOfNotNull(
+                e.seasonNumber?.let { sn ->
+                    e.episodeNumber?.let { en -> "S%02dE%02d".format(sn, en) }
+                },
+                e.title,
+            ).joinToString(" · ").ifBlank { s.title }
+            QueueEntry(
+                id = e.archiveID ?: e.downloadURL!!,
+                title = s.title,
+                subtitle = label,
+                url = e.downloadURL!!,
+            )
+        }
+        val idx = entries.indexOfFirst { it.id == episodeArchiveID }
+        return if (idx >= 0 && entries.size > 1) entries to idx else null
+    }
+
     suspend fun series(slug: String): SeriesDetail? {
         seriesCache[slug]?.let { return it }
         return withContext(Dispatchers.IO) {

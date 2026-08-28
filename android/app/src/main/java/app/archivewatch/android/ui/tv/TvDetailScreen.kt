@@ -180,18 +180,27 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     accent = current.accentColor,
                 ) {
                     current.downloadURL?.let { url ->
-                        nav.push(
-                            Route.Player(
-                                PlaySpec(
-                                    id = current.archiveID,
-                                    title = current.title,
-                                    description = current.synopsis,
-                                    url = url,
-                                    captions = current.captions ?: emptyList(),
-                                    runtimeSeconds = current.runtimeSeconds,
+                        scope.launch {
+                            // Episode binge: the season queue rides the spec
+                            // (auto-advance + the MEDIA_NEXT/PREVIOUS keys).
+                            val binge = if (current.isEpisode && current.seriesID != null) {
+                                container.editorial.episodeBingeQueue(current.seriesID!!, current.archiveID)
+                            } else null
+                            nav.push(
+                                Route.Player(
+                                    PlaySpec(
+                                        id = current.archiveID,
+                                        title = current.title,
+                                        description = current.synopsis,
+                                        url = url,
+                                        captions = current.captions ?: emptyList(),
+                                        runtimeSeconds = current.runtimeSeconds,
+                                        queue = binge?.first ?: emptyList(),
+                                        queueIndex = binge?.second ?: 0,
+                                    ),
                                 ),
-                            ),
-                        )
+                            )
+                        }
                     }
                 }
                 TvActionButton(
@@ -324,10 +333,7 @@ private fun TvPlaylistOverlay(
         key = playlists.isEmpty(),
     )
     // Back closes the overlay, never the route behind it.
-    androidx.activity.compose.BackHandler(true) {
-        android.util.Log.i("AWTV", "playlist overlay dismissed by Back")
-        onDone()
-    }
+    androidx.activity.compose.BackHandler(true) { onDone() }
 
     Box(
         Modifier
