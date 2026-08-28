@@ -57,7 +57,6 @@ fun TvPosterTile(
             .tvFocusable(
                 onClick = onClick,
                 focusRequester = focusRequester,
-                ringColor = item.accentColor,
                 onFocused = onFocused,
                 exitLeftTo = exitLeftTo,
                 focusTag = "tile:" + item.title.take(28),
@@ -76,7 +75,7 @@ fun TvPosterTile(
             item.title,
             // §4.3 — 24sp is the ten-foot body floor. Tile captions sit at the
             // floor, never below it.
-            fontSize = 24.sp,
+            fontSize = 15.sp,
             lineHeight = 28.sp,
             color = Color.White,
             maxLines = 2,
@@ -86,7 +85,7 @@ fun TvPosterTile(
         item.year?.let {
             Text(
                 it.toString(),
-                fontSize = 20.sp,
+                fontSize = 12.sp,
                 color = Color(0xFFB0B0B0),
                 modifier = Modifier.padding(top = 2.dp),
             )
@@ -117,14 +116,14 @@ fun TvShelfRow(
         Column(Modifier.padding(start = TvDims.OverscanH, bottom = 12.dp)) {
             Text(
                 title,
-                fontSize = 32.sp,
-                fontWeight = FontWeight.SemiBold,
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Medium,
                 color = Color.White,
             )
             if (subtitle != null) {
                 Text(
                     subtitle,
-                    fontSize = 20.sp,
+                    fontSize = 12.sp,
                     color = Color(0xFF9A9A9A),
                     modifier = Modifier.padding(top = 2.dp),
                 )
@@ -169,8 +168,8 @@ fun TvShelfRow(
 fun TvSectionTitle(text: String, modifier: Modifier = Modifier) {
     Text(
         text,
-        fontSize = 32.sp,
-        fontWeight = FontWeight.SemiBold,
+        fontSize = 22.sp,
+        fontWeight = FontWeight.Medium,
         color = Color.White,
         modifier = modifier,
     )
@@ -183,6 +182,6 @@ fun TvMessage(text: String, modifier: Modifier = Modifier) {
         modifier.fillMaxSize().padding(TvDims.OverscanH),
         contentAlignment = Alignment.Center,
     ) {
-        Text(text, fontSize = 26.sp, color = Color(0xFFB0B0B0))
+        Text(text, fontSize = 16.sp, color = Color(0xFFB0B0B0))
     }
 }

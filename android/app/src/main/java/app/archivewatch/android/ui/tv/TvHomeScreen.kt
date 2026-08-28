@@ -271,9 +271,9 @@ private fun TvHero(
                 ) {
                     Text(
                         h.title,
-                        fontSize = 56.sp,
-                        lineHeight = 60.sp,
-                        fontWeight = FontWeight.Bold,
+                        fontSize = 36.sp,
+                        lineHeight = 40.sp,
+                        fontWeight = FontWeight.Medium,
                         color = Color.White,
                         maxLines = 2,
                         overflow = TextOverflow.Ellipsis,
@@ -286,7 +286,7 @@ private fun TvHero(
                     if (meta.isNotEmpty()) {
                         Text(
                             meta,
-                            fontSize = 22.sp,
+                            fontSize = 14.sp,
                             color = Color(0xFFCFCFCF),
                             modifier = Modifier.padding(top = 8.dp),
                         )
@@ -296,8 +296,8 @@ private fun TvHero(
                     h.synopsis?.takeIf { it.isNotBlank() }?.let {
                         Text(
                             it,
-                            fontSize = 22.sp,
-                            lineHeight = 30.sp,
+                            fontSize = 15.sp,
+                            lineHeight = 22.sp,
                             color = Color(0xFFE0E0E0),
                             maxLines = 3,
                             overflow = TextOverflow.Ellipsis,
@@ -359,7 +359,6 @@ private fun TvHero(
                     onClick = onPlay,
                     focusRequester = focusRequester,
                     shape = RoundedCornerShape(12.dp),
-                    ringColor = item.accentColor,
                     scaleWhenFocused = 1f,
                 ),
         )

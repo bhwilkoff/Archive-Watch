@@ -92,8 +92,8 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
     Column(Modifier.fillMaxSize()) {
         Text(
             "Library",
-            fontSize = 32.sp,
-            fontWeight = FontWeight.SemiBold,
+            fontSize = 14.sp,
+            fontWeight = FontWeight.Medium,
             color = Color.White,
             modifier = Modifier.padding(
                 start = TvDims.OverscanH,
@@ -122,11 +122,11 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
                             if (selected) Color(0xFFFF5C35) else Color(0xFF1C1C1C),
                             RoundedCornerShape(24.dp),
                         )
-                        .padding(horizontal = 26.dp, vertical = 12.dp),
+                        .padding(horizontal = 18.dp, vertical = 8.dp),
                 ) {
                     Text(
                         s.label,
-                        fontSize = 24.sp,
+                        fontSize = 14.sp,
                         fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
                         color = if (selected) Color.Black else Color.White,
                     )

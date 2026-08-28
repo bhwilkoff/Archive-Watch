@@ -131,8 +131,8 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
     Column(Modifier.fillMaxSize()) {
         Text(
             if (total > 0) "Browse · ${NumberFormat.getInstance().format(total)} titles" else "Browse",
-            fontSize = 32.sp,
-            fontWeight = FontWeight.SemiBold,
+            fontSize = 14.sp,
+            fontWeight = FontWeight.Medium,
             color = Color.White,
             modifier = Modifier.padding(
                 start = TvDims.OverscanH,
@@ -230,7 +230,7 @@ private fun TvRefineChips(
         }
         item(key = "era-div") {
             Box(Modifier.padding(horizontal = 6.dp)) {
-                Text("·", fontSize = 24.sp, color = Color(0xFF666666))
+                Text("·", fontSize = 14.sp, color = Color(0xFF666666))
             }
         }
         item(key = "era-all") {
@@ -238,7 +238,7 @@ private fun TvRefineChips(
         }
         items((1890..2020 step 10).toList(), key = { "era-" + it }) { d ->
             TvChip(
-                label = "${'$'}{d}s",
+                label = "" + d + "s",
                 selected = decade == d,
                 onClick = { onDecade(if (decade == d) null else d) },
             )
@@ -259,11 +259,11 @@ private fun TvChip(label: String, selected: Boolean, onClick: () -> Unit) {
                 if (selected) Color(0xFFFF5C35) else Color(0xFF1C1C1C),
                 RoundedCornerShape(24.dp),
             )
-            .padding(horizontal = 26.dp, vertical = 12.dp),
+            .padding(horizontal = 18.dp, vertical = 8.dp),
     ) {
         Text(
             label,
-            fontSize = 24.sp,
+            fontSize = 14.sp,
             fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
             color = if (selected) Color.Black else Color.White,
         )
@@ -304,11 +304,11 @@ private fun TvScopeChips(
                         if (selected) Color(0xFFFF5C35) else Color(0xFF1C1C1C),
                         RoundedCornerShape(24.dp),
                     )
-                    .padding(horizontal = 26.dp, vertical = 12.dp),
+                    .padding(horizontal = 18.dp, vertical = 8.dp),
             ) {
                 Text(
                     s.label,
-                    fontSize = 24.sp,
+                    fontSize = 14.sp,
                     fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
                     color = if (selected) Color.Black else Color.White,
                 )

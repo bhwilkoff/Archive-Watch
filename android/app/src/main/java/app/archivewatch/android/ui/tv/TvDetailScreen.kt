@@ -142,9 +142,9 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 ) {
                     Text(
                         current.title,
-                        fontSize = 52.sp,
-                        lineHeight = 58.sp,
-                        fontWeight = FontWeight.Bold,
+                        fontSize = 36.sp,
+                        lineHeight = 40.sp,
+                        fontWeight = FontWeight.Medium,
                         color = Color.White,
                         maxLines = 2,
                         overflow = TextOverflow.Ellipsis,
@@ -156,7 +156,7 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     ).joinToString("  ·  ")
                     Text(
                         meta,
-                        fontSize = 22.sp,
+                        fontSize = 14.sp,
                         color = Color(0xFFCFCFCF),
                         modifier = Modifier.padding(top = 10.dp),
                     )
@@ -173,7 +173,7 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 val playable = current.downloadURL != null
                 TvActionButton(
                     label = if (playable) "Play" else "Not playable",
-                    icon = { Icon(Icons.Default.PlayArrow, null, tint = Color.Black, modifier = Modifier.size(28.dp)) },
+                    icon = { Icon(Icons.Default.PlayArrow, null, tint = Color.Black, modifier = Modifier.size(20.dp)) },
                     focusRequester = playFocus,
                     primary = true,
                     enabled = playable,
@@ -208,7 +208,7 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     icon = {
                         Icon(
                             if (favorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
-                            null, tint = Color.White, modifier = Modifier.size(26.dp),
+                            null, tint = Color.White, modifier = Modifier.size(18.dp),
                         )
                     },
                     accent = current.accentColor,
@@ -217,14 +217,14 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 }
                 TvActionButton(
                     label = "Add to Playlist",
-                    icon = { Icon(Icons.AutoMirrored.Filled.PlaylistAdd, null, tint = Color.White, modifier = Modifier.size(26.dp)) },
+                    icon = { Icon(Icons.AutoMirrored.Filled.PlaylistAdd, null, tint = Color.White, modifier = Modifier.size(18.dp)) },
                     accent = current.accentColor,
                 ) { showPlaylists = true }
                 // Decision 045 — an episode is a door back to its series.
                 if (current.isEpisode && current.seriesID != null) {
                     TvActionButton(
                         label = "Part of " + (current.seriesTitle ?: "the series"),
-                        icon = { Icon(Icons.Default.Tv, null, tint = Color.White, modifier = Modifier.size(26.dp)) },
+                        icon = { Icon(Icons.Default.Tv, null, tint = Color.White, modifier = Modifier.size(18.dp)) },
                         accent = current.accentColor,
                     ) { nav.push(Route.Series(current.seriesID!!)) }
                 }
@@ -235,8 +235,8 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
             item(key = "synopsis") {
                 Text(
                     synopsis,
-                    fontSize = 24.sp,
-                    lineHeight = 34.sp,
+                    fontSize = 15.sp,
+                    lineHeight = 23.sp,
                     color = Color(0xFFDDDDDD),
                     modifier = Modifier
                         .padding(start = TvDims.OverscanH, end = TvDims.OverscanH, bottom = 24.dp)
@@ -268,12 +268,12 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                                         shape = RoundedCornerShape(24.dp),
                                         scaleWhenFocused = 1.04f,
                                     )
-                                    .background(Color(0xFF1C1C1C), RoundedCornerShape(24.dp))
-                                    .padding(horizontal = 22.dp, vertical = 10.dp),
+                                    .background(Color(0xFF1C1C1C), RoundedCornerShape(18.dp))
+                                    .padding(horizontal = 16.dp, vertical = 8.dp),
                             ) {
                                 Column {
-                                    Text(name, fontSize = 22.sp, color = Color.White, fontWeight = FontWeight.Medium)
-                                    Text(role, fontSize = 17.sp, color = Color(0xFF9A9A9A))
+                                    Text(name, fontSize = 14.sp, color = Color.White, fontWeight = FontWeight.Medium)
+                                    Text(role, fontSize = 12.sp, color = Color(0xFF9A9A9A))
                                 }
                             }
                         }
@@ -348,7 +348,7 @@ private fun TvPlaylistOverlay(
                 .background(Color(0xFF141414))
                 .padding(horizontal = 36.dp, vertical = TvDims.OverscanV),
         ) {
-            Text("Add to Playlist", fontSize = 34.sp, fontWeight = FontWeight.SemiBold, color = Color.White,
+            Text("Add to Playlist", fontSize = 22.sp, fontWeight = FontWeight.Medium, color = Color.White,
                 modifier = Modifier.padding(bottom = 20.dp))
             LazyColumn(Modifier.weight(1f)) {
                 itemsIndexed(playlists, key = { _, pl -> pl.id }) { index, pl ->
@@ -372,12 +372,12 @@ private fun TvPlaylistOverlay(
                             .padding(horizontal = 20.dp, vertical = 14.dp),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        Text(pl.name, fontSize = 24.sp, color = Color.White, modifier = Modifier.weight(1f))
+                        Text(pl.name, fontSize = 15.sp, color = Color.White, modifier = Modifier.weight(1f))
                         Icon(
                             if (contains) Icons.Default.Check else Icons.AutoMirrored.Filled.PlaylistAdd,
                             null,
                             tint = if (contains) accent else Color(0xFF777777),
-                            modifier = Modifier.size(26.dp),
+                            modifier = Modifier.size(18.dp),
                         )
                     }
                 }
@@ -395,7 +395,7 @@ private fun TvPlaylistOverlay(
             ) {
                 TvActionButton(
                     label = "Create",
-                    icon = { Icon(Icons.AutoMirrored.Filled.PlaylistAdd, null, tint = Color.Black, modifier = Modifier.size(24.dp)) },
+                    icon = { Icon(Icons.AutoMirrored.Filled.PlaylistAdd, null, tint = Color.Black, modifier = Modifier.size(18.dp)) },
                     primary = true,
                     enabled = newName.isNotBlank(),
                     accent = accent,
@@ -408,7 +408,7 @@ private fun TvPlaylistOverlay(
                 }
                 TvActionButton(
                     label = "Done",
-                    icon = { Icon(Icons.Default.Check, null, tint = Color.White, modifier = Modifier.size(24.dp)) },
+                    icon = { Icon(Icons.Default.Check, null, tint = Color.White, modifier = Modifier.size(18.dp)) },
                     accent = accent,
                     focusRequester = doneFocus,
                 ) { onDone() }
@@ -450,15 +450,15 @@ private fun TvActionButton(
                 },
                 RoundedCornerShape(28.dp),
             )
-            .padding(horizontal = 30.dp, vertical = 16.dp),
+            .padding(horizontal = 20.dp, vertical = 11.dp),
         horizontalArrangement = Arrangement.spacedBy(12.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         icon()
         Text(
             label,
-            fontSize = 24.sp,
-            fontWeight = if (primary) FontWeight.SemiBold else FontWeight.Normal,
+            fontSize = 15.sp,
+            fontWeight = if (primary) FontWeight.Medium else FontWeight.Normal,
             color = when {
                 !enabled -> Color(0xFF888888)
                 primary -> Color.Black

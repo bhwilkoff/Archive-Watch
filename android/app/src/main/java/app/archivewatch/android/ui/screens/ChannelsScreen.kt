@@ -453,7 +453,7 @@ private fun CreateChannelDialog(container: AppContainer, onDone: () -> Unit) {
     val types = listOf("feature-film", "animation", "silent-film",
                        "short-film", "newsreel", "tv-special")
     val decades = (1900..2010 step 10).toList()
-    val autoName = listOfNotNull(decade?.let { "${'$'}{it}s" }, genre,
+    val autoName = listOfNotNull(decade?.let { "" + it + "s" }, genre,
         type?.replace('-', ' ')).joinToString(" ").ifEmpty { "My Channel" }
 
     androidx.compose.material3.AlertDialog(
@@ -480,7 +480,7 @@ private fun CreateChannelDialog(container: AppContainer, onDone: () -> Unit) {
                 PickRow("Type", types.map { it.replace('-', ' ') }, type?.replace('-', ' ')) { sel ->
                     type = sel?.replace(' ', '-')
                 }
-                PickRow("Era", decades.map { "${'$'}{it}s" }, decade?.let { "${'$'}{it}s" }) { sel ->
+                PickRow("Era", decades.map { "" + it + "s" }, decade?.let { "" + it + "s" }) { sel ->
                     decade = sel?.removeSuffix("s")?.toIntOrNull()
                 }
                 androidx.compose.material3.OutlinedTextField(

@@ -74,9 +74,12 @@ object TvDims {
 
     /** §3.2 — the focused item is distinguished by scale AND ring AND lift.
      *  Colour alone is never sufficient at ten feet. */
-    const val FocusScale = 1.08f
-    val FocusRing = 3.dp
-    val FocusElevation = 12.dp
+    // Native Google TV grammar: 1.10 scale + a white hairline border +
+    // a quiet lift. The earlier 3dp accent-coloured ring read as a chunky
+    // custom indicator (owner 2026-08-28: "huge selection indicator").
+    const val FocusScale = 1.10f
+    val FocusRing = 2.5.dp
+    val FocusElevation = 8.dp
 
     val NavRailWidth = 220.dp
     val NavRailCollapsed = 88.dp

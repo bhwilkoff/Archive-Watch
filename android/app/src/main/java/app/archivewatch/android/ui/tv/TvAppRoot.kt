@@ -307,22 +307,22 @@ private fun TvRailButton(
                 if (item.selected) Color(0x22FF5C35) else Color.Transparent,
                 RoundedCornerShape(8.dp),
             )
-            .padding(horizontal = 12.dp, vertical = 12.dp),
+            .padding(horizontal = 12.dp, vertical = 9.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(
             item.icon,
             contentDescription = item.label,
             tint = if (item.selected) Color(0xFFFF5C35) else Color.White,
-            modifier = Modifier.size(28.dp),
+            modifier = Modifier.size(20.dp),
         )
         if (expanded) {
             Text(
                 item.label,
-                fontSize = 22.sp,
-                fontWeight = if (item.selected) FontWeight.SemiBold else FontWeight.Normal,
+                fontSize = 14.sp,
+                fontWeight = if (item.selected) FontWeight.Medium else FontWeight.Normal,
                 color = if (item.selected) Color(0xFFFF5C35) else Color.White,
-                modifier = Modifier.padding(start = 14.dp),
+                modifier = Modifier.padding(start = 12.dp),
             )
         }
     }

@@ -164,6 +164,13 @@ def ocr(path):
 
 
 def launch(deep_link=None, force_stop=False):
+    # The device idles into the system screensaver; a launch fired into that
+    # state goes nowhere (measured: a deep link left the backdrop picker on
+    # screen). Wake + dismiss first.
+    adbs("shell", "input", "keyevent", "KEYCODE_WAKEUP")
+    time.sleep(1.5)
+    adbs("shell", "input", "keyevent", "KEYCODE_BACK")
+    time.sleep(1.5)
     if force_stop:
         adbs("shell", "am", "force-stop", PKG)
         time.sleep(2)

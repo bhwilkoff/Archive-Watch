@@ -117,7 +117,7 @@ fun TvSearchScreen(container: AppContainer, nav: Nav) {
             ) {
                 Text(
                     query.ifEmpty { "Search titles" },
-                    fontSize = 26.sp,
+                    fontSize = 16.sp,
                     color = if (query.isEmpty()) Color(0xFF777777) else Color.White,
                 )
             }
@@ -164,7 +164,7 @@ fun TvSearchScreen(container: AppContainer, nav: Nav) {
                 Column(Modifier.fillMaxSize()) {
                     Text(
                         "${shown.size} result${if (shown.size == 1) "" else "s"}",
-                        fontSize = 26.sp,
+                        fontSize = 16.sp,
                         color = Color(0xFFB0B0B0),
                         modifier = Modifier.padding(top = TvDims.OverscanV, bottom = 10.dp),
                     )
@@ -240,7 +240,7 @@ private fun TvSearchDoors(
         item(key = "hint") {
             Text(
                 "Or browse without typing",
-                fontSize = 32.sp,
+                fontSize = 22.sp,
                 fontWeight = FontWeight.SemiBold,
                 color = Color.White,
                 modifier = Modifier.padding(bottom = 6.dp),
@@ -249,7 +249,7 @@ private fun TvSearchDoors(
         item(key = "decades-label") {
             Text(
                 "By decade",
-                fontSize = 22.sp,
+                fontSize = 14.sp,
                 color = Color(0xFF9A9A9A),
                 modifier = Modifier.padding(top = 14.dp, bottom = 10.dp),
             )
@@ -268,7 +268,7 @@ private fun TvSearchDoors(
             item(key = "themes-label") {
                 Text(
                     "By theme",
-                    fontSize = 22.sp,
+                    fontSize = 14.sp,
                     color = Color(0xFF9A9A9A),
                     modifier = Modifier.padding(top = 24.dp, bottom = 10.dp),
                 )
@@ -309,7 +309,7 @@ private fun TvChipFlow(labels: List<String>, onSelect: (String) -> Unit) {
                     .background(Color(0xFF1C1C1C), RoundedCornerShape(22.dp))
                     .padding(horizontal = 22.dp, vertical = 12.dp),
             ) {
-                Text(label, fontSize = 22.sp, color = Color.White, maxLines = 1)
+                Text(label, fontSize = 14.sp, color = Color.White, maxLines = 1)
             }
         }
     }
@@ -363,8 +363,8 @@ private fun TvFilterChip(label: String, selected: Boolean, onClick: () -> Unit) 
     ) {
         Text(
             label,
-            fontSize = 21.sp,
-            fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
+            fontSize = 13.sp,
+            fontWeight = if (selected) FontWeight.Medium else FontWeight.Normal,
             color = if (selected) Color.Black else Color.White,
         )
     }
