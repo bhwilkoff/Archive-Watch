@@ -163,8 +163,41 @@ def judge(paths):
     return verdicts
 
 
+def measure(paths, width_pt=1366.0, max_chars=80, max_control=480.0):
+    """IPAD-DESIGN §7.1 + §7.2: how long is the longest line of prose, and is
+    any control wider than a primary action should be?
+
+    Character count, not width, is the measure that matters — it is what a
+    reader's eye actually has to track — but the width is printed too, since
+    that is the number a `frame(maxWidth:)` is written in."""
+    bad = 0
+    for p in sorted(paths):
+        lines = ocr(Path(p))
+        prose = [l for l in lines
+                 if len((l.get("text") or "").strip()) > 25 and l.get("h", 0) < 0.020]
+        if not prose:
+            print(f"  --   {Path(p).name:40s} (no prose)")
+            continue
+        worst = max(prose, key=lambda l: len(l["text"]))
+        chars = len(worst["text"].strip())
+        pts = worst.get("w", 0.0) * width_pt
+        over = chars > max_chars
+        bad += 1 if over else 0
+        print(f"  {'OVER' if over else 'ok  '} {Path(p).name:40s} "
+              f"{chars:3d} chars / {pts:5.0f}pt   {worst['text'][:44]}")
+    print(f"\n{len(list(paths)) - bad} within measure; {bad} over {max_chars} chars")
+    return bad
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "sweep"
+    if cmd == "measure":
+        args = sys.argv[2:]
+        files = []
+        for a in args:
+            q = Path(a)
+            files += sorted(str(f) for f in q.glob("*.png")) if q.is_dir() else [a]
+        sys.exit(1 if measure(files) else 0)
     if cmd == "judge":
         args = sys.argv[2:]
         files = []

@@ -61,7 +61,12 @@ final class AuditUITests: XCTestCase {
     @discardableResult
     private func scrollIntoView(_ el: XCUIElement, maxSwipes: Int = 12) -> Bool {
         let win = app.windows.element(boundBy: 0).frame
+        // Preferred band, then a wider one. Insisting on the middle made the
+        // helper fail on rows that simply cannot be centred (near the ends of
+        // a short list), which reads as "UNREACHABLE" for a perfectly
+        // tappable control.
         let top = win.minY + 140, bottom = win.maxY - 140
+        let okTop = win.minY + 60, okBottom = win.maxY - 60
         for _ in 0..<maxSwipes {
             guard el.exists else { app.swipeUp(); usleep(700_000); continue }
             let f = el.frame
@@ -69,7 +74,9 @@ final class AuditUITests: XCTestCase {
             if f.midY >= bottom { app.swipeUp() } else { app.swipeDown() }
             usleep(700_000)
         }
-        return el.exists && el.frame.midY > top && el.frame.midY < bottom
+        guard el.exists else { return false }
+        let m = el.frame.midY
+        return m > okTop && m < okBottom
     }
 
     private func back() {

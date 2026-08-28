@@ -10,6 +10,10 @@ struct DetailView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
     @Environment(\.modelContext) private var ctx
+    // IPAD-DESIGN §1.2: adaptivity by SIZE CLASS, never by device — so an
+    // iPhone in landscape, an iPad in Split View and a Mac window are all
+    // correct without a device check (§6.3 forbids one).
+    @Environment(\.horizontalSizeClass) private var hSize
     @Query private var favorites: [Favorite]
     @State private var playing = false
     @State private var isWatchedState = false
@@ -146,73 +150,126 @@ struct DetailView: View {
                     .buttonStyle(.bordered)
     }
 
+
+    /// Title, meta, the primary action and the action row — the column that
+    /// sits beside the artwork at regular width (IPAD-DESIGN §3.1).
+    @ViewBuilder private var identityBlock: some View {
+                Text(item.title).font(.title.bold())
+                Text(metaLine).font(.subheadline).foregroundStyle(.secondary)
+
+                // Play gets its OWN row. It used to share one HStack with the
+                // icon buttons, so each icon added stole width from it — and
+                // once the subtitles button made five, "Play · 28 min" was
+                // squeezed to one character per line. A row whose layout
+                // degrades as actions are added is a row that will break
+                // again, so the fix is structural rather than a tighter font.
+                Button { playing = true } label: {
+                    Label(playLabel, systemImage: "play.fill")
+                        .lineLimit(1)              // never wrap, whatever happens
+                        // IPAD-DESIGN §2.2: capped at 480pt on regular width.
+                        // A control's width is a claim about its importance
+                        // (§1.4), and this one measured 1040pt across a
+                        // 12.9-inch screen.
+                        .frame(maxWidth: hSize == .regular ? 480 : .infinity)
+                }
+                .buttonStyle(.borderedProminent).tint(Brand.primary)
+                .controlSize(.large)
+                .disabled(item.videoURLParsed == nil)
+
+                // Seven bordered buttons stopped fitting a 390pt phone, and an
+                // overflowing HStack does not merely clip itself: it makes the
+                // whole Detail COLUMN wider than the screen, so the ScrollView
+                // centres an oversized column and every line of text loses its
+                // first glyph ("His Girl Friday" drew as "-lis", 1940 as 940 —
+                // measured on the iPhone 12, 2026-08-28). Tightening the spacing
+                // would buy one more action; ViewThatFits cannot overflow at all.
+                ViewThatFits(in: .horizontal) {
+                    HStack(spacing: 12) {
+                        actionButtons
+                        Spacer(minLength: 0)
+                    }
+                    ScrollView(.horizontal) {
+                        HStack(spacing: 12) { actionButtons }
+                    }
+                    .scrollIndicators(.hidden)
+                }
+
+    }
+
+    /// Prose and facts. Width-capped at regular width by the caller (§2.1).
+    @ViewBuilder private var proseBlock: some View {
+                if let tagline = item.tagline, !tagline.isEmpty {
+                    Text(tagline).font(.callout).italic().foregroundStyle(.secondary)
+                }
+                if let s = item.synopsis, !s.isEmpty {
+                    Text(s).font(.body).foregroundStyle(.primary.opacity(0.9))
+                }
+                // The facts are short label/value pairs, so at regular width
+                // they ride the trailing column BESIDE the artwork (where an
+                // iPad reader expects a metadata panel) instead of leaving it
+                // half empty. Compact keeps them in the single stack.
+                if hSize != .regular { DetailFacts(item: item) }
+                // Episode item (Decision 045): a way back to the full series.
+                if item.isEpisode, let sid = item.seriesID {
+                    Button {
+                        if let card = store.seriesCard(seriesID: sid) { router.push(SeriesRef(card: card)) }
+                    } label: {
+                        Label("Part of \(item.seriesTitle ?? "the series")", systemImage: "tv")
+                    }
+                    .buttonStyle(.bordered)
+                }
+    }
+
+    /// Cast, community and More Like This — full width, horizontally
+    /// scrolling, more members visible on a wider screen (§3.3).
+    @ViewBuilder private var rowsBlock: some View {
+                if !item.cast.isEmpty || item.director?.isEmpty == false {
+                    CastRow(cast: item.cast, director: item.director,
+                            directorProfilePath: item.directorProfilePath)
+                }
+                CommunityDetailSection(item: item)
+                relatedSection
+    }
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                DetailHero(poster: Self.upsized(item.posterURLParsed),
-                           backdrop: Self.upsized(item.backdropURLParsed))
-
-                VStack(alignment: .leading, spacing: 12) {
-                    Text(item.title).font(.title.bold())
-                    Text(metaLine).font(.subheadline).foregroundStyle(.secondary)
-
-                    // Play gets its OWN row. It used to share one HStack with the
-                    // icon buttons, so each icon added stole width from it — and
-                    // once the subtitles button made five, "Play · 28 min" was
-                    // squeezed to one character per line. A row whose layout
-                    // degrades as actions are added is a row that will break
-                    // again, so the fix is structural rather than a tighter font.
-                    Button { playing = true } label: {
-                        Label(playLabel, systemImage: "play.fill")
-                            .lineLimit(1)              // never wrap, whatever happens
-                            .frame(maxWidth: .infinity)
-                    }
-                    .buttonStyle(.borderedProminent).tint(Brand.primary)
-                    .controlSize(.large)
-                    .disabled(item.videoURLParsed == nil)
-
-                    // Seven bordered buttons stopped fitting a 390pt phone, and an
-                    // overflowing HStack does not merely clip itself: it makes the
-                    // whole Detail COLUMN wider than the screen, so the ScrollView
-                    // centres an oversized column and every line of text loses its
-                    // first glyph ("His Girl Friday" drew as "-lis", 1940 as 940 —
-                    // measured on the iPhone 12, 2026-08-28). Tightening the spacing
-                    // would buy one more action; ViewThatFits cannot overflow at all.
-                    ViewThatFits(in: .horizontal) {
-                        HStack(spacing: 12) {
-                            actionButtons
-                            Spacer(minLength: 0)
+                // IPAD-DESIGN §3.1: two columns at regular width — artwork
+                // leading, identity and actions beside it — and one stacked
+                // column when compact. One view, a size-class branch inside
+                // it (§6.2 forbids a second Detail).
+                if hSize == .regular {
+                    HStack(alignment: .top, spacing: 28) {
+                        DetailHero(poster: Self.upsized(item.posterURLParsed),
+                                   backdrop: Self.upsized(item.backdropURLParsed))
+                            .frame(width: 460)
+                        VStack(alignment: .leading, spacing: 12) {
+                            identityBlock
+                            DetailFacts(item: item)
+                                .padding(.top, 4)
                         }
-                        ScrollView(.horizontal) {
-                            HStack(spacing: 12) { actionButtons }
-                        }
-                        .scrollIndicators(.hidden)
+                        .frame(maxWidth: 520, alignment: .leading)
+                        Spacer(minLength: 0)
                     }
-
-                    if let tagline = item.tagline, !tagline.isEmpty {
-                        Text(tagline).font(.callout).italic().foregroundStyle(.secondary)
-                    }
-                    if let s = item.synopsis, !s.isEmpty {
-                        Text(s).font(.body).foregroundStyle(.primary.opacity(0.9))
-                    }
-                    DetailFacts(item: item)
-                    // Episode item (Decision 045): a way back to the full series.
-                    if item.isEpisode, let sid = item.seriesID {
-                        Button {
-                            if let card = store.seriesCard(seriesID: sid) { router.push(SeriesRef(card: card)) }
-                        } label: {
-                            Label("Part of \(item.seriesTitle ?? "the series")", systemImage: "tv")
-                        }
-                        .buttonStyle(.bordered)
-                    }
-                    if !item.cast.isEmpty || item.director?.isEmpty == false {
-                        CastRow(cast: item.cast, director: item.director,
-                                directorProfilePath: item.directorProfilePath)
-                    }
-                    CommunityDetailSection(item: item)
-                    relatedSection
+                    .padding(.horizontal)
+                } else {
+                    DetailHero(poster: Self.upsized(item.posterURLParsed),
+                               backdrop: Self.upsized(item.backdropURLParsed))
+                    VStack(alignment: .leading, spacing: 12) { identityBlock }
+                        .padding(.horizontal)
                 }
-                .padding(.horizontal)
+
+                VStack(alignment: .leading, spacing: 12) { proseBlock }
+                    // §2.1: prose is capped at 700pt so a 1366pt screen cannot
+                    // stretch body copy to 115 characters a line (measured).
+                    .frame(maxWidth: hSize == .regular ? 700 : .infinity,
+                           alignment: .leading)
+                    .padding(.horizontal)
+
+                // §3.3: the horizontally scrolling rows keep the full width —
+                // a wide screen means more faces visible, not bigger ones.
+                VStack(alignment: .leading, spacing: 16) { rowsBlock }
+                    .padding(.horizontal)
             }
         }
         .navigationTitle(item.title).navigationBarTitleDisplayMode(.inline)
