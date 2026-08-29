@@ -11,6 +11,7 @@ import XCTest
 /// that draws and does nothing is exactly the defect worth finding. Every
 /// check also files a screenshot, so the layout tier gets a second sweep for
 /// free.
+@MainActor
 final class AuditUITests: XCTestCase {
 
     var app: XCUIApplication!
@@ -612,6 +613,57 @@ final class AuditUITests: XCTestCase {
                                   "DEAD Search filter — result set unchanged")
             }
         }
+    }
+
+    /// Archive.org reviews were clamped to six lines with no way to read the
+    /// rest, so a long one ended mid-sentence (owner, 2026-08-28). The test is
+    /// by EFFECT: the visible text must actually GROW when expanded — a
+    /// "Show more" button that changes its own label proves nothing.
+    func test_25_reviewsExpand() {
+        launch(["AW_START_ITEM": "his_girl_friday"])
+        // Reviews live below the synopsis, cast and facts.
+        var found = false
+        for i in 0..<10 {
+            if app.buttons["Show more"].firstMatch.exists { found = true; break }
+            app.swipeUp(); sleep(1)
+            snap("reviews-scroll-\(i)")
+        }
+        guard found else {
+            XCTFail("no expandable review found — is the clamp affordance missing?")
+            return
+        }
+        let more = app.buttons["Show more"].firstMatch
+        guard scrollIntoView(more) else { XCTFail("Show more unreachable"); return }
+
+        // Measure the review belonging to THIS button — the long text directly
+        // above it. Taking the tallest text on screen measured the synopsis
+        // instead, which never changes, and reported a working expander as
+        // dead (306pt -> 306pt).
+        let anchorY = more.frame.minY
+        let before = reviewHeight(above: anchorY)
+        snap("reviews-collapsed")
+        more.tap(); sleep(2)
+        let after = reviewHeight(above: anchorY)
+        snap("reviews-expanded")
+        print("[AWREVIEW] tallest review text: \(Int(before))pt -> \(Int(after))pt")
+
+        XCTAssertGreaterThan(after, before,
+            "DEAD review expander — the text did not grow (\(Int(before)) -> \(Int(after)))")
+        XCTAssertTrue(app.buttons["Show less"].firstMatch.exists,
+                      "expanded, but the control still offers to expand")
+    }
+
+    /// Height of the long text whose bottom sits just above `y` — the review
+    /// body belonging to the control at that position.
+    private func reviewHeight(above y: CGFloat) -> CGFloat {
+        var best = CGFloat(0)
+        var bestGap = CGFloat.greatestFiniteMagnitude
+        for t in app.staticTexts.allElementsBoundByIndex {
+            guard let snap = try? t.snapshot(), snap.label.count > 80 else { continue }
+            let gap = y - snap.frame.maxY
+            if gap >= -2, gap < bestGap { bestGap = gap; best = snap.frame.height }
+        }
+        return best
     }
 
     // MARK: - T3 playback depth (resume, captions, PiP) on A14

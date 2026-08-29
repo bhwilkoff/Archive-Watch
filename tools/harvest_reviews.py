@@ -39,6 +39,31 @@ from comment_fit import score_review  # noqa: E402
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
 BODY_MAX = 600
+# How many kept reviews actually hit the cap, reported per run. Raising
+# BODY_MAX costs bytes in every item_json and the .zz has a budget
+# (Decision 046), so the decision wants EVIDENCE rather than a guess — this
+# is the number that supplies it.
+_TRUNCATED = [0, 0]   # [hit the cap, kept in total]
+
+
+def _clip_body(text):
+    """Cap a review body WITHOUT ending mid-word.
+
+    `[:600]` cut wherever it landed, so a long review ended "…many insider j"
+    — which reads as a bug rather than an excerpt, and is what the owner saw
+    on the phone once the display clamp was lifted (2026-08-28). Backing up
+    to the last space and marking the elision says the same thing honestly.
+    """
+    body = " ".join((text or "").split())
+    _TRUNCATED[1] += 1
+    if len(body) <= BODY_MAX:
+        return body
+    _TRUNCATED[0] += 1
+    cut = body[:BODY_MAX]
+    space = cut.rfind(" ")
+    if space > BODY_MAX * 0.6:        # never strand a huge fragment
+        cut = cut[:space]
+    return cut.rstrip(" ,;:—-") + "…"
 
 
 def _today():
@@ -68,7 +93,7 @@ def pick_reviews(raw, keep):
     fit.sort(key=lambda sr: (sr[1].get("stars") or 0, sr[0]), reverse=True)
     out = []
     for score, rv in fit[:keep]:
-        body = " ".join((rv.get("reviewbody") or "").split())[:BODY_MAX]
+        body = _clip_body(rv.get("reviewbody"))
         out.append({
             "reviewer": (rv.get("reviewer") or "").strip()[:60],
             "title": (rv.get("reviewtitle") or "").strip()[:120],
@@ -156,6 +181,11 @@ def main() -> int:
             pass
     flush()
     print(f"[reviews] done: scanned {done} items, kept {kept_total} genuine reviews", flush=True)
+    hit, total = _TRUNCATED
+    if total:
+        print(f"[reviews] {hit}/{total} kept reviews hit the {BODY_MAX}-char cap "
+              f"({100 * hit // total}%) — raise BODY_MAX only if this is high AND "
+              f"the .zz still fits its budget (Decision 046)", flush=True)
     return 0
 
 
