@@ -50,6 +50,30 @@ FEATURED = REPO / "featured.json"
 # Adult-collection markers (Decision 012), from featured.json with a fallback.
 # isAdult is computed at build time so the app filters via a WHERE clause
 # instead of scanning each item's collections at runtime.
+def _slim_for_blob(it):
+    """The item as SHIPPED in item_json, with the noise stripped out.
+
+    item_json is 108 MB of the 156 MB database — 69% — and 26% of THAT is the
+    `collections` array, of which 94% is `fav-<username>` pseudo-collections
+    from archive.org's collaborative filter. No client reads the blob's
+    collections at all (item_collections already carries the curated ones a
+    surface can browse), so every one of those bytes is downloaded, inflated
+    and stored to be ignored — on a television, over the viewer's wifi.
+
+    Measured on the Google TV: 41 MB download + inflate to 156 MB = 28s before
+    the full archive is live. This is the cheapest slice of that to give back.
+    """
+    cols = it.get("collections")
+    if not cols:
+        return it
+    kept = [c for c in cols if not str(c).startswith("fav-")]
+    if len(kept) == len(cols):
+        return it
+    out = dict(it)
+    out["collections"] = kept
+    return out
+
+
 def _adult_markers():
     try:
         raw = json.loads(FEATURED.read_text(encoding="utf-8")).get("adultCollections")
@@ -936,7 +960,8 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
         ))
         if _gem_suppressed(it):
             gem_suppressed.add(aid)
-        json_rows.append((aid, json.dumps(it, ensure_ascii=False, separators=(",", ":"))))
+        json_rows.append((aid, json.dumps(_slim_for_blob(it), ensure_ascii=False,
+                                          separators=(",", ":"))))
         for g in (it.get("genres") or []):
             if g:
                 genre_rows.append((aid, g))
@@ -1175,7 +1200,8 @@ def populate_series(db, materialize_episode_items=True):
                     0,
                     0,      # hiddenGem — a gem is a film claim; episodes never qualify
                 ))
-                ep_json_rows.append((aid, json.dumps(it, ensure_ascii=False, separators=(",", ":"))))
+                ep_json_rows.append((aid, json.dumps(_slim_for_blob(it), ensure_ascii=False,
+                                                     separators=(",", ":"))))
                 # extra = series name + a synopsis snippet, so the series name finds the episode.
                 extra = " ".join([series_title or "", (it["synopsis"] or "")[:200]]).strip()
                 ep_fts_rows.append((aid, it["title"] or "", "", extra))
