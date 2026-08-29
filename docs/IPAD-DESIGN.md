@@ -165,7 +165,8 @@ stay green on the iPhone 12 after any change made for this document.
 ## Verified (2026-08-28)
 
 Measured on the owner's iPad Pro 12.9 (iPadOS 27, wireless) and asserted by
-`ArchiveWatchUITests/IPadAuditUITests` — **5 passed, 1 skipped**:
+`ArchiveWatchUITests/IPadAuditUITests` — **8 passed, 0 failed, 0 skipped** on
+the REAL DEVICE:
 
 | Rule | Before | After |
 |---|---|---|
@@ -174,11 +175,14 @@ Measured on the owner's iPad Pro 12.9 (iPadOS 27, wireless) and asserted by
 | §2.2a scope selector | 1046 pt | **560 pt**, leading-aligned |
 | §3.1 two columns | stacked | artwork + identity side by side |
 | §4.1 grid columns | — | **8 tiles** per Browse row |
-| §7.4 compact unchanged | — | iPhone 12 suite **23/23** after the change |
+| §7.4 compact unchanged | — | iPhone 12 suite **25/25** after the change |
 
-The skipped row is §3.1's geometry assertion: it needs loaded artwork, which a
-cold simulator does not have. It is verified on the real iPad by screenshot
-instead, and will assert once the device can run XCUITest (below).
+§3.1 is proven by GEOMETRY rather than by finding the artwork. Looking for the
+image made this check skip on the very device it was written for: a SwiftUI
+`AsyncImage` with no accessibility label is not exposed as an image element.
+The title's own position carries the same proof and cannot go missing —
+stacked it starts at the leading margin, beside a leading column it starts far
+to the right. Measured: **x=784 of 1366pt**.
 
 **Reviews were the prose the synopsis cap missed.** Capping the synopsis left
 archive.org review text running **976 pt**, because reviews live in the
@@ -186,18 +190,16 @@ community section rather than the synopsis block. §2.1 says *prose*, not
 *synopsis* — a viewer review is prose. Found only because the harness measures
 the widest text on screen rather than the one it expected to be widest.
 
-### Harness note — the iPad needs one owner action
+### Harness note — automation is authorized (2026-08-28)
 
-Running XCUITest on the physical iPad fails with *"Timed out while enabling
-automation mode"*. That is **Settings → Developer → Enable UI Automation**, a
-toggle that cannot be set remotely (the same class of blocker as Developer Mode
-on the iPhone). Until it is on:
-
-- **Layout rules** are asserted on the iPad Pro 13-inch **simulator**, which
-  exercises the identical size-class code and can rotate.
-- **The real iPad** is verified by `tools/ios_scenario.py` (cold launch,
-  `devicectl capture screenshot`, OCR measure) — no automation permission
-  needed, which is exactly why that path exists.
+XCUITest on the physical iPad first failed with *"Timed out while enabling
+automation mode"*. The cause was visible only on the device itself: iPadOS 27
+puts up **"Enter iPad Passcode for XCTest — Enable UI Automation"**, and the
+run sits waiting for a passcode nobody is typing. Once the owner entered it,
+the whole suite ran on the real hardware. The simulator remains useful as a
+second rig (it rotates freely and needs no authorization), and
+`tools/ios_scenario.py` still verifies by screenshot + OCR with no permission
+at all.
 
 ### Harness trap, recorded so it is not re-learned
 
