@@ -1031,10 +1031,73 @@ def _canonical_clean(it):
     if not cn:
         return None
     if len(cn) >= 2 and set(cn).issubset(un):   # multi-word canonical fully present → adopt
+        if _PART_MARKER.search(it.get("title") or ""):
+            return None                        # part markers are identity, not cruft
         return c
-    if len(cn) == 1 and _norm_words(it.get("title") or "") == cn:   # already that single word
-        return c
+    uw = _norm_words(it.get("title") or "")
+    if len(cn) == 1:
+        if uw == cn:                            # already that single word
+            return c
+        # A SINGLE-WORD canonical could not clean anything before this: adoption
+        # required the uploader title to ALREADY equal it, so every one-word film
+        # kept its cruft while "The Web" (two words) was cleaned. That is why the
+        # damaged set was exactly Shakedown / Boomerang! / Nightfall / Framed /
+        # Moonrise / Pursued / Intrigue / Ivy / Blackmail — all one-word titles
+        # (owner, 2026-08-29: "Shakedown Howard Duff, Brian Donlevy, …").
+        #
+        # Adopt it only when it is the FIRST word — a title starts with itself —
+        # AND the remainder is plainly cruft rather than the rest of a real name.
+        # Without that second test a wrong match on "Ivy" would truncate a film
+        # genuinely called "Ivy League".
+        # …and only when the MATCH itself is corroborated. Truncating a long
+        # descriptive title down to one word makes a wrong match look
+        # authoritative: an Atari speedrun ("checkers-a2600-tas-…") matched to
+        # a 1919 short became "Checkers", and a military training film became
+        # "Camouflage". Both were `matchVerified`, so that flag cannot separate
+        # them — the audience can. A real film carries real votes; these
+        # spurious matches to obscure shorts carried 12-17.
+        if (uw and uw[0] == cn[0]
+                and _looks_like_cruft_tail(it.get("title") or "", uw)
+                and _match_is_corroborated(it)):
+            return c
     return None
+
+
+# A multi-part upload's part marker is IDENTITY, not cruft: "AMERICA part 1 of 2"
+# and "part 2 of 2" both reduce to the canonical "America", leaving two items a
+# viewer cannot tell apart. Adoption is refused while one is present.
+_PART_MARKER = re.compile(
+    r"\b(?:part|pt\.?|disc|disk|vol\.?|volume|reel|chapter|ch\.?|episode|ep\.?)\s*"
+    r"(?:\d{1,2}|[ivxl]{1,5})\b", re.I)
+
+
+
+# Votes on the MATCHED work. 100 is deliberately low — it only has to separate
+# a real film from an obscure short nobody has rated (measured: the genuine
+# single-word cases run 773-37,853; the wrong ones 12-17).
+_MIN_MATCH_VOTES = 100
+
+
+def _match_is_corroborated(it):
+    v = it.get("imdbVotes")
+    return isinstance(v, int) and v >= _MIN_MATCH_VOTES
+
+
+def _looks_like_cruft_tail(raw, uw):
+    """Is what follows the first word appended metadata rather than title words?
+
+    Demands a positive signal, never mere length: a comma (cast lists are
+    comma-separated), a year in the title, or a long tail no real title carries.
+    "Ivy League" has none of these and is left alone; "Ivy Joan Fontaine, Patric
+    Knowles, Herbert Marshall, Richard Ney" has two of them.
+    """
+    if _PART_MARKER.search(raw):
+        return False
+    if "," in raw:
+        return True
+    if re.search(r"\b(?:18[7-9]\d|19\d\d|20[0-2]\d)\b", raw):
+        return True
+    return len(uw) >= 5
 
 
 def _audited_clean(it):

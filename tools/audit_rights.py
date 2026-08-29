@@ -219,6 +219,22 @@ def colls(it):
     return {str(c).lower() for c in (it.get("collections") or [])}
 
 
+def _year_from_release_date(it):
+    """The matched work's release year, when the catalog has no `year`.
+
+    `releaseDate` comes from the external match (backfill_metadata), so it is
+    the same provenance the year tiers already trust — it is simply stored in
+    a different field. Returns None for anything not a plain YYYY-MM-DD, so a
+    malformed value can never widen a rights judgement.
+    """
+    rd = (it.get("releaseDate") or "").strip()
+    if len(rd) >= 4 and rd[:4].isdigit():
+        y = int(rd[:4])
+        if 1870 <= y <= 2035:
+            return y
+    return None
+
+
 def modern_id(it):
     return bool(MODERN_ID_RE.search(it.get("archiveID") or ""))
 
@@ -281,6 +297,15 @@ def bucket(it):
     rs = (it.get("rightsStatus") or "").lower()
     y = it.get("year")
     yi = y if isinstance(y, int) else None
+    # A missing `year` used to mean UNJUDGEABLE, and an unjudgeable item is
+    # KEPT — so a modern studio film with no year sailed through as
+    # "unknown_year" and reached Home. Tinker Bell and the Lost Treasure
+    # (DisneyToon, 2009) did exactly that, while the SAME catalog record
+    # carried releaseDate "2009-09-03" and studios ["DisneyToon Studios",
+    # "Prana Animation Studios"]. The evidence was in hand and this function
+    # never looked at it (owner, 2026-08-29; the Decision-084 lesson again).
+    if yi is None:
+        yi = _year_from_release_date(it)
     ct = it.get("contentType")
     cl = colls(it)
 
