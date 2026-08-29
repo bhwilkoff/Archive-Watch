@@ -228,11 +228,32 @@ def _year_from_release_date(it):
     malformed value can never widen a rights judgement.
     """
     rd = (it.get("releaseDate") or "").strip()
-    if len(rd) >= 4 and rd[:4].isdigit():
-        y = int(rd[:4])
-        if 1870 <= y <= 2035:
-            return y
-    return None
+    if not (len(rd) >= 4 and rd[:4].isdigit()):
+        return None
+    y = int(rd[:4])
+    if not (1870 <= y <= 2035):
+        return None
+
+    # A HIDE is destructive, so a borrowed year must be corroborated before it
+    # can cause one. Two ways the borrowed year is a WRONG match rather than a
+    # modern film, both measured on the live catalog (2026-08-29):
+    #
+    #   1. The item's OWN era signal contradicts it. "The Age of Innocence" is
+    #      typed silent-film here and matched to Scorsese's 1993 version —
+    #      73,037 votes, a strong match and the wrong film. A silent-era item
+    #      dated into the sound era means the MATCH is wrong (Decision 087),
+    #      never that a silent film is modern.
+    #   2. Nobody has rated the matched work. "Anna" matched "Annavru" (2003,
+    #      17 votes); a Christmas Carol short took a 1979 date from a match
+    #      with no votes at all.
+    if it.get("contentType") == "silent-film" and y >= 1936:
+        return None
+    if it.get("isSilentFilm") and y >= 1936:
+        return None
+    votes = it.get("imdbVotes")
+    if not isinstance(votes, int) or votes < 100:
+        return None
+    return y
 
 
 def modern_id(it):
