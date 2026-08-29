@@ -107,7 +107,13 @@ private struct ReviewCard: View {
                     .buttonStyle(.borderless)
                     #else
                     .buttonStyle(.plain)
-                    .foregroundStyle(Brand.accent)
+                    // `.tint` and NOT Brand.accent: this file is shared by
+                    // every platform, and Brand is declared `#if os(iOS)` —
+                    // so naming it here compiles on the phone and breaks the
+                    // Mac archive, which is exactly how it reached the cloud
+                    // build (2026-08-29). The environment tint is the same
+                    // accent on iOS and resolves everywhere.
+                    .foregroundStyle(.tint)
                     #endif
                 }
             }
