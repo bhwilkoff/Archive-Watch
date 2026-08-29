@@ -94,15 +94,28 @@ HOME_SCREEN_RX = re.compile(
 
 def frame_is_home_screen(png):
     """Alive is not frontmost: a doze-window launch comes up backgrounded and
-    the captures then grade the tvOS home screen (Tidbits F-004)."""
+    the captures then grade the tvOS home screen (Tidbits F-004).
+
+    This ALWAYS RETURNED FALSE until 2026-08-29, so the guard it exists to be
+    never fired once. ScreenOCR's `allText` is a list of {text,x,y,w,h} DICTS,
+    and a defensive branch added during the port from Tidbits read
+    `isinstance(allText, list)` as "a list of strings" — so it joined the dicts,
+    raised TypeError, and a bare `except Exception` returned False. Tidbits'
+    original has no such branch and is correct.
+
+    Two rules survive that: extract `text` from each entry (accepting a plain
+    string too, which is what the branch was reaching for), and let an OCR
+    failure be VISIBLE instead of silently grading every frame "not home".
+    """
     try:
         r = sh([OCR, str(png)], timeout=60)
         d = json.loads(r.stdout.splitlines()[0])
-        text = " ".join(d.get("allText", []) if isinstance(d.get("allText"), list)
-                        else [t.get("text", "") for t in d.get("allText", [])])
-        return bool(HOME_SCREEN_RX.search(text))
-    except Exception:
+    except Exception as e:
+        print(f"[scenario] home-screen probe could not read {png.name}: {e}")
         return False
+    entries = d.get("allText") or []
+    text = " ".join(e["text"] if isinstance(e, dict) else str(e) for e in entries)
+    return bool(HOME_SCREEN_RX.search(text))
 
 
 EXTRA_ENV = {}
