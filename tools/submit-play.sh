@@ -90,7 +90,14 @@ if [ "${AW_SKIP_SMOKE:-0}" != "1" ]; then
   fi
   echo "  installed on $SMOKE_SERIAL"
   "$ADB" -s "$SMOKE_SERIAL" logcat -c >/dev/null 2>&1
-  "$ADB" -s "$SMOKE_SERIAL" shell monkey -p com.archivewatch.app -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1     || "$ADB" -s "$SMOKE_SERIAL" shell monkey -p com.archivewatch.app -c android.intent.category.LEANBACK_LAUNCHER 1 >/dev/null 2>&1
+  # Launch, tolerating the launcher's own exit code: `monkey` returns non-zero
+  # on Fire OS even when it works (it never foregrounds there), and under
+  # `set -euo pipefail` that killed the whole SHIP right after a SUCCESSFUL
+  # install. The verdict comes from the checks below — a crash log, and
+  # whether the activity resumed — never from the launcher's status.
+  "$ADB" -s "$SMOKE_SERIAL" shell monkey -p com.archivewatch.app -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1 || true
+  "$ADB" -s "$SMOKE_SERIAL" shell monkey -p com.archivewatch.app -c android.intent.category.LEANBACK_LAUNCHER 1 >/dev/null 2>&1 || true
+  "$ADB" -s "$SMOKE_SERIAL" shell am start -n com.archivewatch.app/app.archivewatch.android.MainActivity >/dev/null 2>&1 || true
   sleep 14
   CRASHES="$("$ADB" -s "$SMOKE_SERIAL" logcat -d 2>/dev/null | grep -c 'FATAL EXCEPTION' || true)"
   if [ "$CRASHES" != "0" ]; then

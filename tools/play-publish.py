@@ -69,9 +69,27 @@ def main():
         print(f"track '{args.track}' → versionCode {vc} ({status}"
               + (f", rollout {args.rollout}" if args.rollout and not args.draft else "") + ")")
 
-        edits.commit(packageName=pkg, editId=edit_id).execute()
-        print(f"✓ committed. versionCode {vc} is now '{status}' on the '{args.track}' track"
-              + ("" if args.draft else " — Play review then rollout.") )
+        try:
+            edits.commit(packageName=pkg, editId=edit_id).execute()
+            print(f"✓ committed. versionCode {vc} is now '{status}' on the '{args.track}' track"
+                  + ("" if args.draft else " — Play review then rollout.") )
+        except HttpError as e:
+            # While an app sits in a REJECTED state Play refuses to accept a
+            # review submission over the API: "Changes cannot be sent for
+            # review automatically." The upload is still valid — it just has to
+            # be committed without the review request, and sent for review by a
+            # human in the Console. Losing the whole upload over this would
+            # mean rebuilding and re-uploading a 24 MB bundle for nothing.
+            if "changesNotSentForReview" not in str(e):
+                raise
+            edits.commit(packageName=pkg, editId=edit_id,
+                         changesNotSentForReview=True).execute()
+            print(f"✓ committed. versionCode {vc} is on the '{args.track}' track, "
+                  "but NOT yet sent for review.")
+            print("  Play refuses automatic review submission while the app is in a "
+                  "rejected state.")
+            print("  OWNER: open Play Console → Publishing overview → 'Send changes for "
+                  "review'.")
     except HttpError as e:
         raise SystemExit(f"Play API error: {e.status_code if hasattr(e,'status_code') else ''} {e}")
 
