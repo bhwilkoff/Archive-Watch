@@ -119,13 +119,19 @@ class CatalogRepository(
                 if (!response.isSuccessful) return@withContext
                 val body = response.body ?: return@withContext
 
-                val zz = File(context.cacheDir, "catalog.sqlite.zz")
-                zz.outputStream().use { out -> body.byteStream().copyTo(out, 64 * 1024) }
-
-                // Inflate to a staging file, never over the live DB (§9).
+                // STREAMED: inflate straight off the socket into staging, so the
+                // compressed copy is never written to disk at all.
+                //
+                // The TV's flash — not its network — is the constraint. Measured
+                // on the Google TV: raw write is 9.4 MB/s (150 MB takes 15.8s),
+                // while curl pulls this file to a FILE on that same flash at
+                // 20 MB/s. First run used to write 190 MB: the 41 MB .zz, then
+                // the 149 MB inflated DB. Not landing the .zz removes 41 MB of
+                // writes AND overlaps the inflate with the download instead of
+                // running it afterwards.
                 val staging = File(context.filesDir, "catalog.sqlite.staging")
                 try {
-                    inflateRawDeflate(zz, staging)
+                    inflateRawDeflate(body.byteStream(), staging)
                     if (staging.length() < MIN_VALID_BYTES) return@withContext
 
                     // Open probe — meta.itemCount must exist (§9.5).
@@ -141,7 +147,6 @@ class CatalogRepository(
                     response.header("ETag")?.let { etagFile.writeText(it) }
                 } finally {
                     staging.delete()
-                    zz.delete()
                 }
             }
         } catch (_: Throwable) {
@@ -166,10 +171,10 @@ class CatalogRepository(
      * Raw DEFLATE (RFC 1951) per contract §4 — `Inflater(nowrap = true)`,
      * streamed file→file in 64 KB chunks.
      */
-    private fun inflateRawDeflate(src: File, dst: File) {
+    private fun inflateRawDeflate(src: java.io.InputStream, dst: File) {
         val inflater = Inflater(true)
         try {
-            src.inputStream().use { input ->
+            src.use { input ->
                 dst.outputStream().use { out ->
                     val inBuf = ByteArray(64 * 1024)
                     val outBuf = ByteArray(64 * 1024)

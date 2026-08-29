@@ -53,7 +53,36 @@ class AppContainer(private val application: Application) {
     val settings = SettingsStore(application)
     val subtitleAccount = SubtitleAccountStore(application)
     val userState = UserStateStore(application)
-    val catalog = CatalogRepository(application, okHttp, json)
+    /**
+     * The catalog download gets its OWN client, not the shared one.
+     *
+     * `okHttp` is also Coil's image loader, so at launch the 41 MB catalog was
+     * competing with a burst of poster fetches for the same dispatcher,
+     * connection pool and TLS budget on a weak TV CPU. Measured on the Google
+     * TV: the app took 13.0s for a file that `curl` pulls in 2.2s on the same
+     * device over the same wifi — a 6x gap that is contention, not bandwidth
+     * (the link negotiates 650 Mbps and curl sustained 19.2 MB/s).
+     *
+     * A separate client means a separate Dispatcher and ConnectionPool, so the
+     * one download the viewer is actually waiting for is not queued behind
+     * fifty thumbnails.
+     */
+    private val catalogHttp: OkHttpClient = OkHttpClient.Builder()
+        .connectTimeout(20, TimeUnit.SECONDS)
+        .readTimeout(120, TimeUnit.SECONDS)
+        .addInterceptor { chain ->
+            chain.proceed(
+                chain.request().newBuilder()
+                    .header(
+                        "User-Agent",
+                        "ArchiveWatch-Android/${BuildConfig.VERSION_NAME} (+https://archivewatch.org)",
+                    )
+                    .build(),
+            )
+        }
+        .build()
+
+    val catalog = CatalogRepository(application, catalogHttp, json)
     val editorial = EditorialRepository(application, okHttp, json)
     val clipExporter = ClipExporter(application, okHttp)
 
