@@ -28,6 +28,11 @@ class CatalogDatabase private constructor(
     private val mutex = Mutex()
 
     companion object {
+        private const val liteCols =
+            "i.archiveID,i.title,i.year,i.decade,i.contentType,i.posterURL," +
+            "i.hasRealArtwork,i.artworkSource,i.runtimeSeconds,i.popularityScore," +
+            "i.isSilentFilm,i.seriesID,i.episodesCount,i.imdbRating," +
+            "i.director,i.numFavorites,i.avgRating"
         /** Open + probe. A missing `meta.itemCount` means "not our DB". */
         fun open(path: String, json: Json): CatalogDatabase? = try {
             val db = CatalogDatabase(BundledSQLiteDriver().open(path), json)
@@ -101,7 +106,7 @@ class CatalogDatabase private constructor(
     private val notStandaloneTV = " AND i.contentType NOT IN ('tv-special','tv-episode')"
 
     private val itemSelect =
-        "SELECT j.json FROM items i JOIN item_json j ON j.archiveID = i.archiveID"
+        "SELECT $liteCols FROM items i"
 
     // --- verbs ---
 
@@ -123,10 +128,9 @@ class CatalogDatabase private constructor(
     ): List<CatalogItem> {
         val tvClause =
             if (allowStandaloneTV) " AND i.contentType != 'tv-episode'" else notStandaloneTV
-        return items(
-            """SELECT j.json FROM item_shelves s
+        return itemsLite(
+            """SELECT $liteCols FROM item_shelves s
                JOIN items i ON i.archiveID = s.archiveID
-               JOIN item_json j ON j.archiveID = s.archiveID
                WHERE s.shelfID = ?$adultAnd$homeAnd$notCommercial$tvClause$typeAnd$verifiedAnd
                ORDER BY i.hasRealArtwork DESC, s.position LIMIT ?""",
             listOf(shelfID, limit),
@@ -209,8 +213,8 @@ class CatalogDatabase private constructor(
                 "COALESCE(i.popularityScore, 0) DESC, " +
                 "COALESCE(i.episodesCount, 0) DESC, COALESCE(i.imdbVotes, 0) DESC, i.archiveID"
         } else sort.sql
-        return items(
-            "SELECT j.json FROM items i$joins JOIN item_json j ON j.archiveID = i.archiveID" +
+        return itemsLite(
+            "SELECT $liteCols FROM items i$joins" +
                 " WHERE $where ORDER BY $order LIMIT ? OFFSET ?",
             joinBinds + binds + listOf(limit, offset),
         )
@@ -304,10 +308,9 @@ class CatalogDatabase private constructor(
 
     suspend fun search(query: String, limit: Int = 200): List<CatalogItem> {
         val match = ftsQuery(query) ?: return emptyList()
-        return items(
-            """SELECT j.json FROM items_fts f
+        return itemsLite(
+            """SELECT $liteCols FROM items_fts f
                JOIN items i ON i.archiveID = f.archiveID
-               JOIN item_json j ON j.archiveID = f.archiveID
                WHERE items_fts MATCH ?$adultAnd$notCommercial$typeAnd
                ORDER BY rank LIMIT ?""",
             listOf(match, limit),
@@ -323,9 +326,8 @@ class CatalogDatabase private constructor(
         return tokens.joinToString(" ") { "\"$it\"*" }
     }
 
-    suspend fun byCollection(collection: String, limit: Int = 240): List<CatalogItem> = items(
-        """SELECT j.json FROM item_collections c
-           JOIN item_json j ON j.archiveID = c.archiveID
+    suspend fun byCollection(collection: String, limit: Int = 240): List<CatalogItem> = itemsLite(
+        """SELECT $liteCols FROM item_collections c
            JOIN items i ON i.archiveID = c.archiveID
            WHERE c.collection = ?$adultAnd
            ORDER BY i.popularityScore DESC LIMIT ?""",
@@ -335,18 +337,16 @@ class CatalogDatabase private constructor(
     /** Metadata-expansion facet filters (Decision 046) — parallel to the genre
         filter, querying the value-indexed `item_keywords` / `item_studios` join
         tables exactly like `byCollection` queries `item_collections`. */
-    suspend fun byKeyword(keyword: String, limit: Int = 240): List<CatalogItem> = items(
-        """SELECT j.json FROM item_keywords k
-           JOIN item_json j ON j.archiveID = k.archiveID
+    suspend fun byKeyword(keyword: String, limit: Int = 240): List<CatalogItem> = itemsLite(
+        """SELECT $liteCols FROM item_keywords k
            JOIN items i ON i.archiveID = k.archiveID
            WHERE k.keyword = ?$adultAnd$notCommercial$typeAnd
            ORDER BY COALESCE(i.popularityScore, 0) DESC LIMIT ?""",
         listOf(keyword, limit),
     )
 
-    suspend fun byStudio(studio: String, limit: Int = 240): List<CatalogItem> = items(
-        """SELECT j.json FROM item_studios s
-           JOIN item_json j ON j.archiveID = s.archiveID
+    suspend fun byStudio(studio: String, limit: Int = 240): List<CatalogItem> = itemsLite(
+        """SELECT $liteCols FROM item_studios s
            JOIN items i ON i.archiveID = s.archiveID
            WHERE s.studio = ?$adultAnd$notCommercial$typeAnd
            ORDER BY COALESCE(i.popularityScore, 0) DESC LIMIT ?""",
@@ -376,7 +376,7 @@ class CatalogDatabase private constructor(
         ) { it.getText(0) }
     }
 
-    suspend fun seriesCards(limit: Int = 500): List<CatalogItem> = items(
+    suspend fun seriesCards(limit: Int = 500): List<CatalogItem> = itemsLite(
         "$itemSelect WHERE i.contentType = 'tv-series'$adultAnd$typeAnd" +
             " ORDER BY $demoteOrder" +
             "(i.hasRealArtwork = 1 AND COALESCE(i.artworkSource,'') != 'generated') DESC," +
@@ -386,7 +386,7 @@ class CatalogDatabase private constructor(
 
     /** Standalone TV specials/episodes not folded into a series spine — the TV
         scope's "TV Specials" grid. Kept OFF every film surface (notStandaloneTV). */
-    suspend fun tvSpecials(limit: Int = 500): List<CatalogItem> = items(
+    suspend fun tvSpecials(limit: Int = 500): List<CatalogItem> = itemsLite(
         "$itemSelect WHERE i.contentType = 'tv-special'$adultAnd$typeAnd" +
             " ORDER BY (i.hasRealArtwork = 1) DESC, i.popularityScore DESC LIMIT ?",
         listOf(limit),
@@ -404,7 +404,7 @@ class CatalogDatabase private constructor(
         val yearKey = to.year?.let {
             "(CASE WHEN i.year IS NOT NULL AND ABS(i.year - $it) <= 10 THEN 1 ELSE 0 END) DESC, "
         } ?: ""
-        val pool = items(
+        val pool = itemsLite(
             "$itemSelect WHERE i.contentType = ? AND i.archiveID != ?$adultAnd$typeAnd" +
                 " ORDER BY ${yearKey}COALESCE(i.popularityScore,0) DESC, i.imdbVotes DESC LIMIT ?",
             listOf(to.contentType, to.archiveID, limit * 3),
@@ -415,7 +415,7 @@ class CatalogDatabase private constructor(
 
     /** "Top Rated" — IMDb favorites; the votes floor keeps tiny-sample
         curios from outranking the classics (iOS/tvOS parity). */
-    suspend fun topRated(limit: Int = 24, minVotes: Int = 1000): List<CatalogItem> = items(
+    suspend fun topRated(limit: Int = 24, minVotes: Int = 1000): List<CatalogItem> = itemsLite(
         "$itemSelect WHERE i.imdbRating IS NOT NULL AND COALESCE(i.imdbVotes, 0) >= ?" +
             " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd$verifiedAnd" +
             " ORDER BY i.imdbRating DESC, i.imdbVotes DESC LIMIT ?",
@@ -425,21 +425,21 @@ class CatalogDatabase private constructor(
     /** Community shelves (archive.org usage signals). Vote-floored to recognized
         films — raw counts are dominated by un-IMDb'd foreign edge cases the metadata
         adult filter can't catch, but those have no votes (iOS/tvOS parity). */
-    suspend fun watchingNow(limit: Int = 24, minVotes: Int = 1000): List<CatalogItem> = items(
+    suspend fun watchingNow(limit: Int = 24, minVotes: Int = 1000): List<CatalogItem> = itemsLite(
         "$itemSelect WHERE COALESCE(i.views30d, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= ?" +
             " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd$verifiedAnd" +
             " ORDER BY i.views30d DESC LIMIT ?",
         listOf(minVotes, limit),
     )
 
-    suspend fun communityFavorites(limit: Int = 24, minVotes: Int = 1000): List<CatalogItem> = items(
+    suspend fun communityFavorites(limit: Int = 24, minVotes: Int = 1000): List<CatalogItem> = itemsLite(
         "$itemSelect WHERE COALESCE(i.numFavorites, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= ?" +
             " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd$verifiedAnd" +
             " ORDER BY i.numFavorites DESC LIMIT ?",
         listOf(minVotes, limit),
     )
 
-    suspend fun mostDiscussed(limit: Int = 24, minVotes: Int = 1000): List<CatalogItem> = items(
+    suspend fun mostDiscussed(limit: Int = 24, minVotes: Int = 1000): List<CatalogItem> = itemsLite(
         "$itemSelect WHERE COALESCE(i.numReviews, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= ?" +
             " AND i.hasRealArtwork = 1$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd$verifiedAnd" +
             " ORDER BY i.numReviews DESC LIMIT ?",
@@ -462,7 +462,7 @@ class CatalogDatabase private constructor(
     suspend fun hiddenGems(limit: Int = 20): List<CatalogItem> {
         val gemAnd = if (hasHiddenGemColumn) "i.hiddenGem = 1"
             else "i.imdbRating >= 7.0 AND i.imdbVotes BETWEEN 100 AND 5000 AND i.year IS NOT NULL"
-        return items(
+        return itemsLite(
             "$itemSelect WHERE $gemAnd AND i.hasRealArtwork = 1" +
                 "$adultAnd$homeAnd$notCommercial$notStandaloneTV$typeAnd$verifiedAnd" +
                 " ORDER BY i.imdbRating DESC, i.imdbVotes DESC LIMIT ?",
@@ -480,7 +480,7 @@ class CatalogDatabase private constructor(
         ) { it.getText(0) }
     }
 
-    suspend fun byDirector(name: String, limit: Int = 20, homeOnly: Boolean = false): List<CatalogItem> = items(
+    suspend fun byDirector(name: String, limit: Int = 20, homeOnly: Boolean = false): List<CatalogItem> = itemsLite(
         "$itemSelect WHERE i.director = ? AND i.hasRealArtwork = 1" +
             "$adultAnd$notCommercial$notStandaloneTV$typeAnd${if (homeOnly) homeAnd else ""}" +
             " ORDER BY i.popularityScore DESC LIMIT ?",
@@ -501,7 +501,7 @@ class CatalogDatabase private constructor(
         if (contentType != null) { where += " AND i.contentType = ?"; binds.add(contentType) }
         where += adultAnd + typeAnd
         if (contentType != "commercial") where += notCommercial
-        return items("$itemSelect WHERE $where ORDER BY RANDOM() LIMIT 20", binds)
+        return itemsLite("$itemSelect WHERE $where ORDER BY RANDOM() LIMIT 20", binds)
             .firstOrNull { it.downloadURL != null }
     }
 
@@ -511,11 +511,11 @@ class CatalogDatabase private constructor(
         var where = "i.contentType IN ('feature-film','silent-film') AND " +
             "(i.runtimeSeconds IS NULL OR i.runtimeSeconds >= 2400)"
         where += adultAnd + typeAnd
-        return items("$itemSelect WHERE $where ORDER BY RANDOM() LIMIT 20", emptyList())
+        return itemsLite("$itemSelect WHERE $where ORDER BY RANDOM() LIMIT 20", emptyList())
             .firstOrNull { it.downloadURL != null }
     }
 
-    suspend fun randomSeries(): CatalogItem? = items(
+    suspend fun randomSeries(): CatalogItem? = itemsLite(
         "$itemSelect WHERE i.contentType = 'tv-series'$typeAnd ORDER BY RANDOM() LIMIT 1",
         emptyList(),
     ).firstOrNull()
@@ -533,6 +533,47 @@ class CatalogDatabase private constructor(
             .mapNotNull { row ->
                 runCatching { json.decodeFromString<CatalogItem>(row) }.getOrNull()
             }
+    }
+
+    private val UNUSED_liteCols = "i.archiveID,i.title,i.year,i.decade,i.contentType,i.posterURL,i.hasRealArtwork,i.artworkSource,i.runtimeSeconds,i.popularityScore,i.isSilentFilm,i.seriesID,i.episodesCount,i.imdbRating,i.imdbVotes,i.director,i.numFavorites,i.avgRating"
+
+    /**
+     * A list row built from the `items` COLUMNS — no JSON decode.
+     *
+     * Every shelf and grid query used to `JOIN item_json` and decode the full
+     * per-item blob, and Home alone builds 21 shelves of 32 plus a 120-item
+     * row: over a thousand blobs, each ~4 KB with 76 fields, parsed on a
+     * television's CPU before anything could be drawn. Measured on the Google
+     * TV: the Home producer took 17.6s, 14s of it before the payload was even
+     * assembled — far more than the 14s download it was blamed on.
+     *
+     * Nothing a list shows needs the blob: title, year, artwork, runtime and
+     * rating are all columns, and every derived predicate the shelves rely on
+     * (dedupKey, hasProfessionalArtwork, isSilent) is computed from those.
+     * Detail still decodes the full item — that is one row, when asked for.
+     */
+    private fun liteFromRow(st: SQLiteStatement): CatalogItem = CatalogItem(
+        archiveID = st.getText(0),
+        title = if (st.isNull(1)) "" else st.getText(1),
+        year = if (st.isNull(2)) null else st.getInt(2),
+        decade = if (st.isNull(3)) null else st.getInt(3),
+        contentType = if (st.isNull(4)) "" else st.getText(4),
+        posterURL = if (st.isNull(5)) null else st.getText(5),
+        hasRealArtwork = if (st.isNull(6)) null else st.getInt(6) != 0,
+        artworkSource = if (st.isNull(7)) null else st.getText(7),
+        runtimeSeconds = if (st.isNull(8)) null else st.getInt(8),
+        popularityScore = if (st.isNull(9)) null else st.getInt(9),
+        isSilentFilm = if (st.isNull(10)) null else st.getInt(10) != 0,
+        seriesID = if (st.isNull(11)) null else st.getText(11),
+        episodesCount = if (st.isNull(12)) null else st.getInt(12),
+        imdbRating = if (st.isNull(13)) null else st.getDouble(13),
+        director = if (st.isNull(14)) null else st.getText(14),
+        numFavorites = if (st.isNull(15)) null else st.getInt(15),
+        avgRating = if (st.isNull(16)) null else st.getDouble(16),
+    )
+
+    private suspend fun itemsLite(sql: String, binds: List<Any?>): List<CatalogItem> = dbCall {
+        queryRaw(sql, binds) { liteFromRow(it) }
     }
 
     private suspend fun <T> dbCall(block: () -> T): T =

@@ -31,6 +31,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.State
 import androidx.compose.ui.Modifier
@@ -40,6 +41,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import app.archivewatch.android.BuildConfig
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.ui.BackdropImage
@@ -95,8 +97,23 @@ internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
     val userChanges by container.userState.changes.collectAsState()
     val hideWatched by container.settings.hideWatchedOnHome.collectAsState(initial = false)
 
-    return produceState(HomePayload(), dbVersion, userChanges, hideWatched) {
+    // The last COMPLETED payload survives a re-query. When the full catalog
+    // swapped in over the seed, the producer was cancelled and Home fell back
+    // to "Loading the archive…" — throwing away a rendered screen and making
+    // the app look like it had restarted. Holding the previous payload means
+    // the seed's Home stays up and is replaced in place when the richer answer
+    // arrives.
+    val held = remember { mutableStateOf(HomePayload()) }
+
+    return produceState(held.value, dbVersion, userChanges, hideWatched) {
+        val qt0 = android.os.SystemClock.elapsedRealtime()
+        fun qmark(what: String) {
+            if (BuildConfig.DEBUG) android.util.Log.i(
+                "AWQ", "$what +${android.os.SystemClock.elapsedRealtime() - qt0}ms")
+        }
+        qmark("producer:start")
         val db = container.catalog.awaitDb()
+        qmark("awaitDb")
         val featured = container.editorial.featured()
         // #17 parity: completed titles disappear from Home when the toggle is on.
         val watched = if (hideWatched) container.userState.completedIDs() else emptySet()
@@ -160,7 +177,8 @@ internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
         // never ships behind a tile).
         val categories = featured?.categories.orEmpty()
             .filter { db.browseCount(contentType = it.id) >= 30 }
-        value = HomePayload(
+        qmark("queries:begin")
+        val built = HomePayload(
             hero = hero,
             continueWatching = continueWatching,
             shelves = shelves,
@@ -179,6 +197,9 @@ internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
             decades = db.decadeCounts(),
             loaded = true,
         )
+        held.value = built
+        value = built
+        qmark("producer:done")
     }
 }
 

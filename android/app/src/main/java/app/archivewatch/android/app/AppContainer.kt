@@ -51,7 +51,9 @@ class AppContainer(private val application: Application) {
     }
 
     val settings = SettingsStore(application)
-    val subtitleAccount = SubtitleAccountStore(application)
+    // Lazy: nothing on the launch path touches it, and its Keystore setup was
+    // running before Home could draw.
+    val subtitleAccount by lazy { SubtitleAccountStore(application) }
     val userState = UserStateStore(application)
     /**
      * The catalog download gets its OWN client, not the shared one.
@@ -84,7 +86,7 @@ class AppContainer(private val application: Application) {
 
     val catalog = CatalogRepository(application, catalogHttp, json)
     val editorial = EditorialRepository(application, okHttp, json)
-    val clipExporter = ClipExporter(application, okHttp)
+    val clipExporter by lazy { ClipExporter(application, okHttp) }
 
     val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
 

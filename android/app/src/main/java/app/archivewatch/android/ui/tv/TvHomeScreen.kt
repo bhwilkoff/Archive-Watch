@@ -37,6 +37,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import app.archivewatch.android.BuildConfig
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.ui.BackdropImage
@@ -60,6 +61,17 @@ fun TvHomeScreen(container: AppContainer, nav: Nav) {
     val payload by rememberHomePayload(container)
     val firstTile = remember { FocusRequester() }
     val anchor = remember { FocusRequester() }
+
+    // Debug-only render trace. Screenshots proved unreliable here (a stale
+    // frame from the previous run read as content), so the app says what it is
+    // showing and the log is the evidence.
+    if (BuildConfig.DEBUG) {
+        androidx.compose.runtime.SideEffect {
+            android.util.Log.i("AWHOME",
+                if (payload.loaded) "content shelves=${payload.shelves.size} hero=${payload.hero != null}"
+                else "LOADING")
+        }
+    }
 
     if (!payload.loaded) {
         // §3.1 — even a loading screen must hold focus, or the remote does

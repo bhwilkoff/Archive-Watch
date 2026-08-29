@@ -13,7 +13,11 @@ import androidx.security.crypto.MasterKey
  */
 class SubtitleAccountStore(context: Context) {
 
-    private val prefs: SharedPreferences = runCatching {
+    // LAZY: building a Keystore MasterKey and EncryptedSharedPreferences costs
+    // real time on a weak TV SoC (key generation on first run), and it used to
+    // happen in Application.onCreate — before Home could draw — for a feature
+    // only reached from Settings. Nothing about launching the app needs it.
+    private val prefs: SharedPreferences by lazy { runCatching {
         val key = MasterKey.Builder(context)
             .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
             .build()
@@ -26,7 +30,7 @@ class SubtitleAccountStore(context: Context) {
         // Keystore hiccups exist on some OEMs; app-private prefs are the
         // degraded-but-functional fallback rather than a dead feature.
         context.getSharedPreferences("aw.opensubtitles.fallback", Context.MODE_PRIVATE)
-    }
+    } }
 
     @Volatile private var session: OpenSubtitlesClient.Session? = null
 
