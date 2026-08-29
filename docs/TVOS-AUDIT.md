@@ -236,3 +236,43 @@ this ledger, the on-device functional harness (`AW_UI_AUDIT=1`), its Mac twin
 (`tools/test_catalog_audit.swift`, runnable in CI against every published DB),
 and the T3 owner-visual checklist above — the only rows a machine cannot
 close.
+
+---
+
+## 2026-08-28 — Reachability: text the remote used to skip
+
+Owner: *"all TV-based apps [should] allow you to freely scroll to every
+interface element rather than only allowing scroll on items that can be
+selected … Everything on the TV should be able to be viewed, even if there
+isn't a toggle to flip."*
+
+**The mechanism.** A tvOS `ScrollView` only scrolls to FOCUSABLE views, so a
+plain `Text` between two buttons is not merely unselectable — the focus engine
+skips it and the scroll never brings it on screen. Detail's synopsis was
+therefore unreadable past its sixth line, and Settings' attribution was
+reachable only because a focusable donate row had been added BELOW it as a
+"bottom anchor" — a workaround for text that should simply be reachable.
+
+**Fix.** `ReadableTextBlock` — `.focusable(true)` with a rendered focus state
+(the playbook's rule for a non-interactive view that must participate in
+focus), expanding to full length while focused. Applied to the Detail synopsis
+and the Settings attribution paragraphs.
+
+**VERIFIED ON THE BEDROOM APPLE TV** (1.3.478 / build 1000), screenshots not
+self-reports:
+
+| Check | Evidence |
+|---|---|
+| Detail opens with artwork visible | film still fills the upper frame, Resume focused |
+| One DOWN reaches the description | focus panel behind the synopsis, expanded past 6 lines |
+| Settings attribution is reachable | scrolled to it and it HOLDS focus (brightens, panel drawn) |
+
+**tvOS does NOT have the Google TV defect.** On Android TV, claiming initial
+focus on Play made Compose scroll Play into view and drag the artwork off the
+top (worse the longer the description). The Apple TV opens with the artwork on
+screen — checked on the device before changing anything.
+
+**Harness note:** the Apple TV is already paired for pyatv; wake it with
+`~/.pyatv-venv` via `tools/atv_scenario.wake_tv()`. A project venv has no
+credentials, and Python 3.14 breaks `atvremote` — which reads like "pairing
+needed" when pairing was done long ago.
