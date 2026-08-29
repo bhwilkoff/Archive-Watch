@@ -5,6 +5,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.sync.withLock
+import app.archivewatch.android.BuildConfig
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
 import okhttp3.OkHttpClient
@@ -104,14 +106,49 @@ class CatalogRepository(
         refresh()
     }
 
+    /**
+     * Guards against a SECOND refresh while one is already running.
+     *
+     * `start()` fires a refresh, and ProcessLifecycle's onStart fires
+     * `refreshIfStale()` — on a cold launch BOTH happen, so the app ran two
+     * concurrent 41 MB downloads and wrote the 149 MB database TWICE to the
+     * same slow flash. Instrumentation caught it: `refresh:enter` and
+     * `http:call` each appeared twice in one launch. It is also why the app
+     * downloaded at ~4 MB/s where curl sustains 20 on the same device — the
+     * two streams were competing with each other, not with the network.
+     */
+    private val refreshMutex = kotlinx.coroutines.sync.Mutex()
+    @Volatile private var refreshInFlight = false
+
     /** ETag-conditional download → inflate → validate → atomic swap. */
-    suspend fun refresh() = withContext(Dispatchers.IO) {
+    suspend fun refresh() {
+        // A second caller returns immediately rather than queueing: by the time
+        // the first finishes, its result is exactly what the second wanted.
+        if (refreshInFlight) return
+        refreshMutex.withLock {
+            if (refreshInFlight) return
+            refreshInFlight = true
+            try { refreshInner() } finally { refreshInFlight = false }
+        }
+    }
+
+    private suspend fun refreshInner() = withContext(Dispatchers.IO) {
+        // Load-path timing, debug builds only. It is what found the duplicate
+        // refresh: `refresh:enter` appeared TWICE in one cold launch.
+        val t0 = android.os.SystemClock.elapsedRealtime()
+        fun mark(what: String) {
+            if (BuildConfig.DEBUG) android.util.Log.i(
+                "AWLOAD", "$what +${android.os.SystemClock.elapsedRealtime() - t0}ms")
+        }
+        mark("refresh:enter")
         try {
             val builder = Request.Builder().url(ZZ_URL)
             val etag = etagFile.takeIf { it.exists() }?.readText()?.trim()
             if (!etag.isNullOrEmpty()) builder.header("If-None-Match", etag)
 
+            mark("http:call")
             okHttp.newCall(builder.build()).execute().use { response ->
+                mark("http:headers")
                 // A completed round trip counts as a check even when unchanged,
                 // so the TTL throttles re-checks rather than re-downloads.
                 lastCheckFile.writeText(System.currentTimeMillis().toString())
@@ -132,15 +169,18 @@ class CatalogRepository(
                 val staging = File(context.filesDir, "catalog.sqlite.staging")
                 try {
                     inflateRawDeflate(body.byteStream(), staging)
+                    mark("inflate:done")
                     if (staging.length() < MIN_VALID_BYTES) return@withContext
 
                     // Open probe — meta.itemCount must exist (§9.5).
                     val probe = CatalogDatabase.open(staging.path, json) ?: return@withContext
                     probe.close()
+                    mark("probe:done")
 
                     val old = db
                     if (!staging.renameTo(dbFile)) return@withContext
                     swap(CatalogDatabase.open(dbFile.path, json))
+                    mark("swap:done")
                     old?.close()
 
                     // Store the new ETag only after the swap (§9.4).
