@@ -199,6 +199,7 @@ class CatalogDatabase private constructor(
         limit: Int = 60,
         offset: Int = 0,
         homeOnly: Boolean = false,
+        full: Boolean = false,
     ): List<CatalogItem> {
         val (ct, gn, docAnd) = docCategory(contentType, genre)
         val (where0, binds) = browseWhere(ct, decade, gn, year, homeOnly)
@@ -213,7 +214,16 @@ class CatalogDatabase private constructor(
                 "COALESCE(i.popularityScore, 0) DESC, " +
                 "COALESCE(i.episodesCount, 0) DESC, COALESCE(i.imdbVotes, 0) DESC, i.archiveID"
         } else sort.sql
-        return itemsLite(
+        // `full` decodes the per-item blob: only for callers that need fields a
+        // list row does not carry (downloadURL, colorMode, synopsis) — Party
+        // Play and Cartoon Mode build PLAYABLE lineups and filter on colour, so
+        // a lite row would silently give them an empty lineup. Everything on
+        // the launch path stays lite; this is a screen the viewer chose to open.
+        return if (full) items(
+            "SELECT j.json FROM items i$joins JOIN item_json j ON j.archiveID = i.archiveID" +
+                " WHERE $where ORDER BY $order LIMIT ? OFFSET ?",
+            joinBinds + binds + listOf(limit, offset),
+        ) else itemsLite(
             "SELECT $liteCols FROM items i$joins" +
                 " WHERE $where ORDER BY $order LIMIT ? OFFSET ?",
             joinBinds + binds + listOf(limit, offset),

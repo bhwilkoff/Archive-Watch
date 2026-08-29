@@ -51,9 +51,11 @@ private val PARTY_VISUAL_KEYWORDS = listOf(
 
 private suspend fun partyLineup(container: AppContainer): List<CatalogItem> {
     val db = container.catalog.awaitDb()
-    val raw = db.browse(contentType = "animation", limit = 250) +
-        db.browse(contentType = "short-film", limit = 250) +
-        db.browse(genre = "Animation", limit = 120)
+    // full = true: this lineup filters on downloadURL and colorMode, which a
+    // list row does not carry. Without it the party would be silently empty.
+    val raw = db.browse(contentType = "animation", limit = 250, full = true) +
+        db.browse(contentType = "short-film", limit = 250, full = true) +
+        db.browse(genre = "Animation", limit = 120, full = true)
     val seen = HashSet<String>()
     val scored = mutableListOf<Pair<CatalogItem, Int>>()
     for (it in raw) {

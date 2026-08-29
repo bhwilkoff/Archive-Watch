@@ -167,9 +167,19 @@ internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
 
         // Hero: well-composed WIDE backdrops only — REQUIRE a real backdrop, never a cropped 2:3
         // poster or frame-grab cover. The hero hides if none qualify (owner 2026-06-29).
-        val hero = shelves.flatMap { it.second }
-            .filter { it.hasProfessionalArtwork && it.backdropURL != null }
+        // The hero needs backdropURL and synopsis, which a LIST row does not
+        // carry — shelves are built from the `items` columns so Home can draw
+        // without decoding a thousand blobs. So resolve the FULL item for a
+        // small pool of candidates: ~40 decodes instead of a thousand, and the
+        // hero gets its backdrop and description back. (Without this it filtered
+        // on a null backdrop and came up empty — a banner that silently
+        // disappeared while every shelf still rendered.)
+        val heroCandidates = shelves.flatMap { it.second }
+            .filter { it.hasProfessionalArtwork }
             .distinctBy { it.archiveID }
+            .take(40)
+        val hero = db.itemsByIDs(heroCandidates.map { it.archiveID })
+            .filter { it.backdropURL != null }
             .take(6)
 
         val pdYear = Calendar.getInstance().get(Calendar.YEAR) - 95

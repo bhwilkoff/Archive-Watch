@@ -177,7 +177,8 @@ fun CartoonScreen(container: AppContainer, nav: Nav) {
     val state by produceState<Pair<List<CatalogItem>, List<Pair<String, List<CatalogItem>>>>?>(
         null, dbVersion) {
         val db = container.catalog.awaitDb()
-        val pool = db.browse(contentType = "animation", limit = 240)
+        // full = true: the marathon needs downloadURL to build a lineup.
+        val pool = db.browse(contentType = "animation", limit = 240, full = true)
             .filter { it.downloadURL != null }
         val shelves = characterDefs.mapNotNull { (name, terms) ->
             val rows = pool.filter { item ->
