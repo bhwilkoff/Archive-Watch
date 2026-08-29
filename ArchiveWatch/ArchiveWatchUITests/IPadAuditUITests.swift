@@ -115,29 +115,27 @@ final class IPadAuditUITests: XCTestCase {
         print("[AWIPAD] widest control overall: '\(name)' \(Int(w))pt")
     }
 
-    /// §3.1 — artwork and identity sit SIDE BY SIDE, which is the difference
-    /// between a composition and a stack. Proven by geometry: the title's
-    /// minX must be to the right of the artwork's maxX… or at least the two
-    /// must overlap vertically, which a stacked layout never does.
-    func test_03_detailIsTwoColumns() throws {
+    /// §3.1 — artwork and identity sit SIDE BY SIDE. Proven by GEOMETRY, not
+    /// by finding the artwork: a SwiftUI `AsyncImage` with no accessibility
+    /// label is not exposed as an image element, so looking for one made this
+    /// check skip on the device it was written for. The title's own position
+    /// carries the same proof and cannot go missing — stacked, it starts at
+    /// the leading margin; beside a leading column, it starts far to the right
+    /// of it.
+    func test_03_detailIsTwoColumns() {
         launch(["AW_START_ITEM": "his_girl_friday"])
         let title = app.staticTexts["His Girl Friday"].firstMatch
-        XCTAssertTrue(title.waitForExistence(timeout: 12), "no title")
-        var art = CGRect.zero
-        for img in app.images.allElementsBoundByIndex {
-            let f = img.frame
-            if f.width > art.width && f.height > 200 { art = f }
+        XCTAssertTrue(title.waitForExistence(timeout: 15), "no title on Detail")
+        // The nav bar carries the title too, centred; take the one in the body.
+        var bodyTitleX = CGFloat(0)
+        for t in app.staticTexts.allElementsBoundByIndex {
+            guard let snap = try? t.snapshot(), snap.label == "His Girl Friday" else { continue }
+            if snap.frame.minY > 60 { bodyTitleX = max(bodyTitleX, snap.frame.minX) }
         }
-        // Artwork is loaded from the network; on a cold simulator it may not
-        // have arrived. Skip rather than report a false stacked-layout finding.
-        try XCTSkipIf(art.width == 0, "artwork not loaded — cannot judge columns")
-        XCTAssertGreaterThan(art.width, 0, "no artwork found")
-        print("[AWIPAD] art=\(art) title=\(title.frame)")
-        // Side by side: their vertical ranges overlap AND the title starts
-        // after the art ends.
-        let verticallyOverlapping = title.frame.midY > art.minY && title.frame.midY < art.maxY
-        XCTAssertTrue(verticallyOverlapping && title.frame.minX > art.maxX - 8,
-            "IPAD-DESIGN §3.1 — Detail is still stacked, not two columns")
+        print("[AWIPAD] body title starts at x=\(Int(bodyTitleX)) of \(Int(windowWidth))pt")
+        XCTAssertGreaterThan(bodyTitleX, 300,
+            "IPAD-DESIGN §3.1 — the title starts at x=\(Int(bodyTitleX)), so Detail " +
+            "is still one stacked column rather than artwork + identity side by side")
         snap("ipad-detail-two-column")
     }
 

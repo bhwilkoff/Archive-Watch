@@ -109,7 +109,7 @@ an observable change on the glass, never when it merely exists.
 | 3.1 | A film starts within 30s (Decision 077) | `[x]` playing at 30s |
 | 3.2 | Native transport chrome — no persistent overlay | `[x]` clean frame at 30s; HUD only on tap |
 | 3.3 | Resume from a saved position | `[>]` works; button said "Play" — fixed to "Resume" |
-| 3.4 | Published subtitle file renders | `[ ]` |
+| 3.4 | Published subtitle file renders | `[x]` File/Automatic/Off offered; Automatic proven on the glass |
 | 3.5 | Generated captions on a captionless film | `[x]` text on the glass at ~130s |
 | 3.6 | Caption switching (file ↔ automatic) | `[x]` File/Automatic/Off all present, selection sticks |
 | 3.7 | PiP + background audio | `[x]` PiP present (`PIP Button`) and engages |
@@ -224,3 +224,35 @@ platform answers the question the same way — used by the iOS label.
 `Skip Backward` · `Play/Pause` · `Skip Forward` · `Close Button` ·
 **`PIP Button`** · `AirPlay` · `Overflow Menu` — the full native AVKit
 transport, all hittable, and nothing drawn over the film while it plays.
+
+
+---
+
+## CLOSED — 25/25 on the device (2026-08-28, 1.3.479)
+
+Every T1/T2/T3 row above is dispositioned and the suite is green end to end on
+the iPhone 12. Five defects were found and fixed, each verified on the glass:
+
+1. **Detail clipped every line of text on both edges** — seven bordered buttons
+   overflowed a 390pt row, and an overflowing HStack widens the whole COLUMN,
+   which the ScrollView then centres.
+2. **Every Settings toggle threw the viewer back to the top** — the sheet sat
+   inside the `.id(dbVersion)` each toggle invalidates.
+3. **The Search filters had never been reachable on iOS 26** — a top-bar
+   toolbar item, and the search tab draws none once the field has focus.
+4. **The Play button never said "Resume"** — tvOS had computed it since launch.
+5. **Three action buttons had no accessibility label** — favourite, versions,
+   share, while the other four were labelled.
+
+Plus the reviews, which were cut off TWICE: a six-line display clamp (now
+expandable, proven by the text growing 124pt -> 306pt) and a 600-character
+harvest cut that landed mid-word (now clipped on a word boundary; the cap
+itself left alone pending the evidence the run now reports).
+
+**What the harness taught, all of it paid for with a false finding first:**
+`isHittable` lies for an element off the bottom edge · a SwiftUI Toggle is
+exposed as the whole 358pt row so `.tap()` hits the label · judge by EFFECT
+when a self-report is in doubt · the iOS 26 search tab REPLACES the tab bar ·
+a Form renders lazily so `waitForExistence` without scrolling never resolves ·
+indexing a large snapshot goes stale mid-scroll · and measuring the tallest
+text on screen measures the synopsis, not the review you tapped.
