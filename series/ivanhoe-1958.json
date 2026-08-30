@@ -26,7 +26,7 @@
           "seasonNumber": 1,
           "episodeNumber": 1,
           "title": "Freeing the Serfs",
-          "overview": null,
+          "overview": "Returning from the Crusades, Ivanhoe finds England under the cruel tyranny of Prince John and begins the fight to remove him from power.",
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/379/949615.jpg",
           "airDate": "1958-01-05",
           "year": 1958,
@@ -184,8 +184,5 @@
       "order": 6,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0051286",
-  "canonicalEpisodeCount": 17,
-  "canonicalSeasons": 1
+  ]
 }

@@ -36,6 +36,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/fawlty-towers-complete-series-1975/Fawlty Towers S02E02 - The psychiatrist.mp4"
+        },
+        {
+          "archiveID": "fawlty_towers_202604",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "The Kipper and the Corpse (a.k.a. Death)",
+          "overview": "A guest dies at the hotel and Basil and the staff are left with the unpleasant task of removing the body discreetly, while the doctor staying at the hotel, Dr. Price, waits for his sausages. Also, Polly and Manuel feed an elderly woman's pampered pet dog some extra spicy sausages after it bites them both.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/240/602190.jpg",
+          "airDate": "1979-03-12",
+          "year": 1979,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Fawlty Towers/Season 02/S02E04 - The Kipper and the Corpse.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 715259608,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/fawlty_towers_202604/Fawlty%20Towers/Season%2002/S02E04%20-%20The%20Kipper%20and%20the%20Corpse.ia.mp4"
         }
       ]
     },
@@ -59,24 +77,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/LDFT7579/Fawlty Towers.ia.mp4"
-        },
-        {
-          "archiveID": "fawlty_towers_202604",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Fawlty Towers",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1975,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Fawlty Towers/Season 02/S02E04 - The Kipper and the Corpse.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 715259608,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/fawlty_towers_202604/Fawlty%20Towers/Season%2002/S02E04%20-%20The%20Kipper%20and%20the%20Corpse.ia.mp4"
         },
         {
           "archiveID": "fawlty-towers-basil-the-rat-1984-uk-vhs",
@@ -224,8 +224,5 @@
       "order": 7,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/42073.jpg"
     }
-  ],
-  "seriesImdbID": "tt0072500",
-  "canonicalEpisodeCount": 12,
-  "canonicalSeasons": 2
+  ]
 }

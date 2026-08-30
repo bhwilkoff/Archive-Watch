@@ -15,16 +15,16 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": null,
+      "seasonNumber": 1,
       "episodes": [
         {
           "archiveID": "KrattsCreatures",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Kratts' Creatures",
-          "overview": null,
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Who's Who?",
+          "overview": "Chris and Martin set out on a very different adventure, a journey across millions of years of creature history to find out how creatures are related to each other. Allison tracks their journey as she builds up a visual map of creature history. Starting with plants and animals without backbones, the guys follow the trail, up through insects and fish to mammals, trying to find out exactly where the elephant and aardvark fit in. Along the way they meet many cool creatures and show how the entire creature world is just one big creature family.",
           "stillURL": null,
-          "airDate": null,
+          "airDate": "1996-07-05",
           "year": 1996,
           "runtimeSeconds": null,
           "videoFile": {
@@ -37,12 +37,12 @@
         },
         {
           "archiveID": "kratts-creatures-complete-series",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Kratts' Creatures",
-          "overview": null,
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "Why?",
+          "overview": "A new Internet page called CreatureNet is brimming with kids' questions about why creatures behave the way they do.",
           "stillURL": null,
-          "airDate": null,
+          "airDate": "1996-07-18",
           "year": 1996,
           "runtimeSeconds": null,
           "videoFile": {
@@ -85,8 +85,5 @@
       "order": 3,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261448/photo/650f3984485f8.jpg"
     }
-  ],
-  "seriesImdbID": "tt0159885",
-  "canonicalEpisodeCount": 45,
-  "canonicalSeasons": 1
+  ]
 }

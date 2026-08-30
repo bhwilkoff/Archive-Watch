@@ -61,10 +61,6 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "murphy-brown-s06E18-fjord-eyes-only"
-    },
-    {
-     "kind": "orphan-episode",
      "ref": "murphy-brown-s06E11-it-s-not-easy-being-brown"
     },
     {
@@ -482,6 +478,14 @@
     {
      "kind": "orphan-episode",
      "ref": "murphy-brown-s01E06-baby-love"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "murphy-brown-s06E18-fjord-eyes-only"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "murphy-brown-s06E17-the-anchorman"
     }
    ]
   },
@@ -552,6 +556,30 @@
     {
      "kind": "single",
      "ref": "ozzieandharrietozzieandharriet"
+    }
+   ]
+  },
+  {
+   "slug": "four-star-playhouse-1952",
+   "tvmazeID": 58257,
+   "title": "Four Star Playhouse",
+   "matched": true,
+   "canonEps": 130,
+   "ourItems": 101,
+   "mappedEps": 11,
+   "extras": 90,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 101,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "four-star-playhouse-1952"
     }
    ]
   },
@@ -632,39 +660,11 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "knight.-rider.-s-03-e-01.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    },
-    {
-     "kind": "orphan-episode",
      "ref": "knight.-rider.-s-01-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
     },
     {
      "kind": "orphan-episode",
      "ref": "knight.-rider.-s-01-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g"
-    }
-   ]
-  },
-  {
-   "slug": "four-star-playhouse-1952",
-   "tvmazeID": 58257,
-   "title": "Four Star Playhouse",
-   "matched": true,
-   "canonEps": 130,
-   "ourItems": 101,
-   "mappedEps": 11,
-   "extras": 90,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 101,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "four-star-playhouse-1952"
     }
    ]
   },
@@ -2375,7 +2375,7 @@
    "consumedRefs": [
     {
      "kind": "series",
-     "ref": "hometime-1992"
+     "ref": "hometime-1986"
     }
    ]
   },
@@ -3761,6 +3761,40 @@
    ]
   },
   {
+   "slug": "fawlty-towers-1975",
+   "tvmazeID": 577,
+   "title": "Fawlty Towers",
+   "matched": true,
+   "canonEps": 12,
+   "ourItems": 8,
+   "mappedEps": 2,
+   "extras": 6,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 8,
+   "kinds": [
+    "orphan-episode",
+    "series",
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "fawlty-towers-1975"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "fawlty-towers-complete-series-1975"
+    },
+    {
+     "kind": "single",
+     "ref": "fawlty_towers_202604"
+    }
+   ]
+  },
+  {
    "slug": "flash-gordon-1954",
    "tvmazeID": 34934,
    "title": "Flash Gordon",
@@ -4008,11 +4042,11 @@
     },
     {
      "kind": "orphan-episode",
-     "ref": "dads-army-series-3"
+     "ref": "dads-army-series-1"
     },
     {
      "kind": "orphan-episode",
-     "ref": "dads-army-series-1"
+     "ref": "dads-army-series-3"
     },
     {
      "kind": "orphan-episode",
@@ -4058,40 +4092,6 @@
     {
      "kind": "single",
      "ref": "everybody-loves-raymond-complete-series_202512"
-    }
-   ]
-  },
-  {
-   "slug": "fawlty-towers-1975",
-   "tvmazeID": 577,
-   "title": "Fawlty Towers",
-   "matched": true,
-   "canonEps": 12,
-   "ourItems": 8,
-   "mappedEps": 1,
-   "extras": 7,
-   "repicked": 1,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 8,
-   "kinds": [
-    "orphan-episode",
-    "series",
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "fawlty-towers-1975"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "fawlty-towers-complete-series-1975"
-    },
-    {
-     "kind": "single",
-     "ref": "fawlty_towers_202604"
     }
    ]
   },
@@ -4820,7 +4820,7 @@
    "tvmazeID": 793,
    "title": "EastEnders",
    "matched": true,
-   "canonEps": 7297,
+   "canonEps": 7305,
    "ourItems": 7,
    "mappedEps": 0,
    "extras": 7,
@@ -6402,6 +6402,39 @@
    ]
   },
   {
+   "slug": "bosom-buddies-1980",
+   "tvmazeID": 4645,
+   "title": "Bosom Buddies",
+   "matched": true,
+   "canonEps": 37,
+   "ourItems": 2,
+   "mappedEps": 2,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 3,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "bosom-buddies-1980"
+    },
+    {
+     "kind": "single",
+     "ref": "bosom-buddies_202601"
+    },
+    {
+     "kind": "single",
+     "ref": "bosom-buddies-complete"
+    }
+   ]
+  },
+  {
    "slug": "boston-blackie-1951",
    "tvmazeID": 56313,
    "title": "Boston Blackie",
@@ -6789,6 +6822,39 @@
     {
      "kind": "orphan-episode",
      "ref": "it-takes-a-thief-complete-series-1968"
+    }
+   ]
+  },
+  {
+   "slug": "kratts-creatures-1996",
+   "tvmazeID": 54948,
+   "title": "Kratts' Creatures",
+   "matched": true,
+   "canonEps": 50,
+   "ourItems": 2,
+   "mappedEps": 2,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "kratts-creatures-1996"
+    },
+    {
+     "kind": "single",
+     "ref": "KrattsCreatures"
+    },
+    {
+     "kind": "single",
+     "ref": "kratts-creatures-complete-series"
     }
    ]
   },
@@ -7677,39 +7743,6 @@
    ]
   },
   {
-   "slug": "bosom-buddies-1980",
-   "tvmazeID": 4645,
-   "title": "Bosom Buddies",
-   "matched": true,
-   "canonEps": 37,
-   "ourItems": 2,
-   "mappedEps": 1,
-   "extras": 1,
-   "repicked": 1,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "series",
-    "single"
-   ],
-   "mergedFrom": 3,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "bosom-buddies-1980"
-    },
-    {
-     "kind": "single",
-     "ref": "bosom-buddies_202601"
-    },
-    {
-     "kind": "single",
-     "ref": "bosom-buddies-complete"
-    }
-   ]
-  },
-  {
    "slug": "cbs-summer-playhouse-1987",
    "tvmazeID": 10173,
    "title": "CBS Summer Playhouse",
@@ -8331,11 +8364,11 @@
    ]
   },
   {
-   "slug": "the-big-break-2003",
+   "slug": "big-break-x-good-good-2003",
    "tvmazeID": 15939,
-   "title": "The Big Break",
+   "title": "Big Break x Good Good",
    "matched": true,
-   "canonEps": 254,
+   "canonEps": 255,
    "ourItems": 2,
    "mappedEps": 2,
    "extras": 0,
@@ -8356,6 +8389,39 @@
     {
      "kind": "orphan-episode",
      "ref": "Dragnet_TheBigBreak"
+    }
+   ]
+  },
+  {
+   "slug": "the-good-life-1975",
+   "tvmazeID": 6021,
+   "title": "The Good Life",
+   "matched": true,
+   "canonEps": 28,
+   "ourItems": 2,
+   "mappedEps": 1,
+   "extras": 1,
+   "repicked": 1,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 3,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-good-life-1975"
+    },
+    {
+     "kind": "single",
+     "ref": "thegoodlifes01e06"
+    },
+    {
+     "kind": "single",
+     "ref": "the-good-life-s-1-ep-1-1975"
     }
    ]
   },
@@ -9142,6 +9208,30 @@
    ]
   },
   {
+   "slug": "mother-love-1989",
+   "tvmazeID": 18362,
+   "title": "Mother Love",
+   "matched": true,
+   "canonEps": 4,
+   "ourItems": 2,
+   "mappedEps": 1,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "mother-love-1989"
+    }
+   ]
+  },
+  {
    "slug": "my-favorite-martian-1963",
    "tvmazeID": 4512,
    "title": "My Favorite Martian",
@@ -9683,35 +9773,6 @@
    ]
   },
   {
-   "slug": "the-good-life-1975",
-   "tvmazeID": 6021,
-   "title": "The Good Life",
-   "matched": true,
-   "canonEps": 28,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "series",
-    "single"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-good-life-1975"
-    },
-    {
-     "kind": "single",
-     "ref": "thegoodlifes01e06"
-    }
-   ]
-  },
-  {
    "slug": "the-jensen-code-1973",
    "tvmazeID": 24975,
    "title": "The Jensen Code",
@@ -10060,34 +10121,6 @@
    ]
   },
   {
-   "slug": "kratts-creatures-1996",
-   "tvmazeID": 54948,
-   "title": "Kratts' Creatures",
-   "matched": true,
-   "canonEps": 50,
-   "ourItems": 2,
-   "mappedEps": 0,
-   "extras": 2,
-   "repicked": 2,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "KrattsCreatures"
-    },
-    {
-     "kind": "single",
-     "ref": "kratts-creatures-complete-series"
-    }
-   ]
-  },
-  {
    "slug": "adventures-of-the-falcon-1954",
    "tvmazeID": 64160,
    "title": "Adventures of the Falcon",
@@ -10280,6 +10313,30 @@
    ]
   },
   {
+   "slug": "ima-kara-anata-wo-kyouhaku-shimasu-2017",
+   "tvmazeID": 40250,
+   "title": "Ima kara Anata wo Kyouhaku Shimasu",
+   "matched": true,
+   "canonEps": 9,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "ima-kara-anata-wo-kyouhaku-shimasu-2017"
+    }
+   ]
+  },
+  {
    "slug": "interpol-calling-1959",
    "tvmazeID": 42815,
    "title": "Interpol Calling",
@@ -10356,7 +10413,7 @@
    "tvmazeID": 2709,
    "title": "Married at First Sight",
    "matched": true,
-   "canonEps": 349,
+   "canonEps": 350,
    "ourItems": 1,
    "mappedEps": 1,
    "extras": 0,
@@ -11198,30 +11255,6 @@
    ]
   },
   {
-   "slug": "ima-kara-anata-wo-kyouhaku-shimasu-2017",
-   "tvmazeID": 40250,
-   "title": "Ima kara Anata wo Kyouhaku Shimasu",
-   "matched": true,
-   "canonEps": 9,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "from.-now.-on.-showtime.-s-01-e-08"
-    }
-   ]
-  },
-  {
    "slug": "public-prosecutor",
    "tvmazeID": 81418,
    "title": "Public Prosecutor",
@@ -11337,11 +11370,11 @@
    ]
   },
   {
-   "slug": "big-beasts-last-of-the-giants-2018",
-   "tvmazeID": 37067,
-   "title": "Big Beasts: Last of the Giants",
+   "slug": "inside-the-big-east-2005",
+   "tvmazeID": 11255,
+   "title": "Inside the Big East",
    "matched": true,
-   "canonEps": 3,
+   "canonEps": 7,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -11517,30 +11550,6 @@
     {
      "kind": "orphan-episode",
      "ref": "PeteAndGladys1960CbsSneakPreview"
-    }
-   ]
-  },
-  {
-   "slug": "mother-love-1989",
-   "tvmazeID": 18362,
-   "title": "Mother Love",
-   "matched": true,
-   "canonEps": 4,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "mother-love.-s-01-e-01"
     }
    ]
   },
@@ -11753,11 +11762,11 @@
    ]
   },
   {
-   "slug": "the-great-rhino-robbery-2024",
-   "tvmazeID": 72842,
-   "title": "The Great Rhino Robbery",
+   "slug": "the-great-train-robbery-2013",
+   "tvmazeID": 6884,
+   "title": "The Great Train Robbery",
    "matched": true,
-   "canonEps": 3,
+   "canonEps": 2,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -11964,7 +11973,7 @@
    "tvmazeID": 9539,
    "title": "NBC Nightly News",
    "matched": true,
-   "canonEps": 4812,
+   "canonEps": 4820,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -12048,29 +12057,6 @@
     {
      "kind": "single",
      "ref": "the-persuaders-1971-72"
-    }
-   ]
-  },
-  {
-   "slug": "hotel-1995",
-   "tvmazeID": 34174,
-   "title": "Hotel",
-   "matched": true,
-   "canonEps": 16,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "hotel_202312"
     }
    ]
   },
@@ -12305,11 +12291,11 @@
    ]
   },
   {
-   "slug": "mr-bean-2002",
-   "tvmazeID": 5251,
+   "slug": "mr-bean-1990",
+   "tvmazeID": 1719,
    "title": "Mr. Bean",
    "matched": true,
-   "canonEps": 156,
+   "canonEps": 14,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -12811,11 +12797,11 @@
    ]
   },
   {
-   "slug": "still-standing-2002",
-   "tvmazeID": 1502,
+   "slug": "still-standing-2015",
+   "tvmazeID": 17180,
    "title": "Still Standing",
    "matched": true,
-   "canonEps": 88,
+   "canonEps": 121,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -13133,11 +13119,11 @@
    ]
   },
   {
-   "slug": "doctor-in-the-house-1969",
-   "tvmazeID": 8096,
+   "slug": "doctor-in-the-house-2015",
+   "tvmazeID": 27875,
    "title": "Doctor in the House",
    "matched": true,
-   "canonEps": 157,
+   "canonEps": 7,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -13961,11 +13947,11 @@
    ]
   },
   {
-   "slug": "the-armando-iannucci-shows-2001",
-   "tvmazeID": 2574,
-   "title": "The Armando Iannucci Shows",
+   "slug": "daniel-sloss-live-shows-2018",
+   "tvmazeID": 45198,
+   "title": "Daniel Sloss: Live Shows",
    "matched": true,
-   "canonEps": 8,
+   "canonEps": 2,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -14168,11 +14154,11 @@
    ]
   },
   {
-   "slug": "alice-1976",
-   "tvmazeID": 7553,
+   "slug": "alice-2020",
+   "tvmazeID": 49255,
    "title": "Alice",
    "matched": true,
-   "canonEps": 202,
+   "canonEps": 16,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -16100,11 +16086,11 @@
    ]
   },
   {
-   "slug": "franklin-2025",
-   "tvmazeID": 84366,
+   "slug": "franklin-2024",
+   "tvmazeID": 74480,
    "title": "Franklin",
    "matched": true,
-   "canonEps": 6,
+   "canonEps": 8,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -17043,11 +17029,11 @@
    ]
   },
   {
-   "slug": "tvf-pitchers-2015",
-   "tvmazeID": 7329,
-   "title": "TVF Pitchers",
+   "slug": "tv-systrar-2021",
+   "tvmazeID": 50970,
+   "title": "Två systrar",
    "matched": true,
-   "canonEps": 10,
+   "canonEps": 8,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -17204,11 +17190,11 @@
    ]
   },
   {
-   "slug": "ghostwriter-1992",
-   "tvmazeID": 15727,
+   "slug": "ghostwriter-2019",
+   "tvmazeID": 43788,
    "title": "Ghostwriter",
    "matched": true,
-   "canonEps": 74,
+   "canonEps": 39,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -17779,11 +17765,11 @@
    ]
   },
   {
-   "slug": "harry-2013",
-   "tvmazeID": 7272,
+   "slug": "harry-2016",
+   "tvmazeID": 6373,
    "title": "Harry",
    "matched": true,
-   "canonEps": 6,
+   "canonEps": 176,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -20101,6 +20087,98 @@
      "ref": "castelo-ra-tim-bum-a-cidade-dos-meus-sonhos-episodio-05"
     }
    ]
+  },
+  {
+   "slug": "my-life-me-2011",
+   "tvmazeID": 55966,
+   "title": "My Life Me",
+   "matched": true,
+   "canonEps": 52,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "my-life-me-complete-series"
+    }
+   ]
+  },
+  {
+   "slug": "wayside-2005",
+   "tvmazeID": 18518,
+   "title": "Wayside",
+   "matched": true,
+   "canonEps": 19,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "Wayside2007Reupload"
+    }
+   ]
+  },
+  {
+   "slug": "the-new-tom-jerry-show-1975",
+   "tvmazeID": 18963,
+   "title": "The New Tom & Jerry Show",
+   "matched": true,
+   "canonEps": 48,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "Mgm-Tom-and-Jerry"
+    }
+   ]
+  },
+  {
+   "slug": "sanford-1980",
+   "tvmazeID": 7600,
+   "title": "Sanford",
+   "matched": true,
+   "canonEps": 26,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "SanfordSeason1"
+    }
+   ]
   }
  ],
  "reclassifyArchiveIDs": [
@@ -20156,7 +20234,6 @@
   "TheBigHands",
   "1958NflChampionship",
   "the-persuaders-1971-72",
-  "hotel_202312",
   "The_Crow_Stairway_To_Heaven_Season_1",
   "peacock_202107",
   "ranma-nibunnoichi-espanol-latino-y-japones",
@@ -20504,7 +20581,11 @@
   "The_Goodies",
   "Robins_Nest",
   "porridge_202604",
-  "castelo-ra-tim-bum-a-cidade-dos-meus-sonhos-episodio-05"
+  "castelo-ra-tim-bum-a-cidade-dos-meus-sonhos-episodio-05",
+  "my-life-me-complete-series",
+  "Wayside2007Reupload",
+  "Mgm-Tom-and-Jerry",
+  "SanfordSeason1"
  ],
  "orphanSeriesSlugs": [],
  "unmatched": [
@@ -24142,49 +24223,49 @@
    "ref": "s-01-e-30-so-little-time"
   },
   {
-   "title": "Hollywood Palace February 6,",
+   "title": "Hollywood Palace February 6",
    "year": 1965,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "HollywoodPalace020665"
   },
   {
-   "title": "Hollywood Palace March 27,",
+   "title": "Hollywood Palace March 27",
    "year": 1965,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "HollywoodPalace032765"
   },
   {
-   "title": "Hollywood Palace October 2,",
+   "title": "Hollywood Palace October 2",
    "year": 1965,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "HollywoodPalace100265"
   },
   {
-   "title": "Hollywood Palace February 12,",
+   "title": "Hollywood Palace February 12",
    "year": 1966,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "HollywoodPalace021266"
   },
   {
-   "title": "Hollywood Palace November 13,",
+   "title": "Hollywood Palace November 13",
    "year": 1965,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "HollywoodPalace111365"
   },
   {
-   "title": "Hollywood Palace April 10,",
+   "title": "Hollywood Palace April 10",
    "year": 1965,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "HollywoodPalace041065"
   },
   {
-   "title": "Hollywood Palace December 12,",
+   "title": "Hollywood Palace December 12",
    "year": 1964,
    "items": 1,
    "kind": "orphan-episode",
@@ -24196,6 +24277,20 @@
    "items": 1,
    "kind": "orphan-episode",
    "ref": "Bonanza_-_The_Abduction"
+  },
+  {
+   "title": "The A Team S 02 E 15 The Battle Of Bel Air",
+   "year": 1984,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-02-e-15-the-battle-of-bel-air"
+  },
+  {
+   "title": "The A Team S 01 E 09 West Coast Turnaround",
+   "year": 1983,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "the-a-team-s-01-e-10-west-coast-turnaround"
   },
   {
    "title": "Lucy meets John Wayne",
@@ -25295,6 +25390,13 @@
    "items": 1,
    "kind": "single",
    "ref": "GangBusters195455CreatedByPhillipsH.Lord"
+  },
+  {
+   "title": "Hotel (1983-1988) complete series",
+   "year": null,
+   "items": 1,
+   "kind": "single",
+   "ref": "hotel_202312"
   },
   {
    "title": "Jed Buys The Freeway",
@@ -40401,6 +40503,55 @@
    "items": 1,
    "kind": "single",
    "ref": "gos-2-e-5"
+  },
+  {
+   "title": "Chris Elliott",
+   "year": 1960,
+   "items": 1,
+   "kind": "single",
+   "ref": "01-chris-elliott"
+  },
+  {
+   "title": "Girls Gone Wild Collection",
+   "year": 2002,
+   "items": 1,
+   "kind": "single",
+   "ref": "girls-gone-wild-collection"
+  },
+  {
+   "title": "Some Adventures of Sonic The Hedgehog Episodes",
+   "year": null,
+   "items": 1,
+   "kind": "single",
+   "ref": "SomeAdventuresOfSonicTheHedgehogEppies"
+  },
+  {
+   "title": "H.R. Pufnstuf ★ Complete TV Series",
+   "year": 1969,
+   "items": 1,
+   "kind": "single",
+   "ref": "h_r_pufnstuf"
+  },
+  {
+   "title": "Serial Experiments Lain [DVD ISO]",
+   "year": 1999,
+   "items": 1,
+   "kind": "single",
+   "ref": "serial-experiments-lain-dvd"
+  },
+  {
+   "title": "Meat the Carvers - Season 1 +Extras",
+   "year": 2021,
+   "items": 1,
+   "kind": "single",
+   "ref": "meat-the-carvers-season-1"
+  },
+  {
+   "title": "The Munsters (1964) Complete + Movies",
+   "year": 1964,
+   "items": 1,
+   "kind": "single",
+   "ref": "the-munsters-complete"
   }
  ]
 }

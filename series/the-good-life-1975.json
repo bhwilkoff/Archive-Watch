@@ -38,9 +38,32 @@
           "downloadURL": "https://archive.org/download/thegoodlifes01e06/The%20Good%20Life%20S01E06.ia.mp4"
         }
       ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-good-life-s-1-ep-1-1975",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Good Life",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Good Life (S4, Ep 9) (1978) (Royal Command Performance).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 427407476,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-good-life-s-1-ep-1-1975/The%20Good%20Life%20%28S4%2C%20Ep%209%29%20%281978%29%20%28Royal%20Command%20Performance%29.mp4"
+        }
+      ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 2,
   "canonicalEpisodesCount": 28,
   "tvdbID": "77124",
   "artworkSource": "tvdb",
@@ -93,8 +116,5 @@
       "order": 7,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0075511",
-  "canonicalEpisodeCount": 2,
-  "canonicalSeasons": 3
+  ]
 }

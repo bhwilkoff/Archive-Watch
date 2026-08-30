@@ -1,48 +1,45 @@
 {
-  "version": 2,
-  "seriesID": "christmas-in-rockefeller-center-1997",
-  "tvmazeID": 9363,
-  "title": "Christmas in Rockefeller Center",
-  "yearStart": 1997,
-  "yearEnd": null,
-  "overview": "NBC celebrates the lighting of the world's most famous Christmas tree with Christmas in Rockefeller Center. The arrival of the holidays wouldn't be complete without a dazzling display of musical talent and the lighting of the world's most famous Christmas tree, live from Rockefeller Center in New York City on the Wednesday evening following Thanksgiving..",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/599/1499930.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Music"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "christmas-in-rockefeller-center-1997",
+ "tvmazeID": 9363,
+ "title": "Christmas in Rockefeller Center",
+ "yearStart": 1997,
+ "yearEnd": null,
+ "overview": "NBC celebrates the lighting of the world's most famous Christmas tree with Christmas in Rockefeller Center. The arrival of the holidays wouldn't be complete without a dazzling display of musical talent and the lighting of the world's most famous Christmas tree, live from Rockefeller Center in New York City on the Wednesday evening following Thanksgiving..",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/599/1499930.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Music"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1997,
+   "episodes": [
     {
-      "seasonNumber": 1997,
-      "episodes": [
-        {
-          "archiveID": "ChristmasInRockefellerCenter1998",
-          "seasonNumber": 1997,
-          "episodeNumber": 1,
-          "title": "Christmas In Rockefeller Center 1997",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/gW5npq65S7zAM9430ARv9J0aZvD.jpg",
-          "airDate": "1997-12-02",
-          "year": 1997,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Christmas in Rockefeller Center (1998).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 261316128,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/ChristmasInRockefellerCenter1998/Christmas%20in%20Rockefeller%20Center%20%281998%29.mp4"
-        }
-      ]
+     "archiveID": "ChristmasInRockefellerCenter1998",
+     "seasonNumber": 1997,
+     "episodeNumber": 1,
+     "title": "Christmas In Rockefeller Center 1997",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/gW5npq65S7zAM9430ARv9J0aZvD.jpg",
+     "airDate": "1997-12-02",
+     "year": 1997,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Christmas in Rockefeller Center (1998).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 261316128,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ChristmasInRockefellerCenter1998/Christmas%20in%20Rockefeller%20Center%20%281998%29.mp4"
     }
-  ],
-  "episodesCount": 1,
-  "canonicalEpisodesCount": 25,
-  "seriesImdbID": "tt9319744",
-  "canonicalEpisodeCount": 1,
-  "canonicalSeasons": 23
+   ]
+  }
+ ],
+ "episodesCount": 1,
+ "canonicalEpisodesCount": 25
 }
