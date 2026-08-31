@@ -1,26 +1,51 @@
-#!/usr/bin/env python3
 """Submit an Archive Watch build to the Amazon Appstore from the command line.
 
-STATUS (2026-08-31): the credentials exist and are wired, but Amazon has NOT
-granted this developer account the App Submission API scope, so every call
-below fails at the token step with `invalid_scope`. Run it to see exactly where
-you stand; the fix is an account entitlement, not code — see OWNER STEP.
+STATUS (2026-08-31): credentials exist and LWA is enabled, but Amazon has not
+granted this account the App Submission API scope, so the token call still
+fails `invalid_scope`. The remaining step is not code — see OWNER STEP.
 
     python3 tools/submit-amazon.py --check          # auth only
     python3 tools/submit-amazon.py --apk path.apk   # once access is granted
 
-OWNER STEP (one-time, ~2 minutes, then this script works forever):
-  Amazon's docs say to attach the security profile at
-  "Tools & Services > API Access" in the Developer Console. That page does NOT
-  exist in this account's console — Publish, Develop and My Settings were all
-  checked on 2026-08-31, and /settings/console/apiaccess/overview.html 404s.
-  So open a developer support case ("Contact Us" in the console) and ask:
+WHAT THE API CAN AND CANNOT DO (docs, 2026-08-31)
+  * Android APKs ONLY. **AAB is not supported** — which is why the Amazon
+    flavor ships an APK while Play gets a bundle.
+  * It manages NEW VERSIONS of an EXISTING app: "You need to submit the first
+    version of your app using the Developer Console." That first submission
+    happened 2026-08-31, so every future Fire TV update is API-eligible.
+  * Endpoints, once authorized:
+      POST {API}/applications/{appId}/edits
+      POST {API}/applications/{appId}/edits/{editId}/apks/upload
+      POST {API}/applications/{appId}/edits/{editId}/commit
+
+SETUP DONE HERE
+  1. Security profile "Archive Watch Appstore Submission" created
+     (amzn1.application.1ae9e1cdfaf243729f9a72e2913ff2c3).
+  2. Login with Amazon ENABLED for it, with the consent privacy notice URL
+     https://archivewatch.org/privacy.html — this step was genuinely missing
+     and is easy to skip, but on its own it does NOT grant the scope.
+
+OWNER STEP (the only thing left)
+  Amazon's docs say to attach the profile at "API Access" — variously
+  documented as "Tools & Services > API Access", "Apps & Services > API
+  Access" and "My Settings > API Access". **No such page exists in this
+  account.** Walked on 2026-08-31: the settings nav (My Account, Company
+  Profile, Payments, Tax Identity, User Permissions, Identity, Security
+  Profiles, Activity Log), the Appstore console nav (My Apps, My Appstore
+  Cases, My Reports, My Settings, Tools & Services > Develop/Test/Publish/
+  Monetize, Connect), and the app's own App Services page (SSI, Real-Time
+  Notifications, Maps). /settings/console/apiaccess and .../overview.html
+  both 404.
+
+  So open a developer support case (console > Contact Us) asking:
 
       "Please enable Amazon App Submission API access for security profile
        'Archive Watch Appstore Submission'
        (amzn1.application.1ae9e1cdfaf243729f9a72e2913ff2c3) so it can obtain
-       the appstore::apps:readwrite scope. App: Archive Watch,
-       amzn1.devportal.mobileapp.05436508d304458ea47ef31dca23b1b6"
+       the appstore::apps:readwrite scope. Login with Amazon is already
+       enabled for this profile. The API Access page described in your docs
+       does not appear anywhere in my console.
+       App: Archive Watch, amzn1.devportal.mobileapp.05436508d304458ea47ef31dca23b1b6"
 
 Credentials live OUTSIDE the repo at ~/.config/amazon/appstore.json (chmod 600),
 the same pattern as the Play service account and the ASC key. Never commit them.
