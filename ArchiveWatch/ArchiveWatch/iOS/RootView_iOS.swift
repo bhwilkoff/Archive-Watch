@@ -49,6 +49,7 @@ struct RootView: View {
             .onChange(of: inbox.request) { handle(inbox.request) }
             .task { handle(inbox.request) }
             .task { CaptionCapability.shared.probe() }
+            .task { WatchTogether.shared.listen() }
             // Screenshot/dev affordance (the tvOS RootView hooks, iOS twin):
             // AW_START_TAB=channels lands on a tab, AW_START_ITEM=<archiveID>
             // deep-opens that Detail. No-ops unless the env vars are set.

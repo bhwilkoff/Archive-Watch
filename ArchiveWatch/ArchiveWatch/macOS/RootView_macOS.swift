@@ -45,6 +45,7 @@ struct RootView: View {
         // deterministically, since SwiftUI's AX tree isn't reliably scriptable from the shell.
         .task { await applyLaunchOverrides() }
         .task { CaptionCapability.shared.probe() }
+        .task { WatchTogether.shared.listen() }
     }
 
     private func applyLaunchOverrides() async {

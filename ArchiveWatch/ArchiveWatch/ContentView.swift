@@ -13,6 +13,10 @@ struct ContentView: View {
                 LoadErrorView(message: error)
             } else if store.isReady {
                 RootView()
+                    // Listen for SharePlay sessions someone else started. On
+                    // tvOS this is the usual direction: the session begins on a
+                    // phone in a FaceTime call and continues on the TV.
+                    .task { WatchTogether.shared.listen() }
             } else {
                 ProgressView("Loading catalog…")
                     .foregroundStyle(.white)

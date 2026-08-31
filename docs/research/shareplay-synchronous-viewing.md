@@ -4,8 +4,8 @@
 API claim below was read out of the installed SDK headers and swiftinterfaces,
 not from memory or from documentation prose. Nothing has been run on a device.*
 
-**Verdict: feasible, and unusually well-suited to this app.** The one thing that
-killed AirPlay here does *not* kill SharePlay, and Apple documents the exact
+**Verdict: feasible, and unusually well-suited to this app.** The constraint that
+AirPlay had to work around does *not* apply to SharePlay at all, and Apple documents the exact
 workaround for our architecture. Estimated v1: a few days, not weeks.
 
 ---
@@ -41,8 +41,9 @@ comparison view). Useful someday; not this.
 
 ## 2. The blocker that isn't: our custom resource loader
 
-Decision 051 established that **video AirPlay is unsupported with a custom
-`AVAssetResourceLoaderDelegate`**, and every path in this app is loader-backed
+Decision 051 established that Apple does not support video AirPlay *through* a
+custom `AVAssetResourceLoaderDelegate` — and then solved it, so **AirPlay works
+here today on iOS and macOS**. Every path in this app is loader-backed
 (Decision 072): `ResilientStreamLoader.makeAsset(for:)` rewrites every http(s)
 URL to the private `aw-stream` scheme and attaches the delegate.
 

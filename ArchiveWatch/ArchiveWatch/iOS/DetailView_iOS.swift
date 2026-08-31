@@ -132,6 +132,21 @@ struct DetailView: View {
                     }
 
                     Menu {
+                        // SharePlay. The phone is where a session actually
+                        // starts, because that is where the FaceTime call is;
+                        // the Apple TV joins. Offering it outside a call is
+                        // harmless — prepareForActivation just declines.
+                        Button {
+                            Task {
+                                await WatchTogether.shared.share(
+                                    archiveID: item.archiveID,
+                                    title: item.title,
+                                    year: item.year)
+                                playing = true
+                            }
+                        } label: {
+                            Label("Watch Together…", systemImage: "shareplay")
+                        }
                         if Callsheet.supports(item) {
                             Button { Callsheet.open(Callsheet.url(for: item)) } label: {
                                 Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)

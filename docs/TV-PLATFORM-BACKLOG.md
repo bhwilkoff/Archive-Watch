@@ -99,6 +99,13 @@ lives on the *sending* device, so an AirPlay receiver has nothing it can fetch.
 AirPlay would therefore have failed on **every title**, and nothing in the build
 or a screenshot would have shown it.
 
+**This is solved, and AirPlay works.** Decision 051 shipped the fix on
+2026-08-08: on route engage the player item is replaced with a published,
+receiver-fetchable URL (`AirPlayRouting.receiverURL` — HLS first so captions
+survive), and the loader-backed item is restored on disengage. Quote the limit
+only together with its resolution; on its own it reads as "AirPlay does not
+work here", which is false.
+
 Fixed in `PlayerView_iOS.swift`: the player observes
 `AVPlayer.isExternalPlaybackActive` and, when a route engages, swaps to a URL
 the **receiver** can pull itself — preferring the published HLS (which also

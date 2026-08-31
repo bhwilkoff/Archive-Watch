@@ -207,6 +207,10 @@ struct PlayerView: UIViewControllerRepresentable {
         context.coordinator.fallbackMetadata = pItem.externalMetadata
         pItem.preferredForwardBufferDuration = 300
         let player = AVPlayer(playerItem: pItem)
+        // SharePlay: main player only — never the caption scout (see
+        // WatchTogether.attach). Re-attached on every build because a rebuilt
+        // player carries a new coordinator.
+        WatchTogether.shared.attach(player, archiveID: archiveID)
         vc.player = player
         context.coordinator.observe(player, item: pItem)
         PlaybackDiag.attach(item: pItem, player: player)   // no-op unless AW_PLAYBACK_DIAG=1

@@ -33,6 +33,9 @@
 	<array>
 		<string>group.app.archivewatch.tvos</string>
 	</array>
+	<!-- SharePlay: watching a film together in sync (GroupActivities) -->
+	<key>com.apple.developer.group-session</key>
+	<true/>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>applinks:archivewatch.org</string>

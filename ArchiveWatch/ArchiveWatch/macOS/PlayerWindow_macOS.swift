@@ -255,6 +255,10 @@ private struct PlayerSurface: View {
         // native HUD controls.
 
         let p = AVPlayer(playerItem: playerItem)
+        // SharePlay: main player only — never the caption scout (see
+        // WatchTogether.attach). Re-attached on every build because a rebuilt
+        // player carries a new coordinator.
+        WatchTogether.shared.attach(p, archiveID: archiveID)
         if let resume = savedProgress(), resume > 5 {
             p.seek(to: CMTime(seconds: resume, preferredTimescale: 600))
         }

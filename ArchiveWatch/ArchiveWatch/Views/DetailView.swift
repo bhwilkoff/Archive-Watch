@@ -201,7 +201,9 @@ struct DetailView: View {
             .foregroundStyle(.white.opacity(0.85))
 
             HStack(spacing: 20) {
-                playButton
+                // Play outranks the icon buttons when the row is tight: they are
+                // fixed-size circles, it is the one carrying text.
+                playButton.layoutPriority(1)
                 favoriteButton
                 watchedButton
                 shareButton
@@ -230,9 +232,18 @@ struct DetailView: View {
                         .foregroundStyle(accent)
                         .offset(x: 1)
                 }
+                // The runtime (or the remaining time on a resume) is the whole
+                // point of this label, so it must never be the thing that gives
+                // way. Up to SEVEN buttons share this row inside a 1100pt cap,
+                // and the Play label is its only flexible child — so SwiftUI
+                // compressed it and truncated the time (owner, 2026-08-31:
+                // "you should be able to see the full time of any film on the
+                // play button"). fixedSize opts it out of that compression.
                 Text(playLabel)
                     .font(.title3.weight(.semibold))
                     .foregroundStyle(.white)
+                    .lineLimit(1)
+                    .fixedSize(horizontal: true, vertical: false)
             }
             .padding(.leading, 10)
             .padding(.trailing, 28)
@@ -870,7 +881,23 @@ struct PlayerScreen: View {
             muted.toggle()
             player?.isMuted = muted
         }
-        var items: [UIMenuElement] = [playNext, muteToggle]
+        // SharePlay lives here rather than in the Detail action row: that row
+        // already carries seven buttons inside a 1100pt cap, and an eighth is
+        // what truncates the Play label. Starting a session mid-film is also the
+        // more natural moment — you are already watching when you think to
+        // invite someone.
+        let watchTogether = UIAction(
+            title: "Watch Together",
+            image: UIImage(systemName: "shareplay")
+        ) { _ in
+            // `active` here is the AutoplayMode local, not the film — the item
+            // is `current ?? catalogItem`.
+            guard let film = current ?? catalogItem else { return }
+            Task { await WatchTogether.shared.share(archiveID: film.archiveID,
+                                                    title: film.title,
+                                                    year: film.year) }
+        }
+        var items: [UIMenuElement] = [playNext, muteToggle, watchTogether]
         // The caption-TYPE chooser (owner 2026-08-26): pick between the
         // subtitle FILE and AUTOMATIC captions the way the Version menu picks
         // a copy — not a bare on/off. The native CC menu went with the
@@ -1207,6 +1234,13 @@ struct PlayerScreen: View {
         tunePlaybackBuffering(item: playerItem, player: p)
         p.isMuted = muted   // #3 party play (persists across lineup advances)
         player = p
+        // SharePlay: only ever the MAIN player. The caption scout is a second,
+        // muted player running ahead at 2x (Decisions 058/069/072) and would
+        // drag the whole group to 2x if it were coordinated. Re-attaching on
+        // every build is deliberate — a player rebuilt by the Decision-077
+        // fallback carries a NEW coordinator, and keeps the same archiveID so
+        // the group still considers it the same film.
+        WatchTogether.shared.attach(p, archiveID: active?.archiveID ?? archiveID)
         freezeGuard.attach(to: p, item: playerItem)
         nowPlaying.begin(posterURL: active?.posterURLParsed, item: playerItem)
 
