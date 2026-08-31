@@ -25,8 +25,11 @@ import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material.icons.filled.Tv
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.ui.layout.ContentScale
+import coil3.compose.AsyncImage
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.filled.Favorite
@@ -158,9 +161,21 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     .fillMaxWidth()
                     .height(400.dp),
             ) {
+                // This box is ~2.4:1. A landscape backdrop crops into it fine,
+                // but a POSTER is 2:3 — cropping one here leaves a horizontal
+                // sliver, which is what the owner saw on the Fire TV
+                // (2026-08-31: "poorly proportioned and very often cropped
+                // terribly (or not using the professional poster at all)").
+                // Measured against the published catalog: 85.7% of titles have
+                // no backdrop at all, and 12,431 of them carry a real designed
+                // poster (tmdb/commons/omdb) that was being sliced.
+                val heroBackdrop = current.backdropURL
+                val heroPoster = current.posterURL
+                // Ambient wash only. Cropping is correct for this layer because
+                // it is texture behind a scrim, never something the viewer reads.
                 BackdropImage(
-                    url = current.backdropURL ?: current.posterURL,
-                    contentDescription = current.title,
+                    url = heroBackdrop ?: heroPoster,
+                    contentDescription = if (heroBackdrop != null) current.title else null,
                     accent = current.accentColor,
                     modifier = Modifier.fillMaxSize(),
                 )
@@ -175,6 +190,23 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                             ),
                         ),
                 )
+                // With no backdrop, show the poster WHOLE at its own aspect,
+                // trailing-aligned so it never collides with the title block
+                // (which owns the leading 60%). Same resolution as iOS took on
+                // 2026-06-11: aspect-FIT art over an ambient wash, never a
+                // fill-cropped poster.
+                if (heroBackdrop == null && heroPoster != null) {
+                    AsyncImage(
+                        model = heroPoster,
+                        contentDescription = current.title,
+                        contentScale = ContentScale.Fit,
+                        modifier = Modifier
+                            .align(Alignment.CenterEnd)
+                            .padding(end = TvDims.OverscanH, top = 20.dp, bottom = 20.dp)
+                            .fillMaxHeight()
+                            .clip(RoundedCornerShape(10.dp)),
+                    )
+                }
                 Column(
                     Modifier
                         .align(Alignment.BottomStart)

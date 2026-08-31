@@ -113,7 +113,7 @@ struct HomeView: View {
             }, uniquingKeysWith: { a, _ in a })
 
         let pickPool = (store.items(forShelf: "editors-picks") + store.topRated())
-            .filter { $0.hasDesignedArtwork && ($0.backdropURL != nil || $0.posterURL != nil) }
+            .filter { $0.hasProfessionalArtwork && ($0.backdropURL != nil || $0.posterURL != nil) }
         let day = Int(Date().timeIntervalSince1970 / 86_400)
         let pick = WidgetSnapshotWriter.pickOfDay(from: pickPool, dayNumber: day)
 

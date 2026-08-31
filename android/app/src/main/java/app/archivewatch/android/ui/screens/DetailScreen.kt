@@ -87,6 +87,8 @@ import app.archivewatch.android.ui.ShelfRow
 import app.archivewatch.android.ui.accentColor
 import app.archivewatch.android.ui.theme.BrandSurface
 import kotlinx.coroutines.launch
+import androidx.compose.foundation.layout.fillMaxHeight
+import coil3.compose.AsyncImage
 
 @Composable
 fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
@@ -138,8 +140,13 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
     ) {
         // Backdrop header with back button
         Box(Modifier.fillMaxWidth().aspectRatio(16f / 9f)) {
+            // 85.7% of the catalog has no landscape backdrop, and cropping a 2:3
+            // poster into this 16:9 box cuts most of it away. The wash below is
+            // texture; the poster itself is shown whole on top of it.
+            val heroBackdrop = current.backdropURL
+            val heroPoster = current.posterURL
             BackdropImage(
-                url = current.backdropURL ?: current.posterURL,
+                url = heroBackdrop ?: heroPoster,
                 contentDescription = null,
                 accent = current.accentColor,
                 modifier = Modifier.fillMaxSize(),
@@ -154,6 +161,20 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                         ),
                     ),
             )
+            // Above the scrim on purpose: the scrim ends fully opaque, so a
+            // poster drawn under it would lose its bottom third.
+            if (heroBackdrop == null && heroPoster != null) {
+                AsyncImage(
+                    model = heroPoster,
+                    contentDescription = current.title,
+                    contentScale = ContentScale.Fit,
+                    modifier = Modifier
+                        .align(Alignment.Center)
+                        .padding(vertical = 10.dp)
+                        .fillMaxHeight()
+                        .clip(RoundedCornerShape(8.dp)),
+                )
+            }
             IconButton(
                 onClick = { nav.pop() },
                 modifier = Modifier.statusBarsPadding().padding(start = 4.dp),

@@ -179,7 +179,7 @@ struct HomeView: View {
         // Discussed, Hidden Gems — then Directors.
         featuredPayloads = (store.featured?.orderedHomeShelves ?? []).compactMap(featuredPayload)
         pdItems = take(store.filteringWatched(
-            store.browse(year: pdYear, sort: .popular, limit: 120).filter(\.hasDesignedArtwork)))
+            store.browse(year: pdYear, sort: .popular, limit: 120).filter(\.hasProfessionalArtwork)))
         topRated = take(store.filteringWatched(store.topRated().filter(\.hasProfessionalArtwork)))
         watchingNow = take(store.filteringWatched(store.watchingNow().filter(\.hasProfessionalArtwork)))
         communityFavorites = take(store.filteringWatched(store.communityFavorites().filter(\.hasProfessionalArtwork)))
@@ -204,7 +204,7 @@ struct HomeView: View {
         // Pick of the Day: a deterministic daily rotation through designed-art picks
         // (an editorial invitation the user can predict — not an opaque "for you").
         let pickPool = (store.items(forShelf: "editors-picks") + store.topRated())
-            .filter { $0.hasDesignedArtwork && ($0.backdropURL != nil || $0.posterURL != nil) }
+            .filter { $0.hasProfessionalArtwork && ($0.backdropURL != nil || $0.posterURL != nil) }
         let day = Int(Date().timeIntervalSince1970 / 86_400)
         let pick = WidgetSnapshotWriter.pickOfDay(from: pickPool, dayNumber: day)
 

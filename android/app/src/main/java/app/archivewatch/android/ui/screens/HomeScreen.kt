@@ -161,7 +161,11 @@ internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
             } else {
                 db.shelf(shelf.id, 32, allowStandaloneTV = shelf.category == "tv-series")
             }
-            val taken = claim(resolved, min = 6)
+            // Home shows PROFESSIONAL posters only — the iOS/web rule, applied
+            // here so a frame-grab cover never leads a shelf (owner 2026-08-31:
+            // "only professional posters should show up on the Home Screen").
+            // A shelf that cannot field 6 of them hides rather than pad itself.
+            val taken = claim(resolved.filter { it.hasProfessionalArtwork }, min = 6)
             if (taken.isNotEmpty()) shelves.add(shelf.title.ifEmpty { shelf.id } to taken)
         }
 
@@ -202,7 +206,7 @@ internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
                 if (films.isNotEmpty()) d to films else null
             },
             publicDomainYear = pdYear,
-            publicDomainDay = claim(db.browse(year = pdYear, limit = 120).filter { it.hasDesignedArtwork }),
+            publicDomainDay = claim(db.browse(year = pdYear, limit = 120).filter { it.hasProfessionalArtwork }),
             categories = categories,
             decades = db.decadeCounts(),
             loaded = true,

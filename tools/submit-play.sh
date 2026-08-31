@@ -61,8 +61,34 @@ if [ "${AW_SKIP_SMOKE:-0}" != "1" ]; then
   # Play-signed or other-flavour copy of the same package, and installing over
   # it fails (INSTALL_FAILED_UPDATE_INCOMPATIBLE). Picking one device blindly
   # turned a passing smoke test into a failed SHIP.
+  # Two agent sessions share this bench through one adb daemon, so a device can
+  # be mid-test for another repo. Skip any device that is LEASED elsewhere
+  # (tools/devlease.py, protocol shared with Tidbits-Trivia) rather than
+  # force-stopping a peer's app and calling the result a smoke test.
+  leased_elsewhere() {   # $1 = adb serial
+    python3 - "$1" <<'PY' 2>/dev/null || return 1
+import sys, os
+sys.path.insert(0, "tools")
+try:
+    import devlease
+except Exception:
+    sys.exit(1)                       # no lease tooling: behave as before
+KEYS = {"10.0.0.139:5555": "firetv", "10.0.0.55:5555": "androidtv"}
+dev = KEYS.get(sys.argv[1])
+if not dev:
+    sys.exit(1)
+held = devlease.read(dev)
+if held and held.get("pid") != os.getpid():
+    print(f"{dev} held by {held.get('owner')} — {held.get('task') or 'unnamed'}")
+    sys.exit(0)
+sys.exit(1)
+PY
+  }
   SMOKE_SERIAL=""
   for CAND in $("$ADB" devices | awk 'NR>1 && $2=="device" {print $1}'); do
+    if HOLDER=$(leased_elsewhere "$CAND"); then
+      echo "  skipping $CAND — $HOLDER"; continue
+    fi
     SMOKE_SERIAL="$CAND"; break
   done
   if [ -z "$SMOKE_SERIAL" ]; then

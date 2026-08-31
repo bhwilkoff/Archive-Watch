@@ -55,6 +55,7 @@ import app.archivewatch.android.ui.tv.tvFocusable
 import app.archivewatch.android.ui.Route
 import app.archivewatch.android.ui.theme.BrandSurface
 import coil3.compose.AsyncImage
+import androidx.compose.foundation.layout.fillMaxHeight
 
 /** Series → season dropdown → episode list (series JSON, contract §6.3). */
 @Composable
@@ -89,8 +90,13 @@ fun SeriesDetailScreen(container: AppContainer, nav: Nav, slug: String) {
     LazyColumn(Modifier.fillMaxSize()) {
         item(key = "header") {
             Box(Modifier.fillMaxWidth().aspectRatio(16f / 9f)) {
+                // Series posters are 2:3 (TVDB/TVmaze designed art). Cropping one
+                // into this 16:9 box leaves a horizontal sliver, so the art below
+                // is only an ambient wash and the poster is shown whole on top.
+                val heroBackdrop = current.backdropURL
+                val heroPoster = current.posterURL
                 BackdropImage(
-                    url = current.backdropURL ?: current.posterURL,
+                    url = heroBackdrop ?: heroPoster,
                     contentDescription = null,
                     accent = Color(0xFF2D5BFF),   // Classic TV accent (Decision 013)
                     modifier = Modifier.fillMaxSize(),
@@ -105,6 +111,19 @@ fun SeriesDetailScreen(container: AppContainer, nav: Nav, slug: String) {
                             ),
                         ),
                 )
+                // Above the scrim: its bottom is fully opaque.
+                if (heroBackdrop == null && heroPoster != null) {
+                    AsyncImage(
+                        model = heroPoster,
+                        contentDescription = current.title,
+                        contentScale = ContentScale.Fit,
+                        modifier = Modifier
+                            .align(Alignment.Center)
+                            .padding(vertical = 10.dp)
+                            .fillMaxHeight()
+                            .clip(RoundedCornerShape(8.dp)),
+                    )
+                }
                 IconButton(
                     onClick = { nav.pop() },
                     modifier = Modifier.statusBarsPadding().padding(start = 4.dp),

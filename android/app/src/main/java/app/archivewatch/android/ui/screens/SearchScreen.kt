@@ -260,12 +260,15 @@ private fun EpisodeItemRow(item: CatalogItem, onClick: () -> Unit) {
             .padding(vertical = 6.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
+        // Catalog art is 2:3 (both designed posters and our frame covers, which
+        // frame_cover.py crops to a poster aspect), so a 16:9 thumb cropped the
+        // poster to a sliver. Match the art's own shape instead.
         BackdropImage(
-            url = item.backdropURL ?: item.posterURL,
+            url = item.posterURL ?: item.backdropURL,
             contentDescription = item.title,
             accent = item.accentColor,
             modifier = Modifier
-                .size(width = 96.dp, height = 54.dp)
+                .size(width = 48.dp, height = 72.dp)
                 .clip(RoundedCornerShape(6.dp)),
         )
         Spacer(Modifier.width(12.dp))

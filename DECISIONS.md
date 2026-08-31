@@ -165,6 +165,7 @@ an entry in place.
 - 094 — Fleet hardening: stock index guarded and .zz-only, no unguarded restores, budgets everywhere, the big lock holder split
 - 095 — Queue displacement happens at JOB granularity too; the sweeper re-runs only zero-step jobs
 - 096 — tvOS stays ENGINE-led: the system's generated captions are proven only on clean audio, and the plain path they require re-imports a measured disease
+- 097 — A hero never reshapes its art: fit at the image's OWN aspect over an ambient wash, and Home shows professional posters only
 
 ---
 
@@ -974,3 +975,59 @@ Decision 082's reachability bar, or an OS change accepting
 custom-scheme assets); or the engine's quality materially regressing.
 The Fireplace-class hardware constraint is permanent regardless: engine
 fallback for tvOS 26 and non-generating devices is not transitional.
+
+
+## 097 — A hero never reshapes its art: fit at the image's OWN aspect over an ambient wash, and Home shows professional posters only
+*Date: 2026-08-31*
+
+Two rules, one for every platform. (1) A Detail/series hero may crop only a
+real landscape `backdropURL`. With no backdrop it renders `posterURL` WHOLE —
+`ContentScale.Fit` / `contentMode: .fit` inside a 2:3 frame — over an ambient
+crop-filled wash of the same art, drawn ABOVE the scrim. (2) Home shelves are
+gated on `hasProfessionalArtwork`, never the weaker `hasDesignedArtwork`.
+
+**Why**: the owner on the Fire TV — "the poster at the top of every individual
+detail is poorly proportioned and very often cropped terribly (or not using the
+professional poster at all)". `TvDetailScreen` did
+`BackdropImage(url = backdropURL ?: posterURL)` with `ContentScale.Crop` into a
+400dp full-width box (~2.4:1). Measured against the published catalog:
+
+    no backdrop at all                      26,611 of 31,047   85.7%
+      ...carrying a PROFESSIONAL poster     12,431             40.0%
+    backdrop present but generated art           7
+
+So a 2:3 poster was center-cropped to a horizontal sliver on the large majority
+of Detail screens — The Ten Commandments, Suddenly, Reefer Madness, Caligari.
+"Not using the professional poster" was the same bug: a sixth of a poster is
+unrecognizable as one.
+
+**Catalog art does NOT have one shape.** A first pass assumed 2:3 everywhere —
+generated covers really are 600x900 and TMDb w500 is 500x750 — and forced the
+hero into a 2:3 frame. On the device that letterboxed a landscape Commons still
+inside a floating black box. Measured properly (5 samples per source, w/h):
+
+    tmdb .67  omdb .68  tvdb .68  fanart .70  external .68  series .68
+    generated .67        <- our frame covers ARE poster-shaped
+    commons  .67-1.38    archive 1.28-1.76    wikidata 1.33-2.37   tvmaze .68-1.5
+
+So `posterURL` is a poster for most sources and an arbitrary landscape still for
+commons / archive / wikidata. The rule is therefore not "2:3" but "never reshape
+it": `ContentScale.Fit`, height-bounded, width from the image's own intrinsic
+size, so a poster stays a poster and a still stays a still.
+
+**How to apply**: never pass art to a box that reshapes it — not a wide
+crop-scaled box, and not a 2:3 frame either. `backdropURL
+?: posterURL` is a bug wherever the destination is not the poster's own aspect —
+it was live in five Android surfaces (TV Detail, phone Detail, series Detail,
+search thumb at 96x54, and harmlessly in the TV Home hero, whose pool already
+requires a backdrop). Draw the fit poster ABOVE the scrim: these scrims end
+fully opaque, so a poster under one loses its bottom third. Gate Home on
+`hasProfessionalArtwork` — `hasDesignedArtwork` still admits our frame covers,
+which is what Public Domain Day was doing on tvOS, iOS and Android. Do NOT gate
+user FAVORITES that way: those are the viewer's own titles, and hiding one for
+its artwork is a different thing entirely from curating a shelf.
+
+**Consequences**: Apple and web already followed both rules (iOS fixed
+2026-06-11, web `isPro` throughout) — Android carried essentially all of the
+defect, which is why it surfaced on the Fire TV. A shelf that cannot field 6
+professional posters now hides rather than pad itself with frame grabs.

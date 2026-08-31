@@ -198,7 +198,7 @@ struct HomeView: View {
             dynShelf("public-domain-day", "Public Domain Day",
                      "Class of \(String(pdYear)) — newly free to share",
                      store.filteringWatched(store.dbBrowse(year: pdYear, sort: .popular, limit: 120))
-                        .filter { $0.hasDesignedArtwork }),
+                        .filter { $0.hasProfessionalArtwork }),
             dynShelf("top-rated", "Top Rated", "The crowd's verdict — IMDb favorites",
                      store.filteringWatched(store.dbTopRated()).filter { $0.hasProfessionalArtwork }),
             dynShelf("watching-now", "Watching Now", "Most-viewed on archive.org this month",
