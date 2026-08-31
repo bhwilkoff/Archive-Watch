@@ -133,9 +133,13 @@ Passes all four, with those two guardrails written down.
 3. **Stall handling becomes a suspension.** Today we rebuild; under coordination
    we should `beginSuspensionForReason:StallRecovery` and end it on recovery,
    so peers wait rather than drift.
-4. **Entitlement + capability.** Group Activities requires the
-   `com.apple.developer.group-session` entitlement. **No `.entitlements` file
-   in this repo currently has it** — it must be added to the app target and
+4. **Entitlement + capability. DONE 2026-08-31.** `com.apple.developer.group-session`
+   is now in both entitlements files, and **Group Activities is enabled on the
+   App ID** `app.archivewatch.tvos` (verified via the ASC API). Note the ASC
+   API can READ that capability but cannot SET it — its `capabilityType` enum
+   has no such value — so it had to be ticked in the Developer portal, which
+   invalidates existing profiles; `-allowProvisioningUpdates` regenerated them
+   with no certificate churn. The old text said no entitlements file had it — it must be added to the app target and
    carried through the cloud archive workflow (which is how we ship; the dev
    Mac's beta OS can't).
 5. **Resume/progress semantics.** A shared session should not pollute Continue
