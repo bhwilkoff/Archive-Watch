@@ -1,46 +1,48 @@
 {
- "version": 2,
- "seriesID": "ima-kara-anata-wo-kyouhaku-shimasu-2017",
- "tvmazeID": 40250,
- "title": "Ima kara Anata wo Kyouhaku Shimasu",
- "yearStart": 2017,
- "yearEnd": 2017,
- "overview": "Kanji Senkawa receives requests which the police or private investigators can't handle. He solves the cases by threatening people. Kanji Senkawa meets wealthy university student Mio Kanesaka. She has a good heart and and can't ignore those in difficult situations. Kanji and Mio get involved in various cases including voice phishing and kidnappings.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/179/447557.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "Mystery"
- ],
- "networks": [
-  "NTV"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "ima-kara-anata-wo-kyouhaku-shimasu-2017",
+  "tvmazeID": 40250,
+  "title": "Ima kara Anata wo Kyouhaku Shimasu",
+  "yearStart": 2017,
+  "yearEnd": 2017,
+  "overview": "Kanji Senkawa receives requests which the police or private investigators can't handle. He solves the cases by threatening people. Kanji Senkawa meets wealthy university student Mio Kanesaka. She has a good heart and and can't ignore those in difficult situations. Kanji and Mio get involved in various cases including voice phishing and kidnappings.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/179/447557.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Mystery"
+  ],
+  "networks": [
+    "NTV"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "from.-now.-on.-showtime.-s-01-e-08",
-     "seasonNumber": 1,
-     "episodeNumber": 8,
-     "title": "Episode 8",
-     "overview": null,
-     "stillURL": "https://commons.wikimedia.org/wiki/Special:FilePath/From_Now_On_%281920%29_-_4.jpg?width=600",
-     "airDate": "2017-12-10",
-     "year": 2017,
-     "runtimeSeconds": 2700,
-     "videoFile": {
-      "name": "From.Now.On.Showtime.S01E08.mp4",
-      "format": "h.264",
-      "sizeBytes": 414059511,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/from.-now.-on.-showtime.-s-01-e-08/From.Now.On.Showtime.S01E08.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "from.-now.-on.-showtime.-s-01-e-08",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://commons.wikimedia.org/wiki/Special:FilePath/From_Now_On_%281920%29_-_4.jpg?width=600",
+          "airDate": "2017-12-10",
+          "year": 2017,
+          "runtimeSeconds": 2700,
+          "videoFile": {
+            "name": "From.Now.On.Showtime.S01E08.mp4",
+            "format": "h.264",
+            "sizeBytes": 414059511,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/from.-now.-on.-showtime.-s-01-e-08/From.Now.On.Showtime.S01E08.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 1,
- "canonicalEpisodesCount": 9
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 9,
+  "seriesImdbID": null,
+  "canonicalEpisodeCount": 0
 }
