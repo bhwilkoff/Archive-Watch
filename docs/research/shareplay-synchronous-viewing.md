@@ -64,8 +64,23 @@ receiver that must fetch the URL itself, which a private scheme makes
 impossible. Coordination only exchanges **rate and time**; every participant
 loads its own asset locally, through whatever loader it likes.
 
-**Status: inferred from Apple's documented contract, not yet proven on
-hardware.** It is the single most important thing to verify first (§6).
+**Status: PROVEN 2026-08-31**, not merely inferred. `tools/test_playback_coordination.swift`
+compiles the SHIPPED `ResilientStreamLoader` and builds two players from the same
+archive.org film through `aw-stream://`, connects both coordinators to an
+`AVPlaybackCoordinationMedium`, and plays only one:
+
+    custom scheme in use: YES (aw-stream)
+    connected coordinators: 2
+    both items readyToPlay through the custom scheme
+    after play on A only:  A rate=1.0   B rate=1.0
+    identifier delegate consulted:  A=1x  B=1x
+    PASS
+
+So the coordinator both accepts loader-backed items and consults our identifier.
+The AirPlay limitation does not apply. Note the trap the test hit first: the
+resource-loader delegate is held WEAKLY, so dropping the loader returned by
+`makeAsset` fails every request with "unsupported URL" — which reads like
+AVFoundation rejecting the scheme and is not.
 
 ---
 
