@@ -233,6 +233,49 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-08-29/31 — Device audits (iPhone 12, iPad 12.9), Android load 32s -> 6.3s, a Play rejection, a guard that never fired
+Autonomous fleet session. All on `main`, tree clean. Handoff:
+`session_handoff_2026_08_31` + `android_catalog_load_perf` memories.
+
+**SHIP STATE, verified against the live APIs rather than recalled:** Play
+production holds **vc48 / 1.3.484, status `completed`** (package id is
+`com.archivewatch.app`, NOT the `app.archivewatch.android` namespace — that
+404s). Apple **build 1002 / 1.3.480 is uploaded for tvOS + iOS + macOS**;
+**OWNER: submit for review in ASC.** `AppVersion.xcconfig` still reads 1002, so
+the next archive must bump `CURRENT_PROJECT_VERSION` first.
+
+- **iPhone 12 audit CLOSED 25/25** (`docs/IPHONE-12-AUDIT.md`) and **iPad Pro
+  12.9 8/8 on the real device** against a new binding **`docs/IPAD-DESIGN.md`** —
+  two-column Detail, prose capped at 700pt: a distinct layout, not a scaled
+  phone. Harnesses: `tools/ios_scenario.py` + two XCUITest suites.
+- **Android/Google TV cold start 32s -> 6.3s.** The instructive part is the five
+  theories measured and REVERTED first (serialization, network, Coil contention,
+  per-row compression — which *grew* the download to 57.9 MB — and a core
+  artifact without `item_json`, which breaks the app since Android builds every
+  item from that blob). Real causes: the catalog downloaded TWICE, the `.zz`
+  written to flash before inflating, and every list query JOINing the blob.
+- **The lite row broke three things, caught by a pre-ship audit** the owner
+  prompted with "Did you ship?": hero, Party Play, Cartoon Marathon. The hero
+  log said `hero=true` because the list was EMPTY, not null.
+- **Play rejected 1.3.479 for crashing on launch** — R8 stripped a Room
+  constructor reached transitively via Glance. `tools/submit-play.sh` now runs
+  the RELEASE artifact on a device and refuses to upload on a FATAL EXCEPTION.
+- **TV reachability**: everything on tvOS + Google TV can be scrolled to, not
+  only focusable controls; the Google TV Detail poster is visible on open
+  regardless of synopsis length.
+- **Data quality**: 44 titles carrying cast lists corrected; 23 modern films
+  hidden by a rights gap (a yearless modern film could not be judged — how
+  Tinker Bell reached vintage cartoons), no PD casualties.
+- **`frame_is_home_screen()` had returned False for EVERY frame since it was
+  ported**, so the tvOS backgrounded-launch guard never ran once. The port added
+  a defensive branch the Tidbits original does not have, and a bare `except`
+  hid it. `tools/test_home_screen_probe.py` locks it in — and was checked to
+  FAIL against the old code, which is the only way to know a regression test
+  works.
+
+**NOT confirmed on the glass:** the Party Play lineup after the `full = true`
+fix. No crash observed, but nobody watched it run.
+
 ### 2026-08-20 — Pipeline integrity: D089-091, alias forwarding, and an auditor that lied
 Autonomous /loop. **No app-source changes, so no version bump** — pipeline, CI
 and web only. Full detail: `session_handoff_2026_08_20` memory.
