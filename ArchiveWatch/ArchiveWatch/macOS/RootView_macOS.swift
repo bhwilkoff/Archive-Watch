@@ -46,6 +46,26 @@ struct RootView: View {
         .task { await applyLaunchOverrides() }
         .task { CaptionCapability.shared.probe() }
         .task { WatchTogether.shared.listen() }
+        // A SharePlay session someone else started names a film; open it and
+        // start playing so the coordinator has a player to sync. Without this the
+        // Mac joined the group and then sat there — it could only ever be a
+        // passive member of a session it never showed.
+        //
+        // Keyed on dbVersion as well as the id: a session arriving during a cold
+        // launch sets pendingJoin before this view exists, and onChange only
+        // fires for changes it was present for — which is exactly the
+        // continuation case. Re-reading on each catalog swap also covers a film
+        // held only in the full catalog, not the bundled seed.
+        .task(id: store.dbVersion) { routeSharePlayJoin() }
+        .onChange(of: WatchTogether.shared.pendingJoin) { routeSharePlayJoin() }
+    }
+
+    private func routeSharePlayJoin() {
+        guard let id = WatchTogether.shared.pendingJoin,
+              let item = store.itemsByIDs([id]).first else { return }
+        WatchTogether.shared.consumePendingJoin()
+        router.openDetail(item)
+        router.play(item)
     }
 
     private func applyLaunchOverrides() async {

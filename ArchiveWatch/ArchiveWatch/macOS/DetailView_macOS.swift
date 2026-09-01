@@ -19,6 +19,26 @@ struct DetailView: View {
     @State private var chosenVersionName: String?
     @State private var showGetSubtitles = false
 
+    /// Hand the film to the current FaceTime group, or — when there is no call —
+    /// let the system's own sharing sheet place one. Either way the film starts
+    /// only once a session is live, so "Watch Together" never silently degrades
+    /// into ordinary solo playback (owner, 2026-09-01).
+    private func startWatchTogether() {
+        Task {
+            let wt = WatchTogether.shared
+            switch await wt.share(archiveID: item.archiveID, title: item.title, year: item.year) {
+            case .started:
+                router.play(item)
+            case .needsCall:
+                let activity = wt.activity(archiveID: item.archiveID,
+                                           title: item.title, year: item.year)
+                if await SharePlayStarter.present(activity) { router.play(item) }
+            case .cancelled:
+                break
+            }
+        }
+    }
+
     private var isFav: Bool { favorites.contains { $0.archiveID == item.archiveID } }
     private var shareURL: URL { URL(string: "https://archivewatch.org/item/\(item.archiveID)")! }
 
@@ -182,6 +202,15 @@ struct DetailView: View {
                             Button { Callsheet.open(Callsheet.url(for: item)) } label: {
                                 Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
                             }
+                        }
+                        // SharePlay: watch this film in sync with everyone in the
+                        // call. The Mac can also START the call (unlike tvOS,
+                        // where GroupActivitySharingController does not exist).
+                        if item.videoURLParsed != nil {
+                            Button { startWatchTogether() } label: {
+                                Label("Watch Together…", systemImage: "shareplay")
+                            }
+                            Divider()
                         }
                         ShareLink(item: shareURL) { Label("Share Link…", systemImage: "square.and.arrow.up") }
                         Link(destination: URL(string: item.sourceDetailsURL)!) {

@@ -71,6 +71,10 @@ final class WatchTogether {
     /// already playing can be coordinated immediately rather than waiting for
     /// the next player build.
     private weak var attachedPlayer: AVPlayer?
+    /// Stall bracketing — see `observeStalls(on:)`.
+    private var stallObserver: NSObjectProtocol?
+    private var keepUpObservation: NSKeyValueObservation?
+    private var suspension: AVCoordinatedPlaybackSuspension?
     /// Set when WE start the session. The activation also comes back through
     /// `sessions()`, and without this the initiator would re-route to the film
     /// it is already watching and restart it.
@@ -139,19 +143,64 @@ final class WatchTogether {
         identity.archiveID = archiveID
         attachedPlayer = player
         player.playbackCoordinator.delegate = identity
+        observeStalls(on: player)
         guard let session else { return }
         player.playbackCoordinator.coordinateWithSession(session)
     }
 
-    /// A stall on our side should make the group WAIT rather than drift. Bracket
-    /// the recovery: begin when playback stalls, end when it resumes.
-    func beginStallSuspension(_ player: AVPlayer) -> AVCoordinatedPlaybackSuspension? {
-        guard session != nil else { return nil }
-        return player.playbackCoordinator
-            .beginSuspension(for: .stallRecovery)
+    // A stall on our side should make the group WAIT rather than drift apart.
+    //
+    // This is driven from `attach` rather than exposed for each player to call,
+    // because it was previously a public method NOTHING invoked on any platform
+    // — every player got a coordinator and none of them ever suspended it, so a
+    // buffering viewer silently fell behind the group. Centralising it means
+    // tvOS, iOS and macOS cannot drift apart on this again.
+    //
+    // Archival streams stall more than modern ones, which is the whole reason
+    // Decisions 021/031/034/077 exist — so this is a routine event here, not an
+    // edge case.
+    private func observeStalls(on player: AVPlayer) {
+        endSuspension()
+        if let o = stallObserver { NotificationCenter.default.removeObserver(o) }
+        // `object: nil` + an identity check: the item is replaced on a Decision-077
+        // fallback, and an observer bound to the item we saw at attach time would
+        // go quiet on exactly the copy swap that follows a bad stall.
+        stallObserver = NotificationCenter.default.addObserver(
+            forName: AVPlayerItem.playbackStalledNotification, object: nil, queue: .main
+        ) { [weak self, weak player] note in
+            // Only an ObjectIdentifier crosses into the actor: a Notification is
+            // not Sendable, so sending it would be a Swift 6 data-race error.
+            let stalled = (note.object as AnyObject?).map(ObjectIdentifier.init)
+            MainActor.assumeIsolated {
+                guard let self, let player, let item = player.currentItem,
+                      stalled == ObjectIdentifier(item) else { return }
+                self.beginSuspension(on: player, item: item)
+            }
+        }
+    }
+
+    private func beginSuspension(on player: AVPlayer, item: AVPlayerItem) {
+        // No session means no group to hold up; one suspension at a time.
+        guard session != nil, suspension == nil else { return }
+        suspension = player.playbackCoordinator.beginSuspension(for: .stallRecovery)
+        keepUpObservation = item.observe(\.isPlaybackLikelyToKeepUp,
+                                          options: [.initial, .new]) { [weak self] it, _ in
+            guard it.isPlaybackLikelyToKeepUp else { return }
+            Task { @MainActor in self?.endSuspension() }
+        }
+    }
+
+    private func endSuspension() {
+        keepUpObservation?.invalidate()
+        keepUpObservation = nil
+        guard let s = suspension else { return }
+        suspension = nil
+        s.end()
     }
 
     func leave() {
+        endSuspension()
+        if let o = stallObserver { NotificationCenter.default.removeObserver(o); stallObserver = nil }
         session?.leave()
         session = nil
         sharedArchiveID = nil
