@@ -238,10 +238,19 @@ Binding docs added this session: **`docs/SHAREPLAY.md`** (Watch Together) and
 **`docs/DEVICE-TESTING.md`** (how real hardware is verified here). Decisions
 **097** (posters) + **098** (SharePlay).
 
-**SHIP STATE:** app **1.3.491 / build 1009**, cloud archive dispatched for
-tvOS + iOS + macOS — **OWNER: submit in ASC.** Play production **vc49 /
-1.3.485** (API-verified). Fire TV **SUBMITTED** to the Amazon Appstore
-(estimated review ~Sep 5).
+**SHIP STATE:** app **1.3.491 / build 1009** — uploaded and **`VALID` in ASC
+for all three platforms** (TV_OS, IOS, MAC_OS), confirmed per-platform through
+the API. **OWNER: submit in ASC.** Play production **vc49 / 1.3.485**
+(API-verified). Fire TV **SUBMITTED** to the Amazon Appstore (review ~Sep 5).
+
+Note for the next Apple upload: `tools/asc_build_exists.py` filters by build
+NUMBER only and is **not platform-aware**, so a single "already uploaded" can
+mean one platform of three. Builds also appear as Apple finishes processing,
+not in upload order — macOS uploaded first and appeared first here, iOS
+uploaded second and appeared last, ~10 minutes later. And with no `pyjwt` in
+system Python the tool prints "cannot load the ASC client" and **skips its
+check silently, which reads exactly like a pass**; PEP 668 blocks
+`pip install --user`, so use a venv.
 
 **SharePlay shipped, and the audit was the valuable part.** It works end to
 end on real hardware — the owner started a call from the iPhone app, the film
