@@ -18,6 +18,8 @@ struct DetailView: View {
     @State private var loadingVersions = false
     @State private var chosenVersionName: String?
     @State private var showGetSubtitles = false
+    @State private var downloadError: String?
+    @Query private var downloads: [DownloadedFilm]
 
     /// Hand the film to the current FaceTime group, or — when there is no call —
     /// let the system's own sharing sheet place one. Either way the film starts
@@ -189,6 +191,21 @@ struct DetailView: View {
                             loadingVersions = false
                         }
                     }
+                    // Keep it on this Mac (Decision 099). A menu rather than
+                    // iOS's sheet: the copies are already loaded for the Version
+                    // control right beside it, and a Mac has room to show them
+                    // in place instead of covering the film to ask.
+                    if item.videoURLParsed != nil {
+                        Menu {
+                            downloadMenuContents
+                        } label: {
+                            Label(downloadRow?.state == .completed ? "Downloaded" : "Download",
+                                  systemImage: downloadRow?.state == .completed
+                                      ? "arrow.down.circle.fill" : "arrow.down.circle")
+                        }
+                        .controlSize(.large)
+                        .help("Keep this film on the Mac so it plays with no internet")
+                    }
                     // One consolidated Share menu (parity with iOS) — Callsheet + share link +
                     // archive.org, instead of three separate toolbar-ish buttons.
                     Menu {
@@ -233,6 +250,69 @@ struct DetailView: View {
     /// Open this title in Creation Studio's mark-in/out editor — the same scrubber the Add-a-Clip
     /// browser pushes to, but reachable from any title's Detail. Queue the item, then open a fresh
     /// project window; the editor's .task consumes `pendingClipItem` and presents MarkClipView.
+    private var downloadRow: DownloadedFilm? {
+        downloads.first { $0.archiveID == item.archiveID }
+    }
+
+    /// What the Download menu offers depends entirely on where the film is:
+    /// nowhere yet (pick a copy), in flight (pause or cancel), or on disk
+    /// (remove). Never all three at once.
+    @ViewBuilder private var downloadMenuContents: some View {
+        if let d = downloadRow {
+            switch d.state {
+            case .completed:
+                Text(d.qualityLabel.map { "On this Mac · \($0)" } ?? "On this Mac")
+                Divider()
+                Button(role: .destructive) {
+                    DownloadManager.shared.remove(item.archiveID)
+                } label: { Label("Remove Download", systemImage: "trash") }
+            case .queued, .downloading:
+                Text("Downloading…")
+                Button { DownloadManager.shared.pause(item.archiveID) } label: {
+                    Label("Pause", systemImage: "pause")
+                }
+                Button(role: .destructive) {
+                    DownloadManager.shared.remove(item.archiveID)
+                } label: { Label("Cancel Download", systemImage: "xmark") }
+            case .paused:
+                Button { DownloadManager.shared.resume(item.archiveID) } label: {
+                    Label("Resume Download", systemImage: "play")
+                }
+                Button(role: .destructive) {
+                    DownloadManager.shared.remove(item.archiveID)
+                } label: { Label("Cancel Download", systemImage: "xmark") }
+            case .failed:
+                if let why = d.errorText { Text(why) }
+                Button { DownloadManager.shared.resume(item.archiveID) } label: {
+                    Label("Try Again", systemImage: "arrow.clockwise")
+                }
+                Button(role: .destructive) {
+                    DownloadManager.shared.remove(item.archiveID)
+                } label: { Label("Remove", systemImage: "trash") }
+            }
+        } else if let err = downloadError {
+            Text(err)
+            Button("Dismiss") { downloadError = nil }
+        } else if versions.isEmpty {
+            // The file list could not be read; the catalog's own pick still works.
+            Button { downloadError = DownloadManager.shared.start(item: item, version: nil) } label: {
+                Label(loadingVersions ? "Loading copies…" : "Download the standard copy",
+                      systemImage: "arrow.down.circle")
+            }
+        } else {
+            ForEach(versions) { v in
+                Button {
+                    downloadError = DownloadManager.shared.start(item: item, version: v)
+                } label: { Text(v.label) }
+                .disabled(!OfflineLibrary.hasRoom(for: v.sizeBytes))
+            }
+            Divider()
+            if let free = OfflineLibrary.availableBytes() {
+                Text("\(OfflineLibrary.byteText(free)) free on this Mac")
+            }
+        }
+    }
+
     private func openInCreationStudio() {
         store.pendingClipItem = item
         NSDocumentController.shared.newDocument(nil)

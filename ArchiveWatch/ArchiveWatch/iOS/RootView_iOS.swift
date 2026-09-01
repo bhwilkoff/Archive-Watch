@@ -14,11 +14,44 @@ struct RootView: View {
     @State private var startItemOpened = false
     private let inbox = IntentInbox.shared
 
+    private let network = NetworkMonitor.shared
+
     var body: some View {
         // Listening starts at launch, not once the catalog is ready: a SharePlay
         // continuation COLD-LAUNCHES the app, and gating the listener behind
         // `store.isReady` left nobody listening during the loading screen.
-        shell.task { WatchTogether.shared.listen() }
+        VStack(spacing: 0) {
+            offlineBanner
+            shell
+        }
+        .task { WatchTogether.shared.listen() }
+        .task { network.start() }
+    }
+
+    /// One slim bar, and only when there is no network (Decision 099).
+    ///
+    /// It says what still works rather than what broke: the catalog is a local
+    /// SQLite file, so browsing, searching and every downloaded film carry on
+    /// exactly as before — the only thing that cannot happen is streaming.
+    /// Saying "no connection" alone would read as "the app is broken", which is
+    /// the opposite of what this feature made true.
+    @ViewBuilder private var offlineBanner: some View {
+        if !network.isOnline {
+            HStack(spacing: 8) {
+                Image(systemName: "wifi.slash")
+                Text("Offline — your downloads still play")
+                    .font(.footnote.weight(.medium))
+                Spacer(minLength: 0)
+                Button("Downloads") { router.tab = .library }
+                    .font(.footnote.weight(.semibold))
+                    .buttonStyle(.borderless)
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 7)
+            .frame(maxWidth: .infinity)
+            .background(.orange.opacity(0.22))
+            .transition(.move(edge: .top).combined(with: .opacity))
+        }
     }
 
     @ViewBuilder

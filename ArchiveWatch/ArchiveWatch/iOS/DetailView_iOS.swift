@@ -24,10 +24,34 @@ struct DetailView: View {
     @State private var addingToPlaylist = false
     @State private var clipping = false
     @State private var gettingSubtitles = false
+    @State private var downloading = false
+    @Query private var downloads: [DownloadedFilm]
     @State private var captionPlaybackChoice: CaptionPlaybackChoice?
     @State private var playbackError: String?
 
     private var isFav: Bool { favorites.contains { $0.archiveID == item.archiveID } }
+
+    /// One glyph carrying the whole download state, so the row does not grow a
+    /// second control for a feature that is off most of the time.
+    private func downloadIcon(_ d: DownloadedFilm?) -> String {
+        switch d?.state {
+        case .completed:            return "arrow.down.circle.fill"
+        case .queued, .downloading: return "arrow.down.circle.dotted"
+        case .paused:               return "pause.circle"
+        case .failed:               return "exclamationmark.circle"
+        case nil:                   return "arrow.down.circle"
+        }
+    }
+
+    private func downloadLabel(_ d: DownloadedFilm?) -> String {
+        switch d?.state {
+        case .completed:            return "Downloaded — manage"
+        case .queued, .downloading: return "Downloading"
+        case .paused:               return "Download paused"
+        case .failed:               return "Download failed"
+        case nil:                   return "Download to watch offline"
+        }
+    }
 
     /// The Detail action row's buttons, shared by both ViewThatFits branches
     /// so the plain and scrolling rows can never drift apart.
@@ -130,6 +154,19 @@ struct DetailView: View {
                             versions = await ArchiveVersions.list(itemID: item.archiveID)
                             loadingVersions = false
                         }
+                    }
+
+                    // Keep it on this device (Decision 099). Sits beside the
+                    // copy picker because they are the same question asked
+                    // twice: which transfer, and whether to keep it.
+                    if item.videoURLParsed != nil {
+                        let download = downloads.first { $0.archiveID == item.archiveID }
+                        Button { downloading = true } label: {
+                            Image(systemName: downloadIcon(download))
+                                .accessibilityLabel(downloadLabel(download))
+                        }
+                        .buttonStyle(.bordered)
+                        .tint(download?.state == .completed ? .green : nil)
                     }
 
                     Menu {
@@ -334,6 +371,9 @@ struct DetailView: View {
         .sheet(isPresented: $gettingSubtitles) {
             GetSubtitlesView(item: item, playbackChoice: $captionPlaybackChoice)
                 .presentationDetents([.medium, .large])
+        }
+        .sheet(isPresented: $downloading) {
+            DownloadSheet(item: item)
         }
         // Dev affordance (with AW_START_ITEM): start playback immediately so
         // playback diagnostics can run unattended on the simulator.

@@ -30,6 +30,11 @@ struct ArchiveWatchMacApp: App {
                 .environment(account)
                 .frame(minWidth: 960, minHeight: 600)
                 .task { await store.load() }
+                // Downloads must be wired before any view reads one: this
+                // re-attaches to transfers the system carried on while the app
+                // was closed, and repairs rows whose file moved (Decision 099).
+                .task { DownloadManager.shared.configure(container: modelContainer) }
+                .task { NetworkMonitor.shared.start() }
                 .task {
                     // Supercut benchmark: the bench now runs INSIDE the editor scene (on the visible
                     // editor's bound model, so the full UI load contends — owner 2026-06-27). Here we
@@ -125,9 +130,11 @@ struct ArchiveWatchMacApp: App {
     }
 
     private static func makeModelContainer() -> ModelContainer {
+        // DownloadedFilm is registered here but NOT synced — it names a file on
+        // this Mac (iOS-DESIGN §9.7, Decision 099).
         let schema = Schema([WatchProgress.self, Favorite.self, Playlist.self,
                              UserChannel.self, Tombstone.self, VideoClip.self,
-                             LibraryClip.self])
+                             LibraryClip.self, DownloadedFilm.self])
         let config = ModelConfiguration(schema: schema, cloudKitDatabase: .none)
         if let c = try? ModelContainer(for: schema, configurations: config) { return c }
         let mem = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)

@@ -168,6 +168,12 @@ macOS) since they share the Swift Core.
 | Local persistence (offline-first) | ✅ SwiftData | ✅ SwiftData | ✅ SwiftData | ✅ IndexedDB | ✅ user.sqlite | |
 | Per-ecosystem sync (own cloud) | ✅ CloudKit | ✅ CloudKit | ✅ CloudKit (SAME container; Settings → Account; `CloudKitSyncService`) | ⏳ Google Drive App Data | ⏳ Google Drive App Data | Apple islands converge on one iCloud private DB |
 | Cross-ecosystem sync (all platforms) | 🚫 | 🚫 | 🚫 | 🚫 | 🚫 | Out of scope by owner choice |
+| **Download a film for offline viewing** | 🚫 **platform cannot** | ✅ Detail ⬇ → copy-picker sheet | ✅ Detail Download menu | 🚫 | ⏳ Media3 `DownloadManager` | Decision 099. tvOS has NO durable storage — a purgeable `Caches` plus ~500 KB of `NSUserDefaults`, no Documents dir — so a download there is a promise the OS may delete between launches. Web: browser quota will not hold a feature film. Background `URLSession` → Application Support, `isExcludedFromBackup` |
+| Downloads in Library (manage + remove) | 🚫 | ✅ Downloads section, swipe delete / pause / resume | ✅ Downloads rows + Remove | 🚫 | ⏳ | Downloads is the FIRST Library section and the tab opens there when offline |
+| Play a downloaded film with no network | 🚫 | ✅ plain `AVPlayerItem(url: file://)` | ✅ same | 🚫 | ⏳ | iOS-DESIGN §8.7 / macOS-DESIGN §B9b — the resilient loader is skipped; nothing to be resilient about |
+| Offline subtitles for a downloaded film | 🚫 | ✅ downloaded WebVTT via the caption overlay | ✅ same (`liveLine`) | 🚫 | ⏳ | `OfflineSubtitles`. An HLS master cannot carry it — its video rendition is a remote URL (D099) |
+| Offline state banner | n/a (always connected) | ✅ "Offline — your downloads still play" + jump to Library | 🔮 | ⏳ | ⏳ | `NWPathMonitor`. Browse/Search keep working from the local catalog DB; only streaming stops |
+| Downloads are device-local (never synced) | n/a | ✅ | ✅ | n/a | ⏳ | iOS-DESIGN §9.7 — a favorite is an intention, a download is bytes on ONE device |
 
 ## 7. Settings + account
 
@@ -176,6 +182,7 @@ macOS) since they share the Swift Core.
 | Mature-content filter (default ON) | ✅ | ✅ | ✅ `hideAdultContent` toggle | n/a (pre-filtered) | ✅ | Decision 012 |
 | Category visibility toggles | ✅ | ✅ | ⏳ | ⏳ | ⏳ | |
 | Autoplay/playback options | ✅ | ✅ | ⏳ | ⏳ | 🚧 | |
+| Downloads storage + Remove All | 🚫 | ✅ + cellular toggle (OFF by default) | ✅ (no cellular question on a Mac) | 🚫 | ⏳ | Decision 099 |
 | TMDb attribution (required) | ✅ | ✅ | ✅ verbatim notice | ✅ | ✅ | Decision 007 |
 | Donate to Internet Archive | ✅ | ✅ | ✅ | ✅ | ✅ | Decision 010 |
 | Sign-in (sync gate, optional) | ✅ Apple | ✅ Apple | ✅ Sign in with Apple | ⏳ Google | ⏳ Google | only gates sync |

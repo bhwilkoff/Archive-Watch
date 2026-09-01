@@ -141,8 +141,18 @@ struct PlayerView: UIViewControllerRepresentable {
         context.coordinator.fullSubtitleHLS = subtitleHLSURL
         context.coordinator.currentChoice = captionChoice ?? (subtitleHLSURL != nil ? .file : .automatic)
 
+        // DOWNLOADED FIRST (Decision 099). A film on disk is a plain local file:
+        // no resilient loader, no HLS wrapper, no node resolution — none of that
+        // machinery exists to solve a problem a `file://` URL has. It is also the
+        // one asset shape that works with the radio off, which is the point.
+        // `context.coordinator.directVideoURL` keeps the REMOTE url so AirPlay
+        // still has something a receiver can fetch (Decision 051).
+        let localFileURL = OfflineLibrary.videoURL(for: archiveID)
+
         let pItem: AVPlayerItem
-        if let hls = effectiveHLS, SystemCaptions.isAvailable {
+        if let local = localFileURL {
+            pItem = AVPlayerItem(url: local)
+        } else if let hls = effectiveHLS, SystemCaptions.isAvailable {
             // iOS 27+: play the PUBLISHED https wrapper directly — ordinary
             // HLS, which the system will attach its generated track to. The
             // native subtitle menu then holds the authored file track AND
@@ -233,7 +243,21 @@ struct PlayerView: UIViewControllerRepresentable {
         // captions (owner, 2026-08-27), and a custom switcher button was
         // chrome the native menu already replaces. The engine runs ONLY where
         // the system cannot: iOS 26. Native support, native UI, native APIs.
-        if !SystemCaptions.isAvailable,
+        if let local = localFileURL {
+            // Offline. The published WebVTT came down with the film, so File
+            // mode renders those human words through the overlay the engine
+            // already draws into (see OfflineSubtitles for why not HLS).
+            // Automatic still works with no network — the engine transcribes on
+            // device — and the choice control means the two can never both draw.
+            let choice = captionChoice
+                ?? (OfflineLibrary.subtitleURL(for: archiveID) != nil ? .file : .automatic)
+            if choice == .file, let subs = OfflineSubtitles(archiveID: archiveID) {
+                context.coordinator.startOfflineSubtitles(subs, in: vc)
+            } else if choice == .automatic, !SystemCaptions.isAvailable,
+                      liveCaptionsEnabled, LiveCaptions.isSupported {
+                context.coordinator.startLiveCaptions(url: local, in: vc)
+            }
+        } else if !SystemCaptions.isAvailable,
            liveCaptionsEnabled, captionChoice != .off, LiveCaptions.isSupported,
            let src = videoURL {
             if effectiveHLS == nil {
@@ -308,17 +332,30 @@ struct PlayerView: UIViewControllerRepresentable {
             switch choice {
             case .file:
                 liveCaptions?.stop(); liveCaptions = nil
+                offlineSubtitleTask?.cancel(); offlineSubtitleTask = nil
                 if let item = makeLocalItem() { swap(to: item, resumingAt: pos, on: player) }
+                // Downloaded: File mode is the downloaded WebVTT, since there
+                // is no HLS wrapper to carry a track offline (Decision 099).
+                if OfflineLibrary.videoURL(for: archiveID) != nil,
+                   let subs = OfflineSubtitles(archiveID: archiveID) {
+                    startOfflineSubtitles(subs, in: vc)
+                }
             case .automatic:
+                offlineSubtitleTask?.cancel(); offlineSubtitleTask = nil
                 if let item = makeLocalItem() { swap(to: item, resumingAt: pos, on: player) }
                 // iOS 27+: the system captions the plain asset natively; our
                 // engine would double-caption (the flashing). Engine only
                 // where the system cannot (iOS 26).
-                if !SystemCaptions.isAvailable, let src = directVideoURL {
+                // The downloaded file is the source when there is one — the
+                // remote URL is unreachable in the case this feature exists for.
+                if !SystemCaptions.isAvailable,
+                   let src = OfflineLibrary.videoURL(for: archiveID) ?? directVideoURL {
                     startLiveCaptions(url: src, in: vc)
                 }
             case .off:
                 liveCaptions?.stop(); liveCaptions = nil
+                offlineSubtitleTask?.cancel(); offlineSubtitleTask = nil
+                captionLabel?.isHidden = true
                 if let item = makeLocalItem() { swap(to: item, resumingAt: pos, on: player) }
             }
         }
@@ -336,6 +373,8 @@ struct PlayerView: UIViewControllerRepresentable {
         private var unplayableObs: NSKeyValueObservation?
         var liveCaptions: LiveCaptions?
         var captionLabel: UILabel?
+        /// Drives the downloaded-subtitle overlay; cancelled on teardown.
+        var offlineSubtitleTask: Task<Void, Never>?
         var liveCaptionsAllowed = true
         /// False while a published track is only being JUDGED — the
         /// player is already drawing its own subtitles, and a second
@@ -533,20 +572,11 @@ struct PlayerView: UIViewControllerRepresentable {
 
         /// Transcribe the streaming audio and show it under the picture.
         ///
-        /// The film's audio is already being decoded for playback, so this costs
-        /// no extra bytes — `tools/test_live_audio_tap.swift` measured 9.1s of
-        /// PCM captured in 8.8s of wall clock from a REMOTE asset.
-        /// Transcribe AHEAD of playback and pop complete captions on in time.
-        ///
-        /// A second, muted player runs the same URL faster than playback and is
-        /// the one that gets tapped — so a caption is ready before the viewer
-        /// reaches it and can be shown whole, the way a captioned film reads.
-        /// Tapping the PLAYING item can only ever trail the speech.
-        func startLiveCaptions(url: URL, in vc: AVPlayerViewController,
-                               showsImmediately: Bool = true) {
-            showsCaptionOverlay = showsImmediately
-            let captions = LiveCaptions()
-            liveCaptions = captions
+        /// The caption overlay label, in the player's own content overlay and
+        /// styled by the viewer's system caption settings. Shared by the live
+        /// engine and the offline file renderer so the two can never drift into
+        /// looking like different features.
+        private func installCaptionLabel(in vc: AVPlayerViewController) -> UILabel {
             let label = PaddedLabel()
             label.numberOfLines = 2
             label.textAlignment = .center
@@ -565,6 +595,49 @@ struct PlayerView: UIViewControllerRepresentable {
                 ])
             }
             captionLabel = label
+            return label
+        }
+
+        /// Render a DOWNLOADED subtitle file against the playhead (Decision 099).
+        ///
+        /// No scout, no recognizer, no network: the cues are already on disk and
+        /// already timed. The loop matches the engine's cadence so the two read
+        /// identically on screen, and stops with the player.
+        func startOfflineSubtitles(_ subs: OfflineSubtitles, in vc: AVPlayerViewController) {
+            showsCaptionOverlay = true
+            let label = installCaptionLabel(in: vc)
+            offlineSubtitleTask?.cancel()
+            offlineSubtitleTask = Task { @MainActor [weak self] in
+                while !Task.isCancelled {
+                    guard let self, let player = self.player else { break }
+                    let text = self.showsCaptionOverlay
+                        ? subs.line(at: player.currentTime().seconds) : ""
+                    label.numberOfLines = 4
+                    label.text = text.isEmpty ? nil : text
+                        .components(separatedBy: "\n")
+                        .map { "  \($0)  " }
+                        .joined(separator: "\n")
+                    label.isHidden = text.isEmpty
+                    try? await Task.sleep(nanoseconds: 150_000_000)
+                }
+            }
+        }
+
+        /// The film's audio is already being decoded for playback, so this costs
+        /// no extra bytes — `tools/test_live_audio_tap.swift` measured 9.1s of
+        /// PCM captured in 8.8s of wall clock from a REMOTE asset.
+        /// Transcribe AHEAD of playback and pop complete captions on in time.
+        ///
+        /// A second, muted player runs the same URL faster than playback and is
+        /// the one that gets tapped — so a caption is ready before the viewer
+        /// reaches it and can be shown whole, the way a captioned film reads.
+        /// Tapping the PLAYING item can only ever trail the speech.
+        func startLiveCaptions(url: URL, in vc: AVPlayerViewController,
+                               showsImmediately: Bool = true) {
+            showsCaptionOverlay = showsImmediately
+            let captions = LiveCaptions()
+            liveCaptions = captions
+            let label = installCaptionLabel(in: vc)
 
             Task { @MainActor [weak self] in
                 guard let self else { return }
@@ -690,6 +763,11 @@ struct PlayerView: UIViewControllerRepresentable {
         /// Rebuild the on-device item, mirroring `makeUIViewController`'s branch
         /// so returning from AirPlay restores the same path playback started on.
         private func makeLocalItem() -> AVPlayerItem? {
+            // A downloaded copy outranks every remote shape here too — coming
+            // back from AirPlay must not start streaming a film that is on disk.
+            if let file = OfflineLibrary.videoURL(for: archiveID) {
+                return AVPlayerItem(url: file)
+            }
             if let hls = directHLSURL, let mp4 = directVideoURL, !didFallback {
                 let (asset, l) = CaptionedHLSLoader.makeAsset(hls: hls, downloadURL: mp4)
                 captionedLoader = l
@@ -789,6 +867,7 @@ struct PlayerView: UIViewControllerRepresentable {
         // isolated deinit (SE-0371): touch the MainActor-isolated observers natively under
         // the Swift 6 language mode without a nonisolated(unsafe) escape hatch.
         isolated deinit {
+            offlineSubtitleTask?.cancel()
             captionStall.detach()
             externalObs = nil
             resumeObs = nil

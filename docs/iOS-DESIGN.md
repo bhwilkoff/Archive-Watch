@@ -149,6 +149,13 @@ Like This. Series detail is the variant with season Menu + episode list.
 Add to Playlist (`presentationDetents([.medium, .large])`), Create Channel.
 Pickers default to medium detent; forms that need a keyboard may open large.
 3.7 **Full-screen cover** — the player, and ONLY the player (§4.4).
+3.8b **Banner** — a full-width strip pinned above the tab shell, stating a
+CONDITION that changes what the app can do (currently: offline). One line,
+one action at most, no dismiss (it is not a message; it goes away when the
+condition does). It is not an error toast and never carries content. A second
+condition needs a rule here first — two stacked banners is a redesign signal,
+not a layout.
+
 3.8 **Tile** — `PosterTile` (2:3 poster + caption) for content;
 gradient-on-accent compact tiles (category/decade/mode/surprise) for
 navigation chips. New tile shapes extend these two, not a third family.
@@ -339,6 +346,18 @@ actually playing. New in-player affordances follow this overlay pattern.
 `ChannelScheduler`, and emphasize color for animation pools (Decision 025,
 B&W capped to a minority). Commercials stay off Home.
 
+8.7 **A downloaded film plays as a plain local file** (Decision 099).
+`OfflineLibrary.videoURL(for:)` is checked FIRST in `makeUIViewController`
+and in `makeLocalItem()`; when it answers, the item is
+`AVPlayerItem(url: fileURL)` with no resilient loader, no HLS wrapper and no
+node resolution — that machinery exists to survive a connection, and a
+`file://` URL has none to lose. This is the ONE carve-out from §11.5, which
+governs REMOTE video. `directVideoURL` still holds the remote URL so AirPlay
+keeps a receiver-fetchable target (Decision 051). Subtitles for a downloaded
+film are the downloaded WebVTT rendered into the caption overlay
+(`OfflineSubtitles`), selected by the existing caption-type control, never a
+second overlay drawn on top of the first.
+
 ---
 
 ## §9 — State, persistence & sync (binding)
@@ -375,6 +394,17 @@ the same thing on both platforms even though the value is per-device. New
 preferences reuse the tvOS key, or define one key for both — never an
 `ios`-suffixed twin.
 
+9.7 **A model that names a FILE on this device is device-local and never
+synced** (Decision 099). `DownloadedFilm` is registered in the container but
+excluded from `CloudKitSyncService` and from §9.4's tombstone discipline: a
+bare `ctx.delete` (via `DownloadManager.remove`) is CORRECT here and nowhere
+else. Favorites and progress record an intention, which is true on every
+device; a download records bytes on one. Syncing it would put a title in the
+iPhone's Downloads that exists only on the Mac. Any future model of this kind
+(a cached render, an exported file) follows the same rule and says so here.
+Whether a film is present is asked of the FILE SYSTEM, never of the row —
+a row can outlive its file.
+
 9.6 **No new state without a home** (tvOS-DESIGN §1.7). Persisted user state
 maps to the §9.3 models (+ sync per §9.4) or a §9.5 default — nothing ad-hoc.
 
@@ -410,7 +440,13 @@ shelf under 6 items (§5.4). 11.10 A bare `ctx.delete` on a synced model
 A brand color for content meaning or a semantic accent for chrome (§7.1).
 11.13 Custom font sizes outside navigation tiles (§6.1). 11.14 Porting a tvOS
 focus rule into iOS files or this doc's inversions back into tvOS (§4.1).
-11.15 A grid/list/sheet without all four states (§4.2).
+11.15 A grid/list/sheet without all four states (§4.2). 11.16 A tombstone or
+`SyncNudge` call on a device-local model (§9.7). 11.17 Answering "is this
+downloaded?" from a database row rather than the file system (§9.7). 11.18
+Wrapping a downloaded file in a resilient loader or an HLS master (§8.7).
+11.19 Auto-downloading anything the viewer did not ask for by name — no
+predictive pre-caching, no "for your trip" suggestions (the learning-
+orientation gate: the viewer chooses what they carry).
 
 ---
 

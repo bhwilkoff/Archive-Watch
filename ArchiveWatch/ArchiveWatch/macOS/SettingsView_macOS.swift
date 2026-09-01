@@ -27,6 +27,23 @@ struct SettingsView: View {
                 }
                 SubtitleAccountSection()
                 AutoCaptionsSettingsSection()
+                // Downloads (Decision 099). A Mac has no cellular question, so
+                // this is space and a way to reclaim it.
+                Section("Downloads") {
+                    let used = OfflineLibrary.bytesUsed()
+                    if used > 0 {
+                        LabeledContent("Space used", value: OfflineLibrary.byteText(used))
+                        Button("Remove All Downloads", role: .destructive) {
+                            DownloadManager.shared.removeAll()
+                        }
+                        Text("Favorites, playlists and watch history are not affected.")
+                            .font(.footnote).foregroundStyle(.secondary)
+                    } else {
+                        Text("Nothing downloaded yet. Use Download on a film's page to keep "
+                             + "it on this Mac and play it with no internet.")
+                            .font(.footnote).foregroundStyle(.secondary)
+                    }
+                }
                 Section("Content") {
                     Toggle("Hide mature collections", isOn: $store.hideAdultContent)
                     Toggle("Hide watched on Home", isOn: $store.hideWatchedOnHome)

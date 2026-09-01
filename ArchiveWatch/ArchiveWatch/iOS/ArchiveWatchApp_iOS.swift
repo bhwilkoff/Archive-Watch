@@ -22,6 +22,10 @@ struct ArchiveWatchApp: App {
                 .environment(account)
                 .preferredColorScheme(.dark)
                 .task { await store.load() }
+                // Downloads must be wired before any view reads one: this
+                // re-attaches to transfers `nsurlsessiond` carried on while the
+                // app was suspended or dead, and repairs rows whose file moved.
+                .task { DownloadManager.shared.configure(container: modelContainer) }
                 // Pull synced favorites/playlists/progress on launch — but ONLY when the
                 // user has opted into sync by signing in (Decision 022: sign-in gates
                 // sync). Don't touch CloudKit/XPC on a fresh, signed-out install.
@@ -41,6 +45,14 @@ struct ArchiveWatchApp: App {
                 }
         }
         .modelContainer(modelContainer)
+        // The system relaunches the app in the background when a download
+        // finishes; this is where SwiftUI hands that event over. Recreating the
+        // session inside `handleBackgroundEvents` is what replays the delegate
+        // callbacks, so a film that completed while the app was dead is on disk
+        // and in the Library by the time the viewer next opens it.
+        .backgroundTask(.urlSession(DownloadManager.sessionIdentifier)) {
+            await DownloadManager.shared.handleBackgroundEvents()
+        }
     }
 
     // SwiftData store in the App Group container (shared with future widgets), then
@@ -48,8 +60,11 @@ struct ArchiveWatchApp: App {
     // CloudKit sync (cloudKitDatabase: .none) reuses the tvOS CloudKitSyncService,
     // so an iPhone signed into the same iCloud account syncs WITH the Apple TV.
     private static func makeModelContainer() -> ModelContainer {
+        // DownloadedFilm is registered here but NOT synced — it names a file on
+        // this device (iOS-DESIGN §9.7, Decision 099).
         let schema = Schema([WatchProgress.self, Favorite.self, Playlist.self,
-                             UserChannel.self, Tombstone.self, VideoClip.self])
+                             UserChannel.self, Tombstone.self, VideoClip.self,
+                             DownloadedFilm.self])
         let config = ModelConfiguration(schema: schema, cloudKitDatabase: .none)
         if let c = try? ModelContainer(for: schema, configurations: config) { return c }
         let mem = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)

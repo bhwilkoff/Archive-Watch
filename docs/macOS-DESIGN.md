@@ -776,6 +776,20 @@ Removals propagate via `Tombstone` keys: `fav:<id>` (DetailView favorites), `ch:
 playlists use `touch()` recency-merge (#11b). All rely on the foreground/sign-in `CloudKitSyncService.sync`;
 only `PlayerSurface` additionally calls `SyncNudge.nudge` (push progress promptly so devices converge).
 
+## §B9b — Downloads are the ONE unsynced surface (Decision 099)
+
+Library's Downloads section, the Detail Download menu and Settings' storage
+row all read `DownloadedFilm`, which is registered in the container and
+**excluded from CloudKit** — it names a file on THIS Mac, so §B9's tombstone
+and nudge discipline does not apply and a bare removal is correct
+(iOS-DESIGN §9.7). Downloads render as ROWS inside the Library ScrollView, not
+a `ShelfRow`: a download has a state and a size, and a poster shelf can show
+neither. `PlayerWindow.setup()` checks `OfflineLibrary.videoURL(for:)` FIRST
+and plays a plain `AVPlayerItem(url: fileURL)` — no `ResilientStreamLoader`,
+no captioned-HLS wrapper (§B3 still binds for every REMOTE asset). A
+downloaded film's subtitles publish into the same `liveLine` the caption
+engine writes, so the overlay, its styling and its teardown stay one thing.
+
 ## §B10 — Native-platform-first + structured concurrency
 
 - Binding everywhere: AVPlayerView HUD (no hand-drawn controls), `.searchable` toolbar field, native

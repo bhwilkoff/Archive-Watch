@@ -157,6 +157,8 @@ private struct PlayerSurface: View {
     @State private var loadError: String?
     @State private var liveCaptions: LiveCaptions?
     @State private var liveLine: String = ""
+    /// Drives the downloaded-subtitle overlay; cancelled with the window.
+    @State private var offlineSubtitleTask: Task<Void, Never>?
     @State private var drawsCaptions = true
     // AirPlay. The `.floating` HUD below carries a route button, but every path
     // here builds a CUSTOM-SCHEME resource-loader asset, and Apple does not
@@ -214,7 +216,11 @@ private struct PlayerSurface: View {
     private func setup() {
         guard player == nil else { return }
         let playerItem: AVPlayerItem
-        if let hls = subtitleHLS, let mp4 = videoURL {
+        // DOWNLOADED FIRST (Decision 099): a plain local file, with none of the
+        // resilience machinery — a `file://` URL has no connection to lose.
+        if let local = OfflineLibrary.videoURL(for: archiveID) {
+            playerItem = AVPlayerItem(url: local)
+        } else if let hls = subtitleHLS, let mp4 = videoURL {
             // Part (a) Config C: native CC menu, but START on a known-live storage
             // node — the loader serves the HLS playlists with the segment rewritten
             // to a freshly node-resolved direct https URL (skips the /download 302).
@@ -322,6 +328,15 @@ private struct PlayerSurface: View {
             // scout (a second player + tap + recognizer) to judge a file that
             // will never display. Measured 2026-08-26: with Off, the else-if
             // below started the scout anyway ("scout playing at 2.0x").
+        } else if let local = OfflineLibrary.videoURL(for: archiveID) {
+            // Offline. The published WebVTT came down with the film, so render
+            // those human words; with no file, the engine transcribes the local
+            // audio — which needs no network either (see OfflineSubtitles).
+            if let subs = OfflineSubtitles(archiveID: archiveID) {
+                startOfflineSubtitles(subs, on: p)
+            } else {
+                startLiveCaptions(on: p, source: local)
+            }
         } else if subtitleHLS == nil {
             startLiveCaptions(on: p)
         } else if let vtt = publishedVTT {
@@ -452,9 +467,12 @@ private struct PlayerSurface: View {
     /// `draws` is false while a published track is only being JUDGED: the
     /// player is already showing its own subtitles, and a second set underneath
     /// them is the double-caption bug in miniature.
-    private func startLiveCaptions(on p: AVPlayer, draws: Bool = true) {
+    private func startLiveCaptions(on p: AVPlayer, draws: Bool = true, source: URL? = nil) {
         drawsCaptions = draws
-        guard liveCaptions == nil, LiveCaptions.isSupported, let src = videoURL else { return }
+        // `source` overrides the catalog URL for a downloaded film: transcribing
+        // the copy on disk works with no network, the remote one does not.
+        guard liveCaptions == nil, LiveCaptions.isSupported,
+              let src = source ?? videoURL else { return }
         Task { @MainActor in
             // From macOS 27 the system captions this film itself; ours would
             // double up on it. But ONLY when the film has no track of its own:
@@ -478,6 +496,22 @@ private struct PlayerSurface: View {
         }
     }
 
+    /// Render a DOWNLOADED subtitle file against the playhead (Decision 099).
+    ///
+    /// Publishes into the SAME `liveLine` the engine writes, so the overlay,
+    /// its styling and its teardown are one thing rather than two.
+    private func startOfflineSubtitles(_ subs: OfflineSubtitles, on p: AVPlayer) {
+        drawsCaptions = true
+        offlineSubtitleTask?.cancel()
+        offlineSubtitleTask = Task { @MainActor in
+            while !Task.isCancelled, player != nil {
+                liveLine = drawsCaptions ? subs.line(at: p.currentTime().seconds) : ""
+                try? await Task.sleep(nanoseconds: 150_000_000)
+            }
+            liveLine = ""
+        }
+    }
+
     private func teardown() {
         if let e = endObserver { NotificationCenter.default.removeObserver(e); endObserver = nil }
         if let t = timeObserver { player?.removeTimeObserver(t); timeObserver = nil }
@@ -490,6 +524,7 @@ private struct PlayerSurface: View {
         unplayableObs = nil
         loadWatchdog?.cancel(); loadWatchdog = nil
         liveCaptions?.stop(); liveCaptions = nil
+        offlineSubtitleTask?.cancel(); offlineSubtitleTask = nil
         persist()
     }
 

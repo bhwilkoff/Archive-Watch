@@ -2,8 +2,12 @@
 import SwiftUI
 import SwiftData
 
-// Library: Favorites, Watched, and Playlists — backed by SwiftData (synced to the
-// Apple TV via CloudKit). A segmented picker switches sections; each is a grid.
+// Library: Downloads, Favorites, History, Playlists and Clips — backed by
+// SwiftData. A segmented picker switches sections.
+//
+// Everything here except Downloads is SYNCED to the Apple TV via CloudKit,
+// because it records an intention. Downloads records a FILE, which exists on
+// exactly one device, so it is deliberately local (iOS-DESIGN §9.7).
 struct LibraryView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
@@ -12,12 +16,17 @@ struct LibraryView: View {
     @Query private var progress: [WatchProgress]
     @Query(sort: \Playlist.createdAt, order: .reverse) private var playlists: [Playlist]
     @Query(sort: \VideoClip.createdAt, order: .reverse) private var clips: [VideoClip]
+    @Query(sort: \DownloadedFilm.addedAt, order: .reverse) private var downloads: [DownloadedFilm]
     @State private var section: Section = .favorites
 
     // No `watched` case (owner, 2026-08-17): it listed the completed subset
     // of `history`, so a finished film appeared under both and the two
     // could disagree. Completion is a badge on the poster instead.
-    enum Section: String, CaseIterable, Identifiable { case favorites, history, playlists, clips
+    //
+    // Downloads leads the list: when the network is gone it is the only section
+    // with anything playable in it, and the tab opens there (Decision 099).
+    enum Section: String, CaseIterable, Identifiable {
+        case downloads, favorites, history, playlists, clips
         var id: String { rawValue }; var title: String { rawValue.capitalized } }
 
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
@@ -37,6 +46,7 @@ struct LibraryView: View {
             .padding()
 
             switch section {
+            case .downloads: downloadsList
             case .favorites: grid(store.itemsByIDs(favorites.map(\.archiveID)),
                                   empty: "No favorites yet", icon: "heart")
             case .history: historyList
@@ -46,6 +56,99 @@ struct LibraryView: View {
         }
         .navigationTitle("Library")
         .id(store.dbVersion)
+        .task {
+            // Offline, Downloads is the only section that can play anything, so
+            // the tab opens there rather than on a grid of unreachable posters.
+            if !NetworkMonitor.shared.isOnline, !downloads.isEmpty { section = .downloads }
+        }
+    }
+
+    // MARK: - Downloads (Decision 099)
+
+    @ViewBuilder private var downloadsList: some View {
+        if downloads.isEmpty {
+            ContentUnavailableView(
+                "No downloads yet", systemImage: "arrow.down.circle",
+                description: Text("Download a film from its page to watch it with no "
+                                  + "internet — on a plane, underground, anywhere."))
+        } else {
+            List {
+                ForEach(downloads) { d in
+                    Button {
+                        if let item = store.item(d.archiveID) { router.openDetail(item) }
+                    } label: {
+                        HStack(spacing: 12) {
+                            DownloadThumb(archiveID: d.archiveID, remote: d.posterURLString)
+                            VStack(alignment: .leading, spacing: 3) {
+                                Text(d.title).font(.headline).lineLimit(1)
+                                    .foregroundStyle(.primary)
+                                Text(downloadLine(d)).font(.caption)
+                                    .foregroundStyle(d.state == .failed ? .orange : .secondary)
+                                if d.state.isActive {
+                                    ProgressView(value: liveFraction(d)).tint(.orange)
+                                }
+                            }
+                            Spacer(minLength: 0)
+                            if d.state == .completed {
+                                Image(systemName: "arrow.down.circle.fill")
+                                    .foregroundStyle(.green)
+                                    .accessibilityLabel("Available offline")
+                            }
+                        }
+                    }
+                    .buttonStyle(.plain)
+                    // §4.3: destructive verbs are swipe actions. Pause/resume
+                    // rides along because an interrupted download is the common
+                    // case on the network this feature exists for.
+                    .swipeActions(edge: .leading) {
+                        if d.state.isActive {
+                            Button { DownloadManager.shared.pause(d.archiveID) } label: {
+                                Label("Pause", systemImage: "pause")
+                            }.tint(.gray)
+                        } else if d.state == .paused || d.state == .failed {
+                            Button { DownloadManager.shared.resume(d.archiveID) } label: {
+                                Label("Resume", systemImage: "play")
+                            }.tint(.orange)
+                        }
+                    }
+                }
+                .onDelete { offsets in
+                    // A bare removal, and no tombstone: DownloadedFilm is
+                    // device-local and never synced (iOS-DESIGN §9.7), so
+                    // §9.4's SyncNudge rule does not apply and must not be
+                    // copied here by habit.
+                    for i in offsets { DownloadManager.shared.remove(downloads[i].archiveID) }
+                }
+            }
+            .listStyle(.plain)
+        }
+    }
+
+    private func liveFraction(_ d: DownloadedFilm) -> Double {
+        DownloadManager.shared.progress(for: d.archiveID)?.fraction ?? d.fraction
+    }
+
+    private func downloadLine(_ d: DownloadedFilm) -> String {
+        switch d.state {
+        case .completed:
+            var parts = [d.qualityLabel
+                         ?? OfflineLibrary.byteText(OfflineLibrary.bytesUsed(by: d.archiveID))]
+            if d.hasSubtitles { parts.append("subtitles") }
+            return parts.joined(separator: " · ")
+        case .queued:
+            return "Waiting to start"
+        case .downloading:
+            let p = DownloadManager.shared.progress(for: d.archiveID)
+            let received = p?.received ?? d.receivedBytes
+            let expected = p?.expected ?? d.expectedBytes
+            guard expected > 0 else { return "Downloading…" }
+            return "Downloading — \(OfflineLibrary.byteText(received)) of "
+                 + "\(OfflineLibrary.byteText(expected))"
+        case .paused:
+            return "Paused — swipe right to resume"
+        case .failed:
+            return d.errorText ?? "Download failed — swipe right to try again"
+        }
     }
 
     @ViewBuilder private func grid(_ items: [Catalog.Item], empty: String, icon: String) -> some View {
@@ -183,6 +286,35 @@ struct LibraryView: View {
                 }
             }
         }
+    }
+}
+
+// Poster for a downloaded row. Prefers the copy on disk — the whole point of
+// the section is that it renders with no network, and a remote AsyncImage would
+// leave a wall of grey rectangles at 30,000 feet.
+private struct DownloadThumb: View {
+    let archiveID: String
+    let remote: String?
+    var body: some View {
+        Group {
+            if let local = OfflineLibrary.posterURL(for: archiveID),
+               let data = try? Data(contentsOf: local),
+               let img = UIImage(data: data) {
+                Image(uiImage: img).resizable().aspectRatio(contentMode: .fill)
+            } else if let r = remote, let url = URL(string: r) {
+                AsyncImage(url: url) { phase in
+                    if let image = phase.image {
+                        image.resizable().aspectRatio(contentMode: .fill)
+                    } else {
+                        Rectangle().fill(.quaternary)
+                    }
+                }
+            } else {
+                Rectangle().fill(.quaternary)
+            }
+        }
+        .frame(width: 44, height: 66)
+        .clipShape(RoundedRectangle(cornerRadius: 6))
     }
 }
 

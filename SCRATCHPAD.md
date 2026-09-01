@@ -233,6 +233,64 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-09-01 (later) — Offline downloads on iOS/iPadOS/macOS; Decision 099; 1.3.492/1010
+Owner: "start researching (and then implementing) offline viewing/downloading
+movies so that you can watch them on an airplane... housed in the library
+section... You should also be able to view the app without the internet with
+your downloaded movies available as 'the library'."
+
+**Shipped** (iOS + iPadOS + macOS; all three Apple targets build green,
+tvOS re-verified after the shared-file touches): `OfflineLibrary` (paths,
+space, removal), `DownloadedFilm` (SwiftData, device-local), `DownloadManager`
+(background URLSession), `NetworkMonitor` (NWPathMonitor), `OfflineSubtitles`;
+Detail download affordance on both platforms, a Downloads section leading
+Library, an offline banner, Settings storage + cellular toggle. Binding rules:
+**iOS-DESIGN §3.8b / §8.7 / §9.7 / §11.16–11.19**, **macOS-DESIGN §B9b**,
+PARITY §6 + §7 rows, **Decision 099**.
+
+**The research decided three things before any code:**
+1. **`AVAssetDownloadTask` cannot do this.** It is HLS-only — consumes a
+   playlist, emits a `.movpkg` — and every film here is a progressive MP4.
+   The native path for THIS catalog is `URLSessionConfiguration.background`
+   (`nsurlsessiond` finishes the transfer even if the app is killed, and
+   relaunches us into `.backgroundTask(.urlSession:)`).
+2. **tvOS is 🚫, not ⏳.** Apple TV gives an app a PURGEABLE `Caches` plus
+   ~500 KB of `NSUserDefaults` and no Documents directory at all — the OS may
+   delete the film packed for a flight between launches. The constraint was
+   already written down in this repo, in `SubtitleStore`'s header.
+3. **Application Support + `isExcludedFromBackup`**, per Apple's data-storage
+   guidelines. Caches would be purged; an un-excluded 900 MB film in an iCloud
+   backup is a rejection.
+
+**Two shapes deliberately NOT built, each for a recorded reason.** The
+downloaded film plays as a plain `AVPlayerItem(url: file://)` — the resilient
+loader, node pinning and failover exist to survive a connection a local file
+does not have. And its subtitles are RENDERED into the existing caption
+overlay rather than wrapped in an HLS master: that master's video rendition is
+a remote archive.org URL, so offline the whole asset fails, not just the
+captions — and a hand-rolled local-segment HLS is exactly the unverified
+player shape Decisions 054 and 065 were spent on.
+
+**Learning-orientation gate (CLAUDE.md):** the copy picker shows the REAL
+files on the item — "480p · H.264 · 575 MB — Archive derivative" — not
+"Standard/High", because on a phone with 9 GB free that difference IS the
+decision, and it is the honest thing about the Archive. Explicitly refused:
+predictive pre-caching and "downloads for your trip" (now iOS-DESIGN §11.19).
+
+**Caught before shipping:** `@Observable` cannot wrap a `lazy` property (the
+session needed `@ObservationIgnored`, as did every piece of internal
+bookkeeping); the download progress callback arrives PER CHUNK — hundreds a
+second — so publishing each one would have invalidated the Library list at
+that rate (now 4 Hz published, 0.5 Hz persisted); and `pause` cancels WITH
+resume data, so "has resume data" could not be part of the is-this-a-cancel
+test or every pause would have landed in the row as an error string.
+
+**NOT VERIFIED ON THE GLASS** (the standing rule): a real download and offline
+playback on hardware, the background-relaunch path, and the downloaded-WebVTT
+overlay. Compile-verified only. Android parity (Media3 `DownloadManager`,
+which does take progressive MP4) is the follow-up; web is out of scope on
+browser storage quota.
+
 ### 2026-08-31/09-01 — SharePlay on all three Apple platforms, Fire TV submitted, posters fixed everywhere, devices shared between sessions
 Binding docs added this session: **`docs/SHAREPLAY.md`** (Watch Together) and
 **`docs/DEVICE-TESTING.md`** (how real hardware is verified here). Decisions

@@ -167,6 +167,7 @@ an entry in place.
 - 096 — tvOS stays ENGINE-led: the system's generated captions are proven only on clean audio, and the plain path they require re-imports a measured disease
 - 097 — A hero never reshapes its art: fit at the image's OWN aspect over an ambient wash, and Home shows professional posters only
 - 098 — SharePlay coordinates by archiveID, listens from launch, and never lets "Watch Together" play alone
+- 099 — Downloads are a background URLSession into Application Support; a downloaded film plays as a plain local file, and tvOS gets none
 
 ---
 
@@ -1099,3 +1100,90 @@ hardware: a call started from the iPhone app, the film in sync on the iPad,
 and the session surviving continuation to the Apple TV. Two things remain
 unverified — the suspension path under a genuinely throttled network, and the
 tvOS "start a call first" alert on the glass.
+
+## 099 — Downloads are a background URLSession into Application Support; a downloaded film plays as a plain local file, and tvOS gets none
+*Date: 2026-09-01*
+
+Offline viewing ships on iOS, iPadOS and macOS. A film is fetched by a
+**background `URLSession`** into **Application Support**, marked
+`isExcludedFromBackup`, and played as a plain `AVPlayerItem(url: fileURL)`.
+The viewer picks WHICH copy from the item's real file list. **tvOS gets
+nothing**, deliberately. `DownloadedFilm` is the app's first device-local,
+never-synced model.
+
+**Why**, one constraint at a time — each of these ruled out the obvious
+alternative:
+
+*Not `AVAssetDownloadTask`.* Apple's asset downloader is HLS-only: it
+consumes a playlist and produces a `.movpkg`, and does not accept a
+progressive MP4 at all. Every film in this catalog is a progressive MP4 on
+archive.org — the entire subject of Decisions 021/031/034. So the native path
+for THIS catalog is `URLSessionConfiguration.background`, which hands the
+transfer to `nsurlsessiond`: it runs while the app is suspended and finishes
+even if the app is killed, relaunching us into `.backgroundTask(.urlSession:)`
+to be told. A foreground session cannot survive a 900 MB film over airport
+wifi and a locked phone.
+
+*Not Caches.* Apple's data-storage guidelines put re-downloadable content the
+user expects offline in Application Support with the backup exclusion. Caches
+is purgeable — the system may delete a file between launches — which for this
+feature means the film packed for a flight is gone at 30,000 feet. The
+exclusion is not optional either: a 900 MB public-domain film in someone's
+iCloud backup is a rejection.
+
+*Nothing on tvOS, and this is permanent.* Apple TV gives an app a purgeable
+Caches directory and ~500 KB of durable storage via `NSUserDefaults`; there is
+no Documents directory at all. The `SubtitleStore` comment in this repo
+already records the constraint. A download there is a promise the platform
+will not let us keep, and an Apple TV is a plugged-in, always-connected device
+in the first place. PARITY carries 🚫 with this reason, not ⏳.
+
+*A local file gets none of the resilience machinery.* `ResilientStreamLoader`,
+node pinning, failover and the stall watchdog all exist to survive a
+connection archive.org keeps dropping. A `file://` URL has no connection to
+lose, so the downloaded path is checked FIRST and is a bare
+`AVPlayerItem(url:)` — the one carve-out from iOS-DESIGN §11.5, which governs
+REMOTE video.
+
+*Subtitles are rendered, not wrapped.* Everything else here puts a subtitle
+track in front of AVKit as an HLS rendition, to get the native CC menu
+(Decision 039). That shape cannot be reused: the master's video rendition is
+an https URL to archive.org, and offline there is no archive.org — the whole
+asset fails, not just the captions. Rewriting the segment to the local path is
+an HLS shape nothing in this project has ever run, and Decisions 054 and 065
+were both spent on exactly that class of unverified player shape. So a
+downloaded film draws its downloaded WebVTT through the SAME overlay label the
+caption engine has drawn into since Decision 070, selected by the caption-type
+control that already exists so the two can never both draw.
+
+*The copy picker shows real file facts.* `ArchiveVersions` already lists every
+transfer on the item with its size; the sheet shows "480p · H.264 · 575 MB —
+Archive derivative", not "Standard" and "High". On a phone with 9 GB free the
+difference between a 2.4 GB uploader original and a 575 MB derivative IS the
+decision, and the honest thing about the Archive is that a film exists there
+in several conditions.
+
+**How to apply**: ask `OfflineLibrary.videoURL(for:)` — the FILE SYSTEM —
+whether a film is downloaded; never a `DownloadedFilm` row, which can outlive
+its file (a restore, a Mac user in Finder). A transfer in flight writes to
+`.partial` and is renamed only on success, so the presence of the final name
+IS the completion signal and a half-file can never reach the player. Move the
+temp file inside `didFinishDownloadingTo`, synchronously — it is deleted the
+moment that method returns. Carry task identity in `taskDescription`: it is
+the only thing the system restores across a process death. Do NOT add
+predictive or automatic downloading of any kind (iOS-DESIGN §11.19) — the
+viewer chooses what they carry, which is the whole learning-orientation case
+for the feature.
+
+**Consequences**: `DownloadedFilm` establishes iOS-DESIGN §9.7 — a model
+naming a file on one device is never synced, and a bare `ctx.delete` is
+correct for it, the single exception to §9.4. The app now asks whether there
+is a network at all (`NetworkMonitor`, `NWPathMonitor`) and says so in one
+banner; nothing GATES playback on it, because a monitor reports `.satisfied`
+for a captive portal that serves nothing. Android parity is a follow-up over
+Media3's `DownloadManager`, which does accept progressive MP4. Web is out of
+scope: browser storage quota will not hold a feature film.
+
+**NOT YET VERIFIED ON DEVICE**: a full download and offline playback on real
+hardware, the background-relaunch path, and the downloaded-WebVTT overlay. All
+three build green on iOS and macOS; none has been on the glass.

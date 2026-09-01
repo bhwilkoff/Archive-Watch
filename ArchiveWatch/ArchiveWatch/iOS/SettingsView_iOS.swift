@@ -6,6 +6,7 @@ import SwiftData
 // (Decision 012, default on), the donate link (Decision 010), and version. Native
 // iOS `Form`. Account/CloudKit sign-in lands with the sync wiring (Phase 1 follow).
 struct SettingsView: View {
+    @State private var removingAll = false
     @Environment(AppStore.self) private var store
     @Environment(AccountStore.self) private var account
     @Environment(\.modelContext) private var ctx
@@ -45,6 +46,8 @@ struct SettingsView: View {
                     .font(.footnote).foregroundStyle(.secondary)
             }
 
+            downloadsSection
+
             Section("Support") {
                 Link(destination: URL(string: "https://archive.org/donate")!) {
                     Label("Support the Internet Archive", systemImage: "heart")
@@ -78,6 +81,37 @@ struct SettingsView: View {
     }
 
     // #11 (Decision 022): Sign in with Apple — optional, gates only cross-device sync.
+    /// Downloads (Decision 099). Two facts and two actions: how much space the
+    /// films are using, whether they may use cellular, and a way out of both.
+    @ViewBuilder private var downloadsSection: some View {
+        Section("Downloads") {
+            Toggle("Download over cellular", isOn: Binding(
+                get: { DownloadManager.shared.allowsCellular },
+                set: { DownloadManager.shared.allowsCellular = $0 }))
+            Text("Off by default — a feature film is often several hundred megabytes.")
+                .font(.footnote).foregroundStyle(.secondary)
+            let used = OfflineLibrary.bytesUsed()
+            if used > 0 {
+                LabeledContent("Space used", value: OfflineLibrary.byteText(used))
+                Button(role: .destructive) { removingAll = true } label: {
+                    Text("Remove All Downloads")
+                }
+                .confirmationDialog("Remove every download?", isPresented: $removingAll) {
+                    Button("Remove All Downloads", role: .destructive) {
+                        DownloadManager.shared.removeAll()
+                    }
+                } message: {
+                    Text("Frees \(OfflineLibrary.byteText(used)). Your favorites, playlists "
+                         + "and watch history are not affected.")
+                }
+            } else {
+                Text("Nothing downloaded yet. Use the download button on a film's page "
+                     + "to keep it on this device.")
+                    .font(.footnote).foregroundStyle(.secondary)
+            }
+        }
+    }
+
     @ViewBuilder private var accountSection: some View {
         Section {
             if account.isSignedIn {
