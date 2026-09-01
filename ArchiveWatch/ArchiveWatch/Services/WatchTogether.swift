@@ -87,22 +87,42 @@ final class WatchTogether {
         }
     }
 
-    /// Offer this film to the current FaceTime/Messages group. Returns false when
-    /// the user is not in a call, or declines — both are ordinary, not errors.
-    @discardableResult
-    func share(archiveID: String, title: String, year: Int?) async -> Bool {
+    /// What happened when we offered a film to the group. A Bool cannot say
+    /// WHY nothing happened, and "nothing happened" is the one outcome a viewer
+    /// must never be left with (owner, 2026-09-01: selecting Watch Together
+    /// outside a call "just plays the movie").
+    enum ShareOutcome: Equatable {
+        case started      // a session is live
+        case needsCall    // no FaceTime call yet — offer to start one
+        case cancelled    // the user backed out
+    }
+
+    /// The activity for a film, so a caller can hand it to the system's own
+    /// sharing controller (which can place the FaceTime call itself).
+    func activity(archiveID: String, title: String, year: Int?) -> WatchTogetherActivity {
+        WatchTogetherActivity(archiveID: archiveID, title: title, year: year)
+    }
+
+    /// Offer this film to the current FaceTime/Messages group.
+    ///
+    /// Apple's documented flow: ask first, and only activate when the system
+    /// says activation is preferred. `.activationDisabled` means the user is not
+    /// in a call — ordinary, not an error, and the caller should offer to start
+    /// one rather than silently doing nothing.
+    func share(archiveID: String, title: String, year: Int?) async -> ShareOutcome {
         let activity = WatchTogetherActivity(archiveID: archiveID, title: title, year: year)
-        // Apple's documented flow: ask first, and only activate when the system
-        // says activation is preferred. `.activationDisabled` simply means the
-        // user is not in a FaceTime call — ordinary, not an error.
         switch await activity.prepareForActivation() {
         case .activationPreferred:
             locallySharedArchiveID = archiveID
-            let ok = (try? await activity.activate()) ?? false
-            if !ok { locallySharedArchiveID = nil }
-            return ok
-        default:
-            return false
+            if (try? await activity.activate()) == true { return .started }
+            locallySharedArchiveID = nil
+            return .cancelled
+        case .activationDisabled:
+            return .needsCall
+        case .cancelled:
+            return .cancelled
+        @unknown default:
+            return .cancelled
         }
     }
 

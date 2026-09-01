@@ -16,6 +16,7 @@ struct DetailView: View {
     @Environment(\.horizontalSizeClass) private var hSize
     @Query private var favorites: [Favorite]
     @State private var playing = false
+    @State private var startingSharePlay = false
     @State private var isWatchedState = false
     @State private var versions: [ArchiveVersions.Version] = []
     @State private var loadingVersions = false
@@ -138,11 +139,19 @@ struct DetailView: View {
                         // harmless — prepareForActivation just declines.
                         Button {
                             Task {
-                                await WatchTogether.shared.share(
+                                switch await WatchTogether.shared.share(
                                     archiveID: item.archiveID,
                                     title: item.title,
-                                    year: item.year)
-                                playing = true
+                                    year: item.year) {
+                                case .started:
+                                    playing = true
+                                case .needsCall:
+                                    // No call yet — let the system start one
+                                    // rather than silently playing the film.
+                                    startingSharePlay = true
+                                case .cancelled:
+                                    break
+                                }
                             }
                         } label: {
                             Label("Watch Together…", systemImage: "shareplay")
@@ -294,6 +303,17 @@ struct DetailView: View {
             }
         }
         .navigationTitle(item.title).navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $startingSharePlay) {
+            SharePlayStarter(
+                activity: WatchTogether.shared.activity(archiveID: item.archiveID,
+                                                        title: item.title,
+                                                        year: item.year)
+            ) { started in
+                startingSharePlay = false
+                if started { playing = true }
+            }
+            .ignoresSafeArea()
+        }
         .fullScreenCover(isPresented: $playing) {
             PlayerView(item: item, autoplayIn: store, onUnplayable: { message in
                 playing = false

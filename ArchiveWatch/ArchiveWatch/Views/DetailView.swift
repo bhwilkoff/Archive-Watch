@@ -676,6 +676,9 @@ struct PlayerScreen: View {
     @State private var playerVersions: [ArchiveVersions.Version] = []
     /// Where to resume when a version switch rebuilds the player in place.
     @State private var switchResumeSeconds: Double?
+    // tvOS cannot present GroupActivitySharingController (unavailable in the
+    // 27.0 SDK), so when there is no call it must SAY so rather than do nothing.
+    @State private var sharePlayNotice = false
     @State private var fallbackProbe: Task<Void, Never>?
     @State private var sysCapProbe = SystemCaptionProbe()   // AW_SYSCAP_PROBE=1 only
     @State private var skipCount = 0         // #7: bound auto-skips in a broken lineup
@@ -795,6 +798,13 @@ struct PlayerScreen: View {
                 ProgressView().controlSize(.large).tint(.white)
             }
         }
+        .alert("Start a FaceTime call first", isPresented: $sharePlayNotice) {
+            Button("OK", role: .cancel) { }
+        } message: {
+            Text("Watch Together needs a FaceTime call in progress. Start one on "
+                 + "your iPhone, iPad or Mac, then choose Watch Together there — "
+                 + "the film can continue on this Apple TV.")
+        }
         .onAppear {
             if PlaybackDiag.enabled { awdiag("AWLIFE screen=%@ onAppear", screenID) }
             store.isPlayingVideo = true; setupPlayer()
@@ -893,9 +903,12 @@ struct PlayerScreen: View {
             // `active` here is the AutoplayMode local, not the film — the item
             // is `current ?? catalogItem`.
             guard let film = current ?? catalogItem else { return }
-            Task { await WatchTogether.shared.share(archiveID: film.archiveID,
-                                                    title: film.title,
-                                                    year: film.year) }
+            Task {
+                let outcome = await WatchTogether.shared.share(archiveID: film.archiveID,
+                                                              title: film.title,
+                                                              year: film.year)
+                if outcome == .needsCall { sharePlayNotice = true }
+            }
         }
         var items: [UIMenuElement] = [playNext, muteToggle, watchTogether]
         // The caption-TYPE chooser (owner 2026-08-26): pick between the
