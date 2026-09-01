@@ -385,3 +385,141 @@ at a time (two iOS 26 sims booting together can wedge "Waiting on System App").
    AppVersion.xcconfig; build 37 is shared with the tvOS track — fine, build
    numbers are per-platform in ASC.)
 8. Select the build on the version page → Add for Review → Submit.
+
+---
+
+# 1.3.491 (build 1009) — submission copy
+
+Written against the actual diff from build **991** (the last approved
+version) to **1009**: 79 commits, of which the user-facing ones are
+SharePlay, the iPhone 12 + iPad Pro audits, the poster-proportion work
+(Decision 097), the tvOS Play-label truncation, review/description
+reachability, and pipeline data-quality corrections.
+
+Each Apple platform has its own Promotional Text and What's New field in
+App Store Connect — they are NOT shared, even though the three platforms
+share one app record.
+
+**Accuracy notes for whoever edits this:** Watch Together attaches to FILM
+playback, not to Channels — do not imply a channel or its commercials sync.
+tvOS cannot PLACE a FaceTime call (`GroupActivitySharingController` does not
+exist there, see `docs/SHAREPLAY.md`), so tvOS copy must not promise
+starting a call from the Apple TV with no call already live.
+
+## tvOS
+
+### Promotional Text (133/170)
+```
+Watch Together is here: play any film in sync with friends over FaceTime. Pause, seek, or resume and everyone's screen follows along.
+```
+
+### What's New (1017/4000)
+```
+Watch Together — SharePlay comes to Archive Watch
+
+Watch any film in perfect sync with friends and family over FaceTime. Pause,
+seek, or resume and everyone's screen follows along. If someone's connection
+slows down, the group waits for them instead of drifting apart.
+
+Start a session on your Apple TV while a FaceTime call is going, join one
+someone else started, or begin on your iPhone or Mac and move the call to the
+big screen.
+
+Also in this release:
+
+- The Play button now always shows the full runtime, or exactly where you left
+  off. No more cut-off times.
+- Artwork is never stretched or cropped to fit. Every poster is shown at its
+  own proportions over an ambient backdrop, and the Home screen features
+  professionally designed posters.
+- Film descriptions, reviews, and source attribution can now be reached and
+  read in full — nothing is clipped or left off-screen.
+- Hundreds of titles corrected behind the scenes: better cast lists, accurate
+  ratings, and films sorted into the right categories.
+```
+
+## iOS / iPadOS
+
+### Promotional Text (138/170)
+```
+Watch Together is here: pick a film, start the FaceTime call right from the app, and watch in sync on iPhone, iPad, Mac, or your Apple TV.
+```
+
+### What's New (1479/4000)
+```
+Watch Together — SharePlay comes to Archive Watch
+
+Watch any film in perfect sync with friends and family. Pick a title, tap
+Watch Together, and start the FaceTime call right from the app — no need to
+set the call up first. Pause, seek, or resume and everyone follows along, and
+if someone's connection slows down the group waits for them.
+
+Sessions move between devices: start on your iPhone and carry the call to your
+iPad, your Mac, or your Apple TV.
+
+iPad is now its own experience:
+
+- A genuine two-column layout, not a stretched-up phone screen.
+- Reading measures are capped so synopses and reviews stay comfortable instead
+  of running the full width of the display.
+- Controls and selectors are sized for the iPad rather than blown up.
+
+iPhone fixes from a full pass over every screen:
+
+- Search filters can now actually be reached and used.
+- The Play button offers Resume when you're partway through a film.
+- Text no longer loses its first character on Detail screens.
+- Settings stays where you are when you flip a toggle, instead of jumping back
+  to the top.
+- More controls are properly labelled for VoiceOver.
+
+Everywhere:
+
+- Artwork is never stretched or cropped to fit — posters are shown at their own
+  proportions, and Home features professionally designed artwork.
+- Reviews and descriptions are readable in full, no longer clipped mid-word.
+- Hundreds of titles corrected: better cast lists, accurate ratings, and films
+  sorted into the right categories.
+```
+
+## macOS
+
+### Promotional Text (143/170)
+```
+Watch Together is here: start a FaceTime call from the app and watch public-domain classics in sync with friends on any of their Apple devices.
+```
+
+### What's New (843/4000)
+```
+Watch Together — SharePlay comes to Archive Watch
+
+Watch any film in perfect sync with friends and family. Choose a title, pick
+Watch Together from the Share menu, and start the FaceTime call right from the
+app. Pause, seek, or resume and everyone follows along; if someone's connection
+slows down, the group waits for them rather than drifting apart.
+
+Sessions move between devices, so a film you start on the Mac can carry over to
+an iPhone, iPad, or Apple TV.
+
+Also in this release:
+
+- Artwork is never stretched or cropped to fit. Posters are shown at their own
+  proportions, and the Home screen features professionally designed artwork.
+- Long reviews and descriptions expand properly instead of being cut off
+  mid-word.
+- Hundreds of titles corrected: better cast lists, accurate ratings, and films
+  sorted into the right categories.
+```
+
+## Review notes (paste into App Review Information)
+
+```
+Watch Together uses SharePlay (GroupActivities) to play the same public-domain
+film in sync for everyone in a FaceTime call. To test it: start a FaceTime call
+between two devices, open any film's detail screen, and choose Watch Together.
+On iPhone, iPad and Mac the app can also place the call itself — choose Watch
+Together with no call active and the system sharing sheet appears.
+
+All content is public domain, streamed from the Internet Archive. No account is
+required and no user data is collected.
+```
