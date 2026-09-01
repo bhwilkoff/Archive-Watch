@@ -322,6 +322,16 @@ struct DetailView: View {
                 || WatchProgress.isWatched(archiveID: item.archiveID, in: ctx)
         }
         .task {
+            // Joining a SharePlay session must actually START the film, not just
+            // land on its Detail page: the group coordinates a PLAYER, so a
+            // joiner sitting on Detail stays black while everyone else watches
+            // (owner, 2026-09-01: "it opened the app, but I don't see the video
+            // playing"). RootView routes us here; this is the half that plays.
+            if WatchTogether.shared.pendingJoin == item.archiveID,
+               item.videoURLParsed != nil {
+                WatchTogether.shared.consumePendingJoin()
+                playing = true
+            }
             if ProcessInfo.processInfo.environment["AW_AUTOPLAY"] == "1",
                item.videoURLParsed != nil {
                 playing = true

@@ -50,6 +50,16 @@ struct RootView: View {
             .task { handle(inbox.request) }
             .task { CaptionCapability.shared.probe() }
             .task { WatchTogether.shared.listen() }
+            // A SharePlay session someone else started names a film; route to it
+            // so DetailView can start playback and join the group. Without this
+            // the session was joined and then nothing happened — the app opened
+            // and sat there (owner, 2026-09-01). iOS has no `playItem` inbox
+            // case like tvOS, so the routing is explicit here.
+            .onChange(of: WatchTogether.shared.pendingJoin) { _, id in
+                guard let id, let item = store.item(id) else { return }
+                router.tab = .home
+                router.openDetail(item)
+            }
             // Screenshot/dev affordance (the tvOS RootView hooks, iOS twin):
             // AW_START_TAB=channels lands on a tab, AW_START_ITEM=<archiveID>
             // deep-opens that Detail. No-ops unless the env vars are set.
