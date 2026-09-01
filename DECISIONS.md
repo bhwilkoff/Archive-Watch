@@ -166,6 +166,7 @@ an entry in place.
 - 095 — Queue displacement happens at JOB granularity too; the sweeper re-runs only zero-step jobs
 - 096 — tvOS stays ENGINE-led: the system's generated captions are proven only on clean audio, and the plain path they require re-imports a measured disease
 - 097 — A hero never reshapes its art: fit at the image's OWN aspect over an ambient wash, and Home shows professional posters only
+- 098 — SharePlay coordinates by archiveID, listens from launch, and never lets "Watch Together" play alone
 
 ---
 
@@ -1031,3 +1032,70 @@ its artwork is a different thing entirely from curating a shelf.
 2026-06-11, web `isPro` throughout) — Android carried essentially all of the
 defect, which is why it surfaced on the Fire TV. A shelf that cannot field 6
 professional posters now hides rather than pad itself with frame grabs.
+
+## 098 — SharePlay coordinates by archiveID, listens from launch, and never lets "Watch Together" play alone
+*Date: 2026-09-01*
+
+Watch Together ships on tvOS, iOS and macOS over one shared
+`WatchTogether` service. Four rules bind it, each of which was a defect
+first: the playback coordinator identifies content by **archiveID**, never
+by URL; `listen()` is attached to a view present from the **first frame**,
+never one gated on the catalog; a stall **suspends** the group centrally
+from `attach`; and a share action resolves to a three-case outcome so it
+can never fall through to solo playback. The binding detail lives in
+`docs/SHAREPLAY.md`.
+
+**Why**: each rule has a measured failure behind it.
+
+*Identity.* Every title plays through a private `aw-stream://` URL
+(Decision 072), and Decision 077 can swap to a different archive.org copy
+mid-film — so two participants essentially never hold the same URL. Apple
+documents `identifierForPlayerItem` for exactly this: it exists "to
+establish identity of two items created from different URLs".
+
+*Launch.* The owner moved a live call from the iPad to the Apple TV and
+"the call dropped and the shareplay ended". `listen()` was attached to the
+view that appears once `store.isReady`, and a continuation **cold-launches**
+the app — so the TV sat on "Loading catalog…" reading a ~74 MB file with no
+listener running, during precisely the window the system was handing the
+session over. The same gate existed on iOS with a second edge: `pendingJoin`
+can be set before the router exists, and `onChange` only fires for changes
+it was present for, so the continuation case was the one it could miss.
+
+*Stalls.* `beginStallSuspension` was public and **called by nothing, on any
+platform**. Every player received a coordinator and none ever suspended it,
+so a buffering viewer drifted out of sync instead of the group waiting —
+on a catalog whose streams stall often enough to justify Decisions
+021/031/034/077.
+
+*Outcome.* `prepareForActivation()` answers `.activationDisabled` outside a
+call. Returning a Bool there meant the film simply played: "If I start from
+Archive watch and then select 'Watch Together' without a call being live, it
+just plays the movie." A Bool cannot say WHY nothing happened, and "nothing
+happened" is the one outcome a viewer must never be left with.
+
+**How to apply**: never answer the coordinator delegate with a URL or
+anything derived from the copy currently in hand — an unknown id returns a
+fresh UUID, which correctly means "not the same content", because a group
+that refuses to sync beats one syncing two different films. Never gate the
+session listener on data loading; resolving the FILM may wait, joining the
+SESSION may not, and any join router is keyed on the catalog version rather
+than `onChange` alone. Never pass the caption scout to `attach` — it runs
+muted at 2× (Decisions 058/069/072) and would drag the group with it. Do not
+reach for Decision 051's AirPlay URL swap: AirPlay needs the RECEIVER to
+fetch the media, while coordination exchanges only rate and time and each
+participant loads its own asset. And keep stall bracketing in the shared
+service, not in three players — the observer binds `object: nil` plus an
+identity check on purpose, since an observer bound to the item seen at attach
+time goes quiet on exactly the Decision-077 swap that follows a bad stall.
+
+**Consequences**: `GroupActivitySharingController` — the system sheet that
+picks people and PLACES the call — exists on UIKit and AppKit but **not on
+tvOS** (checked in the 27.0 SDK), so the Apple TV explains rather than offers,
+and the two kits differ in shape: UIKit presents a `UIViewController` and
+reads `result` after dismissal, AppKit presents an `NSViewController` as a
+sheet whose async `result` can simply be awaited. Verified end to end on real
+hardware: a call started from the iPhone app, the film in sync on the iPad,
+and the session surviving continuation to the Apple TV. Two things remain
+unverified — the suspension path under a genuinely throttled network, and the
+tvOS "start a call first" alert on the glass.

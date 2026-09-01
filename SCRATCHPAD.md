@@ -233,6 +233,75 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-08-31/09-01 — SharePlay on all three Apple platforms, Fire TV submitted, posters fixed everywhere, devices shared between sessions
+Binding docs added this session: **`docs/SHAREPLAY.md`** (Watch Together) and
+**`docs/DEVICE-TESTING.md`** (how real hardware is verified here). Decisions
+**097** (posters) + **098** (SharePlay).
+
+**SHIP STATE:** app **1.3.491 / build 1009**, cloud archive dispatched for
+tvOS + iOS + macOS — **OWNER: submit in ASC.** Play production **vc49 /
+1.3.485** (API-verified). Fire TV **SUBMITTED** to the Amazon Appstore
+(estimated review ~Sep 5).
+
+**SharePlay shipped, and the audit was the valuable part.** It works end to
+end on real hardware — the owner started a call from the iPhone app, the film
+stayed in sync on the iPad. Then two failures worth keeping:
+1. **"Watch Together" with no call just played the movie.**
+   `prepareForActivation()` answers `.activationDisabled` outside a call, and
+   returning a Bool there meant the viewer got silent solo playback. Now a
+   three-case outcome; iOS/macOS present Apple's own sharing sheet, which
+   PLACES the call. tvOS cannot — `GroupActivitySharingController` does not
+   exist there (checked in the 27.0 SDK) — so it explains instead.
+2. **Moving a live call from the iPad to the Apple TV dropped it.**
+   `listen()` was attached to the view that appears once `store.isReady`, and
+   a continuation COLD-LAUNCHES the app — so the TV sat on "Loading catalog…"
+   reading ~74 MB with no listener running, during exactly the window the
+   system was handing the session over. Joining the SESSION may not wait for
+   data; resolving the FILM may. The Apple TV was also three builds stale
+   through that whole debugging session, which is why `devicectl device info
+   apps` now confirms every install.
+3. **A verification pass then found three macOS gaps and one everywhere.**
+   The Mac could JOIN a session but had no "Watch Together" entry point at
+   all, and joining opened nothing. And `beginStallSuspension` was public and
+   **called by nothing on any platform** — every player had a coordinator that
+   never suspended, so a buffering viewer drifted out of sync instead of the
+   group waiting. Now driven centrally from `attach` so the three platforms
+   cannot diverge again.
+
+**Posters (Decision 097), reported on the Fire TV**: `backdropURL ?: posterURL`
+into a crop-scaled 2.4:1 box, on the **85.7%** of the catalog with no backdrop.
+A first fix assumed all art is 2:3 and letterboxed a Commons still inside a
+black box — measured properly, tmdb/omdb/tvdb/generated really are ~0.67, while
+commons/archive/wikidata range 0.67–2.37. So the rule is not "2:3", it is
+**never reshape it**. Home also now gates on `hasProfessionalArtwork`, not the
+weaker designed-art flag. Android carried essentially all of the defect.
+
+**AirPlay documentation corrected at the source.** The owner: "You keep on
+saying (for many different sessions) that AirPlay doesn't work, but it does
+work." Traced to a memory file I had written; that memory, `PARITY.md` and
+`docs/TV-PLATFORM-BACKLOG.md` now lead with **AirPlay WORKS on iOS + macOS**
+(Decision 051's route-swap). A wrong note in memory outlives every session
+that reads it.
+
+**Devices are now shared between concurrent Claude sessions.** Adopted
+`tools/devlease.py` verbatim from the Tidbits Trivia session so both speak the
+same protocol. Hold the lease for the WHOLE run in ONE process — leasing per
+invocation left gaps, and the other session took the Apple TV in one of them.
+
+**Fire TV**: submitted through the console by hand. The API path stays blocked
+on `invalid_scope`; evidence says API Access appears once the app is LIVE and
+an ASIN exists, so a cloud routine re-checks it Sep 5 rather than re-walking
+the console. `tools/submit-amazon.py` is written and waiting (APK-only — it
+rejects `.aab`).
+
+**Also**: tvOS Detail Play buttons were truncating the runtime
+(`fixedSize` + `layoutPriority`, verified on the glass reading "Play · 1h 15m").
+A `| tail` on an xcodebuild once hid a `BUILD FAILED` and nearly had a fix
+reported as verified — always grep for the verdict.
+
+**NOT verified**: SharePlay under a genuinely throttled network (the new
+suspension path), and the tvOS "start a call first" alert on the glass.
+
 ### 2026-08-29/31 — Device audits (iPhone 12, iPad 12.9), Android load 32s -> 6.3s, a Play rejection, a guard that never fired
 Autonomous fleet session. All on `main`, tree clean. Handoff:
 `session_handoff_2026_08_31` + `android_catalog_load_perf` memories.
