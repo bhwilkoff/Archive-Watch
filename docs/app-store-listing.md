@@ -1,5 +1,13 @@
 # App Store + TestFlight submission copy — Archive Watch
 
+> **Every fenced block in this file is paste-ready text, and must stay
+> UNWRAPPED.** App Store Connect preserves the newlines you paste, so prose
+> hard-wrapped to fit an editor lands in the live listing with breaks in the
+> middle of sentences — which reads as machine-generated. One line per
+> paragraph and one line per bullet; blank lines between paragraphs are the
+> only breaks. Let the editor soft-wrap. (Owner, 2026-09-01 — the whole file
+> was wrapped this way and had to be undone.)
+
 Paste-ready. Character limits noted; drafts are within them. Tone: a repertory
 cinema, not a streaming funnel. Part 1 = tvOS (submitted + approved 2026-06-11).
 Part 2 (below the tvOS section) = **iOS/iPadOS** — added as a second platform on
@@ -35,14 +43,9 @@ vintage commercials between shows. Tune in and it just plays.`
 
 ## Description (≤4000)
 ```
-Archive Watch turns the Internet Archive's vast public-domain moving-image
-collection into a cinematheque you can wander from your couch — feature films,
-classic television, silent cinema, animation, newsreels, and the strange,
-wonderful world of vintage commercials and ephemeral film.
+Archive Watch turns the Internet Archive's vast public-domain moving-image collection into a cinematheque you can wander from your couch — feature films, classic television, silent cinema, animation, newsreels, and the strange, wonderful world of vintage commercials and ephemeral film.
 
-Every title is presented with the care of a great repertory house: real posters,
-cast, synopses, and genres, so a 1920s silent and a 1950s sci-fi B-movie look as
-considered as anything on a modern streaming service.
+Every title is presented with the care of a great repertory house: real posters, cast, synopses, and genres, so a 1920s silent and a 1950s sci-fi B-movie look as considered as anything on a modern streaming service.
 
 LIVE CHANNELS — A REAL TV GUIDE
 - A programmed, scrolling channel guide: see what's on now and next
@@ -67,23 +70,17 @@ FREE, AND RESPECTFUL OF YOU
 - No subscription, no in-app purchases, no ads
 - No account required to watch
 - No tracking, no analytics — nothing about you is collected
-- Optional Sign in with Apple syncs your favorites and progress across your
-  household's Apple TVs using your own iCloud
+- Optional Sign in with Apple syncs your favorites and progress across your household's Apple TVs using your own iCloud
 
-All content is sourced from the public domain via the Internet Archive. Metadata
-and artwork come from TMDb, Wikidata, Wikimedia Commons, and the Library of
-Congress. This product uses the TMDb API but is not endorsed or certified by TMDb.
+All content is sourced from the public domain via the Internet Archive. Metadata and artwork come from TMDb, Wikidata, Wikimedia Commons, and the Library of Congress. This product uses the TMDb API but is not endorsed or certified by TMDb.
 
-If you'd rather wander a well-stocked repertory cinema than doomscroll a
-recommendation feed, Archive Watch is for you.
+If you'd rather wander a well-stocked repertory cinema than doomscroll a recommendation feed, Archive Watch is for you.
 ```
 
 ## What's New / release notes (this version)
 ```
-- New: Live Channels — a programmed TV guide with now/next, tune-in-and-it-plays,
-  and vintage commercials between shows.
-- New: build your own channel from genre / type / era filters (redesigned with
-  large, easy pills).
+- New: Live Channels — a programmed TV guide with now/next, tune-in-and-it-plays, and vintage commercials between shows.
+- New: build your own channel from genre / type / era filters (redesigned with large, easy pills).
 - Vintage public-domain commercials added as a browsable collection + Surprise.
 - Redesigned Add-to-Playlist for a native tvOS feel.
 - Optional idle screensaver; modes surfaced on Home.
@@ -96,31 +93,20 @@ recommendation feed, Archive Watch is for you.
 
 ### Beta App Description (what testers see)
 ```
-Archive Watch is a free Apple TV app for browsing and watching public-domain
-films, classic TV, silent cinema, animation, and vintage commercials from the
-Internet Archive — presented like a repertory cinema.
+Archive Watch is a free Apple TV app for browsing and watching public-domain films, classic TV, silent cinema, animation, and vintage commercials from the Internet Archive — presented like a repertory cinema.
 
-This beta is for trying the new Live Channels guide, building your own channels,
-the vintage-commercial breaks, playlists, and Sign in with Apple sync. No account
-is required to watch — sign-in is optional and only syncs favorites/progress.
+This beta is for trying the new Live Channels guide, building your own channels, the vintage-commercial breaks, playlists, and Sign in with Apple sync. No account is required to watch — sign-in is optional and only syncs favorites/progress.
 ```
 
 ### What to Test (this build)
 ```
-- Channels: open the Channels tab, scan the guide (what's on now/next), tune a
-  cell, confirm it plays straight through with a commercial between programs.
-- Create Channel: tap Create Channel, pick any mix of Genre / Type / Era pills,
-  confirm the channel appears in the guide and plays.
-- Settings > Playback: toggle "Commercial Breaks on Channels" and "Idle
-  Screensaver"; confirm behavior.
-- Browse / Search / Collections / TV Shows: scroll, open a title, play it,
-  confirm resume-on-reopen.
-- Library: favorite a few titles (heart on a Detail page), build a playlist,
-  confirm they appear.
-- Sign in with Apple (optional, Settings > Account): confirm sign-in works and
-  the screen shows "Signed in"; Delete Account removes synced data.
-- Report any title that won't play, looks mismatched, or any focus/navigation
-  snag.
+- Channels: open the Channels tab, scan the guide (what's on now/next), tune a cell, confirm it plays straight through with a commercial between programs.
+- Create Channel: tap Create Channel, pick any mix of Genre / Type / Era pills, confirm the channel appears in the guide and plays.
+- Settings > Playback: toggle "Commercial Breaks on Channels" and "Idle Screensaver"; confirm behavior.
+- Browse / Search / Collections / TV Shows: scroll, open a title, play it, confirm resume-on-reopen.
+- Library: favorite a few titles (heart on a Detail page), build a playlist, confirm they appear.
+- Sign in with Apple (optional, Settings > Account): confirm sign-in works and the screen shows "Signed in"; Delete Account removes synced data.
+- Report any title that won't play, looks mismatched, or any focus/navigation snag.
 ```
 
 ### Beta App Review Information
@@ -130,26 +116,14 @@ is required to watch — sign-in is optional and only syncs favorites/progress.
 - **Contact:** Ben Wilkoff · ben@learningischange.com
 - **Notes:**
 ```
-All content is public domain, streamed directly from the Internet Archive
-(archive.org). The app has no backend and collects no user data. Sign in with
-Apple is optional and only syncs the user's own favorites/watch-progress to their
-private iCloud (we have no access). Some archival streams can be slow or briefly
-unavailable on the source side — retry or pick another title.
+All content is public domain, streamed directly from the Internet Archive (archive.org). The app has no backend and collects no user data. Sign in with Apple is optional and only syncs the user's own favorites/watch-progress to their private iCloud (we have no access). Some archival streams can be slow or briefly unavailable on the source side — retry or pick another title.
 ```
 
 ---
 
 ## App Review (App Store) notes — when promoting beyond TestFlight
 ```
-Archive Watch surfaces public-domain moving images from the Internet Archive
-(feature films, classic TV, silent cinema, animation, newsreels, and vintage
-commercials). Content is public domain; metadata/artwork from TMDb (attributed
-on the Settings screen), Wikidata, Wikimedia Commons, and the Library of Congress.
-No account is required. Sign in with Apple is optional and only enables iCloud
-sync of the user's own favorites/progress; account deletion is provided in
-Settings (Guideline 5.1.1(v)). No data is collected by the developer (see the
-PrivacyInfo manifest + Privacy Policy). Export compliance is declared in-binary
-(ITSAppUsesNonExemptEncryption = false; HTTPS/TLS + Apple frameworks only).
+Archive Watch surfaces public-domain moving images from the Internet Archive (feature films, classic TV, silent cinema, animation, newsreels, and vintage commercials). Content is public domain; metadata/artwork from TMDb (attributed on the Settings screen), Wikidata, Wikimedia Commons, and the Library of Congress. No account is required. Sign in with Apple is optional and only enables iCloud sync of the user's own favorites/progress; account deletion is provided in Settings (Guideline 5.1.1(v)). No data is collected by the developer (see the PrivacyInfo manifest + Privacy Policy). Export compliance is declared in-binary (ITSAppUsesNonExemptEncryption = false; HTTPS/TLS + Apple frameworks only).
 ```
 
 ## App Privacy questionnaire
@@ -235,18 +209,12 @@ Channels, Picture in Picture, background audio, and sync with your Apple TV.`
 
 ## Description (≤4000 — iOS version)
 ```
-Archive Watch turns the Internet Archive's vast public-domain moving-image
-collection into a cinematheque you can carry — feature films, classic
-television, silent cinema, animation, newsreels, and the strange, wonderful
-world of vintage commercials and ephemeral film.
+Archive Watch turns the Internet Archive's vast public-domain moving-image collection into a cinematheque you can carry — feature films, classic television, silent cinema, animation, newsreels, and the strange, wonderful world of vintage commercials and ephemeral film.
 
-Every title is presented with the care of a great repertory house: real posters,
-cast, synopses, and genres, so a 1920s silent and a 1950s sci-fi B-movie look as
-considered as anything on a modern streaming service.
+Every title is presented with the care of a great repertory house: real posters, cast, synopses, and genres, so a 1920s silent and a 1950s sci-fi B-movie look as considered as anything on a modern streaming service.
 
 LIVE CHANNELS — A REAL TV GUIDE
-- A programmed channel guide, laid out like a true TV listing: see what's on
-  now and next, scroll the broadcast day
+- A programmed channel guide, laid out like a true TV listing: see what's on now and next, scroll the broadcast day
 - Tune in and it plays straight through, one title rolling into the next
 - Vintage public-domain commercials play between programs — the 1990s-TV feel
 - Build your own channel from any mix of genre, type, and era
@@ -260,65 +228,44 @@ A REPERTORY HOUSE, NOT A FEED
 
 MADE FOR IPHONE AND IPAD
 - Picture in Picture — keep watching while you do anything else
-- Background play — lock the screen and the audio keeps going, with full
-  lock-screen controls
+- Background play — lock the screen and the audio keeps going, with full lock-screen controls
 - AirPlay to any TV
 - Continue Watching and Editor's Picks widgets on your Home Screen
 - Cartoon Mode, playlists, search filters, and resume everywhere
 
 YOUR APPLE TV, IN SYNC
-- Optional Sign in with Apple syncs favorites, playlists, progress, and your
-  custom channels between iPhone, iPad, and Apple TV — through your own
-  iCloud, never our servers
+- Optional Sign in with Apple syncs favorites, playlists, progress, and your custom channels between iPhone, iPad, and Apple TV — through your own iCloud, never our servers
 
 FREE, AND RESPECTFUL OF YOU
 - No subscription, no in-app purchases, no ads
 - No account required to watch
 - No tracking, no analytics — nothing about you is collected
 
-All content is sourced from the public domain via the Internet Archive. Metadata
-and artwork come from TMDb, Wikidata, Wikimedia Commons, and the Library of
-Congress. This product uses the TMDb API but is not endorsed or certified by TMDb.
+All content is sourced from the public domain via the Internet Archive. Metadata and artwork come from TMDb, Wikidata, Wikimedia Commons, and the Library of Congress. This product uses the TMDb API but is not endorsed or certified by TMDb.
 
-If you'd rather wander a well-stocked repertory cinema than doomscroll a
-recommendation feed, Archive Watch is for you.
+If you'd rather wander a well-stocked repertory cinema than doomscroll a recommendation feed, Archive Watch is for you.
 ```
 
 ## What's New / release notes (iOS 1.2.24 — first iPhone/iPad release)
 ```
-Archive Watch arrives on iPhone and iPad — the same cinematheque as the Apple
-TV app, rebuilt touch-first:
+Archive Watch arrives on iPhone and iPad — the same cinematheque as the Apple TV app, rebuilt touch-first:
 
-- Live Channels as a real TV-listing guide: scroll the broadcast day, tune in,
-  and it just plays (vintage commercials included).
+- Live Channels as a real TV-listing guide: scroll the broadcast day, tune in, and it just plays (vintage commercials included).
 - Picture in Picture and background play with lock-screen controls.
 - Home Screen widgets: Continue Watching and Editor's Picks.
 - Tap any cast or crew name to browse their filmography.
-- Optional Sign in with Apple keeps favorites, playlists, progress, and your
-  custom channels in sync with your Apple TV — via your own iCloud.
+- Optional Sign in with Apple keeps favorites, playlists, progress, and your custom channels in sync with your Apple TV — via your own iCloud.
 ```
 
 ## App Review notes (iOS — paste into the version's Review Information)
 ```
-Archive Watch surfaces public-domain moving images from the Internet Archive
-(feature films, classic TV, silent cinema, animation, newsreels, and vintage
-commercials). Content is public domain; metadata/artwork from TMDb (attributed
-on the Settings screen), Wikidata, Wikimedia Commons, and the Library of
-Congress.
+Archive Watch surfaces public-domain moving images from the Internet Archive (feature films, classic TV, silent cinema, animation, newsreels, and vintage commercials). Content is public domain; metadata/artwork from TMDb (attributed on the Settings screen), Wikidata, Wikimedia Commons, and the Library of Congress.
 
-No account is required. Sign in with Apple is optional and only enables iCloud
-sync of the user's own favorites/progress to their private database; account
-deletion is provided in Settings (Guideline 5.1.1(v)). No data is collected by
-the developer (see the PrivacyInfo manifest + Privacy Policy).
+No account is required. Sign in with Apple is optional and only enables iCloud sync of the user's own favorites/progress to their private database; account deletion is provided in Settings (Guideline 5.1.1(v)). No data is collected by the developer (see the PrivacyInfo manifest + Privacy Policy).
 
-UIBackgroundModes `audio` is used for continued playback of the film's audio
-when the app is backgrounded (with lock-screen Now Playing controls) and for
-Picture in Picture — both are user-facing playback features, reachable by
-playing any title and pressing the side button or swiping Home.
+UIBackgroundModes `audio` is used for continued playback of the film's audio when the app is backgrounded (with lock-screen Now Playing controls) and for Picture in Picture — both are user-facing playback features, reachable by playing any title and pressing the side button or swiping Home.
 
-Export compliance is declared in-binary (ITSAppUsesNonExemptEncryption = false;
-HTTPS/TLS + Apple frameworks only). Some archival streams can be slow or
-briefly unavailable on the source side — retry or pick another title.
+Export compliance is declared in-binary (ITSAppUsesNonExemptEncryption = false; HTTPS/TLS + Apple frameworks only). Some archival streams can be slow or briefly unavailable on the source side — retry or pick another title.
 ```
 
 - **Sign-in required to review?** No. Demo account: not needed.
@@ -417,25 +364,16 @@ Watch Together is here: play any film in sync with friends over FaceTime. Pause,
 ```
 Watch Together — SharePlay comes to Archive Watch
 
-Watch any film in perfect sync with friends and family over FaceTime. Pause,
-seek, or resume and everyone's screen follows along. If someone's connection
-slows down, the group waits for them instead of drifting apart.
+Watch any film in perfect sync with friends and family over FaceTime. Pause, seek, or resume and everyone's screen follows along. If someone's connection slows down, the group waits for them instead of drifting apart.
 
-Start a session on your Apple TV while a FaceTime call is going, join one
-someone else started, or begin on your iPhone or Mac and move the call to the
-big screen.
+Start a session on your Apple TV while a FaceTime call is going, join one someone else started, or begin on your iPhone or Mac and move the call to the big screen.
 
 Also in this release:
 
-- The Play button now always shows the full runtime, or exactly where you left
-  off. No more cut-off times.
-- Artwork is never stretched or cropped to fit. Every poster is shown at its
-  own proportions over an ambient backdrop, and the Home screen features
-  professionally designed posters.
-- Film descriptions, reviews, and source attribution can now be reached and
-  read in full — nothing is clipped or left off-screen.
-- Hundreds of titles corrected behind the scenes: better cast lists, accurate
-  ratings, and films sorted into the right categories.
+- The Play button now always shows the full runtime, or exactly where you left off. No more cut-off times.
+- Artwork is never stretched or cropped to fit. Every poster is shown at its own proportions over an ambient backdrop, and the Home screen features professionally designed posters.
+- Film descriptions, reviews, and source attribution can now be reached and read in full — nothing is clipped or left off-screen.
+- Hundreds of titles corrected behind the scenes: better cast lists, accurate ratings, and films sorted into the right categories.
 ```
 
 ## iOS / iPadOS
@@ -449,19 +387,14 @@ Watch Together is here: pick a film, start the FaceTime call right from the app,
 ```
 Watch Together — SharePlay comes to Archive Watch
 
-Watch any film in perfect sync with friends and family. Pick a title, tap
-Watch Together, and start the FaceTime call right from the app — no need to
-set the call up first. Pause, seek, or resume and everyone follows along, and
-if someone's connection slows down the group waits for them.
+Watch any film in perfect sync with friends and family. Pick a title, tap Watch Together, and start the FaceTime call right from the app — no need to set the call up first. Pause, seek, or resume and everyone follows along, and if someone's connection slows down the group waits for them.
 
-Sessions move between devices: start on your iPhone and carry the call to your
-iPad, your Mac, or your Apple TV.
+Sessions move between devices: start on your iPhone and carry the call to your iPad, your Mac, or your Apple TV.
 
 iPad is now its own experience:
 
 - A genuine two-column layout, not a stretched-up phone screen.
-- Reading measures are capped so synopses and reviews stay comfortable instead
-  of running the full width of the display.
+- Reading measures are capped so synopses and reviews stay comfortable instead of running the full width of the display.
 - Controls and selectors are sized for the iPad rather than blown up.
 
 iPhone fixes from a full pass over every screen:
@@ -469,17 +402,14 @@ iPhone fixes from a full pass over every screen:
 - Search filters can now actually be reached and used.
 - The Play button offers Resume when you're partway through a film.
 - Text no longer loses its first character on Detail screens.
-- Settings stays where you are when you flip a toggle, instead of jumping back
-  to the top.
+- Settings stays where you are when you flip a toggle, instead of jumping back to the top.
 - More controls are properly labelled for VoiceOver.
 
 Everywhere:
 
-- Artwork is never stretched or cropped to fit — posters are shown at their own
-  proportions, and Home features professionally designed artwork.
+- Artwork is never stretched or cropped to fit — posters are shown at their own proportions, and Home features professionally designed artwork.
 - Reviews and descriptions are readable in full, no longer clipped mid-word.
-- Hundreds of titles corrected: better cast lists, accurate ratings, and films
-  sorted into the right categories.
+- Hundreds of titles corrected: better cast lists, accurate ratings, and films sorted into the right categories.
 ```
 
 ## macOS
@@ -493,33 +423,21 @@ Watch Together is here: start a FaceTime call from the app and watch public-doma
 ```
 Watch Together — SharePlay comes to Archive Watch
 
-Watch any film in perfect sync with friends and family. Choose a title, pick
-Watch Together from the Share menu, and start the FaceTime call right from the
-app. Pause, seek, or resume and everyone follows along; if someone's connection
-slows down, the group waits for them rather than drifting apart.
+Watch any film in perfect sync with friends and family. Choose a title, pick Watch Together from the Share menu, and start the FaceTime call right from the app. Pause, seek, or resume and everyone follows along; if someone's connection slows down, the group waits for them rather than drifting apart.
 
-Sessions move between devices, so a film you start on the Mac can carry over to
-an iPhone, iPad, or Apple TV.
+Sessions move between devices, so a film you start on the Mac can carry over to an iPhone, iPad, or Apple TV.
 
 Also in this release:
 
-- Artwork is never stretched or cropped to fit. Posters are shown at their own
-  proportions, and the Home screen features professionally designed artwork.
-- Long reviews and descriptions expand properly instead of being cut off
-  mid-word.
-- Hundreds of titles corrected: better cast lists, accurate ratings, and films
-  sorted into the right categories.
+- Artwork is never stretched or cropped to fit. Posters are shown at their own proportions, and the Home screen features professionally designed artwork.
+- Long reviews and descriptions expand properly instead of being cut off mid-word.
+- Hundreds of titles corrected: better cast lists, accurate ratings, and films sorted into the right categories.
 ```
 
 ## Review notes (paste into App Review Information)
 
 ```
-Watch Together uses SharePlay (GroupActivities) to play the same public-domain
-film in sync for everyone in a FaceTime call. To test it: start a FaceTime call
-between two devices, open any film's detail screen, and choose Watch Together.
-On iPhone, iPad and Mac the app can also place the call itself — choose Watch
-Together with no call active and the system sharing sheet appears.
+Watch Together uses SharePlay (GroupActivities) to play the same public-domain film in sync for everyone in a FaceTime call. To test it: start a FaceTime call between two devices, open any film's detail screen, and choose Watch Together. On iPhone, iPad and Mac the app can also place the call itself — choose Watch Together with no call active and the system sharing sheet appears.
 
-All content is public domain, streamed from the Internet Archive. No account is
-required and no user data is collected.
+All content is public domain, streamed from the Internet Archive. No account is required and no user data is collected.
 ```
