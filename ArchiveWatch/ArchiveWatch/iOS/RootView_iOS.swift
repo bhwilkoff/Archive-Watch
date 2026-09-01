@@ -15,6 +15,14 @@ struct RootView: View {
     private let inbox = IntentInbox.shared
 
     var body: some View {
+        // Listening starts at launch, not once the catalog is ready: a SharePlay
+        // continuation COLD-LAUNCHES the app, and gating the listener behind
+        // `store.isReady` left nobody listening during the loading screen.
+        shell.task { WatchTogether.shared.listen() }
+    }
+
+    @ViewBuilder
+    private var shell: some View {
         @Bindable var router = router
         if let error = store.loadError {
             ContentUnavailableView("Catalog unavailable", systemImage: "wifi.slash",
@@ -49,17 +57,20 @@ struct RootView: View {
             .onChange(of: inbox.request) { handle(inbox.request) }
             .task { handle(inbox.request) }
             .task { CaptionCapability.shared.probe() }
-            .task { WatchTogether.shared.listen() }
             // A SharePlay session someone else started names a film; route to it
             // so DetailView can start playback and join the group. Without this
             // the session was joined and then nothing happened — the app opened
             // and sat there (owner, 2026-09-01). iOS has no `playItem` inbox
             // case like tvOS, so the routing is explicit here.
-            .onChange(of: WatchTogether.shared.pendingJoin) { _, id in
-                guard let id, let item = store.item(id) else { return }
-                router.tab = .home
-                router.openDetail(item)
-            }
+            //
+            // Keyed on dbVersion as well as the id: a session that arrives during
+            // a cold launch sets pendingJoin BEFORE this view exists, and onChange
+            // only fires for changes it was present for — so the arrival would be
+            // missed exactly in the continuation case. The id survives until
+            // consumed, so re-reading it on each catalog swap also covers a film
+            // held only in the full catalog, not the bundled seed.
+            .task(id: store.dbVersion) { routeSharePlayJoin() }
+            .onChange(of: WatchTogether.shared.pendingJoin) { routeSharePlayJoin() }
             // Screenshot/dev affordance (the tvOS RootView hooks, iOS twin):
             // AW_START_TAB=channels lands on a tab, AW_START_ITEM=<archiveID>
             // deep-opens that Detail. No-ops unless the env vars are set.
@@ -104,6 +115,13 @@ struct RootView: View {
                 }
             }
         }
+    }
+
+    private func routeSharePlayJoin() {
+        guard let id = WatchTogether.shared.pendingJoin,
+              let item = store.item(id) else { return }
+        router.tab = .home
+        router.openDetail(item)
     }
 
     private func handle(_ request: IntentInbox.Request?) {

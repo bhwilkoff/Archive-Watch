@@ -13,16 +13,21 @@ struct ContentView: View {
                 LoadErrorView(message: error)
             } else if store.isReady {
                 RootView()
-                    // Listen for SharePlay sessions someone else started. On
-                    // tvOS this is the usual direction: the session begins on a
-                    // phone in a FaceTime call and continues on the TV.
-                    .task { WatchTogether.shared.listen() }
             } else {
                 ProgressView("Loading catalog…")
                     .foregroundStyle(.white)
                     .task { await store.loadBundledData() }
             }
         }
+        // Listen for SharePlay sessions from the moment the app launches, NOT
+        // once the catalog is ready. "Move this call to Apple TV" COLD-LAUNCHES
+        // us, and this app then sits on "Loading catalog…" for as long as a
+        // ~74 MB catalog takes — so gating the listener on `store.isReady` meant
+        // nobody was listening exactly when the system tried to hand the session
+        // over (owner, 2026-09-01: moving the call to the TV dropped the call and
+        // ended SharePlay). Resolving the FILM still waits for the catalog;
+        // openDeepLinkedItem already retries across the seed→full swap.
+        .task { WatchTogether.shared.listen() }
         .preferredColorScheme(.dark)
         // Deep links (archivewatch://item/{id}, /surprise, …) from Top
         // Shelf taps and App Intents. Drop into the same inbox the App
