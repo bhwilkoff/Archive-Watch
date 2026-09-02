@@ -57,10 +57,10 @@ android {
         targetSdk = 36
         // Play rejects ANY previously-uploaded versionCode — bump +1 before
         // every Play upload, even if that upload was never released.
-        versionCode = 49
+        versionCode = 50
         // Marketing version tracks the Apple apps (AppVersion.xcconfig) so a
         // user report names one version family across platforms.
-        versionName = "1.3.485"
+        versionName = "1.3.494"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables { useSupportLibrary = true }
@@ -97,6 +97,8 @@ android {
         }
         create("amazon") {
             dimension = "store"
+            // PROBE: find the true dependency floor for the Fire TV build.
+            minSdk = 23
             // Amazon Appstore. Deliberately ZERO GMS: no Cast, no Play
             // Services of any kind. If you are about to add a dependency
             // here, check it first with tools/audit_fire_tv_gms.py.

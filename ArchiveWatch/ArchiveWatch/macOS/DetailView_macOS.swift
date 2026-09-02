@@ -113,6 +113,15 @@ struct DetailView: View {
 
             VStack(alignment: .leading, spacing: 12) {
                 Text(item.title).font(.largeTitle).fontWeight(.bold)
+                // "Also known as" (Decision 100). The catalog has always
+                // carried the film's primary title; showing it turns a
+                // description that looked mismatched into the fact that one
+                // film circulated under several names.
+                if let aka = item.alsoKnownAs {
+                    Text("Also known as \(aka)")
+                        .font(.title3)
+                        .foregroundStyle(.secondary)
+                }
                 HStack(spacing: 10) {
                     if let y = item.year { Text(verbatim: String(y)) }
                     if let r = item.imdbRatingDisplay { Label(r, systemImage: "star.fill") }

@@ -216,6 +216,15 @@ struct DetailView: View {
     /// sits beside the artwork at regular width (IPAD-DESIGN §3.1).
     @ViewBuilder private var identityBlock: some View {
                 Text(item.title).font(.title.bold())
+                // "Also known as" (Decision 100). The catalog has always
+                // carried the film's primary title; showing it turns a
+                // description that looked mismatched into the fact that one
+                // film circulated under several names.
+                if let aka = item.alsoKnownAs {
+                    Text("Also known as \(aka)")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
                 Text(metaLine).font(.subheadline).foregroundStyle(.secondary)
 
                 // Play gets its OWN row. It used to share one HStack with the

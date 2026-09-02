@@ -145,6 +145,9 @@ destructive verbs (§4.3).
 3.5 **Detail** — scroll view: hero artwork → title/meta → action row (Play
 prominent, Favorite, Add-to-playlist, Share) → synopsis → cast shelf → More
 Like This. Series detail is the variant with season Menu + episode list.
+An "Also known as …" line sits directly under the title when the film's
+primary title differs from the Archive uploader's (Decision 100) — quiet and
+secondary, never a second title competing with the first.
 3.6 **Sheet** — transient pickers and forms: Settings (from the Home cog),
 Add to Playlist (`presentationDetents([.medium, .large])`), Create Channel.
 Pickers default to medium detent; forms that need a keyboard may open large.

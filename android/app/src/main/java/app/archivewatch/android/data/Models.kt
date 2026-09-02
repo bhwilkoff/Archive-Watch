@@ -8,6 +8,11 @@ import kotlinx.serialization.Serializable
  * rule); pipeline-only keys (`excluded`, `rightsAudit`, …) have no
  * properties here on purpose.
  */
+private val LIGATURES = listOf(
+    "œ" to "oe", "Œ" to "oe", "æ" to "ae", "Æ" to "ae", "ß" to "ss",
+    "ø" to "o", "Ø" to "o", "ł" to "l", "Ł" to "l", "đ" to "d", "Đ" to "d",
+)
+
 @Serializable
 data class CatalogItem(
     val archiveID: String,
@@ -64,6 +69,10 @@ data class CatalogItem(
     // item_studios join tables for filtering (see CatalogDatabase.byKeyword/byStudio).
     val keywords: List<String> = emptyList(),
     val akaTitles: List<String> = emptyList(),
+    /** The film's primary title per the external match. `title` is the ARCHIVE
+     *  uploader's, and one film often reached the Archive under several release
+     *  titles — see [alsoKnownAs] (Decision 100). */
+    val canonicalTitle: String? = null,
     val studios: List<String> = emptyList(),
     val originalTitle: String? = null,
     val writer: String? = null,
@@ -74,6 +83,43 @@ data class CatalogItem(
     val releaseDate: String? = null,
     val awards: String? = null,
 ) {
+    /** "Also known as …", or null when there is nothing useful to say.
+     *
+     *  Mirrors `Catalog.Item.alsoKnownAs` on Apple and `alsoKnownAs()` in
+     *  watch.js: case, leading article, parentheticals and punctuation all
+     *  differ between an Archive upload and a database record without naming a
+     *  different film, and either title containing the other means the screen
+     *  already says it. Only `canonicalTitle` is used — `akaTitles` is mostly
+     *  foreign-language translations (Caligari carries eight), which would be
+     *  clutter on a screen meant to remove confusion.
+     */
+    val alsoKnownAs: String?
+        get() {
+            val canon = canonicalTitle?.trim().orEmpty()
+            if (canon.isEmpty()) return null
+            val a = titleKey(canon)
+            val b = titleKey(title)
+            if (a.isEmpty() || b.isEmpty() || a == b) return null
+            if (a.contains(b) || b.contains(a)) return null
+            return canon
+        }
+
+    private fun titleKey(s: String): String = foldForTitle(s).lowercase()
+        .replace(Regex("\\(.*?\\)"), " ")
+        .replace(Regex("^(the|a|an)\\s+"), "")
+        .replace(Regex("[^a-z0-9]+"), "")
+
+    /** Ligatures folded identically on every platform: NFD handles combining
+     *  accents but does NOT split these (U+0153 has no decomposition mapping).
+     *  Accent folding suppresses 170 items whose "alternate" title is their OWN
+     *  name differently accented (Thais/Thaïs, Tannhauser/Tannhäuser). */
+    private fun foldForTitle(s: String): String {
+        var t = s
+        for ((from, to) in LIGATURES) t = t.replace(from, to)
+        return java.text.Normalizer.normalize(t, java.text.Normalizer.Form.NFD)
+            .replace(Regex("\\p{Mn}+"), "")
+    }
+
     // Community display helpers (mirror the Swift Catalog.Item helpers).
     val viewsDisplay: String?
         get() = (viewsAllTime ?: downloads)?.takeIf { it > 0 }?.let { compact(it) }

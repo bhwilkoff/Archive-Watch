@@ -168,6 +168,18 @@ struct DetailView: View {
                 .minimumScaleFactor(0.6)
                 .shadow(color: .black.opacity(0.5), radius: 12, y: 4)
 
+            // "Also known as" (Decision 100). Ten feet away the mismatch is
+            // starker than on a phone: the title says one thing and the
+            // synopsis under it opens with another name for the same film.
+            if let aka = item.alsoKnownAs {
+                Text("Also known as \(aka)")
+                    .font(.system(size: 26, weight: .regular, design: .serif))
+                    .italic()
+                    .foregroundStyle(.white.opacity(0.75))
+                    .lineLimit(1)
+                    .shadow(color: .black.opacity(0.5), radius: 8, y: 2)
+            }
+
             HStack(spacing: 18) {
                 if let rating = item.imdbRatingDisplay {
                     HStack(spacing: 7) {

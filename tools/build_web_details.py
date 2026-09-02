@@ -24,7 +24,8 @@ end so existing indices never shift; keep watch.js `Details.get` in sync):
 `extras` (index 9, Decision 046) is a compact object of the rich-metadata
 fields — present keys only, the whole object omitted when empty so sparse
 films cost nothing: {w:writer, st:studios[], fr:franchise, tg:tagline,
-aw:awards, co:composer, ci:cinematographer, rd:releaseDate, ot:originalTitle}.
+aw:awards, co:composer, ci:cinematographer, rd:releaseDate, ot:originalTitle,
+ct:canonicalTitle}.
 Each cast entry is [name] | [name, profilePath] | [name, profilePath,
 tmdbPersonID] (trailing nulls trimmed) — the personID (Decision 046) unblocks
 person links.
@@ -124,7 +125,14 @@ def main():
         for key, field in (("w", "writer"), ("fr", "franchise"), ("tg", "tagline"),
                            ("aw", "awards"), ("co", "composer"),
                            ("ci", "cinematographer"), ("rd", "releaseDate"),
-                           ("ot", "originalTitle")):
+                           ("ot", "originalTitle"),
+                           # The film's primary title per the external match.
+                           # `title` is the ARCHIVE uploader's, and when the two
+                           # disagree the page reads as a wrong match — it is
+                           # usually one film under several release titles
+                           # (Decision 100). Emitted raw; watch.js decides
+                           # whether it differs enough to show.
+                           ("ct", "canonicalTitle")):
             val = it.get(field)
             if isinstance(val, str):
                 val = val.strip()

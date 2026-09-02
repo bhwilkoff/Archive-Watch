@@ -36,11 +36,16 @@ WHY IT MAY NOT WORK YET (read before filing a support case)
        using the Developer Console", i.e. the API only ever creates NEW
        versions of an app that already exists in the store.
 
-  So: re-run `--check` after the app goes live (estimated 2026-09-05). If it
-  authenticates, everything below is ready and Fire TV releases stop being
-  manual. Only if it STILL fails once the app is live is a support case worth
-  opening — the wording is in docs/mac-app-store-submission.md's sibling notes
-  and in the git history for this file.
+  DISPROVEN 2026-09-02. The app went LIVE on 2026-09-01 (ASIN generated) and
+  `--check` STILL returns `invalid_scope`; /settings/console/apiaccess still
+  404s with the app live. So the live-app hypothesis above is wrong, and by
+  this file's own criterion a support case is now the correct next step:
+  Contact Us → Type of Inquiry "Appstore", Category "App Submission and
+  Certification", asking for App Submission API access to be enabled for
+  security profile amzn1.application.1ae9e1cdfaf243729f9a72e2913ff2c3.
+
+  Do NOT re-walk the console nav looking for the page again — it has been
+  walked twice, before and after going live, and it is not there.
 
 CONSTRAINTS THAT SHAPED THIS TOOL
   * APK only. The App Submission API does NOT accept App Bundles, which is why

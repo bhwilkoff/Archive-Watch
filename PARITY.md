@@ -97,6 +97,7 @@ macOS) since they share the Swift Core.
 | Feature | tvOS | iOS | macOS | Web | Android | Notes |
 |---|---|---|---|---|---|---|
 | Detail (backdrop, metadata, cast) | ✅ | ✅ | ✅ poster + metadata + cast row | ✅ | ✅ | shared item record |
+| "Also known as" alternate release title | ✅ under the hero title | ✅ under the title | ✅ under the title | ✅ under the title | ✅ phone + TV Detail | Decision 100 — `canonicalTitle` only, ligature+diacritic folded; 1,646 items. Web carries it as `extras.ct` in the detail shards |
 | More Like This | ✅ | ✅ | ✅ `store.related` | ✅ | ✅ | shared `related` query |
 | Cast → person filmography | ✅ | ✅ | ✅ tappable cast (TMDb photos) → byPerson | ⏳ | ✅ | |
 | Share titles / series | ✅ ShareSheet + QR | ✅ ShareLink | ✅ `ShareLink` (item + series) | ✅ share menu | ✅ ACTION_SEND | archivewatch.org URLs (Decision 030) |

@@ -349,9 +349,44 @@
         cinematographer: x?.ci || null,
         releaseDate: x?.rd || null,
         originalTitle: x?.ot || null,
+        canonicalTitle: x?.ct || null,
       };
     },
   };
+
+  /**
+   * "Also known as", or '' when there is nothing useful to say.
+   *
+   * Mirrors `Catalog.Item.alsoKnownAs` on the Apple platforms — case, leading
+   * article, parentheticals and punctuation all differ between an Archive
+   * upload and a database record without naming a different film, and either
+   * title containing the other means the page already says it.
+   */
+  // Ligatures folded identically on every platform: NFD handles combining
+  // accents but does NOT split these (U+0153 has no decomposition mapping).
+  const AKA_LIGATURES = { 'œ': 'oe', 'Œ': 'oe', 'æ': 'ae', 'Æ': 'ae', 'ß': 'ss',
+                          'ø': 'o', 'Ø': 'o', 'ł': 'l', 'Ł': 'l', 'đ': 'd', 'Đ': 'd' };
+
+  function titleKey(s) {
+    return String(s || '')
+      .replace(/[œŒæÆßøØłŁđĐ]/g, (c) => AKA_LIGATURES[c])
+      // Accent folding suppresses 170 items whose "alternate" title is their
+      // OWN name differently accented (Thais/Thaïs, Tannhauser/Tannhäuser).
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/\(.*?\)/g, ' ')
+      .replace(/^(the|a|an)\s+/, '')
+      .replace(/[^a-z0-9]+/g, '');
+  }
+
+  function alsoKnownAs(title, canonical) {
+    const canon = String(canonical || '').trim();
+    if (!canon) return '';
+    const a = titleKey(canon), b = titleKey(title);
+    if (!a || !b || a === b || a.includes(b) || b.includes(a)) return '';
+    return canon;
+  }
 
   /** Where are we? (iPadOS reports as Macintosh — the touch check catches it.) */
   const Platform = {
@@ -1491,6 +1526,8 @@
         epLink.href = `#/series/${encodeURIComponent(epMeta.slug)}`;
       }
       $('item-desc').textContent = '';
+      $('item-aka').textContent = '';
+      $('item-aka').hidden = true;
       $('item-tagline').textContent = '';
       $('item-tagline').hidden = true;
       $('item-facts').replaceChildren();
@@ -1533,6 +1570,14 @@
           det.director && `Dir. ${det.director}`,
         ].filter(Boolean).join(' · ');
         if (meta) $('item-meta').textContent = meta;
+        // "Also known as" (Decision 100) — shown only when the film's primary
+        // title genuinely differs from the Archive uploader's, which is the
+        // case that reads as a wrong match.
+        const aka = alsoKnownAs(row[1], det.canonicalTitle);
+        if (aka) {
+          $('item-aka').textContent = `Also known as ${aka}`;
+          $('item-aka').hidden = false;
+        }
         if (det.tagline) {
           $('item-tagline').textContent = det.tagline;
           $('item-tagline').hidden = false;

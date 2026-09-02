@@ -55,6 +55,7 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -222,6 +223,19 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                         maxLines = 2,
                         overflow = TextOverflow.Ellipsis,
                     )
+                    // "Also known as" (Decision 100) — ten feet away the
+                    // mismatch is starker: the title says one thing and the
+                    // synopsis under it opens with another name for the film.
+                    current.alsoKnownAs?.let { aka ->
+                        Text(
+                            "Also known as $aka",
+                            fontSize = 18.sp,
+                            fontStyle = FontStyle.Italic,
+                            color = Color.White.copy(alpha = 0.75f),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                    }
                     val meta = listOfNotNull(
                         current.year?.toString(),
                         current.runtimeSeconds?.let { "${it / 60} min" },

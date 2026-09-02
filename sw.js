@@ -10,7 +10,7 @@
    existing install permanently, because nothing ever re-fetched the asset.
    Serving from cache while refreshing in the background keeps the instant open
    and makes the next load correct without depending on a version bump. */
-const SHELL = 'aw-root-shell-v31';
+const SHELL = 'aw-root-shell-v32';
 const DATA = 'aw-root-data-v1';
 const SHELL_URLS = [
   './', 'index.html', 'watch.css', 'watch.js', 'tv.css', 'tv.js', 'cast-sender.js',

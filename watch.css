@@ -637,3 +637,13 @@ dialog#player::backdrop { background: rgba(0, 0, 0, 0.85); }
 /* Cast button — matches #player-pip; `is-casting` marks an active session. */
 #player-cast { cursor: pointer; }
 #player-cast.is-casting { color: var(--color-primary, #FF5C35); }
+
+/* "Also known as" (Decision 100). One film often reached the Archive under
+   several release titles, and the uploader's is what we show as the title —
+   so a correct match could read as a mismatched description. Quiet, directly
+   under the title, italic so it reads as an aside rather than a second title. */
+.item-aka {
+  margin: 0.15rem 0 0;
+  font-style: italic;
+  font-size: 0.95rem;
+}

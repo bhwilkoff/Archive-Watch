@@ -168,6 +168,7 @@ an entry in place.
 - 097 — A hero never reshapes its art: fit at the image's OWN aspect over an ambient wash, and Home shows professional posters only
 - 098 — SharePlay coordinates by archiveID, listens from launch, and never lets "Watch Together" play alone
 - 099 — Downloads are a background URLSession into Application Support; a downloaded film plays as a plain local file, and tvOS gets none
+- 100 — A film's other release title is SHOWN, not reconciled; and a store's minSdk is a per-flavor decision
 
 ---
 
@@ -1230,3 +1231,78 @@ with the network never having gone down.
 **STILL not verified**: the background-relaunch path (a download finishing while
 the app is dead) and the downloaded-WebVTT overlay, which needs a title that
 publishes subtitles; every audit candidate so far reported SKIP.
+
+## 100 — A film's other release title is SHOWN, not reconciled; and a store's minSdk is a per-flavor decision
+*Date: 2026-09-02*
+
+Two unrelated findings that share one shape: a fact the pipeline already had,
+and a floor nobody had questioned.
+
+**(a) "Also known as".** Detail now renders `Also known as <canonicalTitle>` on
+tvOS, iOS, macOS, Android and web whenever the external match's primary title
+differs materially from the one displayed. Nothing is renamed and nothing is
+overwritten.
+
+**Why**: the owner opened `archivewatch.org/item/the_last_three` and asked why
+the name and the description disagree. They do not — the item is titled "Last
+Three, The" by its uploader while `tt0036423` is *Nazty Nuisance* (1943), and
+OMDb, Wikidata, our stored director (Glenn Tryon), runtime (3000s = 50 min) and
+rating (4.5) all agree it is one film. The film simply circulated as *That
+Nazty Nuisance*, *Double Crossed Fool* and *The Last Three*.
+
+The catalog had `canonicalTitle: "Nazty Nuisance"` all along — in `item_json`,
+which the apps already decode — so this needed **no pipeline change on Apple or
+Android at all**, only a field on the model and a line on the screen. Measured:
+**1,646 items** where the primary title differs. Renaming them was the
+alternative and was rejected: it would break the link between what the app
+calls a film and what archive.org calls it, and for the German-language
+majority the original title is the better one to lead with. Showing both is
+also the truer statement about this archive — one work reaches it under several
+names.
+
+**How to apply**: use `canonicalTitle` ONLY. `akaTitles` is mostly the
+foreign-language pile (Caligari carries eight translations of its own name):
+5,575 items have one against 1,646 with a genuinely different primary title,
+and listing translations would be clutter on a line that exists to remove
+confusion. Compare with `titleKey` — lowercase, fold ligatures and diacritics,
+drop a leading article, drop parentheticals, strip punctuation — and stay
+silent when either title contains the other. **Diacritic folding is
+load-bearing, not politeness**: without it 170 items are told they are also
+known as their own name differently accented (Thais/Thaïs,
+Tannhauser/Tannhäuser). The rule lives in three languages and they must agree;
+`tools/test_aka_rule.mjs` locks the contract against watch.js's own
+implementation and was checked to FAIL (4 cases) against the unfolded version.
+
+**(b) `minSdk` is per store flavor.** The `amazon` flavor drops to **23**; the
+`google` flavor stays at 29.
+
+**Why**: the Fire TV submission passed 42/44 devices, and both failures were
+the same error — *install failure* on a Xiaomi F series HD and a Panasonic 4K
+(2024). The APK declared `minSdkVersion 29` (Android 10), and **Fire OS 7 is
+Android 9 / API 28**: the platform refuses the install outright, which is
+exactly what "App displays Install failure error message" looks like from a
+device farm. That floor excluded the whole Fire OS 7 generation — Fire TV Stick
+4K (2018), Cube gen 2/3, and most Fire TV Edition sets. Amazon's own guidance
+is a low minSdk plus defensive coding, and the code was already written that
+way: the entire Android source has **three** API gates, all `SDK_INT >= Q`, all
+guarded, all in Clip Studio, which is a phone feature that never runs on a TV.
+
+23 is not a preference, it is the measured dependency floor —
+`androidx.tv:tv-material:1.1.0` requires it, and 21 fails the manifest merger
+naming that library. `lintVitalAmazonRelease` at 23 reports **zero NewApi
+violations**, which is the real gate: compiling proves nothing about running.
+
+**How to apply**: ruled OUT before landing on minSdk — the APK carries all four
+ABIs, every `uses-feature` is `required="false"`, and it is a modest 32.8 MB.
+Check those first; an "install failure" with no logs invites guessing. Note
+this does NOT explain the Panasonic 2024, which Amazon lists as Fire OS 8 / API
+30, and a different Panasonic 4K passed — if it fails again after this, that is
+a support case, not a code change.
+
+**Consequences**: `canonicalTitle` needed a new key only on the web
+(`extras.ct` in the detail shards — append-only, so existing indices never
+shift) and a service-worker shell bump. The Amazon App Submission API remains
+blocked: the app went live 2026-09-01 and `--check` still returns
+`invalid_scope` with /settings/console/apiaccess still 404 — the "it appears
+once the app is live" hypothesis in `tools/submit-amazon.py` is now DISPROVEN
+and recorded there, making a support case the next step.

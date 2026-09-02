@@ -233,6 +233,45 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-09-02 — "Also known as" (D100) + the Fire TV install failures
+Owner, on `archivewatch.org/item/the_last_three`: "Why is the name of this
+movie and the description different?" They are not — the item is titled "Last
+Three, The" by its uploader, `tt0036423` is *Nazty Nuisance* (1943), and OMDb,
+Wikidata, our director (Glenn Tryon), runtime (3000s) and rating (4.5) all
+agree it is ONE film that circulated under several release titles.
+
+**The fix was already in the data.** `canonicalTitle` sits in `item_json`,
+which the apps decode — so Detail now shows `Also known as …` on all five
+platforms with **no pipeline change on Apple or Android**; web needed one
+append-only key (`extras.ct`) plus a SW shell bump (v31 → v32). Measured:
+**1,646 items** where the primary title differs. `akaTitles` is deliberately
+NOT used — 5,575 items carry one and it is mostly the foreign-language pile
+(Caligari has eight translations of its own name).
+
+**Diacritic folding is load-bearing.** Without it, 170 items are told they are
+also known as their own name differently accented (Thais/Thaïs,
+Tannhauser/Tannhäuser). The rule lives in Swift, Kotlin and JS and they must
+agree; `tools/test_aka_rule.mjs` locks the contract against watch.js's OWN
+implementation (13/13) and was checked to FAIL — 4 cases — against the unfolded
+version, which is the only way to know the test works.
+
+**Fire TV: approved, but 42/44 devices.** Both failures were the SAME error —
+*install failure* — on a Xiaomi F series HD and a Panasonic 4K (2024), with no
+logs offered. Cause for the Fire OS 7 class: the APK declared **minSdk 29**
+(Android 10) and **Fire OS 7 is Android 9 / API 28**, so the platform refuses
+the install. That floor excluded an entire Fire TV generation. Ruled out first,
+by measurement: all four ABIs are in the APK, every `uses-feature` is
+`required="false"`, and it is 32.8 MB. The `amazon` flavor now sits at **23**
+(the measured dependency floor — `androidx.tv:tv-material` needs it, 21 fails
+the merger), `google` stays at 29, and `lintVitalAmazonRelease` at 23 reports
+**zero NewApi violations**. NOT explained: the Panasonic 2024 (Fire OS 8 / API
+30, and a different Panasonic 4K passed) — a support case if it recurs.
+
+**The Amazon API hypothesis is DISPROVEN.** `tools/submit-amazon.py` predicted
+access would appear once the app was live. It went live 2026-09-01;
+`--check` still returns `invalid_scope` and /settings/console/apiaccess still
+404s. Recorded in the tool so the next session does not re-walk the nav.
+
 ### 2026-09-01 (later+1) — Offline downloads VERIFIED on hardware; 3 defects found; 1.3.493/1011
 Owner: "You have the ability to test on real hardware for each platform. Please
 do so and then ship to the App Store for testing."

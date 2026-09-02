@@ -66,6 +66,14 @@ struct Catalog: Decodable, Sendable {
     struct Item: Decodable, Identifiable, Sendable, Hashable {
         let archiveID: String
         let title: String
+        /// The film's primary title according to the external match (TMDb/OMDb).
+        ///
+        /// `title` is the ARCHIVE uploader's, and the two often disagree because
+        /// one film circulated under several release titles — `the_last_three`
+        /// is "Nazty Nuisance", `Reefer Madness` is "Tell Your Children". The
+        /// pipeline has always collected this; nothing displayed it, so a
+        /// correct match read as a mismatched description (owner, 2026-09-02).
+        let canonicalTitle: String?
         let year: Int?
         let decade: Int?
         let runtimeSeconds: Int?
@@ -230,6 +238,53 @@ struct Catalog: Decodable, Sendable {
                 $0.deletingLastPathComponent().appendingPathComponent("en.vtt")
             }
         }
+        /// "Also known as …", or nil when there is nothing useful to say.
+        ///
+        /// Only `canonicalTitle` is used. `akaTitles` is mostly the
+        /// foreign-language pile (Caligari carries eight translations of its own
+        /// name) — 5,575 items have one of those against 1,646 with a genuinely
+        /// different primary title, and listing translations would be clutter
+        /// where this is meant to remove confusion.
+        ///
+        /// Nil when either title CONTAINS the other, so "Coeur fidele AKA The
+        /// Faithful Heart" does not get told it is also known as "Cœur fidèle".
+        var alsoKnownAs: String? {
+            guard let canon = canonicalTitle?.trimmingCharacters(in: .whitespacesAndNewlines),
+                  !canon.isEmpty else { return nil }
+            let a = Self.titleKey(canon), b = Self.titleKey(title)
+            guard !a.isEmpty, !b.isEmpty, a != b,
+                  !a.contains(b), !b.contains(a) else { return nil }
+            return canon
+        }
+
+        /// Comparison key: case, leading article, parentheticals and punctuation
+        /// all differ between an Archive upload and a database record without
+        /// naming a different film.
+        /// Ligatures folded IDENTICALLY on all three platforms. NFD handles
+        /// combining accents but does NOT split these (U+0153 has no
+        /// decomposition mapping), and each platform's own folding differs —
+        /// so they are listed rather than assumed.
+        static let ligatures: [(String, String)] = [
+            ("œ", "oe"), ("Œ", "oe"), ("æ", "ae"), ("Æ", "ae"), ("ß", "ss"),
+            ("ø", "o"), ("Ø", "o"), ("ł", "l"), ("Ł", "l"), ("đ", "d"), ("Đ", "d"),
+        ]
+
+        static func titleKey(_ s: String) -> String {
+            var t = s
+            for (from, to) in ligatures { t = t.replacingOccurrences(of: from, with: to) }
+            // Accent folding suppresses 170 items whose "alternate" title is
+            // their OWN name differently accented — Thais/Thaïs,
+            // Tannhauser/Tannhäuser. Telling a viewer a film is also known as
+            // a respelling of itself is the noise this line exists to remove.
+            t = t.folding(options: [.diacriticInsensitive], locale: nil).lowercased()
+            t = t.replacingOccurrences(of: "\\(.*?\\)", with: " ",
+                                       options: .regularExpression)
+            t = t.replacingOccurrences(of: "^(the|a|an)\\s+", with: "",
+                                       options: .regularExpression)
+            return t.replacingOccurrences(of: "[^a-z0-9]+", with: "",
+                                          options: .regularExpression)
+        }
+
         var posterURLParsed: URL? { posterURL.flatMap(URL.init(string:)) }
         var backdropURLParsed: URL? { backdropURL.flatMap(URL.init(string:)) }
         var videoURLParsed: URL? { Catalog.playableURL(downloadURL) }

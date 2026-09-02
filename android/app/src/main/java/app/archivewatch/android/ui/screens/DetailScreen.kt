@@ -67,6 +67,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -193,6 +194,17 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold,
             )
+            // "Also known as" (Decision 100). One film often reached the
+            // Archive under several release titles; the uploader's is what we
+            // show, so a correct match could read as a mismatched description.
+            current.alsoKnownAs?.let { aka ->
+                Text(
+                    "Also known as $aka",
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontStyle = FontStyle.Italic,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
             val meta = listOfNotNull(
                 current.year?.toString(),
                 current.director,
