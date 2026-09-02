@@ -121,7 +121,14 @@ xcodebuild -scheme "Archive Watch Mac"  -destination 'generic/platform=macOS'
 
 - **Passcodes and passwords.** Entering credentials into any field is out of
   scope for the agent, including when the owner supplies them. Device unlock,
-  Apple ID sign-in and portal passwords are owner steps.
+  Apple ID sign-in and portal passwords are owner steps. A locked device
+  INSTALLS fine and refuses to launch (`FBSOpenApplicationErrorDomain error 7`,
+  "Locked"), which arrives as an empty console plus an empty screenshot — i.e.
+  as several unrelated failures and two VACUOUS passes. `download_audit.py`
+  probes for it and names the condition once. `devicectl device simulate
+  biometrics` is not supported on this iPad; opening the Device Hub screen
+  viewer (`open "devices://device/open?id=<UDID>"`) DOES wake it to the
+  passcode prompt, which is as far as automation goes.
 - **FaceTime call placement between two Apple IDs.** The app's own sharing
   controller can start the call; verifying the *system's* call UI cannot be
   driven from here.
@@ -138,6 +145,34 @@ xcodebuild -scheme "Archive Watch Mac"  -destination 'generic/platform=macOS'
 | `tools/test_catalog_audit.swift` | The same checks against the live published DB, from the Mac |
 | `tools/test_home_screen_probe.py` | The backgrounded-launch guard — written to FAIL against the old code first |
 | `tools/verify_tv_focus.sh`, `tv_browser_tests.js` | Focus reachability on TV surfaces |
+| `tools/download_audit.py` + `DownloadAudit.swift` (`AW_DOWNLOAD_AUDIT`) | Offline downloads end to end: a real archive.org transfer, the file on disk, AVFoundation decoding it, removal — and the offline surfaces by OCR |
+
+## 9. Severing the network without severing yourself
+
+To prove something works offline, deny the network to the APP'S PROCESS:
+
+```bash
+sandbox-exec -p '(version 1)(allow default)(deny network*)' "$APP/Contents/MacOS/$BIN"
+```
+
+**Never `networksetup -setairportpower en0 off`.** This Mac's default route IS
+en0, so switching Wi-Fi off cuts the agent session driving the test, and there
+is nothing left to switch it back on with. The sandbox profile is also the
+better experiment: the machine stays connected, so a pass cannot be explained
+by the network having been down for unrelated reasons.
+
+Two things to know. `sandbox-exec` collides with the **App Sandbox
+entitlement**, so run an ad-hoc re-signed copy (`codesign --force --deep --sign
+-`) with that entitlement stripped — note this moves the container, so prepare
+and assert in the SAME configuration. And always carry a **negative control**:
+the audit fetches archive.org and requires it to FAIL, because "it played" is
+otherwise equally consistent with the severing not having happened.
+
+A physical iPhone/iPad cannot be put into airplane mode from here at all. There
+the offline proof is structural — assert that the URL handed to AVFoundation is
+`file://`, which cannot reach the network — plus `AW_FORCE_OFFLINE=1` to render
+the offline UI for a screenshot. That hook fakes the STATE, never the response
+to it.
 
 A regression test is only known to work once it has been checked to **fail**
 against the code that had the bug.

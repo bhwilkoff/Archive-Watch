@@ -233,6 +233,54 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-09-01 (later+1) — Offline downloads VERIFIED on hardware; 3 defects found; 1.3.493/1011
+Owner: "You have the ability to test on real hardware for each platform. Please
+do so and then ship to the App Store for testing."
+
+**iPhone 12: 22/22. iPad Pro 12.9: 22/22. Mac: the offline run, genuinely
+severed.** New: `DownloadAudit.swift` (`AW_DOWNLOAD_AUDIT=1|prepare|offline|
+cleanup`) + `tools/download_audit.py`. Each device did a REAL archive.org
+transfer, landed the file in `Application Support/Downloads` with
+`isExcludedFromBackup=true`, had AVFoundation read its duration and advance a
+playhead off disk, and cleaned up. OCR on the screenshots reads the Offline
+scope, the row with its LOCAL poster and `480p · H.264 · 15.9 MB`, and the
+banner.
+
+**Severing the network was the hard part, and the first idea was a trap.**
+`networksetup -setairportpower en0 off` would have cut the agent session driving
+the test (this Mac's default route IS en0) with nothing left to switch it back
+on — the owner caught it. The answer is `sandbox-exec … (deny network*)`, which
+denies ONE PROCESS, validated first (unsandboxed curl 200, sandboxed curl cannot
+resolve). It collides with the App Sandbox entitlement, so the run uses an
+ad-hoc re-signed copy. Measured with the app unable to reach anything:
+archive.org unreachable (the negative control), 26,390 items still browsable,
+FTS5 search working, and the film playing to 0.93s.
+
+**Three defects the compiler could not have found:**
+1. `removeAll()` guarded on a nil `container` and returned SILENTLY — cleanup
+   reported success with 67.5 MB still on disk, because it and `configure` are
+   sibling `.task`s with no ordering. Files are now deleted unconditionally, and
+   `reconcile()` sweeps ORPHAN files whose row is gone.
+2. The fifth Library scope clipped to "Downloa…" on an iPhone 12. A segmented
+   control apportions width equally, so the longest label decides for all;
+   narrowing the gutter was not enough. The scope is "Offline".
+3. `print` is block-buffered off a tty, so the Mac audit produced NOTHING for
+   nine minutes while its verdicts sat in the buffer (`devicectl --console` is
+   unbuffered — which is why iOS looked fine and macOS looked hung).
+
+**Two harness tautologies fixed too:** a locked device gave two VACUOUS passes
+(no OCR words ⇒ no clipped words), and `partial.hidden` could pass without ever
+observing an in-flight state on a file that finishes between polls — it reports
+SKIP now. The iPad is passcode-locked between runs; `devicectl device simulate
+biometrics` is unsupported on it, but the Device Hub screen viewer wakes it to
+the passcode prompt (owner unlocks).
+
+**Still not verified:** the background-relaunch path (a download finishing while
+the app is dead), and the downloaded-WebVTT overlay — every audit candidate so
+far publishes no subtitles, so that check reports SKIP. A 15.9 MB test film was
+left on the iPad when it re-locked mid-cleanup; it is removable from its own
+Library row.
+
 ### 2026-09-01 (later) — Offline downloads on iOS/iPadOS/macOS; Decision 099; 1.3.492/1010
 Owner: "start researching (and then implementing) offline viewing/downloading
 movies so that you can watch them on an airplane... housed in the library

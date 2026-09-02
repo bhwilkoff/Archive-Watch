@@ -27,7 +27,15 @@ struct LibraryView: View {
     // with anything playable in it, and the tab opens there (Decision 099).
     enum Section: String, CaseIterable, Identifiable {
         case downloads, favorites, history, playlists, clips
-        var id: String { rawValue }; var title: String { rawValue.capitalized } }
+        var id: String { rawValue }
+        /// "Offline", not "Downloads". Measured on an iPhone 12: a segmented
+        /// control apportions width equally across its segments, so the longest
+        /// label decides for all of them, and at five scopes on a 390pt screen
+        /// "Downloads" rendered as "Downloa…". Narrowing the row's gutter was
+        /// not enough. "Offline" is shorter than "Favorites" and "Playlists",
+        /// which already render whole, so it cannot be the binding constraint —
+        /// and it names what the section is for rather than how it got there.
+        var title: String { self == .downloads ? "Offline" : rawValue.capitalized } }
 
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
 
@@ -43,6 +51,8 @@ struct LibraryView: View {
             // IPAD-DESIGN §2.2a — see BrowseView for the measurement.
             .frame(maxWidth: hSize == .regular ? 560 : .infinity, alignment: .leading)
             .frame(maxWidth: .infinity, alignment: .leading)
+            // A fifth scope arrived with Downloads; the row keeps the standard
+            // inset because the LABEL was shortened instead (see Section.title).
             .padding()
 
             switch section {

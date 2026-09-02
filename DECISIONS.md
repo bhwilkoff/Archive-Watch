@@ -1187,3 +1187,46 @@ scope: browser storage quota will not hold a feature film.
 **NOT YET VERIFIED ON DEVICE**: a full download and offline playback on real
 hardware, the background-relaunch path, and the downloaded-WebVTT overlay. All
 three build green on iOS and macOS; none has been on the glass.
+
+**Amendment 2026-09-01 — VERIFIED ON HARDWARE, and what the verification cost.**
+`DownloadAudit` (`AW_DOWNLOAD_AUDIT=1`) + `tools/download_audit.py` run the
+whole feature on the device: a real archive.org transfer, the file on disk,
+AVFoundation decoding it, and removal. **iPhone 12: 22/22. iPad Pro 12.9:
+22/22.** Both landed the film in `Application Support/Downloads` with
+`isExcludedFromBackup=true` and advanced a playhead decoding it off disk.
+Screenshots, read by OCR, show the Offline scope, the row with its LOCAL poster
+and `480p · H.264 · 15.9 MB`, and the offline banner.
+
+**The offline proof needed an experiment, not a claim.** A physical iPhone
+cannot be put into airplane mode from a harness. `networksetup
+-setairportpower en0 off` was the first idea and is a TRAP: this Mac's default
+route is en0, so it would cut the agent session driving the test with no way
+left to switch it back on. The answer is `sandbox-exec -p '(version 1)(allow
+default)(deny network*)'`, which denies the network to ONE PROCESS — verified
+before use (unsandboxed `curl` 200, sandboxed `curl` cannot resolve). It
+collides with the App Sandbox entitlement, so the run uses an ad-hoc re-signed
+copy with that entitlement stripped. Measured, with the app genuinely unable to
+reach anything: **archive.org unreachable (the negative control), 26,390 items
+still browsable, FTS5 search returning results, and the downloaded film playing
+to 0.93s.** Without that control "it played" would have been equally consistent
+with the network never having gone down.
+
+**Three real defects the hardware found that the compiler could not:**
+1. **`removeAll()` was a silent no-op before `configure()`.** It guarded on
+   `container` and returned; cleanup reported success while **67.5 MB stayed on
+   disk**. The FILES are what the viewer asked to reclaim, so they are now
+   deleted unconditionally, and `reconcile()` sweeps ORPHAN files whose row is
+   gone — a leak no viewer could find or clear.
+2. **A fifth scope clipped to "Downloa…" on an iPhone 12.** A segmented control
+   apportions width equally, so the longest label decides for all of them.
+   Narrowing the gutter was not enough; the scope is "Offline", which is
+   shorter than two labels that already render whole.
+3. **`print` is block-buffered when stdout is not a tty**, so the Mac audit
+   produced nothing for nine minutes while its verdicts sat in the buffer —
+   `devicectl --console` is unbuffered, which is exactly why iOS looked fine and
+   macOS looked hung. `setvbuf(stdout, nil, _IONBF, 0)`.
+
+**tvOS remains 🚫** and is unaffected — no tvOS code path changed.
+**STILL not verified**: the background-relaunch path (a download finishing while
+the app is dead) and the downloaded-WebVTT overlay, which needs a title that
+publishes subtitles; every audit candidate so far reported SKIP.

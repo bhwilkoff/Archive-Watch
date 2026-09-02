@@ -34,10 +34,21 @@ final class NetworkMonitor {
     private let monitor = NWPathMonitor()
     private var started = false
 
-    private init() {}
+    /// Launch hook. A physical iPhone cannot be put into airplane mode from the
+    /// harness, so this forces the OFFLINE UI on so it can be seen on the glass
+    /// (`AW_FORCE_OFFLINE=1`). It fakes the state, never the response to it:
+    /// the real detection is Apple's, and is exercised for real on the Mac,
+    /// where the Wi-Fi can be switched off.
+    private static var forcedOffline: Bool {
+        ProcessInfo.processInfo.environment["AW_FORCE_OFFLINE"] == "1"
+    }
+
+    private init() {
+        if Self.forcedOffline { isOnline = false }
+    }
 
     func start() {
-        guard !started else { return }
+        guard !started, !Self.forcedOffline else { return }
         started = true
         monitor.pathUpdateHandler = { [weak self] path in
             let online = path.status == .satisfied

@@ -90,6 +90,12 @@ struct RootView: View {
             .onChange(of: inbox.request) { handle(inbox.request) }
             .task { handle(inbox.request) }
             .task { CaptionCapability.shared.probe() }
+            // On-device end-to-end audit of offline downloads (AW_DOWNLOAD_AUDIT=1).
+            // No-op otherwise; see tools/download_audit.py.
+            .task {
+                guard DownloadAudit.enabled else { return }
+                await DownloadAudit.run(store: store, container: modelContext.container)
+            }
             // A SharePlay session someone else started names a film; route to it
             // so DetailView can start playback and join the group. Without this
             // the session was joined and then nothing happened — the app opened

@@ -90,6 +90,21 @@ final class DownloadManager {
         }
         guard let ctx = container?.mainContext,
               let rows = try? ctx.fetch(FetchDescriptor<DownloadedFilm>()) else { return }
+
+        // ORPHAN SWEEP. A file whose row is gone (a reset store, a failed
+        // migration, a removal that got half-way) is invisible in the UI and
+        // counts against the viewer's storage forever — the one kind of leak
+        // nobody can find and clear themselves.
+        if let dir = OfflineLibrary.directory,
+           let names = try? FileManager.default.contentsOfDirectory(atPath: dir.path) {
+            let known = Set(rows.map { OfflineLibrary.safeName($0.archiveID) })
+            for name in names {
+                let stem = (name as NSString).deletingPathExtension
+                guard !known.contains(stem) else { continue }
+                try? FileManager.default.removeItem(at: dir.appendingPathComponent(name))
+            }
+        }
+
         for row in rows {
             let onDisk = OfflineLibrary.isDownloaded(row.archiveID)
             switch row.state {
@@ -240,6 +255,18 @@ final class DownloadManager {
     }
 
     func removeAll() {
+        // The FILES are what the viewer asked to reclaim, so they go first and
+        // unconditionally. `container` is nil until `configure` runs, and the
+        // old guard returned SILENTLY in that window — measured: an audit's
+        // cleanup reported success while 67.5 MB stayed on disk, because it and
+        // `configure` were sibling `.task`s with no ordering between them.
+        if let dir = OfflineLibrary.directory,
+           let names = try? FileManager.default.contentsOfDirectory(atPath: dir.path) {
+            for name in names {
+                try? FileManager.default.removeItem(at: dir.appendingPathComponent(name))
+            }
+        }
+        progressByID.removeAll()
         guard let ctx = container?.mainContext,
               let rows = try? ctx.fetch(FetchDescriptor<DownloadedFilm>()) else { return }
         for row in rows { remove(row.archiveID) }

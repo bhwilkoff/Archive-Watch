@@ -1,5 +1,6 @@
 #if os(macOS)
 import SwiftUI
+import SwiftData
 import AppKit
 
 // NavigationSplitView shell (docs/macOS-DESIGN.md §7): sidebar sections + a detail column
@@ -9,6 +10,7 @@ import AppKit
 struct RootView: View {
     @Environment(AppStore.self) private var store
     @Environment(AppRouter.self) private var router
+    @Environment(\.modelContext) private var modelContext
 
     var body: some View {
         // The player REPLACES the browse UI as the window root while playing (not an overlay on the
@@ -45,6 +47,12 @@ struct RootView: View {
         // deterministically, since SwiftUI's AX tree isn't reliably scriptable from the shell.
         .task { await applyLaunchOverrides() }
         .task { CaptionCapability.shared.probe() }
+        // On-device end-to-end audit of offline downloads (AW_DOWNLOAD_AUDIT=1).
+        // No-op otherwise; see tools/download_audit.py.
+        .task {
+            guard DownloadAudit.enabled else { return }
+            await DownloadAudit.run(store: store, container: modelContext.container)
+        }
         .task { WatchTogether.shared.listen() }
         // A SharePlay session someone else started names a film; open it and
         // start playing so the coordinator has a player to sync. Without this the
