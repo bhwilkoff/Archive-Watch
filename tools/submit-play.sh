@@ -103,6 +103,14 @@ PY
   [ -f "$APK" ] || { echo "release APK not produced at $APK"; exit 1; }
   INSTALLED=""
   for CAND in $("$ADB" devices | awk 'NR>1 && $2=="device" {print $1}'); do
+    # Re-check the lease HERE too. The selection loop above skips a leased
+    # device, but this loop used to install on the first device that would
+    # accept the APK — so a peer's leased Fire TV got the release build
+    # installed and launched anyway (observed 2026-09-03, mid-audit). A lease
+    # that is honoured in one loop and ignored in the next is not an interlock.
+    if HOLDER=$(leased_elsewhere "$CAND"); then
+      echo "  skipping $CAND — $HOLDER"; continue
+    fi
     if "$ADB" -s "$CAND" install -r "$APK" >/dev/null 2>&1; then
       SMOKE_SERIAL="$CAND"; INSTALLED=1; break
     fi
