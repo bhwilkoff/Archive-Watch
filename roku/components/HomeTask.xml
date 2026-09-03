@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Builds Home's ContentNode tree off the render thread.
+
+     Data plane: the WEB plane (Decision 029), reused rather than grown a fifth
+     time, because Roku has no SQLite. Measured on this device in tick 1:
+     6.2 MB index, 1.06 s download, 364 ms ParseJson, 26,965 items, memory
+     level never leaving `normal`.
+
+     The 27,000-item list is walked ONCE, collecting only the ids the shelves
+     actually name — roughly 600. Building a 27k-entry associative array to do
+     the same lookups would be the obvious way and the slow one. -->
+<component name="HomeTask" extends="Task">
+  <interface>
+    <field id="rows" type="node" />
+    <field id="hero" type="node" />
+    <field id="status" type="string" alwaysNotify="true" />
+    <field id="stats" type="assocarray" alwaysNotify="true" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/HomeTask.brs" />
+</component>

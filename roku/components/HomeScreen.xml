@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ROKU-DESIGN §6.1 — Home is a hero row over shelves, in the shared shelf
+     order every other platform uses, so the curation cannot drift. -->
+<component name="HomeScreen" extends="Group">
+  <interface>
+    <field id="rowsContent" type="node" onChange="onRows" />
+    <field id="heroContent" type="node" onChange="onHero" />
+    <field id="focusOn" type="boolean" onChange="onFocusOn" />
+    <field id="exitLeft" type="boolean" alwaysNotify="true" />
+    <field id="chosen" type="string" alwaysNotify="true" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/HomeScreen.brs" />
+  <children>
+    <!-- Hero. Decision 097 binds: the art renders at its OWN aspect over an
+         ambient wash of itself, never cropped into a wide box. -->
+    <Poster id="heroWash" />
+    <Rectangle id="heroScrim" />
+    <Poster id="heroArt" />
+    <Label id="heroTitle" />
+    <Label id="heroMeta" />
+
+    <RowList id="rows" />
+  </children>
+</component>

@@ -1,75 +1,129 @@
 sub init()
-    m.status = m.top.FindNode("status")
-    m.detail = m.top.FindNode("detail")
+    m.t = Theme()
+    m.rail = m.top.FindNode("rail")
+    m.content = m.top.FindNode("content")
+    m.loading = m.top.FindNode("loading")
 
-    ' A Scene must hold focus or the remote does nothing at all — the Roku
-    ' equivalent of the tvOS/Compose rule that something is ALWAYS focused.
-    m.top.setFocus(true)
+    ' A Label's `font` takes a URI STRING. Assigning a Font NODE that carries
+    ' a font: system URI renders NOTHING — no error, no warning, an empty
+    ' screen with a healthy console. Proven by a three-way experiment on the
+    ' device in tick 2 and the reason half this shell was invisible.
+    brand = m.top.FindNode("brand")
+    brand.font = m.t.uRow
+    brand.text = "ARCHIVE WATCH"
+    brand.color = m.t.marquee
+    ' Clear the rail: the content column starts at railW, and the brand is
+    ' content chrome, not rail chrome.
+    brand.translation = [m.t.railW + m.t.safeX, 39]
 
-    m.task = CreateObject("roSGNode", "CatalogTask")
+    clock = m.top.FindNode("clock")
+    clock.font = m.t.uMeta : clock.color = m.t.textSec
+    clock.translation = [1560, 45]
+    clock.text = nowString()
+
+    ' §5.7 — the (*) indicator, shown because Options ARE available here.
+    opt = m.top.FindNode("optHint")
+    opt.font = m.t.uMeta : opt.color = m.t.textSec
+    opt.translation = [1770, 45]
+    opt.text = "(*)"
+
+    m.loading.font = m.t.uBody : m.loading.color = m.t.textSec
+    m.loading.translation = [m.t.railW + m.t.readX, 480]
+    m.loading.text = "Loading the archive…"
+
+    ' The home screen lives in the content column, right of the rail.
+    m.home = m.content.CreateChild("HomeScreen")
+    m.home.translation = [m.t.railW, 0]
+    m.home.ObserveField("exitLeft", "focusRail")
+    m.home.ObserveField("chosen", "onChosen")
+
+    m.rail.ObserveField("selected", "onRailSelected")
+
+    m.task = CreateObject("roSGNode", "HomeTask")
     m.task.ObserveField("status", "onStatus")
-    m.task.ObserveField("report", "onReport")
     m.task.control = "RUN"
 
-    print "AWROKU scene init"
+    ' §1.4 / TV-DESIGN §3.1 — something is ALWAYS focused, or the remote does
+    ' nothing at all and the viewer thinks the app has hung. Until content
+    ' lands, the rail holds focus.
+    focusRail()
+    print "AWROKU scene ready"
 end sub
 
 sub onStatus()
     s = m.task.status
-    if s = "downloading"
-        m.status.text = "Downloading the catalog index…"
-    else if s = "parsing"
-        m.status.text = "Parsing 6.2 MB of catalog…"
-    else if s = "ready"
-        m.status.text = "Catalog ready"
+    print "AWROKU home status="; s
+    if s = "ready"
+        m.loading.visible = false
+        m.home.rowsContent = m.task.rows
+        m.home.heroContent = m.task.hero
+        focusContent()
     else if s = "error"
-        m.status.text = "Could not load the catalog"
+        m.loading.text = "Could not reach the archive. Check the network and try again."
     end if
-    print "AWROKU status="; s
 end sub
 
-sub onReport()
-    r = m.task.report
-    if r = invalid then return
-
-    if r.error <> invalid
-        m.detail.text = r.error
-        return
-    end if
-
-    ' Put the measurement ON THE GLASS. A screenshot then proves the numbers,
-    ' which is the standing rule here: never trust the app's own report alone,
-    ' but a number rendered on the device and photographed is evidence.
-    lines = []
-    lines.Push("device       " + fmt(r.model))
-    lines.Push("index        " + fmt(r.bytes) + " bytes, schema " + fmt(r.schema))
-    lines.Push("download     " + fmt(r.downloadMs) + " ms")
-    lines.Push("ParseJson    " + fmt(r.parseMs) + " ms")
-    lines.Push("items        " + fmt(r.itemCount))
-    lines.Push("shelves      " + fmt(r.shelfCount))
-    lines.Push("memory level " + fmt(r.memBefore) + " -> " + fmt(r.memAfter))
-    m.detail.text = lines.Join(Chr(10))
+sub focusRail()
+    m.rail.focusOn = true
+    m.home.focusOn = false
+    m.rail.setFocus(true)
+    print "AWFOCUS rail"
 end sub
 
-' BrightScript has no universal to-string. `Str()` takes a FLOAT, so calling it
-' on a String is a runtime Type Mismatch that halts the channel — it took down
-' the first build here. Anything printed to the screen goes through this.
-function fmt(v as Dynamic) as String
-    if v = invalid then return "?"
-    t = type(v)
-    if t = "String" or t = "roString" then return v
-    if t = "Integer" or t = "roInt" or t = "roInteger" or t = "LongInteger" then return v.ToStr()
-    if t = "Float" or t = "roFloat" or t = "Double" or t = "roDouble" then return Str(v).Trim()
-    if t = "Boolean" or t = "roBoolean" then
-        if v then return "true"
-        return "false"
+sub focusContent()
+    m.rail.focusOn = false
+    m.home.focusOn = true
+    m.home.setFocus(true)
+    print "AWFOCUS content"
+end sub
+
+sub onRailSelected()
+    id = m.rail.selected
+    print "AWROKU rail-select "; id
+    ' Only Home exists this tick; the other six surfaces arrive in later ticks
+    ' and the rail already announces them, so nothing here silently swallows a
+    ' press — it says what is not built yet.
+    if id = "home"
+        focusContent()
+    else
+        m.loading.visible = true
+        m.loading.text = titleFor(id) + " arrives in a later build."
+        focusContent()
     end if
-    return "?"
+end sub
+
+sub onChosen()
+    print "AWROKU chosen="; m.home.chosen
+end sub
+
+function titleFor(id as String) as String
+    if id = "movies" then return "Movies"
+    if id = "tv" then return "TV"
+    if id = "channels" then return "Channels"
+    if id = "collections" then return "Collections"
+    if id = "search" then return "Search"
+    if id = "library" then return "Library"
+    return "Home"
 end function
 
-' Back at the root closes the channel, which is the Roku convention and a
-' certification requirement — do NOT trap it.
+function nowString() as String
+    d = CreateObject("roDateTime")
+    d.ToLocalTime()
+    h = d.GetHours()
+    ampm = "AM"
+    if h >= 12 then ampm = "PM"
+    if h > 12 then h = h - 12
+    if h = 0 then h = 12
+    mn = d.GetMinutes()
+    mm = fmt(mn)
+    if mn < 10 then mm = "0" + mm
+    return fmt(h) + ":" + mm + " " + ampm
+end function
+
+' §2.6 — Back is sacred. It is NOT trapped here: returning false lets Roku
+' close the channel from Home, which is the platform convention and a
+' certification requirement.
 function onKeyEvent(key as String, press as Boolean) as Boolean
-    if press then print "AWROKU key="; key
+    if press then print "AWKEY "; key
     return false
 end function

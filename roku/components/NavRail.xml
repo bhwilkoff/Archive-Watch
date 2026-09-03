@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ROKU-DESIGN §2.1 — the shell is a LEFT rail, never top tabs. Roku's own
+     2026 home screen is a condensed left icon rail, and the publishers who
+     moved to top tabs (Plex, Pluto) drew sustained complaints that it costs a
+     d-pad user more presses.
+
+     §2.2 — seven surfaces and no more. Settings is NOT here (§2.3): it lives
+     behind `*` on Home, because Roku's own best practice says settings "do not
+     belong in primary UI". Surprise is NOT here either (§2.4): it is an action,
+     and Roku's rail spends its icons on surfaces. -->
+<component name="NavRail" extends="Group">
+  <interface>
+    <field id="selectedIndex" type="integer" value="0" />
+    <field id="selected" type="string" alwaysNotify="true" />
+    <field id="expanded" type="boolean" value="false" />
+    <field id="focusOn" type="boolean" onChange="onFocusOn" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/NavRail.brs" />
+  <children>
+    <Rectangle id="ground" color="0x16161AFF" />
+    <Group id="items" />
+  </children>
+</component>

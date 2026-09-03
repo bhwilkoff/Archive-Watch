@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- One content tile. ROKU-DESIGN §5.5: focus is a RING plus a stated SIZE
+     STEP plus a REVEAL — never a shadow, a tilt or a scale transform. The
+     resting and focused sizes come from §4.6 and are set, not computed. -->
+<component name="PosterTile" extends="Group">
+  <interface>
+    <field id="itemContent" type="node" onChange="onContent" />
+    <field id="itemHasFocus" type="boolean" onChange="onFocusChanged" />
+    <field id="focusPercent" type="float" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/PosterTile.brs" />
+  <children>
+    <Rectangle id="plate" color="0x16161AFF" />
+    <Poster id="art" />
+    <!-- §5.5.3 the caption appears only on focus; unfocused tiles carry no
+         competing decoration. -->
+    <Label id="caption" visible="false" />
+    <Label id="meta" visible="false" />
+  </children>
+</component>

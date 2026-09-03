@@ -229,6 +229,42 @@ The owner enabled it on 2026-09-03.
   films of ffmpeg work, and possibly SRT publication since side-loaded WebVTT is
   not confirmed to work on Roku.
 
+## Tick 2 — the shell and Home, verified on the glass
+
+Built against `docs/ROKU-DESIGN.md` and verified on the owner's Streaming
+Stick, with a screenshot for rendering and a focus trace for reachability
+(evidence in `build/qa/roku-2026-09-03/`):
+
+| Element | Roku | Evidence |
+|---|---|---|
+| Overhang: brand, clock, `(*)` indicator | ✅ | `v02_layout.jpg` |
+| Left nav rail, 7 surfaces, selected state | ✅ | `v02_layout.jpg` |
+| Left from the first tile reaches the rail | ✅ | focus trace `rail → content → rail` |
+| Home hero: fitted art, ambient wash, title, meta | ✅ | `v02_layout.jpg` |
+| Hero follows the focused tile | ✅ | `v02_row2.jpg` vs `v02_final.jpg` |
+| Home shelves from featured.json order | ✅ | 23 rows built, console |
+| Poster tile: focus ring, size step, caption reveal | ✅ | `v02_final.jpg` |
+| Row scrolling with the d-pad | ✅ | `v02_row2.jpg` |
+| Professional-artwork gate on Home (D097) | ✅ | shelves under 6 posters hide |
+
+**Five Roku failure modes found by building, every one silent:**
+
+1. A Label's `font` takes a URI **string**. Assigning a Font **node** carrying
+   a `font:` URI renders NOTHING — no error, a healthy console, an empty
+   screen. Half the shell was invisible until a three-way experiment on the
+   device named it.
+2. `font:LargestBoldSystemFont` is not a real face, and an unknown font name
+   fails the same silent way.
+3. `ContentNode` has a FIXED field set. Assigning `BACKGROUNDIMAGEURL`, which
+   it does not declare, did nothing and read back `invalid`. Custom keys need
+   `AddField`.
+4. An `alias` on an interface field pointing at a node that no longer exists
+   kills the whole component, and the failure cascades to its parent.
+5. `rowFocusAnimationStyle = "fixedFocusWrap"` pins the focused index so it
+   never reaches 0, which made the nav rail unreachable from content. Only
+   `floatingFocus` stops at the ends. A screenshot could not have caught this;
+   the focus trace did.
+
 ## Open questions for the design tick
 
 1. Which Roku idiom carries Home: a `RowList` of poster rows under a hero, or
