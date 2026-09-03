@@ -31,6 +31,13 @@ class AppContainer(private val application: Application) {
     val okHttp: OkHttpClient = OkHttpClient.Builder()
         .connectTimeout(20, TimeUnit.SECONDS)
         .readTimeout(60, TimeUnit.SECONDS)
+        // OkHttp's default is 5 in-flight calls PER HOST. A shelf shows 6-8
+        // posters and most of a Home row comes from ONE host (image.tmdb.org
+        // or archive.org, whose cover URLs also spend a 302 inside the same
+        // call), so the last tiles of every row waited for a second wave.
+        // Measured on the Google TV: ~1s per poster, so a row's art landed in
+        // two beats instead of one. 12 covers a row plus the hero and ambient.
+        .dispatcher(okhttp3.Dispatcher().apply { maxRequests = 48; maxRequestsPerHost = 12 })
         .addInterceptor { chain ->
             chain.proceed(
                 chain.request().newBuilder()

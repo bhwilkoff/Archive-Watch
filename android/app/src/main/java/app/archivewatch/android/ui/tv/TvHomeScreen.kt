@@ -352,14 +352,15 @@ private fun TvHero(
         //
         // Right cycles the carousel; Left cycles back until index 0, where it
         // falls through to the nav rail — the same contract as the tvOS hero
-        // (leftmost = sidebar). Handled on PREVIEW so the focus engine never
-        // sees the consumed presses.
+        // (leftmost = sidebar). Handled on PREVIEW, on KEY DOWN: the focus
+        // engine moves focus on the down event, so an up-handler let Left
+        // reach the rail before the carousel ever saw it.
         Box(
             Modifier
                 .fillMaxSize()
                 .padding(horizontal = TvDims.OverscanH / 2, vertical = 10.dp)
                 .onPreviewKeyEvent { ev ->
-                    if (ev.type != KeyEventType.KeyUp) return@onPreviewKeyEvent false
+                    if (ev.type != KeyEventType.KeyDown) return@onPreviewKeyEvent false
                     when (ev.key) {
                         Key.DirectionRight -> { onCycle(+1); true }
                         Key.DirectionLeft ->

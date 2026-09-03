@@ -49,13 +49,21 @@ fun PosterImage(item: CatalogItem, modifier: Modifier = Modifier) {
     // thumbnail (owner 2026-06-29); the cover pipeline supplies real posters for art-less items.
     var failed by remember(item.archiveID) { mutableIntStateOf(0) }
     if (failed == 0 && item.hasDesignedArtwork && item.posterURL != null) {
-        AsyncImage(
-            model = item.posterURL,
-            contentDescription = item.title,
-            contentScale = ContentScale.Crop,
-            onError = { failed = 1 },
-            modifier = modifier,
-        )
+        // The title card sits UNDER the poster while it loads, so a shelf whose
+        // artwork is still in flight reads as a shelf of films, not a row of
+        // blank boxes. A blank tile is what "stuck" looks like on a TV (owner,
+        // Google TV: content in seconds, then a frozen-looking wait for art).
+        // The poster crossfades over it; on error the card simply stays.
+        Box(modifier) {
+            PosterTitleCard(item, Modifier.matchParentSize())
+            AsyncImage(
+                model = item.posterURL,
+                contentDescription = item.title,
+                contentScale = ContentScale.Crop,
+                onError = { failed = 1 },
+                modifier = Modifier.matchParentSize(),
+            )
+        }
     } else {
         PosterTitleCard(item, modifier)
     }

@@ -109,11 +109,19 @@ fun Modifier.tvFocusable(
         .then(focusRequester?.let { Modifier.focusRequester(it) } ?: Modifier)
         .focusable(interactionSource = interaction)
         .onKeyEvent { ev ->
-            if (ev.type != KeyEventType.KeyUp) return@onKeyEvent false
             when {
-                ev.key in SELECT_KEYS -> { onClick(); true }
-                ev.key == Key.DirectionLeft && exitLeftTo != null ->
+                // The rail exit must run on KEY DOWN. Compose moves focus on
+                // the down event, so a Left pressed on tile 1 has already
+                // landed focus on tile 0 by the time the UP arrives — and an
+                // up-handler here then read that same press as "exit", which
+                // made the first tile of every shelf unreachable (measured on
+                // the Google TV: tile focus, then rail focus 200ms later, from
+                // ONE press). Consuming the down also stops the focus engine
+                // from running its own search for that press.
+                ev.type == KeyEventType.KeyDown &&
+                    ev.key == Key.DirectionLeft && exitLeftTo != null ->
                     runCatching { exitLeftTo.requestFocus() }.isSuccess
+                ev.type == KeyEventType.KeyUp && ev.key in SELECT_KEYS -> { onClick(); true }
                 else -> false
             }
         }
