@@ -20,6 +20,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.WindowInsets
@@ -680,9 +681,12 @@ private fun PhonePlayerOptionsSheet(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(start = 16.dp, top = 12.dp, bottom = 4.dp),
             )
+            // Scrollable: six chips overflow a phone width, and a wrapped
+            // chip reading "2.0" over "x" was on the glass (Pixel 8a).
             Row(
                 Modifier
                     .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState())
                     .padding(horizontal = 12.dp),
                 horizontalArrangement = Arrangement.spacedBy(6.dp),
             ) {
@@ -693,7 +697,13 @@ private fun PhonePlayerOptionsSheet(
                             speed = s
                             player.setPlaybackSpeed(s)
                         },
-                        label = { Text(if (s == 1f) "1x" else "${s}x") },
+                        label = {
+                            // "2.0x" is four glyphs of nothing; trailing
+                            // zeros go, so the row reads 0.5x 0.75x 1x …
+                            val t = if (s == s.toInt().toFloat()) s.toInt().toString()
+                                    else s.toString().trimEnd('0').trimEnd('.')
+                            Text(t + "x", maxLines = 1)
+                        },
                     )
                 }
             }

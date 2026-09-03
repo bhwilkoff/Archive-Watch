@@ -170,6 +170,8 @@ an entry in place.
 - 099 — Downloads are a background URLSession into Application Support; a downloaded film plays as a plain local file, and tvOS gets none
 - 100 — A film's other release title is SHOWN, not reconciled; and a store's minSdk is a per-flavor decision
 - 101 — The App Store submission is fully API-driven, and AppVersion.xcconfig is the ONE version number
+- 102 — Google is Android's sync island and the WEB holds both; a deletion without a tombstone is a resurrection
+- 103 — The player is not a tab: full-screen video renders outside the navigation scaffold, and PiP gets no chrome at all
 
 ---
 
@@ -1356,3 +1358,96 @@ leaving it alone. Do not create a version to "see what happens".
 **Consequences**: the submit runs on `ubuntu-latest` — it is pure REST, so it
 needs no macOS runner and no Xcode. `status` is read-only and is the check to
 run before and after, because the tool's own success message is not evidence.
+
+## 102 — Google is Android's sync island and the WEB holds both; a deletion without a tombstone is a resurrection
+*Date: 2026-09-03*
+
+Android (google flavor) and the web viewer sync the viewer's library through
+the viewer's **own Google Drive appDataFolder** — one file, `awsync.json`,
+blob v2: favorites, playlists, channels, progress with Decision 078 history
+semantics, and **tombstones**. `js/cloudkitsync.js` additionally lets the web
+sign in with Apple and read/write the SAME `AWSync` records the Apple apps use,
+so the browser is the one client that can hold both islands, merging them with
+one set of rules. Sign-in is optional and gates only sync; status (account,
+last sync, last error, Sync now) is on screen, never silent.
+
+**Why**: the owner — *"There doesn't seem to be any way to log in on Android
+(phone) or Google TV"* — and separately, *"I would love to be able to login
+with my apple login on the web app."* Decision 028 chose this architecture and
+`DriveSync` had been sitting dormant for months behind a missing OAuth client.
+It would not have worked when switched on: it called `authorize()`, and when
+Google answered with a consent `PendingIntent` — which is what happens the
+FIRST time, for every user — it dropped it and reported failure. A feature
+gated on a credential nobody had was never exercised, so the one path every
+user takes was the untested one.
+
+**Tombstones are the load-bearing part.** Union-merging favorites without them
+means a favorite removed on the phone is handed straight back by the next pull
+from the TV, and the viewer cannot delete anything. Apple paid for this lesson
+in #84 (2026-06-08); Android and web had inherited the pre-#84 design, and
+`js/drivesync.js` said so in its own header ("deletions made on web don't carry
+tombstones yet"). Both stores now write a tombstone on every removal, merge is
+union-minus-tombstones with a 90-day TTL, and a re-add newer than its stone
+clears it.
+
+**How to apply**: an OAuth **Android client is keyed on the INSTALLED package
+and one certificate each** — `com.archivewatch.app` under the Play signing key,
+the same under the upload key, and `com.archivewatch.app.debug` under the debug
+key. Miss the Play signing one and sync fails only in production, which is the
+classic version of this trap. The `drive.appdata` scope is non-sensitive, so
+the consent screen can sit in production with no verification and no 100-user
+cap — do not add a scope that changes that. Exclude the merge's own writes from
+the sync trigger (`lastRemoteApplyChange`), or applying a pull schedules the
+next push forever. And never let the Apple and Google islands imply a backend:
+there is none, and Decision 028's rejection of one still stands.
+
+**VERIFIED ON HARDWARE**, not asserted: on the Pixel 8a signed into Google,
+a film watched on the phone appeared under Continue Watching in a browser that
+had never played it; a favorite set on the phone arrived in the browser; and
+un-favoriting it on the phone REMOVED it from the browser rather than
+resurrecting it, with the tombstone visible in both stores.
+
+**Consequences**: the Apple half of the web is dormant until a CloudKit JS API
+token exists (docs/web-apple-sync.md) — the last owner step. The amazon flavor
+keeps a stub twin with identical signatures because Fire OS has no Play
+services (Decision 047), so call sites stay store-blind.
+
+## 103 — The player is not a tab: full-screen video renders outside the navigation scaffold, and PiP gets no chrome at all
+*Date: 2026-09-03*
+
+On the Android phone the `Route.Player` case is rendered ABOVE and OUTSIDE
+`NavigationSuiteScaffold`, not inside it. In Picture-in-Picture the app draws
+no chrome of its own and turns Media3's controller off. The film's synopsis is
+not drawn over the film; the top bar is back, title, Cast and an options button
+that opens a sheet with Speed, Subtitles, Copies and Autoplay.
+
+**Why**: a user reported the mini player as *"almost entirely unusable because
+of the chrome that overwhelms the actual movie"*, with screenshots. The cause
+is structural: every pushed route rendered inside the scaffold, so the
+five-item bottom tab bar stayed on screen over the video — and PiP captures
+the Activity's window, so **the tab bar rode into the PiP tile**, where five
+labels covered most of a thumbnail-sized picture. No amount of styling fixes
+that; the player has to leave the scaffold.
+
+The same report continued: *"the video player itself has unnecessary text on
+it at all times and has almost no ability to select for things you would
+actually want to do (captions, speed, etc.)."* Both halves were true. A
+three-line synopsis was drawn across the frame — legitimate at ten feet on a
+TV, where the viewer is choosing whether to keep watching, and wrong on a
+phone held at arm's length over a 4:3 archival picture. And the affordances
+existed only in the TV panel: Media3's own gear reaches speed, but subtitles
+and copies had no phone surface at all.
+
+**How to apply**: judge player chrome by what it costs the PICTURE, and check
+it in the PiP window, which is the smallest surface it will ever occupy —
+`onPictureInPictureModeChanged` is the signal, and `PlayerView.useController`
+must be turned off there, not merely hidden. Keep the TV's title-and-synopsis
+overlay: it is right for that platform, so the two branch rather than converge.
+And size an `AndroidView` wrapping a platform widget explicitly — the
+unbounded `MediaRouteButton` in a Row measured to the whole remaining width and
+a full screen of height, pushing the title and the options button off screen.
+
+**VERIFIED ON HARDWARE** (Pixel 8a): the film plays with no chrome at rest, the
+bar fades with the transport, the sheet lists the item's REAL files
+("576p · MPEG4 · 109 MB — uploader original") rather than invented quality
+names, and the PiP tile is picture only.
