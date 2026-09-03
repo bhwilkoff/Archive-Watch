@@ -214,27 +214,7 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
             if (app.archivewatch.android.sync.DriveSync.IS_SUPPORTED &&
                 app.archivewatch.android.sync.DriveSync.isConfigured
             ) {
-                SectionLabel("Sync")
-                val activity = androidx.compose.ui.platform.LocalContext.current
-                    as? android.app.Activity
-                Text(
-                    if (app.archivewatch.android.sync.DriveSync.isSignedIn)
-                        "Syncing your watch history and library through your Google Drive."
-                    else "Sign in with Google to sync your watch history and library across devices.",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-                androidx.compose.material3.TextButton(onClick = {
-                    val act = activity ?: return@TextButton
-                    if (app.archivewatch.android.sync.DriveSync.isSignedIn) {
-                        app.archivewatch.android.sync.DriveSync.signOut()
-                    } else {
-                        app.archivewatch.android.sync.DriveSync.signIn(act, container.userState) {}
-                    }
-                }) {
-                    Text(if (app.archivewatch.android.sync.DriveSync.isSignedIn)
-                        "Sign out" else "Sign in with Google")
-                }
+                SyncSection()
                 HorizontalDivider(Modifier.padding(vertical = 16.dp))
             }
 
@@ -428,4 +408,75 @@ private fun OpenSubtitlesSection(container: AppContainer) {
         }
     }
     HorizontalDivider(Modifier.padding(vertical = 12.dp))
+}
+/**
+ * Sign in with Google → Drive App Data sync (Decision 028; the
+ * per-ecosystem-sync-islands rules: sign-in gates ONLY sync, and status is
+ * never silent — account, last sync, last error and a Sync now button).
+ * Shared by phone and TV: on Google TV the same Play-services consent UI
+ * appears, TV-styled.
+ */
+@Composable
+private fun SyncSection() {
+    val sync = app.archivewatch.android.sync.DriveSync
+    val status by sync.status.collectAsState()
+    val activity = androidx.compose.ui.platform.LocalContext.current as? android.app.Activity
+    val consent = androidx.activity.compose.rememberLauncherForActivityResult(
+        androidx.activity.result.contract.ActivityResultContracts.StartIntentSenderForResult(),
+    ) { result ->
+        activity?.let { sync.onConsentResult(it, result.data) }
+    }
+
+    SectionLabel("Sync")
+    Text(
+        if (status.signedIn)
+            "Your favorites, playlists, channels and watch history sync through your own Google Drive" +
+                (status.account?.let { " ($it)." } ?: ".")
+        else "Sign in with Google to sync your favorites, playlists, channels and watch history " +
+            "across your Android devices and archivewatch.org. Nothing leaves your own Google Drive.",
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
+    if (status.signedIn) {
+        val stamp = status.lastSyncAt.takeIf { it > 0 }?.let {
+            java.text.DateFormat.getDateTimeInstance(java.text.DateFormat.SHORT, java.text.DateFormat.SHORT)
+                .format(java.util.Date(it))
+        }
+        Text(
+            when {
+                status.syncing -> "Syncing…"
+                status.lastError != null -> "Last sync failed: " + status.lastError
+                stamp != null -> "Last synced $stamp"
+                else -> "Not synced yet"
+            },
+            style = MaterialTheme.typography.bodySmall,
+            color = if (status.lastError != null) MaterialTheme.colorScheme.error
+                else MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(top = 4.dp),
+        )
+    } else if (status.lastError != null) {
+        Text(
+            status.lastError!!,
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.error,
+            modifier = Modifier.padding(top = 4.dp),
+        )
+    }
+    androidx.compose.foundation.layout.Row {
+        androidx.compose.material3.TextButton(onClick = {
+            val act = activity ?: return@TextButton
+            if (status.signedIn) sync.signOut()
+            else sync.signIn(act) { sender ->
+                consent.launch(androidx.activity.result.IntentSenderRequest.Builder(sender).build())
+            }
+        }) {
+            Text(if (status.signedIn) "Sign out" else "Sign in with Google")
+        }
+        if (status.signedIn) {
+            androidx.compose.material3.TextButton(
+                onClick = { sync.syncNow() },
+                enabled = !status.syncing,
+            ) { Text("Sync now") }
+        }
+    }
 }

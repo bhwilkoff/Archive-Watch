@@ -319,18 +319,251 @@ def rail_walk():
     return 0 if passed == len(results) else 1
 
 
+# ---------------------------------------------------------------- audit verbs
+# One adb round-trip per Bash call is what makes an element-level audit
+# affordable: every verb below prints the external evidence it gathered
+# (focused node, on-glass text, log lines) so a step and its proof are one
+# command. Added for docs/ANDROID-TV-AUDIT.md (2026-09-03).
+
+def focused_node():
+    """The focused node's (bounds, text, content-desc, class) or None."""
+    for _ in range(2):
+        xml = _tree()
+        for m in re.finditer(r"<node[^>]*>", xml):
+            n = m.group(0)
+            if 'focused="true"' in n:
+                b = re.search(r'bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"', n)
+                t = re.search(r' text="([^"]*)"', n)
+                d = re.search(r' content-desc="([^"]*)"', n)
+                c = re.search(r' class="([^"]*)"', n)
+                if b:
+                    return (tuple(int(x) for x in b.groups()),
+                            t.group(1) if t else "", d.group(1) if d else "",
+                            c.group(1) if c else "")
+        time.sleep(1.0)
+    return None
+
+
+def texts_inside(bounds, xml=None):
+    """Text nodes drawn INSIDE `bounds` — a Compose chip/tile is an unlabeled
+    View in the tree; its label is a sibling text node, so the focused
+    element is identified by whatever text sits within its box."""
+    xml = xml or _tree()
+    l, t, r, b = bounds
+    found = []
+    for m in re.finditer(r"<node[^>]*>", xml):
+        n = m.group(0)
+        tx = re.search(r' text="([^"]*)"', n)
+        bb = re.search(r'bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"', n)
+        if not tx or not tx.group(1) or not bb:
+            continue
+        x0, y0, x1, y1 = (int(v) for v in bb.groups())
+        cx, cy = (x0 + x1) // 2, (y0 + y1) // 2
+        if l <= cx <= r and t <= cy <= b:
+            found.append(tx.group(1))
+    return found
+
+
+def print_focus():
+    n = focused_node()
+    if not n:
+        print("focused: NONE")
+        return
+    b, t, d, c = n
+    inside = texts_inside(b)
+    print(f"focused: {b} text={t!r} desc={d!r} inside={inside[:4]} rail={rail_tab_at(b)}")
+
+
+def tree_nodes(focusable_only=True):
+    """Every (text|desc, bounds, focusable, focused) node in the live tree."""
+    xml = _tree()
+    out = []
+    for m in re.finditer(r"<node[^>]*>", xml):
+        n = m.group(0)
+        f = 'focusable="true"' in n
+        if focusable_only and not f:
+            continue
+        t = re.search(r' text="([^"]*)"', n)
+        d = re.search(r' content-desc="([^"]*)"', n)
+        b = re.search(r'bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"', n)
+        label = (t.group(1) if t else "") or (d.group(1) if d else "")
+        out.append((label, tuple(int(x) for x in b.groups()) if b else None,
+                    f, 'focused="true"' in n))
+    return out
+
+
+def ocr_text(path):
+    """Flat text of everything OCR found in the shot, top-to-bottom."""
+    import json
+    raw = ocr(path)
+    lines = []
+    for ln in raw.splitlines():
+        try:
+            j = json.loads(ln)
+        except ValueError:
+            continue
+        for line in sorted(j.get("allText", []), key=lambda l: -l["y"]):
+            lines.append(line["text"])
+    return "\n".join(lines)
+
+
+def app_log(grep=None, lines=400):
+    out = logcat_app(lines)
+    if grep:
+        out = "\n".join(l for l in out.splitlines() if re.search(grep, l))
+    return out
+
+
+def launch_with(extras):
+    """am start with the verification extras (focus log, start tab/route)."""
+    adbs("shell", "input", "keyevent", "KEYCODE_WAKEUP")
+    time.sleep(1.0)
+    adbs("shell", "am", "force-stop", PKG)
+    time.sleep(1.5)
+    adbs("shell", "logcat", "-c")
+    args = ["shell", "am", "start", "-n", f"{PKG}/app.archivewatch.android.MainActivity",
+            "--ez", "aw_focus_log", "true"] + extras
+    print(adbs(*args).strip())
+
+
+def find_text(label, xml=None):
+    """Bounds of the first on-screen text node matching `label` (exact, then
+    case-insensitive substring)."""
+    xml = xml or _tree()
+    nodes = []
+    for m in re.finditer(r"<node[^>]*>", xml):
+        n = m.group(0)
+        tx = re.search(r' text="([^"]*)"', n)
+        bb = re.search(r'bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"', n)
+        if tx and tx.group(1) and bb:
+            nodes.append((tx.group(1), tuple(int(v) for v in bb.groups())))
+    for t, b in nodes:
+        if t == label:
+            return b
+    for t, b in nodes:
+        if label.lower() in t.lower():
+            return b
+    return None
+
+
+def go(label, max_steps=40):
+    """Move focus onto the element whose label text is `label`, CLOSED-LOOP
+    (the type_text discipline generalised): after every press the focused
+    bounds are re-read; done when the label's centre sits inside them.
+    A focused node that has wandered onto the rail steps back Right first."""
+    target = find_text(label)
+    if not target:
+        # A LazyRow composes only what is on screen: scan the focused row
+        # Right, then Left, until the label is drawn.
+        for key, n in (("KEYCODE_DPAD_RIGHT", 14), ("KEYCODE_DPAD_LEFT", 28)):
+            for _ in range(n):
+                press(key, settle=0.6)
+                target = find_text(label)
+                if target:
+                    break
+            if target:
+                break
+    if not target:
+        print(f"  go: no on-screen text matching {label!r}")
+        return False
+    tl, tt, tr, tb = target
+    tx, ty = (tl + tr) // 2, (tt + tb) // 2
+    for _ in range(max_steps):
+        b = focused_bounds()
+        if not b:
+            return False
+        if b[0] <= tx <= b[2] and b[1] <= ty <= b[3]:
+            return True
+        cx, cy = (b[0] + b[2]) // 2, (b[1] + b[3]) // 2
+        if cx < RAIL_X_MAX <= tx:
+            press("KEYCODE_DPAD_RIGHT", settle=0.7)
+            continue
+        dy, dx = ty - cy, tx - cx
+        if abs(dy) > (b[3] - b[1]) / 2:
+            press("KEYCODE_DPAD_DOWN" if dy > 0 else "KEYCODE_DPAD_UP", settle=0.7)
+        elif abs(dx) > 4:
+            press("KEYCODE_DPAD_RIGHT" if dx > 0 else "KEYCODE_DPAD_LEFT", settle=0.7)
+        else:
+            return True
+        # The layout may have scrolled; re-resolve the target.
+        target = find_text(label) or target
+        tl, tt, tr, tb = target
+        tx, ty = (tl + tr) // 2, (tt + tb) // 2
+    print(f"  go: could not reach {label!r}")
+    return False
+
+
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "rail_walk"
+    if cmd in ("go", "select"):
+        ok = go(sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else 40)
+        if ok and cmd == "select":
+            press("KEYCODE_DPAD_CENTER", settle=float(os.environ.get("AW_SELECT_WAIT", "3")))
+        print(("reached " if ok else "MISSED ") + sys.argv[2])
+        print_focus()
+        return 0 if ok else 1
+    a = sys.argv[2:]
     if cmd == "rail_walk":
         return rail_walk()
     if cmd == "shot":
-        p = screenshot(sys.argv[2] if len(sys.argv) > 2 else "shot")
+        p = screenshot(a[0] if a else "shot")
         print(p)
-        print(ocr(p)[:400])
+        print(ocr_text(p))
         return 0
     if cmd == "focus":
-        b = focused_bounds()
-        print("focused:", b, "rail tab:", rail_tab_at(b))
+        print_focus()
+        return 0
+    if cmd == "press":
+        # press KEY [count] [settle]  e.g. press DPAD_DOWN 3 0.8
+        key = a[0] if a[0].startswith("KEYCODE_") else "KEYCODE_" + a[0]
+        n = int(a[1]) if len(a) > 1 else 1
+        settle = float(a[2]) if len(a) > 2 else 1.0
+        for _ in range(n):
+            press(key, settle=settle)
+        print_focus()
+        return 0
+    if cmd == "keys":
+        # keys DPAD_DOWN DPAD_RIGHT DPAD_CENTER ... (1s settle each), then focus
+        for k in a:
+            press(k if k.startswith("KEYCODE_") else "KEYCODE_" + k, settle=1.0)
+        print_focus()
+        return 0
+    if cmd == "longpress":
+        # a D-pad long press = key down, hold, key up
+        key = a[0] if a and a[0].startswith("KEYCODE_") else "KEYCODE_" + (a[0] if a else "DPAD_CENTER")
+        adbs("shell", "input", "keyevent", "--longpress", key)
+        time.sleep(1.5)
+        print_focus()
+        return 0
+    if cmd == "tree":
+        for label, b, f, focused in tree_nodes(focusable_only="--all" not in a):
+            print(("* " if focused else "  ") + f"{label!r} {b}")
+        return 0
+    if cmd == "launch":
+        launch_with(a)
+        time.sleep(float(os.environ.get("AW_LAUNCH_WAIT", "12")))
+        print_focus()
+        return 0
+    if cmd == "link":
+        adbs("shell", "am", "start", "-a", "android.intent.action.VIEW", "-d", a[0], PKG)
+        time.sleep(8)
+        print_focus()
+        return 0
+    if cmd == "type":
+        ok = type_text(a[0])
+        print("typed" if ok else "TYPE FAILED")
+        print_focus()
+        return 0 if ok else 1
+    if cmd == "log":
+        print(app_log(a[0] if a else "AWFOCUS|AWTV|AWHOME", int(a[1]) if len(a) > 1 else 400))
+        return 0
+    if cmd == "tab":
+        ok = goto_tab(a[0])
+        print("reached" if ok else "NOT REACHED")
+        print_focus()
+        return 0 if ok else 1
+    if cmd == "ocr":
+        print(ocr_text(a[0]))
         return 0
     print(__doc__)
     return 2

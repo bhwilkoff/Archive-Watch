@@ -1,60 +1,52 @@
-# Google OAuth client setup — the ONE owner step for cross-ecosystem sync
+# Google OAuth for cross-device sync — DONE 2026-09-03
 
 Decision 028 routes Android + web sync through the user's own Google Drive
 (App Data folder) — no backend, the exact analog of CloudKit on the Apple
-side. Everything is built and waiting (web: `js/drivesync.js`, activation
-constant in `index.html`); it needs OAuth client IDs that only the project
-owner can create. ~15 minutes, free, no billing account needed.
+side. This page records what exists, where it lives, and what to do when
+something about it changes. The one-time setup was performed 2026-09-03 in
+the Google Cloud project **`archivewatch-play`** (owner account
+benwilkoff@gmail.com — the same project that holds the Play publishing
+service account).
 
-## 1. Create the project + consent screen (once)
+## What exists
 
-1. https://console.cloud.google.com → New Project → name `Archive Watch`.
-2. APIs & Services → **Library** → search "Google Drive API" → Enable.
-3. APIs & Services → **OAuth consent screen**:
-   - User type: **External** → Create.
-   - App name `Archive Watch`, support email = your email.
-   - Scopes: Add → filter `drive.appdata` → check
-     `https://www.googleapis.com/auth/drive.appdata` → Update.
-   - Test users: add your own Google account (while the app is in Testing,
-     only listed users can sign in — fine for now; Publish later for
-     everyone, `drive.appdata` is a non-sensitive scope with no review).
+| Thing | Value / place |
+|---|---|
+| Google Auth Platform branding | App name "Archive Watch", support + contact benwilkoff@gmail.com, home https://archivewatch.org, privacy https://archivewatch.org/privacy.html, authorized domain `archivewatch.org` |
+| Audience | **External, In production** (`drive.appdata` is a non-sensitive scope, so no verification and no 100-user cap) |
+| Data Access | `https://www.googleapis.com/auth/drive.appdata` — the ONLY scope requested |
+| Web client | "Archive Watch Web" — origins `https://archivewatch.org` and `http://localhost:8080`. Client ID `294492189901-jadidkmiv08nqndjt1uod34tliobi7l2.apps.googleusercontent.com` (public by nature; it is in `index.html` as `window.AW_GOOGLE_CLIENT_ID`). Its client secret is NOT used anywhere and was not recorded. |
+| Android client (Play signing key) | package `com.archivewatch.app`, SHA-1 `CB:4B:ED:31:3B:06:79:44:03:4E:03:B0:88:BB:1B:40:22:C5:8E:97` — what production installs are signed with |
+| Android client (upload key) | package `com.archivewatch.app`, SHA-1 `8B:3E:FF:3E:05:8B:60:54:84:19:E0:0F:F4:7A:85:42:83:54:63:AD` — local `assembleGoogleRelease` builds |
+| Android client (debug) | package `com.archivewatch.app.debug`, SHA-1 `B2:0D:E1:7E:31:C1:6D:33:E0:30:8B:2F:9D:97:A8:C3:D2:C5:A7:43` — the dev Mac's `~/.android/debug.keystore` |
+| Android activation | `awGoogleServerClientId=<web client id>` in `~/.gradle/gradle.properties` → `BuildConfig.AW_GOOGLE_SERVER_CLIENT_ID`. `tools/submit-play.sh` builds locally, so the Play release carries it. Empty = the Sync section is hidden. |
 
-## 2. Web client ID (activates the PWA at archivewatch.org)
+Package names matter: the OAuth Android client is keyed on the INSTALLED
+package (`applicationId`, `com.archivewatch.app`), not the Kotlin namespace
+`app.archivewatch.android`. The debug build has its own suffix and its own
+client.
 
-1. APIs & Services → **Credentials** → Create Credentials → OAuth client ID.
-2. Application type: **Web application**, name `Archive Watch Web`.
-3. Authorized JavaScript origins:
-   - `https://archivewatch.org`
-   - `http://localhost:8080` (local dev)
-4. Create → copy the client ID (`…apps.googleusercontent.com`).
-5. Paste it into `index.html` where `window.AW_GOOGLE_CLIENT_ID = ''` and
-   push. A "Sign in with Google to sync across devices" button then
-   appears at the top of the Library page.
+## How it works
 
-## 3. Android client ID (activates the Android app)
+- Android (google flavor only — Fire OS has no Play services, Decision 047):
+  `sync/DriveSync.kt`. Google's `AuthorizationClient` hands back an access
+  token silently once the account has consented, and a consent
+  `PendingIntent` the first time; Settings launches it through an
+  ActivityResult seam. Works on phones and on Google TV the same way.
+- Web: `js/drivesync.js` (Google Identity Services token client).
+- One file `awsync.json` in the appDataFolder, blob v2: favorites, playlists,
+  channels, progress/history, tombstones. Both merges are field-for-field the
+  same; deletions carry tombstones (90-day TTL).
+- Sign-in is optional and gates ONLY sync. Status is visible in Settings
+  (account, last sync, last error, Sync now).
 
-OAuth for Android validates by package + signing certificate — no secret.
+## When something changes
 
-1. Credentials → Create Credentials → OAuth client ID → **Android**.
-2. Package name: `app.archivewatch.android`.
-3. SHA-1: one client per certificate, so create THREE Android clients:
-   - the upload key: `keytool -list -v -keystore
-     ~/keystores/archivewatch-upload.jks -alias upload | grep SHA1`
-   - the debug key: `keytool -list -v -keystore ~/.android/debug.keystore
-     -alias androiddebugkey -storepass android | grep SHA1`
-   - the **Play App Signing** key: Play Console → your app → Setup →
-     App signing → App signing key certificate → SHA-1. (This is the one
-     production installs use — without it, sync fails only in production,
-     the classic trap.)
-4. Android sign-in also needs a client to EXCHANGE for tokens: reuse the
-   Web client ID from step 2 as the `serverClientId` — tell Claude both
-   IDs and the Android wiring lands in the google flavor (Fire stays
-   GMS-free per Decision 047).
-
-## 4. Hand back to Claude
-
-Reply with: the Web client ID (+ confirmation it's pasted in index.html,
-or just paste the ID and Claude will wire it). Android IDs need no code —
-only the Web/serverClientId does. Claude then finishes the Android
-Sign-In + Drive plumbing and verifies a browser and a phone converge on
-one watch record.
+- **A new signing certificate** (a new dev Mac, a Play key upgrade): add
+  another Android client with the new SHA-1 under Google Auth Platform →
+  Clients. Without it, sign-in on that build fails with `DEVELOPER_ERROR` /
+  status 10 and the app shows "Google sign-in unavailable".
+- **A new web origin**: add it to the web client's authorized JavaScript
+  origins (propagation takes minutes to hours).
+- **A new scope**: register it under Data Access first; a sensitive one
+  would put the app back into verification.

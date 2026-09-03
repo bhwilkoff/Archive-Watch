@@ -127,6 +127,10 @@ object DeepLinks {
     leaves the app mid-playback, sized to the real video aspect. */
 object PlaybackPresence {
     val active = MutableStateFlow(false)
+    /** True while the Activity is in Picture-in-Picture. The player hides its
+     *  chrome (title overlay + transport controller) in that window: a PiP
+     *  tile is ~150dp wide, and chrome drawn over it covered the film. */
+    val inPip = MutableStateFlow(false)
     @Volatile var aspectWidth = 16
     @Volatile var aspectHeight = 9
 }

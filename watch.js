@@ -43,7 +43,7 @@
     let dbp = null;
     function open() {
       dbp ??= new Promise((res, rej) => {
-        const req = indexedDB.open('archivewatch', 3);
+        const req = indexedDB.open('archivewatch', 4);
         req.onupgradeneeded = () => {
           const db = req.result;
           if (!db.objectStoreNames.contains('favorites')) {
@@ -57,6 +57,12 @@
           }
           if (!db.objectStoreNames.contains('channels')) {
             db.createObjectStore('channels', { keyPath: 'id' });
+          }
+          // Deletion markers for Drive sync (v4): without them a favorite
+          // removed here is resurrected by the next pull from a device that
+          // still has it (the Apple #84 lesson, Decision 028).
+          if (!db.objectStoreNames.contains('tombstones')) {
+            db.createObjectStore('tombstones', { keyPath: 'key' });
           }
         };
         req.onsuccess = () => res(req.result);
@@ -92,8 +98,19 @@
         const has = await DB.isFavorite(id);
         await tx('favorites', 'readwrite',
           s => has ? s.delete(id) : s.put({ id, addedAt: Date.now() }));
+        if (has) await DB.putTombstone('fav', id); else await DB.clearTombstone('fav', id);
         return !has;
       },
+      // Sync seams: raw writes for js/drivesync.js's merge.
+      tombstones: () => getAll('tombstones'),
+      putTombstone: (kind, id, at = Date.now()) =>
+        tx('tombstones', 'readwrite', s => s.put({ key: kind + ':' + id, kind, id, at })),
+      clearTombstone: (kind, id) =>
+        tx('tombstones', 'readwrite', s => s.delete(kind + ':' + id)),
+      removeFavoriteRaw: id => tx('favorites', 'readwrite', s => s.delete(id)),
+      removePlaylistRaw: id => tx('playlists', 'readwrite', s => s.delete(id)),
+      removeUserChannelRaw: id => tx('channels', 'readwrite', s => s.delete(id)),
+      savePlaylistRaw: pl => tx('playlists', 'readwrite', s => s.put(pl)),
       progress: () => getAll('progress'),
       progressFor: async id => (await getAll('progress')).find(p => p.id === id) || null,
       // title rides along so Continue Watching can render episodes, whose
@@ -115,10 +132,16 @@
       playlists: () => getAll('playlists'),
       userChannels: () => getAll('channels'),
       saveUserChannel: ch => tx('channels', 'readwrite', s => s.put(ch)),
-      deleteUserChannel: id => tx('channels', 'readwrite', s => s.delete(id)),
+      deleteUserChannel: async id => {
+        await tx('channels', 'readwrite', s => s.delete(id));
+        await DB.putTombstone('ch', id);
+      },
       savePlaylist: pl =>
         tx('playlists', 'readwrite', s => s.put({ ...pl, modifiedAt: Date.now() })),
-      deletePlaylist: id => tx('playlists', 'readwrite', s => s.delete(id)),
+      deletePlaylist: async id => {
+        await tx('playlists', 'readwrite', s => s.delete(id));
+        await DB.putTombstone('pl', id);
+      },
       togglePlaylistItem: async (plID, archiveID) => {
         const pl = (await getAll('playlists')).find(p => p.id === plID);
         if (!pl) return false;
@@ -1021,7 +1044,17 @@
    * ---------------------------------------------------------------- */
   // Cross-device sync (js/drivesync.js): a no-op until the owner sets
   // AW_GOOGLE_CLIENT_ID in index.html. Init after DB exists.
-  setTimeout(() => window.AWDriveSync?.init(DB, document.getElementById('library-sync')), 0);
+  setTimeout(() => {
+    const host = document.getElementById('library-sync');
+    window.AWDriveSync?.init(DB, host);
+    window.AWCloudKitSync?.init(DB, document.getElementById('library-sync-apple'));
+  }, 0);
+  // A pull that landed while the Library is open must show up without a
+  // reload — the first web sync (2026-09-03) merged the phone's progress
+  // into IndexedDB and the page kept saying "Nothing in progress".
+  window.addEventListener('aw-sync-done', () => {
+    if (location.hash.startsWith('#/library')) Library.render();
+  });
 
   const Library = {
     async render() {

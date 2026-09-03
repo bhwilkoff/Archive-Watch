@@ -16,17 +16,35 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilterChip
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.RadioButton
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -57,6 +75,7 @@ import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
 import androidx.media3.exoplayer.upstream.DefaultLoadErrorHandlingPolicy
 import androidx.media3.exoplayer.upstream.LoadErrorHandlingPolicy
 import androidx.media3.ui.PlayerView
+import app.archivewatch.android.BuildConfig
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.PlaySpec
 import androidx.compose.ui.platform.LocalLifecycleOwner
@@ -392,6 +411,12 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
     // Any handled key shows the overlay; it fades after 4s of playback.
     var tvInteraction by remember { mutableStateOf(0) }
     var showTvMenu by remember { mutableStateOf(false) }
+    var showPhoneMenu by remember { mutableStateOf(false) }
+    // Picture-in-Picture: no chrome at all. The PiP tile is a thumbnail; the
+    // title overlay and Media3's controller both covered the film there
+    // (user report with screenshots, 2026-09-03).
+    val inPip by PlaybackPresence.inPip.collectAsState()
+    val overlayVisible = controlsVisible && !inPip
     if (isTv) {
         LaunchedEffect(tvInteraction) {
             controlsVisible = true
@@ -443,6 +468,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                     setShowSubtitleButton(true)   // archive files rarely carry tracks; harmless when absent
                     setControllerVisibilityListener(
                         PlayerView.ControllerVisibilityListener { visibility ->
+                            if (BuildConfig.DEBUG) android.util.Log.i("AWPLAYER", "controller visibility=$visibility")
                             controlsVisible = visibility == View.VISIBLE
                         },
                     )
@@ -463,12 +489,72 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                     }
                 }
             },
-            update = { view -> view.player = player },
+            update = { view ->
+                view.player = player
+                if (view.useController == inPip) {
+                    view.useController = !inPip
+                    if (inPip) view.hideController()
+                }
+            },
             modifier = Modifier.fillMaxSize(),
         )
 
+        // Phone: a slim top bar that fades WITH the transport controls — back,
+        // the title on one line, and an options button (captions / speed /
+        // copies / autoplay). The synopsis is not drawn over a film on a
+        // phone: three lines of prose across a 4:3 frame was the "unnecessary
+        // text" a user reported, and the sheet below is where the real
+        // choices live. TV keeps its title + description overlay (TV-DESIGN).
+        if (!isTv) {
+            AnimatedVisibility(
+                visible = overlayVisible,
+                enter = fadeIn(),
+                exit = fadeOut(),
+                modifier = Modifier.align(Alignment.TopStart).fillMaxWidth(),
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(
+                            Brush.verticalGradient(
+                                listOf(Color.Black.copy(alpha = 0.6f), Color.Transparent),
+                            ),
+                        )
+                        .windowInsetsPadding(WindowInsets.systemBars)
+                        .padding(horizontal = 4.dp, vertical = 2.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    IconButton(onClick = { nav.pop() }) {
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back", tint = Color.White)
+                    }
+                    Text(
+                        text = nowTitle,
+                        style = MaterialTheme.typography.titleMedium,
+                        color = Color.White,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        modifier = Modifier.weight(1f),
+                    )
+                    if (CastSupport.IS_SUPPORTED) {
+                        // Sized explicitly: unbounded in a Row, the
+                        // MediaRouteButton measured to the whole remaining
+                        // width and a full screen of height, which pushed the
+                        // title and options button off screen and centred the
+                        // back arrow mid-film (Pixel 8a, first build).
+                        AndroidView(
+                            factory = { ctx -> CastSupport.createCastButton(ctx) ?: View(ctx) },
+                            modifier = Modifier.padding(horizontal = 4.dp).size(48.dp),
+                        )
+                    }
+                    IconButton(onClick = { showPhoneMenu = true }) {
+                        Icon(Icons.Default.MoreVert, contentDescription = "Player options", tint = Color.White)
+                    }
+                }
+            }
+        }
+
         AnimatedVisibility(
-            visible = controlsVisible,
+            visible = isTv && overlayVisible,
             enter = fadeIn(),
             exit = fadeOut(),
             modifier = Modifier.align(Alignment.TopStart).fillMaxWidth(),
@@ -513,25 +599,17 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             }
         }
 
-        // The system Cast button, shown with the transport controls. This is
-        // Google's own MediaRouteButton (device picker, connection states and
-        // accessibility for free) rather than a drawn icon — the Cast design
-        // checklist expects that exact affordance. Renders nothing when Cast is
-        // unusable: no GMS, no receiver, or the amazon flavor.
-        if (!isTv && CastSupport.IS_SUPPORTED) {
-            AnimatedVisibility(
-                visible = controlsVisible,
-                enter = fadeIn(),
-                exit = fadeOut(),
-                modifier = Modifier.align(Alignment.TopEnd),
-            ) {
-                AndroidView(
-                    factory = { ctx -> CastSupport.createCastButton(ctx) ?: View(ctx) },
-                    modifier = Modifier
-                        .windowInsetsPadding(WindowInsets.systemBars)
-                        .padding(horizontal = 20.dp, vertical = 16.dp),
-                )
-            }
+        // The Cast affordance is Google's own MediaRouteButton (device picker,
+        // connection states and accessibility for free), placed in the phone
+        // top bar above. Renders nothing when Cast is unusable.
+
+        if (!isTv && showPhoneMenu) {
+            PhonePlayerOptionsSheet(
+                player = player,
+                spec = spec,
+                container = container,
+                onDismiss = { showPhoneMenu = false },
+            )
         }
 
         if (isTv && showTvMenu) {
@@ -540,6 +618,163 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 spec = spec,
                 container = container,
                 onDismiss = { showTvMenu = false },
+            )
+        }
+    }
+}
+
+/**
+ * The phone's in-player options: Subtitles, Speed, Copies, Autoplay — the
+ * things a viewer actually reaches for mid-film, on a native M3 bottom sheet
+ * (the iOS player's menu, in the Android idiom). Media3's own gear covers
+ * speed too; this sheet is the one place ALL of them are discoverable.
+ */
+@androidx.annotation.OptIn(UnstableApi::class)
+@kotlin.OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun PhonePlayerOptionsSheet(
+    player: ExoPlayer,
+    spec: PlaySpec,
+    container: AppContainer,
+    onDismiss: () -> Unit,
+) {
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+    val autoplay by container.settings.autoplayNext.collectAsState(initial = false)
+    var speed by remember { mutableStateOf(player.playbackParameters.speed) }
+    var textOff by remember {
+        mutableStateOf(player.trackSelectionParameters.disabledTrackTypes.contains(C.TRACK_TYPE_TEXT))
+    }
+    var textLang by remember {
+        mutableStateOf(player.trackSelectionParameters.preferredTextLanguages.firstOrNull() ?: "en")
+    }
+    var versions by remember {
+        mutableStateOf<List<app.archivewatch.android.data.ArchiveVersions.Version>?>(null)
+    }
+    var chosenVersion by remember {
+        mutableStateOf(app.archivewatch.android.data.ArchiveVersions.chosenName(context, spec.id))
+    }
+    LaunchedEffect(spec.id) {
+        if (spec.queue.isEmpty()) versions = app.archivewatch.android.data.ArchiveVersions.list(spec.id)
+    }
+
+    ModalBottomSheet(onDismissRequest = onDismiss, sheetState = sheetState) {
+        Column(
+            Modifier
+                .verticalScroll(rememberScrollState())
+                .navigationBarsPadding()
+                .padding(bottom = 16.dp),
+        ) {
+            if (player.hasNextMediaItem()) {
+                ListItem(
+                    headlineContent = { Text("Play next episode") },
+                    modifier = Modifier.clickable { player.seekToNextMediaItem(); onDismiss() },
+                )
+                HorizontalDivider()
+            }
+
+            Text(
+                "Speed",
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(start = 16.dp, top = 12.dp, bottom = 4.dp),
+            )
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 12.dp),
+                horizontalArrangement = Arrangement.spacedBy(6.dp),
+            ) {
+                listOf(0.5f, 0.75f, 1f, 1.25f, 1.5f, 2f).forEach { s ->
+                    FilterChip(
+                        selected = speed == s,
+                        onClick = {
+                            speed = s
+                            player.setPlaybackSpeed(s)
+                        },
+                        label = { Text(if (s == 1f) "1x" else "${s}x") },
+                    )
+                }
+            }
+
+            Text(
+                "Subtitles",
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(start = 16.dp, top = 16.dp, bottom = 4.dp),
+            )
+            if (spec.captions.isEmpty()) {
+                Text(
+                    "No subtitles are published for this copy. Use Get Subtitles on the title page.",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                )
+            } else {
+                ListItem(
+                    headlineContent = { Text("Off") },
+                    leadingContent = { RadioButton(selected = textOff, onClick = null) },
+                    modifier = Modifier.clickable {
+                        player.trackSelectionParameters = player.trackSelectionParameters
+                            .buildUpon().setTrackTypeDisabled(C.TRACK_TYPE_TEXT, true).build()
+                        textOff = true
+                    },
+                )
+                spec.captions.forEach { c ->
+                    ListItem(
+                        headlineContent = { Text(c.displayLabel) },
+                        leadingContent = {
+                            RadioButton(selected = !textOff && textLang == c.lang, onClick = null)
+                        },
+                        modifier = Modifier.clickable {
+                            player.trackSelectionParameters = player.trackSelectionParameters
+                                .buildUpon()
+                                .setTrackTypeDisabled(C.TRACK_TYPE_TEXT, false)
+                                .setPreferredTextLanguage(c.lang)
+                                .build()
+                            textOff = false
+                            textLang = c.lang
+                        },
+                    )
+                }
+            }
+
+            versions?.takeIf { it.isNotEmpty() }?.let { v ->
+                Text(
+                    "Copies",
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(start = 16.dp, top = 16.dp, bottom = 4.dp),
+                )
+                v.forEach { ver ->
+                    ListItem(
+                        headlineContent = { Text(ver.label) },
+                        leadingContent = { RadioButton(selected = chosenVersion == ver.name, onClick = null) },
+                        modifier = Modifier.clickable {
+                            app.archivewatch.android.data.ArchiveVersions.choose(context, spec.id, ver)
+                            chosenVersion = ver.name
+                            val pos = player.currentPosition
+                            player.currentMediaItem?.buildUpon()?.setUri(ver.url)?.build()?.let {
+                                player.setMediaItem(it, pos)
+                                player.prepare()
+                                player.play()
+                            }
+                            onDismiss()
+                        },
+                    )
+                }
+            }
+
+            HorizontalDivider(Modifier.padding(top = 12.dp))
+            ListItem(
+                headlineContent = { Text("Autoplay next") },
+                trailingContent = {
+                    Switch(
+                        checked = autoplay,
+                        onCheckedChange = { on -> scope.launch { container.settings.setAutoplayNext(on) } },
+                    )
+                },
             )
         }
     }

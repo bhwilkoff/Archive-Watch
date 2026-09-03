@@ -57,6 +57,14 @@ class MainActivity : ComponentActivity() {
         handleDeepLink(intent)
     }
 
+    override fun onPictureInPictureModeChanged(
+        isInPictureInPictureMode: Boolean,
+        newConfig: android.content.res.Configuration,
+    ) {
+        super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig)
+        PlaybackPresence.inPip.value = isInPictureInPictureMode
+    }
+
     /** Leaving the app (Home / recents) mid-playback drops the player into a
         Picture-in-Picture window, sized to the real video aspect. */
     override fun onUserLeaveHint() {

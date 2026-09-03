@@ -105,6 +105,9 @@ class AppContainer(private val application: Application) {
             catalog.refresh()
         }
         observeForeground()
+        // Google Drive App Data sync (google flavor; a no-op stub on amazon).
+        // Dormant until BuildConfig carries the OAuth client id.
+        app.archivewatch.android.sync.DriveSync.attach(application, userState, scope)
     }
 
     /**

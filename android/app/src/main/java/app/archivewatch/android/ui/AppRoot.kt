@@ -77,6 +77,19 @@ fun AppRoot(container: AppContainer) {
 
     BackHandler(enabled = nav.stack.isNotEmpty()) { nav.pop() }
 
+    // The player is the one route that lives OUTSIDE the navigation scaffold.
+    // Inside it, the bottom tab bar stayed on screen over the film — and rode
+    // along into the Picture-in-Picture window, where five tab labels covered
+    // most of the video (user report, 2026-09-03, with screenshots). A film
+    // gets the whole window; the tabs come back when it is popped.
+    val playerRoute = nav.stack.lastOrNull() as? Route.Player
+    if (playerRoute != null) {
+        Surface(color = androidx.compose.ui.graphics.Color.Black, modifier = Modifier.fillMaxSize()) {
+            PlayerScreen(container, nav, playerRoute.spec)
+        }
+        return
+    }
+
     Surface(color = MaterialTheme.colorScheme.background) {
         NavigationSuiteScaffold(
             navigationSuiteItems = {
@@ -135,7 +148,7 @@ fun AppRoot(container: AppContainer) {
                         when (route) {
                             is Route.Detail -> DetailScreen(container, nav, route.archiveID)
                             is Route.Series -> SeriesDetailScreen(container, nav, route.slug)
-                            is Route.Player -> PlayerScreen(container, nav, route.spec)
+                            is Route.Player -> Unit // rendered above, outside the scaffold
                             is Route.Filtered -> FilteredGridScreen(container, nav, route)
                             is Route.Playlist -> PlaylistScreen(container, nav, route.playlistID)
                             is Route.Collection -> CollectionGridScreen(container, nav, route)

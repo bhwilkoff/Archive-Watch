@@ -103,9 +103,14 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
         val nowMs = System.currentTimeMillis()
         // User channels lead the guide (same as the Apple apps).
         val user = container.userState.userChannels().mapNotNull { uc ->
+            // full = true: the lite list row carries no downloadURL, so this
+            // filter emptied every pool and the guide rendered ZERO rows
+            // (measured on the Google TV 2026-09-03 — the fourth surface the
+            // lite row silently broke, after the hero, Party Play and the
+            // marathon).
             val pool = db.browse(
                 contentType = uc.contentType, genre = uc.genre,
-                decade = uc.decade, limit = 150,
+                decade = uc.decade, limit = 150, full = true,
             ).filter { it.downloadURL != null }
             val slots = ChannelScheduler.schedule("user-${uc.id}", pool, nowMs)
             if (slots.isEmpty()) null
@@ -114,7 +119,7 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
         val presets = ChannelPresets.all.mapNotNull { preset ->
             val pool = db.browse(
                 contentType = preset.contentType, genre = preset.genre,
-                limit = 90,
+                limit = 90, full = true,
             ).filter { it.downloadURL != null }
             val slots = ChannelScheduler.schedule(preset.id, pool, nowMs)
             if (slots.isEmpty()) null
@@ -225,7 +230,7 @@ private suspend fun tune(container: AppContainer, nav: Nav,
                    listOf(slot) + it else it }
     // Vintage commercials between programs (#89), same as the Apple apps.
     val ads = container.catalog.db
-        ?.browse(contentType = "commercial", limit = 60)
+        ?.browse(contentType = "commercial", limit = 60, full = true)
         ?.filter { it.downloadURL != null }
         .orEmpty()
         .shuffled()

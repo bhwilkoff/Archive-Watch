@@ -86,6 +86,7 @@
     <section id="view-library" hidden>
       <h1>Library</h1>
       <p id="library-sync" class="muted" hidden></p>
+      <p id="library-sync-apple" class="muted" hidden></p>
       <h2>Continue Watching</h2>
       <div id="library-continue" class="grid"></div>
       <p id="library-continue-empty" class="muted" hidden>Nothing in progress — playback picks up where you left off, on this browser.</p>
@@ -310,9 +311,17 @@
       /* Cross-device sync activation (Decision 028): paste the Google OAuth
          WEB client ID here once created — docs/google-oauth-setup.md. Until
          then sync stays off and no Google script loads. */
-      window.AW_GOOGLE_CLIENT_ID = '';
+      window.AW_GOOGLE_CLIENT_ID = '294492189901-jadidkmiv08nqndjt1uod34tliobi7l2.apps.googleusercontent.com';
+    </script>
+    <script>
+      /* Sign in with Apple on the web (Decision 022's SAME CloudKit
+         container as the Apple apps): paste a CloudKit JS API token here
+         once created — docs/web-apple-sync.md. Until then no Apple script
+         loads and the button never appears. */
+      window.AW_CLOUDKIT_API_TOKEN = '';
     </script>
     <script src="js/drivesync.js"></script>
+    <script src="js/cloudkitsync.js"></script>
     <script src="watch.js"></script>
   <script src="tv.js"></script>
   <!-- Google Cast sender. cast-sender.js self-disables when the framework is

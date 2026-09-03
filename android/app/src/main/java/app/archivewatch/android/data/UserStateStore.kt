@@ -112,6 +112,13 @@ class UserStateStore(context: Context) {
                 "id TEXT PRIMARY KEY, name TEXT, genre TEXT, " +
                 "contentType TEXT, decade INTEGER, createdAt INTEGER)",
         )
+        // Deletion markers for cross-device sync (Decision 028 / the Apple
+        // #84 lesson): without a tombstone, a favorite removed here is
+        // resurrected by the next pull from a device that still has it.
+        connection.execSQL(
+            "CREATE TABLE IF NOT EXISTS tombstones (" +
+                "kind TEXT, id TEXT, at INTEGER, PRIMARY KEY (kind, id))",
+        )
         // Clip Studio exports (CREATE-STUDIO-PLAN §3). Mirrors VideoClip.
         connection.execSQL(
             "CREATE TABLE IF NOT EXISTS clips (" +
@@ -134,13 +141,16 @@ class UserStateStore(context: Context) {
     suspend fun toggleFavorite(id: String): Boolean {
         val nowFavorite = dbCall {
             val exists = query("SELECT 1 FROM favorites WHERE id = ?", listOf(id)) { true }.isNotEmpty()
+            val now = System.currentTimeMillis()
             if (exists) {
                 exec("DELETE FROM favorites WHERE id = ?", listOf(id))
+                exec("INSERT OR REPLACE INTO tombstones (kind, id, at) VALUES ('fav', ?, ?)", listOf(id, now))
             } else {
                 exec(
                     "INSERT OR REPLACE INTO favorites (id, addedAt) VALUES (?, ?)",
-                    listOf(id, System.currentTimeMillis()),
+                    listOf(id, now),
                 )
+                exec("DELETE FROM tombstones WHERE kind = 'fav' AND id = ?", listOf(id))
             }
             !exists
         }
@@ -268,7 +278,11 @@ class UserStateStore(context: Context) {
     }
 
     suspend fun deletePlaylist(playlistID: String) {
-        dbCall { exec("DELETE FROM playlists WHERE id = ?", listOf(playlistID)) }
+        dbCall {
+            exec("DELETE FROM playlists WHERE id = ?", listOf(playlistID))
+            exec("INSERT OR REPLACE INTO tombstones (kind, id, at) VALUES ('pl', ?, ?)",
+                 listOf(playlistID, System.currentTimeMillis()))
+        }
         _changes.value += 1
     }
 
@@ -334,8 +348,74 @@ class UserStateStore(context: Context) {
     }
 
     suspend fun deleteUserChannel(id: String) {
-        dbCall { exec("DELETE FROM channels WHERE id = ?", listOf(id)) }
+        dbCall {
+            exec("DELETE FROM channels WHERE id = ?", listOf(id))
+            exec("INSERT OR REPLACE INTO tombstones (kind, id, at) VALUES ('ch', ?, ?)",
+                 listOf(id, System.currentTimeMillis()))
+        }
         _changes.value += 1
+    }
+
+    // --- sync seams (app.archivewatch.android.sync.DriveSync) ---
+    //
+    // Raw reads and writes for the merge: they write exactly what the merge
+    // decided and bump `changes` ONCE via [endRemoteApply], so screens refresh
+    // but the sync's own writes never re-trigger a sync.
+
+    data class Tombstone(val kind: String, val id: String, val at: Long)
+
+    suspend fun favoritesWithTime(): List<Pair<String, Long>> = dbCall {
+        query("SELECT id, addedAt FROM favorites") { it.getText(0) to it.getLong(1) }
+    }
+
+    suspend fun tombstones(): List<Tombstone> = dbCall {
+        query("SELECT kind, id, at FROM tombstones") { Tombstone(it.getText(0), it.getText(1), it.getLong(2)) }
+    }
+
+    suspend fun putFavoriteRaw(id: String, addedAt: Long) = dbCall {
+        exec("INSERT OR REPLACE INTO favorites (id, addedAt) VALUES (?, ?)", listOf(id, addedAt))
+        exec("DELETE FROM tombstones WHERE kind = 'fav' AND id = ?", listOf(id))
+    }
+
+    suspend fun removeFavoriteRaw(id: String) = dbCall {
+        exec("DELETE FROM favorites WHERE id = ?", listOf(id))
+    }
+
+    suspend fun putPlaylistRaw(p: UserPlaylist) = dbCall {
+        exec(
+            "INSERT OR REPLACE INTO playlists (id, name, ids, createdAt, modifiedAt) VALUES (?, ?, ?, ?, ?)",
+            listOf(p.id, p.name, p.archiveIDs.joinToString("\n"), p.createdAt, p.modifiedAt),
+        )
+        exec("DELETE FROM tombstones WHERE kind = 'pl' AND id = ?", listOf(p.id))
+    }
+
+    suspend fun removePlaylistRaw(id: String) = dbCall {
+        exec("DELETE FROM playlists WHERE id = ?", listOf(id))
+    }
+
+    suspend fun putChannelRaw(c: UserChannelRec) = dbCall {
+        exec(
+            "INSERT OR REPLACE INTO channels (id, name, genre, contentType, decade, createdAt) VALUES (?, ?, ?, ?, ?, ?)",
+            listOf(c.id, c.name, c.genre, c.contentType, c.decade, c.createdAt),
+        )
+        exec("DELETE FROM tombstones WHERE kind = 'ch' AND id = ?", listOf(c.id))
+    }
+
+    suspend fun removeChannelRaw(id: String) = dbCall {
+        exec("DELETE FROM channels WHERE id = ?", listOf(id))
+    }
+
+    suspend fun putTombstoneRaw(t: Tombstone) = dbCall {
+        exec("INSERT OR REPLACE INTO tombstones (kind, id, at) VALUES (?, ?, ?)", listOf(t.kind, t.id, t.at))
+    }
+
+    /** One `changes` bump after a merge, tagged so the sync trigger can tell
+     *  its own write from the viewer's. */
+    @Volatile var lastRemoteApplyChange: Int = -1
+        private set
+    fun endRemoteApply() {
+        _changes.value += 1
+        lastRemoteApplyChange = _changes.value
     }
 
     // --- clips (Clip Studio) ---
