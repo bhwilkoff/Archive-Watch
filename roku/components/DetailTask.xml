@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Fetches ONE item's detail record from the web data plane's sharded
+     details/ files (Decision 029). 256 shards of ~92 KB, so a Detail screen
+     costs one small request rather than a slice of the 6.2 MB index. -->
+<component name="DetailTask" extends="Task">
+  <interface>
+    <field id="archiveID" type="string" />
+    <field id="detail" type="assocarray" alwaysNotify="true" />
+    <field id="status" type="string" alwaysNotify="true" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/DetailTask.brs" />
+</component>

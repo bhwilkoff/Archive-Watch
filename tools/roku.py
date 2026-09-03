@@ -45,6 +45,7 @@ import argparse
 import datetime
 import io
 import os
+import re
 import socket
 import subprocess
 import sys
@@ -118,27 +119,84 @@ def zip_channel(src_dir):
     return buf.getvalue()
 
 
+def installer_messages(html):
+    """Roku's real verdict lives in a JSON blob the page hands its own JS.
+
+    Scraping the rendered HTML does not work: the page's JavaScript contains
+    the words "error" and "success" in a comment, so any substring test over
+    the raw response is true no matter what happened. Each message carries its
+    own `type`, and that is the only trustworthy signal.
+    """
+    out = []
+    for m in re.finditer(r'\{"text":"((?:[^"\\]|\\.)*)","text_type":"[^"]*","type":"([a-z]+)"\}', html):
+        text = m.group(1).encode().decode("unicode_escape").strip()
+        out.append((m.group(2), text))
+    return out
+
+
+def post_install(submit, zip_path=None):
+    args = ["-F", f"mysubmit={submit}", "-F", f"passwd={PASS}"]
+    args += ["-F", f"archive=@{zip_path}"] if zip_path else ["-F", "archive="]
+    return dev_curl(*args, f"{DEV}/plugin_install", timeout=180)
+
+
 def cmd_deploy(args):
     blob = zip_channel(args.dir)
     tmp = "/tmp/aw-roku.zip"
     open(tmp, "wb").write(blob)
     print(f"packaged {args.dir} → {len(blob)/1024:.0f} KB")
-    # "Replace" upgrades in place; "Install" is only correct on a clean device,
-    # and using it over an existing dev channel is a common source of a deploy
-    # that silently does nothing.
-    out = dev_curl("-F", "mysubmit=Replace", "-F", f"archive=@{tmp}",
-                   "-F", f"passwd={PASS}", f"{DEV}/plugin_install", timeout=180)
-    low = out.lower()
-    if "successful" in low or "received" in low:
-        print("deploy OK")
-    elif "identical" in low:
-        print("deploy OK (identical to what is installed)")
-    else:
-        # Roku returns 200 with the failure INSIDE the page; never trust the code.
-        msgs = [ln.strip() for ln in out.splitlines()
-                if "error" in ln.lower() or "fail" in ln.lower()]
-        print("DEPLOY FAILED:", (msgs[:4] or [out[:400]]))
+
+    out = post_install("Replace", tmp)
+    msgs = installer_messages(out)
+    # "Identical to previous version -- not replacing" compares against the
+    # last UPLOAD, not the last successful INSTALL — so after a compile failure
+    # a corrected build can be refused as identical while nothing is installed
+    # at all. Delete and install fresh when that happens.
+    if any("identical" in t.lower() for _, t in msgs):
+        print("   (identical upload refused — deleting and installing fresh)")
+        post_install("Delete")
+        out = post_install("Install", tmp)
+        msgs = installer_messages(out)
+
+    errors = [t for kind, t in msgs if kind == "error"]
+    if errors:
+        print("DEPLOY FAILED:")
+        for t in errors:
+            for line in t.splitlines():
+                if line.strip():
+                    print("   ", line.strip())
         sys.exit(1)
+    for kind, t in msgs:
+        print("   ", t)
+    print("deploy OK")
+
+
+def cmd_playstate(_args):
+    """Roku's OWN account of playback — the trustworthy oracle.
+
+    A screenshot cannot prove a film is playing: on several Roku SoCs the video
+    plane is not composited into `screencap`, so a black frame means nothing.
+    `/query/media-player` reports the state, the codec, and a position that has
+    to ADVANCE between samples, which is the only claim worth making.
+    """
+    import xml.etree.ElementTree as ET
+    prev = None
+    for i in range(3):
+        xml = curl(f"{ECP}/query/media-player")
+        try:
+            root = ET.fromstring(xml)
+        except Exception:
+            print("media-player unavailable:", xml[:120]); return
+        state = root.get("state"); err = root.get("error")
+        posn = (root.findtext("position") or "?").strip()
+        dur = (root.findtext("duration") or "?").strip()
+        fmt_el = root.find("format")
+        codec = f"{fmt_el.get('video')}/{fmt_el.get('audio')} {fmt_el.get('video_res')}" if fmt_el is not None else "?"
+        moved = "" if prev is None else ("  advanced" if posn != prev else "  STALLED")
+        print(f"state={state} error={err} position={posn} duration={dur} [{codec}]{moved}")
+        prev = posn
+        if i < 2:
+            time.sleep(5)
 
 
 def press(key, settle=0.9):
@@ -225,6 +283,7 @@ def main():
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("info").set_defaults(fn=cmd_info)
+    sub.add_parser("playstate").set_defaults(fn=cmd_playstate)
     d = sub.add_parser("deploy"); d.add_argument("--dir", default="roku"); d.set_defaults(fn=cmd_deploy)
     k = sub.add_parser("keys"); k.add_argument("keys", nargs="+")
     k.add_argument("--settle", type=float, default=0.9); k.set_defaults(fn=cmd_keys)

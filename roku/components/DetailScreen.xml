@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ROKU-DESIGN §6.5 — art, title, "Also known as", meta, a capped synopsis,
+     then a horizontal button row with Play AUTO-FOCUSED and labelled with the
+     runtime. Depth stays at 2 (§2.5): this is the item, not a stack. -->
+<component name="DetailScreen" extends="Group">
+  <interface>
+    <field id="item" type="node" onChange="onItem" />
+    <field id="detail" type="assocarray" onChange="onDetail" />
+    <field id="focusOn" type="boolean" onChange="onFocusOn" />
+    <field id="play" type="string" alwaysNotify="true" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/DetailScreen.brs" />
+  <children>
+    <Poster id="wash" />
+    <Rectangle id="scrim" />
+    <Poster id="art" />
+    <Label id="title" />
+    <Label id="aka" />
+    <Label id="meta" />
+    <Label id="synopsis" />
+    <Rectangle id="chip" />
+    <Label id="chipText" />
+    <Group id="buttons" />
+  </children>
+</component>

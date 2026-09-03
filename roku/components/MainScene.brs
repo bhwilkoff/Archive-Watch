@@ -37,6 +37,9 @@ sub init()
     m.home.ObserveField("exitLeft", "focusRail")
     m.home.ObserveField("chosen", "onChosen")
 
+    m.overlay = m.top.FindNode("overlay")
+    m.route = "home"
+
     m.rail.ObserveField("selected", "onRailSelected")
 
     m.task = CreateObject("roSGNode", "HomeTask")
@@ -92,8 +95,105 @@ sub onRailSelected()
     end if
 end sub
 
+' §2.5 — depth is at most 2: rail → surface → item. Detail and the player are
+' overlays over the shell rather than a growing stack, which is what keeps
+' Back's meaning simple (§2.6).
 sub onChosen()
-    print "AWROKU chosen="; m.home.chosen
+    id = m.home.chosen
+    if id = invalid or id = "" then return
+    openDetail(id)
+end sub
+
+sub openDetail(archiveID as String)
+    it = findItem(archiveID)
+    if m.detail = invalid
+        m.detail = m.overlay.CreateChild("DetailScreen")
+        m.detail.translation = [m.t.railW, 0]
+        m.detail.ObserveField("play", "onPlay")
+    end if
+    ' The overlay must actually COVER: with Home still composited beneath it,
+    ' Home's own hero title and rows read through the scrim as ghosts.
+    m.content.visible = false
+    m.detail.visible = true
+    m.detail.item = it
+    m.detail.detail = {}
+    m.detail.focusOn = true
+    m.home.focusOn = false
+    m.rail.focusOn = false
+    m.detail.setFocus(true)
+    m.route = "detail"
+    print "AWFOCUS detail "; archiveID
+
+    if m.dtask = invalid
+        m.dtask = CreateObject("roSGNode", "DetailTask")
+        m.dtask.ObserveField("detail", "onDetailLoaded")
+    end if
+    m.dtask.archiveID = archiveID
+    m.dtask.control = "RUN"
+end sub
+
+sub onDetailLoaded()
+    if m.detail <> invalid then m.detail.detail = m.dtask.detail
+end sub
+
+' Walk the rows we already hold rather than re-querying: the Home content tree
+' IS the model, and Detail is opened from it.
+function findItem(archiveID as String) as Object
+    rows = m.task.rows
+    if rows = invalid then return invalid
+    for i = 0 to rows.GetChildCount() - 1
+        row = rows.GetChild(i)
+        for j = 0 to row.GetChildCount() - 1
+            it = row.GetChild(j)
+            if it.id = archiveID then return it
+        end for
+    end for
+    return invalid
+end function
+
+sub onPlay()
+    url = m.detail.play
+    if url = invalid or url = "" then return
+    if m.player = invalid
+        m.player = m.overlay.CreateChild("PlayerScreen")
+        m.player.translation = [m.t.railW, 0]
+        m.player.ObserveField("ended", "onPlaybackEnded")
+    end if
+    m.player.visible = true
+    m.detail.visible = false
+    m.player.playTitle = m.detail.item.title
+    m.player.playMeta = m.detail.item.SHORTDESCRIPTIONLINE1
+    m.player.playUrl = url
+    m.player.setFocus(true)
+    m.route = "player"
+    print "AWFOCUS player"
+end sub
+
+' §6.6 / §2.6 — the end of a film returns the viewer where they came from.
+' Stranded on a dead screen is not a state.
+sub onPlaybackEnded()
+    if m.player <> invalid and m.player.ended then closePlayer()
+end sub
+
+sub closePlayer()
+    if m.player = invalid then return
+    m.player.callFunc("stopPlayback")
+    m.player.visible = false
+    m.detail.visible = true
+    m.detail.focusOn = true
+    m.detail.setFocus(true)
+    m.route = "detail"
+    print "AWFOCUS detail (from player)"
+end sub
+
+sub closeDetail()
+    if m.detail <> invalid
+        m.detail.visible = false
+        m.detail.focusOn = false
+    end if
+    m.content.visible = true
+    focusContent()
+    m.route = "home"
 end sub
 
 function titleFor(id as String) as String
@@ -123,7 +223,21 @@ end function
 ' §2.6 — Back is sacred. It is NOT trapped here: returning false lets Roku
 ' close the channel from Home, which is the platform convention and a
 ' certification requirement.
+' §2.6 — Back is sacred. It pops one level; from Home it is NOT consumed, so
+' Roku closes the channel, which is the platform convention and a
+' certification requirement.
 function onKeyEvent(key as String, press as Boolean) as Boolean
-    if press then print "AWKEY "; key
+    if not press then return false
+    print "AWKEY "; key; " route="; m.route
+    if key = "back"
+        if m.route = "player"
+            closePlayer()
+            return true
+        else if m.route = "detail"
+            closeDetail()
+            return true
+        end if
+        return false
+    end if
     return false
 end function

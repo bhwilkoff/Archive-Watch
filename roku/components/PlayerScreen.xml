@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ROKU-DESIGN §6.6 — the Video node owns the transport. We recolour the
+     trick bar and change nothing structural, which Decision 037 already asked
+     for and Roku enforces anyway.
+
+     §6.6b — there is NO resilient loader here and there cannot be: the Video
+     node's HTTP client lives in firmware. What survives is redirect pinning,
+     transient-error tolerance, and the stagnation watchdog below. -->
+<component name="PlayerScreen" extends="Group">
+  <interface>
+    <field id="playUrl" type="string" onChange="onUrl" />
+    <field id="playTitle" type="string" />
+    <field id="playMeta" type="string" />
+    <field id="ended" type="boolean" alwaysNotify="true" />
+    <function name="stopPlayback" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/PlayerScreen.brs" />
+  <children>
+    <Video id="video" />
+    <Rectangle id="hudScrim" />
+    <Label id="hudTitle" />
+    <Label id="hudMeta" />
+    <Label id="diag" />
+    <Timer id="watchdog" repeat="true" duration="5" />
+  </children>
+</component>

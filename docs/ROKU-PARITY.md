@@ -265,6 +265,47 @@ Stick, with a screenshot for rendering and a focus trace for reachability
    `floatingFocus` stops at the ends. A screenshot could not have caught this;
    the focus trace did.
 
+## Tick 3 — Detail and the player, verified on the glass
+
+| Element | Roku | Evidence |
+|---|---|---|
+| Detail: fitted art, title, meta, category chip | ✅ | `v03_detail2.jpg` |
+| Detail: synopsis from the detail shard | ✅ | `v03_detail2.jpg` |
+| Play button auto-focused, labelled with the runtime | ✅ | reads "Play · 84m" |
+| "Also known as" (Decision 100) | ✅ built | shard `extras.ct`; no aka on the test title |
+| Playback from archive.org | ✅ | `state="play" error="false"`, position 35.0 → 41.0 → 47.0 s in real time, duration 84m |
+| Back: player → Detail → Home | ✅ | screenshots + `state=close` after |
+| Stall watchdog (the ONLY recovery available) | ✅ built | not yet provoked on a real stall |
+| Instant Replay rewinds 15s | ✅ built | not yet exercised |
+| Trick bar in marquee orange | ✅ built | platform transport, unverified visually |
+
+**Six more silent Roku failure modes, all found by building:**
+
+6. **BrightScript has no `xor` operator.** For non-negative integers
+   `a XOR b == (a OR b) - (a AND b)`, verified over all 65,536 byte pairs.
+7. **`pos` is a BrightScript builtin.** A variable of that name fails with
+   "Builtin function call expected", which names the symptom and not the cause.
+8. **A method may not be called on a function's RETURN VALUE.**
+   `CreateObject("roDateTime").AsSeconds()` is a compile error; it needs a
+   local first.
+9. **The dev installer answers 200 with "Application Received: N bytes stored."
+   and THEN "Install Failure: Compilation Failed."** Accepting the receipt as
+   success reported a green deploy for a channel that never installed, so the
+   previous build kept running while the source being debugged was not on the
+   device. The verdict lives in a JSON blob the page hands its own JS, and the
+   rendered HTML contains the words "error" and "success" in a comment, so no
+   substring test over the response can work.
+10. **"Identical to previous version — not replacing" compares against the last
+    UPLOAD, not the last successful INSTALL.** After a compile failure a
+    corrected build is refused as identical while nothing is installed at all.
+    The harness now deletes and installs fresh when it sees that.
+11. **An overlay must actually COVER.** Home stayed composited beneath Detail
+    and its hero title read through the scrim as a ghost.
+
+`tools/roku.py playstate` was added because a screenshot cannot prove playback:
+Roku's `/query/media-player` reports state, codec and a position that has to
+ADVANCE between samples, and that is the only claim worth making.
+
 ## Open questions for the design tick
 
 1. Which Roku idiom carries Home: a `RowList` of poster rows under a hero, or

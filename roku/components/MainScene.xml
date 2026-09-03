@@ -19,6 +19,7 @@
     <Label id="optHint" />
 
     <Group id="content" />
+    <Group id="overlay" />
     <NavRail id="rail" />
 
     <Label id="loading" />
