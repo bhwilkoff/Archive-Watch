@@ -135,7 +135,10 @@ fun CollectionsScreen(container: AppContainer, nav: Nav) {
 fun CollectionGridScreen(container: AppContainer, nav: Nav, route: Route.Collection) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
     val items by produceState<List<CatalogItem>?>(null, dbVersion) {
-        value = container.catalog.db?.byCollection(route.id)
+        // awaitDb, not `db?` — a null db during the startup/refresh swap left
+        // `value` null forever and the grid span on a spinner (the awaitDb
+        // conversion of 2026-08-27 missed these two sites).
+        value = container.catalog.awaitDb().byCollection(route.id)
     }
     GridScaffold(title = route.title, subtitle = route.blurb, nav = nav, items = items)
 }
@@ -147,7 +150,7 @@ fun CollectionGridScreen(container: AppContainer, nav: Nav, route: Route.Collect
 fun PersonScreen(container: AppContainer, nav: Nav, name: String, tmdbPersonID: Int? = null) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
     val items by produceState<List<CatalogItem>?>(null, dbVersion, tmdbPersonID) {
-        val hits = container.catalog.db?.search(name, limit = 120) ?: emptyList()
+        val hits = container.catalog.awaitDb().search(name, limit = 120)
         value = if (tmdbPersonID != null) {
             // Keep only titles whose cast/crew actually carries this person id; fall
             // back to the raw name hits if none are tagged (older items lack the id).

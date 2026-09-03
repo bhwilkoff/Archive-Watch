@@ -511,8 +511,14 @@ class CatalogDatabase private constructor(
         if (contentType != null) { where += " AND i.contentType = ?"; binds.add(contentType) }
         where += adultAnd + typeAnd
         if (contentType != "commercial") where += notCommercial
-        return itemsLite("$itemSelect WHERE $where ORDER BY RANDOM() LIMIT 20", binds)
-            .firstOrNull { it.downloadURL != null }
+        // FULL rows, not lite: this filters on downloadURL, which the list row
+        // does not carry — so every pick was null and the Surprise grid came up
+        // EMPTY on every Android device (measured on the Google TV 2026-09-03).
+        return items(
+            "SELECT j.json FROM items i JOIN item_json j ON j.archiveID = i.archiveID" +
+                " WHERE $where ORDER BY RANDOM() LIMIT 20",
+            binds,
+        ).firstOrNull { it.downloadURL != null }
     }
 
     /** A random FULL-LENGTH film (Random Film). Feature/silent FEATURES with a runtime floor, so it
@@ -521,8 +527,12 @@ class CatalogDatabase private constructor(
         var where = "i.contentType IN ('feature-film','silent-film') AND " +
             "(i.runtimeSeconds IS NULL OR i.runtimeSeconds >= 2400)"
         where += adultAnd + typeAnd
-        return itemsLite("$itemSelect WHERE $where ORDER BY RANDOM() LIMIT 20", emptyList())
-            .firstOrNull { it.downloadURL != null }
+        // FULL rows — see randomPlayable: the downloadURL filter needs the blob.
+        return items(
+            "SELECT j.json FROM items i JOIN item_json j ON j.archiveID = i.archiveID" +
+                " WHERE $where ORDER BY RANDOM() LIMIT 20",
+            emptyList(),
+        ).firstOrNull { it.downloadURL != null }
     }
 
     suspend fun randomSeries(): CatalogItem? = itemsLite(
@@ -625,5 +635,9 @@ enum class BrowseSort(val label: String, val sql: String) {
     RATING("Top Rated", "i.imdbRating IS NULL, i.imdbRating DESC, COALESCE(i.imdbVotes, 0) DESC"),
     ALPHABETICAL("A–Z", "i.title COLLATE NOCASE ASC"),
     NEWEST("Newest", "i.year DESC"),
-    OLDEST("Oldest", "i.year ASC"),
+    // `i.year IS NULL` first, exactly as RATING does: SQLite sorts NULL FIRST on
+    // ASC, so plain `i.year ASC` led the "Oldest" grid with year-less items —
+    // measured on the Google TV 2026-09-03, page one was Flash Gordon, The
+    // Astral Factor and Zeitgeist: Addendum, none of them old.
+    OLDEST("Oldest", "i.year IS NULL, i.year ASC"),
 }

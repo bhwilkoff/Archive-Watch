@@ -396,11 +396,14 @@ P1 (`useController = !isTv`) is the first thing to re-measure here.
 
 ## Counts
 
-**PASS 71 · FAIL 13 (8 fixed and re-verified, 5 handed over) · SKIP/N-A 5.**
+Counted off the tables above: **91 PASS · 15 FAIL · 5 SKIP/N-A.**
 
-The five handed over are P1 and P2 (`PlayerScreen.kt`), S1 and S2
-(`SettingsScreen.kt`) — all four in files this audit was told not to edit — and
-X1, the Apple twin of FIX #3.
+Of the 15 FAIL rows, **10 were fixed and re-verified on the glass** (8 distinct
+fixes — #1 and #4 each close two rows), and **5 were handed over** because they
+live in files this audit was told not to edit: P1 and P2 in `PlayerScreen.kt`,
+S1 and S2 in `SettingsScreen.kt`, and the Sync-reachability row, which is S1's
+consequence rather than a separate bug. X1 (the Apple twin of FIX #3) is
+recorded outside the tables because it is not an Android TV row at all.
 
 The five SKIP/N-A rows, each with its reason: the Channels full-day schedule
 screen (does not exist on Android — the rail tap is a deliberate no-op), Detail

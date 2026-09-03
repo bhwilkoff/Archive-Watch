@@ -594,7 +594,10 @@ private fun TvPlaylistOverlay(
                 onValueChange = { newName = it },
                 placeholder = { Text("New playlist name") },
                 singleLine = true,
-                modifier = Modifier.fillMaxWidth().padding(top = 12.dp),
+                // Without this the field eats every DPAD press and Create/Done
+                // below it are unreachable — creating a playlist was impossible
+                // on a TV (measured 2026-09-03: six DOWNs, focus never moved).
+                modifier = Modifier.tvTextFieldEscape().fillMaxWidth().padding(top = 12.dp),
             )
             Row(
                 Modifier.padding(top = 14.dp),

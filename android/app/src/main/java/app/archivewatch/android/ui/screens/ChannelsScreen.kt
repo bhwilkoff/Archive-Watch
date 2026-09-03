@@ -74,6 +74,7 @@ import app.archivewatch.android.ui.tv.LocalIsTelevision
 import androidx.compose.ui.focus.FocusRequester
 import app.archivewatch.android.ui.tv.ClaimInitialFocus
 import app.archivewatch.android.ui.tv.tvFocusable
+import app.archivewatch.android.ui.tv.tvTextFieldEscape
 import app.archivewatch.android.ui.Route
 import app.archivewatch.android.ui.theme.colorFromHex
 import kotlinx.coroutines.launch
@@ -491,6 +492,12 @@ private fun CreateChannelDialog(container: AppContainer, onDone: () -> Unit) {
                 androidx.compose.material3.OutlinedTextField(
                     value = name, onValueChange = { name = it },
                     label = { Text(autoName) }, singleLine = true,
+                    // On a TV the field consumes every DPAD press, so Create and
+                    // Cancel below it were unreachable and the channel could
+                    // never be created (measured on the Google TV 2026-09-03).
+                    modifier = if (LocalIsTelevision.current) {
+                        Modifier.tvTextFieldEscape()
+                    } else Modifier,
                 )
             }
         },

@@ -44,6 +44,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
@@ -182,18 +183,28 @@ fun TvAppRoot(container: AppContainer) {
                     // child, which fixes every fall-through route at once
                     // instead of patching each screen.
                     val routeFocus = remember(route) { FocusRequester() }
-                    LaunchedEffect(route) {
-                        repeat(12) {
-                            if (runCatching { routeFocus.requestFocus() }.isSuccess) {
-                                return@LaunchedEffect
-                            }
-                            kotlinx.coroutines.delay(120)
+                    // `runCatching { requestFocus() }.isSuccess` only reports
+                    // that no EXCEPTION was thrown — a focusGroup whose children
+                    // have not composed yet answers it happily without taking
+                    // focus, so the loop exited on its first pass and a screen
+                    // that renders a spinner first (SeriesDetail: its data is a
+                    // network fetch) arrived with NOTHING focused and a dead
+                    // remote (measured on the Google TV 2026-09-03). Keep asking
+                    // until the group actually HOLDS focus.
+                    var routeFocused by remember(route) { mutableStateOf(false) }
+                    LaunchedEffect(route, routeFocused) {
+                        if (routeFocused) return@LaunchedEffect
+                        repeat(60) {
+                            if (routeFocused) return@LaunchedEffect
+                            runCatching { routeFocus.requestFocus() }
+                            kotlinx.coroutines.delay(150)
                         }
                     }
                     Surface(
                         color = MaterialTheme.colorScheme.background,
                         modifier = Modifier
                             .fillMaxSize()
+                            .onFocusChanged { if (it.hasFocus) routeFocused = true }
                             .focusRequester(routeFocus)
                             .focusGroup(),
                     ) {
@@ -264,6 +275,12 @@ private fun TvNavRail(nav: Nav, railFocus: FocusRequester) {
         Modifier
             .width(width)
             .fillMaxHeight()
+            // …and COLLAPSES again when focus leaves. Without this the rail
+            // expanded on the transient focus every cold start hands its first
+            // focusable and never came back, so it spent 220dp of a 1920px
+            // canvas permanently — measured on the Google TV 2026-09-03, with
+            // Browse's scope chips clipped at the right edge as the cost.
+            .onFocusChanged { expanded = it.hasFocus }
             .background(Color(0xFF0B0B0B))
             // §4.2 — the rail's controls must clear the overscan line too; 12dp
             // put the icons under the bezel on a real panel.

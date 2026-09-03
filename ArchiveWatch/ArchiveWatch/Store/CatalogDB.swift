@@ -371,7 +371,10 @@ final class CatalogDB {
                 """
         case .alphabetical: order = "i.title COLLATE NOCASE ASC"
         case .newest:       order = "i.year DESC"
-        case .oldest:       order = "i.year ASC"
+        // SQLite orders NULL FIRST on ASC, so "Oldest" led with year-less
+        // rows — page one was modern items with no year rather than the oldest
+        // films. Found by the Android TV audit and identical here.
+        case .oldest:       order = "i.year IS NULL, i.year ASC"
         }
         let sql = """
             SELECT j.json FROM items i

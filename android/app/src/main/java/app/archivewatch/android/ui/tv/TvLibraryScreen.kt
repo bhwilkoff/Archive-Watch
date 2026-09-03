@@ -136,7 +136,10 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
 
         if (section == LibSection.Playlists) {
             if (playlists.isEmpty()) {
-                TvEmpty("No playlists yet — add titles from any film's page on your phone or the web.")
+                // The TV CAN make playlists — Detail's "Add to Playlist" overlay
+                // creates them. The old copy sent the viewer to another device
+                // for something the remote in their hand does.
+                TvEmpty("No playlists yet — open any film and choose Add to Playlist.")
             } else {
                 Column(
                     Modifier.padding(horizontal = TvDims.OverscanH),

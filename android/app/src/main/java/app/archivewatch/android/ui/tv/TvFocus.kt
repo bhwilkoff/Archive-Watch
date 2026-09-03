@@ -24,6 +24,7 @@ import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.input.key.KeyEventType
 import androidx.compose.ui.input.key.key
 import androidx.compose.ui.input.key.onKeyEvent
+import androidx.compose.ui.input.key.onPreviewKeyEvent
 import androidx.compose.ui.input.key.type
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
@@ -154,4 +155,58 @@ fun ClaimInitialFocus(requester: FocusRequester, key: Any? = Unit, enabled: Bool
 @Composable
 fun FocusAnchor(requester: FocusRequester, modifier: Modifier = Modifier) {
     Box(modifier.focusRequester(requester).focusable())
+}
+
+/**
+ * §3.1/§3.4 — let the D-pad LEAVE a text field.
+ *
+ * A Compose `TextField` consumes DPAD up/down/left/right to move its own text
+ * cursor, so on a remote it is a FOCUS TRAP: measured on the Google TV, focus
+ * entered the "New playlist name" field and the Create/Done buttons below it
+ * could never be reached again — six DOWN presses in a row left focus on the
+ * field — which made creating a playlist, and creating a channel, impossible
+ * on a TV. Escape was BACK, which cancels.
+ *
+ * Attach to the FIELD's modifier (it must see the key before the field does).
+ * Vertical only: left/right stay with the cursor, which is what a viewer
+ * editing text expects, and every screen here lays its buttons out BELOW.
+ */
+@Composable
+fun Modifier.tvTextFieldEscape(): Modifier {
+    val manager = androidx.compose.ui.platform.LocalFocusManager.current
+    return this.onPreviewKeyEvent { ev ->
+        if (ev.type != KeyEventType.KeyDown) return@onPreviewKeyEvent false
+        when (ev.key) {
+            Key.DirectionDown -> manager.moveFocus(androidx.compose.ui.focus.FocusDirection.Down)
+            Key.DirectionUp -> manager.moveFocus(androidx.compose.ui.focus.FocusDirection.Up)
+            else -> false
+        }
+    }
+}
+
+/**
+ * §3.1 — make a block of TEXT reachable on a TV.
+ *
+ * A `verticalScroll` column scrolls by moving FOCUS, so a run of plain `Text`
+ * at the bottom of a screen can never be scrolled to: there is nothing there
+ * to focus. On Android TV Settings that hid the TMDb attribution notice and
+ * the donate address entirely — and Decision 007 makes that notice a
+ * compliance surface, so "rendered but unreachable" is not good enough.
+ *
+ * Focusable but not clickable: it takes a focus stop so the scroll can travel
+ * through it, and does nothing on SELECT. tvOS solved the same problem the
+ * same way.
+ */
+@Composable
+fun Modifier.tvReadable(): Modifier {
+    if (!LocalIsTelevision.current) return this
+    var focused by remember { mutableStateOf(false) }
+    return this
+        .onFocusChanged { focused = it.isFocused }
+        .border(
+            width = if (focused) 2.dp else 0.dp,
+            color = if (focused) Color.White.copy(alpha = 0.45f) else Color.Transparent,
+            shape = RoundedCornerShape(6.dp),
+        )
+        .focusable()
 }

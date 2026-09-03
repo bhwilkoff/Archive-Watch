@@ -336,6 +336,12 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 }
             }
 
+            override fun onPlaybackStateChanged(state: Int) {
+                if (state == Player.STATE_ENDED && isTv && !player.hasNextMediaItem()) {
+                    nav.pop()
+                }
+            }
+
             override fun onVideoSizeChanged(videoSize: androidx.media3.common.VideoSize) {
                 // Feed the real video aspect to PiP so the window isn't 16:9-forced
                 // for a 4:3 archival film.
@@ -462,7 +468,16 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             factory = { ctx ->
                 PlayerView(ctx).apply {
                     playerViewRef = this
-                    useController = true
+                    // TV owns the remote through tvPlaybackKeys and draws its
+                    // own overlay, so Media3's controller must not exist there.
+                    // It was enabled unconditionally, and the recorded
+                    // invariant "the controller never shows on TV" is FALSE in
+                    // the ENDED state: at the end of a film it appeared with
+                    // nothing focused, and its visibility listener re-armed the
+                    // Back handler on each toggle, so escaping took four BACK
+                    // presses. On the Fire TV the same controller took focus at
+                    // t+4s and the film never started at all.
+                    useController = !isTv
                     keepScreenOn = true
                     setShowNextButton(spec.queue.size > 1)
                     setShowPreviousButton(spec.queue.size > 1)
@@ -492,9 +507,10 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             },
             update = { view ->
                 view.player = player
-                if (view.useController == inPip) {
-                    view.useController = !inPip
-                    if (inPip) view.hideController()
+                val wantController = !isTv && !inPip
+                if (view.useController != wantController) {
+                    view.useController = wantController
+                    if (!wantController) view.hideController()
                 }
             },
             modifier = Modifier.fillMaxSize(),

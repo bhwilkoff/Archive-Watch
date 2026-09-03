@@ -43,6 +43,9 @@ import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.ui.BackdropImage
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.accentColor
+import app.archivewatch.android.ui.Route
+import app.archivewatch.android.ui.screens.CategoryTilesRow
+import app.archivewatch.android.ui.screens.EraTilesRow
 import app.archivewatch.android.ui.screens.rememberHomePayload
 import kotlinx.coroutines.delay
 
@@ -162,6 +165,19 @@ fun TvHomeScreen(container: AppContainer, nav: Nav) {
                 }
             }
 
+            // Browse-by-Category tiles, in the phone/tvOS position (right after
+            // the hero). The row was TV-branded in DiscoverScreens months ago
+            // and then never rendered here, so the TV Home simply had no
+            // category doors — measured on the Google TV 2026-09-03, the last
+            // row was Public Domain Day and no tile row existed at all.
+            if (payload.categories.isNotEmpty()) {
+                item(key = "cats") {
+                    CategoryTilesRow(payload.categories) { cat ->
+                        nav.push(Route.Filtered(title = cat.displayName, contentType = cat.id))
+                    }
+                }
+            }
+
             if (payload.continueWatching.isNotEmpty()) {
                 item(key = "continue") {
                     TvShelfRow(
@@ -208,6 +224,15 @@ fun TvHomeScreen(container: AppContainer, nav: Nav) {
                     nav,
                     onItemFocused,
                 )
+            }
+
+            // Era tiles are the LAST Home row on every platform (the apps' order).
+            if (payload.decades.isNotEmpty()) {
+                item(key = "eras") {
+                    EraTilesRow(payload.decades) { decade ->
+                        nav.push(Route.Filtered(title = "" + decade + "s", decade = decade))
+                    }
+                }
             }
         }
     }

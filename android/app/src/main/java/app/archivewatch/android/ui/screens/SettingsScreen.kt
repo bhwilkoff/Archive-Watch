@@ -39,6 +39,8 @@ import androidx.compose.ui.unit.dp
 import android.net.Uri
 import app.archivewatch.android.BuildConfig
 import app.archivewatch.android.app.AppContainer
+import app.archivewatch.android.ui.tv.tvReadable
+import app.archivewatch.android.ui.tv.tvTextFieldEscape
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.tv.LocalIsTelevision
 import kotlinx.coroutines.flow.first
@@ -151,7 +153,15 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
             HorizontalDivider(Modifier.padding(vertical = 16.dp))
 
             SectionLabel("Subtitles")
-            OpenSubtitlesSection(container)
+            // A Compose TextField opens the on-screen keyboard as soon as it
+            // takes focus on a TV, and the keyboard then swallows the d-pad —
+            // so an inline account form does not merely trap focus, it hides
+            // everything BELOW it. On the Google TV that meant the whole Sync
+            // section, the TMDb attribution notice, the donate address and the
+            // version were unreachable, and Decision 007 makes that notice a
+            // compliance surface. On TV the account form is rendered LAST, and
+            // only after the copy that has to be reachable.
+            if (!isTv) OpenSubtitlesSection(container)
 
             // Android's prong is discoverability, not engineering. There is no
             // public API to transcribe a FILE — createOnDeviceSpeechRecognizer
@@ -221,12 +231,14 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
             SectionLabel("About")
             Text(
                 TMDB_NOTICE,
+                modifier = Modifier.tvReadable(),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             Spacer(Modifier.height(12.dp))
             Text(
                 SOURCES,
+                modifier = Modifier.tvReadable(),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -254,7 +266,10 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
                     DONATE_URL,
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.fillMaxWidth().padding(bottom = 12.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 12.dp)
+                        .tvReadable(),
                 )
             } else {
                 Text(
@@ -287,6 +302,20 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
+            }
+
+            // LAST on a TV, deliberately. A Compose TextField opens the
+            // on-screen keyboard the moment it takes focus, and the keyboard
+            // then swallows the d-pad — so this form does not merely trap
+            // focus, it hides everything BELOW it. Placed at the end, the
+            // things that must be reachable (the Sync section, the TMDb notice
+            // Decision 007 makes a compliance surface, the donate address and
+            // the version) all come first, and the trap costs the viewer only
+            // a Back press.
+            if (isTv) {
+                HorizontalDivider(Modifier.padding(vertical = 16.dp))
+                SectionLabel("Subtitle account")
+                OpenSubtitlesSection(container)
             }
             Spacer(Modifier.height(32.dp))
         }
@@ -373,14 +402,20 @@ private fun OpenSubtitlesSection(container: AppContainer) {
             value = username, onValueChange = { username = it },
             label = { Text("OpenSubtitles username (not your email)") },
             singleLine = true,
-            modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 8.dp)
+                .tvTextFieldEscape(),
         )
         OutlinedTextField(
             value = password, onValueChange = { password = it },
             label = { Text("Password") },
             singleLine = true,
             visualTransformation = androidx.compose.ui.text.input.PasswordVisualTransformation(),
-            modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 8.dp)
+                .tvTextFieldEscape(),
         )
         Row(verticalAlignment = Alignment.CenterVertically) {
             TextButton(
