@@ -165,10 +165,11 @@ macOS) since they share the Swift Core.
 | Watched / hide-watched | ✅ | ✅ | ✅ `hideWatchedOnHome` filter | ⏳ | ✅ | |
 | Continue Watching progress | ✅ | ✅ | ✅ | ✅ | ✅ | |
 | Watch history (full ever-watched record, D078) | ✅ Library History | ✅ Library tab | ✅ Library shelves | ✅ Library grid | ✅ Library tab | durable everCompleted + playCount + firstWatchedAt; Apple synced via CloudKit |
-| Cross-ecosystem history sync (Drive App Data, D028) | n/a (CloudKit) | n/a (CloudKit) | n/a (CloudKit) | ✅ built, one paste away (`AW_GOOGLE_CLIENT_ID` in index.html) | ✅ staged, one gradle property away (google flavor only) | OWNER: create the OAuth client — docs/google-oauth-setup.md |
+| Cross-ecosystem history sync (Drive App Data, D028) | n/a (CloudKit) | n/a (CloudKit) | n/a (CloudKit) | ✅ LIVE | ✅ LIVE (google flavor only) | OAuth configured 2026-09-03; VERIFIED Pixel 8a ↔ browser both ways incl. deletions — docs/google-oauth-setup.md |
 | Local persistence (offline-first) | ✅ SwiftData | ✅ SwiftData | ✅ SwiftData | ✅ IndexedDB | ✅ user.sqlite | |
-| Per-ecosystem sync (own cloud) | ✅ CloudKit | ✅ CloudKit | ✅ CloudKit (SAME container; Settings → Account; `CloudKitSyncService`) | ⏳ Google Drive App Data | ⏳ Google Drive App Data | Apple islands converge on one iCloud private DB |
-| Cross-ecosystem sync (all platforms) | 🚫 | 🚫 | 🚫 | 🚫 | 🚫 | Out of scope by owner choice |
+| Per-ecosystem sync (own cloud) | ✅ CloudKit | ✅ CloudKit | ✅ CloudKit (SAME container; Settings → Account; `CloudKitSyncService`) | ✅ Drive App Data + ⏳ CloudKit JS | ✅ Drive App Data (Settings → Sync) | Apple islands converge on one iCloud private DB; the WEB is the only client that can hold both — Apple half needs a CloudKit token (docs/web-apple-sync.md) |
+| Cross-ecosystem sync (all platforms) | 🚫 | 🚫 | 🚫 | ⏳ the meeting point | 🚫 | Out of scope as a BACKEND (D028). The web is the exception: signed into both clouds it merges Apple + Google state with one set of rules |
+| Deletions carry tombstones | ✅ | ✅ | ✅ | ✅ | ✅ | without one, a removed favorite is resurrected by the next pull — Apple's #84, now closed on Android + web too |
 | **Download a film for offline viewing** | 🚫 **platform cannot** | ✅ Detail ⬇ → copy-picker sheet · **22/22 on iPhone 12 + iPad Pro** | ✅ Detail Download menu · **verified on this Mac** | 🚫 | ⏳ Media3 `DownloadManager` | Decision 099. tvOS has NO durable storage — a purgeable `Caches` plus ~500 KB of `NSUserDefaults`, no Documents dir — so a download there is a promise the OS may delete between launches. Web: browser quota will not hold a feature film. Background `URLSession` → Application Support, `isExcludedFromBackup` |
 | Downloads in Library (manage + remove) | 🚫 | ✅ Downloads section, swipe delete / pause / resume | ✅ Downloads rows + Remove | 🚫 | ⏳ | Downloads is the FIRST Library section and the tab opens there when offline |
 | Play a downloaded film with no network | 🚫 | ✅ plain `AVPlayerItem(url: file://)` — decoded off disk on both devices | ✅ **proven with the network DENIED to the process** (negative control: archive.org unreachable) | 🚫 | ⏳ | iOS-DESIGN §8.7 / macOS-DESIGN §B9b — the resilient loader is skipped; nothing to be resilient about |
@@ -186,7 +187,7 @@ macOS) since they share the Swift Core.
 | Downloads storage + Remove All | 🚫 | ✅ + cellular toggle (OFF by default) | ✅ (no cellular question on a Mac) | 🚫 | ⏳ | Decision 099 |
 | TMDb attribution (required) | ✅ | ✅ | ✅ verbatim notice | ✅ | ✅ | Decision 007 |
 | Donate to Internet Archive | ✅ | ✅ | ✅ | ✅ | ✅ | Decision 010 |
-| Sign-in (sync gate, optional) | ✅ Apple | ✅ Apple | ✅ Sign in with Apple | ⏳ Google | ⏳ Google | only gates sync |
+| Sign-in (sync gate, optional) | ✅ Apple | ✅ Apple | ✅ Sign in with Apple | ✅ Google (+ ⏳ Apple) | ✅ Google (phone AND TV) | only gates sync; status row shows account / last sync / last error / Sync now |
 | Account deletion | ✅ | ✅ | ⏳ | 🔮 | 🔮 | review requirement |
 
 ## 8. Platform reach + integration
