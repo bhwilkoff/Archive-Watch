@@ -169,6 +169,7 @@ an entry in place.
 - 098 — SharePlay coordinates by archiveID, listens from launch, and never lets "Watch Together" play alone
 - 099 — Downloads are a background URLSession into Application Support; a downloaded film plays as a plain local file, and tvOS gets none
 - 100 — A film's other release title is SHOWN, not reconciled; and a store's minSdk is a per-flavor decision
+- 101 — The App Store submission is fully API-driven, and AppVersion.xcconfig is the ONE version number
 
 ---
 
@@ -1306,3 +1307,52 @@ blocked: the app went live 2026-09-01 and `--check` still returns
 `invalid_scope` with /settings/console/apiaccess still 404 — the "it appears
 once the app is live" hypothesis in `tools/submit-amazon.py` is now DISPROVEN
 and recorded there, making a support case the next step.
+
+## 101 — The App Store submission is fully API-driven, and AppVersion.xcconfig is the ONE version number
+*Date: 2026-09-03*
+
+`tools/asc_release.py` + `.github/workflows/appstore-submit.yml` open the App
+Store version, attach the build, set What's New and submit for review across
+TV_OS / IOS / MAC_OS over the REST API. `MARKETING_VERSION` is now the App Store
+version string as well as the binary's `CFBundleShortVersionString`, and the
+scheme moved from `1.3.x` to **1.42.0**.
+
+**Why**: uploading was automated months ago and submitting never was — the owner
+opened Connect for every release. The reason it stayed manual is that the
+obvious endpoint lies: `POST /v1/appStoreVersionSubmissions` answers
+`403 … does not allow 'CREATE'. Allowed operation is: DELETE`, which reads as
+"not permitted for you" rather than "deprecated, use the other one". The
+replacement is three calls — create a `reviewSubmissions`, add the version as a
+`reviewSubmissionItems`, PATCH `submitted: true`. This was solved once already
+in the Tidbits Trivia repo; porting it was cheaper than rediscovering it.
+
+**The version numbers had to move, and this is the part to understand.** The
+App Store showed **1.41** while the repo read **1.3.491** — two schemes, because
+the store string was typed by hand in Connect and the repo number was only ever
+a build tag. Apple compares version strings component-wise, so `1.3.491` is
+**lower** than `1.41` (3 < 41): the repo number could never have been used as a
+store version. Hence 1.42.0 — greater than 1.41, still three-part so the
+per-commit patch bump keeps working, and each successor greater than the last.
+
+**How to apply**: bump `AppVersion.xcconfig` and let the tool read it; never
+type a version into Connect again. Two hard-won specifics. **Three platforms is
+three submissions** — one universal target and one build number, but Connect
+keeps a separate `appStoreVersion` and `reviewSubmission` per platform, and
+hardcoding one silently ships one app (it did, in Tidbits). And **builds must be
+filtered by `filter[preReleaseVersion.platform]`** — `platform=all` yields three
+builds sharing a number, and without the filter the first match wins at random
+and Connect rejects it with "different platform than the version", which reads
+like a build problem rather than a query problem. `asc_build_exists.py` still
+carries that blind spot and is documented as such.
+
+**A wrong version string is permanent.** Measured while building this: Connect
+ACCEPTED `1.3.494` while `1.41` was live — creation does not enforce ordering,
+the rejection comes at review — and then refused to remove it:
+`409 STATE_ERROR — Only the first version of any platform can be deleted`. It is
+renameable in `PREPARE_FOR_SUBMISSION`, which is the only recovery and is why
+`ship` RECONCILES an existing editable version's string to the target instead of
+leaving it alone. Do not create a version to "see what happens".
+
+**Consequences**: the submit runs on `ubuntu-latest` — it is pure REST, so it
+needs no macOS runner and no Xcode. `status` is read-only and is the check to
+run before and after, because the tool's own success message is not evidence.

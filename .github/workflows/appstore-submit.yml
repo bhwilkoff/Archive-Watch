@@ -1,0 +1,108 @@
+name: App Store submit (cloud)
+
+# Open the App Store version, attach the build, set What's New, and SUBMIT FOR
+# REVIEW — all three Apple platforms, no App Store Connect UI.
+#
+# This is the half that used to be manual. `appstore-build.yml` uploads a
+# binary, but a TestFlight build is NOT an App Store version: they are separate
+# records, so an uploaded build sat there until a human opened a version in
+# Connect and pressed Submit. `tools/asc_release.py` does that over the API.
+#
+# Ported from the Tidbits Trivia pathway; every trap it encodes is written down
+# in the tool's docstring and docs/APPLE-SUBMISSION-CLI.md. The one worth
+# repeating here: the obvious endpoint (appStoreVersionSubmissions) is
+# DEPRECATED and answers 403, which reads as "not permitted" rather than "use
+# the other one".
+#
+# REQUIRED SECRETS (already set for appstore-build.yml):
+#   ASC_KEY_P8 / ASC_KEY_ID / ASC_ISSUER_ID
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'status (read-only) or ship'
+        required: true
+        default: status
+        type: choice
+        options: [status, ship]
+      platform:
+        description: 'Which platform(s)'
+        required: true
+        default: all
+        type: choice
+        options: [all, tvos, ios, mac]
+      version:
+        description: 'App Store version string (blank = MARKETING_VERSION from AppVersion.xcconfig)'
+        required: false
+        type: string
+      build:
+        description: 'Build number to attach (blank = CURRENT_PROJECT_VERSION)'
+        required: false
+        type: string
+      release_notes:
+        description: "What's New text (blank = leave whatever is there)"
+        required: false
+        type: string
+      submit:
+        description: 'Actually send for review. Unchecked = prepare only.'
+        required: false
+        default: false
+        type: boolean
+      dry_run:
+        description: 'Print the plan, change nothing'
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: appstore-submit
+  cancel-in-progress: false
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest        # pure REST — no Xcode, no macOS runner needed
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install --quiet PyJWT cryptography
+
+      - name: Write the ASC API key
+        env:
+          ASC_KEY_P8_B64: ${{ secrets.ASC_KEY_P8 }}
+          KID: ${{ secrets.ASC_KEY_ID }}
+          ISS: ${{ secrets.ASC_ISSUER_ID }}
+        run: |
+          set -euo pipefail
+          for v in ASC_KEY_P8_B64 KID ISS; do
+            [ -n "${!v:-}" ] || { echo "::error::secret for $v is missing"; exit 1; }
+          done
+          mkdir -p ~/.appstoreconnect/private_keys
+          printf '%s' "$ASC_KEY_P8_B64" | base64 -d > ~/.appstoreconnect/private_keys/AuthKey_${KID}.p8
+          echo "ASC_KEY_ID=$KID" >> "$GITHUB_ENV"
+          echo "ASC_ISSUER_ID=$ISS" >> "$GITHUB_ENV"
+
+      - name: Status before
+        run: python3 tools/asc_release.py status || true
+
+      - name: Ship
+        if: ${{ inputs.mode == 'ship' }}
+        run: |
+          set -euo pipefail
+          args=(ship --platform "${{ inputs.platform }}")
+          [ -n "${{ inputs.version }}" ] && args+=(--version "${{ inputs.version }}")
+          [ -n "${{ inputs.build }}" ]   && args+=(--build "${{ inputs.build }}")
+          [ -n "${{ inputs.release_notes }}" ] && args+=(--notes "${{ inputs.release_notes }}")
+          [ "${{ inputs.submit }}" = "true" ]  && args+=(--submit)
+          [ "${{ inputs.dry_run }}" = "true" ] && args+=(--dry-run)
+          python3 tools/asc_release.py "${args[@]}"
+
+      # The tool's own success message is not evidence — read the state back.
+      - name: Status after
+        if: always()
+        run: python3 tools/asc_release.py status

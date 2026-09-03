@@ -233,6 +233,44 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-09-03 — App Store submission fully via API; versions unified at 1.42.0 (D101)
+Owner: "learn from the Tidbits Trivia repository for how to submit to the Apple
+App Store fully via api instead of me having to create a new release manually…
+The only issue is version numbers."
+
+**Shipped**: `tools/asc_release.py` (status | ship) + `.github/workflows/
+appstore-submit.yml`. Opens the App Store version, attaches the build, sets
+What's New and SUBMITS, for all three platforms, over REST. Runs on
+`ubuntu-latest` — pure API, no Xcode. Doc: `docs/APPLE-SUBMISSION-CLI.md`.
+
+**Why it was ever manual**: `POST /v1/appStoreVersionSubmissions` answers
+`403 … does not allow 'CREATE'` — deprecated, and the message never says so.
+The real flow is three calls (reviewSubmissions → reviewSubmissionItems →
+PATCH submitted). Tidbits had already paid for that knowledge.
+
+**The version question, answered.** The App Store showed **1.41** while the repo
+read **1.3.491** — and component-wise 1.3.491 is LOWER than 1.41 (3 < 41), so
+the repo number could never have served as a store version. Now
+`MARKETING_VERSION` IS the store version string, starting at **1.42.0**
+(> 1.41, still three-part so per-commit patch bumps keep working). Android
+`versionName` follows. Verified: App Store version 1.41 was attached to build
+1009 whose short version was 1.3.491, so Apple does NOT require them to match —
+but keeping them identical is the point.
+
+**A mistake worth recording.** To test whether Apple enforces ordering I created
+a TV_OS version `1.3.494` — it was ACCEPTED (creation does not enforce
+ordering), and then could NOT be deleted: `409 STATE_ERROR — Only the first
+version of any platform can be deleted`. Recovered by PATCHing versionString to
+1.42.0, so the stray became the version we ship. `ship` now reconciles an
+editable version's string for exactly this reason. Do not create a version to
+see what happens.
+
+Also ported: three platforms is THREE submissions (Connect keeps a separate
+appStoreVersion + reviewSubmission each; hardcoding one silently ships one app),
+and builds must be filtered by `preReleaseVersion.platform` or the first of
+three same-numbered builds wins at random. `asc_build_exists.py` still has that
+blind spot and is now documented as such.
+
 ### 2026-09-02 — "Also known as" (D100) + the Fire TV install failures
 Owner, on `archivewatch.org/item/the_last_three`: "Why is the name of this
 movie and the description different?" They are not — the item is titled "Last
