@@ -39,6 +39,11 @@ h1 { font-size: 1.5rem; margin: 16px var(--pad) 8px; }
 h2 { font-size: 1.1rem; margin: 20px var(--pad) 8px; }
 a { color: var(--color-accent); }
 .muted { color: var(--text-dim); font-size: 0.9rem; margin: 4px var(--pad); }
+/* Sync status on the Library page. The error is never silent (the
+   per-ecosystem-sync-islands rule): a blocked pop-up or a revoked
+   token says so here rather than leaving a button that does nothing. */
+.sync-error { color: #FF8A6B; }
+#library-sync button, #library-sync-apple button { margin-left: 4px; }
 .error {
   background: #3a1410; color: #ffb4a4; border: 1px solid #62221a;
   border-radius: var(--radius); padding: 10px 14px; margin: 12px var(--pad);

@@ -233,6 +233,80 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-09-03 (later) — Android TV focus + posters, Google sign-in sync, phone player rebuilt (1.42.2/vc52)
+Owner's six-item list, plus a mid-session user report on the phone player.
+
+**1. Posters "take about 10 seconds longer to load, so it looks like it is
+stuck/frozen."** Measured with a new debug-only Coil `EventListener` (AWIMG):
+across five instrumented cold and warm launches on the Google TV, posters land
+**0.5-2.0s after Home content**, so the ten-second stall did not reproduce as
+described. Two real defects did, and both look like the reported symptom: a
+tile drew a **blank dark box** until its art arrived, and OkHttp's default
+**5-in-flight-per-host** cap serialized a row's posters into two waves (a Home
+row is mostly one host, and archive.org cover URLs spend a 302 inside the same
+call). The typographic title card now sits UNDER the poster while it loads, so
+a shelf reads as films rather than empty boxes, and the shared client allows 12
+per host.
+
+**2. "The first item on each shelf is inaccessible."** Root cause, traced with
+the AWFOCUS trace on the device: **Compose moves focus on KEY DOWN**, so one
+Left press from tile 1 landed focus on tile 0 and then the tile's KEY UP
+handler read the SAME press as the rail exit — tile focus, then rail focus
+200ms later, from one press. The exit runs on key down now (and consumes it);
+select stays on key up. The hero carousel had the identical shape. Verified on
+the glass: Left from tile 1 rests on tile 0, a second Left reaches the rail.
+
+**3. "It shows up as Archive Watch - Beta."** The listing was never it — the
+API title and the public Play page both read "Archive Watch", and there is no
+second app entry. The label is an ACCOUNT effect: the owner is an enrolled
+internal tester and the **internal track was still Active serving 1.3.460**
+against production 1.3.485. Track PAUSED (Play propagates in ~1h; Resume is one
+click). Open testing held only a never-published draft. Memory:
+`play_beta_label`.
+
+**4. Full Android TV audit** — running as a background agent against both TVs;
+first attempt died on a model session limit and was relaunched.
+
+**5. "There doesn't seem to be any way to log in on Android (phone) or Google
+TV."** Now there is, and it is **VERIFIED ON HARDWARE both directions**: a film
+watched on the Pixel 8a appeared under Continue Watching in a browser that had
+never played it, a favorite set on the phone arrived there, and un-favoriting
+it REMOVED it rather than resurrecting it. The dormant `DriveSync` would not
+have worked when switched on — it called `authorize()` and **dropped the
+consent PendingIntent**, which is the answer every first-time user gets.
+Tombstones were the missing half on Android AND web (`js/drivesync.js` said so
+in its own header). OAuth is configured end to end: consent screen in
+production, only the non-sensitive `drive.appdata` scope, one web client and
+**three** Android clients — one per certificate, the trap that otherwise breaks
+sync only in production. Decision **102**; `docs/google-oauth-setup.md` is now
+a record rather than a to-do.
+
+**6. Library tabs wrapping on the phone** — a fixed `TabRow` cannot fit five
+labels at phone width, so plurals wrapped; `ScrollableTabRow`. **Apple login on
+the web** — `js/cloudkitsync.js` signs in with Apple through Apple's own
+CloudKit JS and reads/writes the SAME `AWSync` records the Apple apps use,
+reusing the Drive merge so both clouds obey one set of rules. Dormant until a
+CloudKit JS API token is pasted — **the one owner step left**
+(`docs/web-apple-sync.md`).
+
+**User report, mid-session: the phone player.** *"the mini player is almost
+entirely unusable because of the chrome that overwhelms the actual movie ...
+almost no ability to select for things you would actually want to do."* The
+cause was structural: every pushed route rendered INSIDE
+`NavigationSuiteScaffold`, so the five-tab bar sat over the film — and PiP
+captures the Activity window, so **the tab bar rode into the PiP tile**. The
+player now renders outside the scaffold and PiP gets no chrome at all
+(including Media3's controller). The permanent three-line synopsis is gone from
+the phone (it stays on TV, where it is right); the bar is back, title, Cast and
+an options sheet with Speed, Subtitles, Copies and Autoplay. Decision **103**.
+Two sizing bugs caught only on the glass: an unbounded `MediaRouteButton` in a
+Row measured to the whole screen and pushed the title off, and six speed chips
+overflowed the width so "2.0x" wrapped to two lines.
+
+**Standing rule added** (owner): *"Do not use emulators. You have access to
+real devices."* — memory `feedback_real_devices_no_emulators`; the AVD created
+earlier in the session was deleted.
+
 ### 2026-09-03 — App Store submission fully via API; versions unified at 1.42.0 (D101)
 Owner: "learn from the Tidbits Trivia repository for how to submit to the Apple
 App Store fully via api instead of me having to create a new release manually…
