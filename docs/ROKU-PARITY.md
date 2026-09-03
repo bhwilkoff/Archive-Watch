@@ -202,6 +202,33 @@ The owner enabled it on 2026-09-03.
 
 ---
 
+## Settled by the research (tick 1)
+
+- **The design is written.** `docs/ROKU-DESIGN.md` is binding from here: left
+  rail not top tabs, Settings behind `*`, every dimension divisible by 3, focus
+  is a ring plus a stated size step, and a ship gate for "does this read like an
+  Android app on a Roku".
+- **The playback investigation the owner asked for is CLOSED, and the answer is
+  no.** The `Video` node's HTTP client lives in firmware; BrightScript cannot
+  intercept it, range-request through it, proxy it, or observe it. Decisions
+  021 / 031 / 034 have no Roku equivalent — not partially, not at all. What
+  remains is redirect pinning, transient-error tolerance, and our own
+  position-stagnation watchdog that re-issues play at the last position, every
+  recovery of which is a visible cold re-buffer.
+- **Cross-device sync is blocked by POLICY, not plumbing.** Roku certification
+  prohibits off-device sign-in, which is structurally what Google's
+  limited-input device flow is — the only route that would have reached Drive
+  App Data. Roku's own Continue Watching gives cross-device progress without an
+  account of ours, and that is the honest answer.
+- **Storage is a 32 KB registry** and `cachefs:` is evictable, so Library is
+  capacity-bounded and Downloads is `n/a` for the same reason as tvOS.
+- **Pure white fails certification** (broadcast-safe, no channel above 235), so
+  Roku uses `#EBEBEB` text and `#EB5531` for orange fills.
+- **Two new pipeline stages would be needed to PUBLISH** (not to sideload):
+  trick-play BIF thumbnails for every title over 15 minutes, roughly 20,000
+  films of ffmpeg work, and possibly SRT publication since side-loaded WebVTT is
+  not confirmed to work on Roku.
+
 ## Open questions for the design tick
 
 1. Which Roku idiom carries Home: a `RowList` of poster rows under a hero, or

@@ -182,9 +182,16 @@ semantic for content meaning.**
 | Canvas | `#0B0B0C` | The ground. Dark-first; no light mode |
 | Surface | `#16161A` | Overhang, rail, panels, dialogs |
 | Marquee orange | `#FF5C35` | Focus ring, footprint, Play, trick bar, selected rail item, progress |
-| Text primary | `#F2F2F2` | Titles, body |
+| Text primary | `#EBEBEB` | Titles, body |
 | Text secondary | `#9A9AA0` | Meta, disabled |
 | Category accents | per `CLAUDE.md` | **Content meaning only** — category tiles, the Detail category chip, a row's accent spine. Never a focus ring, never a button |
+
+**5.3b No channel may exceed 235.** Roku requires broadcast-safe graphics:
+pure white fails certification outright, and so does any fill at 255. Text
+primary is therefore `#EBEBEB`, not `#F2F2F2`, and the marquee orange used in
+FILLS on Roku is **`#EB5531`**, the broadcast-safe rendering of `#FF5C35`.
+`#FF5C35` remains the brand value everywhere else and is what the palette in
+`CLAUDE.md` still means; this is a Roku output rule, not a new brand colour.
 
 **5.4 Accent blue `#0047FF` is not used on Roku.** It is a web link colour;
 Roku has no links, and at ten feet on a dark ground it fails contrast — the same
@@ -244,9 +251,22 @@ only semantic colour on the screen. The full synopsis is reachable through `*`.
 and change nothing structural (Decision 037, which Roku enforces anyway). OK
 reveals a non-interactive HUD carrying title and description. Instant Replay
 rewinds 15 s. Captions are configured through Roku's Options dialog with its four
-required states, fed by our published WebVTT. Our own in-player options — speed,
+required states, fed by our published captions — **note that side-loaded WebVTT is not confirmed
+to work on Roku and SRT may be required**; measure on the device before claiming
+subtitles work. Our own in-player options — speed,
 subtitle track, autoplay — live in an up-revealed HUD row, because `*` belongs to
 Roku during full-screen playback.
+
+**6.6b The resilient stream loader does not exist here, and cannot.** The
+`Video` node's HTTP client lives in firmware: BrightScript cannot intercept it,
+issue its own ranges, proxy it, or even observe it. Decisions 021, 031 and 034
+have NO Roku equivalent — this was investigated at the owner's request before
+building on top of it, and the answer is not "partially", it is "not at all".
+What remains is coarse and must all be used: pin redirects with
+`StreamStickyHttpRedirects`, tolerate transient errors with `ignoreStreamErrors`,
+and run our own position-stagnation watchdog that re-issues play at the last
+known position. Every recovery is a visible cold re-buffer, and the viewer will
+see it. This regression is recorded in PARITY rather than hidden.
 
 **6.7 Channels** uses the platform EPG: channel rows, programmes sized by
 duration, a now-line, join-in-progress, commercial breaks woven. Our date-seeded
@@ -276,13 +296,21 @@ bundled catalog to paint from (§7.1).
 
 ## 7. The platform's hard limits, and what they mean for design
 
+**7.0 Home must render within 20 seconds on a Roku Express**, the weakest
+device certification tests. Our own measurement on a Streaming Stick 4K is a
+1.06 s download and a 364 ms parse of the 6.2 MB index, so the web data plane is
+comfortable HERE; it is not proven on an Express. If the Channel Store becomes
+the goal, the answer is a small hydrated `roku/home.json` for the first paint
+with the existing detail shards behind it — not a rewrite.
+
 **7.1 The package is capped at 4 MB, so there is no bundled catalog.** Decision
 053's "first paint from the cached catalog" has no Roku equivalent on first
 launch. Design an honest, branded loading state that says what is happening. Do
 not fake an instant paint.
 
-**7.2 Persistent storage is a 16 KB registry.** That is roughly 400–500 saved
-items across favorites, playlists and progress. Design response: publish progress
+**7.2 Persistent storage is a 32 KB registry**, and `cachefs:` is evictable at
+any time so it is not storage at all. Thirty-two kilobytes is roughly 800–1,000
+saved ids across favorites, playlists and progress with a compact encoding. Design response: publish progress
 to Roku's own Continue Watching so it lives in Roku's cloud and syncs across the
 viewer's devices, cap Favorites at a stated number, and render a real "Library is
 full" state with a Remove affordance. Silent truncation is forbidden.
@@ -311,7 +339,7 @@ Detail.
 | Cast / AirPlay send | Roku is a receiver; sending is meaningless |
 | Picture-in-Picture | Not a Roku app affordance |
 | Background media controls | A video app pauses on switch-away |
-| Sign-in / cross-ecosystem sync | No Apple or Google identity here; Roku's own Continue Watching gives cross-device progress without an account of ours |
+| Sign-in / cross-ecosystem sync | **Blocked by Roku policy, not by plumbing.** Certification prohibits off-device sign-in, which is structurally what Google's limited-input device flow is — the one route that would have reached Drive App Data. CloudKit is doubly out. Roku's own Continue Watching gives cross-device progress without an account of ours, and that is the whole answer here |
 
 ---
 
@@ -361,3 +389,18 @@ viewer already reads as chrome, not as us talking.
    honest full-state, or lean harder on Roku's own Save List?
 4. **Should Surprise get a rail icon anyway?** Roku convention says no. The
    product says it is one of the best things about it.
+
+---
+
+## 12. Operational warnings
+
+**12.1 Back up the `genkey` signing password AND one signed `.pkg`** the way the
+Android upload keystore is backed up. There is no documented recovery from
+losing both, and changing the key **wipes every user's registry** — which is
+their favorites and their watch progress.
+
+**12.2 ECP defaults to Limited on Roku OS 14.1 and later.** `/keypress` then
+returns 403 while `/launch` and `/query/device-info` keep answering, so a
+reachability check passes with every input silently rejected. No API can change
+it; it gates the endpoints that would. The path is Settings → System → Advanced
+system settings → Control by mobile apps → Network access.
