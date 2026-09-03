@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- The channel's root Scene.
+
+     v0.1 is deliberately a MEASUREMENT surface, not the product: it proves the
+     sideload pipeline end to end and puts the catalog-index numbers on the
+     glass so a screenshot is evidence. The real Home comes once
+     docs/ROKU-DESIGN.md is written from the design research. -->
+<component name="MainScene" extends="Scene">
+  <interface>
+    <field id="deepLinkContentId" type="string" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
+  <children>
+    <Rectangle id="bg" width="1920" height="1080" color="0x0A0A0AFF" />
+
+    <!-- Roku's safe area is 5% per edge on a 1080p grid: 96 x 54. Text never
+         crosses it; artwork may. -->
+    <Label id="brand" translation="[96,72]" text="ARCHIVE WATCH" color="0xFF5C35FF" />
+    <Label id="tagline" translation="[96,132]" text="Public-domain cinema, on Roku"
+           color="0xB0B0B0FF" />
+
+    <Label id="status" translation="[96,260]" text="Starting…" color="0xFFFFFFFF" />
+    <Label id="detail" translation="[96,330]" width="1728" height="520"
+           wrap="true" text="" color="0xE0E0E0FF" />
+
+    <Label id="hint" translation="[96,960]" color="0x8A8F98FF"
+           text="v0.1 — pipeline + data-plane measurement" />
+  </children>
+</component>

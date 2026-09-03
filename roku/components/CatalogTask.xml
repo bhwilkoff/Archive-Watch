@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Fetches the WEB data plane (Decision 029) on a Task thread.
+
+     Roku has no SQLite, so it cannot read the ~150 MB catalog database the
+     Apple and Android clients download. The web viewer already solves this
+     problem with catalog-index.json plus per-item detail shards, published
+     daily, so Roku reuses it rather than growing a fifth artifact.
+
+     This runs on a TASK thread on purpose: roUrlTransfer blocks, and blocking
+     the render thread freezes the UI. -->
+<component name="CatalogTask" extends="Task">
+  <interface>
+    <field id="indexUrl" type="string" />
+    <field id="status" type="string" alwaysNotify="true" />
+    <field id="report" type="assocarray" alwaysNotify="true" />
+    <field id="items" type="array" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/CatalogTask.brs" />
+</component>

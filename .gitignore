@@ -1,119 +1,103 @@
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
 
-# Xcode
-build/
-DerivedData/
-*.xcuserdata/
-*.xcworkspace/xcuserdata/
-*.moved-aside
-*.pbxuser
-*.perspectivev3
-!default.pbxuser
-!default.perspectivev3
-*.mode1v3
-*.mode2v3
+__pycache__/
 !default.mode1v3
 !default.mode2v3
-xcshareddata/WorkspaceSettings.xcsettings
-
-# Swift Package Manager
+!default.pbxuser
+!default.perspectivev3
+.AppleDouble
 .build/
-Packages/
-Package.pins
-Package.resolved
-
-# iOS
-*.ipa
-*.dSYM.zip
-*.dSYM
-
-# CocoaPods (if ever used)
-Pods/
-
-# Fastlane
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots
-fastlane/test_output
-
-# Node (shouldn't be needed, but just in case)
-node_modules/
-
-# Environment / secrets
+.claude/scheduled_tasks.lock
+.DS_Store
 .env
 .env.local
-*.key
+.LSOverride
+*.aab
+*.dSYM
+*.dSYM.zip
 *.env
-tools/subtitle_keys.env
-credentials.json
-Secrets.xcconfig
-.claude/scheduled_tasks.lock
-video_registry.db
-__pycache__/
-tools/validation_report.txt
-
+*.ipa
+*.key
+*.mode1v3
+*.mode2v3
+*.moved-aside
+*.p8
+*.pbxuser
+*.perspectivev3
+*.xcuserdata/
+*.xcworkspace/xcuserdata/
+**/*.xcodeproj/project.xcworkspace/xcuserdata/
+**/*.xcodeproj/xcuserdata/
+/build/
+/tmp/core-dd
+# (Decision 018). Pipeline fetch/publishes it via tools/catalog_release.py.
+# by tv/build-tv-packages.sh and must never be edited or committed.
+# CocoaPods (if ever used)
+# Environment / secrets
+# Fastlane
+# Faststart-remux working set — durable copies live on archive.org (archivewatch-faststart)
+# Frame-extracted cover working set (#86) — durable copies live on archive.org
+# Full catalog source — hosted on the catalog-source GitHub Release, not git
+# Google Play CLI publishing (local only)
+# iOS
+# iOS SPM build artifacts
+# macOS
+# Node (shouldn't be needed, but just in case)
 # Prebuilt SQLite catalog — hosted via GitHub Releases, not committed (Decision 017)
+# Rights-audit manifest (generated; CI uploads it as an artifact, Decision 027)
+# Swift build artifacts for the on-device cover scorer (#86)
+# Swift Package Manager
+# The SOURCE is the repo root (index.html/watch.js/tv.js); these are generated
+# TV packaging — staged copies of the shared web app + vendor build output.
+# Xcode
+# Xcode per-user state (never track — causes branch-switch/merge friction)
+ArchiveWatch/ArchiveWatch/catalog.json
+AuthKey_*
+build/
+build/qa/
+catalog-manifest.json
+catalog.json
+catalog.json.gz
 catalog.sqlite
 catalog.sqlite.gz
 catalog.sqlite.zz
-catalog-manifest.json
-
-# Full catalog source — hosted on the catalog-source GitHub Release, not git
-# (Decision 018). Pipeline fetch/publishes it via tools/catalog_release.py.
-catalog.json
-catalog.json.gz
-ArchiveWatch/ArchiveWatch/catalog.json
-metadata_review_batch.json
-metadata_review_decisions.json
-tools/.tmdb_synopsis_cache.json
-tools/.tmdb_meta_cache.json
-
-# Frame-extracted cover working set (#86) — durable copies live on archive.org
-tools/covers_out/
-
-# Faststart-remux working set — durable copies live on archive.org (archivewatch-faststart)
-tools/faststart_out/
-
-# Swift build artifacts for the on-device cover scorer (#86)
-tools/CoverScorerCLI/.build/
-
-# Rights-audit manifest (generated; CI uploads it as an artifact, Decision 027)
-tools/rejected_audit.csv
-tools/rejected_*.csv
-
-# iOS SPM build artifacts
+credentials.json
+DerivedData/
+fastlane/Preview.html
+fastlane/report.xml
+fastlane/screenshots
+fastlane/test_output
 ios/.build/
 ios/.swiftpm/
-/tmp/core-dd
-
-# Xcode per-user state (never track — causes branch-switch/merge friction)
-**/*.xcodeproj/xcuserdata/
-**/*.xcodeproj/project.xcworkspace/xcuserdata/
-tools/audit_series_episodes.csv
-subs/
-subs.tar.gz
-tools/whisper_manifest.jsonl
-*.p8
-private_keys/
-/build/
-AuthKey_*
-tools/asc-credentials.env
-
-# Google Play CLI publishing (local only)
-tools/.play-venv/
-*.aab
+metadata_review_batch.json
+metadata_review_decisions.json
+node_modules/
+Package.pins
+Package.resolved
+Packages/
 play-service-account*.json
+Pods/
+private_keys/
+Secrets.xcconfig
+subs.tar.gz
+subs/
 tools/.asc-venv/
-tools/title_audit/
 tools/.metadata_cache.json
-
-# TV packaging — staged copies of the shared web app + vendor build output.
-# The SOURCE is the repo root (index.html/watch.js/tv.js); these are generated
-# by tv/build-tv-packages.sh and must never be edited or committed.
-tv/webos/app/
+tools/.play-venv/
+tools/.tmdb_meta_cache.json
+tools/.tmdb_synopsis_cache.json
+tools/asc-credentials.env
+tools/audit_series_episodes.csv
+tools/covers_out/
+tools/CoverScorerCLI/.build/
+tools/faststart_out/
+tools/rejected_*.csv
+tools/rejected_audit.csv
+tools/subtitle_keys.env
+tools/title_audit/
+tools/validation_report.txt
+tools/whisper_manifest.jsonl
+tv/dist/
 tv/tizen/app/
-tv/dist/
-tv/dist/
+tv/webos/app/
+video_registry.db
+xcshareddata/WorkspaceSettings.xcsettings
