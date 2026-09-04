@@ -79,6 +79,29 @@ sub paintChips()
     end for
 end sub
 
+' Open Browse already scoped — used by the Surprise doors, where "a decade" is
+' a place to wander rather than one film.
+sub applyFilter(spec as Object)
+    if spec.type <> invalid and spec.type <> ""
+        for i = 0 to m.chipDefs[0].values.Count() - 1
+            if typeValueToId(m.chipDefs[0].values[i]) = spec.type then m.chipIndex[0] = i
+        end for
+    else
+        m.chipIndex[0] = 0
+    end if
+    if spec.decade <> invalid and spec.decade > 0
+        want = fmt(spec.decade) + "s"
+        for i = 0 to m.chipDefs[1].values.Count() - 1
+            if m.chipDefs[1].values[i] = want then m.chipIndex[1] = i
+        end for
+        m.heading.text = "The " + fmt(spec.decade) + "s"
+    else
+        m.chipIndex[1] = 0
+    end if
+    paintChips()
+    submit()
+end sub
+
 sub onScope()
     s = m.top.scope
     if s = "tv"

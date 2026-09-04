@@ -10,6 +10,7 @@
     <field id="chosen" type="string" alwaysNotify="true" />
     <field id="exitLeft" type="boolean" alwaysNotify="true" />
     <function name="showResults" />
+    <function name="applyFilter" />
   </interface>
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/BrowseScreen.brs" />

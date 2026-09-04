@@ -110,6 +110,55 @@ sub buildCollections()
     m.top.results = root
 end sub
 
+' Reservoir sampling: one pass, one row kept, no second array of 26,965
+' candidates built only to throw all but one of them away.
+sub pickRandom(spec as String)
+    want = LCase(spec)
+    anyType = (want = "" or want = "any")
+    rnd = CreateObject("roDeviceInfo").GetRandomUUID()
+    seen = 0
+    keep = invalid
+    for each r in m.items
+        if not anyType
+            t = LCase(fmt(r[3]))
+            if t <> want then continue for
+        end if
+        ' Professional artwork only: a random pick is a RECOMMENDATION, and
+        ' Decision 097 keeps frame grabs off surfaces that recommend.
+        if r[5] <> 1 then continue for
+        if Left(fmt(r[0]), 7) = "series:" then continue for
+        seen = seen + 1
+        if Rnd(seen) = 1 then keep = r
+    end for
+    root = CreateObject("roSGNode", "ContentNode")
+    if keep <> invalid then appendRow(root, keep)
+    print "AWSVC random type='"; want; "' pool="; seen; " picked="; root.GetChildCount()
+    m.top.total = seen
+    m.top.results = root
+end sub
+
+' One pass, results returned in the ORDER ASKED — a Continue Watching row is
+' newest-first and must not be re-sorted into catalog order on the way back.
+sub resolveIds(ids as Object)
+    want = {}
+    for each i in ids
+        want[fmt(i)] = true
+    end for
+    found = {}
+    for each r in m.items
+        aid = fmt(r[0])
+        if want[aid] <> invalid then found[aid] = r
+    end for
+    root = CreateObject("roSGNode", "ContentNode")
+    for each i in ids
+        r = found[fmt(i)]
+        if r <> invalid then appendRow(root, r)
+    end for
+    print "AWSVC resolveIds asked="; ids.Count(); " found="; root.GetChildCount()
+    m.top.total = root.GetChildCount()
+    m.top.results = root
+end sub
+
 sub appendRow(root as Object, r as Object)
     it = root.CreateChild("ContentNode")
     it.id = r[0]
@@ -128,6 +177,17 @@ sub runQuery()
 
     if m.top.qCollections
         buildCollections()
+        return
+    end if
+
+    if m.top.qRandomType <> ""
+        pickRandom(m.top.qRandomType)
+        return
+    end if
+
+    ids = m.top.qIds
+    if ids <> invalid and ids.Count() > 0
+        resolveIds(ids)
         return
     end if
 

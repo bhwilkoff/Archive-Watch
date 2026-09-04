@@ -6,6 +6,7 @@ function railItems() as Object
         { id: "tv",          label: "TV" },
         { id: "channels",    label: "Channels" },
         { id: "collections", label: "Collections" },
+        { id: "surprise",    label: "Surprise" },
         { id: "search",      label: "Search" },
         { id: "library",     label: "Library" }
     ]

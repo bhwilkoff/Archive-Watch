@@ -33,7 +33,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 |---|---|---|
 | Hero carousel | ✅ | pool of 12, backdrop-only |
 | Curated + dynamic shelves | ✅ | 23 rows from featured.json + index |
-| Continue Watching | ⏳ | exists in Library; not yet a Home row |
+| Continue Watching | ✅ | leads Home, resolved against the WHOLE index |
 | Hidden Gems (Decision 050) | ⏳ | computed column exists in the DB plane, not the web index |
 | Top Rated | ⏳ | index has no rating column (the same gap PARITY records for web) |
 | Public Domain Day | ⏳ | |
@@ -88,7 +88,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Favorites | ✅ | |
 | Continue Watching | ✅ | |
 | Watched list | ⏳ | |
-| Playlists (create / add / Play All / remove / delete) | ⏳ | the largest single gap |
+| Playlists (create / add / Play All / remove / delete) | ⏳ | now the largest single gap |
 | Storage budget stated | ✅ | Roku-specific: 32 KB registry |
 
 ## Search
@@ -104,9 +104,9 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 
 | tvOS | Roku | Note |
 |---|---|---|
-| Surprise Me | ✅ | as a Search door |
-| Random Film / Decade / Animation / Newsreel / Ephemera / Commercial / TV Episode / Sci-Fi | ⏳ | tvOS has 11 actions; Roku has one |
-| Cartoon Mode | ⏳ | |
+| Surprise Me | ✅ | Search door + its own surface |
+| Random Film / Feature / Silent / Animation / Short / Newsreel / Ephemera / Commercial / Documentary / TV Episode / Decade | ✅ | eleven doors, each re-rolls; reservoir-sampled in one index pass |
+| Cartoon Marathon | ✅ | 40-item shuffled queue, verified playing 1/40 |
 | Party Play | ⏳ | |
 | Cover Art Wall | ⏳ | |
 

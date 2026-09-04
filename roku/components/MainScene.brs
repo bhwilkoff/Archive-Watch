@@ -45,6 +45,11 @@ sub init()
     m.collectionsBuilt = false
     m.pendingEpisode = invalid
     m.episodeQueue = invalid
+    m.pendingRandom = false
+    m.pendingMarathon = false
+    m.lineup = invalid
+    m.pendingUserItems = false
+    m.userItems = invalid
     m.autoPlay = false
 
     m.rail.ObserveField("selected", "onRailSelected")
@@ -77,6 +82,7 @@ sub onStatus()
         ' finishes parsing, and this used to yank focus out of the running film
         ' the moment Home was ready.
         if m.route = "home" then focusContent()
+        requestUserItems()
     else if s = "error"
         m.loading.text = "Could not reach the archive. Check the network and try again."
     end if
@@ -112,6 +118,8 @@ sub onRailSelected()
         openCollections()
     else if id = "channels"
         openChannels()
+    else if id = "surprise"
+        openSurprise()
     else
         ' A surface that does not exist yet SAYS so rather than swallowing the
         ' press — an inert rail item reads as a broken app.
@@ -161,11 +169,106 @@ end sub
 ' Hide-watched is applied HERE rather than in the task: the task's rows are the
 ' catalog and must stay whole, because the setting can change at any time and
 ' re-fetching 6 MB to honour a toggle would be absurd.
+' Continue Watching LEADS Home when there is anything in it — the same place
+' tvOS puts it, and for the same reason: the most likely thing a viewer wants
+' is the film they did not finish. Built from the registry against the rows the
+' task already holds, so it costs a lookup and no fetch.
+' The viewer's OWN items, resolved against the whole index rather than against
+' Home's shelves. Requested once per launch and refreshed whenever the registry
+' changes under a surface that shows them.
+' Library resolves against BOTH: the shelves it already has, and the viewer's
+' own resolved items. Wrapping them in one node keeps LibraryScreen's lookup
+' unchanged.
+function userCatalog() as Object
+    out = CreateObject("roSGNode", "ContentNode")
+    if m.userItems <> invalid
+        row = out.CreateChild("ContentNode")
+        for i = 0 to m.userItems.GetChildCount() - 1
+            row.AppendChild(m.userItems.GetChild(i).Clone(false))
+        end for
+    end if
+    if m.task <> invalid and m.task.rows <> invalid
+        for i = 0 to m.task.rows.GetChildCount() - 1
+            out.AppendChild(m.task.rows.GetChild(i).Clone(true))
+        end for
+    end if
+    return out
+end function
+
+sub requestUserItems()
+    ids = []
+    for each e in awContinueWatching()
+        ids.Push(e.id)
+    end for
+    for each f in awFavorites()
+        ids.Push(f)
+    end for
+    if ids.Count() = 0 then return
+    m.pendingUserItems = true
+    m.svc.qIds = ids
+    m.svc.queryId = m.svc.queryId + 1
+end sub
+
+sub onUserItemsResolved()
+    m.pendingUserItems = false
+    m.svc.qIds = []
+    m.userItems = m.svc.results
+    ' Home was painted before these arrived, so repaint it now that the row can
+    ' actually be built.
+    if m.task <> invalid and m.task.status = "ready"
+        m.home.rowsContent = filteredRows(m.task.rows)
+    end if
+    if m.route = "library" and m.library <> invalid
+        m.library.callFunc("reload", m.userItems)
+    end if
+end sub
+
+function withContinueWatching(rows as Object) as Object
+    if rows = invalid then return rows
+    cw = awContinueWatching()
+    if cw.Count() = 0 then return rows
+    byId = {}
+    for i = 0 to rows.GetChildCount() - 1
+        row = rows.GetChild(i)
+        for j = 0 to row.GetChildCount() - 1
+            it = row.GetChild(j)
+            byId[it.id] = it
+        end for
+    end for
+    ' Anything resolved from the full index wins: it is the same item, and it
+    ' is present for films Home's shelves never name.
+    if m.userItems <> invalid
+        for i = 0 to m.userItems.GetChildCount() - 1
+            it = m.userItems.GetChild(i)
+            byId[it.id] = it
+        end for
+    end if
+    out = CreateObject("roSGNode", "ContentNode")
+    lead = out.CreateChild("ContentNode")
+    lead.title = "Continue Watching"
+    n = 0
+    for each e in cw
+        src = byId[e.id]
+        if src <> invalid
+            lead.AppendChild(src.Clone(false))
+            n = n + 1
+        end if
+    end for
+    ' A row of one is still worth showing here: it is THE film they left.
+    if n = 0
+        out.RemoveChild(lead)
+    end if
+    for i = 0 to rows.GetChildCount() - 1
+        out.AppendChild(rows.GetChild(i).Clone(true))
+    end for
+    return out
+end function
+
 function filteredRows(rows as Object) as Object
     if rows = invalid then return rows
-    if not awGetSetting("hidewatched", false) then return rows
+    if not awGetSetting("hidewatched", false) then return withContinueWatching(rows)
     watched = awWatchedIds()
-    if watched.Count() = 0 then return rows
+    if watched.Count() = 0 then return withContinueWatching(rows)
     out = CreateObject("roSGNode", "ContentNode")
     for i = 0 to rows.GetChildCount() - 1
         src = rows.GetChild(i)
@@ -182,7 +285,7 @@ function filteredRows(rows as Object) as Object
         ' A shelf emptied by the filter is removed, not shown as a bare label.
         if kept < 3 then out.RemoveChild(row)
     end for
-    return out
+    return withContinueWatching(out)
 end function
 
 sub reapplyHomeFilter()
@@ -290,6 +393,8 @@ sub onOptionsClosed()
         refocus(m.channels)
     else if m.route = "series"
         refocus(m.series)
+    else if m.route = "surprise"
+        refocus(m.surprise)
     else
         focusRail()
     end if
@@ -300,8 +405,168 @@ sub onOptionsChanged()
     ' not on the next visit.
     if m.options.changed = "hidewatched" then reapplyHomeFilter()
     if m.options.changed = "progress" and m.route = "library" and m.library <> invalid
-        m.library.callFunc("reload", m.task.rows)
+        m.library.callFunc("reload", userCatalog())
     end if
+end sub
+
+' Every surface hidden in ONE place. Adding the eighth screen to seven separate
+' open* functions is how a stale surface ends up composited under a new one —
+' it already happened twice in this build.
+sub hideAllSurfaces()
+    closeBrowse()
+    closeSearch()
+    closeLibrary()
+    closeCollections()
+    closeChannels()
+    closeSeries()
+    if m.surprise <> invalid then m.surprise.visible = false
+    m.content.visible = false
+    m.loading.visible = false
+    if m.detail <> invalid then m.detail.visible = false
+end sub
+
+sub openBrowseFiltered(wantType as String, decade as Integer)
+    openBrowse("movies")
+    m.browse.callFunc("applyFilter", { type: wantType, decade: decade })
+    m.cameFrom = "surprise"
+end sub
+
+' A marathon is a QUEUE, not a channel: it starts at the beginning of the first
+' cartoon rather than joining one in progress, and it never writes resume
+' progress — the same rule Channels follows, for the same reason.
+sub startCartoonMarathon()
+    if m.chtask = invalid
+        m.chtask = CreateObject("roSGNode", "ChannelsTask")
+        m.chtask.ObserveField("status", "onChannelsLoaded")
+        m.pendingMarathon = true
+        m.chtask.control = "RUN"
+        return
+    end if
+    buildMarathon()
+end sub
+
+sub buildMarathon()
+    data = m.chtask.channels
+    if data = invalid or data.list = invalid then return
+    pool = invalid
+    for each c in data.list
+        if LCase(fmt(c.id)) = "cartoon" then pool = c.programs
+    end for
+    if pool = invalid or pool.Count() = 0
+        print "AWSURP no cartoon pool"
+        return
+    end if
+    urls = [] : titles = []
+    ' Shuffled so a marathon is different every time it is started.
+    idx = []
+    for i = 0 to pool.Count() - 1
+        idx.Push(i)
+    end for
+    for i = idx.Count() - 1 to 1 step -1
+        j = Rnd(i + 1) - 1
+        t = idx[i] : idx[i] = idx[j] : idx[j] = t
+    end for
+    n = 0
+    for each i in idx
+        p = pool[i]
+        if p[3] <> invalid and p[3] <> ""
+            urls.Push(fmt(p[3]))
+            titles.Push(fmt(p[1]))
+            n = n + 1
+            if n >= 40 then exit for
+        end if
+    end for
+    if urls.Count() = 0 then return
+    m.lineup = { urls: urls, titles: titles, index: 0 }
+    playLineup()
+end sub
+
+sub playLineup()
+    l = m.lineup
+    if l = invalid or l.index >= l.urls.Count()
+        m.lineup = invalid
+        closePlayer()
+        return
+    end if
+    if m.player = invalid
+        m.player = m.overlay.CreateChild("PlayerScreen")
+        m.player.translation = [0, 0]
+        m.player.ObserveField("ended", "onPlaybackEnded")
+        m.player.ObserveField("failed", "onPlaybackFailed")
+    end if
+    hideAllSurfaces()
+    m.player.visible = true
+    m.player.archiveID = ""
+    m.player.startAt = 0
+    m.player.playTitle = l.titles[l.index]
+    m.player.playMeta = "Cartoon Marathon  ·  " + fmt(l.index + 1) + " of " + fmt(l.urls.Count())
+    m.player.captionUrl = ""
+    setChromeVisible(false)
+    m.player.playUrl = l.urls[l.index]
+    m.player.setFocus(true)
+    m.cameFrom = "surprise"
+    m.route = "player"
+    print "AWSURP marathon "; l.index + 1; "/"; l.urls.Count()
+end sub
+
+sub openSurprise()
+    if m.surprise = invalid
+        m.surprise = m.overlay.CreateChild("SurpriseScreen")
+        m.surprise.translation = [m.t.railW, 0]
+        m.surprise.ObserveField("action", "onSurpriseAction")
+        m.surprise.ObserveField("exitLeft", "focusRail")
+    end if
+    hideAllSurfaces()
+    m.surprise.visible = true
+    m.rail.focusOn = false
+    m.route = "surprise"
+    refocus(m.surprise)
+    print "AWFOCUS surprise"
+end sub
+
+sub closeSurprise()
+    if m.surprise <> invalid
+        m.surprise.visible = false
+        m.surprise.focusOn = false
+    end if
+    m.content.visible = true
+end sub
+
+sub onSurpriseAction()
+    a = m.surprise.action
+    if a = invalid or a = "" then return
+    print "AWSURP "; a
+    if Left(a, 5) = "type:"
+        ' The service picks; the results observer routes. A door that re-rolls
+        ' has to go back to the service every press, which is why this is not
+        ' cached anywhere.
+        m.pendingRandom = true
+        m.svc.qRandomType = Mid(a, 6)
+        m.svc.queryId = m.svc.queryId + 1
+    else if a = "browse:decade"
+        ' A decade is a place to wander, not a single film.
+        d = 1900 + Rnd(8) * 10
+        openBrowseFiltered("", d)
+    else if a = "cartoons"
+        startCartoonMarathon()
+    end if
+end sub
+
+sub onRandomPicked()
+    m.pendingRandom = false
+    m.pendingMarathon = false
+    m.lineup = invalid
+    m.pendingUserItems = false
+    m.userItems = invalid
+    m.svc.qRandomType = ""
+    res = m.svc.results
+    if res = invalid or res.GetChildCount() = 0
+        print "AWSURP nothing matched"
+        return
+    end if
+    it = res.GetChild(0)
+    m.deepLinkItem = it
+    openDetail(it.id)
 end sub
 
 sub openSeries(slug as String)
@@ -423,6 +688,11 @@ sub openChannels()
 end sub
 
 sub onChannelsLoaded()
+    if m.pendingMarathon = true
+        m.pendingMarathon = false
+        if m.chtask.status = "ready" then buildMarathon()
+        return
+    end if
     if m.chtask.status = "ready"
         m.channels.callFunc("showChannels", m.chtask.channels)
         if m.route = "channels" then refocus(m.channels)
@@ -529,7 +799,8 @@ sub openLibrary()
     ' Rebuilt on every entry: the registry may have changed while the viewer
     ' was somewhere else in the app, and a stale Library is a lie about their
     ' own saves.
-    m.library.callFunc("reload", m.task.rows)
+    requestUserItems()
+    m.library.callFunc("reload", userCatalog())
     m.rail.focusOn = false
     m.library.focusOn = true
     m.route = "library"
@@ -616,6 +887,14 @@ sub onQueryResults()
     ' A deep-link lookup borrows the same results field as Browse and Search,
     ' so it is claimed FIRST and consumed — otherwise a one-row result would
     ' repaint whichever of those happens to be visible.
+    if m.pendingUserItems = true
+        onUserItemsResolved()
+        return
+    end if
+    if m.pendingRandom = true
+        onRandomPicked()
+        return
+    end if
     if m.pendingCollections = true
         m.pendingCollections = false
         m.svc.qCollections = false
@@ -688,6 +967,7 @@ sub openDetail(archiveID as String)
     if m.collections <> invalid then m.collections.visible = false
     if m.channels <> invalid then m.channels.visible = false
     if m.series <> invalid then m.series.visible = false
+    if m.surprise <> invalid then m.surprise.visible = false
     m.detail.visible = true
     m.detail.item = it
     m.detail.detail = {}
@@ -842,6 +1122,11 @@ end sub
 
 sub onPlaybackEnded()
     if m.player = invalid or not m.player.ended then return
+    if m.lineup <> invalid
+        m.lineup.index = m.lineup.index + 1
+        playLineup()
+        return
+    end if
     q = m.episodeQueue
     if q <> invalid and awGetSetting("autoplay", true)
         nxt = q.index + 1
@@ -861,6 +1146,7 @@ end sub
 sub closePlayer()
     if m.player = invalid then return
     m.episodeQueue = invalid
+    m.lineup = invalid
     m.player.callFunc("stopPlayback")
     m.player.visible = false
     setChromeVisible(true)
@@ -905,6 +1191,12 @@ sub closeDetail()
     end if
     ' Back returns to the screen the viewer CAME FROM (§2.6), which is Browse
     ' when Detail was opened from a grid.
+    if m.surprise <> invalid and m.cameFrom = "surprise"
+        m.surprise.visible = true
+        refocus(m.surprise)
+        m.route = "surprise"
+        return
+    end if
     if m.channels <> invalid and m.cameFrom = "channels"
         m.channels.visible = true
         refocus(m.channels)
@@ -919,7 +1211,7 @@ sub closeDetail()
     end if
     if m.library <> invalid and m.cameFrom = "library"
         m.library.visible = true
-        m.library.callFunc("reload", m.task.rows)
+        m.library.callFunc("reload", userCatalog())
         m.library.focusOn = true
         m.route = "library"
         return
@@ -1016,6 +1308,11 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             return true
         else if m.route = "series"
             closeSeries()
+            focusContent()
+            m.route = "home"
+            return true
+        else if m.route = "surprise"
+            closeSurprise()
             focusContent()
             m.route = "home"
             return true

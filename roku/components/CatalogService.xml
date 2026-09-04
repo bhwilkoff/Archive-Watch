@@ -23,6 +23,15 @@
     <!-- Ask for the whole Collections surface: one row per curated collection,
          built in ONE pass over the index on this thread. -->
     <field id="qCollections" type="boolean" value="false" />
+    <!-- One random row matching qType (blank = any), professionally presented
+         where possible. The picker lives on THIS thread because it needs the
+         parsed index, and a caller only ever wants the winner. -->
+    <field id="qRandomType" type="string" />
+    <!-- Resolve a LIST of ids in one pass. Home's shelves name ~600 items of
+         26,965, so anything the viewer saved or half-watched outside them
+         cannot be found by searching the shelves — which is exactly what
+         Continue Watching and Library are made of. -->
+    <field id="qIds" type="array" />
     <field id="queryId" type="integer" alwaysNotify="true" />
     <field id="results" type="node" alwaysNotify="true" />
     <field id="total" type="integer" />
