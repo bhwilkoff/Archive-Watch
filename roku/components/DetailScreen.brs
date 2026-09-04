@@ -59,11 +59,14 @@ sub init()
     m.toastTimer = m.top.FindNode("toastTimer")
     m.toastTimer.ObserveField("fire", "onToastDone")
     ' Bottom of the reading column, inside the title-safe inset (§4.3).
-    m.toastPlate.translation = [m.t.readX, 900]
-    m.toastPlate.width = 1200 : m.toastPlate.height = 96
-    m.toastPlate.color = "0x1C1C22FF"
-    m.toastText.translation = [m.t.readX + 24, 924]
-    m.toastText.width = 1152 : m.toastText.wrap = true
+    ' A bar across the foot of the screen. It sits OVER the shelf rather than
+    ' beside it, because a message the viewer must read cannot be laid out
+    ' around content whose height varies.
+    m.toastPlate.translation = [0, 972]
+    m.toastPlate.width = 1836 : m.toastPlate.height = 96
+    m.toastPlate.color = "0x1C1C22F2"
+    m.toastText.translation = [m.t.readX, 996]
+    m.toastText.width = 1600 : m.toastText.wrap = true
     m.toastText.maxLines = 2
     m.toastText.font = m.t.uBody
     m.toastText.color = m.t.textPri

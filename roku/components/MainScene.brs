@@ -742,6 +742,7 @@ sub onDetailMore()
     end if
     opts.Push({ id: "playlist", label: "Add to playlist" })
     opts.Push({ id: "versions", label: "Choose a different copy…" })
+    opts.Push({ id: "share", label: "Watch this on another device" })
     opts.Push({ id: "cancel", label: "Done" })
     m.moreMode = "detail"
     m.more.callFunc("open", { title: "More", options: opts })
@@ -812,6 +813,16 @@ sub onMorePicked()
     end if
     if pick = "versions"
         openVersions()
+        return
+    end if
+    if pick = "share"
+        ' tvOS, iOS and macOS draw a QR here. Roku has no QR API, and hand-
+        ' rolling an encoder — Reed-Solomon, masking, format bits — is a
+        ' disproportionate amount of risk for one label, so this states the
+        ' URL instead. Recorded as a deliberate divergence in ROKU-PARITY
+        ' rather than quietly skipped.
+        refocus(m.detail)
+        m.detail.toast = "Watch it anywhere: archivewatch.org/item/" + id
         return
     end if
     if pick = "watch"

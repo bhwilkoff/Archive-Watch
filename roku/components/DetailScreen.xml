@@ -35,11 +35,14 @@
     <Rectangle id="chip" />
     <Label id="chipText" />
     <Group id="buttons" />
-    <Rectangle id="toastPlate" visible="false" />
-    <Label id="toastText" visible="false" />
     <Label id="cast" />
     <Label id="likeLabel" visible="false" />
     <RowList id="like" visible="false" />
     <Timer id="toastTimer" duration="10" repeat="false" />
+    <!-- LAST, so it draws over the shelf below it. Declared earlier, the
+         "more like this" row covered it completely and the message was
+         invisible while the code was doing everything right. -->
+    <Rectangle id="toastPlate" visible="false" />
+    <Label id="toastText" visible="false" />
   </children>
 </component>

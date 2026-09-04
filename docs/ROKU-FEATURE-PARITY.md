@@ -24,7 +24,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Next Episode button | ✅ | via the series queue, not a Detail button |
 | Also known as (Decision 100) | ✅ | |
 | Cast / crew | ✅ | one line of five names; the shard's TMDb portraits are deliberately not drawn — see below |
-| Share (QR to archivewatch.org) | ⏳ | |
+| Share | ⚠️ divergence | the URL, stated; no QR — see below |
 | "Can't play this title" error | ✅ | plus the reason, on screen |
 
 ## Home
@@ -50,7 +50,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Type facet | ✅ | |
 | Decade / Era facet | ✅ | |
 | Sort (Popular / Newest / Oldest / A–Z) | ✅ | all five measured on the device at 422–602 ms; year-less rows sort LAST |
-| Top Rated sort | ⏳ | no rating in the index |
+| Top Rated sort | ✅ | index schema 10 carries rating and votes; 1,000-vote floor |
 | Genre / Keyword / Studio facets | ⏳ | index carries a search blob, not facet columns |
 | Result count in the heading | ✅ | |
 | Empty state that says what to change | ✅ | |
@@ -154,3 +154,22 @@ Every number in that stack was moved after seeing it collide on the glass:
 the synopsis is capped at four lines, the cast line sits at 672, the buttons at
 738, the row label at 834 and the row at 882 with 108x162 tiles so its bottom
 lands at 1056.
+
+
+## Why Share states a URL instead of drawing a QR
+
+tvOS, iOS and macOS draw a QR code to `archivewatch.org/item/<id>`. Roku has no
+QR API, and there is no QR library available to generate a reference from
+either — so shipping one here means implementing the encoder TWICE, once in
+Python to produce known-answer vectors and once in BrightScript, including
+Reed-Solomon, mask selection and format bits. That is a disproportionate
+amount of new, hand-rolled, hard-to-verify code for a single label, and this
+build has already shown what unverified code costs on this platform.
+
+What ships instead states the fact a viewer can act on: **"Watch it anywhere:
+archivewatch.org/item/el-candidato-1959"**, on a bar across the foot of Detail.
+It is weaker than a QR and it is honest. If the QR is wanted, the scoped
+follow-up is: a Python reference implementation producing matrix vectors, the
+BrightScript port checked against them the way `SchedSelfTest` checks the
+scheduler, and the matrix drawn as merged horizontal runs of `Rectangle` nodes
+(a 29x29 code reduces to roughly 200 rects, not 841).
