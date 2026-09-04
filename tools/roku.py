@@ -166,6 +166,20 @@ def cmd_deploy(args):
                 if line.strip():
                     print("   ", line.strip())
         sys.exit(1)
+    # An EMPTY message list is not a pass. The installer answers 200 with a
+    # full HTML page in several conditions (a digest re-challenge, a changed
+    # page shape, a refused upload), and reading "no errors" off a response we
+    # could not parse is how a stale channel ran for two whole test cycles
+    # while every deploy printed OK.
+    if not msgs:
+        print("DEPLOY UNVERIFIED: the installer returned no parseable message.")
+        print("   response head:", out[:400].replace("\n", " "))
+        sys.exit(1)
+    if not any("success" in t.lower() or "received" in t.lower() for _, t in msgs):
+        print("DEPLOY UNVERIFIED: no success message. Installer said:")
+        for _, t in msgs:
+            print("   ", t)
+        sys.exit(1)
     for kind, t in msgs:
         print("   ", t)
     print("deploy OK")

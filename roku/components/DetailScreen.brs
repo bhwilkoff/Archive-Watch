@@ -48,9 +48,9 @@ sub init()
 
     m.btns.translation = [x, 738]
     m.buttons = []
-    addButton("play", "Play", 0)
-    addButton("save", "Save", 258)
-    addButton("more", "More", 456)
+    addButton("play", "Play", 0, 396)
+    addButton("save", "Save", 420, 210)
+    addButton("more", "More", 654, 210)
     m.focusIndex = 0
     paintButtons()
 end sub
@@ -58,11 +58,13 @@ end sub
 function waitY() as Integer : return 456 : end function
 function componentY() as Integer : return 420 : end function
 
-sub addButton(id as String, label as String, dx as Integer)
+sub addButton(id as String, label as String, dx as Integer, w = 234 as Integer)
     g = m.btns.CreateChild("Group")
     g.translation = [dx, 0]
     r = g.CreateChild("Rectangle")
-    r.width = 234 : r.height = 72 : r.color = "0x22222AFF"
+    ' Play is wider than the others because its label carries the runtime or
+    ' the resume position — "Resume · 83m left" was clipped at 234.
+    r.width = w : r.height = 72 : r.color = "0x22222AFF"
     l = g.CreateChild("Label")
     l.font = m.t.uRow : l.color = m.t.textPri
     l.translation = [24, 18]
@@ -88,6 +90,7 @@ end sub
 sub onItem()
     it = m.top.item
     if it = invalid then return
+    m.archiveID = it.id
     m.title.text = it.title
     m.meta.text = it.SHORTDESCRIPTIONLINE1
     if it.awBackdrop <> invalid and it.awBackdrop <> ""
@@ -104,6 +107,16 @@ sub onItem()
     end if
     m.aka.text = ""
     m.syn.text = ""
+    paintSave()
+end sub
+
+sub paintSave()
+    if m.archiveID = invalid then return
+    if awIsFavorite(m.archiveID)
+        m.buttons[1].label.text = "Saved"
+    else
+        m.buttons[1].label.text = "Save"
+    end if
 end sub
 
 sub onDetail()
@@ -118,18 +131,43 @@ sub onDetail()
         m.aka.text = "Also known as " + d.canonicalTitle
     end if
 
-    ' §6.5 — Play carries the runtime, or the resume position once bookmarks
-    ' land. A button that says how long the film is answers the question the
-    ' viewer actually has.
-    if d.runtime <> invalid and d.runtime > 0
-        mins = Int(d.runtime / 60)
-        m.buttons[0].label.text = "Play  ·  " + fmt(mins) + "m"
-    end if
+    ' §6.5 — Play carries the runtime, or the RESUME position when the viewer
+    ' has a bookmark. Roku certification wants bookmarking for anything over 15
+    ' minutes kept for at least 30 days; the registry is where that lives.
+    dur = 0
+    if d.runtime <> invalid then dur = d.runtime
+    m.runtime = dur
+    paintPlayLabel()
     m.playUrl = d.url
 end sub
 
 sub onFocusOn()
     paintButtons()
+end sub
+
+' Returning from the player must recompute the Play label: the bookmark was
+' written while this screen sat behind the video, and nothing about the detail
+' record changed, so no observer fires on its own.
+sub refresh()
+    paintSave()
+    paintPlayLabel()
+    paintButtons()
+end sub
+
+sub paintPlayLabel()
+    if m.archiveID = invalid then return
+    dur = 0
+    if m.runtime <> invalid then dur = m.runtime
+    posn = awGetProgress(m.archiveID)
+    if posn > 0 and awIsResumable(posn, dur)
+        left = Int((dur - posn) / 60)
+        m.buttons[0].label.text = "Resume  ·  " + fmt(left) + "m left"
+        m.top.playFrom = posn
+    else if dur > 0
+        mins = Int(dur / 60)
+        m.buttons[0].label.text = "Play  ·  " + fmt(mins) + "m"
+        m.top.playFrom = 0
+    end if
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
@@ -152,6 +190,16 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
                 m.top.play = m.playUrl
             else
                 print "AWROKU detail: no playable url"
+            end if
+        else if b.id = "save"
+            r = awToggleFavorite(m.archiveID)
+            if r = invalid
+                ' §7.2 — the 32 KB budget is real, and a full library says so
+                ' rather than dropping the request on the floor.
+                m.top.toast = "Your library is full. Remove something in Library first."
+            else
+                paintSave()
+                if r then m.top.toast = "Saved to your library." else m.top.toast = "Removed from your library."
             end if
         else
             print "AWROKU detail: "; b.id; " not built yet"

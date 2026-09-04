@@ -362,12 +362,54 @@ direction the focused keyboard consumed. Worth stating because the obvious
 reading of a failed test is that the handler is broken; here the handler was
 right and the test drove from the leftmost key.
 
+## Tick 6 — Persistence, Library, and the `*` panel
+
+| Element | Roku | Evidence |
+|---|---|---|
+| Favorites persist across launches | ✅ | Save pressed, channel relaunched, button read "Saved" |
+| Resume position persists | ✅ | played to ~34 s, Back, Detail read "Resume · 83m left" |
+| Bookmarks written during playback | ✅ | on the watchdog's 5 s tick and again in `stopPlayback` |
+| Library: Continue Watching row | ✅ | `v06_library.jpg` — *Dishonored Lady*, its real poster |
+| Library: Favorites row | ✅ | same shot, second row |
+| Library states the storage budget | ✅ | "1 saved · 1 in progress · N bytes of 32 KB used" |
+| Library empty state | ✅ built | names what to press rather than saying "nothing here" |
+| `*` opens Options everywhere but playback | ✅ | `v06_options2.jpg`; the key is Roku's during playback |
+| TMDb notice verbatim (Decision 007) | ✅ | in the panel, not behind a second screen |
+| Sources + donate line | ✅ | same panel |
+| Hide watched titles | ✅ | toggled On, Home re-filtered with no reload |
+| Autoplay next episode | ✅ persisted | consumed when the episode queue lands |
+| Clear Continue Watching | ✅ | Library reloads underneath if it is open |
+| Mature-content toggle | 🚫 by design | the web index drops adult items upstream, so a switch here would change nothing |
+
+**Five more silent failures, and the harness was one of them.**
+
+16. **`deploy` reported OK on an installer response it could not parse.** An
+    empty message list was read as "no errors". The device ran a stale channel
+    for two full test cycles while every deploy printed green — the same
+    already-recorded class as the compile-failure-reported-as-success bug, one
+    layer up. The deploy now fails unless it sees an explicit success message.
+17. **A `<script>` omission is a RUNTIME error, not a build error.** MainScene
+    called `awGetSetting` without including `UserStore.brs`; the channel
+    installed cleanly and crashed on the first Home paint with "Function is not
+    defined in component's namespace". Scripts are per-component: including a
+    file in four components does not include it in the fifth.
+18. **Writing `true` to a `focusOn` field that is already `true` fires
+    nothing.** After the options overlay took focus, every key fell through to
+    the Scene and the remote was dead with no error anywhere. Focus is restored
+    by toggling false→true, never by re-asserting the value.
+19. **Roku's `Button` centres its text against a decorative bullet.** Four of
+    them read nothing like a Roku overlay. `LabelList` is the platform's own
+    menu control and was the right answer from the start.
+20. **A 150 px nav rail clipped "Collections"** — the label ran under the
+    content column. Every dimension here is divisible by 3, so the rail is 216.
+
 ## Open questions for the design tick
 
 1. Which Roku idiom carries Home: a `RowList` of poster rows under a hero, or
    the grid-first shape Roku's own channel uses? The design research decides.
-2. What the `*` (Info/Options) key opens on each surface — Roku users expect it
-   to do something everywhere.
+2. ~~What the `*` key opens on each surface~~ — answered in tick 6: a
+   right-anchored Options panel on every surface except playback, where Roku
+   reserves the key.
 3. Whether Channels (the EPG) survives as-is on a remote with no colour keys.
 4. What sync can mean here at all: Roku has `roRegistrySection` for local state
    and no Google or Apple identity, so cross-device sync may be honestly 🚫.

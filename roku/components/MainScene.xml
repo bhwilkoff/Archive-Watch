@@ -6,6 +6,7 @@
     <field id="deepLinkContentId" type="string" />
   </interface>
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/UserStore.brs" />
   <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
   <children>
     <Rectangle id="bg" width="1920" height="1080" color="0x0B0B0CFF" />
@@ -23,5 +24,9 @@
     <NavRail id="rail" />
 
     <Label id="loading" />
+
+    <!-- Last child: the options overlay dims and covers EVERYTHING, rail
+         included, or it reads as a panel the page is still competing with. -->
+    <Group id="options" />
   </children>
 </component>

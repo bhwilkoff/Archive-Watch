@@ -48,7 +48,7 @@ function Theme() as Object
         posterFW: 288
         posterFH: 432
         gutter:   24
-        railW:    150
+        railW:    216
     }
 end function
 

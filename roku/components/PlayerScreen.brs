@@ -49,6 +49,10 @@ sub onUrl()
     c.url = url
     ' archive.org serves progressive MP4 behind a 302 to a storage node.
     c.streamFormat = "mp4"
+    if m.top.startAt > 0
+        c.playStart = m.top.startAt
+        print "AWPLAY resume at "; m.top.startAt
+    end if
 
     ' The coarse resilience that Roku DOES give us (§6.6b). Both are guarded:
     ' a field that does not exist on this OS must not take the channel down.
@@ -116,6 +120,14 @@ sub onWatchdog()
     end if
     m.lastPosn = posn
 
+    ' Bookmark on the same 5s tick the watchdog already runs on, so playback
+    ' costs one timer rather than two. Roku wants bookmarks for VOD over 15
+    ' minutes retained 30 days; the registry keeps them until it is full.
+    if m.top.archiveID <> "" and posn > 0
+        d = Int(m.video.duration)
+        if d > 0 then awSetProgress(m.top.archiveID, Int(posn), d)
+    end if
+
     if m.hudHideAt <> invalid and nowSeconds() >= m.hudHideAt
         hideHud()
         m.hudHideAt = invalid
@@ -131,6 +143,13 @@ sub hideHud()
 end sub
 
 sub stopPlayback()
+    ' Write the final position BEFORE tearing the player down — the tick may be
+    ' up to five seconds stale, and the last thing a viewer did is the thing
+    ' they most expect to be remembered.
+    if m.top.archiveID <> "" and m.video.position > 0
+        d = Int(m.video.duration)
+        if d > 0 then awSetProgress(m.top.archiveID, Int(m.video.position), d)
+    end if
     m.dog.control = "stop"
     m.video.control = "stop"
     m.video.content = invalid

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ROKU-DESIGN §6.9 / §7.2 — Continue Watching and Favorites, and the screen
+     that has to tell the truth about a 32 KB budget. There is no Clips tab:
+     creation tools are never on a TV. -->
+<component name="LibraryScreen" extends="Group">
+  <interface>
+    <field id="service" type="node" />
+    <field id="focusOn" type="boolean" onChange="onFocusOn" />
+    <field id="chosen" type="string" alwaysNotify="true" />
+    <field id="exitLeft" type="boolean" alwaysNotify="true" />
+    <function name="reload" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/UserStore.brs" />
+  <script type="text/brightscript" uri="pkg:/components/LibraryScreen.brs" />
+  <children>
+    <Label id="heading" />
+    <Label id="budget" />
+    <Label id="empty" visible="false" />
+    <RowList id="rows" />
+  </children>
+</component>

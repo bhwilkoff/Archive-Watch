@@ -56,7 +56,7 @@ sub init()
     ' the next row's label — the label is drawn inside the following cell, so a
     ' tight reserve puts one row's caption on top of the next row's title. Seen
     ' on the glass; not visible in any log.
-    m.rows.itemSize = [1674, m.t.posterFH + 126]
+    m.rows.itemSize = [1656, m.t.posterFH + 180]
     m.rows.rowItemSize = [[m.t.posterFW, m.t.posterFH]]
     m.rows.rowItemSpacing = [[m.t.gutter, 0]]
     m.rows.rowSpacing = 24

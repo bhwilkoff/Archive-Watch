@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ROKU-DESIGN §6.10 — everything reached with `*`. Roku's own overlays and
+     first-party apps anchor options to the RIGHT edge over a dimmed page, so
+     the viewer never loses their place; this follows that idiom rather than
+     inventing a Settings screen the platform has no room for. -->
+<component name="OptionsPanel" extends="Group">
+  <interface>
+    <field id="focusOn" type="boolean" onChange="onFocusOn" />
+    <field id="closed" type="boolean" alwaysNotify="true" />
+    <field id="changed" type="string" alwaysNotify="true" />
+    <function name="open" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/UserStore.brs" />
+  <script type="text/brightscript" uri="pkg:/components/OptionsPanel.brs" />
+  <children>
+    <Rectangle id="dim" />
+    <Rectangle id="plate" />
+    <Label id="title" />
+    <LabelList id="rows" />
+    <Label id="note" />
+  </children>
+</component>

@@ -8,8 +8,12 @@
     <field id="detail" type="assocarray" onChange="onDetail" />
     <field id="focusOn" type="boolean" onChange="onFocusOn" />
     <field id="play" type="string" alwaysNotify="true" />
+    <field id="playFrom" type="integer" value="0" />
+    <field id="toast" type="string" alwaysNotify="true" />
+    <function name="refresh" />
   </interface>
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/UserStore.brs" />
   <script type="text/brightscript" uri="pkg:/components/DetailScreen.brs" />
   <children>
     <Poster id="wash" />

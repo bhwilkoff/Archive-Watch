@@ -62,7 +62,7 @@ sub onStatus()
     print "AWROKU home status="; s
     if s = "ready"
         m.loading.visible = false
-        m.home.rowsContent = m.task.rows
+        m.home.rowsContent = filteredRows(m.task.rows)
         m.home.heroContent = m.task.hero
         focusContent()
     else if s = "error"
@@ -94,6 +94,8 @@ sub onRailSelected()
         openBrowse(id)
     else if id = "search"
         openSearch()
+    else if id = "library"
+        openLibrary()
     else
         ' A surface that does not exist yet SAYS so rather than swallowing the
         ' press — an inert rail item reads as a broken app.
@@ -112,6 +114,8 @@ sub openBrowse(scope as String)
         m.browse.ObserveField("chosen", "onBrowseChosen")
         m.browse.ObserveField("exitLeft", "focusRail")
     end if
+    closeLibrary()
+    closeSearch()
     m.content.visible = false
     m.loading.visible = false
     if m.detail <> invalid then m.detail.visible = false
@@ -136,6 +140,124 @@ sub closeBrowse()
     m.content.visible = true
 end sub
 
+' Hide-watched is applied HERE rather than in the task: the task's rows are the
+' catalog and must stay whole, because the setting can change at any time and
+' re-fetching 6 MB to honour a toggle would be absurd.
+function filteredRows(rows as Object) as Object
+    if rows = invalid then return rows
+    if not awGetSetting("hidewatched", false) then return rows
+    watched = awWatchedIds()
+    if watched.Count() = 0 then return rows
+    out = CreateObject("roSGNode", "ContentNode")
+    for i = 0 to rows.GetChildCount() - 1
+        src = rows.GetChild(i)
+        row = out.CreateChild("ContentNode")
+        row.title = src.title
+        kept = 0
+        for j = 0 to src.GetChildCount() - 1
+            it = src.GetChild(j)
+            if not watched.DoesExist(it.id)
+                row.AppendChild(it.Clone(false))
+                kept = kept + 1
+            end if
+        end for
+        ' A shelf emptied by the filter is removed, not shown as a bare label.
+        if kept < 3 then out.RemoveChild(row)
+    end for
+    return out
+end function
+
+sub reapplyHomeFilter()
+    if m.task <> invalid and m.task.status = "ready"
+        m.home.rowsContent = filteredRows(m.task.rows)
+    end if
+end sub
+
+sub openOptions()
+    if m.options = invalid
+        m.options = m.top.FindNode("options").CreateChild("OptionsPanel")
+        m.options.ObserveField("closed", "onOptionsClosed")
+        m.options.ObserveField("changed", "onOptionsChanged")
+    end if
+    m.options.callFunc("open")
+end sub
+
+' A screen claims focus through its focusOn field, and onChange only fires on
+' a CHANGE — so writing true to a field that is already true does nothing at
+' all. After an overlay steals focus, the field is still true while the actual
+' focus is gone, and every key then falls through to the Scene: the remote goes
+' dead with no error anywhere. Always toggle.
+sub refocus(node as Object)
+    if node = invalid then return
+    node.focusOn = false
+    node.focusOn = true
+end sub
+
+sub onOptionsClosed()
+    ' Hand focus back to whatever the viewer was on — an overlay that closes
+    ' onto nothing focused is the same dead remote as one that never opened.
+    if m.route = "home"
+        m.rail.focusOn = false
+        refocus(m.home)
+        print "AWFOCUS content"
+    else if m.route = "detail"
+        refocus(m.detail)
+    else if m.route = "browse"
+        refocus(m.browse)
+    else if m.route = "search"
+        refocus(m.search)
+    else if m.route = "library"
+        refocus(m.library)
+    else
+        focusRail()
+    end if
+end sub
+
+sub onOptionsChanged()
+    ' Clearing progress while Library is open must be visible immediately,
+    ' not on the next visit.
+    if m.options.changed = "hidewatched" then reapplyHomeFilter()
+    if m.options.changed = "progress" and m.route = "library" and m.library <> invalid
+        m.library.callFunc("reload", m.task.rows)
+    end if
+end sub
+
+sub openLibrary()
+    if m.library = invalid
+        m.library = m.overlay.CreateChild("LibraryScreen")
+        m.library.translation = [m.t.railW, 0]
+        m.library.ObserveField("chosen", "onLibraryChosen")
+        m.library.ObserveField("exitLeft", "focusRail")
+    end if
+    closeBrowse()
+    closeSearch()
+    m.content.visible = false
+    m.loading.visible = false
+    if m.detail <> invalid then m.detail.visible = false
+    m.library.visible = true
+    ' Rebuilt on every entry: the registry may have changed while the viewer
+    ' was somewhere else in the app, and a stale Library is a lie about their
+    ' own saves.
+    m.library.callFunc("reload", m.task.rows)
+    m.rail.focusOn = false
+    m.library.focusOn = true
+    m.route = "library"
+    print "AWFOCUS library"
+end sub
+
+sub closeLibrary()
+    if m.library <> invalid
+        m.library.visible = false
+        m.library.focusOn = false
+    end if
+    m.content.visible = true
+end sub
+
+sub onLibraryChosen()
+    id = m.library.chosen
+    if id <> invalid and id <> "" then openDetail(id)
+end sub
+
 sub openSearch()
     if m.search = invalid
         m.search = m.overlay.CreateChild("SearchScreen")
@@ -146,6 +268,7 @@ sub openSearch()
         m.search.ObserveField("exitLeft", "focusRail")
     end if
     closeBrowse()
+    closeLibrary()
     m.content.visible = false
     m.loading.visible = false
     if m.detail <> invalid then m.detail.visible = false
@@ -233,6 +356,7 @@ sub openDetail(archiveID as String)
     m.content.visible = false
     if m.browse <> invalid then m.browse.visible = false
     if m.search <> invalid then m.search.visible = false
+    if m.library <> invalid then m.library.visible = false
     m.detail.visible = true
     m.detail.item = it
     m.detail.detail = {}
@@ -287,6 +411,8 @@ sub onPlay()
     end if
     m.player.visible = true
     m.detail.visible = false
+    m.player.archiveID = m.detail.item.id
+    m.player.startAt = m.detail.playFrom
     m.player.playTitle = m.detail.item.title
     m.player.playMeta = m.detail.item.SHORTDESCRIPTIONLINE1
     m.player.playUrl = url
@@ -306,6 +432,7 @@ sub closePlayer()
     m.player.callFunc("stopPlayback")
     m.player.visible = false
     m.detail.visible = true
+    m.detail.callFunc("refresh")
     m.detail.focusOn = true
     m.detail.setFocus(true)
     m.route = "detail"
@@ -319,6 +446,13 @@ sub closeDetail()
     end if
     ' Back returns to the screen the viewer CAME FROM (§2.6), which is Browse
     ' when Detail was opened from a grid.
+    if m.library <> invalid and m.cameFrom = "library"
+        m.library.visible = true
+        m.library.callFunc("reload", m.task.rows)
+        m.library.focusOn = true
+        m.route = "library"
+        return
+    end if
     if m.search <> invalid and m.cameFrom = "search"
         m.search.visible = true
         m.search.focusOn = true
@@ -370,6 +504,13 @@ end function
 function onKeyEvent(key as String, press as Boolean) as Boolean
     if not press then return false
     print "AWKEY "; key; " route="; m.route
+    ' `*` opens Options everywhere EXCEPT playback, where Roku reserves the
+    ' key for its own transport overlay (ROKU-DESIGN §3.1) — a channel that
+    ' takes it there fails certification.
+    if key = "options" and m.route <> "player"
+        openOptions()
+        return true
+    end if
     if key = "back"
         if m.route = "player"
             closePlayer()
@@ -384,6 +525,11 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             return true
         else if m.route = "search"
             closeSearch()
+            focusContent()
+            m.route = "home"
+            return true
+        else if m.route = "library"
+            closeLibrary()
             focusContent()
             m.route = "home"
             return true

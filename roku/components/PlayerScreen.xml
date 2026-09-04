@@ -11,10 +11,13 @@
     <field id="playUrl" type="string" onChange="onUrl" />
     <field id="playTitle" type="string" />
     <field id="playMeta" type="string" />
+    <field id="archiveID" type="string" />
+    <field id="startAt" type="integer" value="0" />
     <field id="ended" type="boolean" alwaysNotify="true" />
     <function name="stopPlayback" />
   </interface>
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+    <script type="text/brightscript" uri="pkg:/components/UserStore.brs" />
   <script type="text/brightscript" uri="pkg:/components/PlayerScreen.brs" />
   <children>
     <Video id="video" />
