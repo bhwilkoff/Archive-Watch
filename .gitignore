@@ -101,3 +101,4 @@ tv/tizen/app/
 tv/webos/app/
 video_registry.db
 xcshareddata/WorkspaceSettings.xcsettings
+build/roku-store/
