@@ -32,8 +32,12 @@ sub setSize(w as Integer, h as Integer)
     ' Decision 097 binds on every platform: NEVER reshape the art. scaleToZoom
     ' would crop; the tile is already 2:3 and the art is fitted into it.
     m.art.loadDisplayMode = "scaleToFit"
+    ' The caption wraps to TWO lines, so the meta line has to clear both of
+    ' them. At h+48 a two-line title ran straight through it — "The Smith
+    ' Family (Season 1)" over "1971 · TV" — which is the overlap class the
+    ' owner reported. One line of uItem is ~34px, so two plus a gap is 78.
     m.caption.translation = [0, h + 9]
-    m.meta.translation = [0, h + 48]
+    m.meta.translation = [0, h + 114]
     if m.isTile = true
         m.tileRule.translation = [18, 24]
         m.tileRule.width = 72 : m.tileRule.height = 6
@@ -67,10 +71,21 @@ sub onContent()
         return
     end if
     m.art.visible = true
-    m.tileLabel.visible = false
     m.tileRule.visible = false
     m.plate.color = "0x16161AFF"
     m.art.uri = c.HDPOSTERURL
+    ' A film with no artwork gets its NAME on the plate rather than an empty
+    ' box. An empty 2:3 rectangle beside real posters reads as a failed image
+    ' load, and in a Continue Watching row it is the one thing the viewer most
+    ' expects to recognise.
+    hasArt = (c.HDPOSTERURL <> invalid and c.HDPOSTERURL <> "")
+    m.tileLabel.visible = not hasArt
+    if not hasArt
+        m.tileLabel.text = c.title
+        m.tileLabel.color = m.t.textSec
+        m.tileLabel.width = m.t.posterW - 36
+        m.tileLabel.translation = [18, 36]
+    end if
     m.caption.text = c.title
     m.meta.text = c.SHORTDESCRIPTIONLINE1
 end sub

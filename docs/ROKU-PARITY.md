@@ -611,6 +611,31 @@ glass, and it is where the two defects below came from.
     that travels from the network to a Label — and a closed tag becomes a
     SPACE, not nothing, or "one<br/>two" reads as "onetwo".
 
+## Tick 18 — Library rebuilt, and a way to reach a screen without counting presses
+
+**`contentId=go:<surface>`** jumps straight to any rail destination. Every test
+until now walked the rail with counted key presses, and a miscount looks
+exactly like a bug — twice it sent me hunting defects that were only my own
+choreography (the MiniKeyboard owning its arrows, and a More menu with one
+extra row). A viewer never sees this; a harness needs it.
+
+36. **A lookup does not belong on the far side of a callFunc boundary.**
+    Library was handed the catalog and searched it for every saved id. It
+    failed twice for DIFFERENT reasons — once with good data (mine=3,
+    shelves=25) that produced no rows, once with an argument that arrived
+    empty — and both times it showed its empty state while its own budget line
+    said "2 in progress · 1 playlists". Home has never had this problem
+    because its task builds the rows and its screen only draws them. Library
+    now does the same, and renders.
+37. **A two-line caption needs room for two lines.** The meta line sat at
+    `h + 48` under a caption that wraps to two — "The Smith Family (Season 1)"
+    ran straight through "1971 · TV". The first correction used 78 and still
+    overlapped; the right number is 114, measured off the screen rather than
+    reasoned from a font size I had assumed.
+38. **A film with no artwork gets its NAME, not an empty box.** An empty 2:3
+    rectangle beside real posters reads as a failed image load — and in
+    Continue Watching it is the one tile the viewer most expects to recognise.
+
 ## Open questions for the design tick
 
 1. Which Roku idiom carries Home: a `RowList` of poster rows under a hero, or

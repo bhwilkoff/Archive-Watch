@@ -106,8 +106,11 @@ sub focusContent()
 end sub
 
 sub onRailSelected()
-    id = m.rail.selected
-    print "AWROKU rail-select "; id
+    onRailSelectedID(m.rail.selected)
+end sub
+
+sub onRailSelectedID(id as String)
+        print "AWROKU rail-select "; id
     if id = "home"
         closeBrowse()
         focusContent()
@@ -182,20 +185,81 @@ end sub
 ' Library resolves against BOTH: the shelves it already has, and the viewer's
 ' own resolved items. Wrapping them in one node keeps LibraryScreen's lookup
 ' unchanged.
-function userCatalog() as Object
-    out = CreateObject("roSGNode", "ContentNode")
+' The two places a saved id can be found, handed over as-is. No synthetic
+' tree: cloning 26 shelves plus the resolved items into one node dropped all
+' but three of them, and Library then showed its empty state while its own
+' budget line said "2 in progress".
+' Library's rows, built HERE where every source already lives: the registry,
+' the resolved user items, and Home's shelves. The screen only draws them.
+function libraryPayload() as Object
+    root = CreateObject("roSGNode", "ContentNode")
+    meta = []
+    cw = awContinueWatching()
+    favs = awFavorites()
+
+    cwIDs = []
+    for each e in cw
+        cwIDs.Push(e.id)
+    end for
+    addLibRow(root, meta, "Continue Watching", cwIDs, "")
+    addLibRow(root, meta, "Favorites", favs, "")
+    for each p in awPlaylists()
+        addLibRow(root, meta, p.name, p.ids, p.id)
+    end for
+    watched = []
+    for each r in awProgressRows()
+        if r.dur > 0 and r.posn >= (r.dur * 95) / 100 then watched.Push(r.id)
+    end for
+    ' Watched last: a record, not a recommendation, and it must not bury the
+    ' playlists the viewer made.
+    addLibRow(root, meta, "Watched", watched, "")
+
+    used = awStorageUsed()
+    amount = fmt(Int(used / 1024)) + " KB"
+    if used < 1024 then amount = fmt(used) + " bytes"
+    budget = fmt(favs.Count()) + " saved  ·  " + fmt(cw.Count()) + " in progress  ·  " + fmt(awPlaylists().Count()) + " playlists  ·  " + amount + " of 32 KB used"
+    return { rows: root, meta: meta, budget: budget }
+end function
+
+sub addLibRow(root as Object, meta as Object, title as String, ids as Object, plID as String)
+    if ids.Count() = 0 then return
+    row = root.CreateChild("ContentNode")
+    row.title = title
+    n = 0
+    for each id in ids
+        src = findAnywhere(fmt(id))
+        if src <> invalid
+            row.AppendChild(src.Clone(false))
+            n = n + 1
+        end if
+    end for
+    if n = 0
+        root.RemoveChild(row)
+        return
+    end if
+    meta.Push(plID)
+end sub
+
+' The viewer's own resolved items first — they cover the whole 26,965-row
+' index — then Home's shelves.
+function findAnywhere(id as String) as Object
     if m.userItems <> invalid
-        row = out.CreateChild("ContentNode")
         for i = 0 to m.userItems.GetChildCount() - 1
-            row.AppendChild(m.userItems.GetChild(i).Clone(false))
+            it = m.userItems.GetChild(i)
+            if it.id = id then return it
         end for
     end if
     if m.task <> invalid and m.task.rows <> invalid
-        for i = 0 to m.task.rows.GetChildCount() - 1
-            out.AppendChild(m.task.rows.GetChild(i).Clone(true))
+        rows = m.task.rows
+        for i = 0 to rows.GetChildCount() - 1
+            row = rows.GetChild(i)
+            for j = 0 to row.GetChildCount() - 1
+                it = row.GetChild(j)
+                if it.id = id then return it
+            end for
         end for
     end if
-    return out
+    return invalid
 end function
 
 sub requestUserItems()
@@ -368,10 +432,10 @@ sub onLibraryOptionPicked(pick as String)
         return
     else if pick = "removeitem" and plID <> ""
         awRemoveFromPlaylist(plID, m.library.focusedItem)
-        m.library.callFunc("reload", userCatalog())
+        m.library.callFunc("showRows", libraryPayload())
     else if pick = "deletelist" and plID <> ""
         awDeletePlaylist(plID)
-        m.library.callFunc("reload", userCatalog())
+        m.library.callFunc("showRows", libraryPayload())
     else if pick = "settings"
         openOptions()
         return
@@ -704,7 +768,7 @@ sub onOptionsChanged()
     ' not on the next visit.
     if m.options.changed = "hidewatched" then reapplyHomeFilter()
     if m.options.changed = "progress" and m.route = "library" and m.library <> invalid
-        m.library.callFunc("reload", userCatalog())
+        m.library.callFunc("showRows", libraryPayload())
     end if
 end sub
 
@@ -1114,7 +1178,7 @@ sub openLibrary()
     ' was somewhere else in the app, and a stale Library is a lie about their
     ' own saves.
     requestUserItems()
-    m.library.callFunc("reload", userCatalog())
+    m.library.callFunc("showRows", libraryPayload())
     m.rail.focusOn = false
     m.library.focusOn = true
     m.route = "library"
@@ -1364,6 +1428,14 @@ sub onDeepLink()
         print awStoreSelfTest()
         return
     end if
+    ' Jump straight to a surface. Every test so far has had to walk the rail
+    ' with counted key presses, and a miscount looks exactly like a bug —
+    ' twice it sent me hunting defects that were only my own choreography.
+    ' A viewer never sees this; a harness needs it.
+    if Left(id, 3) = "go:"
+        onRailSelectedID(Mid(id, 4))
+        return
+    end if
     if id = "selftest:layout"
         ' Audits whatever is on screen right now, so the harness can walk the
         ' app and measure each surface as it arrives at it.
@@ -1515,7 +1587,7 @@ sub closePlayer()
     ' Back lands, which is the same rule every other surface here follows.
     if m.cameFrom = "library" and m.library <> invalid
         m.library.visible = true
-        m.library.callFunc("reload", userCatalog())
+        m.library.callFunc("showRows", libraryPayload())
         refocus(m.library)
         m.route = "library"
         return
@@ -1576,7 +1648,7 @@ sub closeDetail()
     end if
     if m.library <> invalid and m.cameFrom = "library"
         m.library.visible = true
-        m.library.callFunc("reload", userCatalog())
+        m.library.callFunc("showRows", libraryPayload())
         m.library.focusOn = true
         m.route = "library"
         return

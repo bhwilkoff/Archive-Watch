@@ -86,8 +86,8 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | tvOS | Roku | Note |
 |---|---|---|
 | Favorites | ✅ | |
-| Continue Watching | ✅ | |
-| Watched list | 🔨 | a Watched row last in Library; not yet driven on the glass |
+| Continue Watching | ✅ | verified rendering in Library with its real posters |
+| Watched list | ✅ | last row in Library, built where the data lives |
 | Playlists (create / add / Play All / remove / delete) | ✅ | store proven by an 18-assertion on-device self-test; Roku's own KeyboardDialog names them |
 | Storage budget stated | ✅ | Roku-specific: 32 KB registry |
 

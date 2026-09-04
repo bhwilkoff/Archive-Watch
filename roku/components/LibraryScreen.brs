@@ -36,74 +36,28 @@ sub init()
     m.rowMeta = []
 end sub
 
-' Built from the ids the registry holds, resolved against the catalog the
-' service already has in memory — Library never fetches anything of its own.
-sub reload(catalog as Object)
-    root = CreateObject("roSGNode", "ContentNode")
-    cw = awContinueWatching()
-    favs = awFavorites()
-
-    m.rowMeta = []
-    print "AWPL library playlists="; awPlaylists().Count()
-    added = addRow(root, "Continue Watching", cw, catalog, true, "")
-    added = added + addRow(root, "Favorites", favs, catalog, false, "")
-    ' Playlists follow the two built-in rows, in creation order — the viewer
-    ' made them, so they are not re-sorted underneath them.
-    for each p in awPlaylists()
-        added = added + addRow(root, p.name, p.ids, catalog, false, p.id)
-    end for
-    ' Watched comes LAST: it is a record, not a recommendation, and putting it
-    ' above the playlists a viewer made would bury their own work under ours.
-    watched = []
-    for each r in awProgressRows()
-        if r.dur > 0 and r.posn >= (r.dur * 95) / 100 then watched.Push(r.id)
-    end for
-    added = added + addRow(root, "Watched", watched, catalog, false, "")
-
+' A pure RENDERER. It builds nothing and looks nothing up.
+'
+' The previous version was handed the catalog and searched it for every saved
+' id, which meant the lookup lived on one side of a callFunc boundary and the
+' data on the other. It failed twice for different reasons — once with good
+' data it could not turn into rows, once with an argument that arrived empty —
+' and both times Library showed its empty state while its own budget line said
+' otherwise. Home has never had this problem because its task builds the rows
+' and its screen only draws them. This now does the same.
+sub showRows(payload as Object)
+    root = payload.rows
+    m.rowMeta = payload.meta
+    n = 0
+    if root <> invalid then n = root.GetChildCount()
     m.rows.content = root
-    m.rows.visible = (added > 0)
-    m.empty.visible = (added = 0)
-    if added = 0
+    m.rows.visible = (n > 0)
+    m.empty.visible = (n = 0)
+    if n = 0
         m.empty.text = "Nothing saved yet. Press Save on any film, add one to a playlist from More, or just start watching — where you stopped shows up here."
     end if
-
-    ' §7.2 — the budget is real and finite, so say where it stands rather than
-    ' waiting to fail silently at the cap.
-    used = awStorageUsed()
-    ' Report BYTES until there are kilobytes to report — "0 KB of 32 KB" reads
-    ' like a broken meter when the truth is that a few saves cost almost nothing.
-    if used < 1024
-        m.budget.text = fmt(favs.Count()) + " saved  ·  " + fmt(cw.Count()) + " in progress  ·  " + fmt(awPlaylists().Count()) + " playlists  ·  " + fmt(used) + " bytes of 32 KB used"
-    else
-        m.budget.text = fmt(favs.Count()) + " saved  ·  " + fmt(cw.Count()) + " in progress  ·  " + fmt(awPlaylists().Count()) + " playlists  ·  " + fmt(Int(used / 1024)) + " KB of 32 KB used"
-    end if
+    m.budget.text = payload.budget
 end sub
-
-function addRow(root as Object, title as String, entries as Object, catalog as Object, isProgress as Boolean, plID as String) as Integer
-    if entries.Count() = 0 then return 0
-    row = root.CreateChild("ContentNode")
-    row.title = title
-    n = 0
-    for each e in entries
-        id = e
-        if isProgress then id = e.id
-        src = findInCatalog(catalog, id)
-        if src <> invalid
-            it = row.CreateChild("ContentNode")
-            it.id = src.id
-            it.title = src.title
-            it.HDPOSTERURL = src.HDPOSTERURL
-            it.SHORTDESCRIPTIONLINE1 = src.SHORTDESCRIPTIONLINE1
-            n = n + 1
-        end if
-    end for
-    if n = 0
-        root.RemoveChild(row)
-        return 0
-    end if
-    m.rowMeta.Push(plID)
-    return 1
-end function
 
 sub onRowFocused()
     idx = m.rows.rowItemFocused
@@ -135,7 +89,25 @@ function focusedRowIDs() as Object
     return out
 end function
 
+' Two sources, searched in order: the viewer's OWN resolved items (a flat list
+' straight from the service, which covers anything in the 26,965-row index),
+' then Home's shelves. The previous version cloned both into one synthetic
+' tree and lost 24 of 27 rows doing it — a lookup does not need a new tree,
+' it needs both places to look.
 function findInCatalog(catalog as Object, id as String) as Object
+    if catalog = invalid then return invalid
+    if catalog.mine <> invalid
+        mine = catalog.mine
+        for i = 0 to mine.GetChildCount() - 1
+            it = mine.GetChild(i)
+            if it.id = id then return it
+        end for
+    end if
+    if catalog.shelves <> invalid then return findInRows(catalog.shelves, id)
+    return findInRows(catalog, id)
+end function
+
+function findInRows(catalog as Object, id as String) as Object
     if catalog = invalid then return invalid
     for i = 0 to catalog.GetChildCount() - 1
         row = catalog.GetChild(i)

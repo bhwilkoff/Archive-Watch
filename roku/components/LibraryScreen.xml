@@ -12,7 +12,7 @@
          when the focused row is Continue Watching or Favorites. -->
     <field id="focusedPlaylist" type="string" />
     <field id="focusedItem" type="string" />
-    <function name="reload" />
+    <function name="showRows" />
     <function name="focusedRowIDs" />
   </interface>
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
