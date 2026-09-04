@@ -34,8 +34,14 @@ sub init()
         { id: "surprise",     label: "Surprise Me" }
     ]
     m.doors = []
+    m.doorPills = []
     y = 0
     for each d in m.doorDefs
+        ' §13.5 — a door is a pill at rest too; a Button paints only its
+        ' focus bitmap, so the rest state is ours to draw.
+        rest = AWPillBuild(m.doorGroup)
+        AWPillLayout(rest, 0, y + 3, 420)
+        m.doorPills.Push(rest)
         b = m.doorGroup.CreateChild("Button")
         b.translation = [0, y]
         b.minWidth = 420
