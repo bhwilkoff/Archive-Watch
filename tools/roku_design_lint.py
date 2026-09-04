@@ -19,6 +19,7 @@ RULES = [
     ("§13.1 system font by name",      re.compile(r'"font:[A-Za-z]+SystemFont"')),
     ("§13.8 instruction on screen",    re.compile(r'\.text\s*=\s*"[^"]*\bPress (OK|Right|Left|Up|Down|\*)\b')),
     ("§13.8 instruction on screen",    re.compile(r'"[^"]*\b(OK|Select) to (open|play|tune)\b')),
+    ("§13.8 instruction on screen",    re.compile(r'"[^"]*\bwith \*')),
     ("§13.2 raw slug as label",        re.compile(r'\.text\s*=\s*UCase\((it|c|item)\.awType\)')),
     ("§13.3 focused label in marquee", re.compile(r'(title|label|caption)\.color\s*=\s*m\.t\.marquee')),
     ("§13.3 orange ring bitmap",       re.compile(r'focus_ring\.9\.png|focus_footprint\.9\.png')),

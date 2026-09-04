@@ -144,8 +144,12 @@ from a scale factor:
 
 | Use | Resting | Focused | Gutter |
 |---|---|---|---|
-| Home shelf poster | 264 × 396 | 288 × 432 | 24 |
+| Home shelf poster | 224 × 336 | 248 × 360 | 24 |
 | Browse grid poster | 192 × 288 | 210 × 315 | 24 |
+
+(§13 amendment: the shelf poster came down from 264 × 396 so two rows sit
+under the hero; the CELL (posterFW/FH) stays 24 px larger than the drawn tile
+because the caption is anchored at the cell height — see ROKU-PARITY lesson 67.)
 | 16:9 shelf item | 384 × 216 | 420 × 237 | 24 |
 
 **4.7 Never reshape the art.** Decision 097 binds here without amendment: a hero

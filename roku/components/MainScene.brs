@@ -1625,7 +1625,7 @@ sub onQueryResults()
     m.pendingParty = false
     m.pendingWall = false
         if m.svc.total = 0
-            m.channels.callFunc("sayNoMatch", "Nothing in the catalog matches that combination. Delete this channel with * and try a wider one.")
+            m.channels.callFunc("sayNoMatch", "Nothing in the catalog matches that combination — a wider one will.")
         else
             m.channels.callFunc("sayNoMatch", "Channel created — " + fmt(m.svc.total) + " films match.")
         end if
@@ -1674,7 +1674,7 @@ sub onQueryResults()
             ' refocus FIRST: it repaints the focused channel, which would
             ' overwrite the message with the default description a frame later.
             refocus(m.channels)
-            m.channels.callFunc("sayNoMatch", "Nothing in the catalog matches this channel. Delete it with * and try a wider combination.")
+            m.channels.callFunc("sayNoMatch", "Nothing in the catalog matches this channel — a wider combination will.")
             return
         end if
         ' Urls are resolved as the queue advances, the same way a playlist does
@@ -1891,6 +1891,10 @@ sub onDeepLink()
     ' A viewer never sees this; a harness needs it.
     if id = "go:cartoonmode"
         openCartoonMode()
+        return
+    end if
+    if id = "go:wall"
+        openWall()
         return
     end if
     if Left(id, 3) = "go:"

@@ -1043,3 +1043,19 @@ Library's full/empty states, Cartoon Mode.
     bitmap, flat-plate buttons — each a shape that came back at least once
     after being fixed. It reads source; the adversarial screenshot pass still
     owns "does it look designed".
+
+90. **The lint's own blind spot.** "Delete this channel with * and try a wider
+    one" is an instruction that never says "Press", so the first lint let it
+    through and the glass caught it on the user-channel screen. The rule now
+    matches `with *` too. A lint is a list of shapes already seen; the
+    screenshot pass is what finds the next shape.
+
+91. **A film with no synopsis is a state, not a gap.** The Detail scene left
+    a 300 px void under the pills for Frankenstein (1931, English dub — no
+    synopsis, no cast in the shard). It now says "The archive holds no
+    synopsis for this copy." in the secondary voice: the honest line about
+    this archive, and a designed page rather than an unfinished one.
+
+**Redesign verified functionally**: audit 34/34, remote response 70 ms median
+/ 132 worst with a Font node and a twelve-Poster frame on every tile; both
+Select sweeps clean.

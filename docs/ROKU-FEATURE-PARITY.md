@@ -145,17 +145,19 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 ## Why cast is a line and not a row of faces
 
 The detail shard carries TMDb profile paths for every credited actor, so a row
-of portraits was available for free. It is not drawn, because on a 1080-line
-screen the vertical budget under the synopsis is about 340 pixels and it is
-already spending it on the buttons and a "more like this" row. A row of six
-faces would push the synopsis off the screen to show information nobody opened
-the page for. Five names on one line answers "who is in this" at a glance and
-costs 24 pixels.
+of portraits was available for free. It is not drawn: Detail is a SCENE
+(ROKU-DESIGN §13.7) — backdrop across the top 60%, the poster inset over the
+seam, eyebrow / title / meta / pills / synopsis / cast stacked to its right —
+and the copy column under the seam holds a three-line synopsis, one cast line
+and the More Like This row before the screen ends. A row of six faces would
+push the synopsis off the screen to show information nobody opened the page
+for. Five names on one line answers "who is in this" at a glance.
 
-Every number in that stack was moved after seeing it collide on the glass:
-the synopsis is capped at four lines, the cast line sits at 672, the buttons at
-738, the row label at 834 and the row at 882 with 108x162 tiles so its bottom
-lands at 1056.
+Geometry since §13 (every value divisible by 3): poster 288×432 at [42,318];
+copy column at x = 378; eyebrow 318, title 348 with aka and meta STACKED under
+the title's rendered height; pills at the seam, never above 606; synopsis at
++84 on a 1,140 px measure (~80 characters), cast at +228; More Like This label
+at 882 and its row at 927 with 90×135 tiles, ending inside the screen.
 
 
 ## Why Share states a URL instead of drawing a QR

@@ -26,7 +26,8 @@ sub init()
     m.chList.numRows = 9
     m.chList.font = m.t.uBody
     m.chList.color = m.t.textPri
-    m.chList.focusedColor = m.t.marquee
+    ' §13.3 — focus is the ring; the name stays light.
+    m.chList.focusedColor = m.t.textPri
     m.chList.focusBitmapUri = "pkg:/images/ring_focus.9.png"
     m.chList.focusFootprintBitmapUri = "pkg:/images/ring_footprint.9.png"
     m.chList.drawFocusFeedbackOnTop = true
@@ -35,6 +36,10 @@ sub init()
     m.chList.ObserveField("itemSelected", "onChannelSelected")
 
     px = 486
+    ' The rule sat at y=288 under a 33 px title at 264 — across its
+    ' descenders, on the glass. Retired, as Detail's was (§13.2): the
+    ' heading carries the name, the guide carries the colour.
+    m.accent.visible = false
     m.accent.translation = [px, 288]
     m.accent.width = 96 : m.accent.height = 6
     m.accent.color = m.t.marquee

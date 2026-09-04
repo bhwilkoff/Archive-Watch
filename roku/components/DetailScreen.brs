@@ -295,6 +295,7 @@ sub onItem()
     end if
     m.aka.text = ""
     m.syn.text = ""
+    m.syn.color = m.t.textPri
     m.cast.text = ""
     m.like.visible = false
     m.likeLabel.visible = false
@@ -316,6 +317,12 @@ sub onDetail()
     d = m.top.detail
     if d = invalid then return
     if d.synopsis <> invalid then m.syn.text = StripHTML(fmt(d.synopsis))
+    ' A film with no synopsis left a 300 px void under the pills. Say so,
+    ' quietly — the honest line about this archive, in the secondary voice.
+    if m.syn.text = ""
+        m.syn.text = "The archive holds no synopsis for this copy."
+        m.syn.color = m.t.textSec
+    end if
 
     ' Decision 100 — show the other release title, never reconcile it. The
     ' comparison folds case and accents on the other platforms; here the shard
