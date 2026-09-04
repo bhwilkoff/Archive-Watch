@@ -55,7 +55,8 @@ START_DEADLINE = 30.0
 # ECP reports position and duration in MILLISECONDS.
 MS = 1000.0
 
-REQUIRED = ["accepted", "resolved", "started", "advanced", "no_error", "error_shown"]
+REQUIRED = ["channel_up", "accepted", "resolved", "started", "advanced",
+            "no_error", "error_shown"]
 
 
 class Console(threading.Thread):
@@ -168,13 +169,35 @@ def warm_channel(console, timeout=45):
     return None
 
 
-def stop_playback(tries=8):
+def channel_active():
+    return "Archive Watch" in roku.curl(f"{roku.ECP}/query/active-app")
+
+
+def ensure_channel(console, timeout=45):
+    """The channel must be RUNNING before a deep link means anything.
+
+    `/input` posts to a running channel and does nothing at all if the channel
+    has exited — the device answers 200 and the film never opens, which the
+    harness read as "the app rejected this film". One false FAIL from this is
+    exactly as damaging as a false PASS.
+    """
+    if channel_active():
+        return True
+    return warm_channel(console, timeout) is not None
+
+
+def stop_playback(tries=4):
     """Get the device to a state where NOTHING is playing, before timing a film.
 
     Without this every check is contaminated by the film before it: the state
     still reads "play", so the next film "starts" in 0.1s and the harness
-    measures the wrong picture entirely. Back leaves the player, which also
-    writes the abandoned film's final bookmark.
+    measures the wrong picture entirely.
+
+    Back is pressed ONLY while something is actually playing, and never more
+    than a few times: Back walks Player -> Detail -> Home -> OUT OF THE
+    CHANNEL, and a blind press loop eventually exits the app. That is what
+    made a healthy film (Princess Nicotine, whose URL serves 200) report as
+    unplayable.
     """
     for _ in range(tries):
         mp = media_player()
@@ -242,6 +265,9 @@ def audit_film(row, console, watch_seconds, do_replay=True):
     # Quiesce FIRST, then mark the console, so nothing from the previous film
     # lands inside this film's evidence window.
     res["checks"]["quiesced"] = stop_playback()
+    # Re-assert the channel AFTER quiescing, because quiescing is what can
+    # close it.
+    res["checks"]["channel_up"] = ensure_channel(console)
     mark = console.mark()
 
     # `/input` hands the parameters to the RUNNING channel through roInput.
