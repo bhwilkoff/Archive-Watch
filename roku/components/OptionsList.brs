@@ -24,7 +24,7 @@ sub init()
     m.list.focusBitmapUri = "pkg:/images/focus_ring.9.png"
     m.list.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
     m.list.drawFocusFeedbackOnTop = true
-    m.list.vertFocusAnimationStyle = "fixedFocusWrap"
+    m.list.vertFocusAnimationStyle = "floatingFocus"
     m.list.ObserveField("itemSelected", "onPick")
 end sub
 

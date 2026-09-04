@@ -1232,6 +1232,12 @@ sub onDeepLink()
         print awStoreSelfTest()
         return
     end if
+    if id = "selftest:layout"
+        ' Audits whatever is on screen right now, so the harness can walk the
+        ' app and measure each surface as it arrives at it.
+        print awAuditLayout(m.top, m.route)
+        return
+    end if
     print "AWDEEP contentId="; id; " mediaType="; m.top.deepLinkMediaType
     if m.svc = invalid or not m.svc.ready
         m.queuedDeepLink = id

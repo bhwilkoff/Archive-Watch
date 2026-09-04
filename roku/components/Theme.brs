@@ -107,3 +107,76 @@ function BroadcastSafe(hex as String) as String
     end for
     return out + "FF"
 end function
+
+
+' Archive and TVDb descriptions arrive with HTML in them — "<div>", "<br />",
+' "&amp;" — and a Label renders those characters literally. Seen on the glass
+' as: "Family Feud S17 E47<div>Aired July 16, 2022". Every string that reaches
+' a Label from the network goes through here.
+function StripHTML(src as String) as String
+    if src = "" then return src
+    out = ""
+    depth = 0
+    for i = 0 to Len(src) - 1
+        c = Mid(src, i + 1, 1)
+        if c = "<"
+            depth = depth + 1
+        else if c = ">"
+            if depth > 0 then depth = depth - 1
+            ' A closed tag becomes a SPACE, not nothing: "one<br/>two" must not
+            ' read as "onetwo".
+            if depth = 0 then out = out + " "
+        else if depth = 0
+            out = out + c
+        end if
+    end for
+    out = DecodeEntities(out)
+    ' Collapse the runs of whitespace the stripping just created.
+    clean = ""
+    prevSpace = false
+    for i = 0 to Len(out) - 1
+        c = Mid(out, i + 1, 1)
+        isSpace = (c = " " or c = Chr(9) or c = Chr(10) or c = Chr(13))
+        if isSpace
+            if not prevSpace then clean = clean + " "
+            prevSpace = true
+        else
+            clean = clean + c
+            prevSpace = false
+        end if
+    end for
+    ' Trim
+    while Len(clean) > 0 and Left(clean, 1) = " "
+        clean = Mid(clean, 2)
+    end while
+    while Len(clean) > 0 and Right(clean, 1) = " "
+        clean = Left(clean, Len(clean) - 1)
+    end while
+    return clean
+end function
+
+function DecodeEntities(src as String) as String
+    out = src
+    pairs = [["&amp;", "&"], ["&lt;", "<"], ["&gt;", ">"], ["&quot;", Chr(34)],
+             ["&#39;", "'"], ["&apos;", "'"], ["&nbsp;", " "], ["&mdash;", "—"],
+             ["&ndash;", "–"], ["&hellip;", "…"], ["&rsquo;", "'"], ["&lsquo;", "'"],
+             ["&ldquo;", Chr(34)], ["&rdquo;", Chr(34)]]
+    for each p in pairs
+        parts = []
+        rest = out
+        idx = Instr(1, rest, p[0])
+        while idx > 0
+            parts.Push(Left(rest, idx - 1))
+            rest = Mid(rest, idx + Len(p[0]))
+            idx = Instr(1, rest, p[0])
+        end while
+        if parts.Count() > 0
+            joined = ""
+            for each x in parts
+                joined = joined + x + p[1]
+            end for
+            out = joined + rest
+        end if
+    end for
+    return out
+end function

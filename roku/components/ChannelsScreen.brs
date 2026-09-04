@@ -28,7 +28,7 @@ sub init()
     m.chList.focusBitmapUri = "pkg:/images/focus_ring.9.png"
     m.chList.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
     m.chList.drawFocusFeedbackOnTop = true
-    m.chList.vertFocusAnimationStyle = "fixedFocusWrap"
+    m.chList.vertFocusAnimationStyle = "floatingFocus"
     m.chList.ObserveField("itemFocused", "onChannelFocused")
     m.chList.ObserveField("itemSelected", "onChannelSelected")
 
@@ -52,7 +52,7 @@ sub init()
     m.guide.focusBitmapUri = "pkg:/images/focus_ring.9.png"
     m.guide.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
     m.guide.drawFocusFeedbackOnTop = true
-    m.guide.vertFocusAnimationStyle = "fixedFocusWrap"
+    m.guide.vertFocusAnimationStyle = "floatingFocus"
     m.guide.ObserveField("itemSelected", "onGuideSelected")
 
     m.empty.font = m.t.uBody : m.empty.color = m.t.textSec
@@ -104,7 +104,7 @@ sub paintChannel(idx as Integer)
         ' Everything already finished is history; the guide starts at what is on.
         if s.endS <= nowS then continue for
         n = root.CreateChild("ContentNode")
-        n.title = fmt(s.prog[1])
+        n.title = StripHTML(fmt(s.prog[1]))
         n.SHORTDESCRIPTIONLINE1 = clockLabel(s.startS)
         if s.startS <= nowS and nowS < s.endS
             n.SHORTDESCRIPTIONLINE2 = "now"

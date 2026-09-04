@@ -24,7 +24,9 @@ sub init()
 
     ' Resume progress for THIS episode — the shelf-level answer to "where was I"
     ' that a series with 39 episodes needs more than a film does.
-    m.bar.translation = [270, 132] : m.bar.height = 6 : m.bar.color = m.t.marquee
+    ' Clear of the blurb's descenders — at 132 it read as an underline of the
+    ' text above it rather than as progress.
+    m.bar.translation = [270, 141] : m.bar.height = 5 : m.bar.color = m.t.marquee
 end sub
 
 sub onContent()

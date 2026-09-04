@@ -138,7 +138,7 @@ end sub
 ' no error, and the reader gets `invalid`. Our own keys are added explicitly.
 sub fillItem(n as Object, r as Object)
     n.id = r[0]
-    n.title = r[1]
+    n.title = StripHTML(fmt(r[1]))
     n.HDPOSTERURL = r[4]
     n.SHORTDESCRIPTIONLINE1 = metaLine(r)
     n.AddField("awBackdrop", "string", false)

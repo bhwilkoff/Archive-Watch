@@ -194,7 +194,7 @@ end sub
 sub onDetail()
     d = m.top.detail
     if d = invalid then return
-    if d.synopsis <> invalid then m.syn.text = d.synopsis
+    if d.synopsis <> invalid then m.syn.text = StripHTML(fmt(d.synopsis))
 
     ' Decision 100 — show the other release title, never reconcile it. The
     ' comparison folds case and accents on the other platforms; here the shard

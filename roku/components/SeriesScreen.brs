@@ -39,7 +39,10 @@ sub init()
     m.seasons.focusBitmapUri = "pkg:/images/focus_ring.9.png"
     m.seasons.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
     m.seasons.drawFocusFeedbackOnTop = true
-    m.seasons.vertFocusAnimationStyle = "fixedFocusWrap"
+    ' NOT fixedFocusWrap: a wrapping list draws its own contents again below a
+    ' divider, so a 7-season show showed "Season 18, 19, 23, Unsorted" and then
+    ' "Season 1, Season 2" again underneath. Seven items do not need wrapping.
+    m.seasons.vertFocusAnimationStyle = "floatingFocus"
     m.seasons.ObserveField("itemFocused", "onSeasonFocused")
 
     m.episodes.translation = [342, 342]
@@ -50,7 +53,7 @@ sub init()
     m.episodes.focusBitmapUri = "pkg:/images/focus_ring.9.png"
     m.episodes.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
     m.episodes.drawFocusFeedbackOnTop = true
-    m.episodes.vertFocusAnimationStyle = "fixedFocusWrap"
+    m.episodes.vertFocusAnimationStyle = "floatingFocus"
     m.episodes.ObserveField("itemSelected", "onEpisodeSelected")
 
     m.empty.font = m.t.uBody : m.empty.color = m.t.textSec
@@ -92,7 +95,7 @@ sub showSeries(d as Object)
         bits.Push(fmt(have) + " episodes")
     end if
     m.meta.text = joinStr(bits, "   ·   ")
-    if d.overview <> invalid then m.overview.text = fmt(d.overview)
+    if d.overview <> invalid then m.overview.text = StripHTML(fmt(d.overview))
     if d.backdropURL <> invalid and d.backdropURL <> ""
         m.wash.uri = fmt(d.backdropURL)
     else if d.posterURL <> invalid
@@ -137,9 +140,9 @@ sub paintSeason(idx as Integer)
         for each e in s.episodes
             n = root.CreateChild("ContentNode")
             n.id = fmt(e.archiveID)
-            n.title = fmt(e.title)
+            n.title = StripHTML(fmt(e.title))
             n.SHORTDESCRIPTIONLINE1 = "S" + fmt(e.seasonNumber) + " · E" + fmt(e.episodeNumber)
-            if e.overview <> invalid then n.SHORTDESCRIPTIONLINE2 = fmt(e.overview)
+            if e.overview <> invalid then n.SHORTDESCRIPTIONLINE2 = StripHTML(fmt(e.overview))
             if e.stillURL <> invalid then n.HDPOSTERURL = fmt(e.stillURL)
         end for
     end if

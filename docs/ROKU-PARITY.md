@@ -581,6 +581,36 @@ this row, and it is recorded as open rather than claimed.
     subtitles.** Without reading it, a correctly side-loaded track that draws
     nothing looks exactly like a bug in the app.
 
+## Tick 13/14 — Detail's last gaps, and a layout audit
+
+Cast (one line of five names) and "More like this" (12 films sampled by type
+and era) close Detail's information gaps. Then the owner reported text overlap
+"throughout the app", which is fair: every collision so far had been found by
+eye, one at a time, which is exactly why they kept reappearing.
+
+**`awAuditLayout()`** walks the live scene graph, asks every visible Label
+where it ACTUALLY is via `sceneBoundingRect()`, and reports two things: any two
+Labels whose rectangles intersect, and any Label crossing 1920x1080. It is
+triggered on whatever is on screen by the deep link
+`contentId=selftest:layout`, so the harness can walk the app and measure each
+surface as it arrives.
+
+Home, Detail and Series: **0 findings**. Its real limitation is recorded rather
+than hidden: **text drawn by a list — a RowList's own row labels, a tile
+component's caption — is not reachable from the Scene's child tree**, so the
+audit measures screen chrome and not shelf captions. That half still needs the
+glass, and it is where the two defects below came from.
+
+34. **A `fixedFocusWrap` list draws its own contents AGAIN below a divider.**
+    A seven-season show read "Season 18, 19, 23, Unsorted" and then "Season 1,
+    Season 2" underneath — which looks exactly like duplicate data. Every list
+    short enough to fit on screen is now `floatingFocus`.
+35. **Raw HTML reaches the screen.** Archive and TVDb descriptions carry
+    `<div>`, `<br />` and `&amp;`, and a Label renders them literally: "Family
+    Feud S17 E47<div>Aired July 16, 2022". `StripHTML` now sits on every string
+    that travels from the network to a Label — and a closed tag becomes a
+    SPACE, not nothing, or "one<br/>two" reads as "onetwo".
+
 ## Open questions for the design tick
 
 1. Which Roku idiom carries Home: a `RowList` of poster rows under a hero, or

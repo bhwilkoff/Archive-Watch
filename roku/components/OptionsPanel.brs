@@ -32,7 +32,7 @@ sub init()
     m.rowsG.focusBitmapUri = "pkg:/images/focus_ring.9.png"
     m.rowsG.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
     m.rowsG.drawFocusFeedbackOnTop = true
-    m.rowsG.vertFocusAnimationStyle = "fixedFocusWrap"
+    m.rowsG.vertFocusAnimationStyle = "floatingFocus"
     m.rowsG.ObserveField("itemSelected", "onRow")
 
     m.note.font = m.t.uMeta : m.note.color = m.t.textSec
