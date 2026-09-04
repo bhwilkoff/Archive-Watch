@@ -134,7 +134,10 @@ end function
 
 sub submit()
     svc = m.top.service
-    if svc = invalid then return
+    if svc = invalid
+        print "AWBROWSE submit ABORTED — no service node"
+        return
+    end if
     svc.qType = typeValueToId(m.chipDefs[0].values[m.chipIndex[0]])
     dv = m.chipDefs[1].values[m.chipIndex[1]]
     if dv = "All"
@@ -151,6 +154,7 @@ sub submit()
     svc.qSort = sv
     svc.qText = ""
     ' One bump, after every field is set — the service triggers on this alone.
+    print "AWBROWSE submit sort="; sv; " qid="; svc.queryId
     svc.queryId = svc.queryId + 1
 end sub
 

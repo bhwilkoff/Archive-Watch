@@ -663,6 +663,32 @@ depends on its font and its content, sitting a guessed distance from the next
 thing. The fix is always to measure the rendered pixels rather than reason from
 a font size.
 
+## Tick 20 — two sorts that never worked, and why nothing said so
+
+Verifying the Shuffle chip found that Browse's **Newest and Oldest had never
+worked at all**, and that A-Z had been returning popularity order under an
+alphabetical label.
+
+41. **A quietly O(n^2) sort is indistinguishable from a dead thread.**
+    `sortByYear` was an insertion sort. On a 9,035-hit result that is ~40
+    million comparisons on the Task thread: it never crashed, never finished,
+    and every later query queued behind it — so the chip cycled, the label
+    changed, and the grid never updated again for the rest of the session.
+    There is no error in any log for this. `roArray.SortBy` sorts an array of
+    associative arrays by a field natively, so rows are wrapped, sorted and
+    unwrapped: **422–602 ms for all five modes**, measured.
+42. **A chip value with no branch behind it silently means "no change".**
+    "A-Z" was in the Sort list and in none of the arms of the sort chain, so
+    it fell through and returned the popularity order it started with. It
+    looked like a working control because the label changed. Sorted
+    case-insensitively — "the Cabinet" and "The Cabinet" landing in different
+    halves of the alphabet is not an alphabet.
+
+**How this was found is the point.** The Shuffle verification was three lines
+of harness: press the chip, read `AWSVC query sort=…`, compare the grid. The
+missing query line is what exposed it, not the screenshot — the screen looked
+plausible throughout, because a stale grid under a changed label always does.
+
 ## Open questions for the design tick
 
 1. Which Roku idiom carries Home: a `RowList` of poster rows under a hero, or

@@ -49,12 +49,12 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 |---|---|---|
 | Type facet | ✅ | |
 | Decade / Era facet | ✅ | |
-| Sort (Popular / Newest / Oldest / A–Z) | ✅ | year-less rows sort LAST |
+| Sort (Popular / Newest / Oldest / A–Z) | ✅ | all five measured on the device at 422–602 ms; year-less rows sort LAST |
 | Top Rated sort | ⏳ | no rating in the index |
 | Genre / Keyword / Studio facets | ⏳ | index carries a search blob, not facet columns |
 | Result count in the heading | ✅ | |
 | Empty state that says what to change | ✅ | |
-| Shuffle again | 🔨 | a Shuffle sort on the Browse chip; not yet driven on the glass |
+| Shuffle again | ✅ | a fifth sort mode; verified returning a different set |
 | TV browse → series drill-in | ✅ | **was a dead end until this tick** |
 
 ## Series

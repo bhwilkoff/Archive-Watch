@@ -302,6 +302,20 @@ sub runQuery()
         hits = sorted
     else if sort = "newest" or sort = "oldest"
         hits = sortByYear(hits, sort = "oldest")
+    else if sort = "alpha"
+        ' A-Z was in the chip list and in NO branch of this chain, so it fell
+        ' through and returned popularity order under an alphabetical label.
+        ' Sorted case-insensitively, because "the Cabinet" and "The Cabinet"
+        ' landing in different halves of the alphabet is not an alphabet.
+        wrapped = []
+        for each r in hits
+            wrapped.Push({ t: LCase(fmt(r[1])), r: r })
+        end for
+        wrapped.SortBy("t")
+        hits = []
+        for each w in wrapped
+            hits.Push(w.r)
+        end for
     else if sort = "shuffle"
         ' Fisher-Yates over the HITS, not the catalog: shuffling 26,965 rows to
         ' show 300 of them would be most of a second on the wrong thread.
@@ -318,7 +332,7 @@ sub runQuery()
     for i = 0 to n - 1
         appendRow(root, hits[i])
     end for
-    print "AWSVC query type="; wantType; " decade="; decade; " text='"; text; "' hits="; total; " in "; span.TotalMilliseconds(); "ms"
+    print "AWSVC query type="; wantType; " decade="; decade; " sort="; sort; " text='"; text; "' hits="; total; " in "; span.TotalMilliseconds(); "ms"
     m.top.total = total
     m.top.results = root
 end sub
@@ -329,28 +343,37 @@ function sortByYear(rows as Object, ascending as Boolean) as Object
     ' A year-less row sorts LAST either way. SQLite's NULL-first default is
     ' exactly the bug the Android TV audit found in Browse's "Oldest", where
     ' page one was year-less modern uploads instead of the oldest films.
+    '
+    ' This WAS an insertion sort. On a 9,035-hit result that is ~40 million
+    ' comparisons on the Task thread — it never crashed and it never finished
+    ' either, so "Newest" and "Oldest" simply stopped responding and every
+    ' later query queued behind them. A sort that is quietly O(n^2) looks
+    ' exactly like a dead thread from the outside.
+    '
+    ' roArray.SortBy sorts an array of ASSOCIATIVE ARRAYS by a field, natively,
+    ' so the rows are wrapped, sorted and unwrapped.
     withYear = []
     without = []
     for each r in rows
-        if r[2] = invalid then without.Push(r) else withYear.Push(r)
+        if r[2] = invalid
+            without.Push(r)
+        else
+            withYear.Push({ y: r[2], r: r })
+        end if
     end for
-    n = withYear.Count()
-    for i = 1 to n - 1
-        cur = withYear[i]
-        j = i - 1
-        while j >= 0
-            cmp = false
-            if ascending then cmp = (withYear[j][2] > cur[2]) else cmp = (withYear[j][2] < cur[2])
-            if not cmp then exit while
-            withYear[j + 1] = withYear[j]
-            j = j - 1
-        end while
-        withYear[j + 1] = cur
+    if ascending
+        withYear.SortBy("y")
+    else
+        withYear.SortBy("y", "r")
+    end if
+    out = []
+    for each w in withYear
+        out.Push(w.r)
     end for
     for each r in without
-        withYear.Push(r)
+        out.Push(r)
     end for
-    return withYear
+    return out
 end function
 
 function metaFor(r as Object) as String
