@@ -52,6 +52,8 @@ sub init()
     m.pendingUserItems = false
     m.userItems = invalid
     m.pendingLike = ""
+    m.pendingUserChannel = invalid
+    m.pendingChCheck = invalid
     m.idLineup = invalid
     m.moreMode = "detail"
     m.autoPlay = false
@@ -369,6 +371,109 @@ end sub
 ' `*` in Library is contextual: it acts on the row the viewer is standing in.
 ' Roku reserves `*` for options, and the option a viewer wants here is about
 ' THIS playlist, not about the app.
+' Roku has no place for a "create" form, and a KeyboardDialog per field would
+' be four dialogs deep. Two option lists — a type, then an era — name the
+' channel themselves: "Silent films from the 1920s".
+sub openChannelOptions()
+    if m.more = invalid
+        m.more = m.top.FindNode("options").CreateChild("OptionsList")
+        m.more.ObserveField("chosen", "onMorePicked")
+        m.more.ObserveField("closed", "onMoreClosed")
+    end if
+    opts = [{ id: "chnew", label: "Create a channel…" }]
+    if m.channels.focusedUserChannel <> ""
+        opts.Push({ id: "chdel", label: "Delete this channel" })
+    end if
+    opts.Push({ id: "settings", label: "App settings…" })
+    opts.Push({ id: "cancel", label: "Done" })
+    m.moreMode = "channel"
+    m.more.callFunc("open", { title: "Channels", options: opts })
+end sub
+
+sub onChannelOptionPicked(pick as String)
+    if pick = "chnew"
+        m.newChType = ""
+        opts = [
+            { id: "ct:feature-film", label: "Feature films" },
+            { id: "ct:silent-film",  label: "Silent films" },
+            { id: "ct:animation",    label: "Animation" },
+            { id: "ct:short-film",   label: "Short films" },
+            { id: "ct:newsreel",     label: "Newsreels" },
+            { id: "ct:documentary",  label: "Documentaries" },
+            { id: "ct:ephemeral",    label: "Ephemeral films" },
+            { id: "ct:",             label: "Anything" }
+        ]
+        m.moreMode = "chtype"
+        m.more.callFunc("open", { title: "What plays on it?", options: opts })
+        return
+    else if pick = "chdel"
+        awDeleteUserChannel(m.channels.focusedUserChannel)
+        reloadChannels()
+    else if pick = "settings"
+        openOptions()
+        return
+    end if
+    refocus(m.channels)
+end sub
+
+sub onChannelTypePicked(pick as String)
+    if Left(pick, 3) <> "ct:"
+        refocus(m.channels)
+        return
+    end if
+    m.newChType = Mid(pick, 4)
+    opts = []
+    for d = 1900 to 1970 step 10
+        opts.Push({ id: "cd:" + fmt(d), label: "The " + fmt(d) + "s" })
+    end for
+    opts.Push({ id: "cd:0", label: "Any era" })
+    m.moreMode = "chdecade"
+    m.more.callFunc("open", { title: "From when?", options: opts })
+end sub
+
+sub onChannelDecadePicked(pick as String)
+    if Left(pick, 3) <> "cd:"
+        refocus(m.channels)
+        return
+    end if
+    dec = Int(Val(Mid(pick, 4)))
+    ' Name it from the facets rather than asking for one: a viewer who wanted
+    ' to type a name has a keyboard in Playlists, and a channel described by
+    ' what it plays needs no other name.
+    label = prettyChTypeLabel(m.newChType)
+    if dec > 0 then label = label + " · " + fmt(dec) + "s"
+    if awCreateUserChannel(label, m.newChType, dec) = invalid
+        print "AWCH channel limit reached"
+    end if
+    reloadChannels()
+    ' Check it can actually play something, now, while the viewer is still
+    ' here to change it — rather than letting them discover it on Play.
+    m.pendingChCheck = { type: m.newChType, decade: dec }
+    m.svc.qType = m.newChType
+    m.svc.qDecade = dec
+    m.svc.qSort = "popular"
+    m.svc.qText = ""
+    m.svc.queryId = m.svc.queryId + 1
+    refocus(m.channels)
+end sub
+
+function prettyChTypeLabel(t as String) as String
+    if t = "feature-film" then return "Feature films"
+    if t = "silent-film" then return "Silent films"
+    if t = "animation" then return "Animation"
+    if t = "short-film" then return "Short films"
+    if t = "newsreel" then return "Newsreels"
+    if t = "documentary" then return "Documentaries"
+    if t = "ephemeral" then return "Ephemeral"
+    return "Anything"
+end function
+
+sub reloadChannels()
+    if m.chtask <> invalid and m.chtask.status = "ready"
+        m.channels.callFunc("showChannels", m.chtask.channels)
+    end if
+end sub
+
 sub openSeriesOptions()
     if m.more = invalid
         m.more = m.top.FindNode("options").CreateChild("OptionsList")
@@ -441,6 +546,14 @@ end sub
 ' Play All over a list of archiveIDs. Each url is resolved one at a time as the
 ' queue advances, because a playlist of 100 films must not fetch 100 shards to
 ' start the first one.
+function idsOf(q as Object) as Object
+    out = []
+    for each x in q
+        out.Push(x.id)
+    end for
+    return out
+end function
+
 sub startIDLineup(ids as Object)
     m.idLineup = { ids: ids, index: 0 }
     playIDLineup()
@@ -639,6 +752,8 @@ sub onMoreClosed()
         refocus(m.library)
     else if m.moreMode = "series"
         refocus(m.series)
+    else if m.moreMode = "channel" or m.moreMode = "chtype" or m.moreMode = "chdecade"
+        refocus(m.channels)
     else
         refocus(m.detail)
     end if
@@ -672,6 +787,18 @@ sub onMorePicked()
     end if
     if m.moreMode = "series"
         onSeriesOptionPicked(pick)
+        return
+    end if
+    if m.moreMode = "channel"
+        onChannelOptionPicked(pick)
+        return
+    end if
+    if m.moreMode = "chtype"
+        onChannelTypePicked(pick)
+        return
+    end if
+    if m.moreMode = "chdecade"
+        onChannelDecadePicked(pick)
         return
     end if
     if m.moreMode = "library"
@@ -928,6 +1055,8 @@ sub onRandomPicked()
     m.pendingUserItems = false
     m.userItems = invalid
     m.pendingLike = ""
+    m.pendingUserChannel = invalid
+    m.pendingChCheck = invalid
     m.idLineup = invalid
     m.moreMode = "detail"
     m.svc.qRandomType = ""
@@ -1150,7 +1279,17 @@ end sub
 ' position: a channel is a clock, and "continue watching" a clock is nonsense.
 sub onTune()
     t = m.channels.tune
-    if t = invalid or t.url = invalid or t.url = "" then return
+    if t = invalid then return
+    if t.userChannel = true
+        m.pendingUserChannel = t
+        m.svc.qType = t.type
+        m.svc.qDecade = t.decade
+        m.svc.qSort = "shuffle"
+        m.svc.qText = ""
+        m.svc.queryId = m.svc.queryId + 1
+        return
+    end if
+    if t.url = invalid or t.url = "" then return
     ' The channel becomes a queue: this programme, then a commercial break, then
     ' the next programme, and so on. The ads have shipped in channel-pools.json
     ' since the guide was built and nothing had ever played one.
@@ -1302,8 +1441,45 @@ sub onQueryResults()
     ' A deep-link lookup borrows the same results field as Browse and Search,
     ' so it is claimed FIRST and consumed — otherwise a one-row result would
     ' repaint whichever of those happens to be visible.
+    if m.pendingChCheck <> invalid
+        m.pendingChCheck = invalid
+        if m.svc.total = 0
+            m.channels.callFunc("sayNoMatch", "Nothing in the catalog matches that combination. Delete this channel with * and try a wider one.")
+        else
+            m.channels.callFunc("sayNoMatch", "Channel created — " + fmt(m.svc.total) + " films match. Press OK to start.")
+        end if
+        return
+    end if
+    if m.pendingUserChannel <> invalid
+        spec = m.pendingUserChannel
+        m.pendingUserChannel = invalid
+    m.pendingChCheck = invalid
+        res = m.svc.results
+        q = []
+        if res <> invalid
+            for i = 0 to res.GetChildCount() - 1
+                it = res.GetChild(i)
+                q.Push({ url: "", title: it.title, id: it.id })
+                if q.Count() >= 20 then exit for
+            end for
+        end if
+        if q.Count() = 0
+            print "AWCH user channel matched nothing"
+            ' refocus FIRST: it repaints the focused channel, which would
+            ' overwrite the message with the default description a frame later.
+            refocus(m.channels)
+            m.channels.callFunc("sayNoMatch", "Nothing in the catalog matches this channel. Delete it with * and try a wider combination.")
+            return
+        end if
+        ' Urls are resolved as the queue advances, the same way a playlist does
+        ' — 20 shard fetches to start one film would be absurd.
+        startIDLineup(idsOf(q))
+        return
+    end if
     if m.pendingLike <> invalid and m.pendingLike <> ""
         m.pendingLike = ""
+    m.pendingUserChannel = invalid
+    m.pendingChCheck = invalid
         m.svc.qLike = {}
         if m.detail <> invalid then m.detail.callFunc("showLike", m.svc.results)
         return
@@ -1751,6 +1927,10 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     ' takes it there fails certification.
     if key = "options" and m.route = "library" and m.library <> invalid
         openLibraryOptions()
+        return true
+    end if
+    if key = "options" and m.route = "channels" and m.channels <> invalid
+        openChannelOptions()
         return true
     end if
     if key = "options" and m.route = "series" and m.series <> invalid

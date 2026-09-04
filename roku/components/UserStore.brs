@@ -154,7 +154,7 @@ end function
 
 ' How full the 32 KB budget is, so Library can tell the truth about it.
 function awStorageUsed() as Integer
-    return Len(awReadKey("fav")) + Len(awReadKey("prog")) + Len(awReadKey("pl"))
+    return Len(awReadKey("fav")) + Len(awReadKey("prog")) + Len(awReadKey("pl")) + Len(awReadKey("uch"))
 end function
 
 ' ---- settings -------------------------------------------------------------
@@ -366,6 +366,22 @@ function awStoreSelfTest() as String
         if awPlaylists().Count() <> 0 then fails.Push("deletePlaylist did not delete")
     end if
 
+    savedUch = awReadKey("uch")
+    awWriteKey("uch", "")
+    uid = awCreateUserChannel("Test " + Chr(9) + "Channel", "silent-film", 1920)
+    if uid = invalid
+        fails.Push("createUserChannel refused")
+    else
+        ch = awUserChannels()
+        if ch.Count() <> 1 then fails.Push("expected 1 user channel, got " + fmt(ch.Count()))
+        if Instr(1, ch[0].name, Chr(9)) > 0 then fails.Push("tab survived sanitize in a channel name")
+        if ch[0].type <> "silent-film" then fails.Push("channel type not stored")
+        if ch[0].decade <> 1920 then fails.Push("channel decade not stored")
+        awDeleteUserChannel(uid)
+        if awUserChannels().Count() <> 0 then fails.Push("deleteUserChannel did not delete")
+    end if
+    awWriteKey("uch", savedUch)
+
     awSetSetting("aw_test_flag", true)
     if not awGetSetting("aw_test_flag", false) then fails.Push("setting did not persist")
     awSetSetting("aw_test_flag", false)
@@ -375,10 +391,56 @@ function awStoreSelfTest() as String
     awWriteKey("prog", savedProg)
     awWriteKey("pl", savedPl)
 
-    if fails.Count() = 0 then return "AWPL selftest PASS (18 assertions)"
+    if fails.Count() = 0 then return "AWPL selftest PASS (23 assertions)"
     out = "AWPL selftest FAIL:"
     for each f in fails
         out = out + Chr(10) + "   - " + f
     end for
     return out
 end function
+
+' ---- user channels --------------------------------------------------------
+'
+' A channel the viewer defined: a name plus the two facets the web index can
+' actually answer (content type and decade). One line each, tab separated, in
+' the same registry the rest of this file uses.
+function awMaxUserChannels() as Integer : return 10 : end function
+
+function awUserChannels() as Object
+    out = []
+    for each line in awSplit(awReadKey("uch"), Chr(10))
+        if line <> ""
+            f = awSplit(line, Chr(9))
+            if f.Count() >= 4
+                out.Push({ id: f[0], name: f[1], type: f[2], decade: Int(Val(f[3])) })
+            end if
+        end if
+    end for
+    return out
+end function
+
+function awCreateUserChannel(name as String, chType as String, decade as Integer) as Dynamic
+    lists = awUserChannels()
+    if lists.Count() >= awMaxUserChannels() then return invalid
+    id = "u" + fmt(nowSecondsStore())
+    for each c in lists
+        if c.id = id then id = id + "x"
+    end for
+    lists.Push({ id: id, name: awSanitizeName(name), type: chType, decade: decade })
+    rows = []
+    for each c in lists
+        rows.Push(c.id + Chr(9) + c.name + Chr(9) + c.type + Chr(9) + fmt(c.decade))
+    end for
+    awWriteKey("uch", awJoin(rows, Chr(10)))
+    return id
+end function
+
+sub awDeleteUserChannel(chID as String)
+    rows = []
+    for each c in awUserChannels()
+        if c.id <> chID
+            rows.Push(c.id + Chr(9) + c.name + Chr(9) + c.type + Chr(9) + fmt(c.decade))
+        end if
+    end for
+    awWriteKey("uch", awJoin(rows, Chr(10)))
+end sub

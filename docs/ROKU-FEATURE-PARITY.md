@@ -79,7 +79,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Never writes resume progress | ✅ | |
 | Commercial breaks woven | ✅ | 1–2 vintage ads per break; lineup shape printed as evidence |
 | VHS look | ⏳ | |
-| User-created channels | ⏳ | |
+| User-created channels | ✅ | two option lists (type, then era) name the channel themselves; deletable from `*` |
 
 ## Library
 

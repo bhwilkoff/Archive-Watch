@@ -12,10 +12,14 @@
     <field id="tune" type="assocarray" alwaysNotify="true" />
     <field id="chosen" type="string" alwaysNotify="true" />
     <field id="exitLeft" type="boolean" alwaysNotify="true" />
+    <!-- Which channel the focus is on, and whether the viewer made it. -->
+    <field id="focusedUserChannel" type="string" />
     <function name="showChannels" />
+    <function name="sayNoMatch" />
   </interface>
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/Sched.brs" />
+  <script type="text/brightscript" uri="pkg:/components/UserStore.brs" />
   <script type="text/brightscript" uri="pkg:/components/ChannelsScreen.brs" />
   <children>
     <Label id="heading" />
