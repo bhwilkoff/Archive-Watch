@@ -82,7 +82,7 @@ sub onStatus()
 end sub
 
 sub focusRail()
-    m.rail.focusOn = true
+    refocus(m.rail)
     m.home.focusOn = false
     m.rail.setFocus(true)
     print "AWFOCUS rail"
@@ -90,7 +90,7 @@ end sub
 
 sub focusContent()
     m.rail.focusOn = false
-    m.home.focusOn = true
+    refocus(m.home)
     m.home.setFocus(true)
     print "AWFOCUS content"
 end sub
@@ -150,7 +150,7 @@ sub openBrowse(scope as String)
     ' is why every chip press was swallowed — the Button never saw an OK, so
     ' buttonSelected never fired and the screen looked inert while rendering
     ' perfectly.
-    m.browse.focusOn = true
+    refocus(m.browse)
     m.route = "browse"
     print "AWFOCUS browse "; scope
 end sub
@@ -161,6 +161,7 @@ sub closeBrowse()
         m.browse.focusOn = false
     end if
     m.content.visible = true
+    if m.home <> invalid then m.home.onScreen = true
 end sub
 
 ' Hide-watched is applied HERE rather than in the task: the task's rows are the
@@ -857,6 +858,12 @@ end sub
 ' all. After an overlay steals focus, the field is still true while the actual
 ' focus is gone, and every key then falls through to the Scene: the remote goes
 ' dead with no error anywhere. Always toggle.
+' Setting `focusOn = true` on a node whose field is ALREADY true fires no
+' onChange, so the screen never claims focus and the press goes to whatever
+' was focused before it. That is not theoretical: a sweep found Select on
+' Collections opening a film, and Select on Library starting a channel,
+' because the previous surface still held focus. Every surface entry goes
+' through here.
 sub refocus(node as Object)
     if node = invalid then return
     node.focusOn = false
@@ -920,6 +927,7 @@ sub hideAllSurfaces()
     closeSeries()
     if m.surprise <> invalid then m.surprise.visible = false
     m.content.visible = false
+    if m.home <> invalid then m.home.onScreen = false
     m.loading.visible = false
     if m.detail <> invalid then m.detail.visible = false
 end sub
@@ -1032,6 +1040,7 @@ sub closeSurprise()
         m.surprise.focusOn = false
     end if
     m.content.visible = true
+    if m.home <> invalid then m.home.onScreen = true
 end sub
 
 sub onSurpriseAction()
@@ -1124,6 +1133,7 @@ sub closeSeries()
         m.series.focusOn = false
     end if
     m.content.visible = true
+    if m.home <> invalid then m.home.onScreen = true
 end sub
 
 ' An episode's playable url lives in its own detail shard, exactly like a film's
@@ -1287,6 +1297,7 @@ sub closeChannels()
         m.channels.focusOn = false
     end if
     m.content.visible = true
+    if m.home <> invalid then m.home.onScreen = true
 end sub
 
 sub onChannelItemChosen()
@@ -1354,6 +1365,7 @@ sub closeWall()
     end if
     setChromeVisible(true)
     m.content.visible = true
+    if m.home <> invalid then m.home.onScreen = true
     openSurprise()
 end sub
 
@@ -1389,7 +1401,7 @@ sub openShelfSurface()
     ' Built once per session: 26 rows over a 27,000-row index is a real scan,
     ' and the membership cannot change while the channel is open.
     if m.collectionsBuilt = true
-        m.collections.focusOn = true
+        refocus(m.collections)
     else
         m.pendingCollections = true
         m.svc.qCollections = true
@@ -1402,7 +1414,7 @@ sub openCollections()
     m.collections.callFunc("setHeading", { title: "Collections",
         empty: "Collections could not be loaded. Check the network and try again." })
     if m.collectionsBuilt = true and m.lastShelf = "collections"
-        m.collections.focusOn = true
+        refocus(m.collections)
         return
     end if
     m.lastShelf = "collections"
@@ -1418,6 +1430,7 @@ sub closeCollections()
         m.collections.focusOn = false
     end if
     m.content.visible = true
+    if m.home <> invalid then m.home.onScreen = true
 end sub
 
 sub onCollectionChosen()
@@ -1440,7 +1453,7 @@ sub openLibrary()
     requestUserItems()
     m.library.callFunc("showRows", libraryPayload())
     m.rail.focusOn = false
-    m.library.focusOn = true
+    refocus(m.library)
     m.route = "library"
     print "AWFOCUS library"
 end sub
@@ -1451,6 +1464,7 @@ sub closeLibrary()
         m.library.focusOn = false
     end if
     m.content.visible = true
+    if m.home <> invalid then m.home.onScreen = true
 end sub
 
 sub onLibraryChosen()
@@ -1471,7 +1485,7 @@ sub openSearch()
     hideAllSurfaces()
     m.search.visible = true
     m.rail.focusOn = false
-    m.search.focusOn = true
+    refocus(m.search)
     m.search.callFunc("resetSearch")
     m.route = "search"
     print "AWFOCUS search"
@@ -1483,6 +1497,7 @@ sub closeSearch()
         m.search.focusOn = false
     end if
     m.content.visible = true
+    if m.home <> invalid then m.home.onScreen = true
 end sub
 
 sub onSearchChosen()
@@ -1606,7 +1621,7 @@ sub onQueryResults()
         m.svc.qCartoons = false
         m.collectionsBuilt = true
         m.collections.callFunc("showResults", m.svc.results, m.svc.total)
-        m.collections.focusOn = true
+        refocus(m.collections)
         return
     end if
     if m.pendingDeepLink <> invalid and m.pendingDeepLink <> ""
@@ -1972,31 +1987,32 @@ sub closeDetail()
     end if
     if m.collections <> invalid and m.cameFrom = "collections"
         m.collections.visible = true
-        m.collections.focusOn = true
+        refocus(m.collections)
         m.route = "collections"
         return
     end if
     if m.library <> invalid and m.cameFrom = "library"
         m.library.visible = true
         m.library.callFunc("showRows", libraryPayload())
-        m.library.focusOn = true
+        refocus(m.library)
         m.route = "library"
         return
     end if
     if m.search <> invalid and m.cameFrom = "search"
         m.search.visible = true
-        m.search.focusOn = true
+        refocus(m.search)
         m.route = "search"
         return
     end if
     if m.browse <> invalid and m.cameFromBrowse = true
         m.browse.visible = true
-        m.browse.focusOn = true
+        refocus(m.browse)
         m.browse.setFocus(true)
         m.route = "browse"
         return
     end if
     m.content.visible = true
+    if m.home <> invalid then m.home.onScreen = true
     focusContent()
     m.route = "home"
 end sub

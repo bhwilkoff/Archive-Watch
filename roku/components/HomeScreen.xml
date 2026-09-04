@@ -6,6 +6,7 @@
     <field id="rowsContent" type="node" onChange="onRows" />
     <field id="heroContent" type="node" onChange="onHero" />
     <field id="focusOn" type="boolean" onChange="onFocusOn" />
+    <field id="onScreen" type="boolean" onChange="onOnScreen" />
     <field id="exitLeft" type="boolean" alwaysNotify="true" />
     <field id="chosen" type="string" alwaysNotify="true" />
   </interface>
@@ -40,6 +41,9 @@
       <RowList id="rows" />
     </Group>
     <Timer id="heroTimer" duration="9" repeat="true" />
+    <!-- Holding Right through a 12-title pool must not queue twelve backdrop
+         downloads. The copy changes on the press; the ART settles after. -->
+    <Timer id="heroArtTimer" duration="0.25" repeat="false" />
     <Animation id="scrollAnim" duration="0.25" easeFunction="outQuad">
       <Vector2DFieldInterpolator id="scrollInterp" key="[0.0,1.0]" fieldToInterp="scroll.translation" />
     </Animation>

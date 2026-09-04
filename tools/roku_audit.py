@@ -262,6 +262,36 @@ def main():
     ser = con.wait_for(m, "AWSER ", timeout=20)
     check("Browse to TV opens a series spine", bool(ser), ser or "TV browse opened a film, not a spine")
 
+    # A surface that cannot claim focus traps the viewer on the previous one.
+    # Found by sweep: Select on an EMPTY Library started a channel, because
+    # Channels still held focus — the focus claim was gated on `rows.visible`.
+    m = con.mark()
+    link("go%3Alibrary")
+    time.sleep(4)
+    key("select")
+    ev = [l for l in con.since(m) if l.startswith("AWKEY OK route=")]
+    where = ev[-1].split("route=")[-1].strip() if ev else ""
+    check("an empty Library keeps its own focus", where == "library",
+          ev[-1] if ev else "Select on Library reached no screen at all")
+
+    # The hero used to rotate on every surface, loading art for a screen
+    # nobody was looking at and changing under the viewer before they returned.
+    m = con.mark()
+    link("go%3Asearch")
+    time.sleep(12)
+    stray = [l for l in con.since(m) if l.startswith("AWHERO index=")]
+    check("the hero does not rotate off screen", not stray,
+          f"{len(stray)} rotations while Search was up" if stray else "")
+
+    # Search reaches the catalog and ranks title matches first.
+    m = con.mark()
+    for ch in "kane":
+        roku.press("Lit_" + ch, settle=0.35)
+    time.sleep(3)
+    q = con.wait_for(m, "AWSVC query", timeout=10)
+    check("search queries the catalog", bool(q) and "hits=" in q and " 0 in " not in q,
+          q or "typing produced no query")
+
     print("\nstate")
     m = con.mark()
     link("selftest%3Astore")

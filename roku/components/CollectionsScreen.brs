@@ -92,7 +92,18 @@ sub onSelected()
 end sub
 
 sub onFocusOn()
-    if m.top.focusOn and m.rows.visible then m.rows.setFocus(true)
+    if not m.top.focusOn then return
+    ' A screen that CANNOT take focus traps the viewer on the previous one.
+    ' This used to claim focus only when the rows were visible, so an empty
+    ' Library left focus on whatever was underneath — a sweep found Select
+    ' here starting a channel, because Channels still held it. When there are
+    ' no rows the Group itself takes focus, which is enough for Back and Left
+    ' to reach this screen's own key handler.
+    if m.rows.visible
+        m.rows.setFocus(true)
+    else
+        m.top.setFocus(true)
+    end if
 end sub
 
 function onKeyEvent(key as String, press as Boolean) as Boolean

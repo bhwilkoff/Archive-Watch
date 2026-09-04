@@ -8,6 +8,11 @@
   <script type="text/brightscript" uri="pkg:/components/UserStore.brs" />
   <script type="text/brightscript" uri="pkg:/components/EpisodeRow.brs" />
   <children>
+    <!-- The still, and behind it a typographic card for the majority of this
+         catalog's spines, which publish no episode art at all. A blank left
+         third reads as a broken row. -->
+    <Rectangle id="card" />
+    <Label id="cardText" />
     <Poster id="still" />
     <Label id="num" />
     <Label id="title" />

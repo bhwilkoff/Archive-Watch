@@ -528,6 +528,22 @@ sub runQuery()
         end for
     end if
 
+    ' A TEXT search ranks title matches above blob matches. The blob carries
+    ' keywords, cast and director, so searching "kane" returned four Kaneto
+    ' Shindo films above "Martin Kane" — every one a legitimate hit, and none
+    ' of them what was asked for. The blob matches still appear; they follow.
+    if text <> ""
+        titled = []
+        rest = []
+        for each r in hits
+            if Instr(1, LCase(fmt(r[1])), text) > 0 then titled.Push(r) else rest.Push(r)
+        end for
+        for each r in rest
+            titled.Push(r)
+        end for
+        hits = titled
+    end if
+
     total = hits.Count()
     root = CreateObject("roSGNode", "ContentNode")
     n = total

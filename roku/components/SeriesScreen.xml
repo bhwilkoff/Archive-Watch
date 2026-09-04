@@ -17,6 +17,9 @@
   <children>
     <Poster id="wash" />
     <Rectangle id="scrim" />
+    <!-- The spine's own poster. The right half of this screen was empty on
+         every series, while Detail shows the art for a single film. -->
+    <Poster id="art" />
     <Label id="title" />
     <Label id="meta" />
     <Label id="overview" />

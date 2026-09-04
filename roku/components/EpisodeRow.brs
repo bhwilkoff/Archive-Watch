@@ -1,5 +1,7 @@
 sub init()
     m.t = Theme()
+    m.card = m.top.FindNode("card")
+    m.cardText = m.top.FindNode("cardText")
     m.still = m.top.FindNode("still")
     m.num = m.top.FindNode("num")
     m.title = m.top.FindNode("title")
@@ -10,6 +12,15 @@ sub init()
     m.still.width = 240 : m.still.height = 135
     m.still.translation = [12, 12]
     m.still.loadDisplayMode = "scaleToFit"
+
+    m.card.translation = [12, 12]
+    m.card.width = 240 : m.card.height = 135
+    m.card.color = "0x1C1C22FF"
+    m.cardText.translation = [12, 56]
+    m.cardText.width = 240
+    m.cardText.horizAlign = "center"
+    m.cardText.font = m.t.uRow
+    m.cardText.color = "0x6B6B76FF"
 
     m.num.font = m.t.uMeta : m.num.color = m.t.textSec
     m.num.translation = [270, 18]
@@ -32,7 +43,22 @@ end sub
 sub onContent()
     c = m.top.itemContent
     if c = invalid then return
-    m.still.uri = c.HDPOSTERURL
+    art = fmt(c.HDPOSTERURL)
+    m.still.uri = art
+    ' Most spines here publish no episode stills. Rather than leave a hole,
+    ' the card carries the episode number — and where the spine was never
+    ' anchored and has no number either, the first letters of the episode
+    ' name, which is the same title-card idiom the poster tiles use.
+    m.card.visible = (art = "")
+    m.cardText.visible = (art = "")
+    if art = ""
+        n = fmt(c.SHORTDESCRIPTIONLINE1)
+        if n <> ""
+            m.cardText.text = n
+        else
+            m.cardText.text = Left(UCase(fmt(c.title)), 12)
+        end if
+    end if
     m.num.text = c.SHORTDESCRIPTIONLINE1
     m.title.text = c.title
     m.blurb.text = c.SHORTDESCRIPTIONLINE2

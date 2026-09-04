@@ -150,6 +150,8 @@ sub init()
     ' whole band. A carousel is the shape a hero is.
     m.heroTimer = m.top.FindNode("heroTimer")
     m.heroTimer.ObserveField("fire", "onHeroTick")
+    m.heroArtTimer = m.top.FindNode("heroArtTimer")
+    m.heroArtTimer.ObserveField("fire", "onHeroArtDue")
     m.heroIndex = 0
     m.rows.ObserveField("rowItemSelected", "onTileSelected")
     m.rows.ObserveField("rowItemFocused", "onRowFocusTrace")
@@ -266,7 +268,25 @@ sub advanceHero(delta as Integer)
     paintDots()
 end sub
 
+' The copy is free; the art is not. Paging updates the words immediately and
+' DEFERS the image, so holding Right reads instantly and loads once — the
+' remote-response measurement went from a 73 ms median to 165 ms (worst 621)
+' the moment paging started loading a backdrop per press.
 sub paintHero(it as Object)
+    if it = invalid then return
+    m.hTitle.text = it.title
+    m.hMeta.text = it.SHORTDESCRIPTIONLINE1
+    m.heroId = it.id
+    m.pendingHeroArt = it
+    m.heroArtTimer.control = "stop"
+    m.heroArtTimer.control = "start"
+end sub
+
+sub onHeroArtDue()
+    paintHeroArt(m.pendingHeroArt)
+end sub
+
+sub paintHeroArt(it as Object)
     if it = invalid then return
     if it.awBackdrop <> invalid and it.awBackdrop <> ""
         m.wash.uri = it.awBackdrop
@@ -278,9 +298,6 @@ sub paintHero(it as Object)
         m.art.uri = it.HDPOSTERURL
         m.art.visible = true
     end if
-    m.hTitle.text = it.title
-    m.hMeta.text = it.SHORTDESCRIPTIONLINE1
-    m.heroId = it.id
 end sub
 
 ' The hero slides off the top and the shelves come with it — one Group, one
@@ -335,6 +352,18 @@ sub onTileSelected()
     if it = invalid then return
     print "AWROKU select id="; it.id
     m.top.chosen = it.id
+end sub
+
+' The hero rotated on EVERY surface — a sweep of the whole app found
+' `AWHERO index=` firing while Channels, Library and Search were on screen.
+' A hidden hero that keeps loading art wastes the device's image cache, and
+' worse, it has silently changed by the time the viewer scrolls back to it.
+sub onOnScreen()
+    if m.top.onScreen
+        m.heroTimer.control = "start"
+    else
+        m.heroTimer.control = "stop"
+    end if
 end sub
 
 sub onFocusOn()

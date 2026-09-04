@@ -737,6 +737,37 @@ plausible throughout, because a stale grid under a changed label always does.
     focus FOOTPRINT and keeping it is right — but it has to read as a
     footprint, so the row dims to 0.55 when it is not the active zone.
 
+50. **A screen that cannot claim focus traps the viewer on the previous one.**
+    `LibraryScreen` and `CollectionsScreen` claimed focus only
+    `if m.rows.visible` — with no else. On a device with nothing saved the
+    Library rows are hidden, so focus stayed wherever it was: a sweep found
+    **Select on an empty Library starting a channel**, because Channels still
+    held it. When there are no rows the Group itself takes focus, which is
+    enough for Back and Left to reach the screen's own handler.
+
+51. **`focusOn = true` on a field already true fires no onChange.** Known
+    since tick 12 and still live in TWELVE places in MainScene — every
+    surface entry. Second visit to any screen therefore never re-claimed
+    focus. All twelve now go through `refocus()`.
+
+52. **A hidden screen keeps running.** `AWHERO index=` was firing while
+    Channels, Library and Search were on screen: the Home hero rotated all
+    day behind every other surface, loading art nobody could see, and had
+    silently changed by the time the viewer scrolled back to it. Home now has
+    an `onScreen` field wired to the content group's visibility.
+
+53. **Ranking is part of search, not a nicety.** Matching the index's search
+    blob (keywords, cast, director) put four Kaneto Shindo films above
+    "Martin Kane" for the query "kane". Every hit was legitimate; none was
+    what was asked for. Title matches lead, blob matches follow — and the
+    pass has to run AFTER the sort chain, or the popularity partition undoes
+    it.
+
+**The sweep is the tool worth keeping.** Deep links prove a screen RENDERS.
+Pressing Select on each surface and reading what the console says happened is
+what proves a screen is CONNECTED — and it found three defects in one pass
+that thirty ticks of screenshots had not.
+
 ## Tick 25 — the ring rule applied everywhere it belongs
 
 The art-hugging ring shipped for `PosterTile` only. Browse and Search draw

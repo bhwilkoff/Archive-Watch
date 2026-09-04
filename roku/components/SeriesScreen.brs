@@ -18,15 +18,22 @@ sub init()
     m.scrim.width = 1836 : m.scrim.height = 480
     m.scrim.color = "0x0B0B0CCC"
 
+    ' Decision 097 — fitted at the art's OWN aspect, never cropped into a box.
+    m.art = m.top.FindNode("art")
+    m.art.translation = [1300, 126]
+    m.art.width = 480 : m.art.height = 720
+    m.art.loadDisplayMode = "scaleToFit"
+    m.art.visible = false
+
     m.title.font = m.t.uScreen : m.title.color = m.t.textPri
-    m.title.translation = [42, 126] : m.title.width = 1300
+    m.title.translation = [42, 126] : m.title.width = 1220
     m.title.maxLines = 1 : m.title.ellipsizeOnBoundary = true
 
     m.meta.font = m.t.uMeta : m.meta.color = m.t.textSec
     m.meta.translation = [42, 192]
 
     m.overview.font = m.t.uMeta : m.overview.color = m.t.textSec
-    m.overview.translation = [42, 234] : m.overview.width = 1300
+    m.overview.translation = [42, 234] : m.overview.width = 1220
     m.overview.wrap = true : m.overview.maxLines = 2
 
     m.seasons.translation = [42, 342]
@@ -47,7 +54,8 @@ sub init()
 
     m.episodes.translation = [342, 342]
     m.episodes.itemComponentName = "EpisodeRow"
-    m.episodes.itemSize = [1020, 159]
+    ' Left of the poster, which starts at 1300.
+    m.episodes.itemSize = [930, 159]
     m.episodes.itemSpacing = [0, 12]
     m.episodes.numRows = 4
     m.episodes.focusBitmapUri = "pkg:/images/focus_ring.9.png"
@@ -73,6 +81,12 @@ sub showSeries(d as Object)
     m.series = d
     m.top.seriesID = "series:" + fmt(d.seriesID)
     m.title.text = fmt(d.title)
+    if d.posterURL <> invalid and fmt(d.posterURL) <> ""
+        m.art.uri = fmt(d.posterURL)
+        m.art.visible = true
+    else
+        m.art.visible = false
+    end if
 
     bits = []
     if d.yearStart <> invalid
