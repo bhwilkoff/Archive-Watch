@@ -41,9 +41,11 @@ Measured on the Streaming Stick 4K, not estimated.
 |---|---|---|---|
 | Launch to a rendered home screen | ≤ 15 s | **2.5–3.0 s** | ✅ |
 | Scene-to-scene transitions | ≤ 3 s | **0.09–0.20 s** | ✅ |
-| Remote response / tile navigation | ≤ 250 ms | **median 65 ms, worst 185 ms** | ✅ |
+| Remote response / tile navigation | ≤ 250 ms | **median 70 ms, worst 132 ms** (2026-09-04, after §13: bundled fonts + a twelve-Poster frame on every tile) | ✅ |
 | Video starts after initiation | ≤ 8 s | **2.2–6.4 s** across 24 films | ✅ |
-| Package size | ≤ 4 MB | **~0.7 MB** | ✅ |
+| Package size | ≤ 4 MB | **1.43 MB zipped** (2.2 MB on disk; 516 KB of that is six bundled font faces) | ✅ |
+| Design gate (ROKU-DESIGN §13.11) | our own | `tools/roku_design_lint.py` — 0 findings across 32 components | ✅ |
+| Functional gate | our own | `tools/roku_audit.py` 34/34; both Select sweeps clean | ✅ |
 | Back returns to the previous screen | required | every surface; Back at Home exits to Roku | ✅ |
 | Instant Replay rewind | 10–25 s | **15 s** | ✅ |
 | Does not override the system screensaver | required | draws none (ROKU-DESIGN §11) | ✅ |
@@ -104,10 +106,10 @@ Measured at key RECEIPT instead, on a surface that prints the moment its own
 | Asset | Spec | Status |
 |---|---|---|
 | Signed `.pkg` | ≤ 4 MB | `tools/roku_package.py`, blocked on the key |
-| App poster | 540 × 405 | not made |
+| App poster | 540 × 405 | `images/icon_focus_fhd.png` is that size and is what the manifest ships; a designed store poster is still wanted |
 | Screenshots | up to 6, 1920 × 1080 | the QA captures are the right size already |
-| Short description | 300 chars | not written |
-| Long description | 1,500 chars | not written |
+| Short description | 300 chars | written — `docs/roku-store-listing.md` (268 used) |
+| Long description | 1,500 chars | written — `docs/roku-store-listing.md` (1,459 used) |
 | Privacy policy URL | required | archivewatch.org needs one |
 | Deep link test parameters | one per media type | `contentId=el-candidato-1959&mediaType=movie` |
 | Category / age rating | required | owner |

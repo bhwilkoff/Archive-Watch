@@ -356,7 +356,7 @@ function prettyType(t as String) as String
     if t = "silent-film" then return "Silent Era"
     if t = "short-film" then return "Short Film"
     if t = "tv-series" then return "Classic TV"
-    if t = "tv-special" then return "TV"
+    if t = "tv-special" then return "Television"
     if t = "tv-episode" then return "Episode"
     if t = "animation" then return "Animation"
     if t = "newsreel" then return "Newsreel"

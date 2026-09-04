@@ -20,6 +20,7 @@ sub init()
     m.tilesG.translation = [-84 + 24, 42]
 
     m.cells = []
+    m.frames = []
     for r = 0 to m.rowsN - 1
         for c = 0 to m.cols - 1
             p = m.tilesG.CreateChild("Poster")
@@ -29,6 +30,11 @@ sub init()
             p.loadDisplayMode = "scaleToFit"
             m.cells.Push(p)
         end for
+    end for
+    ' §13.4 — rounded corners on the wall too. Frames are siblings of the
+    ' posters in the same Group, placed by the poster's own translation.
+    for i = 0 to m.cells.Count() - 1
+        m.frames.Push(AWFrameBuild(m.tilesG))
     end for
 
     m.hintPlate.translation = [-84, 1008] : m.hintPlate.width = 1920
@@ -42,6 +48,13 @@ sub init()
     m.hint.text = ""
 
     m.swap.ObserveField("fire", "onSwap")
+    ' The corners follow each poster as it loads; the swap tick already runs
+    ' every few seconds, and a pass over 27 cells is nothing.
+    m.frameTick = CreateObject("roSGNode", "Timer")
+    m.frameTick.duration = 1
+    m.frameTick.repeat = true
+    m.frameTick.ObserveField("fire", "placeFrames")
+    m.frameTick.control = "start"
     m.pool = invalid
     m.slots = []
     m.cursor = 0
@@ -95,3 +108,11 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     end if
     return false
 end function
+
+
+sub placeFrames()
+    if m.frames = invalid then return
+    for i = 0 to m.cells.Count() - 1
+        AWFramePlace(m.frames[i], m.cells[i], false)
+    end for
+end sub
