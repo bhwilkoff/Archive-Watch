@@ -39,8 +39,8 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Public Domain Day | ⏳ | |
 | Community Favorites / Most Discussed | ⏳ | |
 | Director shelves | ⏳ | index has no director column |
-| Browse by Category tiles | ⏳ | |
-| Browse by Era tiles | ⏳ | |
+| Browse by Category tiles | ✅ | typographic cards, 8 categories, route to a scoped Browse |
+| Browse by Era tiles | ✅ | 1900s–1970s; verified landing on "The 1920s · 3428 titles" |
 | Cross-shelf dedup | ⏳ | tvOS guarantees no title repeats across Home |
 
 ## Browse (Movies / TV)

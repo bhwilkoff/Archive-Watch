@@ -116,6 +116,10 @@ sub onTileFocused()
     if row = invalid then return
     it = row.GetChild(idx[1])
     if it = invalid then return
+    ' A navigation tile is not a film. Letting one drive the hero put "The
+    ' 1900s" over whatever backdrop happened to be up, which reads as a broken
+    ' hero rather than as a shelf of doors.
+    if Left(fmt(it.id), 7) = "browse:" then return
     if it.awBackdrop <> invalid and it.awBackdrop <> ""
         m.wash.uri = it.awBackdrop
         m.art.uri = it.awBackdrop

@@ -51,6 +51,11 @@ sub init()
         b.focusedTextColor = m.t.marquee
         b.focusBitmapUri = "pkg:/images/focus_ring.9.png"
         b.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
+        ' Roku's Button ships a decorative bullet to the left of its text. It
+        ' means nothing on a filter chip and reads as a stray dot; blanking the
+        ' uri is the only way to be rid of it.
+        b.iconUri = ""
+        b.focusedIconUri = ""
         b.ObserveField("buttonSelected", "onChipSelected")
         m.chips.Push(b)
         x = x + 429

@@ -687,9 +687,12 @@ sub hideAllSurfaces()
 end sub
 
 sub openBrowseFiltered(wantType as String, decade as Integer)
+    from = m.route
     openBrowse("movies")
     m.browse.callFunc("applyFilter", { type: wantType, decade: decade })
-    m.cameFrom = "surprise"
+    ' Back returns where the viewer actually came from — Home for a tile,
+    ' Surprise for a door — not to whichever caller was written first.
+    m.cameFrom = from
 end sub
 
 ' A marathon is a QUEUE, not a channel: it starts at the beginning of the first
@@ -1211,9 +1214,24 @@ end sub
 ' §2.5 — depth is at most 2: rail → surface → item. Detail and the player are
 ' overlays over the shell rather than a growing stack, which is what keeps
 ' Back's meaning simple (§2.6).
+' Home's last two rows are DOORS, not films: their ids carry the filter to
+' apply rather than an archive.org identifier.
+function routeTile(id as String) as Boolean
+    if Left(id, 12) = "browse:type:"
+        openBrowseFiltered(Mid(id, 13), 0)
+        return true
+    end if
+    if Left(id, 14) = "browse:decade:"
+        openBrowseFiltered("", Int(Val(Mid(id, 15))))
+        return true
+    end if
+    return false
+end function
+
 sub onChosen()
     id = m.home.chosen
     if id = invalid or id = "" then return
+    if routeTile(id) then return
     openDetail(id)
 end sub
 

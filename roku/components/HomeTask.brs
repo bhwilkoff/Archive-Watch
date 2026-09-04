@@ -125,6 +125,26 @@ sub run()
         rows: rowCount, items: index.items.Count(),
         hero: heroPool.GetChildCount()
     }
+    ' Two navigation rows at the END, the way tvOS orders them: films first,
+    ' then the doors into the rest of the catalog. They carry no artwork and
+    ' route to Browse rather than to a Detail screen.
+    addTileRow(root, "Browse by Category", [
+        { id: "browse:type:feature-film", label: "Feature Films", acc: "feature-film" },
+        { id: "browse:type:tv-series",    label: "Classic TV",    acc: "tv-series" },
+        { id: "browse:type:silent-film",  label: "Silent Era",    acc: "silent-film" },
+        { id: "browse:type:animation",    label: "Animation",     acc: "animation" },
+        { id: "browse:type:short-film",   label: "Short Films",   acc: "short-film" },
+        { id: "browse:type:newsreel",     label: "Newsreels",     acc: "newsreel" },
+        { id: "browse:type:documentary",  label: "Documentary",   acc: "documentary" },
+        { id: "browse:type:ephemeral",    label: "Ephemeral",     acc: "ephemeral" }
+    ])
+    eras = []
+    for d = 1900 to 1970 step 10
+        eras.Push({ id: "browse:decade:" + fmt(d), label: "The " + fmt(d) + "s", acc: "feature-film" })
+    end for
+    addTileRow(root, "Browse by Era", eras)
+    rowCount = rowCount + 2
+
     print "AWROKU home rows="; rowCount; " heroPool="; heroPool.GetChildCount(); " fetchMs="; fetchMs; " scanMs="; scanMs
 
     m.top.hero = heroPool
@@ -136,6 +156,21 @@ end sub
 ' ContentNode has a FIXED set of metadata fields. Assigning one it does not
 ' declare — BACKGROUNDIMAGEURL was the mistake here — silently does nothing:
 ' no error, and the reader gets `invalid`. Our own keys are added explicitly.
+' A row of typographic navigation tiles: no artwork, a label, and an accent
+' that carries the category's meaning (Decision 013).
+sub addTileRow(root as Object, title as String, tiles as Object)
+    row = root.CreateChild("ContentNode")
+    row.title = title
+    for each t in tiles
+        n = row.CreateChild("ContentNode")
+        n.id = t.id
+        n.title = t.label
+        n.AddField("awBackdrop", "string", false)
+        n.AddField("awType", "string", false)
+        n.awType = t.acc
+    end for
+end sub
+
 sub fillItem(n as Object, r as Object)
     n.id = r[0]
     n.title = StripHTML(fmt(r[1]))

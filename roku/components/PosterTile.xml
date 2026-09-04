@@ -17,5 +17,7 @@
          competing decoration. -->
     <Label id="caption" visible="false" />
     <Label id="meta" visible="false" />
+    <Rectangle id="tileRule" visible="false" />
+    <Label id="tileLabel" visible="false" />
   </children>
 </component>
