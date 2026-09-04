@@ -40,9 +40,37 @@ end sub
 
 ' Index row order (build_catalog_index.py fields):
 '   0 id  1 title  2 year  3 contentType  4 poster  5 pro  6 search  7 backdrop
+sub appendRow(root as Object, r as Object)
+    it = root.CreateChild("ContentNode")
+    it.id = r[0]
+    it.title = r[1]
+    it.HDPOSTERURL = r[4]
+    it.SHORTDESCRIPTIONLINE1 = metaFor(r)
+    it.AddField("awBackdrop", "string", false)
+    it.AddField("awType", "string", false)
+    if r[7] <> invalid then it.awBackdrop = r[7]
+    if r[3] <> invalid then it.awType = r[3]
+end sub
+
 sub runQuery()
     span = CreateObject("roTimespan")
     span.Mark()
+
+    ' A deep link asks for ONE id and must not pay for a full scan-and-sort.
+    wantId = m.top.qId
+    if wantId <> ""
+        root = CreateObject("roSGNode", "ContentNode")
+        for each r in m.items
+            if fmt(r[0]) = wantId
+                appendRow(root, r)
+                exit for
+            end if
+        end for
+        print "AWSVC lookup "; wantId; " found="; root.GetChildCount()
+        m.top.total = root.GetChildCount()
+        m.top.results = root
+        return
+    end if
     wantType = LCase(m.top.qType)
     decade = m.top.qDecade
     text = LCase(m.top.qText)
@@ -98,16 +126,7 @@ sub runQuery()
     n = total
     if n > 300 then n = 300          ' one screenful plus deep scroll
     for i = 0 to n - 1
-        r = hits[i]
-        it = root.CreateChild("ContentNode")
-        it.id = r[0]
-        it.title = r[1]
-        it.HDPOSTERURL = r[4]
-        it.SHORTDESCRIPTIONLINE1 = metaFor(r)
-        it.AddField("awBackdrop", "string", false)
-        it.AddField("awType", "string", false)
-        if r[7] <> invalid then it.awBackdrop = r[7]
-        if r[3] <> invalid then it.awType = r[3]
+        appendRow(root, hits[i])
     end for
     print "AWSVC query type="; wantType; " decade="; decade; " text='"; text; "' hits="; total; " in "; span.TotalMilliseconds(); "ms"
     m.top.total = total

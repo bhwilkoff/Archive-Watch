@@ -16,13 +16,29 @@ sub Main(args as Dynamic)
     ' Deep links arrive as launch args (ECP /launch/dev?contentId=...), both on
     ' a cold start and, later, through roInput while running.
     if args <> invalid and args.contentId <> invalid
+        if args.mediaType <> invalid then scene.deepLinkMediaType = args.mediaType
         scene.deepLinkContentId = args.contentId
     end if
+
+    ' A deep link that arrives while the channel is ALREADY RUNNING comes
+    ' through roInput, not through Main's args — a channel that only reads args
+    ' answers the first link of a session and silently ignores every one after
+    ' it, which is exactly what a test harness driving many films would hit.
+    input = CreateObject("roInput")
+    input.SetMessagePort(port)
 
     while true
         msg = wait(0, port)
         if type(msg) = "roSGScreenEvent"
             if msg.isScreenClosed() then return
+        else if type(msg) = "roInputEvent"
+            if msg.IsInput()
+                info = msg.GetInfo()
+                if info.contentId <> invalid
+                    if info.mediaType <> invalid then scene.deepLinkMediaType = info.mediaType
+                    scene.deepLinkContentId = info.contentId
+                end if
+            end if
         end if
     end while
 end sub

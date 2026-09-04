@@ -403,6 +403,98 @@ right and the test drove from the leftmost key.
 20. **A 150 px nav rail clipped "Collections"** — the label ran under the
     content column. Every dimension here is divisible by 3, so the rail is 216.
 
+## Tick 7 — Playback, measured rather than asserted
+
+Deep linking shipped alongside this because a playback harness that drives the
+remote is a harness that tests the remote. `contentId` + `mediaType` open a
+film directly (Roku's Direct-to-Play requirement), on a cold start through
+`Main`'s args and on a warm channel through `roInput`.
+
+**`tools/roku_playback_audit.py`** — the Roku twin of `download_audit.py`. Two
+external oracles, never the app's own opinion:
+
+* **ECP `/query/media-player`** for state, error, codec, resolution and a
+  position that has to ADVANCE. This matters more here than anywhere else:
+  on several Roku SoCs the video plane is not composited into `screencap`, so
+  **a screenshot cannot prove playback on Roku** — a playing film photographs
+  as a black rectangle.
+* **The console on 8085** for the four things ECP cannot see: the link was
+  accepted, the shard resolved a url, a bookmark reached a registry no external
+  tool can read, and how often the stall watchdog fired.
+
+| Check | What it proves |
+|---|---|
+| `quiesced` | nothing was playing when the film was requested |
+| `accepted` | the channel received the deep link |
+| `resolved` | the detail shard returned a playable url |
+| `started` | reached `play` within 30s (Decision 077's bar) |
+| `advanced` | position strictly increases, at ~1.0x wall clock |
+| `no_error` | ECP reported no error during playback |
+| `error_shown` | a film that CANNOT play says so on screen |
+| `codec` | video and audio codecs and resolution are reported |
+| `replay` | Instant Replay rewinds and playback continues |
+| `bookmark` | a resume position was written during playback |
+
+**Run of 2026-09-03 — 68 PASS / 3 FAIL / 2 SKIP across 8 films**, one per
+content type, sampled fresh each day (breadth over repetition). Start times
+2.2–4.6s, realtime ratio 0.98–1.01, zero stalls.
+
+| Film | Type | Start | Codec | Realtime |
+|---|---|---|---|---|
+| China: The Roots of Madness | newsreel | 3.5s | mpeg4/aac 320x240 | 1.01x |
+| The Hottentot | documentary | 2.2s | mpeg4/aac 640x480 | 1.01x |
+| El heredero de Casa Pruna | silent-film | 2.2s | mpeg4/**none** 640x480 | 0.99x |
+| The Big Bounce | ephemeral | 4.3s | mpeg4/aac 640x480 | 1.01x |
+| December (5h recording) | commercial | 4.6s | mpeg4/aac 640x480 | 0.98x |
+| Date with the Angels Ep 207 | tv-episode | 4.5s | mpeg4/aac 640x480 | 0.98x |
+| Tarzan and the Rocky Gorge | home-movie | 2.2s | mpeg4/aac 320x240 | 0.99x |
+| Heart to Heart | short-film | — | — | **DEAD SOURCE** |
+
+*Heart to Heart* is a real catalog defect, not a Roku one: archive.org answers
+**401/403** for `cubanc_000437_access.HD.ia.mp4`. Decision 056's class — a
+`playbackVerified` that was true when it was taken and is not true now. The
+app's job was to say so, and it did not.
+
+**What the audit found in the app**
+
+1. **A film that cannot play said NOTHING.** The viewer pressed Play, the
+   screen blinked, and they were back on the same Detail screen. The player
+   knew — it had the error code — and kept it in a diagnostic label nobody
+   sees. It now hands the failure up and Detail shows it.
+2. **`toast` was set by the save path and rendered by NOWHERE.** Every "Saved
+   to your library" and every "your library is full" refusal had been
+   invisible since it was written. A state the app knows and does not show is,
+   to the viewer, a state that does not exist.
+3. **A deep link arriving mid-film left the old film playing** under the new
+   Detail screen. It now tears the player down first, which also writes the
+   abandoned film's final bookmark.
+4. **Home stole focus from the player.** A cold-start deep link can reach
+   playback before the 26,965-item catalog finishes parsing, and `onStatus`
+   called `focusContent()` unconditionally when it did.
+
+**Five ways the harness lied before it worked**, each recorded because the
+failure mode is the reusable part:
+
+21. **`<position>37871 ms</position>` carries its UNIT.** `int()` throws on
+    that and the code returned None, which reads downstream as "the device
+    would not tell us" rather than "the parser is wrong". Every film reported
+    an empty position list while playing perfectly.
+22. **`/launch` restarts the channel; `/input` does not.** Deep-linking each
+    film with `/launch` spent a ~14s catalog parse per film inside a 30s
+    deadline, and reported five healthy films as broken. The state trace says
+    it plainly: `close -> startup`.
+23. **The previous film is still playing when the next link is sent**, so
+    `state == "play"` is a false start signal — every film "started" in 0.1s
+    and the harness measured the wrong picture. Quiesce first.
+24. **`error` is STICKY**: it describes the last media session, so one broken
+    film condemned every film audited after it. Errors before and after the
+    start are counted separately.
+25. **The debug console REPLAYS a backlog when a client attaches**, so
+    "is the channel warm" answered yes from a previous run's log line while
+    the channel was not running at all. Marks must be taken before the action
+    they are meant to witness — and only ONE client can hold 8085, so a
+    `roku.py log` running alongside the audit silently starves it.
+
 ## Open questions for the design tick
 
 1. Which Roku idiom carries Home: a `RowList` of poster rows under a hero, or

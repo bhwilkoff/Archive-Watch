@@ -39,11 +39,15 @@ sub init()
 
     m.overlay = m.top.FindNode("overlay")
     m.route = "home"
+    m.pendingDeepLink = ""
+    m.queuedDeepLink = ""
+    m.autoPlay = false
 
     m.rail.ObserveField("selected", "onRailSelected")
 
     m.svc = CreateObject("roSGNode", "CatalogService")
     m.svc.ObserveField("results", "onQueryResults")
+    m.svc.ObserveField("ready", "onSvcReady")
     m.svc.control = "RUN"
 
     m.task = CreateObject("roSGNode", "HomeTask")
@@ -64,7 +68,11 @@ sub onStatus()
         m.loading.visible = false
         m.home.rowsContent = filteredRows(m.task.rows)
         m.home.heroContent = m.task.hero
-        focusContent()
+        ' Only claim focus if the viewer is still ON Home. A cold-start deep
+        ' link opens Detail and can reach the PLAYER before the catalog
+        ' finishes parsing, and this used to yank focus out of the running film
+        ' the moment Home was ready.
+        if m.route = "home" then focusContent()
     else if s = "error"
         m.loading.text = "Could not reach the archive. Check the network and try again."
     end if
@@ -320,6 +328,22 @@ function randomArchiveID() as String
 end function
 
 sub onQueryResults()
+    ' A deep-link lookup borrows the same results field as Browse and Search,
+    ' so it is claimed FIRST and consumed — otherwise a one-row result would
+    ' repaint whichever of those happens to be visible.
+    if m.pendingDeepLink <> invalid and m.pendingDeepLink <> ""
+        id = m.pendingDeepLink
+        m.pendingDeepLink = ""
+        m.svc.qId = ""
+        res = m.svc.results
+        if res <> invalid and res.GetChildCount() > 0
+            m.deepLinkItem = res.GetChild(0)
+        else
+            m.deepLinkItem = invalid
+        end if
+        startDeepLink(id)
+        return
+    end if
     if m.browse <> invalid and m.browse.visible
         m.browse.callFunc("showResults", m.svc.results, m.svc.total)
     end if
@@ -346,6 +370,9 @@ sub openDetail(archiveID as String)
     m.cameFrom = m.route
     m.cameFromBrowse = (m.route = "browse")
     it = findItem(archiveID)
+    if it = invalid and m.deepLinkItem <> invalid and m.deepLinkItem.id = archiveID
+        it = m.deepLinkItem
+    end if
     if m.detail = invalid
         m.detail = m.overlay.CreateChild("DetailScreen")
         m.detail.translation = [m.t.railW, 0]
@@ -377,6 +404,60 @@ end sub
 
 sub onDetailLoaded()
     if m.detail <> invalid then m.detail.detail = m.dtask.detail
+
+    ' Direct-to-Play. Roku certification wants a deep link to land ON the
+    ' content, not next to it, and the url only exists once the shard has
+    ' answered — so the intent is held until here rather than fired at launch.
+    if m.autoPlay = true
+        m.autoPlay = false
+        d = m.dtask.detail
+        if d <> invalid and d.url <> invalid and d.url <> ""
+            print "AWDEEP autoplay "; m.dtask.archiveID
+            m.detail.play = d.url
+        else
+            print "AWDEEP autoplay ABANDONED — no playable url for "; m.dtask.archiveID
+        end if
+    end if
+end sub
+
+' ---- deep links -----------------------------------------------------------
+'
+' The catalog may not be parsed yet on a cold start, and a link that arrives
+' first must not be dropped: it waits for the service and runs from onSvcReady.
+sub onDeepLink()
+    id = m.top.deepLinkContentId
+    if id = invalid or id = "" then return
+    print "AWDEEP contentId="; id; " mediaType="; m.top.deepLinkMediaType
+    if m.svc = invalid or not m.svc.ready
+        m.queuedDeepLink = id
+        return
+    end if
+    m.pendingDeepLink = id
+    m.svc.qId = id
+    m.svc.queryId = m.svc.queryId + 1
+end sub
+
+sub onSvcReady()
+    if m.queuedDeepLink <> invalid and m.queuedDeepLink <> ""
+        id = m.queuedDeepLink
+        m.queuedDeepLink = ""
+        m.pendingDeepLink = id
+        m.svc.qId = id
+        m.svc.queryId = m.svc.queryId + 1
+    end if
+end sub
+
+sub startDeepLink(id as String)
+    ' A link can arrive at any moment, including mid-film. Tearing the player
+    ' down first also writes the final bookmark, so the abandoned film is
+    ' resumable rather than silently losing the last few seconds.
+    if m.route = "player" then closePlayer()
+    ' A film Roku has never heard of still opens: the shard is fetched by id,
+    ' and an unknown id fails on the Detail screen with a reason rather than
+    ' on a blank one.
+    mt = LCase(m.top.deepLinkMediaType)
+    m.autoPlay = (mt = "movie" or mt = "episode" or mt = "shortformvideo")
+    openDetail(id)
 end sub
 
 ' Walk the rows we already hold rather than re-querying: the Home content tree
@@ -408,6 +489,7 @@ sub onPlay()
         m.player = m.overlay.CreateChild("PlayerScreen")
         m.player.translation = [m.t.railW, 0]
         m.player.ObserveField("ended", "onPlaybackEnded")
+        m.player.ObserveField("failed", "onPlaybackFailed")
     end if
     m.player.visible = true
     m.detail.visible = false
@@ -423,6 +505,14 @@ end sub
 
 ' §6.6 / §2.6 — the end of a film returns the viewer where they came from.
 ' Stranded on a dead screen is not a state.
+sub onPlaybackFailed()
+    msg = m.player.failed
+    if msg = invalid or msg = "" then return
+    print "AWPLAY failed-notice "; msg
+    closePlayer()
+    m.detail.toast = msg
+end sub
+
 sub onPlaybackEnded()
     if m.player <> invalid and m.player.ended then closePlayer()
 end sub

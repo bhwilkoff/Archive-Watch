@@ -1,5 +1,36 @@
+sub onToast()
+    msg = m.top.toast
+    if msg = invalid or msg = "" then return
+    ' The toast field was being SET by the save path and rendered by nothing,
+    ' so every confirmation and every refusal was invisible. A state the app
+    ' knows about and does not show is the same to the viewer as no state.
+    m.toastText.text = msg
+    m.toastText.visible = true
+    m.toastPlate.visible = true
+    m.toastTimer.control = "start"
+end sub
+
+sub onToastDone()
+    m.toastText.visible = false
+    m.toastPlate.visible = false
+end sub
+
 sub init()
     m.t = Theme()
+
+    m.toastPlate = m.top.FindNode("toastPlate")
+    m.toastText = m.top.FindNode("toastText")
+    m.toastTimer = m.top.FindNode("toastTimer")
+    m.toastTimer.ObserveField("fire", "onToastDone")
+    ' Bottom of the reading column, inside the title-safe inset (§4.3).
+    m.toastPlate.translation = [m.t.readX, 900]
+    m.toastPlate.width = 1200 : m.toastPlate.height = 96
+    m.toastPlate.color = "0x1C1C22FF"
+    m.toastText.translation = [m.t.readX + 24, 924]
+    m.toastText.width = 1152 : m.toastText.wrap = true
+    m.toastText.maxLines = 2
+    m.toastText.font = m.t.uBody
+    m.toastText.color = m.t.textPri
     m.wash = m.top.FindNode("wash")
     m.scrim = m.top.FindNode("scrim")
     m.art = m.top.FindNode("art")

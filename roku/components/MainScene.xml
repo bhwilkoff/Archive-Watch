@@ -3,7 +3,11 @@
      Settings is not a surface (§2.3) and Surprise is not a surface (§2.4). -->
 <component name="MainScene" extends="Scene">
   <interface>
-    <field id="deepLinkContentId" type="string" />
+    <!-- Roku's deep-link contract: contentId names the film, mediaType says
+         what it is. A launch or an roInput message while running both land
+         here. -->
+    <field id="deepLinkContentId" type="string" alwaysNotify="true" onChange="onDeepLink" />
+    <field id="deepLinkMediaType" type="string" />
   </interface>
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
   <script type="text/brightscript" uri="pkg:/components/UserStore.brs" />

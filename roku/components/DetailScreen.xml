@@ -9,7 +9,7 @@
     <field id="focusOn" type="boolean" onChange="onFocusOn" />
     <field id="play" type="string" alwaysNotify="true" />
     <field id="playFrom" type="integer" value="0" />
-    <field id="toast" type="string" alwaysNotify="true" />
+    <field id="toast" type="string" alwaysNotify="true" onChange="onToast" />
     <function name="refresh" />
   </interface>
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
@@ -26,5 +26,8 @@
     <Rectangle id="chip" />
     <Label id="chipText" />
     <Group id="buttons" />
+    <Rectangle id="toastPlate" visible="false" />
+    <Label id="toastText" visible="false" />
+    <Timer id="toastTimer" duration="10" repeat="false" />
   </children>
 </component>

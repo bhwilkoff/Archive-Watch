@@ -85,6 +85,14 @@ sub onState()
         print "AWPLAY error code="; m.video.errorCode; " msg="; m.video.errorMsg
         m.diag.visible = true
         m.diag.text = "Playback error " + fmt(m.video.errorCode) + " — " + fmt(m.video.errorMsg)
+        ' Hand it up so the viewer is TOLD. A film that dies silently and drops
+        ' the viewer back on the same Detail screen looks like a broken remote,
+        ' not like a film archive.org will not serve.
+        m.dog.control = "stop"
+        ' The CODE stays in the console. Roku answers -1 for every HTTP failure,
+        ' so putting it on screen tells the viewer nothing and reads like a
+        ' crash; what they can act on is that this copy is the problem.
+        m.top.failed = "This copy would not play — archive.org would not serve the file. It may have been moved, or restricted by its uploader."
     end if
 end sub
 
@@ -125,7 +133,13 @@ sub onWatchdog()
     ' minutes retained 30 days; the registry keeps them until it is full.
     if m.top.archiveID <> "" and posn > 0
         d = Int(m.video.duration)
-        if d > 0 then awSetProgress(m.top.archiveID, Int(posn), d)
+        if d > 0
+            awSetProgress(m.top.archiveID, Int(posn), d)
+            ' Printed so an external audit can SEE the bookmark being written.
+            ' The registry cannot be read over ECP, so the console is the only
+            ' account of it that does not come from the app asking itself.
+            print "AWPLAY bookmark "; m.top.archiveID; " "; Int(posn); "/"; d
+        end if
     end if
 
     if m.hudHideAt <> invalid and nowSeconds() >= m.hudHideAt
@@ -148,7 +162,10 @@ sub stopPlayback()
     ' they most expect to be remembered.
     if m.top.archiveID <> "" and m.video.position > 0
         d = Int(m.video.duration)
-        if d > 0 then awSetProgress(m.top.archiveID, Int(m.video.position), d)
+        if d > 0
+            awSetProgress(m.top.archiveID, Int(m.video.position), d)
+            print "AWPLAY bookmark-final "; m.top.archiveID; " "; Int(m.video.position); "/"; d
+        end if
     end if
     m.dog.control = "stop"
     m.video.control = "stop"

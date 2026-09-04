@@ -14,6 +14,8 @@
     <field id="archiveID" type="string" />
     <field id="startAt" type="integer" value="0" />
     <field id="ended" type="boolean" alwaysNotify="true" />
+    <!-- A failure the VIEWER has to be told about, not just a console line. -->
+    <field id="failed" type="string" alwaysNotify="true" />
     <function name="stopPlayback" />
   </interface>
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
