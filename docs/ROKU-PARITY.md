@@ -689,6 +689,24 @@ of harness: press the chip, read `AWSVC query sort=…`, compare the grid. The
 missing query line is what exposed it, not the screenshot — the screen looked
 plausible throughout, because a stale grid under a changed label always does.
 
+## Tick 25 — the ring rule applied everywhere it belongs
+
+The art-hugging ring shipped for `PosterTile` only. Browse and Search draw
+`GridTile`, and Detail's "more like this" draws `MiniTile` — same 2:3 cell,
+same fitted art, same oversized box. The geometry now lives once in
+`Theme.AWRing(art, ring, focused)` and all three call it.
+
+The lists that were left alone are the ones where the CELL *is* the item:
+the channel list, the guide rows, the episode rows, the options lists and the
+Surprise doors all draw a plate that fills the cell, so a cell-sized ring is
+correct there. Applying the art rule to those would have been cargo-culting a
+fix past the case it was for.
+
+Verified on the glass across Movies, Collections, Library and Detail — and the
+clearest evidence is the first tile of the Movies grid: a 16:9 still
+letterboxed inside a 2:3 cell, which is precisely the shape that made a
+cell-sized ring look absurd.
+
 ## Open questions for the design tick
 
 1. Which Roku idiom carries Home: a `RowList` of poster rows under a hero, or

@@ -17,8 +17,10 @@ sub init()
     m.grid.numRows = 2
     m.grid.itemSize = [210, 393]
     m.grid.itemSpacing = [24, 24]
-    m.grid.focusBitmapUri = "pkg:/images/focus_ring.9.png"
-    m.grid.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
+    ' The TILE rings its own art (ROKU-DESIGN §5.4a). An explicitly transparent
+    ' 9-patch is required: with no bitmap the list draws its own grey box.
+    m.grid.focusBitmapUri = "pkg:/images/focus_none.9.png"
+    m.grid.focusFootprintBitmapUri = "pkg:/images/focus_none.9.png"
     m.grid.drawFocusFeedbackOnTop = true
     m.grid.vertFocusAnimationStyle = "floatingFocus"
     m.grid.ObserveField("itemSelected", "onSelected")

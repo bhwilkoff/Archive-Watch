@@ -1,5 +1,11 @@
 sub init()
     m.t = Theme()
+    m.ring = [m.top.FindNode("ringT"), m.top.FindNode("ringB"),
+              m.top.FindNode("ringL"), m.top.FindNode("ringR")]
+    for each r in m.ring
+        r.color = m.t.marquee
+    end for
+    m.focused = false
     m.plate = m.top.FindNode("plate")
     m.art = m.top.FindNode("art")
     m.plate.width = 108 : m.plate.height = 162
@@ -8,6 +14,11 @@ sub init()
     ' Never reshape the art (Decision 097): fit inside the slot rather than
     ' filling it, so a landscape still stays a still.
     m.art.loadDisplayMode = "scaleToFit"
+    m.art.ObserveField("loadStatus", "onArtLoaded")
+end sub
+
+sub onArtLoaded()
+    if m.art.loadStatus = "ready" then AWRing(m.art, m.ring, m.focused)
 end sub
 
 sub onContent()
@@ -17,9 +28,11 @@ sub onContent()
 end sub
 
 sub onFocus()
-    if m.top.focusPercent > 0.5
+    m.focused = (m.top.focusPercent > 0.5)
+    if m.focused
         m.plate.color = "0x33333DFF"
     else
         m.plate.color = "0x1C1C22FF"
     end if
+    AWRing(m.art, m.ring, m.focused)
 end sub

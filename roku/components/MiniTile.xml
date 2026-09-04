@@ -14,5 +14,11 @@
   <children>
     <Rectangle id="plate" />
     <Poster id="art" />
+    <!-- Four rectangles, not a 9-patch: a .9.png only loses its guide border
+         when a LIST consumes it, so as a plain Poster it draws a pale block. -->
+    <Rectangle id="ringT" visible="false" />
+    <Rectangle id="ringB" visible="false" />
+    <Rectangle id="ringL" visible="false" />
+    <Rectangle id="ringR" visible="false" />
   </children>
 </component>

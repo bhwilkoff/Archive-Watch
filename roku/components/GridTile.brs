@@ -1,5 +1,11 @@
 sub init()
     m.t = Theme()
+    m.ring = [m.top.FindNode("ringT"), m.top.FindNode("ringB"),
+              m.top.FindNode("ringL"), m.top.FindNode("ringR")]
+    for each r in m.ring
+        r.color = m.t.marquee
+    end for
+    m.focused = false
     m.plate = m.top.FindNode("plate")
     m.art = m.top.FindNode("art")
     m.caption = m.top.FindNode("caption")
@@ -8,7 +14,12 @@ sub init()
     m.caption.width = 210
     m.caption.maxLines = 2
     m.caption.wrap = true
+    m.art.ObserveField("loadStatus", "onArtLoaded")
     setSize(192, 288)
+end sub
+
+sub onArtLoaded()
+    if m.art.loadStatus = "ready" then AWRing(m.art, m.ring, m.focused)
 end sub
 
 sub setSize(w as Integer, h as Integer)
@@ -27,6 +38,8 @@ end sub
 
 sub onFocusChanged()
     f = m.top.itemHasFocus
+    m.focused = f
     if f then setSize(210, 315) else setSize(192, 288)
     m.caption.visible = f
+    AWRing(m.art, m.ring, f)
 end sub

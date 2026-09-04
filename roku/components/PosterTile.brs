@@ -130,38 +130,7 @@ sub hideRing()
 end sub
 
 sub positionRing()
-    if m.focused <> true
-        hideRing()
-        return
-    end if
-    w = m.art.width
-    h = m.art.height
-    bw = m.art.bitmapWidth
-    bh = m.art.bitmapHeight
-    dw = w
-    dh = h
-    if bw > 0 and bh > 0
-        sx = w / bw
-        sy = h / bh
-        sc = sx
-        if sy < sc then sc = sy
-        dw = Int(bw * sc)
-        dh = Int(bh * sc)
-    end if
-    ' Sits just OUTSIDE the art so it never eats the picture's own edge.
-    pad = 5
-    th = 4
-    x = Int((w - dw) / 2) - pad
-    y = Int((h - dh) / 2) - pad
-    rw = dw + pad * 2
-    rh = dh + pad * 2
-    m.ring[0].translation = [x, y] : m.ring[0].width = rw : m.ring[0].height = th
-    m.ring[1].translation = [x, y + rh - th] : m.ring[1].width = rw : m.ring[1].height = th
-    m.ring[2].translation = [x, y] : m.ring[2].width = th : m.ring[2].height = rh
-    m.ring[3].translation = [x + rw - th, y] : m.ring[3].width = th : m.ring[3].height = rh
-    for each r in m.ring
-        r.visible = true
-    end for
+    AWRing(m.art, m.ring, m.focused = true)
 end sub
 
 sub onFocusChanged()

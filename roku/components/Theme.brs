@@ -180,3 +180,46 @@ function DecodeEntities(src as String) as String
     end for
     return out
 end function
+
+' Sizes a four-rectangle selection ring to the ART's rendered bounds.
+'
+' Shared because three tile shapes need it and the reasoning is identical: a
+' cell has a fixed aspect, the artwork does not, and a ring drawn at cell size
+' encloses empty margins whenever the two disagree (ROKU-DESIGN §5.4a).
+' `art` is the Poster; `ring` is [top, bottom, left, right].
+sub AWRing(art as Object, ring as Object, focused as Boolean)
+    if ring = invalid or art = invalid then return
+    if not focused
+        for each r in ring
+            r.visible = false
+        end for
+        return
+    end if
+    w = art.width
+    h = art.height
+    bw = art.bitmapWidth
+    bh = art.bitmapHeight
+    dw = w
+    dh = h
+    if bw > 0 and bh > 0
+        sx = w / bw
+        sy = h / bh
+        sc = sx
+        if sy < sc then sc = sy
+        dw = Int(bw * sc)
+        dh = Int(bh * sc)
+    end if
+    pad = 5
+    th = 4
+    x = Int((w - dw) / 2) - pad
+    y = Int((h - dh) / 2) - pad
+    rw = dw + pad * 2
+    rh = dh + pad * 2
+    ring[0].translation = [x, y] : ring[0].width = rw : ring[0].height = th
+    ring[1].translation = [x, y + rh - th] : ring[1].width = rw : ring[1].height = th
+    ring[2].translation = [x, y] : ring[2].width = th : ring[2].height = rh
+    ring[3].translation = [x + rw - th, y] : ring[3].width = th : ring[3].height = rh
+    for each r in ring
+        r.visible = true
+    end for
+end sub
