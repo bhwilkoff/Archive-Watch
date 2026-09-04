@@ -202,7 +202,12 @@ def main():
         "schema": 9,
         "updatedAt": catalog.get("updatedAt") or "",
         "count": len(rows),
-        "fields": ["id", "title", "year", "contentType", "poster", "pro", "search", "backdrop"],
+        # Must list EVERY column. Rows carry 10 entries at schema 9 and this
+        # stopped at 8, so a client that located a column by name instead of by
+        # position could not find `playable` or `documentary` at all — they
+        # were shipping, undeclared, for two schema bumps.
+        "fields": ["id", "title", "year", "contentType", "poster", "pro", "search",
+                   "backdrop", "playable", "documentary"],
         "facets": facets,
         "shelves": shelves,
         "collections": collections,

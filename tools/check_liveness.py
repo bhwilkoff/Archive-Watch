@@ -197,6 +197,15 @@ def classify(it, session, probe=True):
         return "dead", "no_files", None
     vf = A.pick_video(files)
     if not vf:
+        # Name the RESTRICTED case separately from an item that simply has no
+        # video. Both are definitively unplayable, but only one of them is a
+        # rights condition that will never resolve on its own, and a reason
+        # that says so saves the next person re-probing it.
+        meta = d.get("metadata") or {}
+        if str(meta.get("access-restricted-item") or "").lower() == "true":
+            return "dead", "access_restricted", None
+        if any(str(f.get("private") or "").lower() == "true" for f in files):
+            return "dead", "private_files", None
         return "dead", "no_playable_video", None
     # Alive. Is the baked downloadURL still valid (filename present)?
     cur = A.download_url(iaid, vf.get("name"))

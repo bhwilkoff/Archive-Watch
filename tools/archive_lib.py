@@ -43,6 +43,17 @@ def pick_video(files):
     largest file wins (higher bitrate)."""
     vids = [f for f in files if VIDEO_RE.search((f.get("format") or "").lower())
             or (f.get("name") or "").lower().endswith((".mp4", ".m4v", ".webm", ".mkv"))]
+    # A file archive.org marks `private` cannot be fetched by anyone without
+    # credentials: the storage node answers 401/403 forever, on every node, and
+    # no retry helps. Picking one bakes a URL that can never play.
+    #
+    # This is deliberately handled HERE rather than in the liveness check,
+    # because the same picker feeds ingest — filtering only downstream would
+    # keep admitting restricted items and rely on a later sweep to hide them.
+    # (Found on `cubanc_000437`, a stream_only Bancroft Library item whose only
+    # two mp4s are both private; it shipped to every platform and failed on the
+    # Roku playback audit.)
+    vids = [f for f in vids if str(f.get("private") or "").lower() != "true"]
     if not vids:
         return None
 
