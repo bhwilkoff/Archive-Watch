@@ -29,8 +29,8 @@ sub init()
     m.rowsG.font = m.t.uBody
     m.rowsG.color = m.t.textPri
     m.rowsG.focusedColor = m.t.marquee
-    m.rowsG.focusBitmapUri = "pkg:/images/focus_ring.9.png"
-    m.rowsG.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
+    m.rowsG.focusBitmapUri = "pkg:/images/ring_focus.9.png"
+    m.rowsG.focusFootprintBitmapUri = "pkg:/images/ring_footprint.9.png"
     m.rowsG.drawFocusFeedbackOnTop = true
     m.rowsG.vertFocusAnimationStyle = "floatingFocus"
     m.rowsG.ObserveField("itemSelected", "onRow")

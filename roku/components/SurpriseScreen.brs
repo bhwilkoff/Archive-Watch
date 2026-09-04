@@ -41,8 +41,8 @@ sub init()
     m.grid.numRows = 5
     m.grid.itemSize = [528, 162]
     m.grid.itemSpacing = [24, 24]
-    m.grid.focusBitmapUri = "pkg:/images/focus_ring.9.png"
-    m.grid.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
+    m.grid.focusBitmapUri = "pkg:/images/ring_focus.9.png"
+    m.grid.focusFootprintBitmapUri = "pkg:/images/ring_footprint.9.png"
     m.grid.drawFocusFeedbackOnTop = true
     m.grid.vertFocusAnimationStyle = "floatingFocus"
     m.grid.ObserveField("itemSelected", "onSelected")

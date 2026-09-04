@@ -12,7 +12,7 @@ sub init()
     m.wash.translation = [0, 0]
     m.wash.width = 1836 : m.wash.height = 480
     m.wash.loadDisplayMode = "scaleToFill"
-    m.wash.opacity = 0.18
+    m.wash.opacity = 0.10
 
     m.scrim.translation = [0, 0]
     m.scrim.width = 1836 : m.scrim.height = 480
@@ -43,8 +43,8 @@ sub init()
     m.seasons.font = m.t.uBody
     m.seasons.color = m.t.textPri
     m.seasons.focusedColor = m.t.marquee
-    m.seasons.focusBitmapUri = "pkg:/images/focus_ring.9.png"
-    m.seasons.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
+    m.seasons.focusBitmapUri = "pkg:/images/ring_focus.9.png"
+    m.seasons.focusFootprintBitmapUri = "pkg:/images/ring_footprint.9.png"
     m.seasons.drawFocusFeedbackOnTop = true
     ' NOT fixedFocusWrap: a wrapping list draws its own contents again below a
     ' divider, so a 7-season show showed "Season 18, 19, 23, Unsorted" and then
@@ -58,8 +58,8 @@ sub init()
     m.episodes.itemSize = [930, 159]
     m.episodes.itemSpacing = [0, 12]
     m.episodes.numRows = 4
-    m.episodes.focusBitmapUri = "pkg:/images/focus_ring.9.png"
-    m.episodes.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
+    m.episodes.focusBitmapUri = "pkg:/images/ring_focus.9.png"
+    m.episodes.focusFootprintBitmapUri = "pkg:/images/ring_footprint.9.png"
     m.episodes.drawFocusFeedbackOnTop = true
     m.episodes.vertFocusAnimationStyle = "floatingFocus"
     m.episodes.ObserveField("itemSelected", "onEpisodeSelected")

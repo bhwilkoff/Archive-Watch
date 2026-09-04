@@ -214,10 +214,12 @@ function libraryPayload() as Object
     ' playlists the viewer made.
     addLibRow(root, meta, "Watched", watched, "")
 
-    used = awStorageUsed()
-    amount = fmt(Int(used / 1024)) + " KB"
-    if used < 1024 then amount = fmt(used) + " bytes"
-    budget = fmt(favs.Count()) + " saved  ·  " + fmt(cw.Count()) + " in progress  ·  " + fmt(awPlaylists().Count()) + " playlists  ·  " + amount + " of 32 KB used"
+    ' "121 bytes of 32 KB used" was on this screen. That is the registry
+    ' budget (§7.2) and it matters — but as a FULL state with a Remove
+    ' affordance, not as a byte counter under the title. The line says what
+    ' the viewer has.
+    budget = fmt(favs.Count()) + " saved  ·  " + fmt(cw.Count()) + " in progress  ·  " + fmt(awPlaylists().Count()) + " playlists"
+    if awStorageUsed() > 29000 then budget = budget + "  ·  Library nearly full"
     return { rows: root, meta: meta, budget: budget }
 end function
 

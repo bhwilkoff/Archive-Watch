@@ -23,9 +23,8 @@
          stripped when a LIST consumes it as focusBitmapUri; assigned to a
          plain Poster the guide pixels are part of the picture, which is why
          the first attempt drew a pale block instead of a ring. -->
-    <Rectangle id="ringT" visible="false" />
-    <Rectangle id="ringB" visible="false" />
-    <Rectangle id="ringL" visible="false" />
-    <Rectangle id="ringR" visible="false" />
+    <!-- §13.3/§13.4 — the frame (corner overlays + ring slices) is built in
+         code by AWFrameBuild and drawn LAST so it sits over the art. -->
+    <Group id="frame" />
   </children>
 </component>

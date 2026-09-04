@@ -25,9 +25,16 @@
   <script type="text/brightscript" uri="pkg:/components/UserStore.brs" />
   <script type="text/brightscript" uri="pkg:/components/DetailScreen.brs" />
   <children>
+    <!-- §13.7 — a SCENE: backdrop full-bleed across the top, the tvOS
+         gradient over it, the poster inset over the seam, copy to its right.
+         With no backdrop the field carries the category accent. -->
     <Poster id="wash" />
-    <Rectangle id="scrim" />
+    <Rectangle id="field" visible="false" />
+    <Poster id="fade" />
+    <Rectangle id="scrim" visible="false" />
     <Poster id="art" />
+    <Group id="artFrame" />
+    <Label id="kind" />
     <Label id="title" />
     <Label id="aka" />
     <Label id="meta" />

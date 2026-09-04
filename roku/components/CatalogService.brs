@@ -373,7 +373,11 @@ sub resolveIds(ids as Object)
             k = normKey(fmt(r[1]))
             ' Short keys match too loosely — "tv", "men" would sweep up
             ' unrelated titles.
-            if Len(k) >= 6 and seriesByKey[k] = invalid then seriesByKey[k] = r
+            ' Five, not six: "26 Men" normalises to "26men" and was excluded,
+            ' so its episode drew a placeholder in Library while Home (which
+            ' borrows by the recorded owner) showed the poster. The prefix
+            ' rule already requires the EPISODE title to start with it.
+            if Len(k) >= 5 and seriesByKey[k] = invalid then seriesByKey[k] = r
         end if
     end for
     root = CreateObject("roSGNode", "ContentNode")

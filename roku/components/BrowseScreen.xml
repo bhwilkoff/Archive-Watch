@@ -16,6 +16,7 @@
   <script type="text/brightscript" uri="pkg:/components/BrowseScreen.brs" />
   <children>
     <Label id="heading" />
+    <Label id="count" />
     <Group id="chips" />
     <MarkupGrid id="grid" />
     <Label id="empty" visible="false" />

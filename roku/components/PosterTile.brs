@@ -16,11 +16,7 @@ sub init()
     ' A typographic card for tiles that name a PLACE rather than a film —
     ' "Silent Era", "The 1930s". They have no poster and never will, and an
     ' empty 2:3 box beside real posters reads as a failed image load.
-    m.ring = [m.top.FindNode("ringT"), m.top.FindNode("ringB"),
-              m.top.FindNode("ringL"), m.top.FindNode("ringR")]
-    for each r in m.ring
-        r.color = m.t.marquee
-    end for
+    m.frame = AWFrameBuild(m.top.FindNode("frame"))
     m.art.ObserveField("loadStatus", "onArtLoaded")
     m.tileRule = m.top.FindNode("tileRule")
     m.tileLabel = m.top.FindNode("tileLabel")
@@ -40,6 +36,7 @@ end sub
 
 sub setSize(w as Integer, h as Integer)
     m.plate.width = w : m.plate.height = h
+    m.plate.color = "0x121215FF"
     m.art.width = w : m.art.height = h
     ' Decision 097 binds on every platform: NEVER reshape the art. scaleToZoom
     ' would crop; the tile is already 2:3 and the art is fitted into it.
@@ -100,7 +97,8 @@ sub onContent()
     ' worse than showing no poster at all. Clearing the uri first makes the
     ' card the thing on screen until the real art arrives.
     m.art.uri = ""
-    hideRing()
+    m.plate.visible = true
+    AWFramePlace(m.frame, m.art, false)
     m.tileLabel.visible = true
     m.tileLabel.text = c.title
     ' A film with no artwork gets a DESIGNED card, not a grey line on a dark
@@ -135,18 +133,12 @@ sub onArtLoaded()
     ' Poster in the XML, so it draws on top of it.
     m.tileLabel.visible = false
     m.tileRule.visible = false
+    m.plate.visible = false
     positionRing()
 end sub
 
-sub hideRing()
-    if m.ring = invalid then return
-    for each r in m.ring
-        r.visible = false
-    end for
-end sub
-
 sub positionRing()
-    AWRing(m.art, m.ring, m.focused = true)
+    AWFramePlace(m.frame, m.art, m.focused = true)
 end sub
 
 sub onFocusChanged()

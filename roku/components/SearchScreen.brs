@@ -43,8 +43,8 @@ sub init()
         b.text = d.label
         b.textColor = m.t.textPri
         b.focusedTextColor = m.t.marquee
-        b.focusBitmapUri = "pkg:/images/focus_ring.9.png"
-        b.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
+        b.focusBitmapUri = "pkg:/images/ring_focus.9.png"
+        b.focusFootprintBitmapUri = "pkg:/images/ring_footprint.9.png"
         b.iconUri = ""
         b.focusedIconUri = ""
         b.ObserveField("buttonSelected", "onDoorSelected")
@@ -74,8 +74,8 @@ sub init()
         b.iconUri = "" : b.focusedIconUri = ""
         b.textColor = m.t.textPri
         b.focusedTextColor = m.t.marquee
-        b.focusBitmapUri = "pkg:/images/focus_ring.9.png"
-        b.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
+        b.focusBitmapUri = "pkg:/images/ring_focus.9.png"
+        b.focusFootprintBitmapUri = "pkg:/images/ring_footprint.9.png"
         b.ObserveField("buttonSelected", "onChipPressed")
         m.chips.Push(b)
         cx = cx + 426
@@ -243,7 +243,10 @@ sub applyFilters()
         ' not playing video, so the branch was dead code the moment it was
         ' written. Walking out of the keyboard is the platform idiom; the
         ' line now describes it accurately.
-        m.status.text = fmt(n) + " titles match “" + m.kb.text + "”. Press Right past the keyboard to browse them."
+        ' The line states the RESULT and nothing else. "Press Right past the
+        ' keyboard" was instruction, and the owner's rule is that navigation
+        ' is never narrated on screen — the results are visibly to the right.
+        m.status.text = fmt(n) + " titles match “" + m.kb.text + "”"
     end if
 end sub
 

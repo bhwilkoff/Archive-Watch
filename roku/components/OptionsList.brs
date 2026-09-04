@@ -24,8 +24,8 @@ sub init()
     m.list.font = m.t.uBody
     m.list.color = m.t.textPri
     m.list.focusedColor = m.t.marquee
-    m.list.focusBitmapUri = "pkg:/images/focus_ring.9.png"
-    m.list.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
+    m.list.focusBitmapUri = "pkg:/images/ring_focus.9.png"
+    m.list.focusFootprintBitmapUri = "pkg:/images/ring_footprint.9.png"
     m.list.drawFocusFeedbackOnTop = true
     m.list.vertFocusAnimationStyle = "floatingFocus"
     m.list.ObserveField("itemSelected", "onPick")

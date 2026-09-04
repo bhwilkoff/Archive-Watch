@@ -549,3 +549,92 @@ Superseded: a hero that followed the focused tile. It changed the marquee on
 every key press, and a poster-less title blanked the whole band. It now
 rotates through the backdrop pool on a 9-second timer, which is what a hero is
 on every other platform in this project.
+
+
+---
+
+## 13. The design upgrade (2026-09-04) — from functional to designed
+
+**Binding.** The owner, after the channel reached functional parity: "Everything
+still looks incredibly boxy and rudimentary and not as if a professional
+designer actually put it together." This section is the answer, researched
+against Roku's own principles ("celebrate artwork", "blank space is essential",
+"one explicit primary action", "the UI is invisible"), the tvOS ramp and hero
+(`docs/tvos-playbook.md` §4, §9), and the two apps this one should stand
+beside — Mubi for warmth and the size of its imagery, and the Criterion Channel
+as the cautionary case of an institutional grey screen with a dead corner.
+Every rule below amends the section it names; §1–§12 otherwise stand.
+
+**13.1 Typography is real, and it is the house typography.** Amends §5.1/§5.2.
+The six levels were six named system fonts at whatever size Roku chose, so a
+hero title, a row title and a caption were three sizes of one sans — that was
+most of "rudimentary". Fraunces (the serif every other Archive Watch surface
+leads with) and Inter are bundled as Latin subsets, 516 KB for six faces.
+
+| Level | Face | Size | Use |
+|---|---|---|---|
+| Marquee | Fraunces Display Black | 66 | Hero title |
+| Title | Fraunces Display Black | 57 | Detail / series title |
+| Screen | Fraunces Display SemiBold | 45 | Screen headings |
+| Row | Inter SemiBold | 33 | Shelf titles, buttons |
+| Body | Inter Regular | 27 | Synopsis, prose |
+| Item | Inter Medium | 27 | Captions, list rows |
+| Meta | Inter Regular | 24 | Year · runtime · counters |
+
+Two VOICES on existing sizes, not new levels: the **eyebrow** (Meta, Inter
+SemiBold, caps, tracked with hair spaces because `Label` has no tracking) and
+the **tagline** (Body, Fraunces Text Italic). Every size still divides by 3.
+
+**13.2 A category is a word, never a slug.** `feature-film` was printed as
+`FEATURE-FILM` on the hero and the Detail chip. `KindLabel()` is the one
+place a contentType becomes a label, and nothing prints a slug.
+
+**13.3 Focus is a light ring with a soft edge, and there is only ever ONE.**
+Amends §5.5/§5.6. Orange marked focus everywhere, so it marked nothing — and
+on Series and Channels two orange rectangles were lit at once. Focus is now a
+3 px near-white (`#EBEBEB`) rounded ring with a 12 px soft glow; the
+footprint is the same ring at 35% with no glow, and a list that is not the
+active zone shows the footprint, never the ring. Marquee orange is reserved
+for Play, progress, the selected rail item and the trick bar — meaning, not
+attention. Tiles draw the ring from corner and edge slices
+(`images/slices/ring_*`), because a `.9.png` on a plain `Poster` keeps its
+guide pixels; lists take the real 9-patch (`ring_focus.9.png`).
+
+**13.4 Corners.** Every poster, still, tile plate and button is rounded at
+9 px. Roku's `Poster` has no radius, so posters take four canvas-coloured
+corner overlays (`slices/corner_*`), and plates and buttons are built from
+end-cap slices. A hard-edged rectangle in this channel is a bug.
+
+**13.5 Buttons are pills; there are at most three, and one is primary.** A
+button is a 60 px pill: resting = 11% white on the canvas, focused = solid
+`#EBEBEB` with canvas-dark type, the primary (Play) = marquee orange with
+light type when focused and outlined when not. Never a flat rectangle plate.
+
+**13.6 No tinted-box backgrounds on rows or cards.** Restates the house
+density rule for this platform: separation comes from spacing and type, not
+from a `#16161A` slab behind every row. The surface colour is for the rail,
+panels and dialogs — the chrome — not for content.
+
+**13.7 Detail and Series are scenes, not forms.** Amends §6.5. Backdrop
+full-bleed across the top 60% with the §13.3 gradient; the poster inset
+lower-left over the seam at its own aspect (Decision 097); title in Fraunces
+to the right of the poster with eyebrow above and meta below; the pill row at
+the seam with Play focused; synopsis at the title-safe inset below; then
+cast, More Like This. A film with no backdrop gets a category-accent field
+(never a stretched poster), exactly as the hero does.
+
+**13.8 Nothing on screen tells the viewer how to navigate.** "Press OK on a
+channel to tune in", "Press Right past the keyboard", "OK to open · Left /
+Right for more" — all removed. A status line states a result ("300 titles
+match 'noir'"); the layout carries the rest.
+
+**13.9 No engineering talks on a consumer surface.** "121 bytes of 32 KB
+used" is gone from Library. The §7.2 budget surfaces as a designed
+nearly-full / full state with a Remove affordance, not as a counter.
+
+**13.10 Rhythm.** Amends §4.6 for Browse: the 8-column grid left 126 px of
+dead space between rows. Rows sit on a 24 px gutter both ways; captions ride
+INSIDE the cell reserve, and the reserve is exactly caption + gutter.
+
+**13.11 The ship gate gains four lines** (amends §9): a raw slug on screen; a
+second lit focus ring; a hard-edged poster; an instruction sentence.

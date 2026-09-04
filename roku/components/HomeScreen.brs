@@ -283,7 +283,7 @@ sub paintHero(it as Object)
     kind = ""
     if it.HasField("awType") then kind = fmt(it.awType)
     if kind = "" then kind = "feature-film"
-    m.hKind.text = UCase(kind)
+    m.hKind.text = AWTracked(UCase(KindLabel(kind)))
     m.hKind.color = AccentFor(kind)
     m.heroId = it.id
     m.pendingHeroArt = it

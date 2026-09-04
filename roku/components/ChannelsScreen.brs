@@ -16,7 +16,9 @@ sub init()
 
     m.hint.font = m.t.uMeta : m.hint.color = m.t.textSec
     m.hint.translation = [42, 204]
-    m.hint.text = "Press OK on a channel to tune in — you join whatever is already playing."
+    ' No instructions on screen. What the guide IS is obvious from the
+    ' listing; what OK does is the platform's own contract.
+    m.hint.text = ""
 
     m.chList.translation = [42, 276]
     m.chList.itemSize = [396, 66]
@@ -25,8 +27,8 @@ sub init()
     m.chList.font = m.t.uBody
     m.chList.color = m.t.textPri
     m.chList.focusedColor = m.t.marquee
-    m.chList.focusBitmapUri = "pkg:/images/focus_ring.9.png"
-    m.chList.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
+    m.chList.focusBitmapUri = "pkg:/images/ring_focus.9.png"
+    m.chList.focusFootprintBitmapUri = "pkg:/images/ring_footprint.9.png"
     m.chList.drawFocusFeedbackOnTop = true
     m.chList.vertFocusAnimationStyle = "floatingFocus"
     m.chList.ObserveField("itemFocused", "onChannelFocused")
@@ -52,8 +54,8 @@ sub init()
     m.guide.itemSize = [1050, 66]
     m.guide.itemSpacing = [0, 6]
     m.guide.numRows = 8
-    m.guide.focusBitmapUri = "pkg:/images/focus_ring.9.png"
-    m.guide.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
+    m.guide.focusBitmapUri = "pkg:/images/ring_focus.9.png"
+    m.guide.focusFootprintBitmapUri = "pkg:/images/ring_footprint.9.png"
     m.guide.drawFocusFeedbackOnTop = true
     m.guide.vertFocusAnimationStyle = "floatingFocus"
     m.guide.ObserveField("itemSelected", "onGuideSelected")

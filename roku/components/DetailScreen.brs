@@ -29,25 +29,25 @@ sub init()
     ' a row of tiles must end above 1080, and a cast line has to sit between
     ' the synopsis and the buttons without touching either. Every one of these
     ' numbers was moved after seeing them collide on the glass.
-    m.cast.translation = [m.t.readX, 672]
+    m.cast.translation = [378, 834]
 
     m.likeLabel = m.top.FindNode("likeLabel")
     m.likeLabel.font = m.t.uRow : m.likeLabel.color = m.t.textPri
-    m.likeLabel.translation = [m.t.readX, 834]
+    m.likeLabel.translation = [42, 882]
     m.likeLabel.text = "More like this"
 
     ' A single short row at the foot of the screen. Tiles are smaller than a
     ' shelf's because this is a footnote to the film, not a shelf in its own
     ' right, and the buttons above it must stay the obvious thing to press.
     m.like = m.top.FindNode("like")
-    m.like.translation = [m.t.readX, 882]
+    m.like.translation = [42, 927]
     m.like.itemComponentName = "MiniTile"
     m.like.numRows = 1
     m.like.rowFocusAnimationStyle = "floatingFocus"
     ' 108x162 keeps the row's bottom at 1056 on a 1080 screen — a taller tile
     ' runs off the bottom, which is invisible in code and obvious on a TV.
-    m.like.itemSize = [1500, 174]
-    m.like.rowItemSize = [[108, 162]]
+    m.like.itemSize = [1740, 144]
+    m.like.rowItemSize = [[90, 135]]
     m.like.rowItemSpacing = [[18, 0]]
     m.like.showRowLabel = [false]
     ' The TILE rings its own art (ROKU-DESIGN §5.4a). An explicitly transparent
@@ -84,46 +84,65 @@ sub init()
     m.chipText = m.top.FindNode("chipText")
     m.btns = m.top.FindNode("buttons")
 
-    m.wash.width = 1920 : m.wash.height = 1080
+    ' §13.7 — the backdrop is the top 60% of the screen at full brightness,
+    ' with the tvOS gradient (clear, clear, .45, .9, black) over it so the copy
+    ' sits on darkness at the seam. The previous build washed it to 0.22
+    ' behind an opaque scrim: a picture nobody could see, next to a form.
+    m.wash.width = 2070 : m.wash.height = 648
     m.wash.translation = [-150, 0]
     m.wash.loadDisplayMode = "scaleToZoom"
-    m.wash.opacity = 0.22
-    m.scrim.width = 1920 : m.scrim.height = 1080
-    m.scrim.translation = [-150, 0]
-    m.scrim.color = "0x0B0B0CFF"
+    m.wash.opacity = 1.0
+    m.fade = m.top.FindNode("fade")
+    m.fade.uri = "pkg:/images/hero_scrim_v.png"
+    m.fade.width = 2070 : m.fade.height = 648
+    m.fade.translation = [-150, 0]
+    m.fade.loadDisplayMode = "scaleToFill"
+    ' A film with no backdrop gets a category-accent FIELD (as the hero
+    ' does), never a stretched poster.
+    m.field = m.top.FindNode("field")
+    m.field.width = 2070 : m.field.height = 648
+    m.field.translation = [-150, 0]
 
-    ' Decision 097 — the art is FITTED at its own aspect. It sits right so the
-    ' reading column on the left is never over a busy still.
-    ' Ends at 786, clear of the "More like this" label at 834. At 750 tall from
-    ' y=168 it reached 918 and ran behind the row — the poster was literally
-    ' underneath the shelf.
-    m.art.translation = [1060, 126]
-    m.art.width = 580 : m.art.height = 660
+    ' Decision 097 — the poster FITTED at its own aspect, inset over the seam
+    ' lower-left, with the rounded frame every tile carries.
+    m.art.translation = [42, 318]
+    m.art.width = 288 : m.art.height = 432
     m.art.loadDisplayMode = "scaleToFit"
+    m.artFrame = AWFrameBuild(m.top.FindNode("artFrame"))
+    m.art.ObserveField("loadStatus", "onArtLoaded")
 
-    ' §4.3 — prose the viewer READS starts at the title-safe inset.
-    x = 42
-    m.title.font = m.t.uMarquee : m.title.color = m.t.textPri
-    m.title.translation = [x, 168] : m.title.width = 810
+    ' Copy to the right of the poster. x = 42 + 288 + 48.
+    x = 378
+    m.kind = m.top.FindNode("kind")
+    m.kind.font = m.t.uEyebrow
+    m.kind.translation = [x, 318]
+
+    m.title.font = m.t.uTitle : m.title.color = m.t.textPri
+    m.title.translation = [x, 348] : m.title.width = 1380
     m.title.maxLines = 2 : m.title.wrap = true
 
-    m.aka.font = m.t.uMeta : m.aka.color = m.t.textSec
-    m.aka.translation = [x, 318] : m.aka.width = 810
+    ' "Also known as" in the tagline voice — Fraunces italic, the way tvOS
+    ' sets it.
+    m.aka.font = m.t.uTagline : m.aka.color = m.t.textSec
+    m.aka.translation = [x, 498] : m.aka.width = 1380
     m.aka.maxLines = 1
 
     m.meta.font = m.t.uMeta : m.meta.color = m.t.textSec
-    m.meta.translation = [x, 366]
+    m.meta.translation = [x, 546]
 
+    ' Synopsis under the pill row, three lines, then cast.
     m.syn.font = m.t.uBody : m.syn.color = m.t.textPri
-    m.syn.translation = [x, waitY()] : m.syn.width = 810
-    m.syn.maxLines = 4
-    m.syn.wrap = true : m.syn.maxLines = 4
+    m.syn.translation = [x, 690] : m.syn.width = 1140
+    m.syn.wrap = true : m.syn.maxLines = 3
+    m.syn.lineSpacing = 6
+    m.syn.ellipsizeOnBoundary = true
 
-    ' §5.3 — the category chip is the ONLY semantic colour on this screen.
-    m.chip.translation = [x, componentY()] : m.chip.height = 6 : m.chip.width = 96
-    m.chipText.font = m.t.uMeta : m.chipText.translation = [x + 108, componentY() - 15]
+    ' The old accent rule + slug chip is retired: the eyebrow IS the category.
+    m.chip.visible = false
+    m.chipText.visible = false
 
-    m.btns.translation = [x, 738]
+    ' §13.5 — the pill row sits at the seam, right of the poster.
+    m.btns.translation = [x, 606]
     m.buttons = []
     addButton("play", "Play")
     addButton("save", "Save")
@@ -148,37 +167,91 @@ sub layoutButtons()
         tw = b.label.boundingRect().width
         if tw <= 0 then tw = 120
         w = Int(tw) + 72
-        if w < 174 then w = 174
-        b.plate.width = w
+        if w < 150 then w = 150
+        ' Divisible by 3 (§4.2).
+        w = Int(w / 3) * 3
+        AWPillLayout(b.pill, 0, 0, w)
         b.group.translation = [x, 0]
-        b.label.translation = [Int((w - tw) / 2), 18]
-        x = x + w + 24
+        b.label.translation = [Int((w - tw) / 2), 12]
+        x = x + w + 18
     end for
 end sub
 
+' §13.5 — a button is a PILL, never a flat plate.
 sub addButton(id as String, label as String)
     g = m.btns.CreateChild("Group")
-    r = g.CreateChild("Rectangle")
-    r.height = 66 : r.color = "0x22222AFF"
+    pill = AWPillBuild(g)
     l = g.CreateChild("Label")
     l.font = m.t.uRow : l.color = m.t.textPri
     l.text = label
-    m.buttons.Push({ id: id, plate: r, label: l, group: g })
+    m.buttons.Push({ id: id, pill: pill, label: l, group: g })
 end sub
 
-' §5.5 — focus is a ring plus a fill change. There is no scale transform on
-' Roku and no shadow; the ring is the platform's grammar.
+' Focus is the pill going solid light with dark type; the primary (Play) is
+' marquee when focused and outlined-light at rest, so there is one orange
+' thing on the screen and it is the thing that plays the film.
 sub paintButtons()
     for i = 0 to m.buttons.Count() - 1
         b = m.buttons[i]
-        if i = m.focusIndex and m.top.focusOn
-            b.plate.color = m.t.marquee
-            b.label.color = "0x0B0B0CFF"
+        lit = (i = m.focusIndex and m.top.focusOn)
+        if b.id = "play"
+            if lit
+                AWPillStyle(b.pill, "marquee")
+                b.label.color = m.t.textPri
+            else
+                AWPillStyle(b.pill, "outline")
+                b.label.color = m.t.textPri
+            end if
+        else if lit
+            AWPillStyle(b.pill, "focus")
+            b.label.color = m.t.canvas
         else
-            b.plate.color = "0x22222AFF"
+            AWPillStyle(b.pill, "rest")
             b.label.color = m.t.textPri
         end if
     end for
+end sub
+
+sub onArtLoaded()
+    if m.art.loadStatus <> "ready" then return
+    ' If the only art is LANDSCAPE it is a still, and a still inset beside
+    ' the same still full-bleed is the picture twice. Hide the inset and let
+    ' the copy take the column from the title-safe edge.
+    landscape = (m.art.bitmapWidth > m.art.bitmapHeight)
+    m.art.visible = not landscape
+    for each p in m.artFrame.corners
+        p.visible = not landscape
+    end for
+    layoutCopy(not landscape)
+    if not landscape then AWFramePlace(m.artFrame, m.art, false)
+end sub
+
+' The copy column starts right of the poster, or at the title-safe edge when
+' there is no poster to stand beside.
+sub layoutCopy(withPoster as Boolean)
+    x = 378
+    if not withPoster then x = 42
+    m.kind.translation = [x, 318]
+    m.title.translation = [x, 348]
+    ' Stack under the title's RENDERED height. Fixed positions left a 170 px
+    ' hole between a one-line title and its meta; a two-line title needs the
+    ' room a one-line title must not reserve.
+    th = 72
+    r = m.title.boundingRect()
+    if r <> invalid and r.height > 0 then th = Int(r.height)
+    y = 348 + th + 18
+    if m.aka.text <> ""
+        m.aka.translation = [x, y]
+        y = y + 48
+    end if
+    m.meta.translation = [x, y]
+    y = y + 60
+    ' The pill row never rises above the seam, so the layout below it is
+    ' stable whatever the title did.
+    if y < 606 then y = 606
+    m.btns.translation = [x, y]
+    m.syn.translation = [x, y + 84]
+    m.cast.translation = [x, y + 228]
 end sub
 
 sub onItem()
@@ -187,16 +260,37 @@ sub onItem()
     m.archiveID = it.id
     m.title.text = it.title
     m.meta.text = it.SHORTDESCRIPTIONLINE1
+    layoutCopy(true)
+    ' §13.7 — the backdrop is the SCENE; the poster is the INSET. They were
+    ' both being set to the backdrop, so the inset was the same still twice.
+    ' A film with only a poster gets that poster zoomed behind the copy as an
+    ' ambient wash at 0.6 — the Apple TV app's treatment for poster-only
+    ' titles — which on the glass read better than a flat accent field.
+    m.art.visible = true
     if it.awBackdrop <> invalid and it.awBackdrop <> ""
         m.wash.uri = it.awBackdrop
-        m.art.uri = it.awBackdrop
-    else
-        m.art.uri = it.HDPOSTERURL
+        m.wash.opacity = 1.0
+        if it.HDPOSTERURL <> invalid and it.HDPOSTERURL <> ""
+            m.art.uri = it.HDPOSTERURL
+        else
+            m.art.uri = ""
+            m.art.visible = false
+            layoutCopy(false)
+        end if
+    else if it.HDPOSTERURL <> invalid and it.HDPOSTERURL <> ""
         m.wash.uri = it.HDPOSTERURL
+        m.wash.opacity = 0.6
+        m.art.uri = it.HDPOSTERURL
+    else
+        m.wash.uri = ""
+        m.art.uri = ""
+        m.art.visible = false
+        layoutCopy(false)
     end if
     if it.awType <> invalid
         m.chip.color = AccentFor(it.awType)
-        m.chipText.text = UCase(it.awType)
+        m.kind.text = AWTracked(UCase(KindLabel(fmt(it.awType))))
+        m.kind.color = AccentFor(fmt(it.awType))
         m.chipText.color = AccentFor(it.awType)
     end if
     m.aka.text = ""
@@ -228,6 +322,7 @@ sub onDetail()
     ' has already decided the two titles differ materially.
     if d.canonicalTitle <> invalid and d.canonicalTitle <> "" and LCase(d.canonicalTitle) <> LCase(m.title.text)
         m.aka.text = "Also known as " + d.canonicalTitle
+        layoutCopy(m.art.visible)
     end if
 
     ' §6.5 — Play carries the runtime, or the RESUME position when the viewer

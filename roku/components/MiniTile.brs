@@ -1,10 +1,6 @@
 sub init()
     m.t = Theme()
-    m.ring = [m.top.FindNode("ringT"), m.top.FindNode("ringB"),
-              m.top.FindNode("ringL"), m.top.FindNode("ringR")]
-    for each r in m.ring
-        r.color = m.t.marquee
-    end for
+    m.frame = AWFrameBuild(m.top.FindNode("frame"))
     m.focused = false
     m.plate = m.top.FindNode("plate")
     m.art = m.top.FindNode("art")
@@ -18,21 +14,19 @@ sub init()
 end sub
 
 sub onArtLoaded()
-    if m.art.loadStatus = "ready" then AWRing(m.art, m.ring, m.focused)
+    m.plate.visible = (m.art.loadStatus <> "ready")
+    AWFramePlace(m.frame, m.art, m.focused)
 end sub
 
 sub onContent()
     c = m.top.itemContent
     if c = invalid then return
+    m.plate.visible = true
     m.art.uri = c.HDPOSTERURL
 end sub
 
 sub onFocus()
     m.focused = (m.top.focusPercent > 0.5)
-    if m.focused
-        m.plate.color = "0x33333DFF"
-    else
-        m.plate.color = "0x1C1C22FF"
-    end if
-    AWRing(m.art, m.ring, m.focused)
+    m.plate.color = "0x121215FF"
+    AWFramePlace(m.frame, m.art, m.focused)
 end sub

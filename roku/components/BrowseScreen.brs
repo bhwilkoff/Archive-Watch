@@ -6,17 +6,24 @@ sub init()
     m.empty = m.top.FindNode("empty")
 
     m.heading.font = m.t.uScreen : m.heading.color = m.t.textPri
-    m.heading.translation = [42, 132]
+    m.heading.translation = [42, 120]
+    ' The count sits under the heading at Meta — a number in the display
+    ' face at heading size competed with the screen's own name.
+    m.count = m.top.FindNode("count")
+    m.count.font = m.t.uMeta : m.count.color = m.t.textSec
+    m.count.translation = [42, 186]
 
     m.empty.font = m.t.uBody : m.empty.color = m.t.textSec
     m.empty.translation = [42, 400] : m.empty.width = 1200 : m.empty.wrap = true
 
-    m.grid.translation = [42, 306]
+    m.grid.translation = [42, 336]
     m.grid.itemComponentName = "GridTile"
     m.grid.numColumns = 7
     m.grid.numRows = 2
-    m.grid.itemSize = [210, 393]
-    m.grid.itemSpacing = [24, 24]
+    ' §13.10 — the cell reserve is the focused poster plus a two-line
+    ' caption and nothing more; 393 left 126 px of black between rows.
+    m.grid.itemSize = [210, 351]
+    m.grid.itemSpacing = [24, 12]
     ' The TILE rings its own art (ROKU-DESIGN §5.4a). An explicitly transparent
     ' 9-patch is required: with no bitmap the list draws its own grey box.
     m.grid.focusBitmapUri = "pkg:/images/focus_none.9.png"
@@ -41,21 +48,30 @@ sub init()
     ]
     m.chipIndex = [0, 0, 0, 0]
     m.chips = []
+    m.restPills = []
     x = 0
     for i = 0 to m.chipDefs.Count() - 1
+        ' §13.5 — the rest state is OURS to draw: a Button only paints its
+        ' focus bitmap, so without this the unfocused chips were bare text.
+        rest = AWPillBuild(m.chipGroup)
+        AWPillLayout(rest, x, 0, 300)
         b = m.chipGroup.CreateChild("Button")
         b.translation = [x, 0]
         ' Four chips now, so each is narrower: 4 x 390 fits the content column
         ' where 4 x 429 did not.
-        b.minWidth = 348
+        b.minWidth = 300
         b.height = 60
         b.textColor = m.t.textPri
         ' The focus ring is a RING with a transparent centre, so the button
         ' keeps the page behind it when focused. Near-black focused text was
         ' therefore invisible: the chip read as an empty box.
         b.focusedTextColor = m.t.marquee
-        b.focusBitmapUri = "pkg:/images/focus_ring.9.png"
-        b.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
+        ' §13.5 — a chip is a pill. The Button node's own bitmaps are the
+        ' cheapest way to get one: rest and focus are the two pill 9-patches
+        ' (lists strip the guide border; a Button is a list of one).
+        b.focusBitmapUri = "pkg:/images/pill_focus.9.png"
+        b.focusFootprintBitmapUri = "pkg:/images/pill_rest.9.png"
+        b.focusedTextColor = m.t.canvas
         ' Roku's Button ships a decorative bullet to the left of its text. It
         ' means nothing on a filter chip and reads as a stray dot; blanking the
         ' uri is the only way to be rid of it.
@@ -63,9 +79,10 @@ sub init()
         b.focusedIconUri = ""
         b.ObserveField("buttonSelected", "onChipSelected")
         m.chips.Push(b)
-        x = x + 390
+        m.restPills.Push(rest)
+        x = x + 336
     end for
-    m.chipGroup.translation = [42, 216]
+    m.chipGroup.translation = [42, 240]
     m.focusRow = 0      ' 0 = chips, 1 = grid
     m.focusChip = 0
     paintChips()
@@ -85,7 +102,16 @@ end sub
 sub paintChips()
     for i = 0 to m.chips.Count() - 1
         d = m.chipDefs[i]
-        m.chips[i].text = d.label + ":  " + d.values[m.chipIndex[i]]
+        v = d.values[m.chipIndex[i]]
+        ' A chip states its VALUE. "Type: Feature Film" read as a settings
+        ' form; "Feature Film" reads as what is on the grid.
+        if v = "All"
+            if d.id = "type" then v = "All films"
+            if d.id = "decade" then v = "Any decade"
+            if d.id = "genre" then v = "Any genre"
+        end if
+        if d.id = "sort" and v = "Popular" then v = "Most popular"
+        m.chips[i].text = v
     end for
 end sub
 
@@ -191,7 +217,8 @@ sub showResults(root as Object, total as Integer)
     ' cue on a 25,000-title catalog.
     base = m.heading.text
     if Instr(1, base, "  ·  ") > 0 then base = Left(base, Instr(1, base, "  ·  ") - 1)
-    m.heading.text = base + "  ·  " + fmt(total) + " titles"
+    m.heading.text = base
+    m.count.text = AWGroup(total) + " titles"
 end sub
 
 sub onSelected()
