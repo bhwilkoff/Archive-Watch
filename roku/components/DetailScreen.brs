@@ -18,6 +18,42 @@ end sub
 sub init()
     m.t = Theme()
 
+    m.cast = m.top.FindNode("cast")
+    m.cast.font = m.t.uMeta : m.cast.color = m.t.textSec
+    m.cast.width = 1000 : m.cast.maxLines = 1
+    m.cast.ellipsizeOnBoundary = true
+    ' Below the buttons, not above them: the synopsis is variable-height and
+    ' anything placed between it and the buttons collides on a long one.
+    ' The vertical budget below the synopsis is real and small: buttons at 738,
+    ' a row of tiles must end above 1080, and a cast line has to sit between
+    ' the synopsis and the buttons without touching either. Every one of these
+    ' numbers was moved after seeing them collide on the glass.
+    m.cast.translation = [m.t.readX, 672]
+
+    m.likeLabel = m.top.FindNode("likeLabel")
+    m.likeLabel.font = m.t.uRow : m.likeLabel.color = m.t.textPri
+    m.likeLabel.translation = [m.t.readX, 834]
+    m.likeLabel.text = "More like this"
+
+    ' A single short row at the foot of the screen. Tiles are smaller than a
+    ' shelf's because this is a footnote to the film, not a shelf in its own
+    ' right, and the buttons above it must stay the obvious thing to press.
+    m.like = m.top.FindNode("like")
+    m.like.translation = [m.t.readX, 882]
+    m.like.itemComponentName = "MiniTile"
+    m.like.numRows = 1
+    m.like.rowFocusAnimationStyle = "floatingFocus"
+    ' 108x162 keeps the row's bottom at 1056 on a 1080 screen — a taller tile
+    ' runs off the bottom, which is invisible in code and obvious on a TV.
+    m.like.itemSize = [1500, 174]
+    m.like.rowItemSize = [[108, 162]]
+    m.like.rowItemSpacing = [[18, 0]]
+    m.like.showRowLabel = [false]
+    m.like.focusBitmapUri = "pkg:/images/focus_ring.9.png"
+    m.like.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
+    m.like.drawFocusFeedbackOnTop = true
+    m.like.ObserveField("rowItemSelected", "onLikeSelected")
+
     m.toastPlate = m.top.FindNode("toastPlate")
     m.toastText = m.top.FindNode("toastText")
     m.toastTimer = m.top.FindNode("toastTimer")
@@ -71,7 +107,8 @@ sub init()
 
     m.syn.font = m.t.uBody : m.syn.color = m.t.textPri
     m.syn.translation = [x, waitY()] : m.syn.width = 810
-    m.syn.wrap = true : m.syn.maxLines = 5
+    m.syn.maxLines = 4
+    m.syn.wrap = true : m.syn.maxLines = 4
 
     ' §5.3 — the category chip is the ONLY semantic colour on this screen.
     m.chip.translation = [x, componentY()] : m.chip.height = 6 : m.chip.width = 96
@@ -138,6 +175,10 @@ sub onItem()
     end if
     m.aka.text = ""
     m.syn.text = ""
+    m.cast.text = ""
+    m.like.visible = false
+    m.likeLabel.visible = false
+    m.likeRow = false
     paintSave()
 end sub
 
@@ -172,6 +213,33 @@ sub onDetail()
     paintPlayLabel()
     m.playUrl = d.url
 
+    ' Cast as one honest line rather than a row of faces: the shard carries
+    ' TMDb profile paths, but a row of six portraits under a 1959 Argentine
+    ' drama pushes the synopsis off the screen for information nobody came for.
+    if d.cast <> invalid and d.cast.Count() > 0
+        names = []
+        for each c in d.cast
+            if c.Count() > 0 and names.Count() < 5 then names.Push(fmt(c[0]))
+        end for
+        if names.Count() > 0
+            line = "With "
+            for i = 0 to names.Count() - 1
+                if i > 0 then line = line + ", "
+                line = line + names[i]
+            end for
+            m.cast.text = line
+        end if
+    end if
+
+    ' Ask the Scene for similar films once the type and year are known.
+    yr = 0
+    if m.top.item <> invalid and m.top.item.SHORTDESCRIPTIONLINE1 <> invalid
+        yr = Int(Val(Left(m.top.item.SHORTDESCRIPTIONLINE1, 4)))
+    end if
+    ct = ""
+    if m.top.item <> invalid and m.top.item.awType <> invalid then ct = m.top.item.awType
+    m.top.wantLike = { id: m.archiveID, contentType: ct, year: yr }
+
     ' Captions ride in the shard as [[lang, label, url], ...]. Only ~17% of the
     ' catalog has any, so the absence of a track is the normal case and must
     ' never look like a failure.
@@ -193,7 +261,10 @@ sub onFocusOn()
     ' converting the Scene to refocus() (which only toggles the field) left
     ' Detail painted but unfocused — the buttons drew correctly and every press
     ' went straight past them to Home underneath.
-    if m.top.focusOn then m.top.setFocus(true)
+    if m.top.focusOn
+        m.inLike = false
+        m.top.setFocus(true)
+    end if
     paintButtons()
 end sub
 
@@ -235,7 +306,23 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             m.focusIndex = m.focusIndex - 1 : paintButtons() : return true
         end if
         return false          ' let the Scene decide (rail / back)
+    else if key = "down"
+        if m.likeRow = true and m.inLike <> true
+            m.inLike = true
+            m.like.setFocus(true)
+            return true
+        end if
+        return false
+    else if key = "up"
+        if m.inLike = true
+            m.inLike = false
+            m.top.setFocus(true)
+            paintButtons()
+            return true
+        end if
+        return false
     else if key = "OK"
+        if m.inLike = true then return false
         b = m.buttons[m.focusIndex]
         if b.id = "play"
             if m.playUrl <> invalid and m.playUrl <> ""
@@ -260,3 +347,34 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     end if
     return false
 end function
+
+
+sub showLike(items as Object)
+    if items = invalid or items.GetChildCount() = 0
+        m.like.visible = false
+        m.likeLabel.visible = false
+        m.likeRow = false
+        return
+    end if
+    ' A RowList's content is ROWS OF ITEMS, not items. Handing it the flat
+    ' result list made it render one row — the first film, which has no
+    ' children — as an empty box with a focus ring around it.
+    root = CreateObject("roSGNode", "ContentNode")
+    row = root.CreateChild("ContentNode")
+    for i = 0 to items.GetChildCount() - 1
+        row.AppendChild(items.GetChild(i).Clone(false))
+    end for
+    m.like.content = root
+    m.like.visible = true
+    m.likeLabel.visible = true
+    m.likeRow = true
+end sub
+
+sub onLikeSelected()
+    idx = m.like.rowItemSelected
+    if m.like.content = invalid then return
+    row = m.like.content.GetChild(idx[0])
+    if row = invalid then return
+    it = row.GetChild(idx[1])
+    if it <> invalid then m.top.chosen = it.id
+end sub

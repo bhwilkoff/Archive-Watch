@@ -14,6 +14,10 @@
     <!-- Raised when the More button is pressed; the Scene owns the overlay. -->
     <field id="showMore" type="boolean" alwaysNotify="true" />
     <field id="runtimeSeconds" type="integer" value="0" />
+    <!-- Raised when Detail wants its "more like this" row filled. -->
+    <field id="wantLike" type="assocarray" alwaysNotify="true" />
+    <field id="chosen" type="string" alwaysNotify="true" />
+    <function name="showLike" />
     <field id="toast" type="string" alwaysNotify="true" onChange="onToast" />
     <function name="refresh" />
   </interface>
@@ -33,6 +37,9 @@
     <Group id="buttons" />
     <Rectangle id="toastPlate" visible="false" />
     <Label id="toastText" visible="false" />
+    <Label id="cast" />
+    <Label id="likeLabel" visible="false" />
+    <RowList id="like" visible="false" />
     <Timer id="toastTimer" duration="10" repeat="false" />
   </children>
 </component>

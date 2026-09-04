@@ -20,10 +20,10 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | More → Save / Remove from Library | ✅ | duplicated in the menu deliberately: the menu is where a viewer looks for verbs |
 | Choose version (pick a copy) | ⏳ | needs the item's file list from archive.org; see CATALOG-VERSION-SELECTION §2 for why this matters |
 | Add to Playlist | ✅ | existing lists, or a new one named on Roku's keyboard |
-| More Like This row | ⏳ | |
+| More Like This row | ✅ | 12 sampled by type + era; the index has no genre column, so similarity is honest about its inputs |
 | Next Episode button | ✅ | via the series queue, not a Detail button |
 | Also known as (Decision 100) | ✅ | |
-| Cast / crew | ⏳ | shard carries them with profile images |
+| Cast / crew | ✅ | one line of five names; the shard's TMDb portraits are deliberately not drawn — see below |
 | Share (QR to archivewatch.org) | ⏳ | |
 | "Can't play this title" error | ✅ | plus the reason, on screen |
 
@@ -137,3 +137,19 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Subtitles | ✅ | WebVTT accepted directly; display governed by the device's caption mode |
 | Stall recovery | ✅ | watchdog re-issues play at the last position |
 | Next / previous episode | ✅ | next via the queue; previous ⏳ |
+
+
+## Why cast is a line and not a row of faces
+
+The detail shard carries TMDb profile paths for every credited actor, so a row
+of portraits was available for free. It is not drawn, because on a 1080-line
+screen the vertical budget under the synopsis is about 340 pixels and it is
+already spending it on the buttons and a "more like this" row. A row of six
+faces would push the synopsis off the screen to show information nobody opened
+the page for. Five names on one line answers "who is in this" at a glance and
+costs 24 pixels.
+
+Every number in that stack was moved after seeing it collide on the glass:
+the synopsis is capped at four lines, the cast line sits at 672, the buttons at
+738, the row label at 834 and the row at 882 with 108x162 tiles so its bottom
+lands at 1056.

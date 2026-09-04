@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- A compact poster for rows that are a footnote rather than a shelf.
+     PosterTile sizes ITSELF from the theme's shelf dimensions (264x396), so
+     dropping it into a 162-tall row clips it to nothing at all — the row draws
+     a focus ring around empty space and looks broken. A row with a different
+     size needs a component built for it. -->
+<component name="MiniTile" extends="Group">
+  <interface>
+    <field id="itemContent" type="node" onChange="onContent" />
+    <field id="focusPercent" type="float" onChange="onFocus" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/MiniTile.brs" />
+  <children>
+    <Rectangle id="plate" />
+    <Poster id="art" />
+  </children>
+</component>

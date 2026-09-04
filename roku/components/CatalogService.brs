@@ -139,6 +139,48 @@ end sub
 
 ' One pass, results returned in the ORDER ASKED — a Continue Watching row is
 ' newest-first and must not be re-sorted into catalog order on the way back.
+sub moreLike(spec as Object)
+    want = LCase(fmt(spec.contentType))
+    year = 0
+    if spec.year <> invalid then year = Int(spec.year)
+    hits = []
+    for each r in m.items
+        if fmt(r[0]) = spec.id then continue for
+        if r[5] <> 1 then continue for
+        if Left(fmt(r[0]), 7) = "series:" then continue for
+        if want <> "" and LCase(fmt(r[3])) <> want then continue for
+        if year > 0
+            y = r[2]
+            if y = invalid then continue for
+            d = y - year
+            if d < 0 then d = -d
+            if d > 15 then continue for
+        end if
+        hits.Push(r)
+    end for
+    root = CreateObject("roSGNode", "ContentNode")
+    ' Sampled, not sliced: taking the first 12 of a type would show the same
+    ' twelve films on every 1950s drama in the catalog.
+    n = hits.Count()
+    take = 12
+    if n < take then take = n
+    used = {}
+    got = 0
+    guard = 0
+    while got < take and guard < 400
+        guard = guard + 1
+        i = Rnd(n) - 1
+        if used[fmt(i)] = invalid
+            used[fmt(i)] = true
+            appendRow(root, hits[i])
+            got = got + 1
+        end if
+    end while
+    print "AWSVC moreLike type='"; want; "' pool="; n; " shown="; root.GetChildCount()
+    m.top.total = n
+    m.top.results = root
+end sub
+
 sub resolveIds(ids as Object)
     want = {}
     for each i in ids
@@ -182,6 +224,12 @@ sub runQuery()
 
     if m.top.qRandomType <> ""
         pickRandom(m.top.qRandomType)
+        return
+    end if
+
+    lk = m.top.qLike
+    if lk <> invalid and lk.id <> invalid and lk.id <> ""
+        moreLike(lk)
         return
     end if
 

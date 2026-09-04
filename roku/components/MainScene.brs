@@ -50,6 +50,7 @@ sub init()
     m.lineup = invalid
     m.pendingUserItems = false
     m.userItems = invalid
+    m.pendingLike = ""
     m.idLineup = invalid
     m.moreMode = "detail"
     m.autoPlay = false
@@ -432,6 +433,22 @@ sub onNamerButton()
     refocus(m.detail)
 end sub
 
+sub onWantLike()
+    spec = m.detail.wantLike
+    if spec = invalid or spec.id = invalid then return
+    m.pendingLike = spec.id
+    m.svc.qLike = spec
+    m.svc.queryId = m.svc.queryId + 1
+end sub
+
+' Selecting from "more like this" opens that film — which means Detail replaces
+' itself. cameFrom is left alone so Back still returns where the viewer
+' originally came from rather than walking a chain of Details.
+sub onDetailChosen()
+    id = m.detail.chosen
+    if id <> invalid and id <> "" then openDetail(id)
+end sub
+
 sub onDetailMore()
     if m.more = invalid
         m.more = m.top.FindNode("options").CreateChild("OptionsList")
@@ -727,6 +744,7 @@ sub onRandomPicked()
     m.lineup = invalid
     m.pendingUserItems = false
     m.userItems = invalid
+    m.pendingLike = ""
     m.idLineup = invalid
     m.moreMode = "detail"
     m.svc.qRandomType = ""
@@ -1067,6 +1085,12 @@ sub onQueryResults()
     ' A deep-link lookup borrows the same results field as Browse and Search,
     ' so it is claimed FIRST and consumed — otherwise a one-row result would
     ' repaint whichever of those happens to be visible.
+    if m.pendingLike <> invalid and m.pendingLike <> ""
+        m.pendingLike = ""
+        m.svc.qLike = {}
+        if m.detail <> invalid then m.detail.callFunc("showLike", m.svc.results)
+        return
+    end if
     if m.pendingUserItems = true
         onUserItemsResolved()
         return
@@ -1126,7 +1150,7 @@ sub openDetail(archiveID as String)
         openSeries(Mid(archiveID, 8))
         return
     end if
-    m.cameFrom = m.route
+    if m.route <> "detail" then m.cameFrom = m.route
     m.cameFromBrowse = (m.route = "browse")
     it = findItem(archiveID)
     if it = invalid and m.deepLinkItem <> invalid and m.deepLinkItem.id = archiveID
@@ -1137,6 +1161,8 @@ sub openDetail(archiveID as String)
         m.detail.translation = [m.t.railW, 0]
         m.detail.ObserveField("play", "onPlay")
         m.detail.ObserveField("showMore", "onDetailMore")
+        m.detail.ObserveField("wantLike", "onWantLike")
+        m.detail.ObserveField("chosen", "onDetailChosen")
     end if
     ' The overlay must actually COVER: with Home still composited beneath it,
     ' Home's own hero title and rows read through the scrim as ghosts.
