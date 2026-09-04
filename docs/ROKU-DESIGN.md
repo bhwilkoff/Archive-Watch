@@ -404,3 +404,60 @@ returns 403 while `/launch` and `/query/device-info` keep answering, so a
 reachability check passes with every input silently rejected. No API can change
 it; it gates the endpoints that would. The path is Settings → System → Advanced
 system settings → Control by mobile apps → Network access.
+
+
+---
+
+## Amendments from device work (tick 9)
+
+### §2.1a — The rail COLLAPSES; content is laid out against the collapsed width
+
+The rail is **84 px** by default and expands to **288 px only while it holds
+focus**, drawn OVER the content rather than pushing it. Content is laid out
+against 84 px and never moves.
+
+Collapsed, each surface is a 42x6 bar; the current one carries marquee orange.
+That gives position — which of seven you are on — with no label to read and no
+icon asset to invent, and it is legible at ten feet because it is the only
+coloured thing in an 84 px column.
+
+**Why**: a permanent 216 px rail spends 11% of a 1920 px screen on navigation
+the viewer is not using, on every shelf and every grid. Measured on the glass:
+the same Home row shows **6 posters collapsed where it showed 4**. Expanding
+over the content rather than beside it is what keeps this cheap — a rail that
+pushed 26,000 posters sideways on every focus change would be the most
+expensive animation in the app.
+
+**The trap**: the selection pill must shrink WITH the rail. Left at its
+expanded width it painted a 264 px highlight across the collapsed column and
+over the hero title beside it — invisible in code, obvious in a screenshot.
+
+### §6.6a — The player draws NO transport of its own
+
+Superseded: §6.6's custom HUD carrying title and description. Roku's `Video`
+node draws its own transport overlay on OK — title, progress, trick play — and
+measured on the device it rendered "The Clairvoyant" and a clock straight over
+ours. Drawing a second one is not our design; it is a duplicate of something
+the platform already does better. OK is no longer consumed by the player.
+
+What remains is the one thing the system cannot say: that this film HAS
+subtitles which the viewer's own device setting is suppressing. One line, at
+the bottom, clear of the system overlay, only when there is something to say.
+
+### §6.6b — Captions are the DEVICE's setting, and we never override it
+
+Roku owns closed captions globally (`roDeviceInfo.GetCaptionsMode()` →
+`On` / `Off` / `Instant replay`). An app must not override that. Measured on
+this device the mode is **"Instant replay"**, which is why a correctly
+side-loaded track legitimately draws nothing during normal playback.
+
+Also measured, and better than Roku's own documentation implies: the `Video`
+node **accepts our published WebVTT directly** via `SubtitleUrl` — one track,
+offered and auto-selected (`eng:1:English`). No SRT conversion is needed.
+
+### §4.2a — Chrome never composites over a playing film
+
+The rail, the overhang, the brand mark and the clock are all hidden during
+playback, and the player is full-bleed at `[0, 0]` rather than inset by the
+rail. This is Decision 103's rule arriving on a fourth platform: chrome that is
+right for browsing is never right over a picture.

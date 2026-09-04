@@ -7,7 +7,7 @@ sub init()
     m.diag = m.top.FindNode("diag")
     m.dog = m.top.FindNode("watchdog")
 
-    m.video.translation = [-150, 0]
+    m.video.translation = [0, 0]
     m.video.width = 1920 : m.video.height = 1080
     m.video.enableTrickPlay = true
 
@@ -18,16 +18,21 @@ sub init()
         m.video.trickPlayBar.trackBlendColor = "0x66666680"
     end if
 
-    ' §6.6 — OK reveals a NON-INTERACTIVE HUD carrying title and description
-    ' (Decision 037). It is not a scrubber; the platform owns that.
-    m.hudScrim.translation = [-150, 0]
-    m.hudScrim.width = 1920 : m.hudScrim.height = 288
-    m.hudScrim.color = "0x0B0B0CCC"
-    m.hudTitle.font = m.t.uScreen : m.hudTitle.color = m.t.textPri
-    m.hudTitle.translation = [42, 63] : m.hudTitle.width = 1500
-    m.hudTitle.maxLines = 2 : m.hudTitle.wrap = true
-    m.hudMeta.font = m.t.uMeta : m.hudMeta.color = m.t.textSec
-    m.hudMeta.translation = [42, 201]
+    ' §6.6 (amended) — Roku's Video node draws its OWN transport overlay on OK,
+    ' carrying the title, a progress bar and trick play. Drawing a second one
+    ' on top of it is not "our design", it is a duplicate the platform already
+    ' provides better — measured on the device, where the system overlay
+    ' rendered "The Clairvoyant" and a clock straight over ours.
+    '
+    ' What remains is the one thing the system CANNOT say: that this film has
+    ' subtitles the viewer's own device setting is suppressing. It sits at the
+    ' bottom, clear of the system overlay, and only when there is something to
+    ' say.
+    m.hudScrim.visible = false
+    m.hudTitle.visible = false
+    m.hudMeta.font = m.t.uBody : m.hudMeta.color = m.t.textPri
+    m.hudMeta.translation = [m.t.readX, 906]
+    m.hudMeta.width = 1500 : m.hudMeta.maxLines = 1
     m.diag.font = m.t.uMeta : m.diag.color = m.t.textSec
     m.diag.translation = [42, 981]
     m.diag.visible = false
@@ -36,6 +41,7 @@ sub init()
     m.video.ObserveField("state", "onState")
     m.dog.ObserveField("fire", "onWatchdog")
     m.lastPosn = -1
+    m.capReported = false
     m.stalls = 0
     m.recoveries = 0
 end sub
@@ -56,15 +62,40 @@ sub onUrl()
 
     ' The coarse resilience that Roku DOES give us (§6.6b). Both are guarded:
     ' a field that does not exist on this OS must not take the channel down.
+    ' Side-loaded captions. Roku documents SRT for SubtitleUrl and only accepts
+    ' WebVTT inside HLS/DASH — our catalog publishes VTT — so this is set and
+    ' then MEASURED: the track count is printed once the item is ready, and
+    ' the answer decides whether a VTT-to-SRT conversion is needed rather than
+    ' a guess about it.
+    if m.top.captionUrl <> ""
+        c.SubtitleUrl = m.top.captionUrl
+        c.SubtitleConfig = { TrackName: "eng:1:English" }
+        print "AWCAP offering "; m.top.captionUrl
+    end if
     if c.HasField("StreamStickyHttpRedirects") then c.StreamStickyHttpRedirects = true
     if m.video.HasField("ignoreStreamErrors") then m.video.ignoreStreamErrors = true
 
-    m.hudTitle.text = m.top.playTitle
-    m.hudMeta.text = m.top.playMeta
+    meta = ""
+    ' Roku owns the caption setting GLOBALLY and an app must not override it —
+    ' but a viewer whose device is set to "Off" or "Instant replay" would
+    ' otherwise conclude this film simply has no subtitles. Say that it does,
+    ' and name the key that reaches the setting (which is `*`, the key Roku
+    ' reserves during playback for exactly this).
+    if m.top.captionUrl <> ""
+        mode = CreateObject("roDeviceInfo").GetCaptionsMode()
+        print "AWCAP device captions mode="; mode
+        if LCase(fmt(mode)) <> "on"
+            meta = "Subtitles available for this film — press * to turn captions on"
+        end if
+    end if
+    m.hudMeta.text = meta
+    m.hasNotice = (meta <> "")
+    m.capReported = false
     m.video.content = c
     m.video.control = "play"
     m.video.setFocus(true)
     showHud()
+    m.hudHideAt = nowSeconds() + 9
     m.dog.control = "start"
     print "AWPLAY start "; url
 end sub
@@ -72,6 +103,18 @@ end sub
 sub onState()
     s = m.video.state
     print "AWPLAY state="; s; " posn="; m.video.position
+    if s = "playing" and m.capReported <> true
+        m.capReported = true
+        tracks = m.video.availableSubtitleTracks
+        n = 0
+        if tracks <> invalid then n = tracks.Count()
+        print "AWCAP availableSubtitleTracks="; n; " currentIndex="; m.video.currentSubtitleTrack
+        if tracks <> invalid
+            for each t in tracks
+                print "AWCAP track: "; FormatJson(t)
+            end for
+        end if
+    end if
     if s = "playing"
         ' The HUD behaves like the transport: it appears on interaction and
         ' leaves once the film is actually running.
@@ -149,11 +192,11 @@ sub onWatchdog()
 end sub
 
 sub showHud()
-    m.hudScrim.visible = true : m.hudTitle.visible = true : m.hudMeta.visible = true
+    if m.hasNotice = true then m.hudMeta.visible = true
 end sub
 
 sub hideHud()
-    m.hudScrim.visible = false : m.hudTitle.visible = false : m.hudMeta.visible = false
+    m.hudMeta.visible = false
 end sub
 
 sub stopPlayback()
@@ -177,11 +220,9 @@ end sub
 ' screen; the Scene pops, so it is not consumed here.
 function onKeyEvent(key as String, press as Boolean) as Boolean
     if not press then return false
-    if key = "OK"
-        showHud()
-        m.hudHideAt = nowSeconds() + 6
-        return true
-    else if key = "instantreplay"
+    ' OK is NOT consumed: it belongs to Roku's transport overlay, and taking it
+    ' would replace a native control with a worse one.
+    if key = "instantreplay"
         p = m.video.position - 15
         if p < 0 then p = 0
         m.video.seek = p

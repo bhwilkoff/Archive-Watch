@@ -549,6 +549,38 @@ times in a row:
     every surface hidden. Where the player was entered from now decides where
     Back lands.
 
+## Tick 9 — Captions, and the rail that collapses
+
+| Element | Roku | Evidence |
+|---|---|---|
+| Side-loaded subtitles on a progressive MP4 | ✅ | `availableSubtitleTracks=1`, `currentIndex=eng:1:English` |
+| WebVTT accepted directly (no SRT conversion) | ✅ | the device took `.../en.vtt` as published |
+| The device's caption mode is respected | ✅ | mode read as "Instant replay"; never overridden |
+| Viewer told when a film HAS subtitles they cannot see | ✅ built | one line, only when the mode is not "On" |
+| Chrome hidden during playback | ✅ | `v09_player.jpg` — full black, no rail |
+| Player draws no duplicate transport | ✅ | Roku's own overlay renders the title; OK not consumed |
+| Nav rail collapses to 84px, expands on focus | ✅ | `v09_rail_collapsed.jpg` / `v09_rail_expanded.jpg` |
+| Content gains the reclaimed width | ✅ | same Home row: **6 posters, was 4** |
+| Captions PROVEN to render on screen | ⚠️ unprovable here | see below |
+
+**The one thing this platform will not let a harness prove.** Roku does not
+composite the video plane into `screencap`, so a playing film photographs as a
+black rectangle and its captions with it. The track being offered and selected
+is provable and is proven; the pixels are not. The device's caption mode is
+"Instant replay", which correctly suppresses them during normal playback
+anyway — an owner eyeball with the mode set to On is the only way to close
+this row, and it is recorded as open rather than claimed.
+
+31. **A rail that never collapses costs 11% of the screen.** It was 216 px on
+    every surface. Roku's own channels collapse; ours did not, and nobody
+    noticed until the owner asked whether it ever collapses.
+32. **A duplicate of a platform control loses to the platform's.** The custom
+    player HUD was drawn under Roku's own transport overlay the whole time —
+    two titles, one of them worse, and only the screenshot showed it.
+33. **`roDeviceInfo.GetCaptionsMode()` explains an entire class of "broken"
+    subtitles.** Without reading it, a correctly side-loaded track that draws
+    nothing looks exactly like a bug in the app.
+
 ## Open questions for the design tick
 
 1. Which Roku idiom carries Home: a `RowList` of poster rows under a hero, or

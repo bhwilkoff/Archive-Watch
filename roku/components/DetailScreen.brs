@@ -170,6 +170,20 @@ sub onDetail()
     m.runtime = dur
     paintPlayLabel()
     m.playUrl = d.url
+
+    ' Captions ride in the shard as [[lang, label, url], ...]. Only ~17% of the
+    ' catalog has any, so the absence of a track is the normal case and must
+    ' never look like a failure.
+    m.top.captionUrl = ""
+    if d.captions <> invalid and d.captions.Count() > 0
+        for each tr in d.captions
+            if tr.Count() >= 3 and LCase(fmt(tr[0])) = "en"
+                m.top.captionUrl = fmt(tr[2])
+                exit for
+            end if
+        end for
+        if m.top.captionUrl = "" then m.top.captionUrl = fmt(d.captions[0][2])
+    end if
 end sub
 
 sub onFocusOn()

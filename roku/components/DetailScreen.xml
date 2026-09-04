@@ -9,6 +9,8 @@
     <field id="focusOn" type="boolean" onChange="onFocusOn" />
     <field id="play" type="string" alwaysNotify="true" />
     <field id="playFrom" type="integer" value="0" />
+    <!-- First English caption track for this film, if the catalog has one. -->
+    <field id="captionUrl" type="string" />
     <field id="toast" type="string" alwaysNotify="true" onChange="onToast" />
     <function name="refresh" />
   </interface>

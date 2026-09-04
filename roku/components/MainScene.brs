@@ -14,7 +14,7 @@ sub init()
     brand.color = m.t.marquee
     ' Clear the rail: the content column starts at railW, and the brand is
     ' content chrome, not rail chrome.
-    brand.translation = [m.t.railW + m.t.safeX, 39]
+    brand.translation = [m.t.railW + m.t.readX, 39]
 
     clock = m.top.FindNode("clock")
     clock.font = m.t.uMeta : clock.color = m.t.textSec
@@ -299,7 +299,7 @@ sub onTune()
     if t = invalid or t.url = invalid or t.url = "" then return
     if m.player = invalid
         m.player = m.overlay.CreateChild("PlayerScreen")
-        m.player.translation = [m.t.railW, 0]
+        m.player.translation = [0, 0]
         m.player.ObserveField("ended", "onPlaybackEnded")
         m.player.ObserveField("failed", "onPlaybackFailed")
     end if
@@ -309,6 +309,8 @@ sub onTune()
     m.player.startAt = t.startAt
     m.player.playTitle = t.title
     m.player.playMeta = t.meta
+    m.player.captionUrl = ""
+    setChromeVisible(false)
     m.player.playUrl = t.url
     m.player.setFocus(true)
     m.cameFrom = "channels"
@@ -623,12 +625,26 @@ function findItem(archiveID as String) as Object
     return invalid
 end function
 
+' The film owns the screen. Leaving the rail and the overhang composited over
+' playback is the same defect Decision 103 records on Android, where the tab
+' bar rode into the PiP tile: chrome that is right for browsing is never right
+' over a picture.
+sub setChromeVisible(on as Boolean)
+    m.rail.visible = on
+    m.top.FindNode("overhang").visible = on
+    m.top.FindNode("brand").visible = on
+    m.top.FindNode("clock").visible = on
+    m.top.FindNode("optHint").visible = on
+end sub
+
 sub onPlay()
     url = m.detail.play
     if url = invalid or url = "" then return
     if m.player = invalid
         m.player = m.overlay.CreateChild("PlayerScreen")
-        m.player.translation = [m.t.railW, 0]
+        ' Full-bleed: the player is NOT inset by the rail, because the rail is
+        ' not on screen while it plays.
+        m.player.translation = [0, 0]
         m.player.ObserveField("ended", "onPlaybackEnded")
         m.player.ObserveField("failed", "onPlaybackFailed")
     end if
@@ -638,6 +654,8 @@ sub onPlay()
     m.player.startAt = m.detail.playFrom
     m.player.playTitle = m.detail.item.title
     m.player.playMeta = m.detail.item.SHORTDESCRIPTIONLINE1
+    m.player.captionUrl = m.detail.captionUrl
+    setChromeVisible(false)
     m.player.playUrl = url
     m.player.setFocus(true)
     m.route = "player"
@@ -662,6 +680,7 @@ sub closePlayer()
     if m.player = invalid then return
     m.player.callFunc("stopPlayback")
     m.player.visible = false
+    setChromeVisible(true)
 
     ' A channel has no Detail screen to go back to. Returning to one anyway
     ' left the viewer on a BLANK screen with the rail focused — nothing hidden

@@ -48,7 +48,12 @@ function Theme() as Object
         posterFW: 288
         posterFH: 432
         gutter:   24
-        railW:    216
+        ' The rail is COLLAPSED by default and content is laid out against this
+        ' width. It expands OVER the content when focused, so nothing moves —
+        ' a rail that pushed 26,000 posters sideways on every focus change
+        ' would be the most expensive animation in the app.
+        railW:    84
+        railExpandedW: 288
     }
 end function
 
