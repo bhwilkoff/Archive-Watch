@@ -92,6 +92,8 @@ sub onRailSelected()
         focusContent()
     else if id = "movies" or id = "tv"
         openBrowse(id)
+    else if id = "search"
+        openSearch()
     else
         ' A surface that does not exist yet SAYS so rather than swallowing the
         ' press — an inert rail item reads as a broken app.
@@ -134,9 +136,72 @@ sub closeBrowse()
     m.content.visible = true
 end sub
 
+sub openSearch()
+    if m.search = invalid
+        m.search = m.overlay.CreateChild("SearchScreen")
+        m.search.translation = [m.t.railW, 0]
+        m.search.service = m.svc
+        m.search.ObserveField("chosen", "onSearchChosen")
+        m.search.ObserveField("door", "onSearchDoor")
+        m.search.ObserveField("exitLeft", "focusRail")
+    end if
+    closeBrowse()
+    m.content.visible = false
+    m.loading.visible = false
+    if m.detail <> invalid then m.detail.visible = false
+    m.search.visible = true
+    m.rail.focusOn = false
+    m.search.focusOn = true
+    m.search.callFunc("resetSearch")
+    m.route = "search"
+    print "AWFOCUS search"
+end sub
+
+sub closeSearch()
+    if m.search <> invalid
+        m.search.visible = false
+        m.search.focusOn = false
+    end if
+    m.content.visible = true
+end sub
+
+sub onSearchChosen()
+    id = m.search.chosen
+    if id <> invalid and id <> "" then openDetail(id)
+end sub
+
+' §6.4 — the doors. Four open Browse already scoped; Surprise opens a film.
+sub onSearchDoor()
+    d = m.search.door
+    if d = invalid or d = "" then return
+    print "AWROKU door "; d
+    if d = "surprise"
+        id = randomArchiveID()
+        if id <> "" then openDetail(id)
+        return
+    end if
+    closeSearch()
+    if d = "tv-series" then openBrowse("tv") else openBrowse("movies")
+end sub
+
+' Surprise picks from the rows Home already holds, which are the professionally
+' presented titles — a random pick that lands on a blank card is a bad door.
+function randomArchiveID() as String
+    rows = m.task.rows
+    if rows = invalid or rows.GetChildCount() = 0 then return ""
+    r = rows.GetChild(Rnd(rows.GetChildCount()) - 1)
+    if r = invalid or r.GetChildCount() = 0 then return ""
+    it = r.GetChild(Rnd(r.GetChildCount()) - 1)
+    if it = invalid then return ""
+    return it.id
+end function
+
 sub onQueryResults()
     if m.browse <> invalid and m.browse.visible
         m.browse.callFunc("showResults", m.svc.results, m.svc.total)
+    end if
+    if m.search <> invalid and m.search.visible
+        m.search.callFunc("showResults", m.svc.results, m.svc.total)
     end if
 end sub
 
@@ -155,6 +220,7 @@ sub onChosen()
 end sub
 
 sub openDetail(archiveID as String)
+    m.cameFrom = m.route
     m.cameFromBrowse = (m.route = "browse")
     it = findItem(archiveID)
     if m.detail = invalid
@@ -165,6 +231,8 @@ sub openDetail(archiveID as String)
     ' The overlay must actually COVER: with Home still composited beneath it,
     ' Home's own hero title and rows read through the scrim as ghosts.
     m.content.visible = false
+    if m.browse <> invalid then m.browse.visible = false
+    if m.search <> invalid then m.search.visible = false
     m.detail.visible = true
     m.detail.item = it
     m.detail.detail = {}
@@ -251,6 +319,12 @@ sub closeDetail()
     end if
     ' Back returns to the screen the viewer CAME FROM (§2.6), which is Browse
     ' when Detail was opened from a grid.
+    if m.search <> invalid and m.cameFrom = "search"
+        m.search.visible = true
+        m.search.focusOn = true
+        m.route = "search"
+        return
+    end if
     if m.browse <> invalid and m.cameFromBrowse = true
         m.browse.visible = true
         m.browse.focusOn = true
@@ -305,6 +379,11 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             return true
         else if m.route = "browse"
             closeBrowse()
+            focusContent()
+            m.route = "home"
+            return true
+        else if m.route = "search"
+            closeSearch()
             focusContent()
             m.route = "home"
             return true

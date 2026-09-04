@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ROKU-DESIGN §6.4 — the PLATFORM keyboard on the left, results on the
+     right, updating incrementally. Using Roku's own keyboard is what brings
+     voice entry for free (§3.5), which is a better answer to "text entry is
+     the last resort" than any of our other TV builds have.
+
+     And the no-typing doors are non-negotiable: a viewer who never lifts a
+     finger to the keyboard must still be able to leave this screen with a
+     film. -->
+<component name="SearchScreen" extends="Group">
+  <interface>
+    <field id="service" type="node" />
+    <field id="focusOn" type="boolean" onChange="onFocusOn" />
+    <field id="chosen" type="string" alwaysNotify="true" />
+    <field id="door" type="string" alwaysNotify="true" />
+    <field id="exitLeft" type="boolean" alwaysNotify="true" />
+    <function name="showResults" />
+    <function name="resetSearch" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/SearchScreen.brs" />
+  <children>
+    <Label id="heading" />
+    <MiniKeyboard id="kb" />
+    <Label id="doorsLabel" />
+    <Group id="doors" />
+    <MarkupGrid id="grid" />
+    <Label id="status" />
+  </children>
+</component>

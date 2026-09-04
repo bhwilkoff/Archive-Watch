@@ -343,6 +343,25 @@ that happens between key presses.
 15. **A focus ring has a transparent centre**, so dark "focused text" is
     invisible — the chip read as an empty box while working perfectly.
 
+## Tick 5 — Search, on the platform keyboard
+
+| Element | Roku | Evidence |
+|---|---|---|
+| Platform keyboard (voice entry comes free) | ✅ | `v05_search.jpg` |
+| Incremental search over the whole catalog | ✅ | "chap" 339 → "chaplin" 85, ~400 ms each |
+| No-typing doors (§6.4, non-negotiable) | ✅ | Feature Films · Classic TV · Silent Era · Animation · Surprise Me |
+| Doors open Browse already scoped | ✅ | door → `type=feature-film` query |
+| Surprise Me opens a film | ✅ built | picks from Home's professionally-presented rows |
+| Results grid → Detail | ✅ | "keaton" 46 hits → *The Love Nest*, url=true |
+| Empty state names the query | ✅ built | "Nothing matches …. Try fewer letters, or a door." |
+| Search resets when entered from the nav | ✅ | the keyboard otherwise keeps the last query for the life of the channel |
+
+**The keyboard owns its own arrows.** Focus leaves it by walking off its right
+EDGE, which is the Roku idiom — a component's `onKeyEvent` never sees a
+direction the focused keyboard consumed. Worth stating because the obvious
+reading of a failed test is that the handler is broken; here the handler was
+right and the test drove from the leftmost key.
+
 ## Open questions for the design tick
 
 1. Which Roku idiom carries Home: a `RowList` of poster rows under a hero, or
