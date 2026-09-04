@@ -33,11 +33,20 @@ function uMul(a as Object, b as Object) as Object
     out = [0, 0, 0, 0]
     for i = 0 to 3
         if a[i] <> 0
-            carry# = 0.0
+            carry# = 0.0#
             for j = 0 to 3 - i
-                p# = a[i] * 1.0 * b[j] + out[i + j] + carry#
-                out[i + j] = Int(p#) and 65535
-                carry# = Int(p# / 65536.0)
+                ' Every literal here carries the `#` DOUBLE suffix. A bare
+                ' `1.0` in BrightScript is a FLOAT — 24 bits of mantissa — so
+                ' `a[i] * 1.0 * b[j]` rounds any product past 2^24 BEFORE it is
+                ' ever assigned to a Double variable. The self-test caught this
+                ' as a wrong low-32-bits hash while the high limbs looked fine.
+                p# = a[i] * 1.0# * b[j] + out[i + j] + carry#
+                ' Int() converts to a 32-bit Integer, and p# reaches ~4.29e9 —
+                ' well past 2^31. Splitting in DOUBLE space first keeps both
+                ' halves inside the range Int() can represent.
+                hi# = Int(p# / 65536.0#)
+                out[i + j] = Int(p# - hi# * 65536.0#)
+                carry# = hi#
             end for
         end if
     end for
@@ -103,7 +112,7 @@ end function
 
 function fnv1a64(s as String) as Object
     h = u64(&H2325, &H8422, &H9CE4, &HCBF2)      ' 0xcbf29ce484222325
-    prime = u64(&H01B3, &H0000, &H0001, &H0000)  ' 0x100000001b3
+    prime = u64(&H01B3, &H0000, &H0100, &H0000)  ' 0x100000001b3
     for i = 0 to Len(s) - 1
         b = Asc(Mid(s, i + 1, 1)) and 255
         h = uXor(h, [b, 0, 0, 0])
@@ -121,7 +130,7 @@ function smNext(g as Object) as Object
     g.state = uAdd(g.state, u64(&H7C15, &H7F4A, &H79B9, &H9E37))
     z = g.state
     z = uMul(uXor(z, uShr(z, 30)), u64(&HE5B9, &H1CE4, &H476D, &HBF58))
-    z = uMul(uXor(z, uShr(z, 27)), u64(&H11EB, &H3331, &H49BB, &H94D0))
+    z = uMul(uXor(z, uShr(z, 27)), u64(&H11EB, &H1331, &H49BB, &H94D0))
     return uXor(z, uShr(z, 31))
 end function
 
@@ -174,10 +183,13 @@ end function
 ' is credible, otherwise a per-type default. A 3-hour cap keeps one mis-tagged
 ' 12-hour upload from owning a whole channel.
 function runtimeSec(prog as Object) as Integer
-    run = prog[2]
-    if run <> invalid and run > 120
-        if run > 10800 then return 10800
-        return Int(run)
+    ' NOTE: `run` is a BrightScript BUILTIN — a variable of that name fails to
+    ' compile with "Builtin function call expected", the same trap `pos` set
+    ' earlier in this build. `secs` is not.
+    secs = prog[2]
+    if secs <> invalid and secs > 120
+        if secs > 10800 then return 10800
+        return Int(secs)
     end if
     t = LCase(fmt(prog[4]))
     if t = "feature-film" or t = "silent-film" then return 5400

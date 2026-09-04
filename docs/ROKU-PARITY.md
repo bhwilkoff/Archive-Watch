@@ -495,6 +495,60 @@ failure mode is the reusable part:
     they are meant to witness — and only ONE client can hold 8085, so a
     `roku.py log` running alongside the audit silently starves it.
 
+## Tick 8 — Collections and the Channels guide
+
+| Element | Roku | Evidence |
+|---|---|---|
+| Collections: 26 curated rows | ✅ | `v08_collections.jpg`; built in **349 ms**, one index pass |
+| Collection blurb + accent follow focus | ✅ | "Shadows, second thoughts, venetian-blind lighting." |
+| Collection → Detail | ✅ | shared row-select path |
+| Channels: 15-channel guide | ✅ | `v08_channels.jpg` |
+| Schedule matches the other platforms | ✅ | **SCHED selftest PASS (6/6 vectors)** on the device |
+| Times anchored to the viewer's local 6 AM | ✅ | 7:13 PM → 9:18 PM → 10:47 PM, local clock |
+| ON NOW marker + minutes remaining | ✅ | "On now: Meet John Doe · 44 min left" |
+| Tune in JOINS live | ✅ | joined at **4795 s**, ECP position advancing |
+| A channel never writes a resume position | ✅ | `archiveID` is empty for channel playback |
+| Future programme → its Detail | ✅ built | nothing to join yet, so Detail is the honest destination |
+| Time-proportional EPG grid | ⚠️ deliberate divergence | see below |
+
+**Why the guide is a list and not the grid the other platforms draw.** tvOS,
+iOS and web render a proportional two-axis EPG. Roku ships no EPG component,
+its remote has no colour keys, and a horizontal time axis needs custom focus
+handling that fights the platform's own engine — the exact class of fight that
+produced tick 4's unreachable chips. The shape here is the one Roku live-TV
+channels actually use: the channel list beside the selected channel's schedule.
+The DATA is identical; the presentation is native.
+
+**The scheduler had to be ported exactly, and BrightScript fought it.** The
+listings are defined by 64-bit wraparound arithmetic (FNV-1a 64 + SplitMix64),
+and BrightScript has no dependable 64-bit integer — `LongInteger` exists but
+its multiply overflow is unspecified. A u64 is therefore four 16-bit limbs with
+every operation written out. `SchedSelfTest()` checks six known-answer vectors
+against values computed independently in Python, runs on every channel load,
+and prints one line. It is the only place this arithmetic can be proven right,
+since there is no offline BrightScript runner — and it earned its keep three
+times in a row:
+
+26. **A constant transcribed wrong is silent.** `0x100000001b3` puts `0x0100`
+    in limb 2, not `0x0001`; `0x94d049bb133111eb` puts `0x1331` in limb 1, not
+    `0x3331`. Both produce a perfectly plausible hash that matches nothing.
+27. **`Int()` converts to a 32-bit Integer**, and a 16×16-bit partial product
+    reaches ~4.29e9 — past 2^31. The split has to happen in Double space first.
+28. **A bare `1.0` in BrightScript is a FLOAT**, 24 bits of mantissa. So
+    `a[i] * 1.0 * b[j]` rounded every product past 2^24 BEFORE it was assigned
+    to the Double variable holding it. This is the one that would never have
+    been found by reading the code: the high limbs looked right and only the
+    low 32 bits were wrong. Every literal now carries the `#` suffix.
+29. **`run` is a BrightScript builtin** — `run = prog[2]` fails to compile with
+    "Builtin function call expected", the third reserved-word collision in this
+    build after `pos` and the `Str()` overload. The compile error names the
+    COMPONENT, not the file, so the console on 8085 is the only place the line
+    number appears.
+30. **Back from a channel had no Detail to return to.** `closePlayer` assumed
+    one existed and left the viewer on a blank screen with the rail focused and
+    every surface hidden. Where the player was entered from now decides where
+    Back lands.
+
 ## Open questions for the design tick
 
 1. Which Roku idiom carries Home: a `RowList` of poster rows under a hero, or

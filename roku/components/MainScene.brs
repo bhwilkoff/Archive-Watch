@@ -662,10 +662,28 @@ sub closePlayer()
     if m.player = invalid then return
     m.player.callFunc("stopPlayback")
     m.player.visible = false
+
+    ' A channel has no Detail screen to go back to. Returning to one anyway
+    ' left the viewer on a BLANK screen with the rail focused — nothing hidden
+    ' was ever shown again. Where the player was entered from decides where
+    ' Back lands, which is the same rule every other surface here follows.
+    if m.cameFrom = "channels" and m.channels <> invalid
+        m.channels.visible = true
+        refocus(m.channels)
+        m.route = "channels"
+        print "AWFOCUS channels (from player)"
+        return
+    end if
+
+    if m.detail = invalid
+        focusContent()
+        m.route = "home"
+        print "AWFOCUS home (from player, no detail)"
+        return
+    end if
     m.detail.visible = true
     m.detail.callFunc("refresh")
-    m.detail.focusOn = true
-    m.detail.setFocus(true)
+    refocus(m.detail)
     m.route = "detail"
     print "AWFOCUS detail (from player)"
 end sub

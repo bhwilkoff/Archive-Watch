@@ -71,3 +71,26 @@ It means some baked URLs were built from a title rather than from the file's
 own name, and a stricter handler would break them. `check_liveness --refresh`
 repoints a URL whose filename is absent from the item, so a sweep already
 carries the repair.
+
+## 5. Non-ASCII titles are being stripped, not encoded
+
+The channel guide showed "Coeur fidle AKA The Faithful Heart". The film is
+*Cœur fidèle* (Epstein, 1923), and the string is already mangled in
+`channel-pools.json` itself — both the ligature and the accent are GONE, not
+mis-encoded, so a sanitizer is dropping characters outside ASCII rather than
+failing to decode UTF-8. Note the difference: mis-encoding shows as mojibake
+and is recoverable; dropping is lossy and the original title cannot be
+reconstructed downstream. Roku renders whatever it is given, so this is
+upstream of every client. Decision 100's diacritic FOLDING (for comparison) is
+deliberate and unrelated — this is the DISPLAY string losing characters.
+
+## 6. Editorial: what the channels auto-programme — OWNER DECISION
+
+`The Birth of a Nation` (`dw_griffith_birth_of_a_nation`) sits in the pool for
+BOTH the `drama` and `silent` channels, so the scheduler will put it on air on
+its own. Having a film in a public-domain archive and *programming it onto a
+channel* are different acts, and the second is editorial. Flagging rather than
+deciding: if it should not be scheduled, the mechanism already exists —
+`featured.json.deprioritizedSeries` demotes, and `build_channel_pools.py`
+chooses pool membership. The same question applies to anything else in the
+catalog that a viewer would not expect a channel to hand them unasked.

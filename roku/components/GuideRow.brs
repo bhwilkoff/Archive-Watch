@@ -9,13 +9,15 @@ sub init()
     m.time.translation = [18, 18] : m.time.width = 150
 
     m.title.font = m.t.uBody : m.title.color = m.t.textPri
-    m.title.translation = [186, 12] : m.title.width = 690
+    m.title.translation = [186, 12] : m.title.width = 630
     m.title.maxLines = 1 : m.title.ellipsizeOnBoundary = true
 
-    m.chip.translation = [900, 20] : m.chip.width = 108 : m.chip.height = 30
+    ' 108px could not hold "ON NOW" at uMeta and the label ran past the row's
+    ' own width, so the chip read as "ON N". Sized to the text, not guessed.
+    m.chip.translation = [840, 18] : m.chip.width = 168 : m.chip.height = 34
     m.chip.color = m.t.marquee
     m.chipText.font = m.t.uMeta : m.chipText.color = "0x0B0B0CFF"
-    m.chipText.translation = [918, 22]
+    m.chipText.translation = [864, 22]
     m.chipText.text = "ON NOW"
 end sub
 
@@ -24,9 +26,9 @@ sub onContent()
     if c = invalid then return
     m.time.text = c.SHORTDESCRIPTIONLINE1
     m.title.text = c.title
-    on = (c.SHORTDESCRIPTIONLINE2 = "now")
-    m.chip.visible = on
-    m.chipText.visible = on
+    isNow = (c.SHORTDESCRIPTIONLINE2 = "now")
+    m.chip.visible = isNow
+    m.chipText.visible = isNow
 end sub
 
 sub onFocus()
