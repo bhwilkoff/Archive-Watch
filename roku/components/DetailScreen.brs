@@ -168,6 +168,7 @@ sub onDetail()
     dur = 0
     if d.runtime <> invalid then dur = d.runtime
     m.runtime = dur
+    m.top.runtimeSeconds = dur
     paintPlayLabel()
     m.playUrl = d.url
 
@@ -246,8 +247,8 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
                 paintSave()
                 if r then m.top.toast = "Saved to your library." else m.top.toast = "Removed from your library."
             end if
-        else
-            print "AWROKU detail: "; b.id; " not built yet"
+        else if b.id = "more"
+            m.top.showMore = true
         end if
         return true
     end if

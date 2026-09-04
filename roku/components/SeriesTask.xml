@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- The TV spine, from the same Pages endpoint the web viewer reads
+     (series/{slug}.json). A `series:` id is NOT an archive.org item — it names
+     a canonical show whose EPISODES are the playable items — which is why it
+     has no url in the detail shard and why routing one to a film Detail screen
+     dead-ends. -->
+<component name="SeriesTask" extends="Task">
+  <interface>
+    <field id="slug" type="string" />
+    <field id="status" type="string" alwaysNotify="true" />
+    <field id="series" type="assocarray" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/SeriesTask.brs" />
+</component>

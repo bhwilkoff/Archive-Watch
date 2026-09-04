@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- A small right-anchored action list, the same idiom as the `*` panel. Used
+     by Detail's More button so that control does something instead of
+     printing "not built yet" to a console nobody watching TV can read. -->
+<component name="OptionsList" extends="Group">
+  <interface>
+    <field id="options" type="array" />
+    <field id="chosen" type="string" alwaysNotify="true" />
+    <field id="closed" type="boolean" alwaysNotify="true" />
+    <function name="open" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/OptionsList.brs" />
+  <children>
+    <Rectangle id="dim" />
+    <Rectangle id="plate" />
+    <Label id="head" />
+    <LabelList id="list" />
+  </children>
+</component>

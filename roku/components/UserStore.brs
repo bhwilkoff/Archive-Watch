@@ -177,3 +177,29 @@ end sub
 sub awClearProgress()
     awWriteKey("progress", "")
 end sub
+
+' Mark a film watched WITHOUT playing it, and un-mark it. Watched is expressed
+' as a progress row at >=95% (awIsResumable's own threshold), so the Library,
+' the hide-watched filter and the resume label all agree by construction rather
+' than by a second flag that could drift out of step with them.
+sub awMarkWatched(id as String, dur as Integer)
+    d = dur
+    if d <= 0 then d = 3600
+    awSetProgress(id, d, d)
+end sub
+
+sub awClearProgressFor(id as String)
+    rows = awProgressRows()
+    out = []
+    for each r in rows
+        if r.id <> id then out.Push(r.id + "|" + fmt(r.posn) + "|" + fmt(r.dur))
+    end for
+    awWriteKey("prog", awJoin(out, Chr(10)))
+end sub
+
+function awIsWatched(id as String) as Boolean
+    posn = awGetProgress(id)
+    dur = awGetDuration(id)
+    if dur <= 0 then return false
+    return posn >= (dur * 95) / 100
+end function

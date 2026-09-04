@@ -43,6 +43,8 @@ sub init()
     m.queuedDeepLink = ""
     m.pendingCollections = false
     m.collectionsBuilt = false
+    m.pendingEpisode = invalid
+    m.episodeQueue = invalid
     m.autoPlay = false
 
     m.rail.ObserveField("selected", "onRailSelected")
@@ -189,6 +191,64 @@ sub reapplyHomeFilter()
     end if
 end sub
 
+' The More button's menu. Built fresh each time because every entry depends on
+' the CURRENT state of this film — a menu that offers "Mark as watched" for a
+' film already watched is the same dead control in a new costume.
+sub onDetailMore()
+    if m.more = invalid
+        m.more = m.top.FindNode("options").CreateChild("OptionsList")
+        m.more.ObserveField("chosen", "onMorePicked")
+        m.more.ObserveField("closed", "onMoreClosed")
+    end if
+    id = m.detail.item.id
+    opts = []
+    if awIsWatched(id)
+        opts.Push({ id: "unwatch", label: "Mark as not watched" })
+    else
+        opts.Push({ id: "watch", label: "Mark as watched" })
+    end if
+    if awGetProgress(id) > 0
+        opts.Push({ id: "restart", label: "Start from the beginning" })
+    end if
+    if awIsFavorite(id)
+        opts.Push({ id: "unsave", label: "Remove from Library" })
+    else
+        opts.Push({ id: "save", label: "Save to Library" })
+    end if
+    opts.Push({ id: "cancel", label: "Done" })
+    m.more.callFunc("open", { title: "More", options: opts })
+end sub
+
+sub onMoreClosed()
+    refocus(m.detail)
+end sub
+
+sub onMorePicked()
+    pick = m.more.chosen
+    id = m.detail.item.id
+    if pick = "watch"
+        awMarkWatched(id, m.detail.runtimeSeconds)
+        m.detail.toast = "Marked as watched."
+    else if pick = "unwatch"
+        awClearProgressFor(id)
+        m.detail.toast = "Marked as not watched."
+    else if pick = "restart"
+        awClearProgressFor(id)
+        m.detail.toast = "Next play starts from the beginning."
+    else if pick = "save" or pick = "unsave"
+        r = awToggleFavorite(id)
+        if r = invalid
+            m.detail.toast = "Your library is full. Remove something in Library first."
+        else if r
+            m.detail.toast = "Saved to your library."
+        else
+            m.detail.toast = "Removed from your library."
+        end if
+    end if
+    m.detail.callFunc("refresh")
+    refocus(m.detail)
+end sub
+
 sub openOptions()
     if m.options = invalid
         m.options = m.top.FindNode("options").CreateChild("OptionsPanel")
@@ -228,6 +288,8 @@ sub onOptionsClosed()
         refocus(m.collections)
     else if m.route = "channels"
         refocus(m.channels)
+    else if m.route = "series"
+        refocus(m.series)
     else
         focusRail()
     end if
@@ -240,6 +302,96 @@ sub onOptionsChanged()
     if m.options.changed = "progress" and m.route = "library" and m.library <> invalid
         m.library.callFunc("reload", m.task.rows)
     end if
+end sub
+
+sub openSeries(slug as String)
+    if m.series = invalid
+        m.series = m.overlay.CreateChild("SeriesScreen")
+        m.series.translation = [m.t.railW, 0]
+        m.series.ObserveField("playEpisode", "onPlayEpisode")
+        m.series.ObserveField("exitLeft", "focusRail")
+    end if
+    m.cameFromSeries = m.route
+    closeBrowse()
+    closeSearch()
+    closeLibrary()
+    closeCollections()
+    closeChannels()
+    m.content.visible = false
+    m.loading.visible = false
+    if m.detail <> invalid then m.detail.visible = false
+    m.series.visible = true
+    m.rail.focusOn = false
+    m.route = "series"
+    print "AWFOCUS series "; slug
+
+    if m.stask = invalid
+        m.stask = CreateObject("roSGNode", "SeriesTask")
+        m.stask.ObserveField("status", "onSeriesLoaded")
+    end if
+    m.stask.slug = slug
+    m.stask.control = "RUN"
+end sub
+
+sub onSeriesLoaded()
+    if m.stask.status = "ready"
+        m.series.callFunc("showSeries", m.stask.series)
+        if m.route = "series" then refocus(m.series)
+    else
+        m.series.callFunc("showSeries", invalid)
+    end if
+end sub
+
+sub closeSeries()
+    if m.series <> invalid
+        m.series.visible = false
+        m.series.focusOn = false
+    end if
+    m.content.visible = true
+end sub
+
+' An episode's playable url lives in its own detail shard, exactly like a film's
+' — the series spine carries identity and artwork, never a file.
+sub onPlayEpisode()
+    e = m.series.playEpisode
+    if e = invalid or e.id = invalid then return
+    m.pendingEpisode = e
+    if m.dtask = invalid
+        m.dtask = CreateObject("roSGNode", "DetailTask")
+        m.dtask.ObserveField("detail", "onDetailLoaded")
+    end if
+    m.dtask.archiveID = e.id
+    m.dtask.control = "RUN"
+end sub
+
+sub playPendingEpisode(d as Object)
+    e = m.pendingEpisode
+    m.pendingEpisode = invalid
+    if d = invalid or d.url = invalid or d.url = ""
+        print "AWSER episode has no playable url: "; e.id
+        if m.series <> invalid then m.series.visible = true
+        return
+    end if
+    if m.player = invalid
+        m.player = m.overlay.CreateChild("PlayerScreen")
+        m.player.translation = [0, 0]
+        m.player.ObserveField("ended", "onPlaybackEnded")
+        m.player.ObserveField("failed", "onPlaybackFailed")
+    end if
+    m.episodeQueue = e
+    m.player.visible = true
+    m.series.visible = false
+    m.player.archiveID = e.id
+    m.player.startAt = awGetProgress(e.id)
+    m.player.playTitle = e.title
+    m.player.playMeta = e.meta
+    m.player.captionUrl = ""
+    setChromeVisible(false)
+    m.player.playUrl = d.url
+    m.player.setFocus(true)
+    m.cameFrom = "series"
+    m.route = "player"
+    print "AWFOCUS player (episode "; e.id; ")"
 end sub
 
 sub openChannels()
@@ -507,7 +659,14 @@ sub onChosen()
     openDetail(id)
 end sub
 
+' A `series:` id names a show, not a file. Routing one to the film Detail
+' screen produced a page with no url and a Play button that could not work —
+' the TV surface dead-ended there for its whole existence.
 sub openDetail(archiveID as String)
+    if Left(archiveID, 7) = "series:"
+        openSeries(Mid(archiveID, 8))
+        return
+    end if
     m.cameFrom = m.route
     m.cameFromBrowse = (m.route = "browse")
     it = findItem(archiveID)
@@ -518,6 +677,7 @@ sub openDetail(archiveID as String)
         m.detail = m.overlay.CreateChild("DetailScreen")
         m.detail.translation = [m.t.railW, 0]
         m.detail.ObserveField("play", "onPlay")
+        m.detail.ObserveField("showMore", "onDetailMore")
     end if
     ' The overlay must actually COVER: with Home still composited beneath it,
     ' Home's own hero title and rows read through the scrim as ghosts.
@@ -527,6 +687,7 @@ sub openDetail(archiveID as String)
     if m.library <> invalid then m.library.visible = false
     if m.collections <> invalid then m.collections.visible = false
     if m.channels <> invalid then m.channels.visible = false
+    if m.series <> invalid then m.series.visible = false
     m.detail.visible = true
     m.detail.item = it
     m.detail.detail = {}
@@ -546,6 +707,13 @@ sub openDetail(archiveID as String)
 end sub
 
 sub onDetailLoaded()
+    ' The episode path borrows the same task, so it is claimed FIRST and
+    ' consumed — otherwise an episode's payload would repaint the film Detail
+    ' screen sitting behind it.
+    if m.pendingEpisode <> invalid
+        playPendingEpisode(m.dtask.detail)
+        return
+    end if
     if m.detail <> invalid then m.detail.detail = m.dtask.detail
 
     ' Direct-to-Play. Roku certification wants a deep link to land ON the
@@ -673,11 +841,26 @@ sub onPlaybackFailed()
 end sub
 
 sub onPlaybackEnded()
-    if m.player <> invalid and m.player.ended then closePlayer()
+    if m.player = invalid or not m.player.ended then return
+    q = m.episodeQueue
+    if q <> invalid and awGetSetting("autoplay", true)
+        nxt = q.index + 1
+        if nxt < q.queue.Count()
+            print "AWSER autoplay next episode "; q.queue[nxt]
+            m.pendingEpisode = { id: q.queue[nxt], title: q.queueTitles[nxt],
+                                 meta: q.meta, queue: q.queue,
+                                 queueTitles: q.queueTitles, index: nxt }
+            m.dtask.archiveID = q.queue[nxt]
+            m.dtask.control = "RUN"
+            return
+        end if
+    end if
+    closePlayer()
 end sub
 
 sub closePlayer()
     if m.player = invalid then return
+    m.episodeQueue = invalid
     m.player.callFunc("stopPlayback")
     m.player.visible = false
     setChromeVisible(true)
@@ -686,6 +869,14 @@ sub closePlayer()
     ' left the viewer on a BLANK screen with the rail focused — nothing hidden
     ' was ever shown again. Where the player was entered from decides where
     ' Back lands, which is the same rule every other surface here follows.
+    if m.cameFrom = "series" and m.series <> invalid
+        m.series.visible = true
+        m.series.callFunc("refreshProgress")
+        refocus(m.series)
+        m.route = "series"
+        print "AWFOCUS series (from player)"
+        return
+    end if
     if m.cameFrom = "channels" and m.channels <> invalid
         m.channels.visible = true
         refocus(m.channels)
@@ -820,6 +1011,11 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             return true
         else if m.route = "channels"
             closeChannels()
+            focusContent()
+            m.route = "home"
+            return true
+        else if m.route = "series"
+            closeSeries()
             focusContent()
             m.route = "home"
             return true

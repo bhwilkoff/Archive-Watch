@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="EpisodeRow" extends="Group">
+  <interface>
+    <field id="itemContent" type="node" onChange="onContent" />
+    <field id="focusPercent" type="float" onChange="onFocus" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/UserStore.brs" />
+  <script type="text/brightscript" uri="pkg:/components/EpisodeRow.brs" />
+  <children>
+    <Poster id="still" />
+    <Label id="num" />
+    <Label id="title" />
+    <Label id="blurb" />
+    <Rectangle id="bar" visible="false" />
+  </children>
+</component>
