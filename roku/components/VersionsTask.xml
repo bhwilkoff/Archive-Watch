@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- The REAL files on an archive.org item, so the viewer can choose a copy.
+     docs/CATALOG-VERSION-SELECTION.md §2 measures the reason this matters: the
+     pipeline's picker ranks by tier before size, so an Archive re-encode wins
+     over a better uploader original about 1 item in 20. This is the surface
+     that lets a viewer overrule it for the film in front of them. -->
+<component name="VersionsTask" extends="Task">
+  <interface>
+    <field id="archiveID" type="string" />
+    <field id="status" type="string" alwaysNotify="true" />
+    <field id="versions" type="array" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/VersionsTask.brs" />
+</component>

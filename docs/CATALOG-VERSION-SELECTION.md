@@ -35,6 +35,14 @@ Measured on 20 random professionally-presented items with a public mp4:
     items where a notably higher-resolution mp4 existed but was not chosen: 1/20
       fiddlesticks_1930   baked 618x480   available 928x720 (fiddlesticks_1930.mp4)
 
+**The viewer can now overrule it per film.** Roku's Detail → More → "Choose a
+different copy…" lists the item's REAL files with their real facts — "720p ·
+MPEG4 · 744 MB — uploader original" beside "480p · h.264 IA · 34 MB — Archive
+derivative" — and playing the second was verified on the device to switch the
+stream from 618x480 to 928x720. That does not make the pipeline's default
+right; it makes the default overridable by the person watching, which is the
+honest thing to offer about an archive whose copies genuinely differ.
+
 **Do not "fix" this by preferring originals.** The tier order exists for
 reasons that still hold: derivatives are faststart, consistently encoded, and
 far more likely to stream without the stalls Decisions 021/031/034 were spent

@@ -18,7 +18,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | More → Mark as watched / not watched | ✅ | state-aware; watched = a ≥95% progress row, so Library, hide-watched and the resume label agree by construction |
 | More → Start from the beginning | ✅ | offered only when a bookmark exists |
 | More → Save / Remove from Library | ✅ | duplicated in the menu deliberately: the menu is where a viewer looks for verbs |
-| Choose version (pick a copy) | ⏳ | needs the item's file list from archive.org; see CATALOG-VERSION-SELECTION §2 for why this matters |
+| Choose version (pick a copy) | ✅ | real files, real facts; verified switching fiddlesticks_1930 from a 618x480 derivative to its 928x720 original |
 | Add to Playlist | ✅ | existing lists, or a new one named on Roku's keyboard |
 | More Like This row | ✅ | 12 sampled by type + era; the index has no genre column, so similarity is honest about its inputs |
 | Next Episode button | ✅ | via the series queue, not a Detail button |

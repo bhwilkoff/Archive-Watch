@@ -6,7 +6,10 @@ sub init()
     m.list = m.top.FindNode("list")
 
     m.dim.width = 1920 : m.dim.height = 1080 : m.dim.color = "0x000000BB"
-    pw = 726 : px = 1920 - pw
+    ' 726 truncated "…— Archive derivative" on the copy picker, whose whole job
+    ' is to state facts about a file. A panel is sized by its longest real
+    ' string, not by a round number.
+    pw = 906 : px = 1920 - pw
     m.plate.translation = [px, 0]
     m.plate.width = pw : m.plate.height = 1080
     m.plate.color = "0x121216FF"
@@ -15,7 +18,7 @@ sub init()
     m.head.translation = [px + 42, 78]
 
     m.list.translation = [px + 42, 186]
-    m.list.itemSize = [642, 78]
+    m.list.itemSize = [822, 78]
     m.list.itemSpacing = [0, 18]
     m.list.numRows = 8
     m.list.font = m.t.uBody

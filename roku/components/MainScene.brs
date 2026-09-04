@@ -372,6 +372,72 @@ sub playIDLineup()
     m.dtask.control = "RUN"
 end sub
 
+' The item's real files, fetched on demand. Not prefetched with the shard:
+' most viewers press Play, and a metadata call per Detail open would storm
+' archive.org's main host for a choice almost nobody makes (the -1004 lesson
+' from the macOS Creation Studio).
+sub openVersions()
+    if m.vtask = invalid
+        m.vtask = CreateObject("roSGNode", "VersionsTask")
+        m.vtask.ObserveField("status", "onVersionsLoaded")
+    end if
+    m.detail.toast = "Looking up the copies on archive.org…"
+    m.vtask.archiveID = m.detail.item.id
+    m.vtask.control = "RUN"
+end sub
+
+sub onVersionsLoaded()
+    if m.vtask.status <> "ready" or m.vtask.versions.Count() = 0
+        m.detail.toast = "Could not read the file list for this item."
+        return
+    end if
+    m.versionList = m.vtask.versions
+    opts = []
+    n = 0
+    for each v in m.versionList
+        opts.Push({ id: "ver:" + fmt(n), label: v.label })
+        n = n + 1
+        if n >= 8 then exit for
+    end for
+    opts.Push({ id: "cancel", label: "Keep the current copy" })
+    m.moreMode = "versions"
+    m.more.callFunc("open", { title: "Choose a copy", options: opts })
+end sub
+
+sub onVersionPicked(pick as String)
+    if Left(pick, 4) = "ver:"
+        i = Int(Val(Mid(pick, 5)))
+        if i >= 0 and i < m.versionList.Count()
+            v = m.versionList[i]
+            ' archive.org's own download path, percent-encoded the way every
+            ' other url in this app is — a filename here can contain spaces,
+            ' commas and semicolons.
+            url = "https://archive.org/download/" + m.detail.item.id + "/" + encodeName(v.name)
+            m.chosenURL = url
+            m.detail.toast = "Playing " + v.label
+            m.detail.play = url
+            return
+        end if
+    end if
+    refocus(m.detail)
+end sub
+
+function encodeName(n as String) as String
+    out = ""
+    safe = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.~"
+    for i = 0 to Len(n) - 1
+        c = Mid(n, i + 1, 1)
+        if Instr(1, safe, c) > 0
+            out = out + c
+        else
+            b = Asc(c)
+            d = "0123456789ABCDEF"
+            out = out + "%" + Mid(d, Int(b / 16) + 1, 1) + Mid(d, (b mod 16) + 1, 1)
+        end if
+    end for
+    return out
+end function
+
 sub openAddToPlaylist()
     if m.more = invalid
         m.more = m.top.FindNode("options").CreateChild("OptionsList")
@@ -471,6 +537,7 @@ sub onDetailMore()
         opts.Push({ id: "save", label: "Save to Library" })
     end if
     opts.Push({ id: "playlist", label: "Add to playlist" })
+    opts.Push({ id: "versions", label: "Choose a different copy…" })
     opts.Push({ id: "cancel", label: "Done" })
     m.moreMode = "detail"
     m.more.callFunc("open", { title: "More", options: opts })
@@ -506,6 +573,10 @@ sub onMorePicked()
         onPlaylistPicked(pick)
         return
     end if
+    if m.moreMode = "versions"
+        onVersionPicked(pick)
+        return
+    end if
     if m.moreMode = "library"
         onLibraryOptionPicked(pick)
         return
@@ -513,6 +584,10 @@ sub onMorePicked()
     id = m.detail.item.id
     if pick = "playlist"
         openAddToPlaylist()
+        return
+    end if
+    if pick = "versions"
+        openVersions()
         return
     end if
     if pick = "watch"
