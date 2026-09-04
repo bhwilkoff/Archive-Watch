@@ -144,13 +144,7 @@ sub openBrowse(scope as String)
         m.browse.ObserveField("chosen", "onBrowseChosen")
         m.browse.ObserveField("exitLeft", "focusRail")
     end if
-    closeLibrary()
-    closeSearch()
-    closeCollections()
-    closeChannels()
-    m.content.visible = false
-    m.loading.visible = false
-    if m.detail <> invalid then m.detail.visible = false
+    hideAllSurfaces()
     m.browse.visible = true
     m.browse.scope = scope
     m.rail.focusOn = false
@@ -775,7 +769,14 @@ end sub
 ' Every surface hidden in ONE place. Adding the eighth screen to seven separate
 ' open* functions is how a stale surface ends up composited under a new one —
 ' it already happened twice in this build.
+' ONE place that hides every surface. Written two ticks ago with the note that
+' maintaining eight separate hide-lists is how a stale screen ends up
+' composited under a new one — and then used in only one of the eight. The
+' result was Collections drawing straight over a still-visible Channels, both
+' headings and both lists on screen at once. Every open* goes through here now.
 sub hideAllSurfaces()
+    if m.player <> invalid then m.player.visible = false
+    if m.surprise <> invalid then m.surprise.visible = false
     closeBrowse()
     closeSearch()
     closeLibrary()
@@ -946,14 +947,7 @@ sub openSeries(slug as String)
         m.series.ObserveField("exitLeft", "focusRail")
     end if
     m.cameFromSeries = m.route
-    closeBrowse()
-    closeSearch()
-    closeLibrary()
-    closeCollections()
-    closeChannels()
-    m.content.visible = false
-    m.loading.visible = false
-    if m.detail <> invalid then m.detail.visible = false
+    hideAllSurfaces()
     m.series.visible = true
     m.rail.focusOn = false
     m.route = "series"
@@ -1045,13 +1039,7 @@ sub openChannels()
         m.channels.ObserveField("chosen", "onChannelItemChosen")
         m.channels.ObserveField("exitLeft", "focusRail")
     end if
-    closeBrowse()
-    closeSearch()
-    closeLibrary()
-    closeCollections()
-    m.content.visible = false
-    m.loading.visible = false
-    if m.detail <> invalid then m.detail.visible = false
+    hideAllSurfaces()
     m.channels.visible = true
     m.rail.focusOn = false
     m.route = "channels"
@@ -1125,12 +1113,7 @@ sub openCollections()
         m.collections.ObserveField("chosen", "onCollectionChosen")
         m.collections.ObserveField("exitLeft", "focusRail")
     end if
-    closeBrowse()
-    closeSearch()
-    closeLibrary()
-    m.content.visible = false
-    m.loading.visible = false
-    if m.detail <> invalid then m.detail.visible = false
+    hideAllSurfaces()
     m.collections.visible = true
     m.rail.focusOn = false
     m.route = "collections"
@@ -1166,13 +1149,7 @@ sub openLibrary()
         m.library.ObserveField("chosen", "onLibraryChosen")
         m.library.ObserveField("exitLeft", "focusRail")
     end if
-    closeBrowse()
-    closeSearch()
-    closeCollections()
-    closeChannels()
-    m.content.visible = false
-    m.loading.visible = false
-    if m.detail <> invalid then m.detail.visible = false
+    hideAllSurfaces()
     m.library.visible = true
     ' Rebuilt on every entry: the registry may have changed while the viewer
     ' was somewhere else in the app, and a stale Library is a lie about their
@@ -1208,13 +1185,7 @@ sub openSearch()
         m.search.ObserveField("door", "onSearchDoor")
         m.search.ObserveField("exitLeft", "focusRail")
     end if
-    closeBrowse()
-    closeLibrary()
-    closeCollections()
-    closeChannels()
-    m.content.visible = false
-    m.loading.visible = false
-    if m.detail <> invalid then m.detail.visible = false
+    hideAllSurfaces()
     m.search.visible = true
     m.rail.focusOn = false
     m.search.focusOn = true

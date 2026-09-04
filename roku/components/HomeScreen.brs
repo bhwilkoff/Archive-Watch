@@ -56,7 +56,11 @@ sub init()
     ' the next row's label — the label is drawn inside the following cell, so a
     ' tight reserve puts one row's caption on top of the next row's title. Seen
     ' on the glass; not visible in any log.
-    m.rows.itemSize = [1740, m.t.posterFH + 180]
+    ' The cell must hold the row LABEL, the focused poster, a caption that
+    ' wraps to two lines and the meta line under it: 48 + 432 + 9 + ~100 + 40.
+    ' At +180 the meta ran into the NEXT row's label — the same overlap class
+    ' three surfaces over, because all three shelves share these numbers.
+    m.rows.itemSize = [1740, m.t.posterFH + 240]
     m.rows.rowItemSize = [[m.t.posterFW, m.t.posterFH]]
     m.rows.rowItemSpacing = [[m.t.gutter, 0]]
     m.rows.rowSpacing = 24

@@ -636,6 +636,33 @@ extra row). A viewer never sees this; a harness needs it.
     rectangle beside real posters reads as a failed image load — and in
     Continue Watching it is the one tile the viewer most expects to recognise.
 
+## Tick 19 — the overlap sweep, and two surfaces drawn on top of each other
+
+Visiting every surface through the new `go:` links, in an order the rail makes
+awkward, immediately found something no single-screen check would have:
+
+39. **Collections was drawing straight over a still-visible Channels** — both
+    headings, both lists, the guide rows showing through the posters. The
+    cause is written in the code two ticks earlier: `hideAllSurfaces()` was
+    added with the note that maintaining eight separate hide-lists is how a
+    stale screen ends up composited under a new one, and then it was used in
+    exactly ONE of the eight. Every `open*` goes through it now, and it hides
+    the player too.
+40. **The shelf cell was too short for its own contents.** A row cell holds a
+    label, the focused poster, a caption that wraps to TWO lines and a meta
+    line: 48 + 432 + 9 + ~100 + 40. At `posterFH + 180` the meta ran into the
+    NEXT row's label — on Home, Library and Collections at once, because all
+    three share these numbers. `+240` fits them.
+
+**What the overlap sweep is finding, and what it is not.** `awAuditLayout`
+measures screen chrome and reports 0 on every surface. Every overlap found
+today was inside a list's item components, which the audit cannot reach — the
+caption/meta spacing in `PosterTile`, and the cell height around it. Those need
+a screenshot, and the pattern is always the same: a text box whose real height
+depends on its font and its content, sitting a guessed distance from the next
+thing. The fix is always to measure the rendered pixels rather than reason from
+a font size.
+
 ## Open questions for the design tick
 
 1. Which Roku idiom carries Home: a `RowList` of poster rows under a hero, or

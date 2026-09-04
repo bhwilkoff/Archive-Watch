@@ -21,7 +21,7 @@ sub init()
     m.rows.numRows = 2
     m.rows.rowFocusAnimationStyle = "floatingFocus"
     m.rows.vertFocusAnimationStyle = "fixedFocus"
-    m.rows.itemSize = [1740, m.t.posterFH + 180]
+    m.rows.itemSize = [1740, m.t.posterFH + 240]
     m.rows.rowItemSize = [[m.t.posterFW, m.t.posterFH]]
     m.rows.rowItemSpacing = [[m.t.gutter, 0]]
     m.rows.rowSpacing = 24
