@@ -291,6 +291,12 @@ sub onFocusOn()
     ' went straight past them to Home underneath.
     if m.top.focusOn
         m.inLike = false
+        ' Every Detail opens on Play. focusIndex was set once in init() and
+        ' then survived for the life of the channel, so a viewer who had used
+        ' the More menu once landed on More for every film afterwards — and a
+        ' Select meant to start the film opened a menu instead. Seen in a
+        ' depth-2 sweep: "press Select to play" opened the options panel.
+        m.focusIndex = 0
         if m.like <> invalid then m.like.opacity = 0.55
         m.top.setFocus(true)
     end if

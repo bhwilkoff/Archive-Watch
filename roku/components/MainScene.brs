@@ -485,6 +485,7 @@ sub openSeriesOptions()
     opts.Push({ id: "settings", label: "App settings…" })
     opts.Push({ id: "cancel", label: "Done" })
     m.moreMode = "series"
+    print "AWPANEL open series n="; opts.Count()
     m.more.callFunc("open", { title: "Options", options: opts })
 end sub
 
@@ -516,6 +517,7 @@ sub openLibraryOptions()
     opts.Push({ id: "settings", label: "App settings…" })
     opts.Push({ id: "cancel", label: "Done" })
     m.moreMode = "library"
+    print "AWPANEL open library n="; opts.Count()
     m.more.callFunc("open", { title: "Options", options: opts })
 end sub
 
@@ -650,6 +652,7 @@ sub openAddToPlaylist()
     opts.Push({ id: "pl:new", label: "New playlist…" })
     opts.Push({ id: "cancel", label: "Done" })
     m.moreMode = "playlist"
+    print "AWPANEL open playlist n="; opts.Count()
     m.more.callFunc("open", { title: "Add to playlist", options: opts })
 end sub
 

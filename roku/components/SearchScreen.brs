@@ -235,7 +235,15 @@ sub applyFilters()
             m.status.text = "Nothing matches “" + m.kb.text + "”. Try fewer letters, or a door."
         end if
     else
-        m.status.text = fmt(n) + " titles match “" + m.kb.text + "”. Press Right to browse them."
+        ' "Press Right to browse them" implied ONE press. The MiniKeyboard
+        ' owns its own arrows, so Right walks the letter grid and leaves it
+        ' only from the last column — six presses from "a". A Fast-forward
+        ' shortcut was tried and REVERTED: measured on the device, Roku does
+        ' not deliver the transport keys (Fwd/Rev/Play) to a screen that is
+        ' not playing video, so the branch was dead code the moment it was
+        ' written. Walking out of the keyboard is the platform idiom; the
+        ' line now describes it accurately.
+        m.status.text = fmt(n) + " titles match “" + m.kb.text + "”. Press Right past the keyboard to browse them."
     end if
 end sub
 
@@ -274,6 +282,9 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     if not m.top.focusOn then return false
 
     if m.zone = 0
+        ' Right reaches here only once the MiniKeyboard has run out of columns
+        ' — it owns its own arrows and consumes every Right until then. Fwd is
+        ' the direct jump, and the on-screen line says so.
         if key = "right"
             if m.grid.visible then m.zone = 2 else m.zone = 1
             focusHere()

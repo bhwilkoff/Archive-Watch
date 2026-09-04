@@ -768,6 +768,42 @@ Pressing Select on each surface and reading what the console says happened is
 what proves a screen is CONNECTED — and it found three defects in one pass
 that thirty ticks of screenshots had not.
 
+## Tick 35 — level two of the sweep
+
+`roku_sweep.py` proves the first control on a surface is connected;
+`roku_deep_sweep.py` walks INTO what that control opens — options panels,
+playlists, the version picker, the channel guide, the player and Back.
+
+54. **A sweep that runs against a channel which is not there reports every
+    step as NO TRACE**, which is indistinguishable from ten dead controls.
+    That happened: the device had been left on another app, and ten "defects"
+    were the harness talking to nothing. Both sweeps now assert
+    `/query/active-app` is ours before every step, relaunch once, and STOP
+    rather than fight for a device someone is using. A harness that cannot
+    tell "broken" from "absent" is worse than no harness.
+
+55. **Detail kept its focused button for the life of the channel.**
+    `m.focusIndex = 0` was in `init()` and nowhere else, so a viewer who used
+    the More menu once landed on More for every film afterwards — a Select
+    meant to start a film opened a menu. Reset on every entry, and asserted.
+
+56. **Three panels had no trace at all**, so the sweep could not tell whether
+    "Add to playlist" opened anything. `AWPANEL open <mode> n=<count>` on all
+    four. An action with no observable effect cannot be audited, and on this
+    platform that means it will not be audited.
+
+57. **Roku does not deliver the transport keys to a screen that is not
+    playing video.** The search hint said "Press Right to browse them", which
+    implied one press; the MiniKeyboard owns its own arrows, so Right walks
+    the letter grid and leaves it only from the last column — six presses
+    from "a". A Fast-forward shortcut was written, deployed, and MEASURED to
+    receive nothing (`fwd` and `rev` produced no key event; `info` did), so
+    it was reverted rather than left as a dead branch. Walking out of the
+    keyboard is the platform idiom; the line now says so exactly.
+
+58. **The Roku font has no emoji.** `⏩` rendered as a tofu box on the glass.
+    Words only.
+
 ## Tick 25 — the ring rule applied everywhere it belongs
 
 The art-hugging ring shipped for `PosterTile` only. Browse and Search draw

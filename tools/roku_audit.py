@@ -269,10 +269,16 @@ def main():
     link("go%3Alibrary")
     time.sleep(4)
     key("select")
-    ev = [l for l in con.since(m) if l.startswith("AWKEY OK route=")]
-    where = ev[-1].split("route=")[-1].strip() if ev else ""
-    check("an empty Library keeps its own focus", where == "library",
-          ev[-1] if ev else "Select on Library reached no screen at all")
+    ev = con.since(m)
+    # The DEFECT was Channels playing a film because Library never claimed
+    # focus. Assert that, not a particular route: with something saved, Select
+    # on a Library row correctly opens a film, and an assertion that demanded
+    # route=library would fail on a device whose library is not empty — which
+    # is a property of the registry, not of the code under test.
+    stolen = [l for l in ev if l.startswith("AWCH ") or l.startswith("AWPLAY start")]
+    own = [l for l in ev if "route=library" in l or l.startswith("AWFOCUS detail")]
+    check("Library keeps its own focus", bool(own) and not stolen,
+          stolen[0] if stolen else (own[-1] if own else "Select on Library reached no screen at all"))
 
     # The hero used to rotate on every surface, loading art for a screen
     # nobody was looking at and changing under the viewer before they returned.
@@ -291,6 +297,36 @@ def main():
     q = con.wait_for(m, "AWSVC query", timeout=10)
     check("search queries the catalog", bool(q) and "hits=" in q and " 0 in " not in q,
           q or "typing produced no query")
+
+    # Detail must open on Play EVERY time. `focusIndex` was set once in init()
+    # and survived for the life of the channel, so a viewer who had opened the
+    # More menu once landed on More for every film afterwards.
+    m = con.mark()
+    link("el-candidato-1959")
+    time.sleep(6)
+    key("right"); key("right")          # walk to More
+    key("back", settle=1.5)
+    link("el-candidato-1959")
+    time.sleep(5)
+    key("select")
+    started = con.wait_for(m, "AWPLAY start", timeout=15)
+    panel = [l for l in con.since(m) if l.startswith("AWPANEL")]
+    check("Detail always opens on Play", bool(started) and not panel,
+          "opened a menu instead" if panel else (started or "nothing happened"))
+
+    # ...and Back leaves the film for the screen it came from, with the
+    # position written. The bookmark is only written once the film has
+    # ADVANCED, so wait for playback rather than for the start request —
+    # pressing Back at position 0 correctly writes nothing, and asserting on
+    # it would have been an assertion about timing, not behaviour.
+    con.wait_for(m, "AWPLAY state=playing", timeout=30)
+    time.sleep(6)
+    m = con.mark()
+    key("back", settle=3.0)
+    bm = con.wait_for(m, "AWPLAY bookmark-final", timeout=8)
+    ret = [l for l in con.since(m) if l.startswith("AWFOCUS detail")]
+    check("Back leaves the player and keeps the position", bool(bm) and bool(ret),
+          (bm or "no bookmark") if not ret else bm)
 
     print("\nstate")
     m = con.mark()

@@ -39,6 +39,30 @@ time.sleep(1.5)
 def mark(): return len(lines)
 def since(m): return [l for l in lines[m:] if l.startswith("AW") or l.startswith("SCHED")]
 
+
+def active_app():
+    xml = roku.curl(f"{roku.ECP}/query/active-app")
+    if 'id="dev"' in xml:
+        return "dev"
+    import re
+    m = re.search(r'<app[^>]*>([^<]*)</app>', xml)
+    return m.group(1) if m else "?"
+
+def ensure_channel(what=""):
+    """A sweep that runs against a channel which is not there reports every
+    step as NO TRACE — indistinguishable from ten dead controls. That happened
+    once; the device had been left on another app. Prove ours is foreground."""
+    if active_app() == "dev":
+        return True
+    print(f"   [channel was not foreground ({active_app()}) — relaunching]")
+    roku.curl("-X", "POST", f"{roku.ECP}/launch/dev")
+    time.sleep(16)
+    if active_app() != "dev":
+        print("   [could not bring the channel to the foreground — the device is "
+              "in use. Stopping rather than fighting for it.]")
+        return False
+    return True
+
 def link(w):
     roku.curl("-X", "POST", f"{roku.ECP}/input?contentId={w}")
 
@@ -53,6 +77,8 @@ SURFACES = [
 ]
 
 for name, dl, keys in SURFACES:
+    if not ensure_channel():
+        break
     link(dl); time.sleep(4.5)
     m = mark()
     for k in keys:
