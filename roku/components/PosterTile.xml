@@ -19,5 +19,13 @@
     <Label id="meta" visible="false" />
     <Rectangle id="tileRule" visible="false" />
     <Label id="tileLabel" visible="false" />
+    <!-- Four rectangles, not a 9-patch. A .9.png only gets its guide border
+         stripped when a LIST consumes it as focusBitmapUri; assigned to a
+         plain Poster the guide pixels are part of the picture, which is why
+         the first attempt drew a pale block instead of a ring. -->
+    <Rectangle id="ringT" visible="false" />
+    <Rectangle id="ringB" visible="false" />
+    <Rectangle id="ringL" visible="false" />
+    <Rectangle id="ringR" visible="false" />
   </children>
 </component>

@@ -16,6 +16,12 @@ sub init()
     ' A typographic card for tiles that name a PLACE rather than a film —
     ' "Silent Era", "The 1930s". They have no poster and never will, and an
     ' empty 2:3 box beside real posters reads as a failed image load.
+    m.ring = [m.top.FindNode("ringT"), m.top.FindNode("ringB"),
+              m.top.FindNode("ringL"), m.top.FindNode("ringR")]
+    for each r in m.ring
+        r.color = m.t.marquee
+    end for
+    m.art.ObserveField("loadStatus", "onArtLoaded")
     m.tileRule = m.top.FindNode("tileRule")
     m.tileLabel = m.top.FindNode("tileLabel")
     m.tileLabel.font = m.t.uRow
@@ -23,6 +29,12 @@ sub init()
     m.tileLabel.wrap = true
     m.tileLabel.maxLines = 3
 
+    ' Initialised explicitly: positionRing() runs from the art's load callback,
+    ' which fires BEFORE the first focus change, and `not invalid` is a Type
+    ' Mismatch that takes the whole tile's render path down — every poster in
+    ' the app disappeared until this line existed.
+    m.focused = false
+    m.isTile = false
     setSize(m.t.posterW, m.t.posterH)
 end sub
 
@@ -78,20 +90,83 @@ sub onContent()
     ' box. An empty 2:3 rectangle beside real posters reads as a failed image
     ' load, and in a Continue Watching row it is the one thing the viewer most
     ' expects to recognise.
-    hasArt = (c.HDPOSTERURL <> invalid and c.HDPOSTERURL <> "")
-    m.tileLabel.visible = not hasArt
-    if not hasArt
-        m.tileLabel.text = c.title
-        m.tileLabel.color = m.t.textSec
-        m.tileLabel.width = m.t.posterW - 36
-        m.tileLabel.translation = [18, 36]
-    end if
+    ' The title card sits UNDER the art at all times, not only when art is
+    ' missing. A RowList RECYCLES its item components, and a Poster keeps the
+    ' previous bitmap until the new one finishes loading — so a rebound tile
+    ' showed the WRONG film's poster under the right film's caption, which is
+    ' worse than showing no poster at all. Clearing the uri first makes the
+    ' card the thing on screen until the real art arrives.
+    m.art.uri = ""
+    hideRing()
+    m.tileLabel.visible = true
+    m.tileLabel.text = c.title
+    m.tileLabel.color = m.t.textSec
+    m.tileLabel.width = m.t.posterW - 36
+    m.tileLabel.translation = [18, 36]
+    if c.HDPOSTERURL <> invalid and c.HDPOSTERURL <> "" then m.art.uri = c.HDPOSTERURL
     m.caption.text = c.title
     m.meta.text = c.SHORTDESCRIPTIONLINE1
 end sub
 
+' The selection ring is drawn around the ART, not around the CELL. A cell is
+' always 2:3; the art often is not — a 16:9 still fitted into it leaves wide
+' empty margins, and a ring around the cell then reads as "much bigger than
+' the poster", which is exactly what it is. bitmapWidth/bitmapHeight give the
+' real aspect once loaded, so the ring can match what the viewer sees.
+sub onArtLoaded()
+    if m.art.loadStatus <> "ready" then return
+    ' The card is a PLACEHOLDER. Once the picture is up it must go, or the
+    ' title reads straight across the artwork — the label is declared after the
+    ' Poster in the XML, so it draws on top of it.
+    m.tileLabel.visible = false
+    positionRing()
+end sub
+
+sub hideRing()
+    if m.ring = invalid then return
+    for each r in m.ring
+        r.visible = false
+    end for
+end sub
+
+sub positionRing()
+    if m.focused <> true
+        hideRing()
+        return
+    end if
+    w = m.art.width
+    h = m.art.height
+    bw = m.art.bitmapWidth
+    bh = m.art.bitmapHeight
+    dw = w
+    dh = h
+    if bw > 0 and bh > 0
+        sx = w / bw
+        sy = h / bh
+        sc = sx
+        if sy < sc then sc = sy
+        dw = Int(bw * sc)
+        dh = Int(bh * sc)
+    end if
+    ' Sits just OUTSIDE the art so it never eats the picture's own edge.
+    pad = 5
+    th = 4
+    x = Int((w - dw) / 2) - pad
+    y = Int((h - dh) / 2) - pad
+    rw = dw + pad * 2
+    rh = dh + pad * 2
+    m.ring[0].translation = [x, y] : m.ring[0].width = rw : m.ring[0].height = th
+    m.ring[1].translation = [x, y + rh - th] : m.ring[1].width = rw : m.ring[1].height = th
+    m.ring[2].translation = [x, y] : m.ring[2].width = th : m.ring[2].height = rh
+    m.ring[3].translation = [x + rw - th, y] : m.ring[3].width = th : m.ring[3].height = rh
+    for each r in m.ring
+        r.visible = true
+    end for
+end sub
+
 sub onFocusChanged()
     focused = m.top.itemHasFocus
+    m.focused = focused
     if focused
         setSize(m.t.posterFW, m.t.posterFH)
     else
@@ -109,4 +184,5 @@ sub onFocusChanged()
     end if
     m.caption.visible = focused
     m.meta.visible = focused
+    positionRing()
 end sub

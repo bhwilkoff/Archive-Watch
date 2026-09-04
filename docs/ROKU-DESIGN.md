@@ -475,3 +475,50 @@ Eight single-colour 48x48 PNGs under `images/nav/`, tinted through `blendColor`
 so one asset serves the dim, selected and focused states. The icon does NOT
 disappear when the rail expands — the label appears BESIDE it — because a rail
 whose glyphs vanish on expand reads as two different navigations.
+
+
+### §5.4a — The selection ring goes around the ART, not the CELL
+
+A shelf cell is always 2:3. The artwork often is not — a 16:9 still or a wide
+lobby card fitted into that cell leaves broad empty margins, and a ring drawn
+at cell size then encloses mostly nothing. The owner's words were "much bigger
+than the poster", which is precisely what it was.
+
+The tile therefore draws its own ring, sized from `Poster.bitmapWidth` /
+`bitmapHeight` once the art has loaded, and the LIST is told to draw none. Two
+traps, both found on the glass:
+
+* A list with no `focusBitmapUri` does not draw nothing — it falls back to its
+  own grey box at cell size. Silencing it needs an explicitly transparent
+  9-patch (`focus_none.9.png`).
+* A `.9.png` only has its guide border stripped when a LIST consumes it as
+  `focusBitmapUri`. Assigned to a plain `Poster` the guide pixels are part of
+  the picture, which is why the first hand-drawn ring rendered as a pale block.
+  Four `Rectangle` nodes are exact and cheaper.
+
+### §5.2a — A tile shows a title card until its own art arrives
+
+A `RowList` RECYCLES its item components, and a `Poster` keeps the previous
+bitmap until the new one finishes loading. A rebound tile therefore showed the
+WRONG film's poster under the right film's caption — worse than showing no
+poster. Clearing the uri first makes the typographic card the thing on screen
+until the real art lands, and the card hides on `loadStatus = "ready"` (it is
+declared after the Poster, so it draws over it if left visible).
+
+### §4.4a — The hero is a picture, and the chrome sits over it
+
+Superseded: a 792px image floating top-right of an otherwise empty band, which
+read as a placeholder rather than a marquee. The hero is now full-bleed for its
+whole 480px: a real landscape backdrop fills it, a poster-only item gets a
+zoomed dimmed copy of itself as the surface plus the fitted poster at right
+(Decision 097 — a poster is never cropped). Roku has no gradient node, so the
+left-to-right fade is four stacked rectangles; at ten feet the steps do not
+read.
+
+The Overhang moved AFTER the content in the child order and became a scrim
+rather than a solid bar. Chrome belongs above content, and an opaque bar would
+slice the top off the picture.
+
+An item with no art of its own leaves the previous picture up. Blanking the
+marquee because the viewer moved onto a poster-less title looks like a
+failure; holding the last image looks like a marquee.

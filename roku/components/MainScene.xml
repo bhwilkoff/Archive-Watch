@@ -16,16 +16,21 @@
   <children>
     <Rectangle id="bg" width="1920" height="1080" color="0x0B0B0CFF" />
 
+
+    <Group id="content" />
+    <Group id="overlay" />
+
     <!-- §4.4 Overhang, 115px. The (*) indicator is the platform's own "there
          are options here" affordance and using it is the cheapest way to look
          native (§5.7). -->
-    <Rectangle id="overhang" width="1920" height="115" color="0x16161AFF" />
+    <!-- Translucent, not solid: the hero is a full-bleed picture now, and an
+         opaque bar would slice its top off. A scrim keeps the brand and the
+         clock legible over whatever the still contains. -->
+    <Rectangle id="overhang" width="1920" height="115" color="0x0B0B0CB3" />
     <Label id="brand" />
     <Label id="clock" />
     <Label id="optHint" />
 
-    <Group id="content" />
-    <Group id="overlay" />
     <NavRail id="rail" />
 
     <Label id="loading" />

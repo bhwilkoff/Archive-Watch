@@ -10,38 +10,61 @@ sub init()
     ' §4.4 — content begins BELOW the Overhang. The hero art was starting at
     ' y=54 and painting over the brand, which is the kind of thing only a
     ' screenshot catches.
-    heroTop = 115
-    heroH = 355                     ' 115..470, divisible by 5 not 3 — see note
-    m.wash.translation = [-150, 0]  ' full-bleed behind the rail too
-    m.wash.width = 1920 : m.wash.height = heroTop + heroH
-    m.wash.loadDisplayMode = "scaleToZoom"   ' the WASH may crop; the art may not
-    m.wash.opacity = 0.28
+    heroTop = 0
+    heroH = 480
+    m.heroH = heroH
+
+    ' The hero is a PICTURE, full width, with the copy over it — the shape
+    ' every television app uses, and the one the old layout was only gesturing
+    ' at. A 792px image floating in the top-right of an otherwise empty band
+    ' reads as a placeholder, not as a marquee.
+    '
+    ' Decision 097 still binds: a real landscape backdrop may be cropped to
+    ' fill; a 2:3 poster may NOT, so that case keeps the fitted-art-on-the-
+    ' right shape over an ambient wash.
+    m.wash.translation = [-150, 0]
+    m.wash.width = 1920 : m.wash.height = heroH
+    m.wash.loadDisplayMode = "scaleToZoom"
+    m.wash.opacity = 1.0
 
     m.scrim.translation = [-150, 0]
-    m.scrim.width = 1920 : m.scrim.height = heroTop + heroH
-    m.scrim.color = m.t.scrim
+    m.scrim.width = 1920 : m.scrim.height = heroH
+    m.scrim.color = "0x0B0B0C00"
 
-    ' Decision 097 — the hero ART is FITTED, never cropped. It sits right, the
-    ' reading block sits left, so the copy is never over the busiest part of a
-    ' film still.
-    m.art.translation = [870, heroTop + 9]
-    m.art.width = 792 : m.art.height = 342
+    ' Roku has no gradient node, so the fade is four stacked rectangles. At ten
+    ' feet the steps are invisible; what matters is that the copy always has
+    ' something dark under it whatever the still happens to contain.
+    fa = m.top.FindNode("heroFadeA")
+    fb = m.top.FindNode("heroFadeB")
+    fc = m.top.FindNode("heroFadeC")
+    fbase = m.top.FindNode("heroFadeBase")
+    fa.translation = [-150, 0] : fa.width = 800 : fa.height = heroH : fa.color = "0x0B0B0CF2"
+    fb.translation = [650, 0]  : fb.width = 260 : fb.height = heroH : fb.color = "0x0B0B0CB3"
+    fc.translation = [910, 0]  : fc.width = 260 : fc.height = heroH : fc.color = "0x0B0B0C66"
+    ' The band under the hero, so the first shelf label never sits on a bright
+    ' patch of film.
+    fbase.translation = [-150, heroH - 120] : fbase.width = 1920 : fbase.height = 120
+    fbase.color = "0x0B0B0CCC"
+
+    ' Used only when the item has no landscape backdrop.
+    m.art.translation = [1010, 96]
+    m.art.width = 740 : m.art.height = 348
     m.art.loadDisplayMode = "scaleToFit"
 
     m.hTitle.font = m.t.uMarquee
     m.hTitle.color = m.t.textPri
     ' §4.3 — prose the viewer READS starts at the title-safe inset (192 from
     ' the screen edge; this Group is already 150 in).
-    m.hTitle.translation = [42, heroTop + 63]
+    m.hTitle.translation = [m.t.readX, 246]
     m.hTitle.width = 780
     m.hTitle.maxLines = 2
     m.hTitle.wrap = true
 
     m.hMeta.font = m.t.uMeta
     m.hMeta.color = m.t.textSec
-    m.hMeta.translation = [42, heroTop + 210]
+    m.hMeta.translation = [m.t.readX, 366]
 
-    m.rows.translation = [m.t.safeX, 495]
+    m.rows.translation = [m.t.safeX, 504]
     m.rows.itemComponentName = "PosterTile"
     m.rows.numRows = 3
     ' §2.1 / §3.1 — Left from the FIRST column must reach the rail. With
@@ -69,9 +92,12 @@ sub init()
     m.rows.rowTitleComponentName = ""
     ' §5.5 — the ring is a 9-patch drawn ON TOP so it reads against bright
     ' poster art; §5.6 the footprint marks where focus was when the row loses it.
-    m.rows.focusBitmapUri = "pkg:/images/focus_ring.9.png"
-    m.rows.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
-    m.rows.drawFocusFeedbackOnTop = true
+    ' The TILE draws the ring, around the art. Without an explicit bitmap the
+    ' list falls back to its own grey box at CELL size — the very thing the
+    ' owner reported as "much bigger than the poster".
+    m.rows.focusBitmapUri = "pkg:/images/focus_none.9.png"
+    m.rows.focusFootprintBitmapUri = "pkg:/images/focus_none.9.png"
+    m.rows.drawFocusFeedbackOnTop = false
     m.rows.drawFocusFeedback = true
 
     m.rows.rowLabelFont = m.t.uRow
@@ -124,10 +150,24 @@ sub onTileFocused()
     ' 1900s" over whatever backdrop happened to be up, which reads as a broken
     ' hero rather than as a shelf of doors.
     if Left(fmt(it.id), 7) = "browse:" then return
+    ' A real landscape backdrop fills the band. A poster does not: it goes in
+    ' the fitted box on the right, with a dimmed copy of itself as the wash.
     if it.awBackdrop <> invalid and it.awBackdrop <> ""
         m.wash.uri = it.awBackdrop
-        m.art.uri = it.awBackdrop
+        m.wash.opacity = 1.0
+        m.art.visible = false
+    else if it.HDPOSTERURL <> invalid and it.HDPOSTERURL <> ""
+        ' 0.22 was invisible against a black ground, so a poster-only item left
+        ' the band looking empty — the wash exists to give the marquee a
+        ' SURFACE, and a surface nobody can see is not one.
+        m.wash.uri = it.HDPOSTERURL
+        m.wash.opacity = 0.5
+        m.art.uri = it.HDPOSTERURL
+        m.art.visible = true
     end if
+    ' An item with NO art of its own leaves the previous picture up. Blanking
+    ' the marquee because the viewer moved onto a poster-less title looks like
+    ' a failure; holding the last image looks like a marquee.
     m.hTitle.text = it.title
     m.hMeta.text = it.SHORTDESCRIPTIONLINE1
     m.heroId = it.id

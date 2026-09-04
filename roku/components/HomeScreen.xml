@@ -17,6 +17,10 @@
     <Poster id="heroWash" />
     <Rectangle id="heroScrim" />
     <Poster id="heroArt" />
+    <Rectangle id="heroFadeA" />
+    <Rectangle id="heroFadeB" />
+    <Rectangle id="heroFadeC" />
+    <Rectangle id="heroFadeBase" />
     <Label id="heroTitle" />
     <Label id="heroMeta" />
 

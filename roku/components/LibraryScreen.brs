@@ -28,9 +28,12 @@ sub init()
     m.rows.showRowLabel = [true]
     m.rows.rowLabelFont = m.t.uRow
     m.rows.rowLabelColor = m.t.textPri
-    m.rows.focusBitmapUri = "pkg:/images/focus_ring.9.png"
-    m.rows.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
-    m.rows.drawFocusFeedbackOnTop = true
+    ' The TILE draws the ring, around the art. Without an explicit bitmap the
+    ' list falls back to its own grey box at CELL size — the very thing the
+    ' owner reported as "much bigger than the poster".
+    m.rows.focusBitmapUri = "pkg:/images/focus_none.9.png"
+    m.rows.focusFootprintBitmapUri = "pkg:/images/focus_none.9.png"
+    m.rows.drawFocusFeedbackOnTop = false
     m.rows.ObserveField("rowItemSelected", "onSelected")
     m.rows.ObserveField("rowItemFocused", "onRowFocused")
     m.rowMeta = []
