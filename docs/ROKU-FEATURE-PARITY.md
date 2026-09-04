@@ -135,7 +135,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Resume from bookmark | ✅ | |
 | Bookmarks written during playback | ✅ | every 5 s and on exit |
 | Instant Replay | ✅ | |
-| Trick play | ✅ | Roku's own, coloured to brand |
+| Trick play | ✅ | Roku's own, coloured to brand. Thumbnails (BIF) proven on the device with a generated file for one film — 21 s / 2.55 MB per feature; the catalog-wide batch is the owner's call (ROKU-SUBMISSION) |
 | Title / description overlay | ✅ native | Roku's transport already draws it; ours was a duplicate and was removed |
 | Subtitles | ✅ | WebVTT accepted directly; display governed by the device's caption mode |
 | Stall recovery | ✅ | watchdog re-issues play at the last position |

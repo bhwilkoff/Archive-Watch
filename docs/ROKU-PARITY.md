@@ -1059,3 +1059,18 @@ Library's full/empty states, Cartoon Mode.
 **Redesign verified functionally**: audit 34/34, remote response 70 ms median
 / 132 worst with a Font node and a twelve-Poster frame on every tile; both
 Select sweeps clean.
+
+92. **Measure the blocker before pricing it.** "~200 GB and a pipeline
+    programme" was reasoning. One real BIF: `ffmpeg -skip_frame nokey`
+    streamed over HTTP, 21 s and 2.55 MB for a 94-minute feature — ~69 GB
+    and ~157 machine-hours for the whole catalog, the shape of the cover
+    job, not a programme. And the Video node rendered it as native trick
+    play with nothing set but `HDBifUrl`. The estimate had been keeping a
+    decision off the owner's desk that a twenty-minute experiment settled.
+
+93. **My key choreography is not a verification.** A playlist flow that
+    typed "noir night" into Roku's own dialog and then pressed the wrong
+    button, and a search-filter flow whose presses opened a tile instead of
+    the chip, both ended as "unverified", not "failed" — and must be written
+    up that way. A harness step that does not reach its target proves
+    nothing about the target.

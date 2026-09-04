@@ -72,6 +72,12 @@ sub onUrl()
         c.SubtitleConfig = { TrackName: "eng:1:English" }
         print "AWCAP offering "; m.top.captionUrl
     end if
+    if m.top.bifUrl <> ""
+        ' The HD field serves FHD too; SD would be a 240 px file.
+        c.HDBifUrl = m.top.bifUrl
+        c.SDBifUrl = m.top.bifUrl
+        print "AWBIF offering "; m.top.bifUrl
+    end if
     if c.HasField("StreamStickyHttpRedirects") then c.StreamStickyHttpRedirects = true
     if m.video.HasField("ignoreStreamErrors") then m.video.ignoreStreamErrors = true
 

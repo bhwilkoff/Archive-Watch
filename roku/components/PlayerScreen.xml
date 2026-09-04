@@ -14,6 +14,9 @@
     <!-- The series an episode belongs to, so Continue Watching can borrow the
          spine's poster: an episode carries none of its own. -->
     <field id="progressOwner" type="string" />
+    <!-- Trick-play thumbnails (Roku BIF). Empty for every film today; set by
+         a harness door so a generated file can be measured on the device. -->
+    <field id="bifUrl" type="string" />
     <field id="archiveID" type="string" />
     <field id="startAt" type="integer" value="0" />
     <field id="captionUrl" type="string" />

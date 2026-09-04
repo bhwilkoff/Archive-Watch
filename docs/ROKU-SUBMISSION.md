@@ -53,36 +53,52 @@ Measured on the Streaming Stick 4K, not estimated.
 | Direct to Play on a voice launch | required | `mediaType=movie` plays immediately | ✅ |
 | Captions honour the device setting | required | device mode read, never overridden | ✅ |
 | Loading indicator for waits > 3 s | required | catalog load only; other waits are sub-second | ✅ |
-| **Trick-play thumbnails, VOD > 15 min** | **required** | **none** | ❌ |
+| **Trick-play thumbnails, VOD > 15 min** | **required** | **none shipped; one generated (21 s, 2.55 MB) and VERIFIED rendering on the device — see below** | ❌ until the batch runs |
 
-## The one blocker: BIF trick-play thumbnails
+## The one blocker: BIF trick-play thumbnails — now MEASURED
 
-> "Apps must display thumbnails during trick play for VOD content longer than
-> 15 minutes."
+Roku certification requires trick-play thumbnails for VOD over fifteen
+minutes; nothing in the catalog has one. The earlier estimate ("~200 GB
+across 26,960 items, a real pipeline programme") was reasoning, not
+measurement. On 2026-09-04 one real BIF was generated and measured:
 
-Almost every feature film in this catalog is longer than 15 minutes, and we
-ship no BIF files. This is not a Roku-code problem — it is a pipeline and
-storage problem, and it needs an owner decision.
+    film        El Candidato (1959), 94 min, archive.org progressive MP4
+    method      ffmpeg -skip_frame nokey, streamed over HTTP (no download),
+                fps=1/10, scale=320:-2, JPEG q=6; packed per the BIF spec
+                (magic, v0, N, 10 000 ms multiplier, N+1 index, frames)
+    frames      560 at 320 x 252
+    time        21 s wall clock on the dev Mac, network-bound
+    size        2.55 MB
 
-The scale, from Roku's own example (915 thumbnails ≈ 14 MB at FHD): a 90-minute
-film at 10-second intervals is ~540 images, call it 4–8 MB. Across **26,960
-items that is on the order of 200 GB**, plus decoding every film to generate
-them. The existing frame-cover pipeline (Decision 023) already showed what a
-full-catalog decode costs: a ~1.5-day unattended run for ONE frame per item.
+Extrapolated honestly (a 94-minute feature is on the long side of this
+catalog; shorts and newsreels are far cheaper):
 
-Three routes, in the order I would try them:
+    storage     ~2.5 MB x 26,960 = ~69 GB for HD (320 px); ~35 GB at SD
+                (240 px). Hosted the way the frame covers are — one
+                archive.org item, `archivewatch-bifs/<id>.bif` — that is
+                free and on-brand (Decision 023).
+    compute     ~21 s x 26,960 = ~157 machine-hours, network-bound and
+                embarrassingly parallel: 26 six-hour GitHub Actions jobs, or
+                a weekend on one Mac. Resumable via a manifest like
+                batch_covers.py.
 
-1. **Ask Roku for an exemption.** A 27,000-title public-domain archive is not
-   the catalogue this rule was written for, and the submission notes are the
-   place to say so. Costs one round trip and may end it.
-2. **Publish as a Beta app first.** Beta channels deploy immediately to up to
-   20 testers for 120 days with no certification review. That gets a real build
-   in front of real people while the thumbnail question is settled, and it is
-   the obvious first submission regardless.
-3. **Generate BIF for a subset.** The ~1,500 curated and Home-facing titles are
-   a few GB rather than 200, and could be hosted the way frame covers already
-   are (Decision 023, an archive.org item). This only helps if Roku accepts
-   partial coverage — worth asking in the same round trip as (1).
+**And it works on the device.** The same file, served from the dev Mac and
+attached through the harness door, was fetched by the Stick (`GET
+/el-candidato-1959.bif 200`) and rendered by the Video node as the native
+trick-play strip: five frames across the foot of the screen, the centre one
+framed, the fast-forward chevrons over it, at 0:40 and again at 04:00 — real
+frames of the film at those positions. No code in the player beyond setting
+`HDBifUrl`. Screenshots `v29_trick_fwd*.jpg`.
+
+So this is a pipeline job of the same shape as cover generation, not a
+programme. The Video node takes `content.HDBifUrl` / `SDBifUrl`; a harness
+door (`selftest:bif=<url>`) attaches a file to the next play so it can be
+measured on the glass, and the player prints `AWBIF offering …`.
+
+**Owner decision reduced to**: run it or not. Running it is ~70 GB on an
+archive.org item you already own and a batch job you already have the shape
+of. Not running it keeps the channel off the public store (a beta channel
+does not need it).
 
 ## A measurement that lied, and how
 

@@ -1897,6 +1897,13 @@ sub onDeepLink()
         openWall()
         return
     end if
+    ' Harness: `selftest:bif=<url>` attaches a BIF to the next film played,
+    ' so a generated trick-play file can be measured on the glass.
+    if Left(id, 13) = "selftest:bif="
+        m.devBif = Mid(id, 14)
+        print "AWBIF armed "; m.devBif
+        return
+    end if
     if Left(id, 3) = "go:"
         onRailSelectedID(Mid(id, 4))
         return
@@ -1989,6 +1996,8 @@ sub onPlay()
     m.detail.visible = false
     m.player.archiveID = m.detail.item.id
     m.player.progressOwner = ""
+    m.player.bifUrl = ""
+    if m.devBif <> invalid and m.devBif <> "" then m.player.bifUrl = m.devBif
     m.player.startAt = m.detail.playFrom
     m.player.playTitle = m.detail.item.title
     m.player.playMeta = m.detail.item.SHORTDESCRIPTIONLINE1
