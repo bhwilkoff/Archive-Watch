@@ -108,6 +108,8 @@ sub onRailSelected()
         openLibrary()
     else if id = "collections"
         openCollections()
+    else if id = "channels"
+        openChannels()
     else
         ' A surface that does not exist yet SAYS so rather than swallowing the
         ' press — an inert rail item reads as a broken app.
@@ -129,6 +131,7 @@ sub openBrowse(scope as String)
     closeLibrary()
     closeSearch()
     closeCollections()
+    closeChannels()
     m.content.visible = false
     m.loading.visible = false
     if m.detail <> invalid then m.detail.visible = false
@@ -223,6 +226,8 @@ sub onOptionsClosed()
         refocus(m.library)
     else if m.route = "collections"
         refocus(m.collections)
+    else if m.route = "channels"
+        refocus(m.channels)
     else
         focusRail()
     end if
@@ -235,6 +240,80 @@ sub onOptionsChanged()
     if m.options.changed = "progress" and m.route = "library" and m.library <> invalid
         m.library.callFunc("reload", m.task.rows)
     end if
+end sub
+
+sub openChannels()
+    if m.channels = invalid
+        m.channels = m.overlay.CreateChild("ChannelsScreen")
+        m.channels.translation = [m.t.railW, 0]
+        m.channels.ObserveField("tune", "onTune")
+        m.channels.ObserveField("chosen", "onChannelItemChosen")
+        m.channels.ObserveField("exitLeft", "focusRail")
+    end if
+    closeBrowse()
+    closeSearch()
+    closeLibrary()
+    closeCollections()
+    m.content.visible = false
+    m.loading.visible = false
+    if m.detail <> invalid then m.detail.visible = false
+    m.channels.visible = true
+    m.rail.focusOn = false
+    m.route = "channels"
+    print "AWFOCUS channels"
+    if m.chtask = invalid
+        m.chtask = CreateObject("roSGNode", "ChannelsTask")
+        m.chtask.ObserveField("status", "onChannelsLoaded")
+        m.chtask.control = "RUN"
+    else
+        refocus(m.channels)
+    end if
+end sub
+
+sub onChannelsLoaded()
+    if m.chtask.status = "ready"
+        m.channels.callFunc("showChannels", m.chtask.channels)
+        if m.route = "channels" then refocus(m.channels)
+    else
+        m.channels.callFunc("showChannels", invalid)
+    end if
+end sub
+
+sub closeChannels()
+    if m.channels <> invalid
+        m.channels.visible = false
+        m.channels.focusOn = false
+    end if
+    m.content.visible = true
+end sub
+
+sub onChannelItemChosen()
+    id = m.channels.chosen
+    if id <> invalid and id <> "" then openDetail(id)
+end sub
+
+' A channel plays through the SAME player, but it must never write a resume
+' position: a channel is a clock, and "continue watching" a clock is nonsense.
+sub onTune()
+    t = m.channels.tune
+    if t = invalid or t.url = invalid or t.url = "" then return
+    if m.player = invalid
+        m.player = m.overlay.CreateChild("PlayerScreen")
+        m.player.translation = [m.t.railW, 0]
+        m.player.ObserveField("ended", "onPlaybackEnded")
+        m.player.ObserveField("failed", "onPlaybackFailed")
+    end if
+    m.player.visible = true
+    m.channels.visible = false
+    m.player.archiveID = ""
+    m.player.startAt = t.startAt
+    m.player.playTitle = t.title
+    m.player.playMeta = t.meta
+    m.player.playUrl = t.url
+    m.player.setFocus(true)
+    m.cameFrom = "channels"
+    m.route = "player"
+    print "AWFOCUS player (channel, join at "; t.startAt; "s)"
 end sub
 
 sub openCollections()
@@ -288,6 +367,7 @@ sub openLibrary()
     closeBrowse()
     closeSearch()
     closeCollections()
+    closeChannels()
     m.content.visible = false
     m.loading.visible = false
     if m.detail <> invalid then m.detail.visible = false
@@ -327,6 +407,7 @@ sub openSearch()
     closeBrowse()
     closeLibrary()
     closeCollections()
+    closeChannels()
     m.content.visible = false
     m.loading.visible = false
     if m.detail <> invalid then m.detail.visible = false
@@ -443,6 +524,7 @@ sub openDetail(archiveID as String)
     if m.search <> invalid then m.search.visible = false
     if m.library <> invalid then m.library.visible = false
     if m.collections <> invalid then m.collections.visible = false
+    if m.channels <> invalid then m.channels.visible = false
     m.detail.visible = true
     m.detail.item = it
     m.detail.detail = {}
@@ -595,6 +677,12 @@ sub closeDetail()
     end if
     ' Back returns to the screen the viewer CAME FROM (§2.6), which is Browse
     ' when Detail was opened from a grid.
+    if m.channels <> invalid and m.cameFrom = "channels"
+        m.channels.visible = true
+        refocus(m.channels)
+        m.route = "channels"
+        return
+    end if
     if m.collections <> invalid and m.cameFrom = "collections"
         m.collections.visible = true
         m.collections.focusOn = true
@@ -690,6 +778,11 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             return true
         else if m.route = "collections"
             closeCollections()
+            focusContent()
+            m.route = "home"
+            return true
+        else if m.route = "channels"
+            closeChannels()
             focusContent()
             m.route = "home"
             return true

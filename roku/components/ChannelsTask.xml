@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Fetches the precomputed channel pools. The SCHEDULE is not fetched: it is
+     computed on the device from the day and the channel id, which is what lets
+     the listings anchor to the viewer's own 6 AM without a server knowing
+     anything about their timezone. -->
+<component name="ChannelsTask" extends="Task">
+  <interface>
+    <field id="status" type="string" alwaysNotify="true" />
+    <field id="channels" type="assocarray" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/Sched.brs" />
+  <script type="text/brightscript" uri="pkg:/components/ChannelsTask.brs" />
+</component>

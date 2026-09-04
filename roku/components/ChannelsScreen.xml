@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ROKU-DESIGN §6.7 — the guide.
+     Roku ships no EPG component, its remote has no colour keys, and a
+     time-proportional horizontal grid needs custom focus handling that fights
+     the platform's own engine. So the guide is the shape Roku live-TV channels
+     actually use: the channel list beside the selected channel's schedule.
+     Divergence from the tvOS/iOS/web proportional grid is deliberate and is
+     recorded in ROKU-PARITY. -->
+<component name="ChannelsScreen" extends="Group">
+  <interface>
+    <field id="focusOn" type="boolean" onChange="onFocusOn" />
+    <field id="tune" type="assocarray" alwaysNotify="true" />
+    <field id="chosen" type="string" alwaysNotify="true" />
+    <field id="exitLeft" type="boolean" alwaysNotify="true" />
+    <function name="showChannels" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/Sched.brs" />
+  <script type="text/brightscript" uri="pkg:/components/ChannelsScreen.brs" />
+  <children>
+    <Label id="heading" />
+    <Label id="hint" />
+    <LabelList id="chList" />
+    <Rectangle id="accent" />
+    <Label id="chTitle" />
+    <Label id="tagline" />
+    <Label id="onNow" />
+    <MarkupList id="guide" />
+    <Label id="empty" visible="false" />
+  </children>
+</component>
