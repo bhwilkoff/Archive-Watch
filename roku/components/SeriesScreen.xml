@@ -7,6 +7,7 @@
     <field id="focusOn" type="boolean" onChange="onFocusOn" />
     <field id="playEpisode" type="assocarray" alwaysNotify="true" />
     <field id="exitLeft" type="boolean" alwaysNotify="true" />
+    <field id="seriesID" type="string" />
     <function name="showSeries" />
     <function name="refreshProgress" />
   </interface>

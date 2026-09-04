@@ -54,7 +54,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Genre / Keyword / Studio facets | ⏳ | index carries a search blob, not facet columns |
 | Result count in the heading | ✅ | |
 | Empty state that says what to change | ✅ | |
-| Shuffle again | ⏳ | |
+| Shuffle again | 🔨 | a Shuffle sort on the Browse chip; not yet driven on the glass |
 | TV browse → series drill-in | ✅ | **was a dead end until this tick** |
 
 ## Series
@@ -67,7 +67,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Per-episode resume bar | ✅ | read from the registry |
 | Play episode | ✅ | verified: position advancing |
 | Autoplay next episode | ✅ | honours the Options setting |
-| Favorite a series | ⏳ | |
+| Favorite a series | 🔨 | `*` on the series screen; not yet driven on the glass |
 | Add series to playlist | ⏳ | film-level playlists ship; a series is not an item |
 
 ## Channels
@@ -87,7 +87,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 |---|---|---|
 | Favorites | ✅ | |
 | Continue Watching | ✅ | |
-| Watched list | ⏳ | watched state exists; no dedicated row yet |
+| Watched list | 🔨 | a Watched row last in Library; not yet driven on the glass |
 | Playlists (create / add / Play All / remove / delete) | ✅ | store proven by an 18-assertion on-device self-test; Roku's own KeyboardDialog names them |
 | Storage budget stated | ✅ | Roku-specific: 32 KB registry |
 
@@ -97,7 +97,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 |---|---|---|
 | Keyboard search over the catalog | ✅ | ~400 ms across 26,965 items |
 | No-typing doors | ✅ | five |
-| Result filters (type / era) | ⏳ | tvOS gained these in the 2026-08 audit |
+| Result filters (type / era) | ✅ | present-facets-only: a filter is offered only when the results contain more than one value for it |
 | Series results route to the series | ✅ | now that series drill-in exists |
 
 ## Surprise

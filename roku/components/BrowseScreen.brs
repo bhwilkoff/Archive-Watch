@@ -34,7 +34,7 @@ sub init()
     m.chipDefs = [
         { id: "type",   label: "Type",   values: ["All", "Feature Film", "Classic TV", "Silent Era", "Animation", "Short Film", "Newsreel", "Documentary"] },
         { id: "decade", label: "Decade", values: ["All", "1900s", "1910s", "1920s", "1930s", "1940s", "1950s", "1960s", "1970s"] },
-        { id: "sort",   label: "Sort",   values: ["Popular", "Newest", "Oldest", "A-Z"] }
+        { id: "sort",   label: "Sort",   values: ["Popular", "Newest", "Oldest", "A-Z", "Shuffle"] }
     ]
     m.chipIndex = [0, 0, 0]
     m.chips = []

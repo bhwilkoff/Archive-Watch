@@ -52,6 +52,13 @@ sub reload(catalog as Object)
     for each p in awPlaylists()
         added = added + addRow(root, p.name, p.ids, catalog, false, p.id)
     end for
+    ' Watched comes LAST: it is a record, not a recommendation, and putting it
+    ' above the playlists a viewer made would bury their own work under ours.
+    watched = []
+    for each r in awProgressRows()
+        if r.dur > 0 and r.posn >= (r.dur * 95) / 100 then watched.Push(r.id)
+    end for
+    added = added + addRow(root, "Watched", watched, catalog, false, "")
 
     m.rows.content = root
     m.rows.visible = (added > 0)

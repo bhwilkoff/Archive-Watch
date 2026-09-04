@@ -302,6 +302,13 @@ sub runQuery()
         hits = sorted
     else if sort = "newest" or sort = "oldest"
         hits = sortByYear(hits, sort = "oldest")
+    else if sort = "shuffle"
+        ' Fisher-Yates over the HITS, not the catalog: shuffling 26,965 rows to
+        ' show 300 of them would be most of a second on the wrong thread.
+        for i = hits.Count() - 1 to 1 step -1
+            j = Rnd(i + 1) - 1
+            tmp = hits[i] : hits[i] = hits[j] : hits[j] = tmp
+        end for
     end if
 
     total = hits.Count()

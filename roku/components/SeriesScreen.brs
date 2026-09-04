@@ -71,6 +71,7 @@ sub showSeries(d as Object)
     end if
     m.empty.visible = false
     m.series = d
+    m.top.seriesID = "series:" + fmt(d.seriesID)
     m.title.text = fmt(d.title)
 
     bits = []

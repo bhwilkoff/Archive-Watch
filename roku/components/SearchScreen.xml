@@ -24,6 +24,7 @@
     <MiniKeyboard id="kb" />
     <Label id="doorsLabel" />
     <Group id="doors" />
+    <Group id="chips" />
     <MarkupGrid id="grid" />
     <Label id="status" />
   </children>

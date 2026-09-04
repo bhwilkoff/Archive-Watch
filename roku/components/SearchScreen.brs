@@ -45,6 +45,8 @@ sub init()
         b.focusedTextColor = m.t.marquee
         b.focusBitmapUri = "pkg:/images/focus_ring.9.png"
         b.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
+        b.iconUri = ""
+        b.focusedIconUri = ""
         b.ObserveField("buttonSelected", "onDoorSelected")
         m.doors.Push(b)
         y = y + 84
@@ -52,9 +54,39 @@ sub init()
     m.doorGroup.translation = [660, 288]
     m.doorIndex = 0
 
-    m.grid.translation = [660, 288]
+    ' §6.4 — filters over RESULTS, offered only for facets the results actually
+    ' contain. A "Silent Era" chip on a search that returned no silent films is
+    ' a control that can only disappoint.
+    m.chipGroup = m.top.FindNode("chips")
+    m.chipGroup.translation = [660, 288]
+    m.chipDefs = [
+        { id: "type",   label: "Type",   values: ["All"] },
+        { id: "decade", label: "Decade", values: ["All"] }
+    ]
+    m.chipIndex = [0, 0]
+    m.chips = []
+    cx = 0
+    for i = 0 to m.chipDefs.Count() - 1
+        b = m.chipGroup.CreateChild("Button")
+        b.translation = [cx, 0]
+        b.minWidth = 396
+        b.height = 60
+        b.iconUri = "" : b.focusedIconUri = ""
+        b.textColor = m.t.textPri
+        b.focusedTextColor = m.t.marquee
+        b.focusBitmapUri = "pkg:/images/focus_ring.9.png"
+        b.focusFootprintBitmapUri = "pkg:/images/focus_footprint.9.png"
+        b.ObserveField("buttonSelected", "onChipPressed")
+        m.chips.Push(b)
+        cx = cx + 426
+    end for
+    m.chipGroup.visible = false
+    m.chipFocus = 0
+
+    m.grid.translation = [660, 372]
     m.grid.itemComponentName = "GridTile"
     m.grid.numColumns = 4
+    m.grid.numRows = 2
     m.grid.numRows = 2
     m.grid.itemSize = [210, 393]
     m.grid.itemSpacing = [24, 24]
@@ -91,14 +123,117 @@ end sub
 
 sub showResults(root as Object, total as Integer)
     if Len(m.kb.text) < 2 then return
-    m.grid.content = root
-    m.grid.visible = (total > 0)
-    m.doorGroup.visible = (total = 0)
-    m.doorsLabel.visible = (total = 0)
-    if total = 0
-        m.status.text = "Nothing matches “" + m.kb.text + "”. Try fewer letters, or a door."
+    m.allResults = root
+    ' The facet vocabularies are rebuilt from THESE results, so the chips can
+    ' only ever offer something that exists in them.
+    buildFacets(root)
+    applyFilters()
+end sub
+
+sub buildFacets(root as Object)
+    types = {} : decades = {}
+    if root <> invalid
+        for i = 0 to root.GetChildCount() - 1
+            it = root.GetChild(i)
+            if it.awType <> invalid and it.awType <> "" then types[fmt(it.awType)] = true
+            y = Int(Val(Left(fmt(it.SHORTDESCRIPTIONLINE1), 4)))
+            if y > 1800 then decades[fmt(Int(y / 10) * 10) + "s"] = true
+        end for
+    end if
+    tv = ["All"]
+    for each k in types
+        tv.Push(prettyFacet(k))
+    end for
+    dv = ["All"]
+    ' Sorted, because an associative array hands them back in whatever order it
+    ' pleases and a decade list out of order reads as a bug.
+    years = []
+    for each k in decades
+        years.Push(k)
+    end for
+    for i = 0 to years.Count() - 2
+        for j = 0 to years.Count() - 2 - i
+            if years[j] > years[j + 1]
+                t = years[j] : years[j] = years[j + 1] : years[j + 1] = t
+            end if
+        end for
+    end for
+    for each y in years
+        dv.Push(y)
+    end for
+    m.chipDefs[0].values = tv
+    m.chipDefs[1].values = dv
+    if m.chipIndex[0] >= tv.Count() then m.chipIndex[0] = 0
+    if m.chipIndex[1] >= dv.Count() then m.chipIndex[1] = 0
+    ' Two values means "All" plus one — nothing to choose between.
+    m.chipGroup.visible = (tv.Count() > 2 or dv.Count() > 2)
+    paintChips()
+end sub
+
+function prettyFacet(t as String) as String
+    if t = "feature-film" then return "Feature Film"
+    if t = "tv-series" then return "TV Series"
+    if t = "tv-special" then return "TV Special"
+    if t = "tv-episode" then return "TV Episode"
+    if t = "silent-film" then return "Silent Era"
+    if t = "short-film" then return "Short Film"
+    return titleFacet(t)
+end function
+
+function titleFacet(t as String) as String
+    if t = "" then return t
+    return UCase(Left(t, 1)) + Mid(t, 2)
+end function
+
+sub paintChips()
+    for i = 0 to m.chips.Count() - 1
+        d = m.chipDefs[i]
+        m.chips[i].text = d.label + ":  " + d.values[m.chipIndex[i]]
+    end for
+end sub
+
+sub onChipPressed()
+    i = m.chipFocus
+    d = m.chipDefs[i]
+    m.chipIndex[i] = (m.chipIndex[i] + 1) mod d.values.Count()
+    paintChips()
+    applyFilters()
+end sub
+
+sub applyFilters()
+    root = m.allResults
+    wantType = ""
+    if m.chipIndex[0] > 0 then wantType = m.chipDefs[0].values[m.chipIndex[0]]
+    wantDec = ""
+    if m.chipIndex[1] > 0 then wantDec = m.chipDefs[1].values[m.chipIndex[1]]
+
+    out = CreateObject("roSGNode", "ContentNode")
+    n = 0
+    if root <> invalid
+        for i = 0 to root.GetChildCount() - 1
+            it = root.GetChild(i)
+            if wantType <> "" and prettyFacet(fmt(it.awType)) <> wantType then continue for
+            if wantDec <> ""
+                y = Int(Val(Left(fmt(it.SHORTDESCRIPTIONLINE1), 4)))
+                if fmt(Int(y / 10) * 10) + "s" <> wantDec then continue for
+            end if
+            out.AppendChild(it.Clone(false))
+            n = n + 1
+        end for
+    end if
+    m.grid.content = out
+    m.grid.visible = (n > 0)
+    m.doorGroup.visible = (n = 0 and wantType = "" and wantDec = "")
+    m.doorsLabel.visible = m.doorGroup.visible
+
+    if n = 0
+        if wantType <> "" or wantDec <> ""
+            m.status.text = "No results left after those filters. Set them back to All."
+        else
+            m.status.text = "Nothing matches “" + m.kb.text + "”. Try fewer letters, or a door."
+        end if
     else
-        m.status.text = fmt(total) + " titles match “" + m.kb.text + "”. Press Right to browse them."
+        m.status.text = fmt(n) + " titles match “" + m.kb.text + "”. Press Right to browse them."
     end if
 end sub
 
@@ -117,7 +252,9 @@ sub onFocusOn()
 end sub
 
 sub focusHere()
-    if m.zone = 2 and m.grid.visible
+    if m.zone = 3 and m.chipGroup.visible
+        m.chips[m.chipFocus].setFocus(true)
+    else if m.zone = 2 and m.grid.visible
         m.grid.setFocus(true)
     else if m.zone = 1
         m.doors[m.doorIndex].setFocus(true)
@@ -169,6 +306,10 @@ end function
 ' query survives inside the MiniKeyboard for the life of the channel, so
 ' reopening Search silently resumes someone else's search.
 sub resetSearch()
+    m.chipIndex = [0, 0]
+    m.chipFocus = 0
+    m.chipGroup.visible = false
+    m.allResults = invalid
     m.kb.text = ""
     m.zone = 0
     m.doorIndex = 0

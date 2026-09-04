@@ -310,6 +310,38 @@ end sub
 ' `*` in Library is contextual: it acts on the row the viewer is standing in.
 ' Roku reserves `*` for options, and the option a viewer wants here is about
 ' THIS playlist, not about the app.
+sub openSeriesOptions()
+    if m.more = invalid
+        m.more = m.top.FindNode("options").CreateChild("OptionsList")
+        m.more.ObserveField("chosen", "onMorePicked")
+        m.more.ObserveField("closed", "onMoreClosed")
+    end if
+    sid = m.series.seriesID
+    opts = []
+    if awIsFavorite(sid)
+        opts.Push({ id: "sunsave", label: "Remove this series from Library" })
+    else
+        opts.Push({ id: "ssave", label: "Save this series to Library" })
+    end if
+    opts.Push({ id: "settings", label: "App settings…" })
+    opts.Push({ id: "cancel", label: "Done" })
+    m.moreMode = "series"
+    m.more.callFunc("open", { title: "Options", options: opts })
+end sub
+
+sub onSeriesOptionPicked(pick as String)
+    sid = m.series.seriesID
+    if pick = "ssave" or pick = "sunsave"
+        r = awToggleFavorite(sid)
+        if r = invalid then print "AWSER library full"
+        requestUserItems()
+    else if pick = "settings"
+        openOptions()
+        return
+    end if
+    refocus(m.series)
+end sub
+
 sub openLibraryOptions()
     if m.more = invalid
         m.more = m.top.FindNode("options").CreateChild("OptionsList")
@@ -546,6 +578,8 @@ end sub
 sub onMoreClosed()
     if m.moreMode = "library"
         refocus(m.library)
+    else if m.moreMode = "series"
+        refocus(m.series)
     else
         refocus(m.detail)
     end if
@@ -575,6 +609,10 @@ sub onMorePicked()
     end if
     if m.moreMode = "versions"
         onVersionPicked(pick)
+        return
+    end if
+    if m.moreMode = "series"
+        onSeriesOptionPicked(pick)
         return
     end if
     if m.moreMode = "library"
@@ -1093,6 +1131,7 @@ end sub
 
 sub onLibraryChosen()
     id = m.library.chosen
+    ' openDetail already forwards a `series:` id to the series screen.
     if id <> invalid and id <> "" then openDetail(id)
 end sub
 
@@ -1598,6 +1637,10 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     ' takes it there fails certification.
     if key = "options" and m.route = "library" and m.library <> invalid
         openLibraryOptions()
+        return true
+    end if
+    if key = "options" and m.route = "series" and m.series <> invalid
+        openSeriesOptions()
         return true
     end if
     if key = "options" and m.route <> "player"
