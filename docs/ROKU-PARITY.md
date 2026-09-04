@@ -306,6 +306,43 @@ Stick, with a screenshot for rendering and a focus trace for reachability
 Roku's `/query/media-player` reports state, codec and a position that has to
 ADVANCE between samples, and that is the only claim worth making.
 
+## Tick 4 — Browse, and the query service behind it
+
+| Element | Roku | Evidence |
+|---|---|---|
+| Movies / TV browse grid, 7 columns | ✅ | `v04_browse.jpg` |
+| Title count in the heading | ✅ | "Movies · 9043 titles" |
+| Type / Decade / Sort chips, focusable | ✅ | `v04_chips.jpg` |
+| Filtering by type and decade | ✅ | All 9043 → 1900s 0 → 1910s 1 → 1920s 494 |
+| TV browses SERIES, never loose episodes (D036) | ✅ built | scope maps to tv-series + tv-special |
+| "Oldest" sorts year-less rows LAST | ✅ built | the Android TV audit's bug, not repeated here |
+| Drill from grid into Detail | ✅ | `v04_detail_from_browse.jpg` |
+| Back returns to Browse, not Home | ✅ built | route remembers where Detail came from |
+| Empty state when a filter matches nothing | ✅ built | 1900s returns 0 and says so |
+
+**The service is the architectural point.** A Task's run function normally
+executes once; this one parks on a message port, so the 26,965-item index is
+parsed ONCE and never crosses a thread boundary — only the page of results
+does, as ContentNodes. Filtering all 26,965 rows costs **215–325 ms** on the
+Streaming Stick, comfortably inside Roku's 250 ms response rule for the work
+that happens between key presses.
+
+**Four more silent failure modes:**
+
+12. **A Group is not focusable.** `setFocus(true)` on a Group whose descendants
+    are all Rectangles and Labels does nothing, the Scene keeps focus, and the
+    component's `onKeyEvent` never runs — a screen that renders perfectly and
+    is completely inert. Chips are real `Button` nodes now.
+13. **Setting focus on the container AFTER handing it to a child takes it
+    back.** Every chip press was swallowed because the parent re-claimed focus
+    one line later.
+14. **`Val(x).ToInt()` compiles and dies at runtime** with "Member function not
+    found": `Val` returns a Float PRIMITIVE, which has no methods. Third
+    variant today of BrightScript's no-methods-on-return-values rule, and the
+    first that survives compilation.
+15. **A focus ring has a transparent centre**, so dark "focused text" is
+    invisible — the chip read as an empty box while working perfectly.
+
 ## Open questions for the design tick
 
 1. Which Roku idiom carries Home: a `RowList` of poster rows under a hero, or

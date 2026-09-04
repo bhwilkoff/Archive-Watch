@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ROKU-DESIGN §4.6 — the Browse grid poster: 192×288 resting, 210×315
+     focused. Stated sizes, not a scale factor, because Roku downscales to
+     720p at exactly 2/3 and a factor lands on fractional pixels. -->
+<component name="GridTile" extends="Group">
+  <interface>
+    <field id="itemContent" type="node" onChange="onContent" />
+    <field id="itemHasFocus" type="boolean" onChange="onFocusChanged" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/GridTile.brs" />
+  <children>
+    <Rectangle id="plate" color="0x16161AFF" />
+    <Poster id="art" />
+    <Label id="caption" visible="false" />
+  </children>
+</component>

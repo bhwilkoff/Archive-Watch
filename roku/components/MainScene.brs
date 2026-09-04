@@ -42,6 +42,10 @@ sub init()
 
     m.rail.ObserveField("selected", "onRailSelected")
 
+    m.svc = CreateObject("roSGNode", "CatalogService")
+    m.svc.ObserveField("results", "onQueryResults")
+    m.svc.control = "RUN"
+
     m.task = CreateObject("roSGNode", "HomeTask")
     m.task.ObserveField("status", "onStatus")
     m.task.control = "RUN"
@@ -83,16 +87,62 @@ end sub
 sub onRailSelected()
     id = m.rail.selected
     print "AWROKU rail-select "; id
-    ' Only Home exists this tick; the other six surfaces arrive in later ticks
-    ' and the rail already announces them, so nothing here silently swallows a
-    ' press — it says what is not built yet.
     if id = "home"
+        closeBrowse()
         focusContent()
+    else if id = "movies" or id = "tv"
+        openBrowse(id)
     else
+        ' A surface that does not exist yet SAYS so rather than swallowing the
+        ' press — an inert rail item reads as a broken app.
+        closeBrowse()
         m.loading.visible = true
         m.loading.text = titleFor(id) + " arrives in a later build."
         focusContent()
     end if
+end sub
+
+sub openBrowse(scope as String)
+    if m.browse = invalid
+        m.browse = m.overlay.CreateChild("BrowseScreen")
+        m.browse.translation = [m.t.railW, 0]
+        m.browse.service = m.svc
+        m.browse.ObserveField("chosen", "onBrowseChosen")
+        m.browse.ObserveField("exitLeft", "focusRail")
+    end if
+    m.content.visible = false
+    m.loading.visible = false
+    if m.detail <> invalid then m.detail.visible = false
+    m.browse.visible = true
+    m.browse.scope = scope
+    m.rail.focusOn = false
+    ' Do NOT setFocus on the BrowseScreen Group here. Setting focusOn hands
+    ' focus to a real Button inside it; taking it back to the Group afterwards
+    ' is why every chip press was swallowed — the Button never saw an OK, so
+    ' buttonSelected never fired and the screen looked inert while rendering
+    ' perfectly.
+    m.browse.focusOn = true
+    m.route = "browse"
+    print "AWFOCUS browse "; scope
+end sub
+
+sub closeBrowse()
+    if m.browse <> invalid
+        m.browse.visible = false
+        m.browse.focusOn = false
+    end if
+    m.content.visible = true
+end sub
+
+sub onQueryResults()
+    if m.browse <> invalid and m.browse.visible
+        m.browse.callFunc("showResults", m.svc.results, m.svc.total)
+    end if
+end sub
+
+sub onBrowseChosen()
+    id = m.browse.chosen
+    if id <> invalid and id <> "" then openDetail(id)
 end sub
 
 ' §2.5 — depth is at most 2: rail → surface → item. Detail and the player are
@@ -105,6 +155,7 @@ sub onChosen()
 end sub
 
 sub openDetail(archiveID as String)
+    m.cameFromBrowse = (m.route = "browse")
     it = findItem(archiveID)
     if m.detail = invalid
         m.detail = m.overlay.CreateChild("DetailScreen")
@@ -148,6 +199,13 @@ function findItem(archiveID as String) as Object
             if it.id = archiveID then return it
         end for
     end for
+    if m.svc <> invalid and m.svc.results <> invalid
+        res = m.svc.results
+        for i = 0 to res.GetChildCount() - 1
+            it = res.GetChild(i)
+            if it.id = archiveID then return it
+        end for
+    end if
     return invalid
 end function
 
@@ -190,6 +248,15 @@ sub closeDetail()
     if m.detail <> invalid
         m.detail.visible = false
         m.detail.focusOn = false
+    end if
+    ' Back returns to the screen the viewer CAME FROM (§2.6), which is Browse
+    ' when Detail was opened from a grid.
+    if m.browse <> invalid and m.cameFromBrowse = true
+        m.browse.visible = true
+        m.browse.focusOn = true
+        m.browse.setFocus(true)
+        m.route = "browse"
+        return
     end if
     m.content.visible = true
     focusContent()
@@ -235,6 +302,11 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             return true
         else if m.route = "detail"
             closeDetail()
+            return true
+        else if m.route = "browse"
+            closeBrowse()
+            focusContent()
+            m.route = "home"
             return true
         end if
         return false

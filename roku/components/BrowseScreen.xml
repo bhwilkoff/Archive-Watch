@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ROKU-DESIGN §6.3 — an 8-column grid with scope chips above it on one
+     focusable row. A chip opens a dialog, never a pushed screen, so depth
+     stays at 2 (§2.5). -->
+<component name="BrowseScreen" extends="Group">
+  <interface>
+    <field id="service" type="node" />
+    <field id="scope" type="string" onChange="onScope" />
+    <field id="focusOn" type="boolean" onChange="onFocusOn" />
+    <field id="chosen" type="string" alwaysNotify="true" />
+    <field id="exitLeft" type="boolean" alwaysNotify="true" />
+    <function name="showResults" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/BrowseScreen.brs" />
+  <children>
+    <Label id="heading" />
+    <Group id="chips" />
+    <MarkupGrid id="grid" />
+    <Label id="empty" visible="false" />
+  </children>
+</component>

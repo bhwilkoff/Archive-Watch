@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- A LONG-LIVED task that owns the parsed catalog and answers queries.
+
+     A Task's run function normally executes once and exits. This one parks on
+     a message port instead, so the 26,965-item index is parsed ONCE and then
+     stays on this thread for the life of the channel. That matters twice
+     over: the render thread must never filter 27,000 rows (Roku's 250ms
+     response rule, ROKU-DESIGN §1.6), and the parsed array must never cross a
+     thread boundary, because a node field copies its value and copying that
+     array per keystroke would be far worse than the filtering. Only the PAGE
+     of results crosses, as ContentNodes. -->
+<component name="CatalogService" extends="Task">
+  <interface>
+    <field id="ready" type="boolean" alwaysNotify="true" />
+    <field id="qType" type="string" />
+    <field id="qDecade" type="integer" value="0" />
+    <field id="qSort" type="string" value="popular" />
+    <field id="qText" type="string" />
+    <field id="queryId" type="integer" alwaysNotify="true" />
+    <field id="results" type="node" alwaysNotify="true" />
+    <field id="total" type="integer" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/CatalogService.brs" />
+</component>
