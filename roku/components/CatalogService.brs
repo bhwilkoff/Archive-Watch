@@ -57,6 +57,88 @@ end sub
 ' One pass over 26,965 rows collecting only the ~3,100 ids the 26 curated
 ' collections name — the same shape HomeTask uses, and for the same reason:
 ' scanning once per collection would be 26 passes on the wrong thread.
+' Cartoon Mode's character shelves. The characters are matched against the
+' title and the index's own search blob, which already carries keywords and
+' alternate titles — so "Popeye the Sailor Meets Sindbad" and a Fleischer
+' short whose title never says Popeye both land in the same row.
+function cartoonCharacters() as Object
+    return [
+        { name: "Betty Boop",      needle: "betty boop" },
+        { name: "Popeye",          needle: "popeye" },
+        { name: "Superman",        needle: "superman" },
+        { name: "Felix the Cat",   needle: "felix" },
+        { name: "Woody Woodpecker",needle: "woody woodpecker" },
+        { name: "Mighty Mouse",    needle: "mighty mouse" },
+        { name: "Casper",          needle: "casper" },
+        { name: "Gerald McBoing",  needle: "mcboing" },
+        { name: "Bugs Bunny",      needle: "bugs bunny" },
+        { name: "Tom and Jerry",   needle: "tom and jerry" }
+    ]
+end function
+
+sub buildCartoons()
+    span = CreateObject("roTimespan")
+    span.Mark()
+    chars = cartoonCharacters()
+    buckets = {}
+    for each c in chars
+        buckets[c.name] = []
+    end for
+    everything = []
+
+    for each r in m.items
+        if LCase(fmt(r[3])) <> "animation" then continue for
+        if r[5] <> 1 then continue for
+        hay = LCase(fmt(r[1])) + " " + LCase(fmt(r[6]))
+        placed = false
+        for each c in chars
+            if Instr(1, hay, c.needle) > 0
+                if buckets[c.name].Count() < 20
+                    buckets[c.name].Push(r)
+                    placed = true
+                    exit for
+                end if
+            end if
+        end for
+        if not placed and everything.Count() < 40 then everything.Push(r)
+    end for
+
+    root = CreateObject("roSGNode", "ContentNode")
+    shown = 0
+    for each c in chars
+        b = buckets[c.name]
+        ' Four is the floor for a character row. Fewer than that is one or two
+        ' cartoons that happen to share a name, not a character worth a shelf.
+        if b.Count() >= 4
+            row = root.CreateChild("ContentNode")
+            row.title = c.name
+            row.AddField("awBlurb", "string", false)
+            row.AddField("awAccent", "string", false)
+            row.awBlurb = fmt(b.Count()) + " cartoons"
+            row.awAccent = AccentFor("animation")
+            for each r in b
+                appendRow(row, r)
+            end for
+            shown = shown + 1
+        end if
+    end for
+    if everything.Count() >= 6
+        row = root.CreateChild("ContentNode")
+        row.title = "More cartoons"
+        row.AddField("awBlurb", "string", false)
+        row.AddField("awAccent", "string", false)
+        row.awBlurb = "Everything else, shuffled"
+        row.awAccent = AccentFor("animation")
+        for each r in everything
+            appendRow(row, r)
+        end for
+        shown = shown + 1
+    end if
+    print "AWSVC cartoons rows="; shown; " in "; span.TotalMilliseconds(); "ms"
+    m.top.total = shown
+    m.top.results = root
+end sub
+
 sub buildCollections()
     span = CreateObject("roTimespan")
     span.Mark()
@@ -227,6 +309,11 @@ sub runQuery()
         return
     end if
 
+    if m.top.qCartoons
+        buildCartoons()
+        return
+    end if
+
     if m.top.qRandomType <> ""
         pickRandom(m.top.qRandomType)
         return
@@ -262,6 +349,7 @@ sub runQuery()
     wantType = LCase(m.top.qType)
     decade = m.top.qDecade
     text = LCase(m.top.qText)
+    wantGenre = m.top.qGenre
     sort = m.top.qSort
 
     hits = []
@@ -275,6 +363,16 @@ sub runQuery()
                 goto_next = (t <> wantType)
             end if
             if goto_next then continue for
+        end if
+        ' Genres arrived at schema 10 as a pipe-joined string. 17,726 of 26,960
+        ' items carry one, so the facet is worth having and the two thirds
+        ' without genres are simply not in a genre-filtered result — which is
+        ' the honest answer, not a bug.
+        if wantGenre <> ""
+            if r.Count() <= 13 then continue for
+            g = r[13]
+            if g = invalid then continue for
+            if Instr(1, "|" + fmt(g) + "|", "|" + wantGenre + "|") = 0 then continue for
         end if
         if decade > 0
             y = r[2]
@@ -352,7 +450,7 @@ sub runQuery()
     for i = 0 to n - 1
         appendRow(root, hits[i])
     end for
-    print "AWSVC query type="; wantType; " decade="; decade; " sort="; sort; " text='"; text; "' hits="; total; " in "; span.TotalMilliseconds(); "ms"
+    print "AWSVC query type="; wantType; " decade="; decade; " genre='"; wantGenre; "' sort="; sort; " text='"; text; "' hits="; total; " in "; span.TotalMilliseconds(); "ms"
     m.top.total = total
     m.top.results = root
 end sub

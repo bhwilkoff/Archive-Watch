@@ -113,6 +113,10 @@ sub onRailSelected()
 end sub
 
 sub onRailSelectedID(id as String)
+    ' Navigating away from a playing film stops it. startDeepLink already does
+    ' this for a content id; the rail path did not, so a `go:` link arriving
+    ' mid-playback left the player running and every later key went to it.
+    if m.route = "player" then closePlayer()
         print "AWROKU rail-select "; id
     if id = "home"
         closeBrowse()
@@ -1055,6 +1059,8 @@ sub onSurpriseAction()
         openBrowseFiltered("", d)
     else if a = "cartoons"
         startCartoonMarathon()
+    else if a = "cartoonmode"
+        openCartoonMode()
     end if
 end sub
 
@@ -1321,7 +1327,25 @@ sub onTune()
     playChannelItem()
 end sub
 
-sub openCollections()
+' Cartoon Mode reuses the Collections surface — same shape, different rows.
+sub openCartoonMode()
+    openShelfSurface()
+    m.collections.callFunc("setHeading", { title: "Cartoons",
+        empty: "No cartoon characters have enough films for a shelf yet." })
+    m.lastShelf = "cartoons"
+    m.collectionsBuilt = false
+    m.pendingCollections = true
+    m.svc.qCollections = false
+    m.svc.qCartoons = true
+    m.svc.queryId = m.svc.queryId + 1
+end sub
+
+' Shows the shelf surface WITHOUT deciding what goes in it. Collections and
+' Cartoon Mode both use it; each then runs its own query. Sharing the whole
+' function meant Cartoon Mode fired a collections query first, and that
+' result cleared the cartoon flag before its own query ever ran — two
+' requests in flight, one set of pending flags.
+sub openShelfSurface()
     if m.collections = invalid
         m.collections = m.overlay.CreateChild("CollectionsScreen")
         m.collections.translation = [m.t.railW, 0]
@@ -1342,6 +1366,21 @@ sub openCollections()
         m.svc.qCollections = true
         m.svc.queryId = m.svc.queryId + 1
     end if
+end sub
+
+sub openCollections()
+    openShelfSurface()
+    m.collections.callFunc("setHeading", { title: "Collections",
+        empty: "Collections could not be loaded. Check the network and try again." })
+    if m.collectionsBuilt = true and m.lastShelf = "collections"
+        m.collections.focusOn = true
+        return
+    end if
+    m.lastShelf = "collections"
+    m.pendingCollections = true
+    m.svc.qCollections = true
+    m.svc.qCartoons = false
+    m.svc.queryId = m.svc.queryId + 1
 end sub
 
 sub closeCollections()
@@ -1506,6 +1545,7 @@ sub onQueryResults()
     if m.pendingCollections = true
         m.pendingCollections = false
         m.svc.qCollections = false
+        m.svc.qCartoons = false
         m.collectionsBuilt = true
         m.collections.callFunc("showResults", m.svc.results, m.svc.total)
         m.collections.focusOn = true

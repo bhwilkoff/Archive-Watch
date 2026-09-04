@@ -14,6 +14,7 @@ function surpriseDoors() as Object
         { id: "type:documentary", label: "Random Documentary", sub: "The record of a thing",      cat: "documentary" },
         { id: "type:tv-episode",  label: "Random TV Episode",  sub: "Drop into a series",         cat: "tv-series" },
         { id: "browse:decade",    label: "Random Decade",      sub: "Wander a whole era",         cat: "feature-film" },
+        { id: "cartoonmode",      label: "Cartoon Mode",       sub: "Shelves by character",       cat: "animation" },
         { id: "cartoons",         label: "Cartoon Marathon",   sub: "Press play and stay",        cat: "animation" }
     ]
 end function
@@ -30,12 +31,12 @@ sub init()
 
     m.hint.font = m.t.uMeta : m.hint.color = m.t.textSec
     m.hint.translation = [42, 204]
-    m.hint.text = "Twelve doors into 26,000 films. Every one of them re-rolls."
+    m.hint.text = "Thirteen doors into 26,000 films. Every one of them re-rolls."
 
     m.grid.translation = [42, 276]
     m.grid.itemComponentName = "ActionTile"
     m.grid.numColumns = 3
-    m.grid.numRows = 4
+    m.grid.numRows = 5
     m.grid.itemSize = [528, 162]
     m.grid.itemSpacing = [24, 24]
     m.grid.focusBitmapUri = "pkg:/images/focus_ring.9.png"

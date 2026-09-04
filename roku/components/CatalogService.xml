@@ -16,6 +16,8 @@
     <field id="qDecade" type="integer" value="0" />
     <field id="qSort" type="string" value="popular" />
     <field id="qText" type="string" />
+    <field id="qGenre" type="string" />
+    <field id="qCartoons" type="boolean" value="false" />
     <!-- A single-id lookup, so a deep link can resolve a film the viewer has
          never browsed to. The index is already parsed on this thread; asking
          it is free next to fetching anything. -->

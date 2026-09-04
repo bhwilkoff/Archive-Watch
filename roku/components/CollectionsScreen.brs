@@ -45,12 +45,24 @@ sub init()
     m.rows.ObserveField("rowItemFocused", "onFocusedRow")
 end sub
 
+' Cartoon Mode borrows this screen: a RowList of labelled shelves with a blurb
+' and an accent IS a character shelf. Building a second identical screen to say
+' "Cartoons" at the top would be a copy with one string changed.
+sub setHeading(payload as Object)
+    m.heading.text = payload.title
+    m.emptyText = payload.empty
+end sub
+
 sub showResults(root as Object, total as Integer)
     m.rows.content = root
     m.rows.visible = (total > 0)
     m.empty.visible = (total = 0)
     if total = 0
-        m.empty.text = "Collections could not be loaded. Check the network and try again."
+        if m.emptyText <> invalid and m.emptyText <> ""
+            m.empty.text = m.emptyText
+        else
+            m.empty.text = "Collections could not be loaded. Check the network and try again."
+        end if
         m.blurb.text = ""
     else
         paintBlurb(0)

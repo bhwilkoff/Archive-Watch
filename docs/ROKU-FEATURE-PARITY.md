@@ -51,7 +51,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Decade / Era facet | ✅ | |
 | Sort (Popular / Newest / Oldest / A–Z) | ✅ | all five measured on the device at 422–602 ms; year-less rows sort LAST |
 | Top Rated sort | ✅ | index schema 10 carries rating and votes; 1,000-vote floor |
-| Genre facet | ⏳ | index now carries genres (schema 10); the Browse chip is not built yet |
+| Genre facet | ✅ | 16 genres; "Western" returns 635 titles in 521 ms |
 | Keyword / Studio facets | ⏳ | searchable via the blob; no facet columns |
 | Result count in the heading | ✅ | |
 | Empty state that says what to change | ✅ | |
@@ -108,6 +108,7 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Surprise Me | ✅ | Search door + its own surface |
 | Random Film / Feature / Silent / Animation / Short / Newsreel / Ephemera / Commercial / Documentary / TV Episode / Decade | ✅ | eleven doors, each re-rolls; reservoir-sampled in one index pass |
 | Cartoon Marathon | ✅ | 40-item shuffled queue, verified playing 1/40 |
+| Cartoon Mode (character shelves) | ✅ | 7 shelves in 274 ms — Betty Boop, Popeye, and the rest |
 | Party Play | ⏳ | |
 | Cover Art Wall | ⏳ | |
 

@@ -36,15 +36,18 @@ sub init()
     m.chipDefs = [
         { id: "type",   label: "Type",   values: ["All", "Feature Film", "Classic TV", "Silent Era", "Animation", "Short Film", "Newsreel", "Documentary"] },
         { id: "decade", label: "Decade", values: ["All", "1900s", "1910s", "1920s", "1930s", "1940s", "1950s", "1960s", "1970s"] },
+        { id: "genre",  label: "Genre",  values: ["All", "Drama", "Comedy", "Animation", "Crime", "Romance", "Action", "Western", "Documentary", "Thriller", "Horror", "Mystery", "Adventure", "War", "Family", "Fantasy"] },
         { id: "sort",   label: "Sort",   values: ["Popular", "Newest", "Oldest", "A-Z", "Top Rated", "Shuffle"] }
     ]
-    m.chipIndex = [0, 0, 0]
+    m.chipIndex = [0, 0, 0, 0]
     m.chips = []
     x = 0
     for i = 0 to m.chipDefs.Count() - 1
         b = m.chipGroup.CreateChild("Button")
         b.translation = [x, 0]
-        b.minWidth = 390
+        ' Four chips now, so each is narrower: 4 x 390 fits the content column
+        ' where 4 x 429 did not.
+        b.minWidth = 348
         b.height = 60
         b.textColor = m.t.textPri
         ' The focus ring is a RING with a transparent centre, so the button
@@ -60,7 +63,7 @@ sub init()
         b.focusedIconUri = ""
         b.ObserveField("buttonSelected", "onChipSelected")
         m.chips.Push(b)
-        x = x + 429
+        x = x + 390
     end for
     m.chipGroup.translation = [42, 216]
     m.focusRow = 0      ' 0 = chips, 1 = grid
@@ -151,7 +154,10 @@ sub submit()
         ' of BrightScript's no-methods-on-return-values rule seen today.
         svc.qDecade = Int(Val(Left(dv, 4)))
     end if
-    sv = LCase(m.chipDefs[2].values[m.chipIndex[2]])
+    g = m.chipDefs[2].values[m.chipIndex[2]]
+    if g = "All" then g = ""
+    svc.qGenre = g
+    sv = LCase(m.chipDefs[3].values[m.chipIndex[3]])
     if sv = "a-z" then sv = "alpha"
     if sv = "top rated" then sv = "rating"
     svc.qSort = sv
@@ -165,7 +171,7 @@ sub showResults(root as Object, total as Integer)
     ' Top Rated needs index columns that only exist from schema 10. A device
     ' holding an older cached index gets an empty result, and an empty result
     ' with no explanation is the dead control this build keeps re-learning.
-    if total = 0 and m.chipDefs[2].values[m.chipIndex[2]] = "Top Rated"
+    if total = 0 and m.chipDefs[3].values[m.chipIndex[3]] = "Top Rated"
         m.grid.content = invalid
         m.grid.visible = false
         m.empty.visible = true
