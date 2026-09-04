@@ -76,6 +76,80 @@ function cartoonCharacters() as Object
     ]
 end function
 
+' Party Play: a shuffled lineup that LEANS colour. Decision 084 measured the
+' colour reading as a coin flip near its threshold, so black and white is
+' de-emphasised, never excluded — a wrong reading must not hide Casablanca
+' from a party.
+sub buildParty()
+    colour = []
+    rest = []
+    for each r in m.items
+        if r[5] <> 1 then continue for
+        if Left(fmt(r[0]), 7) = "series:" then continue for
+        t = LCase(fmt(r[3]))
+        if t <> "feature-film" and t <> "animation" and t <> "short-film" then continue for
+        cm = ""
+        if r.Count() > 14 and r[14] <> invalid then cm = LCase(fmt(r[14]))
+        if cm = "b"
+            rest.Push(r)
+        else
+            colour.Push(r)
+        end if
+    end for
+    pool = []
+    for each r in colour
+        pool.Push(r)
+    end for
+    for each r in rest
+        pool.Push(r)
+    end for
+    root = CreateObject("roSGNode", "ContentNode")
+    n = 0
+    used = {}
+    guard = 0
+    ' Draw from the COLOUR half first by sampling its range before the tail.
+    span = colour.Count()
+    if span < 40 then span = pool.Count()
+    while n < 40 and guard < 600
+        guard = guard + 1
+        i = Rnd(span) - 1
+        if used[fmt(i)] = invalid and i < pool.Count()
+            used[fmt(i)] = true
+            appendRow(root, pool[i])
+            n = n + 1
+        end if
+    end while
+    print "AWSVC party colour="; colour.Count(); " bw="; rest.Count(); " picked="; n
+    m.top.total = n
+    m.top.results = root
+end sub
+
+' Cover Art Wall: as many professionally-presented posters as the wall needs.
+sub buildWall()
+    pool = []
+    for each r in m.items
+        if r[5] = 1 and r[4] <> invalid and r[4] <> "" and Left(fmt(r[0]), 7) <> "series:"
+            pool.Push(r)
+        end if
+    end for
+    root = CreateObject("roSGNode", "ContentNode")
+    n = 0
+    used = {}
+    guard = 0
+    while n < 120 and guard < 2000
+        guard = guard + 1
+        i = Rnd(pool.Count()) - 1
+        if used[fmt(i)] = invalid
+            used[fmt(i)] = true
+            appendRow(root, pool[i])
+            n = n + 1
+        end if
+    end while
+    print "AWSVC wall pool="; pool.Count(); " picked="; n
+    m.top.total = n
+    m.top.results = root
+end sub
+
 sub buildCartoons()
     span = CreateObject("roTimespan")
     span.Mark()
@@ -306,6 +380,16 @@ sub runQuery()
 
     if m.top.qCollections
         buildCollections()
+        return
+    end if
+
+    if m.top.qParty
+        buildParty()
+        return
+    end if
+
+    if m.top.qWall
+        buildWall()
         return
     end if
 

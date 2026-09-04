@@ -94,6 +94,19 @@ def main():
         print("cannot read the debug console on 8085 — this audit is built on it")
         return 1
 
+    # Roku allows ONE client on 8085. A `roku.py log` left running elsewhere
+    # takes the socket and this audit then sees nothing — which it reported as
+    # eleven separate assertion failures, none of them true. Prove the stream
+    # is actually ours before asserting anything on it.
+    roku.curl("-X", "POST", f"{roku.ECP}/input?contentId=selftest%3Areport")
+    if con.wait_for(0, "AWREPORT", timeout=12) is None:
+        roku.curl("-X", "POST", f"{roku.ECP}/launch/dev")
+        if con.wait_for(0, "AW", timeout=45) is None:
+            print("attached to 8085 but no channel output arrived.")
+            print("Another client is probably holding the console — check for a")
+            print("running `roku.py log` and stop it, then re-run.")
+            return 1
+
     results = []
 
     def check(name, ok, detail=""):

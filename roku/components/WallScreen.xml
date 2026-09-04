@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ROKU-DESIGN §6.13 — Cover Art Wall.
+     tvOS runs this as an idle SCREENSAVER too. Roku does not and cannot: the
+     platform owns the screensaver and a channel may not draw one (§11), so
+     here it is a place you go on purpose. Same wall, one fewer trigger, and
+     the difference is recorded rather than quietly dropped. -->
+<component name="WallScreen" extends="Group">
+  <interface>
+    <field id="focusOn" type="boolean" onChange="onFocusOn" />
+    <field id="exit" type="boolean" alwaysNotify="true" />
+    <function name="showWall" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/WallScreen.brs" />
+  <children>
+    <Rectangle id="ground" />
+    <Group id="tiles" />
+    <Rectangle id="hintPlate" />
+    <Label id="hint" />
+    <Timer id="swap" duration="4" repeat="true" />
+  </children>
+</component>

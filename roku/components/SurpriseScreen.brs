@@ -14,6 +14,8 @@ function surpriseDoors() as Object
         { id: "type:documentary", label: "Random Documentary", sub: "The record of a thing",      cat: "documentary" },
         { id: "type:tv-episode",  label: "Random TV Episode",  sub: "Drop into a series",         cat: "tv-series" },
         { id: "browse:decade",    label: "Random Decade",      sub: "Wander a whole era",         cat: "feature-film" },
+        { id: "party",            label: "Party Play",         sub: "Colour films, shuffled",     cat: "animation" },
+        { id: "wall",             label: "Cover Art Wall",     sub: "The archive, as posters",    cat: "feature-film" },
         { id: "cartoonmode",      label: "Cartoon Mode",       sub: "Shelves by character",       cat: "animation" },
         { id: "cartoons",         label: "Cartoon Marathon",   sub: "Press play and stay",        cat: "animation" }
     ]
@@ -31,7 +33,7 @@ sub init()
 
     m.hint.font = m.t.uMeta : m.hint.color = m.t.textSec
     m.hint.translation = [42, 204]
-    m.hint.text = "Thirteen doors into 26,000 films. Every one of them re-rolls."
+    m.hint.text = "Fifteen doors into 26,000 films. Every one of them re-rolls."
 
     m.grid.translation = [42, 276]
     m.grid.itemComponentName = "ActionTile"

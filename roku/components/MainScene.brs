@@ -54,6 +54,8 @@ sub init()
     m.pendingLike = ""
     m.pendingUserChannel = invalid
     m.pendingChCheck = invalid
+    m.pendingParty = false
+    m.pendingWall = false
     m.idLineup = invalid
     m.moreMode = "detail"
     m.autoPlay = false
@@ -920,6 +922,7 @@ end sub
 sub hideAllSurfaces()
     if m.player <> invalid then m.player.visible = false
     if m.surprise <> invalid then m.surprise.visible = false
+    if m.wall <> invalid then m.wall.visible = false
     closeBrowse()
     closeSearch()
     closeLibrary()
@@ -1061,6 +1064,12 @@ sub onSurpriseAction()
         startCartoonMarathon()
     else if a = "cartoonmode"
         openCartoonMode()
+    else if a = "party"
+        m.pendingParty = true
+        m.svc.qParty = true
+        m.svc.queryId = m.svc.queryId + 1
+    else if a = "wall"
+        openWall()
     end if
 end sub
 
@@ -1074,6 +1083,8 @@ sub onRandomPicked()
     m.pendingLike = ""
     m.pendingUserChannel = invalid
     m.pendingChCheck = invalid
+    m.pendingParty = false
+    m.pendingWall = false
     m.idLineup = invalid
     m.moreMode = "detail"
     m.svc.qRandomType = ""
@@ -1167,7 +1178,9 @@ sub playPendingEpisode(d as Object)
     end if
     m.episodeQueue = e
     m.player.visible = true
-    m.series.visible = false
+    ' Guarded: this queue path is shared by episodes, playlists, user channels
+    ' and Party Play, and only the first of those has ever opened a series.
+    if m.series <> invalid then m.series.visible = false
     m.player.archiveID = e.id
     m.player.startAt = awGetProgress(e.id)
     t = e.title
@@ -1328,6 +1341,33 @@ sub onTune()
 end sub
 
 ' Cartoon Mode reuses the Collections surface — same shape, different rows.
+sub openWall()
+    if m.wall = invalid
+        m.wall = m.overlay.CreateChild("WallScreen")
+        m.wall.translation = [m.t.railW, 0]
+        m.wall.ObserveField("exit", "closeWall")
+    end if
+    hideAllSurfaces()
+    m.wall.visible = true
+    m.rail.focusOn = false
+    setChromeVisible(false)
+    m.route = "wall"
+    m.pendingWall = true
+    m.svc.qWall = true
+    m.svc.queryId = m.svc.queryId + 1
+    print "AWFOCUS wall"
+end sub
+
+sub closeWall()
+    if m.wall <> invalid
+        m.wall.visible = false
+        m.wall.focusOn = false
+    end if
+    setChromeVisible(true)
+    m.content.visible = true
+    openSurprise()
+end sub
+
 sub openCartoonMode()
     openShelfSurface()
     m.collections.callFunc("setHeading", { title: "Cartoons",
@@ -1493,6 +1533,8 @@ sub onQueryResults()
     ' repaint whichever of those happens to be visible.
     if m.pendingChCheck <> invalid
         m.pendingChCheck = invalid
+    m.pendingParty = false
+    m.pendingWall = false
         if m.svc.total = 0
             m.channels.callFunc("sayNoMatch", "Nothing in the catalog matches that combination. Delete this channel with * and try a wider one.")
         else
@@ -1500,10 +1542,35 @@ sub onQueryResults()
         end if
         return
     end if
+    if m.pendingWall = true
+        m.pendingWall = false
+        m.svc.qWall = false
+        m.wall.callFunc("showWall", m.svc.results)
+        refocus(m.wall)
+        return
+    end if
+    if m.pendingParty = true
+        m.pendingParty = false
+        m.svc.qParty = false
+        res = m.svc.results
+        ids = []
+        if res <> invalid
+            for i = 0 to res.GetChildCount() - 1
+                ids.Push(res.GetChild(i).id)
+            end for
+        end if
+        if ids.Count() > 0
+            m.cameFrom = "surprise"
+            startIDLineup(ids)
+        end if
+        return
+    end if
     if m.pendingUserChannel <> invalid
         spec = m.pendingUserChannel
         m.pendingUserChannel = invalid
     m.pendingChCheck = invalid
+    m.pendingParty = false
+    m.pendingWall = false
         res = m.svc.results
         q = []
         if res <> invalid
@@ -1530,6 +1597,8 @@ sub onQueryResults()
         m.pendingLike = ""
     m.pendingUserChannel = invalid
     m.pendingChCheck = invalid
+    m.pendingParty = false
+    m.pendingWall = false
         m.svc.qLike = {}
         if m.detail <> invalid then m.detail.callFunc("showLike", m.svc.results)
         return
@@ -2032,6 +2101,9 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             closeSeries()
             focusContent()
             m.route = "home"
+            return true
+        else if m.route = "wall"
+            closeWall()
             return true
         else if m.route = "surprise"
             closeSurprise()

@@ -109,8 +109,8 @@ Legend: ✅ built + verified on the device · 🔨 built, not yet verified ·
 | Random Film / Feature / Silent / Animation / Short / Newsreel / Ephemera / Commercial / Documentary / TV Episode / Decade | ✅ | eleven doors, each re-rolls; reservoir-sampled in one index pass |
 | Cartoon Marathon | ✅ | 40-item shuffled queue, verified playing 1/40 |
 | Cartoon Mode (character shelves) | ✅ | 7 shelves in 274 ms — Betty Boop, Popeye, and the rest |
-| Party Play | ⏳ | |
-| Cover Art Wall | ⏳ | |
+| Party Play | ✅ | 40-film shuffled lineup that LEANS colour; verified playing |
+| Cover Art Wall | ✅ | 27 posters from a 13,361 pool, three swapping every 4s. Roku owns the screensaver, so this is a place you go, not an idle trigger |
 
 ## Settings (behind `*`)
 

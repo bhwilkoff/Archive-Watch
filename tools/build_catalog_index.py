@@ -160,9 +160,15 @@ def main():
             # Joined, not a nested array: three short strings per row as one
             # string is materially smaller than three JSON arrays.
             genres = "|".join(g for g in genres if g)[:80] or None
+        # Column 14 (schema 11): colour, one character. "c" colour, "b" black
+        # and white, null unknown. Decision 025 classifies this from the video
+        # itself and Decision 084 records how often the reading is a coin flip,
+        # so consumers must treat it as a PREFERENCE and never a filter that
+        # hides films — Party Play leans colour, it does not require it.
+        cm = (it.get("colorMode") or "")[:1] or None
         rows.append([aid, it.get("title") or aid, it.get("year"),
                      it.get("contentType") or "", poster, pro, search, backdrop,
-                     playable, docs, rating, votes, director, genres])
+                     playable, docs, rating, votes, director, genres, cm])
         for k in keywords:
             keyword_freq[k] = keyword_freq.get(k, 0) + 1
         for s in studios:
@@ -223,7 +229,7 @@ def main():
     }
 
     out = {
-        "schema": 10,
+        "schema": 11,
         "updatedAt": catalog.get("updatedAt") or "",
         "count": len(rows),
         # Must list EVERY column. Rows carry 10 entries at schema 9 and this
@@ -232,7 +238,7 @@ def main():
         # were shipping, undeclared, for two schema bumps.
         "fields": ["id", "title", "year", "contentType", "poster", "pro", "search",
                    "backdrop", "playable", "documentary", "rating10", "votes",
-                   "director", "genres"],
+                   "director", "genres", "color"],
         "facets": facets,
         "shelves": shelves,
         "collections": collections,
